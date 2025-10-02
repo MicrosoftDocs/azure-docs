@@ -6,17 +6,18 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 09/29/2025
 ms.author: jkinma
 ms.custom:
-  - build-2025
+- sfi-image-nochange
+- build-2025
 ---
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 
-An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions and reservations to the Microsoft Partner Agreement (MPA) that they manage. 
+An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions, reservations and savings plans to the Microsoft Partner Agreement (MPA) that they manage. 
 
-Supported product (subscriptions and reservations) billing ownership transfer options include:
+Supported product (subscriptions, reservations and savings plans) billing ownership transfer options include:
 
 - A direct Enterprise Agreement transfer to an Azure plan under the MPA
 - An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
@@ -30,11 +31,13 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 When you send or accept a transfer request, you agree to terms and conditions. For more information, see [Transfer terms and conditions](subscription-transfer.md#transfer-terms-and-conditions).
 
-There are three options to transfer products:
+There are four options to transfer products:
 
 - Transfer only subscriptions
 - Transfer only reservations
-- Transfer both subscriptions and reservations
+- Transfer only savings plans
+
+- Transfer subscriptions, reservations and savings plans
 
 [!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
@@ -42,6 +45,7 @@ There are three options to transfer products:
 
 >[!IMPORTANT]
 > When you transfer subscriptions, cost and usage data for your Azure products aren't accessible after the transfer. We recommend that you [download your cost and usage data](../understand/download-azure-daily-usage.md) and invoices before you transfer subscriptions.
+>When transferring Subscriptions, Reservations and Savings Plan please review these [important prerequisites](mca-request-billing-ownership.md#prerequisites).
 
 1. Establish [reseller relationship](/partner-center/request-a-relationship-with-a-customer) with the customer.
     1. Make sure that both the customer and Partner tenants are within the same authorized region. Check [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview).
@@ -52,7 +56,7 @@ When there's a currency change during or after an EA enrollment transfer, reserv
 
 Before you begin, make sure that the people involved in the product transfer have the required permissions. 
 
-### Required permission for the transfer requestor
+### Required permission for the transfer requester
 
 To request the billing ownership, you must have the **Admin Agent** or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) role. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
@@ -66,6 +70,13 @@ The subscription product owner (transfer request recipient) must have one of the
 ### Required permission for the reservation transfer recipient
 
 The reservation product owner (transfer request recipient) must have one of the following permissions:
+
+- For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
+- For an Enterprise Agreement, the person must be an EA administrator.
+
+### Required permission for the savings plan transfer recipient
+
+The savings plan product owner (transfer request recipient) must have one of the following permissions:
 
 - For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 - For an Enterprise Agreement, the person must be an EA administrator.
@@ -89,7 +100,9 @@ The recipient of the transfer request uses the following procedure to review and
 
 - Transfer one or more subscriptions only
 - Transfer one or more reservations only
-- Transfer both subscriptions and reservations
+- Transfer one or more savings plans only
+
+- Transfer subscriptions, reservations and savings plans
 
 1. The user gets an email with instructions to review your transfer request. Select **Review the request** to open it in the Azure portal.  
     :::image type="content" source="./media/mpa-request-ownership/mpa-review-transfer-request-email.png" alt-text="Screenshot that shows review transfer request email." lightbox="./media/mpa-request-ownership/mpa-review-transfer-request-email.png" :::  
@@ -101,8 +114,12 @@ The recipient of the transfer request uses the following procedure to review and
 1. If there are reservations available to transfer, select the **Reservations** tab and then select them. If reservations won’t be transferred, make sure that no reservations are selected.
 If reservations are transferred, they're applied to the scope that’s set in the request. If you want to change the scope of the reservation after it’s transferred, see [Change the reservation scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
     :::image type="content" source="./media/mpa-request-ownership/review-transfer-request-reservations-select.png" alt-text="Screenshot showing the Reservations tab." lightbox="./media/mpa-request-ownership/review-transfer-request-reservations-select.png" :::
-1. Select the **Review request** tab and verify the information about the products to transfer. If there are Warnings or Failed status messages, see the following information. When you're ready to continue, select **Transfer**.   
-    :::image type="content" source="./media/mpa-request-ownership/review-transfer-request-complete.png" alt-text="Screenshot showing the Review request tab where you review your transfer selections." lightbox="./media/mpa-request-ownership/review-transfer-request-complete.png" :::
+1. If there are savings plans available to transfer, select the **Savings plan** tab, and then select them. If you don't want to transfer savings plans, make sure that no savings plans are selected.  
+If savings plans are transferred, they're applied to the scope set in the request. If you want to change the scope of the savings plan after it gets transferred, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope).
+    :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-savings-plan-select.png" alt-text="Screenshot showing the Savings plan tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-savings-plan-select.png" :::
+   
+1. Select the **Review request** tab and verify the information about the products to transfer. If there are Warnings or Failed status messages, see the following information. When you're ready to continue, select **Transfer**.  
+:::image type="content" source="./media/mpa-request-ownership/review-transfer-request-complete.png" alt-text="Screenshot showing the Review request tab where you review your transfer selections." lightbox="./media/mpa-request-ownership/review-transfer-request-complete.png" :::
 1. You'll briefly see a `Transfer is in progress` message. When the transfer is completed successfully, you'll see the Transfer details page with the `Transfer completed successfully` message.  
     :::image type="content" source="./media/mpa-request-ownership/transfer-completed-successfully.png" alt-text="Screenshot showing the Transfer completed successfully page." lightbox="./media/mpa-request-ownership/transfer-completed-successfully.png" :::
 

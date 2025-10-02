@@ -4,7 +4,7 @@ description: Learn how to relocate an Azure Cosmos DB NoSQL account to another r
 author: markjbrown
 ms.topic: how-to
 ms.custom: subject-relocation
-ms.date: 06/11/2025
+ms.date: 09/15/2025
 ms.author: mjbrown
 ---
 

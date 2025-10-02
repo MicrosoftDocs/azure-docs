@@ -22,7 +22,7 @@ For the best new user experience, we recommend using an [Azure free account](htt
 
 We also use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
-[!INCLUDE [supported-environments](../includes/supported-environments.md)]
+[!INCLUDE [supported-environments-table](../includes/supported-environments-table.md)]
 
 ## Prerequisites
 
@@ -75,10 +75,10 @@ To create your codespace and cluster, use the following steps:
    | --------- | ----- |
    | SUBSCRIPTION_ID | Your Azure subscription ID. |
    | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
-   | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+   | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-support.md#supported-regions). |
 
    >[!TIP]
-   >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
+   >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future Codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
    >
    >Additionally, this codespace creates a `CLUSTER_NAME` environment variable which is set with the codespace name.
 
@@ -108,7 +108,7 @@ To connect your cluster to Azure Arc:
    > If you're using the GitHub codespace environment in a browser rather than VS Code desktop, running `az login` returns a localhost error. To fix the error, either:
    >
    > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
-   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
+   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!"
 
 1. After you sign in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
@@ -153,6 +153,14 @@ To connect your cluster to Azure Arc:
    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
 
+## Install the preview version of `az iot ops`
+
+This quickstart uses the latest preview version of Azure IoT Operations. To install the preview version you need the latest version of the Azure IoT Operations CLI extension:
+
+```azurecli
+az extension add --upgrade --name azure-iot-ops --allow-preview True
+```
+
 ## Create storage account and schema registry
 
 Schema registry is a synchronized repository that stores message definitions both in the cloud and at the edge. Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account for the schema information stored in the cloud.
@@ -187,6 +195,16 @@ Run the following CLI commands in your Codespaces terminal.
    az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT -o tsv --query id)
    ```
 
+## Create an Azure Device Registry namespace
+
+Azure IoT Operations and Azure Device Registry use _namespaces_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices.
+
+Run the following CLI command to create an Azure Device Registry namespace.
+
+```azurecli
+az iot ops ns create -n myqsnamespace -g $RESOURCE_GROUP
+```
+
 ## Deploy Azure IoT Operations
 
 In this section, you configure your cluster with the dependencies for your Azure IoT Operations components, then deploy Azure IoT Operations.
@@ -207,7 +225,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations.
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance  --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id) --broker-frontend-replicas 1 --broker-frontend-workers 1  --broker-backend-part 1  --broker-backend-workers 1 --broker-backend-rf 2 --broker-mem-profile Low
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id) --ns-resource-id $(az iot ops ns show --name myqsnamespace --resource-group $RESOURCE_GROUP -o tsv --query id) --broker-frontend-replicas 1 --broker-frontend-workers 1  --broker-backend-part 1  --broker-backend-workers 1 --broker-backend-rf 2 --broker-mem-profile Low
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.

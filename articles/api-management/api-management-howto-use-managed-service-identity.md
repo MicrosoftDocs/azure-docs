@@ -8,7 +8,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2025
 ms.author: danlep
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
 #customer intent: As an API developer, I want to create managed identities so that API Management can access other resources. 
 ---
@@ -317,7 +319,7 @@ API Management is a trusted Microsoft service to the following resources. This t
 
 
 - [Trusted access for Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
-- [Trusted access for Azure Storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)
+- [Trusted access for Azure Storage](../storage/common/storage-network-security-trusted-azure-services.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)
 - [Trusted access for Azure Services Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)
 - [Trusted access for Azure Event Hubs](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)
 

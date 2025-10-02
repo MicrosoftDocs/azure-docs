@@ -123,7 +123,7 @@ and [improve and manage call quality](). For more information, see the [Calling 
 | | Transfer a call from Teams call queue   | ✔️ | ✔️ |
 
 > [!NOTE]
-> All features are avialable in Azure Public cloud only, not supported in Government cloud.
+> All features are available in Azure Public cloud only, not supported in Government cloud.
 
 1. Feature only available in group calls; not applicable in 1 to 1 calls.
 2. Feature only available in 1 to 1 calls; not applicable in group calls.

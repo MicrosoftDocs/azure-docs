@@ -30,8 +30,8 @@ items:
     items:
     - name: Data residency and user privacy
       href: concepts/privacy.md
-    - name: Create a Network Security Perimeter (NSP)
-      href: quickstarts/network-security-perimeter.md
+#   - name: Create a Network Security Perimeter (NSP)
+#     href: quickstarts/network-security-perimeter.md
     - name: European Union Data Boundary
       href: concepts/european-union-data-boundary.md
     - name: Azure Government
@@ -56,6 +56,10 @@ items:
     href: concepts/credentials-best-practices.md
   - name: Use cases for string identifiers
     href: concepts/raw-id-use-cases.md
+  - name: Build an authentication service using Azure Functions
+    href: tutorials/trusted-service-tutorial.md
+  - name: Authentication service hero sample
+    href: samples/trusted-auth-sample.md
   - name: Presence events
     href: ../event-grid/communication-services-presence-events.md
   - name: References
@@ -88,6 +92,8 @@ items:
     href: concepts/chat/concepts.md#real-time-notifications
   - name: Push notifications
     href: concepts/chat/concepts.md#push-notifications
+  - name: Push notifications overview
+    href: concepts/notifications.md
   - name: Archive chats
     href: how-tos/chat-sdk/archive-chat-threads.md
   - name: Government clouds
@@ -114,8 +120,6 @@ items:
       href: concepts/analytics/logs/chat-logs.md
     - name: Chat insights
       href: concepts/analytics/insights/chat-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Create a chat access token
@@ -146,8 +150,6 @@ items:
       href: quickstarts/chat/react-native.md
     - name: Enable push notifications in your chat app
       href: tutorials/add-chat-push-notifications.md
-    - name: Build an authentication service using Azure Functions
-      href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
     - name: Integrate an OpenAI bot with chat
@@ -158,6 +160,11 @@ items:
       href: samples/chat-hero-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
+    - name: Migrate to Android push notifications FCM v1
+      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
+    - name: Register for Android push notifications FCM v1
+      href: tutorials/call-chat-register-android-push-fcm-v1.md
+
   - name: References
     items:
     - name: Chat (JavaScript)
@@ -236,6 +243,8 @@ items:
         href: quickstarts/email/send-email-advanced/throw-exception-when-tier-limit-reached.md
       - name: Use email object model for payload
         href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
+      - name: Hydrating messageId using EmailClient
+        href: quickstarts/email/send-email-advanced/hydrate-email-client-with-message-id.md
   - name: Manage sender reputation
     items:
     - name: Understand sender reputation
@@ -274,8 +283,8 @@ items:
       href: concepts/email-metrics.md
     - name: Email insights
       href: concepts/analytics/insights/email-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
+ #  - name: Export SDK telemetry to Application Insights
+ #    href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Detect sensitive data using Azure AI
@@ -302,6 +311,8 @@ items:
     href: concepts/sms/concepts.md
   - name: Pricing
     href: concepts/sms-pricing.md
+  - name: Messaging Connect
+    href: concepts/sms/messaging-connect.md
   - name: SMS SDK overview
     href: concepts/sms/sdk-features.md
   - name: SMS FAQ
@@ -312,7 +323,7 @@ items:
     href: concepts/sms/messaging-policy.md
   - name: Short code program brief filling guidelines
     href: concepts/sms/program-brief-guidelines.md
-  - name: Ten digit long code (10DLC) registration guidelines
+  - name: 10DLC - Ten digit long code registration guidelines
     href: concepts/sms/ten-digit-long-code-guidelines.md
   - name: Opt-Out management overview
     href: concepts/sms/opt-out-api-concept.md
@@ -336,8 +347,8 @@ items:
       href: concepts/analytics/sms-metrics.md
     - name: SMS insights
       href: concepts/analytics/insights/sms-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
+#   - name: Export SDK telemetry to Application Insights
+#     href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Get a phone number
@@ -354,16 +365,12 @@ items:
 #      href: tutorials/postman-tutorial.md
     - name: Send short URL
       href: tutorials/sms-url-shortener.md
-    - name: Apply for 10 digit long code (10DLC) registration
+    - name: Apply for 10DLC registration
       href: quickstarts/sms/apply-for-ten-digit-long-code.md
     - name: Apply for toll-free verification
       href: quickstarts/sms/apply-for-toll-free-verification.md
     - name: Enable alphanumeric sender ID
       href: quickstarts/sms/enable-alphanumeric-sender-id.md
-    - name: Migrate to Android push notifications FCM v1
-      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
-    - name: Register for Android push notifications FCM v1
-      href: tutorials/call-chat-register-android-push-fcm-v1.md
   - name: References
     items:
     - name: SMS (JavaScript)
@@ -386,6 +393,8 @@ items:
     href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
   - name: Messaging policy
     href: concepts/sms/messaging-policy.md
+  - name: WhatsApp channel prerequisites
+    href: concepts/advanced-messaging/whatsapp/whatsapp-channel-prerequisites.md
   - name: WhatsApp business account FAQ
     href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
   - name: Logging and analytics
@@ -446,6 +455,8 @@ items:
     items:
     - name: Voice and video terminology
       href: concepts/voice-video-calling/about-call-types.md
+    - name: Push notifications overview
+      href: concepts/notifications.md
     - name: Connect to a call
       items:
       - name: Create an access token
@@ -522,16 +533,19 @@ items:
       href: quickstarts/voice-video-calling/local-preview-mirroring.md
     - name: Optimize video placement on your web app
       href: quickstarts/voice-video-calling/optimizing-video-placement.md
-      displayName: Optimal Video Count, OVC, dual pin
-    - name: Simulcast
+      displayName: Optimal Video Count, OVC, dual pin, 1080P
+    - name: Understanding Simulcast
       href: concepts/voice-video-calling/simulcast.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Enable audio noise suppression improvements
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues, simulcast
+    - name: Add audio quality improvements
       href: tutorials/audio-quality-enhancements/add-noise-supression.md
-      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation
+      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation, echo cancellation
     - name: Enable video background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
       displayName: background blur, background replace, background replacement, frosted glass
+    - name: Enable volume indicator controls
+      href: quickstarts/voice-video-calling/get-started-volume-indicator.md
+      displayName: volume, audio level, microphone sensitivity, taling indicator, volume input, sound intensity, volume display  
     - name: Pass user-to-user information (UUI) data in a header
       href: how-tos/calling-sdk/call-context.md
     - name: Data channel
@@ -637,8 +651,6 @@ items:
       href: concepts/analytics/rooms-metrics.md
     - name: Closed captions logs
       href: concepts/analytics/logs/closed-captions-logs.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Quality and diagnostics
     items:
     - name: Optimize call quality
@@ -954,8 +966,6 @@ items:
       href: concepts/analytics/log-analytics.md
     - name: Set up call monitoring and alerting
       href: concepts/analytics/set-up-call-monitoring.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Get a trial phone number
@@ -1190,6 +1200,8 @@ items:
       href: how-tos/calling-sdk/together-mode.md
     - name: Control media access
       href: how-tos/calling-sdk/media-access.md
+    - name: Display name changed
+      href: how-tos/calling-sdk/display-name-changed.md
 - name: Teams Phone extensibility
   items:
   - name: Overview
@@ -1212,6 +1224,10 @@ items:
       href: quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md
     - name: Access Teams Phone without going through the Teams client
       href: quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md
+    - name: Emergency Calling
+      href: quickstarts/tpe/teams-phone-extensibility-emergency-call.md
+    - name: Teams Extension User Authentication Sample
+      href: https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/tpe-token-and-access-management
     - name: REST API for Teams Phone extensibility
       href: quickstarts/tpe/teams-phone-extensiblity-rest-api.md
 - name: Job Router

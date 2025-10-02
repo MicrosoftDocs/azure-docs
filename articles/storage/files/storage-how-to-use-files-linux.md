@@ -1,12 +1,16 @@
 ---
-title: Mount SMB Azure file share on Linux
+title: Mount SMB Azure File Share on Linux
 description: Learn how to mount an Azure file share over SMB on Linux and review SMB security considerations on Linux clients.
 author: khdownie
 ms.service: azure-file-storage
-ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/21/2025
+ms.date: 09/22/2025
 ms.author: kendownie
+ms.custom:
+  - linux-related-content
+  - devx-track-azurecli
+  - sfi-ropc-nochange
+# Customer intent: As a Linux user, I want to mount Azure file shares over SMB, so that I can access and manage files stored in Azure directly from my Linux environment while considering security best practices.
 ---
 
 # Mount SMB Azure file shares on Linux clients
@@ -53,7 +57,6 @@ uname -r
 * <a id="install-cifs-utils"></a>**Ensure the cifs-utils package is installed.**
     Install the latest version of the cifs-utils package using the package manager on the Linux distribution of your choice.
 
-
 # [Ubuntu](#tab/Ubuntu)
 
 On Ubuntu and Debian, use the `apt` package manager:
@@ -62,6 +65,7 @@ On Ubuntu and Debian, use the `apt` package manager:
 sudo apt update
 sudo apt install cifs-utils
 ```
+
 # [RHEL](#tab/RHEL)
 
 Same applies for CentOS or Oracle Linux
@@ -77,6 +81,7 @@ On older versions of Red Hat Enterprise Linux use the `yum` package manager:
 ```bash
 sudo yum install cifs-utils
 ```
+
 # [SLES](#tab/SLES)
 
 On SUSE Linux Enterprise Server, use the `zypper` package manager:
@@ -90,7 +95,7 @@ On other distributions, use the appropriate package manager or [compile from sou
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may; however, the instructions in this article are for the Azure CLI.
 
-* **Ensure port 445 is open**: SMB communicates over TCP port 445 - make sure your firewall or ISP isn't blocking TCP port 445 from the client machine. Replace `<your-resource-group>` and `<your-storage-account>` and then run the following script:
+* **Ensure port 445 is open**: SMB communicates over TCP port 445. Make sure your firewall or ISP isn't blocking TCP port 445 from the client machine. Replace `<your-resource-group>` and `<your-storage-account>` and then run the following script:
 
     ```bash
     RESOURCE_GROUP_NAME="<your-resource-group>"
@@ -176,6 +181,7 @@ sudo chmod 600 $SMB_CREDENTIAL_FILE
 Now you can mount the file share with the `mount` command using the credential file. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint. See [mount options](#mount-options) for a list of SMB mount options.
 
 # [SMB 3.1.1](#tab/smb311)
+
 > [!NOTE]
 > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel older than 5.0, specify `vers=3.1.1` in the mount options list.
 
@@ -196,6 +202,7 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o credentials=$SMB_CREDENTIAL_FILE,serve
 ```
 
 # [SMB 3.0](#tab/smb30)
+
 ```azurecli
 # This command assumes you have logged in with az login
 HTTP_ENDPOINT=$(az storage account show \
@@ -213,6 +220,7 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=3.0,credentials=$SMB_CREDENTIAL_F
 ```
 
 # [SMB 2.1](#tab/smb21)
+
 ```azurecli
 # This command assumes you have logged in with az login
 HTTP_ENDPOINT=$(az storage account show \
@@ -231,7 +239,7 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=2.1,credentials=$SMB_CREDENTIAL_F
 
 ---
 
-You can also mount the same Azure file share to multiple mount points if desired. 
+You can also mount the same Azure file share to multiple mount points if desired.
 
 When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
@@ -327,11 +335,13 @@ On Ubuntu and Debian distributions, use the `apt` package manager:
 sudo apt update
 sudo apt install autofs
 ```
+
 # [RHEL](#tab/RHEL)
 
 Same applies for CentOS or Oracle Linux:
 
 On Red Hat Enterprise Linux 8+,  use the `dnf` package manager:
+
 ```bash
 sudo dnf install autofs
 ```
@@ -345,6 +355,7 @@ sudo yum install autofs
 # [SLES](#tab/SLES)
 
 On SUSE Linux Enterprise Server, use the `zypper` package manager:
+
 ```bash
 sudo zypper install autofs
 ```
@@ -370,6 +381,54 @@ The final step is to restart the `autofs` service.
 
 ```bash
 sudo systemctl restart autofs
+```
+
+## Mount with password rotation
+
+Periodically rotating passwords (storage account keys) is a security best practice. However, in the past it required some planned downtime. We now provide the ability to specify the mount option `password2=` so that if the primary password expires or is rotated, the file share mount will continue to work with no downtime for users. This is an optional, second secret you can pass to the Linux SMB client to enable seamless credential rotation without unmounting the share or interrupting I/O.
+
+When this mount option is present, the client will accept both `password` and `password2` during session setup/reconnects, so you can introduce a new key while the old key is still in use.
+
+You can supply `password2` one of two ways:
+
+- In the SMB credentials file alongside username and password
+- On the command line to update an existing volume mount: -o password2=`new-secret`, including via -o remount during rotation
+
+### Prerequisites
+
+You need cifs-utils version 7.4 or higher to use the `password2` mount option. In addition to the correct cifs-utils package, your Linux distribution must support the minimum required kernel versions as highlighted in the following table:
+
+| **Distribution** | **Release**  |**Supported Kernel Version** |
+|***********************************************|
+| Ubuntu | 22.04 LTS | 6.8-1027 |
+| Ubuntu | 24.04 LTS | 6.14.0-1006 |
+| Ubuntu | 24.04 LTS | 6.14.0-1006 |
+| RHEL | 9.5 | 5.14.0-503.11.1.el9_5 |
+| RHEL | 9.6 | 5.14.0-570.12.1.el9_6 |
+| Alma | 9.6 | 5.14.0-570.12.1 |
+| Rocky | 9.6 | 5.14.0-570.17.1 |
+
+> [!NOTE]
+> If your distribution isn't on the list, it currently doesn't have the required backports from Kernel 6.6 Stable branch.
+
+### Via credentials file
+
+Put both secrets in your credentials file, then mount with credentials. When rotating, update `password2` to the new key first, remount or wait for reconnects, then swap the values at your next maintenance window so the new key becomes `password`.
+
+```bash
+# /etc/smbcredentials/<storage-account-name>.cred
+username=<storage-account-name>
+password=<current-key>
+password2=<new-rotating-key>
+```
+
+### Update existing volume mount
+
+If you have already a volume mounted on a supported distro with an appropiate version of cifs-utils, you can use the following command to modify the mount option by adding the `password2=` option.
+
+```bash
+# During rotation:
+sudo mount -o remount,password2=<new-rotating-key> /mnt/share
 ```
 
 ### Mount options

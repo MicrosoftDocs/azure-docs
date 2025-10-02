@@ -4,9 +4,10 @@ description: "Tutorial: Add OPC UA assets that publish messages to the MQTT brok
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
+ms.date: 07/25/2025
 ms.custom:
   - ignite-2023
-ms.date: 04/30/2025
+  - sfi-image-nochange
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---
@@ -23,20 +24,21 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 ## Prerequisites
 
-An instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
+A preview instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create a preview instance, use one of the following to deploy Azure IoT Operations:
 
 - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials. Then, to enable secure settings follow the steps in [Enable secure settings in Azure IoT Operations](../deploy-iot-ops/howto-enable-secure-settings.md).
-- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment.
+- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment and to install the latest preview version.
 
 After you enable secure settings, the resource group that contains your Azure IoT Operations instance also contains the following resources:
 
 - An Azure Key Vault instance to store the secrets to synchronize into your Kubernetes cluster.
 - A user-assigned managed identity that Azure IoT Operations uses to access the Azure Key Vault instance.
 - A user-assigned managed identity that Azure IoT Operations components such as data flows can use to uses to connect to cloud endpoints such as Azure Event Hubs.
+- An Azure Device Registry namespace to store your namespace assets and devices.
 
 Ensure that when you configure secure settings that you [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the **Key Vault Secrets Officer** role.
 
-To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-configure-opc-ua.md#prerequisites).
 
 Unless otherwise noted, you can run the console commands in this tutorial in either a Bash or PowerShell environment.
 
@@ -76,7 +78,7 @@ Before the OPC PLC simulator can send data to the connector for OPC UA, you need
 - The connector for OPC UA's application instance certificate is stored in the `aio-opc-opcuabroker-default-application-cert` Kubernetes secret.
 
 > [!IMPORTANT]
-> In a production environment use enterprise grade application instance certificates to establish the mutual trust. To learn more, see [Configure an enterprise grade application instance certificate](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-an-enterprise-grade-application-instance-certificate).
+> In a production environment, use enterprise grade application instance certificates to establish the mutual trust. To learn more, see [Configure an enterprise grade application instance certificate](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-an-enterprise-grade-application-instance-certificate).
 
 ### Add the connector's certificate to the simulator's trust list
 
@@ -89,7 +91,7 @@ kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{\"data\": $
 ```
 
 ```powershell
-$cert = kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d
+$cert = kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) }
 $data = kubectl create secret generic temp --from-literal=opcuabroker.crt="$cert" --dry-run=client -o jsonpath='{.data}'
 kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{""data"": $data}"
 ```
@@ -98,8 +100,12 @@ kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{""data"": $
 
 Every OPC UA server type has its own mechanism for managing its application instance certificate. To download the simulator's certificate to a file called `opcplc-000000.crt`, run the following command:
 
-```console
+```bash
 kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcplc-000000.crt
+```
+
+```powershell
+kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } > opcplc-000000.crt
 ```
 
 To add the simulator's certificate to the connector's trust list:
@@ -117,15 +123,15 @@ To add the simulator's certificate to the connector's trust list:
     > [!TIP]
     > If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the operations experience.
 
-1. Select **Asset endpoints** and then **Manage certificates and secrets**:
+1. Select **Devices** and then **Manage certificates and secrets**:
 
     :::image type="content" source="media/tutorial-add-assets/manage-certificates.png" lightbox="media/tutorial-add-assets/manage-certificates.png" alt-text="Screenshot that shows how to find the manage certificates page in the operations experience.":::
 
-1. On the **Certificates page**, select **Trust list** and then **Add new certificate**:
+1. On the **Certificates and secrets page**, select **Add new certificate**:
 
     :::image type="content" source="media/tutorial-add-assets/add-certificate.png" lightbox="media/tutorial-add-assets/add-certificate.png" alt-text="Screenshot that shows how to add a certificate to the trust list in the operations experience.":::
 
-1. Select **Upload certificate** and choose the `opcplc-000000.crt` file you downloaded previously. Then select **Upload**:
+1. Select **Upload certificate**, select **OPC UA trust list** as the certificate store, and then choose the `opcplc-000000.crt` file you downloaded previously. Then select **Upload**:
 
     :::image type="content" source="media/tutorial-add-assets/uploaded-certificate.png" lightbox="media/tutorial-add-assets/uploaded-certificate.png" alt-text="Screenshot that shows a successful certificate upload.":::
 
@@ -133,19 +139,23 @@ To add the simulator's certificate to the connector's trust list:
 
 The simulator's application instance certificate is now in the connector for OPC UA's trust list.
 
-## Add an asset endpoint
+## Add a device
 
-In this step, you use the operations experience to add an asset endpoint that enables you to connect to the OPC PLC simulator. To add an asset endpoint:
+In this step, you use the operations experience to add a device that enables you to connect to the OPC PLC simulator. To add a device:
 
-1. Select **Asset endpoints** and then **Create asset endpoint**:
+1. Select **Devices** and then **Create device**:
 
-    :::image type="content" source="media/tutorial-add-assets/asset-endpoints.png" lightbox="media/tutorial-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the operations experience.":::
+    :::image type="content" source="media/tutorial-add-assets/devices.png" lightbox="media/tutorial-add-assets/devices.png" alt-text="Screenshot that shows the devices page in the operations experience.":::
 
-1. Enter the following endpoint information:
+1. Enter `opc-ua-connector` as the device name and select **New** on the **Microsoft.OpcUa** tile:
+
+    :::image type="content" source="media/tutorial-add-assets/add-device.png" lightbox="media/tutorial-add-assets/add-device.png" alt-text="Screenshot that shows how to add a device in the operations experience.":::
+
+1. Enter the following Microsoft.OpcUa inbound endpoint information:
 
     | Field | Value |
     | --- | --- |
-    | Asset endpoint name | `opc-ua-connector-0` |
+    | Endpoint name | `opc-ua-connector-0` |
     | OPC UA server URL | `opc.tcp://opcplc-000000:50000` |
     | User authentication mode | `Username password` |
     | Synced secret name | `plc-credentials` |
@@ -160,12 +170,16 @@ In this tutorial, you add new secrets to your Azure Key Vault instance from the 
 
 1. Enter `plcpassword` as the secret name and the password you added to the opc-plc-deployment.yaml file as the secret value. Then select **Apply**.
 
-1. To save the asset endpoint definition, select **Create**.
+1. On the **Device details** page, select **Next** to go to the **Additional Info** page.
 
-This configuration deploys a new asset endpoint called `opc-ua-connector-0` to the cluster. You can view the asset endpoint in the Azure portal or you can use `kubectl` to view the asset endpoints in your Kubernetes cluster:
+1. On the **Add custom property** page, you can optionally update or add custom properties to the device. Select **Next** when you're done.
+
+1. To save the device definition on the **Summary** page, select **Create**.
+
+This configuration deploys a new device called `opc-ua-connector` with an endpoint called `opc-ua-connector-0` to the cluster. You can view the device in the Azure portal or you can use `kubectl` to view the devices in your Kubernetes cluster:
 
 ```console
-kubectl get assetendpointprofile -n azure-iot-operations
+kubectl get device -n azure-iot-operations
 ```
 
 You can see the `plcusername` and `plcpassword` secrets in the Azure Key Vault instance in your resource group. The secrets are synced to your Kubernetes cluster where you can see them by using the `kubectl get secret plc-credentials -n azure-iot-operations` command. You can also see the secrets in the operations experience on the **Manage synced secrets** page.
@@ -178,14 +192,13 @@ After you select your instance in operations experience, you see the available l
 
 ### Create an asset
 
-To create an asset, select **Create asset**. Then enter the following asset information:
+To create an asset, select **Create namespace asset**. Then enter the following asset information:
 
 | Field | Value |
 | --- | --- |
-| Asset Endpoint | `opc-ua-connector-0` |
+| Inbound endpoint | `opc-ua-connector-0` |
 | Asset name | `thermostat` |
 | Description | `A simulated thermostat asset` |
-| Default MQTT topic | `azure-iot-operations/data/thermostat` |
 
 Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later tutorial queries for them:
 
@@ -203,19 +216,19 @@ Select **Next** to go to the **Add tags** page.
 
 ### Create OPC UA tags
 
-Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag or CSV** and then select **Add tag**. Enter the tag details shown in the following table:
+Add an OPC UA tag on the **Tags** page. To add a tag, select **Add tag**. Enter the tag details shown in the following table:
 
-| Node ID            | Tag name    | Observability mode |
-| ------------------ | ----------- | ------------------ |
-| ns=3;s=SpikeData   | temperature | None               |
+| Data source        | Tag name    |
+| ------------------ | ----------- |
+| ns=3;s=SpikeData   | temperature |
 
-The node ID here is specific to the OPC UA simulator. The node generates random values within a specified range and also has intermittent spikes.
-
-The **Observability mode** is one of the following values: `None`, `Gauge`, `Counter`, `Histogram`, or `Log`.
+The data source value here is a specific OPC UA simulator node. The node generates random values within a specified range and also has intermittent spikes.
 
 You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 
 :::image type="content" source="media/tutorial-add-assets/add-tag.png" lightbox="media/tutorial-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
+
+To configure the MQTT topic to publish the tag data to, select **Manage default dataset**. Enter `azure-iot-operations/data/thermostat` as the MQTT topic, then select **Update**. This topic is used by the data flow in the next tutorial to send messages to the cloud.
 
 Select **Next** to go to the **Add events** page and then **Next** to go to the **Review** page.
 
@@ -225,17 +238,17 @@ Review your asset and tag details and make any adjustments you need before you s
 
 :::image type="content" source="media/tutorial-add-assets/review-asset.png" lightbox="media/tutorial-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
-This configuration deploys a new asset called `thermostat` to the cluster. You can view your assets in your resource group in the Azure portal. You can also use `kubectl` to view the assets locally in your cluster:
+This configuration deploys a new asset called `thermostat` to the cluster. You can also use `kubectl` to view the assets locally in your cluster:
 
 ```console
-kubectl get assets -n azure-iot-operations
+kubectl get assets.namespace -n azure-iot-operations
 ```
 
 ## View resources in the Azure portal
 
-To view the asset endpoint and asset you created in the Azure portal, go to the resource group that contains your Azure IoT Operations instance. You can see the thermostat asset in the **Azure IoT Operations** resource group. If you select **Show hidden types**, you can also see the asset endpoint:
+To view the device and asset you created in the Azure portal, go to Azure Device Registry:
 
-:::image type="content" source="media/tutorial-add-assets/azure-portal.png" lightbox="media/tutorial-add-assets/azure-portal.png" alt-text="Screenshot of Azure portal showing the Azure IoT Operations resource group including the asset and asset endpoint.":::
+:::image type="content" source="media/tutorial-add-assets/azure-portal.png" lightbox="media/tutorial-add-assets/azure-portal.png" alt-text="Screenshot of Azure portal showing the Azure Device Registry.":::
 
 The portal enables you to view the asset details. Select **JSON View** for more details:
 
@@ -245,7 +258,7 @@ The portal enables you to view the asset details. Select **JSON View** for more 
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
 
-To verify that the thermostat asset you added is publishing data, view the messages in the `azure-iot-operations/data` topic:
+To verify that the thermostat asset you added is publishing data, view the messages in the `azure-iot-operations/data/thermostat` topic:
 
 ```output
 Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (92 bytes))
@@ -285,7 +298,7 @@ The sample tags you added in the previous tutorial generate messages from your a
 
 ## How did we solve the problem?
 
-In this tutorial, you added an asset endpoint and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes.
+In this tutorial, you added a device and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes.
 
 You used credentials stored in Azure Key Vault to authenticate to the OPC UA server. This approach is more secure than hardcoding credentials in your asset definition.
 

@@ -160,7 +160,7 @@ Regularly revisit your exemptions to ensure that all eligible items are appropri
 
 ## Next steps
 
-- Learn about [Azure Resource Graph queries on exemptions](../samples/resource-graph-samples.md#azure-policy-exemptions).
+- Learn about [Azure Resource Graph queries on exemptions](/azure/governance/policy/samples/resource-graph-samples#azure-policy-exemptions).
 - Learn about [the difference between exclusions and exemptions](./scope.md#scope-comparison).
 - Review the [Microsoft.Authorization policyExemptions resource type](/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

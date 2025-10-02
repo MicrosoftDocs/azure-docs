@@ -1,5 +1,5 @@
 ---
-title: Develop C# class library functions using Azure Functions
+title: Develop legacy C# class library functions using Azure Functions
 description: Understand how to use C# to develop and publish code as class libraries that run in-process with the Azure Functions runtime.
 
 ms.topic: conceptual
@@ -7,7 +7,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 05/06/2025
 ---
-# Develop C# class library functions using Azure Functions
+# Develop legacy C# class library functions using Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
@@ -23,7 +23,7 @@ As a C# developer, you might also be interested in one of the following articles
 
 | Getting started | Concepts| Guided learning/samples |
 |--|--|--| 
-| <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Using command line tools](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp)</li><li>[Using command line tools](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
 
@@ -618,7 +618,7 @@ Don't set `telemetryClient.Context.Operation.Id`. This global setting causes inc
 
 The following articles show how to run an in-process C# class library function locally for testing purposes:
 
-- [Visual Studio](functions-develop-vs.md#testing-functions)
+- [Visual Studio](functions-develop-vs.md#test-functions)
 - [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp#debugging-functions-locally)
 - [Command line](functions-run-local.md?tabs=v4%2Ccsharp%2Cazurecli%2Cbash#start)
 

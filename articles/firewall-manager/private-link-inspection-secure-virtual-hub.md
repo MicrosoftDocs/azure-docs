@@ -7,6 +7,7 @@ ms.service: azure-firewall-manager
 ms.topic: how-to
 ms.date: 01/08/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Secure traffic destined to private endpoints in Azure Virtual WAN
@@ -27,6 +28,9 @@ Azure Firewall filters traffic using any of the following methods:
 * Source and destination IP addresses, port, and protocol using [network rules](../firewall/features.md#network-traffic-filtering-rules)
 
 Application rules are preferred over network rules to inspect traffic destined to private endpoints because Azure Firewall always SNATs traffic with application rules. SNAT is recommended when inspecting traffic destined to a private endpoint due to the limitation described here: [What is a private endpoint?][private-endpoint-overview]. If you're planning on using network rules instead, it's recommended to configure Azure Firewall to always perform SNAT: [Azure Firewall SNAT private IP address ranges][firewall-snat-private-ranges].
+
+ > [!IMPORTANT]
+> Regardless of the rules configured in Azure Firewall, ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed. This ensures that traffic destined for private endpoints does not bypass Azure Firewall.
 
  Microsoft manages secured virtual hubs, which can't be linked to a [Private DNS Zone](../dns/private-dns-privatednszone.md). This is required to resolve a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource) FQDN to its corresponding private endpoint IP address.
 
@@ -55,8 +59,6 @@ The following steps enable Azure Firewall to filter traffic using either network
 1. For application rules, steps **1.** to **3.** from the previous section still apply. For the custom DNS server configuration, you can either choose to use the Azure Firewall as DNS proxy, or point to the DNS forwarder virtual machine directly.
 
 2. Configure an [application rule](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule) as required in the firewall policy associated with the Azure Firewall. Choose *Destination Type* FQDN and the private link resource public FQDN as *Destination*.
-
-Lastly, and regardless of the type of rules configured in the Azure Firewall, make sure [Network Policies][network-policies-overview] (at least for UDR support) are enabled in the subnet(s) where the private endpoints are deployed. This ensures traffic destined to private endpoints doesn't bypass the Azure Firewall. 
 
  > [!IMPORTANT]
    > By default, RFC 1918 prefixes are automatically included in the *Private Traffic Prefixes* of the Azure Firewall. For most private endpoints, this will be enough to make sure traffic from on-premises clients, or in different virtual networks connected to the same secured hub, will be inspected by the firewall. In case traffic destined to private endpoints is not being logged in the firewall, try adding the /32 prefix for each private endpoint to the list of *Private Traffic Prefixes*. 

@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/20/2025
 ms.author: kendownie
+# Customer intent: As an IT administrator, I want to learn how to install and manage the Azure File Sync agent extension on Azure Arc-enabled Windows servers.
 ---
 
 # Install and manage the Azure File Sync agent extension on Azure Arc-enabled Windows servers
@@ -14,7 +15,7 @@ This article describes how to install, validate, and uninstall the Azure File Sy
 
 ## Prerequisites
 
-* **Azure Arc-enabled server (Windows only):** The target machine must be connected to Azure Arc (Azure Connected Machine agent installed and onboarding completed) and running a supported Windows Server OS. Azure File Sync is supported on Windows Server 2012 R2 or later (see [Azure File Sync system requirements and interoperability](file-sync-planning.md#windows-file-server-considerations) for details on supported versions).
+* **Azure Arc-enabled server (Windows only):** The target machine must be connected to Azure Arc (Azure Connected Machine agent installed and onboarding completed) and running a supported Windows Server OS. Azure File Sync Extension is supported on Windows Server 2016 and later versions. Only RTM versions are supported. See [Azure File Sync system requirements and interoperability](file-sync-planning.md#windows-file-server-considerations) for details on supported versions.
 
   > [!IMPORTANT]
   > The Azure File Sync agent extension is **only supported on Windows**. Linux Arc-enabled servers aren't supported for Azure File Sync.
@@ -369,6 +370,8 @@ Remove-AzConnectedMachineExtension `
   -Name <EXTENSION_NAME>
 ```
 
+This command will initiate the removal of the Azure File Sync agent extension. Upon success, the extension is unregistered in Azure, and you can no longer manage the Azure File Sync agent via the extension. 
+
 # [Azure CLI](#tab/azure-cli)
 
 Use `az connectedmachine extension delete` to remove the extension from the Arc-enabled server:
@@ -380,6 +383,8 @@ az connectedmachine extension delete \
   --name "<EXTENSION_NAME>"
 ```
 
+This command will initiate the removal of the Azure File Sync agent extension. Upon success, the extension is unregistered in Azure, and you can no longer manage the Azure File Sync agent via the extension. 
+
 ---
 
-These commands will initiate the removal of the Azure File Sync agent extension. Upon success, the extension is unregistered in Azure and you can no longer manage the Azure File Sync agent via the extension. You can verify removal by checking the **Extensions** list in the Azure portal (the extension should no longer appear), or by running the validation commands above (which should no longer find the extension). If the extension fails to uninstall, check the Azure Activity Log or the extension instance view for error details.
+You can verify removal by checking the **Extensions** list in the Azure portal (the extension should no longer appear), or by running the validation commands above (which should no longer find the extension). If the extension fails to uninstall, check the Azure Activity Log or the extension instance view for error details.

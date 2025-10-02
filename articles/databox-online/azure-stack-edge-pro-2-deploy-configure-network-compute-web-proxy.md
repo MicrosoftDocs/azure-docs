@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 04/18/2024
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Configure network for Azure Stack Edge Pro 2

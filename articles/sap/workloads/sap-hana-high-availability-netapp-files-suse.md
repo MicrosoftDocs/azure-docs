@@ -4,12 +4,17 @@ description: Learn how to establish high availability of SAP HANA with Azure Net
 services: virtual-machines-windows,virtual-network,storage
 author: apmsft
 manager: juergent
-ms.custom: linux-related-content, devx-track-azurecli, devx-track-azurepowershell
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 06/18/2024
 ms.author: ampatel
+ms.custom:
+  - linux-related-content
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: "As an IT administrator, I want to configure high availability for SAP HANA on SUSE Linux using NFS shares from Azure NetApp Files, so that I can ensure system resiliency and minimize downtime in our enterprise applications."
 ---
 
 # High availability of SAP HANA scale-up with Azure NetApp Files on SUSE Linux Enterprise Server
@@ -265,10 +270,10 @@ When VMs without public IP addresses are placed in the back-end pool of internal
    ```bash
    #Check nfs4_disable_idmapping
    sudo cat /sys/module/nfs/parameters/nfs4_disable_idmapping
-
+   
    #If you need to set nfs4_disable_idmapping to Y
    sudo echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-
+   
    #Make the configuration permanent
    sudo echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
    ```
@@ -328,6 +333,7 @@ When VMs without public IP addresses are placed in the back-end pool of internal
    ```
 
    > [!TIP]
+   >
    > Avoid setting `net.ipv4.ip_local_port_range` and `net.ipv4.ip_local_reserved_ports` explicitly in the sysctl configuration files to allow the SAP Host Agent to manage the port ranges. For more information, see SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 1. **[A]** Adjust the `sunrpc` settings, as recommended in SAP Note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).
@@ -462,7 +468,7 @@ Create a dummy file system cluster resource. It monitors and reports failures if
    sudo crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
        device="/hana/shared/HN1/check/" \
        directory="/hana/shared/check/" fstype=nfs  \
-       options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,noatime,_netdev,nfsvers=4.1,lock,sec=sys" \
+       options="bind,defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,_netdev,nfsvers=4.1,lock,sec=sys" \
        op monitor interval=120 timeout=120 on-fail=fence \
        op_params OCF_CHECK_LEVEL=20 \
        op start interval=0 timeout=120 \
@@ -479,7 +485,7 @@ Create a dummy file system cluster resource. It monitors and reports failures if
 
    ```bash
    sudo crm status
-
+   
    # Cluster Summary:
    # Stack: corosync
    # Current DC: hanadb1 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -487,10 +493,10 @@ Create a dummy file system cluster resource. It monitors and reports failures if
    # Last change:  Tue Nov  2 17:57:38 2021 by root via crm_attribute on hanadb1
    # 2 nodes configured
    # 11 resource instances configured
-
+   
    # Node List:
    # Online: [ hanadb1 hanadb2 ]
-
+   
    # Full List of Resources:
    # Clone Set: cln_azure-events [rsc_azure-events]:
    #  Started: [ hanadb1 hanadb2 ]
@@ -648,7 +654,7 @@ This section describes how you can test your setup.
 
    ```bash
    sudo crm  status
-
+   
    #Cluster Summary:
     # Stack: corosync
     # Current DC: hanadb2 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -656,10 +662,10 @@ This section describes how you can test your setup.
     # Last change:  Mon Nov  8 23:00:46 2021 by root via crm_attribute on hanadb1
     # 2 nodes configured
     # 11 resource instances configured
-
+   
     #Node List:
     # Online: [ hanadb1 hanadb2 ]
-
+   
     #Full List of Resources:
     # Clone Set: cln_azure-events [rsc_azure-events]:
       # Started: [ hanadb1 hanadb2 ]
@@ -686,7 +692,7 @@ This section describes how you can test your setup.
 
    ```bash
    sudo crm status
-
+   
    #Cluster Summary:
     # Stack: corosync
     # Current DC: hanadb2 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -694,10 +700,10 @@ This section describes how you can test your setup.
     # Last change:  Wed Nov 10 21:59:47 2021 by root via crm_attribute on hanadb2
     # 2 nodes configured
     # 11 resource instances configured
-
+   
     #Node List:
     # Online: [ hanadb1 hanadb2 ]
-
+   
     #Full List of Resources:
     # Clone Set: cln_azure-events [rsc_azure-events]:
       # Started: [ hanadb1 hanadb2 ]

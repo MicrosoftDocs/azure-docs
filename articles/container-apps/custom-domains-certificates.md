@@ -66,7 +66,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
     | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS (Domain Name System) zone is `contoso.com`, then `contoso.com` is the apex domain. |
     | Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you're using custom domains with the private endpoint (preview) feature:
+1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you're using custom domains with the private endpoint feature:
 
     # [General](#tab/general)
     
@@ -114,7 +114,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 1. Once the operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it's accessible.
 
 > [!NOTE]
-> For container apps in internal Container Apps environments, [extra configuration](./networking.md#dns) is required to use custom domains with VNET-scope ingress.
+> For container apps in internal Container Apps environments, [extra configuration](./private-endpoints-with-dns.md) is required to use custom domains with VNET-scope ingress.
 
 ::: zone-end
 
@@ -205,7 +205,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
         --query "properties.customDomainVerificationId"
     ```
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you're using custom domains with the private endpoint (preview) feature:
+1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you're using custom domains with the private endpoint feature:
 
     # [General](#tab/general)
     

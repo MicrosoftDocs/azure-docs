@@ -7,6 +7,7 @@ ms.date: 04/01/2025
 ms.custom: MVC
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As an IT manager responsible for business continuity, I want to implement a robust disaster recovery plan using replication services, so that I can ensure my organization’s applications and data remain available during outages and can be efficiently restored when needed.
 ---
 
 # About Site Recovery

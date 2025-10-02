@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
-author: jojopm
-ms.author: jojoh
-ms.date: 01/07/2025
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/26/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ---
 

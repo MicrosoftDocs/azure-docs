@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
+# Customer intent: As an IT admin, I want to copy data to Azure Data Box Heavy via NFS using the local web UI, so that I can upload on-premises data efficiently to Azure for further processing and storage.
 ---
 # Tutorial: Copy data to Azure Data Box Heavy via NFS
 

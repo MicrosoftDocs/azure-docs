@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 5/9/2024
 ms.author: mbender
+# Customer intent: As a cloud engineer, I want to configure both RSA and ECDSA certificates on the Application Gateway for Containers, so that I can ensure secure connections for both legacy and modern clients while optimizing performance and security.
 ---
 
 # ECDSA and RSA certificates for Application Gateway for Containers

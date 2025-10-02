@@ -2,7 +2,7 @@
 author: sanathr
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 08/06/2024
+ms.date: 06/28/2025
 ms.author: sanathr
 ---
 
@@ -99,7 +99,7 @@ catch(Exception e) {
 
 To receive incoming call push notifications, call `handlePushNotification()` on a `CallAgent` instance with a payload.
 
-To obtain the payload from Firebase Cloud Messaging, begin by creating a new service (select **File** > **New** > **Service** > **Service**) that extends the `FirebaseMessagingService` Firebase SDK class and overrides the `onMessageReceived` method. This method is the event handler that's called when Firebase Cloud Messaging delivers the push notification to the application.
+To obtain the payload from Firebase Cloud Messaging, begin by creating a new service (select **File** > **New** > **Service** > **Service**) that extends the `FirebaseMessagingService` Firebase SDK class and overrides the `onMessageReceived` method. This method is the event handler called when Firebase Cloud Messaging delivers the push notification to the application.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {

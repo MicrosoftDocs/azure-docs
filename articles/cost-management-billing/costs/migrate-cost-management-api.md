@@ -1,13 +1,13 @@
 ---
 title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
-author: flanakin
-ms.author: micflan
-ms.date: 01/07/2025
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: vikdesai
 ---
 
 # Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs
@@ -284,7 +284,7 @@ The following headers are sent with the location of the output:
 ```
 Location:https://management.azure.com/providers/Microsoft.Consumption/operationresults/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
 
-Azure-AsyncOperation:https://managment.azure.com/providers/Microsoft.Consumption/operationStatus/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
+Azure-AsyncOperation:https://management.azure.com/providers/Microsoft.Consumption/operationStatus/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
 
 Retry-After: 10
 

@@ -89,4 +89,3 @@ For more information, see:
 
 - [Azure user roles and permissions for Defender for IoT](roles-azure.md)
 - [Zero Trust Guidance Center](/security/zero-trust/zero-trust-overview)
-- White paper: [Zero Trust Cybersecurity for the Internet of Things](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf)

@@ -5,7 +5,7 @@ author: pri-mittal
 ms.author: primittal
 ms.service: azure-cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2025
+ms.date: 07/08/2025
 ---
 # Understand how the reservation discount is applied to Azure Cosmos DB
 

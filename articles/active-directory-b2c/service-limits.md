@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 05/11/2024
+ms.date: 08/19/2025
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
@@ -169,14 +169,20 @@ The following table lists the administrative configuration limits in the Azure A
 |Number of sign-out URLs per application        |1          |
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
-|Total number of objects (user accounts and applications) per tenant (default limit)|1.25 million |
-|Total number of objects (user accounts and applications) per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million |
+|Number of objects (user accounts and applications) per tenant (default limit)  <sup>2</sup>|1.25 million|
+|Number of objects (user accounts and applications) per tenant (using a verified custom domain) <sup>3</sup>. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million|
+|Number of objects per tenant for Japan Go-Local Azure AD B2C tenants (default limit) <sup>4</sup>|310K|
+|Number of objects per tenant for Japan Go-Local Azure AD B2C tenants (using a verified custom domain) <sup>5</sup>. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|570K|
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |
 |Number of API connectors per tenant     |20         |
 
-<sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+- <sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+- <sup>2</sup> 1M user accounts and 250K applications.
+- <sup>3</sup> 5M user accounts and 250K applications.
+- <sup>4</sup> 60K user accounts and 250K applications.
+- <sup>5</sup> 320K user accounts and 250K applications.
 
 ## Region specific service limits 
 
@@ -197,6 +203,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 228 |  Togo  | 10  |  30  |
 | 233 |	Ghana|	10	| 30 |
 | 234 | Nigeria | 20 | 100 |
+| 235 | Chad | 10 | 30 |
 | 236 |	Central African Republic  |	10	| 30 |
 | 238 | Cape Verde | 10 | 30 |
 | 249 |  Sudan | 10  |  30  |
@@ -210,16 +217,22 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 261 | Madagascar | 10 | 30 |
 | 263 | Zimbabwe | 10 | 30 |
 | 265 |	Malawi  |	10	| 30 |
+| 266 | Lesotho | 10 | 30 |
+| 359 | Bulgaria | 20 | 100 
 | 373 |	Moldova |	20	| 100 |
 | 375 |	Belarus   |	10	| 30 |
+| 380 | Ukraine | 50 | 200 |
+| 381 | Serbia | 50 | 200 |
 | 386 | Slovenia | 10 | 50 |
 | 501 |  Belize| 10  |  30  |
-| 502 | Guatemala | 10 | 50 
+| 502 | Guatemala | 10 | 50 | 
 | 503 | El Salvador | 10 | 30 |
+| 504 | Honduras | 50 | 200 |
 | 52 | Mexico | 100 | 500 |
 | 53 | Cuba | 10 | 30 |
 | 58 |	Venezuela|	10	| 30 |
 | 591 | Bolivia | 10 | 30 |
+| 593 | Ecuador | 20 | 100 |
 | 60 | Malaysia | 50 | 200 |
 | 62 |  Indonesia | 50  |  200 |
 | 63 |  Philippines   | 50  |  200 |
@@ -236,16 +249,20 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 95 |	Myanmar (Burma) | 10	| 30 |
 | 961 |	Lebanon  |	10	| 30 |
 | 963 |	Syria  |	10	| 30 |
+| 964 | Iraq | 50 | 200 |
+| 965 | Kuwait | 50 | 200 |
 | 967 |	Yemen	|10	| 30 |
 | 970 |  State of Palestine| 10  |  30  |
 | 972 |	Israel  |	50	| 200 |
+| 975 | Bhutan | 20 | 100 |
 | 976 |	Mongolia  |	10	| 30 |
+| 977 | Nepal | 20 | 100 |
 | 992 | Tajikistan | 10 | 30 |
 | 993 | Turkmenistan | 10 | 30 |
 | 994 | Azerbaijan | 50 | 200 | 
 | 995 | Georgia | 10 | 30 |
 | 996 |	Kyrgyzstan  |	10	| 30 |
-| 998 | Uzbekistan | 10 | 30 
+| 998 | Uzbekistan | 10 | 30 |
 
 ## Next steps
 

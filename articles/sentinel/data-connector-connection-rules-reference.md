@@ -3,10 +3,10 @@ title: RestApiPoller data connector reference for the Codeless Connector Framewo
 titleSuffix: Microsoft Sentinel
 description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type and its data connection rules as part of the Codeless Connector Framework.
 services: sentinel
-author: austinmccollum
+author: EdB-MSFT
 ms.topic: reference
 ms.date: 9/30/2024
-ms.author: austinmc
+ms.author: edbaynash
 
 
 
@@ -217,24 +217,115 @@ OAuth2 `client_credentials` grant type
 
 #### JWT
 
-Example:
-JSON web token (JWT)
+JSON Web Token (JWT) authentication supports obtaining tokens via username/password credentials and using them for API requests.
 
+**Basic Example:**
 ```json
 "auth": {
     "type": "JwtToken",
     "userName": {
-        "key":"username",
-        "value":"[[parameters('UserName')]"
+        "key": "username",
+        "value": "[[parameters('UserName')]"
     },
     "password": {
-        "key":"password",
-        "value":"[[parameters('Password')]"
+        "key": "password", 
+        "value": "[[parameters('Password')]"
     },
     "TokenEndpoint": "https://token_endpoint.contoso.com",
-    "IsJsonRequest": true
+    "IsJsonRequest": true,
+    "JwtTokenJsonPath": "$.access_token"
 }
 ```
+**Credentials in POST Body (default):**
+```json
+"auth": {
+    "type": "JwtToken",
+    "userName": {
+        "key": "username",
+        "value": "[[parameters('UserName')]"
+    },
+    "password": {
+        "key": "password",
+        "value": "[[parameters('Password')]"
+    },
+    "TokenEndpoint": "https://api.example.com/token",
+    "Headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    },
+    "IsCredentialsInHeaders": false,
+    "IsJsonRequest": true,
+    "JwtTokenJsonPath": "$.access_token"
+}
+```
+**Credentials in Headers (Basic Auth):**
+```json
+"auth": {
+    "type": "JwtToken",
+    "userName": {
+        "key": "client_id",
+        "value": "[[parameters('ClientId')]"
+    },
+    "password": {
+        "key": "client_secret",
+        "value": "[[parameters('ClientSecret')]"
+    },
+    "TokenEndpoint": "https://api.example.com/oauth/token",
+    "Headers": {
+        "Accept": "application/json"
+    },
+    "IsCredentialsInHeaders": true,
+    "IsJsonRequest": true,
+    "JwtTokenJsonPath": "$.access_token",
+    "RequestTimeoutInSeconds": 30
+}
+```
+__Authentication Flow:__
+
+1. Send credentials to `TokenEndpoint` to obtain JWT token
+
+   - If `IsCredentialsInHeaders: true`: Sends Basic Auth header with username:password
+   - If `IsCredentialsInHeaders: false`: Sends credentials in POST body
+
+2. Extract token using `JwtTokenJsonPath` or from response header
+
+3. Use token in subsequent API requests with `ApiKeyName` header
+
+**Properties:**
+
+|Field |Required |Type |Description	|
+| ---- | ---- | ---- | ---- |
+| **type**                      | True      | String   | Must be `JwtToken` |
+| **userName**                  | True      | Object   | Key-value pair for username credential. If `userName` and `password` are sent in header request, specify the `value` property with the user name. If `userName` and `password` sent in body request, specify the `Key` and `Value` |
+| **password**                  | True      | Object   | Key-value pair for password credential. If `userName` and `password` are sent in header request, specify the `value` property with the user name. If`userName` and `password` sent in body request, specify the `Key` and `Value` |
+| **TokenEndpoint**             | True      | String   | URL endpoint to obtain the JWT token |
+| **IsCredentialsInHeaders**    |           | Boolean  | Send credentials as Basic Auth header (`true`) vs POST body (`false`). Default: `false` |
+| **IsJsonRequest**             |           | Boolean  | Send request as JSON (header `Content-Type = application/json`) vs form-encoded (header `Content-Type = application/x-www-form-urlencoded`). Default: `false` |
+| **JwtTokenJsonPath**          |           | String   | JSONPath to extract the token from response (e.g., "`$.access_token`") |
+| **JwtTokenInResponseHeader**  |           | Boolean  | Extract token from the response header vs body. Default: `false` |
+| **JwtTokenHeaderName**        |           | String   | Header name when token is in the response header. Default: "`Authorization`" |
+| **JwtTokenIdentifier**        |           | String   | Identifier used to extract the JWT from a prefixed token string |
+| **QueryParameters**           |           | Object   | Custom query parameters to include when sending the request to the token endpoint |
+| **Headers**                   |           | Object   | Custom headers to include when sending the request to the token endpoint |
+| **RequestTimeoutInSeconds**   |           | Integer  | Request timeout in seconds. Default: `100`, Max `180` |
+
+__Authentication Flow:__
+
+1. Send credentials to `TokenEndpoint` to obtain JWT token
+
+   - If `IsCredentialsInHeaders: true`: Sends Basic Auth header with username:password
+   - If `IsCredentialsInHeaders: false`: Sends credentials in POST body
+
+2. Extract token using `JwtTokenJsonPath` or from response header
+
+3. Use token in subsequent API requests with `ApiKeyName` header
+
+>[!NOTE]
+>__Limitations:__
+> - Requires username/password authentication for token acquisition
+> - Does not support API key-based token requests
+> - Custom header authentication (without username/password) is not supported
+___
 
 ## Request configuration
 

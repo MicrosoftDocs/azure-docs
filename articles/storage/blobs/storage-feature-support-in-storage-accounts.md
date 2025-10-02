@@ -6,6 +6,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 02/19/2025
 ms.author: normesta
+# Customer intent: As a cloud architect, I want to assess the feature support for different storage account types in Azure, so that I can optimize the configuration for my organization's storage needs and ensure compatibility with enabled capabilities.
 ---
 
 # Blob Storage feature support in Azure Storage accounts

@@ -109,6 +109,12 @@ items:
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
     - name: Build a copy pipeline using managed VNet and private endpoints
       href: tutorial-copy-data-portal-private.md
+  - name: Connect to Fabric
+    items:
+    - name: Ingest data into Fabric
+      href:  how-to-ingest-data-into-fabric-from-azure-data-factory.md
+    - name: Change data capture from SAP to Microsoft Fabric
+      href: change-data-capture-from-sap-to-onelake-with-azure-data-factory.md
   - name: Transform data
     items:
     - name: Transform data with mapping data flows
@@ -1361,6 +1367,10 @@ items:
     - name: Advanced topics
       href: sap-change-data-capture-advanced-topics.md
       displayName: SAP, change data capture, CDC
+- name: Security
+  items:
+  - name: Secure your Azure Data Factory
+    href: secure-your-azure-data-factory.md
 - name: Workflow Orchestration Manager
   items:
   - name: Tutorials

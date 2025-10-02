@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/23/2023
 ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to expose my AKS services over HTTP and HTTPS using an Application Gateway, so that I can manage secure access to my applications from external clients.
 ---
 
 # Expose an AKS service over HTTP or HTTPS by using Application Gateway
@@ -31,7 +32,8 @@ By default, `guestbook` exposes its application through a service with the name 
 
 To deploy the `guestbook` application:
 
-1. Download `guestbook-all-in-one.yaml` from [this GitHub page](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml).
+1. Download `guestbook-all-in-one.yaml` from [this GitHub page](https://github.com/kubernetes/examples/blob/master/web/guestbook/all-in-one/guestbook-all-in-one.yaml).
+
 1. Deploy `guestbook-all-in-one.yaml` into your AKS cluster by running this command:
 
    ```bash

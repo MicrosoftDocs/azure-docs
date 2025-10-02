@@ -7,7 +7,9 @@ ms.subservice: workspace
 ms.topic: quickstart
 ms.date: 06/02/2025
 ms.author: kesheth
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-nochange
 ---
 
 # Quickstart: Azure Health Data Services

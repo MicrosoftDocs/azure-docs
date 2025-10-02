@@ -8,6 +8,8 @@ ms.author: msangapu
 
 ### <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
+[!INCLUDE [alpine note](alpine-note.md)]
+
 ### [Windows code](#tab/windowscode)
 
 The following file types are supported:

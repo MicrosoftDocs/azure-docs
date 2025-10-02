@@ -6,6 +6,7 @@ ms.date: 12/20/2024
 ms.service: azure-site-recovery
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: "As a cloud administrator, I want to exclude specific disks from replication during disaster recovery, so that I can optimize bandwidth and storage resources by preventing unnecessary data replication."
 ---
 # Exclude disks from disaster recovery
 

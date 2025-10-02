@@ -12,7 +12,7 @@ ms.subservice: hpc
 
 # Identity management configuration
 
-A key aspect of your high performance computing migration is identity management configuration. Your identity management system ensures secure access to resources, seamless integration, and compliance with organizational policies. It should allow the creation and deltion of users and groups, allow updating and resetting of passwords, and support single sign-on. This part of the guide covers the needs, tools, services, and best practices associated with identity management.
+A key aspect of your high performance computing migration is identity management configuration. Your identity management system ensures secure access to resources, seamless integration, and compliance with organizational policies. It should allow the creation and deletion of users and groups, allow updating and resetting of passwords, and support single sign-on. This part of the guide covers the needs, tools, services, and best practices associated with identity management.
 
 ## Define identity management needs
 

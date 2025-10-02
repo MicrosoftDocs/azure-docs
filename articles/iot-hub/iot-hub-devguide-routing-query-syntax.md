@@ -20,7 +20,10 @@ Message routing allows you to query on the message properties and message body a
 
 ## Query based on message properties
 
-IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names because IoT Hub device-to-cloud messaging isn't case-sensitive. For example, if you have multiple properties with the same name, IoT Hub only sends one of the properties.  
+IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. 
+
+> [!NOTE]
+> We recommend using unique property names because IoT Hub device-to-cloud messaging isn't case-sensitive. For example, if you have multiple properties with the same name, IoT Hub only sends one of the properties.  
 
 ```json
 { 
@@ -217,7 +220,7 @@ Message routing enables you to query on [device twin](iot-hub-devguide-device-tw
 
 ### Twin query expressions
 
-A query on a device twin or module twin needs to be prefixed with `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, a message system properties reference, or a message application properties reference. We recommend using unique names in tags and properties because the query isn't case-sensitive. This recommendation applies to both device twins and module twins. We also recommend that you avoid using `twin`, `$twin`, `body`, or `$body` as property names. For example, the following examples are all valid query expressions: 
+A query on a device twin or module twin needs to be prefixed with `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, a message system properties reference, or a message application properties reference. For example, the following examples are all valid query expressions: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
@@ -230,6 +233,9 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```
+
+> [!NOTE]
+> We recommend using unique names in tags and properties because the query isn't case-sensitive. This recommendation applies to both device twins and module twins. You should also avoid using `twin`, `$twin`, `body`, or `$body` as property names.
 
 ## Limitations
 

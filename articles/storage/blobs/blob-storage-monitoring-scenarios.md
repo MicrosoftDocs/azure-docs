@@ -7,7 +7,10 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.author: normesta
 ms.date: 05/10/2023
-ms.custom: "monitoring"
+ms.custom:
+  - "monitoring"
+  - sfi-image-nochange
+# Customer intent: "As a storage administrator, I want to implement best practices for monitoring Azure Blob Storage, so that I can effectively analyze usage metrics and logs for improved performance, security, and cost management."
 ---
 
 # Best practices for monitoring Azure Blob Storage

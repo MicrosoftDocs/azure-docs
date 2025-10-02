@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 04/30/2022
+ms.service: azure-app-service
 ---
 Select the App Service plan (pricing tier) for this web app. The App Service plan controls how many resources (CPU/memory) are available to your app and how much you pay.<br>
 <br>

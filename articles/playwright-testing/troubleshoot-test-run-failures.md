@@ -7,6 +7,8 @@ ms.date: 10/04/2023
 
 # Troubleshoot issues with running tests with Microsoft Playwright Testing preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article addresses issues that might arise when you run Playwright tests at scale with Microsoft Playwright Testing Preview.
 
 > [!IMPORTANT]

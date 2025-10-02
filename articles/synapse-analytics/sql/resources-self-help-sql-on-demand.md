@@ -1039,7 +1039,8 @@ Serverless SQL pool enables you to connect by using the TDS protocol and by usin
 
 Following a longer period of inactivity, serverless SQL pool will be deactivated. The activation happens automatically on the first next activity, such as the first connection attempt. The activation process might take a bit longer than a single connection attempt interval, so the error message is displayed. Retrying the connection attempt should be enough.
 
-As a best practice, for the clients that support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behavior.
+As a best practice, for the clients that support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behavior. Most SQL client drivers have the default connection timeout set to 15 seconds. Make sure the connection timeout is configured to allow all retry attempts. For example, the chosen values should satisfy the following condition:
+Connection Timeout > ConnectRetryCount * ConnectionRetryInterval.
 
 If the error message persists, file a support ticket through the Azure portal.
 

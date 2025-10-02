@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/11/2025
+# Customer intent: As a cloud migration specialist, I want to create a new project in Azure Migrate, so that I can store and manage discovery, assessment, and migration metadata for efficient cloud transition.
 ---
 
 # Create project

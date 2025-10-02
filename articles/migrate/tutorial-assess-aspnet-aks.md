@@ -2,11 +2,16 @@
 title: Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service
 description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 02/05/2025
-ms.custom: template-tutorial, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-aks
-monikerRange: migrate-classic
+monikerRange:
+ms.custom:
+  - template-tutorial
+  - devx-track-extended-java
+  - sfi-image-nochange
+# Customer intent: As a web application developer, I want to assess my ASP.NET or Java web apps for migration to a container orchestration service, so that I can understand their readiness, optimal resource requirements, and estimated hosting costs for effective deployment on a cloud infrastructure.
 ---
 
 # Assess web apps for migration to Azure Kubernetes Service (preview)

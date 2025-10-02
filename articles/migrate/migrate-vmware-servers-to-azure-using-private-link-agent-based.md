@@ -5,8 +5,10 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 12/14/2022
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to migrate VMware servers to Azure using agent-based replication over a private network, so that I can ensure a secure and efficient transition without exposing data to the public internet.
 ---
 
 # Migrate VMware servers to Azure using Private Link (agent-based)

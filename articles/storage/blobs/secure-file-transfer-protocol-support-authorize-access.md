@@ -3,11 +3,15 @@ title: Authorize access to Azure Blob Storage for an SFTP client
 titleSuffix: Azure Storage
 description: Learn how to authorize access to Azure Blob Storage for an SSH File Transfer Protocol (SFTP) client.
 author: normesta
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 04/30/2024
 ms.author: normesta
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to authorize access for SFTP clients to Azure Blob Storage, so that I can securely manage file transfers with defined permissions."
 ---
 
 # Authorize access to Azure Blob Storage for an SSH File Transfer Protocol (SFTP) client

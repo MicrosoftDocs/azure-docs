@@ -23,6 +23,26 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## September 2025
+### Rock and Fluid Samples (RAFS) Preview
+The Rock and Fluid Samples (RAFS) DDMS introduces a standardized approach for storing, querying, and analyzing geological and engineering sample data collected from subsurface and surface sites. These samples are critical for workflows such as reservoir modeling, facility design, and drilling planning. RAFS DDMS is now available as a Preview feature on ADME Developer SKU. See [Tutorial: Use Rock and Fluid Samples (RAFS) DDMS APIs](tutorial-rock-and-fluid-samples-ddms.md) on how to use RAFS DDMS APIs.
+
+### Manifest Ingestion log enhancements
+Manifest ingestion logs have been enhanced to improve troubleshooting of data ingestion issues. Skipped records are now logged for better visibility. See [Skipped records logging](troubleshoot-manifest-ingestion.md#skipped-records-logging)
+
+## August 2025
+### Compliant with M25 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M25 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M25](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M25-Release-Notes). The upgrade with the OSDU&reg; M25 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+## July 2025
+### Azure Data Manager for Energy available in Central India and Indonesia Central
+Azure Data Manager for Energy is now available in two new regions: **Central India** and **Indonesia Central**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported.
+
+Central India is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Central India" as your preferred region when creating Azure Data Manager for Energy resource, using the Azure portal or your preferred provisioning method.
+
+For more information on region reliability, refer to [Azure Data Manager for Energy reliability](../reliability/reliability-energy-data-services.md).
+
 ## April 2025
 ### Azure Data Manager for Energy available in four new regions
 Azure Data Manager for Energy is now available in four new regions: **South Africa North**, **Southeast Asia**, **Sweden Central**, and **UAE North**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported. 

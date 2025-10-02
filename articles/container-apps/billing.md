@@ -24,6 +24,8 @@ Billing in Azure Container Apps is based on your [plan type](plans.md) (Consumpt
 - Your plan selection determines billing calculations.
 - Different applications in an environment can use different plans.
 
+In addition, features such as private endpoints and planned maintenance are subject to a **Dedicated Plan Management** charge regardless of whether you are using the Consumption or Dedicated plans.
+
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
 ## Consumption plan
@@ -42,7 +44,7 @@ The following resources are free during each calendar month, per subscription:
 Free usage doesn't appear on your bill. You're only charged as your resource usage exceeds the monthly free grants amounts.
 
 > [!NOTE]
-> If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
+> If you use Container Apps with [your own virtual network](custom-virtual-networks.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
 
 ### Resource consumption charges
 

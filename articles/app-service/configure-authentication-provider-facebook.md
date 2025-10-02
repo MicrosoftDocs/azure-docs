@@ -1,12 +1,16 @@
 ---
-title: Configure Facebook authentication
+title: Configure Facebook Authentication
 description: Learn how to configure Facebook authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+
+# As a developer, I want to configure Facebook authentication so that I can use it as an identity provider for an App Service or Azure Functions app. 
+
 ---
 
 # Configure your App Service or Azure Functions app to use Facebook login
@@ -18,6 +22,8 @@ This article shows how to configure Azure App Service or Azure Functions to use 
 To complete the procedure in this article, you need a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
 
 ## <a name="register"> </a>Register your application with Facebook
+
+To register your application with Facebook:
 
 1. Go to the [Facebook Developers] website and sign in with your Facebook account credentials.
 
@@ -47,6 +53,8 @@ To complete the procedure in this article, you need a Facebook account that has 
 
 ## <a name="secrets"> </a>Add Facebook information to your application
 
+Next, add Facebook information to your application: 
+
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
 1. Select **Facebook** in the identity provider dropdown. Paste in the App ID and App Secret values that you obtained previously.
@@ -62,7 +70,7 @@ To complete the procedure in this article, you need a Facebook account that has 
 
 You're now ready to use Facebook for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
-## <a name="related-content"> </a>Next steps
+## <a name="related-content"> </a>Related content
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

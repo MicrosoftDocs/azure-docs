@@ -112,7 +112,7 @@ sections:
       - question: |
           Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
         answer:  |
-          Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
+          Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](front-door-ddos.md).
       - question: |
           Does Azure Front Door preserve `x-forwarded-for` headers?
         answer: |
@@ -268,7 +268,51 @@ sections:
           Front Door uses TLS 1.2 as the minimum version for all profiles created after September 2019.
 
           You can choose to use TLS 1.2 or 1.3 with Azure Front Door. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
+          
+  - name: Certificate Management and DigiCert DCV Workflow Deprecation
+    questions:
 
+    - question: | 
+        What is happening with DigiCert’s CNAME Delegation DCV workflow? 
+      answer: |
+        On 15 August 2025, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. DigiCert is transitioning to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert will no longer support the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
+    
+    - question: | 
+        Which Azure Front Door SKUs are affected by this change? 
+      answer: |
+        The deprecation impacts services that rely on CNAME-based validation for automated certificate issuance and renewal, including:
+
+        - Azure Front Door (classic)
+        - Azure CDN from Microsoft (classic)
+
+    - question: | 
+        What will happen after 15 August 2025?
+      answer: |
+        Azure Front Door (classic) and Azure CDN from Microsoft (classic):
+        - Will no longer support for new domain onboarding and new profile creation.
+        - Will no longer support Azure-managed certificates.
+        - Automation scripts for these actions will begin to fail.
+        - Switching to managed certificates on existing domains will no longer be allowed.
+        - Emergent renewals of managed certificates will not be possible due to the deprecation of CNAME-based validation.
+
+    - question: | 
+        What happens to existing managed certificates?
+      answer: |
+        Existing managed certificates will be automatically renewed before 15 August 2025 and remain valid until 14 April, 2026. However, any renewal required after 15 August 2025 will not be possible.
+
+    - question: | 
+        What actions should I take to avoid service disruption?
+      answer: |
+        Azure Front Door (classic)
+
+        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
+        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
+
+        Azure CDN from Microsoft (classic)
+
+        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
+        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
+    
   - name: Billing
     questions:
       - question: |

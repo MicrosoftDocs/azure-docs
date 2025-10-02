@@ -48,7 +48,7 @@ This error message indicates that the custom location resource associated with t
 Message: The resource {resource Id} extended location {custom location resource Id} does not support the resource type {IoT Operations resource type} or api version {IoT Operations ARM API}. Please check with the owner of the extended location to ensure the host has the CRD {custom resource name} with group {api group name}.iotoperations.azure.com, plural {custom resource plural name}, and versions [{api group version}] installed.
 ```
 
-To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended.
+To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended. The custom location name has a maximum length of 63 characters.
 
 ### You see a LinkedAuthorizationFailed error message
 
@@ -62,8 +62,7 @@ Message: The client {principal Id} with object id {principal object Id} has perm
 
 To deploy resource sync rules, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
 
-To resolve the issue, either elevate principal permissions, or don't deploy resource sync rules. The current AIO CLI has an opt-in mechanism to deploy resource sync rules by using the `--enable-rsync` flag. To stop the resource sync rules being deployed, omit the flag.
-
+To resolve the issue, either elevate principal permissions, or don't deploy resource sync rules.
 > [!NOTE]
 > Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 
@@ -151,7 +150,7 @@ This error occurs when Azure IoT Operations tries to synchronize a secret from A
 
 An OPC UA server connection fails with a `BadSecurityModeRejected` error if the connector tries to connect to a server that only exposes endpoints with no security. There are two options to resolve this issue:
 
-- Overrule the restriction by explicitly setting the following values in the additional configuration for the asset endpoint profile:
+- Overrule the restriction by explicitly setting the following values in the additional configuration for the device:
 
     | Property | Value |
     |----------|-------|
@@ -160,34 +159,24 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
 
 - To establish the connection, add a secure endpoint to the OPC UA server and set up the certificate mutual trust.
 
+### Data spike every 2.5 hours with some OPC UA simulators
+
+Data values spike every 2.5 hours when using some non-Microsoft OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts.
+
+No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
+
 ## Troubleshoot OPC PLC simulator
 
-### The OPC PLC simulator doesn't send data to the MQTT broker after you create an asset endpoint for it
+### The OPC PLC simulator doesn't send data to the MQTT broker after you create a device for it
 
-To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
+To work around this issue, update the device inbound endpoint in the operations experience to automatically accept untrusted server certificates:
 
-```bash
-ENDPOINT_NAME=<name-of-you-endpoint-here>
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
--n azure-iot-operations \
---type=merge \
--p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
-```
+:::image type="content" source="media/troubleshoot/auto-accept-certificate.png" alt-text="Screenshot that shows the option in the operations experience to automatically accept untrusted certificates.":::
+
+You can use the the `az iot ops ns device endpoint inbound add opcua` to add endpoints to the device that automatically accept untrusted server certificates.
 
 > [!CAUTION]
 > Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
-
-You can patch all your asset endpoints with the following command:
-
-```bash
-ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
-for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
-   -n azure-iot-operations \
-   --type=merge \
-   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
-done
-```
 
 ## Troubleshoot Azure IoT Layered Network Management (preview)
 
@@ -197,7 +186,7 @@ The troubleshooting guidance in this section is specific to Azure IoT Operations
 
 If the Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance then:
 
-1. Verify the regions are supported. For more information, see [Supported regions](../overview-iot-operations.md#supported-regions).
+1. Verify the regions are supported. For more information, see [Supported regions](../overview-support.md#supported-regions).
 1. If there are any other errors in installing Layered Network Management Arc extensions, follow the guidance included with the error. Try uninstalling and installing the extension.
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.
@@ -328,7 +317,7 @@ If you receive one of the following error messages:
 - Message: The request is not authorized
 - Code: PermissionDenied
 
-Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites) section for operations experience access.
+Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-configure-opc-ua.md#prerequisites) section for operations experience access.
 
 ## Troubleshoot data flows
 

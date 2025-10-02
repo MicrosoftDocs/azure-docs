@@ -9,6 +9,7 @@ ms.date: 10/14/2021
 ms.service: azure-blob-storage
 ms.topic: concept-article
 
+# Customer intent: "As a data engineer, I want to utilize premium block blob storage accounts, so that I can ensure high-performance, low-latency data processing for workloads such as interactive analytics and machine learning while optimizing transaction costs."
 ---
 
 # Premium block blob storage accounts

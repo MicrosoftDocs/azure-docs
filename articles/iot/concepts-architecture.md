@@ -4,6 +4,7 @@ description: Understand the key architectural elements of an IoT Plug and Play s
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/13/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: azure-iot

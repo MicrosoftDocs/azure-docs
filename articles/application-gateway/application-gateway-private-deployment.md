@@ -1,17 +1,19 @@
 ---
-title: Private Application Gateway deployment (preview)
+title: Private Application Gateway deployment
 titleSuffix: Azure Application Gateway
 description: Learn how to restrict access to Application Gateway
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 4/15/2025
+ms.date: 8/19/2025
 ms.author: mbender
+ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
+# Customer intent: "As a cloud administrator, I want to configure a Private Application Gateway with enhanced network controls, so that I can improve security and restrict data egress while managing inbound and outbound traffic effectively."
 ---
 
-# Private Application Gateway deployment (preview)
+# Private Application Gateway deployment
 
 ## Introduction
 
@@ -32,19 +34,17 @@ Application Gateway v2 can now address each of these items to further eliminate 
 
 Each of these features can be configured independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration.
 
-## Onboard to public preview
+## Onboard to the feature
 
-The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are currently in public preview.  To join the public preview, you can opt in to the experience using the Azure portal, PowerShell, CLI, or REST API.
+The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are generally available and supported in production.  To use the features, you must opt in to the experience using the Azure portal, PowerShell, CLI, or REST API.
 
-When you join the preview, all new Application Gateways provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
+When enrolled, all new Application Gateways provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality, you can do so by [unregistering from the feature](#unregister-the-feature).
 
-For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
-
-## Register to the preview
+## Register the feature
 
 # [Azure portal](#tab/portal)
 
-Use the following steps to enroll into the public preview for the enhanced Application Gateway network controls via the Azure portal:
+Use the following steps to enroll into the feature for the enhanced Application Gateway network controls via the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
@@ -57,9 +57,9 @@ Use the following steps to enroll into the public preview for the enhanced Appli
 
 4. From the left menu, under **Settings** select **Preview features**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure preview features menu.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure features menu.":::
 
-5. You see a list of available preview features and your current registration status.
+5. You see a list of available features and your current registration status.
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Screenshot of the Azure portal list of preview features.":::
 
@@ -69,7 +69,7 @@ Use the following steps to enroll into the public preview for the enhanced Appli
 
 # [Azure PowerShell](#tab/powershell)
 
-To enroll into the public preview for the enhanced Application Gateway network controls via Azure PowerShell, the following commands can be referenced:
+To enroll into the feature for the enhanced Application Gateway network controls via Azure PowerShell, the following commands can be referenced:
 
 ```azurepowershell
 Register-AzProviderFeature -FeatureName "EnableApplicationGatewayNetworkIsolation" -ProviderNamespace "Microsoft.Network"
@@ -84,7 +84,7 @@ EnableApplicationGatewayNetworkIsolation   Microsoft.Network   Registered
 
 # [Azure CLI](#tab/cli)
 
-To enroll into the public preview for the enhanced Application Gateway network controls via Azure CLI, the following commands can be referenced:
+To enroll into the feature for the enhanced Application Gateway network controls via Azure CLI, the following commands can be referenced:
 
 ```azurecli
 az feature register --name EnableApplicationGatewayNetworkIsolation --namespace Microsoft.Network
@@ -104,13 +104,11 @@ A list of all Azure CLI references for Private Link Configuration on Application
 >[!Note]
 >Feature registration may take up to 30 minutes to transition from Registering to Registered status. 
 
-For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
-
-## Unregister from the preview
+## Unregister the feature
 
 # [Azure portal](#tab/portal)
 
-To opt out of the public preview for the enhanced Application Gateway network controls via Portal, use the following steps:
+To opt out of the feature for the enhanced Application Gateway network controls via Portal, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
@@ -123,19 +121,19 @@ To opt out of the public preview for the enhanced Application Gateway network co
 
 4. From the left menu, under **Settings** select **Preview features**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure preview features menu.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure features menu.":::
 
-5. You see a list of available preview features and your current registration status.
+5. You see a list of available features and your current registration status.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Screenshot of the Azure portal list of preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Screenshot of the Azure portal list of features.":::
 
 6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Unregister**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Screenshot of the Azure portal filter preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Screenshot of the Azure portal filter features.":::
 
 # [Azure PowerShell](#tab/powershell)
 
-To opt out of the public preview for the enhanced Application Gateway network controls via Azure PowerShell, the following commands can be referenced:
+To opt out of the feature for the enhanced Application Gateway network controls via Azure PowerShell, the following commands can be referenced:
 
 ```azurepowershell
 Unregister-AzProviderFeature -FeatureName "EnableApplicationGatewayNetworkIsolation" -ProviderNamespace "Microsoft.Network"
@@ -150,7 +148,7 @@ EnableApplicationGatewayNetworkIsolation   Microsoft.Network   Unregistered
 
 # [Azure CLI](#tab/cli)
 
-To opt out of the public preview for the enhanced Application Gateway network controls via Azure CLI, the following commands can be referenced:
+To opt out of the feature for the enhanced Application Gateway network controls via Azure CLI, the following commands can be referenced:
 
 ```azurecli
 az feature unregister --name EnableApplicationGatewayNetworkIsolation --namespace Microsoft.Network
@@ -169,7 +167,7 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ## Configuration of network controls
 
-After registration into the public preview, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.  No API or command changes are introduced with this public preview.
+After registering the feature, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.
 
 ## Resource Changes
 
@@ -185,6 +183,10 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 ## Application Gateway Subnet 
 
 Application Gateway Subnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration, is important that this subnet can reach privately the resources that want to connect to your exposed app or site.
+
+> [!NOTE]
+> As of May 5, 2025, new and existing deployments of Private Application Gateway require Subnet Delegation to `Microsoft.Network/applicationGateways`.
+> Please follow [these steps](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) for configuring Subnet Delegation.
 
 ## Outbound Internet connectivity
 
@@ -308,7 +310,7 @@ Result:
 
 In the current offering of Application Gateway, association of a route table with a rule (or creation of rule) defined as 0.0.0.0/0 with a next hop as virtual appliance is unsupported to ensure proper management of Application Gateway.
 
-After registration of the public preview feature, the ability to forward traffic to a virtual appliance is now possible via definition of a route table rule that defines 0.0.0.0/0 with a next hop to Virtual Appliance.
+After registration of the feature, the ability to forward traffic to a virtual appliance is now possible via definition of a route table rule that defines 0.0.0.0/0 with a next hop to Virtual Appliance.
 
 Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising does not affect Application Gateway health, and is honored for traffic flow. This scenario can be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
 
@@ -341,7 +343,7 @@ To create a route table and associate it to the Application Gateway subnet:
 
 ## Limitations / Known Issues
 
-While in public preview, the following limitations are known.
+The following limitations apply:
 
 ### Private link configuration
 
@@ -369,13 +371,6 @@ If a subnet shares Application Gateway v2 deployments that were created both pri
 
 - If a gateway deployed prior to enablement of the new functionality exists in the subnet, you might see errors such as: `For routes associated to subnet containing Application Gateway V2, please ensure '0.0.0.0/0' uses Next Hop Type as 'Internet'` when adding route table entries. 
 - When adding network security group rules to the subnet, you might see: `Failed to create security rule 'DenyAnyCustomAnyOutbound'. Error: Network security group \<NSG-name\> blocks outgoing Internet traffic on subnet \<AppGWSubnetId\>, associated with Application Gateway \<AppGWResourceId\>. This isn't permitted for Application Gateways that have fast update enabled or have V2 Sku.` 
-
-### Unknown Backend Health status
-
-If backend health is _Unknown_, you may see the following error:
-   + The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 if there is v1 SKU, and ports 65200-65535 if there is v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
-
-This error can be ignored and will be clarified in a future release.
 
 ## Next steps
 

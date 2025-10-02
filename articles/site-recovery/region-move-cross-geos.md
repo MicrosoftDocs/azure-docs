@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 07/08/2024
 ms.author: jsuri
 ms.custom: MVC, engagement-fy23
+# Customer intent: As a cloud administrator, I want to move Azure virtual machines between Government and Public regions using a disaster recovery service, so that I can enhance availability and manageability while adhering to compliance requirements.
 ---
 # Move Azure virtual machines between Azure Government and Public regions 
 

@@ -3,9 +3,14 @@ title: ASP.NET app containerization and migration to App Service
 description: This tutorial demonstrates how to containerize ASP.NET applications and migrate them to Azure App Service.
 ms.manager: kmadnani
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
-ms.date: 02/06/2025
-ms.custom: engagement-fy24
+ms.date: 09/19/2025
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
+  - sfi-ga-nochange
+# Customer intent: As a developer, I want to containerize my ASP.NET applications and migrate them to a cloud service, so that I can improve resource utilization, simplify management, and enhance deployment agility without rewriting my existing code.
 ---
 # ASP.NET app containerization and migration to Azure App Service
 
@@ -55,8 +60,7 @@ Before you start this tutorial, you should:
 --- | ---
 **Identify a machine on which to install the tool** | You need a Windows machine on which to install and run the Azure Migrate App Containerization tool. The Windows machine could run a server (Windows Server 2016 or later) or client (Windows 10) operating system. (The tool can run on your desktop.) <br/><br/> The Windows machine running the tool should have network connectivity to the servers or virtual machines hosting the ASP.NET applications that you'll containerize.<br/><br/> Ensure that 6 GB is available on the Windows machine running the Azure Migrate App Containerization tool. This space is for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>If the Microsoft Web Deployment tool isn't already installed on the machine running the App Containerization tool and the application server, install it. You can [download the tool](https://aka.ms/webdeploy3.6).
 **Application servers** | Enable PowerShell remoting on the application servers: sign in to the application server and follow [these instructions to turn on PowerShell remoting](/powershell/module/microsoft.powershell.core/enable-psremoting). <br/><br/> Ensure that PowerShell 5.1 is installed on the application server. Follow the instructions in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/wmf/setup/install-configure) on the application server. <br/><br/> If the Microsoft Web Deployment tool isn't already installed on the machine running the App Containerization tool and the application server, install it. You can [download the tool](https://aka.ms/webdeploy3.6).
-**ASP.NET application** | The tool currently supports: <br> <ul><li> ASP.NET applications that use .NET Framework 3.5 or later.<br/> <li>Application servers that run Windows Server 2012 R2 or later. (Application servers should be running PowerShell 5.1.) <br/><li> Applications that run on Internet Information Services 7.5 or later.</ul> <br/><br/> The tool currently doesn't support: <br/> <ul><li>Applications that require Windows authentication. (AKS doesn't currently support gMSA.) <br/> <li> Applications that depend on other Windows services hosted outside of Internet Information Services.
-
+**ASP.NET application** | The tool currently supports: <br> <ul><li> ASP.NET applications that use .NET Framework 3.5 or later.<br/> <li>Application servers that run Windows Server 2012 R2 or later. (Application servers should be running PowerShell 5.1.) <br/><li> Applications that run on Internet Information Services 7.5 or later.</ul> <br/><br/> The tool currently doesn't support: <br/> <ul><li>Applications that require Windows authentication. <br/> <li> Applications that depend on other Windows services hosted outside of Internet Information Services.
 
 ## Prepare an Azure user account
 

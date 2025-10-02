@@ -1,13 +1,13 @@
 ---
 title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
-author: jojopm
-ms.author: jojoh
-ms.date: 01/07/2025
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 07/03/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
 
 # Manage costs with automation
@@ -20,7 +20,7 @@ You might need to download your Azure cost data to merge it with other datasets.
 
 ## Suggestions for handling large datasets
 
-If your organization has a large Azure presence across many resources or subscriptions, you'll have a large amount of usage details data results. Excel often can't load such large files. In this situation, we recommend the following options:
+If your organization has a large Azure presence across many resources or subscriptions, you'll have a large number of usage details data results. Excel often can't load such large files. In this situation, we recommend the following options:
 
 **Power BI**
 
@@ -28,76 +28,93 @@ Power BI is used to ingest and handle large amounts of data. If you're an Enterp
 
 **Power BI data connector**
 
-If you want to analyze your data daily, we recommend using the [Power BI data connector](/power-bi/connect-data/desktop-connect-azure-cost-management) to get data for detailed analysis. Any reports that you create are kept up to date by the connector as more costs accrue.
+If you want to analyze your data daily, we recommend using the [Power BI data connector](/power-bi/connect-data/desktop-connect-azure-cost-management) to get data for detailed analysis. The connector keeps the reports up to date as more costs accrue.
 
 **Cost Management exports**
 
 You might not need to analyze the data daily. If so, consider using Cost Management's [Exports](./tutorial-improved-exports.md) feature to schedule data exports to an Azure Storage account. Then you can load the data into Power BI as needed, or analyze it in Excel if the file is small enough. Exports are available in the Azure portal or you can configure exports with the [Exports API](/rest/api/cost-management/exports).
 
-**Usage Details API**
+**Cost Details API**
 
-Consider using the [Usage Details API](/rest/api/consumption/usageDetails) if you have a small cost data set. Here are recommended best practices:
+Consider using the [Cost Details API](/rest/api/cost-management/generate-cost-details-report) if you have a small cost data set. Here are recommended best practices:
 
 - If you want to get the latest cost data, we recommend that you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you'll receive identical data.
-- Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on to prevent repeated calls for identical data.
+- Once you download your cost data for historical invoices, the charges aren't expected to change unless you're explicitly notified. We recommend caching your cost data in a queryable store to prevent repeated calls for identical data.
 - Chunk your calls into small date ranges to get more manageable files that you can download. For example, we recommend chunking by day or by week if you have large Azure usage files month-to-month. 
-- If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
+- If you have scopes with a large amount of cost data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
 - If your dataset is more than 2 GB month-to-month, consider using [exports](tutorial-improved-exports.md) as a more scalable solution.
 
-## Automate retrieval with Usage Details API
+## Automate retrieval with Cost Details API
 
-The [Usage Details API](/rest/api/consumption/usageDetails) provides an easy way to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if you're looking to analyze smaller cost data sets. However, you should use other solutions identified previously if you have larger datasets. The data in Usage Details is provided on a per meter basis, per day. It's used when calculating your monthly bill. The general availability (GA) version of the APIs is `2019-10-01`. Use `2019-04-01-preview` to access the preview version for reservation and Azure Marketplace purchases with the APIs.
+The Cost Details API cables you to programmatically generate and download detailed, unaggregated cost data for your Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA) billing account. Unlike the legacy Usage Details API, the Cost Details API is asynchronous and report-based: you submit a request to generate a report, poll for its completion, and then download the resulting file from a secure URL.
 
-If you want to get large amounts of exported data regularly, see [Retrieve large cost datasets recurringly with exports](ingest-azure-usage-at-scale.md).
+> [!IMPORTANT]
+> The Cost Details API is only supported for Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA) scopes. For other account types, we suggest using Exports. If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. See instructions on how to do this [here](../automate/get-usage-details-legacy-customer.md)
 
-### Usage Details API suggestions
+### How the Cost Details API works
 
-**Request schedule**
+1. **Create a report**: Submit a POST request to the Cost Details API specifying the scope, date range, and optional filters (such as meter, resource, or tag).
+2. **Poll for status**: The API returns an operation ID. Poll the operation status endpoint until the report is complete.
+3. **Download the report**: Once the report is ready, the API provides a secure download URL for the CSV file containing your cost data. The download link is valid for a limited time.
 
-We recommend that you make _no more than one request_ to the Usage Details API per day. For more information about how often cost data is refreshed and how rounding is handled, see [Understand cost management data](./understand-cost-mgt-data.md).
+For full details, see [Get small usage datasets on demand](../automate/get-small-usage-datasets-on-demand.md) and the [Cost Details API reference](/rest/api/cost-management/generate-cost-details-report).
 
-**Target top-level scopes without filtering**
+## Example: Generate and download a Cost Details report
 
-Use the API to get all the data you need at the highest-level scope available. Wait until all needed data is ingested before doing any filtering, grouping, or aggregated analysis. The API is optimized specifically to provide large amounts of unaggregated raw cost data. To learn more about scopes available in Cost Management, see [Understand and work with scopes](./understand-work-scopes.md). Once you've downloaded the needed data for a scope, use Excel to analyze data further with filters and pivot tables.
+To retrieve cost details using the Cost Details API, follow these steps:
 
-### Notes about pricing
+### Step 1: Create a report
 
-If you want to reconcile usage and charges with your price sheet or invoice, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
+Submit a POST request to start report generation. Replace `{scope}` with your billing account or profile scope.
+
+```http
+POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/generateCostDetailsReport?api-version=2025-03-01
+Content-Type: application/json
+
+{
+  "metric": "ActualCost",
+  "timePeriod": {
+    "start": "2025-03-01",
+    "end": "2025-03-15"
+  }
+}
+```
+
+The response includes a `Location` header in the response that contains the polling link to be used in step 2.
+
+### Step 2: Poll for status
+
+Check the status of the report generation using the polling link:
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/generateCostDetailsReport/{operationId}?api-version=2025-03-01
+```
+
+When the report is ready, the response includes a `blobLink` property.
+
+### Step 3: Download the report
+
+Use the `blobLink` to download the CSV file containing your cost details.
+
+> [!NOTE]
+> The Cost Details API is asynchronous. You can't retrieve cost details directly with a GET request to `/generateCostDetailsReport`. Always use the report generation workflow described above. For more information, see the [Cost Details API documentation](/rest/api/cost-management/generate-cost-details-report).
+
+### Best practices for using the Cost Details API
+
+- **Request frequency**: We recommend that reports are generated no more than once per day for a given scope and date range. Cost data is refreshed every four hours, but more frequent requests returns the same data and may be throttled.
+- **Date range**: For large datasets, limit the date range (for example, generate daily or weekly reports) to keep file sizes manageable.
+- **Scope**: Use the highest-level scope available (such as billing account or billing profile) to minimize the number of API calls and ensure data completeness.
+- **Data retention**: Download and store reports promptly. The download URL expires after a short period (typically one hour).
+
+### Notes about pricing and data
+
+- The Cost Details API provides actual and amortized cost data, including all usage, purchases, and refunds for the selected period.
+- The data is unaggregated and suitable for detailed analysis, reconciliation, and integration with other systems.
+- For more information about pricing behavior, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
 
 ### A single resource might have multiple records for a single day
 
-Azure resource providers emit usage and charges to the billing system and populate the `Additional Info` field of the usage records. Occasionally, resource providers might emit usage for a given day and stamp the records with different datacenters in the `Additional Info` field of the usage records. It can cause multiple records for a meter/resource to be present in your usage file for a single day. In that situation, you aren't overcharged. The multiple records represent the full cost of the meter for the resource on that day.
-
-## Example Usage Details API requests
-
-The following example requests are used by Microsoft customers to address common scenarios that you might come across.
-
-### Get Usage Details for a scope during specific date range
-
-The data that's returned by the request corresponds to the date when the usage was received by the billing system. It might include costs from multiple invoices. The call to use varies by your subscription type.
-
-For legacy customers with an Enterprise Agreement (EA) or a pay-as-you-go subscription, use the following call:
-
-```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
-```
-
-For modern customers with a Microsoft Customer Agreement, use the following call:
-
-```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=2020-08-05&$top=1000&api-version=2019-10-01
-```
-
-> [!NOTE]
-> The `$filter` parameter isn't supported by Microsoft Customer Agreements.
-
-### Get amortized cost details
-
-If you need actual costs to show purchases as they're accrued, change the *metric* to `ActualCost` in the following request. To use amortized and actual costs, you must use the `2019-04-01-preview` version. The current API version works the same as the `2019-10-01` version, except for the new type/metric attribute and changed property names. If you have a Microsoft Customer Agreement, your filters are `startDate` and `endDate` in the following example.
-
-```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
-```
+Azure resource providers might emit usage and charges to the billing system with different attributes (such as datacenter location), resulting in multiple records for a resource on a single day. This behavior is expected and doesn't indicate overcharging; all records together represent the full cost for that resource and day.
 
 ## Automate alerts and actions with budgets
 
@@ -324,4 +341,4 @@ List of remaining quotas.
 
 - [Analyze Azure costs with the Power BI template app](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 - [Create and manage exported data](./tutorial-improved-exports.md) with Exports.
-- Learn more about the [Usage Details API](/rest/api/consumption/usageDetails).
+- Learn more about the [Cost Details API](/rest/api/cost-management/generate-cost-details-report).

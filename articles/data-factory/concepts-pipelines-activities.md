@@ -32,7 +32,7 @@ Azure Data Factory and Azure Synapse Analytics have three groupings of activitie
 An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. For more information about datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md) article.
 
 > [!NOTE]
-> There's a default soft limit of maximum 80 activities per pipeline, which includes inner activities for containers.
+> There's a default soft limit of maximum 120 activities per pipeline, which includes inner activities for containers.
 
 ## Data movement activities
 

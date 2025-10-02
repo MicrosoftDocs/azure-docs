@@ -4,9 +4,11 @@ description: Learn how to create assessment for Azure Spring Apps in Azure Migra
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.topic: tutorial
+ms.reviewer: v-uhabiba
 ms.date: 02/06/2025
 ms.custom: engagement-fy23
-monikerRange: migrate-classic
+monikerRange:
+# Customer intent: As a cloud architect, I want to assess my Spring Boot applications for migration to cloud services, so that I can evaluate their readiness, identify potential issues, and estimate migration costs effectively.
 ---
 
 

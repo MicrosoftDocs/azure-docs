@@ -8,6 +8,7 @@ ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: quickstart
 ms.date: 12/11/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Transform data using mapping data flows

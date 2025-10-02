@@ -12,6 +12,7 @@ ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: "As a cloud administrator, I want to enable secure transfer for my storage accounts, so that I can ensure all data requests are securely transmitted over HTTPS and protect against insecure connections."
 ---
 
 # Require secure transfer to ensure secure connections
@@ -20,7 +21,7 @@ You can configure your storage account to accept requests from secure connection
 
 When secure transfer is required, a call to an Azure Storage REST API operation must be made over HTTPS. Any request made over HTTP is rejected. By default, the **Secure transfer required** property is enabled when you create a storage account.
 
-Azure Policy provides a built-in policy to ensure that secure transfer is required for your storage accounts. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+Azure Policy provides a built-in policy to ensure that secure transfer is required for your storage accounts. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 Connecting to an Azure file share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1 or SMB 3.x without encryption. 
 

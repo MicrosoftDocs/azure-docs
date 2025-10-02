@@ -13,6 +13,7 @@ ms.subservice: sms
 ms.custom:
    - mode-other
    - kr2b-contr-experiment
+   - sfi-image-nochange
 ---
 # Handle SMS events
 

@@ -4,9 +4,11 @@ description: In this quickstart, you'll learn how to create an Azure Migrate pro
 author: ankitsurkar06
 ms.author: v-uhabiba
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to create a new Azure Migrate project via the portal, so that I can manage the migration of on-premises assets to Azure effectively."
 ---
 
 # Quickstart: Create an Azure Migrate project using portal

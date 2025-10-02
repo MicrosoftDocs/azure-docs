@@ -6,6 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 ms.topic: include
 ms.date: 1/10/2025
+ms.custom: sfi-image-nochange
 ---
 
 ## Create an IoT hub

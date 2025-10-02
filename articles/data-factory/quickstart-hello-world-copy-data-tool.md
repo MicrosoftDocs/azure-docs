@@ -5,9 +5,11 @@ author: whhender
 ms.author: whhender
 ms.reviewer: yexu
 ms.topic: quickstart
-ms.date: 10/03/2024
+ms.date: 07/25/2025
 ms.subservice: data-movement
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Use the Copy Data tool in Azure Data Factory Studio to copy data

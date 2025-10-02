@@ -3,12 +3,17 @@ title: Azure Virtual Machines HA for SAP NW on RHEL with Azure NetApp Files| Mic
 description: Establish high availability (HA) for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with Azure NetApp Files.
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 04/29/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As an IT administrator managing SAP applications on Azure, I want to configure high availability for SAP NetWeaver on RHEL using shared storage, so that I can ensure reliable performance and minimize downtime."
 ---
 
 # Azure Virtual Machines HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications
@@ -69,6 +74,7 @@ Read the following SAP Notes and papers first:
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
 * [NetApp NFS Best Practices](https://www.netapp.com/media/10720-tr-4067.pdf)
 
@@ -385,13 +391,13 @@ The following items are prefixed with either:
    
    # If using NFSv3
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
-     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe \
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe fast_stop=no \
      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-QAS_ASCS
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
-     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' \
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' fast_stop=no \
      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
      --group g-QAS_ASCS
    
@@ -448,13 +454,13 @@ The following items are prefixed with either:
    
    # If using NFSv3
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
-     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe \
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe fast_stop=no \
      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
     --group g-QAS_AERS
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
-     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' \
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' fast_stop=no \
      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
     --group g-QAS_AERS
    

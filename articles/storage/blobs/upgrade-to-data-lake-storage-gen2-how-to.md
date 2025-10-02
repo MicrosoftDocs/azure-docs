@@ -3,10 +3,13 @@ title: Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities
 description: Shows you how to use Resource Manager templates to upgrade from Azure Blob Storage to Data Lake Storage.
 author: normesta
 ms.service: azure-blob-storage
-ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: normesta
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to upgrade my Azure Blob Storage to Data Lake Storage, so that I can leverage enhanced capabilities like hierarchical namespace, improved security, and performance optimizations for big data analytics workloads.
 ---
 
 # Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities
@@ -310,7 +313,7 @@ az storage account hns-migration stop -n <storage-account-name> -g <resource-gro
    > [!div class="mx-imgBorder"]
    > ![Account endpoints](./media/upgrade-to-data-lake-storage-gen2-how-to/storage-endpoints.png)
   
-3. For Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, make sure to modify them to use the [Azure Blob File System (ABFS)](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
+3. For Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, make sure to modify them to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
 
 2. Test custom applications to ensure that they work as expected with your upgraded account. 
 

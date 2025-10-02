@@ -10,6 +10,7 @@ ms.date: 01/25/2023
 ms.topic: quickstart
 ms.service: azure-table-storage
 ms.custom: mode-ui, engagement-fy23
+# Customer intent: "As a cloud developer, I want to create tables and entities in Azure Table storage, so that I can efficiently manage and organize large datasets within my application."
 ---
 
 # Quickstart: Create a table in the Azure portal

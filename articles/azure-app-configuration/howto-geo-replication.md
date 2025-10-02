@@ -174,6 +174,22 @@ const config = load(endpoint, credential, {
 > The automatic replica discovery support is available if you use version **2.0.0** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
 > The feature is not available for browser-based applications due to the restriction of browser security sandbox.
 
+### [Go](#tab/go)
+
+Specify the `azureappconfiguration.Options.ReplicaDiscoveryEnabled` property when loading the configuration store and set it to `false`.
+
+```golang
+replicaDiscoveryEnabled := false
+options := azureappconfiguration.Options{
+    ReplicaDiscoveryEnabled: &replicaDiscoveryEnabled,
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **1.2.0** or later of [azureappconfiguration](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).
+
 ---
 
 ## Scale and failover with replicas
@@ -264,6 +280,10 @@ The Azure App Configuration Python Provider supports failover with automatically
 
 The Azure App Configuration JavaScript Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
 
+### [Go](#tab/go)
+
+The Azure App Configuration Go Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
+
 ---
 
 The failover may occur if the App Configuration provider observes the following conditions.
@@ -338,6 +358,20 @@ const config = load(endpoint, credential, {
 
 > [!NOTE]
 > Load balancing support is available if you use version **2.0.0** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
+
+### [Go](#tab/go)
+
+Set `azureappconfiguration.Options.LoadBalancingEnabled` to `true` while loading configuration from App Configuration.
+
+```golang
+options := azureappconfiguration.Options{
+    LoadBalancingEnabled: true,
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+> [!NOTE]
+> Load balancing support is available if you use version **1.2.0** or later of [azureappconfiguration](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).
 
 ---
 

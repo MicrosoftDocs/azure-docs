@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/19/2023
 ms.author: mbender
+# Customer intent: As a network administrator, I want to configure Application Gateway for high traffic scenarios, so that I can ensure scalable and secure management of my web application traffic during peak loads.
 ---
 
 # Application Gateway high traffic support

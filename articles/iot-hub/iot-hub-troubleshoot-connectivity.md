@@ -7,7 +7,14 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 07/30/2024
-ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
+ms.custom:
+  - mqtt
+  - 'Role: Cloud Development'
+  - 'Role: IoT Device'
+  - 'Role: Technical Support'
+  - fasttrack-edit
+  - iot
+  - sfi-image-nochange
 
 #Customer intent: As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
@@ -42,7 +49,10 @@ Consider the following issues when deciding whether to use Event Grid or Azure M
 
 ## Event Grid: Monitor connect and disconnect events
 
-To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state. Event Grid provides lower event latency than Azure Monitor, and you can monitor on a per-device basis. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+Event Grid provides lower event latency than Azure Monitor, and you can monitor on a per-device basis. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+
+> [!NOTE]
+> To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state.
 
 When you use Event Grid to monitor or trigger alerts on device disconnects, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal on devices that use the Azure IoT SDKs. To learn more, see [MQTT device disconnect behavior with Azure IoT SDKs](#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
 

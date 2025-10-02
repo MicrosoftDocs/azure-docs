@@ -10,6 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 01/25/2022
 ms.author: juergent
+# Customer intent: As an SAP administrator, I want to access a comprehensive list of supported SAP certifications and configurations on Azure, so that I can ensure compliance and optimize my SAP workloads on the cloud platform.
 ---
 # SAP certifications and configurations running on Microsoft Azure
 
@@ -18,7 +19,7 @@ SAP and Microsoft have a long history of working together in a strong partnershi
 ## SAP HANA certifications
 References:
 
-- [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) for SAP HANA support for native Azure VMs and HANA Large Instances.
+- [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24) for SAP HANA support for native Azure VMs and HANA Large Instances.
 
 | SAP Product | Supported OS | Azure Offerings |
 | --- | --- | --- |

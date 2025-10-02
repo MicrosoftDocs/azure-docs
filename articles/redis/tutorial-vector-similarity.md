@@ -2,6 +2,7 @@
 title: "Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Managed Redis"
 description: In this tutorial, you learn how to use Azure Managed Redis to store and search for vector embeddings.
 ms.date: 02/27/2025
+ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.collection:
   - ce-skilling-ai-copilot
@@ -31,7 +32,7 @@ In this tutorial, you learn how to:
 > - Use the **text-embedding-ada-002 (Version 2)** model to generate embeddings.
 > - Create a vector index in Azure Managed Redis
 > - Use cosine similarity to rank search results.
-> - Use hybrid query functionality through [RediSearch](https://redis.io/docs/interact/search-and-query/) to prefilter the data and make the vector search even more powerful.
+> - Use hybrid query functionality through [RediSearch](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/) to prefilter the data and make the vector search even more powerful.
 
 >[!IMPORTANT]
 >This tutorial walks you through building a Jupyter Notebook. You can follow this tutorial with a Python code file (.py) and get _similar_ results, but you need to add all of the code blocks in this tutorial into the `.py` file and execute once to see results. In other words, Jupyter Notebooks provides intermediate results as you execute cells, but this is not behavior you should expect when working in a Python code file.

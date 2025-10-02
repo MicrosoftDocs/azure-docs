@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: troubleshooting
 ms.date: 02/20/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to troubleshoot application volume group errors for Azure NetApp Files, so that I can ensure successful deployment and operation of my storage solutions for SAP HANA and Oracle applications.
 ---
 # Troubleshoot application volume group errors for Azure NetApp Files
 

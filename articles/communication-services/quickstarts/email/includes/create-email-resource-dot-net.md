@@ -51,6 +51,7 @@ using Azure.Core;
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Communication;
+using Azure.ResourceManager.Communication.Models;
 using Azure.ResourceManager.Resources;
 ...
 // get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/dotnet/azure/sdk/authentication?tabs=command-line

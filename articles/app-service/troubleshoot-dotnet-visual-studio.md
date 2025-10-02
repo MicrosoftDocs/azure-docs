@@ -3,13 +3,20 @@ title: Troubleshoot with Visual Studio
 description: Learn how to troubleshoot an App Service app by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013.
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/29/2016
-ms.custom: devx-track-csharp, devx-track-dotnet
 ms.author: cephalin
 author: cephalin
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-image-nochange
+
+# Customer intent: As a developer, I want to get an overview of Visual Studio tools for debugging apps in App Service so that I can more effectively debug my apps. 
+
 ---
-# Troubleshoot an app in Azure App Service using Visual Studio
+# Tutorial: Troubleshoot an app in Azure App Service using Visual Studio
 
 > [!NOTE]
 > This article is for Visual Studio 2019. For troubleshooting in Visual Studio 2022, see [Remote Debug ASP.NET Core on Azure App Service.](/visualstudio/debugger/remote-debugging-azure-app-service)
@@ -18,27 +25,28 @@ author: cephalin
 ## Overview
 This tutorial shows how to use Visual Studio tools to help debug an app in [App Service](./overview.md), by running in [debug mode](/visualstudio/debugger/) remotely or by viewing application logs and web server logs.
 
-You'll learn:
+In this tutorial, you learn:
 
-* Which app management functions are available in Visual Studio.
-* How to use Visual Studio remote view to make quick changes in a remote app.
-* How to run debug mode remotely while a project is running in Azure, both for an app and for a WebJob.
-* How to create application trace logs and view them while the application is creating them.
-* How to view web server logs, including detailed error messages and failed request tracing.
-* How to send diagnostic logs to an Azure Storage account and view them there.
+> [!div class="checklist"]
+> * Which app management functions are available in Visual Studio.
+> * How to use Visual Studio remote view to make quick changes in a remote app.
+> * How to run debug mode remotely while a project is running in Azure, both for an app and for a WebJob.
+> * How to create application trace logs and view them while the application is creating them.
+> * How to view web server logs, including detailed error messages and failed request tracing.
+> * How to send diagnostic logs to an Azure Storage account and view them there.
 
 If you have Visual Studio Ultimate, you can also use [IntelliTrace](/visualstudio/debugger/intellitrace) for debugging. IntelliTrace is not covered in this tutorial.
 
 ## <a name="prerequisites"></a>Prerequisites
-This tutorial works with the development environment, web project, and App Service app that you set up in [Create an ASP.NET app in Azure App Service](./quickstart-dotnetcore.md?tabs=netframework48). For the WebJobs sections, you'll need the application that you create in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
+- This tutorial works with the development environment, web project, and App Service app that you set up in [Create an ASP.NET app in Azure App Service](./quickstart-dotnetcore.md?tabs=netframework48). For the WebJobs sections, you'll need the application that you create in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
 
-The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
+- The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
-The tutorial assumes you're using Visual Studio 2019. 
+- The tutorial assumes you're using Visual Studio 2019. 
 
-The streaming logs feature only works for applications that target .NET Framework 4 or later.
+- The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
-## <a name="sitemanagement"></a>App configuration and management
+## <a name="sitemanagement"></a>Configure and manage apps
 Visual Studio provides access to a subset of the app management functions and configuration settings available in the [Azure portal](/rest/api/appservice/web-apps). In this section, you'll see what's available by using **Server Explorer**. To see the latest Azure integration features, try out **Cloud Explorer** also. You can open both windows from the **View** menu.
 
 1. If you aren't already signed in to Azure in Visual Studio, right-click **Azure** and select Connect to **Microsoft Azure Subscription** in **Server Explorer**.
@@ -62,7 +70,7 @@ Visual Studio provides access to a subset of the app management functions and co
 
     In this tutorial, you'll use the logging and tracing drop-downs. You'll also use remote debugging but you'll use a different method to enable it.
 
-    For information about the App Settings and Connection Strings boxes in this window, see [Azure App Service: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    For information about the App Settings and Connection Strings boxes in this window, see [Configure app settings](configure-common.md#configure-app-settings).
 
     If you want to perform an app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure portal.
 
@@ -81,7 +89,7 @@ You typically deploy a web project with the `customErrors` flag in the Web.confi
 
 :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Screenshot showing a message that reads **The website cannot display the page error in a web browser**.":::
 
-Frequently the easiest way to find the cause of the error is to enable detailed error messages, which the first of the preceding screenshots explains how to do. That requires a change in the deployed Web.config file. You could edit the *Web.config* file in the project and redeploy the project, or create a [`Web.config` transform](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) and deploy a debug build, but there's a quicker way: in **Solution Explorer**, you can directly view and edit files in the remote app by using the *remote view* feature.
+Frequently the easiest way to find the cause of the error is to enable detailed error messages, which the first of the preceding screenshots explains how to do. That requires a change in the deployed Web.config file. You could edit the *Web.config* file in the project and redeploy the project, or create a [`Web.config` transform](/aspnet/core/host-and-deploy/iis/transform-webconfig) and deploy a debug build, but there's a quicker way: in **Solution Explorer**, you can directly view and edit files in the remote app by using the *remote view* feature.
 
 1. In **Server Explorer**, expand **Azure**, expand **App Service**, expand the resource group that your app is located in, and then expand the node for your app.
 
@@ -104,7 +112,7 @@ Frequently the easiest way to find the cause of the error is to enable detailed 
 
 Editing the Web.config file is only one example of scenarios in which the ability to read and edit files on your App Service app make troubleshooting easier.
 
-## <a name="remotedebug"></a>Remote debugging apps
+## <a name="remotedebug"></a>Remote debug apps
 If the detailed error message doesn't provide enough information, and you can't re-create the error locally, another way to troubleshoot is to run in debug mode remotely. You can set breakpoints, manipulate memory directly, step through code, and even change the code path.
 
 Remote debugging does not work in Express editions of Visual Studio.
@@ -166,7 +174,7 @@ This section shows how to debug remotely using the project you create in [Create
 
      ![About page with new value](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a> Remote debugging WebJobs
+## <a name="remotedebugwj"></a> Remote debug WebJobs
 This section shows how to debug remotely using the project and app you create in [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 The features shown in this section are available only in Visual Studio 2013 with Update 4 or later.
@@ -331,7 +339,7 @@ For information about how to create application logs in WebJobs, see [How to wor
     ```
 
 The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
-1. Add a <a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
+1. Add a [trace element](/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)) under `<system.web>` in the Web.config file, such as the following example:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -604,7 +612,7 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
     ![Failed request tracing in browser](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="nextsteps"></a>Next Steps
+## <a name="nextsteps"></a>Related content
 You've seen how Visual Studio makes it easy to view logs created by an App Service app. The following sections provide links to more resources on related topics:
 
 * App Service troubleshooting
@@ -624,11 +632,11 @@ For more information about troubleshooting apps in Azure App Service, see the fo
 
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
-* [The Azure forum on Microsoft Q&A](/answers/topics/azure-webapps.html).
+* [The Azure forum on Microsoft Q&A](/answers/tags/436/azure-app-service).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### Debugging in Visual Studio
-For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](/visualstudio/debugger/debugging-in-visual-studio) and [Debugging Tips with Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
 ### Remote debugging in Azure
 For more information about remote debugging for App Service apps and WebJobs, see the following resources:
@@ -637,8 +645,6 @@ For more information about remote debugging for App Service apps and WebJobs, se
 * [Introduction to Remote Debugging Azure App Service part 2 - Inside Remote debugging](https://azure.microsoft.com/blog/introduction-to-remote-debugging-on-azure-web-sites/)
 * [Introduction to Remote Debugging on Azure App Service part 3 - Multi-Instance environment and GIT](https://azure.microsoft.com/blog/introduction-to-remote-debugging-on-azure-web-sites/)
 * [WebJobs Debugging (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
-
-If your app uses an Azure Web API or Mobile Services back-end and you need to debug that, see [Debugging .NET Backend in Visual Studio](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio).
 
 ### Tracing in ASP.NET applications
 There are no thorough and up-to-date introductions to ASP.NET tracing available on the Internet. The best you can do is get started with old introductory materials written for Web Forms because MVC didn't exist yet, and supplement that with newer blog posts that focus on specific issues. Some good places to start are the following resources:
@@ -686,5 +692,5 @@ For more information about analyzing web server logs, see the following resource
 ### Analyzing failed request tracing logs
 The Microsoft TechNet website includes a [Using Failed Request Tracing](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) section, which may be helpful for understanding how to use these logs. However, this documentation focuses mainly on configuring failed request tracing in IIS, which you can't do in Azure App Service.
 
-[GetStarted]: quickstart-dotnetcore.md?pivots=platform-windows
+[GetStarted]: quickstart-dotnetcore.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

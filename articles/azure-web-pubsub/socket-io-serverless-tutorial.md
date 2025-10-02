@@ -7,6 +7,7 @@ ms.author: chenyl
 ms.date: 09/01/2024
 ms.service: azure-web-pubsub
 ms.topic: tutorial
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Build chat app with Azure Function in Serverless Mode (Preview)
@@ -19,6 +20,8 @@ Find full code samples that are used in this tutorial:
 
 > [!IMPORTANT]
 > Default Mode needs a persistent server, you cannot integration Web PubSub for Socket.IO in default mode with Azure Function.
+
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
 
 ## Prerequisites
 

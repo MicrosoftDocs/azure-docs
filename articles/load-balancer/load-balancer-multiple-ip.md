@@ -7,8 +7,12 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 05/06/2025
-ms.custom: template-tutorial, engagement-fy23
 zone_pivot_groups: load-balancer-multiple-ip-pv
+ms.custom:
+  - template-tutorial
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to configure load balancing across multiple IPs for virtual machines, so that I can ensure high availability and manage website traffic efficiently.
 ---
 
 # Tutorial: Load balance multiple IP configurations

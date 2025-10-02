@@ -13,6 +13,7 @@ ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to set up a password change flow using custom policies, so that users can change their passwords without email verification, improving the user experience and security.

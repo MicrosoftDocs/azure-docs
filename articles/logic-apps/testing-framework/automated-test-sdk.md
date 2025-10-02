@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/10/2025
+ms.topic: concept-article
+ms.date: 07/18/2025
 ---
 
 # Azure Logic Apps Automated Test SDK

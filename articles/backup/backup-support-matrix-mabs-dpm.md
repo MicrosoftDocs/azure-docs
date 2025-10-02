@@ -2,11 +2,12 @@
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
 ms.service: azure-backup
-ms.date: 09/11/2024
+ms.date: 07/17/2025
 ms.topic: reference
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator using MABS or DPM, I want to understand the backup support limitations and configurations, so that I can effectively manage and safeguard my on-premises and Azure workloads.
 ---
 
 # Support matrix for backup with Microsoft Azure Backup Server or System Center DPM
@@ -221,3 +222,5 @@ Deduplication support for MABS depends on operating system support.
 - [Review](backup-support-matrix-mars-agent.md) what's supported for the MARS agent.
 - [Set up](backup-azure-microsoft-azure-backup.md) a MABS server.
 - [Set up DPM](/system-center/dpm/install-dpm).
+- [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+- [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).

@@ -5,6 +5,7 @@ author: cynthn
 ms.author: cynthn
 ms.topic: overview
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 products:
   - azure-migrate
   - vmware
@@ -14,6 +15,7 @@ ms.date: 05/09/2025
 ms.custom: vmware-scenario-422
 
 # Customer intent - Overview  of the options for assessing an existing VMware deployment for migration
+# Customer intent: As a cloud architect, I want to assess my existing VMware environment for migration to Azure, so that I can effectively plan and execute the migration while ensuring all dependencies and business value are considered.
 ---
 
 

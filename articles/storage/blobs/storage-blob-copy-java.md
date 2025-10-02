@@ -3,14 +3,15 @@ title: Copy a blob with Java
 titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the Java client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to understand how to copy blobs using the Azure Storage client library, so that I can efficiently manage and transfer data within my storage accounts.
 ---
 
 # Copy a blob with Java
@@ -42,3 +43,4 @@ For page blobs, you can use the [Put Page From URL](/rest/api/storageservices/pu
 - [Client library reference documentation](/java/api/overview/azure/storage-blob-readme)
 - [Client library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
 - [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
+

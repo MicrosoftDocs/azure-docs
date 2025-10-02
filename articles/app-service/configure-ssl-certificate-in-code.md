@@ -3,14 +3,19 @@ title: Use TLS/SSL Certificates in App Code
 description: Understand how to use TLS/SSL certificates in your application code to secure connections in Azure App Service.
 keywords: TLS/SSL in code, secure app, HTTPS integration, Azure App Service security
 ms.topic: article
-ms.custom: linux-related-content
 ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Use TLS/SSL certificates in your application code
+
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 In your application code, you can access the [public or private certificates that you add to Azure App Service](configure-ssl-certificate.md). Your app code might act as a client and access an external service that requires certificate authentication. It might also need to perform cryptographic tasks. This article shows how to use public or private certificates in your application code.
 
@@ -124,12 +129,11 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
-var cert = new X509Certificate2(bytes);
+
+var cert = X509CertificateLoader.LoadCertificateFromFile("~/<relative-path-to-cert-file>");
 
 // Use the loaded certificate
 ```
-
 To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
 
 ## Load certificates in Linux/Windows containers
@@ -159,8 +163,8 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
-var cert = new X509Certificate2(bytes);
+
+var cert = X509CertificateLoader.LoadCertificateFromFile("/var/ssl/certs/<thumbprint>.der");
 
 // Use the loaded certificate
 ```
@@ -171,9 +175,10 @@ The following C# code shows how to load a private certificate in a Linux app.
 using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+
 ...
-var bytes = File.ReadAllBytes("/var/ssl/private/<thumbprint>.p12");
-var cert = new X509Certificate2(bytes);
+
+var cert = X509CertificateLoader.LoadCertificateFromFile("/var/ssl/private/<thumbprint>.p12");
 
 // Use the loaded certificate
 ```

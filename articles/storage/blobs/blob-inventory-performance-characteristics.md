@@ -10,6 +10,7 @@ ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: reference
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a storage administrator, I want to optimize blob inventory performance in Azure, so that I can efficiently manage and analyze my storage resources while minimizing costs and processing times.
 ---
 
 # Blob inventory performance characteristics

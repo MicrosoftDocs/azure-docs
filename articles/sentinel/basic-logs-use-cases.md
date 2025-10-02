@@ -1,10 +1,10 @@
 ---
-title: When to use Auxiliary Logs in Microsoft Sentinel
-description: Learn what log sources might be appropriate for Auxiliary Log or Basic Log ingestion and what are the attributes to look for to decide about other sources.
-author: cwatson-cat
-ms.author: cwatson
+title: When to use the Microsoft Sentinel data lake
+description: Learn what log sources might be appropriate for the Microsoft Sentinel data lake and what attributes to look for, to decide about other sources.
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 03/31/2025
+ms.date: 07/15/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -14,9 +14,9 @@ ms.collection: usx-security
 #Customer intent: As a security analyst, I want to ingest high-volume, verbose logs into a cost-effective storage solution so that I can enhance my threat hunting and incident investigation capabilities.
 
 ---
-# Log sources to use for Auxiliary Logs ingestion
+# Log sources to use for the Microsoft Sentinel data lake
 
-This article highlights log sources to consider configuring as Auxiliary Logs (or Basic Logs) when they're stored in Log Analytics tables. Before choosing a log type for which to configure a given table, do the research to see which is most appropriate. For more information about data categories and log data plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+This article highlights log sources to consider configuring as data lake tier only when enabling a connector. Before choosing a tier for which to configure a given table, check which tier is most appropriate for your use case. For more information about data categories and data tiers, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -64,7 +64,8 @@ A new and growing source of log data is Internet of Things (IoT)-connected devic
 
 ## Next steps
 
-- [Select a table plan based on data usage in a Log Analytics workspace](/azure/azure-monitor/logs/logs-table-plans)
-- [Set up a table with the Auxiliary plan in your Log Analytics workspace](/azure/azure-monitor/logs/create-custom-table-auxiliary)
-- [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure)
-- [Start an investigation by searching for events in large datasets (preview)](investigate-large-datasets.md)
+- [What is the Microsoft Sentinel data lake?](datalake/sentinel-lake-overview.md)
+- [Manage data tiers and retention in Microsoft Defender Portal](manage-data-overview.md)
+- [KQL and the Microsoft Sentinel data lake](datalake/kql-overview.md)
+- [Jupyter notebooks in the Microsoft Sentinel data lake](datalake/notebooks-overview.md)
+

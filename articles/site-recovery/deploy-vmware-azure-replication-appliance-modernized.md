@@ -6,6 +6,10 @@ ms.topic: how-to
 ms.date: 01/24/2025
 ms.author: jsuri
 author: jyothisuri
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
+# Customer intent: As a system administrator, I want to deploy the Azure Site Recovery replication appliance for VMware, so that I can ensure effective disaster recovery of my on-premises VMs to Azure.
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized

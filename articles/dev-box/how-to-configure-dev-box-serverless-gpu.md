@@ -33,7 +33,12 @@ Serverless GPU compute in Dev Box uses Azure Container Apps (ACA). When a develo
 
 ## Prerequisites
 - An Azure subscription
-- A Microsoft Dev Box project 
+- *Microsoft.App* registered for your subscription
+- *Microsoft.CognitiveServices* registered for your subscription
+- A dev center and project
+    - For more information on creating a dev center and project, see [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
+- A managed service identity (MSI) configured for the dev center
+    - For more information on configuring MSI, see [Managed Service Identity](/azure/dev-box/how-to-configure-catalog?tabs=DevOpsRepoMSI#configure-a-managed-identity). 
 
 ## Configure serverless GPU
 
@@ -43,6 +48,9 @@ Administrators control serverless GPU access at the project level through Dev Ce
 - **Set concurrent GPU limits**: Set the maximum number of GPUs that can be used at the same time in a project.
 
 Access to serverless GPU resources is managed through project-level properties. When the serverless GPU feature is enabled for a project, all Dev Boxes in that project can use GPU compute. This simple access model removes the need for custom roles or pool-based configurations.
+
+> [!IMPORTANT]
+> Serverless GPU is available only in specific regions. Your project must be in one of the following regions: BrazilSouth, CanadaCentral, CentralUS, EastUS, EastUS2, SouthCentralUS, or WestUS3.
 
 ### Register serverless GPU for the subscription
 
@@ -61,7 +69,7 @@ Access to serverless GPU resources is managed through project-level properties. 
 
 ## Connect to a GPU
 
-After you enable serverless GPU, Dev Box users in that project see GPU options in their terminal and VS Code environments.
+After you enable serverless GPU, Dev Box users in that project see GPU options in their terminal and Visual Studio (VS) Code environments.
 
 You can connect using one of these methods:
 

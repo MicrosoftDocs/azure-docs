@@ -1,10 +1,10 @@
 ---
 title: Restore archived logs from search - Microsoft Sentinel
 description: Learn how to restore archived logs from search job results.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: how-to
 ms.date: 09/25/2024
-ms.author: cwatson
+ms.author: edbaynash
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -23,7 +23,7 @@ Restore data from an archived log to use in high performing queries and analytic
 
 ## Prerequisites
 
-Before you restore data in an archived log, see [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md) and [Restore in Azure Monitor](/azure/azure-monitor/logs/restore).
+Before you restore data in an archived log, see [Restore in Azure Monitor](/azure/azure-monitor/logs/restore).
 
 ## Restore archived log data
 

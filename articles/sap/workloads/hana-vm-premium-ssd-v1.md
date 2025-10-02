@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 10/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud architect, I want to configure SAP HANA workloads on Azure with optimal premium storage settings, so that I can ensure high performance and compliance with SAP certification requirements for production environments.
 ---
 
 # SAP HANA Azure virtual machine Premium SSD storage configurations
@@ -269,7 +270,7 @@ A less costly alternative for such configurations could look like:
 
 When combining the data and log volume for SAP HANA, the disks building the striped volume shouldn't have read cache or read/write cache enabled.
 
-There are VM types listed that aren't certified with SAP and as such not listed in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Feedback of customers was that those non-listed VM types were used successfully for some non-production tasks.
+There are VM types listed that aren't certified with SAP and as such not listed in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24). Feedback of customers was that those non-listed VM types were used successfully for some non-production tasks.
 
 
 ## Next steps

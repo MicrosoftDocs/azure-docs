@@ -1,12 +1,11 @@
 ---
 title: Microsoft Sentinel service limits
 description: This article provides a list of service limits for Microsoft Sentinel, divided into the different service areas.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 03/19/2025
-ms.author: yelevin
 ms.service: microsoft-sentinel
-
 
 #Customer intent: As a security architect, I want to understand the service limits of Microsoft Sentinel so that I can effectively manage and optimize my organization's security monitoring and incident response activities.
 
@@ -22,8 +21,8 @@ The following limit applies to analytics rules in Microsoft Sentinel.
 
 | Description | Limit | Dependency |
 | ----------- | ----- | ---------- |
-| Number of [scheduled rules](scheduled-rules-overview.md) | 512 *enabled* rules | Counted separately from NRT rules |
-| Number of [near-real-time (NRT) rules](near-real-time-rules.md) | 50 *enabled* rules | Counted separately from scheduled rules |
+| Number of [scheduled rules](scheduled-rules-overview.md) | 512 *enabled* rules, 1024 in total, including disabled rules.<br>With a [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) - 1024 *enabled* rules, 2048 in total, including disabled rules. Requires a request to increase the default limit through a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request). | Counted separately from NRT rules |
+| Number of [near-real-time (NRT) rules](near-real-time-rules.md) | 50 *enabled* rules, 100 in total, including disabled rules | Counted separately from scheduled rules |
 | [Entity mappings](map-data-fields-to-entities.md) | 10 mappings per rule | None |
 | [Entities](map-data-fields-to-entities.md) identified per alert<br>(Divided equally among the mapped entities) | 500 entities per alert | None |
 | [Entities](map-data-fields-to-entities.md) cumulative size limit | 64 KB | None |
@@ -64,6 +63,16 @@ The following limits apply to incidents in Microsoft Sentinel.
 **Number of incidents per day:** There isn't a formal, hard limit on the number of incidents that can be created per day. A workspace's actual capacity for incidents depends on the storage capacity of the incident database, so the size of the incidents is as much a factor as their number.
 
 However, a SOC that experiences the creation of more than *around* 3,000 new incidents per day will most likely find itself unable to keep up, and the database capacity will quickly be reached. In this situation, the SOC needs to find and fix any rules that create large numbers of incidents, to get the count of daily new incidents to manageable levels.
+
+## Case management limits
+
+The following limits apply to case management in Microsoft Sentinel.
+
+| Description        | Limit                                   | Dependency |
+|--------------------|-----------------------------------------|------------|
+| Cases per tenant   | 100,000 cases                 | None       |
+| Attachments per tenant    | 500 GB         | None       |
+| Linked incidents per case  | 100 incidents       | None       |
 
 ## Machine learning-based limits
 

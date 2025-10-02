@@ -4,9 +4,10 @@ description: Learn how to manage and monitor the backed-up Azure Files using Azu
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 05/22/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 
+# Customer intent: "As a cloud administrator, I want to manage and monitor Azure Files backups using the command line, so that I can automate backup processes and ensure data protection efficiently."
 ---
 
 # Manage Azure Files backups with the Azure CLI

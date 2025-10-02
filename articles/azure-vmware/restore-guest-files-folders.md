@@ -6,6 +6,7 @@ ms.author: anfdocs
 ms.service: azure-vmware
 ms.date: 12/03/2024
 ms.custom: engagement-fy24
+# Customer intent: As a system administrator, I want to restore files and folders from a virtual machine disk on a Windows guest OS, so that I can recover important data without downtime or loss of access.
 ---
 
 # Restore guest files and folders using Cloud Backup for Virtual Machines (preview)

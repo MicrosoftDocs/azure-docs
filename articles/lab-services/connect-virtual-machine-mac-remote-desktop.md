@@ -7,7 +7,8 @@ ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
-ms.date: 03/04/2024
+ms.date: 07/08/2025
+ms.custom: sfi-image-nochange
 #customer intent: As a student or trainee, I want to connect to an Azure Lab Services VM from my Mac over RDP in order to use the lab resources.
 ---
 
@@ -17,17 +18,15 @@ ms.date: 03/04/2024
 
 In this article, you learn how to connect to a lab virtual machine (VM) in Azure Lab Services from a Mac by using Remote Desktop Protocol (RDP).
 
-## Install Microsoft Remote Desktop on a Mac
+## Install Windows App on a Mac
 
-To connect to the lab VM by using RDP, use the Microsoft Remote Desktop app.
+To connect to the lab VM by using RDP, use the Windows App app.
 
-To install the Microsoft Remote Desktop app:
+To install the Windows App app:
 
-1. Open the App Store on your Mac, and search for **Microsoft Remote Desktop**.
+1. Open the App Store on your Mac, and search for **Windows App**.
 
-    :::image type="content" source="./media/connect-virtual-machine-mac-remote-desktop\install-remote-desktop.png" alt-text="Screenshot of Microsoft Remote Desktop app in the App Store." lightbox="./media/connect-virtual-machine-mac-remote-desktop\install-remote-desktop.png" :::
-
-1. Select **Install** to install the latest version of Microsoft Remote Desktop.
+1. Select **Install** to install the latest version of Windows App.
 
 ## Access the VM from your Mac using RDP
 
@@ -43,17 +42,13 @@ Connect to the lab VM by using the remote desktop application. You can retrieve 
 
     :::image type="content" source="./media/connect-virtual-machine-mac-remote-desktop/student-vm-connect-options.png" alt-text="Screenshot that shows VM tile for student with the RDP and SSH connection options highlighted." lightbox="./media/connect-virtual-machine-mac-remote-desktop/student-vm-connect-options.png":::
 
-1. Open the *RDP* file on your computer with **Microsoft Remote Desktop** installed. Your computer should start to connect to the VM.
+1. Open the *RDP* file on your computer with **Windows App** installed. Your computer should start to connect to the VM.
 
-    :::image type="content" source="./media/how-to-use-classroom-lab/connect-linux-vm.png" alt-text="Screenshot of Microsoft Remote Desktop app connecting to a remote VM." lightbox="./media/how-to-use-classroom-lab/connect-linux-vm.png":::
-
-1. When prompted, enter your user name and password.
-
-1. If you receive a certificate warning, you can select **Continue**.
-
-    :::image type="content" source="./media/how-to-use-classroom-lab/certificate-error.png" alt-text="Screenshot of certificate error for Microsoft Remote Desktop app." lightbox="./media/how-to-use-classroom-lab/certificate-error.png":::
+1. When prompted, log in.
 
 1. After the connection is established, you see the desktop of your lab VM.
+
+For more information about using Windows App, see [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?tabs=macos-avd%2Cwindows-w365%2Cwindows-devbox%2Cmacos-rds%2Cmacos-pc&pivots=azure-virtual-desktop).
 
 ## Related content
 

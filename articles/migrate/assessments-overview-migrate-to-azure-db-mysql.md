@@ -5,7 +5,9 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: concept-article
 ms.date: 05/08/2025
-monikerRange: migrate-classic
+ms.reviewer: v-uhabiba
+monikerRange:
+# Customer intent: "As a database administrator, I want to use an assessment tool to evaluate my on-premises MySQL database for migration, so that I can understand readiness, sizing, and costs for transitioning to Azure Database for MySQL."
 ---
 
 # Assessment overview - Migrate to Azure Database for MySQL (preview)

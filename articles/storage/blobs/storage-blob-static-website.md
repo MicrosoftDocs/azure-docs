@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: shaas
 ms.reviewer: dineshm
 ms.date: 02/12/2025
+# Customer intent: "As a web developer, I want to host a static website using cloud storage, so that I can efficiently serve content without the need for a traditional web server while maintaining scalability and performance."
 ---
 
 # Static website hosting in Azure Storage
@@ -16,6 +17,10 @@ Azure Blob Storage is ideal for storing large amounts of unstructured data such 
 [!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 If you need a web server to render content, you can use [Azure App Service](https://azure.microsoft.com/services/app-service/).
+
+## Prerequisites
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/).
+- An Azure storage account resource. To learn how to create a storage account, see [Create an Azure storage account](../common/storage-account-create.md). 
 
 ## Setting up a static website
 

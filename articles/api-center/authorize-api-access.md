@@ -174,7 +174,7 @@ You can manage access by specific users or groups in your organization to an API
 You can use the API Center portal to test an API that you configured for authentication and user access. 
 
 > [!TIP]
-> In addition to enabling specific users to test specific APIs in the API Center portal, you can configure [visibility settings](set-up-api-center-portal.md#api-visibility) for APIs. Visibility settings in the portal control the APIs that appear for all signed-in users.
+> In addition to enabling specific users to test specific APIs in the API Center portal, you can configure [visibility settings](customize-api-center-portal.md#api-visibility) for APIs. Visibility settings in the portal control the APIs that appear for all signed-in users.
 
 1. In the [portal](https://azure.microsoft.com), navigate to your API center.
 1. In the left menu, under **API Center Portal**, select **Portal settings**.

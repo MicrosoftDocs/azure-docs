@@ -10,6 +10,8 @@ zone_pivot_groups: microsoft-playwright-testing
 
 # Use features of Microsoft Playwright Testing preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to use the features provided by Microsoft Playwright Testing preview. 
 
 > [!IMPORTANT]

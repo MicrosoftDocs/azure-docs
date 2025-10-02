@@ -5,27 +5,26 @@ services: firewall
 author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 08/01/2022
+ms.date: 07/10/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 # Customer intent: As a network security administrator, I want to enable threat intelligence-based filtering on my firewall, so that I can proactively alert and deny traffic from known malicious IP addresses and domains to enhance the security of my network.
 ---
 
 # Azure Firewall threat intelligence-based filtering
 
-You can enable Threat intelligence-based filtering for your firewall to alert and deny traffic from/to known malicious IP addresses, FQDNs, and URLs. The IP addresses, domains and URLs are sourced from the Microsoft Threat Intelligence feed, which includes multiple sources including the Microsoft Cyber Security team. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and uses multiple services including Microsoft Defender for Cloud.<br>
+You can enable Threat intelligence-based filtering for your firewall to alert and deny traffic from/to known malicious IP addresses, FQDNs, and URLs. The IP addresses, domains and URLs are sourced from the Microsoft Threat Intelligence feed, which includes multiple sources including the Microsoft Cyber Security team.<br>
 <br>
 
 :::image type="content" source="media/threat-intel/firewall-threat.png" alt-text="Firewall threat intelligence" border="false":::
 
-If you've enabled threat intelligence-based filtering, the firewall processes the associated rules before any of the NAT rules, network rules, or application rules.
+When threat intelligence-based filtering is enabled, Azure Firewall evaluates traffic against the threat intelligence rules before applying NAT, network, or application rules.
 
-When a rule triggers, you can choose to just log an alert, or you can choose alert and deny mode.
+Administrators can configure the firewall to operate in alert-only mode or in alert and deny mode when a threat intelligence rule is triggered. By default, the firewall operates in alert-only mode. This mode can be disabled or changed to alert and deny.
 
-By default, threat intelligence-based filtering is in alert mode. You can’t turn off this feature or change the mode until the portal interface becomes available in your region.
+Allowlists can be defined to exempt specific FQDNs, IP addresses, ranges, or subnets from threat intelligence filtering.
 
-You can define allowlists so threat intelligence doesn't filter traffic to any of the listed FQDNs, IP addresses, ranges, or subnets.
-
-For a batch operation, you can upload a CSV file with list of IP addresses, ranges, and subnets.
+For batch operations, administrators can upload a CSV file containing IP addresses, ranges, and subnets to populate the allowlist.
 
 ## Logs
 

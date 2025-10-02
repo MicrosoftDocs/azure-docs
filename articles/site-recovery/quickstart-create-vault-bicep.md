@@ -7,6 +7,7 @@ ms.author: jsuri
 ms.date: 05/23/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
+# Customer intent: As an IT administrator, I want to create a Recovery Services vault using Bicep, so that I can ensure business continuity and disaster recovery for my applications during outages.
 ---
 
 # Quickstart: Create a Recovery Services vault using Bicep

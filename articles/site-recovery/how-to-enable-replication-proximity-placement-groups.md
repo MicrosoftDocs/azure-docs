@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
 ms.date: 04/26/2025
+# Customer intent: "As an IT administrator, I want to replicate Azure virtual machines in a proximity placement group to another region using Site Recovery, so that I can ensure continuity and reduce downtime for latency-sensitive applications in case of a regional failure."
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region

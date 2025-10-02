@@ -1,10 +1,10 @@
 ---
 title: Implications - remove Microsoft Sentinel from workspace 
 description: Learn about the impact of removing a Microsoft Sentinel instance from a Log Analytics workspace in the Azure or Defender portal.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: concept-article
 ms.date: 02/06/2025
-ms.author: cwatson
+ms.author: edbaynash
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

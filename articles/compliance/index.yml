@@ -387,9 +387,6 @@ conceptualContent:
         - url: /compliance/regulatory/offering-ens-spain
           itemType: concept
           text: Spain ENS High
-        - url: /compliance/regulatory/offering-lopd-spain
-          itemType: concept
-          text: Spain LOPD
         - url: /azure/compliance/offerings/offering-uae-desc
           itemType: concept
           text: UAE DESC
@@ -428,25 +425,25 @@ additionalContent:
         - title: Azure Policy regulatory compliance built-in initiatives
           links:
             - text: Australian Government ISM PROTECTED
-              url: ../governance/policy/samples/australia-ism.md
+              url: /azure/governance/policy/samples/australia-ism
             - text: Canada Federal PBMM
-              url: ../governance/policy/samples/canada-federal-pbmm.md
+              url: /azure/governance/policy/samples/canada-federal-pbmm
             - text: CIS Azure Foundations Benchmark
-              url: ../governance/policy/samples/cis-azure-1-3-0.md
+              url: /azure/governance/policy/samples/cis-azure-1-3-0
             - text: FedRAMP High
-              url: ../governance/policy/samples/fedramp-high.md
+              url: /azure/governance/policy/samples/fedramp-high
             - text: HIPAA HITRUST
               url: ../governance/policy/samples/hipaa-hitrust-9-2.md
             - text: IRS 1075
-              url: ../governance/policy/samples/irs-1075-sept2016.md
+              url: /azure/governance/policy/samples/irs-1075-sept2016
             - text: ISO 27001
-              url: ../governance/policy/samples/iso-27001.md
+              url: /azure/governance/policy/samples/iso-27001
             - text: PCI DSS
-              url: ../governance/policy/samples/pci-dss-3-2-1.md
+              url: /azure/governance/policy/samples/pci-dss-3-2-1
             - text: NIST SP 800-171
-              url: ../governance/policy/samples/nist-sp-800-171-r2.md
+              url: /azure/governance/policy/samples/nist-sp-800-171-r2
             - text: UK OFFICIAL and UK NHS
-              url: ../governance/policy/samples/ukofficial-uknhs.md
+              url: /azure/governance/policy/samples/ukofficial-uknhs
 
         # Card
         - title: Country/Region privacy and compliance guides

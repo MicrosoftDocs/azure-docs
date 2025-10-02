@@ -2,13 +2,13 @@
 title: Create a subscription for a partner's customer
 titleSuffix: Azure Cost Management + Billing
 description: Learn how a Microsoft Partner creates a subscription for a customer in the Azure portal.
-author: PreetiSGit
-ms.reviewer: presharm
+author: Nicholak-MS
+ms.author: nicholak
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/22/2025
-ms.author: presharm
+ms.date: 08/21/2025
 ---
 
 # Create a subscription for a partner's customer
@@ -43,7 +43,6 @@ Partners with a Microsoft Partner Agreement use the following steps to create a 
     :::image type="content" source="./media/create-customer-subscription/all-billing-subscriptions-add.png" alt-text="Screenshot showing navigation to Add where you create a customer subscription." lightbox="./media/create-customer-subscription/all-billing-subscriptions-add.png" :::
 1. On the Basics tab, enter a subscription name.
 1. Select the partner's billing account.
-1. Select the partner's billing profile.
 1. Select the customer that you're creating the subscription for.
 1. If applicable, select a reseller.
 1. Next to **Plan**, select **Microsoft Azure Plan**.  

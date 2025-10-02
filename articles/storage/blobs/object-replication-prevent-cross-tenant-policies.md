@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/08/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: "As a storage administrator, I want to configure storage accounts to prevent cross-tenant object replication, so that I can ensure compliance with our security policies and safeguard sensitive data across tenants."
 ---
 
 # Prevent object replication across Microsoft Entra tenants

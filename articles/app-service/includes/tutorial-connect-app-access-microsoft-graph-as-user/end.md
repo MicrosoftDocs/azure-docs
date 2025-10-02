@@ -13,7 +13,6 @@ ms.reviewer: stsoneff
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
 ms.custom: azureday1
-ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 ## Clean up resources

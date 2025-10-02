@@ -5,8 +5,10 @@ author: ankitsurkar06
 ms.service: azure-migrate 
 ms.topic: concept-article 
 ms.date: 04/17/2025
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy24
-monikerRange: migrate
+monikerRange:
+# Customer intent: As a cloud architect, I want to estimate hosting costs for Azure migrations using assessment data, so that I can make informed decisions about resource allocation and budgeting in the transition to cloud infrastructure.
 ---
 
 # Cost estimation of Assessment in Azure Migrate

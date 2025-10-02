@@ -8,7 +8,11 @@ ms.topic: how-to
 ms.date: 04/04/2024
 ms.author: mbender
 ms.service: azure-application-gateway
-ms.custom: mvc, mode-ui
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
+# Customer intent: As a network engineer, I want to configure an application gateway with a frontend public IPv6 address, so that I can ensure dual stack connectivity and effectively manage traffic between my infrastructure and users.
 ---
 
 # Configure Application Gateway with a frontend public IPv6 address using the Azure portal
@@ -101,7 +105,7 @@ Create the application gateway using the tabs on the **Create application gatewa
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**.
 
    > [!IMPORTANT]
-   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. A private IPv6 frontend IP configuration (Only ILB mode) is currently not supported for the IPv6 Application Gateway. 
+   > For a [private only Application Gateway](./application-gateway-private-deployment.md), you can configure private IPv6 frontend IPs, but you must also configure a private IPv4 address. In other words, a private-only Application Gateway requires both private IPv4 and private IPv6 addresses.
 
 2. Select **Add new** for the **Public IP address**, enter a name for the public IP address, and select **OK**. For example, **myAGPublicIPAddress**. 
 

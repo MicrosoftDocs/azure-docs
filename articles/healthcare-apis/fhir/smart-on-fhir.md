@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
 ms.date: 11/10/2022
+ms.custom: sfi-image-nochange
 ---
 
 # SMART on FHIR

@@ -35,7 +35,7 @@ To complete this quickstart, you need the following items:
 ## Create the ARM template
 
 > [!Note]
-> Azure Managed Applications only supports ARM templates using languageVersion 1.0 and **does not** support languageVersion 2.0. Refer to the [ARM Template documentation](https://learn.microsoft.com/azure/azure-resource-manager/templates/syntax#languageversion-20) to see what features will automatically enable version 2.0.
+> Azure Managed Applications only supports ARM templates using languageVersion 1.0 and **does not** support languageVersion 2.0. Refer to the [ARM Template documentation](/azure/azure-resource-manager/templates/syntax#languageversion-20) to see what features will automatically enable version 2.0.
 
 Every managed application definition includes a file named _mainTemplate.json_. The template defines the Azure resources to deploy and is no different than a regular ARM template.
 

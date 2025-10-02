@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel experience when you onboard Micr
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 05/04/2025
+ms.date: 07/13/2025
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -16,11 +16,15 @@ ms.collection: usx-security
 
 # Microsoft Sentinel in the Microsoft Defender portal
 
-Microsoft Defender provides a unified cybersecurity solution that integrates endpoint protection, cloud security, identity protection, email security, threat intelligence, exposure management, and SIEM into a centralized platform. It uses AI-driven defense to help organizations anticipate and stop attacks, ensuring efficient and effective security operations.
+Microsoft Defender provides a unified cybersecurity solution that integrates endpoint protection, cloud security, identity protection, email security, threat intelligence, exposure management, and SIEM into a centralized platform powered by a modern data lake. It uses AI-driven defense to help organizations anticipate and stop attacks, ensuring efficient and effective security operations.
 
 Microsoft Sentinel is generally available in the Microsoft Defender portal, either with [Microsoft Defender XDR](/microsoft-365/security/defender), or on its own, delivering a unified experience across SIEM and XDR for faster and more accurate threat detection and response, simplified workflows, and enhanced operational efficiency.
 
-This article describes the Microsoft Sentinel experience in the Defender portal. We recommend that customers using Microsoft Sentinel in the Azure portal move into Microsoft Defender to take advantage of the unified security operations available and the latest capabilities. For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+This article describes the Microsoft Sentinel experience in the Defender portal.
+
+[!INCLUDE [sentinel-azure-deprecation.md](includes/sentinel-azure-deprecation.md)] 
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 
 ## New and improved capabilities
@@ -36,7 +40,7 @@ The following table describes the new or improved capabilities available in the 
 | **Enhanced visibility and reduced risk exposure** | Analyze attack paths to see how a cyber attacker could exploit vulnerabilities. Use guided SOC optimization recommendations to reduce costs and exposure, and prioritize actions based on potential impact. | - [Optimize your security operations](soc-optimization/soc-optimization-access.md)<br><br>- [Use SOC optimizations programmatically](soc-optimization/soc-optimization-api.md)<br><br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md) |
 | **Tailored post-incident recommendations** | Prevent similar or repeat cyberattacks with tailored recommendations tied to Microsoft Security Exposure Management initiatives. | [Microsoft Security Exposure Management for enhanced security posture](/unified-secops-platform/overview-msem-strategy) |
 | **Cost and data optimization** | Customers can access both Microsoft Sentinel and Defender XDR data in a unified and consistent schema in the Defender portal. <br><br>Advanced hunting raw logs are available for 30 days for hunting free of charge without needing to ingest them into Microsoft Sentinel. | [What to expect to for Defender XDR tables streamed to Microsoft Sentinel](/defender-xdr/advanced-hunting-microsoft-defender#what-to-expect-for-defender-xdr-tables-streamed-to-microsoft-sentinel) |
-
+| **Unified, cost-effective data lake** | Improve costs and scale with simplified data onboarding, dynamic recommendations, robust out of the box solutions, and a centralized, cost-effective data lake, enabling enterprise-wide visibility. | [What is Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md) |
 ## Limited or unavailable capabilities with Microsoft Sentinel only in the Defender portal
 
 When you onboard Microsoft Sentinel to the Defender portal without Defender XDR or other services enabled, the following capabilities are limited or unavailable:

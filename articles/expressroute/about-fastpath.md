@@ -25,12 +25,12 @@ ExpressRoute FastPath is available for ExpressRoute Direct and ExpressRoute prov
 
 The following table lists the availability of ExpressRoute FastPath for the different type of ExpressRoute circuit:
 
-| Feature | Availability |
-|--|--|
-| ExpressRoute FastPath to Hub virtual network on ExpressRoute circuits | Available on all ExpressRoute circuits |
-| Virtual network peering over ExpressRoute FastPath | Generally available in all public cloud regions and only for ExpressRoute Direct. |
-| User-Defined Routing (UDR) over ExpressRoute FastPath | Generally available in all public cloud regions and only for ExpressRoute Direct. |
-| Private endpoint and Private Link over ExpressRoute FastPath | Limited general availability and only for ExpressRoute Direct. |
+| Feature | IP address family | Availability |
+|--|--|--|
+| ExpressRoute FastPath to Hub virtual network on ExpressRoute circuits | IPv4 and IPv6*  | IPv4 is available on all ExpressRoute circuits. *IPv6 is supported on ER Direct only |
+| Virtual network peering over ExpressRoute FastPath | IPv4 and IPv6 | Generally available in all public cloud regions and only for ExpressRoute Direct. |
+| User-Defined Routing (UDR) over ExpressRoute FastPath | IPv4 and IPv6 | Generally available in all public cloud regions and only for ExpressRoute Direct. |
+| Private endpoint and Private Link over ExpressRoute FastPath | IPv4 only | Limited general availability and only for ExpressRoute Direct. |
 
 #### IP address limits
 
@@ -85,9 +85,11 @@ ExpressRoute FastPath support for Private Link and Private endpoint connectivity
 The supported Azure regions are:
 
 - Australia East
+- Central Korea
 - East Asia
 - East US
 - East US 2
+- East Japan
 - North Central US
 - North Europe
 - South Central US
@@ -113,12 +115,13 @@ The following Azure services are supported:
 > * ExpressRoute FastPath supports a maximum of 100-Gbps connectivity to a single availability zone.
 > * Azure Private Link pricing doesn't apply to traffic sent over ExpressRoute FastPath. For more information about pricing, see the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 > * Enabling ExpressRoute FastPath does not prevent access to Azure services on Private Endpoints: reachability remains guaranteed by routing traffic through the ExpressRoute Virtual Network Gateway.
+> * VNET, Private Endpoint, Private Link Service for cross-region over FastPath is not supported. In such scenario, the Private Link service traffic will fallback to Gateway path and the maximum bandwidth will be limited based on the Gateway sku. 
 
 ## Limitations
 
 While ExpressRoute FastPath supports many configurations, it might not be suitable for all scenarios. The following limitations apply to ExpressRoute FastPath:
 
-- **Azure Internal Load Balancer**: ExpressRoute FastPath doesn't support Azure internal load balancers or Azure PaaS services in spoke virtual networks. Network traffic from your on-premises network to the private IP addresses of these services in the spoke virtual network gets routed through the ExpressRoute virtual network gateway. Internal load balancers within the hub virtual network aren't affected.
+- **Azure Internal Load Balancer**: ExpressRoute FastPath doesn't support Azure internal load balancers or Azure PaaS services in spoke virtual networks. Network traffic from your on-premises network to the private IP addresses of these services in the spoke virtual network gets routed through the ExpressRoute virtual network gateway. Internal load balancers within the hub virtual network aren't affected and traffic goes through FastPath.
 
 - **Virtual network peering**:
     

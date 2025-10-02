@@ -2,9 +2,9 @@
 title: About Azure Elastic SAN backup (preview)
 description: Learn how the Elastic SAN backup (preview) works.
 ms.topic: overview
-ms.date: 06/20/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/15/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 --- 
 
@@ -26,7 +26,7 @@ Elastic SAN backup includes the following key features:
 - **Region availability**: The feature is currently [available in specific regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions) only. 
 - **Snapshot export**: Exports the selected Elastic SAN to an independent managed disk incremental snapshot (operational tier) at a given point in time.
 - **Storage and resiliency**: Managed Disk incremental snapshot is stored in Locally redundant storage (LRS) resiliency (in LRS-[supported regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions)), independent of the Elastic SAN lifecycle.
-- **Recovery points**: Supports up to **450 recovery points**, with backup frequency of **24 hours**.
+- **Recovery points**: Supports up to **450** recovery points, which allows you customize **daily** or **weekly** schedules to align your backup strategy with business continuity and compliance needs.
 - **Backup tier**: Supports operational tier.
 
   >[!Note]

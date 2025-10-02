@@ -2,14 +2,15 @@
 title: Copy a blob with asynchronous scheduling using Python
 titleSuffix: Azure Storage
 description: Learn how to copy a blob with asynchronous scheduling in Azure Storage by using the Python client library.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a cloud developer, I want to implement asynchronous blob copying using the Python client library, so that I can efficiently manage large data transfers between storage accounts or through HTTP accessible URLs.
 ---
 
 # Copy a blob with asynchronous scheduling using Python
@@ -123,3 +124,4 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
 [!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]
+

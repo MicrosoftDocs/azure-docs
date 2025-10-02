@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 03/11/2025
+ms.date: 09/03/2025
 ms.author: anfdocs
+# Customer intent: As a cloud storage administrator, I want to understand how Kerberos authentication works in Azure NetApp Files, so that I can configure secure access for SMB and NFS protocols and manage authentication processes effectively within my organization.
 ---
 
 # Understand Kerberos in Azure NetApp Files
@@ -414,7 +415,12 @@ The NFS Kerberos realm is configured when the Kerberos realm information is fill
 
 :::image type="content" source="media/kerberos/kerberos-realm.png" alt-text="Screenshot of Kerberos realm configuration." lightbox="media/kerberos/multiple-dns-smb.png":::
  
-The AD Server Name and KDC IP are used to connect to the AD KDC services on the initial machine account creation. The Azure NetApp Files service leverages the existing domain information to fill out the rest of the realm configuration. For example:
+The AD Server Name and KDC IP are used to connect to the AD KDC services on the initial machine account creation. 
+
+>[!NOTE]
+>The KDC IP and AD Server Name fields in the Active Directory object cannot be cleared out until the Active Directory object is deleted. It can only be changed to a valid non-empty value.
+
+The Azure NetApp Files service leverages the existing domain information to fill out the rest of the realm configuration. For example:
 
 ```
 Kerberos Realm: CONTOSO.COM
@@ -531,6 +537,7 @@ When an Azure NetApp Files NFS Kerberos mount is accessed by a user (other than 
 - If the user doesn't exist in LDAP or LDAP can't be queried (server is down, DNS lookup fails, bind fails, LDAP search times out, user doesn't exist) then the mapping fails and access is denied.
 - If the user exists, group memberships are gathered. 
 - The mapping succeeds and an NFS service ticket is issued to the client (seen in `klist -e` commands). Access is allowed based on the file permissions on the export path.
+</details>
 
 ### LDAP's role with Kerberos in Azure NetApp Files
 

@@ -2,7 +2,7 @@
 title: Use tags to organize your Azure resources and management hierarchy 
 description: Understand how to tag Azure resources, resource groups, and subscriptions for logical organization. Learn about the conditions and limitations of using tags with Azure resources.
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 09/15/2025
 ---
 
 # Use tags to organize your Azure resources and management hierarchy

@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 12/24/2024
 ms.custom: references_regions, engagement-fy24
+# Customer intent: "As a cloud architect, I want to design a vSAN stretched cluster for Azure VMware Solution, so that I can enhance application availability and ensure resilience against Availability Zone failures while managing my infrastructure efficiently."
 ---
 
 # Design vSAN stretched clusters
@@ -66,7 +67,7 @@ Azure VMware Solution stretched clusters are available in the following regions:
 
 - UK South (on AV36, and AV36P)
 - West Europe (on AV36, and AV36P) 
-- Germany West Central (on AV36, and AV36P)
+- Germany West Central (on AV36P and AV48)
 - Australia East (on AV36P)
 - East US (on AV36P)
 

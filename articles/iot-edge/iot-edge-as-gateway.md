@@ -1,14 +1,16 @@
 ---
-title: Gateways for downstream devices - Azure IoT Edge 
+title: Use Azure IoT Edge as a gateway for downstream devices
 description: Use Azure IoT Edge to create a transparent, opaque, or proxy gateway device that sends data from multiple downstream devices to the cloud or processes locally.
-author: PatAltimore
-
-ms.author: patricka
-ms.date: 04/29/2025
+author: sethmanheim
+ms.author: sethm
+ms.date: 07/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom:  [amqp, mqtt]
+ms.custom:
+  - amqp
+  - mqtt
+  - sfi-image-nochange
 ---
 
 # How an IoT Edge device can be used as a gateway
@@ -39,7 +41,29 @@ For more information about how the IoT Edge hub manages communication between do
 
 Beginning with version 1.2 of IoT Edge, transparent gateways can handle connections from downstream IoT Edge devices.
 
-<!-- TODO add a downstream IoT Edge device to graphic -->
+<!--
+Change arrow styles to include a double hyphen to make it work in the markdown mermaid renderer. The space between the hyphens is a workaround for the HTML end comment tag.
+
+```mermaid
+ graph TD
+    A[IoT hub] - -> B[IoT Edge gateway]
+    B - -> C[Downstream device 1]
+    B - -> D[Downstream device 2]
+    B - -> E[Downstream IoT Edge device]
+    E - -> F[Downstream device 3]
+    E - -> G[Downstream device 4]
+
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+    style B fill:#bbf,stroke:#333,stroke-width:4px
+    style C fill:#bfb,stroke:#333,stroke-width:4px
+    style D fill:#bfb,stroke:#333,stroke-width:4px
+    style E fill:#bbf,stroke:#333,stroke-width:4px
+    style F fill:#bfb,stroke:#333,stroke-width:4px
+    style G fill:#bfb,stroke:#333,stroke-width:4px 
+```
+-->
+
+:::image type="content" source="media/iot-edge-as-gateway/edge-gateway-relationship.svg" alt-text="Diagram showing the device parent and child relationship using IoT Edge as a gateway.":::
 
 ### Parent and child relationships
 

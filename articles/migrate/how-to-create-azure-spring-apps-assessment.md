@@ -5,8 +5,10 @@ author: yangyizhe90
 ms.author: yangtony
 ms.topic: tutorial
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 09/28/2023
 ms.custom: engagement-fy23
+# Customer intent: As an IT manager, I want to assess our Spring Boot applications for migration to Azure Spring Apps, so that I can evaluate cloud readiness, identify potential risks, and estimate costs before initiating the migration process.
 ---
 
 # Create an Azure Spring Apps assessment (preview)

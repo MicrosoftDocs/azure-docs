@@ -7,7 +7,8 @@ ms.topic: quickstart
 ms.custom: devx-track-java, mode-other, devx-track-terraform
 ms.author: karler
 ms.reviewer: ariel
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Quickstart: Provision Azure Spring Apps using Terraform

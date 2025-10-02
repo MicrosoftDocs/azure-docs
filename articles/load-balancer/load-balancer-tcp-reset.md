@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 07/31/2024
 ms.author: mbender
+# Customer intent: "As a network administrator, I want to enable TCP resets on idle timeout for load balancer rules, so that I can enhance application responsiveness by promptly notifying endpoints of closed connections."
 ---
 
 # Load Balancer TCP Reset and Idle Timeout
@@ -30,7 +31,7 @@ By carefully examining the entire end to end scenario, you can determine the ben
 
 ## Configurable TCP idle timeout
 
-Azure Load Balancer Standard has a 4 minutes to 100-minutes timeout range for load balancer rules, outbound rules, and inbound NAT rules. The default is 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service. Azure Load Balancer Basic has up to a 30 minute timeout range.
+Azure Load Balancer Standard has a 4 minutes to 100-minutes timeout range for load balancer rules, outbound rules, and inbound NAT rules. The default is 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service. Azure Load Balancer Basic has up to a 60 minute timeout range.
 
 When the connection is closed, your client application can receive the following error message: "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server."
 
@@ -59,7 +60,7 @@ It's important to take into account how the idle timeout values set for differen
 ## Limitations
 
 - TCP reset only sent during TCP connection in ESTABLISHED state.
-- TCP idle timeout doesn't affect load balancing rules on UDP protocol.
+- Idle timeout is not supported for UDP load balancing rules.
 - TCP reset isn't supported for Internal Load Balancer HA ports when a network virtual appliance is in the path. A workaround could be to use outbound rule with TCP reset from Network Virtual Appliance.
 - TCP idle timeout isn't supported for Internal Load Balancer (ILB) HA ports when a User Defined Route (UDR) is used to forward traffic to the ILB.  
 

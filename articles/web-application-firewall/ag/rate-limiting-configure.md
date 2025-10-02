@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 01/22/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a security administrator, I want to configure custom rate limiting rules for my application gateway, so that I can control and mitigate abnormal traffic levels and protect my application from potential denial-of-service attacks.
 ---
 
 # Create rate limiting custom rules for Application Gateway WAF v2

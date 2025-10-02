@@ -3,8 +3,9 @@ title: Manage Azure Elastic SAN backups using the Azure portal (preview)
 description: Learn how to manage Elastic SAN  backups (preview) using the Azure portal.
 ms.topic: how-to
 ms.date: 06/20/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to manage Azure Elastic SAN backups through the portal, so that I can ensure data protection and recovery options are efficiently configured and maintained."
 ---
 
 # Manage Azure Elastic SAN backups using the Azure portal (preview)

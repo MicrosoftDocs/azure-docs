@@ -4,6 +4,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/12/2021
 ms.author: mahender
+ms.custom: sfi-ropc-nochange
 ---
 
 ## Connections

@@ -8,7 +8,9 @@ ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 03/13/2024
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 #customer intent: As an  administrator or educator, I want to create a lab, schedule teaching events, add users, and invite the users to register for the lab in Azure Lab Services.
 ---
 

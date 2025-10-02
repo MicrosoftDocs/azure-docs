@@ -4,11 +4,12 @@ description: Learn about Business Continuity and Disaster Recovery (BCDR) in Mic
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 02/04/2025
+ms.date: 06/29/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: references_regions
 
 #customerIntent: As a security administrator, I want to understand and implement Business Continuity and Disaster Recovery (BCDR) strategies in Microsoft Sentinel in order to ensure high availability and resilience of my security operations.
 
@@ -49,7 +50,7 @@ To support BCDR in a regional outage, Microsoft Sentinel uses a customer-enabled
 
 Customer-enabled BCDR involves:
 
-- Creating two identical Log Analytics workspaces that are enabled for Microsoft Sentinel in the appropriate regions. For more information, see [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md).
+- Creating two identical Log Analytics workspaces that are enabled for Microsoft Sentinel in the appropriate regions. For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md).
 
     In the backup workspace, focus on the data sources, analytic rules, and other configurations that are critical for your business continuity.
 
@@ -60,6 +61,16 @@ Customer-enabled BCDR involves:
 These activities must be configured manually by the customer and don't happen automatically. No future actions during an actual outage are required or expected.
 
 A customer-enabled BCDR setup ensures that if an Azure regional outage occurs in one of the customer's regions, the other paired region, which is geographically and physically separate from the impacted region, remains unaffected. As a result, continuous business operations can proceed without any downtime or data loss.
+
+## Enable BCDR for Microsoft Sentinel data lake
+
+Before setting up BCDR for Microsoft Sentinel data lake, ensure that BCDR is already enabled for Microsoft Sentinel, and that customers have two identical Log Analytics workspaces in the primary and secondary regions. 
+
+To enable data lake BCDR, reach out to Customer Support. Contact the support team and share the secondary region and workspace ID. The support team will work with the data lake DRI to onboard your secondary workspace.
+
+In the case of a regional outage, open a support ticket to initiate the failover process. The ticket will help the data lake team onboard your secondary workspace and perform the failover to the designated region.
+
+To contact support, select the **?** icon in the top right corner of the Defender portal, enter your issue and select the search button. Select **Contact support** at the bottom of the page, and then select your preferred contact method to continue.
 
 ## Regional and cloud support
 
@@ -75,9 +86,24 @@ The following geographical regions aren't currently supported for the customer-e
 
 - EU customers, due to EUDB compliance limitations
 - Israel
-- Azure China 21Vianet
+- Azure operated by 21Vianet 
 
 For more information, see [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
+
+
+## Regional and cloud support for Microsoft data lake
+
+The following geographical regions aren't currently supported for the customer-enabled BCDR approach for Microsoft data lake described in this article:
+
++ Australia East
++ UK South
++ Switzerland North
++ Canada Central
++ Japan East
++ Central India
++ Southeast Asia
++ France Central
++ Israel Central
 
 
 ## Related content

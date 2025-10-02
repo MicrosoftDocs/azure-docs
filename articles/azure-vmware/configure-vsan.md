@@ -10,6 +10,7 @@ ms.custom:
 
 #Customer intent: As an Azure service administrator, I want to configure VMware vSAN.
 
+# Customer intent: As an Azure service administrator, I want to configure VMware vSAN settings for TRIM/UNMAP, space efficiency, and data-in-transit encryption, so that I can optimize storage usage and ensure data security in my Azure VMware Solution deployment.
 ---
 
 # Configure VMware vSAN (OSA)

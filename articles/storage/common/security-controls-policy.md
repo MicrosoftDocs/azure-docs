@@ -8,6 +8,7 @@ ms.author: akashdubey
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.custom: subject-policy-compliancecontrols
+# Customer intent: As a compliance officer, I want to access and understand the built-in Azure Policy regulatory compliance controls for Azure Storage, so that I can ensure our resources adhere to relevant standards and maintain compliance effectively.
 ---
 
 # Azure Policy Regulatory Compliance controls for Azure Storage
@@ -21,7 +22,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-storage](../../../includes/policy/standards/byrp/microsoft.storage.md)]
+[!INCLUDE [azure-policy-compliancecontrols-storage](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.storage.md)]
 
 ## Next steps
 

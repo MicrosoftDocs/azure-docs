@@ -8,8 +8,8 @@ metadata:
   description: Microsoft Sentinel provides attack detection, threat visibility, proactive hunting, and threat response to help you stop threats before they cause harm.
   ms.service: microsoft-sentinel
   ms.topic: landing-page
-  author: yelevin
-  ms.author: yelevin
+  author: guywi-ms
+  ms.author: guywild
   ms.date: 01/03/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -52,7 +52,31 @@ landingContent:
         links:
           - text: Install solutions and content
             url: sentinel-solutions-deploy.md  
-            
+  # Card
+  - title: Microsoft Sentinel data lake
+    linkLists:
+      - linkListType: overview
+        links:           
+          - text: "What is Microsoft Sentinel data lake"
+            url: datalake/sentinel-lake-overview.md
+      - linkListType: deploy
+        links:
+          - text: "Onboarding to Microsoft Sentinel data lake"
+            url: datalake/sentinel-lake-onboarding.md
+          - text: "Set up connectors for the Microsoft Sentinel data lake"
+            url: datalake/sentinel-lake-connectors.md
+      - linkListType: concept
+        links:
+          - text: KQL and Microsoft Sentinel data lake
+            url: datalake/kql-overview.md
+          - text: Notebooks and Microsoft Sentinel data lake
+            url: datalake/notebooks-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Run KQL queries
+            url: datalake/kql-queries.md
+          - text: Running notebooks
+            url: datalake/notebooks.md
   # Card
   - title: Unified security operations
     linkLists:

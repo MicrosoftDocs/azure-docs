@@ -3,6 +3,7 @@ title: Integrate Azure Event Hubs with Azure Private Link Service
 description: This article describes how to allow access to your Event Hubs namespace only via private endpoints by using the Azure Private Link Service.
 ms.date: 07/31/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 # customer intent: As an IT admin, I want to restrict access to an Event Hubs namespace to a private endpoint in a virtual network. 
 ---
 

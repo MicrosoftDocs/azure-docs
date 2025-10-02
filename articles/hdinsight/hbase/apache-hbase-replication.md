@@ -2,12 +2,14 @@
 title: HBase cluster replication in virtual networks - Azure HDInsight
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
 ms.service: azure-hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: nijelsf
 ms.date:  04/29/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-ropc-nochange
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks
@@ -34,7 +36,7 @@ The following are HBase replication usage cases for two virtual networks:
 You can replicate clusters by using [script action](../hdinsight-hadoop-customize-cluster-linux.md) scripts from [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## Prerequisites
-Before you begin this article, you must have an Azure subscription. See [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Before you begin this article, you must have an Azure subscription.
 
 ## Set up the environments
 

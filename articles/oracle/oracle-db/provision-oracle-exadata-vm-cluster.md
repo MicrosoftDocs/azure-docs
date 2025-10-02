@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
+# Customer intent: As a cloud architect, I want to provision an Oracle Exadata VM Cluster within my existing infrastructure, so that I can leverage its capabilities for running Oracle Exadata Databases efficiently.
 ---
 
 

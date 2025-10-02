@@ -17,6 +17,8 @@ ms.devlang: azurecli
 
 # Create a Network Security Perimeter
 
+[!INCLUDE [Public Preview Disclaimer](../includes/public-preview-include.md)] 
+
 This article provides a comprehensive guide to set up a Network Security Perimeter (NSP) with Azure Communication Services. The NSP ensures that your communication services are secure and protected from unauthorized access.
 
 ## Prerequisites

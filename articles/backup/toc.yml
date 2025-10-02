@@ -744,7 +744,7 @@
       items:
       - name: Back up Hyper-V virtual machines
         href: back-up-hyper-v-virtual-machines-mabs.md
-      - name: Back up Azure Stack HCI virtual machines
+      - name: Back up Azure Local virtual machines
         href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md
       - name: VMware server
         href: backup-azure-backup-server-vmware.md
@@ -1069,4 +1069,4 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=backup
+    href: /shows/browse?terms=backup

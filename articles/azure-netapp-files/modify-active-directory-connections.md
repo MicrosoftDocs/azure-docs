@@ -6,6 +6,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/06/2025
 ms.author: anfdocs
+# Customer intent: As an IT administrator managing Active Directory connections, I want to modify existing Active Directory configurations in Azure NetApp Files, so that I can ensure secure and efficient integration between Active Directory and my file storage environment.
 ---
 
 # Modify Active Directory connections for Azure NetApp Files

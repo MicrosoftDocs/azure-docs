@@ -25,7 +25,7 @@ The App Configuration provider for Go simplifies the effort of applying key-valu
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- Go 1.18 or later. [Install Go](https://golang.org/doc/install).
+- Go 1.21 or later. [Install Go](https://golang.org/doc/install).
 
 ## Add key-values
 
@@ -61,117 +61,113 @@ Add the following key-values to the App Configuration store. For more informatio
 
 4. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
-### [Microsoft Entra ID (recommended)](#tab/entra-id)
+	### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-```golang
-package main
+	```golang
+	package main
 
-import (
-	"context"
-	"fmt"
-	"log"
-	"os"
-	"time"
+	import (
+		"context"
+		"log"
+		"os"
 
-	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-)
+		"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+		"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	)
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
-	// Get the endpoint from environment variable
-	endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
-	if endpoint == "" {
-		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
-	}
+	func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+		// Get the endpoint from environment variable
+		endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
+		if endpoint == "" {
+			log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
+		}
 
-	// Create a credential using DefaultAzureCredential
-	credential, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		log.Fatalf("Failed to create credential: %v", err)
-	}
+		// Create a credential using DefaultAzureCredential
+		credential, err := azidentity.NewDefaultAzureCredential(nil)
+		if err != nil {
+			log.Fatalf("Failed to create credential: %v", err)
+		}
 
-	// Set up authentication options with endpoint and credential
-	authOptions := azureappconfiguration.AuthenticationOptions{
-		Endpoint:   endpoint,
-		Credential: credential,
-	}
+		// Set up authentication options with endpoint and credential
+		authOptions := azureappconfiguration.AuthenticationOptions{
+			Endpoint:   endpoint,
+			Credential: credential,
+		}
 
-	// Configure which keys to load and trimming options
-	options := &azureappconfiguration.Options{
-		Selectors: []azureappconfiguration.Selector{
-			{
-				KeyFilter:   "Config.*",
-				LabelFilter: "",
+		// Configure which keys to load and trimming options
+		options := &azureappconfiguration.Options{
+			Selectors: []azureappconfiguration.Selector{
+				{
+					KeyFilter:   "Config.*",
+					LabelFilter: "",
+				},
 			},
-		},
-		TrimKeyPrefixes: []string{"Config."},
+			TrimKeyPrefixes: []string{"Config."},
+		}
+
+		// Load configuration from Azure App Configuration
+		appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+		if err != nil {
+			log.Fatalf("Failed to load configuration: %v", err)
+		}
+
+		return appConfig, nil
 	}
+	```
 
-	// Load configuration from Azure App Configuration
-	appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-	if err != nil {
-		log.Fatalf("Failed to load configuration: %v", err)
-	}
+	### [Connection string](#tab/connection-string)
 
-	return appConfig, nil
-}
-```
+	```golang
+	package main
 
-### [Connection string](#tab/connection-string)
+	import (
+		"context"
+		"log"
+		"os"
 
-```golang
-package main
+		"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+	)
 
-import (
-	"context"
-	"fmt"
-	"log"
-	"os"
-	"time"
+	func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+		// Get the connection string from environment variable
+		connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
+		if connectionString == "" {
+			log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
+		}
 
-	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-)
+		// Set up authentication options with connection string
+		authOptions := azureappconfiguration.AuthenticationOptions{
+			ConnectionString: connectionString,
+		}
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
-	// Get the connection string from environment variable
-	connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
-	if connectionString == "" {
-		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
-	}
-
-	// Set up authentication options with connection string
-	authOptions := azureappconfiguration.AuthenticationOptions{
-		ConnectionString: connectionString,
-	}
-
-	// Configure which keys to load and trimming options
-	options := &azureappconfiguration.Options{
-		Selectors: []azureappconfiguration.Selector{
-			{
-				KeyFilter:   "Config.*",
-				LabelFilter: "",
+		// Configure which keys to load and trimming options
+		options := &azureappconfiguration.Options{
+			Selectors: []azureappconfiguration.Selector{
+				{
+					KeyFilter:   "Config.*",
+					LabelFilter: "",
+				},
 			},
-		},
-		TrimKeyPrefixes: []string{"Config."},
+			TrimKeyPrefixes: []string{"Config."},
+		}
+
+		// Load configuration from Azure App Configuration
+		appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+		if err != nil {
+			log.Fatalf("Failed to load configuration: %v", err)
+		}
+
+		return appConfig, nil
 	}
+	```
 
-	// Load configuration from Azure App Configuration
-	appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-	if err != nil {
-		log.Fatalf("Failed to load configuration: %v", err)
-	}
-
-	return appConfig, nil
-}
-```
-
----
+	---
 
 ## Unmarshal
 
 The `Unmarshal` method provides a type-safe way to load configuration values into Go structs. This approach prevents runtime errors from mistyped configuration keys and makes your code more maintainable. `Unmarshal` is particularly valuable for complex configurations with nested structures, different data types, or when working with microservices that require clear configuration contracts across components.
 
-Create a file named `unmarshal_sample.go` with the following content:
+Create a file named `main.go` with the following content:
 
 ```golang
 package main
@@ -183,7 +179,6 @@ import (
 	"time"
 )
 
-// Configuration structure that matches your key-values in App Configuration
 type Config struct {
 	Message string
 	App     struct {
@@ -228,30 +223,13 @@ func main() {
 
 The `GetBytes` method retrieves your configuration as raw JSON data, offering a flexible alternative to struct binding. This approach seamlessly integrates with existing JSON processing libraries like the standard `encoding/json` package or configuration frameworks such as [`viper`](https://github.com/spf13/viper). It's particularly useful when working with dynamic configurations, when you need to store configuration temporarily, or when integrating with existing systems that expect JSON input. Using GetBytes gives you direct access to your configuration in a universally compatible format while still benefiting from Azure App Configuration's centralized management capabilities.
 
-Create a file named `getbytes_sample.go` with the following content:
+Update `main.go` with the following content:
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	"log"
-	"time"
-	
-	"github.com/spf13/viper"
-)
-
-func main() {
-	// Create a context with timeout
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
-	// Load configuration using the common function
-	provider, err := loadAzureAppConfiguration(ctx)
-	if err != nil {
-		log.Fatalf("Error loading configuration: %v", err)
-	}
+	// Existing code in main.go
+	// ... ...
+	fmt.Printf("Timeout: %d seconds\n", config.App.Settings.Timeout)
+	fmt.Printf("Retry Count: %d\n", config.App.Settings.RetryCount)
 
 	// Get configuration as JSON bytes
 	jsonBytes, err := provider.GetBytes(nil)
@@ -274,7 +252,6 @@ func main() {
 
 	// Use viper to access your configuration
 	// ...
-}
 ```
 
 ## Run the application
@@ -331,10 +308,11 @@ func main() {
     
     ---
 
-2. After the environment variable is properly set, run the following command to run the *Unmarshal* example:
+2. After the environment variable is properly set, run the following command to run the *Unmarshal* and *GetBytes* example:
 
     ```bash
-    go run unmarshal_sample.go
+    go mod tidy
+    go run .
     ```
 
     You should see output similar to the following:
@@ -347,17 +325,7 @@ func main() {
     Debug Mode: true
     Timeout: 30 seconds
     Retry Count: 3
-    ```
 
-3. Run the *GetBytes* example:
-
-    ```bash
-    go run getbytes_sample.go
-    ```
-
-    You should see output similar to the following:
-
-    ```Output
     Raw JSON Configuration:
     ------------------------
     {"App":{"Debug":true,"Name":"Go Console App","Settings":{"retryCount":3,"timeout":30}},"Message":"Hello World!"}

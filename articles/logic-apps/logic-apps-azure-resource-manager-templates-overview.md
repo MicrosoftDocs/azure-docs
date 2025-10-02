@@ -4,9 +4,11 @@ description: Learn about Azure Resource Manager templates to automate deployment
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.custom: devx-track-arm-template
-ms.date: 01/27/2025
+ms.topic: concept-article
+ms.date: 07/01/2025
+ms.custom:
+  - devx-track-arm-template
+  - sfi-ropc-nochange
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates

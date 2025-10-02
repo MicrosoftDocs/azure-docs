@@ -1,8 +1,8 @@
 ---
 title: Convert dashboards to Azure Workbooks in Microsoft Sentinel
 description: Learn how to review, planning, and migrate your current dashboards to Azure Workbooks.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 06/12/2024
 appliesto:
@@ -101,7 +101,7 @@ Workbooks provide a rich set of capabilities for visualizing your data. Review t
 
 ### 6. Preview and save the workbook
 
-After you save your workbook, specify the parameters, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf).
+After you save your workbook, specify the parameters, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf-azure-portal-only).
 
 ## Next steps
 

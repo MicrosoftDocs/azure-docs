@@ -9,7 +9,10 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2025
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom:
+  - devx-track-azurepowershell
+  - engagement-fy23
+  - sfi-image-nochange
 
 #customer intent: As an API developer, I want to secure backend services by using client certificate authentication. 
 ---
@@ -29,6 +32,9 @@ API Management provides two options for managing certificates that are used to s
 
 * Reference a certificate that's managed in [Azure Key Vault](/azure/key-vault/general/overview). 
 * Add a certificate file directly in API Management.
+
+[!INCLUDE [api-management-workspace-key-vault-availability](../../includes/api-management-workspace-key-vault-availability.md)]
+
 
 We recommend that you use key vault certificates because doing so improves API Management security:
 

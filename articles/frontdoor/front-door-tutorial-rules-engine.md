@@ -16,6 +16,12 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+- Starting August 15, 2025, Azure Front Door (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
+- Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption, ⁠[migrate to ⁠AFD Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
+
+
 This tutorial shows how to create a Rules engine configuration and your first rule in both Azure portal and CLI.
 
 In this tutorial, you learn how to:

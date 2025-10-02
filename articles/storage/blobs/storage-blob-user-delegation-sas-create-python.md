@@ -3,14 +3,15 @@ title: Create a user delegation SAS for a container or blob with Python
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS for a container or blob with Microsoft Entra credentials by using the Python client library for Blob Storage.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/06/2024
 ms.reviewer: dineshm
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a developer, I want to create a user delegation SAS for a container or blob using Python, so that I can securely grant limited access to Azure Storage resources."
 ---
 
 # Create a user delegation SAS for a container or blob with Python

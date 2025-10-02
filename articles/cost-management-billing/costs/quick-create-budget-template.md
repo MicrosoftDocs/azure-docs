@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create a budget with an Azure Resource Manager template
 description: Quickstart showing how to Create a budget with an Azure Resource Manager template.
-author: jojohpm
-ms.author: jojoh
-ms.reviewer: jojoh
+author: vikramdesai01
+ms.author: vikdesai
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 

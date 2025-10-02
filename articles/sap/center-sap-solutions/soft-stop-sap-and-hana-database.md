@@ -8,6 +8,7 @@ ms.date: 10/25/2023
 ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to stop SAP systems by draining existing connections gracefully when using Azure Center for SAP solutions.
+# Customer intent: As an SAP administrator, I want to gracefully soft stop SAP systems and HANA databases through Azure resources, so that I can ensure all user connections and processes are properly managed before shutting down to maintain system integrity.
 ---
 # Soft stop SAP systems, application server instances and HANA database
 

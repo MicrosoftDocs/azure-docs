@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud engineer, I want to provision an Oracle Exadata VM Cluster on Azure, so that I can utilize powerful database capabilities in my cloud environment for enhanced performance and scalability.
 ---
 
 # Provision Exadata virtual machine clusters

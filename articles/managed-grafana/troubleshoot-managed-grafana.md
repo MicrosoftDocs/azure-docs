@@ -6,6 +6,7 @@ ms.author: malev
 ms.topic: troubleshooting
 ms.service: azure-managed-grafana
 ms.date: 04/16/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot common Azure Managed Grafana issues 

@@ -8,8 +8,9 @@ ms.date: 08/23/2024
 author: cephalin
 ms.author: cephalin
 
-ms.reviewer: madsd 
+ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, devx-track-python, AppServiceConnectivity
+ms.service: azure-app-service
 ---
 
 # Tutorial: Secure Cognitive Service connection from Python App Service using Key Vault

@@ -8,7 +8,10 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/11/2024
 ms.author: danlep
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.custom:
+  - engagement-fy23
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use named values in Azure API Management policies
@@ -36,6 +39,8 @@ For details about the named value attributes, see the API Management [REST API r
 ## Key vault secrets
 
 Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](/azure/key-vault/general/overview). 
+
+[!INCLUDE [api-management-workspace-key-vault-availability](../../includes/api-management-workspace-key-vault-availability.md)]
 
 Using key vault secrets is recommended because it helps improve API Management security:
 

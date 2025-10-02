@@ -63,7 +63,7 @@ In this process, the SAP data sources are *providers*. The providers run on SAP 
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-shir-architecture-diagram.png" border="false" alt-text="Diagram of the architecture of the SAP ODP framework through a self-hosted integration runtime.":::
 
-Because ODP completely decouples providers from subscribers, any SAP documentation that offers provider configurations are applicable to Data Factory as a subscriber. For more information about ODP, see [Introduction to operational data provisioning](https://wiki.scn.sap.com/wiki/display/BI/Introduction+to+Operational+Data+Provisioning).
+Because ODP completely decouples providers from subscribers, any SAP documentation that offers provider configurations are applicable to Data Factory as a subscriber. For more information about ODP, see [Introduction to operational data provisioning](https://learning.sap.com/learning-journeys/upgrading-your-sap-bw-skills-to-sap-bw-4hana/introducing-odp_f2dbacc1-4492-4cd5-8b62-4785bb538ea0).
 
 ## Related content
 

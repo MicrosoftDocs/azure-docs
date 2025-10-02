@@ -3,17 +3,17 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: prashantsaini4
 ms.author: prsaini
-ms.date: 04/01/2025
+ms.date: 09/23/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: prsaini
+ms.custom:
+- sfi-image-nochange
+- sfi-ga-nochange
 ---
 
 # EA Billing administration on the Azure portal
-
-> [!NOTE]
-> On February 15, 2024, the [EA portal](https://ea.azure.com) retired. It's now read only. All EA customers and partners use Cost Management + Billing in the Azure portal to manage their enrollments.
 
 This article explains the common tasks that an Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer. Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. This article is applicable for both direct and indirect EA customers.
 
@@ -661,7 +661,7 @@ Before the Azure EA enrollment reaches the Enterprise Agreement end date, the en
 - Confirm disablement of all services associated with the enrollment.
 
 **Expired**<br>
-The Azure EA customer is opted out of the extended term, and the Azure EA enrollment reached the Enterprise Agreement end date. The enrollment expires, and all associated services are disabled.
+The EA enrollment expires when it reaches the enterprise agreement end date and is opted out of the extended term. Sign a new enrollment contract as soon as possible. Although your service isn't disabled immediately, there's a risk of it getting disabled. Additionally, if there are no active subscriptions, billing and usage data generated after the enrollment end date will not be visible. However, if any subscriptions remain active under the expired enrollment, billing and usage data will continue to be generated.
 
 **Transferred**<br>
 Enrollments where all associated accounts and services were transferred to a new enrollment appear with a transferred status.

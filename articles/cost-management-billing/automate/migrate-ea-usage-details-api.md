@@ -2,13 +2,13 @@
 title: Migrate from the EA Usage Details APIs
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Usage Details APIs.
-author: jojopm
-ms.author: jojoh
-ms.date: 01/07/2025
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 07/01/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
 
 # Migrate from EA Usage Details APIs
@@ -59,7 +59,7 @@ Our new solutions provide many benefits over the EA Reporting Usage Details APIs
 
 ## Enterprise Usage APIs to migrate off
 
-The following table summarizes the different APIs that you might be using today to ingest cost details data. If you're using one of the following APIs, you need to migrate to one of the new solutions outlined previously. All APIs are behind the *https://consumption.azure.com* endpoint.
+The following table summarizes the different APIs that you might be using today to ingest cost details data. If you're using one of the following APIs, you need to migrate to one of the new solutions outlined previously. All APIs are behind the `https://consumption.azure.com` endpoint.
 
 | Endpoint | API Comments | 
 | --- | ---|

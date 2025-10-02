@@ -4,8 +4,13 @@ description: Learn how to configure function app settings in Azure Functions.
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 05/21/2025
-ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
+ms.custom:
+  - cc996988-fb4f-47
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2024
+  - sfi-image-nochange
 ---
 
 # Manage your function app
@@ -182,7 +187,12 @@ In the previous example, replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wi
 
 ## Plan migration
 
-You can migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
+You can migrate a function app between a Consumption plan and a Premium plan on Windows. 
+
+>[!TIP]  
+>We recommend you migrate your Consumption plan app to run in a Flex Consumption plan instead of a Premium plan. Migration to the Flex Consumption plan is the only migration option for a Linux Consumption plan app. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).   
+
+When migrating between plans, keep in mind the following considerations:
 
 + Direct migration to a Dedicated (App Service) plan isn't supported.
 + Migration isn't supported on Linux.
@@ -357,20 +367,21 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
 
 The following table shows the operating systems and languages that support in-portal editing:
 
-| Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
-|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
-| C# | | | | | |
-| Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔|✔|
-| Python | | | |✔ |✔ |✔ |
-| PowerShell |✔|✔|✔| | | |
-| TypeScript (Node.js) | | | | | | |
+| Language | Flex Consumption | Premium | Dedicated | Consumption | 
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|
+| C# | | | | |
+| Java | | | | |
+| JavaScript (Node.js) | |✔|✔| Windows-only |
+| Python | | Linux-only | Linux-only| Linux-only |
+| PowerShell | |Windows-only|Windows-only|Windows-only|
+| TypeScript (Node.js) | | | | | 
 
 Consider these limitations when you develop your functions in the [Azure portal](https://portal.azure.com):
 
 + In-portal editing is supported only for functions that were created or last modified in the Azure portal.
-+ In-portal editing is supported only for JavaScript, PowerShell, Python, and C# Script functions.
++ In-portal editing is supported only for [JavaScript](./functions-reference-node.md), [PowerShell](./functions-reference-powershell.md), [Python](./functions-reference-python.md), and [C# script](./functions-reference-csharp.md) (in-process) functions.
 + In-portal editing isn't currently supported by the [Flex Consumption plan](flex-consumption-plan.md#considerations).
++ The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
 + When you deploy code to a function app from outside the Azure portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md).
 + For Python, development with custom modules isn't currently supported in the portal. To add custom modules to your function app, you must [develop your app locally](functions-develop-local.md).
 + For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.

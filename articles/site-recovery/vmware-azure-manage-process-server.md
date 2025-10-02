@@ -6,7 +6,9 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 05/27/2021
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a system administrator managing disaster recovery for VMware environments, I want to efficiently manage process servers to optimize replication and failback operations, so that I can ensure data continuity and system availability in my organization's disaster recovery strategy.
 ---
 
 # Manage process servers

@@ -40,7 +40,7 @@ To enable passkey authentication for your users, enable Nok Nok as an identity p
 
 The following diagram illustrates the Nok Nok solution as an IdP for Azure AD B2C by using OpenID Connect (OIDC) for passkey authentication.
 
-![Diagram of Nok Nok as IdP for Azure AD B2C using OpenID Connect (OIDC) for passkey authentication.](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
+![Diagram for passkey authentication with Nok Nok as an IdP.](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
 
 ### Scenario 1: Passkey registration
 1. The user navigates to the Nok Nok tutorial web app using the link provided by Nok Nok.
@@ -52,9 +52,11 @@ The following diagram illustrates the Nok Nok solution as an IdP for Azure AD B2
 ### Scenario 2: Passkey authentication
 1. The user selects the sign-in with Nok Nok Cloud button on the Azure AD B2C sign-in page.
 2. Azure AD B2C redirects the user to the Nok Nok sign-in app.
-3. The user authenticates with their passkey.
-4. The Nok Nok server validates the passkey assertion and sends an OIDC authentication response to Azure AD B2C.
-5. Based on the authentication result, Azure AD B2C either grants or denies access to the target application.
+3. The user requests passkey authentication
+4. The user authenticates with their passkey.
+5. The Nok Nok Cloud validates the passkey assertion
+6. The Nok Nok Cloud sends an OIDC authentication response to Azure AD B2C.
+7. Based on the authentication result, Azure AD B2C either grants or denies access to the target application.
 
 ## Get started with Nok Nok
 
@@ -124,6 +126,22 @@ For the following instructions, Nok Nok is a new OIDC IdP in the B2C identity pr
 8. Verify that you received the token after authentication.
 
 If the flow is incomplete, confirm the user is or isn't saved in the directory.
+
+## Alternate flow for Authentication
+
+The following diagram illustrates an alternate passkey sign in or sign up flow using the ID Token Hint feature of Azure AD B2C. With this approach, an Azure custom policy verifies the ID Token Hint produced by the Nok Nok Cloud. For more details, please refer to the article, [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](./id-token-hint.md). Please contact Nok Nok support for help with integrated the required Azure custom policy.
+
+![Diagram for passkey authentication using ID Token Hint from Nok Nok.](./media/partner-nok-nok/nok-nok-id-token-hint-architecture-diagram.png)
+
+The following are the steps
+1. The user selects the sign-in with Nok Nok Cloud button.
+2. The Nok Nok Cloud request passkey authentication.
+3. The user authenticates with their passkey.
+4. The Nok Nok Cloud validates the passkey assertion.
+5. The ID Token Hint is returned.
+6. The App posts an OIDC request with the ID Token Hint to Azure AD B2C.
+7. Azure AD B2C Custom Policy verifies the ID Token Hint.
+8. Based on the authentication result, Azure AD B2C either grants or denies access to the target application.
 
 ## Next steps
 

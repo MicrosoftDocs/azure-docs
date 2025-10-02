@@ -1,8 +1,8 @@
 ---
 title: Create a codeless connector for Microsoft Sentinel
 description: Learn how to create a codeless connector in Microsoft Sentinel using the Codeless Connector Framework (CCF).
-author: austinmccollum
-ms.author: austinmc
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 09/26/2024
 
@@ -74,6 +74,9 @@ We recommend testing your components with an API testing tool like one of the fo
    > the risk around exposing sensitive data to the public.
 
 ## Build the data connector
+
+>[!TIP]
+>If you're an Independent Software Vendor (ISV) and need support when building a Microsoft Sentinel integration using the Microsoft Sentinel Codeless Connector Framework, the Microsoft App Assure team may be able to assist. To engage the App Assure team, send an email to azuresentinelpartner@microsoft.com.
 
 There are four components required to build the CCF data connector.
 

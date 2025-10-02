@@ -4,14 +4,15 @@ description: Learn how to use the next generation of Azure Migrate application a
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.service: azure
+ms.service: azure-java
+ms.subservice: java-fundamentals
 ms.custom:
   - devx-track-java
-  - devx-track-extended-java
   - build-2025
 ms.topic: overview
 ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
+# Customer intent: As a developer, I want to utilize the application and code assessment tool for Java, so that I can evaluate my application's readiness for migration to Azure and identify necessary changes for replatforming.
 ---
 
 # Azure Migrate application and code assessment for Java version 7 (preview)

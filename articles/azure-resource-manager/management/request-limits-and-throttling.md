@@ -37,6 +37,8 @@ For example, suppose you have a bucket size of 250 tokens for read requests and 
 
 Reading metrics using the `*/providers/microsoft.insights/metrics` API contributes significantly to overall Azure Resource Manager traffic and is a common cause of subscription throttling events. If you use this API heavily, we recommend that you switch to the `getBatch` API. You can query multiple resources in a single REST request, which improves performance and reduces throttling. For more information about converting your operations, see [How to migrate from the metrics API to the getBatch API](/azure/azure-monitor/essentials/migrate-to-batch-api).
 
+These limits and architecture will also apply to all sovereign clouds by the end of 2026.
+
 ### How can I view my throttled requests?
 
 To view your throttled requests and other Resource Manager metrics, see [Accessing Azure Resource Manager metrics](/azure/azure-resource-manager/management/monitor-resource-manager#accessing-azure-resource-manager-metrics).
@@ -61,7 +63,7 @@ The request for subscription '{0}' could not be processed due to an excessive vo
 
 Customers might experience throttling due to excessive background jobs, which can be triggered by high-frequency operations or system-wide activities. While customers do not have direct control over the creation or execution of these jobs, awareness of potential throttling is important.
 
-## Throttling for non-public clouds
+## Throttling for sovereign clouds
 
 Throttling happens at two levels. Azure Resource Manager throttles requests for the subscription and tenant. If the request is under the throttling limits for the subscription and tenant, Resource Manager routes the request to the resource provider. The resource provider applies throttling limits that are tailored to its operations.
 

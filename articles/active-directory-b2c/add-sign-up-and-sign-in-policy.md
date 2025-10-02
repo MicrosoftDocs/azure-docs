@@ -9,8 +9,10 @@ ms.topic: how-to
 ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
-ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 #Customer Intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up a sign-up and sign-in flow, so that users can sign up and sign in with local or social accounts, and reset their passwords if needed.
 

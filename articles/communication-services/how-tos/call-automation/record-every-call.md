@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.date: 03/01/2023
+ms.custom: sfi-ropc-nochange
 ---
 
 # Record a call when it starts
@@ -68,7 +69,7 @@ The Call Started event when a call start is formatted in the following way:
 ## Setting up our local environment
 
 1. Using [Visual Studio Code](https://code.visualstudio.com/), install the [Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-2. With the extension, create an Azure Function following these [instructions](../../../azure-functions/create-first-function-vs-code-csharp.md).
+2. With the extension, create an Azure Function following these [instructions](../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp).
 
    Configure the function with the following instructions:
    - Language: C#
@@ -200,7 +201,7 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
 ### Deploy to Azure
 
-To deploy the Azure Function to Azure, you need to follow these [instructions](../../../azure-functions/create-first-function-vs-code-csharp.md#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run a similar command:
+To deploy the Azure Function to Azure, you need to follow these [instructions](../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run a similar command:
 
 ```bash
 

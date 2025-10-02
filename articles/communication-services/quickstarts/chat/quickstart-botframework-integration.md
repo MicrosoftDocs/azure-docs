@@ -42,11 +42,11 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, firs
 
 ### Create an Azure Bot Service resource
 
-First, [create an Azure Bot Service resource in the Azure portal](/azure/bot-service/abs-quickstart?tabs=userassigned). Communication Services Chat channel supports single-tenant bots, managed identity bots, and multitenant bots. This example uses a *multitenant* bot. 
+First, [create an Azure Bot Service resource in the Azure portal](/azure/bot-service/abs-quickstart?tabs=userassigned). Communication Services Chat channel supports managed identity bots and single-tenant bots.
 
-To set up a single-tenant or managed identity bot, review [Bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information).
+This example demonstrates how to use a *[managed identity](/azure/bot-service/abs-quickstart?tabs=userassigned#bot-identity-information)* with your bot. If you're instead using single-tenant bot, refer to the instruction for setting up [single-tenant Bot identity](/azure/bot-service/abs-quickstart?tabs=singletenant#bot-identity-information).
 
-For a managed identity bot, you might have to [update the bot service identity](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
+For managed identity bots, make sure to also [update your app with Bot Service identity](/azure/bot-service/abs-quickstart?tabs=userassigned#to-update-your-app-service) to ensure proper configuration.
 
 ### Get the bot's app ID and app password
 
@@ -101,12 +101,14 @@ The final step to create a bot is to deploy the web app. For this quickstart, us
 
 1. In Visual Studio, open the [Echo Bot project](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot).
 
-1. In the Visual Studio project, open the *Appsettings.json* file. Paste the [Microsoft app ID and app password](#get-the-bots-app-id-and-app-password) you copied earlier:
+1. In the Visual Studio project, open the *Appsettings.json* file. Populate the following with the [Microsoft app ID](#create-a-messaging-endpoint-for-the-bot) and tenant ID:
 
    ```json
       {
-        "MicrosoftAppId": "<App-registration-ID>",
-        "MicrosoftAppPassword": "<App-password>"
+        "MicrosoftAppType": "UserAssignedMSI"
+        "MicrosoftAppId": "<Client ID of the user-assigned managed identity>",
+        "MicrosoftAppPassword": "", // Not applicable. Leave this blank for a user-assigned managed identity bot.
+        "MicrosoftAppTenantId": "<The tenant ID of the user-assigned managed identity>"
       }
     ```
 

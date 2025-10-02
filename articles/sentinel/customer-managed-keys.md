@@ -1,10 +1,10 @@
 ---
 title: Set up customer-managed keys in Microsoft Sentinel| Microsoft Docs
 description: Learn how to set up customer-managed key (CMK) in Microsoft Sentinel.
-author: yelevin
+author: batamig
 ms.topic: how-to
-ms.date: 06/08/2023
-ms.author: yelevin
+ms.date: 07/29/2025
+ms.author: bagol
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -25,21 +25,21 @@ This article provides background information and steps to configure a [customer-
    
 ## Considerations
 
-- Onboarding a CMK workspace to Sentinel is supported only via REST API, and not via the Azure portal. Azure Resource Manager templates (ARM templates) currently aren't supported for CMK onboarding.
+- Onboarding a CMK workspace to Microsoft Sentinel is supported only via REST API and the [Azure CLI](/cli/azure/sentinel/onboarding-state?view=azure-cli-latest#az-sentinel-onboarding-state-create), and not via the Azure portal. Azure Resource Manager templates (ARM templates) currently aren't supported for CMK onboarding.
 
-- The Microsoft Sentinel CMK capability is provided only to *workspaces in Log Analytics dedicated clusters* that have *not already been onboarded to Microsoft Sentinel*.
+- In the following cases, ingested workspace data and logs are encrypted with CMK, while other Microsoft Sentinel data, including security content like analytics rules, but also alerts, incidents, and more, are encrypted with Microsoft-managed keys: 
 
-- The following CMK-related changes *are not supported* because they are ineffective (Microsoft Sentinel data continues is encrypted only by the Microsoft-managed key, and not by the CMK):
-
-  - Enabling CMK on a workspace that's *already onboarded* to Microsoft Sentinel.
-  - Enabling CMK on a cluster that contains Sentinel-onboarded workspaces.
-  - Linking a Sentinel-onboarded non-CMK workspace to a CMK-enabled cluster.
+    - Enabling CMK on a workspace that's already onboarded to Microsoft Sentinel.
+    - Enabling CMK on a cluster that contains Microsoft Sentinel-enabled workspaces.
+    - Linking a Microsoft Sentinel-enabled, non-CMK workspace to a CMK-enabled cluster.
 
 - The following CMK-related changes *are not supported* because they may lead to undefined and problematic behavior:
 
   - Disabling CMK on a workspace already onboarded to Microsoft Sentinel.
   - Setting a Sentinel-onboarded, CMK-enabled workspace as a non-CMK workspace by unlinking it from its CMK-enabled dedicated cluster.
   - Disabling CMK on a CMK-enabled Log Analytics dedicated cluster.
+
+- If you [onboard your Microsoft Sentinel-enabled workspace to the Defender portal](microsoft-sentinel-defender-portal.md), ingested workspace data/logs remain encrypted with CMK. Other data isn't encrypted with CMK and uses a Microsoft-managed key.
 
 - Microsoft Sentinel supports System Assigned Identities in CMK configuration. Therefore, the dedicated Log Analytics cluster's identity should be of **System Assigned** type. We recommend that you use the identity that's automatically assigned to the Log Analytics cluster when it's created.
 

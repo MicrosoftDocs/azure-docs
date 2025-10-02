@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: This article describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 04/28/2025
+ms.date: 07/01/2025
 ---
 
 # User-defined data types in Bicep
@@ -411,6 +411,67 @@ output config object = serviceConfig
 ```
 
 For more information, see [Custom tagged union data type](./data-types.md#custom-tagged-union-data-type).
+
+## Resource-derived types
+
+Bicep allows you to derive types directly from Azure resource schemas using the `resourceInput<>` and `resourceOutput<>` constructs. Resource-derived types allow you to check parameters and variables against a portion of a resource body instead of with a custom type. [Bicep CLI version 0.34.1](https://github.com/Azure/bicep/releases/tag/v0.34.1) or higher is required to use these constructs.
+
+Templates can reuse resource types wherever a type is expected.
+
+```bicep
+resourceInput<'type@version'>
+```
+
+`resourceInput<>`: Represents the writable properties of a resource type, stripping away any properties marked as ReadOnly in the ARM template schema. It uses the type that you would need to pass in to the resource declaration.
+
+```bicep
+resourceOutput<'type@version'>
+```
+
+`resourceOutput<>`: Represents the readable properties of a resource type, stripping away any properties marked as WriteOnly in the ARM template schema. It matches the type of value returned after the resource is provisioned.
+
+You can apply `resourceInput<>` or `resourceOutput<>` to extract only a part of a resource schema. For example, to type a variable or parameter based on just the `kind` or `properties` of a storage account:
+
+```bicep
+type accountKind = resourceInput<'Microsoft.Storage/storageAccounts@2024-01-01'>.kind
+```
+
+The preceding example is equivalent to:
+
+```bicep
+type accountKind = 'BlobStorage' | 'BlockBlobStorage' | 'FileStorage' | 'Storage' | 'StorageV2'
+```
+
+The following example shows how to use `resourceInput<>` to create a typed parameter based on the `properties` of a storage account resource. This allows you to define a parameter that matches the writable properties of a storage account, such as `accessTier`, `minimumTlsVersion`, and others:
+
+```bicep
+// Typed parameter using the .properties path of a storage account
+param storageAccountProps resourceInput<'Microsoft.Storage/storageAccounts@2023-01-01'>.properties = {
+  accessTier: 'Hot'
+  minimumTlsVersion: 'TLS1_2'
+  allowBlobPublicAccess: false
+  supportsHttpsTrafficOnly: true
+}
+
+// Resource declaration using the typed parameter
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+  name: 'mystorageacct123'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: storageAccountProps
+}
+```
+
+The following example shows how to use `resourceOutput<>` to create a typed output based on the `primaryEndPoints` of a storage account resource.
+
+```bicep
+output storageEndpoints resourceOutput<'Microsoft.Storage/storageAccounts@2024-01-01'>.properties.primaryEndpoints = ...
+```
+
+Unlike user-defined data types, resource-derived types are checked by Bicep when editing or compiling a file, but they aren't checked by the ARM service.
 
 ## Related content
 

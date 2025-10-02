@@ -18,6 +18,8 @@ After your data is collected, stored, and processed, compliance can become an im
 
 This article can help you meet compliance requirements by describing where Microsoft Sentinel data is stored.
 
+[!INCLUDE [azure-21vianet-retirement](includes/azure-21vianet-retirement.md)]
+
 ## Collected data
 
 Microsoft Sentinel collects the following types of data:
@@ -62,6 +64,27 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 | | **UK**| • UK South<br>• UK West |
 |**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
 |**Africa** | **South Africa**| • South Africa North |
+
+### Regions supported for Microsoft Sentinel data lake
+
+
+| Continent | Country/Region | Azure Region |
+|---------|---------|---------|
+| **North America** | **Canada** | • Canada Central |
+|  | **United States** | • Central US<br>• East US<br>• East US 2<br>• South Central US<br>• West US 2 |
+| **Asia and Middle East** | - | • Southeast Asia |
+|  | **India** | • Central India |
+|  | **Israel** | • Israel Central |
+|  | **Japan** | • Japan East |
+| **Europe** |  | • North Europe<br>• West Europe |
+|  | **France** | • France Central |
+|  | **Switzerland** | • Switzerland North |
+|  | **UK** | • UK South |
+| **Australia** | **Australia** | • Australia East |
+
+> [!NOTE]
+> In the light of strong customer demand in public preview, at GA we are expanding Microsoft Sentinel data lake availability to additional regions. These new regions will roll out progressively over the coming weeks. 
+
 
 ## Data retention
 

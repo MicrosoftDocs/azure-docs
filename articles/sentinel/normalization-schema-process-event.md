@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Process Event normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Process Event normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel Process Event normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -11,19 +11,13 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) Process Event normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Process Event normalization schema reference
 
 The Process Event normalization schema is used to describe the operating system activity of running and terminating a process. Such events are reported by operating systems and security systems, such as EDR (End Point Detection and Response) systems.
 
 A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. While processes themselves do not run, they do manage threads that run and execute code.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Process Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 
@@ -176,7 +170,7 @@ The process event schema references the following entities, which are central to
 | **ActingProcessMD5**               | Optional     | String     |The MD5 hash of the acting process image file.  <br><br>Example:  `75a599802f1fa166cdadb360960b1dd0`|
 | **ActingProcessSHA1**              | Optional     | SHA1       | The SHA-1 hash of the acting process image file.             <br><br>  Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0`  |
 | **ActingProcessSHA256**            | Optional     | SHA256     | The SHA-256 hash of the acting process image file.    <br><br> Example: <br> `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274`   |
-| **ActingProcessSHA512**            | Optional     | SHA521     |       The SHA-512 hash of the acting process image file.       |
+| **ActingProcessSHA512**            | Optional     | SHA512     |       The SHA-512 hash of the acting process image file.       |
 | **ActingProcessIMPHASH**           | Optional     | String     |       The Import Hash of all the library DLLs that are used by the acting process.    |
 | **ActingProcessCreationTime**      | Optional     | DateTime   |       The date and time when the acting process was started. |
 | **ActingProcessTokenElevation**    | Optional     | String     | A token indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the acting process.   <br><br>Example:  `None`|

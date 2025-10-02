@@ -2,11 +2,12 @@
 title: Overview of application development with Azure Files
 titleSuffix: Azure Storage
 description: Learn how to develop applications and services that use Azure Files to store data.
-author: pauljewellmsft
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: pauljewell
+ms.author: kendownie
+# Customer intent: "As an application developer, I want to utilize Azure Files for data storage, so that I can select the best approach to manage and access application data based on my specific needs and existing code compatibility."
 ---
 
 # Overview of application development with Azure Files
@@ -146,7 +147,7 @@ The following table shows the Azure Storage client libraries for resource manage
 
 | Library | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
-| **azure-resourcemanager-storage** | [Reference](/java/api/overview/azure/resourcemanager-storage-readme) | [Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-storage) | [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager/azure-resourcemanager-storage) |
+| **azure-resourcemanager-storage** | [Reference](/java/api/overview/azure/resourcemanager-storage-readme) | [Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-storage) | [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager) |
 
 ## [JavaScript](#tab/javascript)
 

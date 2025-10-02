@@ -12,6 +12,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 06/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an Azure administrator, I want to configure a Windows failover cluster for an SAP ASCS/SCS instance with shared disks, so that I can ensure high availability and reliability of SAP services in the cloud environment.
 ---
 
 

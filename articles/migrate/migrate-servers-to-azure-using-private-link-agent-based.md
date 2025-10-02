@@ -5,8 +5,10 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 12/14/2022
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator, I want to migrate servers over a private network using agent-based replication, so that I can ensure secure and efficient data transfer to Azure."
 ---
 
 # Migrate servers to Azure using Private Link (agent-based)

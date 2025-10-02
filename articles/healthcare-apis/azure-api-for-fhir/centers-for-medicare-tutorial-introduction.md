@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 09/27/2023
+ms.date: 07/24/2025
 ---
 
 # Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule introduction

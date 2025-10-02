@@ -8,6 +8,8 @@ ms.custom: playwright-testing-preview
 
 # Manage workspace access tokens in Microsoft Playwright Testing Preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to manage workspace access tokens in Microsoft Playwright Testing Preview. You use access tokens to authenticate and authorize access to your workspace.
 
 Access tokens are associated with a user account and workspace. When you use an access token for running Playwright tests, the service checks your Azure role-based access control (Azure RBAC) role to verify if you're granted access to run tests on the service. Learn more about [workspace access in Microsoft Playwright Testing](./how-to-manage-workspace-access.md).

@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
+ms.service: azure-app-service
 ---
 The console logs appear in the VS Code Output window. Refresh the home page in the app or attempt other requests to generate some log messages.<br>
 <br>

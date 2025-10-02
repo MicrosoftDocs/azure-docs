@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
+# Customer intent: "As a database administrator managing Oracle Database resources on Azure, I want to access and utilize management functions for my databases, so that I can efficiently provision, monitor, and allocate resources while ensuring optimal performance and scalability."
 ---
 # Manage resources for Oracle Database@Azure
 

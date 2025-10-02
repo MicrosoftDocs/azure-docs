@@ -4,7 +4,10 @@ description: Learn how to deploy disaster recovery of your virtual machines (VMs
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 5/21/2025
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to implement disaster recovery for my virtual machines using VMware HCX and Azure, so that I can ensure business continuity and minimize downtime in case of a disaster."
 ---
 
 # Deploy disaster recovery using VMware HCX

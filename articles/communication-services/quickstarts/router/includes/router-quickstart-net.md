@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 07/20/2023
 ms.topic: include
-ms.custom: include file
 ms.author: williamzhao
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

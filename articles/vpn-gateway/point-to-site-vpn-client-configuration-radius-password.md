@@ -8,6 +8,7 @@ ms.topic: how-to
 author: cherylmc
 ms.author: cherylmc 
 ms.date: 02/26/2025
+# Customer intent: "As a network administrator, I want to configure a VPN client for point-to-site connections using RADIUS password authentication, so that I can securely connect remote devices to our virtual network."
 ---
 # Configure a VPN client for point-to-site: RADIUS - password authentication
 

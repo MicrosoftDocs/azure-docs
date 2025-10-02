@@ -1,12 +1,14 @@
 ---
-title: Action Center
-description: Describes how to track issues and provide resolutions from one tab.
+title: Centralized Issue Tracking
+description: Learn how to use Action Center in Azure Migrate for centralized issue tracking, real-time alerts, and faster resolution across migration projects.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 04/17/2025
-monikerRange: migrate
+ms.date: 08/18/2025
+ms.reviewer: v-uhabiba
+monikerRange:
+# Customer intent: As a migration project manager, I want to use a centralized issue tracking system, so that I can efficiently manage and resolve migration-related problems, ensuring a smoother transition to Azure.
 ---
 
 # Use Action Center for Centralized issue tracking and resolution

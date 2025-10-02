@@ -7,9 +7,10 @@ ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 07/25/2024
+ms.date: 09/16/2025
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT planner for SAP workloads, I want to evaluate different Azure storage types, so that I can select the best options for performance, resiliency, and cost-effectiveness in supporting my SAP applications.
 ---
 
 # Azure Storage types for SAP workload
@@ -24,7 +25,7 @@ Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Pr
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that applies to some of the different storage types Azure has to offer. 
 
 > [!NOTE]
-> Using Azure storage for storing database data and redo log file, LRS is the only supported resiliency level at this point in time
+> Using Azure storage for storing database data and redo log file, LRS is the only supported resiliency level
 
 Also keep in mind that different Azure storage types influence the single VM availability SLAs as released in [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
@@ -68,9 +69,9 @@ Before going into the details, we're presenting the summary and recommendations 
 | DBMS Data volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Not supported |
 | DBMS log volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Not supported | Recommended | Recommended | Recommended | Not supported |
 | HANA shared volume | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Recommended |
-| DBMS Data volume non-HANA | Not supported | Restricted suitable (non-prod) | Recommended | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux | Not supported |
-| DBMS log volume non-HANA M/Mv2 VM families | Not supported | Restricted suitable (non-prod) | Recommended<sup>1</sup> | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux | Not supported |
-| DBMS log volume non-HANA non-M/Mv2 VM families | Not supported | restricted suitable (non-prod) | Suitable for up to medium workload | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux | Not supported |
+| DBMS Data volume non-HANA | Not supported | Restricted suitable (non-prod) | Recommended | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux, SQL Server 2022+ with SMB | Not supported |
+| DBMS log volume non-HANA M/Mv2 VM families | Not supported | Restricted suitable (non-prod) | Recommended<sup>1</sup> | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux, SQL Server 2022+ with SMB | Not supported |
+| DBMS log volume non-HANA non-M/Mv2 VM families | Not supported | restricted suitable (non-prod) | Suitable for up to medium workload | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux, SQL Server 2022+ with SMB | Not supported |
 
 
 <sup>1</sup>  With usage of [Azure Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
@@ -323,7 +324,7 @@ The capability matrix for SAP workload on Azure NetApp Files looks like:
 | Throughput linear to capacity | Linear with auto QoS; independently configurable with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
 | HANA certified | [Yes](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24&sort=Latest%20Certification&sortDesc=true) | - |
 | Disk snapshots possible | Yes | See [How Azure NetApp Files snapshots work](../../azure-netapp-files/snapshots-introduction.md) |
-| Application consistent snapshot and backup orchestration | No | Use [AzAcSnap](../../azure-netapp-files/azacsnap-introduction.md) or [SnapCenter](https://docs.netapp.com/us-en/snapcenter/concept/concept_snapcenter_overview.html) |
+| Application consistent snapshot and backup orchestration | No | Use [AzAcSnap](../../azure-netapp-files/azacsnap-introduction.md) or [SnapCenter](https://www.netapp.com/snapcenter/) |
 | Costs | Use TCO estimation tools | Use the [SAP on Azure NetApp Files TCO Estimator](https://aka.ms/anfsapcalc) and enter the size of the landscape |
 
 Other built-in functionality of Azure NetApp Files storage:

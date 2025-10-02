@@ -2,7 +2,7 @@
 title: Authorize access with Microsoft Entra ID for Azure SignalR Service
 description: This article explains how to authorize requests to Azure SignalR Service resources using Microsoft Entra ID. 
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 03/12/2025
 ms.service: azure-signalr-service
 ms.topic: conceptual

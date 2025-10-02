@@ -6,14 +6,17 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
 ms.date: 12/10/2024
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio.
 ---
 
 # Quickstart: Create automated workflows in multitenant Azure Logic Apps with Visual Studio (Deprecated)
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
 [!INCLUDE [visual-studio-extension-deprecation](includes/visual-studio-extension-deprecation.md)]
 

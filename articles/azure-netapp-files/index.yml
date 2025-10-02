@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: b-hchen
   ms.author: anfdocs
-  ms.date: 12/13/2023
+  ms.date: 07/14/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | train | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -64,10 +64,12 @@ landingContent:
             url: azure-netapp-files-performance-considerations.md  
           - text: Application volume groups 
             url: application-volume-group-concept.md
-          - text: Data protection and resiliency
+          - text: Data protection and resiliency options
             url: data-protection-disaster-recovery-options.md
           - text: Solutions and benefits
             url: azure-netapp-files-solution-architectures.md
+          - text: Reliability 
+            url: ../reliability/reliability-netapp-files.md
           - text: Security 
             url: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
 

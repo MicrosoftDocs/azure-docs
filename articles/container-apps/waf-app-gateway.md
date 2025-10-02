@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 04/28/2025
+ms.date: 07/07/2025
 ms.author: cshoe
 ---
 
@@ -30,7 +30,7 @@ For more information on networking concepts in Container Apps, see [Networking E
 
 ## Prerequisites
 
-- **Internal environment with custom VNet**: Have a container app that is on an internal environment and integrated with a custom virtual network. For more information on how to create a custom virtual network integrated app, see [provide a virtual network to an Azure Container Apps environment](./vnet-custom.md).
+- **Internal environment with virtual network**: Have a container app that is on an internal environment and integrated with a virtual network. For more information on how to create a virtual network integrated app, see [provide a virtual network to an internal Azure Container Apps environment](./vnet-custom-internal.md).
 
 - **Security certificates**: If you must use TLS/SSL encryption to the application gateway, a valid public certificate that's used to bind to your application gateway is required.
 
@@ -105,7 +105,7 @@ To create and configure an Azure Private DNS zone, perform the following steps:
 
     | Setting | Action |
     |---|---|
-    | Link name | Enter **my-custom-vnet-pdns-link**. |
+    | Link name | Enter **my-vnet-pdns-link**. |
     | I know the resource ID of virtual network | Leave it unchecked. |
     | Virtual network | Select the virtual network your container app is integrated with. |
     | Enable auto registration | Leave it unchecked. |
@@ -144,7 +144,7 @@ Perform the following steps:
     | Virtual network | Select the virtual network that your container app is integrated with. |
     | Subnet | Select **Manage subnet configuration**. If you already have a subnet you wish to use, use that instead, and skip to [the Frontends section](#frontends-tab). |
 
-1. From within the *Subnets* window of *my-custom-vnet*, select **+Subnet** and enter the following values:
+1. From within the *Subnets* window of *my-vnet*, select **+Subnet** and enter the following values:
 
     | Setting | Action |
     |---|---|
@@ -190,7 +190,7 @@ The backend pool is used to route requests to the appropriate backend servers. B
 - Internal IP addresses
 - Virtual Machine Scale Sets
 - Fully qualified domain names (FQDN)
-- Multi-tenant back-ends like Azure App Service and Container Apps
+- Multitenant back-ends like Azure App Service and Container Apps
 
 In this example, you create a backend pool that targets your container app. 
 
@@ -278,6 +278,15 @@ To connect the frontend and backend pool, perform the following steps:
     | Host name override | Select **Pick host name from backend target**. |
     | Create custom probes | Select **No**. |
 
+1. Under **Request Header Rewrite**, configure the following:
+
+    - Enable Request Header Rewrite: Select **Yes**.  
+    - Add a request header:
+      - Header name: `X-Forwarded-Host`
+      - Value: `{host}`
+
+    This action ensures that the original `Host` header from the client request is preserved and accessible by the backend application.  
+
 1. Select **Add**, to add the backend settings.
 
 1. In the *Add a routing rule* window, select **Add** again.
@@ -302,9 +311,28 @@ You can establish a secured connection to internal-only container app environmen
     | Private link subnet | Select the subnet you wish to create the private link with. |
     | Frontend IP Configuration | Select the frontend IP for your Application Gateway. |
 
-1. Under **Private IP address settings** select **Add**.
+1. Under **Private IP address settings**, select **Add**.
 
 1. Select **Add** at the bottom of the window.
+
+## Preserve original host header for redirects and SSO
+
+When Azure Application Gateway is configured as a reverse proxy and the *Override with new host name* setting is enabled, the `Host` header is modified. Modifying the header can interfere with applications that rely on the original host value to generate redirect URLs, absolute links, or support OpenID Connect (OIDC) authentication flows.
+
+To forward the original host header, you can inject it into the `X-Forwarded-Host` header using Application Gateway's request header rewrite feature.
+
+### Configure X-Forwarded-Host injection
+
+To enable `X-Forwarded-Host` injection:
+
+1. Under the **Configuration** tab, select **Backend settings** section of your Application Gateway routing rule:
+
+    - Enable **Request Header Rewrite**.
+    - Add a new request header with the following values:
+      - Header name: `X-Forwarded-Host`
+      - Value: `{host}`
+
+    Your backend app can now read the original request host using the `X-Forwarded-Host` header.
 
 ## Verify the container app
 

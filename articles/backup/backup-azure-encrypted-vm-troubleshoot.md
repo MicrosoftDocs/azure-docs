@@ -3,8 +3,9 @@ title: Troubleshoot encrypted Azure VM backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up an encrypted VM.
 ms.topic: troubleshooting
 ms.date: 03/27/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator managing encrypted Azure virtual machines, I want to troubleshoot backup errors effectively, so that I can ensure successful data protection and recovery for my encrypted VM backup operation.
 ---
 
 # Troubleshoot backup failures on encrypted Azure virtual machines
@@ -20,7 +21,7 @@ You can troubleshoot common errors encountered while using Azure Backup service 
    - ADE encrypted VMs cannot be recovered at the file/folder level. You must recover the entire VM to restore files and folders. 
    - When restoring a VM, you cannot use 'replace existing VM' option for ADE encrypted VMs. See, [steps to restore encrypted Azure virtual machines](restore-azure-encrypted-virtual-machines.md)
 2. Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions
-3. Learn more about encryption support using [Azure Disk Encryption(ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade), [customer-managed keys(CMk)](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys) and [platform-managed keys(PMK)](backup-azure-vms-encryption.md#encryption-using-platform-managed-keys)
+3. Learn more about encryption support using [Azure Disk Encryption(ADE)](backup-azure-vms-encryption.md#encryption-support-by-using-ade), [customer-managed keys(CMk)](backup-azure-vms-encryption.md#encryption-by-using-customer-managed-keys) and [platform-managed keys(PMK)](backup-azure-vms-encryption.md#encryption-by-using-platform-managed-keys)
 
 ## Common error codes
 

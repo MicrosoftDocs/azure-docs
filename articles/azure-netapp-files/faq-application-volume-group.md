@@ -1,11 +1,12 @@
 ---
-title: FAQs About Azure NetApp Files application volume groups | Microsoft Docs
+title: FAQs About Azure NetApp Files application volume groups
 description: Learn answers to frequently asked questions (FAQs) about Azure NetApp Files application volume groups.
 ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 04/22/2025
+# Customer intent: As a cloud architect, I want to understand the best practices for creating application volume groups in Azure NetApp Files, so that I can optimize performance and cost for my database workloads like SAP HANA and Oracle.
 ---
 # Azure NetApp Files application volume group FAQs
 

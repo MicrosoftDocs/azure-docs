@@ -10,7 +10,10 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 6/18/2021
 ms.author: jushiman
-ms.custom: H1Hack27Feb2017
+ms.custom:
+  - H1Hack27Feb2017
+  - sfi-image-nochange
+# Customer intent: As a database administrator, I want to monitor and troubleshoot SAP HANA on Azure (Large Instances) so that I can identify and resolve performance issues effectively.
 ---
 # Monitoring and troubleshooting from HANA side
 

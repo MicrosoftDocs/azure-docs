@@ -89,6 +89,18 @@ You can configure this setting using the following methods:
 | Azure PowerShell | -PublicIpAddress| [cmdlet](/powershell/module/az.network/new-azbastion#parameters)  |
 | Azure CLI | --public-ip create |[command](/cli/azure/network/public-ip) |
 
+### Configure Public IP addresses with availability zones configured
+Refer to the table below for creating/using public IP addresses for zonal Bastion deployments:
+
+| Scenario| Bastion availability zones  | Public IP availability zones  |
+|:-------|:------|:-------|
+| Creating a new public IP | 1, 2, 3 | 1, 2, 3 |
+| | 1 | 1, 2, 3|
+|Using an existing public IP | 1, 2, 3 | 1, 2, 3|
+| | 1 | 1, 2, 3|
+| | 0 | all public IPs, zonal or not|
+
+
 ## <a name="instance"></a>Instances and host scaling
 
 An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU or higher, you can specify the number of instances (with a minimum of two instances). This is called **host scaling**.

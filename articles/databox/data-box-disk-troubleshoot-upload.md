@@ -9,6 +9,8 @@ ms.service: azure-data-box-disk
 ms.topic: troubleshooting
 ms.date: 02/24/2022
 ms.author: shaas
+ms.custom: sfi-image-nochange
+# Customer intent: As a data engineer, I want to access and analyze upload logs for Azure Data Box Disk, so that I can troubleshoot data transfer issues and ensure data integrity during uploads.
 ---
 
 # Use logs to troubleshoot upload issues in Azure Data Box Disk
@@ -29,7 +31,7 @@ To find the logs from a data upload, do the following steps.
 
 2. As the data upload completes for each disk, the **Overview** pane displays the disk status and the paths to diagnostics logs for the disk.
 
-   * For new orders, the disk details look like those in the following screen. A copy log is saved automatically. If you chose to save verbose logs when you placed your order, you'll also see the path to the verbose log.
+   * For new orders, the disk details look like those in the following screen. A copy log is saved automatically. If you chose to save verbose logs when you placed your order, you also see the path to the verbose log.
 
      ![Screenshot of the Overview pane for a Data Box Disk order with Copy Completed With Warnings status. A Copy Log Path and Verbose Log Path are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-2021.png)
 
@@ -54,7 +56,7 @@ To find the logs from a data upload, do the following steps.
      |verbose log|<*storage-account-name*>/databoxlogs-<*order-name*>/waies/ri-<*order-name*>-guid_<*drive-ID*>_<*timestamp*>_verbose.xml |
 
    > [!NOTE]
-   > Logs in the **databoxcopylog** container have a different format than logs in the `waies` container. For help interpreting the logs, use the instructions for the associated drive log version. See [Identify log version](#identify-log-version) for more information.
+   > Logs in the **databoxcopylog** container have a different format than logs in the `waies` container. For help with interpreting the logs, use the instructions for the associated drive log version. See [Identify log version](#identify-log-version) for more information.
 
 3. To view the logs, open the container that stores the logs in your storage account. The following illustration shows the logs in a `waies` container.
 
@@ -139,7 +141,7 @@ The error log has the same structure as the verbose log, but filters out success
 
 ### Sample verbose log
 
-A sample of the `_verbose.xml` is shown below. In this case, the order has completed successfully with no errors.
+A sample of the `_verbose.xml` is shown here. In this case, the order completed successfully with no errors.
 
 ```xml
 
@@ -186,7 +188,7 @@ A sample of the `_verbose.xml` is shown below. In this case, the order has compl
 
 ### Sample error logs
 
-For the same order, a sample of the `_error.xml` is shown below.
+For the same order, a sample of the `_error.xml` is shown here.
 
 ```xml
 
@@ -205,11 +207,11 @@ For the same order, a sample of the `_error.xml` is shown below.
 </DriveLog>
 ```
 
-A sample of the `_error.xml` is shown below where the order completed with errors.
+A sample of the `_error.xml` is shown here where the order completed with errors.
 
 The error file in this case has a `Summary` section and another section that contains all the file level errors. 
 
-The `Summary` contains the `ValidationErrors` and the `CopyErrors`. In this case, 8 files or folders were uploaded to Azure and there were no validation errors. When the data was copied to Azure Storage account, 5 files or folders uploaded successfully. The remaining 3 files or folders were renamed as per the Azure container naming conventions and then uploaded successfully to Azure.
+The `Summary` contains the `ValidationErrors` and the `CopyErrors`. In this case, eight files or folders were uploaded to Azure and there were no validation errors. When the data was copied to Azure Storage account, five files or folders uploaded successfully. The remaining three files or folders were renamed as per the Azure container naming conventions and then uploaded successfully to Azure.
 
 The file level statuses are in `BlobStatus`, which describes any actions taken to upload the blobs. In this case, three containers are renamed because the folders to which the data was copied did not conform with the Azure naming conventions for containers. For the blobs uploaded in those containers, the new container name, path of the blob in Azure, original invalid file path, and the blob size are included.
   
@@ -253,7 +255,7 @@ The errors reported in the logs vary slightly in the two log versions. If you ar
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
-The errors found in the 2018-10-01 copy log are described below.
+The errors found in the 2018-10-01 copy log are described in this table.
 
 | Error category                      | Description       |
 |-------------------------------------|-------------------|

@@ -4,7 +4,7 @@ description: Learn about Microsoft Sentinel security orchestration, automation, 
 ms.topic: conceptual
 author: batamig
 ms.author: bagol
-ms.date: 04/28/2025
+ms.date: 07/16/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -51,7 +51,7 @@ For more information, see [Automate threat response with playbooks in Microsoft 
 
 ## Automation in the Microsoft Defender portal
 
-After onboarding your Microsoft Sentinel workspace to the Defender portal, note the following differences in the way automation functions in your workspace:
+Note the following details about how automation works for Microsoft Sentinel in the Defender portal. If you're an existing customer who's transitioning from the Azure portal to the Defender portal, you may note differences in the way automation functions in your workspace after onboarding to the Defender portal.
 
 [!INCLUDE [automation-in-defender](../includes/automation-in-defender.md)]
  

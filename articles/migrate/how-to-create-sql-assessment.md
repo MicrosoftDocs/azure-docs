@@ -8,7 +8,8 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.custom: engagement-fy23
-monikerRange: migrate
+monikerRange:
+# Customer intent: "As a cloud architect, I want to create SQL assessments for migration using Azure Migrate, so that I can evaluate target environments, understand readiness, right-sizing, and cost implications for running SQL applications in the cloud."
 ---
 
 # Create SQL assessment

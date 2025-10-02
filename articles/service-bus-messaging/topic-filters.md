@@ -3,6 +3,7 @@ title: Azure Service Bus topic filters | Microsoft Docs
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters. 
 ms.topic: conceptual
 ms.date: 03/21/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Topic filters and actions

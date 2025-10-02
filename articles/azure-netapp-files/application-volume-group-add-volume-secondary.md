@@ -5,16 +5,15 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 07/11/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: As an SAP HANA administrator, I want to add volumes for a secondary database using HANA System Replication, so that I can ensure data synchronization and high availability between primary and secondary SAP HANA systems.
 ---
 # Add volumes for an SAP HANA system as a secondary database in HSR
 
 This article describes using application volume group to add volumes for an SAP HANA system as a secondary database in HANA System Replication (HSR).
-
-[!INCLUDE [Application volume group CLI & PowerShell limitation](includes/application-volume-group-powershell.md)]
 
 ## HANA System Replication 
 

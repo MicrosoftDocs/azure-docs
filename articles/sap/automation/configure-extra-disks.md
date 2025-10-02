@@ -8,6 +8,7 @@ ms.date: 05/05/2023
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As a system administrator, I want to customize disk configurations for SAP systems using a JSON file, so that I can optimize performance and accommodate varying storage requirements for different deployments.
 ---
 
 # Change the disk configuration for SAP Deployment Automation Framework
