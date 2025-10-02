@@ -3,7 +3,7 @@ title: Migrate from AWS Network Load Balancer to Azure Load Balancer
 description: Learn to migrate from AWS Network Load Balancer to Azure Load Balancer with step-by-step guidance, feature mapping, and validation strategies for high-availability and performance workloads.
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 10/02/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
