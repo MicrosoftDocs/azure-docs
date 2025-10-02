@@ -62,9 +62,10 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 - US East
 - India Central
 - Germany West Central
+- US Central
+
 
 ### Coming soon
-- US Central
 - Australia East
 - Korean Central
 - Canada Central
