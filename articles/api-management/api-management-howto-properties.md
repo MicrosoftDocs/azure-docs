@@ -105,7 +105,7 @@ See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integ
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Named values** > **+Add**.
 1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
-1. In tge **Type** drop-down, select **Plain** or **Secret**.
+1. In the **Type** drop-down, select **Plain** or **Secret**.
 1. In **Value**, enter a string or policy expression.
 1. Add one or more optional tags to help organize your named values, then **Save**.
 1. Select **Create**.
