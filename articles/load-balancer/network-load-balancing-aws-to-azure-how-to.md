@@ -83,7 +83,7 @@ This migration is designed as a cutover migration. With this approach, you build
 - Rollback time: 15-30 minutes if needed
 
 > [!NOTE]
-> Resetting your DNS TTL values to 300 seconds (5 minutes) before the cutover helps reduce DNS caching delays for many resolvers; reducing the TTL to 60 seconds (1 minute) can further speed propagation for resolvers that respect short TTLs. Note: propagation depends on upstream and recursive resolvers and can't be guaranteed for all clients—prepare monitoring and rollback plans accordingly.
+> Resetting your DNS TTL values to 300 seconds (5 minutes) before the cutover helps reduce DNS caching delays for many resolvers; reducing the TTL to 60 seconds (1 minute) can further speed propagation for resolvers that respect short TTLs. Propogation depends on upstream and recursive resolvers and can't be guaranteed for all clients—prepare monitoring and rollback plans accordingly.
 
 ## Step 1: Assessment
 
@@ -152,8 +152,6 @@ A successful migration requires detailed documentation of the existing AWS NLB c
 - Document existing AWS NLB listener configurations and target group settings to ensure equivalent Azure Load Balancer rules. Use [AWS CLI commands for load balancers](https://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html) to gather detailed configuration information for both TCP and UDP protocols.
 - Export all routing configurations, health check settings, and client IP preservation configurations using the [AWS NLB target group documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html).
 - Document cross-zone load balancing settings and static IP configurations to ensure equivalent Azure zone redundancy and static public IP setup.
-
-#### Health check configuration mapping
 
 #### Health check configuration mapping
 
