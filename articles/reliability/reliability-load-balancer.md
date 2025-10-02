@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Load Balancer
-description: Learn how Azure Load Balancer provides high availability by using zone redundancy, global disaster recovery, and multi-region failover for resilient applications.
+description: Learn how Azure Load Balancer provides high availability and disaster recovery by using zone redundancy, global load balancing, and multi-region failover for resilient applications.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
