@@ -25,7 +25,7 @@ API Management service uses a shared per-tenant internal data cache so that, as 
 
 ## Fragment caching
 
-There are certain cases where responses being returned contain some portion of data that's expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating to flight reservations, flight status, and so on. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it might be desirable to include it in responses returned about flight status and reservations. This inclusion can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted.
+There are certain cases where the responses being returned contain some portion of data that's expensive to determine. Yet, the data remains fresh for a reasonable amount of time. For example, consider a service built by an airline that provides information relating to flight reservations, flight status, and so on. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it could be desirable to include it in responses returned about flight status and reservations. You can include this data by using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted.
 
 Consider the following JSON response from a backend API.
 
@@ -111,7 +111,7 @@ To avoid API Management from making this HTTP request again, when the same user 
 
 API Management stores the value in the cache using the same key that API Management originally attempted to retrieve it with. The duration that API Management chooses to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
 
-It's important to realize that retrieving information from the cache is still an out-of-process network request and potentially can add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
+It's important to realize that retrieving information from the cache is still an out-of-process network request and can potentially add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than retrieving information from the cache due to the need for database queries or aggregating information from multiple back-ends
 
 The final step in the process is to update the returned response with the user profile information.
 
@@ -277,7 +277,7 @@ The complete policy is as follows:
 </inbound>
 ```
 
-Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients, is an elegant solution that addresses many API versioning concerns.
+This elegant solution addresses many API versioning concerns, by enabling API consumers to transparently control which backend version their clients are accessing without having to update and redeploy their clients.
 
 ## Tenant isolation
 
