@@ -22,14 +22,14 @@ ms.update-cycle: 180-days
 
 Agent workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While nonagent workflows interact with a small, known, and fixed set of callers, agent callers can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
 
-To strengthen security for agent workflows, set up Easy Auth, also known as App Service Authentication, so you can use the following capabilities:
+To help protect your agent workflows in production, set up Easy Auth to authenticate and authorize callers or people who want to interact with your agent workflows. Easy Auth, also known as App Service Authentication, provides following capabilities for you to use:
 
 - Provide a validated identity for each caller request.
 - Assign connections to each user.
 - Enforce Conditional Access policies.
 - Issue revocable credentials.
 - Grant permissions based on least-privilege principles, [roles](/entra/identity-platform/developer-glossary#roles), and [scopes](/entra/identity-platform/developer-glossary#scopes).
-- Provide an external chat client that humans can use with conversational agent workflows.
+- Provide an external chat client that people can use to interact with conversational agent workflows.
 
 These measures let you authenticate and authorize each caller at a fine-grained level and revoke access quickly when needed. Without these controls, you risk uncontrolled access, leaked secrets such as shared access signature (SAS) URLs and access keys, weak audit trails, and other security hazards.
 
@@ -84,21 +84,27 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
 
 1. On the **Authentication** page, select **Add identity provider**.
 
+   :::image type="content" source="media/set-up-authentication-agent-workflows/add-identity-provider.png" alt-text="Screenshot shows Standard logic app with Authentication page open." lightbox="media/set-up-authentication-agent-workflows/add-identity-provider.png":::
+
    The **Authentication** page now shows the **Basics** tab for setting up the identity provider.
 
 1. On the **Basics** tab, for **Identity provider**, select **Microsoft** for Microsoft Entra ID.
 
 1. In the **App registration** section, for **App registration type**, select **(Recommended for Conversational agents) Create new app registration**, which shows the corresponding options for this selection.
 
-1. Provide a unique display name for your app registration, for example: `logic-app-agent-app-reg-prod`
+1. Provide a unique display name for your app registration, for example: `agent-logic-app-reg-prod`
 
 1. For **User-assigned managed identity**, select **Create new user-assigned managed identity**.
 
-   You can create a new identity or select an existing one.
+   You can create a new identity by providing a name or select an existing identity.
 
 1. For **Supported account types**, select **Current tenant - Single tenant** unless you want to intentionally accept other tenants.
 
    The single-tenant setting refers to accounts only in the current organizational directory. So, all user and guest accounts in this directory can use your application or API. For example, if your target audience is internal to your organization, use this setting.
+
+   The following example shows how an app registration might look at this point in time:
+
+   :::image type="content" source="media/set-up-authentication-agent-workflows/identity-provider-basics.png" alt-text="Screenshot shows app registration basic information." lightbox="media/set-up-authentication-agent-workflows/identity-provider-basics.png":::
 
    > [!IMPORTANT]
    >
@@ -361,42 +367,6 @@ For more information, see the following articles:
 
 - [OAuth tokens for App Service](../app-service/configure-authentication-oauth-tokens.md)
 - [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](../app-service/tutorial-auth-aad.md)
-
-## Authenticate and authorize with a developer key
-
-For nonproduction scenarios only, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf. For more information, see [Developer key authentication and authorization](agent-workflows-concepts.md#developer-key-authentication-and-authorization).
-
-### Best practices
-
-- Treat the developer key strictly and only as a design-time convenience for authentication and authorization.
-
-- Before you expose your workflow to agents, automation, or wider user populations, migrate to Easy Auth or signed SAS with network restrictions.
-
-  Basically, if anyone or anything outside your Azure portal session needs to call your logic app workflow, the developer key is no longer appropriate. Make sure that you enable Easy Auth or use managed identity–based flows instead.
-
-### Migrate to production authentication
-
-1. On your logic app, [set up Easy Auth](#create-an-app-registration) with Microsoft as the identity provider.
-
-1. Get real access tokens to [run authentication tests](#send-authentication-requests-for-agent-workflows).
-
-1. Remove dependency on the developer key by testing requests sent to workflow trigger endpoints from external tools with valid tokens or with signed SAS callback URLs.
-
-1. Optionally, lock down trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
-
-1. Enforce authentication required access patterns.
-
-1. For conversational agent workflows, get the [chat client URL](#external-chat-client) so you can embed an external chat interface wherever you want to support human interactions.
-
-### Troubleshoot authentication migration
-
-The following table describes common problems you might encounter when you try to migrate from a developer key to Easy Auth, their possible causes, and actions you can take:
-
-| Symptom | Likely cause | Action |
-|---------|--------------|--------|
-| Portal tests work, but external calls get **401** response. | External calls don't have a valid Easy Auth access token or signed SAS tokens. | Set up Easy Auth or use a workflow trigger URL with a signed SAS. |
-| Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity. |
-| Access is inconsistent after a role changes. | Cached session in the Azure portal | - Sign out and sign back in. <br><br>Get a fresh token. |
 
 ## Related content
 

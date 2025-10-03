@@ -481,6 +481,42 @@ The steps in this section are nearly the same as [Create agent parameters for th
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 
+## Authentication and authorization
+
+For nonproduction activities, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf. The following list recommends some best practices for handling this developer key:
+
+- Treat the developer key strictly and only as a design-time convenience for authentication and authorization.
+
+- Before you expose your workflow to agents, automation, or wider user populations, migrate to Easy Auth or signed SAS with network restrictions.
+
+  Basically, if anyone or anything outside your Azure portal session needs to call your logic app workflow, the developer key is no longer appropriate. Make sure that you enable Easy Auth or use managed identity–based flows instead.
+
+When you're ready to release your agent workflow into production, make sure to follow the [migration steps to prepare for production authentication and authorization](#migrate-to-production-authentication). For more information, see the [Authentication and authorization](agent-workflows-concepts.md#authentication-and-authorization).
+
+## Migrate to production authentication
+
+1. On your logic app resource, [set up Easy Auth](#create-an-app-registration) with Microsoft as the identity provider.
+
+1. Get real access tokens to [run authentication tests](#send-authentication-requests-for-agent-workflows).
+
+1. Remove dependency on the developer key by testing requests sent to workflow trigger endpoints from external tools with valid tokens or with signed SAS callback URLs.
+
+1. Optionally, lock down trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
+
+1. Enforce authentication required access patterns.
+
+1. For conversational agent workflows, get the [chat client URL](#external-chat-client) so you can embed an external chat interface wherever you want to support human interactions.
+
+### Troubleshoot authentication migration
+
+The following table describes common problems you might encounter when you try to migrate from a developer key to Easy Auth, their possible causes, and actions you can take:
+
+| Symptom | Likely cause | Action |
+|---------|--------------|--------|
+| Portal tests work, but external calls get **401** response. | External calls don't have a valid Easy Auth access token or signed SAS tokens. | Set up Easy Auth or use a workflow trigger URL with a signed SAS. |
+| Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity. |
+| Access is inconsistent after a role changes. | Cached session in the Azure portal | - Sign out and sign back in. <br><br>Get a fresh token. |
+
 ## Related content
 
 - [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts)
