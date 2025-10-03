@@ -1,6 +1,6 @@
 ---
 title: Clone an IoT Operations instance
-description: Use the Azure CLI or Azure portal to clone your Azure IoT Operations instances.
+description: Use the Azure CLI to clone your Azure IoT Operations instances.
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
@@ -13,6 +13,13 @@ ms.date: 10/02/2025
 
 You can clone an existing Azure IoT Operations instance to create a new instance with the same configuration and settings. Cloning is useful for creating a backup of your instance or for setting up a new instance with the same configuration for testing or development purposes.
 
+Use-case scenarios for clone include:
+
+- **Disaster recovery**: Create a backup of your Azure IoT Operations instance that can be used to restore the instance in case of a disaster.
+- **Testing and development**: Set up a new Azure IoT Operations instance with the same configuration as an existing instance for testing or development purposes.
+- **Migration**: Move your Azure IoT Operations instance to a new cluster or resource group by cloning the instance to the new location.
+- **Scaling**: Create multiple instances of your Azure IoT Operations instance to handle increased workload or to distribute the load across multiple instances.
+
 > [!NOTE]
 > The clone feature is in preview and under development.
 
@@ -22,14 +29,15 @@ You can clone an existing Azure IoT Operations instance to create a new instance
 
 * Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The Azure IoT Operations extension for Azure CLI. Clone is currently compatible with the following IoT Operations instance version range: `1.0.34>=,<1.2.0`. Use the following command to add the extension or update it if you already have it installed:
+* The Azure IoT Operations extension for Azure CLI. Clone is currently compatible with the following IoT Operations instance version range: `1.0.34>=,<1.2.0`. Use the following command to update or install the extension. Replace `<VERSION_NUMBER>` with a version that is compatible with your instance.
 
     ```azurecli
     az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
     ```
 
 ## Clone command overview
-Ensure you have an instance you want to clone, and a target cluster you want to clone to. You can use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one.
+
+Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one.
 
 Clone analyzes an Azure IoT Operations instance and reproduces it in an infrastructure-as-code manner via ARM templates. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster.
 
@@ -52,13 +60,21 @@ The target is where you want to replicate or save the clone definition. You can 
 - `--to-dir`: Providing a local directory path will replicate the clone definition to disk, where it can be deployed with existing ARM deployment tools with or without modification. Inspecting the clone definition, you will note various parameterization in play to ease some customization.
 
 > [!IMPORTANT]
-> Take care when choosing your target resource group. There is less to think about if you replicate the clone to a cluster without AIO installed in a resource group separate from the model. This is because by default the resource names captured in the clone definition will match the resource names associated with the model instance. If target and model share the same resource group, and the custom location is changed, you will get conflicts.
+> When selecting a target resource group, consider using a resource group that doesn't contain an existing AIO installation and is separate from the model's resource group. By default, the clone definition preserves resource names from the model instance. If the target and model share the same resource group and you change the custom location, resource name conflicts may occur.
 
 ### Clone template
 
 The clone command generates an ARM template that describes the resources to be created in the target. The template is generated based on the resources in the model instance and their configuration. Enter the following optional parameters to customize the template:
 
-- `--mode`: When mode nested is used (the default), sub-deployments will be self-contained in the root deployment. When mode linked is used, asset related sub-deployments will be split and stored as separate files linked by the root deployment. You typically do not need to use this unless you have a large set of assets and aeps.
+#### Clone template customization parameters
+
+You can use the following optional parameters to customize the generated ARM template:
+
+- `--mode`: Specifies how sub-deployments are organized in the template.  
+  - When `nested` mode is used (the default), all sub-deployments are self-contained within the root deployment file.  
+  - When `linked` mode is used, asset-related sub-deployments are split out and stored as separate files, which are then linked by the root deployment. Use `linked` mode if your instance contains a large number of assets or Azure Edge Packages (AEPs) to improve scalability and manageability. You don't need to specify this parameter unless you require this separation for large deployments.
+
+- `--param`: Allows you to override specific parameters in the template, such as location or resource names, using the format `key=value`.
 
 ## Clone an instance
 

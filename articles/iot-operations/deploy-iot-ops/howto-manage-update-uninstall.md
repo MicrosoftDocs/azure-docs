@@ -139,7 +139,7 @@ You can also view the details of an existing namespace in the resource group tha
 
 The previous screenshot also shows the other resources in Azure Device Registry such as the **IoT Schema Registry**, **IoT Namespace Assets**, and **Devices** in the context of the resource group that contains your Azure IoT Operations instance.
 
-#### Migrate existing assets to namespace assets
+### Migrate existing assets to namespace assets
 
 If you have existing assets in your Azure IoT Operations instance that you want to move to a namespace, you can use the `az iot ops migrate-assets` command. This command migrates top-level (or root-level) assets to namespace assets in Azure Device Registry. 
 
