@@ -17,9 +17,9 @@ Azure Storage Discovery is a fully managed service that provides enterprise-wide
 
 ## Data availability and freshness coverage
 
-Once a new Storage Discovery workspace is created, it takes upto 24 hours for the insights to be shown on the reports. Updates such as adding or removing a storage account in a subscription or resource group linked to a Storage Discovery workspace appears in the reports within 24 hours. Adding a new [scope](management-components.md#scope) or editing an existing scope with your Discovery workspace takes upto 24 hours to reflect the changes.
+Once a new Storage Discovery workspace is created, it takes upto 24 hours for the insights to be shown on the reports. Updates such as adding or removing a storage account in a subscription or resource group linked to a Storage Discovery workspace appears in the reports within 24 hours. Adding a new [scope](../storage-discovery/management-components.md#scope) or editing an existing scope with your Discovery workspace takes upto 24 hours to reflect the changes.
 
-Effect of [changing pricing plan](pricing.md) on an existing Storage Discovery workspace is immediate.
+Effect of [changing pricing plan](../storage-discovery/pricing.md) on an existing Storage Discovery workspace is immediate.
 
 When a scope is deleted, you lose the insights gathered on the scope immediately. 
 
@@ -53,5 +53,5 @@ Storage Discovery doesn't send any notifications when there's an outage in the s
 
 ## Next steps
 
-- [Plan your Storage Discovery deployment](deployment-planning.md)
-- [Frequently asked questions](frequently-asked-questions.md)
+- [Plan your Storage Discovery deployment](../storage-discovery/deployment-planning.md)
+- [Frequently asked questions](../storage-discovery/frequently-asked-questions.md)
