@@ -1,13 +1,13 @@
 ---
 title: Direct EA billing invoice documents
 description: Learn how to understand the invoice files associated with your direct enterprise agreement.
-author: SandeepReddyAcc
-ms.reviewer: v-salin@microsoft.com
+author: SPathak16
+ms.reviewer: v-salin
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/23/2025
-ms.author: v-salin@microsoft.com
+ms.author: v-salin
 ---
 
 # Direct EA billing invoice documents
