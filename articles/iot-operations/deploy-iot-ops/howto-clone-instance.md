@@ -15,7 +15,7 @@ You can clone an existing Azure IoT Operations instance to create a new instance
 
 Use-case scenarios for clone include:
 
-- **Disaster recovery**: Create a backup of your Azure IoT Operations instance that can be used to restore the instance in case of a disaster.
+- **Disaster recovery**: Create a backup of your Azure IoT Operations instance that can be used to restore the instance if there's a disaster.
 - **Testing and development**: Set up a new Azure IoT Operations instance with the same configuration as an existing instance for testing or development purposes.
 - **Migration**: Move your Azure IoT Operations instance to a new cluster or resource group by cloning the instance to the new location.
 - **Scaling**: Create multiple instances of your Azure IoT Operations instance to handle increased workload or to distribute the load across multiple instances.
@@ -46,21 +46,21 @@ Clone analyzes an Azure IoT Operations instance and reproduces it in an infrastr
 
 ### Clone model
 
-The model is the instance you are cloning from. It is the source of truth for the clone operation. Enter the following parameters to identify the model:
+The model is the instance you are cloning from. It is the source of truth for the clone operation. To identify the model, enter the following parameters:
 
 - `--name/-n`: The model instance name.
 - `--resource-group/-g`: The resource group that contains the model instance.
 
 ### Clone target
 
-The target is where you want to replicate or save the clone definition. You can apply a clone to one, all, or no targets. If you don't provide any target options the process terminates after outputting a summary of in-scope resources. Enter one of the following parameters to identify the target:
+The target is where you want to replicate or save the clone definition. You can apply a clone to one, all, or no targets. If you don't provide any target options, the process terminates after outputting a summary of in-scope resources. To identify the target, enter one of the following parameters:
 
-- `--to-cluster-id`: Providing the resource Id of a target cluster will replicate the clone definition to it. This means the version of AIO declared in the definition will be deployed, then all in-scope resources will be applied to the deployment. Currently, auto-federation of UAMI credentials is only supported with cluster target.
+- `--to-cluster-id`: Provide the full Azure resource ID of the target cluster where you want to replicate the cloned instance. When you use this option, the clone command deploys the version of Azure IoT Operations specified in the clone definition to the target cluster, and then applies all relevant resources to complete the deployment. Automatic federation of user-assigned managed identity (UAMI) credentials is currently supported only when cloning to a cluster target.
 
-- `--to-dir`: Providing a local directory path will replicate the clone definition to disk, where it can be deployed with existing ARM deployment tools with or without modification. Inspecting the clone definition, you will note various parameterization in play to ease some customization.
+- `--to-dir`: Provide a local directory path to replicate the clone definition to disk, where it can be deployed with existing ARM deployment tools with or without modification. If you inspect the clone definition, you see various parameterization in play to ease some customization.
 
 > [!IMPORTANT]
-> When selecting a target resource group, consider using a resource group that doesn't contain an existing AIO installation and is separate from the model's resource group. By default, the clone definition preserves resource names from the model instance. If the target and model share the same resource group and you change the custom location, resource name conflicts may occur.
+> When selecting a target resource group, consider using a resource group that doesn't contain an existing IoT Operations installation and is separate from the model's resource group. By default, the clone definition preserves resource names from the model instance. If the target and model share the same resource group and you change the custom location, resource name conflicts may occur.
 
 ### Clone template
 
@@ -135,5 +135,5 @@ To clone an instance, use the `az iot ops clone` command with the appropriate pa
 
 - Automatic identity federation is currently supported with `--to-cluster-id` option only.
 - Resource sync rules are not captured.
-- While the required role assignment between the AIO system managed identity and target schema registry is handled by clone, any other system managed identity role assignments are not covered.
-- Clone is a cloud-side operation. The cluster isn't directly interacted with. Cluster secrets are synced from cloud via secure settings, which encompass secret provider classes and secret sync cloud resources. If the model cluster has user created elements such as configmaps that are referenced in the model AIO solution, those elements need to be re-applied against the target cluster.
+- While the required role assignment between the IoT Operations system managed identity and target schema registry is handled by clone, any other system managed identity role assignments are not covered.
+- Clone is a cloud-side operation. The cluster isn't directly interacted with. Cluster secrets are synced from cloud via secure settings, which encompass secret provider classes and secret sync cloud resources. If the model cluster has user created elements such as configmaps that are referenced in the model IoT Operations solution, those elements need to be re-applied against the target cluster.

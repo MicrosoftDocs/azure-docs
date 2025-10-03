@@ -38,7 +38,7 @@ items:
             href: deploy-iot-ops/howto-manage-update-uninstall.md
             displayName: Kubernetes, deployment manifest, delete
           - name: Clone an instance
-            href: deploy-iot-ops/how-to-clone-instance.md
+            href: deploy-iot-ops/howto-clone-instance.md
             displayName: Kubernetes, instance, clone, snapshot, backup, restore
           - name: Upgrade
             href: deploy-iot-ops/howto-upgrade.md
