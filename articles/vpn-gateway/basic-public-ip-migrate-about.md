@@ -23,6 +23,8 @@ To migrate your gateway, you first need to validate whether your resource is cap
   
 * If your current gateway subnet is /28 or smaller, the migration tool may error out. You can use this to [add multiple prefixes for subnet](../virtual-network/how-to-multiple-prefixes-subnet.md) to /27 or larger before you can proceed with migration.
 
+* If you have ExpressRoute and VPN coexisting. We'd like to recommend customers to consider migrating the Basic IP resources to Standard IP on **VPN** first. 
+
 
 
 ## FAQ
