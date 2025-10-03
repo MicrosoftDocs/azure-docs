@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Queue Storage
-description: Learn about reliability in Azure Queue Storage, including availability zones and multi-region deployments.
+description: Learn how to ensure reliability in Azure Queue Storage by using zone redundancy, geo-redundancy, and high availability for message delivery.
 ms.author: anaharris
 author: anaharris-ms
 ms.topic: reliability-article

@@ -149,7 +149,7 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group
 To modify an unlocked time-based retention policy with Azure CLI, call the [az storage container immutability-policy extend](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-extend) command, providing the new retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-$etag=$(az storage container immutability-policy show \
+etag=$(az storage container immutability-policy show \
         --account-name <storage-account> \
         --container-name <container> \
         --query etag \
@@ -204,7 +204,7 @@ Lock-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> 
 To lock a policy with Azure CLI, first call the [az storage container immutability-policy show](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-show) command to retrieve the policy's ETag. Next, call the [az storage container immutability-policy lock](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-lock) command and pass in the ETag value to lock the policy. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-$etag=$(az storage container immutability-policy show \
+etag=$(az storage container immutability-policy show \
         --account-name <storage-account> \
         --container-name <container> \
         --query etag \

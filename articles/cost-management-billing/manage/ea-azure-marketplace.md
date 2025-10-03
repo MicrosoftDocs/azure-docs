@@ -1,13 +1,13 @@
 ---
 title: Azure Marketplace
 description: Describes how EA customers can use Azure Marketplace.
-author: SandeepReddyAcc
-ms.reviewer: v-salin@microsoft.com
+author: SPathak16
+ms.reviewer: v-salin
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/23/2025
-ms.author: v-salin@microsoft.com
+ms.author: v-salin
 ---
 
 # Azure Marketplace
