@@ -8,7 +8,7 @@ ms.date: 9/30/2025
 ---
 
 # Azure Virtual Enclaves deployment templates
-Example templates to deploy multiple Azure Virtual Enclaves resources for a sample scenario. The current templates are maintained using a [Bicep](/azure/azure-resource-manager/bicep/overview) file but those are converted to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates for deployment from the portal.
+Example templates to deploy multiple Azure Virtual Enclaves resources for a sample scenario. The current templates are maintained using a [Bicep](/azure/azure-resource-manager/bicep/overview) file but are converted to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates for deployment from the portal.
 
 ## Secure Azure Computing Architecture (SACA) template
 An example of how to deploy the SACA within AVE.
@@ -26,7 +26,7 @@ What gets deployed:
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
@@ -53,7 +53,7 @@ What gets deployed:
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. In the Azure portal, type `deploy` into the top search bar and select `Deploy a Custom Template`.
@@ -81,7 +81,7 @@ What gets deployed:
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
@@ -106,7 +106,7 @@ Deploy the template:
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 [Deploy the template](./deploy-community-enclaves-template.md#deploy-the-template)
 
@@ -129,7 +129,7 @@ Deploy the template:
 
 > [!NOTE]
 > 
-> The community property "dnsServers" will not have any impact on the community resource deployed and can be ignored.
+> The community property "dnsServers" won't have any affect on the community resource deployed and can be ignored.
 
 ### Enclave template
 What gets deployed:
@@ -146,7 +146,7 @@ Deploy the template:
 6. Enter the `Community Resource ID` which can be found on the community `Properties` page under `ID`.
 7. Enter the new `Enclave Name` you would like to create (for example enc-template-test).
 8. Enter the `Community Address Space` which can be found on the community `Overview` page (for example 10.0.0.0/16).
-9. Enter the `Enclave Third Octet` which is a number from 2-255 that is unused by other enclaves.
+9. Enter the `Enclave Third Octet` which is a number from 2-255 that's unused by other enclaves.
 10. Select `Review + Create` and then `Create`.
 
 ### Endpoints template
