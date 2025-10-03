@@ -51,15 +51,12 @@ If you don't have an API Management service instance, complete the following qui
 
 API Management provides notification templates for the administrative email messages that are sent automatically to developers when they access and use the service. The following notification templates are provided:
 
-- Application gallery submission approved (deprecated) 
 - Developer farewell letter
 - Developer quota limit approaching notification
 - Developer welcome letter
 - Email change notification
 - Invite user
-- New comment added to an issue (deprecated) 
 - New developer account confirmation
-- New issue received (deprecated) 
 - New subscription activated
 - Password change confirmation
 - Subscription request declined
