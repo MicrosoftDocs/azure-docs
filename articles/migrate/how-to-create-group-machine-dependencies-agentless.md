@@ -389,11 +389,11 @@ Follow the steps to disable the servers where dependency analysis is autoenabled
     > [!NOTE] 
     > If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the [prerequisites](#switch-to-new-visualization) or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
 
-1. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
+2. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png" alt-text="The screenshot shows disable dependencies view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
 
-1. You can select the servers and select **Disable** to proceed.
+3. You can select the servers and select **Disable** to proceed.
 
 ### Enable dependencies
 
