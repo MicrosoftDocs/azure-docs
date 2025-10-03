@@ -31,7 +31,7 @@ What gets deployed:
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
-3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+3. Replace the default template with the ARM template contents (for example copy the text inside the json file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
 5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg) for the AVE resources.
 6. Increment `Unique Number` if previous deployments are located in the same resources group.
@@ -58,7 +58,7 @@ What gets deployed:
 Deploy the template:
 1. In the Azure portal, type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
-3. Replace the default template with the template linked above (for example, copy the text inside the json file).  See [this quickstart](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+3. Replace the default template with the template linked above (for example, copy the text inside the json file). See [this quickstart](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
 5. Under `Resource Group`, select `Create New` and enter the resource group name you would like to use (for example, community-template-rg) for the AVE resources.
 6. Optionally, Under `Unique Number`, increment the number if previous deployments occurred in the same resources group.
@@ -86,7 +86,7 @@ What gets deployed:
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
-3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+3. Replace the default template with the ARM template contents (for example copy the text inside the json file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
 5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg) for the AVE resources.
 6. Increment `Unique Number` if previous deployments are located in the same resources group.
@@ -123,13 +123,13 @@ Deploy the template:
 2. Select `Build your own template in the editor`.
 3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
-5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). It's recommended to use the same resource group for other AVE resources but not required.
+5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). You can put your enclaves in this same resource group or put them in separate subscriptions.
 6. Under `Community Name`, enter the community name you would like to use (for example cm-template-test).
 7. Select `Review + Create` and then `Create`.
 
 > [!NOTE]
 > 
-> The community property "dnsServers" won't have any affect on the community resource deployed and can be ignored.
+> The community property "dnsServers" doesn't affect the community resource deployed and can be ignored.
 
 ### Enclave template
 What gets deployed:
@@ -140,9 +140,9 @@ What gets deployed:
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
-3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+3. Replace the default template with the ARM template contents (for example copy the text inside the json file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
-5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). It's recommended to use the same resource group for other AVE resources but not required.
+5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). You can put your enclaves in this same resource group or put them in separate subscriptions.
 6. Enter the `Community Resource ID` which can be found on the community `Properties` page under `ID`.
 7. Enter the new `Enclave Name` you would like to create (for example enc-template-test).
 8. Enter the `Community Address Space` which can be found on the community `Overview` page (for example 10.0.0.0/16).
@@ -158,9 +158,9 @@ What gets deployed:
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
-3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+3. Replace the default template with the ARM template contents (for example copy the text inside the json file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
-5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). Use the same resource group for other AVE resources or another resource group according to your needs.
+5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). It's recommended to use the same resource group as the enclave resource but not required.
 6. Enter the `Enclave Name` of the existing enclave you would like to add an endpoint to (for example enc-template-test).
 7. Enter the `Enclave Address Space` for the enclave you're adding the endpoint to (for example 10.0.2.0/23). You can find this by selecting on the enclave resource, on the overview page select the `virtual network` link, and select the `Address Space` page.
 8. Select `Review + Create` and then `Create`.
@@ -174,9 +174,9 @@ What gets deployed:
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
-3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+3. Replace the default template with the ARM template contents (for example copy the text inside the json file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
-5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). It's recommended to use the same resource group for other AVE resources but not required.
+5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). It's recommended to use the same resource group as the enclave resource but not required.
 6. Enter the `Community Resource ID` which can be found on the community `Properties` page under `ID`.
 7. Enter the `Source enclave Resource ID` which can be found on the source enclave `Properties` page under `ID`.
 8. Enter the `ADDS Endpoint Resource ID` which can be found on the ADDS endpoint `Properties` page under `ID`.
