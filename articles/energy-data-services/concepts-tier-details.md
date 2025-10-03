@@ -16,9 +16,7 @@ Azure Data Manager for Energy is available in two tiers; Standard and Developer.
 ## Developer tier 
 The Azure Data Manager for Energy Developer Tier is designed to provide flexibility and speed for users building and testing [OSDU&reg;](https://osduforum.org) Data Platform backed solutions.  It offers the same high standard of security and integration capabilities as the Standard tier, but at a lower cost and with reduced resource capacity.
 
-This tier is best suited for functional testing, evaluation, and early-stage development. It is not recommended for performance benchmarking or production-scale ingestion workloads, as its resource limits may lead to suboptimal results or system strain in such scenarios.
-
-Organizations can use the Developer tier to cost-effectively isolate and manage their test environments, ensuring a clear separation from production operations. Typical use cases include:
+This tier is best suited for functional testing, evaluation, and early-stage development. It is not recommended for performance benchmarking or production-scale workloads, as its resource limits may lead to suboptimal results in such scenarios. Organizations can use the Developer tier to cost-effectively isolate and manage their test environments, ensuring a clear separation from production operations. Typical use cases include:
 
 * Evaluating and creating data migration strategy
 * Building proof of concepts and business case demonstrations of user scenarios
