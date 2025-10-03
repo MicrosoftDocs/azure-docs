@@ -11,7 +11,7 @@ ms.date: 10/06/2025
 
 # Set up pagination to get more data than the page size limit in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 When you get data, items, or records by using a connector action in Azure Logic Apps, you might get result sets so large that the action doesn't return all the results at the same time. For example, the default page size for the SQL Server connector's **Get rows** action is 2048, but might vary based on other settings.
 
