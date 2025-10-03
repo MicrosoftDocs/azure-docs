@@ -167,7 +167,7 @@ az iot ops migrate-assets -n <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> -
 ```
 
 > [!IMPORTANT]
-> Before migrating assets, make sure to take a snapshot of your instance using the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command. This allows you to restore your instance to its previous state if needed. For more information, see [Clone an IoT Operations instance](./how-to-clone-instance.md).
+> Before migrating assets, make sure to take a snapshot of your instance using the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command. This allows you to restore your instance to its previous state if needed. For more information, see [Clone an IoT Operations instance](./howto-clone-instance.md).
 
 Once the migration is complete, you can use `az iot ops ns asset` and `az iot ops ns device` commands to manage the namespace assets and devices in your Azure IoT Operations instance. 
 
