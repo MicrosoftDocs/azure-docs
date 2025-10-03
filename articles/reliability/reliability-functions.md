@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Functions
-description: Find out about reliability support in Azure Functions, including intra-regional resiliency and cross-region recovery and business continuity.
+description: Learn how to ensure serverless reliability with Azure Functions by using Azure availability zones, SKUs, and cross-region disaster recovery strategies.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article

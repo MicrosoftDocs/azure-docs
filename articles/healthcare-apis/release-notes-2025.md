@@ -17,6 +17,19 @@ ms.custom:
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## October 2025
+### FHIR service
+
+#### Bug fixes:
+
+**URL construction for bundles with forwarded headers**: Fixed an issue with forwarded headers, like X-Forwarded-Host, where their values weren't respected when used with requests containing bundles. In some cases the paths could be erroneous while at other times they would be missing completely.
+
+**SMART on FHIR compartment searches**:  Previously, SMART compartment search expressions weren't properly comparing CompartmentId values and could return resources from different compartments. This issue has now been fixed.
+
+**SMART on FHIR system level searches with historical records**:  Previously, if historical records were in the system and a SMART system level search on all resource types was conducted, the search could return an empty result set even if there exists resources in a compartment. This issue got fixed, and resources will be correctly returned.
+
+**Reindex fix**: Previously, after adding and reindexing a new search parameter, a warning would sometimes be returned "Search Parameter not recognized". This issue got fixed by improving background refresh and synchronization.
+
 ## September 2025
 ### FHIR service
 

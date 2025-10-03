@@ -212,6 +212,14 @@ For more information about the command, see [az fluid-relay server update](/cli/
 
 ---
 
+## Delete an Azure Fluid Relay Resource with CMK enabled
+
+Deleting a Customer-Managed Key (CMK) enabled Azure Fluid Relay resource follows the same process as deleting a standard Fluid Relay resource. However, you must ensure that the Fluid Relay resource is deleted **before** its CMK dependencies, such as the encryption key, Key Vault and any user-assigned managed identities.
+
+If you provision the Fluid Relay resource and its CMK dependencies (Key Vault and user-assigned identity) in the same resource group, you must explicitly delete the Fluid Relay resource first. Otherwise, attempting to delete the entire resource group at once will fail because the Fluid Relay resource cannot be removed after its dependencies are deleted.
+
+---
+
 ## Troubleshooting
 
 ### Error: Unexpected error happened when configuring CMK

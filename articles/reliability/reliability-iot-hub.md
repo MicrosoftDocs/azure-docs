@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure IoT Hub
-description: Find out about reliability in Azure IoT Hub, including availability zones and multi-region deployments.
+description: Learn how to enhance IoT reliability in Azure IoT Hub by using device identity protection, availability zones, and failover strategies.
 author: kgremban
 ms.author: kgremban
 ms.topic: reliability-article

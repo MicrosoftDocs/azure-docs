@@ -1,6 +1,6 @@
 ---
 title: Reliability in Microsoft Fabric 
-description: Find out about reliability in Microsoft Fabric
+description: Learn how to ensure analytics platform reliability with Microsoft Fabric by using availability zones, cross-region replication, and disaster recovery planning.
 author: msmimart 
 ms.author: mimart 
 ms.topic: reliability-article
@@ -32,7 +32,7 @@ Fabric makes commercially reasonable efforts to support zone-redundant availabil
 - Data engineering supports availability zones if you use OneLake. If you use other data sources such as ADLS Gen2, then you need to ensure that Zone-redundant storage (ZRS) is enabled.
 - Zone availability may or may not be available for Fabric experiences and/or features/functionalities that are in preview.
 - On-premises gateways and large semantic models in Power BI don't support availability zones.
-- Data Factory (pipelines) support availability zones in West Europe, but new or inprogress pipelines runs _may_ fail in case of zone outage.
+- Data Factory (pipelines) support availability zones in West Europe, but new or in-progress pipelines runs _may_ fail in case of zone outage.
 
 ### Supported regions
 
