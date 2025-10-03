@@ -8,6 +8,7 @@ ms.date: 07/21/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 # Customer intent: "As a storage administrator, I want to optimize the performance of SSD SMB Azure file shares using techniques like SMB Multichannel and metadata caching, so that I can enhance throughput and efficiency for demanding workloads."
 ---
 

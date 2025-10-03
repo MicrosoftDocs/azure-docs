@@ -13,7 +13,7 @@ zone_pivot_groups: web-application-firewall-configuration
 
 # Configure a Web Application Firewall rate-limit rule
 
-The Azure Web Application Firewall rate-limit rule for Azure Front Door controls the number of requests allowed from a particular source IP address to the application during a rate-limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md).
+The Azure Web Application Firewall rate-limit rule for Azure Front Door controls the number of requests allowed from a particular source IP address to the application during a rate-limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
 
 This article shows how to configure a web application firewall (WAF) rate-limit rule on Azure Front Door Standard and Premium tiers.
 

@@ -20,6 +20,10 @@ When you enable this configuration, the system-assigned managed identities will 
 
 To learn more about the benefits of using managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
+> [!IMPORTANT]
+> **Cross-tenant topologies aren't supported.** The **Storage Sync Service**, the **server resource** (Azure Arc–enabled server or Azure VM), the **managed identity**, and the **RBAC assignments** on the storage account must all be in the **same Microsoft Entra tenant**. Cross-tenant setups fail authentication/authorization, and the server can't connect.
+
+
 To configure your Azure File Sync deployment to utilize system-assigned managed identities, follow the guidance in the subsequent sections.
 
 ## Prerequisites

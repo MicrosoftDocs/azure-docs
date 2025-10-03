@@ -9,16 +9,13 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 6/26/2024
+ms.date: 10/03/2025
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure Database for MySQL trigger binding for Azure Functions (preview)
-
-> [!NOTE]
-> Although input and output bindings are supported on all plans, Azure Database for MySQL trigger binding is available only on [Dedicated and Premium plans](functions-scale.md) during the preview.
+# Azure Database for MySQL trigger binding for Azure Functions
 
 Azure Database for MySQL trigger bindings monitor the user table for changes (inserts and updates) and invoke the function with updated row data.
 

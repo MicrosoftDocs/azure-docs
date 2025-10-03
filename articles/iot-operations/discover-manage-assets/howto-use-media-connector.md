@@ -33,6 +33,40 @@ To configure devices and assets, you need a running preview instance of Azure Io
 
 A camera connected to your network and accessible from your Azure IoT Operations cluster. The camera must support the Real Time Streaming Protocol for video streaming. You also need the camera's username and password to authenticate with it.
 
+## Media source types
+
+The media connector can connect to various sources, including:
+
+| Media source | Example URLs | Notes |
+|--------------| ---------------|-------|
+| Edge attached camera | `file://host/dev/video0`<br/>`file://host/dev/usb0` | No authentication required. The URL refers to the device file. Connects to a node using USB, FireWire, MIPI, or proprietary interface. |
+| IP camera | `rtsp://192.168.178.45:554/stream1` | JPEG over HTTP for snapshots, RTSP/RTCP/RTP/MJPEG-TS for video streams. An IP camera might also expose a standard ONVIF control interface. |
+| Media server | `rtsp://192.168.178.45:554/stream1` | JPEG over HTTP for snapshots, RTSP/RTCP/RTP/MJPEG-TS for video streams. A media server can also serve images and videos using URLs such as `ftp://host/path` or `smb://host/path` |
+| Media file | `http://camera1/snapshot/profile1`<br/>`nfs://server/path/file.extension`<br/>` file://localhost/media/path/file.mkv`  | Any media file with a URL accessible from the cluster. |
+| Media folder | `file://host/path/to/folder/`<br/>`ftp://server/path/to/folder/` | A folder, accessible from the cluster, that contains media files such as snapshots or clips. |
+
+## Task types
+
+The media connector supports the following task types:
+
+| Task type | Description |
+|-----------|-------------|
+| snapshot-to-mqtt | Captures a snapshot from a media source and publishes it to an MQTT topic. |
+| clip-to-fs | Saves a video clip from a media source to the file system. |
+| snapshot-to-fs | Saves a snapshot from a media source to the file system. |
+| stream-to-rtsp | Proxies a live video stream from a media source to an RTSP endpoint. |
+| stream-to-rtsps | Proxies a live video stream from a media source to an RTSPs endpoint. |
+
+## Example uses
+
+Example uses of the media connector include:
+
+- Capture snapshots from a video stream or from an image URL and publish them to an MQTT topic. A subscriber to the MQTT topic can use the captured images for further processing or analysis.
+
+- Save video streams to a local file system on your cluster. Use [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to provide a reliable and fault-tolerant solution for uploading the captured video to the cloud for storage or processing.
+
+- Proxy a live video stream from a camera to an endpoint that an operator can access. For security and performance reasons, only the media connector should have direct access to an edge camera. The media connector uses a separate media server component to stream video to an operator's endpoint. This media server can transcode to various protocols such as RTSP, RTCP, SRT, and HLS. You need to deploy your own media server to provide these capabilities.
+
 ## Deploy the media connector
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]

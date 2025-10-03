@@ -2,7 +2,7 @@
 title: Request quota increases from support
 description: How to create a support request in the Azure portal for Azure Data Factory to request quota increases or get problem resolution support.
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 09/30/2025
 ms.subservice: data-movement
 author: whhender
 ms.author: whhender
@@ -28,23 +28,31 @@ Use the following steps to create a new support request from the Azure portal fo
 1. Review your [Azure support plan](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
 
    * **Billing, quota, and subscription management** support are available at all support levels.
-   * **Break-fix** support is provided through [Developer](https://azure.microsoft.com/support/plans/developer/), [Standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/), or [Premier](https://azure.microsoft.com/support/plans/premier/) support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
+   * **Break-fix** support is provided through [Developer](https://azure.microsoft.com/support/plans/developer/), [Standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/), or [Premier](https://azure.microsoft.com/support/plans/premier/) support. Break-fix issues are problems experienced by customers while using Azure where there's a reasonable expectation that Microsoft caused the problem.
    * **Developer mentoring** and **advisory services** are available at the [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) and [Premier](https://azure.microsoft.com/support/plans/premier/) support levels.
 
    If you have a Premier support plan, you can also report Azure Data Factory issues on the [Microsoft Premier online portal](https://www.microsoft.com/unifiedsupport/premier). See [Azure support plans](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs](https://azure.microsoft.com/support/faq/).
+
+1. Describe the issue as something like "I need to increase my limit for Azure Data Factory" in the **Briefly describe the issue** box, and then select **Go**.
+
+1. Select **Data Factory** from the service list, and select your subscription and Data Factory instance.
+
+1. Select **I need to increase a Data Factory Limit** as the issue or if it isn't available, select **None of the above**, then select **Next**.
+
+1. Scroll down and select **Contact support** and then **Create a support request**.
 
 1. For **Issue type**, select the appropriate issue type. For break-fix problems, select **Technical**. For quota increase requests, select **Service and subscription limits (quotas)**.
 
    :::image type="content" source="./media/quota-increase/select-quota-issue-type.png" alt-text="Select an issue type":::  
 
    > [!NOTE]
-   > This remainder of this article focusses on quota-increase requests. But you can also select **Technical** here for problem-resolution support requests. If you select **Technical**, you are asked to provide a summary and then identify a problem type by selecting **Select problem type**. You may see solutions to help resolve your issue. If the solutions presented do not resolve your issue, select **Next:Details** and complete the form to submit the support ticket.
+   > This remainder of this article focuses on quota-increase requests. But you can also select **Technical** here for problem-resolution support requests. If you select **Technical**, you're asked to provide a summary and then identify a problem type by selecting **Select problem type**. You could see solutions to help resolve your issue. If the solutions presented don't resolve your issue, select **Next:Details** and complete the form to submit the support ticket.
 
 1. For quota increase requests, select **Data Factory** for the **Quota type**. Then select **Next**.
 
    :::image type="content" source="./media/quota-increase/select-quota-type.png" alt-text="Select a quota type":::
 
-1. In the **Additional Details** window, enter additional information about the specific quota limit(s) you require increased.  Refer to the [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) article for specific limits.  Select your preferred method of contact, and click **Next**.
+1. In the **Additional Details** window, enter additional information about the specific quota limits you want increased. Refer to the [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) article for specific limits. Select your preferred method of contact, and select **Next**.
 
    :::image type="content" source="./media/quota-increase/provide-details.png" alt-text="The &quot;Provide details&quot; section":::
 

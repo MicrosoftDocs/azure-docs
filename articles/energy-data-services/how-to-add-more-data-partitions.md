@@ -6,7 +6,9 @@ ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 07/05/2022
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # How to manage data partitions?

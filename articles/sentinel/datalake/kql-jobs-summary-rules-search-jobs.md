@@ -20,7 +20,7 @@ ms.collection: ms-security
 This article compares KQL jobs, summary rules, and search jobs in Microsoft Sentinel. These features let you query and analyze data in Microsoft Sentinel, and each serves different purposes and use cases.
 
 > [!NOTE]
-> KQL jobs require onboarding to the Microsoft Sentinel data lake. For more information, see [Onboard to the Microsoft Sentinel data lake (preview)](./sentinel-lake-onboarding.md).
+> KQL jobs require onboarding to the Microsoft Sentinel data lake. For more information, see [Onboard to the Microsoft Sentinel data lake](./sentinel-lake-onboarding.md).
 
 + **KQL jobs**: Run one-time or scheduled asynchronous queries on data stored in the Microsoft Sentinel data lake. KQL jobs are best for incident investigations using historical logs, enrichment using low-fidelity logs, and scenarios that need queries with joins or unions across multiple tables. For more information, see [KQL jobs](kql-jobs.md).
 
@@ -53,7 +53,7 @@ If you have any of the following requirements, use search jobs:
 
 | Feature | KQL Jobs | Summary Rules | Search jobs |
 |---|---|---|---|
-| **Source data tier** | Microsoft Sentinel data lake tier | Analytics, auxiliary, basic, data lake (except for tables in the default workspace) | Analytics, data lake (except for tables in the default workspace). For non-data-lake workspaces: Auxiliary, Basic, Archived tier |
+| **Source data tier** | Microsoft Sentinel data lake tier | Analytics, auxiliary, basic, data lake (except for tables in System tables) | Analytics, data lake (except for tables in System tables). For non-data-lake workspaces: Auxiliary, Basic, Archived tier |
 | **Workspace scope** | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace |
 | **Table scope** | Multiple tables | Multiple tables | Single table |
 | **Query language** | [KQL jobs supported operators](/azure/sentinel/datalake/kql-jobs#considerations-and-limitations)| Limited [KQL operators](/azure/azure-monitor/logs/summary-rules?tabs=api#create-or-update-a-summary-rule) | [Limited KQL operators](/azure/azure-monitor/logs/search-jobs#kql-query-considerations) |
@@ -69,6 +69,7 @@ If you have any of the following requirements, use search jobs:
 
 ## Related articles
 
-- [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
+- [KQL and the Microsoft Sentinel data lake](kql-overview.md)
+- [Jupyter notebooks and the Microsoft Sentinel data lake](notebooks-overview.md)
 - [Aggregate Microsoft Sentinel data with summary rules](../summary-rules.md)
 - [Search for specific events across large datasets in Microsoft Sentinel](../search-jobs.md)  

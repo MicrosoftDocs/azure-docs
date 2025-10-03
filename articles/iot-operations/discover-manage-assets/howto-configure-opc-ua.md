@@ -33,11 +33,11 @@ To configure devices and assets, you need a running preview instance of Azure Io
 
 Your IT administrator must have configured the OPC UA connector template for your Azure IoT Operations instance in the Azure portal.
 
-An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the built-in OPC PLC simulator that comes with Azure IoT Operations.
+An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the OPC PLC simulator from the Azure IoT Operations samples repository.
 
 ## Create a device
 
-An Azure IoT Operations deployment can include an optional built-in OPC PLC simulator. To create a device that uses the built-in OPC PLC simulator:
+An Azure IoT Operations deployment can include a sample OPC PLC simulator. To create a device that uses the OPC PLC simulator:
 
 # [Operations experience](#tab/portal)
 
@@ -90,7 +90,7 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 # [Operations experience](#tab/portal)
 
-1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opc-ua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
 2. In the operations experience, select **Username password** for the **User authentication** field to configure the device endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
 
 | Field | Value |
@@ -100,7 +100,7 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 # [Azure CLI](#tab/cli)
 
-1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opc-ua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
 
 1. Use a command like the following example to create a device endpoint that uses the username and password authentication mode:
 
@@ -357,7 +357,7 @@ az iot ops ns asset delete --name thermostat -g {your resource group name} --ins
 
 ## Related content
 
-- [Manage asset and device configurations](howto-manage-assets-devices.md)
+- [Manage asset and device configurations](howto-use-operations-experience.md)
 - [Connector for OPC UA overview](overview-opc-ua-connector.md)
 - [az iot ops asset](/cli/azure/iot/ops/asset)
 - [az iot ops device](/cli/azure/iot/ops/asset/endpoint)

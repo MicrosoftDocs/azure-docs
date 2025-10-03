@@ -5,6 +5,7 @@ author: sunishvohra-ms
 ms.author: sunishvohra
 ms.manager: vijain
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.custom: engagement-fy25
@@ -37,7 +38,7 @@ The table summarizes discovery, assessment, and migration limits for Azure Migra
 
 ## Select a VMware vSphere migration method
 
-If you're migrating VMware vSphere VMs to Azure, [compare](server-migrate-overview.md#compare-migration-methods) the agentless and agent-based migration methods, to decide what works best for you.
+If you're migrating VMware vSphere VMs to Azure, [compare](server-migrate-overview.md) the agentless and agent-based migration methods, to decide what works best for you.
 
 ## Verify hypervisor requirements
 

@@ -474,15 +474,6 @@ The preview is available on [npm][3.0.0-preview.1].
 
 This update is the first preview of the upcoming 3.0.0 release. The underlying [maplibre-gl] dependency has been upgraded from `1.14` to `3.0.0-pre.1`, offering improvements in stability and performance.
 
-#### Bug fixes
-
-- Fixed a regression issue that prevents IndoorManager from removing a tileset:
-
-  ```js
-  indoorManager.setOptions({
-      tilesetId: undefined
-  })
-  ```
 
 ## v2
 

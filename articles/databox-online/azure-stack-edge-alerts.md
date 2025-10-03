@@ -5,10 +5,12 @@ services: databox
 author: v-dalc
 
 ms.service: azure-stack-edge
-ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 02/04/2025
 ms.author: alkohli
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 # Review alerts on Azure Stack Edge
 

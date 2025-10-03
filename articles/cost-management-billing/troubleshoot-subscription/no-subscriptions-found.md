@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/14/2025
 ms.author: macyso
+ms.custom: sfi-image-nochange
 ---
 
 # No subscriptions found sign in error for Azure portal

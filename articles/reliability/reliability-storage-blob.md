@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Blob Storage
-description: Learn about reliability in Azure Blob Storage, including availability zones and multi-region deployments.
+description: Learn how to ensure reliability in Azure Blob Storage by using zone redundancy, geo-redundant storage, and high availability for object storage.
 ms.author: anaharris
 author: anaharris-ms
 ms.topic: reliability-article
@@ -153,6 +153,8 @@ For more information, see [Blob Storage pricing](https://azure.microsoft.com/pri
 ### Alternative multi-region approaches
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
+
+[!INCLUDE [Storage - Alternative multi-region approaches - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
 
 [!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
 

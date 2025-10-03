@@ -6,7 +6,9 @@ ms.author: mesharm
 ms.topic: overview
 ms.service: trusted-signing
 ms.date: 03/21/2024
-ms.custom: template-overview
+ms.custom:
+  - template-overview
+  - sfi-image-nochange
 ---
 
 # What is Trusted Signing?
