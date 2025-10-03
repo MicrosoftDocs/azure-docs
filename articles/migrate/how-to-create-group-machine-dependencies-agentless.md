@@ -196,7 +196,7 @@ If dependency data collection is enabled on your servers (up to 1,000 servers pe
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-connection-details.png" alt-text="The screenshot shows the server connection details in multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-connection-details.png":::
 
-1. You can zoom in on a server node and select the **blue arrow** on the node's boundary to switch to the [visualization at per server level](#visualize-dependencies-per-server).
+1. You can zoom in on a server node and select the **blue arrow** on the node's boundary to switch to the [visualize individual server dependencies](#visualize-individual-server-dependencies).
 1. The server level visualization shows incoming and outgoing dependencies for that specific server with process and port-level details.
 
    > [!NOTE]
