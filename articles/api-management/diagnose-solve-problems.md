@@ -1,9 +1,9 @@
 ---
 title: Azure API Management Diagnose and Solve Problems
-description: Learn how to troubleshoot issues with your API in Azure API Management with the Diagnose and Solve tool in the Azure portal. 
+description: Learn how to troubleshoot issues with your API in Azure API Management by using the Diagnose and Solve tool in the Azure portal. 
 author: dlepow
 ms.service: azure-api-management
-ms.topic: how-to
+ms.topic: overview
 ms.date: 10/03/2025
 ms.author: danlep
 ---
@@ -12,7 +12,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
-When you build and manage an API in Azure API Management, you want to be prepared for any issues that might arise, from 404 not found errors to a 502 bad gateway error. API Management Diagnostics is an intelligent and interactive experience that helps you troubleshoot your API published in API Management with no configuration required. When you run into issues with your published APIs, API Management Diagnostics points out what's wrong, and guides you to the right information to quickly troubleshoot and resolve the issue.
+When you build and manage an API in Azure API Management, you want to be prepared for any issues that might arise, from **404 not found** errors to a **502 bad gateway** error. API Management Diagnostics is an intelligent and interactive experience that helps you troubleshoot your APIs published in API Management with no configuration required. When you run into issues with your published APIs, API Management Diagnostics points out what's wrong, and guides you to the right information to quickly troubleshoot and resolve the issue.
 
 Although this experience is most helpful for issues that occurred with your API within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
