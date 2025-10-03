@@ -5,9 +5,6 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.date: 10/02/2025
-ms.custom:
-  - devx-track-azurecli
-  - sfi-image-nochange
 
 #CustomerIntent: As an IT professional, I want to know how to clone an IoT Operations instance so that I can create a copy of my existing instance for testing or backup purposes.
 ---
@@ -31,37 +28,96 @@ You can clone an existing Azure IoT Operations instance to create a new instance
     az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
     ```
 
-### Clone instance 
+## Clone command overview
+Ensure you have an instance you want to clone, and a target cluster you want to clone to. You can use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one.
 
+Clone analyzes an Azure IoT Operations instance and reproduces it in an infrastructure-as-code manner via ARM templates. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster.
 
-Currently, the Azure portal doesn't support cloning an Azure IoT Operations instance. You can use the Azure CLI to clone an instance.
+> [!NOTE]
+> Currently, the Azure portal doesn't support cloning an Azure IoT Operations instance. You can use the Azure CLI to clone an instance.
 
-Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster.
+### Clone model
 
+The model is the instance you are cloning from. It is the source of truth for the clone operation. Enter the following parameters to identify the model:
 
-To clone an instance to another cluster, run:
+- `--name/-n`: The model instance name.
+- `--resource-group/-g`: The resource group that contains the model instance.
 
-```azurecli
-az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> 
-```
+### Clone target
 
-To customize the replication to another cluster, use `--param` and specify the parameters you want to change in the format `key=value`. For example, to change the location of the cloned instance, run:
+The target is where you want to replicate or save the clone definition. You can apply a clone to one, all, or no targets. If you don't provide any target options the process terminates after outputting a summary of in-scope resources. Enter one of the following parameters to identify the target:
 
-```azurecli
-az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --param location=eastus
-```
+- `--to-cluster-id`: Providing the resource Id of a target cluster will replicate the clone definition to it. This means the version of AIO declared in the definition will be deployed, then all in-scope resources will be applied to the deployment. Currently, auto-federation of UAMI credentials is only supported with cluster target.
 
-To clone an instance to a local directory, run:
+- `--to-dir`: Providing a local directory path will replicate the clone definition to disk, where it can be deployed with existing ARM deployment tools with or without modification. Inspecting the clone definition, you will note various parameterization in play to ease some customization.
 
-```azurecli
-az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir <DIRECTORY>
-```
+> [!IMPORTANT]
+> Take care when choosing your target resource group. There is less to think about if you replicate the clone to a cluster without AIO installed in a resource group separate from the model. This is because by default the resource names captured in the clone definition will match the resource names associated with the model instance. If target and model share the same resource group, and the custom location is changed, you will get conflicts.
 
-> [!TIP]
-> To clone an instance to the current directory, run `--to-dir .`
+### Clone template
 
-To clone an instance to a cluster, but splitting and serially applying asset related sub-deployments, run:
+The clone command generates an ARM template that describes the resources to be created in the target. The template is generated based on the resources in the model instance and their configuration. Enter the following optional parameters to customize the template:
 
-```azurecli
-az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --mode linked
-```
+- `--mode`: When mode nested is used (the default), sub-deployments will be self-contained in the root deployment. When mode linked is used, asset related sub-deployments will be split and stored as separate files linked by the root deployment. You typically do not need to use this unless you have a large set of assets and aeps.
+
+## Clone an instance
+
+To clone an instance, use the `az iot ops clone` command with the appropriate parameters to specify the source instance and the target location.
+
+1. Before you begin, set your default subscription to the same subscription the model instance is in. Otherwise, you need to append `--subscription` every time you run an `az iot ops clone` command.
+
+    ```azurecli
+    az account set -s $MODEL_SUBSCRIPTION_ID
+    ```
+
+1. To get your cluster resource ID, run:
+
+    ```azurecli
+    az resource show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --resource-type "Microsoft.Kubernetes/connectedClusters" --query id --output tsv
+    ```
+
+1. To clone an instance and replicate to a target arc-connected cluster using default options, run:
+
+    ```azurecli
+    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> 
+    ```
+
+1. To customize the replication to another cluster, use `--param` and specify the parameters you want to change in the format `key=value`. For example, to change the location of the cloned instance, run:
+
+    ```azurecli
+    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --param location=eastus
+    ```
+
+1. To clone an instance to a local disk, use the `--to-dir` parameter to specify the directory where you want to save the clone definition. This option produces a standard ARM template to be manipulated or deployed at your discretion.
+
+    ```azurecli
+    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir <DIRECTORY>
+    ```
+
+    > [!TIP]
+    > To clone an instance to the current directory, run `--to-dir .`
+
+1. To clone and replicate an instance to a target cluster and save to file in the same operation, run: 
+
+    ```azurecli
+    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --to-dir <DIRECTORY>
+    ```   
+
+1. To clone an instance to a cluster, but splitting and serially applying asset related sub-deployments, use `--mode linked.` The parameter offers the highest degree of scale when the model instance contains a significant number of asset related resources.
+
+    ```azurecli
+    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --mode linked
+    ```
+
+1. To clone an instance to disk in linked mode, where each linked asset and/or aep template can be deployed separately from the root template.
+
+    ```azurecli
+    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir . --mode linked
+    ```
+
+## Considerations and limitations
+
+- Automatic identity federation is currently supported with `--to-cluster-id` option only.
+- Resource sync rules are not captured.
+- While the required role assignment between the AIO system managed identity and target schema registry is handled by clone, any other system managed identity role assignments are not covered.
+- Clone is a cloud-side operation. The cluster isn't directly interacted with. Cluster secrets are synced from cloud via secure settings, which encompass secret provider classes and secret sync cloud resources. If the model cluster has user created elements such as configmaps that are referenced in the model AIO solution, those elements need to be re-applied against the target cluster.
