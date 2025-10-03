@@ -23,7 +23,7 @@ We are announcing the retirement of all Azure Cache for Redis SKUs. For more inf
 
 If you have existing caches in the Enterprise or Enterprise Flash tiers, you can continue using them until the service is fully retired on  March 31, 2027.
 
-If you have existing caches in the Basic, Standard, or Premium tiers, you can continue using them until the service is fully retired on September 30. 2028.
+If you have existing caches in the Basic, Standard, or Premium tiers, you can continue using them until the service is fully retired on September 30, 2028.
 
 | Tiers                        | Retirement date    |
 |------------------------------|--------------------|
