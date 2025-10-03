@@ -30,15 +30,15 @@ sections:
         answer: | 
           All existing Redis instances remain available until September 30, 2028. We continue to perform regular maintenance to ensure that all Azure Cache for Redis Basic, Standard, and Premium instances are secure and stable until September 30, 2028. 
 
-            - question: What actions should I take for my Redis instances affected by the retirement announcement?
+      - question: What actions should I take for my Redis instances affected by the retirement announcement?
 
         answer: | 
           We recommend that you upgrade your current Azure Cache for Redis instances to Azure Managed Redis instances now. Don't wait until the retirement deadline.
 
-      - question: What happens if I don't upgrade my caches to Azure Managed Redis by October 2028?
+      - question: What happens if I don't upgrade my Basic, Standard, or Premium caches to Azure Managed Redis by October 2028?
 
         answer: | 
-          All remaining Azure Cache for Redis instances are disabled starting October 1, 2028.
+          All remaining Azure Cache for Redis Basic, Standard, and Premium instances are disabled starting October 1, 2028.
 
       - question: Why should I upgrade my cache to Azure Managed Redis?
 
