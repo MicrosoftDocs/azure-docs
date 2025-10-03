@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Manager for Energy tier concepts: Developer and Standard SKU
+title: Microsoft Azure Data Manager for Energy tier concepts - Developer and Standard SKU
 description: This article describes tier concepts
 author: marielherz
 ms.author: marielherzog
