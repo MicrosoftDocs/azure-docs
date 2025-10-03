@@ -238,8 +238,6 @@ The following table describes appropriate and inappropriate scenarios for using 
 | Check workflow structure, bindings, or basic trigger and action behavior. | - Your workflow callers include external agents, MCP servers, or conversational clients. <br><br>- You plan to publish your workflow endpoint outside your tenant. |
 | Temporary sandbox or spike prototypes that later adopt Easy Auth or SAS URL hardening. | Your workflow requires auditable per-user identities, token revocation, Conditional Access policies, or least‑privilege enforcement. |
 
-For more information, see [Authenticate and authorize with a developer key](set-up-authentication-agent-workflows.md#authenticate-and-authorize-with-a-developer-key).
-
 <a name="easy-auth"></a>
 
 ### Easy Auth built-in authentication and authorization
