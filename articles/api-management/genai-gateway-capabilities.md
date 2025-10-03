@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 09/16/2025
+ms.date: 10/03/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -21,7 +21,7 @@ The *AI gateway* in Azure API Management is a set of capabilities that help you 
 
 Use the AI gateway to manage a wide range of AI endpoints, including:
 
-* [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in AI Foundry Models](/azure/ai-foundry/openai/overview) deployments
+* [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Azure AI Foundry Models](/azure/ai-foundry/openai/overview) deployments
 * [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) deployments
 * Remote MCP servers
 * OpenAI-compatible models and endpoints hosted by non-Microsoft providers
@@ -55,7 +55,7 @@ With the AI gateway, you can:
 
 * Quickly import and configure OpenAI-compatible or passthrough LLM endpoints as APIs
 * Manage models deployed in Azure AI Foundry or providers such as Amazon Bedrock
-* Govern chat completions, responses, and realtime APIs
+* Govern chat completions, responses, and real-time APIs
 * Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers
 
 For example, to onboard a model deployed in AI Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
