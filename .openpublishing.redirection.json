@@ -1,6 +1,221 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-functions/functions-proxies.md",
+      "redirect_url": "/previous-versions/azure/azure-functions/functions-proxies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/legacy-proxies.md",
+      "redirect_url": "/previous-versions/azure/azure-functions/legacy-proxies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/backup-restore.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/backup-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/configure-replication.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/configure-replication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/configure.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/connect.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/create-external-stream-transact-sql.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/create-external-stream-transact-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/create-stream-analytics-job.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/create-stream-analytics-job",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/data-retention-cleanup.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/data-retention-cleanup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/data-retention-enable-disable.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/data-retention-enable-disable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/data-retention-overview.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/data-retention-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/date-bucket-tsql.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/date-bucket-tsql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/deploy-dacpac.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/deploy-dacpac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/deploy-kubernetes.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/deploy-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/deploy-onnx.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/deploy-onnx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/deploy-portal.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/deploy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/disconnected-deployment.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/disconnected-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/drop-external-stream-transact-sql.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/drop-external-stream-transact-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/features.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/high-availability-sql-edge-containers.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/high-availability-sql-edge-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/imputing-missing-values.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/imputing-missing-values",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/index.yml",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/onnx-overview.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/onnx-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/performance-best-practices.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/performance-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/release-notes.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/resources-partners-security.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/resources-partners-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/security-overview.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/stream-data.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/stream-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/streaming-catalog-views.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/streaming-catalog-views",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/sys-external-job-streams.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/sys-external-job-streams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/sys-external-streaming-jobs.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/sys-external-streaming-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/sys-external-streams.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/sys-external-streams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/sys-sp-cleanup-data-retention.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/sys-sp-cleanup-data-retention",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/track-data-changes.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/track-data-changes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-deploy-azure-resources.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-deploy-azure-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-renewable-energy-demo.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-renewable-energy-demo",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-run-ml-model-on-sql-edge.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-run-ml-model-on-sql-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-set-up-iot-edge-modules.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-set-up-iot-edge-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-sync-data-factory.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-sync-data-factory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-sync-data-sync.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-sync-data-sync",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/usage-and-diagnostics-data-configuration.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/usage-and-diagnostics-data-configuration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/private-5g-core/azure-policy-reference.md",
       "redirect_url": "/previous-versions/azure/private-5g-core/azure-policy-reference",
       "redirect_document_id": false

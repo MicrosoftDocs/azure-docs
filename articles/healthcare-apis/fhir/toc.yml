@@ -55,7 +55,7 @@ items:
       href: fhir-service-diagnostic-logs.md
     - name: Use Custom HTTP headers to add data to audit logs
       href: use-custom-headers-diagnosticlog.md
-- name: Interoperability and patient access
+- name: Compliance with mandates
   expanded: true
   items: 
     - name: CMS Interoperability and Patient Access rule introduction

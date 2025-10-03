@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/19/2025
+ms.date: 10/02/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to configure inactive data to move from a hot tier to a cool tier in Azure NetApp Files, so that I can optimize storage costs while maintaining accessibility to archived data.
@@ -17,7 +17,7 @@ When you use Azure NetApp Files storage with cool access, you can configure inac
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of high-performance storage.
 
-Azure NetApp Files supports cool access with three [service levels](azure-netapp-files-service-levels.md): Standard, Premium, and Ultra.
+Azure NetApp Files supports cool access with the Flexible, Standard, Premium, and Ultra [service levels](azure-netapp-files-service-levels.md).
 
 The following diagram illustrates an application with a volume enabled for cool access.
 

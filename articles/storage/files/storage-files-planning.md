@@ -77,12 +77,35 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 
 Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in the following regions:
 
-- Australia East
 - Australia Central
+- Australia East
+- Brazil South
+- Canada Central 
+- Central US
 - East Asia
 - East US
+- France South
+- Germany West Central
+- India Central
+- India West
+- Japan East
+- Jio India West 
+- Korea Central
+- Malaysia South
+- Mexico Central
+- North Central US 
 - North Europe
+- Norway West 
+- Qatar Central
+- South Africa North
+- Sweden Central
+- Switzerland West 
+- Taiwan North
 - UAE Central
+- UK South
+- West Central US 
+- West US
+- West US 2
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
@@ -256,5 +279,6 @@ The [migration overview article](storage-files-migration-overview.md) briefly co
 - [Deploying Azure Files](./storage-how-to-create-file-share.md)
 - [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 - [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)
+
 
 

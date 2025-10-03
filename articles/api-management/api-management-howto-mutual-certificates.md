@@ -33,6 +33,9 @@ API Management provides two options for managing certificates that are used to s
 * Reference a certificate that's managed in [Azure Key Vault](/azure/key-vault/general/overview). 
 * Add a certificate file directly in API Management.
 
+[!INCLUDE [api-management-workspace-key-vault-availability](../../includes/api-management-workspace-key-vault-availability.md)]
+
+
 We recommend that you use key vault certificates because doing so improves API Management security:
 
 * Certificates stored in key vaults can be reused across services.
