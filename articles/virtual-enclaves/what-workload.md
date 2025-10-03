@@ -24,7 +24,7 @@ Workloads are linked as a child resource to [enclaves](./what-enclave.md) and ar
 - [Azure Virtual Enclaves governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
 - [Enclave services and properties](./what-enclave.md)
 
-This diagram shows two Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group.
+This diagram shows two Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group. Resource Groups are highlighted in green and Azure resources are highlighted in dark blue.
 
 ```mermaid
 ---
