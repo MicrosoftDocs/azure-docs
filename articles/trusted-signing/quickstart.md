@@ -297,48 +297,48 @@ To create an identity validation request for an Organization:
 10. Follow the link to complete the Identity Validation process. Use the email address provided at the time of the request creation. Enter the credentials when prompted, and you'll be navigated to the next screen.
 11. Select **Get verified here through our trusted ID-verifiers**.
 
-:::image type="content" source="media/trusted-signing-firstVCscreenindie.png" alt-text="Screenshot that shows the first screen for VID." lightbox="media/trusted-signing-firstVCscreenindie.png":::
+:::image type="content" source="media/trusted-signing-first-vc-screen-indie.png" alt-text="Screenshot that shows the first screen for VID." lightbox="media/trusted-signing-first-vc-screen-indie.png":::
 
 12. Create verified credentials by using the trusted partners' pages. The following steps show an example walkthrough. It uses the trusted partner: AU10TIX. You are navigated to a 3rd party website. 
 
-a. Select **Let’s Begin**. 
+a. Select **Let’s Begin**.
 
-:::image type="content" source="media/trusted-signing-secondVCscreenindie.png" alt-text="Screenshot that shows the second screen for VID." lightbox="media/trusted-signing-secondVCscreenindie.png":::
+:::image type="content" source="media/trusted-signing-second-vc-screen-indie.png" alt-text="Screenshot that shows the second screen for VID." lightbox="media/trusted-signing-second-vc-screen-indie.png":::
 
 b. Enter your primary email address from the request here.
 
-:::image type="content" source="media/trusted-signing-enteremailidVCscreenindie.png" alt-text="Screenshot that shows screen to enter email address for VID." lightbox="media/trusted-signing-enteremailidVCscreenindie.png":::
+:::image type="content" source="media/trusted-signing-enter-emailid-vc-screen-indie.png" alt-text="Screenshot that shows screen to enter email address for VID." lightbox="media/trusted-signing-enter-emailid-vc-screen-indie.png":::
 
 AU10TIX sends an email verification in email that includes a PIN code.
 
 c. Check your email for the verification email and enter the PIN code to verify your email account.
 
-:::image type="content" source="media/trusted-signing-enterpincodeVCscreenindie.png" alt-text="Screenshot that shows screen to enter pincode for VID." lightbox="media/trusted-signing-enterpincodeVCscreenindie.png":::
+:::image type="content" source="media/trusted-signing-enter-pincode-vc-screen-indie.png" alt-text="Screenshot that shows screen to enter pincode for VID." lightbox="media/trusted-signing-enter-pincode-vc-screen-indie.png":::
 
 d. Enter phone number when prompted on the next screen. 
 
-:::image type="content" source="media/trusted-signing-enterphonenumberindie.png" alt-text="Screenshot that shows screen to enter phone number for VID." lightbox="media/trusted-signing-enterphonenumberindie.png":::
+:::image type="content" source="media/trusted-signing-enter-phone-number-indie.png" alt-text="Screenshot that shows screen to enter phone number for VID." lightbox="media/trusted-signing-enter-phone-number-indie.png":::
 
 e. Select **Start**.
 
-:::image type="content" source="media/trusted-signing-beginvconlaptopVCscreenindie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-beginvconlaptopVCscreenindie.png":::
+:::image type="content" source="media/trusted-signing-beginvconlaptopvcscreenindie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-beginvconlaptopvcscreenindie.png":::
 
 f. Use camera of your mobile device to scan the QR code. Do not close this screen on your browser.
 
-:::image type="content" source="media/trusted-signing-scanqrcodeonphoneVCscreenindie.png" alt-text="Screenshot that shows screen to scan QR code on phone to begin VID." lightbox="media/trusted-signing-scanqrcodeonphoneVCscreenindie.png":::
+:::image type="content" source="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen to scan QR code on phone to begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
 
 g. On your mobile device, select **Start**.  Complete the process and present the relevant documentation when prompted.
 
 e. After the Au10TIX process is complete on mobile device, select **Open Authenticator**.
-:::image type="content" source="media/trusted-signing-openauthenticatorVCscreenindie.png" alt-text="Screenshot that shows screen to navigate to Authenticator." lightbox="media/trusted-signing-openauthenticatorVCscreenindie.png":::
+:::image type="content" source="media/trusted-signing-open-authenticator-vc-screen-indie.png" alt-text="Screenshot that shows screen to navigate to Authenticator." lightbox="media/trusted-signing-open-authenticator-vc-screen-indie.png":::
 
 f. Now back on the browser, scan the QR code from your mobile device. Do not close the browser. 
 
-:::image type="content" source="media/trusted-signing-scanqrcodeagain.png" alt-text="Screenshot that shows screen to scan QR code on phone once again to being VID." lightbox="media/trusted-signing-scanqrcodeagain.png":::
+:::image type="content" source="media/trusted-signing-scan-qr-code-again.png" alt-text="Screenshot that shows screen to scan QR code on phone once again to being VID." lightbox="media/trusted-signing-scan-qr-code-again.png":::
 
 g. Select **Add** to add a verified ID to the Microsoft Authenticator app. 
 
-:::image type="content" source="media/trusted-signing-addVIDscreenindie.png" alt-text="Screenshot that shows screen to VID to their authenticator app." lightbox="media/trusted-signing-addVIDscreenindie.png":::
+:::image type="content" source="media/trusted-signing-add-vid-screen-indie.png" alt-text="Screenshot that shows screen to VID to their authenticator app." lightbox="media/trusted-signing-add-vid-screen-indie.png":::
 
 h. The browser screen shows Present your Verified ID. Scan the QR code.
 i. Select **Verifiable Credential** to share with Trusted Signing.
