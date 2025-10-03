@@ -158,6 +158,71 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 ::: moniker range="migrate"
 
+### Visualize dependencies across servers
+
+If dependency data collection is enabled on your servers (up to 1,000 servers per appliance), you can now visualize dependencies across all discovered servers in your Azure Migrate project. The visualization displays logically grouped server nodes and their connections, helping you understand network affinity and identify applications running in your datacenter.
+
+#### Default visualization
+
+1. In the left menu select **Dependency analysis** and then select **Explore Applications**.
+1. The visualization shows **Resolvable** connections collected from discovered servers with dependency analysis enabled. 
+    Resolvable connections are network connections identified between servers discovered by Azure Migrate.
+
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/multi-server-default-view.png" alt-text="The screenshot shows the default multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/multi-server-default-view.png":::
+
+    > [!NOTE]
+    > The view displays aggregated dependency data from each server, starting from when dependency analysis was first enabled. To improve clarity, redundant system process connections are excluded from the visualization.
+
+#### Visualization controls
+
+1. The default view shows a **bird's eye view** at the lower right, providing a summary of the visualization and helping you navigate easily.
+1. You can use the buttons from the lower right:
+    1. View the **Legend**, pan through the visualization using **Zoom in** and **Zoom out**.
+    1. Select **Zoom to fit** to return to the default view showing all nodes and connections after zooming in on a section.
+
+#### Visualization interactions
+
+1. At any level **hover over** a node to view basic server details including **Name**,**OS Type**, **IP address**, **Source** such as, the IP/FQDN of vCenter Server/Hyper-V host and **Tags** applied to the server.
+1. Select a server node to its **see the immediate dependents** of the server, which are highlighted with a dotted boundary around each dependent node. 
+1. Select of a server node to display additional details such as, **Power Status**, **Software inventory** discovered on the server and information about the incoming and outgoing **Connections**.
+
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-node-details.png" alt-text="The screenshot shows the details of a node in multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-node-details.png":::
+
+1. In the **Connections** tab, you can see:
+    1. Incoming connections (server name appears on the right) 
+    1. Outgoing connections (server name on the left) 
+    1. The **total count of connections** between the servers collected till date. 
+1. Expand any connection to view **connections between processes** between the source destination servers. These details also include the **destination port number** used in each connection.
+
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-connection-details.png" alt-text="The screenshot shows the server connection details in multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-connection-details.png":::
+
+1. You can zoom in on a server node and select the **blue arrow** on the node's boundary to switch to the [visualization at per server level](#visualize-dependencies-per-server).
+1. The server level visualization shows incoming and outgoing dependencies for that specific server with process and port-level details.
+
+   > [!NOTE]
+   > - When you switch from multi-server to single-server visualization, dependencies are shown for the **last 24 hours** by default.
+   > - You can change the time range to **last 30 days** to view the same level of dependencies as in the multi-server view, which displays all data collected to date.
+
+
+#### Scoping the visualization
+
+1. You can scope the visualization to show specific servers using **Search** by server names.
+1. You can also add one or more **filters** from Server name, Port (Destination), OS Type, Connection count and Appliance to scope the visualization.
+1. After scoping the visualization, you can multi-select the scoped servers and add or edit tags on these servers.
+
+#### Multi-select and tag servers
+
+1. After identifying a cluster of interconnected servers, you can **multi-select the required servers** by hitting "ctrl" on keyboard and dragging a boundary around the servers or selecting the desired server nodes one by one.
+1. Multi-selecting servers shows the servers highlighted in blue and opens a side pane to show the list of all the selected servers.
+
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/multi-select-servers.png" alt-text="The screenshot shows multi-selected servers in multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/multi-select-servers.png":::
+
+1. After multi-selecting servers, you can select **Add or edit tags** to identify and group them as an application, running in your datacenter. 
+1. When you select Add or edit tags, the tagging view shows the **selected servers and all database or web application workloads** running on the servers. You can choose to tag these together or remove any of these workloads if you dont want to tag them with this group.
+
+
+### Visualize dependencies per server
+
 1. In the new experience, go to project overview. Select the workloads count in **All inventory** to review the discovered workloads. In the view, you can see **Dependencies** column with status values as covered in section above.
 
 1. Search for the server whose dependencies, you want to review. If dependency analysis was successfully performed on that server, you can select on **View dependencies** to go to the dependency visualization. 
