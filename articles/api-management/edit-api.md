@@ -30,30 +30,30 @@ This article describes how to use Azure API Management to edit an API.
 
 ![Screenshot that shows the process for editing an API in API Management.](./media/edit-api/edit-api001.png)
 
-1. Click the **APIs** tab.
-2. Select one of the APIs that you previously imported.
-3. Select the **Design** tab.
-4. Select an operation, which you want to edit.
-5. To rename the operation, select a **pencil** in the **Frontend** window.
+1. Select the **APIs** tab.
+1. Select an APIs that you have imported.
+1. Select the **Design** tab.
+1. Select the operation that you want to edit.
+1. To rename the operation, select the pencil button in the **Frontend** pane.
 
 ## Update the swagger
 
 You can update your backend API from the Azure portal by following these steps:
 
 1. Select **All operations**
-2. Click pencil in the **Frontend** window.
+1. Select the pencil button in the **Frontend** pane.
 
-    ![Screenshot that highlights the pencil icon in the Frontend screen.](./media/edit-api/edit-api002.png)
+    ![Screenshot that shows the pencil button in the Frontend pane.](./media/edit-api/edit-api002.png)
 
     Your API's swagger appears.
 
-    ![Edit an api](./media/edit-api/edit-api003.png)
+    ![Screenshot that shows an API's swagger.](./media/edit-api/edit-api003.png)
 
-3. Update the swagger.
-4. Press **Save**.
+1. Update the swagger.
+1. Select **Save**.
 
 > [!CAUTION]
-> If you are editing a non-current revision of an API, you cannot change the following properties:
+> If you're editing a non-current revision of an API, you can't change the following properties:
 >
 > * Name
 > * Type
@@ -64,7 +64,7 @@ You can update your backend API from the Azure portal by following these steps:
 > * Path
 > * Protocols
 >
-> If your edits change any of the above properties of a non-current revision, the error message 
-> `Can't change property for non-current revision` will be displayed.
+> If your edits change any of these properties in a non-current revision, you'll see the error message 
+> `Can't change property for non-current revision`.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
