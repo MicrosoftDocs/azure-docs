@@ -5,9 +5,8 @@ services: api-management
 author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
-ms.date: 09/11/2025
+ms.date: 10/03/2025
 ms.author: danlep
-
 ---
 
 # Custom caching in Azure API Management
@@ -40,7 +39,7 @@ Consider the following JSON response from a backend API.
 }  
 ```
 
-And secondary resource at `/userprofile/{userid}` that looks like,
+And a secondary resource at `/userprofile/{userid}` that looks like,
 
 ```json
 { "username" : "Bob Smith", "Status" : "Gold" }
@@ -54,7 +53,7 @@ To determine the appropriate user information to include, API Management needs t
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-API Management stores the `enduserid` value in a context variable for later use. The next step is to determine if a previous request has already retrieved the user information and stored it in the cache. For this, API Management uses the `cache-lookup-value` policy.
+API Management stores the `enduserid` value in a context variable for later use. The next step is to determine if a previous request already retrieved the user information and stored it in the cache. For this, API Management uses the `cache-lookup-value` policy.
 
 ```xml
 <cache-lookup-value
@@ -101,7 +100,7 @@ API Management uses the `enduserid` to construct the URL to the user profile res
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-To avoid API Management from making this HTTP request again, when the same user makes another request, you can specify to store the user profile in the cache.
+To avoid API Management making this HTTP request again when the same user makes another request, you can specify that the user profile is stored in the cache.
 
 ```xml
 <cache-store-value
@@ -122,7 +121,7 @@ The final step in the process is to update the returned response with the user p
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-You can choose to include the quotation marks as part of the token so that even when the replacement doesn’t occur, the response is still a valid JSON.  
+You can choose to include the quotation marks as part of the token so that even when the replacement doesn’t occur, the response is still valid JSON.  
 
 Once you combine these steps, the end result is a policy that looks like the following one.
 
@@ -281,7 +280,7 @@ This elegant solution addresses many API versioning concerns, by enabling API co
 
 ## Tenant isolation
 
-In larger, multitenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This structure minimizes the number of customers who are impacted by a hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. You can achieve this transparency by using a technique similar to transparent versioning, manipulating the backend URL using configuration state per API key.
+In larger, multitenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This structure minimizes the number of customers who are impacted when there are hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. You can achieve this transparency by using a technique similar to transparent versioning, manipulating the backend URL using configuration state per API key.
 
 Instead of returning a preferred version of the API for each subscription key, you would return an identifier that relates a tenant to the assigned hardware group. That identifier can be used to construct the appropriate backend URL.
 
