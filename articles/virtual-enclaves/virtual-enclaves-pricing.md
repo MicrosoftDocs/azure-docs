@@ -33,6 +33,6 @@ Managed resources for the enclaves include:
   - Azure DNS required for the enclave
   - Log Analytics user selectable for community, enclave, or both.
 
-Visit the Azure Virtual Enclaves [community](./what-community.md) and [enclave](./what-enclave.md) documentation for a complete list of managed resources and visit the [Virtual Enclaves pricing](https://azure.microsoft.com/pricing/details/virtual-enclaves/) page for current pricing.
+Visit the Azure Virtual Enclaves [community](./what-community.md) and [enclave](./what-enclave.md) documentation for a complete list of managed resources.
 
 The cost of the Enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
