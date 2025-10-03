@@ -20,7 +20,7 @@ Azure Virtual Enclaves provides value in multiple ways, including:
 - Gain visibility to governance and compliance: Enables visibility into enclave and workload configuration, and security posture. Automates collection of platform-logging and compliance telemetry to help you create intuitive dashboards, workbooks, and alerts to avoid drift.
 
 ## Key capabilities
-Azure Virtual Enclaves provides capabilities to help you quickly create and manage the secure resources you need for your critical worklaods.
+Azure Virtual Enclaves provides capabilities to help you quickly create and manage the secure resources you need for your critical workloads.
 
 ### Secure research and development
 

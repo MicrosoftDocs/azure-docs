@@ -13,7 +13,7 @@ Azure Virtual Enclaves is updated regularly. Stay up to date with the latest ann
 
 * [Previews](#preview) underway with known limitations (if applicable)
 
-You can also find the latest Azure Virtual WAN updates and subscribe to the [RSS feed](https://azure.microsoft.com/updates?filters=%5B%22Virtual+Enclaves%22%5D).
+You can also find the latest Azure Virtual Enclaves updates and subscribe to the [RSS feed](https://azure.microsoft.com/updates?filters=%5B%22Virtual+Enclaves%22%5D).
 
 ## Preview
 

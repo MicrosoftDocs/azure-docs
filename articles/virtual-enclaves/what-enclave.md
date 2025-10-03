@@ -19,7 +19,7 @@ Enclaves come with the following primary platform-managed and platform-deployed 
 - [Azure Bastion](/azure/bastion/bastion-overview).
 - [Private Endpoints](/azure/private-link/private-endpoint-overview) and [Private DNS Zones](/azure/dns/private-dns-privatednszone). By default and for private networking security, Azure Private DNS Zones, along with certain private DNS records, are created for every new enclave. All platform-managed Enclave resources are configured to use Azure Private Link Service.
 
-![Diagram showing the managed resources deployed with an enclave and the resources deployed by the customer.](./media/communities-virtual-enclaves-enclave.svg)
+[ ![Diagram showing the managed resources deployed with an enclave and the resources deployed by the customer.](./media/communities-virtual-enclaves-enclave.svg) ](./media/communities-virtual-enclaves-enclave.svg#lightbox)
 
 ## Enclave managed resource group 
 When you create an enclave, the Azure Virtual Enclaves resource provider also creates a resource group which is managed by the Azure Virtual Enclaves service. This managed resource group has a controlled configuration that allows for specific control plane actions. When an enclave is created, Azure places a [deny assignment](/azure/role-based-access-control/deny-assignments) to protect resources in the enclave managed resource group.
