@@ -2,7 +2,7 @@
 metadata:
   title: Frequently asked questions (FAQ) on the retirement of Azure Cache for Redis
   description: "Learn the answers to common questions about the retirement of Azure Cache for Redis tiers: Basic, Standard, Premium, Enterprise, and Enterprise Flash."
-  ms.date: 09/28/2025
+  ms.date: 10/02/2025
   ms.topic: faq
   ai-usage: ai-assisted
   ms.custom:
@@ -23,12 +23,12 @@ sections:
       - question: What is retiring and when? 
 
         answer: | 
-          All instances of Azure Cache for Redis tiers (Basic, Standard, and Premium) are being retired on September 29, 2028.
+          All instances of Azure Cache for Redis tiers (Basic, Standard, and Premium) will be retired on September 30, 2028.
        
       - question: What happens to my existing Redis instances, and how long are they expected to run?
 
         answer: | 
-          All existing Redis instances remain available until September 29, 2028. We continue to perform regular maintenance to ensure that all Azure Cache for Redis Basic, Standard, and Premium instances are secure and stable until September 29, 2028. 
+          All existing Redis instances remain available until September 30, 2028. We continue to perform regular maintenance to ensure that all Azure Cache for Redis Basic, Standard, and Premium instances are secure and stable until September 30, 2028. 
 
             - question: What actions should I take for my Redis instances affected by the retirement announcement?
 
