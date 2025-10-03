@@ -47,7 +47,7 @@ You can update your API's swagger from the Azure portal by following these steps
 
     Your API's swagger appears.
 
-    ![Screenshot that shows an API's swagger.](./media/edit-api/edit-api003.png)
+    :::image type="content" source="./media/edit-api/edit-api003.png" alt-text="Screenshot that shows an API's swagger.":::
 
 1. Update the swagger.
 1. Select **Save**.
