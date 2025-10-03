@@ -60,7 +60,7 @@ With the AI gateway, you can:
 
 For example, to onboard a model deployed in AI Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
 
-:::image type="content" source="media/genai-gateway-capabilities/ai-foundry-import.png" alt-text="Screenshot of AI Foundry model import in the Azure portal."::: 
+:::image type="content" source="media/genai-gateway-capabilities/ai-foundry-import.png" alt-text="Screenshot of AI Foundry model import in the Azure portal." lightbox="media/genai-gateway-capabilities/ai-foundry-import-lightbox.png"::: 
 
 
 More information:
@@ -79,8 +79,6 @@ If you have a single app connecting to an AI service backend, you can manage tok
 ### Token rate limiting and quotas
 
 Configure a token limit policy on your LLM APIs to manage and enforce limits per API consumer based on the usage of AI service tokens. With this policy, you can set a TPM limit or a token quota over a specified period, such as hourly, daily, weekly, monthly, or yearly. 
-
-<!-- Update image for LLM token limit policy and generic/Foundry backend? -->
 
 :::image type="content" source="media/genai-gateway-capabilities/token-rate-limiting.png" alt-text="Diagram of limiting Azure OpenAI Service tokens in API Management.":::
 
