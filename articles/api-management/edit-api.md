@@ -1,19 +1,20 @@
 ---
-title: Edit an API with the Azure portal  | Microsoft Docs
-description: Learn how to use API Management to edit an API. Add, delete, or rename operations in the APIM instance, or edit the API's swagger.
+title: Edit an API in the Azure Portal  | Microsoft Docs
+description: Learn how to use API Management to edit an API. Add, delete, or rename operations in the API Management instance, or edit the API's swagger.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 10/07/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
+# Customer intent: As an API developer, I want to use API Management to edit an API or its swagger. 
 ---
 # Edit an API
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The steps in this tutorial show you how to use API Management to edit an API.
+This article describes how to use Azure API Management to edit an API.
 
 + You can add, rename, or delete operations in the Azure portal.
 + You can edit your API's swagger.
@@ -27,7 +28,7 @@ The steps in this tutorial show you how to use API Management to edit an API.
 
 ## Edit an operation
 
-![Screenshot that highlights the process for editing an API in API Management.](./media/edit-api/edit-api001.png)
+![Screenshot that shows the process for editing an API in API Management.](./media/edit-api/edit-api001.png)
 
 1. Click the **APIs** tab.
 2. Select one of the APIs that you previously imported.
