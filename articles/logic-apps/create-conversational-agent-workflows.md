@@ -477,10 +477,6 @@ The steps in this section are nearly the same as [Create agent parameters for th
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
 
-[!INCLUDE [troubleshoot-agent-workflows](includes/troubleshoot-agent-workflows.md)]
-
-[!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
-
 ## Authentication and authorization
 
 For nonproduction activities, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf. The following list recommends some best practices for handling this developer key:
@@ -516,6 +512,10 @@ The following table describes common problems you might encounter when you try t
 | Portal tests work, but external calls get **401** response. | External calls don't have a valid Easy Auth access token or signed SAS tokens. | Set up Easy Auth or use a workflow trigger URL with a signed SAS. |
 | Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity. |
 | Access is inconsistent after a role changes. | Cached session in the Azure portal | - Sign out and sign back in. <br><br>Get a fresh token. |
+
+[!INCLUDE [troubleshoot-agent-workflows](includes/troubleshoot-agent-workflows.md)]
+
+[!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 
 ## Related content
 
