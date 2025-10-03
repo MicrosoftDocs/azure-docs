@@ -33,9 +33,11 @@ To configure key vault secrets for use in your team or user customizations, make
 
 The dev center needs access to your key vault. If your key vault is private, let trusted Microsoft services bypass the firewall because Dev Center doesn't support service tags.
 
+The following screenshot shows the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings.
+
 :::image type="content" source="media/how-to-customizations-connect-resource-repository/trusted-services-bypass-firewall.png" alt-text="Screenshot of the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-customizations-connect-resource-repository/trusted-services-bypass-firewall.png":::
 
-To learn how to let trusted Microsoft services bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+To learn more about how to let trusted Microsoft services bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 #### Additional configuration for user customizations
 
