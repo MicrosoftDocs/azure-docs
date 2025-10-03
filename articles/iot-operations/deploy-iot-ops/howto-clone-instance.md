@@ -39,9 +39,9 @@ Use-case scenarios for clone include:
 
 Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one.
 
-Clone analyzes an Azure IoT Operations instance and reproduces it in an infrastructure-as-code manner via ARM templates. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster.
+The `clone` command analyzes an Azure IoT Operations instance and reproduces it in an infrastructure-as-code manner via ARM templates. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster.
 
-The clone operation consists of three main components: the model, which is the source instance, the target, which is the destination instance, and the template. The following diagram illustrates the clone flow. Clone operation analyzes the source instance and replicates it via IaC/arm template. The replicated definition is applied to one or more destination clusters.
+The clone operation consists of three main components: the model, which is the source instance, the target, which is the destination instance, and the template. The following diagram illustrates the clone flow. The `clone` command analyzes the source instance and replicates it via IaC/ARM template. The replicated definition is applied to one or more destination clusters.
 
 :::image type="content" source="./media/howto-clone-instance/clone-flow.png" alt-text="A diagram showing the clone flow for Azure IoT Operations instances.":::
 
