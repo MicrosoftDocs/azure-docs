@@ -28,22 +28,22 @@ This article describes how to use Azure API Management to edit an API.
 
 ## Edit an operation
 
-![Screenshot that shows the process for editing an API in API Management.](./media/edit-api/edit-api001.png)
-
-1. Select the **APIs** tab.
-1. Select an APIs that you have imported.
+1. Under **APIs**, select **APIs**.
+1. Select an API that you have imported.
 1. Select the **Design** tab.
 1. Select the operation that you want to edit.
 1. To rename the operation, select the pencil button in the **Frontend** pane.
 
+:::image type="content" source=./media/edit-api/edit-api001.png alt-text="Screenshot that shows the process for editing an API in API Management.":::
+
 ## Update the swagger
 
-You can update your backend API from the Azure portal by following these steps:
+You can update your API's swagger from the Azure portal by following these steps:
 
-1. Select **All operations**
+1. On the **APIs** page, select **All operations**.
 1. Select the pencil button in the **Frontend** pane.
 
-    ![Screenshot that shows the pencil button in the Frontend pane.](./media/edit-api/edit-api002.png)
+    :::image type="content" source=./media/edit-api/edit-api002.png alt-text="Screenshot that shows the pencil button in the Frontend pane.":::
 
     Your API's swagger appears.
 
