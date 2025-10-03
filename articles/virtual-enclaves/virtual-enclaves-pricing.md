@@ -20,9 +20,9 @@ A description of Azure Virtual Enclaves pricing.
 Azure Virtual Enclaves offers customers the flexibility of an hourly pay-as-you-go rate. This service enables efficient organization, acceleration, and management of secure, isolated, and compliant cloud environments tailored for sensitive missions and workloads across both commercial and air-gapped settings. So, clients can concentrate on their critical workloads.
 
 Customers pay for:
-1.	Each enclave on an hourly basis. An enclave deployed during an hour is charged for that hour.
-2.	The usage for any resources managed by Azure Virtual Enclaves to create the community or enclave boundaries
-3.	Any workloads the customer deploys within their enclaves. These workloads include the Azure resource you deploy like Virtual Machines, Azure Kubernetes Service, or Azure App Service web apps.
+- Each enclave on an hourly basis. An enclave deployed during an hour is charged for that hour.
+-	The usage for any resources managed by Azure Virtual Enclaves to create the community or enclave boundaries
+-	Any workloads the customer deploys within their enclaves. These workloads include the Azure resource you deploy like Virtual Machines, Azure Kubernetes Service, or Azure App Service web apps.
 
 Managed resources for the community include:
   - Azure Firewall required for the community
