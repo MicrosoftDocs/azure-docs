@@ -183,7 +183,7 @@ If dependency data collection is enabled on your servers (up to 1,000 servers pe
 #### Visualization interactions
 
 1. At any level **hover over** a node to view basic server details including **Name**, **OS Type**, **IP address**, **Source** such as, the IP/FQDN of vCenter Server/Hyper-V host and **Tags** applied to the server.
-1. Select a server node to it's **see the immediate dependents** of the server, which are highlighted with a dotted boundary around each dependent node. 
+1. Select a server node to **see the immediate dependents** of the server, which are highlighted with a dotted boundary around each dependent node. 
 1. Select of a server node to display additional details such as, **Power Status**, **Software inventory** discovered on the server and information about the incoming and outgoing **Connections**.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-node-details.png" alt-text="The screenshot shows the details of a node in multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-node-details.png":::
