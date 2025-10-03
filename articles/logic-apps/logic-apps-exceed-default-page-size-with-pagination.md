@@ -1,15 +1,15 @@
 ---
-title: Get More Items or Records with Pagination
-description: Learn how to set pagination to exceed the default page size limit for connector actions in Azure Logic Apps.
+title: Exceed Page Size Limit for Items or Rows
+description: Learn to set up pagination so you can get items or rows beyond the default page size limit for connector actions in workflows for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2025
-#Customer intent: As an integration developer working with Azure Logic Apps workflows, I need to know how to use pagination to manage large data results.
+ms.date: 10/06/2025
+#Customer intent: As an integration developer working with Azure Logic Apps workflows, I need to know how to set up pagination to get and manage large data results.
 ---
 
-# Get more data, items, or records by using pagination in Azure Logic Apps
+# Set up pagination to get more data than the page size limit in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
@@ -43,27 +43,37 @@ Here's a list of some of the connectors where you can exceed the default page si
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
-- The logic app and the action where you want to turn on pagination. For more information, see [Create a Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
+
+- The logic app resource, workflow, and connector action where you want to turn on pagination.
+
+  For more information, see the following articles:
+  
+  - [Create a Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
+  - [Create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md)
 
 ## Turn on pagination
 
 To determine whether an action supports pagination in the workflow designer, check the action's settings for the **Pagination** setting.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. On the resource menu, under **Development Tools**, select the designer to open the workflow.
+1. Based on the logic app type, follow the corresponding steps:
 
-1. Select the action to open its parameters, then select **Settings**.
+    - Consumption: On the resource sidebar menu, under **Development Tools**, select the designer to open the workflow.
+    
+    - Standard: On the resource sidebar menu, under **Workflows**, select **Workflows**. Select the workflow that you want to open the designer.
 
-   If the action supports pagination, the action shows the **Pagination** setting.
+1. On the designer, select the action. On the information pane that opens, select **Settings**.
+
+   If the action supports pagination, under **Networking**, the **Pagination** setting is available.
 
 1. Change the **Pagination** setting from **Off** to **On**.
 
-   :::image type="content" source="./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png" alt-text="Screenshot shows the Settings tab of an action with Pagination set to On and a value for Thresholds.":::
+   :::image type="content" source="./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png" alt-text="Screenshot shows the action information pane with the Settings tab, Pagination set to On, and a Threshold value.":::
 
 1. In the **Threshold** property, specify an integer value for the target number of results that you want the action to return.
 
-1. From the workflow designer menu, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ## Workflow definition - pagination
 
