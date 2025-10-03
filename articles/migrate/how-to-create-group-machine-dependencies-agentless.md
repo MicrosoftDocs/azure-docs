@@ -182,8 +182,8 @@ If dependency data collection is enabled on your servers (up to 1,000 servers pe
 
 #### Visualization interactions
 
-1. At any level **hover over** a node to view basic server details including **Name**,**OS Type**, **IP address**, **Source** such as, the IP/FQDN of vCenter Server/Hyper-V host and **Tags** applied to the server.
-1. Select a server node to its **see the immediate dependents** of the server, which are highlighted with a dotted boundary around each dependent node. 
+1. At any level **hover over** a node to view basic server details including **Name**, **OS Type**, **IP address**, **Source** such as, the IP/FQDN of vCenter Server/Hyper-V host and **Tags** applied to the server.
+1. Select a server node to it's **see the immediate dependents** of the server, which are highlighted with a dotted boundary around each dependent node. 
 1. Select of a server node to display additional details such as, **Power Status**, **Software inventory** discovered on the server and information about the incoming and outgoing **Connections**.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-node-details.png" alt-text="The screenshot shows the details of a node in multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-node-details.png":::
@@ -204,13 +204,13 @@ If dependency data collection is enabled on your servers (up to 1,000 servers pe
    > - You can change the time range to **last 30 days** to view the same level of dependencies as in the multi-server view, which displays all data collected to date.
 
 
-#### Scope the visualization to specific servers
+#### Customize server dependency visualization
 
 1. You can use **Search** box to filter the visualization by server name.
 1. You can also apply one or more **filters** including Server name, Port (Destination), OS Type, Connection count, and Appliance, to narrow the scope.
 1. After applying filters, you can multi-select the scoped servers to add or edit tags.
 
-#### Multi-select and tag servers
+#### Multi-select and tag server dependencies
 
 1. After identifying a cluster of interconnected servers, you can **multi-select the required servers** by hitting **Ctrl** on keyboard either drag a selection box around the servers or select each server node individually.
 1. When you select multiple servers, they are highlighted in blue and a side pane opens, displaying a list of all the selected servers.
@@ -221,7 +221,7 @@ If dependency data collection is enabled on your servers (up to 1,000 servers pe
 1. When you select **Add or edit tags**, the tagging view shows the **selected servers and all database or web application workloads** running on the servers. 
 1. You can choose to tag all the listed items together or remove any of these workloads if you don't want to tag them with this group.
 
-### Visualize dependencies per server
+### Visualize individual server dependencies
 
 1. In the new experience, go to project overview. 
 1. Select the workloads count under **All inventory** to review the discovered workloads. 
@@ -232,19 +232,19 @@ If dependency data collection is enabled on your servers (up to 1,000 servers pe
     > [!NOTE]
     > If you've added least privileged credentials for this server on the appliance, some network attributes might be missing from the visualization. To view complete data, provide [elevated privileges](best-practices-least-privileged-account.md#in-depth-guest-discovery).
 
-1. The dependency visualization dispalys all incoming and outgoing dependencies for that server in a network diagram.
+1. The dependency visualization displays all incoming and outgoing dependencies for that server in a network diagram.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png" alt-text="The screenshot shows the default dependency view for a server." lightbox="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png":::
 
 1. The view is filtered by default to show data for the **Last 24 hours** and process type as **Resolvable**. 
 1. To change the time range, use the **Time range** filter. You can select **Last 7 days**/**Last 30 days** or specify a **Custom range**. 
-1. You can also change the process type by selecting from the available optiosn.
+1. You can also change the process type by selecting from the available options.
 
     **Process** | **Type**
     --- | --- 
-    Resolvable (Default) | To filter by processes having resolvable connections
-    Essentials | To filter by nonredundant key processes
-    All | to filter by all processes including those with unresolved connections
+    Resolvable (Default) | To filter by processes having resolvable connections.
+    Essentials | To filter by nonredundant key processes.
+    All | To filter by all processes including those with unresolved connections.
 
 1. In the view, you find the servers and connections represented as follows:
 
