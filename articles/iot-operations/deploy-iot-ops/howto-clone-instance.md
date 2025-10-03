@@ -41,8 +41,9 @@ Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to cre
 
 Clone analyzes an Azure IoT Operations instance and reproduces it in an infrastructure-as-code manner via ARM templates. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster.
 
-> [!NOTE]
-> Currently, the Azure portal doesn't support cloning an Azure IoT Operations instance. You can use the Azure CLI to clone an instance.
+The clone operation consists of three main components: the model, which is the source instance, the target, which is the destination instance, and the template. The following diagram illustrates the clone flow. Clone operation analyzes the source instance and replicates it via IaC/arm template. The replicated definition is applied to one or more destination clusters.
+
+:::image type="content" source="./media/howto-clone-instance/clone-flow.png" alt-text="A diagram showing the clone flow for Azure IoT Operations instances.":::
 
 ### Clone model
 
@@ -72,7 +73,7 @@ You can use the following optional parameters to customize the generated ARM tem
 
 - `--mode`: Specifies how sub-deployments are organized in the template.  
   - When `nested` mode is used (the default), all sub-deployments are self-contained within the root deployment file.  
-  - When `linked` mode is used, asset-related sub-deployments are split out and stored as separate files, which are then linked by the root deployment. Use `linked` mode if your instance contains a large number of assets or Azure Edge Packages (AEPs) to improve scalability and manageability. You don't need to specify this parameter unless you require this separation for large deployments.
+  - When `linked` mode is used, asset-related sub-deployments are split out and stored as separate files, which are then linked by the root deployment. Use `linked` mode if your instance contains a large number of devices or assets endpoint profiles to improve scalability and manageability. You don't need to specify this parameter unless you require this separation for large deployments.
 
 - `--param`: Allows you to override specific parameters in the template, such as location or resource names, using the format `key=value`.
 
@@ -125,7 +126,7 @@ To clone an instance, use the `az iot ops clone` command with the appropriate pa
     az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --mode linked
     ```
 
-1. To clone an instance to disk in linked mode, where each linked asset and/or aep template can be deployed separately from the root template.
+1. To clone an instance to disk in linked mode, where each linked asset and/or asset endpoint profile template can be deployed separately from the root template.
 
     ```azurecli
     az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir . --mode linked
@@ -134,6 +135,6 @@ To clone an instance, use the `az iot ops clone` command with the appropriate pa
 ## Considerations and limitations
 
 - Automatic identity federation is currently supported with `--to-cluster-id` option only.
-- Resource sync rules are not captured.
-- While the required role assignment between the IoT Operations system managed identity and target schema registry is handled by clone, any other system managed identity role assignments are not covered.
+- Resource sync rules aren't captured.
+- While the required role assignment between the IoT Operations system managed identity and target schema registry is handled by clone, any other system managed identity role assignments aren't covered.
 - Clone is a cloud-side operation. The cluster isn't directly interacted with. Cluster secrets are synced from cloud via secure settings, which encompass secret provider classes and secret sync cloud resources. If the model cluster has user created elements such as configmaps that are referenced in the model IoT Operations solution, those elements need to be re-applied against the target cluster.
