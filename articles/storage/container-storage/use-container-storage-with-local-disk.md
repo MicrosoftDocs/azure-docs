@@ -37,7 +37,7 @@ Azure Container Storage supports the use of *generic ephemeral volumes* by defau
 
 ## Choose a VM type that supports local NVMe
 
-Local NVMe Disk is only available in certain types of VMs, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated). If you plan to use local NVMe capacity, choose one of these VM SKUs.
+Local NVMe disks are only available in certain types of VMs, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated). If you plan to use local NVMe capacity, choose one of these VM SKUs.
 
 Run the following command to get the VM type that's used with your node pool. Replace `<resource group>` and `<cluster name>` with your own values. You don't need to supply values for `PoolName` or `VmSize`, so keep the query as shown here.
 
@@ -53,7 +53,8 @@ PoolName    VmSize
 nodepool1   standard_l8s_v3
 ```
 
-With Azure Container Storage (version 2.x.x), you can now use single-node clusters, though multi-node configurations are still recommended.
+> [!NOTE]
+> In Azure Container Storage (version 2.x.x), you can now use clusters with fewer than three nodes.
 
 ## Create and attach generic ephemeral volumes
 
@@ -255,7 +256,7 @@ In this section, you'll learn how to check node ephemeral disk capacity, expand 
 
 An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's ephemeral disk.
 
-Run the following command to check the available capacity of ephemeral disk for a single node. Replace `storageClassName` with your storage class name.
+Ensure you have created a StorageClass for the **localdisk.csi.acstor.io**. Run the following command to check the available capacity of ephemeral disk for each node.
 
 ```azurecli
 kubectl get csistoragecapacities.storage.k8s.io -n kube-system -o custom-columns=NAME:.metadata.name,STORAGE_CLASS:.storageClassName,CAPACITY:.capacity,NODE:.nodeTopology.matchLabels."topology\.localdisk\.csi\.acstor\.io/node"
@@ -268,6 +269,8 @@ NAME          STORAGE_CLASS   CAPACITY    NODE
 csisc-2pkx4   local           1373172Mi   aks-storagepool-31410930-vmss000001
 csisc-gnmm9   local           1373172Mi   aks-storagepool-31410930-vmss000000
 ```
+
+If you encounter empty capacity output, ensure that a StorageClass for **localdisk.csi.acstor.io** has been created. The **csistoragecapacities.storage.k8s.io** resource is only generated after a StorageClass for **localdisk.csi.acstor.io** exists.
 
 ### Expand storage capacity
 

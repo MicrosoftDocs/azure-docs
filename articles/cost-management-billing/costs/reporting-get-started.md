@@ -1,13 +1,13 @@
 ---
 title: Get started with Cost Management reporting - Azure
 description: This article helps you to get started with Cost Management to understand, report on, and analyze your invoiced Microsoft Cloud costs.
-author: shasulin
-ms.author: shasulin
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/27/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: shasulin
+ms.reviewer: vikdesai
 ms.custom: sfi-image-nochange
 ---
 
