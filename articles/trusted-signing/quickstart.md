@@ -209,13 +209,14 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 
 ---
 
-## Create an identity validation request - Organization
+## Create an identity validation request
 
 You can complete your own identity validation by filling in the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
 > [!NOTE]
 > You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier role to proceed with identity validation.
 
+# [Identity Validation - Organization](#tab/orgvalidation)
 
 To create an identity validation request for an Organization:
 
@@ -264,7 +265,135 @@ To create an identity validation request for an Organization:
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
 | Identity validation status            | You're notified through email when there's an update to the identity validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Processing your identity validation request takes from 1 to 7 business days (possibly longer if we need to request more documentation from you). |
-| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. For documentation upload, there are 3 attempts. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. <br>- All documents submitted must be issued within the previous 12 months and where the expiration date is a future date that is at least two months away. <br>  - If it isn't possible to provide additional documentation, update your account information to match any legal documents already provided or your official Company registration details. <br>  - When providing official business document, such as business registration form, business charter, or articles of incorporation that list the company name and address as it is provided at the time of Identity Validation request creation. <br>  - Ensure the domain registration or domain invoice from registration or renewal that lists the entity and contact name and all the domains that are included/mentioned in the request.|                                                            
+| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. For documentation upload, there are 3 attempts. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. <br>- All documents submitted must be issued within the previous 12 months and where the expiration date is a future date that is at least two months away. <br>  - If it isn't possible to provide additional documentation, update your account information to match any legal documents already provided or your official Company registration details. <br>  - When providing official business document, such as business registration form, business charter, or articles of incorporation that list the company name and address as it is provided at the time of Identity Validation request creation. <br>  - Ensure the domain registration or domain invoice from registration or renewal that lists the entity and contact name and all the domains that are included/mentioned in the request.|                                                          
+
+# [Identity Validation - Individual Developer](#tab/indiedevvalidation) 
+
+ To create an Individual identity validation request for an Individual Developer:
+
+1. In the Azure portal, go to your new Trusted Signing account.
+
+2. Confirm that you're assigned the Trusted Signing Identity Verifier role.
+
+ To learn how to manage access by using role-based access control (RBAC), see [Tutorial: Assign roles in Trusted Signing](tutorial-assign-roles.md).
+3. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
+4. Select **Organization**, in the dropdown select **Individual** and then select **Public**.
+    - Public identity validation applies to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave. 
+    - Private identity validation is only for Organizations.
+5. On **New identity validation**, provide the following information:
+
+   | Fields       | Details     |
+   | :------------------- | :------------------- |
+   | **First Name**          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
+   | **Last Name**          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
+   | **Primary Email**           | Enter the email address that is going to receive the Identity Validation link. Make sure to use the same email address when logging into the Microsoft Account to access the Identity Validation link. | 
+   | **Street, City, Country, State, Postal code**           | Enter the address as it appears on your government issued identification document or utility bill or bank statement. The city, state, and country from the address entered here is displayed on the certificate. |
+
+6. **Certificate subject preview** shows the preview of the information that appears on the certificate.  
+-  Your email address and street address aren't included in the certificate. 
+7. Select the **Create** button.
+8. When the request is successfully created, the identity validation request status changes to **In Progress**.  
+9. When the status changes to **Action Required**. Click on your name, a blade opens on the right-hand side. Click on the link under “Please complete your verification here”.
+10. Follow the link to complete the Identity Validation process. Use the email address provided at the time of the request creation. Enter the credentials when prompted, and you'll be navigated to the next screen.
+11. Select **Get verified here through our trusted ID-verifiers**.
+
+:::image type="content" source="media/trusted-signing-firstVCscreenindie.png" alt-text="Screenshot that shows the first screen for VID." lightbox="media/trusted-signing-firstVCscreenindie.png":::
+
+12. Create verified credentials by using the trusted partners' pages. The following steps show an example walkthrough. It uses the trusted partner: AU10TIX. You are navigated to a 3rd party website. 
+
+a. Select **Let’s Begin**. 
+
+:::image type="content" source="media/trusted-signing-secondVCscreenindie.png" alt-text="Screenshot that shows the second screen for VID." lightbox="media/trusted-signing-secondVCscreenindie.png":::
+
+b. Enter your primary email address from the request here.
+
+:::image type="content" source="media/trusted-signing-enteremailidVCscreenindie.png" alt-text="Screenshot that shows screen to enter email address for VID." lightbox="media/trusted-signing-enteremailidVCscreenindie.png":::
+
+AU10TIX sends an email verification in email that includes a PIN code.
+
+c. Check your email for the verification email and enter the PIN code to verify your email account.
+
+:::image type="content" source="media/trusted-signing-enterpincodeVCscreenindie.png" alt-text="Screenshot that shows screen to enter pincode for VID." lightbox="media/trusted-signing-enterpincodeVCscreenindie.png":::
+
+d. Enter phone number when prompted on the next screen. 
+
+:::image type="content" source="media/trusted-signing-enterphonenumberindie.png" alt-text="Screenshot that shows screen to enter phone number for VID." lightbox="media/trusted-signing-enterphonenumberindie.png":::
+
+e. Select **Start**.
+
+:::image type="content" source="media/trusted-signing-beginvconlaptopVCscreenindie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-beginvconlaptopVCscreenindie.png":::
+
+f. Use camera of your mobile device to scan the QR code. Do not close this screen on your browser.
+
+:::image type="content" source="media/trusted-signing-scanqrcodeonphoneVCscreenindie.png" alt-text="Screenshot that shows screen to scan QR code on phone to begin VID." lightbox="media/trusted-signing-scanqrcodeonphoneVCscreenindie.png":::
+
+g. On your mobile device, select **Start**.  Complete the process and present the relevant documentation when prompted.
+
+e. After the Au10TIX process is complete on mobile device, select **Open Authenticator**.
+:::image type="content" source="media/trusted-signing-openauthenticatorVCscreenindie.png" alt-text="Screenshot that shows screen to navigate to Authenticator." lightbox="media/trusted-signing-openauthenticatorVCscreenindie.png":::
+
+f. Now back on the browser, scan the QR code from your mobile device. Do not close the browser. 
+
+:::image type="content" source="media/trusted-signing-scanqrcodeagain.png" alt-text="Screenshot that shows screen to scan QR code on phone once again to being VID." lightbox="media/trusted-signing-scanqrcodeagain.png":::
+
+g. Select **Add** to add a verified ID to the Microsoft Authenticator app. 
+
+:::image type="content" source="media/trusted-signing-addVIDscreenindie.png" alt-text="Screenshot that shows screen to VID to their authenticator app." lightbox="media/trusted-signing-addVIDscreenindie.png":::
+
+h. The browser screen shows Present your Verified ID. Scan the QR code.
+i. Select **Verifiable Credential** to share with Trusted Signing.
+j. Select **Share** to share the credentials with Trusted Signing.
+k. For successful completion the browser screen on your non-mobile device updates to: **Verification Successful** . 
+
+:::image type="content" source="media/trusted-signing-indie-identity-validation-onevet.png" alt-text="Screenshot that shows the indie successful on onevet." lightbox="media/trusted-signing-indie-identity-validation-onevet.png":::
+
+13. It takes a couple of minutes for the Identity Validation status on Azure portal to update. For a successful Verified ID the status on Azure portal changes to **Completed**.
+
+:::image type="content" source="media/trusted-signing-identity-validation-indie.png" alt-text="Screenshot that shows the indie successful on Azure portal." lightbox="media/trusted-signing-identity-validation-indie.png"::: 
+
+### Important information for public identity validation for individuals 
+
+1. Minimum Requirements for Mobile OSes and supported Browsers:
+
+:::image type="content" source="media/trusted-signing-au10tix-mobileOS-supported.png" alt-text="Screenshot that shows the mobile OSes supported for indie." lightbox="media/trusted-signing-au10tix-mobileOS-supported.png":::
+
+:::image type="content" source="media/trusted-signing-au10tix-browser-supported.png" alt-text="Screenshot that shows the browsers supported for indie." lightbox="media/trusted-signing-au10tix-browser-supported.png":::
+
+2. Types of ID Accepted:
+
+- Government-issued IDs such as passports, driving licenses, or ID cards.
+- Photo IDs (or a US Social Security Card).
+- Official government-issued IDs such as a passport, driver’s license, or state ID.
+- Do not submit privately issued IDs such as library cards, school IDs, club membership cards, etc.
+
+3. Visibility/Low Light/Bright Light:
+
+- Do not use flash.
+- Do not place the ID in direct sunlight.
+- Hold the camera or mobile device steady while taking the picture.
+
+4. Best Practices for Supplemental Docs:
+
+- Utility Bills: Electricity, water, gas, or telephone bills (should be recent, typically within the last three months).
+- Bank Statements: Official statements from banks or credit card companies that show the individual’s address.
+- The POA document must have the address, name, and date appear on the main page (first page), so multiple pages are not required.
+
+5. General best practices:
+
+- Single picture per file, if two-sided, create one file per side.
+- Handwritten documents are not accepted.
+- Do not crop the image (cut corners, miss parts) try to have margins on all sides of the captured image prior to capturing.
+- Do not use Photoshop or other editing software; do not alter the document in any way.
+- Do not use flash.
+- Take the photo from directly above the document while it is on a flat surface.
+- Avoid colored and noisy background.
+- Do not obstruct the ID (no fingers covering part of the document).
+- Use color images not lower than 200 DPI. The ideal image size is 500Kb. AU10TIX best practice is to accept images with 400 DPI and above.
+- The minimum threshold for the image size for an OK result is 600 W X 370 H pixels.
+- Accepted file types: .bmp .jpg .gif .tif .pdf.
+- Users cannot upload images smaller than 30kb or larger than 5MB.
+
+--- 
 
 ## Create a certificate profile  
 
