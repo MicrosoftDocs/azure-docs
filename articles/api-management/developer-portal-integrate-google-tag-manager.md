@@ -1,34 +1,34 @@
 ---
-title: Integrate Google Tag Manager to developer portal
+title: Integrate Google Tag Manager into Developer Portal
 titleSuffix: Azure API Management
 description: Learn how to plug Google Tag Manager into your managed or self-hosted developer portal in Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 03/25/2021
+ms.date: 10/02/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
 
-# Integrate Google Tag Manager to API Management developer portal
+# Integrate Google Tag Manager into the API Management developer portal
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-[Google Tag Manager](https://developers.google.com/tag-manager) is a tag management system created by Google. You can use it to manage JavaScript and HTML tags used for tracking and analytics on websites. For example, you can use Google Tag Manager to integrate Google Analytics, heatmaps, or chatbots like LiveChat.
+[Google Tag Manager](https://developers.google.com/tag-platform/tag-manager) is a tag management system created by Google. You can use it to manage JavaScript and HTML tags used for tracking and analytics on websites. For example, you can use Google Tag Manager to integrate Google Analytics, heatmaps, or chatbots like LiveChat.
 
 Follow the steps in this article to plug Google Tag Manager into your managed or self-hosted developer portal in Azure API Management.
 
-## Add Google Tag Manager to your portal
+## Add Google Tag Manager to your developer portal
 
 Follow these steps to plug Google Tag Manager into your managed or self-hosted developer portal.
 
 > [!IMPORTANT]
-> Steps 1 - 3 are not required for managed portals. If you have a managed portal, skip to step 4.
+> Steps 1 to 3 aren't required for managed portals. If you have a managed portal, skip to step 4.
 
 1. Set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 
 1. Install the **npm** package to add [Paperbits for Google Tag Manager](https://github.com/paperbits/paperbits-gtm):
 
-    ```sh
+    ```console
     npm install @paperbits/gtm --save
     ```
 
@@ -39,6 +39,7 @@ Follow these steps to plug Google Tag Manager into your managed or self-hosted d
     ...
     injector.bindModule(new GoogleTagManagerPublishModule());
     ```
+
 1. Retrieve the portal's configuration:
 
     ```http
@@ -84,5 +85,5 @@ Follow these steps to plug Google Tag Manager into your managed or self-hosted d
 
 ## Related content
 
-- [Automate portal deployments](automate-portal-deployments.md)
-- [Self-host the developer portal](developer-portal-self-host.md)
+- [Automate developer portal deployments](automate-portal-deployments.md)
+- [Self-host the API Management developer portal](developer-portal-self-host.md)
