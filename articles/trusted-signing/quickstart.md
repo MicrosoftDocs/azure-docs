@@ -240,7 +240,7 @@ To create an identity validation request for an Organization:
     | **Secondary Email**          | This email address must be different from the primary email address (distribution lists are accepted). For organizations, the domain must match the email address that is provided in the primary email address. Ensure that the email address can receive emails from external email addresses that have links.|
     | **Business Identifier**           | Enter a business identifier for the legal business entity. |
     | **Seller ID**          | Applies only to Microsoft Store customers. Find your Seller ID in the Partner Center portal. |
-    | **Street, City, Country, State, Postal code**           | Enter the business address of the legal business entity. |
+    | **Street, City, Country/Region, State/Province, Postal code**           | Enter the business address of the legal business entity. |
 
 6. Select **Certificate subject preview** to see the preview of the information that appears in the certificate.
 7. Select **I accept Microsoft terms of use for trusted signing services**. You can download the Terms of Use to review or save them.  
@@ -287,7 +287,7 @@ To create an identity validation request for an Organization:
    | **First Name**          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
    | **Last Name**          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
    | **Primary Email**           | Enter the email address that is going to receive the Identity Validation link. Make sure to use the same email address when logging into the Microsoft Account to access the Identity Validation link. | 
-   | **Street, City, Country, State, Postal code**           | Enter the address as it appears on your government issued identification document or utility bill or bank statement. The city, state, and country from the address entered here is displayed on the certificate. |
+   | **Street, City, Country/Region, State/Province, Postal code**           | Enter the address as it appears on your government issued identification document or utility bill or bank statement. The city, state, and country from the address entered here is displayed on the certificate. |
 
 6. **Certificate subject preview** shows the preview of the information that appears on the certificate.  
 -  Your email address and street address aren't included in the certificate. 
@@ -321,7 +321,7 @@ d. Enter phone number when prompted on the next screen.
 
 e. Select **Start**.
 
-:::image type="content" source="media/trusted-signing-trusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-\trusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
 
 f. Use camera of your mobile device to scan the QR code. Do not close this screen on your browser.
 
