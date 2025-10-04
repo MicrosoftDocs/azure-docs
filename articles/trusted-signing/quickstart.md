@@ -287,7 +287,7 @@ To create an identity validation request for an Organization:
    | **First Name**          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
    | **Last Name**          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
    | **Primary Email**           | Enter the email address that is going to receive the Identity Validation link. Make sure to use the same email address when logging into the Microsoft Account to access the Identity Validation link. | 
-   | **Street, City, Country/Region, State/Province, Postal code**           | Enter the address as it appears on your government issued identification document or utility bill or bank statement. The city, state, and country from the address entered here is displayed on the certificate. |
+   | **Street, City, Country/Region, State/Province, Postal code**           | Enter the address as it appears on your government issued identification document or utility bill or bank statement. The city, state/province, and country/region from the address entered here is displayed on the certificate. |
 
 6. **Certificate subject preview** shows the preview of the information that appears on the certificate.  
 -  Your email address and street address aren't included in the certificate. 
@@ -321,7 +321,7 @@ d. Enter phone number when prompted on the next screen.
 
 e. Select **Start**.
 
-:::image type="content" source="media/trusted-signing-\trusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
+:::image type="content" source="media/ttrusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
 
 f. Use camera of your mobile device to scan the QR code. Do not close this screen on your browser.
 
