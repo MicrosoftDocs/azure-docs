@@ -321,7 +321,7 @@ d. Enter phone number when prompted on the next screen.
 
 e. Select **Start**.
 
-:::image type="content" source="media/ttrusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
 
 f. Use camera of your mobile device to scan the QR code. Do not close this screen on your browser.
 
