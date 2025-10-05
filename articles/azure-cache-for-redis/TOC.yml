@@ -297,8 +297,8 @@
   items:
   - name: Azure Redis FAQ
     href: /azure/redis/faq
-  - name: Retirements from Azure Cache for Redis
-    href: cache-retired-features.md
+  - name: Azure Cache for Redis retirement FAQ
+    href: retirement-faq.yml
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+cache+redis
   - name: Microsoft Q&A question page
