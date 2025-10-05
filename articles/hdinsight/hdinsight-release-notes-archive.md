@@ -1401,7 +1401,7 @@ This release applies for HDInsight 4.0. HDInsight release is made available to a
 The OS versions for this release are:
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
 
-HDInsight 4.0 image has been updated to mitigate `Log4j` vulnerability as described in [Microsoft’s Response to CVE-2021-44228 Apache Log4j 2.](https://msrc-blog.microsoft.com/2021/12/11/microsofts-response-to-cve-2021-44228-apache-log4j2/)
+HDInsight 4.0 image has been updated to mitigate `Log4j` vulnerability as described in [Microsoft’s Response to CVE-2021-44228 Apache Log4j 2.](https://www.microsoft.com/msrc/blog/2021/12/microsofts-response-to-cve-2021-44228-apache-log4j2)
 
 > [!Note]
 > * Any HDI 4.0 clusters created post 27 Dec 2021 00:00 UTC are created with an updated version of the image which mitigates the `log4j` vulnerabilities. Hence, customers need not patch/reboot these clusters.
