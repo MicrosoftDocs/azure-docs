@@ -25,10 +25,7 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ### Release date: Oct 06, 2025
 
-> [!NOTE]
-> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider).
-
-Azure HDInsight periodically releases maintenance updates for delivering bug fixes, performance enhancements, and security patches ensuring you stay up to date with these updates guarantees optimal performance and reliability.
+Azure HDInsight periodically releases maintenance updates for delivering new features, bug fixes, performance enhancements, and security patches ensuring you stay up to date with these updates guarantees optimal performance and reliability.
 
 This release note applies to
 
@@ -51,19 +48,21 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
+## New features
+
+* Entra Authentication is enabled for Azure HDInsight clusters. User can now choose to have user authentication done by Entra ID.
+
+* Grafana login now supported for Entra clusters.
+
+* C++ CodeQL scanning enabled for better static analysis coverage.
+
 ## Issues fixed
 
 * Patched multiple OS-level vulnerabilities across dependencies (qs, braces,   connect, debug, etc.).
 
 * Disabled local user creation by default to strengthen access control. 
 
-## Updates
 
-* Entra Authentication is enabled for Azure HDInsight clusters. User can now choose to have user authentication done by Entra ID.
-
-* Grafana login now supported for Entra clusters.
-
-* C++ CodeQL scanning enabled for better static analysis coverage.  
 
 ## Reminder
 
