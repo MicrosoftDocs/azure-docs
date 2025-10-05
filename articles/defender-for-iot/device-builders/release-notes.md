@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT for device builders
 description: Learn about the latest updates for Defender for IoT device builders.
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 10/05/2025
 ---
 
 # What's new in Microsoft Defender for IoT 
