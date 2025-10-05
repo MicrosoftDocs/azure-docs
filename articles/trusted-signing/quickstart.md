@@ -38,36 +38,36 @@ To complete this quickstart, you need:
 
    If you don't already have one, see [Create an Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription) before you begin.
 
-## Register the Trusted Signing resource provider
+## Register the Trusted Signing resource proVerified IDer
 
-Before you use Trusted Signing, you must register the Trusted Signing resource provider.
+Before you use Trusted Signing, you must register the Trusted Signing resource proVerified IDer.
 
-A resource provider is a service that supplies Azure resources. Use the Azure portal or the Azure CLI to register the `Microsoft.CodeSigning` Trusted Signing resource provider.
+A resource proVerified IDer is a service that supplies Azure resources. Use the Azure portal or the Azure CLI to register the `Microsoft.CodeSigning` Trusted Signing resource proVerified IDer.
 
 # [Azure portal](#tab/registerrp-portal)
 
-To register a Trusted Signing resource provider by using the Azure portal:
+To register a Trusted Signing resource proVerified IDer by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In either the search box or under **All services**, select **Subscriptions**.
 3. Select the subscription where you want to create Trusted Signing resources.
-4. On the resource menu under **Settings**, select **Resource providers**.
+4. On the resource menu under **Settings**, select **Resource proVerified IDers**.
 
-5. In the list of resource providers, select **Microsoft.CodeSigning**.
+5. In the list of resource proVerified IDers, select **Microsoft.CodeSigning**.
 
-   By default, the resource provider status is **NotRegistered**.
+   By default, the resource proVerified IDer status is **NotRegistered**.
 
-   :::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot that shows finding the Microsoft.CodeSigning resource provider for a subscription." lightbox="media/trusted-signing-resource-provider-registration.png":::
+   :::image type="content" source="media/trusted-signing-resource-proVerified IDer-registration.png" alt-text="Screenshot that shows finding the Microsoft.CodeSigning resource proVerified IDer for a subscription." lightbox="media/trusted-signing-resource-proVerified IDer-registration.png":::
 
 6. Select the ellipsis, and then select **Register**.
 
-   :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot that shows the Microsoft.CodeSigning resource provider as registered." lightbox="media/trusted-signing-resource-provider.png":::
+   :::image type="content" source="media/trusted-signing-resource-proVerified IDer.png" alt-text="Screenshot that shows the Microsoft.CodeSigning resource proVerified IDer as registered." lightbox="media/trusted-signing-resource-proVerified IDer.png":::
 
-   The status of the resource provider changes to **Registered**.
+   The status of the resource proVerified IDer changes to **Registered**.
 
 # [Azure CLI](#tab/registerrp-cli)
 
-To register a Trusted Signing resource provider by using the Azure CLI:
+To register a Trusted Signing resource proVerified IDer by using the Azure CLI:
 
 1. If you're using a local installation of the Azure CLI, sign in to the Azure CLI by using the `az login` command.  
 
@@ -89,16 +89,16 @@ To register a Trusted Signing resource provider by using the Azure CLI:
 
 6. To set your default subscription ID, use the `az account set -s <subscription ID>` command.
 
-7. To register a Trusted Signing resource provider, use this command:
+7. To register a Trusted Signing resource proVerified IDer, use this command:
 
    ```azurecli
-   az provider register --namespace "Microsoft.CodeSigning"
+   az proVerified IDer register --namespace "Microsoft.CodeSigning"
    ```
 
 8. Verify the registration:
 
    ```azurecli
-   az provider show --namespace "Microsoft.CodeSigning"
+   az proVerified IDer show --namespace "Microsoft.CodeSigning"
    ```
 
 9. To add the extension for Trusted Signing, use this command:
@@ -229,15 +229,15 @@ To create an identity validation request for an Organization:
 
    - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
    - Private identity validation applies only to these certificate profile types: Private Trust, Private Trust CI Policy.
-5. On **New identity validation**, provide the following information:
+5. On **New identity validation**, proVerified IDe the following information:
 
     | Fields       | Details     |
     | :------------------- | :------------------- |
-    | **Organization Name**          | For public identity validation, provide the legal business entity to which the certificate is issued. For private identity validation, the value defaults to your Microsoft Entra tenant name. |
+    | **Organization Name**          | For public identity validation, proVerified IDe the legal business entity to which the certificate is issued. For private identity validation, the value defaults to your Microsoft Entra tenant name. |
     | **(Private Identity Type only) Organizational Unit**          | Enter the relevant information. |
     | **Website url**          | Enter the website that belongs to the legal business entity. |
-    | **Primary Email**           | Enter the email address of an individual (distribution lists are not accepted) associated with the legal business entity undergoing validation. Part of the Identity Validation process, a verification link is sent to this email address and the link expires in seven days. Ensure that the email address can receive emails(with links) from external email addresses.  |
-    | **Secondary Email**          | This email address must be different from the primary email address (distribution lists are accepted). For organizations, the domain must match the email address that is provided in the primary email address. Ensure that the email address can receive emails from external email addresses that have links.|
+    | **Primary Email**           | Enter the email address of an indiVerified IDual (distribution lists are not accepted) associated with the legal business entity undergoing validation. Part of the Identity Validation process, a verification link is sent to this email address and the link expires in seven days. Ensure that the email address can receive emails(with links) from external email addresses.  |
+    | **Secondary Email**          | This email address must be different from the primary email address (distribution lists are accepted). For organizations, the domain must match the email address that is proVerified IDed in the primary email address. Ensure that the email address can receive emails from external email addresses that have links.|
     | **Business Identifier**           | Enter a business identifier for the legal business entity. |
     | **Seller ID**          | Applies only to Microsoft Store customers. Find your Seller ID in the Partner Center portal. |
     | **Street, City, Country/Region, State/Province, Postal code**           | Enter the business address of the legal business entity. |
@@ -261,26 +261,26 @@ To create an identity validation request for an Organization:
 | Requirements         | Details     |
 | :------------------- | :------------------- |
 | Onboarding           | Trusted Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. For a quicker onboarding process, ensure that public records for the legal business entity that you're validated are up to date. |
-| Accuracy             | Ensure that you provide the correct information for public identity validation. If you need to make any changes after it's created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing. |
+| Accuracy             | Ensure that you proVerified IDe the correct information for public identity validation. If you need to make any changes after it's created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing. |
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
 | Identity validation status            | You're notified through email when there's an update to the identity validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Processing your identity validation request takes from 1 to 7 business days (possibly longer if we need to request more documentation from you). |
-| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. For documentation upload, there are 3 attempts. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. <br>- All documents submitted must be issued within the previous 12 months and where the expiration date is a future date that is at least two months away. <br>  - If it isn't possible to provide additional documentation, update your account information to match any legal documents already provided or your official Company registration details. <br>  - When providing official business document, such as business registration form, business charter, or articles of incorporation that list the company name and address as it is provided at the time of Identity Validation request creation. <br>  - Ensure the domain registration or domain invoice from registration or renewal that lists the entity and contact name and all the domains that are included/mentioned in the request.|                                                          
+| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. For documentation upload, there are 3 attempts. The documentation request email contains information about file size requirements. Ensure that any documents you proVerified IDe are the most current. <br>- All documents submitted must be issued within the previous 12 months and where the expiration date is a future date that is at least two months away. <br>  - If it isn't possible to proVerified IDe additional documentation, update your account information to match any legal documents already proVerified IDed or your official Company registration details. <br>  - When proVerified IDing official business document, such as business registration form, business charter, or articles of incorporation that list the company name and address as it is proVerified IDed at the time of Identity Validation request creation. <br>  - Ensure the domain registration or domain invoice from registration or renewal that lists the entity and contact name and all the domains that are included/mentioned in the request.|                                                          
 
-# [Identity Validation - Individual Developer](#tab/indiedevvalidation) 
+# [Identity Validation - IndiVerified IDual Developer](#tab/indiedevvalidation) 
 
- To create an Individual identity validation request for an Individual Developer:
+ To create an IndiVerified IDual identity validation request for an IndiVerified IDual Developer:
 
 1. In the Azure portal, go to your new Trusted Signing account.
 
-2. Confirm that you're assigned the Trusted Signing Identity Verifier role.
+1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
 
  To learn how to manage access by using role-based access control (RBAC), see [Tutorial: Assign roles in Trusted Signing](tutorial-assign-roles.md).
-3. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
-4. Select **Organization**, in the dropdown select **Individual** and then select **Public**.
+1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
+1. Select **Organization**, in the dropdown select **IndiVerified IDual** and then select **Public**.
     - Public identity validation applies to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave. 
     - Private identity validation is only for Organizations.
-5. On **New identity validation**, provide the following information:
+1. On **New identity validation**, proVerified IDe the following information:
 
    | Fields       | Details     |
    | :------------------- | :------------------- |
@@ -289,69 +289,70 @@ To create an identity validation request for an Organization:
    | **Primary Email**           | Enter the email address that is going to receive the Identity Validation link. Make sure to use the same email address when logging into the Microsoft Account to access the Identity Validation link. | 
    | **Street, City, Country/Region, State/Province, Postal code**           | Enter the address as it appears on your government issued identification document or utility bill or bank statement. The city, state/province, and country/region from the address entered here is displayed on the certificate. |
 
-6. **Certificate subject preview** shows the preview of the information that appears on the certificate.  
+1. **Certificate subject preview** shows the preview of the information that appears on the certificate.  
 -  Your email address and street address aren't included in the certificate. 
-7. Select the **Create** button.
-8. When the request is successfully created, the identity validation request status changes to **In Progress**.  
-9. When the status changes to **Action Required**. Click on your name, a blade opens on the right-hand side. Click on the link under “Please complete your verification here”.
-10. Follow the link to complete the Identity Validation process. Use the email address provided at the time of the request creation. Enter the credentials when prompted, and you'll be navigated to the next screen.
-11. Select **Get verified here through our trusted ID-verifiers**.
+1. Select the **Create** button.
+1. When the request is successfully created, the identity validation request status changes to **In Progress**.  
+1. When the status changes to **Action Required**. Click on your name, a blade opens on the right-hand side. Click on the link under “Please complete your verification here”.
+1. Follow the link to complete the Identity Validation process. Use the email address proVerified IDed at the time of the request creation. Enter the credentials when prompted, and you'll be navigated to the next screen.
+1. Select **Get verified here through our trusted ID-verifiers**.
 
-:::image type="content" source="media/trusted-signing-first-vc-screen-indie.png" alt-text="Screenshot that shows the first screen for VID." lightbox="media/trusted-signing-first-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-first-vc-screen-indie.png" alt-text="Screenshot that shows the first screen for Verified ID." lightbox="media/trusted-signing-first-vc-screen-indie.png":::
 
-12. Create verified credentials by using the trusted partners' pages. The following steps show an example walkthrough. It uses the trusted partner: AU10TIX. You are navigated to a 3rd party website. 
+1. Create verified credentials by using the trusted partners' pages. The following steps show an example walkthrough. It uses the trusted partner: AU10TIX. You are navigated to a 3rd party website. 
 
-a. Select **Let’s Begin**.
+   1. Select **Let’s Begin**.
 
-:::image type="content" source="media/trusted-signing-second-vc-screen-indie.png" alt-text="Screenshot that shows the second screen for VID." lightbox="media/trusted-signing-second-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-second-verified-id.png" alt-text="Screenshot that shows the second screen for Verified ID." lightbox="media/trusted-signing-second-verified-id.png":::
 
-b. Enter your primary email address from the request here.
+   1. Enter your primary email address from the request here.
 
-:::image type="content" source="media/trusted-signing-enter-emailid-vc-screen-indie.png" alt-text="Screenshot that shows screen to enter email address for VID." lightbox="media/trusted-signing-enter-emailid-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-enter-email-id.png" alt-text="Screenshot that shows screen to enter email address for Verified ID." lightbox="media/trusted-signing-enter-email-id.png":::
 
 AU10TIX sends an email verification in email that includes a PIN code.
 
-c. Check your email for the verification email and enter the PIN code to verify your email account.
+   1. Check your email for the verification email and enter the PIN code to verify your email account.
 
-:::image type="content" source="media/trusted-signing-enter-pincode-vc-screen-indie.png" alt-text="Screenshot that shows screen to enter pincode for VID." lightbox="media/trusted-signing-enter-pincode-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-enter-pincode-vc-screen-indie.png" alt-text="Screenshot that shows screen to enter pincode for Verified ID." lightbox="media/trusted-signing-enter-pincode-vc-screen-indie.png":::
 
-d. Enter phone number when prompted on the next screen. 
+   1. Enter phone number when prompted on the next screen. 
 
-:::image type="content" source="media/trusted-signing-enter-phone-number-indie.png" alt-text="Screenshot that shows screen to enter phone number for VID." lightbox="media/trusted-signing-enter-phone-number-indie.png":::
+:::image type="content" source="media/trusted-signing-enter-phone-number-indie.png" alt-text="Screenshot that shows screen to enter phone number for Verified ID." lightbox="media/trusted-signing-enter-phone-number-indie.png":::
 
-e. Select **Start**.
+   1. Select **Start**.
 
-:::image type="content" source="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-begin-on-laptop.png" alt-text="Screenshot that shows screen begin Verified ID." lightbox="media/trusted-signing-begin-on-laptop.png":::
 
-f. Use camera of your mobile device to scan the QR code. Do not close this screen on your browser.
+   1. Use camera of your mobile device to scan the QR code. Do not close this screen on your browser.
 
-:::image type="content" source="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png" alt-text="Screenshot that shows screen to scan QR code on phone to begin VID." lightbox="media/trusted-signing-begin-vc-on-laptop-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-scan-qr-code-on-phone.png" alt-text="Screenshot that shows screen to scan QR code on phone to begin Verified ID." lightbox="media/trusted-signing-scan-qr-code-on-phone.png":::
 
-g. On your mobile device, select **Start**.  Complete the process and present the relevant documentation when prompted.
+   1. On your mobile device, select **Start**. Follow the steps to complete the process and present the relevant documentation when prompted.
 
-e. After the Au10TIX process is complete on mobile device, select **Open Authenticator**.
-:::image type="content" source="media/trusted-signing-open-authenticator-vc-screen-indie.png" alt-text="Screenshot that shows screen to navigate to Authenticator." lightbox="media/trusted-signing-open-authenticator-vc-screen-indie.png":::
+    1. After the Au10TIX process is complete on your mobile device, select **Open Authenticator**.
 
-f. Now back on the browser, scan the QR code from your mobile device. Do not close the browser. 
+:::image type="content" source="media/trusted-signing-open-authenticator.png" alt-text="Screenshot that shows screen to navigate to Authenticator." lightbox="media/trusted-signing-open-authenticator.png":::
 
-:::image type="content" source="media/trusted-signing-scan-qr-code-again.png" alt-text="Screenshot that shows screen to scan QR code on phone once again to being VID." lightbox="media/trusted-signing-scan-qr-code-again.png":::
+   1. Now back on the browser, scan the QR code from your mobile device. Do not close the browser.
 
-g. Select **Add** to add a verified ID to the Microsoft Authenticator app. 
+:::image type="content" source="media/trusted-signing-scan-qr-code-again.png" alt-text="Screenshot that shows screen to scan QR code on phone once again to being Verified ID." lightbox="media/trusted-signing-scan-qr-code-again.png":::
 
-:::image type="content" source="media/trusted-signing-add-vid-screen-indie.png" alt-text="Screenshot that shows screen to VID to their authenticator app." lightbox="media/trusted-signing-add-vid-screen-indie.png":::
+   1. Select **Add** to add a verified ID to the Microsoft Authenticator app. 
 
-h. The browser screen shows Present your Verified ID. Scan the QR code.
-i. Select **Verifiable Credential** to share with Trusted Signing.
-j. Select **Share** to share the credentials with Trusted Signing.
-k. For successful completion the browser screen on your non-mobile device updates to: **Verification Successful** . 
+:::image type="content" source="media/trusted-signing-add-verified-id.png.png" alt-text="Screenshot that shows screen to Verified ID to their authenticator app." lightbox="media/trusted-signing-add-verified-id.png.png":::
+
+   1. The browser screen shows Present your Verified ID. Scan the QR code.
+   1. Select **Verifiable Credential** to share with Trusted Signing.
+   1. Select **Share** to share the credentials with Trusted Signing.
+    1. For successful completion the browser screen on your non-mobile device updates to: **Verification Successful** .
 
 :::image type="content" source="media/trusted-signing-indie-identity-validation-onevet.png" alt-text="Screenshot that shows the indie successful on onevet." lightbox="media/trusted-signing-indie-identity-validation-onevet.png":::
 
-13. It takes a couple of minutes for the Identity Validation status on Azure portal to update. For a successful Verified ID the status on Azure portal changes to **Completed**.
+1. It takes a couple of minutes for the Identity Validation status on Azure portal to update. For a successful Verified ID the status on Azure portal changes to **Completed**.
 
 :::image type="content" source="media/trusted-signing-identity-validation-indie.png" alt-text="Screenshot that shows the indie successful on Azure portal." lightbox="media/trusted-signing-identity-validation-indie.png"::: 
 
-### Important information for public identity validation for individuals 
+### Important information for public identity validation for indiVerified IDuals 
 
 1. Minimum Requirements for Mobile OSes and supported Browsers:
 
@@ -375,7 +376,7 @@ k. For successful completion the browser screen on your non-mobile device update
 4. Best Practices for Supplemental Docs:
 
 - Utility Bills: Electricity, water, gas, or telephone bills (should be recent, typically within the last three months).
-- Bank Statements: Official statements from banks or credit card companies that show the individual’s address.
+- Bank Statements: Official statements from banks or credit card companies that show the indiVerified IDual’s address.
 - The POA document must have the address, name, and date appear on the main page (first page), so multiple pages are not required.
 
 5. General best practices:
@@ -423,7 +424,7 @@ To create a certificate profile in the Azure portal:
 3. On the command bar, select **Create** and select a certificate profile type.
 
    :::image type="content" source="media/trusted-signing-certificate-profile-types.png" alt-text="Screenshot that shows the Trusted Signing certificate profile types to choose from.":::
-4. On **Create certificate profile**, provide the following information:
+4. On **Create certificate profile**, proVerified IDe the following information:
 
    a. For **Certificate Profile Name**, enter a unique name.
 
