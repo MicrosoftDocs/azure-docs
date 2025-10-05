@@ -8,7 +8,6 @@ ms.date: 04/17/2024
 
 # What is Microsoft Defender for IoT for device builders?
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 For IoT implementers, security is a near-universal concern. IoT devices have unique needs for endpoint monitoring, security posture management, and threat detection – all with highly specific performance requirements.
 
