@@ -14,7 +14,7 @@ ms.collection: ms-security
 #Customer intent: As a Microsoft Sentinel user, I want to enable and manage data connectors in the Microsoft Sentinel data lake so that I can ingest and analyze security-related data from various sources.
 ---
 
-# Enable asset data ingestion in the Microsoft Sentinel data lake (preview)
+# Enable asset data ingestion in the Microsoft Sentinel data lake
 
 Asset data refers to structured information about digital or physical entities, such as devices, services, applications, or infrastructure components, that are relevant to an organization’s operations, security, or analytics. This article explains how to enable and manage asset data in Microsoft Sentinel's data lake.  
 
@@ -53,9 +53,6 @@ The following table describes the various asset data sources and their data conn
 |-------------|--------|------------|------------------------|
 | **Azure Resource Graph (ARG)** | [ARGResources](./asset-data-tables.md#argresources) <br> [ARGResourceContainers](./asset-data-tables.md#argresourcecontainers) <br> [ARGAuthorizationResources](./asset-data-tables.md#argauthorizationresources) | Subscription Owner | Azure Resource Graph  |
 | **Microsoft Entra ID** | [EntraApplications](./asset-data-tables.md#entraapplications) <br> [EntraGroupMemberships](./asset-data-tables.md#entragroupmemberships) <br> [EntraGroups](./asset-data-tables.md#entragroups) <br> [EntraMembers](./asset-data-tables.md#entramembers) <br> [EntraOrganizations](./asset-data-tables.md#entraorganizations) <br> [EntraServicePrincipals](./asset-data-tables.md#entraserviceprincipals) <br> [EntraUsers](./asset-data-tables.md#entrausers) | None | Microsoft Entra ID Asset |
-| **Microsoft 365**<sup>1</sup> | [SharePointSitesAndLists](./asset-data-tables.md#sharepointsitesandlists) | <ul> <li> Global Admin/Security Admin</li> <li> Sentinel workspace contributor</li> </ul> | Microsoft 365 Assets  |
-
-<sup>1</sup> Microsoft 365 Activity log connector must be already enabled in the same workspace.
 
 > [!NOTE]
 > Certain data connectors, including but not limited to asset connectors, contribute to the construction of data risk graphs in Purview. If these graphs are active, disabling the associated connectors interrupts their generation. Connector descriptions indicate if they're involved in building data risk graphs.
