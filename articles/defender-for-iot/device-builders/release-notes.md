@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 10/05/2025
 ---
 
-# What's new in Microsoft Defender for IoT 
+# What's new in Microsoft Defender for IoT for device builders
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
