@@ -11,7 +11,7 @@ ms.author: monaberdugo
 
 ms.collection: ms-security
 
-#Customer intent: As a Microsoft Sentinel user, I want to understand ingestion oif asset data and analyze security-related data from various sources.
+#Customer intent: As a Microsoft Sentinel user, I want to understand the ingestion of asset data and analysis of security-related data from various sources.
 ---
 
 # Asset data ingestion in the Microsoft Sentinel data lake
@@ -22,7 +22,7 @@ Asset data in cybersecurity refers to an organization’s physical and digital e
 
 * When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions. For more information, see [Required permissions for asset sources](#required-permissions-for-asset-sources).
 
-* If you don't have sufficient permissions, asset tables are created but no data is ingested. To ingest data, to manually enable asset data ingestion as follows:
+* If you don't have sufficient permissions, asset tables are created but no data is ingested. Manually enable asset data ingestion as follows:
 
   1. Go to the Microsoft Sentinel workspace in the Azure portal.
   1. Navigate to the **Data connectors** page.
