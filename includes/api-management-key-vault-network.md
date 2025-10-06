@@ -22,6 +22,6 @@ If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on
 If the API Management instance is deployed in a virtual network, also configure the following network settings:
 
 * Enable a [service endpoint](/azure/key-vault/general/overview-vnet-service-endpoints) to Key Vault on the API Management subnet.
-* Configure a network security group (NSG) rule to allow outbound traffic to the AzureKeyVault and AzureActiveDirectory [service tags](../articles/virtual-network/service-tags-overview.md). 
+* Configure a network security group (NSG) rule to allow outbound traffic to the AzureKeyVault and AzureActiveDirectory [service tags](../articles/virtual-network/service-tags-overview.md).
 
 For details, see [Network configuration when setting up API Management in a virtual network](../articles/api-management/virtual-network-reference.md).

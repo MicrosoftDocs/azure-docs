@@ -8,7 +8,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.custom: engagement-fy23
-monikerRange: migrate
+monikerRange:
 # Customer intent: As a database administrator, I want to review SQL assessments for Azure migration, so that I can ensure compatibility, optimize performance, and select the most cost-effective deployment options for my SQL workloads.
 ---
 

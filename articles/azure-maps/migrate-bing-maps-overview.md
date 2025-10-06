@@ -24,7 +24,7 @@ Covered in this article:
 
 ## Azure Maps platform overview
 
-Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone info, weather, and custom indoor maps into your web, mobile and server-side solutions. Azure Maps is an Azure service, so it inherently includes many of the Azure security and compliance promises that are important to enterprise customers. Azure Maps includes many of the same features as Bing Maps for Enterprise, along with more functionality, like:
+Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone info, and weather into your web, mobile and server-side solutions. Azure Maps is an Azure service, so it inherently includes many of the Azure security and compliance promises that are important to enterprise customers. Azure Maps includes many of the same features as Bing Maps for Enterprise, along with more functionality, like:
 
 - Multiple service authentication method options. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps].
 - Data residency compliance support. For more information, see [Azure Maps service geographic scope].
@@ -33,7 +33,6 @@ Azure Maps is a set of mapping and geospatial services that enable developers an
 - Azure Maps Weather maps. For more information, see Weather infrared and radar tiles in [Get Map Tile].
 - Azure Maps Weather APIs. For more information, see [Weather].
 - Azure Maps Geolocation APIs. For more information, see [Geolocation - Get IP To Location].
-- Azure Maps Creator (custom indoor maps). For more information, see [Azure Maps Creator].
 
 ## High-level platform comparison
 
@@ -170,7 +169,6 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [Azure Maps account]: how-to-manage-account-keys.md#create-a-new-account
 [Azure Maps blog]: https://aka.ms/AzureMapsTechBlog
 [Azure Maps code samples]: https://samples.azuremaps.com/
-[Azure Maps Creator]: /rest/api/maps-creator
 [Azure Maps data feedback]: https://aka.ms/azuremapsdatafeedback
 [Azure Maps pricing]: https://azure.microsoft.com/pricing/details/azure-maps
 [Azure Maps product documentation]: /azure/azure-maps
