@@ -395,6 +395,7 @@ This section outlines how to configure authentication and data access in the **A
 ---
 
 ## Prepare and record GeoCatalog information
+### GeoCatalog URI, Collection Name, and Token API Endpoint
 
 1. Create a Microsoft Planetary Computer Pro GeoCatalog in your Azure subscription (for example,
      arcgisprogeocatalog), and locate it in the appropriate resource group.
@@ -418,7 +419,17 @@ This section outlines how to configure authentication and data access in the **A
  
    - Example:```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2025-04-30-preview```
 
-1. Select the collection name.
+### Storage Location
+Each Collection within the MPC Pro GeoCatalog utilizes a dedicated Storage Account and Azure Blob Container to store geospatial data and STAC Item assets. In the following steps, you will find and record the Storage Accound and Container names uses for a specific collection. 
+
+> [!NOTE] 
+> A Azure Storage Account and Blob Container are only discoverable after STAC Items or other assets have been added to a collection.
+
+There are two easy ways to discover the Storage Account and Blob Container for a collection, using a thumbnail, or using a STAC Item with assets:
+
+#### From a Collection Thumbnail
+
+1. From a specific Collection page, select the collection name.
 
     [ ![Screenshot showing click on collection name.](media/click-on-collection-name.png) ](media/click-on-collection-name.png#lightbox)
 
@@ -432,12 +443,42 @@ This section outlines how to configure authentication and data access in the **A
     https://<unique-storage>.blob.core.windows.net/sentinel-2-l2a-tutorial-1000-<unique-id>/collection-assets/thumbnail/lulc.png
     ```
 
-1. Record the value of Account Name and Container Name:
+1. Record the value of Account Name and Container Name, for example:
 
-    - **Account Name**: ```<unique-storage>```
+    - **(Storage) Account Name**: ```<unique-storage>```
     - **Container Name**: ```sentinel-2-l2a-tutorial-1000-<unique-id>```
 
     [ ![Screenshot showing collection json display.](media/collection-json-display.png) ](media/collection-json-display.png#lightbox)
+
+#### From a STAC Item
+
+1. From a specific Collection page, select **STAC Items**.
+    
+    [ ![Screenshot showing the selection of the STAC Item.](media/select-stac-items.png) ](media/select-stac-items.png#lightbox)
+
+1. Select the checkbox next to one of the listed STAC items.
+    
+    [ ![Screenshot showing checking a STAC Item box.](media/select-stac-item-checkbox.png) ](media/select-stac-item-checkbox.png#lightbox)
+
+1. Scroll to the bottom of the STAC Item right side panel and select this link for the STAC Item JSON
+
+    [ ![Screenshot showing selection of the STAC Item JSON link.](media/select-stac-item-json-link.png) ](media/select-stac-item-json-link.png#lightbox)
+
+1. Find the object within the STAC Item json specification called `assets`. Choosing one of the asset types within this object, find the `href` key.
+
+```json
+"assets": {
+    "image": {
+        "href": "https://<unique-storage>.blob.core.windows.net/naip-sample-datasets-<unique-id>/12f/va_m_3807708_sw_18_060_20231113_20240103/image.tif",
+    }
+}
+```
+1. Record the value of Account Name and Container Name, for example:
+
+    - **(Storage) Account Name**: ```<unique-storage>```
+    - **Container Name**: ```naip-sample-datasets-<unique-id>```
+
+
 ## Set up a connection to Azure Blob 
 
 1. In ArcGIS Pro, open the **Create Cloud Storage Connection File** geoprocessing tool to create a new ACS connection file. This tool can be accessed in the main Ribbon on the Analysis Tab. Select the Tools Button, then search for the tool by typing its name.
