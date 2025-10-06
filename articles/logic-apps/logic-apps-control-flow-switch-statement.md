@@ -11,7 +11,7 @@ ms.date: 10/06/2025
 
 # Set up switch actions to run different action paths based on specific values in workflows for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard.md](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To run different action paths based on the values of objects, expressions, or tokens, add a *switch* action to your workflow. This action evaluates the object, expression, or token, chooses the case that matches the result, and runs the action path that you define for that case. When the switch action runs, only one case should match the result.
 
@@ -115,8 +115,6 @@ Now that you created a workflow with the **Switch** action, review the JavaScrip
 | `"expression"`     | In this example, specifies the approver's selected option that the `Switch` action evaluates against each case as declared later in the definition. |
 | `"cases"` | Defines any number of cases. For each case, `"Case_*"` is the default name for that case, which you can rename to better describe the case's purpose. |
 | `"case"` | Specifies the case's value, which must be a constant and unique value that the `Switch` action uses for comparison. If no cases match the switch expression result, the actions in the `"default"` section are run. | 
-
-
 
 ## Related content
 
