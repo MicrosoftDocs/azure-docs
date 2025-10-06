@@ -18,7 +18,7 @@ ms.date: 10/07/2025
     1. Add more headers by selecting **Add header**.
     1. Delete headers by using the recycle bin button.
 1. If you've added a product to your GraphQL API, add a product scope under **Apply product scope**.
-1. In **Query editor**, either:
+1. In **Query editor**, do one of the following:
     1. Select at least one field or subfield from the list in the menu to the left of the editor. The fields and subfields you select appear in the query editor.
     1. Start typing in the query editor to compose a query.
     

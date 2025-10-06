@@ -48,7 +48,7 @@ If you want to import a GraphQL schema and set up field resolvers that use REST 
 
     :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Screenshot of selecting the GraphQL tile.":::
 
-1. In the resulting dialog box, select **Full**, and then enter values in the required fields.
+1. In the resulting dialog box, select **Full**, and then enter values in the required fields, as described in the following table.
 
     :::image type="content" source="media/graphql-api/create-from-graphql-endpoint.png" alt-text="Screenshot of the Create from GraphQL schema page." lightbox="media/graphql-api/create-from-graphql-endpoint.png":::
 
@@ -76,7 +76,7 @@ If you want to import a GraphQL schema and set up field resolvers that use REST 
 The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
 
 ```azurecli
-# Details specific to API Management 
+# Details specific to API Management. 
 APIMServiceName="apim-hello-world"
 ResourceGroupName="myResourceGroup"
 
@@ -103,7 +103,7 @@ After importing the API, you can update the settings by using the [az apim api u
 The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
 
 ```azurepowershell
-# Details specific to API Management 
+# Details specific to API Management. 
 $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
 
