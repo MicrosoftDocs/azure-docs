@@ -43,7 +43,7 @@ The `clone` command analyzes an Azure IoT Operations instance and reproduces it 
 
 The clone operation consists of three main components: the model, which is the source instance, the target, which is the destination instance, and the template. The following diagram illustrates the clone flow. The `clone` command analyzes the source instance and replicates it via IaC/ARM template. The replicated definition is applied to one or more destination clusters.
 
-:::image type="content" source="./media/howto-clone-instance/clone-flow.png" alt-text="A diagram showing the clone flow for Azure IoT Operations instances.":::
+:::image type="content" source="./media/howto-clone-instance/clone-flow.png" alt-text="A diagram of a subset of all instance related resources. showing how the clone command works for Azure IoT Operations instances. ":::
 
 ### Clone model
 
