@@ -313,7 +313,7 @@ AU10TIX sends an email verification in email that includes a PIN code.
 
    1. Check your email for the verification email and enter the PIN code to verify your email account.
 
-:::image type="content" source="media/trusted-signing-enter-pincode.png" alt-text="Screenshot that shows screen to enter pincode for Verified ID." lightbox="media/trusted-signing-enter-pincode.png":::
+:::image type="content" source="media/trusted-signing-enter-pin-code.png" alt-text="Screenshot that shows screen to enter pincode for Verified ID." lightbox="media/trusted-signing-enter-pin-code.png":::
 
    1. Enter phone number when prompted on the next screen. 
 
