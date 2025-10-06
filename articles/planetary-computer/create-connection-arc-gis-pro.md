@@ -459,7 +459,7 @@ This section outlines how to configure authentication and data access in the **A
 1. Add the provider option **ARC_TOKEN_SERVICE_API** and set the value to your **Token API Endpoint** that you constructed earlier. For example:
 
     ```bash
-    https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/api/token/sentinel-2-l2a-tutorial-1000?api=version=2025-04-30-preview
+    https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api=version=2025-04-30-preview
     ```
 
 1. Add the provider option **ARC_TOKEN_OPTION_NAME** and set the value **to AZURE_STORAGE_SAS_TOKEN**.
