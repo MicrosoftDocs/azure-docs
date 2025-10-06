@@ -67,7 +67,7 @@ Entra ID enabled users are assigned one of two profiles:
 >If the admin chooses basic authentication during  cluster creation then all the users in the cluster must be authenticated using basic authentication.
 >During cluster creation if the user selects Entra ID authentication, during the entire lifecycle of the particular cluster authentication can be only done using Entra ID.
 >If the admin chooses basic authentication, during the entire lifecycle of the particular cluster authentication can be only done using Basic Authentication.
-> **User can use only one mode on authentication for a particular cluster.**
+> **User can use only one mode of authentication for a particular cluster.**
 
 
   :::image type="content" source="./media/create-clusters-with-entra/select-entra-button.png" alt-text="Screenshot of HDInsight landing page showing the selection of entra ID option in HDInsight landing page." border="true" lightbox="./media/create-clusters-with-entra/select-entra-button.png":::
@@ -134,7 +134,7 @@ If Basic Authentication is selected:
 
  - Users are prompted to enter their User ID and password upon login.
 
-   ## Steps to add object ID in Ambari UI
+## Steps to add object ID in Ambari UI
 
    1. Log in to the Ambari portal.
    
