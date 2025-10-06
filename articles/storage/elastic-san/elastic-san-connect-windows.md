@@ -1,31 +1,76 @@
 ---
 title: Connect to an Azure Elastic SAN volume - Windows
-description: Learn how to connect to an Azure Elastic SAN volume from an individual Windows client using iSCSI and ensure optimal performance.
+description: Learn how to connect to an Azure Elastic SAN volume by using the Windows VM Extension or the manual connect script .
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 10/1/2025
 ms.author: rogarana
 ms.custom: references_regions
-# Customer intent: "As a Windows client user, I want to connect to an Azure Elastic SAN volume using iSCSI, so that I can ensure optimal performance and manage multiple I/O sessions efficiently."
 ---
-
 # Connect to Elastic SAN volumes - Windows
 
-This article explains how to connect to an Elastic SAN volume from an individual Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md).
+This article explains how to connect a Windows client to an Azure Elastic SAN volume.
 
-In this article, you configure your volume group to allow connections from your subnet and then you configure your client environment to connect to an Elastic SAN volume and establish an iSCSI connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
+There are two connection options:
 
-You must use a cluster manager when connecting an individual Elastic SAN volume to multiple clients. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
+- **Elastic SAN VM extension** – Use during VM or VM scale set deployment to automatically configure connectivity. This option reduces onboarding steps and is recommended when deploying new VMs at scale.
+- **Manual connect script** – Use after a VM is deployed to configure connectivity with specific parameters. This option provides flexibility for existing VMs and advanced configurations.
 
-## Prerequisites
+Choose the option that best fits your deployment scenario. Both approaches require a deployed Elastic SAN resource and configured volume groups.
+
+## Connect during VM deployment using the Elastic SAN VM extension
+
+You can now connect Elastic SAN volumes to your Windows virtual machines automatically during deployment using the Elastic SAN VM extension. This extension simplifies the setup process by eliminating the need for manual post-deployment configuration. The Elastic SAN VM extension installs and configures itself without requiring manual setup, streamlining deployment workflows. This is especially beneficial for storage-intensive workloads. 
+
+
+### Prerequisites
+
+- An existing Elastic SAN resource with configured volume groups.
+- Permissions to deploy VMs and install extensions in your subscription.
+
+  
+### How to Use the VM Extension
+#### During VM Creation
+
+1. In the Azure portal, navigate to the **Extensions tab** during VM setup.
+2. Select the **Elastic SAN VM extension** from the Marketplace.
+3. Provide the required configuration parameters:
+ - Elastic SAN name
+- Volume group name
+- Number of sessions
+- Connection mode (e.g., read/write)
+
+#### Post-Deployment Configuration
+
+- Go to the VM’s Extensions + applications blade.
+- Select the Elastic SAN extension and update the settings as needed.
+
+
+### Supported Scenarios
+The extension supports both single VM deployments and VM Scale Sets. For single VMs, it connects Elastic SAN volumes automatically during provisioning. For VM Scale Sets, applying the extension at the scale set level ensures uniform volume connectivity across all instances.
+
+
+
+## Connect to Elastic SAN volumes - Windows
+
+This section explains how to connect to an Elastic storage area network (SAN) volume from an individual Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md).
+
+In this section, you add the Storage service endpoint to an Azure virtual network's subnet, then you configure your volume group to allow connections from your subnet. Finally, you configure your client environment to connect to an Elastic SAN volume and establish a connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
+
+You must use a cluster manager when connecting an individual elastic SAN volume to multiple clients. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
+
+### Prerequisites
 
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Deploy an Elastic SAN](elastic-san-create.md)
-- Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
+- [Configure a virtual network endpoint](elastic-san-networking.md)
+- [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
-## Enable iSCSI Initiator
+### Connect to volumes
 
+### Set up your client environment
+#### Enable iSCSI Initiator
 To create iSCSI connections from a Windows client, confirm the iSCSI service is running. If it's not, start the service, and set it to start automatically.
 
 ```powershell
@@ -39,7 +84,7 @@ Start-Service -Name MSiSCSI
 Set-Service -Name MSiSCSI -StartupType Automatic
 ```
 
-## Install Multipath I/O
+#### Install Multipath I/O
 
 To achieve higher IOPS and throughput to a volume and reach its maximum limits, you need to create multiple-sessions from the iSCSI initiator to the target volume based on your application's multi-threaded capabilities and performance requirements. You need Multipath I/O to aggregate these multiple paths into a single device, and to improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
@@ -60,9 +105,9 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 mpclaim -L -M 2
 ```
 
-## Attach volumes to the client
+### Attach Volumes to the client
 
-Use the following script to create your connections. To execute it, collect or determine the following parameters: 
+You can use the following script to create your connections. To execute it, you require the following parameters: 
 - $rgname: Resource Group Name
 - $esanname: Elastic SAN Name
 - $vgname: Volume Group Name
@@ -77,22 +122,14 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 ./connect.ps1 $rgname $esanname $vgname $vol1,$vol2,$vol3 32
 ```
 
-### Set session number
+Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
-Before you run the script, determine how many sessions your volume needs. To be able to reach a volume's highest IOPS and throughput capacities, you'll need 32 sessions. But, because Windows iSCSI initiator has a maximum of 256 sessions, you may need to use fewer than 32 sessions if you're connecting more than eight volumes to a Windows client.
+#### Number of sessions
+You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
 
-> [!NOTE]
-> Use the `-NumSession` parameter to set the number of sessions. The parameter accepts values from 1 to 32, and has a default value of 32.
+## Next steps
 
-
-```bash
-.\connect.ps1 ` 
-
-  -ResourceGroupName "<resource-group>" ` 
-
-  -ElasticSanName "<esan-name>" ` 
-
-  -VolumeGroupName "<volume-group>" ` 
+[Configure Elastic SAN networking](elastic-san-networking.md)
 
   -VolumeName "<volume1>", "<volume2>" ` 
 
