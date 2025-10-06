@@ -1,21 +1,21 @@
 ---
-title: Add Switch Actions to Azure Logic Apps Workflows
-description: Learn how to add switch actions that control workflow actions based on specific values in Azure Logic Apps.
+title: Add Switch Actions to Workflows
+description: Learn to add switch actions to workflows so you can control workflow action path execution based on specific values in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2025
-#Customer intent: As an integration developer, I want to use a switch to perform different actions in an Azure logic app workflow depending on the values of objects, expressions, or tokens.
+ms.date: 10/06/2025
+#Customer intent: As an integration developer working with Azure Logic Apps, I want to set up a switch action in a workflow to run different action paths based on the values of objects, expressions, or tokens.
 ---
 
-# Create switch actions that run workflow actions based on specific values in Azure Logic Apps
+# Set up switch actions to run different action paths based on specific values in workflows for Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
-To run specific actions based on the values of objects, expressions, or tokens, add a *switch* action. This structure evaluates the object, expression, or token, chooses the case that matches the result, and runs specific actions only for that case. When the switch action runs, only one case should match the result.
+To run different action paths based on the values of objects, expressions, or tokens, add a *switch* action to your workflow. This action evaluates the object, expression, or token, chooses the case that matches the result, and runs the action path that you define for that case. When the switch action runs, only one case should match the result.
 
-For example, suppose you want a logic app that takes different steps based on an option selected in email. In this example, the logic app checks a website's RSS feed for new content. When a new item appears in the RSS feed, the logic app sends email to an approver. Based on whether the approver selects *Approve* or *Reject*, the logic app follows different steps.
+For example, suppose you want a workflow that runs different action paths based on an option selected in email. In this example, the workflow uses an RSS trigger to check a website's RSS feed for new content. When a new item appears in the RSS feed, the workflow sends email to an approver. Based on whether the approver selects *Approve* or *Reject*, the workflow runs different actions.
 
 > [!TIP]
 >
@@ -23,31 +23,41 @@ For example, suppose you want a logic app that takes different steps based on an
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - To follow the example in this article, [create the example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) with an Outlook.com account or a work or school account.
 
-  1. When you add the action to send email, find and select this action instead: **Send an approval email**.
+  1. When you add the action to send email, find and select this action instead: **Send approval email**.
 
-  1. Provide the required fields, like the email address for the person who gets the approval email. Under **User Options**, enter *Approve, Reject*.
+  1. Provide the following information:
+  
+      | Parameter | Required | Value | Description |
+      |-----------|----------|-------|-------------|
+      | **To** | Yes | <*approver-email-address*> | The email address for the person who makes the approval decision. To test the example, use your own email address for testing. |
+      | **Subject** | No | <*email-subject*> | The subject for the email approval request. |
+      | **User Options** | No | **Approve, Reject** | Although optional, leave the default values for this example. |
 
-     :::image type="content" source="./media/logic-apps-control-flow-switch-statement/send-approval-email-details.png" alt-text="Screenshot shows the Send approver email parameters where you can enter an address and User Option.":::
+     :::image type="content" source="./media/logic-apps-control-flow-switch-statement/send-approval-email-details.png" alt-text="Screenshot shows the Send approval email action with parameters where you can enter an address and User Options values.":::
 
 ## Add a switch action
 
-For this example, add a switch action at the end of your sample workflow.
+To change the workflow execution path based on the selected options in the approval email, add a switch action at the end of the sample workflow.
 
-1. On the designer, follow these [general steps](../logic-apps/add-trigger-action-workflow.md#add-action) to add the **Switch** action to your workflow.
+1. On the designer, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the **Control** action named **Switch** to your workflow.
 
-   A switch action appears with one case and a default case. By default, a switch action requires at least one case plus the default case. 
+   The **Switch** action appears with an empty default case. A **Switch** action requires at least one case plus the default case.
 
-   :::image type="content" source="./media/logic-apps-control-flow-switch-statement/empty-switch.png" alt-text="Screenshot shows a newly created switch with an empty default switch action.":::
+   :::image type="content" source="./media/logic-apps-control-flow-switch-statement/empty-switch.png" alt-text="Screenshot shows a Switch action with an empty default Case.":::
 
-1. Select inside the **On** box and choose the lightning icon to open the dynamic content list. From that list, select the **SelectedOption** field whose output determines the action to perform. 
+1. If the **Switch** action isn't selected so that information pane is open, select the **Switch** title bar.
 
-   :::image type="content" source="./media/logic-apps-control-flow-switch-statement/select-selected-option.png" alt-text="Screenshot shows a dynamic content list with the SelectedOption value highlighted.":::
+1. On the **Parameters** tab, select inside the **On** box, then select the lightning icon to open the dynamic content list. From that list, under **Send approval email**, select the **SelectedOption** field.
 
-1. To handle the cases where the approver selects `Approve` or `Reject`, add another case between **Case** and **Default**. 
+   The **SelectedOption** field stores the value selected by the approver and determines the case with the actions to run. 
+
+   :::image type="content" source="./media/logic-apps-control-flow-switch-statement/select-selected-option.png" alt-text="Screenshot shows the dynamic content list with the SelectedOption value highlighted.":::
+
+1. To handle the cases where the approver selects **Approve** or **Reject**, add a case for each option. Next to the **Default** case, select the plus (**+**) sign. 
 
    :::image type="content" source="./media/logic-apps-control-flow-switch-statement/switch-plus.png" alt-text="Screenshot shows the Switch action with two cases added, along with the default case.":::
 
@@ -59,15 +69,15 @@ For this example, add a switch action at the end of your sample workflow.
    | Case 2 | **Reject** | Add the Outlook **Send an email** action for notifying other approvers that the RSS item was rejected. |
    | Default | None | No action necessary. In this example, the **Default** case is empty because **SelectedOption** has only two options. |
 
-   :::image type="content" source="./media/logic-apps-control-flow-switch-statement/finished-switch.png" alt-text="Screenshot shows the Switch action with two cases that each contain a Send an email action to run.":::
+   :::image type="content" source="./media/logic-apps-control-flow-switch-statement/finished-switch.png" alt-text="Screenshot shows the Switch action with two cases and the default case. Each added case contains a Send an email action to run.":::
 
-1. Save your logic app. 
+1. Save your workflow. 
 
-   To test this example, in the designer toolbar, choose **Run** then **Run** until the logic app finds a new RSS item and sends an approval email. Select **Approve** to observe the results.
+1. To test this example, on the designer toolbar, select **Run** > **Run** until the trigger detects a new RSS item and sends you an approval email. Select **Approve** to observe the results.
 
 ## JSON definition
 
-Now that you created a logic app using a switch action, look at the high-level code definition behind the switch action.
+Now that you created a workflow with the **Switch** action, review the JavaScript Object Notation (JSON) code definition behind this action.
 
 ``` json
 "Switch": {
@@ -100,16 +110,13 @@ Now that you created a logic app using a switch action, look at the high-level c
 
 | Label | Description |
 |-------|-------------|
-| `"Switch"`         | The name of the switch action, which you can rename for readability |
+| `"Switch"`         | The default name for the `Switch` action, which you can rename to better describe the action's purpose. |
 | `"type": "Switch"` | Specifies that the action is a switch action |
-| `"expression"`     | In this example, specifies the approver's selected option that the switch evaluates against each case as declared later in the definition |
-| `"cases"` | Defines any number of cases. For each case, `"Case_*"` is the default name for that case, which you can rename for readability |
-| `"case"` | Specifies the case's value, which must be a constant and unique value that the switch action uses for comparison. If no cases match the switch expression result, the actions in the `"default"` section are run. | 
+| `"expression"`     | In this example, specifies the approver's selected option that the `Switch` action evaluates against each case as declared later in the definition. |
+| `"cases"` | Defines any number of cases. For each case, `"Case_*"` is the default name for that case, which you can rename to better describe the case's purpose. |
+| `"case"` | Specifies the case's value, which must be a constant and unique value that the `Switch` action uses for comparison. If no cases match the switch expression result, the actions in the `"default"` section are run. | 
 
-## Get support
 
-- For questions, visit [Azure Logic Apps Q & A](/answers/topics/azure-logic-apps.html).
-- To submit or vote on features or suggestions, visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Related content
 
