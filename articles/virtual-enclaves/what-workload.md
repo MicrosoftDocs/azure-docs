@@ -27,7 +27,8 @@ Workloads are linked as a child resource to [enclaves](./what-enclave.md) and ar
 This diagram shows two example Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group. Resource Groups are highlighted in green and Azure resources are highlighted in dark blue.
 
 <!--
-Change arrow styles to include a double hyphen to make it work in the markdown mermaid renderer. The space between the hyphens is a workaround for the HTML end comment tag.
+This is the mermaid definition for the above graph. Use this to edit and regenerate the graph.
+Note: Arrows have been split with a / to prevent this comment block from breaking.
 
 ```mermaid
 ---
@@ -36,10 +37,8 @@ title: Azure Virtual Enclaves - Workload
 flowchart
   direction LR
   subgraph Subscription ["Single Azure Subscription"]
-    %% direction LR
     subgraph ave-resource-groups [AVE Resources
                                   Resource Group]
-      %% direction TB
       Community["Community
                 (AVE Resource)"]
       Enclave2["Enclave A
@@ -50,10 +49,10 @@ flowchart
       subgraph Workload2 ["AKS Workload
                         (AVE Resource)"]
       end
-      
     end
+
     subgraph WL1-RG-Desktops ["Desktops
-                              (Resource Group)"]
+                              (AVE Resource)"]
     end
     subgraph WL4-RG-Storage ["Storage 
                              (Resource Group)"]
@@ -64,6 +63,7 @@ flowchart
     subgraph WL3-RG-CosmosDB ["CosmosDB
                               (Resource Group)"]
     end
+
     subgraph Community-MRG ["Community MRG
                             (Managed Resource Group)"]
     end
@@ -71,28 +71,28 @@ flowchart
                            (Managed Resource Group)"]
     end
   end
-  Community -.- Community-MRG
-  Community -.- Enclave2
-  Enclave2 -.- Enclave2-MRG{group}
-  Enclave2 --- Workload1
-  Enclave2 --- Workload2
-  Workload1 --- WL1-RG-Desktops
-  Workload2 --- WL2-RG-AKS
-  Workload1 --- WL3-RG-CosmosDB
-  Workload1 --- WL4-RG-Storage
+  Community === Community-MRG
+  Community === Enclave2
+  Enclave2 === Enclave2-MRG
+  Enclave2 === Workload1
+  Enclave2 === Workload2
+  Workload1 === WL1-RG-Desktops
+  Workload2 === WL2-RG-AKS
+  Workload1 === WL3-RG-CosmosDB
+  Workload1 === WL4-RG-Storage
   
 %% Styling
   classDef subscription fill:#777475,stroke:#004578,color:#000;
   classDef resourceGroup fill:#E6F2FA,stroke:#00FF00,color:#000;
   classDef community fill:#0078D4,stroke:#004578,color:#fff;
   classDef enclave fill:#E6F2FA,stroke:#004578,color:#000;
-  classDef workload fill:#CFCFCF,stroke:#004578,color:#000;
+  classDef workload fill:#E6F2FA,stroke:#004578,color:#000;
 
   class Subscription subscription;
   class ave-resource-groups,Community-MRG,Enclave1-MRG,Enclave2-MRG,Enclave3-MRG,WL1-RG-Desktops,WL2-RG-AKS,WL3-RG-CosmosDB,WL4-RG-Storage resourceGroup;
   class Community community;
-  class Enclave1,Enclave2,Enclave3 enclave;
-  class Workload1,Workload2,Workload3,Workload4 workload;
+  class Enclave2 enclave;
+  class Workload1,Workload2 workload;
 ```
 -->
 
