@@ -37,7 +37,7 @@ When enabled, data sent to Azure Maps can be processed outside your tenant's geo
 :::image type="content" source="media/power-bi-visual/settings-enable-subprocessing.png" alt-text="Screenshot showing that data sent to Azure Maps can be processed outside your tenant's geographic region, compliance boundary, or national cloud instance.":::
 
 > [!IMPORTANT]
-> Azure Maps visuals are currently only available in the United States and European Union regions. If your tenant is located outside these regions, Azure Maps visuals won't function unless you enable this tenant setting. Enabling this setting allows Power BI to route data to supported Azure Maps endpoints in the US or EU, ensuring that the Azure Maps visuals work even if your tenant is in an unsupported region. Disabling this setting blocks the Azure Maps visuals features for tenants outside the US and EU.
+> The Azure Maps Power BI visual is currently only available in the United States and European Union regions. If your tenant is located outside these regions, the Azure Maps Power BI visual won't function unless you enable this tenant setting. Enabling this setting allows Power BI to route data to supported Azure Maps endpoints in the US or EU, ensuring that the Azure Maps Power BI visual works even if your tenant is in an unsupported region. Disabling this setting blocks the Azure Maps Power BI visual features for tenants outside the US and EU.
 
 ### Allow Microsoft subprocessors to process data
 
