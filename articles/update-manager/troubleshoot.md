@@ -162,6 +162,25 @@ This issue is frequently caused by network configuration and firewall problems. 
 
 If you see an `HRESULT` error code, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.  
 
+|Exception  |Resolution or action  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Search the relevant error code in the [Windows Update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find more information about the cause of the exception.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicates network connectivity problems. Make sure your machine has network connectivity to Update Management. For a list of required ports and addresses, see the [Network planning](prerequisites.md#network-planning) section.        |
+|`0x8024001E`| The update operation didn't finish because the service or system was shutting down.|
+|`0x8024002E`| Windows Update service is disabled.|
+|`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
+|`0x80072EE2`|There's a network connectivity problem or a problem in talking to a configured WSUS server. Check WSUS settings and make sure the service is accessible from the client.|
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (`wuauserv`) is running and not disabled.        |
+|`0x80070005`| An access denied error can be caused by any one of the following problems:<br> - Infected computer.<br> - Windows Update settings not configured correctly.<br> - File permission error with the `%WinDir%\SoftwareDistribution` folder.<br> - Insufficient disk space on the system drive (drive C).
+|Any other generic exception     | Run a search on the internet for possible resolutions and work with your local IT support.         |
+
+Reviewing the `%Windir%\Windowsupdate.log` file can also help you determine possible causes. For more information about how to read the log, see [Read the Windowsupdate.log file](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
+
+You can also download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check for any problems with Windows Update on the machine.
+
+> [!NOTE]
+> The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
+
 ## An internal execution error occurred. Retry later. The operation didn’t return a response and may be incomplete.
 
 ### Issue
@@ -183,27 +202,6 @@ This issue might occur because of a temporary problem or communication failure b
 - Check VM resource usage (CPU, memory, disk). Restart if needed.
 - Verify network connectivity to Azure services.
 - Review logs on the VM and Update Manager for more details. 
-
-
-|Exception  |Resolution or action  |
-|---------|---------|
-|`Exception from HRESULT: 0x……C`     | Search the relevant error code in the [Windows Update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find more information about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicates network connectivity problems. Make sure your machine has network connectivity to Update Management. For a list of required ports and addresses, see the [Network planning](prerequisites.md#network-planning) section.        |
-|`0x8024001E`| The update operation didn't finish because the service or system was shutting down.|
-|`0x8024002E`| Windows Update service is disabled.|
-|`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
-|`0x80072EE2`|There's a network connectivity problem or a problem in talking to a configured WSUS server. Check WSUS settings and make sure the service is accessible from the client.|
-|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (`wuauserv`) is running and not disabled.        |
-|`0x80070005`| An access denied error can be caused by any one of the following problems:<br> - Infected computer.<br> - Windows Update settings not configured correctly.<br> - File permission error with the `%WinDir%\SoftwareDistribution` folder.<br> - Insufficient disk space on the system drive (drive C).
-|Any other generic exception     | Run a search on the internet for possible resolutions and work with your local IT support.         |
-
-Reviewing the `%Windir%\Windowsupdate.log` file can also help you determine possible causes. For more information about how to read the log, see [Read the Windowsupdate.log file](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
-
-You can also download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check for any problems with Windows Update on the machine.
-
-> [!NOTE]
-> The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
-
 
 ## Known issues in scheduled patching
 
