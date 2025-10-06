@@ -44,23 +44,23 @@ flowchart
       Enclave2["Enclave A
                (AVE Resource)"]
       subgraph Workload1 ["Shared Workload
-                         (AVE Resource)"]
+                          (AVE Resource)"]
       end
       subgraph Workload2 ["AKS Workload
-                        (AVE Resource)"]
+                          (AVE Resource)"]
       end
     end
 
     subgraph WL1-RG-Desktops ["Desktops
                               (AVE Resource)"]
     end
-    subgraph WL4-RG-Storage ["Storage 
+    subgraph WL1-RG-Storage ["Storage 
                              (Resource Group)"]
     end
     subgraph WL2-RG-AKS ["AKS
                          (Resource Group)"]
     end
-    subgraph WL3-RG-CosmosDB ["CosmosDB
+    subgraph WL1-RG-CosmosDB ["CosmosDB
                               (Resource Group)"]
     end
 
@@ -71,15 +71,16 @@ flowchart
                            (Managed Resource Group)"]
     end
   end
-  Community === Community-MRG
-  Community === Enclave2
-  Enclave2 === Enclave2-MRG
-  Enclave2 === Workload1
-  Enclave2 === Workload2
-  Workload1 === WL1-RG-Desktops
-  Workload2 === WL2-RG-AKS
-  Workload1 === WL3-RG-CosmosDB
-  Workload1 === WL4-RG-Storage
+
+  Community <=/=> Community-MRG
+  Community <=/=> Enclave2
+  Enclave2 <=/=> Enclave2-MRG
+  Enclave2 <=/=> Workload1
+  Enclave2 <=/=> Workload2
+  Workload1 <=/=> WL1-RG-Desktops
+  Workload2 <=/=> WL2-RG-AKS
+  Workload1 <=/=> WL1-RG-CosmosDB
+  Workload1 <=/=> WL1-RG-Storage
   
 %% Styling
   classDef subscription fill:#777475,stroke:#004578,color:#000;
@@ -89,7 +90,7 @@ flowchart
   classDef workload fill:#E6F2FA,stroke:#004578,color:#000;
 
   class Subscription subscription;
-  class ave-resource-groups,Community-MRG,Enclave1-MRG,Enclave2-MRG,Enclave3-MRG,WL1-RG-Desktops,WL2-RG-AKS,WL3-RG-CosmosDB,WL4-RG-Storage resourceGroup;
+  class ave-resource-groups,Community-MRG,Enclave1-MRG,Enclave2-MRG,Enclave3-MRG,WL1-RG-Desktops,WL2-RG-AKS,WL1-RG-CosmosDB,WL1-RG-Storage resourceGroup;
   class Community community;
   class Enclave2 enclave;
   class Workload1,Workload2 workload;
