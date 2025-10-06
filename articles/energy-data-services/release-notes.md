@@ -26,10 +26,9 @@ This page is updated with the details about the upcoming release approximately a
 ## October 2025
 ### Reference Data Values Automatic Sync
 
-With this release, all new Azure Data Manager for Energy instances provisioned will automatically include the latest set of Reference Data Values by default, ensuring out-of-the-box compliance with OSDU® standards and accelerating data onboarding workflows. The update delivers a complete library of reference values synced to the latest OSDU milestone (currently **M25**), improving interoperability, guaranteeing schema consistency, and eliminating manual setup during provisioning.  
+With this release, all new Azure Data Manager for Energy instances provisioned automatically includes the latest set of Reference Data Values by default, ensuring out-of-the-box compliance with OSDU® standards and accelerating data onboarding workflows. The update delivers a complete library of reference values synced to the latest OSDU milestone (currently **M25**), improving interoperability, guaranteeing schema consistency, and eliminating manual setup during provisioning.  
 
-For more details on how this feature behaves, see the official documentation: [Reference Data Values in ADME](https://learn.microsoft.com/en-us/azure/energy-data-services/release-notes).
-
+For more details on how to work with this feature, see the official documentation: [Reference Data Values in ADME](release-notes.md).
 
 ## September 2025
 ### Rock and Fluid Samples (RAFS) Preview
