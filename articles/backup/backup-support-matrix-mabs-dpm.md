@@ -57,10 +57,10 @@ For more information:
 **Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is 2.0.8719.0.  | DPM/MABS must be running on-premises.
 
 > [!NOTE]
-> ## Backup of Azure VMs / AWS EC2 and others... Is Not Supported by MABS
-> A frequently asked question is whether virtual machines hosted on public cloud platforms such as Azure VMs or AWS EC2 can be backed up using DPM/MABS. The answer is that **these environments are not supported**.
+> Backup of virtual machines hosted on public cloud platforms such as Azure VMs or AWS EC2 using DPM/MABS is not supported.
+> 
+> Also, Bare Metal Recovery (BMR) with MABS is supported only for recovery on the same hardware; recovery to different hardware or cloud environments (such as Azure VM or AWS EC2) isn't supported.
 >
-> Bare Metal Recovery (BMR) with MABS is **only supported for recovery on the same hardware**. Recovery to different hardware or in cloud environments (e.g., Azure VM / AWS EC2) is **not supported**.
 >
 > ### Support Matrix
 >
