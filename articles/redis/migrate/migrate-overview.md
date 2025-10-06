@@ -7,6 +7,7 @@ ms.custom:
   - ignite-2024
   - references_regions
   - build-2025
+ai-usage: ai-assisted
 appliesto:
   - ✅ Azure Cache for Redis
   - ✅ Azure Managed Redis
@@ -30,7 +31,8 @@ Whether you're using Basic, Standard, Premium, orEnterprise or OSS tiers, this g
 The document divides into two sections. One is about Enterprise instances. The other is about the Basic, Standard, and Premium tiers of Azure Cache for Redis.
 
 - [Benefits of moving from Enterprise to Azure Managed Redis](#benefits-of-moving-from-enterprise-to-azure-managed-redis)
-- [Move from Basic, Standard, or Premium caches to Azure Managed Redis](#move-from-basic-standard-or-premium-caches-to-azure-managed-redis)
+- [Benefits of moving from Basic, Standard, or Premium caches to Azure Managed Redis](#benefits-of-moving-from-basic-standard-or-premium-caches-to-azure-managed-redis)
+
 
 ## Benefits of moving from Enterprise to Azure Managed Redis
 
@@ -68,7 +70,7 @@ Finally, Azure Managed Redis offers the Microsoft Entra ID authentication when y
 
 Azure Managed Redis uses the same software stack as Azure Cache for Redis Enterprise, so your existing applications using Enterprise tier don't need many changes. The significant exception is the need to change connection credentials.
 
-### Different hostname suffix
+### Different hostname and suffix
 
 While the core software for Azure Cache for Redis Enterprise and Azure Managed Redis is similar, the DNS suffix for your Redis cluster hostname is different. When you move to Azure Managed Redis, your application needs to change the Redis cluster hostname. If you use access keys for connecting to your cache, you must also update access key that it uses to connect to the cache.
 
@@ -164,7 +166,7 @@ RIOT-X provides a way to migrate your content from Enterprise to Azure Managed R
 - Pros: Full control, customizable.
 - Cons: Requires development effort.
 
-## Move from Basic, Standard, or Premium caches to Azure Managed Redis
+## Benefits of moving from Basic, Standard, or Premium caches to Azure Managed Redis
 
 If you use any of the OSS SKUs, Basic, Standard, or Premium, moving to Azure Managed Redis offers you more features at every level cache.
 

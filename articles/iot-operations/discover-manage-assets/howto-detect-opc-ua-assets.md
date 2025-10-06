@@ -24,9 +24,6 @@ To learn more, see [What is asset discovery (preview)?](overview-akri.md).
 
 - **Enable resource sync rules.** A deployed preview instance of Azure IoT Operations with resource sync rules enabled. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/overview-deploy.md).
 
-    > [!IMPORTANT]
-    > By default, the [deployment quickstart](../get-started-end-to-end-sample/quickstart-deploy.md) instructions do not enable resource sync rules. If resource sync rules aren't enabled on your instance, see [Enable resource sync rules on an existing instance](../troubleshoot/troubleshoot.md#you-want-to-enable-resource-sync-rules-on-an-existing-instance).
-
 - **Set permissions on your custom location.** The custom location in the resource group where you deployed Azure IoT Operations must have the **Azure Kubernetes Service Arc Contributor Role** role enabled with **K8 Bridge** as a member: For example:
 
     # [Azure portal](#tab/portal)

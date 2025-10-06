@@ -22,8 +22,7 @@ For more information on limitations and frequently asked questions about custome
 ## Maintenance configuration
 
 #### [Azure portal](#tab/portal)
-First you need to register the Azure Resource Provider with Microsoft.Maintenance.
-Register the Azure Resource Provider.
+First, you need to register the **Microsoft.Maintenance** Azure Resource Provider.
 
 ```powershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Maintenance

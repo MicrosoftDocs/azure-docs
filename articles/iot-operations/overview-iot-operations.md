@@ -22,7 +22,7 @@ Azure IoT Operations:
 * Is highly extensible, scalable, resilient, and secure.
 * Can operate offline for a maximum of 72 hours. Degradation might occur during this period. However, Azure IoT Operations resumes full functionality when it reconnects.
 * Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).
-* Enables secure management of devices in [layered networks](manage-layered-network/overview-layered-network.md) using open, industry-recognized software, and Kubernetes-based configuration.
+* Enables secure management of devices in layered networks using open, industry-recognized software, and Kubernetes-based configuration.
 * Can integrate customer workloads into the platform to create a unified solution.
 * Natively integrates with [Azure Event Hubs](../event-hubs/azure-event-hubs-apache-kafka-overview.md), [Azure Event Grid's MQTT broker](../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
 

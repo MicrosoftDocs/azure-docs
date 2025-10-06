@@ -5,7 +5,7 @@ description: Learn about compute environments that can be used with Azure Data F
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 07/23/2025
+ms.date: 10/06/2025
 ms.subservice: orchestration
 ms.custom: synapse
 ---
@@ -268,7 +268,7 @@ This type of configuration is supported for the following compute environments:
 ## Azure HDInsight linked service
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with a data factory or Synapse workspace.
 
-### Example
+### Example using Basic Authentication
 
 ```json
 {
@@ -295,6 +295,57 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
   }
 ```
 
+### Example using System assigned managed identity
+
+```json
+{
+    "name": "HDInsightLinkedService",
+    "properties": {
+      "type": "HDInsight",
+      "typeProperties": {
+        "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
+        "clusterAuthType": "SystemAssignedManagedIdentity",
+        "linkedServiceName": {
+              "referenceName": "AzureStorageLinkedService",
+              "type": "LinkedServiceReference"
+        }
+      },
+      "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+      }
+    }
+  }
+```
+
+### Example using User assigned managed identity
+
+```json
+{
+    "name": "HDInsightLinkedService",
+    "properties": {
+      "type": "HDInsight",
+      "typeProperties": {
+        "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
+         "clusterAuthType": "UserAssignedManagedIdentity",
+         "credential": {
+                "referenceName": "CredentialName",
+                "type": "CredentialReference"
+            },
+        "linkedServiceName": {
+              "referenceName": "AzureStorageLinkedService",
+              "type": "LinkedServiceReference"
+        }
+      },
+      "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+      }
+    }
+  }
+```
+
+
 ### Properties
 | Property          | Description                                                  | Required |
 | ----------------- | ------------------------------------------------------------ | -------- |
@@ -305,6 +356,14 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Storage (Gen 2) linked service for this property. If the HDInsight cluster has access to the Data Lake Store, you can access data in the Azure Data Lake Storage (Gen 2) from Hive/Pig scripts. </p> | Yes      |
 | isEspEnabled      | Specify '*true*' if the HDInsight cluster is [Enterprise Security Package](../hdinsight/domain-joined/apache-domain-joined-architecture.md) enabled. Default is '*false*'. | No       |
 | connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. <br />For Enterprise Security Package (ESP) enabled HDInsight cluster use a self-hosted integration runtime, which has a line of sight to the cluster or it should be deployed inside the same Virtual Network as the ESP HDInsight cluster. | No       |
+| clusterAuthType   | Specify the HDInsight cluster authentication type. Supported auth types are "BasicAuth", "SystemAssignedManagedIdentity", "UserAssignedManagedIdentity". | Required for using Managed Identity auth. If field is not there, will default to BasicAuth      |
+| credential        | Specify the credential reference containing Managed Identity object information for the HDInsight cluster. | Only required for "UserAssignedManagedIdentity" auth      |
+
+#### Authentication
+The Azure Storage linked service for ADLS Gen2 now supports system-assigned and user-assigned managed identities in addition to the existing authentication methods. This support is available by default when using Azure Integration Runtime (Azure IR) and is supported in Self-hosted Integration Runtime (SHIR) starting from version 5.55.9306.2 or later.
+For Azure Blob Storage, the Azure Storage linked service continues to support only account key authentication.
+Cluster managed identity authentication is also now available by default when using Azure IR and supported on SHIR beginning with version 5.58 or later. When creating a cluster, only one authentication method can be used per cluster. For details on creating and managing clusters with managed identity, see [Create and manage Azure HDInsight cluster with Entra ID authentication](../hdinsight/hdinsight-with-entra-authentication/create-clusters-with-entra.md)
+
 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
@@ -312,10 +371,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 > [!IMPORTANT]
 > Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm. 
 >
-> [!IMPORTANT]
-> In addition to the already supported authentication methods, the Azure Storage linked service for ADLS Gen2 now supports both system-assigned and user-assigned managed identities as authentication types. This support is available by default when using Azure Integration Runtime (Azure IR). For Self-hosted Integration Runtime (SHIR), it is supported starting from version 5.55.9306.2 and above. The Azure Storage linked service configured with Azure Blob Storage continues to support only account key authentication.
->
-> 
+
 
 ## Azure Batch linked service
 

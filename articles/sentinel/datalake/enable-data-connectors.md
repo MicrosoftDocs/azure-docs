@@ -6,34 +6,32 @@ author: mberdugo
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
 ms.custom: sentinel-graph
-ms.date: 06/11/2025
+ms.date: 10/05/2025
 ms.author: monaberdugo  
 
 ms.collection: ms-security
 
-#Customer intent: As a Microsoft Sentinel user, I want to enable and manage data connectors in the Microsoft Sentinel data lake so that I can ingest and analyze security-related data from various sources.
+#Customer intent: As a Microsoft Sentinel user, I want to understand the ingestion of asset data and analysis of security-related data from various sources.
 ---
 
-# Enable asset data ingestion in the Microsoft Sentinel data lake (preview)
-
-Asset data refers to structured information about digital or physical entities, such as devices, services, applications, or infrastructure components, that are relevant to an organization’s operations, security, or analytics. This article explains how to enable and manage asset data in Microsoft Sentinel's data lake.  
+# Asset data ingestion in the Microsoft Sentinel data lake
 
 Asset data in cybersecurity refers to an organization’s physical and digital entities such as computers, identities, software, cloud services, and networks. It shows what exists so you know what must be protected. Microsoft Sentinel’s data lake adds powerful value by storing this asset data in a scalable, cost-efficient way that supports long-term retention, advanced analytics, and AI-driven threat detection. With unified visibility across systems and flexible data management, Sentinel lake helps security teams understand their environment, spot unusual activity, and respond to threats.
 
-## Considerations for enabling asset data in Sentinel data lake
+## How is asset data ingestion enabled in Sentinel data lake?
 
-* When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions (see[Required permissions for asset sources](#required-permissions-for-asset-sources)).
+* When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions. For more information, see [Required permissions for asset sources](#required-permissions-for-asset-sources).
 
-* If you have insufficient permissions, asset tables are created but they will be empty. To ingest data, you need to enable connectors. To manually enable asset data ingestion:
+* If you don't have sufficient permissions, asset tables are created but no data is ingested. Manually enable asset data ingestion as follows:
 
   1. Go to the Microsoft Sentinel workspace in the Azure portal.
-  1. Navigate to the "Data connectors" page.
+  1. Navigate to the **Data connectors** page.
   1. Find the relevant asset data source connector.
   1. Select the connector and follow the prompts to enable ingestion.
 
-* Asset data is ingested into the Microsoft Sentinel data lake tier only. After onboarding, asset dataIt can take up to 24 hours to arrive in the lake.
+* Asset data is ingested into the Microsoft Sentinel data lake tier only. After onboarding, asset data, it can take up to 24 hours to arrive in the lake.
 
-* Asset data is retained for 30 days by default. Retention can be expanded for up to 12 years.
+* Asset data is retained for 30 days by default. Retention can be expanded for up to 12 years. For more information on managing table retention, see [Table Management documentation](../manage-table-tiers-retention.md).
 
 ## Billing considerations
 
@@ -53,9 +51,6 @@ The following table describes the various asset data sources and their data conn
 |-------------|--------|------------|------------------------|
 | **Azure Resource Graph (ARG)** | [ARGResources](./asset-data-tables.md#argresources) <br> [ARGResourceContainers](./asset-data-tables.md#argresourcecontainers) <br> [ARGAuthorizationResources](./asset-data-tables.md#argauthorizationresources) | Subscription Owner | Azure Resource Graph  |
 | **Microsoft Entra ID** | [EntraApplications](./asset-data-tables.md#entraapplications) <br> [EntraGroupMemberships](./asset-data-tables.md#entragroupmemberships) <br> [EntraGroups](./asset-data-tables.md#entragroups) <br> [EntraMembers](./asset-data-tables.md#entramembers) <br> [EntraOrganizations](./asset-data-tables.md#entraorganizations) <br> [EntraServicePrincipals](./asset-data-tables.md#entraserviceprincipals) <br> [EntraUsers](./asset-data-tables.md#entrausers) | None | Microsoft Entra ID Asset |
-| **Microsoft 365**<sup>1</sup> | [SharePointSitesAndLists](./asset-data-tables.md#sharepointsitesandlists) | <ul> <li> Global Admin/Security Admin</li> <li> Sentinel workspace contributor</li> </ul> | Microsoft 365 Assets  |
-
-<sup>1</sup> Microsoft 365 Activity log connector must be already enabled in the same workspace.
 
 > [!NOTE]
 > Certain data connectors, including but not limited to asset connectors, contribute to the construction of data risk graphs in Purview. If these graphs are active, disabling the associated connectors interrupts their generation. Connector descriptions indicate if they're involved in building data risk graphs.

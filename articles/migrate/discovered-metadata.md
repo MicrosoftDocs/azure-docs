@@ -37,6 +37,7 @@ Number of cores | `vm.Config.Hardware.NumCPU`
 Memory (MB) | `vm.Config.Hardware.MemoryMB`
 Number of disks | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk).count`
 Disk size list | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk)`
+Storage Utilization | sum of `vm.guest.disk.capacity` - sum of `vm.guest.disk.freeSpace`
 Network adapters list | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count`
 CPU utilization | `cpu.usage.average`
 Memory utilization | `mem.usage.average`

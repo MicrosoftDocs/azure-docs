@@ -651,7 +651,7 @@
       href: configure-data-connector.md
     - name: Set up connectors for the Microsoft Sentinel data lake
       href: datalake/sentinel-lake-connectors.md
-    - name: Enable asset data (Preview)
+    - name: Asset data in the Sentinel data lake
       href: datalake/enable-data-connectors.md
       displayName: data lake
     - name: Unified connectors overview

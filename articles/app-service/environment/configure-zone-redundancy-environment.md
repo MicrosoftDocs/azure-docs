@@ -135,6 +135,8 @@ If you enable your App Service Environment to be zone redundant, you can also se
     - For **Region**, select your App Service Environment.
     - For **Pricing plan**, select **Isolated v2**.
     - For **Zone redundancy**, select **Enabled**.
+
+    :::image type="content" source="./media/configure-zone-redundancy/app-service-plan-zone-redundancy-portal-new-isolated.png" alt-text="Screenshot of zone redundancy property when creating a new App Service plan in the Azure portal.":::
     
     # [Azure CLI](#tab/azurecli)
     

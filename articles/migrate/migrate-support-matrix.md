@@ -83,6 +83,7 @@ Switzerland | Switzerland North
 United Arab Emirates | UAE North
 United Kingdom | UK South or UK West
 United States | Central US or West US 2
+Chile | Chile Central
 
 > [!NOTE]
 > For Switzerland geography, Switzerland West is available only for REST API users and needs an approved subscription.
