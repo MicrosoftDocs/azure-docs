@@ -30,7 +30,6 @@ If you want to import a GraphQL schema and set up field resolvers that use REST 
 ## Prerequisites
 
 - An Azure API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A GraphQL API. 
 - Azure CLI, if you want to use it to import the API.
     [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -51,7 +50,7 @@ If you want to import a GraphQL schema and set up field resolvers that use REST 
 
 1. In the resulting dialog box, select **Full**, and then enter values in the required fields.
 
-    :::image type="content" source="media/graphql-api/create-from-graphql-endpoint.png" alt-text="Screenshot of the Create from GraphQL schema page.":::
+    :::image type="content" source="media/graphql-api/create-from-graphql-endpoint.png" alt-text="Screenshot of the Create from GraphQL schema page." lightbox="media/graphql-api/create-from-graphql-endpoint.png":::
 
     | Value | Description |
     |----------------|-------|
@@ -59,24 +58,24 @@ If you want to import a GraphQL schema and set up field resolvers that use REST 
     | **Name** | The raw name of the GraphQL API. Automatically populates as you type the display name. |
     | **GraphQL type** | Select **Pass-through GraphQL** to import from an existing GraphQL API endpoint.  |
     | **GraphQL API endpoint** | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use a common SWAPI GraphQL endpoint like `https://swapi-graphql.azure-api.net/graphql` for the purpose of demonstration. |
-    | **Upload schema** | Optionally select to browse and upload your schema file to replace the schema that's retrieved from the GraphQL endpoint (if you have one).  |
+    | **Upload schema** | Optionally select to upload your schema file to replace the schema that's retrieved from the GraphQL endpoint (if you have one).  |
     | **Description** | Add a description of your API. |
     | **URL scheme** |  Select a scheme based on your GraphQL endpoint. Select one of the options that includes a WebSocket scheme (**WS** or **WSS**) if your GraphQL API includes the subscription type. The default selection is **HTTP(S)**. |
     | **API URL suffix**| Add a URL suffix to identify the specific API in the API Management instance. It has to be unique in the API Management instance. |
     | **Base URL** | Uneditable field displaying your API base URL. |
-    | **Tags** | Associate your GraphQL API with new or existing tags. |
+    | **Tags** | Optionally associate your GraphQL API with new or existing tags. |
     | **Products** | Associate your GraphQL API with a product to publish it. |
     | **Version this API?** | Select the checkbox to apply a versioning scheme to your GraphQL API. |
 
 1. Select **Create**.
-1. After the API is created, review or modify the schema on the **Design** tab.
+1. After the API is created, review or modify the schema on the **Schema** tab.
        :::image type="content" source="media/graphql-api/explore-schema.png" alt-text="Screenshot of the GraphQL schema in the portal." lightbox="media/graphql-api/explore-schema.png":::
 
 #### [Azure CLI](#tab/cli)
 
 The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
 
-```azurecli-interactive.
+```azurecli
 # Details specific to API Management 
 APIMServiceName="apim-hello-world"
 ResourceGroupName="myResourceGroup"
@@ -101,7 +100,7 @@ After importing the API, you can update the settings by using the [az apim api u
 
 The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
 
-```powershell-interactive.
+```azurepowershell
 # Details specific to API Management 
 $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
