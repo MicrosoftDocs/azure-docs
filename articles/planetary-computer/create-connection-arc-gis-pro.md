@@ -101,7 +101,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
     
     [ ![Screenshot showing add user impersonation scope.](media/add-user-impersonation-scope.png) ](media/add-user-impersonation-scope.png#lightbox)
 
-1. Select **Add a client application** and note the App ID.
+1. Select **Add a client application** ; choose and take note of the Client ID. This will be used later when setting up [Authenticaiton Connection](#add-an-authentication-connection) in ArcGIS Pro.
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 ### [US Gov](#tab/usgov)
@@ -180,7 +180,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
     
     [ ![Screenshot showing add user impersonation scope.](media/add-user-impersonation-scope.png) ](media/add-user-impersonation-scope.png#lightbox)
 
-1. Select **Add a client application** and note the App ID.
+1. Select **Add a client application** ; choose and take note of the Client ID. This will be used later when setting up an [Authenticaiton Connection](#add-an-authentication-connection) in ArcGIS Pro.
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 
