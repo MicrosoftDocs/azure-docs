@@ -4,7 +4,7 @@ description: Use the Azure CLI or Azure portal to manage your Azure IoT Operatio
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 10/02/2025
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
@@ -139,7 +139,7 @@ You can also view the details of an existing namespace in the resource group tha
 
 The previous screenshot also shows the other resources in Azure Device Registry such as the **IoT Schema Registry**, **IoT Namespace Assets**, and **Devices** in the context of the resource group that contains your Azure IoT Operations instance.
 
-#### Migrate existing assets to namespace assets
+### Migrate existing assets to namespace assets
 
 If you have existing assets in your Azure IoT Operations instance that you want to move to a namespace, you can use the `az iot ops migrate-assets` command. This command migrates top-level (or root-level) assets to namespace assets in Azure Device Registry. 
 
@@ -166,61 +166,16 @@ To migrate all root assets associated with an instance that match glob-style pat
 az iot ops migrate-assets -n <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --pattern asset-pl-* asset-eng?-01
 ```
 
-> [!IMPORTANT]    
-> Before migrating assets, make sure to take a snapshot of your instance using the `az iot ops clone` command. This allows you to restore your instance to its previous state if needed. 
+> [!IMPORTANT]
+> Before migrating assets, make sure to take a snapshot of your instance using the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command. This allows you to restore your instance to its previous state if needed. For more information, see [Clone an IoT Operations instance](./howto-clone-instance.md).
 
 Once the migration is complete, you can use `az iot ops ns asset` and `az iot ops ns device` commands to manage the namespace assets and devices in your Azure IoT Operations instance. 
-
 
 ### Configure connector templates
 
 In the Azure portal, you can configure *connector templates* for your Azure IoT Operations instance. Connector templates define the configuration of connectors, such as the connector for OPC UA, that are deployed to your cluster. When you create a connector template, it enables an OT user to create a device that uses the connector type in the operations experience web UI.
 
 To learn more about connector templates, see [Deploy the connector for ONVIF](../discover-manage-assets/howto-use-onvif-connector.md#deploy-the-connector-for-onvif).
-
-### Clone instance (preview)
-
-> [!NOTE]
-> The clone feature is in preview and under development.
-
-#### [Azure portal](#tab/portal)
-
-Currently, the Azure portal doesn't support cloning an Azure IoT Operations instance. You can use the Azure CLI to clone an instance.
-
-#### [Azure CLI](#tab/cli)
-
-Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster. 
-
-For more information, see the [clone command wiki page](https://aka.ms/aio-clone).
-
-To clone an instance to another cluster, run:
-
-```azurecli
-az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> 
-```
-
-To customize the replication to another cluster, use `--param` and specify the parameters you want to change in the format `key=value`. For example, to change the location of the cloned instance, run:
-
-```azurecli
-az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --param location=eastus
-```
-
-To clone an instance to a local directory, run:
-
-```azurecli
-az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir <DIRECTORY>
-```
-
-> [!TIP]
-> To clone an instance to the current directory, run `--to-dir .`
-
-To clone an instance to a cluster, but splitting and serially applying asset related sub-deployments, run:
-
-```azurecli
-az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --mode linked
-```
-
----
 
 ### Manage instance components
 

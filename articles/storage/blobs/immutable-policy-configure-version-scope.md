@@ -172,7 +172,11 @@ While the migration operation is underway, the scope of the policy on the contai
 
 After the migration is complete, the scope of the policy on the container shows as *Version*. The policy shown is a default policy on the container that automatically applies to all blob versions subsequently created in the container. The default policy can be overridden on any version by specifying a custom policy for that version.
 
-:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-complete.png" alt-text="Screenshot showing completed container migration":::
+:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-complete.png" alt-text="Screenshot showing completed container migration":::In the event the migration fails, the scope of the policy on the container will continue to show as *Container,* and the *In Progress* information will also be reset. To verify the migration has failed, you can view the *Activity Log* of the storage account to find the *Write Migrate* operation and check the status. 
+
+You can restart a failed migration by repeating the earlier steps. Before starting the process again, it is recommended that you verify there are no active leases on any blobs. The easiest way to do so is using [Blob Inventory](/azure/storage/blobs/blob-inventory). Migrations could fail for multiple reasons, the most common one being active leases on any blob.
+
+NOTE: A failed migration could result in a partial migration state where some of the blobs in the container have a blob-level policy and is not reflected on the Portal. But the scope of the immutability policy will remain at the container level until a successful migration has been completed.
 
 ##### [PowerShell](#tab/azure-powershell)
 
