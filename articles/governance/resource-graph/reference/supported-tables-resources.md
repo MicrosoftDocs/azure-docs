@@ -2159,6 +2159,9 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 
 ## securityresources
 
+> [!NOTE]
+> Azure Resource Graph scrubs PII information from our tables so you may see not see the same result as if you made a GET request on your resource directly. The difference is due to security practices preventing the exposure of any identifiable information. 
+
 For sample queries for this table, see [Resource Graph sample queries for securityresources](../samples/samples-by-table.md#securityresources).
 
 - microsoft.authorization/locks/providers/assessments/governanceassignments
