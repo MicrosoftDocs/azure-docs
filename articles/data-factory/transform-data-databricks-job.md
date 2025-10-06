@@ -7,7 +7,7 @@ author: n0elleli
 ms.author: noelleli
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 09/02/2025
+ms.date: 10/06/2025
 ms.subservice: orchestration
 ---
 
@@ -15,12 +15,9 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-The Azure Databricks Job Activity (Preview) in a [pipeline](concepts-pipelines-activities.md) runs Databricks jobs in your Azure Databricks workspace, including serverless jobs. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
+The Azure Databricks Job Activity in a [pipeline](concepts-pipelines-activities.md) runs Databricks jobs in your Azure Databricks workspace, including serverless jobs. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
 You can create a Databricks job directly through the Azure Data Factory Studio user interface.
-
-> [!IMPORTANT]
-> The Azure Databricks Jobs activity is currently in preview. This information relates to a pre-release product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 ## Add a Job activity for Azure Databricks to a pipeline with UI
 
@@ -31,7 +28,7 @@ To use a Job activity for Azure Databricks in a pipeline, complete the following
 1. Select the **Azure Databricks** tab to select or create a new Azure Databricks linked service.
 
    > [!Note]
-   > The Azure Databricks Job activity automatically runs on serverless clusters, so you don't need to specify a cluster in your linked service configuration.
+   > The Azure Databricks Job activity automatically runs on serverless clusters, so you don't need to specify a cluster in your linked service configuration. Instead, choose the **Serverless** option.
 
    :::image type="content" source="media/transform-data-databricks-job/job-activity.png" lightbox="media/transform-data-databricks-job/job-activity.png" alt-text="Screenshot of the UI for a Job activity, with the Azure Databricks tab highlighted.":::
    
