@@ -297,7 +297,7 @@ To create an identity validation request for an Organization:
 1. Follow the link to complete the Identity Validation process. Use the email address provided at the time of the request creation. Enter the credentials when prompted, and you'll be navigated to the next screen.
 1. Select **Get verified here through our trusted ID-verifiers**.
 
-:::image type="content" source="media/trusted-signing-first-vc-screen-indie.png" alt-text="Screenshot that shows the first screen for Verified ID." lightbox="media/trusted-signing-first-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-first-qr-code.png" alt-text="Screenshot that shows the first screen for Verified ID." lightbox="media/trusted-signing-first-qr-code.png":::
 
 1. Create verified credentials by using the trusted partners' pages. The following steps show an example walkthrough. It uses the trusted partner: AU10TIX. You're navigated to a third party website.
 
@@ -313,11 +313,11 @@ AU10TIX sends an email verification in email that includes a PIN code.
 
    1. Check your email for the verification email and enter the PIN code to verify your email account.
 
-:::image type="content" source="media/trusted-signing-enter-pincode-vc-screen-indie.png" alt-text="Screenshot that shows screen to enter pincode for Verified ID." lightbox="media/trusted-signing-enter-pincode-vc-screen-indie.png":::
+:::image type="content" source="media/trusted-signing-enter-pincode.png" alt-text="Screenshot that shows screen to enter pincode for Verified ID." lightbox="media/trusted-signing-enter-pincode.png":::
 
    1. Enter phone number when prompted on the next screen. 
 
-:::image type="content" source="media/trusted-signing-enter-phone-number-indie.png" alt-text="Screenshot that shows screen to enter phone number for Verified ID." lightbox="media/trusted-signing-enter-phone-number-indie.png":::
+:::image type="content" source="media/trusted-signing-enter-phone-number.png" alt-text="Screenshot that shows screen to enter phone number for Verified ID." lightbox="media/trusted-signing-enter-phone-number.png":::
 
    1. Select **Start**.
 
