@@ -14,9 +14,9 @@ ms.custom:
 
 # Configure ArcGIS Pro to access a GeoCatalog
 
-This guide demonstrates how to configure ArcGIS Pro to access geospatial datasets from the Microsoft Planetary Computer Pro GeoCatalog using OAuth 2.0 delegated authentication with Microsoft Entra ID. This requires registering two applications in Microsoft Entra ID (a Web API and a Desktop client), configuring delegated permissions with user_impersonation scope, and connecting ArcGIS Pro to Azure Blob Storage and SpatioTemporal Access Catalog (STAC) compliant datasets hosted in the Microsoft Planetary Computer Pro environment.
+This guide demonstrates how to configure ArcGIS Pro to access geospatial datasets from the Microsoft Planetary Computer Pro GeoCatalog using OAuth 2.0 delegated authentication with Microsoft Entra ID. This process requires registering two applications in Microsoft Entra ID (a Web API and a Desktop client), configuring delegated permissions with user_impersonation scope, and connecting ArcGIS Pro to Azure Blob Storage and SpatioTemporal Access Catalog (STAC) compliant datasets hosted in the Microsoft Planetary Computer Pro environment.
 
-By the end of this guide, you'll be able to securely browse and access Microsoft Planetary Computer-hosted data directly in ArcGIS Pro using Microsoft Entra ID user impersonation.
+By the end of this guide, you are able to securely browse and access data hosted in Microsoft Planetary Computer (MPC) Pro directly in ArcGIS Pro using Microsoft Entra ID user impersonation.
 
 ## Prerequisites
 
@@ -101,7 +101,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
     
     [ ![Screenshot showing add user impersonation scope.](media/add-user-impersonation-scope.png) ](media/add-user-impersonation-scope.png#lightbox)
 
-1. Select **Add a client application** ; choose and take note of the Client ID. This will be used later when setting up [Authenticaiton Connection](#add-an-authentication-connection) in ArcGIS Pro.
+1. Select **Add a client application** ; choose and take note of the Client ID. This ID is used later when setting up [Authentication Connection](#add-an-authentication-connection) in ArcGIS Pro.
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 ### [US Gov](#tab/usgov)
@@ -180,7 +180,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
     
     [ ![Screenshot showing add user impersonation scope.](media/add-user-impersonation-scope.png) ](media/add-user-impersonation-scope.png#lightbox)
 
-1. Select **Add a client application** ; choose and take note of the Client ID. This will be used later when setting up an [Authenticaiton Connection](#add-an-authentication-connection) in ArcGIS Pro.
+1. Select **Add a client application** ; choose and take note of the Client ID. This ID is used later when setting up an [Authentication Connection](#add-an-authentication-connection) in ArcGIS Pro.
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 
@@ -330,7 +330,7 @@ This section outlines how to configure authentication and data access in the **A
 
       - You can [find your **Entra Domain**](/partner-center/account-settings/find-ids-and-domain-names) (also know as your **Primary Domain**) from with Microsoft Entra ID from your Azure portal
 
-      - Your **Client ID** is the client ID you set above in the **Add a client application** step.
+      - Your **Client ID** is the client ID you set in the **Add a client application** step.
 
     - Add the following **scopes**:
 
@@ -373,7 +373,7 @@ This section outlines how to configure authentication and data access in the **A
     - Enter your **Entra Domain** and **Client ID**.
 
       - You can [find your **Entra Domain**](/partner-center/account-settings/find-ids-and-domain-names) (also know as your **Primary Domain**) from with Microsoft Entra ID from your Azure portal
-      - Your **Client ID** is the client ID you set above in the **Add a client application** step.
+      - Your **Client ID** is the client ID you set in the **Add a client application** step.
 
     - Add the following **scopes**:
 
@@ -420,10 +420,10 @@ This section outlines how to configure authentication and data access in the **A
    - Example:```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2025-04-30-preview```
 
 ### Storage Location
-Each Collection within the MPC Pro GeoCatalog utilizes a dedicated Storage Account and Azure Blob Container to store geospatial data and STAC Item assets. In the following steps, you will find and record the Storage Accound and Container names uses for a specific collection. 
+Each Collection within the MPC Pro GeoCatalog utilizes a dedicated Storage Account and Azure Blob Container to store geospatial data and STAC Item assets. In the following steps, you find and record the Storage Account and Container names uses for a specific collection. 
 
 > [!NOTE] 
-> A Azure Storage Account and Blob Container are only discoverable after STAC Items or other assets have been added to a collection.
+> An Azure Storage Account and Blob Container are only discoverable after STAC Items or other assets must be added to a collection.
 
 There are two easy ways to discover the Storage Account and Blob Container for a collection, using a thumbnail, or using a STAC Item with assets:
 
@@ -517,7 +517,7 @@ There are two easy ways to discover the Storage Account and Blob Container for a
 
     - Provide a name for the STAC Connection: For example, GeoCatalog_Connection.
     
-    - For Connection use the form```<GeoCatalog URI>/stac```. For example,
+    - For **Connection** use the form```<GeoCatalog URI>/stac```. For example,
       ```bash
         https://arcgisprogeocatalog.<unique-identity>.<cloud-storage>.geocatalog.spatio.azure.com/stac
         ```
