@@ -88,9 +88,11 @@ SpecificationFormat="GraphQL"
 SpecificationURL="<GraphQL backend endpoint>"
 
 # Import API.
-az apim api import --path $APIPath --resource-group $ResourceGroupName \
+az apim api import \
+    --path $APIPath \
+    --resource-group $ResourceGroupName \
     --service-name $APIMServiceName --api-id $APIId \
-    --display-name $DisplayName --specification-format $SpecificationFormat --specification-url $SpecificationURL
+    --display-name $DisplayName --specification-format $SpecificationFormat \ --specification-url $SpecificationURL
 ```
 
 After importing the API, you can update the settings by using the [az apim api update](/cli/azure/apim/api#az-apim-api-update) command, if you need to.
