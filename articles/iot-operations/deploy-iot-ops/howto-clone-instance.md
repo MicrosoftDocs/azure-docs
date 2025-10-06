@@ -75,7 +75,7 @@ You can use the following optional parameters to customize the generated ARM tem
   - When `nested` mode is used (the default), all sub-deployments are self-contained within the root deployment file.  
   - When `linked` mode is used, asset-related sub-deployments are split out and stored as separate files, which are then linked by the root deployment. Use `linked` mode if your instance contains a large number of namespace devices, namespace assets, root assets, and asset endpoint profiles to improve scalability and manageability. You don't need to specify this parameter unless you require this separation for large deployments.
 
-- `--param`: Allows you to override specific parameters in the template, such as location or resource names, using the format `key=value`.
+- `--param`: Allows you to override built-in default parameters, such as `location`, `instanceName`, or `adrNamespaceId`, using the format `key=value`. Use `--help` to display the full list of keys. 
 
 ## Clone an instance
 
