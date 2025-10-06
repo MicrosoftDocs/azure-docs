@@ -1,10 +1,10 @@
 ---
-title: Add custom functionality to developer portal - Azure API Management
+title: Add Custom Functionality to Developer Portal - Azure API Management
 titleSuffix: Azure API Management
 description: How to customize the managed API Management developer portal with custom functionality such as custom widgets.
 author: dlepow
 ms.author: danlep
-ms.date: 10/27/2023
+ms.date: 10/02/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ms.custom: devx-track-extended-azdevcli
@@ -14,11 +14,9 @@ ms.custom: devx-track-extended-azdevcli
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-
-The API Management [developer portal](api-management-howto-developer-portal.md) features a visual editor and built-in widgets so that you can customize and style the portal's appearance. However, you may need to customize the developer portal further with custom functionality. For example, you might want to integrate your developer portal with a support system that involves adding a custom interface. This article explains ways to add custom functionality such as custom widgets to your API Management developer portal.
+The API Management [developer portal](developer-portal-overview.md) features a visual editor and built-in widgets so that you can customize and style the portal's appearance. However, you might need to customize the developer portal further with custom functionality. For example, you might want to integrate your developer portal with a support system that involves adding a custom interface. This article explains ways to add custom functionality such as custom widgets to your API Management developer portal.
 
 The following table summarizes two options, with links to more detail.
-
 
 |Method   |Description  |
 |---------|---------|
@@ -30,29 +28,28 @@ The following table summarizes two options, with links to more detail.
 
 [!INCLUDE [api-management-developer-portal-wordpress](../../includes/api-management-developer-portal-wordpress.md)]
 
-
 ## Use Custom HTML code widget
 
-The managed developer portal includes a **Custom HTML code** widget where you can insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iframe). 
+The managed developer portal includes a **Custom HTML code** widget where you can insert HTML code for small portal customizations. For example, you can use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (*iframe*).
   
-1. In the administrative interface for the developer portal, go to the page or section where you want to insert the widget. 
+1. In the administrative interface for the developer portal, go to the page or section where you want to insert the widget.
 1. Select the grey "plus" (**+**) icon that appears when you hover the pointer over the page.
 1. In the **Add widget** window, select **Custom HTML code**.
-    
+
     :::image type="content" source="media/developer-portal-extend-custom-functionality/add-custom-html-code-widget.png" alt-text="Screenshot that shows how to add a widget for custom HTML code in the developer portal.":::
 1. Select the "pencil" icon to customize the widget.
 1. Enter a **Width** and **Height** (in pixels) for the widget.
 1. To inherit styles from the developer portal (recommended), select **Apply developer portal styling**.
     > [!NOTE]
     > If this setting isn't selected, the embedded elements will be plain HTML controls, without the styles of the developer portal.
-   
+
     :::image type="content" source="media/developer-portal-extend-custom-functionality/configure-html-custom-code.png" alt-text="Screenshot that shows how to configure HTML custom code in the developer portal.":::
 1. Replace the sample **HTML code** with your custom content.
 1. When configuration is complete, close the window.
 1. Save your changes, and [republish the portal](developer-portal-overview.md#publish-the-portal).
 
 > [!NOTE]
-> Microsoft does not support the HTML code you add in the Custom HTML Code widget.
+> Microsoft doesn't support the HTML code you add in the Custom HTML Code widget.
 
 ## Create and upload custom widget
 
