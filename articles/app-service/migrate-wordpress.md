@@ -113,10 +113,9 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
 After the site migration it is recommended to validate that you have the default recommended/equivalent plugins activated and configured as before. If you're prohibited from not configuring them as per your organization governing policies, then you can uninstall the plugins.
 
-- The W3TC plugin should be activated and configured properly to use the local Redis cache server and Azure CDN/Blob Storage (if it was configured to use them originally). For more information on how to configure these, refer to the following documentations:
+- The W3TC plugin should be activated and configured properly to use the local Redis cache server and Azure Blob Storage (if it was configured to use them originally). For more information on how to configure these, refer to the following documentations:
 
   - [Local Redis Cache](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_local_redis_cache.md)
-  - [Azure CDN](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_azure_cdn.md)
   - [Azure Blob Storage](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_azure_blob_storage.md)
 
 - WP Smush plugin is activated and configured properly for image optimization. See [Image Compression](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_image_compression.md) for more information on configuration.
