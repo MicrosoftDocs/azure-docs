@@ -206,6 +206,48 @@ Start-AzStorageAccountMigration
     -TargetSku <String>
     -AsJob
 ```
+To start conversions between locally redundant and zone-redundant storage for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
+storageAccount,resourceGroup,targetSku 
+mystorageaccount1,myresourcegroup1,Standard_ZRS 
+mystorageaccount2,myresourcegroup2,Standard_ZRS
+
+Then, use the following script as an example:
+
+```powershell
+# Log in to Azure 
+ Write-Host "Logging into Azure..." 
+ Connect-AzAccount 
+
+# Define the CSV file path 
+ $csvFilePath = "path\to\your\input.csv" 
+
+# Read the CSV file 
+ Write-Host "Reading CSV file..." 
+ $storageAccounts = Import-Csv -Path $csvFilePath 
+
+# Iterate through each storage account in the CSV file 
+ foreach ($account in $storageAccounts) { 
+     $storageAccountName = $account.'storageAccount' 
+     $resourceGroupName = $account.'resourceGroup' 
+     $targetSku = $account.'targetSku'
+ 
+    Write-Host "Processing storage account: $storageAccountName in resource group: $resourceGroupName to target SKU: $targetSku"
+ 
+    # Get the storage account 
+     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # Example of adding a check for the SKU 
+    if ($storageAccount.Sku.Name -ne "Standard_LRS") { 
+         Write-Host "Storage account $storageAccountName is not using Standard_LRS. Skipping..." 
+         continue 
+     }
+
+    # Submit the storage account SKU conversion 
+     Write-Host "Submitting storage account $storageAccountName conversion to target SKU: $targetSku..." 
+     Start-AzStorageAccountMigration -AccountName $storageAccountName -ResourceGroupName $resourceGroupName  -TargetSku $targetSku -NoWait 
+ }
+```
+
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -218,7 +260,55 @@ az storage account migration start  \
     --sku <string> \
     --no-wait
 ```
+To start conversions between locally redundant and zone-redundant storage for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
+storageAccountName,resourceGroupName,targetSku 
+mystorageaccount1,myresourcegroup1,Standard_ZRS 
+mystorageaccount2,myresourcegroup2,Standard_ZRS
 
+Then, use the following script as an example:
+```azurecli-interactive
+#! /bin/bash 
+
+# Make sure you have Azure CLI installed.  
+# https://learn.microsoft.com/cli/azure/install-azure-cli 
+
+# Log in to Azure  
+echo 'Logging into Azure...'  
+
+if az account get-access-token > /dev/null ; then 
+    echo 'Azure CLI is already logged in.'  
+else  
+    az login --use-device-code 
+fi 
+echo '--------------------' 
+
+# Define the CSV file path  
+csvFilePath='path\to\your\input.csv'
+
+# Read the CSV file  
+echo 'Reading CSV file...'  
+
+# Iterate through each storage account in the CSV file 
+# each row should have values for storageAccountName, resourceGroupName, targetSku
+while IFS=',' read -r storageAccountName resourceGroupName targetSku 
+do 
+    echo "Processing storage account: $storageAccountName in resource group: $resourceGroupName to target SKU: $targetSku" 
+    # Get the storage account  
+    sku=$(az storage account show --resource-group $resourceGroupName --name $storageAccountName  --query sku.name) 
+	
+    # Example of adding a check for the SKU 
+    if [ $sku != '"Standard_LRS"' ] ; then 
+        echo "Storage account $storageAccountName is not using Standard_LRS. Skipping..." 
+        continue  
+    fi 
+
+    # Submit the storage account SKU conversion 
+    echo "Submitting storage account $storageAccountName conversion to target SKU: $targetSku"  
+    az storage account migration start --account-name $storageAccountName --resource-group $resourceGroupName --target-sku-name $targetSku --no-wait --yes   
+
+    echo '--------------' 
+done < <(tr -d '\r' < $csvFilePath | tail -n +2) 
+```
 ---
 
 ##### Monitoring customer-initiated conversion progress
@@ -254,6 +344,33 @@ Get-AzStorageAccountMigration
    -AccountName <String>
    -ResourceGroupName <String>
 ```
+To track conversions for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
+storageAccount,resourceGroup,targetSku 
+mystorageaccount1,myresourcegroup1,Standard_ZRS 
+mystorageaccount2,myresourcegroup2,Standard_ZRS
+
+Then, use the following script as an example:
+```powershell
+# Log in to Azure 
+ Write-Host "Logging into Azure..." 
+ Connect-AzAccount 
+
+# Define the CSV file path 
+ $csvFilePath = "path\to\your\input.csv"
+
+# Read the CSV file 
+ Write-Host "Reading CSV file..." 
+ $storageAccounts = Import-Csv -Path $csvFilePath 
+
+# Iterate through each storage account in the CSV file 
+ foreach ($account in $storageAccounts) { 
+     $storageAccountName = $account.'storageAccount' 
+     $resourceGroupName = $account.'resourceGroup' 
+
+     # Get the storage account migration status 
+     Get-AzStorageAccountMigration -AccountName $storageAccountName -ResourceGroupName $resourceGroupName  | ft ResourceGroupName,@{Name="StorageAccountName"; Expression={$storageAccountName}},DetailMigrationStatus,DetailTargetSkuName
+ }
+```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -265,7 +382,40 @@ az storage account migration show \
     - g <string> \
     -n "default"
 ```
+To track conversions for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
+storageAccountName,resourceGroupName,targetSku 
+mystorageaccount1,myresourcegroup1,Standard_ZRS 
+mystorageaccount2,myresourcegroup2,Standard_ZRS
 
+Then, use the following script as an example:
+```azurecli-interactive
+#! /bin/bash
+
+# Log in to Azure 
+echo "Logging into Azure..." 
+if az account get-access-token > /dev/null ; then
+    echo 'Azure CLI is already logged in.' 
+else 
+    az login --use-device-code
+fi
+echo '--------------------'
+
+# Define the CSV file path 
+csvFilePath="path\to\your\input.csv" 
+
+# Read the CSV file 
+echo 'Reading CSV file...' 
+# Iterate through each storage account in the CSV file
+# each row should have values for storageAccountName, resourceGroupName, targetSku
+while IFS=',' read -r storageAccountName resourceGroupName targetSku
+do
+    echo "Checking status for storage account: $storageAccountName in resource group: $resourceGroupName"
+    # Get the storage account 
+    az storage account migration show --account-name $storageAccountName --resource-group $resourceGroupName -n default -o table
+
+    echo '--------------'
+done < <(tr -d '\r' < $csvFilePath | tail -n +2)  
+```
 ---
 
 #### Support-initiated conversion
