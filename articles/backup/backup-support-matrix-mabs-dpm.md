@@ -2,7 +2,7 @@
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
 ms.service: azure-backup
-ms.date: 09/11/2025
+ms.date: 10/08/2025
 ms.topic: reference
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -60,9 +60,8 @@ For more information:
 > Backup of virtual machines hosted on public cloud platforms such as Azure VMs or AWS EC2 using DPM/MABS is not supported.
 > 
 > Also, Bare Metal Recovery (BMR) with MABS is supported only for recovery on the same hardware; recovery to different hardware or cloud environments (such as Azure VM or AWS EC2) isn't supported.
->
->
-> **Support Matrix**
+
+> **System State Recovery Support Matrix**
 >
 > | Scenario | Supported |
 > | --- | --- |
