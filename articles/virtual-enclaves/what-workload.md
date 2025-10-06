@@ -24,7 +24,10 @@ Workloads are linked as a child resource to [enclaves](./what-enclave.md) and ar
 - [Azure Virtual Enclaves governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
 - [Enclave services and properties](./what-enclave.md)
 
-This diagram shows two Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group. Resource Groups are highlighted in green and Azure resources are highlighted in dark blue.
+This diagram shows two example Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group. Resource Groups are highlighted in green and Azure resources are highlighted in dark blue.
+
+<!--
+Change arrow styles to include a double hyphen to make it work in the markdown mermaid renderer. The space between the hyphens is a workaround for the HTML end comment tag.
 
 ```mermaid
 ---
@@ -91,6 +94,7 @@ flowchart
   class Enclave1,Enclave2,Enclave3 enclave;
   class Workload1,Workload2,Workload3,Workload4 workload;
 ```
+-->
 
 ## Workload resource group
 When you create an Azure Virtual Enclaves workload, you create linked workload resource groups where you can organize your Azure resources. 
