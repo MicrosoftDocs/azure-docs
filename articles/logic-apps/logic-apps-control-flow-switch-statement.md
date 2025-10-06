@@ -45,7 +45,7 @@ To change the workflow execution path based on the selected options in the appro
 
 1. On the designer, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the **Control** action named **Switch** to your workflow.
 
-   The **Switch** action appears with an empty default case. A **Switch** action requires at least one case plus the default case.
+   The **Switch** action appears with an empty default case. A **Switch** action requires at least one case plus the default case. You'll add more cases later.
 
    :::image type="content" source="./media/logic-apps-control-flow-switch-statement/empty-switch.png" alt-text="Screenshot shows a Switch action with an empty default Case.":::
 
@@ -57,7 +57,7 @@ To change the workflow execution path based on the selected options in the appro
 
    :::image type="content" source="./media/logic-apps-control-flow-switch-statement/select-selected-option.png" alt-text="Screenshot shows the dynamic content list with the SelectedOption value highlighted.":::
 
-1. To handle the cases where the approver selects **Approve** or **Reject**, add a case for each option. Next to the **Default** case, select the plus (**+**) sign. 
+1. To handle the cases where the approver selects **Approve** or **Reject**, add a case for each option. Next to the **Default** case, select the plus (**+**) sign, then select **Add a case**.
 
    :::image type="content" source="./media/logic-apps-control-flow-switch-statement/switch-plus.png" alt-text="Screenshot shows the Switch action with two cases added, along with the default case.":::
 
@@ -65,7 +65,7 @@ To change the workflow execution path based on the selected options in the appro
 
    | Case # | **SelectedOption** | Action |
    |--------|--------------------|--------|
-   | Case 1 | **Approve** | Add the Outlook **Send an email** action for sending details about the RSS item only when the approver selected **Approve**. |
+   | Case | **Approve** | Add the Outlook **Send an email** action for sending details about the RSS item only when the approver selected **Approve**. |
    | Case 2 | **Reject** | Add the Outlook **Send an email** action for notifying other approvers that the RSS item was rejected. |
    | Default | None | No action necessary. In this example, the **Default** case is empty because **SelectedOption** has only two options. |
 
@@ -111,7 +111,7 @@ Now that you created a workflow with the **Switch** action, review the JavaScrip
 | Label | Description |
 |-------|-------------|
 | `"Switch"`         | The default name for the `Switch` action, which you can rename to better describe the action's purpose. |
-| `"type": "Switch"` | Specifies that the action is a switch action |
+| `"type": "Switch"` | Specifies the action type, which is a `Switch` action. |
 | `"expression"`     | In this example, specifies the approver's selected option that the `Switch` action evaluates against each case as declared later in the definition. |
 | `"cases"` | Defines any number of cases. For each case, `"Case_*"` is the default name for that case, which you can rename to better describe the case's purpose. |
 | `"case"` | Specifies the case's value, which must be a constant and unique value that the `Switch` action uses for comparison. If no cases match the switch expression result, the actions in the `"default"` section are run. | 
