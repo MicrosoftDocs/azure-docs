@@ -1,10 +1,10 @@
 ---
-title: Integrate Application Insights to developer portal
+title: Integrate Application Insights to Developer Portal
 titleSuffix: Azure API Management
 description: Learn how to integrate Application Insights into your managed or self-hosted developer portal.
 author: dlepow
 ms.author: danlep
-ms.date: 08/16/2022
+ms.date: 10/03/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
@@ -20,7 +20,7 @@ A popular feature of Azure Monitor is Application Insights. It's an extensible A
 Follow these steps to plug Application Insights into your managed or self-hosted developer portal.
 
 > [!IMPORTANT]
-> Steps 1 -3 are not required for managed portals. If you have a managed portal, skip to step 4.
+> Steps 1 -3 aren't required for managed portals. If you have a managed portal, skip to step 4.
 
 1. Set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 
@@ -71,7 +71,7 @@ Follow these steps to plug Application Insights into your managed or self-hosted
     }
     ```
 
-1. Extend the site configuration from the previous step with Application Insights configuration. Update the configuration using the [Content Item - Create or Update](/rest/api/apimanagement/current-ga/content-item/create-or-update) REST API. Pass the Application Insights instrumentation key in an `integration` node in the request body.
+1. Extend the site configuration from the previous step with Application Insights configuration. Update the configuration using the [Content Item - Create Or Update](/rest/api/apimanagement/current-ga/content-item/create-or-update) REST API. Pass the Application Insights instrumentation key in an `integration` node in the request body.
 
 
     ```http
