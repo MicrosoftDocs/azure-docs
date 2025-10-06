@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Bastion
-description: Find out about reliability in Azure Bastion, including availability zones and multi-region deployments.
+description: Improve reliability in Azure Bastion by using availability zones and zone redundancy for RDP/SSH connections. Understand disaster recovery best practices.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
@@ -11,7 +11,7 @@ ms.date: 08/27/2025
 
 # Reliability in Azure Bastion
 
-This article describes reliability support in Azure Bastion. It covers intra-regional resiliency via [availability zones](#availability-zone-support). It also covers [multi-region deployments](#multi-region-support).
+This article describes reliability support in Azure Bastion and how to use [availability zones](#availability-zone-support) and zone redundancy to reduce downtime and improve resiliency for production workloads. It also covers [multi-region deployment](#multi-region-support) guidance for disaster recovery.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
@@ -49,7 +49,7 @@ Azure Bastion supports availability zones in both zone-redundant and zonal confi
     
     The following diagram shows a zone-redundant bastion host, with its instances spread across three zones:
    
-    :::image type="content" source="media/reliability-bastion/bastion-instances-zones.png" alt-text="Diagram that shows an Azure Bastion bastion host with three instances, each in a separate availability zone." border="false":::
+    :::image type="content" source="media/reliability-bastion/bastion-instances-zones.png" alt-text="Diagram that shows Azure Bastion with three instances distributed across three availability zones to illustrate zone-redundant deployment." border="false":::
 
     If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can.
 
@@ -80,7 +80,7 @@ Zonal and zone-redundant bastion hosts can be deployed into the following region
 
 ### Cost
 
-There's no additional cost to use zone redundancy for Azure Bastion. Charges are based on your bastion host's SKU and the number of instances that it uses. For information, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/).
+There's no additional cost to use availability zone support for Azure Bastion. Charges are based on your bastion host's SKU and the number of instances that it uses. For information, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/).
 
 ### Configure availability zone support
 
@@ -138,7 +138,7 @@ This section describes what to expect when bastion hosts are configured for avai
 
 When the availability zone recovers, Azure Bastion automatically restores instances in the availability zone, and reroutes traffic between your instances as normal.
 
-### Testing for zone failures
+### Test for zone failures
 
 The Azure Bastion platform manages traffic routing, failover, and failback for zone-redundant bastion hosts. Because this feature is fully managed, you don't need to initiate anything or validate availability zone failure processes.
 

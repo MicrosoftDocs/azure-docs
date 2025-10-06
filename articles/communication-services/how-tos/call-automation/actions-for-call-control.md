@@ -10,6 +10,7 @@ ms.date: 06/19/2023
 ms.author: askaur
 manager: visho
 services: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 # Control and steer calls with Call Automation

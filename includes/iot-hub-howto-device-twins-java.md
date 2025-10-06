@@ -8,7 +8,11 @@ ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
 ms.date: 07/20/2024
-ms.custom: mqtt, devx-track-java, devx-track-extended-java
+ms.custom:
+  - mqtt
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
   * Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.

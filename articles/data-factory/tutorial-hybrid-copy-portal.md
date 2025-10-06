@@ -6,6 +6,7 @@ author: nabhishek
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage

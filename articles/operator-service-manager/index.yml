@@ -28,12 +28,10 @@ landingContent:
             url: release-notes.md
       - linkListType: concept
         links:
-          - text: Helm requirements
-            url: helm-requirements.md
-          - text: Roles and interfaces
+          - text: Role-Based Persona Model
             url: roles-interfaces.md
-          - text: Publisher Tenants, subscriptions, regions and preview management
-            url: publisher-resource-preview-management.md
+          - text: Publisher Tenants, Subscriptions and Regions
+            url: publisher-resource-preview-management.md      
 
   # Card
   - title: Get started with Azure Operator Service Manager
@@ -58,6 +56,8 @@ landingContent:
             url: how-to-delete-operator-resources.md
           - text: Create site network service
             url: how-to-create-site-network-service.md
+          - text: Interrupt a service deployment operation
+            url: how-to-cancel-service-deployments.md
 
   # Card
   - title: Onboard with the Azure Operator Service Manager (AOSM) CLI
@@ -80,7 +80,7 @@ landingContent:
             url: how-to-onboard-azure-resource-manager-resources-cli.md
           - text: Troubleshoot common CLI Issues
             url: troubleshoot-cli-common-issues.md
-
+            
   # Card
   - title: Safe Upgrade Practices
     linkLists:
@@ -114,8 +114,14 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
+          - text: Helm Package Requirements
+            url: helm-requirements.md 
           - text: Best Practices Onboard and Deploy
             url: best-practices-onboard-deploy.md
+          - text: Publisher Resource Cleanup Management
+            url: resource-cleanup-management.md
+          - text: Publisher Artifact Store Resiliency
+            url: publisher-artifact-store-resiliency.md 
           - text: Workload Configuration Management
             url: configuration-guide.md
       - linkListType: reference

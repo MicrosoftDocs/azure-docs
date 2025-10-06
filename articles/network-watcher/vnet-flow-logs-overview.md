@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 09/16/2025
 ms.custom: build-2025
 
 # Customer intent: As an Azure administrator, I want to implement virtual network flow logs so that I can effectively monitor network traffic, optimize performance, and ensure compliance within my virtual network.
@@ -216,6 +216,10 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, virtual network flow logs stop working. To fix this problem, you must disable and then re-enable virtual network flow logs.
 
+### ExpressRoute gateway traffic
+
+Outbound flows from virtual machines (VMs) to ExpressRoute circuit aren't recorded if flow logging is enabled on the ExpressRoute gateway subnet. Such flows must be recorded at the subnet or NIC of the VM. Traffic also bypasses the ExpressRoute gateway when [FastPath](../expressroute/about-fastpath.md) is enabled and isn't recorded if flow logging is enabled on the ExpressRoute gateway subnet.
+
 ### Private endpoint traffic
 
 Traffic can't be recorded at the private endpoint itself. You can capture traffic to a private endpoint at the source VM. The traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. You can use `PrivateEndpointResourceId` field to identify traffic flowing to a private endpoint. For more information, see [Traffic analytics schema](traffic-analytics-schema.md?tabs=vnet#traffic-analytics-schema).
@@ -239,6 +243,14 @@ Currently, these Azure services don't support virtual network flow logs:
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support virtual network flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
+
+## Known issues
+
+This section lists current known issues associated with virtual network flow logs. 
+
+| Issue | Description |
+| --- | --- | --- |
+| Users see inaccurate bytes and packet data instead of their actual flow count | Virtual network flow logs might report inaccurate byte and packet counts compared to actual flow data. This discrepancy can affect traffic analytics insights and downstream tools that rely on precise metrics. Users might observe inflated or deflated traffic volumes, which can lead to incorrect billing assumptions or misinformed security analysis. |
 
 ## Pricing
 

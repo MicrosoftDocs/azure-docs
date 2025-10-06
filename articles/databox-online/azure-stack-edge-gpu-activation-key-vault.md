@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 # Manage Azure Stack Edge secrets using Azure Key Vault 

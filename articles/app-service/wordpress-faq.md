@@ -9,7 +9,10 @@ ms.topic: faq
 ms.date: 12/13/2024
 # ms.devlang: wordpress
 ms.author: tulikac
-ms.custom: mvc, linux-related-content
+ms.custom:
+  - mvc
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 # WordPress on App Service: Frequently Asked Questions
 

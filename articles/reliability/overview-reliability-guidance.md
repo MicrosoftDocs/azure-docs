@@ -55,7 +55,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Chaos Studio| [Reliability in Chaos Studio](reliability-chaos-studio.md)||
 |Azure Communications Gateway | | [Reliability in Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Container Apps| [Reliability in Container Apps](reliability-azure-container-apps.md)||
-|Azure Container Instances| [Reliability in Container Instances](reliability-containers.md)||
+|Azure Container Instances| [Reliability in Container Instances](reliability-container-instances.md)||
 |Azure Container Registry|[Reliability in Container Registry](reliability-container-registry.md) ||
 |Azure Cosmos DB for MongoDB vCore| [Reliability in Azure Cosmos DB for MongoDB vCore](reliability-cosmos-mongodb.md)||
 |Azure Cosmos DB for NoSQL| [Reliability in Azure Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md) ||
@@ -78,7 +78,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Event Grid| [Reliability in Event Grid](./reliability-event-grid.md)||
 |Azure Event Hubs||[Best practices for insulating Azure Event Hubs applications against outages and disasters](/azure/event-hubs/event-hubs-business-continuity-outages-disasters)|
 |Azure ExpressRoute|| [Design for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p>[Design for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|Azure Files||[Choose the right redundancy option](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Disaster recovery and failover for Azure Files](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Files| [Reliability in Azure Files](reliability-storage-files.md)||
 |Azure Firewall| [Reliability in Azure Firewall](./reliability-firewall.md) ||
 |Azure Functions|  [Reliability in Azure Functions ](reliability-functions.md)||
 |Azure guest configuration||[Azure guest configuration availability](../governance/machine-configuration/overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability) |
@@ -109,7 +109,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Site Recovery|| [Set up disaster recovery for Azure virtual machines](../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Spring Apps| [Reliability in Azure Spring Apps](reliability-spring-apps.md)||
 |Azure SQL Database||[Azure SQL Database - High availability](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery guidance - Azure SQL Database](/azure/azure-sql/database/disaster-recovery-guidance) |
-|Azure SQL Managed Instance|| [Failover groups overview and best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true) |
+|Azure SQL Managed Instance| [Reliability in Azure SQL Managed Instance](./reliability-sql-managed-instance.md) ||
 |Azure Storage Actions| [Reliability in Storage Actions](reliability-storage-actions.md)||
 |Azure Storage Mover| [Reliability in Storage Mover](reliability-azure-storage-mover.md)||
 |Azure Stream Analytics|| [Achieve geo-redundancy for Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |

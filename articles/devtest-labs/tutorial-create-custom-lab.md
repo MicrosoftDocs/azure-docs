@@ -5,7 +5,9 @@ ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/12/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab administrator, I want to learn how to create and delete labs, add virtual machines (VMs) to labs, and add users to labs, so I can better manage my labs.
 ---

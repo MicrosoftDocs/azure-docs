@@ -9,6 +9,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 10/25/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure Azure Firewall in a Virtual WAN hub
@@ -66,7 +67,7 @@ To return to the hub **Overview** page, you can navigate back by clicking the pa
 :::image type="content" source="./media/howto-firewall/arrow.png" alt-text="Screenshot showing how to return to the Overview page." lightbox="./media/howto-firewall/arrow.png":::
 
 ## Upgrade to Azure Firewall Premium
-At any time, it's possible to upgrade from Azure Firewall Standard to Premium following these [instructions](../firewall/premium-migrate.md#migrate-a-secure-hub-firewall). This operation will require a maintenance window since some minimal downtime will be generated. 
+At any time, it's possible to upgrade from Azure Firewall Standard to Premium following these [instructions](../firewall/change-sku.md#migrate-a-secure-hub-firewall). This operation will require a maintenance window since some minimal downtime will be generated. 
 
 ## Next steps
 

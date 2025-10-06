@@ -2,6 +2,7 @@
 title: Assess large numbers of physical servers for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of physical servers for migration to Azure using the Azure Migrate service.
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 02/06/2025
 # Customer intent: As an IT administrator, I want to assess large numbers of physical servers for migration to the cloud, so that I can effectively plan and execute the migration process with minimal disruption to operations.

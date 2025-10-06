@@ -6,7 +6,9 @@ ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: quickstart
 ms.date: 06/28/2023
-ms.custom: template-quickstart
+ms.custom:
+  - template-quickstart
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Data Manager for Energy instance

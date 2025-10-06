@@ -7,7 +7,9 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 09/30/2024
 ms.author: mbender
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: As a cloud architect, I want to implement Azure DDoS Protection for my public load balancer, so that I can safeguard my applications against DDoS attacks and ensure their availability.
 ---
 

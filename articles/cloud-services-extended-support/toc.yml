@@ -73,15 +73,15 @@ items:
   - name: Migrate from Azure Cloud Services (extended support)
     items:
     - name: Frequently asked questions (FAQ)
-      href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-faq?toc=/azure/cloud-services-extended-support/toc.json
+      href: /azure/service-fabric/service-fabric-cloud-services-migration-faq?toc=/azure/cloud-services-extended-support/toc.json
     - name: Cloud Services migration decision matrix
-      href: https://learn.microsoft.com/azure/service-fabric/cloud-services-migration-decision-matrix?toc=/azure/cloud-services-extended-support/toc.json
+      href: /azure/service-fabric/cloud-services-migration-decision-matrix?toc=/azure/cloud-services-extended-support/toc.json
     - name: Migration guide
-      href: https://learn.microsoft.com/azure/service-fabric/cloud-services-to-service-fabric-migration-guide?toc=/azure/cloud-services-extended-support/toc.json
+      href: /azure/service-fabric/cloud-services-to-service-fabric-migration-guide?toc=/azure/cloud-services-extended-support/toc.json
     - name: Migrate to Service Fabric
-      href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service?toc=/azure/cloud-services-extended-support/toc.json
+      href: /azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service?toc=/azure/cloud-services-extended-support/toc.json
     - name: Compare Cloud Services (extended support) with Service Fabric
-      href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-differences?toc=/azure/cloud-services-extended-support/toc.json
+      href: /azure/service-fabric/service-fabric-cloud-services-migration-differences?toc=/azure/cloud-services-extended-support/toc.json
 - name: How To
   items:
   - name: Apply extensions

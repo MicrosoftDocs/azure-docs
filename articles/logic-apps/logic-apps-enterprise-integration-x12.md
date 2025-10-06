@@ -8,6 +8,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/12/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Exchange X12 messages using workflows in Azure Logic Apps

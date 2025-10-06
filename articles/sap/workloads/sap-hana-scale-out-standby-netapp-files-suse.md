@@ -3,7 +3,6 @@ title: SAP HANA scale-out with standby with Azure NetApp Files on SLES | Microso
 description: Learn how to deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server.
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, linux-related-content
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
@@ -11,6 +10,10 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 05/22/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As an IT architect, I want to implement a highly available SAP HANA scale-out system on Azure using NetApp for shared storage, so that I can ensure continuous operations and quick failover in case of node failures."
 ---
 

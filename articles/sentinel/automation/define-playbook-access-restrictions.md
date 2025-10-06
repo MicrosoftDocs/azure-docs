@@ -10,6 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security engineer using Standard-plan playbooks, I want to define an access restriction policy for playbooks so that I can ensure only authorized services can access sensitive workflows.
 

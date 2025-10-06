@@ -9,7 +9,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/02/2023
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # How to configure notifications and notification templates in Azure API Management

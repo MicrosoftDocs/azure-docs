@@ -51,7 +51,7 @@ Here are the steps to migrate to a new gateway using PowerShell.
 1. Change to the directory where the script is located.
 
    ```azurepowershell-interactive
-   CD azure-docs-powershell-samples/expressroute-gateway/
+   cd azure-docs-powershell-samples/expressroute-gateway/
    ```
 ### Prepare the migration
 
@@ -60,8 +60,8 @@ This script creates a new ExpressRoute virtual network gateway on the same gatew
 1. Identify the resource ID of the gateway that will be migrated. 
 
     ```azurepowershell-interactive
-   $resourceId = Get-AzResource -Name {virtual network gateway name}
-   $resourceId.Id
+   $resource = Get-AzResource -Name {virtual network gateway name}
+   $resource.Id
     ```
 1. Run the **PrepareMigration.ps1** script to prepare the migration. 
 
@@ -80,8 +80,8 @@ This script transfers the configuration from the old gateway to the new one.
 1. Identify the resource ID of your new post-migration gateway. Use the resource name you given for this gateway in the previous step. 
 
     ```azurepowershell-interactive
-   $resourceId = Get-AzResource -Name {virtual network gateway name}
-   $resourceId.Id
+   $resource = Get-AzResource -Name {virtual network gateway name}
+   $resource.Id
     ```
 1.  Run the **Migration.ps1** script to perform the migration. 
 

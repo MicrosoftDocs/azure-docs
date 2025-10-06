@@ -27,6 +27,10 @@ We offer the following VM sizes:
 | **DCadsv5-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
 | **ECasv5-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECadsv5-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
+| **DCasv6-series** | AMD SEV-SNP | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCadsv6-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
+| **ECasv6-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
+| **ECadsv6-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
 | **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
 | **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
 | **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |

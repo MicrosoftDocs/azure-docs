@@ -1,23 +1,24 @@
 ---
-title: What is Microsoft Sentinel? | Microsoft Docs
-description: Learn about Microsoft Sentinel, a security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution.
-author: batamig
-ms.author: bagol
+title: What is Microsoft Sentinel SIEM?
+description: Learn about Microsoft Sentinel, a scalable, cloud-native SIEM and SOAR that uses AI, analytics, and automation for threat detection, investigation, and response.
+author: guywi-ms
+ms.author: guywild
 ms.topic: overview
 ms.service: microsoft-sentinel
-ms.date: 07/16/2025
+ms.date: 09/14/2025
+ms.custom: sfi-image-nochange
 
-#CustomerIntent: As a business decision maker, I want to understand what Microsoft Sentinel offers so that I can determine whether the service meets my organization's requirements.
+# Customer intent: As a business decision-maker evaluating SIEM/SOAR solutions, I want a summary of Microsoft Sentinel’s cloud-native capabilities so I can determine whether it meets my organization’s security, compliance, and operational requirements and plan adoption or migration.
 
 ---
 
-# What is Microsoft Sentinel?
+# What is Microsoft Sentinel security information and event management (SIEM)? 
 
-Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers scalable, cost-efficient security across multicloud and multi-platform environments with built-in AI, automation, threat intelligence, and a modern data lake architecture. Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
+Microsoft Sentinel is a cloud-native SIEM solution that delivers scalable, cost-efficient security across multicloud and multiplatform environments. It combines AI, automation, and threat intelligence to support threat detection, investigation, response, and proactive hunting.
 
-Microsoft Sentinel also natively incorporates proven Azure services, like Log Analytics and Logic Apps, and enriches your investigation and detection with AI. It uses both Microsoft's threat intelligence stream and also enables you to bring your own threat intelligence.
+Microsoft Sentinel SIEM empowers analysts to anticipate and stop attacks across clouds and platforms, faster and with greater precision. 
 
-Microsoft Sentinel empowers analysts to anticipate and stop attacks across clouds and platforms, faster and with greater precision. Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames. This article highlights the key capabilities in Microsoft Sentinel.
+This article highlights the key capabilities in Microsoft Sentinel.
 
 Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](/azure/azure-monitor/logs/data-security#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
 
@@ -53,26 +54,13 @@ Collect data across all users, devices, applications, and infrastructure, both o
 
 ---
 
-The following table highlights the key capabilities in Microsoft Sentinel for data collection.
+This table highlights the key capabilities in Microsoft Sentinel for data collection.
 
 |Capability|Description|Get started|
 |---------|---------|---------|
 |Out of the box data connectors  | Many connectors are packaged with SIEM solutions for Microsoft Sentinel and provide real-time integration. These connectors include Microsoft sources and Azure sources like Microsoft Entra ID, Azure Activity, Azure Storage, and more. <br><br>Out of the box connectors are also available for the broader security and applications ecosystems for non-Microsoft solutions. You can also use common event format, Syslog, or REST-API to connect your data sources with Microsoft Sentinel.  | [Microsoft Sentinel data connectors](connect-data-sources.md)   |
 |Custom connectors    |  Microsoft Sentinel supports ingesting data from some sources without a dedicated connector. If you're unable to connect your data source to Microsoft Sentinel using an existing solution, create your own data source connector.        |  [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).       |
 |Data normalization     | Microsoft Sentinel uses both query time and ingestion time normalization to translate various sources into a uniform, normalized view.        |   [Normalization and the Advanced Security Information Model (ASIM)](normalization.md)      |
-
-## Microsoft Sentinel data lake
-
-Microsoft Sentinel provides a modern data lake, designed to help security operations teams simplify data management, optimize costs, and accelerate the adoption of AI. Microsoft Sentinel data lake provides affordable, long-term storage so that organizations no longer are required to compromise between cost and better security. Security operations teams now have enhanced visibility to resolve incidents faster within the Microsoft Sentinel experience and enriched through integration with data analytics tools.
-
-| Capability | Description | Get started  |
-|-------------|------------|--------------|
-| Optimize costs and coverage | Manage costs and coverage with seamless data tiering and a centralized management experience.  | [Log retention plans in Microsoft Sentinel](log-plans.md)                                |
-| Interactive KQL Exploration | KQL queries allow you to interactively explore and analyze data in the Microsoft Sentinel data lake. You can run ad-hoc queries, create scheduled jobs, and promote data to the analytics tier for further analysis. The KQL query editor provides a familiar interface for security analysts to work with long-term data.                        | [KQL and Microsoft Sentinel data lake (overview)](datalake/kql-overview.md)                        |
-| Notebooks for Exploration   | Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by a Visual Studio Code extension that allows you to interact with the data lake using Python and Apache Spark. Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. | [Notebooks (overview)](datalake/notebooks-overview.md)                                                               |
-
-
-:::image type="content" source="media/overview/data-lake-exploration.png" lightbox="media/overview/data-lake-exploration.png" alt-text="A screenshot showing the KQL query editor page in Data lake exploration.":::
 
 ## Detect threats
 
@@ -88,7 +76,7 @@ Detect previously undetected threats and minimize false positives using Microsof
 
 ---
 
-The following table highlights the key capabilities in Microsoft Sentinel for threat detection.
+This table highlights the key capabilities in Microsoft Sentinel for threat detection.
 
 |Capacity  |Description |Get started|
 |---------|---------|---------|
@@ -104,7 +92,7 @@ Investigate threats with artificial intelligence, and hunt for suspicious activi
 
 :::image type="content" source="media/overview/map-timeline.png" lightbox="media/overview/map-timeline.png" alt-text="Screenshot of an incident investigation that shows an entity and connected entities in an interactive graph.":::
 
-The following table highlights the key capabilities in Microsoft Sentinel for threat investigation.
+This table highlights the key capabilities in Microsoft Sentinel for threat investigation.
 
 |Feature  |Description  |Get started|
 |---------|---------|---------|
@@ -121,7 +109,7 @@ Playbooks in Microsoft Sentinel are based on workflows built in Azure Logic Apps
 
 :::image type="content" source="media/overview/logic-app.png" lightbox="media/overview/logic-app.png" alt-text="Screenshot of example automated workflow in Azure Logic Apps where an incident can trigger different actions.":::
 
-The following table highlights the key capabilities in Microsoft Sentinel for threat response.
+This table highlights the key capabilities in Microsoft Sentinel for threat response.
 
 |Feature  |Description  |Get started|
 |---------|---------|---------|
@@ -148,7 +136,7 @@ Such users use Microsoft Sentinel in the Defender portal only.
 
 New customers who don't have relevant permissions aren't automatically onboarded to the Defender portal, but they do still see redirection links in the Azure portal, together with prompts to have a user with relevant permissions manually onboard the workspace to the Defender portal.
 
-The following table summarizes these experiences:
+This table summarizes these experiences:
 
 |Customer type| Experience|
 |---------|---------|

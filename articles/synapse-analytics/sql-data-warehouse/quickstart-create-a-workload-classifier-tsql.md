@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-other
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a workload classifier using T-SQL

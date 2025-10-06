@@ -4,9 +4,10 @@ description: Learn how to discover MySQL database instances running in your data
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
+ms.reviewer: v-uhabiba
 ms.date: 03/03/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
-monikerRange: migrate-classic
+monikerRange:
 # Customer intent: As a database administrator, I want to discover MySQL database instances in my datacenter using an agentless solution, so that I can assess and manage my databases efficiently before migrating to the cloud.
 ---
 
@@ -62,11 +63,11 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    
    > - Use the following commands to grant the necessary privileges to the MySQL user
    > ```
-   >  GRANT USAGE ON *.* TO 'username@ip';
-   >  GRANT PROCESS ON *.* TO 'username@ip';
-   >  GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username@ip';
-   >  GRANT SELECT ON information_schema.* TO 'username@ip';
-   >  GRANT SELECT ON performance_schema.* TO 'username@ip';  
+   >  GRANT USAGE ON *.* TO 'username'@'ip';
+   >  GRANT PROCESS ON *.* TO 'username'@'ip';
+   >  GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username'@'ip';
+   >  GRANT SELECT ON information_schema.* TO 'username'@'ip';
+   >  GRANT SELECT ON performance_schema.* TO 'username'@'ip';  
 
 You can review the discovered MySQL databases after around 24 hours of discovery initiation, through the **Discovered servers** view. To expedite the discovery of your MySQL instances follow the steps:
 

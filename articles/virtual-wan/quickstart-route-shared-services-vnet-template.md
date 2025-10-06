@@ -7,7 +7,11 @@ ms.service: azure-virtual-wan
 ms.topic: quickstart
 ms.date: 03/27/2025
 ms.author: cherylmc
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Route to shared services VNets using an ARM template

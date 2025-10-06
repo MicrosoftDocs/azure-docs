@@ -7,6 +7,7 @@ ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Bulk copy from files to database

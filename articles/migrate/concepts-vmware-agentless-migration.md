@@ -7,6 +7,7 @@ ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/12/2025
+ms.reviewer: v-uhabiba
 ms.custom: vmware-scenario-422, engagement-fy24
 # Customer intent: As a cloud architect, I want to understand the agentless migration process of VMware virtual machines to Azure, so that I can effectively plan and execute the migration while ensuring data integrity and minimal downtime.
 ---
@@ -36,7 +37,8 @@ After the migration is successful and the VM restarts in Azure, ensure that you 
 ## Replication cycles
 
 > [!NOTE]
-> Be sure to check for snapshots present from earlier replication attempts or from partner apps. You can't enable change tracking on the VM if snapshots are already present for the VM. Delete the existing snapshots or enable CBT on the VM.
+> Be sure to check for any existing snapshots on the VM from earlier replication attempts, partner apps, or active backup tools (e.g., VEEAM), as this will block agentless replication setup in Azure Migrate.
+> Snapshot-based backups conflict with Azure Migrate’s agentless change tracking and replication process and should not be used concurrently.
 
 A replication cycle is the periodic process of transferring data from an on-premises environment to Azure managed disks. A full replication cycle consists of the following steps:
 

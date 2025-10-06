@@ -8,8 +8,7 @@ ms.custom: playwright-testing-preview
 
 # Manage workspace access tokens in Microsoft Playwright Testing Preview
 
-> [!NOTE]
-> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to manage workspace access tokens in Microsoft Playwright Testing Preview. You use access tokens to authenticate and authorize access to your workspace.
 

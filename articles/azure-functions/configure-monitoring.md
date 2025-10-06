@@ -4,7 +4,10 @@ description: Learn how to connect your function app to Application Insights for 
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 05/19/2025
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
 ---

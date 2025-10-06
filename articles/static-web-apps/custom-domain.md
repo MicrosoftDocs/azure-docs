@@ -51,11 +51,7 @@ The following are terms you might encounter as you set up a custom domain.
 
 * **Name server**: A name server is responsible for storing the DNS records for a domain.
 
-For custom domain verification to work with Static Web Apps, the DNS must be publicly resolvable. After the domain is added, one of the following conditions must be met for automatic certificate renewal to work:
-
-*  Ensure that the public internet `CNAME` DNS record used to add the custom domain to the Static Web App via `CNAME` validation is still present. This option is only valid if `CNAME` validation was used to add the domain to the static web app.
-
-* Ensure that the custom domain resolves to the static web app over public internet. This option is valid regardless of the validation method used to add the domain to the web app. This approach is valid even when you enable private endpoints. The purpose of a private endpoint for Static Web Apps is to block internet access to the site contents, but not to block internet DNS resolution to the site.
+For custom domain verification to work with Static Web Apps, the DNS must be publicly resolvable. For automatic certificate renewal to work, the custom domain must resolve to the static web app over public internet. Automatic certificate renewal is supported even when you enable private endpoints. The purpose of a private endpoint for Static Web Apps is to block internet access to the site contents, but not to block internet DNS resolution to the site.
 
 ## Zero downtime migration
 

@@ -9,6 +9,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Optimize performance by upgrading dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

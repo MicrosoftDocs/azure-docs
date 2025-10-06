@@ -4,6 +4,7 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
+ms.custom: sfi-ropc-nochange
 ---
 The [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) provides a class for parsing a connection string from a configuration file. The [CloudConfigurationManager](/previous-versions/azure/reference/mt634650(v=azure.100)) class parses configuration settings. It parses settings for client applications that run on the desktop, on a mobile device, in an Azure virtual machine, or in an Azure cloud service.
 

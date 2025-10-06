@@ -6,6 +6,7 @@ ms.author: dandennis
 ms.service: defender-easm
 ms.date: 02/27/2024
 ms.topic: conceptual
+ms.custom: sfi-image-nochange
 ---
 
 # Microsoft Defender External Attack Surface Management overview

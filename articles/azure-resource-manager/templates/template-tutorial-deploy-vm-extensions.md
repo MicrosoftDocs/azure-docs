@@ -3,7 +3,9 @@ title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates (ARM templates).
 ms.date: 06/20/2024
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates
@@ -24,7 +26,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* [Visual Studio Code](https://code.visualstudio.com/).
 * To increase security, use a generated password for the virtual machine administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
     ```shell

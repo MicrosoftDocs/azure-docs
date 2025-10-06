@@ -7,6 +7,9 @@ ms.author: cephalin
 author: cephalin
 keywords: azure app service, web app, linux, windows, docker, container, sidecar
 ms.service: azure-app-service
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Configure a sidecar container for a custom container app
@@ -116,6 +119,7 @@ Add a sidecar container to your Linux custom container app.
 
 1. On the app's page in the Azure portal, select **Deployment Center** under **Deployment** in the left navigation menu. The **Deployment Center** page shows all the containers in the app, currently only the main container.
 
+1. Select **Containers**.
 1. Select **Add** > **Custom container**.
 
 1. On the **Add container** pane, complete the following information:

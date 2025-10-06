@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 03/06/2025
 ms.author: shaas
+ms.custom: sfi-image-nochange
 # Customer intent: "As a data engineer, I want to track and log events throughout the Azure Data Box import order process, so that I can ensure data integrity and compliance during data transfers."
 ---
 

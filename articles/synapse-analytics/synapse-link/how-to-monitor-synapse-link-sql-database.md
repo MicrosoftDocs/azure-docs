@@ -8,6 +8,7 @@ ms.subservice: synapse-link
 ms.date: 10/23/2024
 ms.author: sbahadur
 ms.reviewer: imotiwala, yexu
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor Azure Synapse Link for Azure SQL Database through Synapse Studio and Azure Monitor

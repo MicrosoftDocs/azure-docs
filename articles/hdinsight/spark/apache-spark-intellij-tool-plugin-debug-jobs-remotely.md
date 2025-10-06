@@ -2,12 +2,14 @@
 title: 'Azure Toolkit: Debug Apache Spark apps remotely - Azure HDInsight'
 description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug Spark applications that run on HDInsight clusters through VPN.
 ms.service: azure-hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: sairamyeturi
 ms.date: 06/13/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
 ---
 
 # Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely in HDInsight through VPN

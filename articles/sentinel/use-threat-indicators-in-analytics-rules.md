@@ -10,6 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to configure analytics rules using threat indicators so that I can automatically generate and investigate security alerts based on integrated threat intelligence from various data sources.

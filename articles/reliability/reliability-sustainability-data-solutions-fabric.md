@@ -1,6 +1,6 @@
 ---
 title: Reliability in Sustainability Data Solutions in Fabric
-description: Find out about reliability in Sustainability data solutions in Fabric, including availability zones and multi-region deployments.
+description: Learn how to ensure reliability in Sustainability Data Solutions in Fabric by using emissions insights, zone redundancy, and ESG data ingestion.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article

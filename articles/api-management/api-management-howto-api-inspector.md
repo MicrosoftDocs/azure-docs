@@ -7,7 +7,9 @@ ms.service: azure-api-management
 ms.topic: tutorial
 ms.date: 11/04/2024
 ms.author: danlep
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 # Tutorial: Debug your APIs using request tracing

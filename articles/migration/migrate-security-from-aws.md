@@ -5,6 +5,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.date: 07/30/2025
 ms.topic: conceptual
+ms.service: azure 
 ms.collection:
  - migration
  - aws-to-azure

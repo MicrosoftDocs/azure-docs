@@ -6,6 +6,7 @@ ms.author: adamdor
 ms.date: 03/06/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Create a Containerized Network Function (CNF) Site Network Service (SNS) with Nginx

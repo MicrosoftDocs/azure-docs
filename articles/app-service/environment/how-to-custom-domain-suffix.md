@@ -3,11 +3,13 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
 ms.date: 05/06/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Custom domain suffix for App Service Environments
