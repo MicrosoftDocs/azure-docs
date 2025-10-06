@@ -45,7 +45,7 @@ For this scenario, you create a managed WordPress site hosted on Azure App Servi
 
 1. On the **Add-ins** tab:
 
-    1. Select the recommended default values for **Email with Azure Communication Services**, **Azure CDN**, and **Azure Blob Storage**.
+    1. Select the recommended default values for **Email with Azure Communication Services**, **Azure Front Door**, and **Azure Blob Storage**.
     1. In **Virtual network**, select either the **New** value or an existing virtual network. 
 1. On the **Deployment** tab, leave **Add staging slot** unselected.
 1. Select **Review + create** to run final validation.
@@ -324,7 +324,7 @@ The following screenshot shows a sample page of the API Management developer por
 
 If you don't see the latest developer portal pages when you visit the WordPress site, check that the developer portal plugin is installed, activated, and configured in the WordPress admin site. See [Install the developer portal plugin](#step-7-install-the-developer-portal-plugin) for steps.
 
-You might also need to clear the cache on your WordPress site or in the CDN, if one is configured. Alternatively, you might need to clear the cache on your browser.
+You might also need to clear the cache on your WordPress site or in Azure Front Door, if one is configured. Alternatively, you might need to clear the cache on your browser.
 
 ### I'm having problems signing in or out of the developer portal
 
