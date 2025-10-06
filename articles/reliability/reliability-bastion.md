@@ -23,13 +23,16 @@ Azure Bastion is a fully managed platform as a service (PaaS) that you provision
 
 ## Production deployment recommendations
 
-For production deployments, you should [enable zone redundancy](#availability-zone-support) if your bastion hosts are in a supported region.
+For production deployments, you should:
+
+- Use the Basic SKU or higher.
+- [Enable zone redundancy](#availability-zone-support) if your bastion host is in a supported region.
 
 ## Reliability architecture overview
 
 When you use Azure Bastion, you deploy a *bastion host*. You must deploy it to a subnet that [meets Azure Bastion's requirements](/azure/bastion/configuration-settings#subnet).
 
-A bastion host has a defined number of *instances*, which are also sometimes called *scale units*. The Standard SKU supports *host scaling*, where you configure the number of instances, with a minimum of two instances. Adding more instances helps to accommodate additional concurrent client connections. The Basic SKU supports exactly two instances.
+A bastion host has a defined number of *instances*, which are also sometimes called *scale units*. The Basic SKU supports exactly two instances. The Standard and Premium SKUs support *host scaling*, where you configure the number of instances, with a minimum of two instances. Adding more instances helps to accommodate additional concurrent client connections.
 
 Each instance represents a dedicated VM that handles traffic. One instance is equal to one VM. You don't see or manage the VMs directly. The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 
@@ -45,7 +48,7 @@ If transient faults affect your virtual machine or Azure Bastion host, clients u
 
 Azure Bastion supports availability zones in both zone-redundant and zonal configurations:
 
-- *Zone-redundant:* Enabling zone redundancy for a bastion host spreads its instances across multiple [availability zones](../reliability/availability-zones-overview.md). By spreading instances across availability zones, you can achieve resiliency and reliability for your production workloads.
+- *Zone-redundant:* Enabling zone redundancy for a bastion host spreads its instances across multiple [availability zones](../reliability/availability-zones-overview.md). You select which availability zones you want to use for your bastion host. By spreading instances across availability zones, you can achieve resiliency and reliability for your production workloads.
     
     The following diagram shows a zone-redundant bastion host, with its instances spread across three zones:
    
