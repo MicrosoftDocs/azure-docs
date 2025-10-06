@@ -162,23 +162,24 @@ This issue is frequently caused by network configuration and firewall problems. 
 
 If you see an `HRESULT` error code, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.  
 
-## An internal execution error occurred. Please retry later. The operation did not return a response and should be retried. This result may be incomplete.
+## An internal execution error occurred. Retry later. The operation didn’t return a response and may be incomplete.
 
 ### Issue
 
 Azure Update Manager failed to patch the VM with an internal execution error.
 
 ### Cause
-A transient issue or communication failure between Azure Update Manager and the VM. Common reasons include:
-- Temporary platform or backend service glitch
-- Unresponsive or outdated Azure VM Agent
-- VM under heavy load or rebooting during the operation
-- Network or connectivity issue
+This issue might occur because of a temporary problem or communication failure between Azure Update Manager and the VM. Common causes include:
+- A temporary platform or backend service issue.
+- An unresponsive or outdated Azure VM Agent.
+- The VM is under heavy load or rebooting during the operation.
+- A network or connectivity issue.
 
 ### Resolution
 
 - Retry the update after a few minutes.
-- Ensure VM Agent is healthy and up to date.You can also try to reboot the VM if the Agent status is "**Not Ready**"
+- Ensure VM Agent is healthy and up to date. You can also try to reboot the VM if the Agent status is "**Not Ready**"
+- If the Agent status shows Not Ready, try rebooting the VM.
 - Check VM resource usage (CPU, memory, disk). Restart if needed.
 - Verify network connectivity to Azure services.
 - Review logs on the VM and Update Manager for more details. 
