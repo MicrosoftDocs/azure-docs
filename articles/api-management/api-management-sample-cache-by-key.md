@@ -1,5 +1,5 @@
 ---
-title: Custom caching in Azure API Management
+title: Custom Caching in Azure API Management
 description: Learn how to cache items by key in Azure API Management. You can modify the key by using request headers.
 services: api-management
 author: dlepow
@@ -110,7 +110,7 @@ To avoid API Management making this HTTP request again when the same user makes 
 
 API Management stores the value in the cache using the same key that API Management originally attempted to retrieve it with. The duration that API Management chooses to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
 
-It's important to realize that retrieving information from the cache is still an out-of-process network request and can potentially add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than retrieving information from the cache due to the need for database queries or aggregating information from multiple back-ends
+It's important to realize that retrieving information from the cache is still an out-of-process network request and can potentially add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than retrieving information from the cache due to the need for database queries or aggregating information from multiple back-ends.
 
 The final step in the process is to update the returned response with the user profile information.
 
@@ -186,7 +186,7 @@ This same kind of fragment caching can also be done on the backend web servers u
 
 It's common practice for multiple different implementation versions of an API to be supported at any one time. For example, to support different environments (dev, test, production, etc.) or to support older versions of the API to give time for API consumers to migrate to newer versions. 
 
-One approach to handling multiple versions, instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it's necessary to query some configuration data. When you cache this configuration data, API Management can minimize the performance penalty of doing this lookup.
+One approach to handling multiple versions, instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers`, is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it's necessary to query some configuration data. When you cache this configuration data, API Management can minimize the performance penalty of doing this lookup.
 
 The first step is to determine the identifier used to configure the desired version. In this example, we associate the version to the product subscription key. 
 

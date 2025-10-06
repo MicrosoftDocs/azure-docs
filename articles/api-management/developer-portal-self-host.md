@@ -1,5 +1,5 @@
 ---
-title: Self-host the API Management developer portal
+title: Self-Host the API Management Developer Portal
 titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
