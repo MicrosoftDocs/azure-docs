@@ -62,7 +62,7 @@ For more information:
 > Also, Bare Metal Recovery (BMR) with MABS is supported only for recovery on the same hardware; recovery to different hardware or cloud environments (such as Azure VM or AWS EC2) isn't supported.
 >
 >
-> ### Support Matrix
+> **Support Matrix**
 >
 > | Scenario | Supported |
 > | --- | --- |
