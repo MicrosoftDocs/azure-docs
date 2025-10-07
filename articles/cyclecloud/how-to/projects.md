@@ -92,7 +92,7 @@ Project contents are stored within a **locker**. You can upload the contents of 
 If you add more than one locker, you can set your default locker with `cyclecloud project default_target (locker)`, and then run `cyclecloud project upload`. You can also set a global default locker for projects to share by running the command `cyclecloud project default locker (locker) -global`.
 
 > [!NOTE]
-> Default lockers are stored in the CycleCloud config file, usually located in _~/.cycle/config.ini_ and not the _project.ini_ file. This setup allows version control for _project.ini_.
+> Default lockers are stored in the CycleCloud config file, located in _~/.cycle/config.ini_ and not the _project.ini_ file. This setup allows version control for _project.ini_.
 
 When you upload your project contents, CycleCloud syncs the cluster-init contents to your target locker, at `projects/(project)/(version)/(spec_name)/cluster-init`.
 
@@ -160,7 +160,7 @@ Specs are defined in your cluster template, using the `[[[cluster-init]]]` [sect
 ```
 
 This example takes advantage of the `defaults` node definition that all nodes inherit from. 
-The scheduler node will get both the `common` and `scheduler` specs, and nodes in the execute node array will get both the `common` and `execute` specs.
+The scheduler node gets both the `common` and `scheduler` specs, and nodes in the execute node array get both the `common` and `execute` specs.
 
 ## File locations
 
@@ -236,4 +236,4 @@ The command sends its output to STDOUT and to _jetpack.log_. Each script's outpu
 
 ## jetpack download
 
-To download a blob within a cluster-init script, use the command `jetpack download (filename)` to pull it from the `blobs` directory. Running this command from a cluster-init script lets it determine the project and base URL for you. To use it in a non-cluster-init context, you need to specify the project (see --help for more information).
+To download a blob within a cluster-init script, use the command `jetpack download (filename)` to pull it from the `blobs` directory. Running this command from a cluster-init script lets it determine the project and base URL for you. To use it in a non-cluster-init context, you need to specify the project. For more information, use the `--help` option.

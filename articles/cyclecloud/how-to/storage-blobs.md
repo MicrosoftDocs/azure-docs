@@ -47,4 +47,4 @@ CycleCloud stores project contents in a **locker**, which is an Azure Storage co
 You can also set a default project locker from the command line. To set the default locker, run `cyclecloud project default_locker [locker]` from your project's directory. Once set, you can run `cyclecloud project upload` without specifying a locker. To set a global default locker for all your projects, run `cyclecloud project default_locker --global [locker]`.
 
 > [!NOTE]
-> You configure default lockers in the CycleCloud CLI configuration file (usually located in _~/.cycle/config.ini_), not in the _project.ini_. Keeping this configuration out of the _project.ini_ allows you to version control the _project.ini_.
+> You configure default lockers in the CycleCloud CLI configuration file (located in _~/.cycle/config.ini_), not in the _project.ini_. Keeping this configuration out of the _project.ini_ allows you to version control the _project.ini_.

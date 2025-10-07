@@ -38,12 +38,12 @@ CycleCloud provisions VMs from base VM images defined in the cluster template. T
 
 ![Node Preparation Diagram](../images/concept-node-prep-diagram.png)
 
-You can control how nodes are customized on boot by creating a custom *cluster-init project*. A project contains the scripts and other files needed to customize a node, separated into *specs* for the different kinds of roles in a cluster. For example, a project for a batch scheduler such as Slurm comprises a minimum of three specs: one for the scheduler head nodes, one for the the compute nodes, and another for the login nodes. [Read more about the CycleCloud projects](~/articles/cyclecloud/how-to/projects.md).
+You can control how nodes are customized on boot by creating a custom *cluster-init project*. A project contains the scripts and other files needed to customize a node, separated into *specs* for the different kinds of roles in a cluster. For example, a project for a batch scheduler such as Slurm comprises a minimum of three specs: one for the scheduler head nodes, one for the compute nodes, and another for the login nodes. [Read more about the CycleCloud projects](~/articles/cyclecloud/how-to/projects.md).
 
 In the node definition, you reference the specs that should run on that node. Jetpack uses these specs on boot to prepare a node for its role in the cluster. The spec files come from the user's Blob Storage Account, and are staged from the CycleCloud application server into the storage account before nodes are started.
 
 > [!NOTE]
-> The specs for built-in templates (such as the Slurm cluster type) are stored in GitHub, and are automatically downoaded to the user's storage account when the node starts.
+> The specs for built-in templates (such as the Slurm cluster type) are stored in GitHub. CycleCloud automatically downloads them to the user's storage account when the node starts.
 
 When a node boots, Jetpack downloads the specs defined on the node with the `[[[cluster-init]]]` section and processes them in order to *converge* the node to a working state (for instance, to be a compute node).
 
