@@ -4,8 +4,8 @@ description: Learn how to set up disaster recovery to Azure for on-premises VMwa
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 04/26/2025
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.custom:
   - MVC
   - sfi-ga-nochange

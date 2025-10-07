@@ -5,8 +5,8 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 09/16/2025
 ms.custom: MVC, engagement-fy23
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: "As a system administrator managing on-premises Hyper-V VMs, I want to configure Azure-based disaster recovery, so that I can ensure business continuity and minimize downtime in case of an unexpected failure."
 ---
 # Set up disaster recovery of on-premises Hyper-V VMs to Azure

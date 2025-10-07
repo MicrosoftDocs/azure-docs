@@ -4,8 +4,8 @@ description: Quickly set up disaster recovery to another Azure region for an Azu
 ms.topic: quickstart
 ms.date: 09/09/2025
 ms.custom: mvc, mode-other
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.service: azure-site-recovery
 # Customer intent: "As an IT administrator, I want to configure disaster recovery for Azure VMs to a secondary region, so that I can ensure business continuity and reduce downtime during outages."
 ---
