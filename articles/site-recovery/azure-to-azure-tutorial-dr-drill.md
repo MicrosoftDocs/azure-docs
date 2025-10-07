@@ -5,7 +5,7 @@ services: site-recovery
 ms.topic: tutorial
 ms.date: 09/08/2025
 ms.custom: mvc
-ms.author: jsuri
+ms.author: v-gajeronika
 #Customer intent: As an Azure admin, I want to run a drill to check that VM disaster recovery is working.
 # Customer intent: "As an Azure administrator, I want to conduct a disaster recovery drill for virtual machines, so that I can ensure the failover process works correctly and verify the preparedness of our disaster recovery strategy."
 ---

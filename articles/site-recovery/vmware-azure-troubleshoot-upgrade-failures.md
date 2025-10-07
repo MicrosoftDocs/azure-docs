@@ -4,8 +4,8 @@ description: Resolve common issues that occur when upgrading the Microsoft Azure
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: "As an IT administrator troubleshooting upgrade issues, I want to identify and resolve common errors during the Site Recovery provider upgrade, so that I can ensure successful installation and maintain backup and disaster recovery capabilities."
 ---
 
