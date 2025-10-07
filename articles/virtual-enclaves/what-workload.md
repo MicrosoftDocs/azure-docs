@@ -26,7 +26,7 @@ Workloads are linked as a child resource to [enclaves](./what-enclave.md) and ar
 
 This diagram shows two example Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group. Resource Groups are highlighted in green and Azure resources are highlighted in dark blue.
 
-![Diagram showing two example workloads linked to both the other Virtual Enclaves resources and their workload resource groups.](./media/mermaid-workloads-example.svg)
+[ ![Diagram showing two example workloads linked to both the other Virtual Enclaves resources and their workload resource groups.](./media/mermaid-workloads-example.svg) ](./media/mermaid-workloads-example.svg#lightbox)
 
 <!--
 This is the mermaid definition for the above graph. Use this to edit and regenerate the graph image.
