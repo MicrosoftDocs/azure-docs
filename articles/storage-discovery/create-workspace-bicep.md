@@ -37,8 +37,8 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](/azu
     @description('Storage Discovery Workspace description')
     param workspaceDescription string = ''
     
-    @description('Storage Discovery Workspace storage scope levels')
-    param workspaceScopeLevels array = []
+    @description('Storage Discovery Workspace roots')
+    param workspaceRoots array = []
     
     @description('Storage Discovery Workspace scopes')
     param workspaceScopes array = []
@@ -51,7 +51,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](/azu
       location: workspaceLocation
       properties: {
         sku: workspaceSku
-        workspaceRoots: workspaceScopeLevels
+        workspaceRoots: workspaceRoots
         description: workspaceDescription
         scopes: workspaceScopes
       }
@@ -69,11 +69,16 @@ The template lists [Discovery workspace properties](/azure/templates/microsoft.s
 |`scopes`          | You can create several scopes in a workspace. A scope allows you to filter the storage resources the workspace covers and obtain different reports for each of these scopes. Filtering is based on ARM resource tags on your storage resources. This property expects a `JSON` object containing sections for `tag key name` : `value` combinations or `tag key names` only. When your storage resources have matching ARM resource tags, they're included in this scope.|
 
 Here's an example of the `JSON` structure defining a single scope in a Discovery workspace.
+Storage resources are included in this scope when they have both ARM resource tags:
+
+- The tag key `Department` or `department` with case-matching value `Marketing`.
+- The tag key `App` or `app`, regardless of its value.
+
 ```json
     "scopes": [ 
         { 
         
-            "displayName": "Marketing Department", 
+            "displayName": "Marketing App Resources", 
         
             "resourceTypes": [ 
         
@@ -89,17 +94,14 @@ Here's an example of the `JSON` structure defining a single scope in a Discovery
         
             "tagsKeyOnly": [ 
         
-                "Marketing" 
+                "App" 
         
             ] 
         
         } 
 ```
 > [!NOTE]
-> Tag names (keys) are case-insensitive for operations. An operation updates or retrieves a tag with a tag name, regardless of its casing. Tag values are case-sensitive.
-
-
-
+> In Azure, tag names (keys) are case-insensitive for operations. Tag values are case-sensitive.
 
 ## Deploy the Bicep file
 
