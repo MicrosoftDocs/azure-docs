@@ -25,9 +25,9 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-* An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+- An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-* A service exposed as OData v2 or v4.
+- A service exposed as OData v2 or v4.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
