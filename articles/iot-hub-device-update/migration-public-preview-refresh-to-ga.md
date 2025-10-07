@@ -11,39 +11,43 @@ ms.subservice: device-update
 
 # Migrate devices and groups to latest Device Update for IoT Hub release
 
-As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the [Public Preview Refresh(PPR) release] to the current, [GA release](understand-device-update.md). This article also explains the group and UX behavior across these releases. If you do not have devices, groups, and deployments that use the Public Preview Refresh release, you can ignore this page.
+As the Device Update for IoT Hub service releases new versions, you want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the [Public Preview Refresh(PPR) release] to the current, [GA release](understand-device-update.md). This article also explains the group and UX behavior across these releases. If you do not have devices, groups, and deployments that use the Public Preview Refresh release, you can ignore this page.
 
-To migrate successfully, you will have to upgrade the DU agent running on your devices. Note that as there are major changes with the GA release, we recommend that you follow the instructions closely to avoid errors.
+To migrate successfully, you have to upgrade the Device Update agent running on your devices. As there are major changes with the GA release, we recommend that you follow the instructions closely to avoid errors.
 
 > [!NOTE] 
-> All PPR device groups created will be automatically changed to GA groups. The groups and devices will be available after migration. The deployment history will not carry over to the updated GA groups. 
+> All PPR device groups created are automatically changed to GA groups. The groups and devices are available after migration. The deployment history doesn't carry over to the updated GA groups. 
 
 ## Update the Device Update agent
 
-For the GA release, the Device Update agent can be updated manually or using the Device Update Service using apt manifest or image updates. If you are using image updates, you can include the GA Device Update agent in the your update.
+For the GA release, the Device Update agent can be updated manually or using the Device Update Service using apt manifest or image updates. If you're using image updates, you can include the GA Device Update agent in your update.
 
-### Manual DU Agent Upgrade
+### Manual Device Update agent upgrade
 
-1. Before you update your device, the device attributes will include the PPR PnP model details. The **Contract Model Name** will show **Device Update Model V1** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;1**.
+1. Before you update your device, the device attributes include the PPR PnP model details. The **Contract Model Name** shows **Device Update Model V1** and **Contract Model ID** shows **dtmi:azure:iot:deviceUpdateContractModel;1**.
 
-3. SSH into your device and update the Device Update agent.
+1. SSH into your device and update the Device Update agent.
+
    ```bash
    sudo apt install deviceupdate-agent
    sudo systemctl restart deviceupdate-agent
    sudo systemctl status deviceupdate-agent
    ```
-2. Confirm that the DU agent is running correctly. Look for 'HealthCheck passed'
+
+1. Confirm that the DU agent is running correctly. Look for 'HealthCheck passed'.
+
    ```bash
    sudo -u adu /usr/bin/AducIotAgent -h  
    ```
-3. See the updated device in the Device Update portal. The device attributes will now show the updated PnP model details.The **Contract Model Name** will show **Device Update Model V2** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;2**.
+
+1. See the updated device in the Device Update portal. The device attributes now shows the updated PnP model details.The **Contract Model Name** shows **Device Update Model V2** and **Contract Model ID** shows **dtmi:azure:iot:deviceUpdateContractModel;2**.
 
 
 ### OTA DU Agent Upgrade though APT manifest
 
-1. Before you update your devices, the device attributes will include the PPR PnP model details. The **Contract Model Name** will show **Device Update Model V1** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;1**.
+1. Before you update your devices, the device attributes include the PPR PnP model details. The **Contract Model Name** shows **Device Update Model V1** and **Contract Model ID** shows **dtmi:azure:iot:deviceUpdateContractModel;1**.
 
-2. Add device update agent upgrade as the last step in your update. The import manifest version must be **"4.0"** to ensure it is targeted to the correct devices. See below a sample import manifest and APT manifest:
+1. Add device update agent upgrade as the last step in your update. The import manifest version must be **"4.0"** to ensure it is targeted to the correct devices. See the sample import manifest and APT manifest:
 
    **Example Import Manifest**
    ```json
@@ -101,17 +105,17 @@ For the GA release, the Device Update agent can be updated manually or using the
     ```
 
 > [!NOTE] 
-> It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
+> It's required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade aren't executed and reported correctly as the device reconnects with the DU service.
 
-3. Deploy the update.
+1. Deploy the update.
 
-4. Once the update is successfully deployed, the device attributes will now show the updated PnP model details.The **Contract Model Name** will show **Device Update Model V2** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;2**. 
- 
+1. Once the update is successfully deployed, the device attributes now shows the updated PnP model details.The **Contract Model Name** shows **Device Update Model V2** and **Contract Model ID** shows **dtmi:azure:iot:deviceUpdateContractModel;2**.
+
 ## Group and deployment behavior across releases
 
-- Device with the Public Preview Refresh DU agent ( 0.8.x) and GA DU agent (1.0.x) can be managed through the Device Update portal. 
+- Device with the Public Preview Refresh Device Update agent ( 0.8.x) and GA Device Update agent (1.0.x) can be managed through the Device Update portal.
 
-- Devices with older agents (0.7.0/0.6.0) cannot be added to these groups.
+- Devices with older agents (0.7.0/0.6.0) can't be added to these groups.
 
 ## Next steps
 
