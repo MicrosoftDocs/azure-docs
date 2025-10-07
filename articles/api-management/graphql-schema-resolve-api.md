@@ -84,8 +84,8 @@ type User {
 1. In the left pane, under **APIs**, select **APIs**. 
 1. Select your GraphQL API.
 1. On the **Schema** tab, review the schema for a field in an object type in which you want to configure a resolver. 
-    1. Select a field, and then, in the left margin, hover the pointer. 
-    1. Select **Add Resolver**
+    1. Select a field, and then hover the pointer in the left margin. 
+    1. Select **Add resolver**
 
         :::image type="content" source="media/graphql-schema-resolve-api/add-resolver.png" alt-text="Screenshot of adding a GraphQL resolver in the portal." lightbox="media/graphql-schema-resolve-api/add-resolver.png":::
 
