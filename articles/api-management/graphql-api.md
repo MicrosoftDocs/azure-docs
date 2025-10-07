@@ -103,7 +103,7 @@ After importing the API, you can update the settings by using the [az apim api u
 The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
 
 ```azurepowershell
-# Details specific to API Management. 
+# Details specific to API Management instance.
 $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
 
