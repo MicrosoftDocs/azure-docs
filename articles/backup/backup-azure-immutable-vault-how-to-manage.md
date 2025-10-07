@@ -100,7 +100,7 @@ However, increasing the retention of backup items that are in suspended state is
 Let's try to stop backup on a VM and choose **Retain as per policy** for backup data retention.
 
 >[!NOTE]
-> When you stop backups and retain as per policy, the last RP is retained forever to ensure recovery against any unforeseen ransomware scenarios. You must manually delete this RP after the backup policy expires to stop incurring PI charges.
+> When you stop backups and retain as per policy, the last RPs (one in snapshot tier and one in vault tier) are retained forever to ensure recovery against any unforeseen ransomware scenarios. You must manually delete these RPs after the backup policy expires to stop incurring PI charges.
 
 :::image type="content" source="./media/backup-azure-immutable-vault/attempt-to-increase-retention-of-backup-items-in-suspended-state.png" alt-text="Screenshot shows an attempt to increase retention of backup items in suspended state.":::
 

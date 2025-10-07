@@ -139,9 +139,3 @@ At the end of the deployment process, Microsoft delivers the following data to y
      - ExpressRoute PeerID
 - Data for accessing HANA Large Instances after you establish the ExpressRoute circuit and Azure virtual network.
 
-## Next steps
-
-Learn about connecting a virtual network to HANA Large Instance ExpressRoute.
-
-> [!div class="nextstepaction"]
-> [Connect a virtual network to HANA large instances](hana-connect-vnet-express-route.md)

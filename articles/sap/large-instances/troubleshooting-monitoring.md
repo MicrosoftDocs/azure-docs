@@ -68,9 +68,4 @@ tar  -czvf health_check_logs.tar.gz /var/log/health_check
 
 You can use Azure Monitor for SAP solutions to monitor all of the resources listed above and more. Azure Monitor for SAP solutions is native to Azure. It allows you to collect data from Azure infrastructure and databases into a single location and visually correlate the data for faster troubleshooting. For more information, see [Monitor SAP on Azure](../monitor/about-azure-monitor-sap-solutions.md).
 
-## Next steps
 
-Learn about how to monitor and troubleshoot from within SAP HANA.
-
-> [!div class="nextstepaction"]
-> [Monitoring and troubleshooting from HANA side](hana-monitor-troubleshoot.md)

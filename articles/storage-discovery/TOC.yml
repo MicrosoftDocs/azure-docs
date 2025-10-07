@@ -18,11 +18,13 @@ items:
   items: 
   - name: Deploy
     items:
-    - name: Create Storage Discovery Workspace
+    - name: Create a Storage Discovery workspace
       href: create-workspace.md
+    - name: Bicep template for creating a workspace
+      href: create-workspace-bicep.md
   - name: Explore insights
     items:
-    - name: Get Started on Storage Discovery Reports
+    - name: Get Started on Storage Discovery reports
       href: get-started-reports.md
 - name: Resources
   items:
