@@ -46,7 +46,7 @@ Deploying the API Management gateway on an Azure Arc-enabled Kubernetes cluster 
 1. Select **Deployment + infrastructure** > **Gateways** from the side navigation menu.
 1. Select and open your provisioned gateway resource from the list.
 1. In your provisioned gateway resource, click **Deployment** from the side navigation menu.
-1. Make note of the **Token** and **Configuration endpoing** values for the next step.
+1. Make note of the **Token** and **Configuration endpoint** values for the next step.
 1. In Azure CLI, deploy the gateway extension using the `az k8s-extension create` command. Fill in the `token` and `configuration URL` values.
     * The following example uses the `service.type='LoadBalancer'` extension configuration. See more [available extension configurations](#available-extension-configurations).
 
