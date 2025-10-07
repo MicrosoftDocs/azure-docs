@@ -530,10 +530,8 @@ Learn more about Azure Maps REST services:
 [Route]: /rest/api/maps/route
 [Search for a location using Azure Maps Search services]: how-to-search-for-address.md
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
-[Spatial operations]: /rest/api/maps/spatial
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported map styles]: supported-map-styles.md
 [supported search categories]: supported-search-categories.md
 [supporting points]: /rest/api/maps/route/post-route-directions#request-body
 [Timezone]: /rest/api/maps/timezone
-[Traffic]: /rest/api/maps/traffic

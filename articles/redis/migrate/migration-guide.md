@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2024
   - build-2025
+ai-usage: ai-assisted
 appliesto:
     - ✅ Azure Managed Redis
 ---

@@ -1,8 +1,8 @@
 ---
 title: Configure on-premise disks for Azure through Hydration
 description: Learn how to prepare for Configuration changes via hydration process in Azure Site Recovery.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-site-recovery
 ms.date: 09/18/2025

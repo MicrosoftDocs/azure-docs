@@ -1,6 +1,6 @@
 ---
-title: High availability (Reliability)  in Azure Cosmos DB for NoSQL
-description: Learn about high availability (Reliability) in Azure Cosmos DB for NoSQL
+title: High Availability (Reliability) in Azure Cosmos DB for NoSQL
+description: Learn how to achieve 99.999% uptime with Azure Cosmos DB for NoSQL by using availability zones, multi-region writes, and automatic failover for maximum reliability.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -11,7 +11,7 @@ ms.date: 06/11/2025
 
 <!--#Customer intent:  I want to understand reliability support in Azure Cosmos DB for NoSQL so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
 
-#  High availability (Reliability) in Azure Cosmos DB for NoSQL
+# High availability (reliability) in Azure Cosmos DB for NoSQL
 
 This article describes high availability (reliability) support in Azure Cosmos DB for NoSQL and covers both [availability zones](#availability-zone-support), as well as [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 

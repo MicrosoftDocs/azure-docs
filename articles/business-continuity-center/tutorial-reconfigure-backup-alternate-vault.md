@@ -2,7 +2,7 @@
 title: Tutorial - Reconfigure backup for data sources in an alternate vault using Azure Business Continuity Center
 description: Learn how to reconfigure backup in an alternate vault for your datasources - Azure Virtual Machine (VM), Azure Files, SQL databases in Azure VM, SAP HANA database in Azure VM.
 ms.topic: tutorial
-ms.date: 09/24/2025
+ms.date: 10/06/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -22,6 +22,7 @@ Azure Business Continuity Center allows you to suspend backup for a datasource i
 This tutorial describes how to reconfigure backup for data sources in Azure Business Continuity Center by switching to an alternate Recovery Services vault, called re-registration. The feature is available for all datasources supported in Recovery Services vault.
 
 > [!NOTE]
+> - Backup reconfiguration to alternate vault isn't supported for SQL Always On Availability Groups (AG) and SAP HANA System Replication (HSR).
 > - Recovery Services vault doesn't allow active multi-protection.
 > - The alternate vault has no limitations on redundancy, security settings, or policy retention, including for immutable vaults. However, the migration from Enhanced to Standard tier isn't allowed.
 > - Old recovery points remain protected with the original configurations and retention. You can use the recovery points stored in the old vault for recovery until they're retained as per the backup policy. This capability also applies to immutable vaults.
