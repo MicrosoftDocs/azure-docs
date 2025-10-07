@@ -30,8 +30,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 25-09 | [5049608] | .NET Framework DotNet        | [6.86]  | 06-Oct-25
 | Rel 25-09 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.56] | 06-Oct-25
 | Rel 25-09 | [5065687] | Servicing Stack Update       | [5.110]  | 06-Oct-25
-| Rel 25-09 | [5065765] | Servicing Stack Update       | [6.86]   | 06-Oct-25
-| Rel 25-09 | [5065769] | Servicing Stack Update       | [7.56]   | 06-Oct-25
+| Rel 25-09 | [5065428] | Servicing Stack Update       | [6.86]   | 06-Oct-25
+| Rel 25-09 | [5065432] | Servicing Stack Update       | [7.56]   | 06-Oct-25
 | Rel 25-09 | [4494175] | January '20 Microcode        | [5.110]  | 06-Oct-25
 | Rel 25-09 | [4494175] | January '20 Microcode        | [6.86]   | 06-Oct-25 
 
@@ -42,8 +42,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5049608]: https://support.microsoft.com/kb/5049608
 [5049617]: https://support.microsoft.com/kb/5049617
 [5065687]: https://support.microsoft.com/kb/5065687
-[5065765]: https://support.microsoft.com/kb/5065765
-[5065769]: https://support.microsoft.com/kb/5065769
+[5065428]: https://support.microsoft.com/kb/5065428
+[5065432]: https://support.microsoft.com/kb/5065432
 [4494175]: https://support.microsoft.com/kb/4494175
 
 [5.110]: ./cloud-services-guestos-update-matrix.md#family-5-releases
