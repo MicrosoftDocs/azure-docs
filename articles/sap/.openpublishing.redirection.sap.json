@@ -61,16 +61,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sap/large-instances/hana-li-portal.md",
-      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sap/large-instances/hana-example-installation.md",
-      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/sap/large-instances/large-instance-os-backup.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false
@@ -92,11 +82,6 @@
     },
     {
       "source_path_from_root": "/articles/sap/large-instances/hana-large-instance-enable-kdump.md",
-      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sap/large-instances/hana-connect-azure-vm-large-instances.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false
     },
