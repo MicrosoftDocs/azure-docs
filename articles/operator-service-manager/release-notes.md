@@ -476,10 +476,10 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 Document Revision 2.0
 
 ### Release Summary
-Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2509.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3194.224 and the RP version to 1.0.03180.486, the details of which are further outlined in the remainder of this document.
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2509.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3194-224 and the RP version to 1.0.03180.486, the details of which are further outlined in the remainder of this document.
 
 ### Release Details
-* Release Version: NFO version 3.0.3194.224, RP version 1.0.03180.486
+* Release Version: NFO version 3.0.3194-224, RP version 1.0.03180.486
 * Release Date: September 30, 2025
 * Is NFO update required: YES, Update only
 * Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
