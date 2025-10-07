@@ -114,6 +114,8 @@
       href: hub-settings.md
     - name: Connect a VNet to a virtual hub
       href: howto-connect-vnet-hub.md
+    - name: Connect cross-tenant virtual networks to a Virtual WAN hub
+      href: cross-tenant-vnet.md
     - name: Secured virtual hub
       items:
         - name: What is a secured virtual hub?
