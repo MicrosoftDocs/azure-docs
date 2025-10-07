@@ -76,7 +76,7 @@ If you want to import a GraphQL schema and set up field resolvers that use REST 
 The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
 
 ```azurecli
-# Details specific to API Management. 
+# Details specific to API Management instance.
 APIMServiceName="apim-hello-world"
 ResourceGroupName="myResourceGroup"
 
