@@ -4,8 +4,8 @@ description: This article summarizes the costs disaster recovery and migration d
 ms.topic: overview
 ms.service: azure-site-recovery
 ms.date: 08/29/2025
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: As a cloud architect, I want to analyze the cost components of Azure Site Recovery for managed disks, so that I can effectively budget for disaster recovery and optimize overall expenses.
 ---
 

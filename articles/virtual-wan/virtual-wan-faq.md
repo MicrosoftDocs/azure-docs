@@ -183,6 +183,17 @@ To learn more about support limits for gateway scale units, see:
 * [What is the recommended algorithm and Packets per second per site-to-site instance in Virtual WAN hub? How many tunnels is support per instance? What is the max throughput supported in a single tunnel?](virtual-wan-faq.md#packets) for Site-to-Site VPN Gateways
 * [For User VPN (point-to-site)- how many clients are supported?](virtual-wan-faq.md#p2s-concurrent) for User VPN (point-to-site) Gateways
 
+### What is the impact of changing the gateway scale units for a Virtual WAN ExpressRoute gateway?
+When changing gateway scale units, be aware of the following considerations:
+
+* **Traffic capacity**: Ensure that the provisioned scale units can support your [traffic requirements](virtual-wan-faq.md#in-virtual-wan-what-are-the-estimated-performances-by-expressroute-gateway-sku).
+
+* **TCP reconnections**: You may experience TCP reconnects during the scale unit change which may cause minor disruptions.
+
+* **Private Endpoints impact**: Scale unit changes may affect connectivity for Private Endpoints. Review your deployment and follow the best practices outlined in [Use Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan).
+
+For more information about gateway scale units and capacity planning, see [About Virtual WAN gateway settings](gateway-settings.md).
+
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
 Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. When you connect a site to a Virtual WAN VPN gateway, it's different from a regular virtual network gateway that uses a gateway type 'site-to-site VPN'. When you want to connect remote users to Virtual WAN, you use a gateway type 'point-to-site VPN'. The point-to-site and site-to-site VPN gateways are separate entities in the Virtual WAN hub and must be individually deployed. Similarly, when you connect an ExpressRoute circuit to a Virtual WAN hub, it uses a different resource for the ExpressRoute gateway than the regular virtual network gateway that uses gateway type 'ExpressRoute'.
