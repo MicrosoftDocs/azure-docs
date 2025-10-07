@@ -9,7 +9,7 @@ ms.date: 9/30/2025
 
 # Learn about Azure Virtual Enclaves
 
-If you're new to Azure Virtual Enclaves (AVE), this articles helps introduce core concepts to understand, communicate, and plan AVE environments.
+If you're new to Azure Virtual Enclaves (AVE), this article helps introduce core concepts to understand, communicate, and plan AVE environments.
 
 ## Visualize Azure Virtual Enclaves
 
@@ -17,7 +17,7 @@ You can think of a Virtual Enclaves environment as a connection of network resou
 
 ### Network diagram
 
-This is a visual showing networking connections within Azure Virtual Enclaves. This looks similar to a typical hub and spoke network.
+This diagram shows networking connections within Azure Virtual Enclaves. The diagram should look similar to a typical hub and spoke network.
 
 ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.svg)
 
