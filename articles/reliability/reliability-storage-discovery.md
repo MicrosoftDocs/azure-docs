@@ -33,23 +33,15 @@ When a Discovery workspace is deleted, you lose the insights gathered on all the
 
 - **Data plane of the service is zone-redundant.** If the storage account is deployed to a failed zone, then the account becomes unavailable and from customer’s perspective, the insights for the affected storage isn't available. If the storage account is zone redundant, then the Discovery workspace continues to provide account insights.
 
-### Zone down experience
-
-In a zone-down scenario, the Storage Discovery service continues to be available. The data freshness of the insights depends on the availability zone support of storage accounts included in the workspace. If the account is not affected by the downed zone, the insights continue to be populated.
-
-### Zone outage preparation and recovery
-
-The Storage Discovery service is zone-redundant. If the storage account included in your workspace is affected by a zone outage, the zone outage will delay insights related to those storage accounts. After the zone and storage account become available, metrics will continue to be populated in your Storage Discovery reports.
-
 ## Cross-region disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-[!INCLUDE [Storage Actions continuity after a failover](../../includes/storage-actions-reliability.md)]
-
 ### Outage detection, notification, and management
 
 Storage Discovery doesn't send any notifications when there's an outage in the service itself. Notifications on the Discovery reports are published on the best-effort basis if there is a significant loss of insights due to outages.
+
+If you need uninterrupted access to Discovery reports - even during regional outages - we recommend creating a secondary workspace with the same configuration as your primary one. This ensures that if the primary workspace becomes unavailable, you can continue using the secondary workspace with all necessary insights. Please note that each Discovery workspace incurs additional costs.
 
 ## Next steps
 
