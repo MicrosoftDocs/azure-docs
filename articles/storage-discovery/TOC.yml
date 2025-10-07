@@ -29,7 +29,7 @@ items:
   - name: Manage
     items:
     - name: Move resources to other locations in Azure
-      href: move-resources.md
+      href: resource-move.md
 - name: Resources
   items:
   - name: Release notes
