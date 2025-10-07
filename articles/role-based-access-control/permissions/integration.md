@@ -81,7 +81,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Returns the details of the specified API deployment. |
 > | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Returns paginated collection of API deployments. |
 > | Microsoft.ApiCenter/services/workspaces/apis/deployments/delete | Deletes specified API deployment. |
-> | Microsoft.ApiCenter/services/workspaces/apis/portals/write | Creates or updates the portal configuration. |##
+> | Microsoft.ApiCenter/services/workspaces/apis/portals/write | Creates or updates the portal configuration. |
 > | Microsoft.ApiCenter/services/workspaces/apis/portals/write | Returns the configuration of the specified portal. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/write | Creates or updates API version. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Checks if specified API version exists. |
@@ -686,9 +686,9 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Read | Reads EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Write | Writes EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Delete | Removes an EventGrid filter on communication services |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/write | Write Network Security Perimeter Assocation |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/read | Read Network Security Perimeter Assocation |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/delete | Delete Network Security Perimeter Assocation |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/write | Write Network Security Perimeter Association |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/read | Read Network Security Perimeter Association |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/delete | Delete Network Security Perimeter Association |
 > | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterConfigurations/read | Read Network Security Perimeter Configuration |
 > | Microsoft.Communication/CommunicationServices/SmtpUsernames/read | Get an SMTP username resource. |
 > | Microsoft.Communication/CommunicationServices/SmtpUsernames/write | Add SMTP username resource or update an existing resource. |
