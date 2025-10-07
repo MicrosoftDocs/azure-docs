@@ -74,6 +74,7 @@ For a robust disaster recovery solution, most customers should consider ZRS. ZRS
 ### Geo-redundancy
 
 If your storage account is configured with either GRS or GZRS replication, Microsoft will initiate the failover of the Storage Sync Service if the primary region is judged to be permanently unrecoverable or unavailable for an extended period. No action is required from you in the event of a Microsoft initiated disaster recovery.
+
 Customers can also perform a customer initiated failover of their storage account when using GRS or GZRS. This is a supported scenario, but it should only be used in the event of large scale regional outages because the process is not seamless and might incur additional cost. After the storage account failover completes, you must also request failover of your Storage Sync Service. To initiate the process, open a support ticket and request that both your Azure storage accounts that contain your Azure file share and your Storage Sync Service be failed over.
 
 > [!WARNING]
