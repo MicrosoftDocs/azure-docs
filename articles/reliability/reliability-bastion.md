@@ -32,11 +32,9 @@ For production deployments, you should:
 
 When you use Azure Bastion, you must deploy a *bastion host* to a subnet that [meets Azure Bastion's requirements](/azure/bastion/configuration-settings#subnet).
 
-A bastion host has a defined number of *instances*, which are also sometimes called *scale units*.  Each instance represents a single dedicated VM that handles traffic.  The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances, so you don't see or manage the VMs directly. 
+A bastion host has a defined number of *instances*, which are also sometimes called *scale units*. Each instance represents a single dedicated VM that handles your Bastion connections. The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances, so you don't see or manage the VMs directly. 
 
-Basic SKU supports exactly two instances. Standard and Premium SKUs support *host scaling*, where you can configure the number of instances, with a minimum of two instances. When you add more instances, your bastion host can accommodate additional concurrent client connections.
-
-
+The Basic SKU supports exactly two instances. Standard and Premium SKUs support *host scaling*, where you can configure the number of instances, with a minimum of two instances. When you add more instances, your bastion host can accommodate additional concurrent client connections.
 
 ## Transient faults
 
@@ -50,7 +48,7 @@ If transient faults affect your virtual machine or Azure Bastion host, clients u
 
 Azure Bastion supports availability zones in both zone-redundant and zonal configurations:
 
-- *Zone-redundant:*  A zone redundant bastion host achieves resiliency and reliability by spreading its instances across multiple [availability zones](../reliability/availability-zones-overview.md). You select which availability zones you want to use for your bastion host. 
+- *Zone-redundant:* A zone-redundant bastion host achieves resiliency and reliability by spreading its instances across multiple [availability zones](../reliability/availability-zones-overview.md). You select which availability zones you want to use for your bastion host. 
     
     The following diagram shows a zone-redundant bastion host, with its instances spread across three zones:
    
@@ -58,7 +56,7 @@ Azure Bastion supports availability zones in both zone-redundant and zonal confi
 
     If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can.
 
-- *Zonal:*  A zonal bastion host and all its instances are in a single availability zone that you select.
+- *Zonal:* A zonal bastion host and all its instances are in a single availability zone that you select.
 
    > [!IMPORTANT]
    > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs and after you verify that the latency doesn't meet your requirements. By itself, a zonal bastion host doesn't provide resiliency to an availability zone outage. To improve the resiliency of a zonal bastion host, you need to explicitly deploy separate bastion hosts into multiple availability zones and configure traffic routing and failover.
