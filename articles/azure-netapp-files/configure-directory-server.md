@@ -5,10 +5,10 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/23/2025
+ms.date: 10/07/2025
 ms.author: anfdocs
 ---
-# Configure LDAP directory servers for Azure NetApp Files NFS volumes (preview)
+# Configure LDAP directory services for Azure NetApp Files NFS volumes (preview)
 
 In addition to native Active Directory support, Azure NetApp Files supports native integration with directory services including FreeIPA, OpenLDAP, and Red Hat Directory Server for lightweight directory access protocol (LDAP) directory servers. With native LDAP directory server support, you can achieve secure and scalable identity-based access control for NFS volumes in Linux environments.
 
@@ -36,14 +36,12 @@ The following diagram outlines how Azure NetApp Files uses LDAP bind/search oper
 
 :::image type="content" source="./media/configure-directory-server/server-diagram.png" alt-text="Diagram of LDAP directory server in Azure NetApp Files." lightbox="./media/configure-directory-server/server-diagram.png":::
 
-### Components
-
 The architecture involves the following components:
 
-- Linux VM client: Initiates an NFS mount request to Azure NetApp Files
-- Azure NetApp Files volume: Receives the mount request and performs LDAP queries
-- LDAP directory server: Responds to bind/search requests with user and group information
-- Access control logic: Enforces access decisions based on LDAP responses
+- Linux VM client: initiates an NFS mount request to Azure NetApp Files
+- Azure NetApp Files volume: receives the mount request and performs LDAP queries
+- LDAP directory server: responds to bind/search requests with user and group information
+- Access control logic: enforces access decisions based on LDAP responses
 
 ### Data flow 
 
@@ -56,18 +54,32 @@ The architecture involves the following components:
 
 ## Use cases 
 
-Use cases for this feature include:
+Each directory service appeals to different use cases in Azure NetApp Files. 
 
-- Hybrid cloud deployments with centralized identity management. 
-- Enterprises using FreeIPA or OpenLDAP for Linux workloads. 
-- Organizations requiring secure access to NFS volumes without Active Directory. 
+### FreeIPA
+
+* **Hybrid Linux environments**: Ideal for enterprises using FreeIPA for centralized identity management across Linux systems in hybrid cloud deployments.
+* **HPC and analytics workloads**: Supports secure authentication for high-performance computing clusters and analytics platforms that rely on FreeIPA.
+* **Kerberos integration**: Enables environments that require Kerberos-based authentication for NFS workloads without Active Directory.
+
+### OpenLDAP
+
+* **Legacy application support**: Perfect for organizations running legacy or custom applications that depend on OpenLDAP for identity services.
+* **Multi-platform identity management**: Provides a lightweight, standards-based solution for managing access across Linux, UNIX, and containerized workloads.
+* **Cost-optimized deployments**: Suitable for businesses seeking an open-source, flexible directory solution without the overhead of Active Directory.
+
+### Red Hat Directory Server
+ 
+* **Enterprise-grade security and compliance**: Designed for organizations that require hardened, enterprise-supported LDAP services with strong security controls.
+* **Regulated industries**: Ideal for financial, healthcare, and government sectors where compliance and vendor support are critical.
+* **Integration with Red Hat Ecosystem**: Seamlessly fits into environments leveraging Red Hat Enterprise Linux and related solutions.
 
 ## Considerations 
 
 * FreeIPA, OpenLDAP, and Red Hat Directory Server are supported with NFSv3 and NFSv4.1 volumes; they aren't currently supported with dual-protocol volumes. 
 * These directory services aren't currently supported with large volumes. 
 * You must configure the LDAP server before creating the volume. 
-* You can only configure FreeIPA, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You can't convert existing volumes to use these directory servers. 
+* You can only configure FreeIPA, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You can't convert existing volumes to use these directory services. 
 * [!INCLUDE [Kerberos support limitation](includes/kerberos-other-servers.md)]
 
 ## Register the feature
@@ -106,7 +118,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 1. Create the new LDAP connection. 
 1. In the new menu, provide: 
 
-    * **Domain:** The domain name acts as the base DN. 
+    * **Domain:** The domain name serves as the base DN. 
     * **LDAP servers:** The IP address of the LDAP server. 
     * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. For more information, see [Configure LDAP over TLS](configure-ldap-over-tls.md).
     * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 

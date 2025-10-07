@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 09/25/2025
+ms.date: 10/07/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -17,11 +17,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Other LDAP directory services for Azure NetApp Files NFS volumes](configure-directory-server.md) (preview)
+## October 2025
 
-    Expanding on the existing Active Directory support, Azure NetApp Files now supports FreeIPA, OpenLDAP, and Red Hat Directory Server as LDAP directory services for NFSv3 and NFSv4.1 volumes. 
-    This feature is currently in preview. 
-    <!-- Azure Update pending -->
+* [Support for FreeIPA, OpenLDAP, and Red Hat Directory Server](configure-directory-server.md) (preview)
+ 
+    Azure NetApp Files now supports FreeIPA, OpenLDAP, and Red Hat Directory Server, enabling seamless integration with widely used enterprise directory services. This capability allows organizations to leverage their existing LDAP-based identity infrastructure for authentication and access control providing simplified identity management, enhanced security and compliance, and improved scalability. This feature is ideal for enterprises running Linux-based workloads, HPC environments, and hybrid deployments that rely on LDAP for identity services. By supporting FreeIPA, OpenLDAP, and Red Hat Directory Server natively, Azure NetApp Files ensures compatibility with common enterprise standards, accelerating deployment and improving security posture. This feature is available in all Azure NetApp Files supported regions. This feature in currently in preview.
     
 ## September 2025
 
