@@ -3,13 +3,13 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: avcastoldi
+author: aschoksh
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 06/09/2025
+ms.date: 10/06/2025
 ms.update-cycle: 3650-days
-ms.author: acastoldi
+ms.author: aschoksh
 ms.custom: compute-evergreen
 ---
 
@@ -19,6 +19,36 @@ ms.custom: compute-evergreen
 > As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## September 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-09 | [5065427] | Latest Cumulative Update(LCU) | [5.110] | 06-Oct-25 
+| Rel 25-09 | [5065428] | Latest Cumulative Update(LCU) | [6.86] | 06-Oct-25
+| Rel 25-09 | [5065432] | Latest Cumulative Update(LCU) | [7.56] | 06-Oct-25
+| Rel 25-09 | [5049614] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.110]  | 06-Oct-25
+| Rel 25-09 | [5049608] | .NET Framework DotNet        | [6.86]  | 06-Oct-25
+| Rel 25-09 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.56] | 06-Oct-25
+| Rel 25-09 | [5065687] | Servicing Stack Update       | [5.110]  | 06-Oct-25
+| Rel 25-09 | [5065428] | Servicing Stack Update       | [6.86]   | 06-Oct-25
+| Rel 25-09 | [5065432] | Servicing Stack Update       | [7.56]   | 06-Oct-25
+| Rel 25-09 | [4494175] | January '20 Microcode        | [5.110]  | 06-Oct-25
+| Rel 25-09 | [4494175] | January '20 Microcode        | [6.86]   | 06-Oct-25 
+
+[5065427]: https://support.microsoft.com/kb/5065427
+[5065428]: https://support.microsoft.com/kb/5065428
+[5065432]: https://support.microsoft.com/kb/5065432
+[5049614]: https://support.microsoft.com/kb/5049614
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5065687]: https://support.microsoft.com/kb/5065687
+[5065428]: https://support.microsoft.com/kb/5065428
+[5065432]: https://support.microsoft.com/kb/5065432
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.110]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.86]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.56]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## August 2025 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
