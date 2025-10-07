@@ -41,7 +41,7 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
 
     :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Screenshot of selecting the GraphQL tile.":::
 
-1. In the dialog box, select **Full**, then enter values in the required fields, as described in the following table.
+1. In the dialog box, select **Full**, and then enter values in the required fields, as described in the following table.
 
     :::image type="content" source="media/graphql-schema-resolve-api/create-from-graphql-schema.png" alt-text="Screenshot of the Create from GraphQL schema page." lightbox="media/graphql-schema-resolve-api/create-from-graphql-schema.png":::
 
@@ -68,7 +68,7 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
 
 Configure a resolver to map a field in the schema to an existing HTTP endpoint. High-level steps are provided here. For details, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
-Suppose you imported the following basic GraphQL schema and wanted to set up a resolver for the `users` query.
+Suppose you imported the following basic GraphQL schema and want to set up a resolver for the `users` query.
 
 ```
 type Query {
@@ -85,7 +85,7 @@ type User {
 1. Select your GraphQL API.
 1. On the **Schema** tab, review the schema for a field in an object type in which you want to configure a resolver. 
     1. Select a field, and then hover the pointer in the left margin. 
-    1. Select **Add resolver**
+    1. Select **Add resolver**.
 
         :::image type="content" source="media/graphql-schema-resolve-api/add-resolver.png" alt-text="Screenshot of adding a GraphQL resolver in the portal." lightbox="media/graphql-schema-resolve-api/add-resolver.png":::
 
