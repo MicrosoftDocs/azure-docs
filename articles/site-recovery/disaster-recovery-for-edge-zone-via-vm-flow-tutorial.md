@@ -1,11 +1,11 @@
 ---
 title: Set up disaster recovery when creating a VM 
 description: Learn how to set up disaster recovery for Virtual machines on Azure Extended Zones using VM Flow.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 01/09/2025
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to set up disaster recovery for my virtual machines using Azure Extended Zones, so that I can ensure business continuity in the event of a disaster.
 ---
