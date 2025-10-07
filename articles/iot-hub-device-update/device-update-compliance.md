@@ -1,8 +1,8 @@
 ---
 title: Understand Device Update for Azure IoT Hub compliance
 description: Understand how Device Update for Azure IoT Hub measure device update compliance.
-author: andrewbrownmsft
-ms.author: andbrown
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 2/11/2021
 ms.topic: concept-article
 ms.service: azure-iot-hub
