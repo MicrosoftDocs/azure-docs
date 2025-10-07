@@ -15,28 +15,28 @@ This article describes how to make changes to resource group, subscription, or M
 
 ## Supported combinations
 
+It's important to understand the impact of a resource move on the insights Storage Discovery provides to you.
 Storage Discovery aggregates information about different storage resources and presents them as insights in a Discovery workspace resource. Which storage resources are in scope is defined in the workspace resource itself. 
-When planning to make changes to either the Discovery workspace resource or the storage accounts it provides insights for, it's important to understand the impact of such a move and consider the implications for the insights a Discovery workspace generates.
 
 > [!IMPORTANT]
 > The Storage Discovery workspace resource and all storage resources, such as storage accounts it generates insights for, must reside in the same Microsoft Entra tenant.
 
-Moving either the Discovery workspace or the storage resources to different resource groups or subscriptions is supported. However, specific sections for these scenarios later in this article list important aspects to consider.
+Moving either the Discovery workspace or the storage resources to different resource groups or subscriptions is supported. However, later sections in this article list important aspects to consider.
 
 ## Move a workspace to a different subscription or resource group
 
-Storage Discovery workspace resources can move to different resource groups or subscriptions within the same Microsoft Entra tenant. When a workspace moves in this way, the Storage Discovery service will work uninterrupted and workspaces continue to aggregate the same insights as they did before the move.
+Storage Discovery workspace resources can move to different resource groups or subscriptions within the same Microsoft Entra tenant. When a workspace moves in this way, the Storage Discovery service works uninterrupted and workspaces continue to aggregate the same insights as they did before the move.
 
 > [!NOTE]
-> Some users of a moving workspace may have inherited access to the workspace from the original resource group or subscription the workspace was deployed in. Such users may loose access when the workspace moves to a subscription or resource group they don't have access to. Users with direct Role Based Access Control (RBAC) role assignments to a Discovery workspace are will retain access post resource move. In rare cases, Azure Policy may be configured to deny access to the workspace in the new location.
+> Some users of a moving workspace may inherit access to the workspace from the original resource group or subscription the workspace was deployed in. Such users may loose access when the workspace moves to a subscription or resource group they don't have access to. Users with direct Role Based Access Control (RBAC) role assignments to a Discovery workspace are likely to retain access post workspace move. In rare cases, Azure Policy may be configured to deny access to the workspace in the new location.
 
 ## Move a storage resource to a different subscription or resource group
 
 Moving a storage resource to a new resource group or subscription in the same Microsoft Entra tenant can move that resource into or out of the scope of a Discovery workspace.
 When such a storage resource moves, one of two results can occur:
 
-1. The storage resource moves to a location not covered by the workspace root configuration. In this case, the impact on your insights will be changes to Discovery reports like: `Capacity`, `Activity`, and others. The storage resource and it's data volume will no longer appear. Such a resource move has the same impact on reports as if the resource is deleted. However, the insights history in your workspace will retain the resource insights. As an example, such a move could manifest as a dip in overall used-capacity graph.
-1. The storage resource moves a to new location that is also covered by the root configuration of the same workspace. Such a move also has an impact on the reports of this workspace. For instance, a distribution of capacity by subscription may show a dip for the original subscription and a jump for the subscription the storage resource moved to. It's also important to note that Storage Discovery does not change the resource URI in it's historic data. If you are observing insights for the resource prior to move then those insights will stop when the move occurs, and insights for the moved stored resource (now has a different resource ID) will start. That means you can't connect history of this individual storage account resource. A move starts recording new history as if this storage resource was just created instead of moved.
+1. The storage resource moves to a location not covered by the workspace root configuration. In this case, the impact on your insights are changes to Discovery reports like: `Capacity`, `Activity`, and others. The storage resource and it's data volume no longer appears. Such a resource move has the same impact on reports as if the resource is deleted. However, the insights history in your workspace retains these resource insights. As an example, such a move could manifest as a dip in overall used-capacity graph.
+1. The storage resource moves a to new location that is also covered by the root configuration of the same workspace. Such a move also has an impact on the reports of this workspace. For instance, a distribution of capacity by subscription may show a dip for the original subscription and a jump for the subscription the storage resource moved to. It's also important to note that Storage Discovery does not change the resource URI in it's historic data. If you are observing insights for the resource before it moves, then those insights stop appearing when the move occurs. Insights for the moved storage resource (now has a different resource ID) begin to appear. That means you can't connect history of this individual storage account resource. A move starts recording new history as if this storage resource was newly created instead of moved.
 
 ## Move a workspace to a different Microsoft Entra tenant
 
@@ -44,7 +44,7 @@ Moving a Discovery workspace to a new tenant is not supported. Tenant moves are 
 
 1. Any explicit Role Based Access Control (RBAC) role assignments are no longer functioning.
 1. The workspace immediately stops aggregating insights about storage resources that are now located in a different tenant.
-1. Insights collected about any storage resources prior to the move become unavailable and cannot be recovered.
+1. Insights collected about any storage resources become unavailable and cannot be recovered.
  
 > [!CAUTION]
 > Data loss occurs when you move a Discovery workspace to a different Microsoft Entra tenant. All previously aggregated insights become unavailable and cannot be recovered, even if the workspace moves back to the original tenant.
@@ -52,7 +52,7 @@ Moving a Discovery workspace to a new tenant is not supported. Tenant moves are 
 ## Move a storage resource to a different Microsoft Entra tenant
 
 This scenario is very comparable with a storage resource moving out of the bounds of a workspace root configuration.
-The storage resource leaves to a location not covered by the workspace root configuration. In this case, the impact on your insights will be changes to Discovery reports like: `Capacity`, `Activity`, and others. The storage resource and it's data volume will no longer appear. However, it will remain in the insights history of your workspace. As an example, such a move could manifest as a dip in an overall used-capacity graph.
+The storage resource leaves to a location not covered by the workspace root configuration. In this case, the impact on your insights are changes to Discovery reports like: `Capacity`, `Activity`, and others. The storage resource and it's data volume no longer appears. However, insights remain in the history of your workspace. As an example, such a move could manifest as a dip in an overall used-capacity graph.
 
 > [!WARNING]
 > Storage Discovery can only generate insights for storage resources located in the same tenant as the Discovery workspace.
