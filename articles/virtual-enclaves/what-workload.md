@@ -26,14 +26,17 @@ Workloads are linked as a child resource to [enclaves](./what-enclave.md) and ar
 
 This diagram shows two example Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group. Resource Groups are highlighted in green and Azure resources are highlighted in dark blue.
 
+[Diagram showing two example workloads linked to the other Virtual Enclaves resources and their workload resource groups.](./media/mermaid-workloads-example.png)
+
+[Diagram showing two example workloads linked to the other Virtual Enclaves resources and their workload resource groups.](./media/mermaid-workloads-example.svg)
+
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the graph.
-Note: Arrows have been split with a / to prevent this comment block from breaking.
+This is the mermaid definition for the above graph. Use this to edit and regenerate the graph image.
 
 ```mermaid
----
+-/-/-
 title: Azure Virtual Enclaves - Workload
----
+-/-/-
 flowchart
   direction LR
   subgraph Subscription ["Single Azure Subscription"]
@@ -72,15 +75,15 @@ flowchart
     end
   end
 
-  Community <=/=> Community-MRG
-  Community <=/=> Enclave2
-  Enclave2 <=/=> Enclave2-MRG
-  Enclave2 <=/=> Workload1
-  Enclave2 <=/=> Workload2
-  Workload1 <=/=> WL1-RG-Desktops
-  Workload2 <=/=> WL2-RG-AKS
-  Workload1 <=/=> WL1-RG-CosmosDB
-  Workload1 <=/=> WL1-RG-Storage
+  Community =/=/= Community-MRG
+  Community =/=/= Enclave2
+  Enclave2 =/=/= Enclave2-MRG
+  Enclave2 =/=/= Workload1
+  Enclave2 =/=/= Workload2
+  Workload1 =/=/= WL1-RG-Desktops
+  Workload2 =/=/= WL2-RG-AKS
+  Workload1 =/=/= WL1-RG-CosmosDB
+  Workload1 =/=/= WL1-RG-Storage
   
 %% Styling
   classDef subscription fill:#777475,stroke:#004578,color:#000;
