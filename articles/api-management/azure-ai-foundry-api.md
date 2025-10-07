@@ -24,7 +24,7 @@ Learn more about managing AI APIs in API Management:
 
 ## Client compatibility options
 
-API Management supports two client compatibility options for AI APIs. When you import the API using the wizard, choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
+API Management supports two client compatibility options for AI APIs from Azure AI Foundry. When you import the API using the wizard, choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
 * **Azure OpenAI** - Manage Azure OpenAI in Azure AI Foundry model deployments. 
 
