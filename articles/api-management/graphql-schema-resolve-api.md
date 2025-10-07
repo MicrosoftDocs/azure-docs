@@ -89,7 +89,7 @@ type User {
 
         :::image type="content" source="media/graphql-schema-resolve-api/add-resolver.png" alt-text="Screenshot of adding a GraphQL resolver in the portal." lightbox="media/graphql-schema-resolve-api/add-resolver.png":::
 
-1. On the **Create Resolver** page:
+1. In the **Create resolver** pane:
 
     1. Update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
     1. In **Data source**, select **HTTP API**. 
