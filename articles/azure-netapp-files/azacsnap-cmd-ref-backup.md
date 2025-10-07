@@ -57,22 +57,22 @@ The `-c backup` command takes the following arguments:
 
 - `--retention` the number of snapshots of the defined `--prefix` to be kept. Any extra snapshots are removed after a new snapshot is taken for this `--prefix`.
 
-- `--trim` available for SAP HANA v2 and later, this option maintains the backup catalog and on disk catalog and log backups. The number of entries to keep in the backup catalog is determined by the `--retention` option above, and deletes older entries for the defined prefix (`--prefix`) from the backup catalog, and the related physical logs backup. It also deletes any log backup entries that are older than the oldest non-log backup entry. This `--trim` operation helps to prevent the log backups from using up all available disk space.
+- `--trim` available for SAP HANA v2 and later, this option maintains the backup catalog and on disk catalog and log backups. The number of entries to keep in the backup catalog is set by the `--retention` option, and deletes older entries for the defined prefix (`--prefix`) from the backup catalog, and the related physical logs backup. It also deletes any log backup entries that are older than the oldest non-log backup entry. This `--trim` operation helps to prevent the log backups from using up all available disk space.
 
   > [!NOTE]
-  > The following example command will keep 9 storage snapshots and ensure the backup catalog is continuously trimmed to match the 9 storage snapshots being retained.
+  > The following example command keeps nine storage snapshots and ensure the backup catalog is continuously trimmed to match the nine storage snapshots being retained.
 
     ```bash
     azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
     ```
 
-- `[--flush]` an option to request the operating system kernel to flush I/O buffers for volumes after the database is put into "*backup mode*".  In prior versions we used the "mountpoint" values to indicate volumes to flush, with AzAcSnap 10 the `--flush` option will take care of it.  Therefore this key/value ("mountpoint") can be removed from the configuration file.
-  - On Windows volumes which are labelled as "Windows" or "Recovery", and are NTFS will not be flushed.  You can also add "noflush" to the volume label and it will not be flushed.
+- `[--flush]` an option to request the operating system kernel to flush I/O buffers for volumes after the database is put into "*backup mode*". In prior versions, we used the "mountpoint" values to indicate volumes to flush, with AzAcSnap 10 the `--flush` option takes care of it. Therefore this key/value ("mountpoint") can be removed from the configuration file.
+  - On Windows, volumes labeled as "Windows" or "Recovery" and formatted with NTFS won't be flushed. You can also add "noflush" to the volume label and it won't be flushed.
 
     > [!IMPORTANT]
     > Flushing file buffers on Windows requires administrator privilege.
     
-    - These are the optional ways to run `azacsnap.exe --flush ...` with administrator privileges on Windows.
+    - These examples are ways to run `azacsnap.exe --flush ...` with administrator privileges on Windows.
       1. Launch elevated CMD:
          1. Press Windows key, type cmd.
          1. Right-click Command Prompt, choose "Run as administrator".
@@ -82,8 +82,8 @@ The `-c backup` command takes the following arguments:
           Start-Process powershell -Verb RunAs -ArgumentList "-Command `"cd 'C:\Users\UserName\AzAcSnap'; .\azacsnap.exe -c backup --volume data --prefix adhoc --retention 1 -v --flush; pause`""
           ```
       1. Use Task Scheduler for silent elevation:
-         1. For automation, you can create a scheduled task with highest privileges and trigger it via command line. This is more advanced and avoids UAC prompts.
-  - On Linux all I/O is flushed using the Linux `sync` command.
+         1. For automation, you can create a scheduled task with Administrator privileges and trigger it via command line.
+  - On Linux, all I/O is flushed using the Linux `sync` command.
 
   Running the following example on the same host running the database will:
     1. Put the database into "*backup mode*".
@@ -108,8 +108,8 @@ The `-c backup` command takes the following arguments:
 
 ## Snapshot backups are fast
 
-The duration of a snapshot backup is independent of the volume size, with a 10-TB volume being snapped
-within the same approximate time as a 10-GB volume.
+The duration of a snapshot backup is independent of the volume size. For example, a 10 TiB volume is typically snapshot 
+in the same time as a 10 GiB volume.
 
 The primary factors impacting overall execution time are the number of volumes to be snapshot and any
 changes in the `--retention` parameter (where a reduction can increase the execution time as excess
@@ -120,7 +120,7 @@ two volumes took less than 5 seconds to complete. For **Azure NetApp Files**, sn
 would take about 60 seconds.
 
 > [!NOTE]
-> If the `--retention` is significantly reduced from the previous time `azacsnap` is run
+> If the `--retention` value is much less than the previous time `azacsnap` is run
 (for example, from `--retention 50` to `--retention 5`), then the time taken will increase as `azacsnap`
 needs to remove the extra snapshots.
 
@@ -135,7 +135,7 @@ and `/var/log/messages`.
 
 In this example, the *log file* name is `azacsnap-backup-azacsnap.log` (see [Log files](#log-files)).
 
-When running the command `-c backup` with the `--volume data` option, a result file is also generated as a file to allow
+Running the `azacsnap` command option `-c backup` with the `--volume data` option, a result file is also generated as a file to allow
 for quickly checking the result of a backup. The *result* file has the same base name as the log file, with `.result` as its suffix.
 
 In this example, the *result file* name is `azacsnap-backup-azacsnap.result` and contains the following output:
