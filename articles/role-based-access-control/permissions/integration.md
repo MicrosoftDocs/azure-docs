@@ -20,6 +20,7 @@ This article lists the permissions for the Azure resource providers in the Integ
 Azure service: [Azure API Center](/azure/api-center/overview)
 
 > [!div class="mx-tableFixed"]
+>
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.ApiCenter/register/action | Register Microsoft.ApiCenter resource provider for the subscription. |
@@ -129,6 +130,7 @@ Easily build and consume Cloud APIs.
 Azure service: [API Management](/azure/api-management/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.ApiManagement/register/action | Register subscription for Microsoft.ApiManagement resource provider |
@@ -611,6 +613,7 @@ Fast, scalable parameter storage for app configuration.
 Azure service: [Azure App Configuration](/azure/azure-app-configuration/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.AppConfiguration/register/action | Registers a subscription to use Microsoft App Configuration. |
@@ -672,6 +675,7 @@ Azure service: [Azure App Configuration](/azure/azure-app-configuration/)
 Azure service: [Azure Communication Services](/azure/communication-services/overview)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Communication/Register/Action | Registers Microsoft.Communication resource provider |
@@ -731,6 +735,7 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 Azure service: [Durable Functions](/azure/azure-functions/durable/durable-functions-overview)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.DurableTask/register/action | Register Microsoft.DurableTask resource provider for the subscription |
@@ -765,6 +770,7 @@ Get reliable event delivery at massive scale.
 Azure service: [Event Grid](/azure/event-grid/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.EventGrid/register/action | Registers the subscription for the EventGrid resource provider. |
@@ -976,6 +982,7 @@ Receive telemetry from millions of devices.
 Azure service: [Event Hubs](/azure/event-hubs/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.EventHub/checkNamespaceAvailability/action | Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailability instead. |
@@ -1074,6 +1081,7 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 Azure service: [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.HealthcareApis/register/action | Subscription Registration Action |
@@ -1175,6 +1183,7 @@ Azure service: [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/)
 Azure service: [Azure Health Data Services](/azure/healthcare-apis/healthcare-apis-overview)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.HealthDataAIServices/register/action | Register the subscription for Microsoft.HealthDataAIServices |
@@ -1210,6 +1219,7 @@ Automate the access and use of data across clouds without writing code.
 Azure service: [Logic Apps](/azure/logic-apps/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Logic/register/action | Registers the Microsoft.Logic resource provider for a given subscription. |
@@ -1341,6 +1351,7 @@ Send push notifications to any platform from any back end.
 Azure service: [Notification Hubs](/azure/notification-hubs/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.NotificationHubs/register/action | Registers the subscription for the NotificationHubs resource provider and enables the creation of Namespaces and NotificationHubs |
@@ -1395,6 +1406,7 @@ Expose services that run in your corporate network to the public cloud.
 Azure service: [Azure Relay](/azure/azure-relay/relay-what-is-it)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Relay/checkNamespaceAvailability/action | Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailability instead. |
@@ -1468,6 +1480,7 @@ Azure service: [Azure Relay](/azure/azure-relay/relay-what-is-it)
 Azure service: [Azure Event Grid](/azure/event-grid/overview)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.ResourceNotifications/eventGridFilters/read | Creates/Updates the specified event grid filters |
@@ -1489,6 +1502,7 @@ Connect across private and public cloud environments.
 Azure service: [Service Bus](/azure/service-bus-messaging/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.ServiceBus/checkNamespaceAvailability/action | Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailability instead. |
@@ -1592,6 +1606,7 @@ Azure service: [Service Bus](/azure/service-bus-messaging/)
 Azure service: [Services Hub](/services-hub/)
 
 > [!div class="mx-tableFixed"]
+
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.ServicesHub/connectors/write | Create or update a Services Hub Connector |
