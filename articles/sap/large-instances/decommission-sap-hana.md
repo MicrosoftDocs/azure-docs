@@ -4,6 +4,7 @@ description: Learn about the current state of the HLI service and how to migrate
 author: bqtrinh
 ms.author: bentrin
 ms.date: 09/15/2025
+ms.service: sap-on-azure
 ms.topic: conceptual
 ---
 
