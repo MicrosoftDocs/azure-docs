@@ -23,8 +23,8 @@ This document answers frequently asked questions, describes the technical scenar
 
 Azure Storage accounts support two types of customer-managed failovers:
 
-- Customer-managed planned failover (preview) - Customers can manage storage account failover to test their disaster recovery plan.
-- Customer-managed (unplanned) failover - Customers can manage storage account failover if there's an unexpected service outage.
+- **Customer-managed planned failover**: Customers can manage storage account failover to test their disaster recovery plan.
+- **Customer-managed (unplanned) failover**: Customers can manage storage account failover if there's an unexpected service outage.
 
 Each type of failover has a unique set of use cases and corresponding expectations for data loss.
 
@@ -32,7 +32,7 @@ Each type of failover has a unique set of use cases and corresponding expectatio
 
 Planned failover can be utilized in multiple scenarios including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from nonstorage related outages. During the planned failover process, the primary and secondary regions are swapped and the account remains geo-redundant. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. Data loss isn't expected during the planned failover and failback process as long as the primary and secondary regions are available throughout the entire process. 
 
-To learn more, view [ADD LINK FOR HOW PLANNED FAILOVER WORKS HERE]
+To learn more, refer to the [How planned failover works](storage-failover-customer-managed-planned.md#how-customer-managed-planned-failover-preview-works) article
 
 **Unplanned Failover**
 
@@ -40,7 +40,7 @@ You can initiate an unplanned failover to your storage account's secondary regio
 
 Because data is written asynchronously from the primary region to the secondary region, there's always a delay before a write to the primary region is copied to the secondary. When an unplanned failover is initiated, all data in the primary region is lost as the secondary region becomes the new primary. All data already copied to the secondary region is maintained when the failover happens. However, any data written to the primary that doesn't yet exist within the secondary region is lost permanently. Users can utilize their Last Sync Time, to confirm the last time a full sync between the primary and secondary region was completed.
 
-To learn more, view [ADD LINK FOR HOW UNPLANNED FAILOVER WORKS HERE]
+To learn more, refer to the [How unplanned failover works](storage-failover-customer-managed-unplanned.md#how-customer-managed-unplanned-failover-works) article
 
 ## What impact will failover have on my account after it completes?
 
@@ -48,15 +48,15 @@ To learn more, view [ADD LINK FOR HOW UNPLANNED FAILOVER WORKS HERE]
 
 Planned Failover has the following impacts on your storage account: 
 
-1. The storage account's redundancy will either remain or be converted to GRS/RA-GRS.
-2. The primary and secondary regions will be swapped. The original secondary region will become the new primary region and the original primary region will become the new secondary region.
-3. There is no data loss expected.
+- The storage account's redundancy will either remain or be converted to GRS/RA-GRS.
+- The primary and secondary regions will be swapped. The original secondary region will become the new primary region and the original primary region will become the new secondary region.
+- There is no data loss expected.
 
 **Unplanned Failover**
 
-1. The storage account will lose geo-redundancy, resulting in the new redundancy becoming Locally Redundant Storage (LRS).
-2. The account's previous secondary region, will now be the primary region.
-3. Users may experience data loss if any writes were made to their storage account after the Last Sync Time.
+- The storage account will lose geo-redundancy, resulting in the new redundancy becoming Locally Redundant Storage (LRS).
+- The account's previous secondary region, will now be the primary region.
+- Users may experience data loss if any writes were made to their storage account after the Last Sync Time.
 
 A summary of the impact of Planned and Unplanned Failover can be found here: 
 
@@ -113,7 +113,7 @@ Microsoft provides two REST APIs for working with Azure Storage resources. These
 
 After a failover is complete, clients can once again read and write Azure Storage data in the new primary region. However, the Azure Storage resource provider doesn't fail over, so resource management operations must still take place in the primary region. Because the Azure Storage resource provider doesn't fail over, the Location property will return the original primary location after the failover is complete.
 
-The following image contains an example of the expected Location and Primary Region after a planned failover:
+The following image contains an example of the expected **Location** and **Primary Region** after a planned failover:
 
 :::image type="content" source="media/storage-failover-faq/account-details.png" alt-text="Screen capture showing storage account details.":::
 
@@ -131,12 +131,14 @@ After a planned failover the account remains geo-redundant, so the user is only 
 
 After an unplanned failover the account becomes LRS so there a few steps required to failback: 
 
-1. Convert the account from LRS -> GRS. Important reminders, the conversion from LRS -> GRS does not have an SLA and there are data bandwidth charges that will apply when completing this conversion.
+1. Convert the account from LRS to GRS. It's important to remember that the conversion from LRS to GRS does not have an SLA, and there are data bandwidth charges that will apply when completing this conversion.
 2. Initiate an unplanned failover or failback.
 
 Learn more about [how to initiate an unplanned failover](storage-failover-customer-managed-unplanned.md#how-to-initiate-an-unplanned-failover).
 
 ## What are the conflicting features or scenarios for failovers?
+
+Failovers carry with them a few limitations and conflicting features that users should be aware of. The following features or scenarios will block a failover operation from being initiated:
 
 **Unplanned Failover:**
 
