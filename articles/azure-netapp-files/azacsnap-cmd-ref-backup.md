@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: reference
-ms.date: 07/02/2024
+ms.date: 10/06/2025
 ms.author: phjensen
 # Customer intent: "As a cloud administrator, I want to execute the backup command using the Azure Application Consistent Snapshot tool, so that I can create consistent backups of data and other volumes in Azure NetApp Files efficiently."
 ---
@@ -67,7 +67,22 @@ The `-c backup` command takes the following arguments:
     ```
 
 - `[--flush]` an option to request the operating system kernel to flush I/O buffers for volumes after the database is put into "*backup mode*".  In prior versions we used the "mountpoint" values to indicate volumes to flush, with AzAcSnap 10 the `--flush` option will take care of it.  Therefore this key/value ("mountpoint") can be removed from the configuration file.
-  - On Windows volumes which are labelled as "Windows" or "Recovery", and are NTFS will not be flushed.  You can also add "noflush" to the volume label and it will not be flushed.  
+  - On Windows volumes which are labelled as "Windows" or "Recovery", and are NTFS will not be flushed.  You can also add "noflush" to the volume label and it will not be flushed.
+
+    > [!IMPORTANT]
+    > Flushing file buffers on Windows requires administrator privilege.
+    
+    - These are the optional ways to run `azacsnap.exe --flush ...` with administrator privileges on Windows.
+      1. Launch elevated CMD:
+         1. Press Windows key, type cmd.
+         1. Right-click Command Prompt, choose "Run as administrator".
+         1. Then run `azacsnap.exe` inside the elevated window.
+      1. Use PowerShell with elevation:
+          ```code
+          Start-Process powershell -Verb RunAs -ArgumentList "-Command `"cd 'C:\Users\UserName\AzAcSnap'; .\azacsnap.exe -c backup --volume data --prefix adhoc --retention 1 -v --flush; pause`""
+          ```
+      1. Use Task Scheduler for silent elevation:
+         1. For automation, you can create a scheduled task with highest privileges and trigger it via command line. This is more advanced and avoids UAC prompts.
   - On Linux all I/O is flushed using the Linux `sync` command.
 
   Running the following example on the same host running the database will:
