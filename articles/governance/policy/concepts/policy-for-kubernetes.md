@@ -611,8 +611,7 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 ### Add-on versions available per each AKS cluster version
 
 #### 1.14.2
-Security improvements.
-Patch [2025-4802](https://nvd.nist.gov/vuln/detail/cve-2025-4802).
+Patch [CVE-2025-4802](https://nvd.nist.gov/vuln/detail/cve-2025-4802).
 
 - Released Oct 2025
 - Kubernetes 1.27+
