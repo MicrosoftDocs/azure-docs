@@ -80,7 +80,7 @@ Customers can also perform a customer initiated failover of their storage accoun
 > [!WARNING]
 > You must contact support to request your Storage Sync Service be failed over if you initiate a storage account failover. Attempting to create a new Storage Sync Service using the same server endpoints in the secondary region might result in extra data remaining in your storage account because the previous installation of Azure File Sync won't be cleaned up.
 
-Once a failover occurs, server endpoints automatically switch to sync with the cloud endpoint in the secondary region. However, the server endpoints must reconcile with the cloud endpoints, which may result in file conflicts if the data in the secondary region is not fully caught up.
+Once a failover occurs, server endpoints automatically switch to sync with the cloud endpoint in the secondary region. However, the server endpoints must reconcile with the cloud endpoints, which might result in file conflicts if the data in the secondary region isn't fully caught up.
 
 ## Next step
 
