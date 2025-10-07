@@ -96,7 +96,7 @@ Here's an example of the `JSON` structure defining a single scope in a Discovery
         } 
 ```
 > [!NOTE]
-> Tag names (keys) are case-insensitive for operations. An operation updates or retrieves a tag with a tag name, regardless of it’s casing. Tag values are case-sensitive.
+> Tag names (keys) are case-insensitive for operations. An operation updates or retrieves a tag with a tag name, regardless of its casing. Tag values are case-sensitive.
 
 
 
