@@ -5,8 +5,8 @@ services: site-recovery
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 10/31/2023
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator, I want to utilize Azure Migrate for migrating virtual machines to Azure, so that I can leverage its centralized hub and optimize my migration process while minimizing costs and assessing modernization opportunities."
 ---
