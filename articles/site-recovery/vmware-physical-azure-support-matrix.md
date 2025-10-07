@@ -4,8 +4,8 @@ description: Summarizes support for disaster recovery of VMware VMs and physical
 ms.topic: concept-article
 ms.service: azure-site-recovery
 ms.date: 08/29/2025
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.custom: engagement-fy23, linux-related-content
 # Customer intent: "As an IT administrator managing disaster recovery solutions, I want to understand the support matrix for VMware VMs and physical servers in Azure Site Recovery, so that I can ensure compatibility and optimize our disaster recovery strategies."
 ---

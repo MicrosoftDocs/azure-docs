@@ -4,8 +4,8 @@ description: Describes how to set up network mapping for disaster recovery of Hy
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 09/06/2024
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: As a cloud administrator, I want to configure network mapping for Hyper-V VM disaster recovery to Azure, so that I can ensure seamless VM connectivity during failover.
 ---
 

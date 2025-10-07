@@ -1,11 +1,11 @@
 ---
 title: Set up disaster recovery for VMs on Azure Extended Zones using Vault flow
 description: Learn how to set up disaster recovery for virtual machines on Azure Extended Zones (in preview for ASR functionality).
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 01/09/2025
-ms.author: jsuri
+ms.author: v-gajeronika
 # Customer intent: As an IT administrator, I want to set up disaster recovery for virtual machines using Azure Extended Zones, so that I can ensure data availability and business continuity during unexpected outages.
 ---
 

@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot VMware mobility agent health errors in Azure Site Recovery 
 description: This article describes troubleshooting mobility agent health errors in Azure Site Recovery. 
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.date: 08/21/2024
 
 # Customer intent: As a system administrator, I want to troubleshoot mobility agent health errors in VMware virtual machines, so that I can ensure successful replication and maintain data integrity in Azure Site Recovery.

@@ -10,16 +10,12 @@ items:
     href: device-update-changelog.md
 - name: Tutorials
   items:
-  - name: Try Device Update with a simulator
-    href: device-update-simulator.md
   - name: Update a device image
     href: device-update-raspberry-pi.md
   - name: Update device packages
     href: device-update-ubuntu-agent.md
   - name: Update device components or connected sensors
     href: device-update-howto-proxy-updates.md
-  - name: Device Update for Eclipse ThreadX
-    href: device-update-azure-real-time-operating-system.md
 - name: Concepts
   items:
   - name: Account management

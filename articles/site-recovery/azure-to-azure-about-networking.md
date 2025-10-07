@@ -1,11 +1,11 @@
 ---
 title: About networking in Azure VM disaster recovery with Azure Site Recovery
 description: Provides an overview of networking for replication of Azure VMs using Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 09/11/2024
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator managing disaster recovery for Azure VMs, I want to configure networking settings using network security groups and service tags, so that I can ensure reliable replication and connectivity during failover scenarios."
 ---

@@ -4,8 +4,8 @@ description: Summarizes the supported components and requirements for Hyper-V VM
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 08/19/2025
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 # Customer intent: As a IT admin managing on-premises Hyper-V VMs, I want to implement disaster recovery to Azure, so that I can ensure business continuity and data protection in case of on-premises failures.
 ---
 

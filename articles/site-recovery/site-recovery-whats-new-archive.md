@@ -2,9 +2,9 @@
 title: Archive for What's new in Azure Site Recovery
 description: An archive for features and updates in the Azure Site Recovery service.
 ms.topic: overview
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.service: azure-site-recovery
-author: jyothisuri
+author: Jeronika-MS
 ms.date: 08/19/2025
 # Customer intent: "As a system administrator, I want to review the latest updates and feature enhancements for the disaster recovery service, so that I can optimize our organization's backup strategy and ensure compatibility with our systems."
 ---

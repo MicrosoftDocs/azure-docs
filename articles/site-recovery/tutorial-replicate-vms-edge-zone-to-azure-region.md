@@ -1,11 +1,11 @@
 ---
 title: Set up disaster recovery to another region using PowerShell
 description: This article describes how to replicate, failover, and failback Azure virtual machines running in an Azure Extended Zone to its parent region.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 01/13/2025
-ms.author: jsuri
+ms.author: v-gajeronika
 
 # Customer intent: As an IT administrator, I want to set up disaster recovery for Azure virtual machines in an Extended Zone using PowerShell, so that I can ensure business continuity by replicating workloads and managing failovers effectively during outages.
 ---

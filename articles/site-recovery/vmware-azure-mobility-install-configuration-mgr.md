@@ -2,10 +2,10 @@
 title: Automate Mobility Service for disaster recovery of installation in Azure Site Recovery
 description: How to automatically install the Mobility Service for VMware /physical server disaster recovery with Azure Site Recovery.
 services: site-recovery
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.date: 05/02/2022
 # Customer intent: As a system administrator, I want to automate the installation of the Mobility Service for disaster recovery, so that I can efficiently manage multiple server installations in accordance with company policies and reduce manual intervention during the process.
 ---

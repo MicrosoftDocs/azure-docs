@@ -2,11 +2,11 @@
 title: Alternative Virtual machine size recommendation in Azure Site Recovery failover flow
 description: Summarizes guidance for alternative virtual machine size recommendation in Azure Site Recovery failover flow.
 services: site-recovery
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 09/11/2025
-ms.author: jsuri
+ms.author: v-gajeronika
 ---
 
 # Alternative virtual machine size recommendation in Azure Site Recovery failover flow 

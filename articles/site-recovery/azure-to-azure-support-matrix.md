@@ -4,8 +4,8 @@ description: Summarizes support for Azure VMs disaster recovery to a secondary r
 ms.topic: concept-article
 ms.date: 09/09/2025
 ms.service: azure-site-recovery
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.custom: engagement-fy23, references_regions, linux-related-content
 # Customer intent: As an IT manager, I want to understand the disaster recovery support for Azure VMs using site recovery, so that I can effectively plan my organization's resilience against data loss and ensure compliance with our recovery objectives.
 ---

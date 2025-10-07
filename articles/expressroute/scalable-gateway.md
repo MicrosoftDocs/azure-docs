@@ -53,6 +53,7 @@ ErGwScale is available in most regions except the following regions:
 * India West
 * Japan East
 * Qatar Central
+* US West 2
 
 ### Pricing
 

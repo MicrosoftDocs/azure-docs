@@ -3,9 +3,9 @@ title: Set up Hyper-V (with VMM) disaster recovery using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs in System Center VMM clouds to Azure by using Site Recovery.
 ms.topic: tutorial
 ms.date: 05/23/2024
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.service: azure-site-recovery
-author: jyothisuri
+author: Jeronika-MS
 ms.custom:
   - MVC
   - sfi-image-nochange

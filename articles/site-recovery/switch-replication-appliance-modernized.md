@@ -4,8 +4,8 @@ description: This article describes show to switch between different replication
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 07/08/2024
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: "As a cloud administrator managing VMware VMs, I want to switch replication appliances in Azure Site Recovery, so that I can enhance resiliency and load balance my replication processes seamlessly."
 ---
 

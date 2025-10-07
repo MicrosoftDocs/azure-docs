@@ -277,7 +277,7 @@ Python functions aren't supported on Windows. Choose Linux instead.
 
 ## Azure Functions action
 
-The Azure Functions action (`Azure/azure-functions`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
+The Azure Functions action (`Azure/functions-action`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
 
 ### Parameters
 
