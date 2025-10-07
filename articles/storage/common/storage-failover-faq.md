@@ -139,12 +139,12 @@ Learn more about [how to initiate an unplanned failover](storage-failover-custom
 
 ## What are the conflicting features or scenarios for failovers?
 
-Unplanned Failover:
+**Unplanned Failover:**
 
 - Object Replication: Attempting to initiate a unplanned failover on an accounts with object replication (OR) will generate an error. In this case, you can delete your account's OR policies and attempt the conversion again.
 - NFSv3: Attempting to initiate a unplanned failover on an accounts with NFSv3 will generate an error. Users are unable to disable NFSv3 on a storage account.
 
-Planned Failover: 
+**Planned Failover:**
 
 - Change Feed: Attempting to initiate a planned failover on an accounts with Change Feed will generate an error. In this case, you can disable Change Feed and attempt the failover again.
 - Object Replication: Attempting to initiate a planned failover on an accounts with object replication (OR) will generate an error. In this case, you can delete your account's OR policies and attempt the conversion again.
