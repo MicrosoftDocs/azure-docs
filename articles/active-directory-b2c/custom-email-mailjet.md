@@ -71,10 +71,10 @@ Next, store the Mailjet API key in an Azure AD B2C policy key for your policies 
 
 ## Create a Mailjet template
 
-With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-templates).
+With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [transactional template](https://documentation.mailjet.com/hc/en-us/articles/360042952713-Mailjet-s-Email-Editor-for-Transactional-Emails#passport-create).
 
 1. On the Mailjet site, open the [transactional templates](https://app.mailjet.com/templates/transactional) page and select **Create a new template**.
-1. Select **By coding it in HTML**, and then select **Code from scratch**.
+1. Select **By coding it in HTML**, and then select **Start coding**.
 1. Enter a unique template name like `Verification email`, and then select **Create**.
 1. In the HTML editor, paste following HTML template or use your own. The `{{var:otp:""}}` and `{{var:email:""}}` parameters are replaced dynamically with the one-time password value and the user email address.
 
@@ -172,9 +172,9 @@ With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C
     ```
 
 1. Expand **Edit subject** on the left-top
-    1. For **Subject**, enter a default value for the subject. Mailjet uses this value when the API doesn't contain a subject parameter.
-    1. For the **Name**, type your company name.
-    1. For the **Address**, select your email address
+    1. For **Subject line**, enter a default value for the subject. Mailjet uses this value when the API doesn't contain a subject parameter.
+    1. For the **Sender name**, type your company name.
+    1. For the **Sender address**, select your email address
     1. Select **Save**.
 1. From the right-top select **Save & Publish**, and then **Yes, publish changes**
 1. Record the **Template ID** of template you created for use in a later step. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
