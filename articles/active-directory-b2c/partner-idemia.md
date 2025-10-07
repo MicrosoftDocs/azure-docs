@@ -70,7 +70,7 @@ To get started, you need:
   * Or during the test phase, the mID demo application from IDEMIA
 * An Azure subscription
 
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to the Azure subscription
 * Your business web application registered in an Azure AD B2C tenant
   * For testing, configure https://jwt.ms, a Microsoft web application with decoded token contents
