@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article demonstrates how to manage Azure Maps Power BI visual within your organization.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 06/13/2025
+ms.date: 10/03/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -29,12 +29,15 @@ When enabled, users in the organization can create and view reports that use the
 
 ### Process data outside your region or boundary
 
-When enabled, data sent to Azure Maps can be processed outside your tenant’s geographic region, compliance boundary, or national cloud instance. This is required because Azure Maps services aren't available in all geographic regions or national clouds.
+When enabled, data sent to Azure Maps can be processed outside your tenant's geographic region, compliance boundary, or national cloud instance. This is required because Azure Maps services aren't available in all geographic regions or national clouds.
 
 - Enable this setting to access more capabilities provided by Microsoft Online Services subprocessors.
 - Disabling this setting can limit Azure Maps features if services are unavailable in your compliance region.
 
-:::image type="content" source="media/power-bi-visual/settings-enable-subprocessing.png" alt-text="Screenshot showing that data sent to Azure Maps can be processed outside your tenant’s geographic region, compliance boundary, or national cloud instance.":::
+:::image type="content" source="media/power-bi-visual/settings-enable-subprocessing.png" alt-text="Screenshot showing that data sent to Azure Maps can be processed outside your tenant's geographic region, compliance boundary, or national cloud instance.":::
+
+> [!IMPORTANT]
+> The Azure Maps Power BI visual is currently only available in the United States and European Union regions. If your tenant is located outside these regions, the Azure Maps Power BI visual won't function unless you enable this tenant setting. Enabling this setting allows Power BI to route data to supported Azure Maps endpoints in the US or EU, ensuring that the Azure Maps Power BI visual works even if your tenant is in an unsupported region. Disabling this setting blocks the Azure Maps Power BI visual features for tenants outside the US and EU.
 
 ### Allow Microsoft subprocessors to process data
 
@@ -42,7 +45,7 @@ Some Azure Maps features, like the selection tool, can utilize third-party mappi
 
 - Only essential data is shared with these subprocessors, and is used solely to support Azure Maps services.
 - Data can be stored and processed in the United States or other countries where Microsoft or its subprocessors operate.
-- To enable this setting, "Data sent to Azure Maps can be processed outside your tenant’s geographic region, compliance boundary, or national cloud instance" must also be enabled.
+- To enable this setting, "Data sent to Azure Maps can be processed outside your tenant's geographic region, compliance boundary, or national cloud instance" must also be enabled.
 
 :::image type="content" source="media/power-bi-visual/settings-processed-by-subprocessors.png" alt-text="Screenshot showing that data sent to Azure Maps can be processed by Microsoft Online Services subprocessors.":::
 

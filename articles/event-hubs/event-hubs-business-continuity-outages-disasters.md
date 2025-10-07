@@ -70,7 +70,7 @@ Metadata disaster recovery (DR) is ***not supported*** along with geo-replicatio
 
 ## Next Steps
 
-To learn more about diaster recovery, see these articles:
+To learn more about disaster recovery, see these articles:
 
    * [Event Hubs Geo-disaster recovery documentation](event-hubs-geo-dr.md)
    * [Event Hubs availability and consistency](event-hubs-availability-and-consistency.md)
