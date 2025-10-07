@@ -136,7 +136,6 @@ After an unplanned failover the account becomes LRS so there a few steps require
 
 Learn more about [how to initiate an unplanned failover](storage-failover-customer-managed-unplanned.md#how-to-initiate-an-unplanned-failover).
 
-
 ## What are the conflicting features or scenarios for failovers?
 
 **Unplanned Failover:**
