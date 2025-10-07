@@ -87,21 +87,8 @@ sections:
           Azure Managed Redis supports all Redis functionality offered in existing Azure Cache for Redis SKUs. 
           
           Some management regions, SKU sizes, and operations aren't yet available. 
-         
-            - Azure Public Regions:
-              - France Central
-              - Qatar Central
-            - Azure Sovereign Clouds:
-              - Azure in China Cloud
-              - Azure US Gov Cloud
-            - SKUs larger than 120 GB:
-              - Memory Optimized up to 500 GB
-              - Balanced up to 500 GB
-              - Compute Optimized up to 500 GB
-              - Flash Optimized up to 1000 GB
-            - Management Operations:
-              - Keyspace notifications
-              - Microsoft Entra ID RBAC
+
+          For more details about the retirement of any of the tiers Azure Cache for Redis, see [Azure Cache for Redis Retirement: What to Know and How to Prepare](https://techcommunity.microsoft.com/blog/azure-managed-redis/azure-cache-for-redis-retirement-what-to-know-and-how-to-prepare/4458721).
 
           If you want to migrate to Azure Managed Redis immediately, but you can't because of any missing feature, reach out to support.
 
@@ -116,11 +103,6 @@ sections:
 
         answer: | 
           To retain data during migration, users should follow the guidance in [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
-
-      - question: Is downtime expected during migration?
-
-        answer: | 
-          If you're using the migration tooling, then you should expect a connection blip when the DNS record for your Redis instance is updated to point to the new Azure Managed Redis cache. This blip is a few seconds and should be comparable to the blip that your application experiences during regular maintenance.
 
       - question: Can I transfer my reservations or reserved pricing from Azure Cache for Redis to Azure Managed Redis?
 
@@ -185,11 +167,7 @@ sections:
         answer: |
           Azure Managed Redis supports all Redis functionality offered in existing Redis Enterprise SKUs. Some SKU sizes aren't available yet.
           
-          SKUs larger than 120 GB including these sizes in these tiers aren't available yet:
-          - Memory Optimized up to 500 GB
-          - Balanced up to 500 GB
-          - Compute Optimized up to 500 GB
-          - Flash Optimized up to 1000 GB
+          For more details about the retirement of any of the tiers Azure Cache for Redis, see [Azure Cache for Redis Retirement: What to Know and How to Prepare](https://techcommunity.microsoft.com/blog/azure-managed-redis/azure-cache-for-redis-retirement-what-to-know-and-how-to-prepare/4458721).
 
           If you want to migrate to Azure Managed Redis immediately, but you can't because of any missing feature, reach out to support.
 
@@ -204,11 +182,6 @@ sections:
 
         answer: |
           To retain data during migration, users should follow the guidance in [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
-
-      - question: Is downtime expected during migration?
-
-        answer: | 
-          If you're using the migration tooling, then you can expect a connection blip when the DNS record for your Redis instance is updated to point to the new Azure Managed Redis cache. This blip is a few seconds and comparable to the blip that an application experiences during regular maintenance.
       
       - question: Can I transfer my reservations or reserved pricing from Azure Cache for Redis to Azure Managed Redis?
 

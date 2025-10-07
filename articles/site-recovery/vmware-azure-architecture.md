@@ -4,8 +4,8 @@ description: This article provides an overview of components and architecture us
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 12/28/2024
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: "As a cloud architect, I want to implement disaster recovery for my on-premises VMware VMs to Azure, so that I can ensure business continuity and minimize downtime during outages."
 ---
 

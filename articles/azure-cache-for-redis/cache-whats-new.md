@@ -19,18 +19,30 @@ Find out what's new in Azure Redis.
 
 ## October 2025
 
-We are announcing the retirement of all Azure Cache for Redis SKUs. For more information, see [Azure Cache for Redis Retirement FAQ](retirement-faq.yml). We recommend moving your existing Azure Cache for Redis instances to Azure Managed Redis.
+We're announcing the retirement of all Azure Cache for Redis SKUs. For more information on the retirement, see [Azure Cache for Redis Retirement FAQ](retirement-faq.yml). We recommend moving your existing Azure Cache for Redis instances to Azure Managed Redis.
 
-If you have existing caches in the Enterprise or Enterprise Flash tiers, you can continue using them until the service is fully retired on  March 31, 2027.
+If you have existing caches in the Enterprise or Enterprise Flash tiers, you can continue using them until the service is fully retired on March 31, 2027. 
 
-If you have existing caches in the Basic, Standard, or Premium tiers, you can continue using them until the service is fully retired on September 30, 2028.
+The following are the important dates to note for the Enterprise tiers:
 
-| Tiers                        | Retirement date    |
-|------------------------------|--------------------|
-| Enterprise, Enterprise Flash | March 31, 2027     |
-| Basic, Standard, Premium     | September 30, 2028 |
+| Date           | Description                                                                                   |
+|----------------|-----------------------------------------------------------------------------------------------|
+| April 1, 2026  | Creating new caches in Enterprise or Enterprise Flash tiers is blocked.                       |
+| March 31, 2027 | Remaining caches in Enterprise or Enterprise Flash tiers are migrated to Azure Managed Redis. |
+
+If you have existing caches in the Basic, Standard, or Premium tiers, you can continue using them until the service is fully retired on September 30, 2028. 
+
+The following are the important dates to note for Basic, Standard, and Premium tiers:
+
+| Date            | Description                                                                                |
+|-----------------|--------------------------------------------------------------------------------------------|
+| April 1, 2026   | Creating new caches in Basic, Standard or Premium tiers is blocked for new customers.      |
+| October 1, 2026 | Creating new caches in Basic, Standard or Premium tiers is blocked for existing customers. |
+| October 1, 2028 | Remaining caches in Basic, Standard or Premium tiers are turned off.                       |
 
 For more information on moving your caches to Azure Managed Redis, see [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview).
+
+For more details about the retirement of Azure Cache for Redis, see [Azure Cache for Redis Retirement: What to Know and How to Prepare](https://techcommunity.microsoft.com/blog/azure-managed-redis/azure-cache-for-redis-retirement-what-to-know-and-how-to-prepare/4458721).
 
 ## May 2025
 
