@@ -17,7 +17,7 @@ Get started developing with the Azure IoT Operations SDKs. Follow these steps to
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * A [GitHub](https://github.com) account.
 
