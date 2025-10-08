@@ -31,7 +31,7 @@ You'll complete the following tasks:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 * [Docker](https://docs.docker.com/get-docker/) and [kubectl](https://kubernetes.io/docs/tasks/tools/) to manage container images and Kubernetes resources.
 * A basic understanding of containers and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).

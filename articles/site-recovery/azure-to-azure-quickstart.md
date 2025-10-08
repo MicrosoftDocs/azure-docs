@@ -22,7 +22,7 @@ This quickstart describes how to set up disaster recovery for an Azure VM by rep
 
 To complete this tutorial, you need an Azure subscription and a VM.
 
-- If you don't have an Azure account with an active subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you don't have an Azure account with an active subscription, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A VM with a minimum 1 GB of RAM is recommended. [Learn more](/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
 
 ## Sign in to Azure
