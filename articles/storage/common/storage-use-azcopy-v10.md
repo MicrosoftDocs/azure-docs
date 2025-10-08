@@ -165,6 +165,15 @@ sudo tdnf install azcopy
 
 ---
 
+## Install AzCopy on Windows by using a package manager
+You can install the AzCopy V10 package on Windows using the [Windows Package Manager command line tool WinGet](/windows/package-manager/winget).
+
+   ```powershell
+   winget install --exact --id Microsoft.Azure.AZCopy.10
+   ```
+
+---
+
 <a id="download-azcopy"></a>
 
 ## Download the AzCopy portable binary
