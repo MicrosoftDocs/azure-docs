@@ -88,8 +88,8 @@ This chart describes the changes to a storage account's redundancy after a failo
 | Original configuration           | After failover | After re-enabling geo redundancy | After failback | After re-enabling geo redundancy |
 |----------------------------------|----------------|----------------------------------|----------------|----------------------------------|
 | **Customer-managed planned failover** |           |                                  |                |                                  |
-| GRS                              | GRS            | n/a<sup>1</sup>                  | GRS            | n/a<sup>1</sup>                  |
-| GZRS                             | GZRS           | n/a<sup>1</sup>                  | GZRS           | n/a<sup>1</sup>                  |
+| GRS                              | GRS            | n/a                              | GRS            | n/a                              |
+| GZRS                             | GZRS           | n/a                              | GZRS           | n/a                              |
 | **Customer-managed (unplanned) failover** |       |                                  |                |                                  |
 | LRS                              | LRS            | GRS                              | LRS            | GRS                              |
 | GZRS                             | LRS            | GRS                              | ZRS            | GZRS                             |
@@ -142,16 +142,16 @@ Failovers carry with them a few limitations and conflicting features that users 
 
 **Unplanned Failover:**
 
-**- Object Replication:** Attempting to initiate an unplanned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
-**- NFSv3:** Attempting to initiate an unplanned failover on an account with NFSv3 generates an error. Users are unable to disable NFSv3 on a storage account.
+- **Object Replication:** Attempting to initiate an unplanned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
+- **NFSv3:** Attempting to initiate an unplanned failover on an account with NFSv3 generates an error. Users are unable to disable NFSv3 on a storage account.
 
 **Planned Failover:**
 
-**- Change Feed:** Attempting to initiate a planned failover on an account with Change Feed generates an error. In this case, you can disable Change Feed and attempt the failover again.
-**- Object Replication:** Attempting to initiate a planned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
-**- NFSv3:**  Attempting to initiate a planned failover on an account with NFSv3 generates an error. Users are unable to disable NFSv3 on a storage account.
-**- Point-in-time-Restore:** Attempting to initiate a planned failover on an account with Point-in-time-Restore (PITR) generates an error. In this case, you can disable PITR and Change Feed and attempt the failover again.
-**- Last Sync Time is greater than 30 minutes:** Planned Failover isn't supported for storage accounts with a Last Sync Time greater than 30 minutes.
+- **Change Feed:** Attempting to initiate a planned failover on an account with Change Feed generates an error. In this case, you can disable Change Feed and attempt the failover again.
+- **Object Replication:** Attempting to initiate a planned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
+- **NFSv3:**  Attempting to initiate a planned failover on an account with NFSv3 generates an error. Users are unable to disable NFSv3 on a storage account.
+- **Point-in-time-Restore:** Attempting to initiate a planned failover on an account with Point-in-time-Restore (PITR) generates an error. In this case, you can disable PITR and Change Feed and attempt the failover again.
+- **Last Sync Time is greater than 30 minutes:** Planned Failover isn't supported for storage accounts with a Last Sync Time greater than 30 minutes.
 
 Azure File Sync doesn't support customer-managed planned or unplanned failover. Storage accounts used as cloud endpoints for Azure File Sync shouldn't be failed over. Failover disrupts file sync and might cause the unexpected data loss of newly tiered files. For more information, see Best practices for disaster recovery with Azure File Sync for details.
 
