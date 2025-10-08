@@ -258,8 +258,8 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 | **Microsoft 365**                        | OfficeActivity (SharePoint)             |
 |                                       | OfficeActivity (Exchange)               |
 |                                       | OfficeActivity (Teams)                  |
-| **Microsoft Defender for Cloud**      | SecurityAlert (ASC)      |
-| **Microsoft Defender for IoT**        | SecurityAlert (ASC for IoT)        |
+| **Microsoft Defender for Cloud**      | SecurityAlert (Azure Security Center)      |
+| **Microsoft Defender for IoT**        | SecurityAlert (Azure Security Center for IoT)        |
 | **Microsoft Defender XDR**            | SecurityIncident                        |
 |                                       | SecurityAlert                           |
 | **Microsoft Defender for Endpoint**   | SecurityAlert (MDATP)                   |
