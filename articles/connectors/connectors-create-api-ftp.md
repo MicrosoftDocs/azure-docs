@@ -82,7 +82,7 @@ The FTP managed connector and built-in connector each have only one trigger avai
 
   For more information, see [When a file is added or modified (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
 
-- Built-in connector trigger: The FTP trigger named **When a file is added or updated** runs a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. To get the content, your workflow can follow this trigger with other FTP actions. For more information, see [When a file is added or updated](#when-file-added-updated).
+- Built-in connector trigger: The FTP trigger named **When a file is added or updated** runs a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. To get the content, your workflow can follow this trigger with other FTP actions. For more information, see [When a file is added or updated](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
 
 The following procedures use the Azure portal. With the corresponding Azure Logic Apps extension for Consumption or Standard logic apps, you can use the following tools instead to create and edit logic app workflows:
 
