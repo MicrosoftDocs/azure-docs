@@ -12,7 +12,7 @@ Get the sample Android application for this [quickstart](https://github.com/Azur
 
 ## Prerequisites
 
-- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An OS running [Android Studio](https://developer.android.com/studio).
 - A deployed [Azure Communication Services resource](../../../create-communication-resource.md).
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md).

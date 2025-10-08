@@ -19,7 +19,7 @@ This article describes how to integrate Azure Communication Services with Expres
 
 ## Prerequisites
 
-- Azure subscription: An active Azure account. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- Azure subscription: An active Azure account. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - ExpressRoute circuit: A configured and operational ExpressRoute circuit. For setup instructions, see [Create and modify an ExpressRoute circuit](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).
 - Azure Communication Services resource: An instance of Azure Communication Services deployed in your Azure subscription.
 - Network connectivity: Proper network configurations to connect your on-premises environment to Azure via ExpressRoute.

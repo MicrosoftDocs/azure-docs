@@ -21,7 +21,7 @@ In this tutorial, you learn how to trigger a Batch job using [Azure Functions](.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Batch account and a linked Azure Storage account. For more information on how to create and link accounts, see [Create a Batch account](quick-create-portal.md#create-a-batch-account).
 
 ## Sign in to Azure

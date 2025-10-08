@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have one.
+- An Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 - Owner or Contributor role on an Azure subscription or resource group.
 - Microsoft Entra ID. Your organization must use Microsoft Entra ID for identity and access management.
 

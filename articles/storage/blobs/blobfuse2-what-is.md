@@ -16,6 +16,8 @@ ms.custom: engagement-fy23, linux-related-content
 
 BlobFuse is a virtual file system driver for Azure Blob Storage. Use BlobFuse to access your existing Azure **block blob** data through the Linux file system. **Page blob**s are not supported.
 
+
+
 ## About the BlobFuse2 open source project
 
 BlobFuse2 is an open source project that uses the libfuse open source library (fuse3) to communicate with the Linux FUSE kernel module. BlobFuse2 implements file system operations by using the Azure Storage REST APIs.
@@ -25,6 +27,9 @@ The open source BlobFuse2 project is on GitHub:
 - [BlobFuse2 repository](https://github.com/Azure/azure-storage-fuse/tree/main)
 - [BlobFuse2 README](https://github.com/Azure/azure-storage-fuse/blob/main/README.md)
 - [Report BlobFuse2 issues](https://github.com/Azure/azure-storage-fuse/issues)
+
+> [!IMPORTANT]
+> BlobFuse v1 support will be discontinued in September 2026. Migrate to BlobFuse v2 using the provided [instructions](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md).
 
 ### Licensing
 

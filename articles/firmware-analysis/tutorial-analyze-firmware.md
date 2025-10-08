@@ -15,7 +15,7 @@ This tutorial describes how to use the **firmware analysis** page to upload a fi
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * If you have a subscription but don't have a resource group where you could upload your firmware images, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups).
 * Make sure you have Security Admin, Contributor, or Owner role in your resource group. If you only have the Security Reader role or want to use **firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](./firmware-analysis-rbac.md).
 * If you already have a subscription and resource group, and have the proper permissions, move on to the next section.

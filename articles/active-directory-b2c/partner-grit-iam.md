@@ -31,7 +31,7 @@ Use Grit's B2BB2C solution for:
 To get started, ensure the following prerequisites are met:
 
 - A Grit IAM account. You can go to [Grit IAM B2B2C solution](https://www.gritiam.com/b2b2c.html) to get a demo.
-- A Microsoft Entra subscription. If you don't have one, you can create a [free Azure account](https://azure.microsoft.com/free/).
+- A Microsoft Entra subscription. If you don't have one, you can create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure AD B2C tenant linked to the Azure subscription. You can learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md). 
 - Configure your application in the Azure portal. 
 

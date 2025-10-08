@@ -27,7 +27,7 @@ For more information about the **Schedule** built-in triggers and actions, inclu
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A logic app resource with a blank workflow.
 
   If you don't have this resource, see the following articles:
