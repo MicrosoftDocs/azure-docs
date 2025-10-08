@@ -4,12 +4,9 @@ summary: Azure Cache for Redis is a fully managed Redis service based on the com
 metadata:
   title: Azure Cache for Redis Documentation
   description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that give applications fast access to data. Tutorials, API references, and more.
-  
   ms.topic: landing-page
   ms.custom:
     - ignite-2024
-
-
   ms.date: 04/14/2025
   appliesto:
     - ✅ Azure Cache for Redis
