@@ -123,7 +123,6 @@ To add a built-in connector trigger to a Standard workflow:
    >
    > By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select the binary transport option.
 
-
 1. After the trigger information pane appears, in the **Folder Path** box, specify the path to the folder that you want to monitor.
 
    :::image type="content" source="./media/connectors-create-api-ftp/ftp-trigger-built-in-folder-path.png" alt-text="Screenshot shows workflow designer with the FTP built-in trigger and Folder path with the specific folder path to monitor.":::
@@ -325,7 +324,6 @@ To run and trigger the workflow, follow these steps:
 
 1. On designer toolbar, select **Run** > **Run**.
 
-
 1. Add a file to the FTP folder that your workflow monitors.
 
 #### Workflow with managed trigger and actions
@@ -358,197 +356,9 @@ To run and trigger the workflow, follow these steps:
 
 1. On designer toolbar, select **Run** > **Run**.
 
-
 1. Add a file to the FTP folder that your workflow monitors.
 
 <a name="built-in-operations"></a>
-
-## FTP built-in connector operations
-
-The FTP built-in connector is available only for Standard logic app workflows and provides the following operations:
-
-| Trigger | Description |
-|---------|-------------|
-| [**When a file is added or updated**](#when-file-added-updated) | Start a logic app workflow when a file is added or updated in the specified folder on the FTP server. <br><br>**Note**: This trigger gets only the file metadata or properties, not the file content. To get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. |
-
-| Action | Description |
-|--------|-------------|
-| [**Create file**](#create-file) | Create a file using the specified file path and file content. |
-| [**Delete file**](#delete-file) | Delete a file using the specified file path. |
-| [**Get file content**](#get-file-content) | Get the content of a file using the specified file path. |
-| [**Get file metadata**](#get-file-metadata) | Get the metadata or properties of a file using the specified file path. |
-| [**List files and subfolders in a folder**](#list-files-subfolders-folder) | Get a list of files and folders in the specified folder. |
-| [**Update file**](#update-file) | Update a file using the specified file path and file content. |
-
-<a name="when-file-added-updated"></a>
-
-### When a file is added or updated
-
-Operation ID: `whenFtpFilesAreAddedOrModified`
-
-This trigger starts a logic app workflow run when a file is added or updated in the specified folder on the FTP server. The trigger gets only the file metadata or properties, not any file content. To get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **Folder path** | `folderPath` | True | `string` | The folder path, relative to the root directory. |
-| **Number of files to return** | `maxFileCount` | False | `integer` | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: By default, the **Split On** setting is enabled and forces this trigger to process each file individually in parallel. |
-| **Cutoff timestamp to ignore older files** | `oldFileCutOffTimestamp` | False | `dateTime` | The cutoff time to use for ignoring older files. Use the timestamp format `YYYY-MM-DDTHH:MM:SS`. To disable this feature, leave this property empty. |
-
-#### Returns
-
-When the trigger's **Split On** setting is enabled, the trigger returns the metadata or properties for one file at a time. Otherwise, the trigger returns an array that contains each file's metadata.
-
-| Name | Type |
-|------|------|
-| **List of files** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
-
-<a name="create-file"></a>
-
-### Create file
-
-Operation ID: `createFile`
-
-This action creates a file using the specified file path and file content. If the file already exists, this action overwrites that file.
-
-> [!IMPORTANT]
->
-> If you immediately delete or rename a file on the FTP server after you create the file in the same workflow, the operation might return an HTTP 404 error. This behavior is by design. To avoid this problem, include a 1-minute delay before you delete or rename any newly created files. You can use the [**Delay** action](connectors-native-delay.md) to add this delay to your workflow.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-| **File content** | `fileContent` | True | `string` | The file content. |
-
-#### Returns
-
-This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named **Body**.
-
-| Name | Type |
-|------|------|
-| **File metadata File name** | `string` |
-| **File metadata File path** | `string` |
-| **File metadata File size** | `string` |
-| **File metadata** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
-
-<a name="delete-file"></a>
-
-### Delete file
-
-Operation ID: `deleteFtpFile`
-
-This action deletes a file using the specified file path.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-
-#### Returns
-
-None
-
-<a name="get-file-content"></a>
-
-### Get file content
-
-Operation ID: `getFtpFileContent`
-
-This action gets the content of a file using the specified file path.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **File path** | `path` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-
-#### Returns
-
-This action returns the content of a file as a binary value named **File content**.
-
-| Name | Type |
-|------|------|
-| **File content** | Binary |
-
-<a name="get-file-metadata"></a>
-
-### Get file metadata
-
-Operation ID: `getFileMetadata`
-
-This action gets the metadata or properties of a file using the specified file path.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **File path** | `path` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-
-#### Returns
-
-This action returns the following outputs:
-
-| Name | Type |
-|------|------|
-| **File name** | `string` |
-| **File path** | `string` |
-| **File size** | `string` |
-| **Last updated time** | `string` |
-| **File metadata** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
-
-<a name="list-files-subfolders-folder"></a>
-
-### List files and subfolders in a folder
-
-Operation ID: `listFilesInFolder`
-
-This action gets a list of files and subfolders in the specified folder.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **Folder path** | `folderPath` | True | `string` | The folder path, relative to the root directory. |
-| **File content** | `fileContent` | True | `string` | The content for the file. |
-
-#### Returns
-
-This action returns an array named **Response** and contains [BlobMetadata](/connectors/ftp/#blobmetadata) objects.
-
-| Name | Type |
-|------|------|
-| **Response** | Array with [BlobMetadata](/connectors/ftp/#blobmetadata) objects. |
-
-<a name="update-file"></a>
-
-### Update file
-
-Operation ID: `updateFile`
-
-This action updates a file using the specified file path and file content.
-
-> [!IMPORTANT]
->
-> If you immediately delete or rename a file on the FTP server after you create the file in the same workflow, the operation might return an HTTP 404 error. This behavior is by design. To avoid this problem, include a 1-minute delay before you delete or rename any newly created files. You can use the [**Delay** action](connectors-native-delay.md) to add this delay to your workflow.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-| **File content** | `fileContent` | True | `string` | The content for the file |
-
-#### Returns
-
-This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named **Body**.
-
-| Name | Type |
-|------|------|
-| **Body** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
 
 ## Related content
 
