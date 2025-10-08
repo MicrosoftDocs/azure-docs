@@ -28,7 +28,7 @@ Azure Storage Discovery is a fully managed service that provides enterprise-wide
 
 - Storage Discovery workspace management is zone-redundant. When a zone is down, your Storage Discovery workspace is still available. You can continue to manage your workspace and access reports.
 
-- Storage Discovery reports are zone-redundant. However, insights about a particular storage resource may be impacted when the storage resource itself is affected by an outage. That can skew overall capacity reporting and other insights. If a storage resource is zone-redundant, then the flow of insights remains uninterrupted.
+- Storage Discovery reports are zone-redundant. However, outage affecting the storage resource may impact insights about that resource. If a storage resource is zone-redundant, then the flow of insights remains uninterrupted.
 
 ## Cross-region disaster recovery and business continuity
 
@@ -46,7 +46,7 @@ Storage Discovery doesn't provide outage notifications for every incident. The S
 Key factors that influence data availability and freshness in your Storage Discovery reports:
 
 - After creating a new Storage Discovery workspace, most insights appear in reports within 24 hours. 
-- Most updates, such as adding or removing a storage account in a subscription or resource group linked to a Storage Discovery workspace will be reflected in the Storage Discovery reports within 24 hours.
+- Most updates, such as adding or removing a storage account in a subscription or resource group that are linked to a Storage Discovery workspace will be reflected in the Storage Discovery reports within 24 hours.
 - Changes related to adding a new [scope](../storage-discovery/management-components.md#scope) or editing an existing scope in your Discovery workspace are typically reflected in the reports within 24 hours.
 - Effect of [changing pricing plan](../storage-discovery/pricing.md) on an existing Storage Discovery workspace is immediate.
 - When a scope is deleted, you immediately lose the insights gathered for this scope. 
