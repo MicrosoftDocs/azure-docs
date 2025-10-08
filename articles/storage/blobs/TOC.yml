@@ -529,10 +529,13 @@ items:
         href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Initiate account failover
         href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Failover FAQs
+        href: ../common/storage-failover-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Check the Last Sync Time property
         href: ../common/last-sync-time-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Failover considerations for storage accounts with private endpoints
         href: ../common/storage-failover-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+
   - name: Performance and scale
     items:
     - name: Performance and scalability checklist
