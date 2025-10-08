@@ -24,7 +24,7 @@ This quickstart shows you how to stream data into and from Azure Event Hubs usin
 To complete this quickstart, make sure you have the following prerequisites:
 
 * Read through the [Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md) article.
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Create a Windows virtual machine and install the following components: 
     * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
     * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
