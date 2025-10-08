@@ -38,7 +38,7 @@ The following figure summarizes the setup used in this article:
 ## Prerequisites
 
 An Azure subscription is required.
-- If you don't already have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you don't already have an Azure subscription, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Register the Microsoft.Network provider namespace
 
