@@ -75,7 +75,7 @@ You might also incur additional charges when you use other Azure resources with 
 
 As soon as you start using API Management, costs are incurred. You can see the costs in [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) or in the Azure pricing calculator.
 
-In cost analysis, you can view API Management costs in graphs and tables for different time intervals (day, current and prior month, and year). You also view costs against budgets and forecasted costs. Switching to longer time intervals can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
+In cost analysis, you can view API Management costs in graphs and tables for different time intervals (week, month, year, and more). You can also view costs against budgets and forecasted costs. Switching to longer time intervals can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
 > [!NOTE]
 > The costs shown in this example are for demonstration only. Your costs will vary depending on resource usage and current pricing.
@@ -84,7 +84,7 @@ To view API Management costs in cost analysis:
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com).
 1. In the left pane, select **Cost Management + Billing**. 
-1. In the left pane, select **Billing scopes**. and then
+1. In the left pane, select **Billing scopes**. 
 1. On the **Billing scopes** page, select a **Billing scope**. For example, select a subscription from the list.
 1. In the left pane, under **Cost Management**, select **Cost analysis**.
 1. By default, monthly costs for all services are shown in the first donut chart. 
