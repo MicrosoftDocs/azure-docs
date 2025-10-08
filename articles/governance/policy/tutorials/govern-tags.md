@@ -24,7 +24,7 @@ In this tutorial, you complete the following tasks:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
+To complete this tutorial, you need an Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Identify requirements
 

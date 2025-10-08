@@ -26,7 +26,7 @@ aspects of the Azure Blueprints service. The following steps are covered:
 ## Prerequisites
 
 To complete this tutorial, an Azure subscription is needed. If you don't have an Azure
-subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create blueprint definition from sample
 
