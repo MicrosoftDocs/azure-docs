@@ -208,13 +208,13 @@ The following sections describe and compare options for authenticating callers a
 
 ### Developer key authentication and authorization
 
-For nonproduction scenarios only, such as design, development, and quick validation, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf.
+For nonproduction activities only, such as design, development, and quick validation, the Azure portal provides, manages, and uses a *developer key* to run your workflow on your behalf.
 
 #### What is a developer key?
 
-A developer key is a convenience authentication mechanism used only by the Azure portal to call your logic app workflow when you're in the design, build, and quick test stages. During these stages, the developer key lets you skip the need to manually set up Easy Auth or copy trigger callback URLs with shared access signatures (SAS).
+A developer key is a convenience authentication mechanism used only by the Azure portal to run your workflow during the design, development, and quick testing stages in the Azure portal. During these stages, the developer key lets you skip the need to manually set up Easy Auth or copy trigger callback URLs with shared access signatures (SAS). The key is linked to a specific user and tenant based only on an [Azure Resource Manager (ARM) bearer token](/azure/azure-resource-manager/management/manage-resources-rest), which is an access token that authenticates requests to the Azure Resource Manager REST API.
 
-The portal automatically injects the developer key when you use built‑in test experiences in the workflow designer like running a workflow or calling the **Request** trigger. The key is implicitly bound to a tenant session and a signed-in portal user, so you can't distribute the key externally due to this binding, which is based only on the Azure Resource Manager bearer token. 
+The portal automatically injects the developer key when you use built‑in test experiences in the workflow designer like running a workflow, calling the **Request** trigger, or interacting with a conversational agent workflow in the internal chat interface. The key is implicitly bound to a tenant session and a signed-in portal user, so you can't distribute the key externally due to this binding, which is based only on the ARM bearer token. 
 
 #### Developer key limitations
 
@@ -242,7 +242,7 @@ The following table describes appropriate and inappropriate scenarios for using 
 
 ### Easy Auth built-in authentication and authorization
 
-For production scenarios, including chat and agent clients outside the Azure portal, make sure to [set up Easy Auth on your logic app resource](set-up-authentication-agent-workflows.md) with a dedicated Microsoft Entra app registration. This approach isolates tokens, enforces least privilege, and avoids reusing broad multi-application registrations. Conversational agent workflows also provide a chat client outside the Azure portal that others can use after you set up Easy Auth.
+For production, protect access to conversational agent workflows and external chat client access by [setting up Easy Auth on your logic app resource](set-up-authentication-agent-workflows.md) with a dedicated Microsoft Entra app registration. Easy Auth authenticates and authorizes only people who have the correct permissions to interact with your conversational agent workflow. This approach isolates tokens, enforces least privilege, and avoids reusing broad multi-application registrations. After you set up Easy Auth for your logic app resource, your workflow provides a URL to an external chat client outside the Azure portal that people can use to interact with your conversational agent.
 
 Easy Auth provides a built‑in enforcement layer that lets you focus more on building your workflow's business logic and offers the following benefits:
 
