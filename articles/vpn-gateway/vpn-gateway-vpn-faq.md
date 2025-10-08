@@ -151,7 +151,7 @@ For non-zone-redundant and non-zonal gateways that were previously created (gate
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
-We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. Before this retirement, we'll provide customers with a migration path from Basic to Standard IP. 
+We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. However, the retirement date for Basic IP in VPN Gateway (VPNGW) has been extended to January 2026. Before this retirement, we'll provide customers with a migration path from Basic to Standard IP. 
 
 However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 
@@ -230,15 +230,13 @@ These timelines may be subject to change. Please revisit this for the most updat
 
   | Date                | Event                                                      |
   |---------------------|------------------------------------------------------------|
-  | Apr/May 2025        | Migration tooling availability for Active-Passive Gateways. |
-  | Jul/Aug 2025        | Migration tooling availability for Active-Active Gateways.  |
-  | May 2025 to Sep 2025| Customer-controlled migration can be initiated after tool availability. |
-  | Sep 2025            | Basic SKU IP addresses are deprecated.                     |
-
+  | Aug 2025        | Migration tooling availability for Active-Passive Gateways ( preview ) |
+  | Sep 2025        | Migration tooling availability for Active-Active Gateways.  |
+  | Aug 2025 to Jan 2026| Customer-controlled migration can be initiated after tool availability. |
 
 ### What are the required customer actions?
 
-Ensure you have the correct IP address space and subnet size to support the migration. If your gateway is using a Basic IP, you need to migrate it to a Standard IP to avoid service disruption. This migration is necessary because Basic IP addresses will be deprecated by September 2025. If your gateway is already using a Standard IP, no action is required.
+Ensure you have the correct IP address space and subnet size to support the migration. If your gateway is using a Basic IP, you need to migrate it to a Standard IP to avoid service disruption. This migration is necessary because Basic IP addresses will be deprecated by January 2026. If your gateway is already using a Standard IP, no action is required.
  
 ## <a name="s2s"></a>Site-to-site connections and VPN devices
 
