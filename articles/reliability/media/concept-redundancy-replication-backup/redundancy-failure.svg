@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 369.6 156.2" width="369.6" height="156.2">
+<svg xmlns="http://www.w3.org/2000/svg" width="369.6" height="160.6" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 369.6 160.6">
   <defs>
     <symbol id="Failed" viewBox="0 0 22 22">
       <g>
@@ -14,7 +14,7 @@
     </linearGradient>
   </defs>
   <g id="Shapes">
-    <rect width="369.6" height="156.2" fill="#fff"/>
+    <rect width="369.6" height="160.6" fill="#fff"/>
     <g>
       <rect x="13.2" y="109.9" width="110" height="35.2" fill="#fff"/>
       <rect x="13.2" y="109.9" width="110" height="35.2" fill="#f5f3f2" opacity=".8"/>
