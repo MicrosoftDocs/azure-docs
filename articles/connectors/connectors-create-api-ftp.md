@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 10/09/2025
 ms.custom: sfi-image-nochange
 #Customer intent: As an integration developer, I want to know about file changes on our FTP server by creating a workflow that detects those changes and sends notifications from Azure Logic Apps.
 
@@ -36,7 +36,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 | Logic app type (plan) | Environment | Connector version |
 |------------------------|-------------|-------------------|
 | **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery with the **Shared** filter. For more information, see: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | - Managed connector, which appears in the connector gallery with the **Shared** filter. <br>- Built-in connector, which appears in the connector gallery with the **Built-in** filter and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, see: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](#built-in-operations) section later in this article <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | - Managed connector, which appears in the connector gallery with the **Shared** filter. <br>- Built-in connector, which appears in the connector gallery with the **Built-in** filter and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, see: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](/azure/logic-apps/connectors/built-in/reference/ftp/) <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Limitations
 
@@ -93,7 +93,7 @@ This section shows the steps for the following FTP connector triggers:
 
 - [*Built-in* trigger named **When a file is added or updated**](#built-in-connector-trigger)
 
-  If you use this FTP built-in trigger, you can get the file content by using the FTP built-in action named **Get file content** without using the **Get file metadata** action first, unlike when you use the FTP managed trigger. For more information about FTP built-in connector operations, see [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
+  If you use this FTP built-in trigger, you can get the file content by using the FTP built-in action named **Get file content** without using the **Get file metadata** action first, unlike when you use the FTP managed trigger. For more information about FTP built-in connector operations, see [FTP built-in connector operations](/azure/logic-apps/connectors/built-in/reference/ftp/).
 
   This built-in FTP trigger isn't available for Consumption logic app workflows.
 
@@ -195,7 +195,7 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
 - [**Built-in trigger workflows**](#built-in-trigger-workflows): Describes the steps to add a built-in action to a workflow that starts with a built-in trigger.
 
-  If you used the FTP built-in trigger, and you want the content from a newly added or updated file, you can use a **For each** loop to iterate through the array returned by the trigger. You can then use just the **Get file content** action without any other intermediary actions. For more information about FTP built-in connector operations, see [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
+  If you used the FTP built-in trigger, and you want the content from a newly added or updated file, you can use a **For each** loop to iterate through the array returned by the trigger. You can then use just the **Get file content** action without any other intermediary actions. For more information about FTP built-in connector operations, see [FTP built-in connector operations](/azure/logic-apps/connectors/built-in/reference/ftp/).
 
 - [**Managed trigger workflows**](#managed-trigger-workflows): Describes the steps to add a managed action to a workflow that starts with a managed trigger.
 
