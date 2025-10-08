@@ -21,7 +21,7 @@ This article describes how to join a room call using web or native mobile callin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 - Two or more Communication User Identities. [Create and manage access tokens](../identity/access-tokens.md) or [Quick-create identities for testing](../identity/quick-create-identity.md).
 - A created room and participant added to it. [Create and manage rooms](get-started-rooms.md)
