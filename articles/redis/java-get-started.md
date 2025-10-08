@@ -31,7 +31,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ::: zone pivot="azure-managed-redis"
