@@ -14,7 +14,7 @@ In this quickstart, you use Azure Marketplace and Azure PowerShell to create a r
 
 ## Prerequisites
 
-- An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and Confluent. Before you get started, [verify that you have the required access](../../role-based-access-control/check-access.md).
 
 ## Find offer

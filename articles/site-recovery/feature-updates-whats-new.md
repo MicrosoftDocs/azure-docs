@@ -2,9 +2,9 @@
 title: New feature updates in Azure Site Recovery
 description: Provides a summary of new features updates in the Azure Site Recovery service.
 ms.topic: concept-article
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.service: azure-site-recovery
-author: jyothisuri
+author: Jeronika-MS
 ms.date: 06/13/2025
 # Customer intent: "As a disaster recovery manager, I want to stay informed about the latest updates in Azure Site Recovery features, so that I can ensure optimal protection and monitoring of our critical workloads."
 ---

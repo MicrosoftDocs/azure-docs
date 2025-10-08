@@ -25,8 +25,6 @@ Maintain your project code in [Azure Repos](https://azure.microsoft.com/services
 
 Maintain your project code in [GitHub](https://github.com). Supported by all [build providers](functions-continuous-deployment.md?tabs=github%2Cgithub-actions#build-providers). For more information, see [GitHub docs](https://docs.github.com/en/get-started).  
 
-GitHub is the only continuous deployment source supported for apps running on Linux in a [Consumption plan](./consumption-plan.md), which includes serverless Python apps.
-
 ### [Bitbucket](#tab/bitbucket)
 
 Maintain your project code in [Bitbucket](https://bitbucket.org/). Requires the [App Service build provider](functions-continuous-deployment.md?tabs=bitbucket%2Capp-service#build-providers).

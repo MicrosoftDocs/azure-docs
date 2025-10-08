@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 In this tutorial, you learn how to route MQTT messages received by an Azure Event Grid namespace to an Azure function via an Event Grid custom topic by following these steps:
 
-If you don't have an Azure subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet).
+If you don't have an Azure subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 Follow instructions from [Create an Azure function using Visual Studio Code](../azure-functions/functions-develop-vs-code.md), but use the **Azure Event Grid Trigger** instead of using the **HTTP Trigger**. You should see code similar to the following example:

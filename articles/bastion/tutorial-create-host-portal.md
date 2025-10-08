@@ -6,6 +6,7 @@ ms.service: azure-bastion
 ms.topic: tutorial
 ms.date: 01/22/2025
 ms.author: abell
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to deploy Azure Bastion with customized settings in my virtual network, so that I can establish secure connections to my virtual machines without exposing public IP addresses.
 ---
 
@@ -32,7 +33,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need these resources:
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A [virtual network](../virtual-network/quick-create-portal.md) to which you'll deploy Bastion.
 * A virtual machine in the virtual network. This VM isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion. If you don't have a VM, create one by using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
 * Required VM roles:

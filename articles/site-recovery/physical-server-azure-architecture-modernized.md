@@ -5,8 +5,8 @@ ms.service: azure-site-recovery
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 12/14/2023
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: "As a systems administrator, I want to implement disaster recovery for physical Windows and Linux servers to Azure, so that I can ensure data availability and minimize downtime during failures."
 ---
 

@@ -56,7 +56,7 @@ Standard logic app based MCP servers support the [Streamable HTTP and Server-Sen
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The Standard logic app resource and workflows that you want to set up as an MCP server with tools that agents or models can use.
 

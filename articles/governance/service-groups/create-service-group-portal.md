@@ -21,7 +21,7 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
+- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
   account before you begin.
 
 ## Create in Azure portal

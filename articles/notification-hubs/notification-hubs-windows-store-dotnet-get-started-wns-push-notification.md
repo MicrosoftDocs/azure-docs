@@ -8,9 +8,12 @@ ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: csharp
 ms.topic: tutorial
-ms.custom: "mvc, ms.custom: devx-track-csharp"
 ms.date: 05/01/2025
 ms.author: sethm
+ms.custom:
+  - mvc
+  - devx-track-csharp
+  - sfi-image-nochange
 ---
 
 # Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs
@@ -32,7 +35,7 @@ You take the following steps:
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Microsoft Visual Studio 2017 or later. The example in this tutorial uses [Visual Studio 2019](https://www.visualstudio.com/products).
 * [UWP app-development tools installed](/windows/uwp/get-started/get-set-up).
 * An active Windows Store account.

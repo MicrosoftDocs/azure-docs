@@ -4,8 +4,8 @@ description: Summarizes support for Azure VMs disaster recovery to a secondary r
 ms.topic: concept-article
 ms.date: 09/09/2025
 ms.service: azure-site-recovery
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.custom: engagement-fy23, references_regions, linux-related-content
 # Customer intent: As an IT manager, I want to understand the disaster recovery support for Azure VMs using site recovery, so that I can effectively plan my organization's resilience against data loss and ensure compliance with our recovery objectives.
 ---
@@ -441,6 +441,8 @@ Write accelerator enabled disks | Not supported
 Tags  | Supported | User-generated tags are replicated every 24 hours.
 Soft delete | Not supported | Soft delete isn't supported because once it's enabled on a storage account, it increases cost. Azure Site Recovery performs very frequent creates/deletes of log files while replicating causing costs to increase.
 iSCSI disks | Not supported | Azure Site Recovery may be used to migrate or failover iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure to Azure replication and failover/failback.
+Storage Replica | Not supported
+
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](/azure/virtual-machines/disks-scalability-targets). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings, follow the disk scalability and performance targets for your source VMs.

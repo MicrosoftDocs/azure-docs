@@ -18,17 +18,17 @@ In this quickstart, you deploy Azure IoT Operations to an Azure Arc-enabled Kube
 
 This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, multiple teams working together perform these tasks and some tasks might require elevated permissions.
 
-For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) so that you have owner permissions over the resources in these quickstarts.
+For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) so that you have owner permissions over the resources in these quickstarts.
 
 We also use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
-[!INCLUDE [supported-environments](../includes/supported-environments.md)]
+[!INCLUDE [supported-environments-table](../includes/supported-environments-table.md)]
 
 ## Prerequisites
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * A [GitHub](https://github.com) account.
 

@@ -3,7 +3,10 @@ title: 'Quickstart: Create Bicep files with Visual Studio Code'
 description: Learn how to use Visual Studio Code and the Bicep extension to create Bicep files and deploy Azure resources.
 ms.topic: quickstart
 ms.date: 03/25/2025
-ms.custom: mode-ui, devx-track-bicep
+ms.custom:
+  - mode-ui
+  - devx-track-bicep
+  - sfi-image-nochange
 #customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files so that I can use them to deploy Azure resources.
 ---
 
@@ -15,7 +18,7 @@ Visual Studio supports a similar authoring experience. See [Quickstart: Create B
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you start.
 
 To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also have either the latest [Azure CLI](/cli/azure/) version or [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 

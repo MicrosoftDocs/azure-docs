@@ -22,7 +22,7 @@ In this tutorial, you learn to:
 
 ## Prerequisites
 
-- **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **GitHub Account:** If you don't have one, you can [create a GitHub Account for free](https://github.com)
 - **Editor for ARM Templates:** Reviewing and editing templates requires a JSON editor. Visual Studio Code with the [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) is well suited for editing ARM Templates. For instructions on how to install and configure Visual Studio Code, see [Quickstart: Create ARM templates with Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md).
 

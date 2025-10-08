@@ -18,7 +18,7 @@ This data pipeline combines data from various stores, removes unwanted data, app
 
 :::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="Screenshot that shows extract, transform, and load architecture." border="false":::
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

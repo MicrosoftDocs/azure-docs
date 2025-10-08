@@ -27,7 +27,7 @@ With Azure CDN from Microsoft, you can monitor resources in the following ways t
 > [!IMPORTANT]
 > The HTTP raw logs feature is available for Azure CDN from Microsoft.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Sign in to Azure
 
@@ -177,6 +177,7 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 | TimeToFirstByte | The length of time in milliseconds from when Microsoft CDN receives the request to the time the first byte gets sent to the client. The time is measured only from the Microsoft side. Client-side data isn't measured. |
 | Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the Server Name Indication (SNI) and the host header. This status code implies domain fronting, a technique that violates Azure Front Door's terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
 | SNI | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. |
+| SslJA4 | TLS Client Hello fingerprint, enabling identification of client applications and detection of anomalous or malicious traffic patterns across encrypted connections. |
 
 > [!NOTE]
 > The logs can be viewed under your Log Analytics profile by running a query. A sample query would look like:

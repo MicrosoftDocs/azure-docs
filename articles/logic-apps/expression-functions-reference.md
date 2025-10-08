@@ -3,9 +3,9 @@ title: Reference for functions in workflow expressions
 description: Learn about expression functions for workflows in Azure Logic Apps and Power Automate.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, niding, azla
+ms.reviewers: estfan, niding, azla
 ms.topic: reference
-ms.date: 07/08/2025
+ms.date: 10/06/2025
 ---
 
 # Reference guide to functions in expressions for workflows in Azure Logic Apps and Power Automate
@@ -145,6 +145,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
+>
 > If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string).
 
 | Logical comparison function | Task |
@@ -4821,27 +4822,20 @@ Optionally, you can specify a different format with the <*format*> parameter.
 | ------------ | ---- | ----------- |
 | <*current-timestamp*> | String | The current date and time |
 
-*Example 1*
-
-Suppose today is April 15, 2018 at 1:00:00 PM.
-This example gets the current timestamp:
+*Examples*
 
 ```
-utcNow()
+utcNow()                  // Returns 2025-09-25T05:18:31.3384797Z
+utcNow('u')               // Returns 2025-09-25 05:18:31Z
+utcNow('U')               // Returns Thursday, September 25, 2025 5:18:31 AM
+utcNow('d')               // Returns 9/25/2025
+utcNow('D')               // Returns Thursday, September 25, 2025
+utcNow('t')               // Returns 5:18 AM
+utcNow('T')               // Returns 5:18:31 AM
+utcNow('y')               // Returns September 2025
+utcNow('yyyy')            // Returns 2025
+utcNow('ddd, d MMM yyyy') // Returns Thu, 25 Sep 2025
 ```
-
-And returns this result: `"2018-04-15T13:00:00.0000000Z"`
-
-*Example 2*
-
-Suppose today is April 15, 2018 at 1:00:00 PM.
-This example gets the current timestamp using the optional "D" format:
-
-```
-utcNow('D')
-```
-
-And returns this result: `"Sunday, April 15, 2018"`
 
 ## V
 

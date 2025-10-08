@@ -8,6 +8,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 02/07/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Monitor IoT devices and send notifications with Azure Logic Apps
@@ -43,7 +44,7 @@ Messages arriving at your IoT hub look similar to the following, with the teleme
 }
 ```
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

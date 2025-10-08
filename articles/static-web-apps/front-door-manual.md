@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/01/2024
 ms.author: wujia
 zone_pivot_groups: static-web-apps-afd-methods
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Configure a CDN for Azure Static Web Apps
@@ -70,7 +71,7 @@ az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 
 ### Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An Azure Static Web Apps site. [Build your first static web app](get-started-portal.md)
 - Azure Static Web Apps Standard and Azure Front Door Standard / Premium plans. For more information, see [Static Web Apps pricing](https://azure.microsoft.com/pricing/details/app-service/static/)
 - Consider using [enterprise-grade edge](enterprise-edge.md) for faster page loads, enhanced security, and optimized reliability for global applications.

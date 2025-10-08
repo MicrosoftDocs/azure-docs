@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon    
 manager: pmwongera
 ms.author: rolyon
-ms.date: 09/19/2025
+ms.date: 09/24/2025
 ms.custom: generated
 ---
 
@@ -586,6 +586,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='arc-gateway-manager'></a>[Arc Gateway Manager](./built-in-roles/hybrid-multicloud.md#arc-gateway-manager) | Manage Arc Gateway Resources | f6e92014-8af2-414d-9948-9b1abf559285 |
 > | <a name='azure-arc-scvmm-administrator-role'></a>[Azure Arc ScVmm Administrator role](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-administrator-role) | Arc ScVmm VM Administrator has permissions to perform all ScVmm actions. | a92dfd61-77f9-4aec-a531-19858b406c87 |
 > | <a name='azure-arc-scvmm-private-cloud-user'></a>[Azure Arc ScVmm Private Cloud User](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-private-cloud-user) | Azure Arc ScVmm Private Cloud User has permissions to use the ScVmm resources to deploy VMs. | c0781e91-8102-4553-8951-97c6d4243cda |
 > | <a name='azure-arc-scvmm-private-clouds-onboarding'></a>[Azure Arc ScVmm Private Clouds Onboarding](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-private-clouds-onboarding) | Azure Arc ScVmm Private Clouds Onboarding role has permissions to provision all the required resources for onboard and deboard vmm server instances to Azure. | 6aac74c4-6311-40d2-bbdd-7d01e7c6e3a9 |

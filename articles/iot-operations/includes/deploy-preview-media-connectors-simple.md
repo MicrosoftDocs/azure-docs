@@ -11,7 +11,7 @@ When you deploy the preview version of Azure IoT Operations, the deployment incl
 
 :::image type="content" source="media/deploy-preview-media-connectors-simple/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows that preview features are enabled." lightbox="media/deploy-preview-media-connectors-simple/portal-enable-preview-connectors.png":::
 
-Before you can use the preview connectors (ONVIF, media, and REST/HTTP) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
+Before you can use the preview connectors (ONVIF, media, and HTTP/REST) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
 
 All three preview connectors can publish captured data to the MQTT broker.
 

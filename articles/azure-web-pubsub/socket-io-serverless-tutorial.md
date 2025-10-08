@@ -7,6 +7,7 @@ ms.author: chenyl
 ms.date: 09/01/2024
 ms.service: azure-web-pubsub
 ms.topic: tutorial
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Build chat app with Azure Function in Serverless Mode (Preview)
@@ -25,7 +26,7 @@ Find full code samples that are used in this tutorial:
 ## Prerequisites
 
 > [!div class="checklist"]
-> * An Azure account with an active subscription. If you don't have one, you can [create a free account](https://azure.microsoft.com/free/). 
+> * An Azure account with an active subscription. If you don't have one, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 > * [Azure Function core tool](../azure-functions/functions-run-local.md)
 > * Some familiarity with the Socket.IO library.
 

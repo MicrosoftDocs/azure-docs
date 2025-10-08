@@ -4,7 +4,10 @@ description: This tutorial shows you how to send messages to and receive message
 ms.date: 06/12/2025
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: passwordless-java, devx-track-extended-java
+ms.custom:
+  - passwordless-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 #customer intent: As a developer, I want to learn how to send and receive messages with Azure Service Bus queues by using the Java.
 ---
 
@@ -23,7 +26,7 @@ This quickstart provides step-by-step instructions for a simple scenario of send
 
 ## Prerequisites
 
-- An Azure subscription. To complete this quickstart, you need an Azure account. You can activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An Azure subscription. To complete this quickstart, you need an Azure account. You can activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Install [Azure SDK for Java][Azure SDK for Java].
 

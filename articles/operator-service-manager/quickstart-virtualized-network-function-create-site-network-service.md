@@ -14,7 +14,7 @@ This quickstart describes the process of creating a Site Network Service (SNS) u
 
 ## Prerequisites
 
-An Azure account with an active subscription is required. If you don't have an Azure subscription, follow the instructions here [Start free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to create an account before you begin.
+An Azure account with an active subscription is required. If you don't have an Azure subscription, follow the instructions here [Start free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) to create an account before you begin.
 
 This quickstart assumes you followed the prerequisites in these quickstarts:
 

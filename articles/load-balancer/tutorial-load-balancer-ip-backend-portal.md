@@ -7,7 +7,10 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 02/14/2024
-ms.custom: template-tutorial, engagement-fy23
+ms.custom:
+  - template-tutorial
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a cloud architect, I want to create a public load balancer with an IP-based backend pool in a virtual network, so that I can efficiently manage traffic distribution across multiple virtual machines.
 ---
 
@@ -28,7 +31,7 @@ In this tutorial, you learn how to:
 > * Test the load balancer
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a virtual network
 

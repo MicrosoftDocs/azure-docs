@@ -4,7 +4,7 @@ description: Learn to build AI agent workflows that support chat conversations w
 service: ecfan
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, divswa, krmitta, azla
+ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/14/2025
@@ -43,7 +43,7 @@ This guide shows how to create an example Standard logic app workflow with the *
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A new or existing Standard logic app resource or project. You can work in either development environment:
 

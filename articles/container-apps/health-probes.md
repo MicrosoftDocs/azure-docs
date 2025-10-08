@@ -1,13 +1,15 @@
 ---
 title: Health probes in Azure Container Apps
+ms.reviewer: cshoe
 description: Check startup, liveness, and readiness with Azure Container Apps health probes
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 10/08/2025
 ms.author: cshoe
 ---
+
 
 # Health probes in Azure Container Apps
 
@@ -23,7 +25,7 @@ Container Apps supports the following probes:
 | Liveness | Checks if your application is still running and responsive. |
 | Readiness | Checks to see if a replica is ready to handle incoming requests. |
 
-For a full list of the probe specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
+For a full list of the probe specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/ContainerApps/stable/2025-07-01/CommonDefinitions.json).
 
 ## HTTP probes
 
@@ -69,7 +71,7 @@ TCP probes wait to establish a connection with the server to indicate success. T
 
 The following code listing shows how you can define health probes for your containers.
 
-The `...` placeholders denote omitted code. Refer to [Container Apps ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
+The `...` placeholders denote omitted code. Refer to [Container Apps ARM template API specification](azure-resource-manager-api-spec.md) for full ARM template details.
 
 # [ARM template](#tab/arm-template)
 
@@ -170,7 +172,7 @@ If ingress is enabled, the following default probes are automatically added to t
 | Liveness | Protocol: TCP<br>Port: ingress target port |
 | Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: 48 |
 
-If you're running your container app in [multiple revision mode](revisions.md#revision-modes), after you deploy a revision, wait until your readiness probes indicate success before you shift traffic to that revision. In single revision mode, traffic is shifted automatically once the readiness probe returns a successful state.
+If you're running your container app in [multiple revision mode](./revisions.md#revision-modes), after you deploy a revision, wait until your readiness probes indicate success before you shift traffic to that revision. In single revision mode, traffic is shifted automatically once the readiness probe returns a successful state.
 
 A revision state appears as unhealthy if any of its replicas fails its readiness probe check, even if all other replicas in the revision are healthy. Container Apps restarts the replica in question until it is healthy again or the failure threshold is exceeded. If the failure threshold is exceeded, try restarting the revision, but it might mean the revision is not configured correctly.
 

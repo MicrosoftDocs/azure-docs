@@ -1,11 +1,11 @@
 ---
 title: Reprotect Azure VMs to an Azure VMware Solution private cloud with Azure Site Recovery
 description: Learn how to reprotect Azure VMware Solution VMs after failover to Azure with Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.custom: MVC
 # Customer intent: As an IT administrator managing virtual machines, I want to reprotect Azure VMware Solution VMs after failover, so that I can ensure data consistency and maintain disaster recovery capabilities in my cloud environment.
 ---

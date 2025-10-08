@@ -8,7 +8,10 @@ ms.author: mbender
 ms.date: 09/04/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
-ms.custom: mvc, mode-ui
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 # Customer intent: "As a network engineer, I want to set up an application gateway that directs web traffic to backend virtual machines, so that I can manage traffic efficiently and ensure high availability for my web applications."
 ---
 
@@ -27,7 +30,7 @@ You can also complete this quickstart using [Azure PowerShell](quick-create-powe
 
 ## Prerequisites
 
-An Azure account with an active subscription is required. If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription is required. If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 

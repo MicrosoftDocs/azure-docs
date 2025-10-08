@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/19/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 # Configure and run a module on GPU on Azure Stack Edge Pro device
 

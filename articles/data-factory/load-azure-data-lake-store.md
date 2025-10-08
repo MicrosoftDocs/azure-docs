@@ -31,7 +31,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 ## Prerequisites
 
-* Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Data Lake Storage Gen1 account: If you don't have a Data Lake Storage Gen1 account, see the instructions in [Create a Data Lake Storage Gen1 account](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
 * Amazon S3: This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
 

@@ -19,7 +19,7 @@ Azure Data Manager for Agriculture supports a range of data ingress connectors t
 
 ## Prerequisites
 
-To use BYOL, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+To use BYOL, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 
 ## Overview

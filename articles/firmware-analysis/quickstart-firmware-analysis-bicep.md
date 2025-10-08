@@ -17,7 +17,7 @@ In this quickstart, you use Bicep to deploy a firmware analysis workspace so you
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - **Azure CLI**:  [Install](/cli/azure/install-azure-cli) Azure CLI and sign in with `az login`. If you use `az deployment group create`, use Azure CLI **2.6.0 or later**. Check with `az --version`.
 - **Azure PowerShell**: [Install](/powershell/azure/install-azure-powershell) and sign in with `Connect-AzAccount`.
