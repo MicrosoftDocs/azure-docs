@@ -80,7 +80,7 @@ Get the most value from your private connectivity investments by using included 
 
 ## Monitor and optimize over time
 
-Private connectivity needs evolve as your Azure footprint grows and compliance requirements change. Set up continuous monitoring and regular optimization cycles to maintain cost efficiency.
+As your Azure environment expands and regulatory requirements evolve, your private connectivity strategy must adapt accordingly. Set up continuous monitoring and regular optimization cycles to maintain cost efficiency.
 
 | Recommendation | Benefit |
 |---|---|
