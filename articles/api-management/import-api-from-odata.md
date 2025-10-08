@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 10/08/2025
 ms.author: danlep
 ---
 # Import an OData API

@@ -6,7 +6,7 @@ manager: gwallace
 ms.service: azure-api-management
 ms.topic: how-to
 ms.author: danlep
-ms.date: 05/22/2023
+ms.date: 10/08/2025
 ---
 
 # Deploy a self-hosted gateway to Kubernetes with YAML

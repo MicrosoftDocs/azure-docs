@@ -5,7 +5,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.author: danlep
-ms.date: 02/24/2022
+ms.date: 10/08/2025
 ---
 
 # Configure API for server-sent events
