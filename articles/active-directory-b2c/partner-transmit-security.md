@@ -20,7 +20,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's Detection and Response Services (DRS)](https://transmitsecurity.com/platform/detection-and-response). Transmit Security allows you to detect risk in customer interactions on digital channels, and to enable informed identity and trust decisions across the consumer experience.
+In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's Detection and Response Services (DRS)](https://transmitsecurity.com/core-services/fraud-prevention). Transmit Security allows you to detect risk in customer interactions on digital channels, and to enable informed identity and trust decisions across the consumer experience.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -56,7 +56,7 @@ The following architecture diagram illustrates the implementation described in t
 
 ## Prerequisites
 
-* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/)
+* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Entra subscription
 * [A registered web application](./tutorial-register-applications.md) in your Azure AD B2C tenant
 * [Azure AD B2C custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

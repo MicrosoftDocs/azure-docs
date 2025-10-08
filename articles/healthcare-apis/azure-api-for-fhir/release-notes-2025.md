@@ -19,6 +19,14 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## October 2025
+### FHIR service
+
+#### Bug fixes:
+
+**Reindex fix**: Previously, after adding and reindexing a new search parameter, a warning would sometimes be returned "Search Parameter not recognized". This issue got fixed by improving background refresh and synchronization.
+
+
 ## September 2025
 ### FHIR service
 

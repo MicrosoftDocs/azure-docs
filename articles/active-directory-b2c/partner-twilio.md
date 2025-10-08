@@ -28,7 +28,7 @@ In this walkthrough, learn how to integrate a sample online payment app in Azure
 
 To get started, you'll need:
 
-* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 * A [trial account](https://www.twilio.com/try-twilio) at Twilio.
 

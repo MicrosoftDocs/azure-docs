@@ -8,6 +8,7 @@ ms.author: nicholak
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
+ms.custom: sfi-image-nochange
 ---
 
 # Transfer Azure product billing ownership to a Microsoft Customer Agreement

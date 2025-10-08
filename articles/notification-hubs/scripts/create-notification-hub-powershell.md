@@ -24,7 +24,7 @@ This sample PowerShell script creates a sample Azure notification hub.
 
 ## Prerequisites
 
-* **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Sample script
 

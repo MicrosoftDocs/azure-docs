@@ -47,7 +47,7 @@ For enhanced reliability and high availability, we recommend migrating to an Az-
 > [!NOTE]
 > The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
 
-3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions.
+3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions. Do not navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
 4. **Commit**: Finalize the migration by deleting the original gateway and its connections. If you need to cancel the migration, first switch traffic back to the original gateway by selecting the radio button in the **Migrate** section, then click **Migrate**, and finally choose **Abort** to delete the new gateway and its connections.
 
 > [!IMPORTANT]
@@ -64,6 +64,7 @@ The guided gateway migration experience has the following limitations:
 - **Private Endpoint Connectivity**: Private endpoints (PEs) connected via ExpressRoute private peering may experience **connectivity issues** during migration. Refer to guidance on mitigating these issues in the Private endpoint connectivity documentation. [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 - **Legacy Gateways**: ExpressRoute gateways created or connected to circuits in **2017 or earlier** aren't supported.
 - **Unsupported SKUs**: Gateways using the **"default" SKU** aren't eligible for migration. To check the migration eligibility of your Gateway, there should be an Advisor notification.
+- **Incompatible dedicated circuit**: Gateway migration can't proceed with a dedicated Hardware Security Module (HSM) connected to the virtual network. To proceed with the migration, deallocate the dedicated Hardware Security Module (HSM). For detailed troubleshooting steps, see [Troubleshoot Dedicated HSM](/azure/dedicated-hsm/troubleshoot).
 
 For detailed troubleshooting errors and best practices, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
 
@@ -85,7 +86,7 @@ Migration may cause a few minutes of downtime. Plan to perform the migration dur
 
 ### How long can I wait before committing to the new gateway?
 
-You have up to 15 days to commit after migration preparation. Use this time to validate connectivity and ensure all requirements are met before finalizing the migration.
+There is no mandatory waiting period to do commit. However, if you need time to validate connectivity and ensure all requirements are met before finalizing the migration, then you have up to 15 days to commit after migration.
 
 ### How do I check if my gateway SKU is eligible for migration?
 
@@ -113,7 +114,7 @@ No changes at this stage; nothing to roll back​
 The process can be aborted after step 2 and the new gateway will be deleted.​
 
 3. Migrate – Transfer the configuration from the existing gateway to the new one.​
-If needed, the configuration can be reverted to the existing gateway after step 3.​
+If needed, the configuration can be reverted to the existing gateway after step 3.​ Do not navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
 
 4. Commit – Finalize the migration by decommissioning the old gateway and its connections. ​
 Once the change has been committed, it can no longer be rolled back.

@@ -30,7 +30,7 @@ To help ensure your function apps continue to receive support, follow the instru
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A function app that's hosted in one of the following Functions plans:
   - Premium
   - Dedicated
@@ -115,7 +115,9 @@ Python apps aren't supported on Windows. Go to the **Linux** tab instead.
 ### [Linux](#tab/linux/azure-portal)
 
 > [!NOTE]  
-> If you have a function app on Linux that's hosted in a [Premium plan](./functions-premium-plan.md) or a [Dedicated (App Service) plan](./dedicated-plan.md), you can use the Azure portal to update your function app. But if you have a function app on Linux that's hosted in a [Consumption plan](./consumption-plan.md), use the [Azure CLI](update-language-versions.md?tabs=azure-cli#update-the-stack-configuration).
+> If you have a function app on Linux that's hosted in a [Flex Consumption](./flex-consumption-plan.md), [Premium](./functions-premium-plan.md) or a [Dedicated (App Service)](./dedicated-plan.md) plan, you can use the Azure portal to update your function app. But if you have a function app on Linux that's hosted in a [Consumption plan](./consumption-plan.md), use the [Azure CLI](update-language-versions.md?tabs=azure-cli#update-the-stack-configuration). 
+>
+> The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
  
 [!INCLUDE [functions-update-language-version-portal](../../includes/functions-update-language-version-portal.md)]
 

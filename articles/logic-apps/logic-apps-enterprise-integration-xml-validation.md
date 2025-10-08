@@ -20,7 +20,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The logic app workflow, blank or existing, where you want to use the **XML Validation** action.
 

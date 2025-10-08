@@ -187,7 +187,7 @@ Here are some of examples of how some Azure services provide redundancy options:
 
 - [Azure App Service](/azure/reliability/reliability-app-service) enables you to run multiple instances of your application, to ensure that the application remains available even if one instance fails. If you enable zone redundancy, those instances are spread across multiple availability zones in the Azure region you use.
 - [Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance) provides high availability by automatically replicating data at least three times. You can distribute those replicas across availability zones by enabling zone-redundant storage (ZRS), and in many regions you can also replicate your storage data across regions by using geo-redundant storage (GRS).
-- [Azure SQL Database](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) has multiple replicas to ensure that the data remains available even if one replica fails.
+- [Azure SQL Database](/azure/reliability/reliability-sql-database) has multiple replicas to ensure that the data remains available even if one replica fails.
 
 To learn more about how redundancy works, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md). To learn about how to apply redundancy in your solution, see [Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy) and [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
   
@@ -313,7 +313,7 @@ When using backups as part of a disaster recovery plan it's important to take th
 Many Azure data and storage services support backups, such as the following:
 
 - [Azure Backup](/azure/reliability/reliability-backup) provides automated backups for virtual machine disks, storage accounts, AKS, and a variety of other sources.
-- Many Azure database services, including [Azure SQL Database](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) and [Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql), have an automated backup capability for your databases.
+- Many Azure database services, including [Azure SQL Database](./reliability-sql-database.md) and [Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql), have an automated backup capability for your databases.
 - [Azure Key Vault](./reliability-key-vault.md) provides features to back up your secrets, certificates, and keys.
 
 #### Automated deployments

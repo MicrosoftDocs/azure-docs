@@ -24,7 +24,7 @@ In this tutorial, you create a secure Container Apps environment and deploy your
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]

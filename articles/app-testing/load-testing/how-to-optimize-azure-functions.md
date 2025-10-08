@@ -23,7 +23,7 @@ The performance optimizer enables the following capabilities:
 - **Metrics**: Right-sizing based on performance metrics to optimize costs.
 
 ## Prerequisites
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * A function app in the Flex Consumption plan with at least one function with an HTTP trigger. If you need to create a function app, see [Create and manage function apps in the Flex Consumption plan](/azure/azure-functions/flex-consumption-how-to).
 

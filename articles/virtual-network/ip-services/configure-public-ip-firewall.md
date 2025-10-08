@@ -22,7 +22,7 @@ Azure Firewall supports Standard SKU public IP addresses. Basic SKU public IP ad
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Three Standard SKU public IP addresses that aren't associated with any resources. For more information on creating a Standard SKU public IP address, see [Quickstart: Create a public IP address by using the Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, create three new public IP addresses: **myStandardPublicIP-1**, **myStandardPublicIP-2**, and **myStandardPublicIP-3**.
 

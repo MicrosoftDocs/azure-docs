@@ -6,9 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 09/23/2025
 
-#CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy virtual network flow logs.
 # Customer intent: As an Azure administrator, I want to use built-in Azure Policy to audit and deploy virtual network flow logs, so that I can ensure compliance and enhance visibility into network traffic within my virtual networks.
 ---
 
@@ -20,7 +19,7 @@ In this article, you learn how to use two built-in policies to manage your setup
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A virtual network. If you need to create a virtual network, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md?toc=/azure/network-watcher/toc.json).
 

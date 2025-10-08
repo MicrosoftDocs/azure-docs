@@ -4,7 +4,12 @@ description: A quickstart that shows you how to create a .NET Core application t
 ms.topic: quickstart
 ms.date: 03/24/2025
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - mode-api
+  - passwordless-dotnet
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 #customer intent: As a .NET developer, I want to learn how to send events to an event hub and receive events from the event hub using C#. 
 ---
 
@@ -19,7 +24,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 
 To complete this quickstart, you need the following prerequisites:
 
-- **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Microsoft Visual Studio 2022**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0. You can still use the library with  previous C# language versions, but the new syntax isn't available. To make use of the full syntax, we recommend that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2022, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. Then, obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, see [Quickstart: Create an event hub using Azure portal](event-hubs-create.md).
 

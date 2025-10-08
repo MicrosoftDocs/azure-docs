@@ -1,10 +1,10 @@
 ---
-title: Self-host the API Management developer portal
+title: Self-Host the API Management Developer Portal
 titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 03/29/2024
+ms.date: 10/03/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
@@ -17,14 +17,14 @@ This tutorial describes how to self-host the [API Management developer portal](a
 
 > [!IMPORTANT]
 > Consider self-hosting the developer portal only when you need to modify the core of the developer portal's codebase. This option requires advanced configuration, including:
-> * Deployment to a hosting platform, optionally fronted by a solution such as CDN for increased availability and performance
-> * Maintaining and managing hosting infrastructure
-> * Manual updates, including for security patches, which may require you to resolve code conflicts when upgrading the codebase
+> - Deployment to a hosting platform, optionally fronted by a solution such as a Content delivery network (CDN) for increased availability and performance.
+> - Maintaining and managing hosting infrastructure.
+> - Manual updates, including for security patches, which might require you to resolve code conflicts when upgrading the codebase.
 
 > [!NOTE]
-> The self-hosted portal does not support visibility and access controls that are available in the managed developer portal.
+> The self-hosted portal doesn't support visibility and access controls that are available in the managed developer portal.
 
-If you have already uploaded or modified media files in the managed portal, see [Move from managed to self-hosted](#move-from-managed-to-self-hosted-developer-portal), later in this article.
+If you already uploaded or modified media files in the managed portal, see [Move from managed to self-hosted](#move-from-managed-to-self-hosted-developer-portal), later in this article.
 
 ## Prerequisites
 
@@ -33,12 +33,12 @@ To set up a local development environment, you need to have:
 - An API Management service instance. If you don't have one, see [Quickstart - Create an Azure API Management instance](get-started-create-service-instance.md).
 - An Azure storage account with [the static websites feature](../storage/blobs/storage-blob-static-website.md) enabled. See [Create a storage account](../storage/common/storage-account-create.md).
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-- Node.js (LTS version, `v10.15.0` or later) and npm on your machine. See [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+- Node.js (Long Term Support (LTS) version, `v10.15.0` or later) and npm on your machine. See [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 - Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli).
 
 ## Step 1: Set up local environment
 
-To set up your local environment, you'll have to clone the repository, switch to the latest release of the developer portal, and install npm packages.
+To set up your local environment, you have to clone the repository, switch to the latest release of the developer portal, and install npm packages.
 
 1. Clone the [api-management-developer-portal](https://github.com/Azure/api-management-developer-portal.git) repo from GitHub:
 
@@ -208,16 +208,16 @@ Configure the Cross-Origin Resource Sharing (CORS) settings for the storage acco
 
 Configure CORS settings for the developer portal backend to allow requests originating through your self-hosted developer portal. The self-hosted developer portal relies on the developer portal's backend endpoint (set in `backendUrl` in the portal configuration files) to enable several features, including: 
 
-* CAPTCHA verification
-* [OAuth 2.0 authorization](api-management-howto-oauth2.md) in the test console
-* [Delegation](api-management-howto-setup-delegation.md) of user authentication and product subscription 
+- CAPTCHA verification
+- [OAuth 2.0 authorization](api-management-howto-oauth2.md) in the test console
+- [Delegation](api-management-howto-setup-delegation.md) of user authentication and product subscription 
 
 To add CORS settings:
 
 1. Go to your API Management instance in the Azure portal, and select **Developer portal** > **Portal settings** from the menu on the left.
 1. On the **Self-hosted portal configuration** tab, add one or more **Origin** domain values. For example:
-    * The domain where the self-hosted portal is hosted, such as `https://www.contoso.com` 
-    * `localhost` for local development (if applicable), such as `http://localhost:8080` or `https://localhost:8080` 
+    - The domain where the self-hosted portal is hosted, such as `https://www.contoso.com` 
+    - `localhost` for local development (if applicable), such as `http://localhost:8080` or `https://localhost:8080` 
 1. Select **Save**.
 
 ## Step 3: Run the portal
@@ -230,7 +230,7 @@ Run the following command:
 npm start
 ```
 
-After a short time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. Any changes to the codebase of the project triggers a rebuild and refresh your browser window.
+After a short time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. When you make changes to the codebase of the project, it triggers a rebuild and refreshes your browser window.
 
 ## Step 4: Edit through the visual editor
 
@@ -274,7 +274,7 @@ Your website is now live under the hostname specified in your Azure Storage prop
 
 ## Step 8: Change API Management notification templates
 
-Replace the developer portal URL in the API Management notification templates to point to your self-hosted portal. See [How to configure notifications and email templates in Azure API Management](api-management-howto-configure-notifications.md).
+Replace the developer portal URL in the API Management notification templates so that it points to your self-hosted portal. See [How to configure notifications and email templates in Azure API Management](api-management-howto-configure-notifications.md).
 
 In particular, carry out the following changes to the default templates:
 
@@ -432,13 +432,13 @@ Update the developer portal URL in any template that has a link in the footer:
 
 ## Move from managed to self-hosted developer portal
 
-Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement may force you to build a custom widget that integrates with a third-party data provider. Unlike the managed version, the self-hosted version of the portal offers you full flexibility and extensibility.
+Over time, your business requirements might change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement might force you to build a custom widget that integrates with a third-party data provider. Unlike the managed version, the self-hosted version of the portal offers you full flexibility and extensibility.
 
 ### Transition process
 
-You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you've carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
+You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
 
-The conversion process is almost identical to setting up a generic self-hosted portal, as shown in previous steps in this article. There is one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
+The conversion process is almost identical to setting up a generic self-hosted portal, as shown in previous steps in this article. There's one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux virtual machine (VM) system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
 
 > [!TIP]
 > We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.

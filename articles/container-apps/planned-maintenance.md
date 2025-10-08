@@ -29,6 +29,9 @@ Planned maintenance capabilities are available via the Azure portal and Azure CL
 
 To change your planned maintenance settings in the portal, open your Container Apps environment. From the side menu, open *Settings* and then select **Planned Maintenance**.
 
+> [!NOTE]
+> There is separate billing for planned maintenance which appears as a **Dedicated Plan Management** charge.
+
 ## How maintenance windows work
 
 To control the timing for noncritical updates, you can define a weekly time range for when updates are applied to your environment. When you define a maintenance window, you specify a day of the week, a start time in the UTC format, and a duration.
@@ -126,6 +129,16 @@ Use the following steps to review the maintenance history in the Azure portal.
 In the *Diagnose and solve problems* window, you can view the configured maintenance window and upgrade events that occurred in the last month. As you hover your mouse over the bars in the chart, you can see the start time for each upgrade event.
 
 :::image type="content" source="media/planned-maintenance/azure-container-apps-planned-maintenance-upgrade-events.png" alt-text="Screenshot of an Azure Container Apps planned maintenance event history graph." lightbox="media/planned-maintenance/azure-container-apps-planned-maintenance-upgrade-events.png":::
+
+## Billing for Planned Maintenance
+
+Planned Maintenance is a paid feature. When you enable a planned maintenance configuration, usage is billed through the [Dedicated plan's](./billing.md#dedicated-plan) **Management (hour) meter**.
+
+This meter also applies to other premium features like private endpoint. If multiple features are enabled in the same environment, charges are **additive**, each feature is billed separately.
+
+
+For pricing details in your account's currency, see [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/).
+
 
 ## Next steps
 

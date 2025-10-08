@@ -8,7 +8,12 @@ services: iot-hub
 ms.author: sonialopez
 ms.topic: conceptual
 ms.date: 03/28/2025
-ms.custom: ["Role: Cloud Development", "Role: IoT Device", "Role: System Architecture", devx-track-azurecli]
+ms.custom:
+  - "Role: Cloud Development"
+  - "Role: IoT Device"
+  - "Role: System Architecture"
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Control access to IoT Hub by using Microsoft Entra ID

@@ -52,7 +52,7 @@ With deployment slots, you can achieve continuous delivery and improve your appl
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - To work in Visual Studio Code with the Azure Logic Apps (Standard) extension, you'll need to meet the prerequisites described in [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites). You'll also need a Standard logic app project that you want to publish to Azure.
 

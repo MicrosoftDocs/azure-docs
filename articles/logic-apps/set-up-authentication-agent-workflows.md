@@ -314,7 +314,7 @@ The following table describes common problems you might encounter when you set u
 | Problem or error | Likely cause | Action |
 |------------------|--------------|--------|
 | **401** with **`invalid_token`** + **`error_description`** that references the audience | A mismatch exists between the access token audience and the specified allowed token audiences. | Make sure that the access token audience and the allowed token audience match. |
-| **403 Forbidden** | - Might indicate that the workflow or agent for the request wasn't found. | Check the actions in your workflow for an authorization problem. |
+| **403 Forbidden** | Might indicate that the workflow or agent for the request wasn't found. | Check the actions in your workflow for an authorization problem. |
 
 ## Use an identity in workflow
 

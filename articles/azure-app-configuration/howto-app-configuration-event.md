@@ -20,7 +20,7 @@ In this article, you learn how to set up Azure App Configuration event subscript
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/). You can optionally use the Azure Cloud Shell.
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). You can optionally use the Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 

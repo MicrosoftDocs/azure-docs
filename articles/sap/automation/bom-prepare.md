@@ -34,7 +34,7 @@ If you want to generate a BOM that includes permalinks, [follow the steps for cr
 - Downloads of necessary stack files to the folder you created for [acquiring SAP media](bom-get-files.md#acquire-media). For more information, see the [basic BOM preparation how-to guide](bom-prepare.md).
 - A copy of your [SAP Download Basket manifest](bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](bom-get-files.md#acquire-media).
     - An installation of the [Postman utility](https://www.postman.com/downloads/).
-- An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An SAP account with permissions to work with the database you want to use.
 - A system that runs Linux-type commands for [validating the BOM](#validate-bom). Install the commands `yamllint` and `ansible-lint` on the system.
 

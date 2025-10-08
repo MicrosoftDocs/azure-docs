@@ -4,8 +4,8 @@ description: This article describes how to migrate on-premises Windows Server 20
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/30/2022
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.custom:
   - MVC
   - engagement-fy23

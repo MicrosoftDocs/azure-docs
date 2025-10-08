@@ -1,10 +1,10 @@
 ---
 title: Clusters and Node Concepts
 description: Learn about Azure CycleCloud clusters, nodes, node arrays, and cluster templates. Prepare, configure, and orchestrate nodes.
-author: adriankjohnson
-ms.date: 06/20/2023
+author: dougclayton
+ms.author: doclayto
+ms.date: 09/23/2025
 ms.update-cycle: 3650-days
-ms.author: adjohnso
 ms.topic: conceptual
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
@@ -38,13 +38,14 @@ CycleCloud provisions VMs from base VM images defined in the cluster template. T
 
 ![Node Preparation Diagram](../images/concept-node-prep-diagram.png)
 
-In the configuration section of each node, you define *cluster-init specs*. Booting VMs use these specifications to prepare for a specific role in the cluster. CycleCloud uses [Chef](https://www.chef.io) as the infrastructure automation platform for preparing and configuring each node. Each *cluster-init spec* maps to one or more [Chef Roles](https://docs.chef.io/roles.html) and/or [Cookbook Recipes](https://docs.chef.io/recipes.html) that need to be executed on the booting VM. 
+You can control how nodes are customized on boot by creating a custom *cluster-init project*. A project contains the scripts and other files needed to customize a node, separated into *specs* for the different kinds of roles in a cluster. For example, a project for a batch scheduler such as Slurm comprises a minimum of three specs: one for the scheduler head nodes, one for the compute nodes, and another for the login nodes. [Read more about the CycleCloud projects](~/articles/cyclecloud/how-to/projects.md).
 
-CycleCloud uses Chef in a stand-alone mode that doesn't rely on a centralized Chef server. Instead, the entire set of Chef Cookbooks needed to prepare each VM are downloaded from an Azure Storage Account belonging to the user during the VM bootup phase. This set of Cookbooks are cached from the CycleCloud application server into the Storage Account during the cluster creation phase.
+In the node definition, you reference the specs that should run on that node. Jetpack uses these specs on boot to prepare a node for its role in the cluster. The spec files come from the user's Blob Storage Account, and are staged from the CycleCloud application server into the storage account before nodes are started.
 
-After you download these cookbooks, Chef processes the list of recipes defined in the node's *cluster-init specs*. It triggers a preparation and configuration phase that converts the VM into a working HPC node.
+> [!NOTE]
+> The specs for built-in templates (such as the Slurm cluster type) are stored in GitHub. CycleCloud automatically downloads them to the user's storage account when the node starts.
 
-You author specs as logical collections called *projects*. For example, a project for a batch scheduler such as Slurm comprises a minimum of two specs: one for the scheduler head nodes and the other for the compute nodes. [Read more about the CycleCloud projects](~/articles/cyclecloud/how-to/projects.md).
+When a node boots, Jetpack downloads the specs defined on the node with the `[[[cluster-init]]]` section and processes them in order to *converge* the node to a working state (for instance, to be a compute node).
 
 ## Node orchestration
 
@@ -52,13 +53,14 @@ Depending on the scheduler and services used in a cluster, CycleCloud sometimes 
 
 CycleCloud uses this element of [Service Discovery](https://en.wikipedia.org/wiki/Service_discovery) for file system server-client relationships.
 
+
 ## More information
 
-* Create a [Cluster Template](~/articles/cyclecloud/how-to/cluster-templates.md)
-* [Start a Cluster](~/articles/cyclecloud/how-to/start-cluster.md)
-* [Auto Scaling](~/articles/cyclecloud/how-to/configure-autoscaling.md)
-* [Terminate a Cluster](~/articles/cyclecloud/how-to/terminate-cluster.md)
-* [Node Configuration Reference](~/articles/cyclecloud/cluster-references/configuration-reference.md)
+* Create a [Cluster Template](../how-to/cluster-templates.md)
+* [Start a Cluster](../how-to/start-cluster.md)
+* [Auto Scaling](../how-to/configure-autoscaling.md)
+* [Terminate a Cluster](../how-to/terminate-cluster.md)
+* [Node Configuration Reference](../cluster-references/configuration-reference.md)
 
 > [!div class="nextstepaction"]
 > [Continue to Scheduling Concepts](./scheduling.md)

@@ -29,11 +29,11 @@ VMware Tanzu Build Service automates container creation, management, and governa
 
 VMware Tanzu Buildpacks provide framework and runtime support for applications. Buildpacks typically examine your applications to determine what dependencies to download and how to configure applications to communicate with bound services.
 
-The [language family buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html) are [composite buildpacks](https://paketo.io/docs/concepts/buildpacks/#composite-buildpacks) that provide easy out-of-the-box support for the most popular language runtimes and app configurations. These buildpacks combine multiple component buildpacks into ordered groupings. The groupings satisfy each buildpack's requirements.
+The [language family buildpacks](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-buildpacks/services/buildpacks/index.html) are [composite buildpacks](https://paketo.io/docs/concepts/buildpacks/#composite-buildpacks) that provide easy out-of-the-box support for the most popular language runtimes and app configurations. These buildpacks combine multiple component buildpacks into ordered groupings. The groupings satisfy each buildpack's requirements.
 
 ## Builders
 
-A [Builder](https://docs.vmware.com/en/Tanzu-Build-Service/1.6/vmware-tanzu-build-service/GUID-index.html#builder) is a Tanzu Build Service resource. A Builder contains a set of buildpacks and a [stack](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html) used in the process of building source code.
+A [Builder](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-buildpacks/services/buildpacks/index.html) is a Tanzu Build Service resource. A Builder contains a set of buildpacks and a [stack](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-buildpacks/services/buildpacks/stacks.html) used in the process of building source code.
 
 ## Build agent pool
 

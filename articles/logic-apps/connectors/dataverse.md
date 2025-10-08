@@ -38,7 +38,7 @@ For technical information based on the connector's Swagger description, such as 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is where your organization stores, manages, and shares business data in a Dataverse database. For more information, see the following resources:
 

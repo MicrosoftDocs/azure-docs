@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, divswa, karansin, krmitta, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.date: 10/03/2025
+ms.date: 10/08/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to learn about the benefits and support that Azure Logic Apps provides to build flexible, adaptable, and responsive workflows that complete tasks using AI agents, models, and other AI capabilities for my integration and automation scenarios.
 ---
@@ -99,7 +99,7 @@ The following screenshot shows the integrated chat interface that you can access
 
 :::image type="content" source="media/agents-workflows-concepts/conversational-agent-chat.png" alt-text="Screenshot shows Azure portal and workflow integrated chat interface." lightbox="media/agents-workflows-concepts/conversational-agent-chat.png":::
 
-Conversational agent workflows also support a chat interface client outside the Azure portal that others can use. To provide and secure access for this external chat client, you need to set up [Easy Auth on your logic app to authenticate and authorize users](#authentication-and-authorization).
+Conversational agent workflows also support a chat client outside the Azure portal that others can use. To provide and secure access for this external chat client, you need to set up [Easy Auth on your logic app to authenticate and authorize users](#authentication-and-authorization).
 
 ## Agent versus nonagent workflows
 
@@ -198,9 +198,9 @@ To support an internal facilities team, a work order agent performs the followin
 
 ## Authentication and authorization
 
-Nonagent workflows usually interact with a small, known, and predictable set of callers. However, agent workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect your workflows.
+Nonagent workflows usually interact with a small, known, and predictable set of callers. However, agent workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect your agent workflows, specifically conversational agent workflows because they provide an external chat client to interact with people.
 
-For nonproduction activities, the Azure portal uses a [*developer key*](#developer-key) for authentication and authorization. When you're ready to run agent workflows in production, make sure to set up [Easy Auth](#easy-auth), also known as App Service Authentication, to protect your workflows. Conversational agent workflows also provide a chat client outside the Azure portal that others can use after you set up Easy Auth.
+For nonproduction activities, the Azure portal uses a [*developer key*](#developer-key) for authentication and authorization. When you're ready to run conversational agent workflows in production, make sure to set up [Easy Auth](#easy-auth), also known as App Service Authentication For conversational agent workflows, this protection enables an external chat client outside the Azure portal that others can use after you finish Easy Auth.
 
 The following sections describe and compare options for authenticating callers and authorizing their access to agent workflows.
 

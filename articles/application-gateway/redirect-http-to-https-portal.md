@@ -7,7 +7,9 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 05/19/2023
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
 # Customer intent: "As a cloud architect, I want to configure an application gateway for HTTP to HTTPS redirection, so that I can ensure secure communication for users accessing my web applications."
 ---
@@ -23,7 +25,7 @@ In this article, you learn how to:
 * Add a listener and redirection rule
 * Create a virtual machine scale set with the default backend pool
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

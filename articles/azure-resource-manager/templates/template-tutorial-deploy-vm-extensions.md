@@ -3,7 +3,9 @@ title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates (ARM templates).
 ms.date: 06/20/2024
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates
@@ -18,7 +20,7 @@ This tutorial covers the following tasks:
 > * Edit the template
 > * Deploy the template
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

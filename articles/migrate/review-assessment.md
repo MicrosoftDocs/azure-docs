@@ -5,8 +5,9 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
+ms.reviewer: v-uhabiba
 ms.date: 04/17/2025
-monikerRange: migrate
+monikerRange:
 # Customer intent: "As a cloud architect, I want to review the assessment of on-premises VMs for Azure migration, so that I can ensure readiness, optimize sizing, and estimate costs effectively before proceeding with migration."
 ---
 
@@ -74,9 +75,13 @@ If you don't want to use the performance data, reset the sizing criteria to as-i
 
 For storage sizing in an Azure VM assessment, Azure Migrate tries to map each disk that is attached to the server to an Azure disk. Sizing works as follows: 
 
-1. The assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. For import-based assessments, you can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU. 
+1. The assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. For import-based assessments, you can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
+   
+2. The disk size for the target disks are identified based on the actual utilization of storage allocated the to the server on-premises. In case the machine has only one disk, the assessment provides two probable disk targets. One target disk  is of the size of allocated disk and the other is of the size calculated based on actual utilization. In case there are multiple disks attached to the server on-premises and the utilization is not available for each disk the recommended disk is identified by using total utilization at VM level and considering normal distribution across all the disks. For ease of migration three probables are provided sized at allocated size, at 50% of allocated size and at 25% of allocated size and you can choose the correct disk based on exact utilization. Migration using Azure Migrate server migration tool supports migration only to disks that of size equal to or greater than on-premises disks 
+> [!Note]
+> Migration using Azure Migrate server migration tool supports migration only to disks that are of size equal to or greater than on-premises disks. To migrate to the disk of recommended size that is smaller than the allocated disk, migration has to be done in two steps. First migrate to the disk equal to allocated size disk (target disk always available in the list of probables). Create a disk of recommended size, use _azcopy_ or _robocopy_ to move the data. Deallocate the disk and connect the new disk to Azure VM. 
 
-2. Disks are selected as follows: 
+3. Disks are selected as follows: 
    - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure. 
    - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings. 
    - If there are multiple eligible disks, assessment selects the disk with the lowest cost. 
