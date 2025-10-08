@@ -29,7 +29,7 @@ The current limitations of using the Native Calling SDK and [Push Notifications]
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A deployed Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 * A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../quickstarts/identity/access-tokens.md)
 * [The Azure Event Grid topic](../../event-grid/custom-event-quickstart-portal.md): Create an Azure Event Grid topic in your Azure subscription, it's used to send events when incoming calls occur.
