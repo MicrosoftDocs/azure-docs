@@ -84,5 +84,5 @@ You can create more than one **Microsoft Security** analytics rule per **Microso
 
 ## Next steps
 
-- To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
+- To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md), and [get visibility into your data and potential threats](get-visibility.md).

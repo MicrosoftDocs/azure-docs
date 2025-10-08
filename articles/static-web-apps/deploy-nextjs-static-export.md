@@ -16,7 +16,7 @@ In this tutorial, learn to deploy a [Next.js](https://nextjs.org) generated stat
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. [Create an account for free](https://github.com/join).
 - [Node.js](https://nodejs.org) installed.
 

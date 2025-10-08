@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A Traffic Manager profile. To learn more see, [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 
 ## Configure the weighted traffic routing method

@@ -29,7 +29,7 @@ In this tutorial, you perform the following tasks:
 
 ## Prerequisites
 
-* You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * You must have completed [Tutorial: Send device data to Azure Storage using IoT Hub message routing](tutorial-routing.md) and maintained the resources you created for it.
 

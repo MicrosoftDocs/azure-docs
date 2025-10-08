@@ -29,7 +29,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * A Standard logic app workflow that already starts with a trigger so that you can add the **Compose XML with schema** action to your workflow.
 
