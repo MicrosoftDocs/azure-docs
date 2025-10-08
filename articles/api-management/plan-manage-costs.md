@@ -48,7 +48,7 @@ For additional pricing and feature details, see:
 
 ### Using monetary credit with API Management
 
-You can pay for API Management charges with your Azure Prepayment (previously called monetary commitment). However, you can't use Azure Prepayment credit to pay for charges for third-party products and services, including those from the Azure Marketplace.
+You can pay for API Management charges with your Azure Prepayment (previously called monetary commitment). However, you can't use Azure Prepayment credit to pay for charges for third-party products and services, including those from Azure Marketplace.
 
 ## Understand the full billing model
 
@@ -63,7 +63,7 @@ When you create or use Azure resources with API Management, you're charged based
 
 | Tiers | Description |
 | ----- | ----------- |
-| Consumption | Incurs no fixed costs. You are billed based on the number of API requests to the service above a certain threshold. |
+| Consumption | Incurs no fixed costs. You're billed based on the number of API requests to the service above a certain threshold. |
 | Developer, Basic, Standard, Premium | Incur monthly costs, based on the number of [units](./api-management-capacity.md), [workspaces](workspaces-overview.md), and [self-hosted gateways](./self-hosted-gateway-overview.md). Self-hosted gateways are free in the Developer tier.  |
 | Basic v2, Standard v2, Premium v2 | Incur monthly costs, based on the number of [units](./api-management-capacity.md). Above a certain threshold of API requests, additional requests are billed.  |
 
@@ -121,7 +121,7 @@ As you add or remove units, capacity and cost scale proportionally. For example,
 
 ## Related content
 
-- [Optimize your cloud investment by using Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- [Optimize your cloud investment by using Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs by using [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about [preventing unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)  course.
