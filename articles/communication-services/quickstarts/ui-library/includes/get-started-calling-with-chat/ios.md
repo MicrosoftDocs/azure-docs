@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 ## Prerequisites
 
-- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532) 13 or later, and a valid developer certificate installed in your keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
 - A deployed [Azure Communication Services resource](../../../create-communication-resource.md).
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md).

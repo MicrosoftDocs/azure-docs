@@ -19,7 +19,7 @@ Learn how to manage Azure HDInsight clusters by using the [HDInsight.NET SDK](/d
 
 Before you begin this article, you must have:
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Connect to Azure HDInsight
 

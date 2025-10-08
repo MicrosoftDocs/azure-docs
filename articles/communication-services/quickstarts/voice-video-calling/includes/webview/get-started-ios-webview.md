@@ -17,7 +17,7 @@ If you want to develop an Azure Communication Services calling application on iO
 ## Prerequisites
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [XCode](https://developer.apple.com/xcode/), for creating your iOS application.
 - A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../../../samples/web-calling-sample.md).
 

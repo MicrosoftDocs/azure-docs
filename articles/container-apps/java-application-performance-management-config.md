@@ -29,7 +29,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
+- An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An instance of [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 - An instance of Azure Container Registry or another container image registry.
 - [Docker](https://www.docker.com/), to build an image.

@@ -19,7 +19,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service [.NET 9 app](quickstart-dotnetcore.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
@@ -117,7 +117,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service [Python app](quickstart-python.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
@@ -175,7 +175,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service [Node app](quickstart-nodejs.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
@@ -242,7 +242,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service [Java app](quickstart-java.md).
 - [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
@@ -327,7 +327,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service PHP app on Linux.  In this quickstart, a [PHP app](quickstart-php.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
