@@ -42,7 +42,7 @@ These actions included in this tutorial allow you to:
 2. Select the **Create a resource** button found on the upper left corner of Azure.
 3. Select **Management Tools** > **Automation**.
    > [!NOTE]
-   > If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/free/).
+   > If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 4. Enter your account information. For **Create Azure Run As account**, choose **Yes** to automatically enable the settings needed to simplify authentication to Azure.
 5. When complete, select **Create**, to start the Automation account deployment.
 
