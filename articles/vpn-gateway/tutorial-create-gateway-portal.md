@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-You need an Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+You need an Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## <a name="CreateVNet"></a>Create a virtual network
 

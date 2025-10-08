@@ -20,7 +20,7 @@ In this article, we provide a sample PowerShell script that demonstrates how to 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-7.4.0&preserve-view=true) installed locally or use [Azure Cloud Shell](/azure/cloud-shell/overview).
 - A virtual network manager instance with an IPAM pool created. For more information, see [Create a virtual network manager](./create-virtual-network-manager-powershell.md) and [Create an IPAM pool](./how-to-manage-ip-addresses-network-manager.md).
 - An existing resource group where you want to create the VNets. It's recommended to use the same resource group as the virtual network manager instance for better organization and management.
