@@ -28,10 +28,6 @@ To learn about how to create multi-region solutions by using Azure API Managemen
 
 To learn about how to create multi-region solutions by using Azure App Service, see [Reliability in App Service](./reliability-app-service.md).
 
-## Azure Blob Storage
-
-To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
-
 ## Azure Cache for Redis
 
 Azure Cache for Redis provides two distinct cross-region replication options: [active geo-replication](/azure/azure-cache-for-redis/cache-how-to-active-geo-replication) and [passive geo-replication](/azure/azure-cache-for-redis/cache-how-to-geo-replication). Neither option explicitly depends on region pairs.
@@ -65,10 +61,6 @@ To learn about how to create multi-region solutions by using Azure Data Factory,
 
 For geo-replication of Azure Event Grid topics in nonpaired regions, you can implement [client-side failover](/azure/event-grid/custom-disaster-recovery-client-side).
 
-## Azure Files
-
-To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
-
 ## Azure IoT Hub 
 
 To learn about how to create multi-region solutions by using Azure IoT Hub, see [Reliability in IoT Hub](./reliability-iot-hub.md).
@@ -82,10 +74,6 @@ To learn about how to create multi-region solutions by using Azure Kubernetes Se
 Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication.
 
 For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication).
-
-## Azure Queue Storage
-
-To learn about how to create multi-region solutions by using Azure Queue Storage, see [Reliability in Queue Storage](./reliability-storage-queue.md).
 
 ## Azure Service Bus 
 
@@ -116,10 +104,6 @@ To achieve geo-replication in nonpaired regions:
 - **For Queue Storage:** To learn about how to create multi-region solutions by using Azure Queue Storage, see [Reliability in Queue Storage](./reliability-storage-queue.md).
 
 - **For Azure Table Storage:** To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
-
-## Azure Table Storage
-
-To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
 
 ## Azure Virtual Desktop
 
