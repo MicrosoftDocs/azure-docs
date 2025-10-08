@@ -75,7 +75,7 @@ The **RosettaNet** connector has no triggers. The following table describes the 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The Consumption logic app resource and workflow where you want to use the RosettaNet operations.
 
