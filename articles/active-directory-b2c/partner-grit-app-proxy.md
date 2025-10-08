@@ -34,7 +34,7 @@ To get started, you'll need:
 
 - License to Grit’s app proxy. Contact [Grit support](mailto:info@gritsoftwaresystems.com) for license details. For this tutorial, you don't need a license.
 
-- An Azure subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have one, get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 

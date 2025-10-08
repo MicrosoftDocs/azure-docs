@@ -238,7 +238,7 @@
       href: api-management-sample-cache-by-key.md
 - name: API management for AI
   items:
-  - name: AI gateway capabilities in API Management
+  - name: AI gateway capabilities
     href: genai-gateway-capabilities.md
   - name: Manage LLM APIs
     items:

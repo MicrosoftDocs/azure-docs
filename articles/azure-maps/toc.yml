@@ -42,8 +42,6 @@ items:
     href: geographic-scope.md
   - name: Consent management
     href: consent-management.md
-  - name: Encryption of data at rest
-    href: ../security/fundamentals/encryption-atrest.md
   - name: Azure Services that support managed identities
     href: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
   - name: Coverage

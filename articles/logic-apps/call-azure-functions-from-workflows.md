@@ -33,7 +33,7 @@ This how-to guide shows how to call an existing Azure function from your Consump
 
 ## Prerequisites
 
-- Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Azure function app resource](../azure-functions/functions-get-started.md), which contains one or more Azure functions.
 

@@ -23,7 +23,7 @@ This article shows you how to create a managed identity for Azure SignalR Servic
 
 To use a managed identity, you must have the following items:
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Azure SignalR Service resource.
 - Upstream resources that you want to access, such as an Azure Key Vault resource.
 - An Azure Functions app (function app).

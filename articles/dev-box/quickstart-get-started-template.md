@@ -26,7 +26,7 @@ This article explains how to use the *Get Started* template to set up Microsoft 
 ## Prerequisites
 | Requirement | Details |
 |-------------|---------|
-| **Azure subscription** | If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/). |
+| **Azure subscription** | If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | **Role** | Owner or Contributor role on an Azure subscription or resource group. |
 | **Microsoft Entra ID** | Your organization must use Microsoft Entra ID for identity and access management. |
 | **Microsoft Intune** | Your organization must use Microsoft Intune for device management. |

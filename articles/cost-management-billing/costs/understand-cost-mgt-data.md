@@ -72,7 +72,7 @@ The following offers aren't supported:
 
 ### Free trial to pay-as-you-go upgrade
 
-For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
+For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### View billing account
 

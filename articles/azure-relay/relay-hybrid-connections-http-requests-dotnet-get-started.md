@@ -25,7 +25,7 @@ In this quickstart, you take the following steps:
 To complete this tutorial, you need the following prerequisites:
 
 * [Visual Studio 2019 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2022.
-* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a namespace
 [!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]

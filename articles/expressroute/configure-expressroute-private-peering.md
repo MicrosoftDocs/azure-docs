@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Review the [ExpressRoute prerequisites](expressroute-prerequisites.md) and [workflow](expressroute-workflows.md) before you begin.
 
 ## Create and provision an ExpressRoute circuit

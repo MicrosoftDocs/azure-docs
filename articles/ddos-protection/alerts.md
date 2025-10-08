@@ -21,7 +21,7 @@ DDoS Protection metrics alerts are an important step in alerting your team throu
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 - Azure DDoS Protection monitors public IP addresses assigned to resources within a virtual network. If your virtual network doesn't have any resources with public IP addresses, you need to create one first.   
 

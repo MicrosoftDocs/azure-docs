@@ -335,8 +335,8 @@ These resources include Customer Engagement Initiatives (CEI), public BETAs, and
 
 You can use the following free developer accounts to explore integration scenarios for Azure and SAP.
 
-- [Free trial of Azure](https://azure.microsoft.com/free/)
-- [Free trial of Azure for students](https://azure.microsoft.com/free/students/)
+- [Free trial of Azure](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- [Free trial of Azure for students](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Free account on SAP BTP trial](https://developers.sap.com/tutorials/hcp-create-trial-account.html). Select Singapore for Azure.
 - [GitHub account](https://github.com/), which you can use to host your projects.
 - [Microsoft 365 developer program account](https://developer.microsoft.com/microsoft-365/dev-program)

@@ -28,7 +28,7 @@ Learn more: Go to [Zscaler](https://www.zscaler.com/products/zscaler-private-acc
 Before you begin, you’ll need:
 
 - An Azure subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A ZPA subscription
   - Go to [Azure Marketplace, Zscaler Private Access](https://azuremarketplace.microsoft.com/marketplace/apps/aad.zscalerprivateaccess?tab=Overview)

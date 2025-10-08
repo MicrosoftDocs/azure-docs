@@ -29,7 +29,7 @@ If you don't want to create your YAML file by hand, select a different method at
 
 ## Prerequisites
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 + A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
@@ -277,7 +277,7 @@ Python functions aren't supported on Windows. Choose Linux instead.
 
 ## Azure Functions action
 
-The Azure Functions action (`Azure/azure-functions`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
+The Azure Functions action (`Azure/functions-action`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
 
 ### Parameters
 

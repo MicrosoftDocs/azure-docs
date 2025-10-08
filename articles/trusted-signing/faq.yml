@@ -71,6 +71,12 @@ sections:
       - question: What if email validation says "Failed" and you think you never received the email validation link?
         answer: | 
           - Create another identity validation request. Ensure that the email address used is not a distribution list and the email address can receive links from external email addresses.
+      - question: Where can I find Identity Validation Id? 
+        answer: |
+          -  On Identity Validation page, click on the Identity Validation you intend to use. The Identity Validation Id will be shown as "Id" in the details pane that opens.
+             :::image type="content" source="media/trusted-signing-identity-validation-id-faq.png" alt-text="Screenshot that shows copying the identity validation ID for an identity validation." lightbox="media/trusted-signing-identity-validation-id-faq.png":::
+ 
+
   - name: Certificate profiles
     questions:
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
