@@ -21,7 +21,7 @@ zone_pivot_groups: azure-web-pubsub-create-resource-methods
 
 > [!div class="checklist"]
 >
-> - An Azure account with an active subscription. [Create a free Azure account](https://azure.microsoft.com/free/), if don't have one already.
+> - An Azure account with an active subscription. [Create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), if don't have one already.
 
 > [!TIP]
 > Web PubSub includes a generous **free tier** that can be used for testing and production purposes.
