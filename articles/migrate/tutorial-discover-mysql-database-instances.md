@@ -69,7 +69,7 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    >  GRANT SELECT ON information_schema.* TO 'username'@'ip';
    >  GRANT SELECT ON performance_schema.* TO 'username'@'ip';  
 
-To create a custom MySQL user account with the minimum permissions required for Discovery and Assessment in Azure Migrate with access from the appliance machine you can use the following script. The account running the script needs following privileges. This script has to be executed on the servers with MySQL instances. 
+To enable Discovery and Assessment in Azure Migrate, you can create a custom MySQL user account with the minimum required permissions. Use the following script to create the account and grant access from the appliance machine. 
 - CREATE USER privilege → to create the new user.
 - GRANT OPTION privilege → to grant privileges to the new user.
 - SELECT on mysql.user → required for the existence check.
