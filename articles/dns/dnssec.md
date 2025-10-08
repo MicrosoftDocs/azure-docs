@@ -87,7 +87,7 @@ Windows 10 and Windows 11 client devices are [nonvalidating security-aware stub 
 ### Trust anchors and DNSSEC validation
 
 > [!NOTE] 
-> DNSSEC response validation is not performed by the default Azure-provided resolver. The information in this section is helpful if you are setting up your own recursive DNS servers for DNSSEC validation or troubleshooting validation issesues.
+> DNSSEC response validation is not performed by the default Azure-provided resolver. The information in this section is helpful if you are setting up your own recursive DNS servers for DNSSEC validation or troubleshooting validation issues.
 
 Trust anchors operate based on the DNS namespace hierarchy. A recursive DNS server can have any number of trust anchors, or no trust anchors. Trust anchors can be added for a single child DNS zone, or any parent zone. If a recursive DNS server has a root (.) trust anchor, then it can perform DNSSEC validation on any DNS zone. For more information, see [Root Zone Operator Information](https://www.iana.org/dnssec).
 
@@ -120,7 +120,7 @@ Recursive DNS servers (also called resolving or caching DNS servers) maintain a 
 
 The zone signing key (ZSK) in a DNSSEC-signed zone is periodically rolled over (replaced) automatically by Azure. It should not be necessary to replace your key signing key (KSK), but this option is available by contacting Microsoft support. Replacing the KSK requires that you also update your DS record in the parent zone.
 
-## Zone signing Algorithm
+## Zone signing algorithm
 
 Zones are DNSSEC signed using Elliptic Curve Digital Signature Algorithm (ECDSAP256SHA256).
 
