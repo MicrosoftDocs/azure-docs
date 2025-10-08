@@ -6,15 +6,16 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/11/2024
+ms.date: 10/10/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
+# Customer intent: As an API admin, I want to enable advanced API security features in API Management by using Defender for Cloud.
 ---
-# Enable advanced API security features using Microsoft Defender for Cloud 
+# Enable advanced API security features by using Microsoft Defender for Cloud 
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-[Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), offers full lifecycle protection, detection, and response coverage for APIs that are managed in Azure API Management. The service empowers security practitioners to gain visibility into their business-critical APIs, understand their security posture, prioritize vulnerability fixes, and detect active runtime threats within minutes. 
+[Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), provides full lifecycle protection, detection, and response coverage for APIs that are managed in Azure API Management. The service empowers security practitioners to gain visibility into their business-critical APIs, understand their security posture, prioritize vulnerability fixes, and detect active runtime threats within minutes. 
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
