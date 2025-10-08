@@ -23,7 +23,7 @@ A [cross-subscription load balancer](cross-subscription-overview.md) can referen
 # [Azure PowerShell](#tab/azurepowershell)
 
 - Two Azure subscriptions. One subscription for the virtual network and another subscription for the load balancer.
-- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - A public IP address deployed in one of the subscriptions. For this example, the public IP address is in **Azure Subscription A**.
 - An existing [Virtual Network](../virtual-network/quick-create-powershell.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription B**.
 
@@ -39,7 +39,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - Two Azure subscriptions. One subscription for the virtual network (**Azure Subscription A**) and another subscription for the load balancer(**Azure Subscription B**).
-- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - A public IP address deployed in one of the subscriptions. For this example, the public IP address is in **Azure Subscription A**.
 - An existing [Virtual Network](../virtual-network/quick-create-cli.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription B**.
 

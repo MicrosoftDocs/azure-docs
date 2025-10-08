@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
--  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
+-  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) and access to the Azure portal.
 
 ## Review the template
 In this section, you review the template and the parameters that are used to deploy the global load balancer. 
