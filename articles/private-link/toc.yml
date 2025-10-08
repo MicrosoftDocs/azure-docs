@@ -19,7 +19,7 @@
     - name: FAQ
       href: private-link-faq.yml
     - name: Cost optimization
-      href: cost-optimization.md
+      href: private-link-cost-optimization.md
 - name: Configure
   items:
     - name: Create a private endpoint
