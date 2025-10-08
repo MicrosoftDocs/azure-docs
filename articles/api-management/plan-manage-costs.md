@@ -83,8 +83,10 @@ In cost analysis, you can view API Management costs in graphs and tables for dif
 To view API Management costs in cost analysis:
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com).
-1. Open the **Cost Management + Billing** window, select **Cost management** from the menu, and then select a **Billing scope**. For example, select a subscription from the list.
-1. Select **Cost Management** from the menu, and then select **Cost analysis**.
+1. In the left pane, select **Cost Management + Billing**. 
+1. In the left pane, select **Billing scopes**. and then
+1. On the **Billing scopes** page, select a **Billing scope**. For example, select a subscription from the list.
+1. In the left pane, under **Cost Management**, select **Cost analysis**.
 1. By default, monthly costs for all services are shown in the first donut chart. 
 
     :::image type="content" source="media/plan-manage-costs/api-management-cost-analysis.png" alt-text="Screenshot that shows monthly costs for a subscription." lightbox="media/plan-manage-costs/api-management-cost-analysis.png":::
