@@ -15,9 +15,7 @@ ms.author: duau
 
 Azure Firewall in Virtual WAN secured hubs now supports the use of customer-provided public IP addresses. This capability enables organizations to bring their own public IP addresses when deploying Azure Firewall in a secured Virtual WAN hub, providing greater flexibility and control over network infrastructure.
 
-With this feature, instead of relying on Azure-managed public IP addresses, you can specify your own public IP addresses that are already allocated in your Azure subscription. This is valuable for organizations that need to maintain consistent IP addresses for compliance, security policies, or integration with third-party systems.
-
-This capability is available only for new deployments of secured hub Azure Firewalls. For existing secured Virtual WAN hubs with Azure Firewall already deployed, you must delete the hub firewall and redeploy it during scheduled maintenance hours to take advantage of customer-provided public IP addresses.
+With this feature, instead of relying on Azure-managed public IP addresses, you can specify your own public IP addresses that are already allocated in your Azure subscription. This is particularly valuable for organizations that require consistent IP addresses for compliance, security policies, or integration with third-party systems.
 
 You can configure this feature using either the Azure portal or Azure PowerShell.
 
@@ -57,7 +55,7 @@ Before you can use customer-provided public IP addresses with secured hub Azure 
 - **IP prefix (recommended)**: For better management, allocate your public IP addresses from a public IP address prefix pool.ided public IP address support in secured hubs
 description: Learn how to use customer-provided public IP addresses with Azure Firewall in secured Virtual WAN hubs for enhanced control and DDoS protection.
 
-The capability is available to new as well as existing deployments of secured hub Firewalls. 
+The capability is available for both new and existing deployments of secured hub Firewalls. 
 
 ## Configure a new Secure Hub Azure Firewall with customer tenant public IP 
 
