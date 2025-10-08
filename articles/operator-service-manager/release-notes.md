@@ -368,12 +368,12 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 > [!WARNING]
 > This release has been found to contain flaws and should not be used. Please use 2.0.2987-186 instead.
 
-## Release 2503.01
+## Release 2503.02
 
 Document Revision 1.0
 
 ### Release Summary
-Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2503.01 Azure Operator Service Manager release includes updating the NFO version to 2.0.2987-186, the details of which are further outlined in the remainder of this document.
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2503.02 Azure Operator Service Manager release includes updating the NFO version to 2.0.2987-186, the details of which are further outlined in the remainder of this document.
 
 ### Release Details
 * NFO Release Version: Version 2.0.2987-186
@@ -388,12 +388,12 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * NFO - Avoid performing an unnecessary image copy when the image is already present in the cluster registry: This update eliminates redundant image downloads when the Artifact Controller pod crashes or becomes temporarily unavailable due to network issues. If the image is already present in the cluster registry, the system will now bypass unnecessary copies, improving efficiency and reducing resource consumption.
 * NFO - Increase oras download concurrency count [ICM602686818]: This update increases the concurrency setting in ORAS, enhancing parallel processing and improving download speed.
 
-## Release 2503.02
+## Release 2503.03
 
 Document Revision 1.0
 
 ### Release Summary
-Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2503.02 Azure Operator Service Manager release includes updating the NFO version to 3.0.3007-208, the details of which are further outlined in the remainder of this document.
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2503.03 Azure Operator Service Manager release includes updating the NFO version to 3.0.3007-208, the details of which are further outlined in the remainder of this document.
 
 ### Release Details
 * NFO Release Version: Version 3.0.3007-208
