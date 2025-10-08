@@ -212,7 +212,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
 ### Changes after migration
 
 - **MCA remit-to information differs** - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
-- **Custom or shared views under Cost Management** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- **Cost Management views** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
 - **Budgets** - You need to recreate them.
 - **Azure usage file enhancement** - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
     - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
