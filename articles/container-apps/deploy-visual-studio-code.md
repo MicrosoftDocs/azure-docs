@@ -18,7 +18,7 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 
 ## Prerequisites
 
-- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Visual Studio Code, available as a [free download](https://code.visualstudio.com/).
 - The following Visual Studio Code extensions installed:
     - The [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)

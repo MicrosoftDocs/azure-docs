@@ -29,7 +29,7 @@ A private endpoint uses a private IP address from your virtual network (VNet). T
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a container app
 
@@ -101,7 +101,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The latest version of the [Azure CLI](/cli/azure/install-azure-cli). To ensure you're running the latest version, run the following command.
 
