@@ -93,7 +93,7 @@ There's no additional cost to use availability zone support for Azure Bastion. C
 
     [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Existing bastion hosts:** It's not possible to change the availability zone configuration of an existing bastion host. Instead, you need to create an bastion host with the new configuration and delete the old one.
+- **Existing bastion hosts:** It's not possible to change the availability zone configuration of an existing bastion host. Instead, you need to create a bastion host with the new configuration and delete the old one.
 
 ### Normal operations
 
@@ -107,7 +107,7 @@ This section describes what to expect when bastion hosts are configured for avai
     :::image type="content" source="./media/reliability-bastion/bastion-instance-zone-traffic.png" alt-text="Diagram that shows Azure Bastion with three instances. A user request goes to an Azure Bastion instance in zone 2 and is sent to a VM in zone 1." border="false":::
 
    > [!TIP]
-   > In most scenarios, the amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements your workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. Keep in mind that this configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
+   > In most scenarios, the amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements for your workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. Keep in mind that this configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
 
 - **Data replication between zones:** Because Azure Bastion doesn't store state, there's no data to replicate between zones.
 
@@ -119,7 +119,7 @@ This section describes what to expect when bastion hosts are configured for avai
 
     For zone-redundant instances, Azure Bastion makes a best-effort attempt to replace any instances that are lost due to a zone outage. However, it isn't guaranteed that instances will be replaced.
 
-- **Notification**: Azure Bastion doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your basion host. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Bastion service, including any zone failures.
+- **Notification**: Azure Bastion doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your bastion host. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Bastion service, including any zone failures.
 
   Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
