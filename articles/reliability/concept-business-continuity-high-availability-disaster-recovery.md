@@ -270,7 +270,7 @@ Due to the rarity and severity of disaster events, DR planning brings different 
 
 - **Recovery Time Objective (RTO)** is the maximum duration of acceptable downtime in the event of a disaster, where "downtime" is defined by your specification. RTO is also measured in units of time, like "eight hours of downtime."
 
-:::image type="content" source="media/disaster-recovery-rpo-rto.png" alt-text="Screenshot of RTO and RPO durations in hours." border="false":::
+:::image type="content" source="media/concept-business-continuity-high-availability-disaster-recovery/disaster-recovery-rpo-rto.svg" alt-text="Screenshot of RTO and RPO durations in hours." border="false":::
 
 Each component or flow in the workload might have individual RPO and RTO values. Examine disaster-scenario risks and potential recovery strategies when deciding on the requirements. The process of specifying an RPO and RTO effectively creates DR requirements for your workload as a result of your unique business concerns (costs, impact, data loss, etc.).
 
