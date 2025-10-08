@@ -68,7 +68,7 @@ The type of DNS resource record that is spoofed depends on the type of DNS hijac
 
 DNSSEC works to prevent DNS hijacking by performing validation on DNS responses. In the DNS hijacking scenario pictured here, the client device can reject non-validated DNS responses if the contoso.com domain is signed with DNSSEC. To reject non-validated DNS responses, the client device must enforce [DNSSEC validation](#dnssec-validation) for contoso.com.
 
-DNSSEC also includes Next Secure 3 (NSEC3) to prevent zone enumeration. Zone enumeration, also known as zone walking, is an attack whereby the attacker establishes a list of all names in a zone, including child zones. 
+DNSSEC includes a VRF-based mechanism defined in [RFC 9824](https://www.rfc-editor.org/rfc/rfc9824.html), to prevent zone enumeration. Zone enumeration, also known as zone walking, is an attack whereby an attacker attempts to build a list of all names in a zone, including child zones. **RFC 9824 NSEC mitigates this by using verifiable random functions (VRFs) to provide authenticated denial of existence without exposing the entire zone**.
 
 Before you sign a zone with DNSSEC, be sure to understand [how DNSSEC works](#how-dnssec-works). When you are ready to sign a zone, see [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
 
@@ -86,8 +86,8 @@ Windows 10 and Windows 11 client devices are [nonvalidating security-aware stub 
 
 ### Trust anchors and DNSSEC validation
 
-> [!NOTE]
-> DNSSEC response validation is not performed by the default Azure-provided resolver. The information in this section is helpful if you are setting up your own recursive DNS servers for DNSSEC validation or troubleshooting validation issues.
+> [!NOTE] 
+> DNSSEC response validation is not performed by the default Azure-provided resolver. The information in this section is helpful if you are setting up your own recursive DNS servers for DNSSEC validation or troubleshooting validation issesues.
 
 Trust anchors operate based on the DNS namespace hierarchy. A recursive DNS server can have any number of trust anchors, or no trust anchors. Trust anchors can be added for a single child DNS zone, or any parent zone. If a recursive DNS server has a root (.) trust anchor, then it can perform DNSSEC validation on any DNS zone. For more information, see [Root Zone Operator Information](https://www.iana.org/dnssec).
 
@@ -133,11 +133,12 @@ The following table provides a short description of DNSSEC-related records. For 
 | Resource record signature (RRSIG) | A DNSSEC resource record type that is used to hold a signature, which covers a set of DNS records for a particular name and type. |
 | DNSKEY | A DNSSEC resource record type that is used to store a public key. |
 | Delegation signer (DS) | A DNSSEC resource record type that is used to secure a delegation. |
-| Next secure (NSEC) | A DNSSEC resource record type that is used to prove nonexistence of a DNS name. |
-| Next secure 3 (NSEC3) | The NSEC3 resource record that provides hashed, authenticated denial of existence for DNS resource record sets. |
-| Next secure 3 parameters (NSEC3PARAM) | Specifies parameters for NSEC3 records. |
+| Next secure (NSEC) |  DNSSEC resource record type defined in RFC 9824 that uses Verifiable Random Functions (VRFs) to provide authenticated denial of existence and prevent zone enumeration attacks. |
 | Child delegation signer (CDS) | This record is optional. If present, the CDS record can be used by a child zone to specify the desired contents of the DS record in a parent zone. |
 | Child DNSKEY (CDNSKEY) | This record is optional. If the CDNSKEY record is present in a child zone, it can be used to generate a DS record from a DNSKEY record. |
+
+>[!NOTE]
+>Azure DNSSEC implements [RFC 9824 (NSEC)](https://datatracker.ietf.org/doc/html/rfc9824) which is the newest iteration of for authenticated denial of existence. NSEC and NSEC3 are not used by Azure DNS because they allow zone enumeration or offline dictionary attacks.
 
 ### View DNSSEC-related resource records
 
