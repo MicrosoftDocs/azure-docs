@@ -203,11 +203,11 @@ This procedure has steps both in Microsoft Sentinel and your SAP system, and req
         1. Download the [integration package](https://aka.ms/SAPAgentlessPackage) and upload it to your SAP Integration Suite. For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
         1. Open the package and go to the **Artifacts** tab. Then select the **Data Collector** configuration. For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
         1. Configure the integration flow with the **LogIngestionURL** and the **DCRImmutableID**.
-        1. Deploy the i-flow using SAP Cloud Integration as the runtime service.
+        1. Deploy the iflow using SAP Cloud Integration as the runtime service.
 
 
 ## Run the prerequisite checker
-1. The **Prerequisite checker** iflow is included in the package. We recommend running this iflow before continuing to the next step to ensure that your SAP system meets the system prerequisites.
+1. The **Prerequisite checker** iflow is included in the package. We recommend running this iflow **manually** before continuing to the next step to ensure that your SAP system meets the system prerequisites before attempting integration from Microsoft Sentinel.
 
     [!INCLUDE [sap-agentless-prerequisites](../includes/sap-agentless-prerequisites.md)]
 

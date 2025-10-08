@@ -7,7 +7,9 @@ ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial 
 ms.date: 03/06/2025
-ms.custom: template-tutorial 
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: "As a network engineer, I want to implement a NAT gateway in a hub and spoke network, so that I can securely route and inspect outbound internet traffic while ensuring efficient inter-spoke communication."
 ---
 
@@ -34,11 +36,11 @@ In this tutorial, you learn how to:
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 # [**Powershell**](#tab/powershell)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 

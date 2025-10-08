@@ -8,7 +8,12 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: quickstart-arm
 ms.date: 01/04/2024
-ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - mvc
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Deploy an Azure IoT hub and a storage account using an ARM template
@@ -23,7 +28,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 

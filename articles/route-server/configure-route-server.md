@@ -1,28 +1,28 @@
 ---
 title: Configure and manage Azure Route Server
-description: Learn how to configure and manage Azure Route Server using the Azure portal, PowerShell, or Azure CLI.
-author: halkazwini
-ms.author: halkazwini
+description: Learn how to configure and manage Azure Route Server using the Azure portal, Azure PowerShell, or Azure CLI.
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 09/17/2025
 ---
 
-# Configure and manage Azure Route Server 
+# Configure and manage Azure Route Server
 
-In this article, you learn how to configure and manage Azure Route Server using the Azure portal, PowerShell, or Azure CLI.
+This article shows you how to configure and manage Azure Route Server using the Azure portal, Azure PowerShell, or Azure CLI. You learn how to add and remove Border Gateway Protocol (BGP) peers, configure route exchange with virtual network gateways, and manage routing preferences.
 
 ## Prerequisites
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A route server.
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A route server.
 
@@ -34,7 +34,7 @@ In this article, you learn how to configure and manage Azure Route Server using 
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A route server.
 
@@ -46,9 +46,9 @@ In this article, you learn how to configure and manage Azure Route Server using 
 
 ---
 
-## Add a peer
+## Add a BGP peer
 
-In this section, you learn how to add a BGP peering to your route server to peer with a network virtual appliance (NVA).
+In this section, you learn how to add a BGP peering between your route server and a network virtual appliance (NVA). This establishes a BGP session that allows the route server and NVA to exchange routing information.
 
 # [**Portal**](#tab/portal)
 
@@ -140,9 +140,9 @@ az network routeserver show --name 'myRouteServer' --resource-group 'myResourceG
 
 ---
 
-## Configure route exchange
+## Configure route exchange with virtual network gateways
 
-In this section, you learn how to enable exchanging routes between your route server and the virtual network gateway (ExpressRoute or VPN) that exists in the same virtual network.
+In this section, you learn how to enable route exchange between your route server and virtual network gateways (ExpressRoute or VPN) in the same virtual network. This feature is also known as *branch-to-branch* connectivity.
 
 [!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
@@ -181,7 +181,7 @@ Use [Get-AzRouteServer](/powershell/module/az.network/get-azrouteserver) cmdlet 
 Use [az network routeserver update](/cli/azure/network/routeserver#az-network-routeserver-update) command to enable or disable route exchange between the route server and the virtual network gateway.
 
 ```azurecli-interactive
-az network routeserver peering show --name 'myRouteServer' --resource-group 'myResourceGroup' --allow-b2b-traffic true
+az network routeserver update --name 'myRouteServer' --resource-group 'myResourceGroup' --allow-b2b-traffic true
 ```
 
 | Parameter | Value |
@@ -198,7 +198,7 @@ Use [az network routeserver show](/cli/azure/network/routeserver#az-network-rout
 
 ## Configure routing preference
 
-In this section, you learn how to configure route preference to influence the route learning and selection of your route server.
+In this section, you learn how to configure routing preference to control how your route server selects routes when multiple paths are available. Routing preference affects route learning and selection behavior.
 
 # [**Portal**](#tab/portal)
 
@@ -233,7 +233,7 @@ Use [Get-AzRouteServer](/powershell/module/az.network/get-azrouteserver) cmdlet 
 Use [az network routeserver update](/cli/azure/network/routeserver#az-network-routeserver-update) command to configure the routing preference setting of your route server.
 
 ```azurecli-interactive
-az network routeserver peering show --name 'myRouteServer' --resource-group 'myResourceGroup' --hub-routing-preference 'ASPath'
+az network routeserver update --name 'myRouteServer' --resource-group 'myResourceGroup' --hub-routing-preference 'ASPath'
 ```
 
 | Parameter | Value |
@@ -247,9 +247,9 @@ Use [az network routeserver show](/cli/azure/network/routeserver#az-network-rout
 ---
 
 
-## View a peer
+## View BGP peer details
 
-In this section, you learn how to view the details of a peer.
+In this section, you learn how to view the configuration details of a BGP peer, including its name, ASN, IP address, and provisioning state.
 
 # [**Portal**](#tab/portal)
 
@@ -297,7 +297,7 @@ az network routeserver peering show --name 'myNVA' --resource-group 'myResourceG
 
 ## View advertised and learned routes
 
-In this section, you learn how to view the route server's advertised and learned routes.
+In this section, you learn how to view the routes that your route server advertises to BGP peers and the routes it learns from those peers. This information is useful for troubleshooting routing issues and understanding traffic flow.
 
 # [**Portal**](#tab/portal)
 
@@ -341,15 +341,15 @@ az network routeserver peering list-learned-routes --name 'myNVA' --resource-gro
 
 | Parameter | Value |
 | ----- | ----- |
-|` --name` | The peer name. |
+| `--name` | The peer name. |
 | `--resource-group` | The resource group name of your route server. |
 | `--routeserver` | The route server name. |
 
 ---
 
-## Delete a peer
+## Delete a BGP peer
 
-In this section, you learn how to delete an existing peering with a network virtual appliance (NVA).
+In this section, you learn how to delete an existing BGP peering between your route server and a network virtual appliance (NVA). This removes the BGP session and stops route exchange between the devices.
 
 # [**Portal**](#tab/portal)
 
@@ -366,7 +366,7 @@ In this section, you learn how to delete an existing peering with a network virt
 Use [Remove-AzRouteServerPeer](/powershell/module/az.network/remove-azrouteserverpeer) cmdlet to delete a route server peering.
 
 ```azurepowershell-interactive
-Get-AzRouteServerPeer -PeerName 'myNVA' -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer'
+Remove-AzRouteServerPeer -PeerName 'myNVA' -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer'
 ```
 
 | Parameter | Value |
@@ -391,9 +391,9 @@ az network routeserver peering delete --name 'myNVA' --resource-group 'myResourc
 
 ---
 
-## Delete a route server
+## Delete Azure Route Server
 
-In this section, you learn how to delete an existing route server.
+In this section, you learn how to delete an existing Azure Route Server. Deleting a route server removes all BGP peerings and stops all route advertisements.
 
 # [**Portal**](#tab/portal)
 
@@ -433,8 +433,8 @@ az network routeserver delete --name 'myRouteServer' --resource-group 'myResourc
 
 ---
 
-## Related content
+## Next steps
 
-- [Create a route server using the Azure portal](quickstart-configure-route-server-portal.md)
-- [Configure BGP peering between a route server and (NVA)](peer-route-server-with-virtual-appliance.md)
+- [Create Azure Route Server using the Azure portal](quickstart-create-route-server-portal.md)
+- [Configure BGP peering between Azure Route Server and network virtual appliances](peer-route-server-with-virtual-appliance.md)
 - [Monitor Azure Route Server](monitor-route-server.md)

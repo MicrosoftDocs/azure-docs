@@ -25,7 +25,7 @@ In this article, you learn to connect a container app to Azure Blob Storage.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An application deployed to Container Apps in a [region supported by Service Connector](../service-connector/concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](quickstart-portal.md)
 - An Azure Blob Storage account
 

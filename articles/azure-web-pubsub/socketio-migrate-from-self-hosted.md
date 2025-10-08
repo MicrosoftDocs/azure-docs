@@ -18,7 +18,7 @@ In this article, you migrate a Socket.IO chat app to Azure by using Web PubSub f
 ## Prerequisites
 
 > [!div class="checklist"]
-> * An Azure account with an active subscription. If you don't have one, you can [create a free account](https://azure.microsoft.com/free/). 
+> * An Azure account with an active subscription. If you don't have one, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 > * Some familiarity with the Socket.IO library.
 
 ## Create a Web PubSub for Socket.IO resource

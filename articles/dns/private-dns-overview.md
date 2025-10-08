@@ -6,6 +6,7 @@ ms.service: azure-dns
 ms.topic: overview
 ms.date: 08/09/2024
 ms.author: allensu
+ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to evaluate Azure Private DNS so I can determine if I want to use it instead of my current DNS service.
 # Customer intent: As an IT administrator, I want to understand Azure Private DNS so that I can evaluate its features and benefits to determine if it meets my organization's DNS management needs within our virtual networks.
 ---

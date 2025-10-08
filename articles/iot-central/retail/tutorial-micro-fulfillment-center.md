@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett 
 ms.service: azure-iot-central
 ms.topic: tutorial
-ms.date: 06/18/2024
+ms.date: 08/07/2025
 #customer intent: As a developer, I want to learn how to deploy and use the micro-fulfillment center application template for Azure IoT Central so that I can understand how to use it in my projects.
 
 ---
@@ -24,7 +24,7 @@ In this tutorial, you learn:
 
 ## Prerequisites
 
-An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Solution architecture
 

@@ -895,6 +895,15 @@ groups:
     title: Front end (Static Web App)
   - id: backend
     title: Back end (Azure Container App)
+# Owner: sipa
+- id: azure-maps-search
+  title: Azure Maps search
+  prompt: Choose the search version
+  pivots:
+  - id: search-previous
+    title: Previous
+  - id: search-latest
+    title: Latest
 # Owner: farazgis
 - id: azure-maps-coverage
   title: Azure Maps coverage
@@ -1085,6 +1094,15 @@ groups:
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe
+- id: sre-agent-code-repo
+  title: Code repository
+  prompt: Select a code repository hosting platform
+  pivots:
+  - id: azure-devops
+    title: Azure DevOps
+  - id: github
+    title: GitHub
+# Owner: cshoe
 - id: container-apps
   title: Template language
   prompt: Select a template language
@@ -1272,6 +1290,14 @@ groups:
     title: Virtual network
   - id: network-security-group
     title: Network security group
+- id: web-application-firewall-types
+  title: Web Application Firewall types
+  prompt: "Select the Web Application Firewall type:"
+  pivots:
+  - id: application-gateway
+    title: Application Gateway
+  - id: front-door
+    title: Front Door
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door deployment method
@@ -1554,10 +1580,10 @@ groups:
   title: Select your version of the Pipelines task
   prompt: Choose an option
   pivots:
-  - id: v1
-    title: AzureFunctionApp@1
   - id: v2
     title: AzureFunctionApp@2
+  - id: v1
+    title: AzureFunctionApp@1
 # Owner: juliakm, ggailey777
 - id: github-actions-deployment-options
   title: GitHub Actions deployment options
@@ -1945,3 +1971,18 @@ groups:
     title: General Purpose
   - id: business-critical
     title: Business Critical
+# Owner: jodowns
+- id: sql-database-tiers
+  title: Tier
+  prompt: Choose a service tier
+  pivots:
+  - id: basic-standard
+    title: Basic or Standard DTU
+  - id: premium
+    title: Premium DTU
+  - id: general-purpose
+    title: General Purpose
+  - id: business-critical
+    title: Business Critical
+  - id: hyperscale
+    title: Hyperscale

@@ -125,11 +125,7 @@ items:
     - name: Azure Database for PostgreSQL - Flexible Server
       href: reliability-postgresql-flexible-server.md
     - name: Azure SQL Database
-      items:
-      - name: Availability zones
-        href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: /azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore
+      href: reliability-sql-database.md
     - name: Azure SQL Managed Instance
       href: reliability-sql-managed-instance.md
   - name: Developer tools
@@ -280,6 +276,8 @@ items:
       href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
+    - name: Azure Files
+      href: reliability-storage-files.md
     - name: Azure NetApp Files
       href: reliability-netapp-files.md
     - name: Azure Queue Storage
@@ -379,7 +377,7 @@ items:
       - name: Azure Service Bus
         href: /azure/service-bus-messaging/service-bus-outages-disasters#availability-zones?toc=/azure/reliability
       - name: Azure SQL Database
-        href: /azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-sql-database.md
       - name: Azure SQL Managed Instance
         href: reliability-sql-managed-instance.md#configure-availability-zone-support
       - name: Azure Virtual Machines and Virtual Machine Scale Sets
@@ -412,5 +410,3 @@ items:
     href: /azure/well-architected/reliability
   - name: Azure Service Manager retirement
     href: asm-retirement.md 
-
-

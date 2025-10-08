@@ -19,7 +19,7 @@ This quickstart guides you to create a SpatioTemporal Asset Catalog (STAC) colle
 
 To complete this quickstart, you need:
 
-- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Your environment configured to access Azure, for example with [`az login`](/cli/azure/authenticate-azure-cli).
 - Access to a Planetary Computer Pro GeoCatalog. If you don't already have access you can [create a new GeoCatalog](./deploy-geocatalog-resource.md).
 - A Python environment with ``requests`` and ``azure-identity`` installed.

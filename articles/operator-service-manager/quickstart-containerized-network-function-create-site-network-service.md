@@ -6,6 +6,7 @@ ms.author: adamdor
 ms.date: 03/06/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Create a Containerized Network Function (CNF) Site Network Service (SNS) with Nginx
@@ -14,7 +15,7 @@ ms.service: azure-operator-service-manager
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Complete the [Quickstart: Complete the prerequisites to deploy a Containerized Network Function in Azure Operator Service Manager](quickstart-containerized-network-function-prerequisites.md)
 - Complete the [Quickstart: Create a Containerized Network Functions site with Nginx](quickstart-containerized-network-function-create-site.md)
 

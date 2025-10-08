@@ -4,6 +4,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/01/2022
 ms.author: glenga
+ms.custom: sfi-ropc-nochange
 ---
 |function.json property | Description|
 |---------|----------------------|

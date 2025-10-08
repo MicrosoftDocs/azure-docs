@@ -27,7 +27,7 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 > * Monitor the pipeline run 
 > * verify the output. 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 

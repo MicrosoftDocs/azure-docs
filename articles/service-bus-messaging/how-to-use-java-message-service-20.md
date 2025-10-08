@@ -3,7 +3,9 @@ title: Use Java Message Service 2.0 API
 description: Explains how to use the Java Message Service (JMS) 2.0 API to interact with Azure Service Bus over the Advanced Message Queueing Protocol (AMQP) 1.0 protocol.
 ms.topic: how-to
 ms.date: 01/10/2024
-ms.custom: devx-track-extended-java
+ms.custom:
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
 # Use Java Message Service 2.0 API with Azure Service Bus Premium

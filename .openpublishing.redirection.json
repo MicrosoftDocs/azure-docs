@@ -1,6 +1,691 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-functions/functions-proxies.md",
+      "redirect_url": "/previous-versions/azure/azure-functions/functions-proxies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/legacy-proxies.md",
+      "redirect_url": "/previous-versions/azure/azure-functions/legacy-proxies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/backup-restore.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/backup-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/configure-replication.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/configure-replication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/configure.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub-device-update/migration-public-preview-refresh-to-ga.md",
+      "redirect_url": "/azure/iot-hub-device-update/understand-device-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/connect.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/create-external-stream-transact-sql.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/create-external-stream-transact-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/create-stream-analytics-job.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/create-stream-analytics-job",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/data-retention-cleanup.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/data-retention-cleanup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/data-retention-enable-disable.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/data-retention-enable-disable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/data-retention-overview.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/data-retention-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/date-bucket-tsql.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/date-bucket-tsql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/deploy-dacpac.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/deploy-dacpac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/deploy-kubernetes.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/deploy-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/deploy-onnx.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/deploy-onnx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/deploy-portal.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/deploy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/disconnected-deployment.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/disconnected-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/drop-external-stream-transact-sql.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/drop-external-stream-transact-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/features.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/high-availability-sql-edge-containers.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/high-availability-sql-edge-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/imputing-missing-values.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/imputing-missing-values",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/index.yml",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/onnx-overview.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/onnx-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/performance-best-practices.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/performance-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/release-notes.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/resources-partners-security.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/resources-partners-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/security-overview.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/stream-data.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/stream-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/streaming-catalog-views.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/streaming-catalog-views",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/sys-external-job-streams.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/sys-external-job-streams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/sys-external-streaming-jobs.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/sys-external-streaming-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/sys-external-streams.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/sys-external-streams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/sys-sp-cleanup-data-retention.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/sys-sp-cleanup-data-retention",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/track-data-changes.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/track-data-changes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-deploy-azure-resources.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-deploy-azure-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-renewable-energy-demo.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-renewable-energy-demo",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-run-ml-model-on-sql-edge.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-run-ml-model-on-sql-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-set-up-iot-edge-modules.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-set-up-iot-edge-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-sync-data-factory.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-sync-data-factory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/tutorial-sync-data-sync.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/tutorial-sync-data-sync",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/usage-and-diagnostics-data-configuration.md",
+      "redirect_url": "/previous-versions/azure/azure-sql-edge/usage-and-diagnostics-data-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-policy-reference.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-policy-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2208.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2208",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2209.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2209",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2210.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2210",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2211.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2211",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2301.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2301",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2302.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2302",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2303.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2303",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2305.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2305",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2306.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2306",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2307.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2307",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2308.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2308",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2310.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2310",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2403.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2403",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-private-5g-core-release-notes-2404.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-private-5g-core-release-notes-2404",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-stack-edge-disconnects.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-stack-edge-disconnects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-stack-edge-packet-core-compatibility.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-stack-edge-packet-core-compatibility",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/azure-stack-edge-virtual-machine-sizing.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/azure-stack-edge-virtual-machine-sizing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/collect-required-information-for-a-site.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/collect-required-information-for-a-site",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/collect-required-information-for-private-mobile-network.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/collect-required-information-for-private-mobile-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/collect-required-information-for-service.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/collect-required-information-for-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/collect-required-information-for-sim-policy.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/collect-required-information-for-sim-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/commission-cluster.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/commission-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/complete-private-mobile-network-prerequisites.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/complete-private-mobile-network-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/configure-access-for-user-equipment-ip-addresses.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/configure-access-for-user-equipment-ip-addresses",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/configure-internal-forwarding.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/configure-internal-forwarding",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/configure-routers-high-availability.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/configure-routers-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/configure-service-azure-portal.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/configure-service-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/configure-service-sim-policy-arm-template.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/configure-service-sim-policy-arm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/configure-sim-policy-azure-portal.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/configure-sim-policy-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/create-a-site.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/create-a-site",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/create-additional-packet-core.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/create-additional-packet-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/create-manage-network-slices.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/create-manage-network-slices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/create-site-arm-template.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/create-site-arm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/create-slice-arm-template.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/create-slice-arm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/data-plane-packet-capture.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/data-plane-packet-capture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/default-service-sim-policy.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/default-service-sim-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/delete-a-site.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/delete-a-site",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/delete-resources.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/delete-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/deploy-private-mobile-network-with-site-arm-template.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/deploy-private-mobile-network-with-site-arm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/deploy-private-mobile-network-with-site-command-line.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/deploy-private-mobile-network-with-site-command-line",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/deploy-private-mobile-network-with-site-powershell.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/deploy-private-mobile-network-with-site-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/differentiated-services-codepoint-5qi-mapping.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/differentiated-services-codepoint-5qi-mapping",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/distributed-tracing-share-traces.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/distributed-tracing-share-traces",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/distributed-tracing.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/distributed-tracing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/enable-azure-active-directory.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/enable-azure-active-directory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/gather-diagnostics.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/gather-diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/how-to-guide-deploy-a-private-mobile-network-azure-portal.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/how-to-guide-deploy-a-private-mobile-network-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/index.yml",
+      "redirect_url": "/previous-versions/azure/private-5g-core/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/key-components-of-a-private-mobile-network.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/key-components-of-a-private-mobile-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/manage-existing-sims.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/manage-existing-sims",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/manage-sim-groups.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/manage-sim-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/modify-local-access-configuration.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/modify-local-access-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/modify-packet-core.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/modify-packet-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/modify-service-plan.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/modify-service-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/monitor-private-5g-core-alerts.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/monitor-private-5g-core-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/monitor-private-5g-core-with-platform-metrics.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/monitor-private-5g-core-workbooks.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/monitor-private-5g-core-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/open-support-request.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/open-support-request",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/packet-core-dashboards.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/packet-core-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/ping-traceroute.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/ping-traceroute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/policy-control.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/policy-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/private-5g-core-overview.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/private-5g-core-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/private-mobile-network-design-requirements.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/private-mobile-network-design-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/provision-sims-arm-template.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/provision-sims-arm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/provision-sims-azure-portal.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/provision-sims-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/ran-insights-concepts.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/ran-insights-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/ran-insights-create-resource.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/ran-insights-create-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/ran-insights-monitor-with-correlated-metrics-concepts.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/ran-insights-monitor-with-correlated-metrics-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/ran-insights-monitor-with-geo-maps-concepts.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/ran-insights-monitor-with-geo-maps-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/ran-insights-monitor-with-ran-metrics-concepts.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/ran-insights-monitor-with-ran-metrics-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/region-code-names.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/region-code-names",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/region-move-private-mobile-network-resources.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/region-move-private-mobile-network-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/reinstall-packet-core.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/reinstall-packet-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/reliability-private-5g-core.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/reliability-private-5g-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/security.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/set-up-kubectl-access.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/set-up-kubectl-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/statement-of-compliance.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/statement-of-compliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/supi-concealment.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/supi-concealment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/support-lifetime.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/support-lifetime",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/tutorial-create-example-set-of-policy-control-configuration.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/tutorial-create-example-set-of-policy-control-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/ue-usage-event-hub.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/ue-usage-event-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/upgrade-packet-core-arm-template.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/upgrade-packet-core-arm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/upgrade-packet-core-azure-portal.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/upgrade-packet-core-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-5g-core/whats-new.md",
+      "redirect_url": "/previous-versions/azure/private-5g-core/whats-new",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-app-configuration/quickstart-container-apps.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/quickstart-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-overview.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-using-portal.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-using-runbook-scripts.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-key-points.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-troubleshoot.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-manual.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-grafana/how-to-api-calls.md",
+      "redirect_url": "/azure/managed-grafana/how-to-service-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/storage-how-to-create-file-share.md",
       "redirect_url": "/azure/storage/files/create-classic-file-share",
       "redirect_document_id": false
@@ -2460,6 +3145,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/devtest-labs/image-factory-create.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-save-distribute-custom-images.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-set-retention-policy-cleanup.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-set-up-devops-lab.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/devtest-labs/devtest-lab-integrate-ci-cd.md",
       "redirect_url": "/previous-versions/azure/devtest-labs/devtest-lab-integrate-ci-cd",
       "redirect_document_id": false
@@ -4230,6 +4935,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/basic-features.md",
+      "redirect_url": "/azure/firewall/features-by-sku",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/long-running-sessions.md",
       "redirect_url": "/azure/firewall/tcp-session-behavior",
       "redirect_document_id": false
@@ -4245,8 +4955,23 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/features.md",
+      "redirect_url": "/azure/firewall/features-by-sku",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/firewall-diagnostics.md",
       "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/premium-migrate.md",
+      "redirect_url": "/azure/firewall/change-sku",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/easy-upgrade.md",
+      "redirect_url": "/azure/firewall/change-sku",
       "redirect_document_id": false
     },
     {
@@ -7187,6 +7912,11 @@
     {
       "source_path": "articles/reliability/reliability-operator-nexus.md",
       "redirect_url": "/azure/reliability/overview-reliability-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-event-hubs.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-business-continuity-outages-disasters",
       "redirect_document_id": false
     }
 

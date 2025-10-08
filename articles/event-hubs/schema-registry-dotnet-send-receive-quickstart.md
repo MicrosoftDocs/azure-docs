@@ -4,9 +4,11 @@ description: In this quickstart, you create a .NET Core application that sends/r
 ms.topic: quickstart
 ms.date: 06/17/2025
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
 author: spelluru
 ms.author: spelluru
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 #customer intent: As a developer, I want to learn how to send events to and receive events from an event hub with schema validation.
 ---
 
@@ -22,7 +24,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 
 To complete this quickstart, you need the following prerequisites:
 
-- If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Microsoft Visual Studio 2022.
 
   The Azure Event Hubs client library uses features that were introduced in C# 8.0. You can still use the library with previous C# language versions, but the new syntax isn't available. To make use of the full syntax, we recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version) set to `latest`.

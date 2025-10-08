@@ -3,10 +3,16 @@ title: Quickstart - Send telemetry to Azure IoT Hub (CLI) quickstart
 description: This quickstart shows developers new to IoT Hub how to get started by using the Azure CLI to create an IoT hub, send telemetry, and view messages between a device and the hub.
 ms.service: azure-iot-hub
 ms.topic: quickstart
-ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, 'Role: Cloud Development', devx-track-azurecli, mode-api]
 ms.author: dobett
 author: dominicbetts
 ms.date: 1/10/2025
+ms.custom:
+  - iot-send-telemetry-cli
+  - iot-p0-scenario
+  - 'Role: Cloud Development'
+  - devx-track-azurecli
+  - mode-api
+  - sfi-image-nochange
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI
@@ -15,7 +21,7 @@ IoT Hub is an Azure service designed to collect large volumes of telemetry data 
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Azure CLI. You can run all commands in this quickstart using the Azure Cloud Shell, an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this quickstart requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sign in to the Azure portal

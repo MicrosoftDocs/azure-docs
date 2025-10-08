@@ -5,11 +5,14 @@ author: SoniaLopezBravo
 ms.subservice: layered-network-management
 ms.author: sonialopez
 ms.topic: how-to
-ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 12/12/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ms.service: azure-iot-operations
+ms.custom:
+  - ignite-2023
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management (preview)

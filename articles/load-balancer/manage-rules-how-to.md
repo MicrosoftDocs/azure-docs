@@ -6,7 +6,10 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 12/06/2024
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a network engineer, I want to configure and manage load-balancing rules for Azure Load Balancer, so that I can efficiently direct traffic to backend resources and ensure high availability and performance for my applications.
 ---
 
@@ -26,7 +29,7 @@ There are four types of rules:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 

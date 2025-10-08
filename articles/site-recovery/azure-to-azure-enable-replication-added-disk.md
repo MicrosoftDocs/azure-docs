@@ -1,8 +1,8 @@
 ---
 title: Enable replication for an added Azure VM disk in Azure Site Recovery
 description: This article describes how to enable replication for a disk added to an Azure VM that's enabled for disaster recovery with Azure Site Recovery
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.service: azure-site-recovery

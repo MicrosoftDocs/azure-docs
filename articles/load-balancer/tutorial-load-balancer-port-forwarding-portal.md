@@ -7,7 +7,11 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 10/24/2023
-ms.custom: template-tutorial, engagement-fy23, FY23 content-maintenance
+ms.custom:
+  - template-tutorial
+  - engagement-fy23
+  - FY23 content-maintenance
+  - sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure inbound NAT rules for virtual machines using an Azure Load Balancer, so that I can establish port forwarding and facilitate secure remote access to my VM instances."
 ---
 
@@ -29,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to Azure
 

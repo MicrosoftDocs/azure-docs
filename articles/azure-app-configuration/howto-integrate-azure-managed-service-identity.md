@@ -5,10 +5,15 @@ description: Authenticate to Azure App Configuration using managed identities
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: concept-article
 ms.date: 03/24/2025
 zone_pivot_groups: appconfig-provider
+ms.custom:
+  - devx-track-csharp
+  - fasttrack-edit
+  - subject-rbac-steps
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 # Use managed identities to access App Configuration
 
@@ -45,7 +50,7 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-dotnet"
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
 * [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 
@@ -53,7 +58,7 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-spring"
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
 * A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.

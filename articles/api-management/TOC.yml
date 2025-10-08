@@ -95,6 +95,8 @@
       href: api-management-howto-use-managed-service-identity.md
     - name: Send events to Event Grid
       href: how-to-event-grid.md
+    - name: Reduce environmental impact
+      href: sustainability.md
   - name: Network isolation
     items:
     - name: Networking options
@@ -131,8 +133,6 @@
       href: /azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Manage using automation
       href: automation-manage-api-management.md
-    - name: Configure using Git
-      href: api-management-configuration-repository-git.md
     - name: DevOps and CI/CD
       href: devops-api-development-templates.md
   - name: Resiliency and reliability
@@ -238,7 +238,7 @@
       href: api-management-sample-cache-by-key.md
 - name: API management for AI
   items:
-  - name: AI gateway capabilities in API Management
+  - name: AI gateway capabilities
     href: genai-gateway-capabilities.md
   - name: Manage LLM APIs
     items:
@@ -291,6 +291,8 @@
     href: api-management-sample-flexible-throttling.md
   - name: Using external services
     href: api-management-sample-send-request.md
+  - name: Send messages to Azure Service Bus
+    href: api-management-howto-send-service-bus.md
   - name: Manage secrets using named values
     displayName: Azure CLI, az apim nv
     href: api-management-howto-properties.md
@@ -430,6 +432,8 @@
       href: developer-portal-basic-authentication.md
     - name: Authenticate with Microsoft Entra ID
       href: api-management-howto-aad.md
+    - name: Authenticate with Microsoft Entra External ID
+      href: api-management-howto-entra-external-id.md
     - name: Authenticate with Azure AD B2C
       href: api-management-howto-aad-b2c.md
     - name: Delegate authentication
@@ -597,6 +601,8 @@
       href: rewrite-uri-policy.md
     - name: send-one-way-request
       href: send-one-way-request-policy.md
+    - name: send-service-bus-message
+      href: send-service-bus-message-policy.md
     - name: send-request
       href: send-request-policy.md
     - name: set-backend-service

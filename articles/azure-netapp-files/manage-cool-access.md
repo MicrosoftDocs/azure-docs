@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/16/2025
+ms.date: 09/17/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -88,7 +88,7 @@ There are several considerations to be aware of when using cool access.
 
 ## Enable cool access 
 
-You must register for cool access with the Premium or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
+You must register for cool access with the Flexible, Premium, or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
 
 ### Register the feature 
 
@@ -138,7 +138,7 @@ No registration is required to use cool access at the Standard service level.
 
 # [Flexible](#tab/flexible)
 
-Cool access with the Flexible service level is currently in preview. You must register the feature before using it. 
+You must register cool access with the Flexible service level before using it. 
 
 1. Register the feature: 
 

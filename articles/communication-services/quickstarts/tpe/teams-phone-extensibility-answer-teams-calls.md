@@ -18,7 +18,7 @@ Use Azure Communication Services Call Automation to receive and answer calls for
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Communication Services resource, see [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 

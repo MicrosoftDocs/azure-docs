@@ -7,7 +7,9 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 09/30/2024
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to set up inbound NAT rules using an Azure Load Balancer, so that I can efficiently manage connections to multiple virtual machines in my virtual network."
 ---
 
@@ -28,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create virtual network and virtual machines
 

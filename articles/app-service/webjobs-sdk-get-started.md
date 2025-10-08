@@ -34,7 +34,7 @@ In this tutorial, you will learn how to:
 
 * Visual Studio 2022 with the **Azure development** workload. [Install Visual Studio 2022](/visualstudio/install/).
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a console app
 In this section, you start by creating a project in Visual Studio 2022. Next, you'll add tools for Azure development, code publishing, and functions that listen for triggers and call functions. Last, you'll set up console logging that disables a legacy monitoring tool and enables a console provider with default filtering. 

@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure AI Search
 titleSuffix: Azure AI Search
-description: Find out about reliability in Azure AI Search, including availability zones, multi-region deployments, transient faults, and backup options.
+description: Learn how to improve reliability in Azure AI Search by using availability zones, replicas, and multi-region deployments for more resilient performance.
 author: haileytap
 ms.author: haileytapia
 ms.service: azure-ai-search
@@ -18,7 +18,7 @@ This article describes reliability support in [Azure AI Search](/azure/search/se
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
-## Production deployment recommendations
+## Production deployment recommendations for reliability
 
 For production workloads, we recommend that you use a [billable tier](/azure/search/search-sku-tier) that has at least [two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas). This configuration makes your search service more resilient to transient faults and maintenance operations. It also meets the [service-level agreement (SLA)](#service-level-agreement) for AI Search. The SLA requires two replicas for read-only workloads and three or more replicas for read-write workloads.
 
@@ -46,7 +46,7 @@ AI Search automatically assigns one replica to be the *primary replica*. All wri
 
 The following diagram illustrates how a search service with three replicas might be spread across three availability zones:
 
-:::image type="content" source="./media/reliability-ai-search/replicas.png" alt-text="Diagram that shows an AI Search service with three replicas. Read operations are sent to all replicas, and write operations are sent to the primary replica." border="false" :::
+:::image type="content" source="./media/reliability-ai-search/replicas.svg" alt-text="Diagram that shows an AI Search service with three replicas. Read operations are sent to all replicas, and write operations are sent to the primary replica." border="false" :::
 
 You can also configure the number of *partitions*, which represent the storage that the search indexes use.
 
@@ -72,7 +72,7 @@ When you add two or more replicas to your service, AI Search attempts to place e
 
 The following diagram illustrates how an example search service with four replicas might be deployed across three availability zones:
 
-:::image type="content" source="./media/reliability-ai-search/availability-zones.png" alt-text="Diagram that shows an AI Search service with four replicas distributed across three availability zones." border="false" :::
+:::image type="content" source="./media/reliability-ai-search/availability-zones.svg" alt-text="Diagram that shows an AI Search service with four replicas distributed across three availability zones." border="false" :::
 
 > [!IMPORTANT]
 > AI Search doesn't guarantee the exact placement of replicas. Placement is subject to capacity constraints, scaling operations, and other factors.

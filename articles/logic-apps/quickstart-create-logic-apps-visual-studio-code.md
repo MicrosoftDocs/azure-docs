@@ -29,7 +29,7 @@ For this article, you can create the same logic app from this [quickstart](../lo
 
 Before you start, make sure that you have these items:
 
-* If you don't have an Azure account and subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* If you don't have an Azure account and subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Basic knowledge about [logic app workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) and their structure as described with JSON
 

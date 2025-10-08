@@ -28,7 +28,7 @@ In this quickstart, you set up the following items:
 - A capacity pool
 - An NFS volume for Azure NetApp Files
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To see all features that you can enable for an NFS volume and relevant considerations, see [Create an NFS volume](azure-netapp-files-create-volumes.md). 
 
@@ -292,7 +292,7 @@ The following code snippet shows how to create a NetApp capacity pool using [Ter
     * Select **NFS** as the protocol type for the volume.
     * Enter **myfilepath1** for the file path used to create the export path for the volume.
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.
-      See [considerations](azure-netapp-files-create-volumes.md#considerations) and [best practice](azure-netapp-files-create-volumes.md#best-practice) about NFS versions.
+      See [considerations](azure-netapp-files-create-volumes.md#considerations) and [best practice](azure-netapp-files-create-volumes.md#best-practices) about NFS versions.
 
     ![Screenshot of NFS protocol for selection.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-quickstart-protocol-nfs.png)
 

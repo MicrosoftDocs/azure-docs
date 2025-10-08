@@ -4,8 +4,8 @@ description: Learn how to set up disaster recovery to Azure for large numbers of
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 08/31/2023
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.custom: engagement-fy23
 
 # Customer intent: "As an IT operations manager, I want to implement large-scale disaster recovery for on-premises VMware VMs and physical servers to Azure, so that I can ensure business continuity and minimize downtime during a disaster."
