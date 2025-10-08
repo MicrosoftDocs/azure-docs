@@ -34,7 +34,7 @@ When you finish, you'll have a working IPAM configuration that you can use to ma
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure CLI or Azure PowerShell installed locally, or use [Azure Cloud Shell](https://shell.azure.com).
 
 ## Review the Bicep file

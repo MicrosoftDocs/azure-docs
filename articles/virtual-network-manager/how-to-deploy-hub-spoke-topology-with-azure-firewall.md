@@ -16,7 +16,7 @@ Many organizations use Azure Firewall to protect their virtual networks from thr
 
 ## Prerequisites
 
-- An Azure subscription with permissions to create resources in the subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription with permissions to create resources in the subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - Three virtual networks with subnets in the same region. One virtual network is the hub virtual network, and the other two virtual networks are the spoke virtual networks. 
   - For this example, the hub virtual network is named **hub-vnet**, and the spoke virtual networks are **spoke-vnet-1** and **spoke-vnet-2**.

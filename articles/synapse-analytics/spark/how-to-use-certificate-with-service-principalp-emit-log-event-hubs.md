@@ -16,7 +16,7 @@ In this tutorial, you learn how to create required Azure resources and configure
 
 ## Prerequisites
 
-- An Azure subscription. You can also [create a free account](https://azure.microsoft.com/free/) before you get started.
+- An Azure subscription. You can also [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you get started.
 - [Synapse Analytics workspace](/azure/synapse-analytics/get-started-create-workspace).
 - [Azure Event Hubs](/azure/event-hubs/event-hubs-about).
 - [Azure Key Vault](/azure/key-vault/general/overview)

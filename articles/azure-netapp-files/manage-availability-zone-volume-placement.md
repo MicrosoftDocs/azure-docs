@@ -126,20 +126,21 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
     	"properties": {
     	    "roleName": "",
     	    "description": "",
-    	    "assignableScopes": ["/subscription/<subscriptionID>"]
-    	},
-    	"permissions": [
-            {
-            "actions": [
-                "Microsoft.NetApp/locations/*",
-                "Microsoft.NetApp/netAppAccounts/read",
-                "Microsoft.NetApp/netAppAccounts/renewCredentials/action",
-                "Microsoft.NetApp/netAppAccounts/capacityPools/read"
-                ],
-            "notActions": [],
-            "dataActions": [],
-            "notDataActions": []
-        }]
+    	    "assignableScopes": ["/subscription/<subscriptionID>"
+            ],
+            "permissions": [
+                {
+                "actions": [
+                    "Microsoft.NetApp/locations/*",
+                    "Microsoft.NetApp/netAppAccounts/read",
+                    "Microsoft.NetApp/netAppAccounts/renewCredentials/action",
+                    "Microsoft.NetApp/netAppAccounts/capacityPools/read"
+                    ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }]
+        }
     }
     ```
 

@@ -24,7 +24,7 @@ This quickstart covers:
 > - Create an Azure Key Vault linked service in your Azure Synapse Analytics workspace.
 > - Create an Azure AI services linked service in your Azure Synapse Analytics workspace.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

@@ -26,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Public key certificate data is required for this configuration. See [Generate and export certificates](certificates-point-to-site.md#cer) for steps to generate and export the required certificates. Sample certificate data is provided in the article only to satisfy the template requirements in order to create a P2S gateway.
 
 ## <a name="review"></a>Review the template

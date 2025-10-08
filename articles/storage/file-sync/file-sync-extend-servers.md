@@ -22,7 +22,7 @@ The article demonstrates the basic steps for extending the storage capacity of a
 > - Create a sync group and a cloud endpoint
 > - Create a server endpoint
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Sign in to Azure
 
