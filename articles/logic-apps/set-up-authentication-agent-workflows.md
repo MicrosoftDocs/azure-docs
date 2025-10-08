@@ -1,6 +1,6 @@
 ---
 title: Protect Agent Workflows with Easy Auth
-description: Learn to set up agent workflows with App Service Authentication (Easy Auth) in Azure Logic Apps.
+description: Learn to set up conversational agent workflows with App Service Authentication (Easy Auth) in Azure Logic Apps.
 author: ecfan
 services: logic-apps
 ms.suite: integration
@@ -9,9 +9,10 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 10/08/2025
 ms.update-cycle: 180-days
+#Customer intent: As an integration and AI developer working with Azure Logic Apps, I want to secure access to my conversational agent workflow and external chat client by authenticating and authorizing users through Easy Auth.
 ---
 
-# Secure agent workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (Preview)
+# Secure conversational agent workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -22,14 +23,14 @@ ms.update-cycle: 180-days
 
 Agent workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While nonagent workflows interact with a small, known, and fixed set of callers, agent callers can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
 
-To help protect your agent workflows in production, set up Easy Auth to authenticate and authorize callers or people who want to interact with your agent workflows. Easy Auth, also known as App Service Authentication, provides following capabilities for you to use:
+To help protect conversational agent workflows in production, set up Easy Auth to authenticate and authorize callers or people who want to interact with your conversational agent. Easy Auth, also known as App Service Authentication, provides following capabilities for you to use:
 
 - Provide a validated identity for each caller request.
 - Assign connections to each user.
 - Enforce Conditional Access policies.
 - Issue revocable credentials.
 - Grant permissions based on least-privilege principles, [roles](/entra/identity-platform/developer-glossary#roles), and [scopes](/entra/identity-platform/developer-glossary#scopes).
-- Provide an external chat client that people can use to interact with conversational agent workflows.
+- Provide an external chat client outside the Azure portal so people can interact with your conversational agent.
 
 These measures let you authenticate and authorize each caller at a fine-grained level and revoke access quickly when needed. Without these controls, you risk uncontrolled access, leaked secrets such as shared access signature (SAS) URLs and access keys, weak audit trails, and other security hazards.
 
@@ -56,17 +57,15 @@ For more information, see the following articles:
 
 - Microsoft Entra [**Application Developer** built-in role](/entra/identity/role-based-access-control/permissions-reference#application-developer) on your Azure account to create an app registration.
 
-- A deployed Standard logic app resource.
+- A deployed Standard logic app resource with a conversational agent workflow.
+
+  For more information, see [Create conversational agent workflows for chat interactions in Azure Logic Apps](create-conversational-agent-workflows.md).
 
 - Azure [**Contributor** role](/azure/role-based-access-control/built-in-roles#contributor) or higher on the logic app resource with permission to create app registrations for the target tenant using Microsoft Entra.
 
   > [!IMPORTANT]
   >
   > To set up Easy Auth, make sure you have the higher-level Azure **Contributor** role, which differs from the **Logic Apps Standard Contributor** role.
-
-- To test authentication enforcement for an autonomous agent workflow, the workflow must start with a **Request** trigger. You also need a tool that can send an HTTPS requests to the trigger's endpoint URL. For example, you can use any of the following tools:
-
-  [!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
 
 - (Optional) Choose whether to support only user flows with interactive sign in or also callers that use a managed identity or service principal.
 
@@ -274,19 +273,15 @@ If you have to reuse an existing app registration that is shared with another AP
   | **Restrict access** | **Require authentication** | Clients and callers must authenticate their identities. |
   | **Unauthenticated requests** | Yes | Your logic app rejects unauthenticated clients and callers as intended and issues a **302 Found redirect** response or a **401 Unauthorized** response when requests don't include valid tokens. |
 
-## Test and validate Easy Auth setup
-
-After you set up Easy Auth, confirm that authentication and authorization work correctly. For conversational agent workflows, you need to perform your testing in the external chat client.
-
 <a name="external-chat-client"></a>
 
-### Test Easy Auth for conversational agent workflows
+## Test and validate Easy Auth setup
 
-After you set up Easy Auth, only the external chat client outside the Azure portal is available for interactions with the conversational agent workflows. To confirm that Easy Auth works as expected, follow these steps:
+After you set up Easy Auth, the internal chat interface on your workflow's **Chat** page in the Azure portal becomes unavailable. Instead, you must interact with your conversational agent by using the external chat client that is available outside the Azure portal. To confirm that Easy Auth works as expected, perform your testing in the external chat client by following these steps:
 
 1. On the designer toolbar or the workflow sidebar, select **Chat**.
 
-   The chat interface no longer appears on the **Chat** page.
+   The internal chat interface no longer appears on the **Chat** page.
 
 1. In the **Essentials** section, select the **Chat Client URL** link, which opens a new browser tab.
 
@@ -294,36 +289,15 @@ After you set up Easy Auth, only the external chat client outside the Azure port
 
    :::image type="content" source="media/set-up-authentication-agent-workflows/consent.png" alt-text="Screenshot shows permissions request consent prompt." lightbox="media/set-up-authentication-agent-workflows/consent.png":::
 
-   The browser page refreshes and shows the external chat interface. You can now start or continue to interact with your conversational agent workflow.
+   The browser page refreshes and shows the interface for the external chat client.
 
    > [!TIP]
    >
-   > You can also embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe) 
-   > that you can use with your website where you want to provide the chat client, for example:
+   > You can also embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe) that you can use with your website where you want to provide the chat client, for example:
    >
    > `<iframe src="https:/<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>`
 
-1. To review your workflow's run history, follow these steps:
-
-   1. Return to the workflow in the Azure portal.
-
-   1. On the workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
-
-   1. In the monitoring view, confirm that the run history and operation statuses appear as expected.
-
-### Test Easy Auth for autonomous agent workflows
-
-To confirm that Easy Auth works as expected, assuming that your workflow starts with the **Request** trigger, and you plan to depend only on Easy Auth for authentication and authorization, follow these steps:
-
-1. On the designer, select the **Request** trigger to open the trigger information pane.
-
-1. On the trigger information pane, get and save the **HTTP URL** value, known as the *callback URL*, without the SAS query string, for example:
-
-   `https://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/When_an_HTTP_request_is_received/invoke`
-
-1. On the designer toolbar, select **Run** > **Run**.
-
-1. From your chosen tool for sending HTTPS requests, send a GET request to trigger the workflow.
+1. In the external chat interface, start or continue to interact with your conversational agent.
 
 1. To review your workflow's run history, follow these steps:
 
@@ -332,26 +306,6 @@ To confirm that Easy Auth works as expected, assuming that your workflow starts 
    1. On the workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
 
    1. In the monitoring view, confirm that the run history and operation statuses appear as expected.
-
-<!--
-1. From your chosen REST API client, send an unauthenticated HTTPS GET or POST request to call your workflow. Expect to get the **302** or **401** response based on your app registration setup.
-
-1. Get an Azure Resource Manager bearer token for your logic app resource.
-
-   For more information, see [Get access on behalf of user](/graph/auth-v2-user?tabs=http).
-
-1. Send the same request, but with the following header instead, and confirm that you get the **200 OK** response:
-
-   `Authorization: Bearer <access-token>`
-
-   In this test, the authenticated call with a valid access token returns the **200 OK** response, and the workflow executes.
-
-1. Try running the following tests:
-
-   - Edit the token, for example, change a character in the `aud` value, and resend the request. Expect to get the **401** response.
-
-   - Wait for the token to expire, or in a test container, change the system clock, and resend the request. Expect to get the **401** response.
--->
 
 ### Troubleshoot errors during Easy Auth testing
 

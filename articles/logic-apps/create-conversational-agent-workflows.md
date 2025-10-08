@@ -1,6 +1,6 @@
 ---
 title: Create Conversational AI Agent Workflows
-description: Build AI agent workflows that support chat conversations and human interactions in Azure Logic Apps.
+description: Learn to build AI agent workflows that support chat conversations with people in Azure Logic Apps.
 service: ecfan
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/14/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and human interactions through chat conversations for my integration solutions by using Azure Logic Apps.
+# Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and chat conversations with people for my integration solutions in Azure Logic Apps.
 ---
 
-# Create conversational agent workflows that support human interactions in Azure Logic Apps (Preview)
+# Create conversational agent workflows for chat interactions in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -21,7 +21,7 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When your scenario requires workflows that support natural language, interact with humans, and use agents connected to large language models (LLMs) to complete tasks, create a *conversational* agent workflow in Azure Logic Apps. This workflow type is the best option for such scenarios and is typically user-driven, short-lived, or session-based.
+When your solution requires workflows that support natural language, interact with humans, and use agents connected to large language models (LLMs) to complete tasks, create a *conversational* agent workflow in Azure Logic Apps. This workflow type is the best option for such scenarios and is typically user-driven, short-lived, or session-based.
 
 All agent workflows perform tasks by using an agent connected to an LLM. The agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. An agent workflow lets you separate an agent's decision logic, which includes the LLM, prompts, and orchestration, from the integration and task execution components.
 
