@@ -93,11 +93,7 @@ Azure Service Bus can provide regional resiliency, without a dependency on regio
 
 ## Azure SQL Database
 
-For geo-replication in nonpaired regions with Azure SQL Database, you can use the following features:
-
-- The [failover group feature](/azure/azure-sql/database/failover-group-sql-db?view=azuresql&preserve-view=true), which replicates across any combination of Azure regions without any dependency on underlying geo-redundant storage.
-
-- The [active geo-replication feature](/azure/azure-sql/database/active-geo-replication-overview?view=azuresql&preserve-view=true) to create a continuously synchronized, readable secondary database for a primary database. The readable secondary database might be in the same Azure region as the primary database or, more commonly, in a different region. This kind of readable secondary database is also known as a *geo-secondary* or *geo-replica*.
+To learn about how to create multi-region solutions using Azure SQL Database, see [Reliability in Azure SQL Database](./reliability-sql-database.md).
 
 ## Azure SQL Managed Instance 
 
