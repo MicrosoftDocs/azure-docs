@@ -6,7 +6,7 @@ ms.reviewer: benshy, primittal, liuyizhu
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 10/08/2025
 ms.author: primittal
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure AI Foundry Provisioned Throughput Reservations and buy one.
 ---
