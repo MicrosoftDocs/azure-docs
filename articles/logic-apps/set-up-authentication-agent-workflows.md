@@ -35,7 +35,7 @@ These measures let you authenticate and authorize each caller at a fine-grained 
 
 Easy Auth works with Microsoft Entra ID as a separate security layer to provide built-in authentication and authorization capabilities that meet your needs. With security enforcement operating outside your workflow, you can focus more on developing the business logic instead. This separation of concerns makes agent workflows simpler and easier to build, debug, operate, monitor, maintain, govern, and audit.
 
-Nonagent workflow security usually involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allow lists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream workflow actions to respect fine-grained permissions.
+Nonagent workflow security usually involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allowlists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream workflow actions to respect fine-grained permissions.
 
 This guide shows how to create an app registration and then set up Easy Auth for your Standard logic app resource, which can contain agent and nonagent workflows.
 
@@ -56,7 +56,7 @@ For more information, see the following articles:
 
 - Microsoft Entra [**Application Developer** built-in role](/entra/identity/role-based-access-control/permissions-reference#application-developer) on your Azure account to create an app registration.
 
-- A Standard logic app resource that's deployed or ready to deploy.
+- A deployed Standard logic app resource.
 
 - Azure [**Contributor** role](/azure/role-based-access-control/built-in-roles#contributor) or higher on the logic app resource with permission to create app registrations for the target tenant using Microsoft Entra.
 
@@ -102,7 +102,7 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
 
    The single-tenant setting refers to accounts only in the current organizational directory. So, all user and guest accounts in this directory can use your application or API. For example, if your target audience is internal to your organization, use this setting.
 
-   The following example shows how an app registration might look at this point in time:
+   The following example shows how an app registration might look:
 
    :::image type="content" source="media/set-up-authentication-agent-workflows/identity-provider-basics.png" alt-text="Screenshot shows app registration basic information." lightbox="media/set-up-authentication-agent-workflows/identity-provider-basics.png":::
 
@@ -151,7 +151,7 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
 
 ## Update an existing app registration
 
-If you have to reuse an existing app registration that's shared with another API or an earlier prototype, follow these steps to review and adjust the specified settings so the app registration can cleanly work with Easy Auth and agent clients.
+If you have to reuse an existing app registration that is shared with another API or an earlier prototype, follow these steps to review and adjust the specified settings so the app registration can cleanly work with Easy Auth and agent clients.
 
 1. In the Azure portal search box, find and select **Microsoft Entra ID**.
 
@@ -282,7 +282,7 @@ After you set up Easy Auth, confirm that authentication and authorization work c
 
 ### Test Easy Auth for conversational agent workflows
 
-After you set up Easy Auth, only the the external chat client outside the Azure portal is available for interactions with the conversational agent workflows. To confirm that Easy Auth works as expected, follow these steps:
+After you set up Easy Auth, only the external chat client outside the Azure portal is available for interactions with the conversational agent workflows. To confirm that Easy Auth works as expected, follow these steps:
 
 1. On the designer toolbar or the workflow sidebar, select **Chat**.
 
@@ -290,7 +290,7 @@ After you set up Easy Auth, only the the external chat client outside the Azure 
 
 1. In the **Essentials** section, select the **Chat Client URL** link, which opens a new browser tab.
 
-1. At the permissions request prompt, provide your consent and accept the request.
+1. At the permissions request prompt, provide your consent, and accept the request.
 
    :::image type="content" source="media/set-up-authentication-agent-workflows/consent.png" alt-text="Screenshot shows permissions request consent prompt." lightbox="media/set-up-authentication-agent-workflows/consent.png":::
 
