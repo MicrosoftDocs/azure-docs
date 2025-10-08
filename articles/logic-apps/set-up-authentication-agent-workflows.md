@@ -274,17 +274,17 @@ If you have to reuse an existing app registration that's shared with another API
   | **Restrict access** | **Require authentication** | Clients and callers must authenticate their identities. |
   | **Unauthenticated requests** | Yes | Your logic app rejects unauthenticated clients and callers as intended and issues a **302 Found redirect** response or a **401 Unauthorized** response when requests don't include valid tokens. |
 
-## Test and validate authentication
+## Test and validate Easy Auth setup
 
-After you set up Easy Auth, confirm that authentication and authorization work correctly.
+After you set up Easy Auth, confirm that authentication and authorization work correctly. For conversational agent workflows, you need to perform your testing in the external chat client.
 
 <a name="external-chat-client"></a>
 
-### Set up the external chat client for conversational agent workflows
+### Test Easy Auth for conversational agent workflows
 
-To test and set up the external chat client for conversational agent workflows, follow these steps:
+After you set up Easy Auth, only the the external chat client outside the Azure portal is available for interactions with the conversational agent workflows. To confirm that Easy Auth works as expected, follow these steps:
 
-1. On the designer toolbar, select **Chat**.
+1. On the designer toolbar or the workflow sidebar, select **Chat**.
 
    The chat interface no longer appears on the **Chat** page.
 
@@ -303,32 +303,33 @@ To test and set up the external chat client for conversational agent workflows, 
    >
    > `<iframe src="https:/<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>`
 
-1. Continue to the next section to try sending an authentication request.
+1. To review your workflow's run history, follow these steps:
 
-### Send authentication requests for agent workflows
+   1. Return to the workflow in the Azure portal.
 
-To confirm that enforcement works as expected, follow these steps:
+   1. On the workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
 
-1. In the designer, open your agent workflow. From the workflow trigger, get and save the trigger endpoint URL:
+   1. In the monitoring view, confirm that the run history and operation statuses appear as expected.
 
-   | Agent workflow | URL |
-   |----------------|-----|
-   | Conversational | From the **When a chat session starts** trigger, get the **Agent URL** value. Or, from the **Chat** page, get the **Agent URL**. |
-   | Autonomous | If the workflow has a **Request** trigger, get the **HTTP URL** value without the SAS query string. |
+### Test Easy Auth for autonomous agent workflows
 
-   For example, if your autonomous agent workflow uses the **Request** trigger, and you plan to depend only on Easy Auth, get the **HTTP URL** value, known as the *callback URL*, without the SAS query string, for example:
+To confirm that Easy Auth works as expected, assuming that your workflow starts with the **Request** trigger, and you plan to depend only on Easy Auth for authentication and authorization, follow these steps:
+
+1. On the designer, select the **Request** trigger to open the trigger information pane.
+
+1. On the trigger information pane, get and save the **HTTP URL** value, known as the *callback URL*, without the SAS query string, for example:
 
    `https://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/When_an_HTTP_request_is_received/invoke`
 
-1. Run your workflow based on the following agent workflow type:
+1. On the designer toolbar, select **Run** > **Run**.
 
-   - Conversational: On the designer toolbar, select **Chat**. In the chat interface, enter prompts to test your Easy Auth setup.
-
-   - Autonomous: On the designer toolbar, select **Run** > **Run**. From your chosen tool for sending HTTPS requests, send a GET request to trigger the workflow.
+1. From your chosen tool for sending HTTPS requests, send a GET request to trigger the workflow.
 
 1. To review your workflow's run history, follow these steps:
 
-   1. In the Azure portal, on your workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
+   1. Return to the workflow in the Azure portal.
+
+   1. On the workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
 
    1. In the monitoring view, confirm that the run history and operation statuses appear as expected.
 
