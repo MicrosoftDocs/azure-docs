@@ -32,33 +32,33 @@ Each type of failover has a unique set of use cases and corresponding expectatio
 
 Planned failover can be utilized in multiple scenarios including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from nonstorage related outages. During the planned failover process, the primary and secondary regions are swapped and the account remains geo-redundant. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. Data loss isn't expected during the planned failover and failback process as long as the primary and secondary regions are available throughout the entire process. 
 
-To learn more, refer to the [How planned failover works](storage-failover-customer-managed-planned.md#how-customer-managed-planned-failover-preview-works) article
+To learn more, refer to the article on [How planned failover works](storage-failover-customer-managed-planned.md#how-customer-managed-planned-failover-preview-works).
 
 **Unplanned Failover**
 
 You can initiate an unplanned failover to your storage account's secondary region if the data endpoints for the storage services become unavailable in the primary region. After the failover is complete, the storage account becomes Locally Redundant Storage (LRS) and the secondary region becomes the new primary. Users can proceed to access data from their new primary region. 
 
-Because data is written asynchronously from the primary region to the secondary region, there's always a delay before a write to the primary region is copied to the secondary. When an unplanned failover is initiated, all data in the primary region is lost as the secondary region becomes the new primary. All data already copied to the secondary region is maintained when the failover happens. However, any data written to the primary that doesn't yet exist within the secondary region is lost permanently. Users can utilize their Last Sync Time, to confirm the last time a full sync between the primary and secondary region was completed.
+Because data is written asynchronously from the primary region to the secondary region, there's always a delay before a write to the primary region is copied to the secondary. When an unplanned failover is initiated, all data in the primary region is lost as the secondary region becomes the new primary. All data already copied to the secondary region is maintained when the failover happens. However, any data written to the primary that doesn't yet exist within the secondary region is lost permanently. Users can utilize their Last Sync Time (LST), to confirm the last time a full sync between the primary and secondary region was completed.
 
-To learn more, refer to the [How unplanned failover works](storage-failover-customer-managed-unplanned.md#how-customer-managed-unplanned-failover-works) article
+To learn more, refer to the article on [How unplanned failover works](storage-failover-customer-managed-unplanned.md#how-customer-managed-unplanned-failover-works).
 
-## What impact will failover have on my account after it completes?
+## What effects will failover have on my account after it completes?
 
 **Planned Failover**
 
-Planned Failover has the following impacts on your storage account: 
+Planned Failover has the following effects on your storage account: 
 
-- The storage account's redundancy will either remain or be converted to GRS/RA-GRS.
-- The primary and secondary regions will be swapped. The original secondary region will become the new primary region and the original primary region will become the new secondary region.
-- There is no data loss expected.
+1. The storage account's redundancy either remains as-is or is converted to GRS/RA-GRS.
+2. The primary and secondary regions are swapped. The original secondary region becomes the new primary region and the original primary region becomes the new secondary region.
+3. No data loss is expected.
 
 **Unplanned Failover**
 
-- The storage account will lose geo-redundancy, resulting in the new redundancy becoming Locally Redundant Storage (LRS).
-- The account's previous secondary region, will now be the primary region.
-- Users may experience data loss if any writes were made to their storage account after the Last Sync Time.
+1. The storage account loses geo-redundancy and becomes Locally Redundant Storage (LRS).
+2. The account's previous secondary region is now the primary region.
+3. Users might experience data loss if any writes were made to their storage account after the LST.
 
-A summary of the impact of Planned and Unplanned Failover can be found here: 
+A summary of the effects of Planned and Unplanned Failover can be found here: 
 
 | Result of failover on... | Customer-managed planned failover (preview)  | Customer-managed (unplanned) failover        |
 |--------------------------|----------------------------------------------|----------------------------------------------|
@@ -72,8 +72,8 @@ The following table summarizes the resulting redundancy configuration at every s
 | Original configuration           | After failover | After re-enabling geo redundancy | After failback | After re-enabling geo redundancy |
 |----------------------------------|----------------|----------------------------------|----------------|----------------------------------|
 | **Customer-managed planned failover** |           |                                  |                |                                  |
-| GRS                              | GRS            | n/a<sup>1</sup>                  | GRS            | n/a<sup>1</sup>                  |
-| GZRS                             | GZRS           | n/a<sup>1</sup>                  | GZRS           | n/a<sup>1</sup>                  |
+| GRS                              | GRS            | n/a                              | GRS            | n/a                              |
+| GZRS                             | GZRS           | n/a                              | GZRS           | n/a                              |
 | **Customer-managed (unplanned) failover** |       |                                  |                |                                  |
 | LRS                              | LRS            | GRS                              | LRS            | GRS                              |
 | GZRS                             | LRS            | GRS                              | ZRS            | GZRS                             |
@@ -96,7 +96,7 @@ This chart describes the changes to a storage account's redundancy after a failo
 
 ## Is there data loss expected after a failover?
 
-Whether your account will experience data loss after a failover depends on which failover operation you initiated. For Planned Failover, there's no data loss expected after completing a planned failover. With Unplanned Failover, users might experience data loss. Users can utilize the Last Sync Time property to determine the last time a full synchronization completed between their primary and secondary region. Any data or metadata written before the Last Sync Time successfully replicates to the secondary region and will be available after the unplanned failover but any data or metadata written after might be lost.
+Whether your account will experience data loss after a failover depends on which failover operation you initiated. For Planned Failover, there's no data loss expected after completing a planned failover. With Unplanned Failover, users might experience data loss. Users can utilize the Last Sync Time (LST) property to determine the last time a full synchronization completed between their primary and secondary region. Any data or metadata written before the LST successfully replicates to the secondary region and will be available after the unplanned failover. However, any data or metadata written after the LST might be lost.
 
 ## How long will it take to convert my account from LRS to GRS after an unplanned failover?
 
@@ -131,27 +131,27 @@ After a planned failover the account remains geo-redundant, so the user is only 
 
 After an unplanned failover the account becomes LRS so there a few steps required to failback: 
 
-1. Convert the account from LRS to GRS. It's important to remember that the conversion from LRS to GRS does not have an SLA, and there are data bandwidth charges that will apply when completing this conversion.
+1. Convert the account from LRS to GRS. It's important to remember that the conversion from LRS to GRS doesn't have an SLA. There are also data bandwidth charges that apply when completing this conversion.
 2. Initiate an unplanned failover or failback.
 
 Learn more about [how to initiate an unplanned failover](storage-failover-customer-managed-unplanned.md#how-to-initiate-an-unplanned-failover).
 
 ## What are the conflicting features or scenarios for failovers?
 
-Failovers carry with them a few limitations and conflicting features that users should be aware of. The following features or scenarios will block a failover operation from being initiated:
+Failovers carry with them a few limitations and conflicting features that users should be aware of. The following features or scenarios block a failover operation from being initiated:
 
 **Unplanned Failover:**
 
-- Object Replication: Attempting to initiate a unplanned failover on an accounts with object replication (OR) will generate an error. In this case, you can delete your account's OR policies and attempt the conversion again.
-- NFSv3: Attempting to initiate a unplanned failover on an accounts with NFSv3 will generate an error. Users are unable to disable NFSv3 on a storage account.
+**- Object Replication:** Attempting to initiate an unplanned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
+**- NFSv3:** Attempting to initiate an unplanned failover on an account with NFSv3 generates an error. Users are unable to disable NFSv3 on a storage account.
 
 **Planned Failover:**
 
-- Change Feed: Attempting to initiate a planned failover on an accounts with Change Feed will generate an error. In this case, you can disable Change Feed and attempt the failover again.
-- Object Replication: Attempting to initiate a planned failover on an accounts with object replication (OR) will generate an error. In this case, you can delete your account's OR policies and attempt the conversion again.
-- NFSv3:  Attempting to initiate a planned failover on an accounts with NFSv3 will generate an error. Users are unable to disable NFSv3 on a storage account.
-- Point-in-time-Restore: Attempting to initiate a planned failover on an accounts with Point-in-time-Restore (PITR) will generate an error. In this case, you can disable PITR and Change Feed and attempt the failover again.
-- Last Sync Time is greater than 30 minutes: Planned Failover is not supported for storage accounts with a Last Sync Time greater than 30 minutes.
+**- Change Feed:** Attempting to initiate a planned failover on an account with Change Feed generates an error. In this case, you can disable Change Feed and attempt the failover again.
+**- Object Replication:** Attempting to initiate a planned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
+**- NFSv3:**  Attempting to initiate a planned failover on an account with NFSv3 generates an error. Users are unable to disable NFSv3 on a storage account.
+**- Point-in-time-Restore:** Attempting to initiate a planned failover on an account with Point-in-time-Restore (PITR) generates an error. In this case, you can disable PITR and Change Feed and attempt the failover again.
+**- Last Sync Time is greater than 30 minutes:** Planned Failover isn't supported for storage accounts with a Last Sync Time greater than 30 minutes.
 
 Azure File Sync doesn't support customer-managed planned or unplanned failover. Storage accounts used as cloud endpoints for Azure File Sync shouldn't be failed over. Failover disrupts file sync and might cause the unexpected data loss of newly tiered files. For more information, see Best practices for disaster recovery with Azure File Sync for details.
 
