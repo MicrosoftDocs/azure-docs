@@ -10,7 +10,8 @@ ms.topic: include
 
 1. Open the integration package, navigate to the artifacts tab, and select the **Prerequisite checker** iflow > **Configure**.
 1. Set the target RFC destination to the SAP system you want to check.
-1. Deploy the iflow as you would otherwise for your SAP systems. For example, use the following sample PowerShell script, modifying the sample placeholder values for your environment:
+1. Deploy the iflow as you would otherwise for your SAP systems.
+1. Trigger the iflow from any REST client. For example, use the following sample PowerShell script, modifying the sample placeholder values for your environment:
 
     ```powershell
     $cpiEndpoint = "https://my-cpi-uri.it-cpi012-rt.cfapps.eu01-010.hana.ondemand.com" # CPI endpoint URL
@@ -37,4 +38,6 @@ ms.topic: include
     Write-Host $response.RawContent
     ```
 
-Make sure that the prerequisites checker runs successfully before connecting to Microsoft Sentinel.
+Make sure that the prerequisites checker runs successfully (status code 200) with no warnings on the response output before connecting to Microsoft Sentinel.
+
+In case of any findings, consult the response details for guidance on remediation steps. Legacy systems typically require additional SAP notes. Furthermore, see the [troubleshooting section](../sap/sap-deploy-troubleshoot.md) for common issues and resolutions.
