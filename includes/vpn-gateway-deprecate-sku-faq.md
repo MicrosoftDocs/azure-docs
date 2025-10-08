@@ -16,22 +16,22 @@ All existing gateways that use the Standard or High Performance SKU will be supp
 
 ### Will my IP address change when my Legacy VPN gateway SKU (Standard or HighPerformance) is migrated as part of Basic IP address migration initiated through Azure portal?
 
-No, the IP address will not change when you migrate Basic IP using Azure portal experience. You can choose to migrate the Basic SKU IP address to Standard SKU IP address through a customer controlled portal experience. For more information about Basic SKU IP migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](../articles/vpn-gateway/basic-public-ip-migrate-about.md) article.
+No, the IP address won't change when you migrate Basic IP using Azure portal experience. You can choose to migrate the Basic SKU IP address to Standard SKU IP address through a customer controlled portal experience. For more information about Basic SKU IP migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](../articles/vpn-gateway/basic-public-ip-migrate-about.md) article.
 
 ### Do I need to migrate my gateways from the Standard or High Performance SKU right now?
   
-No, you are required to migrate the Basic IP address on your gateway using the portal experience if you want to retain the IP address. As part of this migration, your gateways will be automatically migrated to AZ SKUs.
+No, you're required to migrate the Basic IP address on your gateway using the portal experience if you want to retain the IP address. As part of this migration, your gateways are automatically migrated to AZ SKUs.
 
 
 ### Will there be any pricing difference for my gateways after migration?
 
-Your SKUs will automatically be migrated and upgraded to AZ SKUs as part of Basic IP migration. See [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for more details.
+Your SKUs are automatically migrated and upgraded to AZ SKUs as part of Basic IP migration. See [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for more details.
 
 ### Will there be any performance impact on my gateways with this migration?
 
 Yes. You get better performance with VpnGw1AZ and VpnGw2AZ. For more information about SKU throughput, see [About gateway SKUs](https://go.microsoft.com/fwlink/?linkid=2256302).
 
-### What happens if I don't migrate by February 28, 2025?
+### What happens if I don't migrate by February 28, 2026?
 
 All gateways that still use the Standard or High Performance SKU will be migrated automatically and upgraded to the following AZ SKUs:
 
@@ -42,6 +42,6 @@ We'll send communication before initiating migration on any gateways.
 
 ### Is the VPN Gateway Basic SKU also retiring?
 
-No, the VPN Gateway Basic SKU is not retiring. You can create a VPN gateway by using the Basic SKU via Azure PowerShell or the Azure CLI.
+No, the VPN Gateway Basic SKU isn't retiring. You can create a VPN gateway by using the Basic SKU via Azure PowerShell or the Azure CLI.
 
 Currently, the VPN Gateway Basic SKU supports only the Basic SKU public IP address resource (which is on a path to retirement). We're working on adding support for the Standard SKU public IP address resource to the VPN Gateway Basic SKU.
