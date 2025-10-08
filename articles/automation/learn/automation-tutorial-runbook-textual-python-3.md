@@ -25,7 +25,7 @@ This tutorial walks you through the creation of a [Python 3.8 runbook](../automa
 
 To complete this tutorial, you need:
 
-- An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Automation account](../automation-security-overview.md) to hold the runbook and authenticate to Azure resources using Managed Identities. A managed identity is automatically created for you when you create the Automation account.
  

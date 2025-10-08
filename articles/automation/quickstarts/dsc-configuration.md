@@ -25,7 +25,7 @@ By enabling Azure Automation State Configuration, you can manage and monitor the
 
 To complete this quickstart, you need:
 
-* An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Resource Manager virtual machine.
 
 ## Sign in to Azure
