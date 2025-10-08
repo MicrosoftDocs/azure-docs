@@ -18,7 +18,7 @@ Alternately, you might be an OT engineer watching for operational alerts directl
 
 Before you start, make sure that you have:
 
-- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A cloud-connected [OT network sensor](onboard-sensors.md) onboarded to Defender for IoT, with alerts streaming into the Azure portal.
 
