@@ -46,8 +46,8 @@ Storage Discovery doesn't send any notifications when there's an outage in the s
 Key factors that influence data availability and freshness in your Storage Discovery reports:
 
 - After creating a new Storage Discovery workspace, most insights appear in reports within 24 hours. 
-- Most updates, such as adding or removing a storage account in a subscription or resource group linked to a Storage Discovery workspace can take up to 24 hours to appear in Storage Discovery reports. 
-- Adding a new [scope](../storage-discovery/management-components.md#scope) or editing an existing scope with your Discovery workspace takes upto 24 hours to reflect the changes.
+- Most updates, such as adding or removing a storage account in a subscription or resource group linked to a Storage Discovery workspace will be reflected in the Storage Discovery reports within 24 hours.
+- Changes related to adding a new [scope](../storage-discovery/management-components.md#scope) or editing an existing scope in your Discovery workspace are typically reflected in the reports within 24 hours.
 - Effect of [changing pricing plan](../storage-discovery/pricing.md) on an existing Storage Discovery workspace is immediate.
 - When a scope is deleted, you lose the insights gathered on the scope immediately. 
 - When a Discovery workspace is deleted, you lose the insights gathered on all the scopes under the workspace immediately. So exercise caution while deleting a workspace and/or a scope. 
