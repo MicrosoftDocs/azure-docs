@@ -19,7 +19,7 @@ This tutorial provides detailed guidance on how to set up an Azure Function to r
 
 Before you get started, make sure to:
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install Visual Studio Code. 
 
 ## Setting up functions
