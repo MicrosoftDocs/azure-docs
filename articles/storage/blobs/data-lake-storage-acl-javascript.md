@@ -22,7 +22,7 @@ This article shows you how to use Node.js to get, set, and update the access con
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure storage account that has hierarchical namespace (HNS) enabled. Follow [these instructions](create-data-lake-storage-account.md) to create one.
 - [Node.js LTS](https://nodejs.org/)
 - Azure CLI version `2.6.0` or higher.

@@ -41,7 +41,7 @@ For more information on Azure Files management concepts, see [Plan for an Azure 
 
 ## Prerequisites
 
-This article assumes that you have an Azure subscription. If you don't have an Azure subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This article assumes that you have an Azure subscription. If you don't have an Azure subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 Make sure both "Microsoft.FileShares" and "Microsoft.Storage" resource providers are registered for the subscription. To register a resource provider, follow these steps.
 
