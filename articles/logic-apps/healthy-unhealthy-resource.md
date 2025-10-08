@@ -19,7 +19,7 @@ When you monitor your Azure Logic Apps resources in [Microsoft Azure Security Ce
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Existing logic apps with [diagnostic logging enabled](#enable-diagnostic-logging).
 

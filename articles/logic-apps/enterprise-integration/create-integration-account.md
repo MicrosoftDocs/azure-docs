@@ -36,7 +36,7 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Make sure that you use the same Azure subscription for both your integration account and logic app resource.
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Make sure that you use the same Azure subscription for both your integration account and logic app resource.
 
 * Whether you're working on a Consumption or Standard logic app workflow, your logic app resource must already exist if you need to link your integration account.
 

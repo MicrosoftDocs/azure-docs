@@ -38,7 +38,7 @@ azd up
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ::: zone pivot="azure-managed-redis"

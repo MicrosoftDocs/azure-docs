@@ -21,7 +21,7 @@ In this article, you learn how to access your Peering Service connection telemet
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Peering Service connection. To learn how to create a connection, see [Create, change, or delete a Peering Service connection](azure-portal.md).
 

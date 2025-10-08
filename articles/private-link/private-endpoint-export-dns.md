@@ -17,7 +17,7 @@ A private endpoint in Azure requires DNS records for name resolution of the endp
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A private endpoint configured in your subscription. For the example in this article, a private endpoint to an Azure web app is used. For more information on how to create a private endpoint for a web app, see [Tutorial: Connect to a web app using an Azure private endpoint](tutorial-private-endpoint-webapp-portal.md).
 
 ## Export endpoint DNS records

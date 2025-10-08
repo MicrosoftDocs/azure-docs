@@ -18,7 +18,7 @@ If you want to move, copy or back up your Azure Stream Analytics jobs in Azure, 
 > * Copying a job to another region does not copy the last output time. Therefore, you cannot use [**When last stopped**](./start-job.md#start-options) option when starting the copied job.
 
 ## Before you begin
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 

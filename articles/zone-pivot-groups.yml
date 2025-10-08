@@ -1971,3 +1971,18 @@ groups:
     title: General Purpose
   - id: business-critical
     title: Business Critical
+# Owner: jodowns
+- id: sql-database-tiers
+  title: Tier
+  prompt: Choose a service tier
+  pivots:
+  - id: basic-standard
+    title: Basic or Standard DTU
+  - id: premium
+    title: Premium DTU
+  - id: general-purpose
+    title: General Purpose
+  - id: business-critical
+    title: Business Critical
+  - id: hyperscale
+    title: Hyperscale

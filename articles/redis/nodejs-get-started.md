@@ -18,7 +18,7 @@ In this quickstart, you learn how to use an Azure Managed Redis cache from a Nod
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Install [Node.js LTS](https://nodejs.org/)
 - Install [TypeScript](https://www.typescriptlang.org/)
 - Add the packages used in this quickstart to your project:

@@ -1,9 +1,6 @@
 ---
 title: High availability for Azure Cache for Redis
 description: Learn about Azure Cache for Redis high availability features and options
-
-
-
 ms.topic: conceptual
 ms.date: 08/05/2024
 appliesto:
@@ -12,6 +9,8 @@ appliesto:
 ms.custom: references_regions
 ---
 # High availability and disaster recovery
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 As with any cloud systems, unplanned outages can occur that result in a virtual machines (VM) instance, an Availability Zone, or a complete Azure region going down. We recommend customers have a plan in place to handle zone or regional outages.
 

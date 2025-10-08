@@ -22,7 +22,7 @@ This tutorial covers:
 > - Steps for getting a Spark table dataset that contains a text column for sentiment analysis.
 > - Using a wizard experience in Azure Synapse to enrich data by using Text Analytics in Azure AI Language.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

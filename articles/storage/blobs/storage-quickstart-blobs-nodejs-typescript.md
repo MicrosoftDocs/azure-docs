@@ -29,7 +29,7 @@ In this article, you follow steps to install the package and try out example cod
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [Create a storage account](../common/storage-account-create.md)
 - [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - [TypeScript](https://www.typescriptlang.org/download)

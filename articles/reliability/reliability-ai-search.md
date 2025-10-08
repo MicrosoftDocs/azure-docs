@@ -46,7 +46,7 @@ AI Search automatically assigns one replica to be the *primary replica*. All wri
 
 The following diagram illustrates how a search service with three replicas might be spread across three availability zones:
 
-:::image type="content" source="./media/reliability-ai-search/replicas.png" alt-text="Diagram that shows an AI Search service with three replicas. Read operations are sent to all replicas, and write operations are sent to the primary replica." border="false" :::
+:::image type="content" source="./media/reliability-ai-search/replicas.svg" alt-text="Diagram that shows an AI Search service with three replicas. Read operations are sent to all replicas, and write operations are sent to the primary replica." border="false" :::
 
 You can also configure the number of *partitions*, which represent the storage that the search indexes use.
 
@@ -72,7 +72,7 @@ When you add two or more replicas to your service, AI Search attempts to place e
 
 The following diagram illustrates how an example search service with four replicas might be deployed across three availability zones:
 
-:::image type="content" source="./media/reliability-ai-search/availability-zones.png" alt-text="Diagram that shows an AI Search service with four replicas distributed across three availability zones." border="false" :::
+:::image type="content" source="./media/reliability-ai-search/availability-zones.svg" alt-text="Diagram that shows an AI Search service with four replicas distributed across three availability zones." border="false" :::
 
 > [!IMPORTANT]
 > AI Search doesn't guarantee the exact placement of replicas. Placement is subject to capacity constraints, scaling operations, and other factors.

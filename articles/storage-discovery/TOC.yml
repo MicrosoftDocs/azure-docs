@@ -26,6 +26,10 @@ items:
     items:
     - name: Get Started on Storage Discovery reports
       href: get-started-reports.md
+  - name: Manage
+    items:
+    - name: Move resources to other locations in Azure
+      href: resource-move.md
 - name: Resources
   items:
   - name: Release notes

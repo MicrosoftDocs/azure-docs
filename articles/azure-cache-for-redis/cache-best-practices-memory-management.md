@@ -14,6 +14,8 @@ appliesto:
 
 # Memory management
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 This article describes best practices for memory management in Azure Cache for Redis.
 
 ## Choose the right eviction policy

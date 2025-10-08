@@ -21,7 +21,7 @@ In this article, you learn how to use an Azure Redis cache with the Python langu
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Install [Python 3.7+](https://www.python.org/downloads/) language environment
 - Add these imports from  to your project and to your development environment
   - `redis` - The Redis Python client

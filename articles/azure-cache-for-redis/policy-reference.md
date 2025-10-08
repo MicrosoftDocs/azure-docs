@@ -4,12 +4,13 @@ description: Lists Azure Policy built-in policy definitions for Azure Cache for 
 ms.date: 02/06/2024
 appliesto:
   - ✅ Azure Cache for Redis
-
 ms.topic: reference
-
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Cache for Redis
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 
 This article is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Cache for Redis. For other Azure Policy built-ins for other services, see

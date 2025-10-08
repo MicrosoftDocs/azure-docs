@@ -23,7 +23,7 @@ When a query is received for this profile, all healthy endpoints are returned ba
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) now.
 - For this guide you will need to create Public IP Addresses. To learn how, see [Create a public IP address](../virtual-network/ip-services/public-ip-addresses.md).
 
 ## Create a resource group

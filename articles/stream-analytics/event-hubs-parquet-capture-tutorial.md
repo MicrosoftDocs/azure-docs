@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 Before you start, make sure you've completed the following steps:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Deploy the TollApp event generator app to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the 'interval' parameter to 1, and use a new resource group for this step.
 * Create an [Azure Synapse Analytics workspace](../synapse-analytics/get-started-create-workspace.md) with a Data Lake Storage Gen2 account.
 

@@ -27,7 +27,7 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
-- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Git](https://git-scm.com/downloads).
 - .NET Core SDK 3.1. Be sure to install the .NET SDK, not just the runtime. To check the version of the .NET SDK and runtime installed on your machine, run `dotnet --info`.
 

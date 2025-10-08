@@ -10,6 +10,8 @@ appliesto:
 ---
 # Administration tasks for Azure Cache for Redis
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 This article describes tasks such as [rebooting](#reboot), [flushing](#flush-data) a cache,  and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Cache for Redis instances.
 
 ## Reboot

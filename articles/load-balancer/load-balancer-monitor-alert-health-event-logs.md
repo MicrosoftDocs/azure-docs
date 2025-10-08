@@ -18,7 +18,7 @@ In this article, you learn how to monitor and alert with Azure Load Balancer hea
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Load Balancer resource. To learn how to create a Load Balancer resource, see [Quickstart: Create a public Standard Load Balancer](./quickstart-load-balancer-standard-public-portal.md).
 - An Azure Monitor Log Analytics workspace. To learn how to create a Log Analytics workspace, see [Quickstart: Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 

@@ -54,7 +54,7 @@ In this article, you use the [Azure Developer CLI](/azure/developer/azure-develo
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [Create a storage account](../common/storage-account-create.md)
 - [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 
@@ -62,7 +62,7 @@ In this article, you use the [Azure Developer CLI](/azure/developer/azure-develo
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 

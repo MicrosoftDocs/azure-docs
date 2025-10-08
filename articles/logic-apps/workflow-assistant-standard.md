@@ -36,7 +36,7 @@ The assistant can also provide information and answers about the current workflo
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A [Standard logic app workflow](create-single-tenant-workflows-azure-portal.md).
 

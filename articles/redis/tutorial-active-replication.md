@@ -18,7 +18,7 @@ In this tutorial, you will host an inventory application on Azure Kubernetes Ser
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - One Azure Kubernetes Service Cluster - For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternatively, you can host two instances of the demo application on the two different AKS clusters. In a production environment, you would use two different clusters located in the same regions as your clusters to deploy two versions of the application. For this tutorial, you deploy both instances of the application on the same AKS cluster.
 
 > [!IMPORTANT]

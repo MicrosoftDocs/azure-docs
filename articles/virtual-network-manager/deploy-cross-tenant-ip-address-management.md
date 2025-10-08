@@ -22,7 +22,7 @@ Managing IP addresses across multiple Azure tenants can be complex, especially i
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Two Azure tenants: a management tenant (Tenant A) and a managed tenant (Tenant B)
     - Management tenant (Tenant A) must have:

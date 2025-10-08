@@ -42,7 +42,7 @@ Here's a list of some of the connectors where you can exceed the default page si
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The logic app resource, workflow, and connector action where you want to turn on pagination.
 

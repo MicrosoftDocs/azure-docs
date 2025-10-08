@@ -150,7 +150,7 @@ Azure VMs are single-region resources. If the region becomes unavailable, your V
 
 You can deploy multiple VMs into different regions, but you need to implement replication, load balancing, and failover processes.
 
-Site Recovery is a service that enables DR by replicating VMs and their data to a secondary region. For more information, see [Azure to Azure DR architecture](/azure/site-recovery/azure-to-azure-architecture).
+Site Recovery is a service that enables DR by replicating VMs and their data to a secondary region. You can select almost any Azure region as your secondary region, including nonpaired region combinations. For more information, see [Azure to Azure DR architecture](/azure/site-recovery/azure-to-azure-architecture).
 
 Some applications create clusters or other constructs to replicate data and distribute work across multiple VMs, including in different regions. These applications can simplify the configuration of a multi-region solution.
 

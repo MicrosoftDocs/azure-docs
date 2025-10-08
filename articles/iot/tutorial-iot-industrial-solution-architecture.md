@@ -25,7 +25,7 @@ This tutorial shows you how to deploy an industrial IoT solution by using Azure 
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+To complete the steps in this tutorial, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Reference solution architecture
 

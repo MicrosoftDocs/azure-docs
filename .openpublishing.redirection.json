@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub-device-update/migration-public-preview-refresh-to-ga.md",
+      "redirect_url": "/azure/iot-hub-device-update/understand-device-update",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-sql-edge/connect.md",
       "redirect_url": "/previous-versions/azure/azure-sql-edge/connect",
       "redirect_document_id": false

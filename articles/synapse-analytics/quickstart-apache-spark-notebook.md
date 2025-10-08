@@ -17,11 +17,11 @@ In this quickstart, you learn how to create a serverless Apache Spark pool in Az
 > [!IMPORTANT]
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
-- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/)
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Synapse Analytics workspace](quickstart-create-workspace.md)
 - [Serverless Apache Spark pool](quickstart-create-apache-spark-pool-studio.md)
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a notebook
 

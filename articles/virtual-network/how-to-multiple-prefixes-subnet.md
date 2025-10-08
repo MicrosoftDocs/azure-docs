@@ -30,7 +30,7 @@ The following limitations still apply as of now:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!CAUTION]
 > Subnet properties **addressPrefixes** and **addressPrefix** aren't to be used interchangeably. For best results, use only **addressPrefixes** for both a single address prefix and for multiple address prefixes. If you're already using **addressPrefixes** in your workflows, continue to use this property.

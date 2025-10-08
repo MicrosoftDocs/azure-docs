@@ -21,7 +21,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
@@ -31,7 +31,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
@@ -47,7 +47,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 

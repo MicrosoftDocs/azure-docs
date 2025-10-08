@@ -29,7 +29,7 @@ This tutorial covers samples using Azure AI services in SynapseML for
 - Bing Image Search - search the web for images related to a natural language query.
 - Anomaly Detector - detect anomalies within a time series data.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites 
 

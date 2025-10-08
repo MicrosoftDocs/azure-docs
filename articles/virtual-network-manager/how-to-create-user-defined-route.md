@@ -22,7 +22,7 @@ In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-us
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - You need to have the **Network Contributor Role** for the scope that you want to use for your virtual network manager instance. 
 

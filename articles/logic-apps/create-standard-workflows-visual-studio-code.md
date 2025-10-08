@@ -56,7 +56,7 @@ If you plan to locally create and run workflows using only [built-in operations]
 
 These requirements include the following items:
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to the internet so that you can download the required extension, connect from Visual Studio Code to your Azure account, test workflows that include managed connector operations, and deploy to Azure from Visual Studio Code.
 

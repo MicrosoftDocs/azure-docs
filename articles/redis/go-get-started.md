@@ -21,7 +21,7 @@ In this article, you learn how to use an Azure Redis cache with the Go language 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Install [Go](https://go.dev/doc/install) language environment
 - Add [two imports from Redis](https://redis.io/docs/latest/develop/clients/go/) to your project and to your development environment
   - `entraid "github.com/redis/go-redis-entraid"`

@@ -54,7 +54,7 @@ This article focuses on working with Azure Files resources using the following a
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system (get the SDK and not the runtime)
 

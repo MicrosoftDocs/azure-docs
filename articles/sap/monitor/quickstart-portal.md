@@ -16,7 +16,7 @@ In this quickstart, you get started with Azure Monitor for SAP solutions by usin
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Set up a network](./set-up-network.md) before you create an Azure Monitor instance.
 - Create or choose a virtual network for Azure Monitor for SAP solutions that has access to the source SAP system's virtual network.
 - Create a subnet with an address range of IPv4/25 or larger in the virtual network associated with Azure Monitor for SAP solutions, with subnet delegation assigned to **Microsoft.Web/serverFarms**.

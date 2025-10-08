@@ -1,8 +1,6 @@
 ---
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
 description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
-
-
 ms.topic: conceptual
 ms.date: 09/11/2025
 appliesto:
@@ -12,6 +10,8 @@ ms.custom: sfi-image-nochange
 ---
 
 # Configure virtual network (VNet) support for a Premium Azure Cache for Redis instance
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation along with: subnets, access control policies, and other features to restrict access further. When an Azure Cache for Redis instance is configured with a virtual network, it isn't publicly addressable. Instead, the instance can only be accessed from virtual machines and applications within the virtual network. This article describes how to configure virtual network support for a Premium-tier Azure Cache for Redis instance.
 

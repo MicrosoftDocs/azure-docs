@@ -32,7 +32,7 @@ If you're looking to start with a complete example, see the client library quick
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Node.js LTS](https://nodejs.org/)
 - [TypeScript](https://www.typescriptlang.org/download), if applicable

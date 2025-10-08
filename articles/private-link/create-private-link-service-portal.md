@@ -21,7 +21,7 @@ Get started creating a Private Link service that refers to your service. Give Pr
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## <a name="create-a-virtual-network"></a> Sign in to Azure
 

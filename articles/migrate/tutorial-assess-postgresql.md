@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to:
 Before you begin, ensure that you've the following:
 
 - An Azure subscription and discover your on-premises PostgreSQL instances using Azure Migrate.
-- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Before you assess your PostgreSQL instances for migration to Azure Database for PostgreSQL flexible server, ensure you discover the instances using the Azure Migrate appliance. For more information, follow the [discovery tutorial](tutorial-discover-vmware.md).
 - If you use an existing Azure Migrate project, ensure you complete all [prerequisites](how-to-discover-applications.md) outlined in this article.
 - Before you proceed further, ensure you’ve reviewed the discovered application. [Learn more](how-to-discover-applications.md).

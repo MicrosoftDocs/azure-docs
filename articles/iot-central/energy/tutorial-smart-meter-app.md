@@ -56,7 +56,7 @@ For example, a partner might configure data export to continuously send data to 
 
 ## Prerequisites
 
-To complete this tutorial, you need an active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete this tutorial, you need an active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create an application for monitoring smart meters
 

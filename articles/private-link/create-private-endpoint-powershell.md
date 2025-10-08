@@ -24,7 +24,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure web app with a **PremiumV2-tier** or higher app service plan, deployed in your Azure subscription.  
 

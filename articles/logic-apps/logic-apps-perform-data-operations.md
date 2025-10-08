@@ -25,7 +25,7 @@ This how-to guide shows how you can work with data in your logic app workflow in
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The logic app workflow where you want to perform the data operation. Both Consumption and Standard logic app workflows support the data operations described in this guide.
 

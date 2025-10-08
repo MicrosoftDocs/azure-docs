@@ -24,11 +24,11 @@ This article describes the steps to create a Data Explorer pool in a Synapse wor
 > [!IMPORTANT]
 > Billing for Data Explorer instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Data Explorer instance after you have finished using it, or set a short timeout. For more information, see **Clean up resources**.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
-- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/)
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Synapse workspace](../quickstart-create-workspace.md)
 
 ## Sign in to the Azure portal

@@ -23,7 +23,7 @@ For users looking to surpass these current limits, we recommend upgrading to *Hi
 
 ## Prerequisites
 
-* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Register feature flag Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath on current subscription, see [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
 * Understanding of [Hub and Spoke](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) or [Mesh network](/azure/virtual-network-manager/concept-connectivity-configuration) topology.
 * A virtual network with private endpoint configured, see [Create a private endpoint](/azure/private-link/create-private-endpoint-portal).

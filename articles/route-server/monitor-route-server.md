@@ -24,7 +24,7 @@ Azure Monitor provides centralized monitoring for all Azure services, including 
 
 Before you begin monitoring your Route Server, ensure you have:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure Route Server deployment. If you need to create a Route Server, see [Create and configure Azure Route Server](quickstart-configure-route-server-portal.md).
 - Appropriate permissions to view metrics in the Azure portal (Monitoring Reader role or higher).
 

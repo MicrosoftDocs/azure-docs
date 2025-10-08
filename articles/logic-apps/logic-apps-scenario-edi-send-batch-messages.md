@@ -30,7 +30,7 @@ Make sure that your batch receiver and batch sender logic app workflows use the 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 

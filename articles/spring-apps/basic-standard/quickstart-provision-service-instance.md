@@ -23,7 +23,7 @@ Azure Spring Apps supports multiple plans. For more information, see [Quotas and
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - (Optional) [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 
 ## Provision an instance of Azure Spring Apps

@@ -23,7 +23,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - To modify network groups using Azure Policy to conditionally define membership, you must be [granted access through Azure Role-based Access Control (RBAC) role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin or legacy authorization isn't supported.
 
 [!INCLUDE [virtual-network-manager-create-instance](../../includes/virtual-network-manager-create-instance.md)]

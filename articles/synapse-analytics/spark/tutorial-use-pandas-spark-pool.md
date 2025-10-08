@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 > - Read/write ADLS Gen2 data using Pandas in a Spark session.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

@@ -28,7 +28,7 @@ To identify trending topics in real time on X, the company needs real-time analy
 
 In this how-to guide, you use a client application that connects to X and looks for tweets that have certain hashtags (which you can set). The following list gives you prerequisites for running the application and analyzing the tweets using Azure Streaming Analytics.
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An [X](https://x.com) account.
 
