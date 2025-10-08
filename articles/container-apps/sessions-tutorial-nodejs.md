@@ -28,7 +28,7 @@ You need the following resources before you begin this tutorial.
 
 | Resource | Description |
 |---|---|
-| Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
 ## Setup	

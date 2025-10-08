@@ -10,7 +10,7 @@ ms.service: azure-education
 
 # What is Azure for Students?
 
-[Azure for Students](https://azure.microsoft.com/free/students/) is a Microsoft program that provides students at higher-education institutions with access to various Azure cloud services and resources.
+[Azure for Students](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) is a Microsoft program that provides students at higher-education institutions with access to various Azure cloud services and resources.
 
 Joining Azure for Students grants you $100 in Azure credits, with no credit card required. This credit is valid for one year. You can renew each year that you're an active student to get an additional $100.
 

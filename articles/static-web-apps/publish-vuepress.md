@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
 - A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 - [Node.js](https://nodejs.org) installed.

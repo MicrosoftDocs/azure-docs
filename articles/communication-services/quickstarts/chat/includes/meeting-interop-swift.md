@@ -16,7 +16,7 @@ Download this code at GitHub Azure Samples [Join your chat app to a Teams meetin
 
 ## Prerequisites 
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - A Mac running [Xcode](https://developer.apple.com/xcode/), along with a valid developer certificate installed into your Keychain.
 - A [Teams deployment](/deployoffice/teams-install). 
 - A [User Access Token](../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.

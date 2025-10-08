@@ -37,7 +37,7 @@ You can use the same gateway installation with other cloud services, such as Pow
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
   * Your Azure account needs to use either a work account or school account with the format **`<username>@<organization>.com`**. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as accounts with hotmail.com or outlook.com domains.
 

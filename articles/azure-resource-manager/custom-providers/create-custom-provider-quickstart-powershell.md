@@ -22,7 +22,7 @@ In this quickstart, you learn how to create your own Azure custom resource provi
 
 ## Requirements
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see

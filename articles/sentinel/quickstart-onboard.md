@@ -23,7 +23,7 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
 ## Prerequisites
 
-- **Active Azure Subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- **Active Azure Subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - **Permissions**:
 

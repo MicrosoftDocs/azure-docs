@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * Create a NAT gateway for outbound internet access for the backend pool.
 > * Create virtual machine, then install and configure IIS on the VMs to demonstrate the port forwarding and load-balancing rules.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

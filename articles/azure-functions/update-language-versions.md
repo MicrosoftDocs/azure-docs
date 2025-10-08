@@ -30,7 +30,7 @@ To help ensure your function apps continue to receive support, follow the instru
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A function app that's hosted in one of the following Functions plans:
   - Premium
   - Dedicated

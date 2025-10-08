@@ -22,7 +22,7 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
 
 | Resource | Description |
 |---|---|
-| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 | NVIDIA NGC API key | You can get an API key from the [NVIDIA GPU Cloud (NGC) website](https://catalog.ngc.nvidia.com). |
 

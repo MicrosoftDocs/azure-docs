@@ -142,27 +142,6 @@ additionalContent:
     - title: SAP on Azure Large Instances / SAP and Microsoft integrations
       items:
       #card
-      - title: ALI - overview
-        links:
-        - text: What is SAP HANA on Azure Large Instances?
-          url: ./large-instances/hana-overview-architecture.md
-      #card
-      - title: ALI - concept
-        links:
-          - text: Certifications for Large Instances
-            url: ./large-instances/hana-certification.md 
-          - text: Supported scenarios for Large Instances
-            url: ./large-instances/hana-supported-scenario.md      
-          - text: Available SKUs for Large Instances
-            url: ./large-instances/hana-available-skus.md 
-          - text: Architecture for Large Instances
-            url: ./large-instances/hana-architecture.md 
-      #card
-      - title: ALI - How-to-guide
-        links:
-          - text: How to install SAP HANA on Azure Large Instances
-            url: ./large-instances/hana-example-installation.md
-      #card
       - title: Integrations - overview 
         links:
           - text: What scenarios are available and how do I get started?

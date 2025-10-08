@@ -26,7 +26,7 @@ Suppose you're responsible for a public website. You've just added a page with i
 You decide to create a rate-limit rule that restricts each source IP address to a maximum of 1,000 requests per minute. You only apply this rule to requests that contain `*/promo*` in the request URL.
 
 > [!TIP]
-> If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ::: zone-end
 
