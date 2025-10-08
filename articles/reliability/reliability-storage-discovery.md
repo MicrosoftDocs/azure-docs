@@ -39,7 +39,7 @@ Azure Storage Discovery is a fully managed service that provides enterprise-wide
 Storage Discovery doesn't provide outage notifications for every incident. The Storage Discovery service utilizes the same notification infrastructure used across Azure to inform customers about prolonged or severe outages.
 
 > [!RECOMMENDATION]
-> If you need uninterrupted access to Discovery reports, you can consider creating a second workspace, in a different region. This second workspace should be configured to observe the same storage resources. This approach protects you from a regional outage affecting your primary workspace. However, it doesn't safeguard against availability issues in the storage resources themselves across regions. Learn more about [Storage Discovery pricing](pricing.md) to evaluate additional costs.
+> If you need uninterrupted access to Discovery reports, you can consider creating a second workspace, in a different region. This second workspace should be configured to observe the same storage resources. This approach protects you from a regional outage affecting your primary workspace. However, it doesn't safeguard against availability issues in the storage resources themselves across regions. Learn more about [Storage Discovery pricing](../storage-discovery/pricing.md) to evaluate additional costs.
 
 ## Data availability and freshness coverage
 
