@@ -52,7 +52,7 @@ To keep the procedures focused and digestible in around 15 minutes, this article
 To follow all the steps in this article, you need:
 
 > [!div class="checklist"]
-> * An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+> * An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 > * The [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or later) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 > * Basic familiarity with [Socket.IO's APIs](https://socket.io/docs/v4/).
 

@@ -16,7 +16,7 @@ This quickstart shows you how to package an Azure Resource Manager template (ARM
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!NOTE]
 > To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with the Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
