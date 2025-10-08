@@ -15,7 +15,7 @@ This article shows you how to view and filter DNS traffic at the virtual network
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A virtual network is required. For more information, see [Create a virtual network](../virtual-network/quick-create-portal.md).
 
 ## Create a security policy

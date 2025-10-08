@@ -9,7 +9,7 @@ ms.custom: sfi-ropc-nochange
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Get the latest version of the [.NET Identity SDK](/dotnet/api/azure.identity).
 - Get the latest version of the [.NET Management SDK](../../concepts/sdk-options.md).

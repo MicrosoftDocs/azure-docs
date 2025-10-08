@@ -89,7 +89,7 @@ The first step in maximizing your experience within Cost Management is to invest
 
 To learn more about the various options, visit [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/). Several of the most common billing models are identified below.
 
-#### [Free](https://azure.microsoft.com/free/)
+#### [Free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - 12 months of popular free services
 - $200 credit in your billing currency to explore services for 30 days

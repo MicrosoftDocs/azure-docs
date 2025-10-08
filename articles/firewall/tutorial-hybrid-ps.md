@@ -53,7 +53,7 @@ Traffic between directly peered virtual networks is routed directly, even if a U
 
 To review the related Azure PowerShell reference documentation, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Declare the variables
 

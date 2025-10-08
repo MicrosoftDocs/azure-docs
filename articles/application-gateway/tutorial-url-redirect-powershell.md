@@ -41,7 +41,7 @@ If you prefer, you can complete this procedure using [Azure CLI](tutorial-url-re
 
 Before you begin this tutorial, ensure you have:
 
-- An active Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have one.
+- An active Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 - Azure PowerShell module version 5.4.1 or later installed locally, or access to Azure Cloud Shell
 - Contributor or Owner permissions on the target Azure subscription
 - A basic understanding of Application Gateway concepts and PowerShell scripting

@@ -16,7 +16,7 @@ This article describes how to use the [Header Rewrite](./rewrite-http-headers-ur
 
 HSTS policy helps protect or minimize your sites against man-in-the-middle, cookie-hijacking, and protocol downgrade attacks. After a client has established the first successful HTTPS connection with your HSTS-enabled website, HSTS header ensures going forward the client can access only through HTTPS.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Before you begin
 

@@ -17,7 +17,7 @@ Feel free to explore [Container Apps on Azure Arc Overview | Microsoft Learn](/a
 
 ## Prerequisites
 
-- [An Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) with an active subscription.
+- [An Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription.
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 - [An Azure Arc-enabled Kubernetes cluster set up in Extended Zones](/azure/extended-zones/arc-enabled-workloads-arc-enabled-aks-cluster).

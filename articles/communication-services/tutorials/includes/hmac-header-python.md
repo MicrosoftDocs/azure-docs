@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ---
 ## Prerequisites
 
-- Create an Azure account with an active subscription. If you don't have an Azure subscription, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. If you don't have an Azure subscription, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Download and install [Python](https://www.python.org/).
 - Download and install [Visual Studio Code](https://code.visualstudio.com/) or another integrated development environment (IDE) that supports Python.
 - Create an Azure Communication Services resource. If you don't have a resource, see [Create a Communication Services resource](../../quickstarts/create-communication-resource.md). You need your `resource_endpoint_name` and `resource_endpoint_secret` parameters for this example.

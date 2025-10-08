@@ -39,7 +39,7 @@ To complete this quickstart, you need:
 
 * [Docker](https://www.docker.com/products/docker-desktop/) installed.
 
-* An [Azure subscription](https://azure.microsoft.com/free/).
+* An [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
 
