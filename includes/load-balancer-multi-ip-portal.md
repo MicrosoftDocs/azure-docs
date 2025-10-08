@@ -12,7 +12,7 @@
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/students/?cid=msft_learn).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [load-balancer-create-bastion](load-balancer-create-bastion.md)]
 

@@ -6,7 +6,7 @@ ms.date: 08/01/2025
 ms.author: glenga
 ---
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/students/?cid=msft_learn).
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
