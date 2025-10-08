@@ -24,7 +24,7 @@ This article uses the Pet Clinic sample apps as examples of how to migrate.
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - [!INCLUDE [install-enterprise-extension](../enterprise/includes/install-enterprise-extension.md)]
 - [Git](https://git-scm.com/downloads).

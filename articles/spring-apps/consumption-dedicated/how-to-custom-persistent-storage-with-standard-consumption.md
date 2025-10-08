@@ -29,7 +29,7 @@ You can also mount your own persistent storage not only to Azure Spring Apps but
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - An Azure Spring Apps Standard consumption and dedicated plan service instance.
 - A Spring app deployed to Azure Spring Apps.
