@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 05/25/2022
 ms.topic: include
-ms.custom: include file
 ms.author: bertong
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services using the Communication Services JavaScript SMS SDK to send SMS messages.
@@ -22,7 +24,7 @@ Completing this article incurs a small cost of a few USD cents or less in your A
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](../../telephony/get-phone-number.md).

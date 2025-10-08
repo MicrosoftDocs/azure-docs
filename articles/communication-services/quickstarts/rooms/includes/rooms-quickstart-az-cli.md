@@ -8,13 +8,16 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 05/15/2025
 ms.topic: include
-ms.custom: include file, devx-track-azurecli
 ms.author: mikehang-msft
+ms.custom:
+  - include file
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md?#access-your-connection-strings-and-service-endpoints-using-azure-cli).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 - You can get the connection string from the Azure portal by clicking the keys in the settings. 

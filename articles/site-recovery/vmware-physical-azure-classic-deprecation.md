@@ -4,7 +4,7 @@ description: Details about upcoming deprecation of classic experience to protect
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.date: 03/26/2025
-ms.author: jsuri
+ms.author: v-gajeronika
 
 # Customer intent: "As an IT administrator managing VMware and physical machines, I want to migrate from the classic experience to the modernized experience of Azure Site Recovery, so that I can ensure ongoing disaster recovery support and avoid disruptions after the deprecation date."
 ---
@@ -22,13 +22,15 @@ Classic experience to protect VMware and physical machines to Azure using Site R
 
 - Starting March 15, 2023, you'll receive Azure portal notifications & email communications for the upcoming deprecation of classic replication experience of VMware and physical machines. This capability will no longer be supported after March 30, 2026.
 
-- Starting March 15, 2023, you can only use the modernized experience to enable Azure Site Recovery for all newly created Recovery Services vaults.
+- Starting March 15, 2023, you can only use the modernized experience to enable Azure Site Recovery for all Recovery Services vaults.
 
-- Existing VMware and physical machines can remain on the classic management experience until March 30, 2026. After 30 March 2026, changes to any configurations of the replication on these existing VMware and physical machines will require upgrade to the new modernized experience. 
+- Existing VMware and physical machines can remain on the classic management experience until March 30, 2026. After 30 March 2026, changes to any configurations of the replication on these existing VMware and physical machines will require upgrade to the new modernized experience.
 
 - Support for new features or improvements, along with mobility agent support for new Linux distros, will only be available on the modernized experience.
 
 - If you do not migrate your machines by March 30, 2026, the replication health of your machines may be disrupted and you will no longer be able to view, manage, or perform any disaster recovery-related operations through the Azure Site Recovery experience in the Azure portal.
+
+- Enable replication for Classic Appliance from portal is blocked and PowerShell will be blocked by January 31, 2026.
 
 
 ## Alternatives 

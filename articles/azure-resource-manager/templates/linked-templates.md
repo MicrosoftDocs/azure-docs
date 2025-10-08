@@ -3,7 +3,10 @@ title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically create URLs.
 ms.topic: conceptual
 ms.date: 08/05/2025
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-arm-template
+  - sfi-ropc-nochange
 ---
 
 # Use linked and nested templates to deploy Azure resources

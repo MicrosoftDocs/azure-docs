@@ -129,7 +129,7 @@ Once your new cache in the targeted region is populated with all necessary data,
 
 ### Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 ### Prepare
 

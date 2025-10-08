@@ -6,8 +6,10 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 11/27/2024
 ms.topic: include
-ms.custom: include file
 ms.author: kpunjabi
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Download code
@@ -20,7 +22,7 @@ This server-side application helps you create a virtual assistant that can handl
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
 - [Node.js](https://nodejs.org/en/download) installed.
 - An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.

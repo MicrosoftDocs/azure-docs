@@ -4,6 +4,7 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: rifox
+ms.custom: sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication Services calling client library to add video calling to your app. Learn how to include 1:1 video calling, and how to create or join group calls. Additionally, you can start, answer, and join a video call by using the Azure Communication Services Calling SDK for Android.
@@ -12,7 +13,7 @@ If you want to get started with sample code, you can [download the sample app](h
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.

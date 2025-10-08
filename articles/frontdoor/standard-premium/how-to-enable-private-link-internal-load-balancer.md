@@ -1,14 +1,15 @@
 ---
-title: 'Connect Azure Front Door Premium to an internal load balancer origin with Private Link'
+title: Connect Azure Front Door Premium to an internal load balancer origin with Private Link
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to an internal load balancer.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/12/2024
+ms.date: 09/24/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Connect Azure Front Door Premium to an internal load balancer origin with Private Link
@@ -19,9 +20,13 @@ This article guides you through how to configure Azure Front Door Premium to con
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Review the [Secure your origin with Private Link](../private-link.md) documentation to better understand how Private Link works with Azure Front Door.
-* Create a [Private Link](../../private-link/create-private-link-service-portal.md) service for your origin web servers.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+- An Azure Front Door Premium profile. For more information, see [Create an Azure Front Door](../create-front-door-portal.md).
+
+- A Private Link for your origin web servers. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-portal.md).
+
+- Review the [Secure your origin with Private Link](../private-link.md) article to better understand how Private Link works with Azure Front Door.
 
 ## Enable private connectivity to an internal load balancer
  
@@ -36,7 +41,7 @@ In this section, you map the Private Link service to a private endpoint created 
 1. Select **+ Add an origin** to add new origin. Select or enter the following settings to configure the internal load balancer origin. 
 
     > [!NOTE] 
-    > The hostname must be a valid domain name, IPv4 or IPv6. The hostname can be the private IP of the internal load balancer or a domain name.
+    > The hostname must be a valid domain name, IPv4, or IPv6. The hostname can be the private IP of the internal load balancer or a domain name.
 
     * **Name** - Enter a name to identify this origin.
     * **Origin type** - Select the **Custom** origin type.
@@ -75,6 +80,7 @@ The following are common mistakes when configuring an origin with Azure Private 
 
 * Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
 
-## Next steps
+## Related content
 
-Learn about [Private Link service](../../private-link/private-link-service-overview.md).
+- [Secure your origin with Private Link](../private-link.md)
+- [Private Link service](../../private-link/private-link-service-overview.md)

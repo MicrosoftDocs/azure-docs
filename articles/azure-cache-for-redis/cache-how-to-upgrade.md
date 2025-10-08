@@ -9,7 +9,10 @@ ms.topic: how-to
 ms.date: 05/21/2024
 appliesto:
   - ✅ Azure Cache for Redis
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # How to upgrade the version of your Redis instance
@@ -121,7 +124,7 @@ For more information on how to export, see [Import and Export data in Azure Cach
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 ### Limitations
 

@@ -82,8 +82,8 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/about-creator.md",
-            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
-            "redirect_document_id": true
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-maps/choose-pricing-tier.md",
@@ -92,7 +92,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/how-to-creator-feature-stateset.md",
-            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
@@ -112,7 +112,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/indoor-map-dynamic-styling.md",
-            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
@@ -152,7 +152,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/schema-stateset-stylesobject.md",
-            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
@@ -162,23 +162,128 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
-            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-indoor-maps.md",
-            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-wfs.md",
-            "redirect_url": "/azure/azure-maps/how-to-creator-wfs",
+            "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-geofence.md",
-            "redirect_url": "/azure/azure-maps/",
-            "redirect_document_id": true
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/creator-facility-ontology.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/creator-geographic-scope.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/creator-indoor-maps.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/creator-long-running-operation-v2.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/creator-long-running-operation.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/creator-onboarding-tool.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/creator-qgis-plugin.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/drawing-conversion-error-codes.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/drawing-error-visualizer.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/drawing-package-guide.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/drawing-requirements.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-create-custom-styles.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-create-data-registries.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-creator-wayfinding.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-creator-wfs.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-dataset-geojson.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-manage-creator.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-use-indoor-module.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/release-notes-indoor-module.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/rest-api-creator.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/geofence-geojson.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-maps/quick-android-map.md",

@@ -3,7 +3,7 @@ title: Best Practices for Azure Operator Service Manager
 description: Understand best practices for Azure Operator Service Manager to onboard and deploy a network function.
 author: msftadam
 ms.author: adamdor
-ms.date: 08/12/2024
+ms.date: 10/06/2025
 ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
@@ -24,7 +24,10 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 
 ## Publisher considerations
 
-- We recommend that you create a single publisher per NF supplier. This practice provides optimal support, maintenance, and governance experience across all suppliers. It also simplifies your network service design (NSD) when the design consists of multiple NFs from multiple vendors.
+- We recommend that you create a single publisher per NF supplier, or per NF type per NF supplier, where the NF supplier may provide more then one NF type. This practice;
+  - Provides for the most optimal support, maintenance, and governance experience, by preventing proliferation of publishers. Especially during upgrade activities where the same action is often executed across many NFs. 
+  - Lowers total operating costs by reducing the number of publisher backing resources, like ACR or Storage Accounts.
+  - Simplifies the network service design (NSD), where it may consist of multiple NFs from multiple vendors.
 - After you test and approve the desired set of Azure Operator Service Manager publisher resources for production use, we recommend marking the entire set as immutable. Marking the set as immutable helps prevent accidental changes and ensure a consistent deployment experience. Consider relying on immutability capabilities to distinguish between:
 
   - Resources and artifacts used in production

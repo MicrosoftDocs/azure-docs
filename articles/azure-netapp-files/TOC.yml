@@ -79,6 +79,8 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: Migrating data into Azure NetApp Files
+      href: migrate-data.md
     - name: Understand large volumes 
       href: large-volumes.md
     - name: Requirements and considerations for large volumes
@@ -309,6 +311,8 @@
         href: configure-kerberos-encryption.md
       - name: Configure AD DS LDAP with extended groups for NFS
         href: configure-ldap-extended-groups.md
+      - name: Configure LDAP server 
+        href: configure-directory-server.md
       - name: Configure an NFS client for Azure NetApp Files
         href: configure-nfs-clients.md
       - name: Convert an NFS volume between NFSv3 and NFSv4.1
@@ -327,6 +331,8 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
+    - name: Migrate volumes to Azure NetApp Files
+      href: migrate-volumes.md
     - name: Manage volume access and encryption 
       items:
       - name: Configure export policy for NFS or dual protocol

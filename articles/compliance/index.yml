@@ -387,9 +387,6 @@ conceptualContent:
         - url: /compliance/regulatory/offering-ens-spain
           itemType: concept
           text: Spain ENS High
-        - url: /compliance/regulatory/offering-lopd-spain
-          itemType: concept
-          text: Spain LOPD
         - url: /azure/compliance/offerings/offering-uae-desc
           itemType: concept
           text: UAE DESC

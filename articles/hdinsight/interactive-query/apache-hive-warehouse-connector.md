@@ -7,6 +7,7 @@ author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: nijelsf
 ms.date: 08/08/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight

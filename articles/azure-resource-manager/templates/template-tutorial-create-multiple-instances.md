@@ -19,15 +19,13 @@ This tutorial covers the following tasks:
 > * Edit the template
 > * Deploy the template
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 
 ## Prerequisites
 
-To complete this article, you need:
-
-* Visual Studio Code with Resource Manager Tools extension. For more information, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+To complete this article, you need [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Open a Quickstart template
 

@@ -5,9 +5,10 @@ author: seligj95
 ms.topic: quickstart
 ms.date: 05/07/2025
 ms.author: jordanselig
+ms.service: azure-app-service
 ms.custom:
   - build-2025
-ms.service: azure-app-service
+  - sfi-image-nochange
 
 # As a developer, I want to create an App Service Environment so that I can integrate App Service with an Azure virtual network.
 
@@ -17,7 +18,7 @@ ms.service: azure-app-service
 
 In this quickstart, you create an App Service Environment. [App Service Environment][Intro] is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
 
-If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Before you create an App Service Environment
 

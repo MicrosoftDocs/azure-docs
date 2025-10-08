@@ -8,8 +8,11 @@ ms.service: azure-app-service
 ms.topic: faq
 ms.date: 12/13/2024
 # ms.devlang: wordpress
-ms.author: areddys
-ms.custom: mvc, linux-related-content
+ms.author: tulikac
+ms.custom:
+  - mvc
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 # WordPress on App Service: Frequently Asked Questions
 
@@ -81,7 +84,7 @@ NGINX configurations can be updated using a **startup script**. Detailed instruc
 Access error logs for debugging via **App Service logs** or the **Kudu dashboard**. Refer to the [documentation](troubleshoot-diagnostic-logs.md) for detailed steps.
 
 ## How do I estimate pricing for hosting a WordPress site on Azure?
-Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/) to estimate hosting costs, considering App Service, MySQL, CDN, Blob Storage, and other components. Use this [pricing estimate guide](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/how-to-estimate-pricing-for-wordpress-on-app-service/ba-p/4029262) for more information.
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/) to estimate hosting costs, considering App Service, MySQL, Azure Front Door, Blob Storage, and other components. Use this [pricing estimate guide](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/how-to-estimate-pricing-for-wordpress-on-app-service/ba-p/4029262) for more information.
 
 ## How can I debug and monitor my WordPress site?
 Key tools for debugging and monitoring WordPress sites include:
@@ -101,7 +104,6 @@ Or you can find the database username and password from App Service environment 
 ## What features can I use to boost my WordPress site's performance?
 
 Enhance performance with these features / plugins:
-- **[Content Delivery Network (CDN)](/azure/cdn/)**
 - **[Azure Front Door (AFD)](/azure/frontdoor/)**
 - **[Blob Storage](/azure/storage/blobs/)**
 - **Dynamic Caching**
@@ -131,6 +133,6 @@ Key features include:
 ## What are common errors for WordPress on App Service, and how can I troubleshoot?
 Typical issues and resolutions:
 - **[Debug Logs](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/enabling_debug_logs_for_wordpress.md):** Enable for troubleshooting.
-- **[CORS Issues](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/cors_issue_with_azure_cdn_frontdoor_blob.md):** Adjust settings in CDN or Azure Front Door.
+- **[CORS Issues](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/cors_issue_with_azure_cdn_frontdoor_blob.md):** Adjust settings in Azure Front Door.
 - **[Existing WordPress Detected Warning](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/troubleshooting-guides/tsg_existing_wordpress_installation_detected.md):** Follow [troubleshooting steps](#).
 - **[Intl Extension issues](https://techcommunity.microsoft.com/blog/appsonazureblog/how-to-install-intl-extension-on-wordpress-on-azure-app-service/4138353):** Install via the configuration panel.

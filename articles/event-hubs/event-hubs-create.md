@@ -3,6 +3,7 @@ title: Create an event hub using the Azure portal
 description: In this quickstart, you learn how to create an Azure Event Hubs namespace and an event hub in the namespace by using Azure portal.
 ms.topic: quickstart
 ms.date: 12/12/2024
+ms.custom: sfi-image-nochange
 # Customer intent: I want to know how create an Azure event hub using the Azure portal. 
 ---
 
@@ -12,7 +13,7 @@ In this quickstart, you create an Azure Event Hubs namespace and an event hub in
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - If you are new to Azure Event Hubs, read through [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 ## Create a resource group

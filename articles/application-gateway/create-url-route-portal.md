@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 02/05/2025
 ms.author: mbender
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 # Customer intent: As an IT administrator, I want to create an application gateway with URL path-based routing rules using the Azure portal, so that I can efficiently manage and direct web traffic to the appropriate backend servers based on specific URL patterns.
 ---
@@ -26,7 +27,7 @@ In this article, you learn how to:
 
 :::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/application-gateway-create-url-route-portal/scenario.png":::
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

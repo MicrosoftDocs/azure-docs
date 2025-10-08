@@ -6,6 +6,7 @@ ms.author: abnarain
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.custom: sfi-image-nochange
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal
@@ -23,7 +24,7 @@ In this tutorial, you use Azure portal to create a Data Factory pipeline that tr
 > * Monitor the pipeline run 
 > * Verify the output
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 

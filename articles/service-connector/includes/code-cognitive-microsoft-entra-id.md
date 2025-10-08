@@ -2,20 +2,22 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 07/28/2025
 ms.author: wchi
 ---
 
-You can use the Azure client library to access various cognitive APIs that an Azure AI multi-service resource supports. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-azure-active-directory) to call the cognitive APIs directly.
+You can use the Azure client library to access various cognitive APIs that an Azure AI multi-service resource supports. This sample uses Azure AI Text Analytics as an example. To call the cognitive APIs directly, see [Authenticate with Microsoft Entra ID](/azure/ai-services/authentication#authenticate-with-azure-active-directory).
 
 ### [.NET](#tab/dotnet)
 
-1. Install the following dependencies. We use `Azure.AI.TextAnalytics` as an example.
+1. Install the following dependencies. This example uses `Azure.AI.TextAnalytics`.
+
     ```bash
     dotnet add package Azure.AI.TextAnalytics
     dotnet add package Azure.Identity
     ```
-1. Authenticate using Azure Identity library and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using Azure Identity library and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```csharp
     using Azure.AI.TextAnalytics;
@@ -47,7 +49,8 @@ You can use the Azure client library to access various cognitive APIs that an Az
     
 ### [Java](#tab/java)
 
-1. Add the following dependencies in your *pom.xml* file. We use `azure-ai-textanalytics` as an example.
+1. Add the following dependencies in your *pom.xml* file. This example uses`azure-ai-textanalytics`.
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -60,7 +63,8 @@ You can use the Azure client library to access various cognitive APIs that an Az
         <version>1.11.4</version>
     </dependency>
     ```
-1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
     // Uncomment the following lines corresponding to the authentication type you want to use.
@@ -89,12 +93,15 @@ You can use the Azure client library to access various cognitive APIs that an Az
 
 ### [Python](#tab/python)
 
-1. Install the following dependencies. We use `azure-ai-textanalytics` as an example.
+1. Install the following dependencies. This example uses `azure-ai-textanalytics`.
+
     ```bash
     pip install azure-ai-textanalytics==5.1.0
     pip install azure-identity
     ```
-1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+
     ```python
     import os
     from azure.ai.textanalytics import TextAnalyticsClient
@@ -122,12 +129,14 @@ You can use the Azure client library to access various cognitive APIs that an Az
 
 ### [NodeJS](#tab/nodejs)
 
-1. Install the following dependencies. We use `ai-text-analytics` as an example.
+1. Install the following dependencies. This example uses`ai-text-analytics`.
+
     ```bash
     npm install @azure/ai-text-analytics@5.1.0
     npm install @azure/identity
     ```
-1. Authenticate using `@azure/identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using `@azure/identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

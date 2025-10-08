@@ -5,8 +5,10 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
-ms.custom: devx-track-azurepowershell
 ms.date: 02/13/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
@@ -62,7 +64,7 @@ To create a shared self-hosted IR using Azure PowerShell, you can take following
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-- **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
+- **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin. 
 
 - **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell). You use PowerShell to run a script to create a self-hosted integration runtime that can be shared with other data factories. 
 

@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/02/2025
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Configure Private Link for Azure Health Data Services
@@ -95,5 +96,15 @@ To ensure your Private Endpoint can send traffic to your server:
 1. Create a virtual machine (VM) that is connected to the virtual network and subnet your Private Endpoint is configured on. To ensure your traffic from the VM is only using the private network, disable the outbound internet traffic using the network security group (NSG) rule.
 2. Remote Desktop Protocols (RDP) into the VM.
 3. Access your FHIR server’s `/metadata` endpoint from the VM. You should receive the capability statement as a response.
+
+## FAQ
+
+### 1. From logs, requests failing with HTTP 403 are not due to bad tokens but instead they are rejected by Private Links, as their origin is not allowed to access the FHIR service.
+
+Validate the below points:
+
+-  Check if the request origin of those requests is part of the same Virtual Network (VNET) where the FHIR service is.  
+
+-  Check if the Private Endpoint and/or Private DNS zone are shared with multiple VNETs at the same time. This is a known misconfiguration that can cause turbulence on the IP resolution and result in requests being rejected.
 
 [!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]

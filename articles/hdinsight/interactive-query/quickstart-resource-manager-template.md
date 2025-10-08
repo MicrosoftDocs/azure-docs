@@ -3,11 +3,15 @@ title: 'Quickstart: Create Interactive Query cluster using template - Azure HDIn
 description: This quickstart shows how to use Resource Manager template to create an Interactive Query cluster in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: nijelsf
 ms.date: 01/02/2025
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
 
@@ -23,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 

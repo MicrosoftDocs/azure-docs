@@ -188,7 +188,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Entity pages](entity-pages.md) |GA |Yes |Yes |Yes |
 |[Identity info table data ingestion](investigate-with-ueba.md) |GA |Yes |Yes |Yes |
 |[IoT device entity page](/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) |Public preview	|Yes |Yes |No |
-|[Peer/Blast radius enrichments](identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba) |Public preview |Yes |No |No |
+|[Peer/Blast radius enrichments](identify-threats-with-entity-behavior-analytics.md#what-is-ueba) |Public preview |Yes |No |No |
 |[SOC-ML anomalies](soc-ml-anomalies.md#what-are-customizable-anomalies) |GA |Yes |Yes |No |
 |[UEBA anomalies](soc-ml-anomalies.md#ueba-anomalies) |GA |Yes |Yes |No |
 |[UEBA enrichments\insights](investigate-with-ueba.md) |GA |Yes |Yes |Yes |

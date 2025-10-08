@@ -4,6 +4,7 @@ description: This article provides a summary of support settings and limitations
 author: Vikram1988
 ms.author: vibansa
 ms.topic: concept-article
+ms.reviewer: v-uhabiba
 ms.date: 05/08/2025
 ms.custom: engagement-fy24
 # Customer intent: As a cloud architect, I want to understand the Azure Migrate support matrix so that I can determine the service's capabilities and limitations for assessing and migrating on-premises workloads to Azure effectively.
@@ -82,6 +83,7 @@ Switzerland | Switzerland North
 United Arab Emirates | UAE North
 United Kingdom | UK South or UK West
 United States | Central US or West US 2
+Chile | Chile Central
 
 > [!NOTE]
 > For Switzerland geography, Switzerland West is available only for REST API users and needs an approved subscription.

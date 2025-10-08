@@ -5,9 +5,13 @@ services: azure-resource-manager
 author: dlepow
 ms.service: azure-api-management
 ms.topic: quickstart-arm
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
 ms.date: 03/25/2024
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
@@ -26,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 

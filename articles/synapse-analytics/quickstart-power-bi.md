@@ -7,7 +7,9 @@ ms.topic: quickstart
 ms.subservice: business-intelligence
 ms.date: 12/20/2024
 ms.author: harmeetgill
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Linking a Power BI workspace to a Synapse workspace

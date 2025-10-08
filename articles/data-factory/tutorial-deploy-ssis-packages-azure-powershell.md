@@ -4,10 +4,12 @@ description: Learn how to set up an Azure-SSIS Integration Runtime in Azure Data
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
 ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Set up an Azure-SSIS IR in Azure Data Factory by using PowerShell
@@ -38,7 +40,7 @@ In this tutorial, you will:
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-- **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - **Azure SQL Database server or managed instance (optional)**. If you don't already have a database server, create one in the Azure portal before you get started. Data Factory will in turn create an SSISDB instance on this database server. 
 

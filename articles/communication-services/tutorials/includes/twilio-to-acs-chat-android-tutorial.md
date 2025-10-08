@@ -8,12 +8,14 @@ author: RinaRish
 ms.author: ektrishi
 ms.service: azure-communication-services
 ms.subservice: chat
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 - Create an Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). Record your resource **endpoint and connection string**.
 - A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.

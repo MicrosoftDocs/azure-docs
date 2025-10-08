@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/19/2024
 author: juluczni
 ms.author: juluczni
+ms.custom: sfi-ropc-nochange
 ---
 
 # Use Pandas to read/write Azure Data Lake Storage Gen2 data in serverless Apache Spark pool in Synapse Analytics

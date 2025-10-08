@@ -5,8 +5,10 @@ author: kromerm
 ms.author: makromer
 ms.subservice: pricing
 ms.topic: how-to
-ms.custom: subject-cost-optimization
 ms.date: 09/26/2024
+ms.custom:
+  - subject-cost-optimization
+  - sfi-image-nochange
 ---
 
 # Plan to manage costs for Azure Data Factory

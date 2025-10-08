@@ -5,10 +5,10 @@ description: Learn how to create & manage access tokens to authenticate requests
 ms.topic: how-to
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
+author: johnsta
+ms.author: johnsta
 ms.date: 08/07/2025
-ms.custom: playwright-workspaces-preview
+ms.custom: playwright-workspaces
 ---
 
 # Manage workspace access tokens in Playwright Workspaces
@@ -19,12 +19,9 @@ Access tokens are associated with a user account and workspace. When you use an 
 
 You can create multiple access tokens per workspace, for example to distinguish between running tests interactively or as part of your continuous integration (CI) workflow. When you create an access token, the token has a limited lifespan.
 
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites  
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Playwright workspace. To create a workspace, see [Quickstart: Run Playwright tests at scale](./quickstart-run-end-to-end-tests.md).
 - To create or delete access tokens, your Azure account needs to have the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) or [Owner](/azure/role-based-access-control/built-in-roles#owner) role at the workspace level. Learn more about [managing access to a workspace](./how-to-manage-workspace-access.md).
 

@@ -16,6 +16,9 @@ ms.subservice: storage-partner-integration
 
 This article highlights Microsoft partner companies integrated with Azure Storage that can improve your overall data management capabilities. These partner solutions can support storage assessment and reporting, platform-agnostic migration, replication, cloud tiering, or data governance.
 
+> [!NOTE]
+> While Azure Storage works closely with our partners, support for any partner solution is provided by the partner, not Azure Support. You will need to open a case with the partner's support organization and then, if necessary, open a case with Azure Support to troubleshoot Azure infrastructure events that may be connected to the issue.
+
 ## Verified partners
 
 | Partner | Description | Website/product link |

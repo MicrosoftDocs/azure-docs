@@ -77,3 +77,4 @@ The example above sets both the minimum and maximum scale units to 2 and updates
 
 > [!NOTE]
 > To migrate your existing ExpressRoute gateway to a scalable gateway, follow the steps in the [ExpressRoute gateway migration guide](expressroute-howto-gateway-migration-portal.md).
+

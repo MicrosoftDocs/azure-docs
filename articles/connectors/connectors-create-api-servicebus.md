@@ -6,7 +6,9 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/16/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Connect to Azure Service Bus from workflows in Azure Logic Apps
@@ -37,7 +39,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * A Service Bus namespace and messaging entity, such as a queue. For more information, review the following documentation:
 
@@ -165,7 +167,7 @@ For the Service Bus built-in connector, non-session triggers follow a *continuou
 
   * If you enable concurrency on the trigger named **When messages are available in a queue (V1)**, and 100+ messages are sent to the queue, all messages are routed to the [dead-letter queue](../service-bus-messaging/service-bus-dead-letter-queues.md).
 
-  * If you enable concurrency, the **SplitOn** limit is reduced to 100 items. This behavior is true for all triggers, not just the Service Bus trigger. Make sure the specified batch size is less than this limit on any trigger where you enable concurrency.
+  * If you enable concurrency, the limit for debatching or **Split on** behavior is reduced to 100 items. This behavior is true for all triggers, not just the Service Bus trigger. Make sure the specified batch size is less than this limit on any trigger where you enable concurrency.
 
   * If you enable concurrency, by default, a 30-second delay exists between batch reads. This delay slows down the trigger to achieve the following goals:
 

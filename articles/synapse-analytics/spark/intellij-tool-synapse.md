@@ -8,6 +8,7 @@ ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Create an Apache Spark application with IntelliJ using a Synapse workspace

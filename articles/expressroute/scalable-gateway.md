@@ -53,6 +53,7 @@ ErGwScale is available in most regions except the following regions:
 * India West
 * Japan East
 * Qatar Central
+* US West 2
 
 ### Pricing
 
@@ -61,7 +62,7 @@ ErGwScale is free of charge during the preview. For information about ExpressRou
 
 ## Next steps
 
-- Learn how to [create an ExpressRoute scalable gateway](expressroute-howto-add-gateway-resource-manager.md).
+- Learn how to [create an ExpressRoute scalable gateway](expressroute-howto-scalable-portal.md).
 - Learn more about [ExpressRoute gateways](expressroute-about-virtual-network-gateways.md).
 
 

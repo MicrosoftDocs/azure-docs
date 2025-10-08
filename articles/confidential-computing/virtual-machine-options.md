@@ -27,6 +27,10 @@ We offer the following VM sizes:
 | **DCadsv5-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
 | **ECasv5-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECadsv5-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
+| **DCasv6-series** | AMD SEV-SNP | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCadsv6-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
+| **ECasv6-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
+| **ECadsv6-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
 | **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
 | **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
 | **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
@@ -66,7 +70,7 @@ Consider the following settings and choices before deploying confidential VMs.
 
 ### Azure subscription
 
-To deploy a confidential VM instance, consider a [pay-as-you-go subscription](/azure/virtual-machines/linux/azure-hybrid-benefit-linux) or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
+To deploy a confidential VM instance, consider a [pay-as-you-go subscription](/azure/virtual-machines/linux/azure-hybrid-benefit-linux) or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), the quota doesn't allow the appropriate number of Azure compute cores.
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 

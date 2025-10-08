@@ -4,9 +4,11 @@ description: Learn how Azure Monitor and Log Analytics help you monitor your App
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
 ms.date: 06/29/2023
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 
@@ -29,7 +31,7 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 
 To complete this tutorial, you need:
 
-- [Azure subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - [Git](https://git-scm.com/)
 

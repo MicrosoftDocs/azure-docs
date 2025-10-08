@@ -7,6 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.custom: sfi-image-nochange
 ---
 
 # Diagnostics logs and metrics for Workflow Orchestration Manager
@@ -23,7 +24,7 @@ This article walks you through the steps to:
 
 ## Prerequisites
 
-You need an Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+You need an Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Enable diagnostics logs and metrics for Workflow Orchestration Manager
 

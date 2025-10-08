@@ -8,7 +8,10 @@ ms.topic: quickstart
 ms.date: 02/13/2025
 ms.author: whhender
 ms.reviewer: jianleishen
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-api
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create an Azure Data Factory and pipeline by using the REST API
@@ -20,7 +23,7 @@ Azure Data Factory is a cloud-based data integration service that allows you to 
 
 This quickstart describes how to use REST API to create an Azure Data Factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 

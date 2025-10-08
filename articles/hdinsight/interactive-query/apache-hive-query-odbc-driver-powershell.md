@@ -8,6 +8,9 @@ author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: nijelsf
 ms.date: 06/15/2024
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---
 
@@ -22,7 +25,7 @@ In this tutorial, you'll do the following tasks:
 > * Create an Apache Hive ODBC data source linked to your cluster
 > * Query sample information from your cluster using PowerShell
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

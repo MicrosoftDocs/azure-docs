@@ -6,9 +6,9 @@ ms.topic: quickstart
 ms.date: 08/07/2025
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
-ms.custom: playwright-workspaces-preview
+author: johnsta
+ms.author: johnsta
+ms.custom: playwright-workspaces
 zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
@@ -19,12 +19,9 @@ In this quickstart, you set up continuous end-to-end testing with Playwright Wor
 
 After you complete this quickstart, you have a CI workflow that runs your Playwright test suite at scale and helps you troubleshoot tests easily with Playwright Workspaces.
 
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * A Playwright workspace. Complete the [quickstart: run Playwright tests at scale](./quickstart-run-end-to-end-tests.md) and create a workspace.
 
@@ -87,7 +84,7 @@ Update the `package.json` file in your repository to add details about Playwrigh
 
 ```typescript
 "devDependencies": {
-    "@azure/playwright": "beta"
+    "@azure/playwright": "latest"
 }
 ```
 
@@ -100,14 +97,14 @@ Update the `package.json` file in your repository to add details about Playwrigh
 In your project, install Playwright Workspaces package. 
 
 ```PowerShell
-dotnet add package Azure.Developer.Playwright.NUnit --prerelease
+dotnet add package Azure.Developer.Playwright.NUnit
 ```
 
 This command updates your project's `csproj` file by adding the service package details to the `ItemGroup` section. Remember to commit these changes.
 
 ```xml
   <ItemGroup>
-    <PackageReference Include="Azure.Developer.Playwright.NUnit" Version="1.0.0-beta.2" />
+    <PackageReference Include="Azure.Developer.Playwright.NUnit" Version="1.0.0" />
   </ItemGroup>
 ```
 

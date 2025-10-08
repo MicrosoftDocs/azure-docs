@@ -511,6 +511,8 @@ For SAP deployments on Linux systems, don't use Azure Disk Encryption. Azure Dis
 
 Similar to managed disk encryption, [Azure Files](/azure/storage/common/customer-managed-keys-overview) encryption at rest (SMB and NFS) is available with PMKs or CMKs.
 
+Azure Files supports Encryption in Transit (EiT) for [SMB](../../storage/files/files-smb-protocol.md#security) and NFS file shares. If you would like to use Encryption in Transit, read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) to learn how to configure and deploy.
+
 For SMB network shares, carefully review Azure Files and [operating system dependencies](/windows-server/storage/file-server/smb-security) with [SMB versions](/azure/storage/files/files-smb-protocol?tabs=azure-portal) because the configuration affects support for in-transit encryption.
 
 > [!IMPORTANT]

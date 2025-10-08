@@ -3,7 +3,11 @@ title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: how-to
 ms.date: 08/05/2025
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-arm-template
+  - sfi-ga-nochange
 ---
 
 # Tenant deployments with ARM templates

@@ -2,19 +2,21 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 06/12/2024
+ms.date: 07/28/2025
 ms.author: wchi
 ---
 
-You can use the Azure client library to access various cognitive APIs that an Azure AI multi-service resource supports. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-a-multi-service-resource-key) to call the cognitive APIs directly.
+You can use the Azure client library to access various cognitive APIs that an Azure AI multi-service resource supports. This sample uses Azure AI Text Analytics as an example. To call the cognitive APIs directly, see [Authenticate with an AI Foundry resource key](/azure/ai-services/authentication#authenticate-with-an-ai-foundry-resource-key).
 
 ### [.NET](#tab/dotnet)
 
-1. Install the following dependencies. We use `Azure.AI.TextAnalytics` as an example.
+1. Install the following dependencies. This example uses `Azure.AI.TextAnalytics`.
+
     ```bash
     dotnet add package Azure.AI.TextAnalytics
     dotnet add package Azure.Core --version 1.40.0
     ```
+
 1. Get the Azure AI multi-service resource endpoint and key from the environment variables added by Service Connector.
     
     ```csharp
@@ -30,7 +32,8 @@ You can use the Azure client library to access various cognitive APIs that an Az
     
 ### [Java](#tab/java)
 
-1. Add the following dependencies in your *pom.xml* file. We use `azure-ai-textanalytics` as an example.
+1. Add the following dependencies in your *pom.xml* file. This example uses `azure-ai-textanalytics`.
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -43,7 +46,9 @@ You can use the Azure client library to access various cognitive APIs that an Az
         <version>5.1.12</version>
     </dependency>
     ```
+
 1. Get the Azure AI multi-service resource endpoint and key from the environment variables added by Service Connector.
+
     ```java
     String endpoint = System.getenv("AZURE_COGNITIVESERVICES_ENDPOINT");
     String key = System.getenv("AZURE_COGNITIVESERVICES_KEY");
@@ -55,12 +60,15 @@ You can use the Azure client library to access various cognitive APIs that an Az
 
 ### [Python](#tab/python)
 
-1. Install the following dependencies. We use `azure-ai-textanalytics` as an example.
+1. Install the following dependencies. This example uses `azure-ai-textanalytics`.
+
     ```bash
     pip install azure-ai-textanalytics==5.1.0
     pip install azure-core
     ```
+
 1. Get the Azure AI multi-service resource endpoint and key from the environment variables added by Service Connector.
+
     ```python
     import os
     from azure.ai.textanalytics import TextAnalyticsClient
@@ -75,10 +83,12 @@ You can use the Azure client library to access various cognitive APIs that an Az
 
 ### [NodeJS](#tab/nodejs)
 
-1. Install the following dependency. We use `ai-text-analytics` as an example.
+1. Install the following dependency. This example uses `ai-text-analytics`.
+
     ```bash
     npm install @azure/ai-text-analytics@5.1.0
     ```
+
 1. Get the Azure AI multi-service resource endpoint and key from the environment variables added by Service Connector.
     
     ```javascript

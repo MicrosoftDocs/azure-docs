@@ -58,11 +58,17 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 
 - Asia East
 - US West Central
-
-### Coming soon
-
 - UK South
 - US East
+- India Central
+- Germany West Central
+- US Central
+
+
+### Coming soon
+- Australia East
+- Korean Central
+- Canada Central
 
 ## Virtual network TAP partner solutions
 
@@ -86,10 +92,11 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 |**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
 |**Extrahop**|[Reveal(x)](https://www.extrahop.com/platform/revealx)|
+|**Progress**|[Flowmon](https://www.progress.com/blogs/azure-vtap)|
 |**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|
 |**eSentire**|[eSentire MDR](https://www.esentire.com/how-we-do-it/signals/mdr-for-network)|
 |**LinkShadow**|[LinkShadow NDR](https://www.linkshadow.com/products/network-detection-and-response)|
-|**AttackFence**|[AttackFence NDR](https://www.attackfence.com/products/ndr)|
+|**AttackFence**|[AttackFence NDR](https://www.attackfence.com/ndr)|
 |**Arista Networks**|[Arista NDR](https://www.arista.com/en/products/network-detection-and-response)|
 
 ## Next Steps

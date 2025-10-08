@@ -13,7 +13,7 @@ After [creating the createUiDefinition.json file](create-uidefinition-overview.m
 
 - A _createUiDefinition.json_ file. If you don't have this file, copy the [sample file](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/100-marketplace-sample/createUiDefinition.json).
 
-- An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Use sandbox
 

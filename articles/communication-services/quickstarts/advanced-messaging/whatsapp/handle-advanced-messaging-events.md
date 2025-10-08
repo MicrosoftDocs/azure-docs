@@ -19,7 +19,7 @@ Azure Communication Services enables you to send and receive WhatsApp messages u
 
 ## Prerequisites
 
-- [Azure account with an active subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Azure account with an active subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Register Event Grid Resource Provider](../../sms/handle-sms-events.md#register-an-event-grid-resource-provider)
 - [Create an Azure Communication Services resource](../../create-communication-resource.md)
 

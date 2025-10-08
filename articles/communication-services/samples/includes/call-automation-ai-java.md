@@ -7,8 +7,10 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 08/18/2023
 ms.topic: include
-ms.custom: include file
 ms.author: kpunjabi
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Download code
@@ -23,7 +25,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A [phone number](../../quickstarts/telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. Phone numbers aren't available in free subscriptions.
 - [Java Development Kit (JDK) Microsoft.OpenJDK.17](/java/openjdk/download).

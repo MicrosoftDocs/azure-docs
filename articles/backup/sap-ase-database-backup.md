@@ -4,10 +4,11 @@ description: In this article, learn how to configure backup for SAP ASE (Sybase)
 ms.topic: how-to
 ms.date: 05/13/2025
 ms.service: azure-backup
-ms.custom:
-  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom:
+  - ignite-2024
+  - sfi-ropc-nochange
 # Customer intent: "As a database administrator, I want to configure automated backup for my SAP ASE databases on Azure VMs, so that I can ensure data integrity and recovery in case of failure."
 ---
 

@@ -7,6 +7,9 @@ author: EdB-MSFT
 ms.topic: reference
 ms.date: 11/13/2023
 ms.author: edbaynash
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 

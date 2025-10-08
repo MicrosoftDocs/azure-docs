@@ -30,7 +30,7 @@ Go to f5.com resources and white papers for: [Easily Configure Secure Access to 
 To get started, you need:
 
 * An Azure subscription
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
 * A BIG-IP or a deployed trial BIG-IP Virtual Environment (VE) on Azure
@@ -140,7 +140,7 @@ To upgrade the Guided Configuration, go to my.f5.com for [K85454683: Upgrade F5 
 
 Use BIG-IP configured with a client SSL profile to secure client-side traffic over TLS. Import a certificate that matches the domain name, used by the public-facing URL for your app. We recommend you use a public certificate authority, but you can use BIG-IP self-signed certificates for testing.
 
-To add and manage certificates in the BIG-IP VE, go to techdocs.f5.com for [BIG-IP System: SSL Administration](https://techdocs.f5.com/en-us/bigip-17-5-0/big-ip-system-ssl-administration.html).
+To add and manage certificates in the BIG-IP VE, go to techdocs.f5.com for [BIG-IP System: SSL Administration](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-0-0.html).
 
 
 ## Guided Configuration

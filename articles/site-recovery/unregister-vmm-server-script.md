@@ -4,8 +4,9 @@ description: This article describes the cleanup script on the VMM server
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 03/25/2021
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
+ms.custom: sfi-ropc-nochange
 # Customer intent: "As a systems administrator, I want to execute a cleanup script on a VMM server, so that I can remove old recovery settings and unregister a VMM to ensure proper operational state and restore functionality."
 ---
 

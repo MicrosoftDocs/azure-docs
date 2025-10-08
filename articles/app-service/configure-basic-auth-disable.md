@@ -8,6 +8,7 @@ ms.date: 06/11/2025
 keywords: azure app service, security, deployment, FTP, MsDeploy
 
 ms.service: azure-app-service
+ms.custom: sfi-ropc-nochange
 ---
 
 # Disable basic authentication in Azure App Service deployments

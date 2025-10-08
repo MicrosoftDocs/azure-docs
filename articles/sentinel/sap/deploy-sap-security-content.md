@@ -1,15 +1,16 @@
 ---
 title: Install a Microsoft Sentinel solution for SAP applications
 description: Learn how to install a Microsoft Sentinel solution for SAP applications from the content hub to your Log Analytics workspace enabled for Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 zone_pivot_groups: sentinel-sap-connection
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security administrator, I want to deploy and configure security monitoring for SAP applications using Microsoft Sentinel so that I can enhance the security posture and threat detection capabilities of my SAP environment.
@@ -38,7 +39,7 @@ Content in this article is relevant for your **security** team.
 :::zone pivot="connection-agentless"
 
 > [!IMPORTANT]
-> Microsoft Sentinel's agentless data connector for SAP is currently in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel's agentless data connector for SAP is currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::zone-end
 
@@ -57,7 +58,7 @@ Make sure that you also review the [prerequisites for deploying Microsoft Sentin
 
 Installing the **Microsoft Sentinel Solution for SAP** makes both the data connector agent and the agentless data connector available to you from the Microsoft Sentinel **Configuration > Data connectors** page. The solution also deploys security content, such as the **SAP -Audit Controls** workbook and SAP-related analytics rules.
  
-1. [Install the solution via the Azure marketplace](https://portal.azure.com/#create/sentinel4sap.sentinel4sap-previewsentinel4sap) after receiving a notification of onboarding. 
+1. [Install the solution via the Azure Marketplace](https://portal.azure.com/#create/sentinel4sap.sentinel4sap-previewsentinel4sap) after receiving a notification of onboarding. 
  
 1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
 

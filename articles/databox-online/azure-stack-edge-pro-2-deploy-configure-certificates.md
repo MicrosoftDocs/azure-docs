@@ -183,7 +183,7 @@ Follow these steps to upload your own certificates including the signing chain.
 
 1. In the **Encryption-at-rest** pane, provide a 32 character long Base-64 encoded key. This is a one-time configuration and this key is used to protect the actual encryption key. You can choose to automatically generate this key. 
 
-    ![Screenshot of the local web UI "Encryption at rest" pane wit system generated key.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-key-1.png)
+    ![Screenshot of the local web UI "Encryption at rest" pane with system generated key.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-key-1.png)
 
     You can also enter your own Base-64 encoded ASE-256 bit encryption key.
 

@@ -9,7 +9,10 @@ services: iot-hub
 ms.topic: reference
 ms.date: 04/24/2023
 ms.author: sonialopez
-ms.custom: [mvc, 'Role: Cloud Development']
+ms.custom:
+  - mvc
+  - 'Role: Cloud Development'
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to use Visual Studio Code to manage, develop, and monitor Azure IoT Hub resources. 
 ---
 

@@ -6,9 +6,19 @@ ms.topic: tutorial
 ms.date: 7/24/2024
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ms.service: azure-app-service
+ms.custom:
+  - mvc
+  - cli-validate
+  - devx-track-python
+  - devdivchpfy22
+  - vscode-azure-extension-update-completed
+  - AppServiceConnectivity
+  - devx-track-extended-azdevcli
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Deploy a Python FastAPI web app with PostgreSQL in Azure
@@ -21,14 +31,14 @@ In this tutorial, you deploy a data-driven Python web app (**[FastAPI](https://f
 
 ::: zone pivot="azure-portal"  
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Knowledge of Python with FastAPI development
 
 ::: zone-end
 
 ::: zone pivot="azure-developer-cli"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of Python with FastAPI development
 

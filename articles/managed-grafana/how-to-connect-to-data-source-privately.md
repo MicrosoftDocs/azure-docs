@@ -6,6 +6,7 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.date: 08/19/2025
+ms.custom: sfi-image-nochange
 #customer intent: As a Grafana user, I want to connect an Azure Managed Grafana workspace a data source using Managed Private Endpoint, so that the traffic stays on the Azure network instead of the internet.
 --- 
 

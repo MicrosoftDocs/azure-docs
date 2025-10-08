@@ -7,6 +7,7 @@ ms.service: azure-nat-gateway
 ms.topic: how-to
 ms.date: 09/16/2024
 ms.author: allensu
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ---
 # What is Azure NAT Gateway metrics and alerts?

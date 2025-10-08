@@ -1,12 +1,12 @@
 ---
 title: Monitoring churn patterns on virtual machines
 description: Learn how to monitor churn patterns on Virtual Machines protected using Azure Site Recovery
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.author: jsuri
+ms.author: v-gajeronika
 # Customer intent: As an IT administrator, I want to monitor churn patterns on virtual machines using various tools, so that I can identify high churn applications and take appropriate actions to optimize performance.
 ---
 

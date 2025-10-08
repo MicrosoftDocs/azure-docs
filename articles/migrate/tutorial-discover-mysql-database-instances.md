@@ -4,13 +4,14 @@ description: Learn how to discover MySQL database instances running in your data
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
+ms.reviewer: v-uhabiba
 ms.date: 03/03/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
-monikerRange: migrate-classic
+monikerRange:
 # Customer intent: As a database administrator, I want to discover MySQL database instances in my datacenter using an agentless solution, so that I can assess and manage my databases efficiently before migrating to the cloud.
 ---
 
-# Tutorial: Discover MySQL database instances running in your datacenter (preview)
+# Discover MySQL database instances running in your datacenter (preview)
 
 
 This article describes how to discover MySQL database instances running on servers in your datacenter, using **Azure Migrate appliance**. The discovery process is agentless; no agents are installed on the target servers. 
@@ -52,7 +53,7 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 2. Navigate to the Manage credentials and discovery sources panel.
-1. In Step 3: Select **MySQL authentication** credential type, provide a friendly name, input the MySQL username, and password and select **Save**.
+3. In Step 3: Select **MySQL authentication** credential type, provide a friendly name, input the MySQL username, and password and select **Save**.
 
    > [!NOTE]
    > - Ensure that the user corresponding to the added MySQL credentials have the following privileges: 
@@ -62,11 +63,60 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    
    > - Use the following commands to grant the necessary privileges to the MySQL user
    > ```
-   >  GRANT USAGE ON *.* TO 'username@ip';
-   >  GRANT PROCESS ON *.* TO 'username@ip';
-   >  GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username@ip';
-   >  GRANT SELECT ON information_schema.* TO 'username@ip';
-   >  GRANT SELECT ON performance_schema.* TO 'username@ip';  
+   >  GRANT USAGE ON *.* TO 'username'@'ip';
+   >  GRANT PROCESS ON *.* TO 'username'@'ip';
+   >  GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username'@'ip';
+   >  GRANT SELECT ON information_schema.* TO 'username'@'ip';
+   >  GRANT SELECT ON performance_schema.* TO 'username'@'ip';  
+
+To enable Discovery and Assessment in Azure Migrate, you can create a custom MySQL user account with the minimum required permissions. Use the following script to create the account and grant access from the appliance machine. 
+- CREATE USER privilege → to create the new user.
+- GRANT OPTION privilege → to grant privileges to the new user.
+- SELECT on mysql.user → required for the existence check.
+- PROCESS privilege → if you want to verify process-related grants after creation.
+
+```
+
+-- MySQL Script to Create a Least-Privilege User for Azure Migrate
+-- Replace @username, @password, and @ip with actual values before execution.
+
+SET @username = 'your_username';
+SET @password = 'your_password';
+SET @ip = 'your_appliance_ip';
+
+-- Check if the user already exists
+SELECT CASE
+    WHEN EXISTS (SELECT 1 FROM mysql.user WHERE user = @username AND host = @ip)
+        THEN CONCAT('User ', @username, '@', @ip, ' already exists, skipping creation')
+    ELSE
+        CONCAT('User ', @username, '@', @ip, ' does not exist, proceeding with creation')
+END AS user_check;
+
+-- Create the user if not exists
+CREATE USER IF NOT EXISTS @username@'@ip' IDENTIFIED BY @password;
+
+-- Grant minimal required privileges
+GRANT USAGE ON *.* TO @username@'@ip';
+GRANT PROCESS ON *.* TO @username@'@ip';
+
+-- Grant SELECT on specific columns in mysql.user
+GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv)
+ON mysql.user TO @username@'@ip';
+
+-- Grant SELECT on information_schema and performance_schema
+GRANT SELECT ON information_schema.* TO @username@'@ip';
+GRANT SELECT ON performance_schema.* TO @username@'@ip';
+
+-- Apply changes
+FLUSH PRIVILEGES;
+
+-- Log success
+SELECT CONCAT('Azure Migrate user ', @username, '@', @ip, ' created successfully with least privileges.') AS result;
+```
+Execute the script using the following command through your MySQL client.
+```
+mysql -u root -p -e "SET @username='myuser'; SET @password='mypassword'; SET @ip='appliance_ip'; SOURCE CreateUser.sql;"
+```
 
 You can review the discovered MySQL databases after around 24 hours of discovery initiation, through the **Discovered servers** view. To expedite the discovery of your MySQL instances follow the steps:
 

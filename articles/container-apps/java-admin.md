@@ -4,10 +4,12 @@ description: Learn how to use a managed Admin for Spring in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 07/15/2024
 ms.author: cshoe
+ms.custom:
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Connect to a managed Admin for Spring in Azure Container Apps
@@ -31,7 +33,7 @@ If you want to integrate Admin for Spring with Eureka Server for Spring, see [In
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Considerations

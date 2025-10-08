@@ -6,12 +6,12 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 04/23/2025
+ms.date: 09/03/2025
 ms.author: anfdocs
 # Customer intent: As an IT administrator managing Azure resources across multiple tenants, I want to configure cross-tenant customer-managed keys for volume encryption in Azure NetApp Files, so that I can enhance security and control over encryption keys used for sensitive data.
 ---
 
-# Configure cross-tenant customer-managed keys for Azure NetApp Files volume encryption (preview)
+# Configure cross-tenant customer-managed keys for Azure NetApp Files volume encryption 
 
 Cross-tenant customer-managed keys (CMK) for Azure NetApp Files volume encryption allows service providers based on Azure to offer [customer-managed key encryption](configure-customer-managed-keys.md). In the cross-tenant scenario, the NetApp account resides in a tenant managed by an independent software vendor, while the key used for encryption of volumes in that NetApp account resides in a key vault in a tenant that you manage.
 
@@ -32,26 +32,6 @@ Following these steps, you install the service provider's application in your te
  The location of the key in the key vault. 
 
 With these three parameters, the service provider provisions Azure resources in tenant 1 that can be encrypted with the customer-managed key in tenant 2. 
-
-## Register the feature 
-
-This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossTenantCMK
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossTenantCMK
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Configure cross-tenant customer-managed keys for Azure NetApp Files 
 
@@ -114,10 +94,12 @@ The configuration process for cross-tenant customer-managed keys has portions th
 >[!NOTE]
 >Using the `az rest` command is the only supported way to configure your NetApp account to use CMK in a different tenant.
 
+<!-- check API version preview -->
+
 1. With the `az rest` command, configure the NetApp account to use CMK in a different tenant:  
 
     ```azurecli
-    az rest --method put --uri "/subscriptions/<subscription Id>/resourceGroups/<resourceGroupName>/providers/Microsoft.NetApp/netAppAccounts/<NetAppAccountName>?api-version=2024-01-01-preview" --body 
+    az rest --method put --uri "/subscriptions/<subscription Id>/resourceGroups/<resourceGroupName>/providers/Microsoft.NetApp/netAppAccounts/<NetAppAccountName>?api-version=2025-01-01" --body 
     '{  \"properties\":
         {    \"encryption\":
             {      \"keySource\": \"Microsoft.KeyVault\",   \"keyVaultProperties\":    

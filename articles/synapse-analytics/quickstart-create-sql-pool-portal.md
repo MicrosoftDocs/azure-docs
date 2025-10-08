@@ -7,7 +7,9 @@ ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a dedicated SQL pool using the Azure portal

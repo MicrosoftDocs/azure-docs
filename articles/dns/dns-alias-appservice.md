@@ -20,7 +20,7 @@ For example, you can point `contoso.com` and `www.contoso.com` to the same Traff
 
 In this article, you learn how to create an alias record for your domain apex. Then you'll configure your Traffic Manager profile end points for your web apps.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

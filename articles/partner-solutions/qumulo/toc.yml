@@ -15,7 +15,7 @@ items:
   - name: Manage resources
     href: manage.md
   - name: Troubleshoot
-    href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
+    href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
 - name: SDKs and command-lines
   items:
   - name: Python

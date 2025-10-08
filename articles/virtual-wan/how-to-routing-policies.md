@@ -4,12 +4,13 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN routing policies.
 author: wtnlee
 ms.service: azure-virtual-wan
-ms.custom:
-  - devx-track-bicep
-  - build-2025
 ms.topic: how-to
 ms.date: 03/26/2025
 ms.author: wellee
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+  - sfi-image-nochange
 ---
 # How to configure Virtual WAN Hub routing intent and routing policies
 
@@ -111,23 +112,23 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 ### <a name="address-limits"></a>Virtual Network address space limits
 
 > [!NOTE]
-> The maximum number of Virtual Network address spaces that you can connect to a single Virtual WAN hub is adjustable. Open an Azure support case to request a limit increase. The limits are applicable at the Virtual WAN hub level. If you have multiple Virtual WAN hubs that require a limit increase, request a limit increase for all Virtual WAN hubs in your Virtual WAN deployment.
+> The maximum number of Virtual Network address spaces that you can connect to a single Virtual WAN hub is 600. The address space limit was previously 400 and was adjustable via support case to 600. The 600 limit now applies automatically to all hubs and can't be increased further (**not** adjustable).
 
-For customers using routing intent, the maximum number of address spaces across all Virtual Networks **directly connected** to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to **remote** (other Virtual WAN hubs in the same Virtual WAN) hubs are **not** counted towards this limit.
+For customers using routing intent, the maximum number of address spaces across all Virtual Networks **directly connected** to a single Virtual WAN hub is 600. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to **remote** (other Virtual WAN hubs in the same Virtual WAN) hubs are **not** counted towards this limit.
 
-If the number of directly connected Virtual Network address spaces connected to a hub exceeds the limit, enabling or updating routing intent on the Virtual Hub will fail. For hubs already configured with routing intent where Virtual Network address spaces exceeds the limit as a result of an operation such as a Virtual Network address space update, the newly connected address space might not be routable.
+If the number of directly connected Virtual Network address spaces connected is close (greater than 90%) to the 600 limit, enabling or updating routing intent on the Virtual Hub may fail. For hubs already configured with routing intent where Virtual Network address spaces exceeds the limit as a result of an operation such as a Virtual Network address space update, the newly connected address space might not be routable.
 
-Proactively request a limit increase if the total number of address spaces across all locally connected Virtual Networks exceeds 90% of the documented limit or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past the limit.
+As a result, proactively deploy a new Virtual WAN hub and connect new Virtual Networks to the new Virtual WAN hub if the total number of address spaces across all locally connected Virtual Networks **exceeds 90% (540) of the documented limit (600)** or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past the limit.
  
-The following table provides example Virtual Network address space calculations.
+The following table provides example Virtual Network address space calculations. Note that only Virtual Networks **directly connected** to the hub count towards the 600 limit. Virtual Networks connected to remote hubs don't contribute to the local hub's count.  
 
-|Virtual Hub| Virtual Network Count| Address spaces per Virtual Network | Total number of Virtual Network address spaces connected to Virtual Hub| Suggested Action|
+|Virtual Hub| Virtual Network Count| Address spaces per Virtual Network | Total number of Virtual Network address spaces connected to **this** Virtual Hub| Suggested Action|
 |--|--|--|--|--|
 | Hub #1| 200| 1 | 200| No action required, monitor address space count.| 
-| Hub #2| 150 | 3 | 450| Request limit increase to use routing intent.|
-| Hub #3 |370 | 1| 370| Request limit increase.|
+| Hub #2| 150 | 3 | 450| No action required, monitor address space count.|
+| Hub #3 | 180 | 3 | 540 | Deploy a new Virtual WAN hub and connect new Virtual Networks to the new hub.|
 
-You can use the following PowerShell script to approximate the number of address spaces in Virtual Networks connected to a single Virtual WAN hub. Run this script for all Virtual WAN hubs in your Virtual WAN. An Azure Monitor metric to allow you to track and configure alerts on connected Virtual Network address spaces is on the roadmap. 
+You can use the following PowerShell script to approximate the number of address spaces in Virtual Networks connected to a single Virtual WAN hub. Run this script for all Virtual WAN hubs in your Virtual WAN. An Azure Monitor metric to allow you to track and configure alerts on connected Virtual Network address spaces is on the roadmap.
 
 Make sure to modify the resource ID of the Virtual WAN Hub in the script to match your environment. If you have cross-tenant Virtual Network connections, make sure you have sufficient permissions to read the Virtual WAN Virtual Network connection object as well as the connected Virtual Network resource. 
 

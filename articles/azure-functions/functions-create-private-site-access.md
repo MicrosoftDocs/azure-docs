@@ -4,6 +4,7 @@ description: Learn to set up Azure virtual network private site access for Azure
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Establish Azure Functions private site access
@@ -24,7 +25,7 @@ In this tutorial, you learn how to configure private site access for your functi
 > * Create and deploy an Azure Function
 > * Invoke the function from outside and within the virtual network
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Topology
 

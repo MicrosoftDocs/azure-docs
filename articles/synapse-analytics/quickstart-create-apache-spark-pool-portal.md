@@ -10,6 +10,7 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.custom:
   - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a new serverless Apache Spark pool using the Azure portal

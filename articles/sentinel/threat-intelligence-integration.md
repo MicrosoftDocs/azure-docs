@@ -138,7 +138,7 @@ To connect to TIP feeds, see [Connect threat intelligence platforms to Microsoft
 
 ### Recorded Future security intelligence platform
 
-- Learn how [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
+- Learn how [Recorded Future](https://www.recordedfuture.com/blog/microsoft-azure-sentinel-integration) makes use of Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
 
 ### ThreatConnect Platform
 
@@ -166,12 +166,12 @@ For more information about how to find and manage the solutions, see [Discover a
 
 ### Recorded Future Security Intelligence Platform
 
-- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with `RecordedFuture_`.
+- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/blog/microsoft-azure-sentinel-integration) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with `RecordedFuture_`.
 - See the Recorded Future Logic Apps [connector documentation](/connectors/recordedfuturev2/).
 
 ### ReversingLabs TitaniumCloud
 
-- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/).
+- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/spectra-intelligence) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/).
 - See the ReversingLabs TitaniumCloud Logic Apps [connector documentation](/connectors/reversinglabstitaniu/).
 
 ### RiskIQ PassiveTotal

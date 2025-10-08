@@ -7,6 +7,7 @@ ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 2/17/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Debug using the physical job diagram (preview) in Azure portal

@@ -1,11 +1,14 @@
 ---
 title: Set up disaster recovery for an IIS web app using Azure Site Recovery 
 description: Learn how to replicate IIS web farm virtual machines using Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 03/07/2024
-ms.author: jsuri
+ms.author: v-gajeronika
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 # Customer intent: As a system administrator, I want to implement a disaster recovery solution for my multi-tier IIS web application so that I can ensure its availability and minimize downtime during outages.
 ---

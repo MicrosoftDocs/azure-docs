@@ -8,7 +8,9 @@ ms.service: azure-dns
 services: dns
 ms.topic: tutorial
 ms.date: 11/30/2023
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom:
+  - template-tutorial #Required; leave this attribute/value as-is.
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to a resource record within the zone.
 # Customer intent: "As a network administrator, I want to configure an alias record in Azure DNS to point to a resource record, so that I can effectively manage the DNS records and enhance resource referencing within my domain."
 ---
@@ -24,7 +26,7 @@ In this tutorial, you learn how to:
 > * Create an alias record for the resource record.
 > * Test the alias record.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

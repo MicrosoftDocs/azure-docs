@@ -6,6 +6,7 @@ author: nabhishek
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -26,7 +27,7 @@ In this tutorial, you perform the following steps:
 
 ## Prerequisites
 ### Azure subscription
-Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### Azure roles
 To create data factory instances, the user account you use to log in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.

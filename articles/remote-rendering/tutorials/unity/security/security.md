@@ -5,7 +5,9 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 ---
 
 # Tutorial: Securing Azure Remote Rendering and model storage

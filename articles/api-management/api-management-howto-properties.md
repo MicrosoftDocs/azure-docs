@@ -1,14 +1,17 @@
 ---
-title: How to use named values in Azure API Management policies
+title: How to Use Named Values in Azure API Management policies
 description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings, policy expressions, and secrets stored in Azure Key Vault.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/11/2024
+ms.date: 09/30/2025
 ms.author: danlep
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.custom:
+  - engagement-fy23
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use named values in Azure API Management policies
@@ -17,7 +20,7 @@ ms.custom: engagement-fy23, devx-track-azurecli
 
 [API Management policies](api-management-howto-policies.md) are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and named values.
 
-*Named values* are a global collection of name/value pairs in each API Management instance. Named values can be used to manage constant string values and secrets across all API configurations and policies. 
+*Named values* are a global collection of name/value pairs in each API Management instance. You can use named values to manage constant string values and secrets across all API configurations and policies.
 
 :::image type="content" source="media/api-management-howto-properties/named-values.png" alt-text="Named values in the Azure portal":::
 
@@ -26,38 +29,43 @@ ms.custom: engagement-fy23, devx-track-azurecli
 |Type  |Description  |
 |---------|---------|
 |Plain     |  Literal string or policy expression     |
-|Secret     |   Literal string or policy expression that is encrypted by API Management      |
+|Secret     |   Literal string or policy expression that's encrypted by API Management      |
 |[Key vault](#key-vault-secrets)     |  Identifier of a secret stored in an Azure key vault.      |
 
 Plain values or secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
 
-For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/current-ga/named-value/create-or-update).
+For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/named-value/create-or-update).
 
 ## Key vault secrets
 
-Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](/azure/key-vault/general/overview). 
+Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](/azure/key-vault/general/overview).
 
-Using key vault secrets is recommended because it helps improve API Management security:
 
-* Secrets stored in key vaults can be reused across services
-* Granular [access policies](/azure/key-vault/general/security-features#privileged-access) can be applied to secrets
-* Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
+We recommend using key vault secrets because they help improve API Management security:
+
+[!INCLUDE [api-management-workspace-key-vault-availability](../../includes/api-management-workspace-key-vault-availability.md)]
+
+
+* You can reuse secrets stored in key vaults across services.
+* You can apply granular [access policies](/azure/key-vault/general/security-features#privileged-access) to secrets.
+* Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within four hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
 
 > [!NOTE]
-> The secrets stored in Azure Key Vault must be between 1 and 4096 characters, as API Management can't retrieve values that exceed this limit.
+> The secrets stored in Azure Key Vault must be between 1 and 4096 characters, because API Management can't retrieve values that exceed this limit.
+
 ## Prerequisites
 
-* If you haven't created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
+* If you haven't created an API Management service instance yet, see [Quickstart: Create a new Azure API Management instance by using the Azure portal](get-started-create-service-instance.md).
 
 ### Prerequisites for key vault integration
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
-- If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+* If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 
     To create or import a secret to the key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal).
 
-- Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
+* Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
 
 [!INCLUDE [api-management-key-vault-secret-access](../../includes/api-management-key-vault-secret-access.md)]
 
@@ -69,7 +77,6 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
 
-
 > [!IMPORTANT]
 > When adding a key vault secret to your API Management instance, you must have permissions to list secrets from the key vault.
 
@@ -77,17 +84,17 @@ See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integ
 > When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Under **APIs**, select **Named values** > **+Add**.
+1. Under **APIs**, select **Named values** > **+ Add**.
 1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
-1. In **Value type**, select **Key vault**.
+1. Add one or more optional **Tags** to help organize your named values.
+1. In the **Type** drop-down, select **Key vault**.
 1. Enter the identifier of a key vault secret (without version), or choose **Select** to select a secret from a key vault.
     > [!IMPORTANT]
     > If you enter a key vault secret identifier yourself, ensure that it doesn't have version information. Otherwise, the secret won't rotate automatically in API Management after an update in the key vault.
 1. In **Client identity**, select a system-assigned or an existing user-assigned managed identity. Learn how to [add or modify managed identities in your API Management service](api-management-howto-use-managed-service-identity.md).
     > [!NOTE]
     > The identity needs permissions to get and list secrets from the key vault. If you haven't already configured access to the key vault, API Management prompts you so it can automatically configure the identity with the necessary permissions.
-1. Add one or more optional tags to help organize your named values, then **Save**.
-1. Select **Create**.
+1. Select **Save**, then select **Create**.
 
     :::image type="content" source="media/api-management-howto-properties/add-property.png" alt-text="Add key vault secret value":::
 
@@ -98,7 +105,7 @@ See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integ
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Named values** > **+Add**.
 1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
-1. In **Value type**, select **Plain** or **Secret**.
+1. In the **Type** drop-down, select **Plain** or **Secret**.
 1. In **Value**, enter a string or policy expression.
 1. Add one or more optional tags to help organize your named values, then **Save**.
 1. Select **Create**.
@@ -111,7 +118,7 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az-apim-nv-create) command:
+To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az-apim-nv-create) command. Substitute your resource group name and API Management instance name for the `resource-group` and `service-name` values.
 
 ```azurecli
 az apim nv create --resource-group apim-hello-word-resource-group \
@@ -153,12 +160,12 @@ az apim nv delete --resource-group apim-hello-word-resource-group \
 
 The examples in this section use the named values shown in the following table.
 
-| Name               | Value                      | Secret | 
-|--------------------|----------------------------|--------| 
-| ContosoHeader      | `TrackingId`                 | False  | 
-| ContosoHeaderValue | ••••••••••••••••••••••     | True   | 
-| ExpressionProperty | `@(DateTime.Now.ToString())` | False  | 
-| ContosoHeaderValue2 | `This is a header value.` | False | 
+| Name               | Value                      | Secret |
+|--------------------|----------------------------|--------|
+| ContosoHeader      | `TrackingId`                 | False  |
+| ContosoHeaderValue | ••••••••••••••••••••••     | True   |
+| ExpressionProperty | `@(DateTime.Now.ToString())` | False  |
+| ContosoHeaderValue2 | `This is a header value.` | False |
 
 To use a named value in a policy, place its display name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example:
 
@@ -170,7 +177,7 @@ To use a named value in a policy, place its display name inside a double pair of
 
 In this example, `ContosoHeader` is used as the name of a header in a `set-header` policy, and `ContosoHeaderValue` is used as the value of that header. When this policy is evaluated during a request or response to the API Management gateway, `{{ContosoHeader}}` and `{{ContosoHeaderValue}}` are replaced with their respective values.
 
-Named values can be used as complete attribute or element values as shown in the previous example, but they can also be inserted into or combined with part of a literal text expression as shown in the following example: 
+You can use named values as complete attribute or element values as shown in the previous example, but they can also be inserted into or combined with part of a literal text expression as shown in the following example:
 
 ```xml
 <set-header name = "CustomHeader{{ContosoHeader}}" ...>
@@ -184,17 +191,17 @@ Named values can also contain policy expressions. In the following example, the 
 </set-header>
 ```
 
-When this policy is evaluated, `{{ExpressionProperty}}` is replaced with its value, `@(DateTime.Now.ToString())`. Since the value is a policy expression, the expression is evaluated and the policy proceeds with its execution.
+When this policy is evaluated, `{{ExpressionProperty}}` is replaced with its value, `@(DateTime.Now.ToString())`. Because the value is a policy expression, the expression is evaluated and the policy proceeds with its execution.
 
-You can test this in the Azure portal or the [developer portal](api-management-howto-developer-portal.md) by calling an operation that has a policy with named values in scope. In the following example, an operation is called with the two previous example `set-header` policies with named values. Notice that the response contains two custom headers that were configured using policies with named values.
+You can test this in the Azure portal or the [developer portal](developer-portal-overview.md) by calling an operation that has a policy with named values in scope. In the following example, an operation is called with the two previous example `set-header` policies with named values. Notice that the response contains two custom headers that were configured using policies with named values.
 
-:::image type="content" source="media/api-management-howto-properties/api-management-send-results.png" alt-text="Test API response":::
+:::image type="content" source="media/api-management-howto-properties/api-management-send-results.png" alt-text="Screenshot of a Test API response.":::
 
 If you look at the outbound [API trace](api-management-howto-api-inspector.md) for a call that includes the two previous sample policies with named values, you can see the two `set-header` policies with the named values inserted as well as the policy expression evaluation for the named value that contained the policy expression.
 
-:::image type="content" source="media/api-management-howto-properties/api-management-api-inspector-trace.png" alt-text="API Inspector trace":::
+:::image type="content" source="media/api-management-howto-properties/api-management-api-inspector-trace.png" alt-text="Screenshot of an API Inspector trace.":::
 
-String interpolation can also be used with named values.
+You can also use string interpolation with named values.
 
 ```xml
 <set-header name="CustomHeader" exists-action="override">
@@ -205,22 +212,21 @@ String interpolation can also be used with named values.
 The value for `CustomHeader` will be `The URL encoded value is This+is+a+header+value.`.
 
 > [!CAUTION]
-> If a policy references a secret in Azure Key Vault, the value from the key vault will be visible to users who have access to subscriptions enabled for [API request tracing](api-management-howto-api-inspector.md).
+> If a policy references a secret in Azure Key Vault, the value from the key vault is visible to users who have access to subscriptions enabled for [API request tracing](api-management-howto-api-inspector.md).
 
 While named values can contain policy expressions, they can't contain other named values. If text containing a named value reference is used for a value, such as `Text: {{MyProperty}}`, that reference won't be resolved and replaced.
 
 ## Delete a named value
 
-To delete a named value, select the name and then select **Delete** from the context menu (**...**).
+To delete a named value, select the name, then select **Delete** from the context menu (**...**).
 
 > [!IMPORTANT]
 > If the named value is referenced by any API Management policies, you can't delete it until you remove the named value from all policies that use it.
 
 ## Related content
 
--   Learn more about working with policies
-    -   [Policies in API Management](api-management-howto-policies.md)
-    -   [Policy reference](./api-management-policies.md)
-    -   [Policy expressions](./api-management-policy-expressions.md)
+Learn more about working with policies:
 
-[api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
+* [Policies in API Management](api-management-howto-policies.md)
+* [Policy reference](./api-management-policies.md)
+* [Policy expressions](./api-management-policy-expressions.md)

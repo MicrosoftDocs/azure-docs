@@ -15,7 +15,7 @@ Get started with Azure DevTest Labs by using the Azure REST API. Azure DevTest L
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed. Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
 

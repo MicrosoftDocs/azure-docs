@@ -6,7 +6,9 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - sfi-image-nochange
 ---
 
 # Stop or delete your Azure Stream Analytics job

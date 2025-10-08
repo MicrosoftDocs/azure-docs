@@ -8,7 +8,9 @@ manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 11/12/2024
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -26,7 +28,7 @@ In this quickstart, you use the Custom create option to create an Azure Front Do
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create an Azure Front Door profile
 

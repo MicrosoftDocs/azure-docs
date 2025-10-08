@@ -5,22 +5,19 @@ description: Learn how to create and manage Playwright Workspaces using the Azur
 ms.topic: how-to
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
+author: johnsta
+ms.author: johnsta
 ms.date: 08/07/2025
-ms.custom: playwright-workspaces-preview
+ms.custom: playwright-workspaces
 ---
 
 # Manage Playwright Workspaces
 
 In this article, you learn how to create, view, and delete Playwright workspaces using the Azure portal.
 
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites  
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a workspace
 

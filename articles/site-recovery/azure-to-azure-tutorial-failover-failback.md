@@ -2,11 +2,11 @@
 title: Tutorial to fail over Azure VMs to a secondary region for disaster recovery with Azure Site Recovery.
 description: Tutorial to learn how to fail over and reprotect Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 ms.topic: tutorial
-ms.date: 03/29/2024
+ms.date: 09/08/2025
 ms.custom: mvc
 ms.service: azure-site-recovery
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 #Customer intent: As an Azure admin, I want to run a production failover of Azure VMs to a secondary Azure region.
 # Customer intent: As an Azure administrator, I want to execute a failover of virtual machines to a secondary region, so that I can ensure business continuity and disaster recovery for critical workloads.
 ---
@@ -20,7 +20,6 @@ Learn how to fail over Azure VMs that are enabled for disaster recovery with [Az
 > * Verify VM settings
 > * Run a failover to the secondary region
 > * Start replicating the VM back to the primary region.
-
 
 > [!NOTE]
 > This tutorial shows you how to fail over VMs with minimal steps. If you want to run a failover with full settings, learn about Azure VM [networking](azure-to-azure-about-networking.md), [automation](azure-to-azure-powershell.md), and [troubleshooting](azure-to-azure-troubleshoot-errors.md).
@@ -49,7 +48,6 @@ Before you start this tutorial, you should have:
     - The VM complies with [compute](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), [storage](azure-to-azure-support-matrix.md#replicated-machines---storage), and [networking](azure-to-azure-support-matrix.md#replicated-machines---networking) requirements.
 
 ## Run a failover
-
 
 1. On the VM **Overview** page, select **Failover**.
 
@@ -86,6 +84,10 @@ Before you start this tutorial, you should have:
 
     ![Commit progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png)
     ![Commit success notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
+
+
+>[!NOTE]
+>You may also get alternative virtual machine SKU recommendation during test failover. [Learn more](alternative-vm-size-failover-flow.md).
 
 ## Reprotect the VM
 

@@ -13,7 +13,7 @@ The first step in understanding compliance in Azure is to identify the status of
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - A resource group with at least one virtual machine that doesn't use managed disks.
 
 ## Create a policy assignment

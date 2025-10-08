@@ -10,6 +10,7 @@ ms.manager: gwallace
 ms.reviewer: estfan, macolso
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Deploy and manage Azure Container Instances by using Azure Logic Apps
@@ -34,7 +35,7 @@ If you're new to logic apps, review
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142Fs). 
+[sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 
 * Basic knowledge about how to create logic apps and how to create container instances
 

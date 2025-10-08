@@ -25,6 +25,7 @@ The following table summarizes the differences between Gen 1 and Gen 2 private c
 |-----------------------|-----------------------------------------------|--------------------------------------------------|
 | Supported SKU type    | <ul><li>AV36, AV36P, AV52, AV48</li><li>AV64 (with seed cluster of at least three AV36, AV36P, AV48, or AV52 nodes)</li></ul>| <ul><li>Minimum 3-host AV64 cluster</li></ul>|
 | Network Attach Model  | <ul><li>ExpressRoute</li></ul>                | <ul><li>Virtual Network</li></ul>                |
+| vSAN Architecture     | <ul><li>OSA</li></ul>                         | <ul><li>ESA</li></ul>                            |
 
 ## Benefits
 With the Azure VMware Solution Gen 2 private clouds offering, you get the following benefits: 
@@ -51,7 +52,15 @@ Gen 2 private clouds are supported on the following SKU type:
 
 ## Regional availability
 
-Gen 2 is available in specific Azure public regions. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
+Gen 2 is available in the following Azure public regions. 
+
+- East US
+- Canada Central
+- Canada East
+- North Europe
+- UK West
+
+Beyond these regions, SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
 
 ## Next steps
 

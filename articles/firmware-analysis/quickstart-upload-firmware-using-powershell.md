@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 07/17/2025
+ms.date: 09/12/2025
 ms.service: azure
 ---
 
@@ -128,12 +128,20 @@ while ($true) {
 }
 ```
 
+### Firmware summary
+
+The following command retrieves a general summary of your firmware analysis results. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
+
+```powershell
+Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type Firmware
+```
+
 ### SBOM
 
 The following command retrieves the SBOM in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```powershell
-Get-AzFirmwareAnalysisSbomComponent -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default
+Get-AzFirmwareAnalysisSbomComponent -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default | ConvertTo-Json
 ```
 
 ### Weaknesses
@@ -141,7 +149,13 @@ Get-AzFirmwareAnalysisSbomComponent -FirmwareId sampleFirmwareID -ResourceGroupN
 The following command retrieves CVEs found in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```powershell
-Get-AzFirmwareAnalysisCve -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default 
+Get-AzFirmwareAnalysisCve -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default | ConvertTo-Json
+```
+
+For a summary of your CVEs, run the following command:
+
+```powershell
+Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CVE
 ```
 
 ### Binary hardening
@@ -149,7 +163,13 @@ Get-AzFirmwareAnalysisCve -FirmwareId sampleFirmwareID -ResourceGroupName myReso
 The following command retrieves analysis results on binary hardening in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```powershell
-Get-AzFirmwareAnalysisBinaryHardening -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default 
+Get-AzFirmwareAnalysisBinaryHardening -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default | ConvertTo-Json
+```
+
+For a summary of your binary hardening results, run the following command:
+
+```powershell
+Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type BinaryHardening
 ```
 
 ### Password hashes
@@ -157,7 +177,7 @@ Get-AzFirmwareAnalysisBinaryHardening -FirmwareId sampleFirmwareID -ResourceGrou
 The following command retrieves password hashes in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```powershell
-Get-AzFirmwareAnalysisPasswordHash -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default 
+Get-AzFirmwareAnalysisPasswordHash -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default | ConvertTo-Json
 ```
 
 ### Certificates
@@ -165,7 +185,13 @@ Get-AzFirmwareAnalysisPasswordHash -FirmwareId sampleFirmwareID -ResourceGroupNa
 The following command retrieves vulnerable crypto certificates that were found in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```powershell
-Get-AzFirmwareAnalysisCryptoCertificate -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default 
+Get-AzFirmwareAnalysisCryptoCertificate -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default | ConvertTo-Json
+```
+
+For a summary of your certificates, run the following command:
+
+```powershell
+Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CryptoCertificate
 ```
 
 ### Keys
@@ -173,5 +199,11 @@ Get-AzFirmwareAnalysisCryptoCertificate -FirmwareId sampleFirmwareID -ResourceGr
 The following command retrieves vulnerable crypto keys that were found in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```powershell
-Get-AzFirmwareAnalysisCryptoKey -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default 
+Get-AzFirmwareAnalysisCryptoKey -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default | ConvertTo-Json
+```
+
+For a summary of your keys, run the following command:
+
+```powershell
+Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CryptoKey
 ```

@@ -7,7 +7,9 @@ ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 06/07/2024
 ms.author: allensu
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
 # Customer intent: As a network administrator, I want to host my domain in Azure DNS, so that I can manage my DNS records using Azure's tools and credentials.
 ---
@@ -39,7 +41,7 @@ In this tutorial, you learn how to:
 > * Delegate the domain.
 > * Verify the delegation is working.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

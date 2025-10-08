@@ -8,6 +8,7 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 ## Download code
@@ -16,7 +17,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.

@@ -7,7 +7,9 @@ ms.reviewer: yexu
 ms.topic: quickstart
 ms.date: 07/25/2025
 ms.subservice: data-movement
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Use the Copy Data tool in Azure Data Factory Studio to copy data
@@ -20,7 +22,7 @@ In this quickstart, you use the Copy Data tool in Azure Data Factory Studio to c
 
 ### Azure subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Prepare source data in Azure Blob Storage
 

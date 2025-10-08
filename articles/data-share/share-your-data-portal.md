@@ -15,7 +15,7 @@ In this quickstart, you'll learn how to set up a new Azure Data Share to share d
 
 ## Prerequisites
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Your recipient's Azure sign in e-mail address (using their e-mail alias won't work).
 * If the source Azure data store is in a different Azure subscription than the one you'll use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located.
 

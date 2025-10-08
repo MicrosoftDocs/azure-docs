@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 06/30/2025
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer configuring Azure AD B2C with Cloudflare WAF. I need to enable and configure the Web Application Firewall, so I can protect my application from malicious attacks such as SQL Injection and cross-site scripting (XSS).
 ---
@@ -23,7 +24,7 @@ In this article, you can learn how to configure the [Cloudflare Web Application 
 
 To get started, you need:
 
-- An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription.
 - A [Cloudflare](https://dash.cloudflare.com/sign-up) account.
 

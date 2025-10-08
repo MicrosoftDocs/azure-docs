@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 06/09/2022
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Monitor Insights for Virtual WAN
