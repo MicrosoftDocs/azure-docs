@@ -7,11 +7,11 @@ ms.suite: integration
 ms.reviewers: estfan, divswa, edwardyhe, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 10/03/2025
+ms.date: 10/08/2025
 ms.update-cycle: 180-days
 ---
 
-# Secure agent workflows with App Service Authentication (Easy Auth) in Azure Logic Apps (Preview)
+# Secure agent workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -64,9 +64,9 @@ For more information, see the following articles:
   >
   > To set up Easy Auth, make sure you have the higher-level Azure **Contributor** role, which differs from the **Logic Apps Standard Contributor** role.
 
-- A REST client to test authentication enforcement, for example, Azure CLI, Visual Studio Code REST, or curl.
+- To test authentication enforcement for an autonomous agent workflow, the workflow must start with a **Request** trigger. You also need a tool that can send an HTTPS requests to the trigger's endpoint URL. For example, you can use any of the following tools:
 
-  [!INCLUDE [api-test-http-request-tools-caution](../../includes/api-test-http-request-tools-caution.md)]
+  [!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
 
 - (Optional) Choose whether to support only user flows with interactive sign in or also callers that use a managed identity or service principal.
 
@@ -322,11 +322,18 @@ To confirm that enforcement works as expected, follow these steps:
 
 1. Run your workflow based on the following agent workflow type:
 
-   - Autonomous: On the designer toolbar, select **Run** > **Run**.
+   - Conversational: On the designer toolbar, select **Chat**. In the chat interface, enter prompts to test your Easy Auth setup.
 
-   - Conversational: On the designer toolbar, select **Chat**.
+   - Autonomous: On the designer toolbar, select **Run** > **Run**. From your chosen tool for sending HTTPS requests, send a GET request to trigger the workflow.
 
-1. From your chosen REST client, send an unauthenticated HTTPS GET or POST request to call your workflow. Expect to get the **302** or **401** response based on your app registration setup.
+1. To review your workflow's run history, follow these steps:
+
+   1. In the Azure portal, on your workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
+
+   1. In the monitoring view, confirm that the run history and operation statuses appear as expected.
+
+<!--
+1. From your chosen REST API client, send an unauthenticated HTTPS GET or POST request to call your workflow. Expect to get the **302** or **401** response based on your app registration setup.
 
 1. Get an Azure Resource Manager bearer token for your logic app resource.
 
@@ -338,19 +345,14 @@ To confirm that enforcement works as expected, follow these steps:
 
    In this test, the authenticated call with a valid access token returns the **200 OK** response, and the workflow executes.
 
-   To review your workflow's run history, follow these steps:
-
-   1. In the Azure portal, on your workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
-
-   1. In the monitoring view, confirm that the run history and operation statuses appear as expected.
-
 1. Try running the following tests:
 
    - Edit the token, for example, change a character in the `aud` value, and resend the request. Expect to get the **401** response.
 
    - Wait for the token to expire, or in a test container, change the system clock, and resend the request. Expect to get the **401** response.
+-->
 
-### Troubleshoot errors during authentication testing
+### Troubleshoot errors during Easy Auth testing
 
 The following table describes common problems you might encounter when you set up Easy Auth, possible causes, and actions you can take:
 
