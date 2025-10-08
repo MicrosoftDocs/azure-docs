@@ -32,8 +32,8 @@ To enable or disable this feature (these prerequisites aren't required to use th
 - Your user must be assigned to the Microsoft Entra ID **Security Administrator** role in your tenant or the equivalent permissions.
 
 - Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
-    - **Owner** at the at the resource group level or above.
-    - **Contributor** at the at the resource group level or above.
+    - **Owner** at the resource group level or above.
+    - **Contributor** at the resource group level or above.
     - (Least privileged) **Microsoft Sentinel Contributor** at the workspace level or above and **Log Analytics Contributor** at the resource group level or above.
 
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
