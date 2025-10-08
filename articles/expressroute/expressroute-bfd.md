@@ -34,9 +34,11 @@ In this scenario, BFD can help. BFD provides low-overhead link failure detection
 
 BFD is configured by default under all the newly created ExpressRoute private and Microsoft peering interfaces on the MSEEs. As such, to enable BFD, you only need to configure BFD on both your primary and secondary devices. Configuring BFD is two-step process. You configure the BFD on the interface and then link it to the BGP session.
 
+/*
 > [!NOTE]
 > BFD is only supported on IPv4 peering. 
 >
+*/
 
 An example CE/PE (using Cisco IOS XE) configuration is shown as followed: 
 
