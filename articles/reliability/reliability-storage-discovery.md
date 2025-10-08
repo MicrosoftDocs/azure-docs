@@ -26,9 +26,9 @@ Azure Storage Discovery is a fully managed service that provides enterprise-wide
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-- **Storage Discovery workspace management service is zone-redundant.** When a zone is down in one region, your Storage Discovery workspace is still available. You can continue to manage your workspace and access reports.
+- Storage Discovery workspace management is zone-redundant. When a zone is down, your Storage Discovery workspace is still available. You can continue to manage your workspace and access reports.
 
-- **Storage Discovery reports service is zone-redundant.** If the storage account is deployed to a failed zone, then the account becomes unavailable and from customer’s perspective, the insights for the affected storage isn't available. If the storage account is zone redundant, then the Discovery workspace continues to provide account insights.
+- Storage Discovery reports are zone-redundant. However, insights about a particular storage resource may be impacted when the storage resource itself is affected by an outage. That can skew overall capacity reporting and other insights. If a storage resource is zone-redundant, then the flow of insights remains uninterrupted.
 
 ## Cross-region disaster recovery and business continuity
 
@@ -36,10 +36,10 @@ Azure Storage Discovery is a fully managed service that provides enterprise-wide
 
 ### Outage detection and notification
 
-Storage Discovery doesn't send any notifications when there's an outage in the service itself. Notifications on the Discovery reports are published on the best-effort basis if there's a significant loss of insights due to outages.
+Storage Discovery doesn't provide outage notifications for every incident. The Storage Discovery service utilizes the same notification infrastructure used across Azure to inform customers about prolonged or severe outages.
 
 > [!RECOMMENDATION]
-> If you need uninterrupted access to Discovery reports - even during regional outages - we recommend creating a secondary workspace with the same configuration as your primary one. This ensures that if the primary workspace becomes unavailable, you can continue using the secondary workspace with all necessary insights. Please note that each Discovery workspace incurs additional costs.
+> If you need uninterrupted access to Discovery reports, you can consider creating a second workspace, in a different region. This second workspace should be configured to observe the same storage resources. This approach protects you from a regional outage affecting your primary workspace. However, it doesn't safeguard against availability issues in the storage resources themselves across regions. Learn more about [Storage Discovery pricing](pricing.md) to evaluate additional costs.
 
 ## Data availability and freshness coverage
 
@@ -49,8 +49,8 @@ Key factors that influence data availability and freshness in your Storage Disco
 - Most updates, such as adding or removing a storage account in a subscription or resource group linked to a Storage Discovery workspace will be reflected in the Storage Discovery reports within 24 hours.
 - Changes related to adding a new [scope](../storage-discovery/management-components.md#scope) or editing an existing scope in your Discovery workspace are typically reflected in the reports within 24 hours.
 - Effect of [changing pricing plan](../storage-discovery/pricing.md) on an existing Storage Discovery workspace is immediate.
-- When a scope is deleted, you lose the insights gathered on the scope immediately. 
-- When a Discovery workspace is deleted, you lose the insights gathered on all the scopes under the workspace immediately. So exercise caution while deleting a workspace and/or a scope. 
+- When a scope is deleted, you immediately lose the insights gathered for this scope. 
+- When a Discovery workspace is deleted, you immediately lose the insights gathered for all the contained scopes. Exercise caution when deleting a workspace or a scope.
 
 ## Next steps
 
