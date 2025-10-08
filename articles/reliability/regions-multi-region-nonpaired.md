@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 08/12/2025
+ms.date: 10/09/2025
 ms.author: anaharris
 ms.custom:
   - subject-reliability
@@ -107,19 +107,13 @@ To learn about how to create multi-region solutions using Azure SQL Managed Inst
 
 To achieve geo-replication in nonpaired regions:
 
-- **For object storage:** 
+- **For Azure Blob Storage (object storage):** To learn about how to create multi-region solutions by using Azure Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
 
-   - To learn about how to create multi-region solutions by using Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
-
-- **For Azure NetApp Files:**
-   
-   - You can replicate to a set of nonstandard pairs besides Azure region pairs. For more information, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
+- **For Azure NetApp Files:** To learn about how to create multi-region solutions using Azure NetApp Files, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
 
 - **For Azure Files:** To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
 
-- **For Queue Storage:**
-
-   - To learn about how to create multi-region solutions by using Queue Storage, see [Reliability in Queue Storage](./reliability-storage-queue.md).
+- **For Queue Storage:** To learn about how to create multi-region solutions by using Azure Queue Storage, see [Reliability in Queue Storage](./reliability-storage-queue.md).
 
 - **For Azure Table Storage:** To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
 
@@ -139,7 +133,7 @@ For more information, see [Multiregion business continuity and disaster recovery
 
 ## Azure Virtual Machines
 
-To achieve geo-replication in nonpaired regions, use [Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery). Site Recovery is the disaster recovery service from Azure that provides BCDR by replicating workloads from the primary location to the secondary location. The secondary location can be a nonpaired region if Site Recovery supports it.
+To learn about how to create multi-region solutions using Azure Virtual Machines, see [Reliability in Azure Virtual Machines](./reliability-virtual-machines.md).
 
 ## Next steps
 
