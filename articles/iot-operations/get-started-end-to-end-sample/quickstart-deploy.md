@@ -22,7 +22,8 @@ For the best new user experience, we recommend using an [Azure free account](htt
 
 We also use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
-[!INCLUDE [supported-environments-table](../includes/supported-environments-table.md)]
+> [!IMPORTANT]
+> The GitHub Codespaces environment is intended for the quickstarts only and isn't suitable for production workloads. This deployment uses the **Test settings** deployment option and in the Codespaces environment it's not possible to enable the **Secure settings** option later.
 
 ## Prerequisites
 
