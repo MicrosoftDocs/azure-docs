@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 08/12/2025
+ms.date: 10/09/2025
 ms.author: anaharris
 ms.custom:
   - subject-reliability
@@ -27,10 +27,6 @@ To learn about how to create multi-region solutions by using Azure API Managemen
 ## Azure App Service
 
 To learn about how to create multi-region solutions by using Azure App Service, see [Reliability in App Service](./reliability-app-service.md).
-
-## Azure Blob Storage
-
-To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
 
 ## Azure Cache for Redis
 
@@ -65,10 +61,6 @@ To learn about how to create multi-region solutions by using Azure Data Factory,
 
 For geo-replication of Azure Event Grid topics in nonpaired regions, you can implement [client-side failover](/azure/event-grid/custom-disaster-recovery-client-side).
 
-## Azure Files
-
-To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
-
 ## Azure IoT Hub 
 
 To learn about how to create multi-region solutions by using Azure IoT Hub, see [Reliability in IoT Hub](./reliability-iot-hub.md).
@@ -82,10 +74,6 @@ To learn about how to create multi-region solutions by using Azure Kubernetes Se
 Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication.
 
 For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication).
-
-## Azure Queue Storage
-
-To learn about how to create multi-region solutions by using Azure Queue Storage, see [Reliability in Queue Storage](./reliability-storage-queue.md).
 
 ## Azure Service Bus 
 
@@ -107,25 +95,15 @@ To learn about how to create multi-region solutions using Azure SQL Managed Inst
 
 To achieve geo-replication in nonpaired regions:
 
-- **For object storage:** 
+- **For Azure Blob Storage (object storage):** To learn about how to create multi-region solutions by using Azure Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
 
-   - To learn about how to create multi-region solutions by using Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
-
-- **For Azure NetApp Files:**
-   
-   - You can replicate to a set of nonstandard pairs besides Azure region pairs. For more information, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
+- **For Azure NetApp Files:** To learn about how to create multi-region solutions using Azure NetApp Files, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
 
 - **For Azure Files:** To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
 
-- **For Queue Storage:**
-
-   - To learn about how to create multi-region solutions by using Queue Storage, see [Reliability in Queue Storage](./reliability-storage-queue.md).
+- **For Queue Storage:** To learn about how to create multi-region solutions by using Azure Queue Storage, see [Reliability in Queue Storage](./reliability-storage-queue.md).
 
 - **For Azure Table Storage:** To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
-
-## Azure Table Storage
-
-To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
 
 ## Azure Virtual Desktop
 
@@ -139,7 +117,7 @@ For more information, see [Multiregion business continuity and disaster recovery
 
 ## Azure Virtual Machines
 
-To achieve geo-replication in nonpaired regions, use [Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery). Site Recovery is the disaster recovery service from Azure that provides BCDR by replicating workloads from the primary location to the secondary location. The secondary location can be a nonpaired region if Site Recovery supports it.
+To learn about how to create multi-region solutions using Azure Virtual Machines, see [Reliability in Azure Virtual Machines](./reliability-virtual-machines.md).
 
 ## Next steps
 
