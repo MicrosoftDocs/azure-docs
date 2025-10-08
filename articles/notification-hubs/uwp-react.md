@@ -19,7 +19,7 @@ You can download the [complete sample from GitHub](https://github.com/Azure/azur
 
 To build the sample, you need the following prerequisites:
 
-- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Microsoft Visual Studio 2019 or later. This sample uses [Visual Studio 2019](https://www.visualstudio.com/products).
 - Visual Studio 2019 with the following workloads installed:
   - .NET 5.0 SDK
@@ -339,7 +339,7 @@ public interface INotificationService
 
 To run the sample, the following prerequisites are required:
 
-- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Firebase account to set up push notifications for Android.
 - Apple developer account to set up push notifications for iOS.
 - A Windows computer with Visual Studio 2019 installed, along with ASP.NET Core and UWP application development support.
