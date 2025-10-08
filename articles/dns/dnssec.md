@@ -26,6 +26,7 @@ The core DNSSEC extensions are specified in the following Request for Comments (
 * [RFC 4033](https://datatracker.ietf.org/doc/html/rfc4033): "DNS Security Introduction and Requirements"
 * [RFC 4034](https://datatracker.ietf.org/doc/html/rfc4034): "Resource Records for the DNS Security Extensions"
 * [RFC 4035](https://datatracker.ietf.org/doc/html/rfc4035): "Protocol Modifications for the DNS Security Extensions"
+* [RFC 9824](https://datatracker.ietf.org/doc/html/rfc9824/): "Compact Denial of Existence in DNSSEC"
 
 For a summary of DNSSEC RFCs, see [RFC9364](https://www.rfc-editor.org/rfc/rfc9364): DNS Security Extensions (DNSSEC).
 
@@ -68,7 +69,7 @@ The type of DNS resource record that is spoofed depends on the type of DNS hijac
 
 DNSSEC works to prevent DNS hijacking by performing validation on DNS responses. In the DNS hijacking scenario pictured here, the client device can reject non-validated DNS responses if the contoso.com domain is signed with DNSSEC. To reject non-validated DNS responses, the client device must enforce [DNSSEC validation](#dnssec-validation) for contoso.com.
 
-DNSSEC also includes Next Secure 3 (NSEC3) to prevent zone enumeration. Zone enumeration, also known as zone walking, is an attack whereby the attacker establishes a list of all names in a zone, including child zones. 
+DNSSEC includes a VRF-based mechanism defined in [RFC 9824](https://www.rfc-editor.org/rfc/rfc9824.html), commonly referred to as **NSEC5**, to prevent zone enumeration. Zone enumeration, also known as zone walking, is an attack whereby an attacker attempts to build a list of all names in a zone, including child zones. **NSEC5 mitigates this by using verifiable random functions (VRFs) to provide authenticated denial of existence without exposing the entire zone**.
 
 Before you sign a zone with DNSSEC, be sure to understand [how DNSSEC works](#how-dnssec-works). When you are ready to sign a zone, see [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
 
@@ -134,10 +135,12 @@ The following table provides a short description of DNSSEC-related records. For 
 | DNSKEY | A DNSSEC resource record type that is used to store a public key. |
 | Delegation signer (DS) | A DNSSEC resource record type that is used to secure a delegation. |
 | Next secure (NSEC) | A DNSSEC resource record type that is used to prove nonexistence of a DNS name. |
-| Next secure 3 (NSEC3) | The NSEC3 resource record that provides hashed, authenticated denial of existence for DNS resource record sets. |
-| Next secure 3 parameters (NSEC3PARAM) | Specifies parameters for NSEC3 records. |
+| Next secure 5 (NSEC5) |  DNSSEC resource record type defined in RFC 9824 that uses Verifiable Random Functions (VRFs) to provide authenticated denial of existence and prevent zone enumeration attacks. |
 | Child delegation signer (CDS) | This record is optional. If present, the CDS record can be used by a child zone to specify the desired contents of the DS record in a parent zone. |
 | Child DNSKEY (CDNSKEY) | This record is optional. If the CDNSKEY record is present in a child zone, it can be used to generate a DS record from a DNSKEY record. |
+
+>[!NOTE]
+>Azure DNSSEC implements NSEC5 [RFC 9824](https://datatracker.ietf.org/doc/html/rfc9824) for authenticated denial of existence. NSEC and NSEC3 are not used by Azure DNS because they allow zone enumeration or offline dictionary attacks.
 
 ### View DNSSEC-related resource records
 
@@ -259,7 +262,7 @@ This list is provided to help understand some of the common terms used when disc
 | Nonvalidating security-aware stub resolver | A security-aware stub resolver that trusts one or more security-aware DNS servers to perform DNSSEC validation on its behalf. |
 | secure entry point (SEP) key | A subset of public keys within the DNSKEY RRSet. A SEP key is used either to generate a DS RR or is distributed to resolvers that use the key as a trust anchor. |
 | Security-aware DNS server | A DNS server that implements the DNS security extensions as defined in RFCs 4033 [5], 4034 [6], and 4035 [7]. In particular, a security-aware DNS server is an entity that receives DNS queries, sends DNS responses, supports the EDNS0 [3] message size extension and the DO bit, and supports the DNSSEC record types and message header bits. |
-| Signed zone | A zone whose records are signed as defined by RFC 4035 [7] Section 2. A signed zone can contain DNSKEY, NSEC, NSEC3, NSEC3PARAM, RRSIG, and DS resource records. These resource records enable DNS data to be validated by resolvers. |
+| Signed zone | A zone whose records are signed as defined by RFC 4035 [7] Section 2. A signed zone can contain DNSKEY, NSEC, RRSIG, and DS resource records. These resource records enable DNS data to be validated by resolvers. |
 | Trust anchor | A preconfigured public key that is associated with a particular zone. A trust anchor enables a DNS resolver to validate signed DNSSEC resource records for that zone and to build authentication chains to child zones. |
 | Unsigned zone | Any DNS zone that has not been signed as defined by RFC 4035 [7] Section 2. |
 | Zone signing | Zone signing is the process of creating and adding DNSSEC-related resource records to a zone, making it compatible with DNSSEC validation. |
