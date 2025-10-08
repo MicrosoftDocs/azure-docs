@@ -283,7 +283,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/docs/SAP_NETWEAVER_700/108e05856c5310149156b7d475ca5796/47c2e77bb8fd3020e10000000a42189d.html?version=7.0.37) that you want to access from Azure Logic Apps.
 

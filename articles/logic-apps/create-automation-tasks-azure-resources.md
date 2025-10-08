@@ -59,7 +59,7 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The Azure resource that you want to manage. This article uses an Azure storage account as the example.
 - An Office 365 account if you want to follow along with the example, which sends email by using Office 365 Outlook.
 
