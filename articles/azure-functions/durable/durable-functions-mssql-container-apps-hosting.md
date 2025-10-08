@@ -27,7 +27,7 @@ In this article, you learn how to:
 - [Docker](https://docs.docker.com/install/) and [Docker ID](https://hub.docker.com/signup)
 - [Azure CLI](/cli/azure/install-azure-cli) [version 2.47](/cli/azure/release-notes-azure-cli#april-21-2020) or later.
 - [Azure Functions Core Tools](../functions-run-local.md)
-- Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
 
 ## Create a local Durable Functions project
