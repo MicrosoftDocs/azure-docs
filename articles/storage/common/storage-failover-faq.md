@@ -28,13 +28,13 @@ Azure Storage accounts support two types of customer-managed failovers:
 
 Each type of failover has a unique set of use cases and corresponding expectations for data loss.
 
-**Planned Failover**
+### Planned Failover
 
 Planned failover can be utilized in multiple scenarios including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from nonstorage related outages. During the planned failover process, the primary and secondary regions are swapped and the account remains geo-redundant. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. Data loss isn't expected during the planned failover and failback process as long as the primary and secondary regions are available throughout the entire process. 
 
 To learn more, refer to the article on [How planned failover works](storage-failover-customer-managed-planned.md#how-customer-managed-planned-failover-preview-works).
 
-**Unplanned Failover**
+### Unplanned Failover
 
 You can initiate an unplanned failover to your storage account's secondary region if the data endpoints for the storage services become unavailable in the primary region. After the failover is complete, the storage account becomes Locally Redundant Storage (LRS) and the secondary region becomes the new primary. Users can proceed to access data from their new primary region. 
 
@@ -44,15 +44,15 @@ To learn more, refer to the article on [How unplanned failover works](storage-fa
 
 ## What effects will failover have on my account after it completes?
 
-**Planned Failover**
+The effects of a failover operation depend on whether you initiated a planned or unplanned failover.
 
-Planned Failover has the following effects on your storage account: 
+### Planned Failover
 
 1. The storage account's redundancy either remains as-is or is converted to GRS/RA-GRS.
 2. The primary and secondary regions are swapped. The original secondary region becomes the new primary region and the original primary region becomes the new secondary region.
 3. No data loss is expected.
 
-**Unplanned Failover**
+### Unplanned Failover
 
 1. The storage account loses geo-redundancy and becomes Locally Redundant Storage (LRS).
 2. The account's previous secondary region is now the primary region.
@@ -123,13 +123,13 @@ A failback is a term we use to describe the process of utilizing a failover oper
 
 Essentially, a failback is a failover that is initiated after the original failover operation is performed on the account. The failback experience for unplanned and planned failover differ in a few ways. 
 
-**Planned Failover**
+### Planned Failover
 
 After a planned failover the account remains geo-redundant, so the user is only required to initiate another planned failover. Learn more about [how to initiate a planned failover](storage-failover-customer-managed-planned.md#how-to-initiate-a-failover).
 
-**Unplanned Failover**
+### Unplanned Failover
 
-After an unplanned failover the account becomes LRS so there a few steps required to failback: 
+After an unplanned failover, the account becomes LRS. Failback requires a few steps:
 
 1. Convert the account from LRS to GRS. It's important to remember that the conversion from LRS to GRS doesn't have an SLA. There are also data bandwidth charges that apply when completing this conversion.
 2. Initiate an unplanned failover or failback.
@@ -140,16 +140,14 @@ Learn more about [how to initiate an unplanned failover](storage-failover-custom
 
 Failovers carry with them a few limitations and conflicting features that users should be aware of. The following features or scenarios block a failover operation from being initiated:
 
-**Unplanned Failover:**
+### Unplanned Failover
 
 - **Object Replication:** Attempting to initiate an unplanned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
-- **NFSv3:** Attempting to initiate an unplanned failover on an account with NFSv3 generates an error. Users are unable to disable NFSv3 on a storage account.
 
-**Planned Failover:**
+### Planned Failover
 
 - **Change Feed:** Attempting to initiate a planned failover on an account with Change Feed generates an error. In this case, you can disable Change Feed and attempt the failover again.
 - **Object Replication:** Attempting to initiate a planned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
-- **NFSv3:**  Attempting to initiate a planned failover on an account with NFSv3 generates an error. Users are unable to disable NFSv3 on a storage account.
 - **Point-in-time-Restore:** Attempting to initiate a planned failover on an account with Point-in-time-Restore (PITR) generates an error. In this case, you can disable PITR and Change Feed and attempt the failover again.
 - **Last Sync Time is greater than 30 minutes:** Planned Failover isn't supported for storage accounts with a Last Sync Time greater than 30 minutes.
 
