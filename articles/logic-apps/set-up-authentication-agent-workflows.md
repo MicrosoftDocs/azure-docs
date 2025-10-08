@@ -147,7 +147,7 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
 
    Or, you can review the corresponding steps in the next section, [Update an existing app registration](#update-an-existing-app-registration).
 
-1. To check that your app registration is correctly set up, see [Test and validate authentication](#test-and-validate-authentication).
+1. To check that your app registration is correctly set up, see [Test and validate Easy Auth setup](#test-and-validate-easy-auth-setup).
 
 ## Update an existing app registration
 

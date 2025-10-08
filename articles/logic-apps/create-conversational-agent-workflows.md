@@ -491,17 +491,13 @@ When you're ready to release your agent workflow into production, make sure to f
 
 ## Migrate to production authentication
 
-1. On your logic app resource, [set up Easy Auth](set-up-authentication-agent-workflows.md) with Microsoft as the identity provider.
+1. On your logic app resource, [set up Easy Auth for authentication and authorization](set-up-authentication-agent-workflows.md).
 
-1. Get real access tokens to [run authentication tests](set-up-authentication-agent-workflows.md#send-authentication-requests-for-agent-workflows).
+1. Enforce any authentication required access patterns.
 
-1. Remove dependency on the developer key by testing requests sent to workflow trigger endpoints from external tools with valid tokens or with signed SAS callback URLs.
+1. Optionally, lock down any trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
 
-1. Optionally, lock down trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
-
-1. Enforce authentication required access patterns.
-
-1. For conversational agent workflows, get the [chat client URL](set-up-authentication-agent-workflows.md#external-chat-client) so you can embed an external chat interface wherever you want to support human interactions.
+1. For conversational agent workflows, get the [chat client URL](set-up-authentication-agent-workflows.md#external-chat-client) so you can embed an external chat client interface wherever you want to support human interactions.
 
 ### Troubleshoot authentication migration
 
