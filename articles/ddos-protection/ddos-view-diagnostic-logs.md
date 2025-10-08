@@ -24,7 +24,7 @@ Attack mitigation reports use the Netflow protocol data, which is aggregated to 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 - Configure DDoS Protection diagnostic logs. To learn more, see [Configure diagnostic logs](diagnostic-logging.md).
 - Simulate an attack using one of our simulation partners. To learn more, see [Test with simulation partners](test-through-simulations.md).

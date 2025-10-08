@@ -40,7 +40,7 @@ Outbound endpoints and DNS forwarding rulesets aren't needed for the failover sc
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Two [Azure virtual networks](../virtual-network/quick-create-portal.md) in two regions
 - A [VPN](../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) link from on-premises to each virtual network
 - An [Azure DNS Private Resolver](dns-private-resolver-get-started-portal.md) in each virtual network

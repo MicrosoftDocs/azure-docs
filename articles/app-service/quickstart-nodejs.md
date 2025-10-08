@@ -34,7 +34,7 @@ The steps in the video are also described in the following sections.
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Node.js LTS](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Install [Visual Studio Code](https://code.visualstudio.com/).
 - Install the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
@@ -44,7 +44,7 @@ The steps in the video are also described in the following sections.
 
 :::zone target="docs" pivot="development-environment-cli"
 
-- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Node.js LTS](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in a shell to create and configure Azure resources.
 
@@ -53,7 +53,7 @@ The steps in the video are also described in the following sections.
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Node.js LTS](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Have an FTP client (for example, [FileZilla](https://filezilla-project.org)), to connect to your app.
 

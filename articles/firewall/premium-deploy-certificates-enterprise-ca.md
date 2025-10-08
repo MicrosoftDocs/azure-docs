@@ -20,7 +20,7 @@ For more information about certificates used by Azure Firewall Premium, see [Azu
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To use an Enterprise CA to generate a certificate to use with Azure Firewall Premium, you must have the following resources: 
 

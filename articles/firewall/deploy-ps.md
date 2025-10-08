@@ -48,7 +48,7 @@ In this article, you learn how to:
 
 If you prefer, you can complete this procedure using the [Azure portal](tutorial-firewall-deploy-portal.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

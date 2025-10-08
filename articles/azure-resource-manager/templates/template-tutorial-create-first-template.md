@@ -15,7 +15,7 @@ This tutorial is the first of a series. As you progress through the series, you 
 
 If you want to learn about the benefits of using templates and why you should automate deployments with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of [Learn modules](/training), see [Deploy and manage resources in Azure by using JSON ARM templates](/training/paths/deploy-manage-resource-manager-templates).
 
-If you don't have a Microsoft Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have a Microsoft Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!TIP]
 > If you're new to ARM templates, you might consider learning Bicep instead. Bicep is a new language that offers the same capabilities as ARM templates but with an easier-to-use syntax. To start learning Bicep, see [Quickstart: Create Bicep files with Visual Studio Code](../bicep/quickstart-create-bicep-use-visual-studio-code.md).

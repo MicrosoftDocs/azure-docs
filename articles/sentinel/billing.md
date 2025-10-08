@@ -67,25 +67,22 @@ There are two ways to pay for the analytics tier: **Pay-As-You-Go** and **Commit
 
 #### Data lake tier
 
-Microsoft Sentinel data lake tier is a cost-effective option for ingesting high volume, low fidelity data. They're charged at a flat, low rate per gigabyte (GB). The data lake tier provides querying and jobs scheduling capabilities and, once enabled, mirrors all eligible data available in the analytics tier.
-
-For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md)  
+To learn more about the Microsoft Sentinel data lake, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
 
 The data lake tier incurs charges based on usage of various data lake capabilities. 
 - **Data lake ingestion** is charged per GB for all data ingested into tables with retention set to data lake tier only. Data lake ingestion charges don't apply when data is ingested into tables with retention set to include both analytic and data lake tiers.
 - **Data processing** is charged per GB for data ingested into tables with retention set to data lake tier only. It supports transformations like redaction, splitting, filtering, and normalization. Data processing charges don't apply when data is ingested into tables with retention set to include both analytic and data lake tiers.
-- **Data lake storage** charges are applied per GB per month for any data that remains in the data lake tier after the analytic tier retention period ends. Charges are based on data compressed at a 6X rate. For example, if you retain 600 GB of raw data, it's billed as 100 GB of compressed data.
+- **Data lake storage** charges are applied per GB per month for any data that remains in the data lake tier after the analytic tier retention period ends. Charges are based on a simple and uniform data compression rate of 6:1. For example, if you retain 600 GB of raw data, it's billed as 100 GB of compressed data.
 - **Data lake query** charges apply per GB of uncompressed data analyzed using Kusto Query Language (KQL) queries or KQL jobs.
 - **Advanced data insights** charges apply per compute hour used when using data lake exploration notebook sessions or running data lake exploration notebook jobs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running. Data lake notebook sessions and jobs are available in pools of four, eight, and 16 cores.
 
 Once onboarded, usage from Microsoft Sentinel workspaces begins to be billed through the previously described meters rather than existing long-term retention (formerly known as Archive), search, or auxiliary logs ingestion meters.
 
 > [!IMPORTANT]
-> Existing Microsoft Sentinel customers currently using and billed for auxiliary logs ingestion, long-term retention, and search will see charges transition to the new data lake ingestion, data lake storage, and data lake query meters, respectively once they onboard to Microsoft Sentinel data lake. Pricing from previous meters doesn't carry over. For more information on pricing, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+> Existing Microsoft Sentinel customers currently using and billed for auxiliary logs ingestion, long-term retention, and search will see charges transition to the new data lake ingestion, data lake storage, and data lake query meters respectively, once they onboard to Microsoft Sentinel data lake. Pricing from previous meters doesn't carry over. For more information on pricing, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 For customers that haven't onboarded to Microsoft Sentinel data lake and are currently using auxiliary or basic logs, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for relevant information.
 
-  
 ### Simplified pricing tiers
 
 Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel and ingestion storage costs of Log Analytics into a single pricing tier. The following screenshot shows the simplified pricing tier that all new workspaces use.
@@ -242,19 +239,21 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 
 | Microsoft Sentinel data connector     | Free data type                          |
 | ------------------------------------- | --------------------------------------- |
-| **Azure Activity Logs**               | AzureActivity                           |
+| **Azure Activity**               | AzureActivity                           |
 | **Health monitoring for Microsoft Sentinel** <sup>[1](#audithealthnote)</sup>   | SentinelHealth |
 | **Microsoft Entra ID Protection**     | SecurityAlert (IPC)                     |
-| **Office 365**                        | OfficeActivity (SharePoint)             |
+| **Microsoft 365**                        | OfficeActivity (SharePoint)             |
 |                                       | OfficeActivity (Exchange)               |
 |                                       | OfficeActivity (Teams)                  |
-| **Microsoft Defender for Cloud**      | SecurityAlert (Defender for Cloud)      |
-| **Microsoft Defender for IoT**        | SecurityAlert (Defender for IoT)        |
+| **Microsoft Defender for Cloud**      | SecurityAlert (Azure Security Center)      |
+| **Microsoft Defender for IoT**        | SecurityAlert (Azure Security Center for IoT)        |
 | **Microsoft Defender XDR**            | SecurityIncident                        |
 |                                       | SecurityAlert                           |
 | **Microsoft Defender for Endpoint**   | SecurityAlert (MDATP)                   |
 | **Microsoft Defender for Identity**   | SecurityAlert (AATP)                    |
-| **Microsoft Defender for Cloud Apps** | SecurityAlert (Defender for Cloud Apps) |
+| **Microsoft Defender for Cloud Apps** | SecurityAlert (MCAS) |
+| **Microsoft Defender for Office 365 (Preview)** | SecurityAlert (OATP) |
+
 
 <a id="audithealthnote">*<sup>1</sup>*</a> *For more information, see [Auditing and health monitoring for Microsoft Sentinel](health-audit.md).*
 

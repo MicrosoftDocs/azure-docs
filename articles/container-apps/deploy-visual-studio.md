@@ -18,7 +18,7 @@ In this tutorial, you deploy a containerized ASP.NET Core 8.0 application to Azu
 
 ## Prerequisites
 
-- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Visual Studio 2022 version 17.2 or higher, available as a [free download](https://visualstudio.microsoft.com).  
 
 ## Create the project

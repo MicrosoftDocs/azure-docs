@@ -16,7 +16,7 @@ ms.custom:
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Android Studio](https://developer.android.com/studio), we use Android Studio to create an Android application and to install dependencies.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You need to **record your resource endpoint and connection string** for this article.
 - Create **two** Communication Services Users and issue them a [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the user_id string**. In this article, we create a thread with an initial participant and then add a second participant to the thread. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.

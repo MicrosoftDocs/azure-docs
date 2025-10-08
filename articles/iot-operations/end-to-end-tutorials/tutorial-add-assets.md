@@ -24,10 +24,13 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 ## Prerequisites
 
-A preview instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create a preview instance, use one of the following to deploy Azure IoT Operations:
+A preview instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create a preview instance, see:
 
-- [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials. Then, to enable secure settings follow the steps in [Enable secure settings in Azure IoT Operations](../deploy-iot-ops/howto-enable-secure-settings.md).
-- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment and to install the latest preview version.
+- [Deploy Azure IoT Operations to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md)
+- If you deployed Azure IoT Operations with **Test settings** enabled, see [Enable secure settings on an existing Azure IoT Operations instance](../deploy-iot-ops/howto-enable-secure-settings.md) to enable secure settings.
+
+> [!IMPORTANT]
+> It's not possible to enable secure settings on the instance you create if you follow the steps in the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) article.
 
 After you enable secure settings, the resource group that contains your Azure IoT Operations instance also contains the following resources:
 

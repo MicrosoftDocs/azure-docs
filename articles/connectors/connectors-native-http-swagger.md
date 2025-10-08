@@ -20,7 +20,7 @@ The **HTTP + Swagger** built-in operations currently support only OpenAPI 2.0, n
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The URL for the Swagger file that describes the target REST API endpoint that you want to call
 

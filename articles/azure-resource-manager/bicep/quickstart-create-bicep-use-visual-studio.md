@@ -15,7 +15,7 @@ Similar authoring experience is also supported in Visual Studio Code.  See [Quic
 
 ## Prerequisites
 
-- Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Visual Studio version 17.3.0 preview 3 or newer.  See [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/).
 - Visual Studio Bicep extension.  See [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 - Bicep file deployment requires either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).

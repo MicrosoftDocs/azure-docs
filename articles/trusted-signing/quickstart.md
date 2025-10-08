@@ -26,7 +26,10 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 ## Prerequisites
 
 > [!NOTE]
-> At this time Trusted Signing is only available to organizations based in the USA and Canada that have a verifiable history of three years or more.
+> At this time Trusted Signing is available to organizations and DBAs based in the USA and Canada that have a verifiable history of three years or more.
+
+> [!NOTE]
+> At this time Trusted Signing is available to individual developers based in the USA and Canada.
 
 To complete this quickstart, you need:
 
@@ -218,7 +221,7 @@ You can complete your own identity validation by filling in the request form wit
 
 # [Identity Validation - Organization](#tab/orgvalidation)
 
-To create an identity validation request for an Organization:
+To create an identity validation request for an Organization or a DBA:
 
 1. In the Azure portal, go to your new Trusted Signing account.
 2. Confirm that you're assigned the Trusted Signing Identity Verifier role.

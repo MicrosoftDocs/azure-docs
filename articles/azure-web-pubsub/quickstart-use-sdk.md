@@ -20,7 +20,7 @@ Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you h
 
 ## Prerequisites
 
-- An Azure subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription, if you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - a Bash and PowerShell command shell. The Python, JavaScript and Java samples require a Bash command shell.
 - A file editor such as VS Code.
 - Azure CLI: [install the Azure CLI](/cli/azure/install-azure-cli)

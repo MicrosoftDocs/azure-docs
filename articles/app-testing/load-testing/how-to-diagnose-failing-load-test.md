@@ -24,7 +24,7 @@ Depending on the indicator, you can use a different approach to identify the roo
 
 ## Prerequisites  
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.  
 - An Azure load testing resource that has a completed test run. If you need to create an Azure load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 
 ## Determine the outcome of a load test

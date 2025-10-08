@@ -30,7 +30,7 @@ The scene looks like this:
 
 ## Prerequisites
 
-You need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+You need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) now.
 
 You also need to download a sample glTF (Graphics Language Transmission Format) 3D file to use for the scene in this quickstart. Download the following sample file from GitHub: [RobotArms.glb](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/3dscenes/RobotArms.glb).
 

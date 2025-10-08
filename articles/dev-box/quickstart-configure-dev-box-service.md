@@ -33,7 +33,7 @@ To complete this quickstart, you need:
 
 | Requirement | Details |
 |-------------|---------|
-| **Azure account** | An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. |
+| **Azure account** | An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin. |
 | **Permissions** | Owner or Contributor role on an Azure subscription or resource group. |
 | **User licenses** | Each user needs a license for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Microsoft Entra ID P1. These licenses are included in:<br>- Microsoft 365 E3, Microsoft 365 E5<br>- Microsoft 365 A3, Microsoft 365 A5<br>- Microsoft 365 Business Premium<br>- Microsoft 365 F3*<br>- Microsoft 365 Education Student Use Benefit<br>**Microsoft 365 F3 doesn't include a Windows Enterprise license, but it does include limited Microsoft Entra ID and Intune capabilities* |
 | **Device management** | Microsoft Intune. Your organization must use Microsoft Intune for device management.  |

@@ -21,7 +21,7 @@ This article steps through using an ARM template to create an Azure Compute Flee
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Before using Compute Fleet, complete the feature registration and configure role-based access controls (RBAC). 
 
 

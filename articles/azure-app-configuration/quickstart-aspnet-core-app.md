@@ -17,7 +17,7 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
 

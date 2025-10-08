@@ -25,7 +25,7 @@ To run these connector operations in stateful mode, you must enable this capabil
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The Standard logic app resource where you plan to create the workflow that uses the stateful mode-enabled connector operations. If you don't have this resource, [create your Standard logic app resource now](/azure/logic-apps/create-single-tenant-workflows-azure-portal).
 

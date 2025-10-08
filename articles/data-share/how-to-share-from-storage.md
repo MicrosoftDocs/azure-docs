@@ -55,7 +55,7 @@ Existing files that have the same name are overwritten during a snapshot. A file
 
 ## Prerequisites to share data
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
 - Your data recipient's Azure sign-in e-mail address (using their e-mail alias won't work).
 - If your Azure SQL resource is in a different Azure subscription than your Azure Data Share account, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where your source Azure SQL resource is located.
@@ -118,7 +118,7 @@ You've now created your Azure data share. The recipient of your data share can a
 
 Before you accept a data share invitation, make sure you have the following prerequisites:
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An invitation from Azure. The email subject should be "Azure Data Share invitation from *\<yourdataprovider\@domain.com>*".
 - A registered [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in:
   - The Azure subscription where you'll create a Data Share resource.

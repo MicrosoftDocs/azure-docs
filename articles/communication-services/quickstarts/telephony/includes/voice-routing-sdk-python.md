@@ -15,7 +15,7 @@ ms.custom:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python](https://www.python.org/downloads/) 3.7+.
 - A deployed Communication Services resource and a connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - The fully qualified domain name (FQDN) and port number of a session border controller (SBC) in an operational telephony system.

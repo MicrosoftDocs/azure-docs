@@ -27,7 +27,7 @@ In this article, you learn how to connect directly from Azure Front Door to your
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - This feature is only supported for workload profile environments.
 
@@ -161,7 +161,7 @@ If you're not going to continue to use this application, you can delete the cont
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - To ensure you're running the latest version of the [Azure CLI](/cli/azure/install-azure-cli), run the following command.
 

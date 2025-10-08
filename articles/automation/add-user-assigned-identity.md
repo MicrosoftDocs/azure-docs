@@ -18,7 +18,7 @@ This article shows you how to add a user-assigned managed identity for an Azure 
 > [!NOTE]
 > It is not possible to use a User Assigned Managed Identity on a Hybrid Runbook Worker when a Managed Identity (either System or User assigned) has been created for the Automation Account. If Managed Identity has not been assigned to the Automation Account, then it is possible to use the VM’s System or User Assigned Managed Identity on a Hybrid Runbook Worker that is an Azure VM with the assigned managed identities. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

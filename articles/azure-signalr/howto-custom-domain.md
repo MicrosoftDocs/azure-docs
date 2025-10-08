@@ -17,7 +17,7 @@ In addition to the default domain provided with Azure SignalR Service, you can a
 ## Prerequisites
 
 - A custom domain registered through Azure App Service or a non-Microsoft registrar.
-- An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure resource group.
 - An Azure SignalR Service resource.
 - An Azure Key Vault instance.

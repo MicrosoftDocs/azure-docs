@@ -60,7 +60,7 @@ For more information about how the SFTP-SSH managed connector can handle large f
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Connection and authentication information to access your SFTP server, such as the server address, account credentials, access to an SSH private key, and the SSH private key password. For more information, see [SFTP-SSH managed connector reference - Authentication and permissions](/connectors/sftpwithssh/#authentication-and-permissions).
 

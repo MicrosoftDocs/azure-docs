@@ -31,7 +31,7 @@ In this tutorial, you perform the following steps:
 
 ## Prerequisites
 ### Azure subscription
-Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### Azure roles
 To create data factory instances, the user account you use to sign in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.

@@ -20,7 +20,7 @@ This article describes how to create an Azure Cache for Redis Premium cache with
 
 ## Prerequisites
 
-You need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+You need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Limitations
 

@@ -17,7 +17,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 This guide helps you better understand the different ways you can use Azure Communication Services offering of real-time transcription through Call Automation SDKs.
 
 ### Prerequisites
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Communication Services resource, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource.

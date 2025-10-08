@@ -17,7 +17,7 @@ If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](in
 In this tutorial, you use the data flow canvas to create data flows that allow you to analyze and transform data in Azure Data Lake Storage (ADLS) Gen2 and store it in Delta Lake.
 
 ## Prerequisites
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 
 The file that we're transforming in this tutorial is MoviesDB.csv, which can be found [here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB2.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md). The examples are referencing a container named 'sample-data'.

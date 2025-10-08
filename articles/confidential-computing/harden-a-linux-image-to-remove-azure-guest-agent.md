@@ -22,7 +22,7 @@ It's crucial to comprehend what functionalities the VM loses before deciding to 
 This "how to" shows you steps to remove guest agent from the Linux image.
 ## Prerequisites
 
-- If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Ubuntu image - you can choose one from the [Azure Marketplace](/azure/virtual-machines/linux/cli-ps-findimage).
 
 ### Remove Azure Linux Agent and prepare a generalized Linux image

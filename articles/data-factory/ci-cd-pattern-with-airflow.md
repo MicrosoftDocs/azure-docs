@@ -73,7 +73,7 @@ You can develop data pipelines directly in Workflow Orchestration Manager when y
 
 ### Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Data Factory instance in the region where the Workflow Orchestration Manager preview is supported.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin. Create or select an existing Data Factory instance in the region where the Workflow Orchestration Manager preview is supported.
 - You need access to a [GitHub repository](https://github.com/join).
 
 ### Advantages

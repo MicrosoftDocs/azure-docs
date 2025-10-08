@@ -21,7 +21,9 @@ ms.custom: references_regions
 
 When your application needs sub-millisecond storage latency and extremely high throughput, you can use local NVMe with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. Local NVMe disks are offered on select Azure VM families such as [storage-optimized](/azure/virtual-machines/sizes/overview#storage-optimized) VMs.
 
-Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. For use cases that require *persistent volume claims*, you can add the annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` in your persistent volume claim template.
+To maximize performance, Azure Container Storage automatically stripes data across all available local NVMe disks on a per-VM basis. Striping is a technique where data is divided into small chunks and evenly written across multiple disks simultaneously, which increases throughput and improves overall I/O performance. This behavior is enabled by default and cannot be disabled.
+
+By default, Azure Container Storage creates *generic ephemeral volumes* when using local NVMe disks. For use cases that require *persistent volume claims*, you can add the annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` in your persistent volume claim template.
 
 ## Prerequisites
 

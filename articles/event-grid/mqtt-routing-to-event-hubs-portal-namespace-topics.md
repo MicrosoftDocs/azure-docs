@@ -18,7 +18,7 @@ In this tutorial, you learn how to use a namespace topic to route data from MQTT
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - If you're new to Event Grid, read the [Event Grid overview](../event-grid/overview.md) before you begin.
 - Register the Event Grid resource provider according to the steps in [Register the Event Grid resource provider](custom-event-quickstart-portal.md#register-the-event-grid-resource-provider).
 - Make sure that port **8883** is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.

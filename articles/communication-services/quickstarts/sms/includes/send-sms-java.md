@@ -24,7 +24,7 @@ Completing this article incurs a small cost of a few USD cents or less in your A
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).

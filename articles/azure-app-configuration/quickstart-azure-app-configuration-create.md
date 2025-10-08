@@ -17,7 +17,7 @@ Azure App Configuration is an Azure service designed to help you centrally manag
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create an App Configuration store
 

@@ -23,7 +23,7 @@ Azure Compute Gallery (previously Shared Image Gallery) is available in Extended
 > Platform Image Repositories are currently being replicated in Extended Zones to be on par with the region. Should you not be able to find your required image within a given Extended Zone, contact aezsupport@microsoft.com. The product’s engineering team is happy to help replicating it ahead of the broader replication. 
 
 ## Prerequisites
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/entra/identity/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types).
 - Both gallery and gallery image definition need to be created in the same region for these instructions to work; they can't be in different regions.
 - A user assigned managed identity is required to be set to the gallery, so that features available on that subscription can be queried. One of the features is set by EdgeZone Resource Provider, when the subscription is given access to use the Extended Zone. Azure Compute Gallery will query Azure Resource Manager with the assigned managed identity to get the list of features.

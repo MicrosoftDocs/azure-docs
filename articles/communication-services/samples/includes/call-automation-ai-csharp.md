@@ -25,7 +25,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
 - A calling-enabled telephone number. For more information, see [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
 - The Azure `devtunnel` CLI. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).

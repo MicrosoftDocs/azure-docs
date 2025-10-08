@@ -17,7 +17,7 @@ To learn more about the concept of soft delete feature, see [Soft-Delete in Azur
 
 ## Prerequisites
 
-* An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 * Refer to the [Soft-Delete in Azure App Configuration](./concept-soft-delete.md#permissions-to-recover-a-deleted-store) section for permissions requirements.
 

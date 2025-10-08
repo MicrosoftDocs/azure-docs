@@ -38,7 +38,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 > [!IMPORTANT]
 > Currently, the [portal-based redis console](cache-configure.md#redis-console) is not supported with private link.

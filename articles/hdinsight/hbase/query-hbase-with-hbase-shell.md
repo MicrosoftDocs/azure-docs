@@ -16,7 +16,7 @@ ms.date:  01/02/2025
 
 In this quickstart, you learn how to use Apache HBase Shell to create an HBase table, insert data, and then query the table.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

@@ -21,7 +21,7 @@ This article shows you how to configure Azure Front Door Premium tier to connect
 
 ## Prerequisites
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ::: zone pivot="front-door-portal"
 

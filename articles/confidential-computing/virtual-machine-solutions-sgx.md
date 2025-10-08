@@ -38,7 +38,7 @@ Consider the following factors when you plan your Intel SGX VM deployment on Azu
 
 ### Azure subscription
 
-To deploy a confidential computing VM instance, consider a pay-as-you-go subscription or other purchase option. [Azure free accounts](https://azure.microsoft.com/free/) don't have a high enough quota for the necessary number of Azure compute cores.
+To deploy a confidential computing VM instance, consider a pay-as-you-go subscription or other purchase option. [Azure free accounts](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) don't have a high enough quota for the necessary number of Azure compute cores.
 
 ### Pricing and regional availability
 

@@ -20,7 +20,7 @@ In this quickstart, you create a scheduled job. To learn how to create an event-
 
 ## Prerequisites
 
-An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Also, please make sure to have the Resource Provider "Microsoft.App" registered.
+An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Also, please make sure to have the Resource Provider "Microsoft.App" registered.
 
 ## Setup
 

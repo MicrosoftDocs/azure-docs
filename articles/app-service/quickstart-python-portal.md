@@ -21,7 +21,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](overvi
 
 ## Configure accounts
 
-- If you don't yet have an Azure account with an active subscription, [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- If you don't yet have an Azure account with an active subscription, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - If you don't have a GitHub account, visit [github.com](https://github.com) to create one. 
 

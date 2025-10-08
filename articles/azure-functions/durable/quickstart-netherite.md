@@ -121,7 +121,7 @@ To run your app in Azure, [create an Azure Functions app](../functions-create-fu
 You need to set up an Event Hubs namespace to run Netherite in Azure. You can also set it up if you prefer to use Event Hubs during local development.
 
 > [!NOTE]
-> An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Durable Functions. Microsoft offers a [12-month free Azure subscription account](https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
+> An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Durable Functions. Microsoft offers a [12-month free Azure subscription account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you’re exploring Azure for the first time.
 
 #### Create an Event Hubs namespace
 

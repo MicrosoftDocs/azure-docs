@@ -23,7 +23,7 @@ With the integrated load testing experience in Azure Functions, you can:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - A function app with at least one function with an HTTP trigger. If you need to create a function app, see [Getting started with Azure Functions](/azure/azure-functions/functions-get-started).
 
 ## Create a load test for a function app

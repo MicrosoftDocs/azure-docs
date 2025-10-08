@@ -53,7 +53,7 @@ For more information about trigger and action parameters, see [HTTP Webhook para
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in workflows](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in workflows](../logic-apps/logic-apps-create-api-app.md#webhook-actions), as appropriate.
 

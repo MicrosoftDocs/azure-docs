@@ -21,7 +21,7 @@ ms.custom: references_regions
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). Don't use Azure Cloud Shell, because `az upgrade` isn't available in Cloud Shell. Be sure to run the commands in this article with administrative privileges.
+- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). Don't use Azure Cloud Shell, because `az upgrade` isn't available in Cloud Shell. Be sure to run the commands in this article with administrative privileges. Some Azure CLI extensions, such as `aks-preview`, can conflict with required command flags. Disable them if you encounter issues.
 
 - You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
 

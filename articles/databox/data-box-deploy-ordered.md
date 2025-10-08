@@ -53,7 +53,7 @@ Complete the following configuration prerequisites for the Data Box service and 
 
 [!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 You can sign in to Azure and run Azure CLI commands in one of two ways:
 

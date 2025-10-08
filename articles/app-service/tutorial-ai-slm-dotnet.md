@@ -18,7 +18,7 @@ This tutorial guides you through deploying a ASP.NET Core chatbot application in
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription.
 - A [GitHub account](https://github.com/).
 
 ## Deploy the sample application

@@ -16,7 +16,7 @@ The Azure portal is a web-based management tool for services and resources hoste
 
 [!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps to configure a storage account that has a hierarchical namespace.
 

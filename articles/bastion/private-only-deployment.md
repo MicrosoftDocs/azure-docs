@@ -28,7 +28,7 @@ Items to consider:
 
 The steps in this article assume you have the following prerequisites:
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A [virtual network](../virtual-network/quick-create-portal.md) that doesn't have Azure Bastion deployment.
 
 ### <a name="values"></a>Example values

@@ -27,7 +27,7 @@ You can connect to Azure Cosmos DB from both Consumption and Standard logic app 
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Azure Cosmos DB account](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 

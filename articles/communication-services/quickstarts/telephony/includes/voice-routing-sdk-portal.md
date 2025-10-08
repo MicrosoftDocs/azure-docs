@@ -13,7 +13,7 @@ ms.author: nikuklic
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource. [Create a Communication Services resource](../../../quickstarts/create-communication-resource.md).
 - The fully qualified domain name (FQDN) and port number of a session border controller (SBC) in an operational telephony system.
 - The [verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.

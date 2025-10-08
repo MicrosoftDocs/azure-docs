@@ -15,7 +15,7 @@ In addition to the default domain that is included in an instance of Azure Web P
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Web PubSub resource at a minimum Premium tier.
 * An Azure Key Vault resource.
 * A custom certificate matching custom domain that is stored in Azure Key Vault.

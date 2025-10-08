@@ -25,7 +25,7 @@ In this tutorial, you do the following steps:
 * Create a pipeline with a copy activity.
 
 ## Prerequisites
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
 * **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. *Ensure the SQL Database account allows access only from selected networks.* 
 

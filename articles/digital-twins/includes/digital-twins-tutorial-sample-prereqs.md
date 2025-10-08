@@ -10,7 +10,7 @@ ms.author: baanders
 ## Prerequisites
 
 Before beginning this tutorial, start with these prerequisites:
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * This tutorial uses .NET. You can download the latest version of the .NET SDK for multiple platforms from [Download .NET](https://dotnet.microsoft.com/download).
 
 Then, continue through the rest of this section to set up the remaining prerequisites.

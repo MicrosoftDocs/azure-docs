@@ -20,7 +20,7 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
 | Resource | Description |
 |---|---|
-| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure Storage account | A [blob storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) to store state for your Azure Functions. |
 | Azure Application Insights | An instance of [Azure Application Insights](/azure/azure-monitor/app/create-workspace-resource?tabs=portal) to collect data about your container app. |
 
@@ -120,7 +120,7 @@ The following steps show you how to use a sample container image to create your 
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a Functions App

@@ -70,7 +70,7 @@ The following table summarizes the parameters for the **Generate Host File Conte
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **IBM Host File** connector to recognize the host file data structure.
 

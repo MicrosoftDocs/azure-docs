@@ -14,7 +14,7 @@ For more information about containerized applications in a serverless environmen
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension).
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Docker](https://www.docker.com/community-edition).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Azure App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). You can use this extension to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).

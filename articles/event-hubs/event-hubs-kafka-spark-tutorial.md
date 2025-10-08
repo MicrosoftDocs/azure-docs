@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 Before you start this tutorial, make sure that you have:
--	Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+-	Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 -	[Apache Spark v2.4](https://spark.apache.org/downloads.html)
 -	[Apache Kafka v2.0](https://kafka.apache.org/20/documentation.html)
 -	[Git](https://www.git-scm.com/downloads)

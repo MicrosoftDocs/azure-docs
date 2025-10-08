@@ -17,7 +17,7 @@ This article describes how to create an Azure Maps account with a securely store
 
 ## Prerequisites
 
-- An Azure subscription. If you don't already have an Azure account, [sign up for a free one](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't already have an Azure account, [sign up for a free one](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Owner** role permission on the Azure subscription. You need the **Owner** permissions to:
 
   - Create a key vault in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
