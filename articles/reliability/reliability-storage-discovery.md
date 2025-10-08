@@ -19,14 +19,14 @@ Azure Storage Discovery is a fully managed service that provides enterprise-wide
 
 |                                | Region outage | Zone outage |
 |--------------------------------|-------------------|-----------------------|
-| **Storage Discovery workspace management**  | If the region where the Storage Discovery workspace is created experiences an outage, the workspace reports will be unavailable during the time.              | If a zone is down, the Storage Discovery workspace remains available. You can continue to manage your workspace and access reports.|
-| **Storage Discovery reports**     | If a region goes down, data from storage accounts in that region may be delayed until the region is restored. In the rare event of complete data loss during the outage period, the Discovery workspace cannot recover data lost during that period.             | If the storage account is deployed to a failed zone, then the account becomes unavailable and the insights for the affected storage isn't available. If the storage account is zone redundant, then the Discovery workspace continues to provide account insights. |
+| **Storage Discovery workspace management**  | If the region where the Storage Discovery workspace is created experiences an outage, the workspace reports are unavailable during the time.              | If a zone is down, the Storage Discovery workspace remains available. You can continue to manage your workspace and access reports.|
+| **Storage Discovery reports**     | If a region goes down, data from storage accounts in that region may be delayed until the region is restored. In the rare event of complete data loss during the outage period, the Discovery workspace can't recover data lost during that period.             | If the storage account is deployed to a failed zone, then the account becomes unavailable and the insights for the affected storage isn't available. If the storage account is zone redundant, then the Discovery workspace continues to provide account insights. |
 
 ## Availability zone support
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-- **Storage Discovery workspace management service is zone-redundant.** When a zone is down in one region, your Storage Discovery workspace will still be available. You can continue to manage your workspace and access reports.
+- **Storage Discovery workspace management service is zone-redundant.** When a zone is down in one region, your Storage Discovery workspace is still available. You can continue to manage your workspace and access reports.
 
 - **Storage Discovery reports service is zone-redundant.** If the storage account is deployed to a failed zone, then the account becomes unavailable and from customer’s perspective, the insights for the affected storage isn't available. If the storage account is zone redundant, then the Discovery workspace continues to provide account insights.
 
@@ -36,7 +36,7 @@ Azure Storage Discovery is a fully managed service that provides enterprise-wide
 
 ### Outage detection and notification
 
-Storage Discovery doesn't send any notifications when there's an outage in the service itself. Notifications on the Discovery reports are published on the best-effort basis if there is a significant loss of insights due to outages.
+Storage Discovery doesn't send any notifications when there's an outage in the service itself. Notifications on the Discovery reports are published on the best-effort basis if there's a significant loss of insights due to outages.
 
 > [!RECOMMENDATION]
 > If you need uninterrupted access to Discovery reports - even during regional outages - we recommend creating a secondary workspace with the same configuration as your primary one. This ensures that if the primary workspace becomes unavailable, you can continue using the secondary workspace with all necessary insights. Please note that each Discovery workspace incurs additional costs.
