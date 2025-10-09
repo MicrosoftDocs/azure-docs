@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/22/2022
+ms.date: 10/09/2025
 ms.author: kesheth
 ---
 # Defining custom search parameters
