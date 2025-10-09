@@ -78,12 +78,12 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
     * Severity  
     * Refresh interval for security findings 
     * Description and remediation steps
-    * Affected resources, along with associated metadata from API Management
+    * Affected resources, classified as **Healthy** (onboarded to Defender for APIs), **Unhealthy** (not onboarded), or **Not applicable**, along with associated metadata from API Management
     
    > [!NOTE]
    > Affected resources include API collections (APIs) from all API Management instances under the subscription. 
 
-1. From the list of **Unhealthy** resources, select the API(s) that you wish to onboard to Defender for APIs.
+1. Select the APIs that you want to onboard to Defender for APIs.
 1. Select **Fix**, and then select **Fix resources**.
 
     :::image type="content" source="media/protect-with-defender-for-apis/fix-unhealthy-resources.png" alt-text="Screenshot that shows how to onboard unhealthy APIs in the portal." lightbox="media/protect-with-defender-for-apis/fix-unhealthy-resources.png":::
