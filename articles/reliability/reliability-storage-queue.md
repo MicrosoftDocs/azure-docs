@@ -54,7 +54,7 @@ To manage transient faults effectively by using Queue Storage, you can take the 
 
 - **Configure appropriate timeouts** in your Queue Storage client to balance responsiveness with resilience to temporary slowdowns. The default timeouts in Azure Storage client libraries are typically suitable for most scenarios.
 
-- **Implement circuit breaker patterns** in your application when it processes messages from queues. Circuit breaker patters prevent cascading failures when downstream services experience problems.
+- **Implement circuit breaker patterns** in your application when it processes messages from queues. Circuit breaker patterns prevent cascading failures when downstream services experience problems.
 
 - **Use visibility timeouts appropriately** when your application receives messages. Visibility timeouts ensure that messages become available for retry if your application encounters failures during processing.
 
