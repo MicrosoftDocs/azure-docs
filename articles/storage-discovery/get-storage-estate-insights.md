@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-For Storage Discovery to be a useful service to you, you need to have access to storage account resources with data in them. Storage accounts may be located in Azure subscriptions different from where you deploy Storage Discovery. However, all subscriptions must be governed by the same Microsoft Entra tenant.
+For Storage Discovery to be a useful service to you, you need to have access to storage account resources with data in them. Storage accounts may be located in Azure subscriptions different from where you deploy Storage Discovery. However, all subscriptions must be in the same Microsoft Entra tenant.
 
 You need at least the permissions on storage resources that come with the Role Based Access Control (RBAC) role assignment `Reader`. More permissions that come with roles like `Contributor` or `Owner` are also OK. You can [learn more about permissions](deployment-planning.md#permissions-to-your-storage-resources) in the planning guide. 
 
@@ -121,7 +121,7 @@ Then complete the workspace creation wizard by stepping through the remaining pa
 ## Get insights from Copilot and Discovery workspace reports in the Azure portal
 
 To continue with this tutorial, you need to allow time for the Storage Discovery service to aggregate all the insights about your storage resources. Insight aggregation often completes within a few hours but can also take more than a day.
-You can check if enough time has passed, by following the upcoming Azure portal report step.
+You can check if enough time passed, by following the upcoming Azure portal report step.
 
 You can get insights from Storage Discovery in two ways:
 
@@ -129,7 +129,7 @@ You can get insights from Storage Discovery in two ways:
 - Azure Copilot within the Azure portal.
 
 > [!IMPORTANT]
-> For newly created workspaces, insights typically appear within 24 hours. In some cases, this could take a bit longer. Depending on the pricing plan, historic insights for weeks before workspace creation are also added to allow for trend analysis. All insights are retained for several months. The [Understand Discovery pricing plans](pricing.md) article has more details.
+> For newly created workspaces, insights typically appear within 24 hours. In some cases, initial aggregation could take a bit longer. Depending on the pricing plan, historic insights for weeks before workspace creation are also added to allow for trend analysis. All insights are retained for several months. The [Understand Discovery pricing plans](pricing.md) article has more details.
 
 ### Access insights through workspace reports in the Azure portal
 
@@ -164,7 +164,7 @@ Each chart also offers other options to drill down or pivot into detailed views 
 - Redundancy type
 - Tags
 
-To get to an insight that's interesting for you, use global filters above the report page navigation, these span all report pages. Alternatively, change the data pivots that you can find in dropdown menus above most charts.
+To get to an insight that's interesting for you, use global filters above the report page navigation to filter all report pages. Alternatively, change the data pivots that you can find in dropdown menus above most charts.
 The [get started with reports](get-started-reports.md) article has more details.
 
 ### Access insights through Copilot in the Azure portal
