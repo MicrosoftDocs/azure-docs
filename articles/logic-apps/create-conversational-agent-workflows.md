@@ -457,23 +457,19 @@ To build this tool, follow these steps:
 
       This example uses **Send weather report in email.**
 
+The second example agent tool looks like the following example:
+
+:::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-updated.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-conversational-agent-workflows/send-email-tool-updated.png":::
+
 ## Create agent parameters for the 'Send an email (V2)' action
 
-The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-for-the-get-current-weather-action), except for the different parameters in the **Send an email (V2)** action. 
+For the **Send an email (V2)** action, the general steps to create agent parameters are similar to the steps in [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-for-the-get-current-weather-action) except for the different parameters.
 
-1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
+In the **Send an email (V2)** action, follow the [earlier general steps](#create-agent-parameters-for-the-get-current-weather-action) to create agent parameters for the **To**, **Subject**, and **Body** parameters. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 
-   The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
+When you're done, your **Send an email (V2)** action has agent parameters that look like the following example:
 
-   For example, the **Send an email (V2)** action looks like the following example:
-
-   When you're done, the example action uses the previously defined agent parameters as shown here:
-
-   :::image type="content" source="media/create-conversational-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-conversational-agent-workflows/send-email-action.png":::
-
-   The second example tool is now complete and looks like the following example:
-
-   :::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-conversational-agent-workflows/send-email-tool-complete.png":::
+:::image type="content" source="media/create-conversational-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-conversational-agent-workflows/send-email-action.png":::
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
 
