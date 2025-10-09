@@ -29,7 +29,7 @@ Flushing the DNS settings doesn't restart any underlying nodes or running applic
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.52.0 or higher. Use the following commands to remove the previous version and install the latest extension. If you previously installed the Spring Cloud extension, uninstall it before you begin.
 
    ```azurecli

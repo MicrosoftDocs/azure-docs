@@ -1,20 +1,17 @@
 ---
 title: Failover and patching - Azure Cache for Redis
 description: Learn about failover, patching, and the update process for Azure Cache for Redis.
-
-
-
-
 ms.topic: conceptual
 ms.date: 04/30/2024
 appliesto:
   - ✅ Azure Cache for Redis
-
 ms.custom: engagement-fy23
 
 ---
 
 # Failover and patching for Azure Cache for Redis
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 To build resilient and successful client applications, it's critical to understand failover in the Azure Cache for Redis service. A failover can be a part of planned management operations, or it might be caused by unplanned hardware or network failures. A common use of cache failover comes when the management service patches the Azure Cache for Redis binaries.
 

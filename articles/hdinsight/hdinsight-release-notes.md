@@ -55,6 +55,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * Grafana login now supported for Entra clusters.
 
 * C++ CodeQL scanning enabled for better static analysis coverage.
+* Managed Identity (MI) based authentication for SQL databases is now supported in non-public clouds. For more information see, [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 ## Issues fixed
 

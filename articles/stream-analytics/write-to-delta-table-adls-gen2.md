@@ -23,7 +23,7 @@ This tutorial shows how you can create a Stream Analytics job to write to a Delt
 
 Before you start, complete the following steps:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Deploy the TollApp event generator to Azure, use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the 'interval' parameter to 1. Create and use a new resource group for this step.
 * Create a [Data Lake Storage Gen2 account](../storage/blobs/create-data-lake-storage-account.md).
 

@@ -393,7 +393,7 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar
 ::: zone pivot="java-jboss"
 
 > [!TIP]
-> By default, the Linux JBoss containers can automatically configure shared data sources for you in the JBoss server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared data source, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a JBoss web app with Azure App Service on Linux and MySQL](tutorial-java-jboss-mysql-app.md).
+> By default, the Linux JBoss containers can automatically configure shared data sources for you in the JBoss server. The only thing for you to do is add an App Setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and add the App Setting / Environment variable `WEBSITE_AUTOCONFIGURE_DATABASE` with the value `true`. JDBC Connections created with Service Connector are also supported. App Service automatically adds the corresponding shared data source (based on the App Setting name and the suffix `_DS`), using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a JBoss web app with Azure App Service on Linux and MySQL](tutorial-java-jboss-mysql-app.md).
 
 There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): 
 

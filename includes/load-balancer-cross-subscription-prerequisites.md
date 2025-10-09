@@ -15,7 +15,7 @@ ms.custom: include-file
 # [Azure PowerShell](#tab/azurepowershell)
 
 - Two Azure subscriptions. 
-- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [Virtual Network](../articles/virtual-network/quick-create-powershell.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription A**.
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
@@ -29,7 +29,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 # [Azure CLI](#tab/azurecli/)
 
 - Two Azure subscriptions. One subscription for the virtual network (**Azure Subscription A**) and another subscription for the load balancer(**Azure Subscription B**).
-- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [Virtual Network](../articles/virtual-network/quick-create-cli.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription A**.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]

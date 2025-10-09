@@ -34,7 +34,7 @@ Use the Azure Queue Storage client library for JavaScript to:
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
 - Current [Node.js](https://nodejs.org/en/download/package-manager/) for your operating system.
 

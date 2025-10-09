@@ -23,7 +23,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 ## Prerequisites
 
-- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - A **general-purpose v2** storage account. see [Create a storage account](../common/storage-account-create.md).
 
