@@ -1512,10 +1512,10 @@ hero:
   links:
     - componentType: link
       text: Portal
-      url: ./products-and-services/index.yml
+      url: https://portal.azure.com
     - componentType: link
       text: Free account
-      url: https://azure.microsoft.com/free/
+      url: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
       color: primary
 getStarted:
   title: Get started with Azure
@@ -1523,28 +1523,28 @@ getStarted:
     - componentType: icon-card
       title: What's new
       summary: Explore the latest Azure updates from the past three months.
-      url: https://bing.com
+      url: /azure/developer/intro/whats-new
       icon:
         componentType: image
         src: '/media/hubs/azure/whats-new.svg'
     - componentType: icon-card
       title: Overview
       summary: Learn about key services used to build on Azure
-      url: https://bing.com
+      url: /azure/developer/intro/azure-developer-key-services
       icon:
         componentType: image
         src: '/media/hubs/azure/overview.svg'
     - componentType: icon-card
       title: For developers
       summary: Step-by-step guide for first-time developers
-      url: https://bing.com
+      url: /azure/developer/intro/azure-developer-overview
       icon:
         componentType: image
         src: '/media/hubs/azure/for-developers.svg'
     - componentType: icon-card
       title: Troubleshooting
       summary: Troubleshoot common issues in Azure
-      url: https://bing.com
+      url: /troubleshoot/azure/
       icon:
         componentType: image
         src: '/media/hubs/azure/troubleshooting.svg'
@@ -1554,28 +1554,28 @@ recommendedContent:
     - componentType: icon-card
       title: Azure architectures
       summary: Find architecture diagrams and real world examples of cloud solutions
-      url: https://bing.com
+      url: /azure/architecture/browse/
       icon:
         componentType: image
         src: '/media/hubs/azure/azure-architectures.svg'
     - componentType: icon-card
       title: All Azure training
       summary: Grow your skills to build and manage applications in the cloud
-      url: https://bing.com
+      url: /training/browse/?products=azure
       icon:
         componentType: image
         src: '/media/hubs/azure/all-azure-training.svg'
     - componentType: icon-card
       title: Azure concepts
       summary: Learn how to create and manage resources
-      url: https://bing.com
+      url: /azure/developer/intro/azure-developer-key-concepts
       icon:
         componentType: image
         src: '/media/hubs/azure/azure-concepts.svg'
     - componentType: icon-card
       title: Your career path
       summary: Receive training based on your career path
-      url: https://bing.com
+      url: /training/career-paths/
       icon:
         componentType: image
         src: '/media/hubs/azure/your-career-path.svg'
