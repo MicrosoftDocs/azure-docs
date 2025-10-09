@@ -168,9 +168,6 @@ items:
     - name: Application Insights
       tocHref: /azure/azure-monitor/azure-monitor-app-hub
       topicHref: /azure/azure-monitor/azure-monitor-app-hub
-  - name: Azure Remote Rendering
-    tocHref: /azure/remote-rendering/
-    topicHref: /azure/remote-rendering/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/

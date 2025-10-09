@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/25/2025
+ms.date: 10/09/2025
 ms.author: anfdocs
 ---
 # Create a short-term clone volume in Azure NetApp Files 
@@ -68,8 +68,10 @@ To take advantage of the feature, you must first register it.
 
 	Provide a **Volume name**.
 	Select a **Capacity pool**.
-	Choose if you want to **Delete base snapshot** once the short-term clone is created. 
 	Provide a **Quota** value.
+
+    >[!NOTE]
+    >Deleting the base snapshot is not available for short-term clone volumes. The option is greyed out in the portal as the base snapshot is shared with the original source volume. The base snapshot can only be deleted if the short-term clone volume is converted to a regular volume.
     
     >[!NOTE]
     >The quota value is the space for anticipated writes to the short-term clone volume. For example, some database workloads may require a 10 percent change to the existing data files. The minimum quota value is 50 GiB.
