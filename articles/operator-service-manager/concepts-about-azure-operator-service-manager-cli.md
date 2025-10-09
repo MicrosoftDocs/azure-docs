@@ -29,7 +29,7 @@ The Azure CLI AOSM Extension provides a convenient, simplified interface for pub
 
 ## Managing the CLI extension
 
-As of 10/1/2025, the Azure Operator Service Manager CLI extension is classified in preview state by Azure CLI. Installing preview extensions generates warnings in the Azure CLI. To surpress these warnings, the following command examples include the `--allow-preview true` flag. This flag is optional, extension operations run without this flag will also work.
+As of 10/1/2025, the Azure Operator Service Manager CLI extension is classified in preview state by Azure CLI. Installing preview extensions generates warnings in the Azure CLI. To suppress these warnings, the following command examples include the `--allow-preview true` flag. This flag is optional, extension operations run without this flag will also work.
 
 ## CLI Extension Install
 
