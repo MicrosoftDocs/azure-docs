@@ -26,6 +26,7 @@ The core DNSSEC extensions are specified in the following Request for Comments (
 * [RFC 4033](https://datatracker.ietf.org/doc/html/rfc4033): "DNS Security Introduction and Requirements"
 * [RFC 4034](https://datatracker.ietf.org/doc/html/rfc4034): "Resource Records for the DNS Security Extensions"
 * [RFC 4035](https://datatracker.ietf.org/doc/html/rfc4035): "Protocol Modifications for the DNS Security Extensions"
+* [RFC 9824](https://datatracker.ietf.org/doc/rfc9824): "Compact Denial of Existence in DNSSEC"
 
 For a summary of DNSSEC RFCs, see [RFC9364](https://www.rfc-editor.org/rfc/rfc9364): DNS Security Extensions (DNSSEC).
 
@@ -68,7 +69,7 @@ The type of DNS resource record that is spoofed depends on the type of DNS hijac
 
 DNSSEC works to prevent DNS hijacking by performing validation on DNS responses. In the DNS hijacking scenario pictured here, the client device can reject non-validated DNS responses if the contoso.com domain is signed with DNSSEC. To reject non-validated DNS responses, the client device must enforce [DNSSEC validation](#dnssec-validation) for contoso.com.
 
-DNSSEC includes a VRF-based mechanism defined in [RFC 9824](https://www.rfc-editor.org/rfc/rfc9824.html), to prevent zone enumeration. Zone enumeration, also known as zone walking, is an attack whereby an attacker attempts to build a list of all names in a zone, including child zones.
+Azure DNS DNSSEC implemented [RFC 9824](https://www.rfc-editor.org/rfc/rfc9824.html), to prevent zone enumeration. Zone enumeration, also known as zone walking, is an attack whereby an attacker attempts to build a list of all names in a zone, including child zones.
 
 Before you sign a zone with DNSSEC, be sure to understand [how DNSSEC works](#how-dnssec-works). When you are ready to sign a zone, see [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
 
