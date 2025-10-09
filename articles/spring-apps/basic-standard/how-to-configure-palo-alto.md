@@ -36,7 +36,7 @@ You should keep configuration information, such as rules and address wildcards, 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A Palo Alto deployment. If you don't have a deployment, you can provision [Palo Alto from Azure Marketplace](https://portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2).
 * [PowerShell](/powershell/scripting/install/installing-powershell)
 * [Azure CLI](/cli/azure/install-azure-cli)

@@ -20,7 +20,7 @@ In this quickstart, you create, run and submit an Azure Stream Analytics (ASA) j
 > Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
 
 ## Prerequisites
-* Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Install the Azure Stream Analytics Tools extension

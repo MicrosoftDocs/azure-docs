@@ -1,17 +1,16 @@
 ---
 title: Azure Cache for Redis Event Grid Overview 
 description: Use Azure Event Grid to publish Azure Cache for Redis events.
-
-
 ms.date: 12/21/2020
 appliesto:
   - ✅ Azure Cache for Redis
-
 ms.topic: conceptual
 
 ---
 
 # Azure Cache for Redis Event Grid Overview 
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis events, such as patching, scaling, import/export (RDB) events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering.
 

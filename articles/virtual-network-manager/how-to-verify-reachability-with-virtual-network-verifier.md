@@ -19,7 +19,7 @@ In this article, you learn how to use network verifier in the Azure portal to ve
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An existing network manager instance. If you don't have a network manager instance, create one by following the instructions in [Create a virtual network manager](create-virtual-network-manager-portal.md).
   - A verifier workspace is a child resource of a network manager, so it must be created from a network manager instance. Once a verifier workspace exists, it can be accessed directly from the Azure portal by searching **Verifier workspaces**.
 - Resources to verify reachability between. In this example, two virtual machines are used.

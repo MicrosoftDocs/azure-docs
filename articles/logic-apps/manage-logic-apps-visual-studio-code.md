@@ -18,7 +18,7 @@ This guide shows how to work with deployed logic apps in Visual Studio Code and 
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to the internet so that you can download the required extension if necessary, connect from Visual Studio Code to your Azure account, and publish any changes that you make to your project.
 
