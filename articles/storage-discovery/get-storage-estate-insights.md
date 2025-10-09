@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-For Storage Discovery to be a useful service to you, you need to have access to storage account resources with data in them. Storage accounts may be located in Azure subscriptions different from where you deploy Storage Discovery, but all subscriptions must be governed by the same Microsoft Entra tenant.
+For Storage Discovery to be a useful service to you, you need to have access to storage account resources with data in them. Storage accounts may be located in Azure subscriptions different from where you deploy Storage Discovery. However, all subscriptions must be governed by the same Microsoft Entra tenant.
 
 You need at least the permissions on storage resources that come with the Role Based Access Control (RBAC) role assignment `Reader`. More permissions that come with roles like `Contributor` or `Owner` are also OK. You can [learn more about permissions](deployment-planning.md#permissions-to-your-storage-resources) in the planning guide. 
 
@@ -32,7 +32,7 @@ This tutorial uses the Azure portal for all steps.
 ## Deploy a Storage Discovery workspace
 
 You deploy the Storage Discovery service by creating a Discovery workspace resource in one of your resource groups.
-As part of creating this resource, you also specify what portion(s) of your Azure Storage estate you want to cover.
+As part of creating this resource, you also specify what portions of your Azure Storage estate you want to cover.
 
 1. Start the Discovery workspace create wizard.
 1. Decide what portion of the Azure Storage estate you want to cover by setting the `workspace root`.
@@ -72,11 +72,11 @@ In such a case, remove the failed item from the list, then proceed to the next w
 
 ### 3. Configure a scope
 
-A `scope` is a feature of a Discovery workspace. Scopes allow you to segment the storage resources included in your workspace root into logical units that you'll then get dedicated reports for.
+A `scope` is a feature of a Discovery workspace. Scopes allow you to segment the storage resources included in your workspace root into logical units that you then get dedicated reports for.
 For instance, your workspace root may cover storage accounts from HR and Marketing departments. You can define a scope for the Marketing department and receive a dedicated report for just the resources attributed to the marketing department.
 
 By default, a workspace created in the Azure portal already has a scope that spans all resources covered by the workspace root. At least one scope is required to get a report, so the default scope is good to have.
-You can add more scopes for fine-grained reporting needs. In this tutorial, we assume a scenarios where we need to report separately on all resources belonging to applications from the marketing department.
+You can add more scopes for fine-grained reporting needs. In this tutorial, we assume a scenario where we need to report separately on all resources belonging to applications from the marketing department.
 
 A scope is defined by specifying ARM resource tags that can be found on your storage resources.
 
@@ -120,7 +120,7 @@ Then complete the workspace creation wizard by stepping through the remaining pa
 
 ## Get insights from Copilot and Discovery workspace reports in the Azure portal
 
-To continue with this tutorial, you need to allow time for the Storage Discovery service to aggregate all the insights about your storage resources. This often completes within a few hours but can also take more than a day.
+To continue with this tutorial, you need to allow time for the Storage Discovery service to aggregate all the insights about your storage resources. Insight aggregation often completes within a few hours but can also take more than a day.
 You can check if enough time has passed, by following the upcoming Azure portal report step.
 
 You can get insights from Storage Discovery in two ways:
@@ -129,15 +129,15 @@ You can get insights from Storage Discovery in two ways:
 - Azure Copilot within the Azure portal.
 
 > [!IMPORTANT]
-> For newly created workspaces, insights typically appear within 24 hours. In some cases, tis could take a bit longer. Depending on the pricing plan, historic insights for weeks prior to workspace creation are also added to allow for trend analysis. All insights are retained for several months. The [understand Discovery pricing plans](pricing.md) article has more details.
+> For newly created workspaces, insights typically appear within 24 hours. In some cases, this could take a bit longer. Depending on the pricing plan, historic insights for weeks before workspace creation are also added to allow for trend analysis. All insights are retained for several months. The [Understand Discovery pricing plans](pricing.md) article has more details.
 
 ### Access insights through workspace reports in the Azure portal
 
-In this section, you learn how to access pre-built reports in the Azure portal for the scopes you previously created.
+In this section, you learn how to access prebuilt reports in the Azure portal for the scopes you previously created.
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Navigate to your Discovery workspace resource.
-1. On the left, vertical menu select `Reports`.
+1. On the left, vertical menu: select `Reports`.
 
 Azure Storage Discovery reports organize insights into distinct categories that help you understand and manage your Azure Storage estate:
 
@@ -164,20 +164,20 @@ Each chart also offers other options to drill down or pivot into detailed views 
 - Redundancy type
 - Tags
 
-To get to an insight that's interesting for you, use global filters above the report page navigation. These span all report pages. Alternatively, change the data pivots that you'll find in dropdown menus above most charts.
+To get to an insight that's interesting for you, use global filters above the report page navigation, these span all report pages. Alternatively, change the data pivots that you can find in dropdown menus above most charts.
 The [get started with reports](get-started-reports.md) article has more details.
 
-### Access insights through workspace reports in the Azure portal
+### Access insights through Copilot in the Azure portal
 
-In addition to the pre-built reports in the Azure portal, you can ask the Azure Copilot for insights about your storage estate.
-This enables you to pivot your data in ways that are not available in the pre-built reports. There are so many insights that they can't all be available in pre-built reports after all.
+In addition to the prebuilt reports in the Azure portal, you can ask the Azure Copilot for insights about your storage estate.
+Asking Copilot enables you to pivot data in ways that aren't available in the prebuilt reports. There are so many insights that they can't all be available in prebuilt reports after all.
 
 Select the `Copilot` button in the top navigation bar of the Azure portal.
 
 :::image type="content" source="media/get-storage-estate-insights/copilot-start.png" alt-text="Azure portal screenshot with Copilot chat open and showing useful Discovery sample prompts.":::
 
 When you ask the Azure Copilot a question, the answer must always come in the context of a Discovery workspace and a scope.
-You'll be asked to select both before Copilot will respond with the chart or table that illustrates the insight you requested.
+Copilot asks you to select both before responding with the chart or table that illustrates the insight you requested.
 
 Alternatively, you can enter the chat with the context of a workspace and scope by opening the Copilot chat from within a Discovery workspace report page.
 A click on the Copilot button `Ask Copilot`, found next to any chart on a report page, can launch the chat with the needed context.
