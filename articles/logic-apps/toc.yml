@@ -455,8 +455,10 @@ items:
       href: logic-apps-enterprise-integration-xml-validation.md
   - name: Secure
     items:
-    - name: Secure your logic apps
+    - name: Secure logic apps
       href: logic-apps-securing-a-logic-app.md
+    - name: Secure agent workflows with Easy Auth
+      href: set-up-authentication-agent-workflows.md
     - name: Authenticate with managed identities
       href: authenticate-with-managed-identity.md
     - name: Block connector usage
