@@ -123,7 +123,7 @@ You can view the latest changes to the FOCUS cost and usage details file schema 
 | 97 | x_SkuMeterSubcategory | Group of SKU Classes that address the same core need within the SKU Group. |
 | 98 | x_SkuOfferId | Microsoft Cloud subscription type. |
 | 99 | x_SkuOrderId | Unique identifier of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
-| 100 | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
+| 100 | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderName`. Not applicable for EA. |
 | 101 | x_SkuPlanName | The name of the Marketplace service plan. |
 | 102 | x_SkuPartNumber | Identifier to help categorize specific usage meters. |
 | 103 | x_SkuRegion | Region that the SKU operated in. It might be different from the resource region. |
