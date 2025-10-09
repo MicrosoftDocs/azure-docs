@@ -131,7 +131,7 @@ You can get insights from Storage Discovery in two ways:
 > [!IMPORTANT]
 > For newly created workspaces, insights typically appear within 24 hours. In some cases, initial aggregation could take a bit longer. Depending on the pricing plan, historic insights for weeks before workspace creation are also added to allow for trend analysis. All insights are retained for several months. The [Understand Discovery pricing plans](pricing.md) article has more details.
 
-### Access insights through workspace reports in the Azure portal
+### Access your insights
 
 In this section, you learn how to access prebuilt reports in the Azure portal for the scopes you previously created.
 
@@ -206,7 +206,7 @@ To delete your workspace, select the `Delete` command from the command bar of yo
 1. You land on the `Overview` page. In the command bar atop the page, select `Delete`. 
 1. Be sure that you want to remove the resource and all historic insights, then confirm your delete.
 
-## Next step -or- Related content
+## Related content
 
 * [Plan a Storage Discovery deployment](deployment-planning.md)
 * [Understand the Storage Discovery management components](management-components.md)
