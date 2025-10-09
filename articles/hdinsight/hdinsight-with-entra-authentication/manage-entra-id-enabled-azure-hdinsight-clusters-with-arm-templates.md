@@ -429,7 +429,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | Name | Description | Value |
 | --- | --- | --- |
 | password   | The password.   | string     |
-| sshProfile | The SSH profile.| [SshProfile](../../templates/microsoft.hdinsight/clusters.md#sshprofile-1) |
+| sshProfile | The SSH profile.| [SshProfile](/azure/templates/microsoft.hdinsight/clusters#sshprofile-1) |
 | username   | The username.   | string     |
 
 
