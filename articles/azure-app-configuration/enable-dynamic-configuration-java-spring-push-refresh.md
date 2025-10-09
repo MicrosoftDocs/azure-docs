@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: java
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 08/25/2025
+ms.date: 10/07/2025
 ms.author: mametcal
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---

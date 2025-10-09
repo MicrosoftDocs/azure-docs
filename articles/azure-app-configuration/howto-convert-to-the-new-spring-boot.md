@@ -1,20 +1,20 @@
 ---
-title: Convert to the 6.0.0 Spring Boot library
+title:  Upgrade Spring Boot applications to use App Configuration libraries version 6
 titleSuffix: Azure App Configuration
-description: Learn how to convert to the 6.0.0 App Configuration library for Spring Boot from the previous version.
+description: Learn how to upgrade Spring Boot applications to use App Configuration libraries version 6 from the previous version.
 ms.service: azure-app-configuration
 ms.devlang: java
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 09/26/2025
+ms.date: 10/09/2025
 ---
 
 # Upgrade Spring Boot applications to use App Configuration libraries version 6
 
-Version 6.0.0 of the Azure App Configuration library for Spring Boot introduces features such as Spring Cloud Azure global properties, but also some breaking changes. These changes aren't backward compatible with configuration setups that used the previous library version.
+Version 6 of the Azure App Configuration library for Spring Boot introduces features such as Spring Cloud Azure global properties, but also some breaking changes. These changes aren't backward compatible with configuration setups that used the previous library version.
 
-This article provides a reference on the changes and the actions needed to migrate to the 6.0.0 library version.
+This article provides a reference on the changes and the actions needed to migrate to the 6 library version.
 
 ## Configuration properties file name
 
