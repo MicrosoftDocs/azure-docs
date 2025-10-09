@@ -23,7 +23,7 @@ Capabilities of Defender for APIs include:
 
 * Identify external, unused, or unauthenticated APIs
 * Classify APIs that receive or respond with sensitive data
-* Apply configuration recommendations to strengthen the security posture of APIs and API Management services
+* Apply configuration recommendations to strengthen the security posture of APIs and API Management instances
 * Detect anomalous and suspicious API traffic patterns and exploits of OWASP API Top 10 vulnerabilities
 * Prioritize threat remediation
 * Integrate with SIEM systems and Defender Cloud Security Posture Management
@@ -62,7 +62,7 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 
 1. On the **Defender plan** page, select **On** for the **APIs** plan.
 
-1. Choose a plan, and then select **Save**, and then select **Save** again at the top of the page.
+1. Choose a plan, select **Save**, and then select **Save** again at the top of the page.
 
 ### Onboard unprotected APIs to Defender for APIs 
 
@@ -98,7 +98,7 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 
 After you onboard the APIs from API Management, Defender for APIs receives API traffic that's used to build security insights and monitor for threats. Defender for APIs generates security recommendations for risky and vulnerable APIs.  
 
-You can view a summary of all security recommendations and alerts for onboarded APIs by selecting **Microsoft Defender for Cloud** in the menu for your API Management instance:
+You can view a summary of all security recommendations and alerts for onboarded APIs by selecting **Defender for Cloud** in the navigation menu for your API Management instance:
 
 1. In the portal, go to your API Management instance. 
 1. Under **Security**, select **Defender for Cloud** in the left pane.
