@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: overview
-ms.date: 07/09/2025
+ms.date: 10/08/2025
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster. I want to understand how to read data from OPC UA servers and write data to implement process control.
 
@@ -29,6 +29,7 @@ As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes
 
 - Connects existing OPC UA servers and assets to a native Kubernetes cluster at the edge.
 - Publishes JSON-encoded messages from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
+- Can synchronize OPC UA node properties to the [distributed state store](../develop-edge-apps/overview-edge-apps.md#state-store).
 - Writes values directly to nodes in a connected OPC UA server based on MQTT subscriptions.
 - Connects to Azure Arc-enabled services in the cloud.
 
@@ -66,7 +67,7 @@ To write values to a node in a connected OPC UA server, the connector for OPC UA
 
 1. Reads the asset configuration to determine which nodes to write to on the OPC UA server.
 
-1. Subscribes to an MQTT topic that contains write requests for the asset. The topic name is in the format `{Namespace}/asset-operations/{AssetId}/{DatasetName}/`, where `{Namespace}` is the namespace for Azure IoT Operations instance, `{AssetId}` is the unique identifier for the asset, and `{DatasetName}` is the name of the dataset that contains the nodes to write to.
+1. Subscribes to an MQTT topic that contains write requests for the asset. The topic name is in the format `{Namespace}/asset-operations/{AssetId}/builtin/{DatasetName}/`, where `{Namespace}` is the namespace for Azure IoT Operations instance, `{AssetId}` is the unique identifier for the asset, and `{DatasetName}` is the name of the dataset that contains the nodes to write to.
 
 1. Creates a temporary session with the OPC UA server using the device configuration.
 
@@ -78,6 +79,45 @@ To generate a write request, publish a JSON message to the MQTT topic using MQTT
 
 > [!NOTE]
 > During preview, write operations are limited to data points that are explicitly defined in a dataset.
+
+To synchronize OPC UA node properties to the distributed state store, the connector for OPC UA:
+
+1. Follows the `HasProperty` reference of all variable nodes that are referenced as data points within any dataset of all assets using the same OPC UA inbound endpoint.
+1. Adds the properties to the distributed state store under the ID: `{AioNamespace}.{AssetName}.{DatasetName}.{DataPointName}.{PropertyName}`.
+1. Automatically subscribes the `ModelChange` event of the OPC UA server and repopulates all properties after a `ModelChange` event occurs.
+
+During preview, you configure this behavior by adding `syncPropertiesIntoStateStore: true` to the `endpoints.inbound.<endpointname>.additionalConfiguration` of a `namespaces.deviceregistry.microsoft.com/v1/Device` resource. For example:
+
+```bicep
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-07-01-preview' = {
+   name: 'myDevice'
+   parent: namespace
+   location: resourceGroup().location
+   extendedLocation: {
+      type: 'CustomLocation'
+      name: customLocation.id
+   }
+   properties: {
+      endpoints: {
+         outbound: {
+            assigned: {}
+         }
+         inbound: {
+            opc-ua-connector-0: {
+               endpointType: 'Microsoft.OpcUa'
+               address: 'opc.tcp://opcplc-000000:4840'
+               authentication: {
+                  method: 'Anonymous'
+               }
+               additionalConfiguration: '{"syncPropertiesIntoStateStore": true}'
+            }
+         }
+      }
+   }
+}
+```
+
+You can also force a synchronization of all properties by making an MQTT RPC call to the `azure-iot-operation/asset-operations/{AssetName}/builtin/syncProperties` topic. A payload `{}` forces a synchronization without observing `ModelChange` events. A payload `{"observeModelChanges": true}` forces a synchronization that observes `ModelChange` events.
 
 ## Connector for OPC UA message format
 
