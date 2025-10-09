@@ -119,7 +119,7 @@ Then complete the workspace creation wizard by stepping through the remaining pa
 > [!NOTE]
 > In Azure, tag names (keys) are case-insensitive for operations. Tag values are case-sensitive.
 
-## Get insights from Copilot and Discovery workspace reports in the Azure portal
+## Access your insights
 
 To continue with this tutorial, you need to allow time for the Storage Discovery service to aggregate all the insights about your storage resources. Insight aggregation often completes within a few hours but can also take more than a day.
 You can check if enough time passed, by following the upcoming Azure portal report step.
@@ -132,7 +132,7 @@ You can get insights from Storage Discovery in two ways:
 > [!IMPORTANT]
 > For newly created workspaces, insights typically appear within 24 hours. In some cases, initial aggregation could take a bit longer. Depending on the pricing plan, historic insights for weeks before workspace creation are also added to allow for trend analysis. All insights are retained for several months. The [Understand Discovery pricing plans](pricing.md) article has more details.
 
-### Access your insights
+### Access your insights through workspace reports in the Azure portal
 
 In this section, you learn how to access prebuilt reports in the Azure portal for the scopes you previously created.
 
