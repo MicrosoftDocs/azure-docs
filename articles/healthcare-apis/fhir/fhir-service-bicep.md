@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.custom: devx-track-bicep
 ms.topic: tutorial
 ms.author: kesheth
-ms.date: 05/27/2022
+ms.date: 10/09/2025
 ---
 
 # Deploy a FHIR service within Azure Health Data Services using Bicep

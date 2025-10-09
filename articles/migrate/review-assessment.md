@@ -115,6 +115,10 @@ After it calculates storage and network requirements, the assessment considers C
 
 After sizing recommendations are completed, an Azure VM assessment in Azure Migrate calculates compute and storage costs for migration. 
 
+To right-size on-premises servers for B-Series VM targets, a minimum of seven days of performance data is required to establish the workload pattern. B-Series VMs are ideal for workloads that remain idle most of the time but occasionally require high CPU performance, such as development/test environments, small web servers, and batch jobs. These VMs use a CPU credit system that allows you to pay for baseline performance and burst when needed. When the workload runs below the base CPU level, credits accumulate and are stored up to a maximum limit; these credits are then consumed during spikes to enable higher performance. The assessment service analyzes seven days of performance data to ensure that the credits required during bursts are always less than the accumulated credits. If the on-premises VM passes this check, it is considered suitable for a B-Series target without risking performance degradation.
+Example:
+If a VM has a baseline CPU of 20% and runs at 10% for most of the day, it earns credits for the unused 10%. Over seven days, these credits accumulate and can be used during short spikes where CPU usage jumps to 80% for 15 minutes. If the accumulated credits are sufficient to cover these bursts, the VM qualifies for a B-Series recommendation.
+
 ## Compute cost 
 
 Azure Migrate uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server. 

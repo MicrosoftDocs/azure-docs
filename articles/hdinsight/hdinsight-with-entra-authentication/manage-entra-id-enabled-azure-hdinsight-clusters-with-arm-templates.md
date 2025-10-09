@@ -40,184 +40,229 @@ For a list of changed properties in each API version, see [change log](/azure/t
 To create a Microsoft.HDInsight/clusters resource, add the following JSON to your template.
 
 ```json
-{
-  "type": "Microsoft.HDInsight/clusters",
-  "apiVersion": "2025-01-15-preview",
-  "name": "string",
-  "identity": {
-    "type": "string",
-    "userAssignedIdentities": {
-      "{customized property}": {
-        "tenantId": "string"
-      }
-    }
-  },
-  "location": "string",
-  "properties": {
-    "clusterDefinition": {
-      "blueprint": "string",
-      "componentVersion": {
-        "{customized property}": "string"
-      },
-      "configurations": {
-                "gateway": {
-                      "restAuthEntraUsers": "[{\"objectId\":\"00000000-0000-0000-0000-000000000000\",\"displayName\":\"Contoso1\",\"upn\":\"contoso@contoso.com\"}]"
-                },
-      "kind": "string"
-    },
-    "clusterVersion": "string",
-    "computeIsolationProperties": {
-      "enableComputeIsolation": "bool",
-      "hostSku": "string"
-    },
-    "computeProfile": {
-      "roles": [
-        {
-          "autoscale": {
-            "capacity": {
-              "maxInstanceCount": "int",
-              "minInstanceCount": "int"
-            },
-            "recurrence": {
-              "schedule": [
-                {
-                  "days": [ "string" ],
-                  "timeAndCapacity": {
-                    "maxInstanceCount": "int",
-                    "minInstanceCount": "int",
-                    "time": "string"
-                  }
-                }
-              ],
-              "timeZone": "string"
-            }
-          },
-          "dataDisksGroups": [
-            {
-              "disksPerNode": "int"
-            }
-          ],
-          "encryptDataDisks": "bool",
-          "hardwareProfile": {
-            "vmSize": "string"
-          },
-          "minInstanceCount": "int",
-          "name": "string",
-          "osProfile": {
-            "linuxOperatingSystemProfile": {
-              "password": "string",
-              "sshProfile": {
-                "publicKeys": [
-                  {
-                    "certificateData": "string"
-                  }
-                ]
-              },
-              "username": "string"
-            }
-          },
-          "scriptActions": [
-            {
-              "name": "string",
-              "parameters": "string",
-              "uri": "string"
-            }
-          ],
-          "targetInstanceCount": "int",
-          "virtualNetworkProfile": {
-            "id": "string",
-            "subnet": "string"
-          },
-          "VMGroupName": "string"
-        }
-      ]
-    },
-    "diskEncryptionProperties": {
-      "encryptionAlgorithm": "string",
-      "encryptionAtHost": "bool",
-      "keyName": "string",
-      "keyVersion": "string",
-      "msiResourceId": "string",
-      "vaultUri": "string"
-    },
-    "encryptionInTransitProperties": {
-      "isEncryptionInTransitEnabled": "bool"
-    },
-    "kafkaRestProperties": {
-      "clientGroupInfo": {
-        "groupId": "string",
-        "groupName": "string"
-      },
-      "configurationOverride": {
-        "{customized property}": "string"
-      }
-    },
-    "minSupportedTlsVersion": "string",
-    "networkProperties": {
-      "outboundDependenciesManagedType": "string",
-      "privateLink": "string",
-      "publicIpTag": {
-        "ipTagType": "string",
-        "tag": "string"
-      },
-      "resourceProviderConnection": "string"
-    },
-    "osType": "string",
-    "privateLinkConfigurations": [
-      {
-        "name": "string",
-        "properties": {
-          "groupId": "string",
-          "ipConfigurations": [
-            {
-              "name": "string",
-              "properties": {
-                "primary": "bool",
-                "privateIPAddress": "string",
-                "privateIPAllocationMethod": "string",
-                "subnet": {
-                  "id": "string"
-                }
-              }
-            }
-          ]
-        }
-      }
-    ],
-    "securityProfile": {
-      "aaddsResourceId": "string",
-      "clusterUsersGroupDNs": [ "string" ],
-      "directoryType": "string",
-      "domain": "string",
-      "domainUsername": "string",
-      "domainUserPassword": "string",
-      "ldapsUrls": [ "string" ],
-      "msiResourceId": "string",
-      "organizationalUnitDN": "string"
-    },
-    "storageProfile": {
-      "storageaccounts": [
-        {
-          "container": "string",
-          "enableSecureChannel": "bool",
-          "fileshare": "string",
-          "fileSystem": "string",
-          "isDefault": "bool",
-          "key": "string",
-          "msiResourceId": "string",
-          "name": "string",
-          "resourceId": "string",
-          "saskey": "string"
-        }
-      ]
-    },
-    "tier": "string"
-  },
-  "tags": {
-    "{customized property}": "string"
-  },
-  "zones": [ "string" ]
-}
+				{
+					"$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+					"contentVersion": "0.9.0.0",
+					"parameters": {
+						"clusterName": {
+							"type": "string",
+							"metadata": {
+								"description": "The name of the HDInsight cluster to create."
+							}
+						},
+						"location": {
+							"type": "string",
+							"defaultValue": "eastus2euap",
+							"metadata": {
+								"description": "The location where all azure resources will be deployed."
+							}
+						},
+						"clusterVersion": {
+							"type": "string",
+							"defaultValue": "5.1",
+							"metadata": {
+								"description": "HDInsight cluster version."
+							}
+						},
+						"clusterWorkerNodeCount": {
+							"type": "int",
+							"defaultValue": 4,
+							"metadata": {
+								"description": "The number of nodes in the HDInsight cluster."
+							}
+						},
+						"clusterKind": {
+							"type": "string",
+							"defaultValue": "SPARK",
+							"metadata": {
+								"description": "The type of the HDInsight cluster to create."
+							}
+						},
+						"sshUserName": {
+							"type": "string",
+							"defaultValue": "sshuser",
+							"metadata": {
+								"description": "These credentials can be used to remotely access the cluster."
+							}
+						},
+						"clusterRestAuthEntraUsers": {
+							"type": "string",
+							"metadata": {
+								"description": "These Micrsoft Entra users can be used to submit jobs to the cluster and to log into cluster dashboards."
+							}
+						},
+						"sshPassword": {
+							"type": "securestring",
+							"metadata": {
+								"description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+							}
+						},
+						"minTlsVersionNumber": {
+							"type": "string"
+						},
+						"isEncryptionInTransitEnabled": {
+							"type": "bool"
+						}
+					},
+					"resources": [
+						{
+							"apiVersion": "2023-04-15-preview",
+							"name": "[parameters('clusterName')]",
+							"type": "Microsoft.HDInsight/clusters",
+							"location": "[parameters('location')]",
+							"dependsOn": [],
+							"tags": {},
+							"zones": null,
+							"properties": {
+								"clusterVersion": "[parameters('clusterVersion')]",
+								"osType": "Linux",
+								"tier": "standard",
+								"clusterDefinition": {
+									"kind": "[parameters('clusterKind')]",
+									"componentVersion": {
+										"Spark": "3.3"
+									},
+									"configurations": {
+										"gateway": {
+											"restAuthCredential.isEnabled": false,
+											"restAuthEntraUsers": "[parameters('clusterRestAuthEntraUsers')]"
+										}
+									}
+								},
+								"storageProfile": {
+									"storageaccounts": [
+										{
+											"name": "<storageAccountName>.dfs.core.windows.net",
+											"isDefault": true,
+											"fileSystem": "hmgespark1-2025-10-06t08-34-17-604z",
+											"resourceId": "/subscriptions/SubscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<MSIname>",
+											"msiResourceId": "/subscriptions/<SubscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSIname>",
+											"enableSecureChannel": true
+										}
+									]
+								},
+								"computeProfile": {
+									"roles": [
+										{
+											"autoscale": null,
+											"name": "headnode",
+											"minInstanceCount": 1,
+											"targetInstanceCount": 2,
+											"hardwareProfile": {
+												"vmSize": "Standard_E8_V3"
+											},
+											"osProfile": {
+												"linuxOperatingSystemProfile": {
+													"username": "[parameters('sshUserName')]",
+													"password": "[parameters('sshPassword')]"
+												},
+												"windowsOperatingSystemProfile": null
+											},
+											"virtualNetworkProfile": null,
+											"scriptActions": [],
+											"dataDisksGroups": null
+										},
+										{
+											"autoscale": {
+												"capacity": {
+													"minInstanceCount": 4,
+													"maxInstanceCount": 5
+												},
+												"recurrence": null
+											},
+											"name": "workernode",
+											"targetInstanceCount": 4,
+											"hardwareProfile": {
+												"vmSize": "Standard_E8_V3"
+											},
+											"osProfile": {
+												"linuxOperatingSystemProfile": {
+													"username": "[parameters('sshUserName')]",
+													"password": "[parameters('sshPassword')]"
+												},
+												"windowsOperatingSystemProfile": null
+											},
+											"virtualNetworkProfile": null,
+											"scriptActions": [],
+											"dataDisksGroups": null
+										},
+										{
+											"autoscale": null,
+											"name": "zookeepernode",
+											"minInstanceCount": 1,
+											"targetInstanceCount": 3,
+											"hardwareProfile": {
+												"vmSize": "Standard_A2_V2"
+											},
+											"osProfile": {
+												"linuxOperatingSystemProfile": {
+													"username": "[parameters('sshUserName')]",
+													"password": "[parameters('sshPassword')]"
+												},
+												"windowsOperatingSystemProfile": null
+											},
+											"virtualNetworkProfile": null,
+											"scriptActions": [],
+											"dataDisksGroups": null
+										}
+									]
+								},
+								"minSupportedTlsVersion": "[parameters('minTlsVersionNumber')]",
+								"encryptionInTransitProperties": {
+									"isEncryptionInTransitEnabled": "[parameters('isEncryptionInTransitEnabled')]"
+								}
+							},
+							"identity": {
+								"type": "UserAssigned",
+								"userAssignedIdentities": {
+									"/subscriptions/<subcriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSIname>": {}
+								}
+							}
+						}
+					]
+				}
+```
+
+
+### Parameters
+
+```json
+     				{
+				  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+				  "contentVersion": "1.0.0.0",
+				  "parameters": {
+					"clusterName": {
+					  "value": "<clustername>"
+					},
+					"location": {
+					  "value": "<region_name>"
+					},
+					"clusterVersion": {
+					  "value": "5.1"
+					},
+					"clusterWorkerNodeCount": {
+					  "value": 4
+					},
+					"clusterKind": {
+					  "value": "SPARK"
+					},
+					"sshUserName": {
+					  "value": "sshuser"
+					},
+					"clusterRestAuthEntraUsers": {
+					  "value": "[{\"displayName\":\"<Name>\",\"objectId\":\"00000000-0000-0000-0000-1ed7871c38e0\",\"upn\":\"user2@contoso.com\"},{\"displayName\":\"<Name>\",\"objectId\":\"00000000-0000-0000-000-b44d6570aa30\",\"upn\":\"user1@contoso.com\"}]"
+					},
+					"sshPassword": {
+					  "value": null
+					},
+					"minTlsVersionNumber": {
+					  "value": "1.2"
+					},
+					"isEncryptionInTransitEnabled": {
+					  "value": true
+					}
+				  }
+				}
 ```
 
 ## Property Values
@@ -233,7 +278,14 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| maxInstanceCount | Array of schedule-based autoscale rules | [AutoscaleCapacity](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#autoscalecapacity-1) |
+| maxInstanceCount | Array of schedule-based autoscale rules | int |
+| timeZone | The time zone for the autoscale schedule times | int |
+
+### AutoscaleRecurrence
+
+| Name | Description | Value |
+| --- | --- | --- |
+| schedule | Array of schedule-based autoscale rules | [AutoscaleSchedule](  /azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#autoscaleschedule-1) |
 | timeZone | The time zone for the autoscale schedule times | string |
 
 ### AutoscaleSchedule
@@ -251,19 +303,6 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | minInstanceCount | The minimum instance count of the cluster | int |
 | time | 24-hour time in the form HH:MM | string |
 
-
-### ClientGroupInfo
-
-| Name | Description | Value |
-| --- | --- | --- |
-| groupID | The Entra security group ID. | string |
-| groupName | The Entra security group name. | string |
-
-### ClusterCreateParametersExtendedTags
-
-| Name | Description | Value |
-| --- | --- | --- |
-| Name | Description | Value |
 
 ### ClusterCreatePropertiesOrClusterGetProperties
 
@@ -300,7 +339,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | Name | Description | Value |
 | --- | --- | --- |
 | type | The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. | 'None' / 'SystemAssigned' / 'UserAssigned' |
-| userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references are ARM resource ID's in the form: '/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
+| userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references are ARM resource IDs in the form: '/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
 
 
 ### ComputeIsolationProperties
@@ -390,7 +429,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | Name | Description | Value |
 | --- | --- | --- |
 | password   | The password.   | string     |
-| sshProfile | The SSH profile.| SshProfile |
+| sshProfile | The SSH profile.| [SshProfile](/azure/templates/microsoft.hdinsight/clusters#sshprofile-1) |
 | username   | The username.   | string     |
 
 
@@ -474,34 +513,6 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | parameters | The parameters for the script provided. | string (required) |
 | uri        | The URI to the script.                  | string (required) |
 
-
-### SecurityProfile
-
-| Name | Description | Value |
-| --- | --- | --- |
-| aaddsResourceId       | The resource ID of the user's Azure Active Directory Domain Service. | string   |
-| clusterUsersGroupDNs  | Optional. The Distinguished Names for cluster user groups.            | string[] |
-| directoryType         | The directory type.                                                  | 'ActiveDirectory' |
-| domain                | The organization's active directory domain.                          | string   |
-| domainUsername        | The domain user account that has admin privileges on the cluster. | string |
-| domainUserPassword    | The domain admin password.                                           | string   |
-| ldapsUrls             | The LDAPS protocol URLs to communicate with the Active Directory.     | string[] |
-| msiResourceId         | User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS. | string |
-| organizationalUnitDN  | The organizational unit within the Active Directory to place the cluster and service accounts. | string |
-
-
-### SshProfile
-
-| Name | Description | Value |
-| --- | --- | --- |
-| publicKeys	| The list of SSH public keys. |	[SshPublicKey](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#sshpublickey-1)[] |
-
-
-### SshPublicKey
-
-| Name | Description | Value |
-| --- | --- | --- |
-| certificateData	| The certificate for SSH.	| string |
 
 
 ### StorageAccount

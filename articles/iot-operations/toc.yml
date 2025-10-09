@@ -5,7 +5,7 @@ items:
       - name: Overview
         href: overview-iot-operations.md
         displayName: Arc-enabled, Kubernetes, AKS, Edge Essentials, industrial, metaverse, adaptive cloud, architecture
-      - name: Azure IoT Operations versions and support
+      - name: Azure IoT Operations versions, support, and licensing
         href: overview-support.md
         displayName: supported environments, generally available, GA, preview, regions
       - name: Quickstart

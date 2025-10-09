@@ -112,8 +112,8 @@ The three data disks are striped by using LVM. The log disk and the backup disk 
           "count"                 : 1,
           "disk_type"             : "UltraSSD_LRS",
           "size_gb": 512,
-          "disk-iops-read-write"  : 2048,
-          "disk-mbps-read-write"  : 8,
+          "disk_iops_read_write"  : 2048,
+          "disk_mbps_read_write"  : 8,
           "caching"               : "None",
           "write_accelerator"     : false,
           "lun_start"             : 9
@@ -246,8 +246,8 @@ If you need to add disks to an already deployed system, you can add a new block 
           "count"                 : 1,
           "disk_type"             : "UltraSSD_LRS",
           "size_gb": 512,
-          "disk-iops-read-write"  : 2048,
-          "disk-mbps-read-write"  : 8,
+          "disk_iops_read_write"  : 2048,
+          "disk_mbps_read_write"  : 8,
           "caching"               : "None",
           "write_accelerator"     : false,
           "start_lun"             : 9

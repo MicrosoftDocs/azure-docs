@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/27/2025
+ms.date: 09/10/2025
 # Customer intent: "As a data engineer, I want to migrate data to Azure NetApp Files using file-based copy tools, so that I can efficiently manage and protect my organization's critical data in the cloud."
 ---
 # Data migration and protection FAQs for Azure NetApp Files
@@ -60,6 +60,10 @@ The requirements for replicating an Azure NetApp Files volume to another Azure r
 - Validate network connectivity between the source and the Azure NetApp Files target volume IP address. Data transfer between on premises and Azure NetApp Files volumes, or across Azure regions, is supported via [site-to-site VPN and ExpressRoute](azure-netapp-files-network-topologies.md#hybrid-environments), [Global VNet peering](azure-netapp-files-network-topologies.md#global-or-cross-region-vnet-peering), or [Azure Virtual WAN connections](configure-virtual-wan.md).
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
+
+## Does the Azure NetApp Files migration assistant support bandwidth throttling during data transfers?
+
+Bandwidth throttling can be configured on the remote ONTAP system. For more information, follow the steps in [SnapMirror documentation](https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-global-throttling-concept.html).
 
 ## Is migration with Azure Data Box supported?
 

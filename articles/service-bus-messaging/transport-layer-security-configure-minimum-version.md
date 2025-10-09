@@ -16,7 +16,7 @@ Azure Service Bus namespaces permit clients to send and receive data with TLS 1.
 You can configure the minimum TLS version using the Azure portal or Azure Resource Manager (ARM) template. 
 
 > [!WARNING]
-> As of 28 February 2025, TLS 1.0 and TLS 1.1 will no longer be supported on Azure Service Bus. The minimum TLS version will be 1.2 for all Service Bus deployments. 
+> As of 20 October 2025, TLS 1.0 and TLS 1.1 will no longer be supported on Azure Service Bus. The minimum TLS version will be 1.2 for all Service Bus deployments. 
 
 ## Specify the minimum TLS version in the Azure portal
 You can specify the minimum TLS version when creating a Service Bus namespace in the Azure portal on the **Advanced** tab. 

@@ -86,9 +86,7 @@ sections:
         answer: | 
           Azure Managed Redis supports all Redis functionality offered in existing Azure Cache for Redis SKUs. 
           
-          Some management regions, SKU sizes, and operations aren't yet available. 
-
-          For more details about the retirement of any of the tiers Azure Cache for Redis, see [Azure Cache for Redis Retirement: What to Know and How to Prepare](https://techcommunity.microsoft.com/blog/azure-managed-redis/azure-cache-for-redis-retirement-what-to-know-and-how-to-prepare/4458721).
+          Some management operations, regions and SKU sizes aren't yet available. For more details, see [Azure Cache for Redis Retirement: What to Know and How to Prepare](https://techcommunity.microsoft.com/blog/azure-managed-redis/azure-cache-for-redis-retirement-what-to-know-and-how-to-prepare/4458721).
 
           If you want to migrate to Azure Managed Redis immediately, but you can't because of any missing feature, reach out to support.
 
@@ -165,9 +163,9 @@ sections:
       - question: Does Azure Managed Redis support every feature that I currently use?
 
         answer: |
-          Azure Managed Redis supports all Redis functionality offered in existing Redis Enterprise SKUs. Some SKU sizes aren't available yet.
+          Azure Managed Redis supports all Redis functionality offered in existing Redis Enterprise SKUs.
           
-          For more details about the retirement of any of the tiers Azure Cache for Redis, see [Azure Cache for Redis Retirement: What to Know and How to Prepare](https://techcommunity.microsoft.com/blog/azure-managed-redis/azure-cache-for-redis-retirement-what-to-know-and-how-to-prepare/4458721).
+          Some management operations, regions and SKU sizes aren't yet available. For more details, see [Azure Cache for Redis Retirement: What to Know and How to Prepare](https://techcommunity.microsoft.com/blog/azure-managed-redis/azure-cache-for-redis-retirement-what-to-know-and-how-to-prepare/4458721).
 
           If you want to migrate to Azure Managed Redis immediately, but you can't because of any missing feature, reach out to support.
 

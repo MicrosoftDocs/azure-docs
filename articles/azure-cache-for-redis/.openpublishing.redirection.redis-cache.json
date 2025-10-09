@@ -445,12 +445,7 @@
             "source_path_from_root": "/articles/azure-cache-for-redis/quickstart-create-redis-enterprise.md",
             "redirect_url": "/azure/redis/quickstart-create-managed-redis",
             "redirect_document_id": false
-        },
-        {         
-            "source_path_from_root": "/articles/azure-cache-for-redis/cache-retired-features.md",
-            "redirect_url": "/azure/azure-cache-for-redis/retirement-faq",
-            "redirect_document_id": false
-        }
-      ]
+        }        
+    ]
 }  
   
