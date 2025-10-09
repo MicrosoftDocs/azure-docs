@@ -1,5 +1,5 @@
 ---
-title: Deploy self-hosted gateway to Docker
+title: Deploy Self-Hosted Gateway to Docker
 description: Learn how to deploy a self-hosted gateway component of Azure API Management to Docker
 author: dlepow
 ms.service: azure-api-management
@@ -15,7 +15,7 @@ ms.author: danlep
 This article provides the steps for deploying self-hosted gateway component of Azure API Management to a Docker environment.
 
 > [!NOTE]
-> Hosting a self-hosted gateway in Docker is best suited for evaluation and development use cases. Kubernetes is recommended for production use. Learn how to [deploy with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) or by using a [deployment YAML file](how-to-deploy-self-hosted-gateway-kubernetes.md) to learn how to deploy a self-hosted gateway to Kubernetes.
+> Hosting a self-hosted gateway in Docker is best suited for evaluation and development use cases. Kubernetes is recommended for production use. Learn how to deploy a self-hosted gateway to Kubernetes with [Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) or by using a [deployment YAML file](how-to-deploy-self-hosted-gateway-kubernetes.md).
 
 ## Prerequisites
 
