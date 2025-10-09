@@ -3,16 +3,16 @@
 author: RoseHJM
 ms.author: rosemalcolm
 ms.reviewer: rosemalcolm
-ms.date: 10/06/2025
+ms.date: 10/08/2025
 ms.topic: include
 ---
 
 
 ## Modular scripts in Dev Box customizations
 
-Modular scripts are reusable components that simplify and standardize Dev Box customizations. These scripts are typically PowerShell or Desired State Configuration (DSC), and are stored in a catalog structure that lets you reference them across multiple Dev Box configurations.
+Modular scripts are PowerShell scripts or Desired State Configuration (DSC) files stored in a shared catalog so you can reuse and standardize Dev Box customizations across multiple images.
 
-Modular scripts are shared scripts that you run from a Dev Box image definition. They're designed to:
+They're designed to:
 
 - Promote reuse across multiple Dev Box setups
 - Reduce duplication and maintenance overhead
@@ -20,32 +20,40 @@ Modular scripts are shared scripts that you run from a Dev Box image definition.
 
 ### Catalog structure
 
-PowerShell or DSC script files in the same folder as the imagedefinition.yaml, or in its subfolders, are copied to the dev box when it's created. You can use these files when you run customization tasks.
+Files in the same folder as the imagedefinition.yaml, or in its subfolders, are copied to the dev box on creation. You can use these files when you run customization tasks.
 
 The following diagram shows a catalog structure for modular scripts in Dev Box customizations.
 
-At the top level, there's an "image definitions" folder. Inside, you'll find image definition subfolders like "Frontend-imagedef" and "backend-imagedef." The Frontend-imagedef folder has a PowerShell script file. The Backend-imagedef folder includes a subfolder for scripts. You can use either structure to store script files.
-
 :::image type="content" source="../media/customizations-modular-scripts/customizations-modular-scripts-catalog-structure.png" alt-text="Diagram that shows a catalog structure with an image definitions folder, Frontend-imagedef and backend-imagedef subfolders, and subfolders for scripts.":::
+
+At the top level, there's an *image definitions* folder. Inside, you find image definition subfolders like *frontend-imagedef* and *backend-imagedef.* The frontend-imagedef folder has a PowerShell script file. The backend-imagedef folder includes a subfolder that contains DSC files. You can use either structure to store script files.
 
 ### Reference modular scripts
 
-In your imagedefinition.yaml file, reference modular scripts with the `script` keyword:
+Image Definition file sets a list of *tasks* that run in system context and *userTasks* that run after the first sign-in on the new dev box, in user context. Use display names for tasks to clarify the purpose of each task. In your image definition file, reference the modular scripts you want to run.
 
 ```yaml
 
-tasks:
-  - name: ~/winget
-    parameters:
-      script: './modular-script.ps1'
+$schema: "1.0"
+name: "modular-script"
+image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
+description: "This definition shows examples of referencing PowerShell scripts and DSC configuration files."
 
+tasks:
+  - name: ~/powershell
+    displayName: "Modular Script"
+    parameters:
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\cache-tests\modular-script\write-to-file.ps1
+  - name: ~/winget
+    displayName: "Install VS Code"
+    parameters:
+      configurationFile: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\cache-tests\modular-script\contoso.dsc.yaml
+
+userTasks:
+  - name: ~/winget
+    displayName: "Install Insomnia"
+    parameters:
+      configurationFile: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\cache-tests\modular-script\contoso-user.dsc.yaml
 ```
 
-Dev Box scans the catalog recursively to find and run the tasks you reference.
-
-### Best practices
-
-- Use descriptive names for tasks to clarify their purpose.
-- Document each task with comments and metadata in task.yaml.
-- Test tasks independently before you add them to image definitions.
-- Use version control for your catalog to track changes, and ensure consistency.
+Dev Box scans the catalog recursively to find the tasks you reference. It downloads all Image Definition files to a set directory on the new dev box, along with the relevant task files. It then executes each task in its downloaded directory and uploads task status upon task completion.
