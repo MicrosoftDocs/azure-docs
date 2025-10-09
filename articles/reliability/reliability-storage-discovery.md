@@ -13,14 +13,14 @@ ms.date: 10/02/2025
 
 This article explains how [Azure Storage Discovery](../storage-discovery/overview.md) supports reliability, including intra-regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For general reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure Storage Discovery is a fully managed service that provides enterprise-wide visibility into your Azure Blob Storage data estate. From a single pane of glass, you can analyze trends, optimize costs, enhance security, and improve operational efficiency.
+Azure Storage Discovery is a fully managed service that provides enterprise-wide visibility into your Azure Blob Storage and Azure Data lake Storage. From a single pane of glass, you can analyze trends, optimize costs, enhance security, and improve operational efficiency.
 
 ## Service behavior during outages
 
 |                                | Region outage | Zone outage |
 |--------------------------------|-------------------|-----------------------|
 | **Storage Discovery workspace management**  | If the region where the Storage Discovery workspace is created experiences an outage, the workspace reports are unavailable during the time.              | If a zone is down, the Storage Discovery workspace remains available. You can continue to manage your workspace and access reports.|
-| **Storage Discovery reports**     | If a region goes down, data from storage accounts in that region may be delayed until the region is restored. In the rare event of complete data loss during the outage period, the Discovery workspace can't recover data lost during that period.             | If the storage account is deployed to a failed zone, then the account becomes unavailable and the insights for the affected storage isn't available. If the storage account is zone redundant, then the Discovery workspace continues to provide account insights. |
+| **Storage Discovery reports**     | If a region goes down, data from storage accounts in that region may be delayed on the Discovery reports until the region is restored. In the rare event of complete data loss during the outage period, the Discovery workspace can't recover data lost during that period.             | If the storage account is deployed to a failed zone, then the account becomes unavailable and the insights for the affected storage isn't available. If the storage account is zone redundant, then the Discovery workspace continues to provide account insights. |
 
 ## Availability zone support
 
@@ -39,7 +39,7 @@ Azure Storage Discovery is a fully managed service that provides enterprise-wide
 Storage Discovery doesn't provide outage notifications for every incident. The Storage Discovery service utilizes the same notification infrastructure used across Azure to inform customers about prolonged or severe outages.
 
 > [!NOTE]
-> If you need uninterrupted access to Discovery reports, you can consider creating a second workspace, in a different region. This second workspace should be configured to observe the same storage resources. This approach protects you from a regional outage affecting your primary workspace. However, it doesn't safeguard against availability issues in the storage resources themselves across regions. Learn more about [Storage Discovery pricing](../storage-discovery/pricing.md) to evaluate additional costs.
+> If you need uninterrupted access to Discovery reports, you can consider creating a second workspace, in a different region. This second workspace should be configured to analyze the same storage resources. This approach protects you from a regional outage affecting your primary workspace. However, it doesn't safeguard against availability issues in the storage resources themselves across regions. Learn more about [Storage Discovery pricing](../storage-discovery/pricing.md) to evaluate additional costs.
 
 ## Data availability and freshness coverage
 
