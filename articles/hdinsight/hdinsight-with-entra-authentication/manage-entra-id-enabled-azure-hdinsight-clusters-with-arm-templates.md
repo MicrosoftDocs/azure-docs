@@ -339,7 +339,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | Name | Description | Value |
 | --- | --- | --- |
 | type | The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. | 'None' / 'SystemAssigned' / 'UserAssigned' |
-| userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references are ARM resource ID's in the form: '/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
+| userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references are ARM resource IDs in the form: '/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
 
 
 ### ComputeIsolationProperties
