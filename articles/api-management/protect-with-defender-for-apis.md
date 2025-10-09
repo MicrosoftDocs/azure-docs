@@ -24,7 +24,7 @@ Capabilities of Defender for APIs include:
 * Identify external, unused, or unauthenticated APIs
 * Classify APIs that receive or respond with sensitive data
 * Apply configuration recommendations to strengthen the security posture of APIs and API Management services
-* Detect anomalous and suspicious API traffic patterns and exploits of OWASP API top 10 vulnerabilities
+* Detect anomalous and suspicious API traffic patterns and exploits of OWASP API Top 10 vulnerabilities
 * Prioritize threat remediation
 * Integrate with SIEM systems and Defender Cloud Security Posture Management
 
@@ -54,31 +54,31 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 
 1. Sign in to the [portal](https://portal.azure.com), and go to your API Management instance.
 
-1. In the left pane, select **Microsoft Defender for Cloud**.
+1. In the left pane, under **Security**, select **Defender for Cloud**.
 
-1. Select **Enable Defender on the subscription**.
+1. Select **Enable Defender on the subscription (recommended)**.
 
     :::image type="content" source="media/protect-with-defender-for-apis/enable-defender-for-apis.png" alt-text="Screenshot showing how to enable Defender for APIs in the portal." lightbox="media/protect-with-defender-for-apis/enable-defender-for-apis.png":::
 
 1. On the **Defender plan** page, select **On** for the **APIs** plan.
 
-1. Select **Save**.
+1. Choose a plan, and then select **Save**, and then select **Save** again at the top of the page.
 
 ### Onboard unprotected APIs to Defender for APIs 
 
 > [!CAUTION]
 > Onboarding APIs to Defender for APIs can increase compute, memory, and network utilization of your API Management instance, which in extreme cases can cause an outage of the API Management instance. Don't onboard all APIs at one time if your API Management instance is running at high utilization. Use caution by gradually onboarding APIs while monitoring the utilization of your instance (for example, by using [the capacity metric](api-management-capacity.md)) and scaling out as needed. 
 
-1. In the portal, go to your API Management instance.
-1. In the left pane, select **Microsoft Defender for Cloud**.
+1. In the portal, go back to your API Management instance.
+1. In the left pane, under **Security**, select **Defender for Cloud**.
 1. Under **Recommendations**, select **Azure API Management APIs should be onboarded to Defender for APIs**.
 
     :::image type="content" source="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png" alt-text="Screenshot of Defender for APIs recommendations in the portal." lightbox="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png":::
-1. On the next screen, review details about the recommendation:
+1. On the resulting page, review details about the recommendation:
     * Severity  
     * Refresh interval for security findings 
     * Description and remediation steps
-    * Affected resources, classified as **Healthy** (onboarded to Defender for APIs), **Unhealthy** (not onboarded), or **Not applicable**, along with associated metadata from API Management
+    * Affected resources, along with associated metadata from API Management
     
    > [!NOTE]
    > Affected resources include API collections (APIs) from all API Management instances under the subscription. 
