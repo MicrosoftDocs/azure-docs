@@ -1,5 +1,5 @@
 ---
-title: Deploy a self-hosted gateway to Azure Container Apps - Azure API Management
+title: Deploy a Self-Hosted Gateway to Azure Container Apps - Azure API Management
 description: Learn how to deploy a self-hosted gateway component of Azure API Management to an Azure Container Apps environment.
 author: dlepow
 ms.service: azure-api-management
@@ -94,7 +94,7 @@ Create the container app using the `az containerapp create` command:
 #!/bin/bash
 az containerapp create --name my-gateway \
     --resource-group myResourceGroup --environment 'my-environment' \
-    --image "mcr.microsoft.com/azure-api-management/gateway:2.5.0" \
+    --image "mcr.microsoft.com/azure-api-management/gateway:2.9.2" \
     --target-port 8080 --ingress external \
     --min-replicas 1 --max-replicas 3 \
     --env-vars "config.service.endpoint"="$endpoint" "config.service.auth"="$token" "net.server.http.forwarded.proto.enabled"="true"
@@ -105,7 +105,7 @@ az containerapp create --name my-gateway \
 # PowerShell syntax
 az containerapp create --name my-gateway `
     --resource-group myResourceGroup --environment 'my-environment' `
-    --image "mcr.microsoft.com/azure-api-management/gateway:2.5.0" `
+    --image "mcr.microsoft.com/azure-api-management/gateway:2.9.2" `
     --target-port 8080 --ingress external `
     --min-replicas 1 --max-replicas 3 `
     --env-vars "config.service.endpoint"="$endpoint" "config.service.auth"="$token" "net.server.http.forwarded.proto.enabled"="true"
@@ -113,7 +113,7 @@ az containerapp create --name my-gateway `
 ---
 
 This command creates:
-* A container app named `my-gateway` in the `myResourceGroup` resource group. In this example, the container app uses the `mcr.microsoft.com/azure-api-management/gateway:2.5.0` image. For more information about the self-hosted gateway, see [container images](self-hosted-gateway-overview.md#packaging).
+* A container app named `my-gateway` in the `myResourceGroup` resource group. In this example, the container app uses the `mcr.microsoft.com/azure-api-management/gateway:2.9.2` image. For more information about the self-hosted gateway, see [container images](self-hosted-gateway-overview.md#packaging).
 * Support for external ingress to the container app on port 8080.
 * A minimum of 1 and a maximum of 3 replicas of the container app.
 * A connection from the self-hosted gateway to the Azure API Management instance by passing configuration values in environment variables. For details, see the self-hosted gateway [container configuration settings](self-hosted-gateway-settings-reference.md).
