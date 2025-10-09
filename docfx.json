@@ -1035,17 +1035,20 @@
         "articles/web-application-firewall/*.yml": "networking"
       },
       "ms.update-cycle": {
-        "articles/copilot/*.md": "180-days",
-        "articles/copilot/*.yml": "180-days",
-        "articles/iot-central/**/*.md": "1095-days",
-        "articles/iot-central/**/*.yml": "1095-days",
         "articles/azure-cache-for-redis/**/*.md": "1095-days",
         "articles/azure-cache-for-redis/**/*.yml": "1095-days",
-        "articles/iot-central/**/*.yml": "1095-days",
+        "articles/azure-resource-manager/bicep/*.md": "180-days",
+        "articles/azure-resource-manager/management/*.md": "365-days",
+        "articles/azure-resource-manager/templates/*.md": "365-days",
+        "articles/azure-resource-manager/troubleshooting/*.md": "1095-days",
+        "articles/copilot/*.md": "180-days",
+        "articles/copilot/*.yml": "180-days",
         "articles/digital-twins/**/*.md": "1095-days",
         "articles/digital-twins/**/*.yml": "1095-days",
         "articles/deployment-environments/**/*.md": "1095-days",
-        "articles/deployment-environments/**/*.yml": "1095-days"
+        "articles/deployment-environments/**/*.yml": "1095-days",
+        "articles/iot-central/**/*.md": "1095-days",
+        "articles/iot-central/**/*.yml": "1095-days"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",
