@@ -1,5 +1,6 @@
 ---
-title: Set Up Multiple Connections
+title: Set up Multiple Connections
+titleSuffix: Azure API Management
 description: Learn how to set up multiple connections to a configured API credential provider using the portal. 
 services: api-management
 author: dlepow
