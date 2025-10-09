@@ -101,3 +101,8 @@ If a workspace is downgraded from Standard pricing plan to Free, previously aggr
 - Ensure the storage account has blobs in it. Empty storage accounts don't show up on the discovery reports.
 
 </details>
+
+<details>
+<summary>Trends chart on Capacity and Consumption report show sharp dips</summary>
+Trend graphs in the Capacity and Consumption reports may occasionally display temporary dips. This could be due to reporting issues and may not indicate actual changes in storage account metadata such as size or object count. To confirm, navigate to Storage browser under the storage account, which displays the object count and total data size.
+</details>
