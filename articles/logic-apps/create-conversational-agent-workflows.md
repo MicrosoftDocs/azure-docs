@@ -1,17 +1,18 @@
 ---
 title: Create Conversational AI Agent Workflows
-description: Build AI agent workflows that support chat conversations and human interactions in Azure Logic Apps.
+description: Learn to build AI agent workflows that support chat conversations with people in Azure Logic Apps.
+service: ecfan
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/14/2025
+ms.date: 10/08/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and human interactions through chat conversations for my integration solutions by using Azure Logic Apps.
+# Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and chat conversations for my integration solutions in Azure Logic Apps.
 ---
 
-# Create conversational agent workflows that support human interactions in Azure Logic Apps (Preview)
+# Create conversational agent workflows to support chat interactions in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -20,7 +21,7 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When your scenario requires workflows that support natural language, interact with humans, and use agents connected to large language models (LLMs) to complete tasks, create a *conversational* agent workflow in Azure Logic Apps. This workflow type is the best option for such scenarios and is typically user-driven, short-lived, or session-based.
+When your solution requires workflows that support natural language, interact with humans, and use agents connected to large language models (LLMs) to complete tasks, create a *conversational* agent workflow in Azure Logic Apps. This workflow type is the best option for such scenarios and is typically user-driven, short-lived, or session-based.
 
 All agent workflows perform tasks by using an agent connected to an LLM. The agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. An agent workflow lets you separate an agent's decision logic, which includes the LLM, prompts, and orchestration, from the integration and task execution components.
 
@@ -456,25 +457,53 @@ To build this tool, follow these steps:
 
       This example uses **Send weather report in email.**
 
+The second example agent tool looks like the following example:
+
+:::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-updated.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-conversational-agent-workflows/send-email-tool-updated.png":::
+
 ## Create agent parameters for the 'Send an email (V2)' action
 
-The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-for-the-get-current-weather-action), except for the different parameters in the **Send an email (V2)** action. 
+For the **Send an email (V2)** action, the general steps to create agent parameters are similar to the steps in [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-for-the-get-current-weather-action) except for the different parameters.
 
-1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
+In the **Send an email (V2)** action, follow the [earlier general steps](#create-agent-parameters-for-the-get-current-weather-action) to create agent parameters for the **To**, **Subject**, and **Body** parameters. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 
-   The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
+When you're done, your **Send an email (V2)** action has agent parameters that look like the following example:
 
-   For example, the **Send an email (V2)** action looks like the following example:
-
-   When you're done, the example action uses the previously defined agent parameters as shown here:
-
-   :::image type="content" source="media/create-conversational-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-conversational-agent-workflows/send-email-action.png":::
-
-   The second example tool is now complete and looks like the following example:
-
-   :::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-conversational-agent-workflows/send-email-tool-complete.png":::
+:::image type="content" source="media/create-conversational-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-conversational-agent-workflows/send-email-action.png":::
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
+
+## Authentication and authorization
+
+For nonproduction activities, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf. The following list recommends some best practices for handling this developer key:
+
+- Treat the developer key strictly and only as a design-time convenience for authentication and authorization.
+
+- Before you expose your workflow to agents, automation, or wider user populations, migrate to Easy Auth or signed SAS with network restrictions.
+
+  Basically, if anyone or anything outside your Azure portal session needs to call your logic app workflow, the developer key is no longer appropriate. Make sure that you enable Easy Auth or use managed identity–based flows instead.
+
+When you're ready to release your agent workflow into production, make sure to follow the [migration steps to prepare for production authentication and authorization](#migrate-to-production-authentication). For more information, see the [Authentication and authorization](agent-workflows-concepts.md#authentication-and-authorization).
+
+## Migrate to production authentication
+
+1. On your logic app resource, [set up Easy Auth for authentication and authorization](set-up-authentication-agent-workflows.md).
+
+1. Enforce any authentication required access patterns.
+
+1. Optionally, lock down any trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
+
+1. For conversational agent workflows, get the [chat client URL](set-up-authentication-agent-workflows.md#external-chat-client) so you can embed an external chat client interface wherever you want to support human interactions.
+
+### Troubleshoot authentication migration
+
+The following table describes common problems you might encounter when you try to migrate from a developer key to Easy Auth, their possible causes, and actions you can take:
+
+| Symptom | Likely cause | Action |
+|---------|--------------|--------|
+| Portal tests work, but external calls get **401** response. | External calls don't have a valid Easy Auth access token or signed SAS tokens. | Set up Easy Auth or use a workflow trigger URL with a signed SAS. |
+| Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity. |
+| Access is inconsistent after a role changes. | Cached session in the Azure portal | - Sign out and sign back in. <br><br>Get a fresh token. |
 
 [!INCLUDE [troubleshoot-agent-workflows](includes/troubleshoot-agent-workflows.md)]
 
