@@ -110,6 +110,7 @@ Storage resources are included in this scope when they have both ARM resource ta
             ] 
         
         } 
+    ]
 ```
 
 To make this example work for you, select `+ Add scope` on the wizard page in the Azure portal and fill in tags that make sense for your storage resources.
