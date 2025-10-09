@@ -6,7 +6,7 @@ ms.date: 10/09/2025
 ms.service: azure-storage-discovery
 ---
 
-During the creation of a Storage Discovery workspace, you configure the [workspace root](management-components.md). The [management components](management-components.md) article provides more details for this configuration.
+During the creation of a Storage Discovery workspace, you configure the workspace root. The [management components](../management-components.md) article provides more details for this configuration.
 In the workspace root, you list at least one and at most 100 Azure resources of different types:
 - subscriptions
 - resource groups
