@@ -63,7 +63,7 @@ For more advanced use cases, you can create and upload a custom widget to the de
 ### Create widget
 
 > [!WARNING]
-> Your custom widget code is stored in public Azure blob storage that's associated with your API Management instance. When you add a custom widget to the developer portal, code is read from this storage via an endpoint that doesn't require authentication, even if the developer portal or a page with the custom widget is only accessible to authenticated users. Don't include sensitive information or secrets in the custom widget code.
+> Your custom widget code is stored in global Azure blob storage that's associated with your API Management instance. When you add a custom widget to the developer portal, code is read from this storage via an endpoint that doesn't require authentication, even if the developer portal or a page with the custom widget is only accessible to authenticated users. Don't include sensitive information or secrets in the custom widget code.
 
 1. In the administrative interface for the developer portal, select **Custom widgets** > **Add new custom widget**. 
 1. Enter a widget name and choose a **Technology**. For more information, see [Widget templates](#widget-templates), later in this article.
