@@ -207,9 +207,10 @@ Start-AzStorageAccountMigration
     -AsJob
 ```
 To start conversions between locally redundant and zone-redundant storage for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
-storageAccount,resourceGroup,targetSku 
-mystorageaccount1,myresourcegroup1,Standard_ZRS 
-mystorageaccount2,myresourcegroup2,Standard_ZRS
+| storageAccount | resourceGroup | targetSku | 
+|-----------------| ----------------|------------|
+| mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
+| mystorageaccount2 | myresourcegroup2 | Standard_ZRS |
 
 Then, use the following script as an example:
 
@@ -257,9 +258,10 @@ az storage account migration start  \
     --no-wait
 ```
 To start conversions between locally redundant and zone-redundant storage for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
-storageAccountName,resourceGroupName,targetSku 
-mystorageaccount1,myresourcegroup1,Standard_ZRS 
-mystorageaccount2,myresourcegroup2,Standard_ZRS
+| storageAccountName | resourceGroupName | targetSku | 
+|-----------------| ----------------|------------|
+| mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
+| mystorageaccount2 | myresourcegroup2 | Standard_ZRS |
 
 Then, use the following script as an example:
 ```azurecli-interactive
@@ -326,9 +328,10 @@ Get-AzStorageAccountMigration
    -ResourceGroupName <String>
 ```
 To track conversions for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
-storageAccount,resourceGroup,targetSku 
-mystorageaccount1,myresourcegroup1,Standard_ZRS 
-mystorageaccount2,myresourcegroup2,Standard_ZRS
+| storageAccount | resourceGroup | targetSku | 
+|-----------------| ----------------|------------|
+| mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
+| mystorageaccount2 | myresourcegroup2 | Standard_ZRS |
 
 Then, use the following script as an example:
 ```powershell
@@ -360,9 +363,10 @@ az storage account migration show \
     -n "default"
 ```
 To track conversions for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
-storageAccountName,resourceGroupName,targetSku 
-mystorageaccount1,myresourcegroup1,Standard_ZRS 
-mystorageaccount2,myresourcegroup2,Standard_ZRS
+| storageAccountName | resourceGroupName | targetSku | 
+|-----------------| ----------------|------------|
+| mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
+| mystorageaccount2 | myresourcegroup2 | Standard_ZRS |
 
 Then, use the following script as an example:
 ```azurecli-interactive
