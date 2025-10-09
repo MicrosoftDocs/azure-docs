@@ -10,7 +10,7 @@ ms.topic: include
 
 ## Use modular scripts in Dev Box customizations
 
-Modular scripts are PowerShell scripts or Desired State Configuration (DSC) files stored in a shared catalog so you can reuse and standardize Dev Box customizations across multiple images.
+Modular scripts like PowerShell scripts or Desired State Configuration (DSC) files can be stored in a shared catalog so you can reuse and standardize Dev Box customizations across multiple images.
 
 They're designed to:
 
@@ -28,7 +28,7 @@ The following diagram shows a catalog structure for modular scripts in Dev Box c
 
 At the top level, there's an *image definitions* folder. Inside, you find image definition subfolders like *frontend-imagedef* and *backend-imagedef.* The frontend-imagedef folder has a PowerShell script file. The backend-imagedef folder includes a subfolder that contains DSC files. You can use either structure to store script files.
 
-### Reference modular scripts
+### Reference modular scripts or files
 
 Image Definition file sets a list of *tasks* that run in system context and *userTasks* that run after the first sign-in on the new dev box, in user context. Use display names for tasks to clarify the purpose of each task. In your image definition file, reference the modular scripts you want to run.
 
