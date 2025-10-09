@@ -327,7 +327,7 @@ Get-AzStorageAccountMigration
    -AccountName <String>
    -ResourceGroupName <String>
 ```
-To track conversions for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
+To monitor conversions for multiple storage accounts simultaneously, start by creating a CSV file that lists each account. For example, your columns might include:
 | storageAccount | resourceGroup | targetSku | 
 |-----------------| ----------------|------------|
 | mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
@@ -362,7 +362,7 @@ az storage account migration show \
     - g <string> \
     -n "default"
 ```
-To track conversions for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
+To monitor conversions for multiple storage accounts simultaneously, start by creating a CSV file that lists each account. For example, your columns might include:
 | storageAccountName | resourceGroupName | targetSku | 
 |-----------------| ----------------|------------|
 | mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
