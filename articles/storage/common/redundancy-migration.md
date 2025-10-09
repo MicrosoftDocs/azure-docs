@@ -206,7 +206,7 @@ Start-AzStorageAccountMigration
     -TargetSku <String>
     -AsJob
 ```
-To start conversions between locally redundant and zone-redundant storage for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
+To begin converting multiple storage accounts from locally redundant storage (LRS) to zone-redundant storage (ZRS), start by creating a CSV file that lists the accounts. The file should include columns such as:
 | storageAccount | resourceGroup | targetSku | 
 |-----------------| ----------------|------------|
 | mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
@@ -257,7 +257,7 @@ az storage account migration start  \
     --sku <string> \
     --no-wait
 ```
-To start conversions between locally redundant and zone-redundant storage for multiple storage accounts at once, first create a CSV file listing the accounts. For example, the columns would look like this:
+To begin converting multiple storage accounts from locally redundant storage (LRS) to zone-redundant storage (ZRS), start by creating a CSV file that lists the accounts. The file should include columns such as:
 | storageAccountName | resourceGroupName | targetSku | 
 |-----------------| ----------------|------------|
 | mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
