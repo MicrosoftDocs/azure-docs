@@ -96,8 +96,10 @@ There are three built-in roles definitions to support Service Groups in the prev
 - [Service Group Contributor](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-contributor): This built-in role should be given to users when they need to create or manage the lifecycle of a Service Group. This role allows for all actions except for Role Assignment capabilities.  
 
 
-- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can be assigned to other resources in order to view the connected relationships.  
+- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can be assigned to other resources in order to view the connected relationships.
 
+
+Anyone with valid permissions within the tenant is able to create a service group under the root. The user who creates the service group becomes the 'Service Group Administrator'. In order to edit the service group or create children service groups, a user must have 'Service Group Contributor' at that service group. To add members, users must have 'Service Group Contributor' on the service group and Microsoft.Relationship/write on the resource. 
 
 
 ## Related content

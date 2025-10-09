@@ -27,24 +27,35 @@ The Azure CLI AOSM Extension provides a convenient, simplified interface for pub
 
 - **Optimized for initial testing** - The CLI builds AOSM resources which are optimized for simplicity and for accelerating the publish, deploy, test feedback loop.
 
-## Updating the Azure Operator Service Manager CLI extension
+## Managing the CLI extension
 
-In most cases, take updates from the generally available release pipeline using the following command;
+As of 10/1/2025, the Azure Operator Service Manager CLI extension is classified in preview state by Azure CLI. Installing preview extensions generates warnings in the Azure CLI. To suppress these warnings, the following command examples include the `--allow-preview true` flag. This flag is optional, extension operations run without this flag will also work.
+
+## CLI Extension Install
+
+To install the Azure Operator Service Manager CLI extension, use the following command:
+
 ```powershell
-az extension update --name aosm 
+az extension install --name aosm --allow-preview true 
 ```
 
-In some cases, Microsoft may advise taking select updates from the preview release pipeline using the following command:
+## CLI Extension Update
+
+To update the Azure Operator Service Manager CLI extension, use the following command:
+
 ```powershell
 az extension update --name aosm --allow-preview true 
 ```
+## CLI Extension Version
 
-To confirm the installed CLI extension version use the following command:
+To confirm the installed CLI extension version, use the following command:
+
 ```powershell
 az --version
 ```
 
-Check the output of the above command for the `aosm` row:
+If the Azure Operator Service Manager CLI extension is installed, the `aosm` row will be emitted in the version output:
+
 ```powershell
 ----------------------------------------
 ...

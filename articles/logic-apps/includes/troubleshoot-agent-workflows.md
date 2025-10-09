@@ -10,7 +10,7 @@ ms.topic: include
 
 This section describes guidance to help troubleshoot errors or problems that you might encounter when you build or run agent workflows.
 
-#### Review tool execution data
+### Review tool execution data
 
 The workflow run history provides useful information that helps you learn what happened during a specific run. For an agent workflow, you can find tool execution inputs and outputs for a specific agent loop iteration.
 
@@ -46,11 +46,11 @@ The workflow run history provides useful information that helps you learn what h
 
 1. To review a different agent loop iteration, in the agent, select the left or right arrow.
 
-#### Logs in Application Insights
+### Logs in Application Insights
 
 If you set up Application Insights or advanced telemetry for your workflow, you can review the logs for agent events, like any other action. For more information, see [Enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](/azure/logic-apps/enable-enhanced-telemetry-standard-workflows).
 
-#### Model maximum context length exceeded
+### Model maximum context length exceeded
 
 If your agent's log history exceeds the model's *context length*, or the maximum number of input tokens, you get an error that looks like the following example:
 

@@ -1,12 +1,12 @@
 ---
-title: Enable CORS policies for Azure API Management custom connector 
+title: Enable CORS Policies for Azure API Management Custom Connector 
 description: How to enable CORS policies in Azure API Management and Power Platform to test and use a custom connector from Power Platform applications.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 10/07/2025
 ms.author: danlep
 
 ---
@@ -16,16 +16,15 @@ ms.author: danlep
 
 Cross-origin resource sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. Customers can add a [CORS policy](cors-policy.md) to their web APIs in Azure API Management, which adds cross-origin resource sharing support to an operation or an API to allow cross-domain calls from browser-based clients.
 
-If you've exported an API from API Management as a [custom connector](export-api-power-platform.md) in the Power Platform and want to use browser-based clients including Power Apps or Power Automate to call the API, you need to configure your API to explicitly enable cross-origin requests from Power Platform applications. This article shows you how to configure the following two necessary policy settings:
+If you export an API from API Management as a [custom connector](export-api-power-platform.md) in the Power Platform and want to use browser-based clients including Power Apps or Power Automate to call the API, you need to configure your API to explicitly enable cross-origin requests from Power Platform applications. This article shows you how to configure the following two necessary policy settings:
 
-* Add a CORS policy to your API
-
-* Add a policy to your custom connector that sets an Origin header on HTTP requests
+- Add a CORS policy to your API
+- Add a policy to your custom connector that sets an Origin header on HTTP requests
 
 ## Prerequisites 
 
-+ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Export an API from your API Management instance to a Power Platform environment as a [custom connector](export-api-power-platform.md)
+- Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
+- Export an API from your API Management instance to a Power Platform environment as a [custom connector](export-api-power-platform.md)
 
 ## Add CORS policy to API in API Management
 
@@ -38,14 +37,14 @@ Follow these steps to configure the CORS policy in API Management.
     1. Add the following **Allowed origin**: `https://make.powerapps.com`.
     1. Select **Save**.
 
-* For more information about configuring a policy, see [Set or edit policies](set-edit-policies.md).
-* For details about the CORS policy, see the [cors](cors-policy.md) policy reference.
+- For more information about configuring a policy, see [Set or edit policies](set-edit-policies.md).
+- For details about the CORS policy, see the [cors](cors-policy.md) policy reference.
 
 > [!NOTE]
 > If you already have an existing CORS policy at the service (all APIs) level to enable the test console of the developer portal, you can add the `https://make.powerapps.com` origin to that policy instead of configuring a separate policy for the API or operation. 
 
 > [!NOTE]
-> Depending on how the custom connector gets used in Power Platform applications, you might need to configure additional origins in the CORS policy. If you experience CORS problems when running Power Platform applications, use developer tools in your browser, tracing in API Management, or Application Insights to investigate the issues.
+> Depending on how the custom connector gets used in Power Platform applications, you might need to configure more origins in the CORS policy. If you experience CORS problems when running Power Platform applications, use developer tools in your browser, tracing in API Management, or Application Insights to investigate the issues.
 
 
 ## Add policy to custom connector to set Origin header
@@ -57,7 +56,7 @@ For details about editing settings of a custom connector, see [Create a custom c
 1. Sign in to Power Apps or Power Automate.
 1. On the left pane, select **Data** > **Custom Connectors**. 
 1. Select your connector from the list of custom connectors.
-1. Select the pencil (Edit) icon to edit the custom connector. 
+1. To edit the custom connector, select the pencil (Edit) icon. 
 1. Select **3. Definition**.
 1. In **Policies**, select **+ New policy**. Select or enter the following policy details.
 
@@ -79,5 +78,5 @@ For details about editing settings of a custom connector, see [Create a custom c
 
 ## Related content
 
-* [Learn more about the Power Platform](https://powerplatform.microsoft.com/)
-* [Learn more about creating and using custom connectors](/connectors/custom-connectors/)
+- [Learn more about the Power Platform](https://powerplatform.microsoft.com/)
+- [Learn more about creating and using custom connectors](/connectors/custom-connectors/)
