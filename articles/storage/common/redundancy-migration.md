@@ -214,10 +214,6 @@ mystorageaccount2,myresourcegroup2,Standard_ZRS
 Then, use the following script as an example:
 
 ```powershell
-# Log in to Azure 
- Write-Host "Logging into Azure..." 
- Connect-AzAccount 
-
 # Define the CSV file path 
  $csvFilePath = "path\to\your\input.csv" 
 
@@ -267,21 +263,6 @@ mystorageaccount2,myresourcegroup2,Standard_ZRS
 
 Then, use the following script as an example:
 ```azurecli-interactive
-#! /bin/bash 
-
-# Make sure you have Azure CLI installed.  
-# https://learn.microsoft.com/cli/azure/install-azure-cli 
-
-# Log in to Azure  
-echo 'Logging into Azure...'  
-
-if az account get-access-token > /dev/null ; then 
-    echo 'Azure CLI is already logged in.'  
-else  
-    az login --use-device-code 
-fi 
-echo '--------------------' 
-
 # Define the CSV file path  
 csvFilePath='path\to\your\input.csv'
 
@@ -351,10 +332,6 @@ mystorageaccount2,myresourcegroup2,Standard_ZRS
 
 Then, use the following script as an example:
 ```powershell
-# Log in to Azure 
- Write-Host "Logging into Azure..." 
- Connect-AzAccount 
-
 # Define the CSV file path 
  $csvFilePath = "path\to\your\input.csv"
 
@@ -389,17 +366,6 @@ mystorageaccount2,myresourcegroup2,Standard_ZRS
 
 Then, use the following script as an example:
 ```azurecli-interactive
-#! /bin/bash
-
-# Log in to Azure 
-echo "Logging into Azure..." 
-if az account get-access-token > /dev/null ; then
-    echo 'Azure CLI is already logged in.' 
-else 
-    az login --use-device-code
-fi
-echo '--------------------'
-
 # Define the CSV file path 
 csvFilePath="path\to\your\input.csv" 
 
