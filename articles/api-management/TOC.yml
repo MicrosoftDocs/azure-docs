@@ -133,8 +133,6 @@
       href: /azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Manage using automation
       href: automation-manage-api-management.md
-    - name: Configure using Git
-      href: api-management-configuration-repository-git.md
     - name: DevOps and CI/CD
       href: devops-api-development-templates.md
   - name: Resiliency and reliability
@@ -240,7 +238,7 @@
       href: api-management-sample-cache-by-key.md
 - name: API management for AI
   items:
-  - name: AI gateway capabilities in API Management
+  - name: AI gateway capabilities
     href: genai-gateway-capabilities.md
   - name: Manage LLM APIs
     items:

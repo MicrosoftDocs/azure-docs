@@ -25,7 +25,7 @@ When you've completed this tutorial, you'll have a console application that uplo
 
 Geo-redundancy in Azure Storage replicates transactions asynchronously from a primary region to a secondary region that is hundreds of miles away. This replication process guarantees that the data in the secondary region is eventually consistent. The console application uses the [circuit breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 In part one of the series, you learn how to:
 

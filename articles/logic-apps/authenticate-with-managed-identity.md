@@ -46,7 +46,7 @@ This guide shows how to complete the following tasks:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
 - The target Azure resource that you want to access. On this resource, you must add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](/entra/identity/role-based-access-control/permissions-reference) that can assign roles to the identities in the corresponding Microsoft Entra tenant.
 

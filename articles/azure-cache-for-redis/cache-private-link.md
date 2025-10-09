@@ -15,6 +15,8 @@ ms.custom:
 
 # What is Azure Cache for Redis with Azure Private Link?
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 In this article, you learn how to create a virtual network and an Azure Cache for Redis instance with a private endpoint using the Azure portal. You also learn how to add a private endpoint to an existing Azure Cache for Redis instance.
 
 Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link.
@@ -38,7 +40,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 > [!IMPORTANT]
 > Currently, the [portal-based redis console](cache-configure.md#redis-console) is not supported with private link.

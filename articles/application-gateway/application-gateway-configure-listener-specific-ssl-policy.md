@@ -27,7 +27,7 @@ This article describes how to use the Azure portal to configure listener-specifi
 
 Before you begin, ensure you have:
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An existing Azure Application Gateway (Standard_v2 or WAF_v2 SKU)
 - Appropriate permissions to modify Application Gateway configurations
 

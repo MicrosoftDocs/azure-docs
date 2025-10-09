@@ -20,7 +20,7 @@ This tutorial is part two of a series. In it, you'll learn about the benefits of
 
 In order to simulate a failure, you can use either [static routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your RA-GZRS storage account, leading the application to read from the secondary endpoint instead.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 In part two of the series, you learn how to:
 

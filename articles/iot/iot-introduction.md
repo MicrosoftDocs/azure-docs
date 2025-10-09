@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: azure-iot
 services: iot
 ms.topic: overview
-ms.date: 06/17/2025
+ms.date: 10/07/2025
 ms.author: dobett
 #Customer intent: As a newcomer to IoT, I want to understand what IoT is, what services are available, and examples of business cases so I can figure out where to start.
 ---
@@ -54,14 +54,14 @@ Both cloud-based and edge-based solutions have *devices* that collect data from 
 
 It's helpful to categorize IoT devices as follows:
 
-- **Device category 1**: Devices that connect directly to the cloud. This category includes devices that connect to cloud services such as [IoT Hub](../iot-hub/index.yml) using standard protocols such as HTTP, MQTT, or AMQP. These devices aren't relevant in edge-based solutions such as Azure IoT Operations.
+- **Cloud-connected device (category 1)**: Devices that connect directly to the cloud. This category includes devices that connect to cloud services such as [IoT Hub](../iot-hub/index.yml) using standard protocols such as HTTP, MQTT, or AMQP. These devices aren't relevant in edge-based solutions such as Azure IoT Operations.
 
-- **Device category 2**: Devices that connect to the cloud through an edge-based proxy or gateway. Examples in this category include devices that:
+- **Edge-connected device (category 2)**: Devices that connect to the cloud through an edge-based proxy or gateway. Examples in this category include devices that:
 
   - Connect indirectly to the cloud through the MQTT broker in Azure IoT Operations.
   - Connect indirectly to IoT Hub through an IoT Edge gateway.
 
-- **Device category 3**: These devices connect to an edge-based runtime through a connector that enables the devices to use a specific protocol. For example, an OPC UA server and its attached devices connect through a connector for OPC UA. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
+- **Protocol-specific device (category 3)**: These devices connect to an edge-based runtime through a connector that enables the devices to use a specific protocol. For example, an OPC UA server and its attached devices connect through a connector for OPC UA. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
 
 The following diagram shows the relationships between the device categories and the cloud services in a cloud-based solution:
 

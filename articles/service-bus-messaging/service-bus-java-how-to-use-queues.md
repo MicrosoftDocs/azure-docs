@@ -26,7 +26,7 @@ This quickstart provides step-by-step instructions for a simple scenario of send
 
 ## Prerequisites
 
-- An Azure subscription. To complete this quickstart, you need an Azure account. You can activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An Azure subscription. To complete this quickstart, you need an Azure account. You can activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Install [Azure SDK for Java][Azure SDK for Java].
 

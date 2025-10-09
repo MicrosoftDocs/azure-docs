@@ -15,7 +15,7 @@ ARM templates are JSON or Bicep files that define the resources you need to depl
 
 After completing the tutorial, you deploy an Azure Storage account. You can use the same process to deploy other Azure resources.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Retrieve a custom template
 

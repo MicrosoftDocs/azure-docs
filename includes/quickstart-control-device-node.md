@@ -21,7 +21,7 @@ This quickstart uses two Node.js applications:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * [Node.js 12+](https://nodejs.org).
 

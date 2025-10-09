@@ -22,7 +22,7 @@ You can create a Traffic Manager profile by using the Azure portal. After creati
 
 ### To create a Traffic Manager profile
 
-1. From a browser, sign in to the [Azure portal](https://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/). 
+1. From a browser, sign in to the [Azure portal](https://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 2. Click **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 4. In the **Create Traffic Manager profile**, complete as follows:
     1. In **Name**, provide a name for your profile. The name needs to be unique within the trafficmanager.net zone and results in the DNS name: `<name>`.trafficmanager.net used to access your Traffic Manager profile.

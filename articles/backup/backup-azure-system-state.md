@@ -14,7 +14,7 @@ ms.custom: engagement-fy24
 
 This article describes how to back up Windows Server system state to Azure using Azure Backup. It's intended to walk you through the basics.
 
-For more information about Azure Backup, see the [overview article](backup-overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
+For more information about Azure Backup, see the [overview article](backup-overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) that lets you access any Azure service.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

@@ -32,7 +32,7 @@ In this tutorial, you do the following steps:
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure Data Lake Storage Gen2 account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/blobs/create-data-lake-storage-account.md) for steps to create one.
 * **Download MoviesDB.csv [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv).** To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. [Upload the file to your storage account](../storage/blobs/storage-quickstart-blobs-portal.md) in a container named 'sample-data'.
 

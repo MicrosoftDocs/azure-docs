@@ -27,12 +27,12 @@ In this article, you learn how to upgrade a static Basic SKU public IP address t
 
 # [Azure portal](#tab/azureportal)
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A static basic SKU public IP address in your subscription. For more information, see [Create a basic SKU public IP address using the Azure portal](./create-public-ip-portal.md?tabs=option-1-create-public-ip-basic#create-a-basic-sku-public-ip-address).
 
 # [Azure CLI](#tab/azurecli/)
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A **static** basic SKU public IP address in your subscription. For more information, see [Create a basic public IP address using the Azure CLI](./create-public-ip-cli.md?tabs=create-public-ip-basic%2Ccreate-public-ip-zonal%2Crouting-preference#create-public-ip).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -41,7 +41,7 @@ In this article, you learn how to upgrade a static Basic SKU public IP address t
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A **static** basic SKU public IP address in your subscription. For more information, see [Create a basic public IP address using PowerShell](./create-public-ip-powershell.md?tabs=create-public-ip-basic%2Ccreate-public-ip-non-zonal%2Crouting-preference#create-public-ip).
 - Access to Azure PowerShell installed locally or Azure Cloud Shell.
     - If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.

@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
-ms.date: 05/28/2025
+ms.date: 10/06/2025
 ---
 
 # Azure HDInsight release notes
@@ -23,7 +23,7 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ## Release Information
 
-### Release date: May 28, 2025
+### Release date: Oct 06, 2025
 
 > [!NOTE]
 > This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider).
@@ -34,32 +34,34 @@ This release note applies to
 
 :::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version.
 
-:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.0 version.
 
-:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
-
-HDInsight release will be available to all regions over several days. This release note is applicable for image number **2501080039**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2508190809**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
 * HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
-* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
-* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
 > [!NOTE]
 > Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
+## New features
+
+* Entra Authentication is enabled for Azure HDInsight clusters. User can now choose to have user authentication done by Entra ID.
+
+* Grafana login now supported for Entra clusters.
+
+* C++ CodeQL scanning enabled for better static analysis coverage.
+
 ## Issues fixed
 
-* Authentication issue for SQL databases when managed identity is used.
+* Patched multiple OS-level vulnerabilities across dependencies (qs, braces,   connect, debug, etc.).
 
-## Updates
+* Disabled local user creation by default to strengthen access control. 
 
-* Active PIN requests for creating HDInsight clusters with predetermined image versions stand revoked/cancelled as of 26 May 2025. Customers can only create clusters using the updated (compliant) images of each HDInsight version. This measure is intended to improve cluster security and prevent potential issues with clusters and gateway nodes. 
 
 ## Reminder
 

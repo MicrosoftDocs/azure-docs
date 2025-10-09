@@ -64,7 +64,7 @@ To create a shared self-hosted IR using Azure PowerShell, you can take following
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-- **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
+- **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin. 
 
 - **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell). You use PowerShell to run a script to create a self-hosted integration runtime that can be shared with other data factories. 
 

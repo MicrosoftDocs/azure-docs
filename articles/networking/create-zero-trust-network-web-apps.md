@@ -23,7 +23,7 @@ This how-to follows the [Zero Trust Network for Web Applications reference archi
 To complete the Zero Trust deployment, you'll need:
 - A Custom domain name
 - A Trusted wildcard certificate for your custom domain
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Visual Studio Code (optional, to assist with an automated deployment)
 
 > [!NOTE]

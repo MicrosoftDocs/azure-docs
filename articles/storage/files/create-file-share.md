@@ -5,22 +5,22 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 10/08/2025
 ms.author: kendownie
 # Customer intent: "As an IT admin, I want to learn how to deploy an NFS file share with Microsoft.FileShares resource provider (preview)."
 ---
 
 # Create an Azure file share with Microsoft.FileShares (preview)
 
-Before you create an Azure file share with the new Microsoft.FileShares resource provider, you need to answer two questions about how you want to use it:
+The new Microsoft.FileShares resource provider (preview) and management model allows you to deploy file shares without creating an Azure storage account. Before you create an Azure file share with the Microsoft.FileShares resource provider, review the following to decide if it's the right fit for your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
 
-- **Is file share (Microsoft.FileShares) the right fit for me?**
-  **Microsoft.FileShares is currently in preview.** The new resource provider and management model is current only available for NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations. Using the Microsoft.FileShares resource provider allows you to deploy file shares without creating an Azure storage account. The preview only supports the provisioned v2 billing model, which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your requirements, you might find that you require more or less IOPS or throughput, and you can optionally override these recommendations with your own values. To learn more, see [Understanding the provisioned v2 billing model](understanding-billing.md#provisioned-v2-model). If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
+- The Microsoft.FileShares resource provider and management model is current only available for NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations.
 
-- **What are the redundancy requirements for file share (Microsoft.FileShares)?**  
-   The Microsoft.FileShares preview only supports locally-redundant storage (LRS) and zone-redundant storage (ZRS). See [Azure Files redundancy](./files-redundancy.md) for more information.
+- The preview only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your requirements, you can choose to override these recommendations with your own values.
 
-For more information on Azure Files management concepts, see [Planning for an Azure Files deployment](storage-files-planning.md#management-concepts).
+- The Microsoft.FileShares preview only supports locally-redundant storage (LRS) and zone-redundant storage (ZRS). See [Azure Files redundancy](./files-redundancy.md) for more information.
+
+For more information on Azure Files management concepts, see [Plan for an Azure Files deployment](storage-files-planning.md#management-concepts).
 
 ## Applies to
 
@@ -41,15 +41,15 @@ For more information on Azure Files management concepts, see [Planning for an Az
 
 ## Prerequisites
 
-This article assumes that you have an Azure subscription. If you don't have an Azure subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This article assumes that you have an Azure subscription. If you don't have an Azure subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-Please make sure both "Microsoft.FileShares" and "Microsoft.Storage" resource providers are registered for the subscription. 
-To register a resource provider: 
+Make sure both "Microsoft.FileShares" and "Microsoft.Storage" resource providers are registered for the subscription. To register a resource provider, follow these steps.
+
 1. Sign in to Azure portal.
-2. In the search box, enter subscriptions.
-3. Select the subscription you want to use to register a resource provider.
-4. To see the list of resource providers, under Settings select Resource providers.
-5. To register a resource provider, select the resource provider you intend to add and then select Register.
+1. In the search box, enter *subscriptions*.
+1. Select the subscription you want to use to register a resource provider.
+1. To see the list of resource providers, under **Settings**, select **Resource providers**.
+1. Select the resource provider you intend to add and then select **Register**.
 
 ## Create a file share (Microsoft.FileShares)
 
@@ -83,20 +83,21 @@ The first tab to complete creating a file share is labeled **Basics**, which con
 | Region                         | Drop-down list         | *Available Azure regions*                                                                                                                                                                                                    | The region for the file share to be deployed into. This can be the region associated with the resource group, or any other available region.                                                                                                                               |
 | Provisioned capacity (GiB)     | Text box         | Integer                                                                                                                                                                                                                       | Provisioned capacity for the file share, ranging from 32 GiB to 262144 GiB.                                                                                                                                                                                                 |
 | Redundancy                     | Drop-down list         | - Locally redundant storage (LRS)  <br> - Geo-redundant storage (GRS)                                                                                                                                                         | The redundancy choice for the file share. See [Azure Files redundancy](files-redundancy.md) for more information.                                                                                                                                                         |
-| Provisioned IOPS and throughput| Radio button group     | - Recommended provisioning  <br> - Manually specify IOPS and throughput:  <br> &nbsp;&nbsp;&nbsp;&nbsp;- Provisioned IOPS  <br> &nbsp;&nbsp;&nbsp;&nbsp;- Provisioned throughput (MiB/sec)                                   | The Microsoft.FileShares preview only uses the provisioned v2 SSD billing model. See [Understanding billing](understanding-billing.md#provisioned-v2-model).                                                                                                                                   |
-
+| Provisioned IOPS and throughput| Radio button group     | - Recommended provisioning  <br> - Manually specify IOPS and throughput:  <br> &nbsp;&nbsp;&nbsp;&nbsp;- Provisioned IOPS  <br> &nbsp;&nbsp;&nbsp;&nbsp;- Provisioned throughput (MiB/sec)                                   | The Microsoft.FileShares preview only uses the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model).  |
 
 ### Advanced
 
-The **Advanced** tab is optional, but provides more granular settings for the file share. Currently you can choose to set up root squash options or specify a mount name for the file share. See [nfs root squash options](./nfs-root-squash.md) to learn more. Mount name allows you to choose a different name to use to mount the file share. By default, it's the same as the file share name. Customize it if you want a unique mount name. The same rules still apply to the naming policy. See [Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md) to learn more.
+The **Advanced** tab is optional and provides more granular settings. You can choose to set up [root squash options](nfs-root-squash.md) or specify a mount name for the file share. Mount name allows you to choose a different name to use to mount the file share. By default, it's the same as the file share name. Customize it if you want a unique mount name. The same rules still apply to the naming policy. See [Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md).
 
 ![A screenshot of the  of the advanced tab.](./media/storage-how-to-create-microsoft-fileshares/file-share-create-flow-advanced.png)
 
 ### Networking
 
-Using the NFS protocol for a file share requires network-level security configurations. Currently there are two options for establishing networking-level security configurations: Private endpoint and service endpoint. Private endpoint gives your file share a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your file share stays within peered virtual networks, including those in other regions and on premises. See [What is a private endpoint](../../private-link/private-endpoint-overview.md) to learn more. Currently, you can set up a private endpoint after you create the file share, for region support on private endpoint, see [Plan to deploy Azure Files](./storage-files-planning.md#file-shares-microsoftfileshares). 
+Using the NFS protocol for a file share requires network-level security configurations. There are two options for establishing networking-level security configurations: [Private endpoint](../../private-link/private-endpoint-overview.md) and [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-If you don't require a static IP address, you can enable a service endpoint for Azure Files within the virtual network. A service endpoint configures file share to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. See [Azure virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) to learn more. You can create or choose an existing virtual network for service endpoint purpose in the networking tab during the create flow. 
+A private endpoint gives your file share a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your file share stays within peered virtual networks, including those in other regions and on premises. You can set up a private endpoint after you create the file share. For region support on private endpoints for Microsoft.Fileshares, see [Plan to deploy Azure Files](./storage-files-planning.md#file-shares-microsoftfileshares).
+
+If you don't require a static IP address, you can enable a service endpoint for Azure Files within the virtual network. A service endpoint configures file share to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. You can create or choose an existing virtual network for service endpoint purpose in the networking tab during the create flow. 
 
 ### Tags
 
@@ -106,9 +107,9 @@ Tags are name/value pairs that enable you to categorize resources and view conso
 
 The final step to create the file share is to select the **Create** button on the **Review + create** tab. This button isn't available until you complete all the required fields.
 
-### Set up a private endpoint 
+### Set up a private endpoint
 
-1. After the file share is created, search private endpoint in the search bar, and then click on create button. 
+1. After the file share is created, search for private endpoint in the search bar, and then click on create button. 
 1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
    ![image for private endpoint creation for mfs part 1](./media/storage-how-to-create-microsoft-fileshares/private-endpoint-setup-for-file-share-basic.png)

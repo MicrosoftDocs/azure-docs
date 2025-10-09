@@ -27,7 +27,7 @@ Private endpoints of secured resources that are created by using Azure Web PubSu
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Web PubSub instance.
 - An Azure Private Link Service. [Create a Private Link Service](../private-link/create-private-link-service-portal.md).
 

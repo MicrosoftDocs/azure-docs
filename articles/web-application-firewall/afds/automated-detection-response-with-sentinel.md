@@ -20,7 +20,7 @@ In this article, you learn about WAF detection templates in Sentinel, deploy a p
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Azure Front Door deployment with an associated WAF policy. For more information, see [Quickstart: Create a Front Door Standard/Premium using an ARM template](../../frontdoor/create-front-door-template.md), and [Tutorial: Create a WAF policy on Azure Front Door by using the Azure portal](waf-front-door-create-portal.md).
 - An Azure Front Door configured to capture logs in a Log Analytics workspace. For more information, see [Configure Azure Front Door logs](../../frontdoor/standard-premium/how-to-logs.md).
 

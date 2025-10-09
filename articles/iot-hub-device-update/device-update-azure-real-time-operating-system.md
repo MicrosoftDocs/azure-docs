@@ -13,7 +13,7 @@ ms.subservice: device-update
 
 This article shows you how to create the Device Update for Azure IoT Hub agent in Eclipse ThreadX NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/eclipse-threadx/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get-started guides to learn how to configure, build, and deploy over-the-air updates to the devices.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

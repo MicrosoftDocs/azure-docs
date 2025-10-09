@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 01/15/2025
+ms.date: 10/07/2025
 ROBOTS: NOINDEX
 ms.service: azure-app-service
 
@@ -16,13 +16,16 @@ ms.service: azure-app-service
 
 # Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
 
+> [!IMPORTANT]
+> [Azure App Service on Arc enabled Kubernetes will be **retired on March 31, 2026**](https://azure.microsoft.com/updates/?id=500016). From September 30, 2025, customers will no longer be able to install the extension. We request you [migrate to other solutions such as Azure Container Apps on Arc enabled Kubernetes](migrate-app-service-arc.md), migrating also allows you to take advantage of [Logic Apps Hybrid](/azure/logic-apps/set-up-standard-workflows-hybrid-deployment-requirements) for your integration workloads.
+
 If you have an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview), you can use it to create an [App Service enabled custom location](overview-arc-integration.md) and deploy web apps, function apps, and logic apps to it.
 
 Azure Arc-enabled Kubernetes lets you make your on-premises or cloud Kubernetes cluster visible to App Service, Functions, and Logic Apps in Azure. You can create an app and deploy to it just like another Azure region.
 
 ## Prerequisites
 
-- If you don't have an Azure account, [sign up today](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) for a free account.
+- If you don't have an Azure account, [sign up today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) for a free account.
 - Review the [requirements and limitations](overview-arc-integration.md) of the public preview. Of particular importance are the cluster requirements.
 
 <!-- ## Prerequisites

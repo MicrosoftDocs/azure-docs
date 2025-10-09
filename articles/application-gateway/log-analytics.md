@@ -20,7 +20,7 @@ In this article, we will look at the Web Application Firewall (WAF) logs. You ca
 
 ## Prerequisites
 
-* An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Application Gateway WAK SKU. For more information, see [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
 * A Log Analytics workspace. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 

@@ -36,7 +36,7 @@ The following section describes the limitations for the hybrid deployment option
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The following on-premises resources, which must all exist within the same network for the required connectivity:
 

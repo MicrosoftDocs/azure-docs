@@ -30,7 +30,7 @@ For more information about the components of an application gateway, see [Applic
 
 ## Prerequisites
 
-An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 

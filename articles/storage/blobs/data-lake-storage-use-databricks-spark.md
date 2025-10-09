@@ -24,7 +24,7 @@ In this tutorial, you will:
 > - Ingest unstructured data into a storage account
 > - Run analytics on your data in Blob storage
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

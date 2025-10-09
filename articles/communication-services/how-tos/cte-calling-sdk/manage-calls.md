@@ -17,7 +17,7 @@ Learn how to manage calls with the Azure Communication Services SDKS. We'll lear
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/manage-teams-identity.md)
 - Optional: Complete the quickstart for [getting started with adding video calling to your application](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)

@@ -20,7 +20,7 @@ VPN troubleshoot allows you to quickly diagnose issues with your gateway and con
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A VPN device in your on-premises network represented by a local network gateway in Azure. For more information about local network gateways, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway). For a list of validated VPN devices, see [Validated VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=/azure/network-watcher/toc.json#devicetable). 
 

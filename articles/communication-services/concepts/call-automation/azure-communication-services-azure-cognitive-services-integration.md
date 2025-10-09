@@ -43,7 +43,7 @@ You need to connect your Azure Communication Services resource with the Azure AI
 - Manually adding the Managed Identity to your Azure Communication Services resource. This step is more advanced and requires a little more effort to connect your Azure Communication Services to your Azure AI services. 
 
 ## Prerequisites 
-- Azure account with an active subscription and access to Azure portal, for details see [Create an account for free](https://azure.microsoft.com/free/).
+- Azure account with an active subscription and access to Azure portal, for details see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
 - Azure Communication Service  `Microsoft.Authorization/roleAssignments/write` permissions, commonly done through Azure RBAC. See [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 - An [Azure AI Services resource](/azure/ai-services/multi-service-resource) .

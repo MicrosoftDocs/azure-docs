@@ -20,7 +20,7 @@ In this article, you'll learn how to set up a NAT gateway after moving resources
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - **Owner** access in the subscription in which resources you want to move are located. 
 

@@ -38,7 +38,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Hardware that meets the system requirements:
 
@@ -51,7 +51,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * An [Azure Local server or cluster](/azure-stack/hci/overview).
 

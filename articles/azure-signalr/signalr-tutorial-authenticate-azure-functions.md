@@ -35,7 +35,7 @@ In this step-by-step tutorial, you build a chat room with authentication and pri
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Node.js](https://nodejs.org/en/download/package-manager/) (version 20.x).
 - [Azure Functions Core Tools](../azure-functions/functions-run-local.md?#install-the-azure-functions-core-tools) (version 4).
 

@@ -18,7 +18,7 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
 
 ## Prerequisites
 
-* You need an Azure account, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* You need an Azure account, which [can be set up for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * You need an Azure Digital Twins instance in your Azure subscription. If you don't have an instance already, you can create one using the steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
