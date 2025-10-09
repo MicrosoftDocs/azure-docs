@@ -74,7 +74,8 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 1. Under **Recommendations**, select **Azure API Management APIs should be onboarded to Defender for APIs**.
 
     :::image type="content" source="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png" alt-text="Screenshot of Defender for APIs recommendations in the portal." lightbox="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png":::
-1. On the resulting page, review details about the recommendation:
+1. On the **Azure API Management APIs should be onboarded to Defender for APIs** page, in the **View recommendations** column, select the **View** button for one of the listed APIs.
+1. On the resulting page, review the details of the recommendation:
     * Severity  
     * Refresh interval for security findings 
     * Description and remediation steps
