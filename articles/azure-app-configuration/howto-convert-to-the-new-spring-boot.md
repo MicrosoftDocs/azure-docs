@@ -14,7 +14,7 @@ ms.date: 10/09/2025
 
 Version 6 of the Azure App Configuration library for Spring Boot introduces features such as Spring Cloud Azure global properties, but also some breaking changes. These changes aren't backward compatible with configuration setups that used the previous library version.
 
-This article provides a reference on the changes and the actions needed to migrate to the 6 library version.
+This article provides a reference on the changes and the actions needed to upgrade to version 6 libraries.
 
 ## Configuration properties file name
 
