@@ -43,7 +43,7 @@ Upgrading a gateway SKU takes about 45 minutes to complete.
 1. On the right side of the page, click the dropdown arrow to show a list of available SKUs. The options listed are based on the starting SKU and SKU Generation. Select the SKU from the dropdown.
 1. **Save** your changes to begin the SKU upgrade.
    * If you are switching to an AZ SKU within the same tier (e.g., VpnGw1 → VpnGw1AZ), there will be no downtime.
-   * The upgrade process typically takes about 45 minutes to complete for all scenarios.
+   * The upgrade process typically takes about 45 minutes to complete for all other scenarios (e.g., VpnGw1 → VpnGw2AZ).
 
 ## Workflow for SKUs that can't be upgraded
 
