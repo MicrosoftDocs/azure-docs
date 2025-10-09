@@ -52,7 +52,7 @@ Azure Bastion supports availability zones in both zone-redundant and zonal confi
     
     The following diagram shows a zone-redundant bastion host, with its instances spread across three zones:
    
-    :::image type="content" source="media/reliability-bastion/bastion-instances-zones.png" alt-text="Diagram that shows Azure Bastion with three instances distributed across three availability zones to illustrate zone-redundant deployment." border="false":::
+    :::image type="content" source="media/reliability-bastion/zone-redundant.svg" alt-text="Diagram that shows Azure Bastion with three instances distributed across three availability zones to illustrate zone-redundant deployment." border="false":::
 
     If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can.
 
@@ -104,7 +104,7 @@ This section describes what to expect when bastion hosts are configured for avai
     If you configure zone redundancy on Azure Bastion, a session might be sent to an Azure Bastion instance in an availability zone that's different from the virtual machine you're connecting to. In the following diagram, a request from the user is sent to an Azure Bastion instance in zone 2, although the virtual machine is in zone 1:
 
     <!-- Art Library Source# ConceptArt-0-000-015- -->
-    :::image type="content" source="./media/reliability-bastion/bastion-instance-zone-traffic.png" alt-text="Diagram that shows Azure Bastion with three instances. A user request goes to an Azure Bastion instance in zone 2 and is sent to a VM in zone 1." border="false":::
+    :::image type="content" source="./media/reliability-bastion/instance-zone-traffic.svg" alt-text="Diagram that shows Azure Bastion with three instances. A user request goes to an Azure Bastion instance in zone 2 and is sent to a VM in zone 1." border="false":::
 
    > [!TIP]
    > In most scenarios, the amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements for your workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. Keep in mind that this configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
