@@ -100,13 +100,13 @@ For more advanced use cases, you can create and upload a custom widget to the de
 1. Implement the code of the widget and test it locally. The code of the widget is located in the `src` folder, in the following subfolders:
 
     * **`app`** - Code for the widget component that visitors to the published developer portal see and interact with 
-    * **`editor`** - Code for the widget component that you use in the administrative interface of the developer portal to edit widget settings \
+    * **`editor`** - Code for the widget component that you use in the administrative interface of the developer portal to edit widget settings
 
     The `values.ts` file contains the default values and types of the widget's custom properties you can enable for editing.
 
     :::image type="content" source="media/developer-portal-extend-custom-functionality/widget-custom-properties.png" alt-text="Screenshot of custom properties page in developer portal.":::
 
-    Custom properties let you adjust values in the custom widget's instance from the administrative user interface of the developer portal, without changing the code or redeploying the custom widget. This object needs to be passed to some of the widgets' helper functions. \
+    Custom properties let you adjust values in the custom widget's instance from the administrative user interface of the developer portal, without changing the code or redeploying the custom widget. This object needs to be passed to some of the widgets' helper functions.
 
 ### Deploy the custom widget to the developer portal
 
@@ -226,11 +226,6 @@ It accepts three arguments by default:
 This function returns all data passed to your custom widget from the developer portal. It contains other data that might be useful in debugging or in more advanced scenarios. This API is expected to change with potential breaking changes. It returns a JSON object that contains the following keys:
 
 * `values`: All the values you've set in the editor, the same object that is returned by  `getEditorData`
-<!-- TEMPORARILY not present
-* `environment`: Current runtime environment for the widget
-
-* `origin`:  Location origin of the developer portal
--->
 * `instanceId`: ID of this instance of the widget
 
 ### Add or remove custom properties
