@@ -36,7 +36,7 @@ When you complete this tutorial, you'll be able to:
 
 To complete this tutorial, make sure you have:
 
-- An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+- An Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't already have one.
 
 - A Log Analytics workspace with the Microsoft Sentinel solution deployed on it and data being ingested into it.
 

@@ -33,7 +33,7 @@ We recommend reading [Azure Files networking considerations](storage-files-netwo
 
 ## Prerequisites
 
-- This article assumes that you already created an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- This article assumes that you already created an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - This article assumes that you already created an Azure file share in a storage account that you want to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](storage-how-to-create-file-share.md).
 - If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).

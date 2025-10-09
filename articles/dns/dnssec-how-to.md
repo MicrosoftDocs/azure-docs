@@ -186,6 +186,9 @@ New-AzDnsRecordSet -ResourceGroupName "dns-rg" -ZoneName "adatum.com" -Name "sec
 5. If you don't own the parent zone, send the DS record to the owner of the parent zone with instructions to add it into their zone.
 ---
 
+> [!IMPORTANT]
+> App Service Domain does not support DNSSEC. If you have registered your domain via App Service Domain, then you cannot enable DNSSEC since you cannot register a DS record with a parent zone.
+
 ## Next steps
 
 - Learn how to [unsign a DNS zone](dnssec-unsign.md).

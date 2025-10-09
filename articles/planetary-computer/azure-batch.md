@@ -19,7 +19,7 @@ In this quickstart, you learn how to use Microsoft Planetary Computer Pro GeoCat
 
 Before you begin, ensure you meet the following requirements to complete this quickstart:
 
-- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Microsoft Planetary Computer Pro GeoCatalog resource.
  A Linux machine with the following tools installed:
     - [Azure CLI](/cli/azure/install-azure-cli)

@@ -26,7 +26,7 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
-- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Python](https://www.python.org/downloads/). Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. To check your Python version, run `python3 --version`.
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps.

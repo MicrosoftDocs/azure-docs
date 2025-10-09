@@ -10,11 +10,11 @@ ms.date: 11/13/2024
 
 # Endpoints in Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 In Azure Front Door, an *endpoint* is a logical grouping of one or more routes associated with domain names. Each endpoint is [assigned a domain name](#endpoint-domain-names) by Front Door, and you can also associate your own custom domains using routes.
 
 ## How many endpoints should I create?
-
-**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 A Front Door profile can contain multiple endpoints, but in many cases, a single endpoint might suffice.
 

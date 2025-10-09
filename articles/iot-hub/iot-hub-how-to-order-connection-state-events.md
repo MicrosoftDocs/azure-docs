@@ -37,7 +37,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * A collection in your database. See [Add a collection](/azure/cosmos-db/create-sql-api-java#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 

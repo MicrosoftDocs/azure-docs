@@ -4,7 +4,7 @@ description: Learn how to configure OPC UA namespace assets and devices to enabl
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 09/09/2025
+ms.date: 10/08/2025
 
 
 #CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that I can control my OPC UA server. I also want to see a sample application that lets me do this.
@@ -33,7 +33,7 @@ The boiler asset in the OPC PLC simulator has a tag called `TargetTemperature` t
 |------|--------------------------------------------|
 | `TargetTemperature` | `nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=6217` |
 
-When you publish a message to the topic `azure-iot-operations/asset-operations/<asset name>/<dataset name>` that includes a value for `TargetTemperature`, the commander service writes the value to the OPC UA server. For example, to set the target temperature to 176, publish a message with the following payload to the topic `azure-iot-operations/asset-operations/<asset name>/<dataset name>`:
+When you publish a message to the topic `azure-iot-operations/asset-operations/<asset name>/builtin/<dataset name>` that includes a value for `TargetTemperature`, the commander service writes the value to the OPC UA server. For example, to set the target temperature to 176, publish a message with the following payload to the topic `azure-iot-operations/asset-operations/<asset name>/builtin/<dataset name>`:
 
 ```json
 {
@@ -51,7 +51,7 @@ The boiler asset in the OPC PLC simulator has a tag called `BoilerStatus` that y
 |------|--------------------------------------------|
 | `BoilerStatus` | `nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=15013` |
 
-When you publish a message to the topic `azure-iot-operations/asset-operations/<asset name>/<dataset name>` that includes a value for `BoilerStatus`, the commander service writes the values to the OPC UA server. For example, to set the boiler status, publish a message with the following payload to the topic `azure-iot-operations/asset-operations/<asset name>/<dataset name>`:
+When you publish a message to the topic `azure-iot-operations/asset-operations/<asset name>/builtin/<dataset name>` that includes a value for `BoilerStatus`, the commander service writes the values to the OPC UA server. For example, to set the boiler status, publish a message with the following payload to the topic `azure-iot-operations/asset-operations/<asset name>/builtin/<dataset name>`:
 
 ```json
 {
@@ -163,7 +163,7 @@ For example, the DTDL model for the `call` actions the sample uses looks like th
   "@id": "dtmi:opcua:write;1",
   "@type": ["Interface", "Mqtt"],
   "payloadFormat": "custom/0",
-  "commandTopic": "{ex:namespace}/asset-operations/{ex:asset}/{ex:dataset}",
+  "commandTopic": "{ex:namespace}/asset-operations/{ex:asset}/builtin/{ex:dataset}",
   "schemas": [],
   "contents": [
     {

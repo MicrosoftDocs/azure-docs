@@ -14,7 +14,7 @@ ms.custom: sfi-ropc-nochange
 [Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Mongoose allows you to design a data structure and enforce validation, and provides all the tooling necessary to interact with databases that support the MongoDB API. [Cosmos DB](/azure/cosmos-db/mongodb-introduction) supports the necessary MongoDB APIs and is available as a back-end server option on Azure.
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/). If you don’t have an Azure subscription, create a [free trial account](https://azure.microsoft.com/free/).
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). If you don’t have an Azure subscription, create a [free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A [GitHub account](https://github.com/join).
 - A [Cosmos DB serverless](/azure/cosmos-db/serverless) account. With a serverless account, you only pay for the resources as they're used and avoid needing to create a full infrastructure.
 ## 1. Create a Cosmos DB serverless database

@@ -56,7 +56,7 @@ This article focuses on working with Azure Files resources using the following a
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 - [Apache Maven](https://maven.apache.org/download.cgi) is used for project management in this example

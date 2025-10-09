@@ -24,7 +24,7 @@ This tutorial demonstrates using text analytics with [SynapseML](https://github.
 > - Identify different entities in text and categorize them into pre-defined classes or types
 > - Identify and redact sensitive entities in a given text
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

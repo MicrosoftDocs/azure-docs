@@ -82,7 +82,7 @@ To follow the example, download the [sample prompt template and inputs](https://
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Standard logic app resource with a blank *stateful* workflow, which stores run history and the values for variables, inputs, and outputs that you can use for testing.
 

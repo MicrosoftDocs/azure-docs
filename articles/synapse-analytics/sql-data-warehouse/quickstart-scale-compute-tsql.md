@@ -17,7 +17,7 @@ ms.custom:
 
 Scale compute in dedicated SQL pools using T-SQL and SQL Server Management Studio (SSMS). [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!NOTE]  
 > This article applies to dedicated SQL pools created in Azure Synapse Analytics workspaces, dedicated SQL pools (formerly SQL DW), and dedicated SQL pools (formerly SQL DW) in connected workspaces.

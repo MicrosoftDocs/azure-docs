@@ -1108,13 +1108,6 @@ productDirectory:
         - storage
       url: databox/index.yml
     # Card
-    - title: Azure Remote Rendering
-      summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
-      imageSrc: ./media/index/remote-rendering.svg
-      azureCategories:
-        - mixed-reality
-      url: remote-rendering/index.yml
-    # Card
     - title: Visual Studio App Center
       summary: Continuously build, test, release, and monitor your mobile and desktop apps
       imageSrc: /media/logos/logo_vs-mobile-center.svg
