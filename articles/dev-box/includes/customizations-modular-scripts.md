@@ -8,7 +8,7 @@ ms.topic: include
 ---
 
 
-## Modular scripts in Dev Box customizations
+## Use modular scripts in Dev Box customizations
 
 Modular scripts are PowerShell scripts or Desired State Configuration (DSC) files stored in a shared catalog so you can reuse and standardize Dev Box customizations across multiple images.
 

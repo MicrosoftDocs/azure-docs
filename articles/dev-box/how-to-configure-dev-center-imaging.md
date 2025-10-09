@@ -193,8 +193,6 @@ During the process of building an image, Dev Box creates a temporary storage acc
 
 When the build finishes successfully, the dev box pool automatically uses the image for new dev boxes. You don't need to do any extra configuration to assign the image to the pool. You can now create dev boxes from the pool, and the customizations are applied to each dev box.
 
-[!INCLUDE [customizations-modular-scripts](includes/customizations-modular-scripts.md)]
-
 ## Related content
 
 - [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
