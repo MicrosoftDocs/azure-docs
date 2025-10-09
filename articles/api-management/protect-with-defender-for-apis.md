@@ -77,7 +77,7 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 1. On the **Azure API Management APIs should be onboarded to Defender for APIs** page, in the **View recommendations** column, select the **View** button for one of the listed APIs.
 1. On the resulting page, review the details of the recommendation:
     * Severity  
-    * Refresh interval for security findings 
+    * Freshness interval for security findings 
     * Description and remediation steps
     * Affected resources, classified as **Healthy** (onboarded to Defender for APIs), **Unhealthy** (not onboarded), or **Not applicable**, along with associated metadata from API Management
     
@@ -85,10 +85,10 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
    > Affected resources include API collections (APIs) from all API Management instances under the subscription. 
 
 1. Select the APIs that you want to onboard to Defender for APIs.
-1. Select **Fix**, and then select **Fix resources**.
+1. Select **Fix**, and then select **Fix *x* resources**.
 
     :::image type="content" source="media/protect-with-defender-for-apis/fix-unhealthy-resources.png" alt-text="Screenshot that shows how to onboard unhealthy APIs in the portal." lightbox="media/protect-with-defender-for-apis/fix-unhealthy-resources.png":::
-1.  Track the status of onboarded resources under **Notifications**. 
+1.  Track the status of onboarded resources in the **Notifications** pane. 
 
 > [!NOTE]
 > Defender for APIs takes 30 minutes to generate its first security insights after you onboard an API. Thereafter, security insights are refreshed every 30 minutes. 
@@ -100,8 +100,9 @@ After you onboard the APIs from API Management, Defender for APIs receives API t
 
 You can view a summary of all security recommendations and alerts for onboarded APIs by selecting **Microsoft Defender for Cloud** in the menu for your API Management instance:
 
-1. In the portal, go to your API Management instance and select **Microsoft Defender for Cloud** in the left pane.
-1. Review **Recommendations** and **Security insights and alerts**.
+1. In the portal, go to your API Management instance. 
+1. Under **Security**, select **Defender for Cloud** in the left pane.
+1. Review **Recommendations** and **Security incidents and alerts**.
 
     :::image type="content" source="media/protect-with-defender-for-apis/view-security-insights.png" alt-text="Screenshot of API security insights in the portal." lightbox="media/protect-with-defender-for-apis/view-security-insights.png":::
 
