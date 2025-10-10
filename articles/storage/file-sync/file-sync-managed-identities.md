@@ -30,14 +30,18 @@ To configure your Azure File Sync deployment to utilize system-assigned managed 
 # [Portal](#tab/azure-portal) 
 - **Azure File Sync agent version 20.0.0.0 or later** must be installed on the registered server. 
 
-- On your **storage accounts** used by Azure File Sync, you must be a **member of the Azure File Sync Administrator or Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions. 
+- On your **storage accounts** used by Azure File Sync, you must be a **member of the Azure File Sync Administrator or Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions.
+
+ > [!NOTE]
+ > When assigning the Azure File Sync Administrator role, to ensure least privilege, under the **Conditions** tab, please select **Allow users to assign selected roles to only selected principals (fewer privileges)** and click **Select Roles and Principals** and click **Add Action** under Condition #1. Select **Create role assignment**, and click **Select**. Click **Add expression**. Select **Request**, under **Attribute Source**, select **Role Definition Id** under **Attribute**, and select **ForAnyOfAnyValues:GuidEquals** under **Operator**. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privilefed Contributor** and **Storage Account Contributor** roles and click **Save**.
 
 # [PowerShell](#tab/azure-powershell) 
 - **Azure File Sync agent version 20.0.0.0 or later** must be installed on the registered server. 
 
 - On your **storage accounts** used by Azure File Sync, you must be a **member of the Azure File Sync Administrator or Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions. 
 
- 
+ > [!NOTE]
+ > When assigning the Azure File Sync Administrator role, to ensure least privilege, under the **Conditions** tab, please select **Allow users to assign selected roles to only selected principals (fewer privileges)** and click **Select Roles and Principals** and click **Add Action** under Condition #1. Select **Create role assignment**, and click **Select**. Click **Add expression**. Select **Request**, under **Attribute Source**, select **Role Definition Id** under **Attribute**, and select **ForAnyOfAnyValues:GuidEquals** under **Operator**. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privilefed Contributor** and **Storage Account Contributor** roles and click **Save**.
   
 -	**Az.StorageSync [PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync) version 2.5.0 or later** must be installed on the machine that will be used to configure Azure File Sync to use managed identities. To install the latest Az.StorageSync PowerShell module, run the following command from an elevated PowerShell window:
 
