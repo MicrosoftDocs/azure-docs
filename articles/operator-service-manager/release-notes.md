@@ -1,6 +1,6 @@
 ---
 title: Release notes for Azure Operator Service Manager
-description: Official tracking of available releases and regions.
+description: Official tracking of Azure Operator Service Manager available releases and regions.
 author: msftadam
 ms.author: adamdor
 ms.date: 10/10/2025
