@@ -20,9 +20,9 @@ ms.author: jobreen
 > 
 > If your CuRP scenario:
 >
-> - Only involves triggering an endpoint without the need for persistent resource management, consider [Deployment Scripts](../templates/deployment-script-template).
-> - Only involves triggering an endpoint without the need for persistent resource management, and you use Bicep, consider [Bicep Extensions](../bicep/bicep-extension).
-> - Involves triggering several different endpoints or services for your solution, consider [Azure Functions](../../azure-functions/functions-overview).
+> - Only involves triggering an endpoint without the need for persistent resource management, consider [Deployment Scripts](../templates/deployment-script-template.md).
+> - Only involves triggering an endpoint without the need for persistent resource management, and you use Bicep, consider [Bicep Extensions](../bicep/bicep-extension.md).
+> - Involves triggering several different endpoints or services for your solution, consider [Azure Functions](../../azure-functions/functions-overview.md).
 >
 > If you have any questions, please ask your Microsoft account manager to email curpdeprecation@microsoft.com with your name, company name, email contact, and subscription ID.
 
