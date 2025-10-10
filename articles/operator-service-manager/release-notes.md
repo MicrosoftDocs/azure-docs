@@ -1,20 +1,21 @@
 ---
 title: Release notes for Azure Operator Service Manager
-description: Official tracking or AOSM releases and available regions.
+description: Official tracking of Azure Operator Service Manager available releases and regions.
 author: msftadam
 ms.author: adamdor
-ms.date: 01/15/2025
+ms.date: 10/10/2025
 ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
 
-# Release Notes for Azure Operator Service Manager
+# Release notes for Azure Operator Service Manager
+This article hosts release information for Azure Operator Service Manager (AOSM). This article is updated frequently and serves as the primary announcement method for new releases. Make sure to check back often and stay up-to-date.
 
-This article hosts release information for Azure Operator Service Manager (AOSM).
+## Release email notifications
+To receive email notications upon the general availability of new AOSM releases, join the AOSM notification distribution list by submitting contact information in the following sign-up form: https://forms.office.com/r/GPkgkNi2tx
 
-## Regional Availability of Releases
-
-Releases described herewithin are generally available across the following Azure regions:
+## Regional availability of releases
+Releases described herewithin are generally available and supported across the following Azure regions:
 * eastus
 * southcentralus
 * westus3
@@ -22,13 +23,51 @@ Releases described herewithin are generally available across the following Azure
 * westeurope
 
 Use of AOSM in these regions is permitted, based on prevailing Azure terms of service. Although AOSM may have supported additional regions in the past, any region not-listed is no longer supported. If you have been using AOSM in a not-listed region, or if you have a business need to use AOSM in a not-listed region, please open a support ticket to submit request consideration.
-
-## Release Notes by Version
-
-Releases included in this article are generally available and supported across permitted regions. AOSM users are recommended to watch this page for frequent changes, as releases maybe added, updated or removed at any time. No additional notice of releases is provided, beyond this release notes article.
   
-### Release Attestation for All Versions
+## Release attestation for all versions
 All releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
+
+## Release notes for the latest release
+The following release is the latest generally available release.
+
+## Release 2509.01
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2509.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3194-224 and the RP version to 1.0.03180.486, the details of which are further outlined in the remainder of this document.
+
+### Latest release details
+* NFO Release Version: 3.0.3194-224
+* RP Release Version: 1.0.03180.486
+* CLI Extension Release Version: 2.0.0b3
+* Release Date: September 30, 2025
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
+
+### Latest release feature highlights
+
+#### Support for interruption of service deployments
+**[FEATURE 2069409 / ART-465]** introduces a method to interrupt a broken service deployment operation while in a nonterminal state. Supporting only container network functions, the interruption is triggered by applying a static tag to the network function managed resource group. This tag must later be removed to restore proper service operations. This feature provides a mechanism for customer operation teams to terminate a deployment which maybe negatively impacting service performance and otherwise could take multiple hours to reach a terminal state. For more information, see our [learn documentation](how-to-cancel-service-deployments.md).
+
+#### Support for publisher artifact store resiliency
+**[FEATURE 2129209 / ART-535]** introduces artifact store geo-resiliency between the backing ACR resources in two Azure regional location pairs. Once enabled, the artifact-store resource now  survives a single region failure, continuing to operate in read-only mode from the hot standby instance. Seemless integration with Azure Operator Service Manager's cluster registry, combined with centralized management of registry pairs, make artifact store resiliency to get and keep running. For more information, see our [learn documentation](publisher-artifact-store-resiliency.md).
+
+### Latest release updates to improve quality
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+* NFO - [381571] Cleanup of unused infrastructure scripts.
+* NFO - [373116] Update of Msi-Adapter service.
+* NFO - [372479] Managed Identity support for ACR authentication.
+* NFO - [2275729] Fix to prevent instability when encountering untagged container images.
+* RP  - [2326576] Support for artifact-store geo-replication.
+* RP  - [2327070] Support for interruption of service deployments.
+* RP  - [2388664] Fix for West Central US region test opreations.
+* RP  - [2309471] For to create ACR Names in lower case only.
+
+### Latest release updates to improve security
+* NFO - [CVE] A total of 2 CVEs are addressed in this release.
+* NFO - [383549] Helm version 3.18.4 downgrade (from 3.18.5).
+* RP  - [2301086] Secure Code Bugs-RP.
+* RP  - [2313679] 1ES Operational Vulnerabilities.
+
+## Release notes for all releases 
+The following generally available releases are listed in order from oldest to newest.
 
 ## Release 2407.01
 
@@ -472,43 +511,3 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * RP - [SFI] 2236914: MISE Upgrade
 * RP - [SFI] 2120797: Migrate to MISE/SNI
 * RP - [SFI] 2154940: Security Code Bugs
-
-## Release 2509.01
-
-Document Revision 2.0
-
-### Release Summary
-Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2509.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3194-224 and the RP version to 1.0.03180.486, the details of which are further outlined in the remainder of this document.
-
-### Release Details
-* NFO Release Version: 3.0.3194-224
-* RP Release Version: 1.0.03180.486
-* CLI Extension Release Version: 2.0.0b3
-* Release Date: September 30, 2025
-* Is NFO update required: YES, Update only
-* Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
-
-### Release Highlights
-
-#### Support for interruption of service deployments
-**[FEATURE 2069409 / ART-465]** introduces a method to interrupt a broken service deployment operation while in a nonterminal state. Supporting only container network functions, the interruption is triggered by applying a static tag to the network function managed resource group. This tag must later be removed to restore proper service operations. This feature provides a mechanism for customer operation teams to terminate a deployment which maybe negatively impacting service performance and otherwise could take multiple hours to reach a terminal state. For more information, see our [learn documentation](how-to-cancel-service-deployments.md).
-
-#### Support for publisher artifact store resiliency
-**[FEATURE 2129209 / ART-535]** introduces artifact store geo-resiliency between the backing ACR resources in two Azure regional location pairs. Once enabled, the artifact-store resource now  survives a single region failure, continuing to operate in read-only mode from the hot standby instance. Seemless integration with Azure Operator Service Manager's cluster registry, combined with centralized management of registry pairs, make artifact store resiliency to get and keep running. For more information, see our [learn documentation](publisher-artifact-store-resiliency.md).
-
-#### Release Updates
-The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
-* NFO - [381571] Cleanup of unused infrastructure scripts.
-* NFO - [373116] Update of Msi-Adapter service.
-* NFO - [372479] Managed Identity support for ACR authentication.
-* NFO - [2275729] Fix to prevent instability when encountering untagged container images.
-* RP  - [2326576] Support for artifact-store geo-replication.
-* RP  - [2327070] Support for interruption of service deployments.
-* RP  - [2388664] Fix for West Central US region test opreations.
-* RP  - [2309471] For to create ACR Names in lower case only.
-
-#### Security Related Updates
-* NFO - [CVE] A total of 2 CVEs are addressed in this release.
-* NFO - [383549] Helm version 3.18.4 downgrade (from 3.18.5).
-* RP  - [2301086] Secure Code Bugs-RP.
-* RP  - [2313679] 1ES Operational Vulnerabilities.

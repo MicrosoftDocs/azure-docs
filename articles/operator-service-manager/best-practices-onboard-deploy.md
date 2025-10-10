@@ -1,6 +1,6 @@
 ---
-title: Best Practices for Azure Operator Service Manager
-description: Understand best practices for Azure Operator Service Manager to onboard and deploy a network function.
+title: Basic Concepts for Azure Operator Service Manager
+description: Understand Azure Operator Service Manager basic concepts to onboard and deploy a network function.
 author: msftadam
 ms.author: adamdor
 ms.date: 10/06/2025
@@ -8,12 +8,10 @@ ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
 
-# Azure Operator Service Manager best practices to onboard and deploy network functions
-
-Microsoft has developed many proven practices for managing network functions (NFs) by using Azure Operator Service Manager. This article provides guidelines that NF vendors, telco operators, and their partners can follow to optimize the design. Keep these practices in mind when you onboard and deploy your NFs.
+# Basic concepts for Azure Operator Service Manager
+Microsoft has developed many proven practices for managing network functions (NFs) using Azure Operator Service Manager. This article provides basic guidelines that NF vendors, telco operators, and their partners can follow to optimize NF deployments. Consider these concepts when beginning the onboard and deployment planning process.
 
 ## General considerations
-
 We recommend that you first onboard and deploy your simplest NFs (one or two charts) by using the quickstarts to familiarize yourself with the overall flow. You can add necessary configuration details in subsequent iterations. As you go through the quickstarts, consider the following points:
 
 - Structure your artifacts to align with planned use. Consider separating global artifacts from the artifacts that you want to vary by site or instance.
@@ -21,10 +19,10 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 - Think early on about how you want to separate infrastructure (for example, clusters) or artifact stores and access between suppliers, in particular within a single service. Make your set of publisher resources match this model.
 - The Azure Operator Service Manager site is a logical concept, a representation of a deployment destination. Examples include a Kubernetes cluster for containerized network functions (CNFs) or an Azure Operator Nexus extended custom location for virtualized network functions (VNFs). It isn't a representation of a physical edge site, so you have use cases where multiple sites share the same physical location.
 - Azure Operator Service Manager provides various APIs that help you combine it with Azure DevOps or other pipeline tools.
-
+- The Azure Operator Service Manager command-line interface (CLI) extension assists with the publishing of network function definitions (NFDs) and NSDs. Use this tool as the starting point for creating new NFDs and NSDs. Consider using the CLI to create the initial files. Then edit them to incorporate infrastructure components before you publish.
+  
 ## Publisher considerations
-
-- We recommend that you create a single publisher per NF supplier, or per NF type per NF supplier, where the NF supplier may provide more then one NF type. This practice;
+- We recommend that you create a single publisher per NF supplier, or per NF type per NF supplier, where the NF supplier may provide more than one NF type. This practice;
   - Provides for the most optimal support, maintenance, and governance experience, by preventing proliferation of publishers. Especially during upgrade activities where the same action is often executed across many NFs. 
   - Lowers total operating costs by reducing the number of publisher backing resources, like ACR or Storage Accounts.
   - Simplifies the network service design (NSD), where it may consist of multiple NFs from multiple vendors.
@@ -44,7 +42,6 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 - Consider using agreed-upon naming conventions and governance techniques to help address any remaining gaps.
 
 ## NFDG and NFDV considerations
-
 The network function definition group (NFDG) represents the smallest component that you plan to reuse independently across multiple services. All parts of an NFDG are always deployed together. These parts are called `networkFunctionApplications` items.
 
 For example, it's natural to onboard a single NF that consists of multiple Helm charts and images as a single NFDG if you always deploy those components together. In cases where multiple NFs are always deployed together, it's reasonable to have a single NFDG for all of them. Single NFDGs can have multiple NFDVs.
@@ -54,7 +51,6 @@ For CNF NFDVs, the `networkFunctionApplications` list can contain only Helm pack
 For VNF NFDVs, the `networkFunctionApplications` list must contain at least one `VhdImageFile` value and one ARM template. The ARM template should deploy a single virtual machine (VM). To deploy multiple VMs for a single VNF, make sure to use a separate ARM template for each VM.
 
 The ARM template can deploy only Resource Manager resources from the following resource providers:
-
 - `Microsoft.Compute`
 - `Microsoft.Network`
 - `Microsoft.NetworkCloud`
@@ -66,7 +62,6 @@ The ARM template can deploy only Resource Manager resources from the following r
 For ARM templates that contain anything beyond the preceding list, all `PUT` calls on the VNF result in a validation error.
 
 ### Common use cases that trigger an NFDV minor or major version update
-
 - Updating CGSs or configuration group values (CGVs) for an existing release that triggers a change to `deployParametersMappingRuleProfile`
 - Updating values that are hard-coded in the NFDV
 - Marking components as inactive to prevent them from being deployed via `applicationEnablement: Disabled`
@@ -76,7 +71,6 @@ For ARM templates that contain anything beyond the preceding list, all `PUT` cal
 > A minimum number of changes is required every time the payload of an NF changes. A minor or major NF release without exposing new CGS parameters requires only updating the artifact manifest, pushing new images and charts, and bumping the NFDV.
 
 ## NSDG and NSDV considerations
-
 A network service design group (NSDG) is a composite of one or more NFDGs and any infrastructure components deployed at the same time. These components might include clusters and VMs in Nexus Kubernetes or Azure Kubernetes Service (AKS). A site network service (SNS) refers to a single NSDV. Such a design provides a consistent and repeatable deployment of the network service to a site from a single SNS `PUT` call.
 
 An example NSDG might consist of:
@@ -90,7 +84,6 @@ An example NSDG might consist of:
 These five components form a single NSDG. A single NSDG can have multiple NSDVs.
 
 ### Common use cases that trigger an NSDV minor or major version update
-
 - Creating or deleting CGSs
 - Changes in the ARM template associated with one of the NFs being deployed
 - Changes in the infrastructure ARM template; for example, Nexus Kubernetes, AKS, or VM
@@ -98,28 +91,18 @@ These five components form a single NSDG. A single NSDG can have multiple NSDVs.
 > [!NOTE]
 > Changes in an NFDV shouldn't trigger an NSDV update. The NFDV should be exposed as a parameter within the CGS, so operators can control what to deploy by using CGVs.
 
-## CLI considerations
-
-The Azure Operator Service Manager command-line interface (CLI) extension assists with the publishing of network function definitions (NFDs) and NSDs. Use this tool as the starting point for creating new NFDs and NSDs. 
-
-Consider using the CLI to create the initial files. Then edit them to incorporate infrastructure components before you publish.
-
 ## SNS considerations
-
 We recommend that you have a single SNS for the entire site, including the infrastructure. The SNS should deploy any required infrastructure (for example, clusters and VMs in Nexus Kubernetes or AKS), and then deploy the required NFs on top. Such a design provides a consistent and repeatable deployment of the network service to a site from a single SNS `PUT` call.
 
 We recommend that you deploy every SNS with a user-assigned managed identity rather than a system-assigned managed identity. This user-assigned managed identity must have permissions to access the NFDV and must have the role of Managed Identity Operator on itself. For more information, see [Create and assign a user-assigned managed identity](how-to-create-user-assigned-managed-identity.md).
 
 ## Azure Operator Service Manager resource mapping per use case
-
 The following two scenarios illustrate Azure Operator Service Manager resource mapping.
 
 ### Scenario: Single network function
-
 An NF with one or two application components is deployed to a Nexus Kubernetes cluster.
 
 Here's the breakdown of resources:
-
 - **NFDG**: If components can be used independently, two NFDGs (one per component). If components are always deployed together, then a single NFDG.
 - **NFDV**: As needed based on use cases that trigger NFDV minor or major version updates.
 - **NSDG**: Single. Combines the NFs and the Kubernetes cluster definitions.
@@ -129,10 +112,7 @@ Here's the breakdown of resources:
 - **SNS**: Single per NSDV.
 
 ### Scenario: Multiple network functions
-
-Multiple NFs with some shared and independent components are deployed to a Nexus Kubernetes cluster.
-
-Here's the breakdown of resources:
+Multiple NFs with some shared and independent components are deployed to a Nexus Kubernetes cluster. Here's the breakdown of resources:
 
 - **NFDG**:
   - Single for all shared components.
@@ -147,16 +127,13 @@ Here's the breakdown of resources:
 - **CGV**: Equal to the number of CGSs.
 - **SNS**: Single per NSDV.
 
-## Software upgrade considerations
-
+## Network Function upgrade considerations
 Assuming that NFs support in-place and in-service upgrades, the following considerations apply for CNFs:
-
 - If you add new charts and images, Azure Operator Service Manager installs the new charts.
 - If you remove some charts and images, Azure Operator Service Manager deletes the charts that are no longer declared in the NFDV.
 - Azure Operator Service Manager validates that the NFDV/NSDV originated from the same NFDG/NSDG and hence the same publisher. Cross-publisher upgrades aren't supported.
 
 The following considerations apply for VNFs:
-
 - In-place upgrades are currently not supported. You need to instantiate a new VNF with an updated image side by side. Then delete the older VNF by deleting the SNS.
 - If a VNF is deployed as a pair of VMs for high availability, you can design the network service in such a way that you can delete and upgrade VMs one by one. We recommend the following design to allow the deletion and upgrade of individual VMs:
   - Deploy each VM by using a dedicated ARM template.
@@ -166,15 +143,14 @@ The following considerations apply for VNFs:
   - In the NFDV, you need to parameterize `deployParameters` and `templateParameters` in such a way that you can supply the unique values by using CGVs for each.
 
 ## Considerations for high availability and disaster recovery
-
 Azure Operator Service Manager is a regional service deployed across availability zones in regions that support them. For a list of regions where Azure Operator Service Manager is available, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=operator-service-manager,azure-network-function-manager&regions=all). For a list of Azure regions that have availability zones, see [Find the Azure geography that meets your needs](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
 
 Consider the following requirements for high availability and disaster recovery:
-
 - To provide geo-redundancy, make sure you have a publisher in every region where you're planning to deploy NFs. Consider using pipelines to keep publisher artifacts and resources in sync across the regions.
 - The publisher name must be unique for each Microsoft Entra tenant in each region.
 - If a region becomes unavailable, you can deploy (but not upgrade) an NF by using publisher resources in another region. Assuming that artifacts and resources are identical between the publishers, you need to change only the `networkServiceDesignVersionOfferingLocation` value in the SNS resource payload:
 
+```
   <pre>
   resource sns 'Microsoft.HybridNetwork/sitenetworkservices@2023-09-01' = {
    name: snsName
@@ -189,9 +165,9 @@ Consider the following requirements for high availability and disaster recovery:
      networkServiceDesignVersionName: nsdvName
      <b>networkServiceDesignVersionOfferingLocation: location</b>
   </pre>
+```
 
 ## Troubleshooting considerations
-
 During installation and upgrade, by default:
 
 - The `atomic` and `wait` options are set to `true`.
@@ -201,14 +177,17 @@ During initial onboarding, only while you're still debugging and developing arti
 
 In the ARM template, add the following section:
 
+```
 <pre>
 "roleOverrideValues": [
     "{\"name\":\"<b>NF_component_name></b>\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"false\",\"wait\":\"true\",\"timeout\":\"100\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"4\"}}}}}"
 ]
 </pre>
+```
 
 The component name is defined in the NFDV:
 
+```
 <pre>
      networkFunctionTemplate: {
       nfviType: 'AzureArcKubernetes'
@@ -222,18 +201,16 @@ The component name is defined in the NFDV:
               id: acrArtifactStore.id
             }
 </pre>
+```
 
 > [!IMPORTANT]
 > Be sure to set `atomic` and `wait` back to `true` after initial onboarding is complete.
 
 ## Cleanup considerations
-
 When you're cleaning up resources, the order is important. Deleting resources out of order can result in orphaned resources left behind.
 
 ### Operator resources
-
 As the first step toward cleaning up a deployed environment, delete operator resources in the following order:
-
 1. SNS
 1. Site
 1. CGV
@@ -241,9 +218,7 @@ As the first step toward cleaning up a deployed environment, delete operator res
 You can proceed to delete other environment resources, such as the Nexus Kubernetes cluster, only after you successfully delete these operator resources.
 
 ### Publisher resources
-
 As the first step toward cleaning up an onboarded environment, delete publisher resources in the following order:
-
 1. NSDV
 1. NSDG
 1. NFDV
@@ -258,13 +233,10 @@ As the first step toward cleaning up an onboarded environment, delete publisher 
 Azure Operator Service Manager does not delete namespaces as part of any deletion operation. As such, after all resources are deleted, some artifacts might remain on the cluster. To remove any remaining artifacts, you should delete any workload namespaces created on the cluster. Including the namespace deletion operation as part of the workflow pipeline is a recommendation to automate the action.
 
 ## Sequential ordering behavior for CNF applications
-
 By default, CNF applications are installed or updated based on the order in which they appear in the NFDV. For the deletion operation, the CNF applications are deleted in the specified reverse order. If you need to define a specific order of CNF applications that's different from the default, use `dependsOnProfile` to define a unique sequence for installation, update, and deletion operations.
 
 ### How to use dependsOnProfile
-
 You can use `dependsOnProfile` in the NFDV to control the sequence of Helm executions for CNF applications. In the example that follows:
-
 - During an installation operation, the CNF applications are deployed in the following order: `dummyApplication1`, `dummyApplication2`, `dummyApplication`.
 - During an update operation, the CNF applications are updated in the following order: `dummyApplication2`, `dummyApplication1`, `dummyApplication`.
 - During a deletion operation, the CNF applications are deleted in the following order: `dummyApplication2`, `dummyApplication1`, `dummyApplication`.
@@ -316,7 +288,6 @@ You can use `dependsOnProfile` in the NFDV to control the sequence of Helm execu
 ```
 
 ### Common errors
-
 Currently, if the `dependsOnProfile` code provided in the NFDV is invalid, the NF operation fails with a validation error. The message for the validation error appears in the operation status resource and looks similar to the following example:
 
 ```json
@@ -330,34 +301,6 @@ Currently, if the `dependsOnProfile` code provided in the NFDV is invalid, the N
   "error": {
     "code": "DependenciesValidationFailed",
     "message": "CyclicDependencies: Circular dependencies detected at hellotest."
-  }
-}
-```
-
-## injectArtifactStoreDetails considerations
-
-In some cases, third-party Helm charts might not be fully compliant with Azure Operator Service Manager requirements for `registryURL`. In this case, you can use the `injectArtifactStoreDetails` feature to avoid making changes to Helm packages.
-
-To use `injectArtifactStoreDetails`, set the `installOptions` parameter in the NF resource's `roleOverrides` section to `true`. Then use whatever `registryURL` value keeps the registry URL valid. The following example shows the `injectArtifactStoreDetails` parameter enabled:
-
-```bash
-resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = {
-  name: nfName
-  location: location
-  properties: {
-    nfviType: 'AzureArcKubernetes'
-    networkFunctionDefinitionVersionResourceReference: {
-      id: nfdvId
-      idType: 'Open'
-    }
-    allowSoftwareUpdate: true
-    nfviId: nfviId
-    deploymentValues: deploymentValues
-    configurationType: 'Open'
-    roleOverrideValues: [
-      // Use inject artifact store details feature on test app 1
-      '{"name":"testapp1", "deployParametersMappingRuleProfile":{"helmMappingRuleProfile":{"options":{"installOptions":{"atomic":"false","wait":"false","timeout":"60","injectArtifactStoreDetails":"true"},"upgradeOptions": {"atomic": "false", "wait": "true", "timeout": "100", "injectArtifactStoreDetails": "true"}}}}}'
-    ]
   }
 }
 ```

@@ -7,7 +7,7 @@ manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/04/2024
+ms.date: 08/25/2025
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Set up feature management
 
-The Spring Boot feature manager `FeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags by using any configuration source that Spring Boot supports, including the local *bootstrap.yml* file or environment variables. `FeatureManager` relies on dependency injection. You can register the feature management services by using standard conventions:
+The Spring Boot feature manager `FeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags by using any configuration source that Spring Boot supports, including the local *application.yml* file or environment variables. `FeatureManager` relies on dependency injection. You can register the feature management services by using standard conventions:
 
 ```java
 private FeatureManager featureManager;
@@ -174,7 +174,7 @@ public String getOldFeature() {
 
 ## Next steps
 
-In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917). The reference documentation has all of the details on how the Spring Cloud Azure App Configuration library works.For more information about feature management support in Spring Boot and App Configuration, see the following resources:
+In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917). The reference documentation has all of the details on how the Spring Cloud Azure App Configuration library works. For more information about feature management support in Spring Boot and App Configuration, see the following resources:
 
 * [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md)
 * [Manage feature flags](./manage-feature-flags.md)

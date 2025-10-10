@@ -59,7 +59,7 @@ Delete repositories, tags, or manifests from a container registry.
 
 ## AcrImageSigner
 
-Push trusted images to or pull trusted images from a container registry enabled for content trust.
+Avoid using this role. Content Trust in Azure Container Registry and the AcrImageSigner role are being deprecated and will be completely removed on March 31, 2028. For details and transition guidance, see https://aka.ms/acr/dctdeprecation.
 
 [Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
