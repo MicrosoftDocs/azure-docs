@@ -33,7 +33,7 @@ items:
     - name: Get Started on Storage Discovery reports
       href: get-started-reports.md
     - name: Access your insights through Azure Copilot
-      href: /copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
+      href: /azure/copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
   - name: Manage
     items:
     - name: Move resources to other locations in Azure
