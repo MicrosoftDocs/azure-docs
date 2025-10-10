@@ -8,9 +8,9 @@ ms.topic: include
 ---
 
 
-## Use modular scripts in Dev Box customizations
+## Use modular scripts and files in Dev Box customizations
 
-Modular scripts like PowerShell scripts or Desired State Configuration (DSC) files can be stored in a shared catalog so you can reuse and standardize Dev Box customizations across multiple images.
+Modular scripts and files like PowerShell scripts, Desired State Configuration (DSC) files, configuration files, text files, or images can be stored in a shared catalog so you can reuse and standardize Dev Box customizations across multiple images.
 
 They're designed to:
 
@@ -22,15 +22,15 @@ They're designed to:
 
 Files in the same folder as the imagedefinition.yaml, or in its subfolders, are copied to the dev box on creation. You can use these files when you run customization tasks.
 
-The following diagram shows a catalog structure for modular scripts in Dev Box customizations.
+The following diagram shows a catalog structure for modular scripts and files in Dev Box customizations.
 
-:::image type="content" source="../media/customizations-modular-scripts/customizations-modular-scripts-catalog-structure.png" alt-text="Diagram that shows a catalog structure with an image definitions folder, Frontend-imagedef and backend-imagedef subfolders, and subfolders for scripts.":::
+:::image type="content" source="../media/customizations-modular-scripts/customizations-modular-scripts-catalog-structure.png" alt-text="Diagram that shows a catalog structure with an image definitions folder, Frontend-imagedef and backend-imagedef subfolders, and subfolders for scripts and files.":::
 
-At the top level, there's an *image definitions* folder. Inside, you find image definition subfolders like *frontend-imagedef* and *backend-imagedef.* The frontend-imagedef folder has a PowerShell script file. The backend-imagedef folder includes a subfolder that contains DSC files. You can use either structure to store script files.
+At the top level, there's an *image definitions* folder. Inside, you find image definition subfolders like *frontend-imagedef* and *backend-imagedef.* The frontend-imagedef folder has a PowerShell script file. The backend-imagedef folder includes a subfolder that contains DSC files. You can use either structure to store scripts and other files.
 
 ### Reference modular scripts or files
 
-Image Definition file sets a list of *tasks* that run in system context and *userTasks* that run after the first sign-in on the new dev box, in user context. Use display names for tasks to clarify the purpose of each task. In your image definition file, reference the modular scripts you want to run.
+Image Definition file sets a list of *tasks* that run in system context and *userTasks* that run after the first sign-in on the new dev box, in user context. Use display names for tasks to clarify the purpose of each task. In your image definition file, reference the modular scripts you want to run, or files you want to include.
 
 ```yaml
 
