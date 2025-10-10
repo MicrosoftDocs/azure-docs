@@ -86,7 +86,7 @@ The following options are available for you to create a deployment slot:
    1. Enter and select the name for your Standard logic app.
    1. Enter a unique name for your deployment slot.
    
-      This name must use only lowercase alphanumeric characters or hyphens (**-**), 
+      This name must use only lowercase alphanumeric characters or hyphens (**-**).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -156,6 +156,8 @@ After you deploy your changes, confirm that the changes appear in your deployed 
 1. On the resource sidebar, under **Deployment**, select **Deployment slots**.
 1. On the **Deployment slots** page, under **Deployment Slots**, find and select your deployment slot.
 1. On the resource sidebar, select **Overview**. On the **Notifications** tab, check whether any deployment issues exist, for example, errors that might happen during app startup or around slot swapping:
+
+   For this example, no notifications appeared:
 
    :::image type="content" source="media/set-up-deployment-slots/deployment-slot-notifications.png" alt-text="Screenshot shows the Azure portal, logic app deployment slot resource with Overview page, and selected Notifications tab." lightbox="media/set-up-deployment-slots/deployment-slot-notifications.png":::
 
