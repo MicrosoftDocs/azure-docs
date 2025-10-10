@@ -7,6 +7,8 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ---
 
+# Azure Custom Resource Providers Overview
+
 > [!IMPORTANT]
 > Custom Resource Providers is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -25,9 +27,6 @@ ms.author: jobreen
 > - Involves triggering several different endpoints or services for your solution, consider [Azure Functions](../../azure-functions/functions-overview.md).
 >
 > If you have any questions, please ask your Microsoft account manager to email curpdeprecation@microsoft.com with your name, company name, email contact, and subscription ID.
-
-
-# Azure Custom Resource Providers Overview
 
 Azure Custom Resource Providers is an extensibility platform to Azure. It allows you to define custom APIs that can be used to enrich the default Azure experience. This documentation describes:
 
