@@ -27,5 +27,4 @@ Features included:
 ### Known Limitations
 
 - Reports include insights for both Standard and Premium storage accounts. However, filtering specifically by performance type to isolate insights for Premium accounts isn't yet supported. We're actively working to enable this functionality in an upcoming release.
-
-- Trend graphs in Reports may occasionally show sharp dips that don’t reflect actual changes in metrics like size or count. A fix for dips caused by this reporting issue is underway.
+- Trend graphs in Reports may occasionally show sharp dips that don’t reflect actual changes in metrics like size or count.
