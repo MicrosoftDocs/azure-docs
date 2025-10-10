@@ -78,7 +78,7 @@ Storage Discovery workspaces can be created in the following regions:
 
 [!INCLUDE [control-plane-regions](includes/control-plane-regions.md)]
 
-A Storage Discovery workspace can cover storage accounts located in any public cloud region. If a new Azure public cloud region becomes first available, there may be a delay until storage resources from this new region are considered by the Storage Discovery service.
+A Storage Discovery workspace can cover storage accounts located in any public cloud region. If a new Azure public cloud region becomes available, there may be a delay until storage resources from this new region get covered by the Storage Discovery service.
 
 ## Permissions
 

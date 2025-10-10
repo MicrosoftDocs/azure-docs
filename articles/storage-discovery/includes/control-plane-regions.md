@@ -16,7 +16,7 @@ Storage Discovery workspaces can be created in the following regions:
 - West Europe
 - West US 2
 - South Central US
-- australia East
+- Australia East
 - Central India
 - Japan East
 - Brazil South

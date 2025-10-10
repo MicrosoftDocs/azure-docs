@@ -3,7 +3,7 @@ title: Understand Storage Discovery Pricing | Microsoft Docs
 titleSuffix: Azure Storage Discovery
 description: Storage Discovery pricing and features available with each pricing plan.
 author: fauhse
-ms.service: azure-storage-mover
+ms.service: azure-storage-discovery
 ms.topic: overview
 ms.date: 10/09/2025
 ms.author: fauhse

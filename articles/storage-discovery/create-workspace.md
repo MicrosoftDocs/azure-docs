@@ -11,7 +11,7 @@ ms.author: fauhse
 
 # Deploy the Azure Storage Discovery service
 
-To deploy the Azure Storage Discovery service, you'll need to create a Discovery workspace resource in one of your resource groups. With this resource, you define which storage resources you want to cover across your Microsoft Entra tenant and how you want to segment reporting for them. The workspace offers prebuilt reports in the Azure portal that you can use to retrieve the insights you need about your storage resources.
+To deploy the Azure Storage Discovery service, you need to create a Discovery workspace resource in one of your resource groups. With this resource, you define which storage resources you want to cover across your Microsoft Entra tenant and how you want to segment reporting for them. The workspace offers prebuilt reports in the Azure portal that you can use to retrieve the insights you need about your storage resources.
 
 Follow the steps in this article to create an Azure Storage Discovery workspace resource.
 
@@ -63,7 +63,7 @@ Scopes are logical groupings of storage accounts within the defined workspaceRoo
 > [!IMPORTANT]
 > A **default Scope** is added automatically, which includes all storage accounts within subscriptions or resource groups added in the **workspaceRoots**.
 
-You can optionally add tags to this workspace resource. Then select **Review and Create**. If the access validation is still running, you won't be able to create the workspace resource just yet. Wait for this check to finish, correct any issues, then confirm by selecting **Create**.
+You can optionally add tags to this workspace resource. Then select **Review and Create**. If the access validation is still running, you can't create the workspace resource yet. Wait for this check to finish, correct any issues, then confirm by selecting **Create**.
 
 :::image source="media/create-workspace/access-check-sml.png" alt-text="Screenshot of access checks running."  lightbox="media/create-workspace/access-check.png":::
 

@@ -2,7 +2,7 @@
 title: Frequently asked questions for the Azure Storage Discovery service | Microsoft Docs
 description: Find answers for frequently asked questions about Azure Storage Discovery.
 author: pthippeswamy
-ms.author: shaas
+ms.author: pthippeswamy
 ms.service: azure-storage-discovery
 ms.topic: release-notes
 ms.date: 10/09/2025
@@ -14,9 +14,10 @@ In this article, learn about frequently asked questions and answers for the Azur
 <details>
 <summary> I can't find a subscription in the workspace root picker (resource tree) to add it to the workspace root.</summary>
 
-- Verify you are in the correct Tenant and the subscription is selected.
-- Navigate to Settings (right-hand corner on Portal) and "Directories and Subscriptions"
-- Select the "All Subscription" drop-down to verify if the subscription is selected. If the subscription isn't selected here, it will not show up on the 'Add workspace root' flow.
+- Navigate to the [Azure portal](https://portal.azure.com).
+- Verify you are logged into the portal with an account from the same tenant the subscription is located in.
+- Navigate to Settings (top, right corner in the portal) and then select "Directories and Subscriptions".
+- Select the "All Subscription" drop-down to verify if the subscription is listed and selected. If the subscription isn't selected here, it doesn't show up on the 'Add workspace root' dialog.
 
 </details>
 
@@ -45,9 +46,9 @@ Activity, Security, and Consumption reports show insights only for Standard pric
 </details>
 
 <details>
-<summary>Unable to add more than ten scopes in a workspace.</summary>
+<summary>Unable to add more than 10 scopes in a workspace.</summary>
 
-Discovery workspace has a default limit of ten scopes per workspace. Support team may be contacted with a request to increase this limit if needed. Provide the tenantID, SubscriptionID where you would want this limit to be increased.
+Discovery workspace has a default limit of 10 scopes per workspace. Support team may be contacted with a request to increase this limit if needed. Provide the tenantID, SubscriptionID where you would want this limit to be increased.
 
 </details>
 
@@ -73,7 +74,7 @@ Discovery workspace has a default limit of five ARM tags per scopes in each work
 - Maximum number of scopes in a workspace: 10
 - Maximum number of tags a scope can filter on: 5
 
-If you need any of these limits increased, open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and provide which limit and to what count you need that limit increased. Also include the tenant ID and the subscription ID. Our team will review your request and may contact you with additional questions. 
+If you need any of these limits increased, open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and provide which limit and to what count you need that limit increased. Also include the tenant ID and the subscription ID. Our team reviews your request and may contact you with any remaining questions. 
 
 </details>
 
@@ -88,20 +89,19 @@ Insights aggregation often completes within a few hours but can also take more t
 <summary>Switching the pricing plan for a workspace</summary>
 
 > [!WARNING]
-> If a workspace is downgraded from a paid pricing plan to the `Free` plan, historic insights for only the past 15 days will be retained and all previously aggregated insights will be permanently deleted. Historic data cannot be recovered, even if you switch the workspace back to a paid plan.
+> If a workspace is downgraded from a paid pricing plan to the `Free` plan, historic insights for only the past 15 days are retained and all previously aggregated insights are permanently deleted. Historic data can't be recovered, even if you switch the workspace back to a paid plan.
 
 </details>
 
 <details>
-<summary>I am unable to create a new resource.</summary>
+<summary>I'm unable to create a new resource.</summary>
 
 There are two common reasons why the creation of a workspace resource can fail.
 
 - You might not have the necessary permissions to the resources you listed in the root configuration of your new workspace. The [deployment planning article](deployment-planning.md) has more details for required permissions.
-- Discovery only allows a maximum of 10 workspaces per region per subscription. To identify if this limit affects you, review the error message with which your workspace creation failed. `You've reached the maximum number of allowed resources {maxResourcesPerRegion} for this subscription in the {workspace.Location} region. Current count of resources added: {currentCount}` If you need additional workspaces, you can open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and provide the tenant ID and the subscription ID for which you need this deployment limit increased. Our team will review your request and may contact you with additional questions. 
+- Discovery only allows a maximum of 10 workspaces per region per subscription. To identify if this limit affects you, review the error message with which your workspace creation failed. `You've reached the maximum number of allowed resources {maxResourcesPerRegion} for this subscription in the {workspace.Location} region. Current count of resources added: {currentCount}` If you need more workspaces, you can open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and provide the tenant ID and the subscription ID for which you need this deployment limit increased. Our team reviews your request and may contact you with any remaining questions. 
 
 </details>
-
 
 <details>
 <summary>Discovery reports aren't showing few storage accounts that are part of the workspace.</summary>
@@ -114,5 +114,5 @@ There are two common reasons why the creation of a workspace resource can fail.
 
 <details>
 <summary>Trend charts on Capacity and Consumption report show sharp dips</summary>
-Trend graphs in the Capacity and Consumption reports may occasionally display temporary dips. This could be due to reporting issues and may not indicate actual changes in storage account metadata such as size or object count.
+Trend graphs in the Capacity and Consumption reports may occasionally display temporary dips. Common causes are actual changes in your resources and noise from the insights aggregation engine. When viewed over longer time periods or averaged throughout a day, these ripples typically don't distort the the overall insight you are gaining from any given graph.
 </details>
