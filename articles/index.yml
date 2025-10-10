@@ -1,9 +1,7 @@
 ### YamlMime:Hub
-
 title: Azure documentation
 summary: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
 brand: azure
-
 metadata:
   title: Azure documentation
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
@@ -35,7 +33,6 @@ highlightedContent:
     - title: Achieve organizational goals with the Cloud Adoption Framework
       itemType: overview
       url: /azure/cloud-adoption-framework/
-
 productDirectory:
   title: Browse Azure products
   items:
@@ -1422,7 +1419,6 @@ productDirectory:
        - featured 
        - management-and-governance
       url: /azure/copilot
-      
 tools:
   title: Languages and tools
   items:
@@ -1474,10 +1470,6 @@ tools:
     - title: Terraform
       imageSrc: /media/logos/logo_terraform.svg
       url: /azure/developer/terraform/
-    # Card
-
-
-
 additionalContent:
   sections:
     - title: Azure clouds
@@ -1500,3 +1492,83 @@ additionalContent:
         - title: Azure Native ISV Services
           summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
           url: ./partner-solutions/index.yml
+# Azure experiment content, don't edit/remove below
+hero:
+  componentType: hero-product
+  title: Azure Hub
+  summary:
+    'Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.'
+  size: small
+  heroImage:
+    lightImageSrc: '/media/hubs/azure/hero-light.jpg'
+    darkImageSrc: '/media/hubs/azure/hero-dark.jpg'
+  links:
+    - componentType: link
+      text: Portal
+      url: https://portal.azure.com
+    - componentType: link
+      text: Free account
+      url: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
+      color: primary
+getStarted:
+  title: Get started with Azure
+  blocks:
+    - componentType: icon-card
+      title: What's new
+      summary: Explore the latest Azure updates from the past three months.
+      url: /azure/developer/intro/whats-new
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/whats-new.svg'
+    - componentType: icon-card
+      title: Overview
+      summary: Learn about key services used to build on Azure
+      url: /azure/developer/intro/azure-developer-key-services
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/overview.svg'
+    - componentType: icon-card
+      title: For developers
+      summary: Step-by-step guide for first-time developers
+      url: /azure/developer/intro/azure-developer-overview
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/for-developers.svg'
+    - componentType: icon-card
+      title: Troubleshooting
+      summary: Troubleshoot common issues in Azure
+      url: /troubleshoot/azure/
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/troubleshooting.svg'
+recommendedContent:
+  title: Recommended resources
+  blocks:
+    - componentType: icon-card
+      title: Azure architectures
+      summary: Find architecture diagrams and real world examples of cloud solutions
+      url: /azure/architecture/browse/
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/azure-architectures.svg'
+    - componentType: icon-card
+      title: All Azure training
+      summary: Grow your skills to build and manage applications in the cloud
+      url: /training/browse/?products=azure
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/all-azure-training.svg'
+    - componentType: icon-card
+      title: Azure concepts
+      summary: Learn how to create and manage resources
+      url: /azure/developer/intro/azure-developer-key-concepts
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/azure-concepts.svg'
+    - componentType: icon-card
+      title: Your career path
+      summary: Receive training based on your career path
+      url: /training/career-paths/
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/your-career-path.svg'
