@@ -317,7 +317,7 @@ Alternatively, you can set these properties while creating the Key Vault. [Learn
 
 ## Save MARS agent passphrase to Azure Key Vault for a new MARS installation
 
-Before proceeding to install the MARS agent, ensure that you have  [configured the Recovery Services vault to store passphrase to Azure Key Vault](#configure-the-recovery-services-vault-to-store-passphrase-to-azure-key-vault) and you have successfully:
+Before proceeding to install the MARS agent, ensure that you have  [configured the Recovery Services vault to store passphrase to Azure Key Vault](#configure-the-recovery-services-vault-to-store-mars-agent-passphrase-to-azure-key-vault) and you have successfully:
 
 1. Created your Recovery Services vault.
 2. Enabled the Recovery Services vault's system-assigned managed identity.
@@ -337,7 +337,7 @@ Before proceeding to install the MARS agent, ensure that you have  [configured t
 
 5. Paste the *Key Vault URI* in the *MARS console*, and then select **Register**.
 
-   If you encounter an error, [check the troubleshooting section](#troubleshoot-common-scenarios) for more information.
+   If you encounter an error, [check the troubleshooting section](#troubleshoot-common-scenarios-for-saving-passphrase-to-azure-key-vault) for more information.
 
 8. Once the registration succeeds, the option to *copy the identifier to the Secret* is created and the passphrase is NOT saved to a file locally.  
 
@@ -351,7 +351,7 @@ You can automate this process by using the new KeyVaultUri option in `Set-OBMach
 
 If you have an existing MARS agent installation and want to save your passphrase to Azure Key Vault, [update your agent](upgrade-mars-agent.md) to version *2.0.9262.0* or above and perform a change passphrase operation.
 
-After updating your MARS agent, ensure that you have [configured the Recovery Services vault to store passphrase to Azure Key Vault](#configure-the-recovery-services-vault-to-store-passphrase-to-azure-key-vault) and you have successfully:
+After updating your MARS agent, ensure that you have [configured the Recovery Services vault to store passphrase to Azure Key Vault](#configure-the-recovery-services-vault-to-store-mars-agent-passphrase-to-azure-key-vault) and you have successfully:
 
 1. Created your Recovery Services vault.
 2. Enabled the Recovery Services vault's system-assigned managed identity.
@@ -381,7 +381,7 @@ To save the passphrase to Key Vault:
 
 4. *Paste the Key Vault URI* in the *MARS console*, and then select **OK**.
 
-   If you encounter an error, [check the troubleshooting section](#troubleshoot-common-scenarios) for more information.
+   If you encounter an error, [check the troubleshooting section](#troubleshoot-common-scenarios-for-saving-passphrase-to-azure-key-vault) for more information.
 
 5. Once the change passphrase operation succeeds, an option to *copy the identifier to the Secret* gets created and the passphrase is NOT saved to a file locally.
 
@@ -428,7 +428,7 @@ This section lists commonly encountered errors when saving the passphrase to Azu
 
 **Cause**: This error occurs if the Recovery Services vault doesn't have a system-assigned managed identity configured.
 
-**Recommended action**: Ensure that system-assigned managed identity is configured correctly for the Recovery Services vault as per the [prerequisites](#before-you-start).
+**Recommended action**: Ensure that system-assigned managed identity is configured correctly for the Recovery Services vault as per the [prerequisites](#prerequisites).
 
 ### Permissions aren't configured – 391225
 
