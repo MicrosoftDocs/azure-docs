@@ -191,7 +191,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
 > | <a name='acrdelete'></a>[AcrDelete](./built-in-roles/containers.md#acrdelete) | Delete repositories, tags, or manifests from a container registry. | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
-> | <a name='acrimagesigner'></a>[AcrImageSigner](./built-in-roles/containers.md#acrimagesigner) | Push trusted images to or pull trusted images from a container registry enabled for content trust. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
+> | <a name='acrimagesigner'></a>[AcrImageSigner](./built-in-roles/containers.md#acrimagesigner) | Avoid using this role. Content Trust in Azure Container Registry and the AcrImageSigner role are being deprecated and will be completely removed on March 31, 2028. For details and transition guidance, see https://aka.ms/acr/dctdeprecation. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | <a name='acrpull'></a>[AcrPull](./built-in-roles/containers.md#acrpull) | Pull artifacts from a container registry. | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | <a name='acrpush'></a>[AcrPush](./built-in-roles/containers.md#acrpush) | Push artifacts to or pull artifacts from a container registry. | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | <a name='acrquarantinereader'></a>[AcrQuarantineReader](./built-in-roles/containers.md#acrquarantinereader) | Pull quarantined images from a container registry. | cdda3590-29a3-44f6-95f2-9f980659eb04 |

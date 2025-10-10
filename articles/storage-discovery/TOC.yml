@@ -8,10 +8,10 @@ items:
   expanded: true
 - name: Concepts
   items:
-  - name: Management components
-    href: management-components.md
   - name: Planning for deployment
     href: deployment-planning.md
+  - name: Management components
+    href: management-components.md  
   - name: Pricing
     href: pricing.md
   - name: Reliability
@@ -32,6 +32,8 @@ items:
     items:
     - name: Get Started on Storage Discovery reports
       href: get-started-reports.md
+    - name: Access your insights through Azure Copilot
+      href: /azure/copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
   - name: Manage
     items:
     - name: Move resources to other locations in Azure

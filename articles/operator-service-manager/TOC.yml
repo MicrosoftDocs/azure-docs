@@ -10,14 +10,14 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Basic Concepts
+  - name: Getting Started
     expanded: false
     items:
       - name: Role-Based Persona Model
         href: roles-interfaces.md
       - name: Tenants, Subscriptions and Regions
         href: publisher-resource-preview-management.md
-      - name: Get Started with Onboarding and Deploying
+      - name: Onboarding and Deploying Basics
         href: best-practices-onboard-deploy.md
   - name: Publisher Best Practices
     expanded: false
@@ -147,6 +147,7 @@
     href: glossary.md
   - name: REST API
     href: /rest/api/hybridnetwork
+
 
 
 

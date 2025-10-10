@@ -103,6 +103,23 @@ To configure your App Service Environment to use just the ciphers that it requir
 > [!WARNING]
 > If incorrect values are set for the cipher suite that SChannel can't understand, all TLS communication to your server might stop functioning. In such a case, you'll need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated Resource Manager template to revert back to the default cipher suite settings. Use this functionality with caution.
 
+## Enable FIPS mode
+
+This setting applies to Linux-based workloads in your App Service Environment. You can configure your Linux-based workloads running on App Service Environment to operate in FIPS (Federal Information Processing Standards) mode. When enabled, FIPS mode ensures that cryptographic operations comply with FIPS 140-2 standards.
+
+To enable FIPS mode on your App Service Environment, you can set the following **clusterSettings** entry:
+
+```json
+"clusterSettings": [
+    {
+        "name": "LinuxFipsModeEnabled",
+        "value": "true"
+    }
+],
+```
+
+When LinuxFipsModeEnabled is set to true, your App Service Environment uses FIPS-compliant cryptographic modules for cryptographic operations.
+
 ## Get started
 
 The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create/).

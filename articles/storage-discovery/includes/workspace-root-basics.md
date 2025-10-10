@@ -10,7 +10,6 @@ During the creation of a Storage Discovery workspace, you configure the workspac
 In the workspace root, you list at least one and at most 100 Azure resources of different types:
 - subscriptions
 - resource groups
-- storage accounts
 
 The person deploying the workspace must have at least the Role Based Access Control (RBAC) role assignment *Reader* for every resource in the workspace root.
 *Reader* is the minimum permission level required. *Contributor* and *Owner* are also supported.

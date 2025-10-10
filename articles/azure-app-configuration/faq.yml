@@ -6,7 +6,7 @@ metadata:
   author: zhenlan
   ms.service: azure-app-configuration
   ms.topic: faq
-  ms.date: 10/01/2024
+  ms.date: 08/25/2025
   ms.author: zhenlwa
   ms.custom: references_regions
 title: Azure App Configuration FAQ
@@ -211,7 +211,7 @@ sections:
 
           When the Spring profile is set to `dev`, the value of `config.message` will be `Hello from dev`. When the Spring profile is set to `prod`, the value of `config.message` will be `Hello from prod`.
 
-          This default behavior can be overridden by setting the label filter in your bootstrap file. The Spring provider library loads key-values with the specified label(s) regardless of the active Spring profile.
+          This default behavior can be overridden by setting the label filter in your application properties file. The Spring provider library loads key-values with the specified label(s) regardless of the active Spring profile.
 
           ```yaml
           spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label
