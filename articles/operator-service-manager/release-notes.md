@@ -27,7 +27,10 @@ Use of AOSM in these regions is permitted, based on prevailing Azure terms of se
 ## Release attestation for all versions
 All releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
-## Release notes for the latest release: 2509.01
+## Release notes for the latest release
+The following release is the latest generally available release.
+
+## Release 2509.01
 Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2509.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3194-224 and the RP version to 1.0.03180.486, the details of which are further outlined in the remainder of this document.
 
 ### Latest release details
@@ -64,7 +67,7 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * RP  - [2313679] 1ES Operational Vulnerabilities.
 
 ## Release notes for all releases 
-Releases are listed in ascending chronological order.
+The following generally available releases are listed in order from oldest to newest.
 
 ## Release 2407.01
 
