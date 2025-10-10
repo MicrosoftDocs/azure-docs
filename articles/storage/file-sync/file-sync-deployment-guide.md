@@ -45,6 +45,9 @@ We strongly recommend that you read [Plan to deploy Azure Files](../files/storag
 
 - The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
 
+  > [!NOTE]
+  > When assigning the Azure File Sync Administrator role, to ensure least privilege, under the **Conditions** tab, please select **Allow users to assign selected roles to only selected principals (fewer privileges)** and click **Select Roles and Principals** and click **Add Action** under Condition #1. Select **Create role assignment**, and click **Select**. Click **Add expression**. Select **Request**, under **Attribute Source**, select **Role Definition Id** under **Attribute**, and select **ForAnyOfAnyValues:GuidEquals** under **Operator**. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privilefed Contributor** and **Storage Account Contributor** roles and click **Save**.
+
 - If you intend to use Azure File Sync with a Windows Server failover cluster, you must configure the **File Server for general use** role before you install the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a failover cluster, see [Deploy a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 
   > [!NOTE]
@@ -74,6 +77,9 @@ We strongly recommend that you read [Plan to deploy Azure Files](../files/storag
   - **Allow storage account key access** must be set to **Enabled**. To check this setting, go to your storage account and select **Configuration** in the **Settings** section.
 
 - The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
+
+  > [!NOTE]
+  > When assigning the Azure File Sync Administrator role, to ensure least privilege, under the **Conditions** tab, please select **Allow users to assign selected roles to only selected principals (fewer privileges)** and click **Select Roles and Principals** and click **Add Action** under Condition #1. Select **Create role assignment**, and click **Select**. Click **Add expression**. Select **Request**, under **Attribute Source**, select **Role Definition Id** under **Attribute**, and select **ForAnyOfAnyValues:GuidEquals** under **Operator**. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privilefed Contributor** and **Storage Account Contributor** roles and click **Save**.
 
 - You need at least one supported instance of Windows Server to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Considerations for Windows file servers](file-sync-planning.md#considerations-for-windows-file-servers).
 
@@ -126,6 +132,9 @@ We strongly recommend that you read [Plan to deploy Azure Files](../files/storag
   - **Allow storage account key access** must be set to **Enabled**. To check this setting, go to your storage account and select **Configuration** in the **Settings** section.
 
 - The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
+  
+  > [!NOTE]
+  > When assigning the Azure File Sync Administrator role, to ensure least privilege, under the **Conditions** tab, please select **Allow users to assign selected roles to only selected principals (fewer privileges)** and click **Select Roles and Principals** and click **Add Action** under Condition #1. Select **Create role assignment**, and click **Select**. Click **Add expression**. Select **Request**, under **Attribute Source**, select **Role Definition Id** under **Attribute**, and select **ForAnyOfAnyValues:GuidEquals** under **Operator**. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privilefed Contributor** and **Storage Account Contributor** roles and click **Save**.
 
 - You need at least one supported instance of Windows Server to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Considerations for Windows file servers](file-sync-planning.md#considerations-for-windows-file-servers).
 
@@ -410,6 +419,9 @@ Registering your Windows Server instance with a storage sync service establishes
 
 The administrator who registers the server must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
 
+> [!NOTE]
+> When assigning the Azure File Sync Administrator role, to ensure least privilege, under the **Conditions** tab, please select **Allow users to assign selected roles to only selected principals (fewer privileges)** and click **Select Roles and Principals** and click **Add Action** under Condition #1. Select **Create role assignment**, and click **Select**. Click **Add expression**. Select **Request**, under **Attribute Source**, select **Role Definition Id** under **Attribute**, and select **ForAnyOfAnyValues:GuidEquals** under **Operator**. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privilefed Contributor** and **Storage Account Contributor** roles and click **Save**.
+
 It's also possible to differentiate administrators who can register servers from administrators who can also configure sync in a storage sync service. To do this differentiation, create a custom role where you list the administrators who are only allowed to register servers. Give your custom role the following permissions:
 
 - `Microsoft.StorageSync/storageSyncServices/registeredServers/write`
@@ -462,6 +474,9 @@ The entirety of the Azure file share is synced, with one exception. A special fo
 > You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, an Azure File Sync change detection job first needs to discover the changes. A change detection job starts for a cloud endpoint only once every 24 hours. For more information, see [Frequently asked questions about Azure Files and Azure File Sync](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
 
 The administrator who creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator) or Owner for the storage account that contains the Azure file share that the cloud endpoint points to. Configure this role under **Access Control (IAM)** on the Azure portal page for the storage account.
+
+> [!NOTE]
+> When assigning the Azure File Sync Administrator role, to ensure least privilege, under the **Conditions** tab, please select **Allow users to assign selected roles to only selected principals (fewer privileges)** and click **Select Roles and Principals** and click **Add Action** under Condition #1. Select **Create role assignment**, and click **Select**. Click **Add expression**. Select **Request**, under **Attribute Source**, select **Role Definition Id** under **Attribute**, and select **ForAnyOfAnyValues:GuidEquals** under **Operator**. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privilefed Contributor** and **Storage Account Contributor** roles and click **Save**.
 
 # [Portal](#tab/azure-portal)
 
