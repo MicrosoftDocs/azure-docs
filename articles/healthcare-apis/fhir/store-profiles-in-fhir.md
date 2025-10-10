@@ -17,7 +17,7 @@ The Azure Health Data Services FHIR service allows validating resources against 
 
 ## FHIR profile: the basics
 
-A profile sets additional context on the resource that's represented as a `StructureDefinition` resource. A `StructureDefinition` defines a set of rules on the content of a resource or a data type, such as what elements a resource has, and what values these elements can take.
+A profile provides additional context on the resource, represented as a `StructureDefinition` resource. A `StructureDefinition` defines a set of rules on the content of a resource or a data type, such as what elements a resource has, and what values these elements can take.
 
 Following are some examples of how profiles can modify the base resource.
 
@@ -25,7 +25,7 @@ Following are some examples of how profiles can modify the base resource.
 - Restrict the contents of an element to a single fixed value.
 - Define required extensions for the resource. 
 
-A `StructureDefinition` is identified by its canonical URL: `http://hl7.org/fhir/StructureDefinition/{profile}` 
+A `StructureDefinition` is identified by a canonical URL: `http://hl7.org/fhir/StructureDefinition/{profile}` 
 
 For example:
 
@@ -51,7 +51,7 @@ When a resource conforms to a profile, the profile is specified inside the `prof
 > [!NOTE]
 > Profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the profile cannot make it optional.
 
-Profiles are also specified by various Implementation Guides (IGs). The following is a list of common IGs. For more information, visit the specific IG site to learn more about the IG and the profiles defined within it.
+Profiles are also specified by Implementation Guides (IGs). The following is a list of common IGs. For more information, visit the specific IG site to learn more about the IG and the profiles defined within it.
 
 - [US Core](https://www.hl7.org/fhir/us/core/)
 - [CARIN Blue Button](https://hl7.org/fhir/us/carin-bb)
@@ -59,7 +59,7 @@ Profiles are also specified by various Implementation Guides (IGs). The followin
 - [Argonaut](https://www.fhir.org/guides/argonaut/pd/)
 
 > [!NOTE]
-> The FHIR service does not store any profiles from implementation guides by default. You will need to load them into the FHIR service.
+> The FHIR service does not store any profiles from implementation guides by default. You need to load them into the FHIR service.
 
 ## Accessing profiles and storing profiles
 
@@ -82,7 +82,7 @@ Conditional update: `PUT http://<your FHIR service base URL>/StructureDefinition
 }
 ```
 
-For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We've included a snippet of this profile for the example.
+For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We've included part of this profile for the example.
 
 ```rest
 PUT https://<your FHIR service base URL>/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
@@ -156,7 +156,7 @@ This returns the `StructureDefinition` resource for US Core Goal profile that st
 ```
 
 > [!NOTE]
-> You'll only see the profiles that you've loaded into the FHIR service.
+> Only the profiles that you've loaded into the FHIR service are listed.
 
 
 FHIR service doesn't return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as the following.
