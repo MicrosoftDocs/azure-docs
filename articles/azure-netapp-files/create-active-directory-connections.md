@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/30/2025
+ms.date: 10/01/2025
 ms.author: anfdocs
 ms.custom:
   - devx-track-azurepowershell
@@ -248,7 +248,6 @@ For more information about the relationship between NetApp accounts and subscrip
         > Using the Security privilege users feature relies on the [SMB Continuous Availability Shares feature](azure-netapp-files-create-volumes-smb.md#continuous-availability). SMB Continuous Availability is **not** supported on custom applications. It's only supported for workloads using Citrix App Layering, [FSLogix user profile containers](/azure/virtual-desktop/create-fslogix-profile-container), and Microsoft SQL Server (not Linux SQL Server).
 
         > [!IMPORTANT]
-        > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.  
         >This feature is optional and supported only with SQL server. The AD DS domain account used for installing SQL server must already exist before you add it to the **Security privilege users** option. When you add the SQL Server installer account to **Security privilege users** option, the Azure NetApp Files service might validate the account by contacting an AD DS domain controller. This action might fail if Azure NetApp Files can't contact the AD DS domain controller.
         
         For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
