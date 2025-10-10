@@ -1,7 +1,7 @@
 ---
 title: Move a Storage Discovery workspace or storage resource to other resource groups, subscriptions, and Microsoft Entra tenants
 description: Move Storage Discovery workspaces and storage resources to other resource groups, subscriptions, and Microsoft Entra tenants.
-services: storage-mover
+services: storage-discovery
 author: fauhse
 ms.author: fauhse
 ms.service: azure-storage-discovery
