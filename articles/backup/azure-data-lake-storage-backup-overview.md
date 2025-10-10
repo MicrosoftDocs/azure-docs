@@ -63,7 +63,6 @@ You can restore data from any point in time where a recovery point exists. Recov
 Azure Backup allows restoring data from any recovery point within the retention period set by the backup policy. Recovery points are created when the storage account is in protected state, and can be used to restore until they expire as per the retention policy. This solution allows performing granular recovery by selecting containers, applying a prefix-based filter, or restoring the full storage account.
 
 >[!Note]
->- To restore a recovery point to a different subscription, request the Azure Backup team to allowlist the required subscription and grant access by using the [signup form](https://forms.office.com/r/sixidTkYb4).
 >- Currently, the vaulted backup solution supports restoring data only to a different storage account within the same region as the vault. However, restoring data from older recovery points might result in a longer recovery time (higher [Recovery Time Objective](azure-backup-glossary.md#recovery-time-objective-rto)).
 
 ## Next steps
