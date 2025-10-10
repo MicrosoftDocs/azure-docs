@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/06/2022
+ms.date: 10/10/2025
 ---
 
 # $member-match operation in FHIR service
