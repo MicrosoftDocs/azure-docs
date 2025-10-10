@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 10/10/2025
 ---
  
 # Add data to audit logs by using custom HTTP headers in FHIR service 
@@ -22,4 +22,5 @@ In this article, you learned how to add data to audit logs by using custom heade
 >[FHIR Overview](overview.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
+
 
