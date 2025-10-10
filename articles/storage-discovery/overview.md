@@ -47,7 +47,7 @@ The Discovery service computes and hosts your insights. No other infrastructure 
 **No impact on storage resources**
 Your Azure Storage resources (like storage accounts) experience no transactions or performance impact when analyzing them with Azure Storage Discovery.
 
-**History provided, right from the start**
+**History provided, right from the start.**
 Historical data is added automatically, once you deploy a Discovery workspace. All insights are retained for up to 18 months. History and retention depend on the [pricing plan](pricing.md) you choose.
 
 **Free and paid pricing plans**

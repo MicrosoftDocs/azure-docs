@@ -24,7 +24,7 @@ highlightedContent:
     - title: Plan a Storage Discovery deployment
       itemType: concept
       url: deployment-planning.md
-    - title: What is Azure Storage Discovery?
+    - title: Deploy Azure Storage Discovery and use the Azure portal and Copilot to unlock insights
       itemType: tutorial
       url: get-storage-estate-insights.md
 

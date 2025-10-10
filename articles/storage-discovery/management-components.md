@@ -19,7 +19,7 @@ This article discusses the key concepts of the Azure Storage Discovery service.
 You deploy the Storage Discovery service by creating a Discovery workspace resource in one of your resource groups.
 As part of creating this resource, you also specify what portions of your Azure Storage estate you want to cover.
 
-You can then access your workspace in the Azure portal to find insights in pre-built reports.
+You can then access your workspace in the Azure portal to find insights in prebuilt reports.
 You also need a workspace when asking the Azure Copilot about insights from Storage Discovery.
 
 ## Workspace Root

@@ -15,8 +15,8 @@ In this article, learn about frequently asked questions and answers for the Azur
 <summary> I can't find a subscription in the workspace root picker (resource tree) to add it to the workspace root.</summary>
 
 - Navigate to the [Azure portal](https://portal.azure.com).
-- Verify you are logged into the portal with an account from the same tenant the subscription is located in.
-- Navigate to Settings (top, right corner in the portal) and then select "Directories and Subscriptions".
+- Verify you're logged into the portal with an account from the same tenant the subscription is located in.
+- Navigate to Settings (top, right corner in the portal) and then select: "Directories and Subscriptions"
 - Select the "All Subscription" drop-down to verify if the subscription is listed and selected. If the subscription isn't selected here, it doesn't show up on the 'Add workspace root' dialog.
 
 </details>
@@ -114,5 +114,5 @@ There are two common reasons why the creation of a workspace resource can fail.
 
 <details>
 <summary>Trend charts on Capacity and Consumption report show sharp dips</summary>
-Trend graphs in the Capacity and Consumption reports may occasionally display temporary dips. Common causes are actual changes in your resources and noise from the insights aggregation engine. When viewed over longer time periods or averaged throughout a day, these ripples typically don't distort the the overall insight you are gaining from any given graph.
+Trend graphs in the Capacity and Consumption reports may occasionally display temporary dips. Common causes are actual changes in your resources and noise from the insights aggregation engine. When viewed over longer time periods or averaged throughout a day, these ripples typically don't distort the overall insight you're gaining from any given graph.
 </details>
