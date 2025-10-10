@@ -47,7 +47,7 @@ You can manage App Configuration data, such as key-values and snapshots, in depl
 - Data access can be attributed to the deployment caller for auditing purposes.
 
 > [!IMPORTANT]
-> App Configuration control plane API version `2023-08-01-preview` or later is required to configure the Azure Resource Manager authentication mode by using an [ARM template](./quickstart-resource-manager.md), [Bicep](./quickstart-bicep.md), or the REST API. For REST API examples, see the [azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/preview/2023-08-01-preview/examples/ConfigurationStoresCreateWithDataPlaneProxy.json) GitHub repo.
+> App Configuration control plane API version `2023-08-01-preview` or later is required to configure the Azure Resource Manager authentication mode by using an [ARM template](./quickstart-resource-manager.md), [Bicep](./quickstart-bicep.md), or the REST API. For REST API examples, see the [azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/AppConfiguration/preview/2025-02-01-preview/examples/ConfigurationStoresCreateWithDataPlaneProxy.json) GitHub repo.
 
 ### Azure Resource Manager authentication mode
 

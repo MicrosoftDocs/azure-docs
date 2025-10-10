@@ -370,7 +370,7 @@
       href: credentials-process-flow.md
     - name: Configure common credential providers
       href: credentials-configure-common-providers.md
-    - name: Configure credential manager - Microsoft Entra ID
+    - name: Configure credential manager - Microsoft Graph API
       href: credentials-how-to-azure-ad.md
     - name: Configure credential manager - GitHub
       href: credentials-how-to-github.md

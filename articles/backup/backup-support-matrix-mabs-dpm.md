@@ -162,6 +162,10 @@ BitLocker can only be enabled after you add the disk the storage pool. Don't ena
 
 Network-attached storage (NAS) isn't supported for use in the DPM storage pool.
 
+>[!NOTE]
+>Microsoft Azure Backup Server (MABS)/DPM supports a maximum total replica (protected data) size of 75 TB per server. Exceeding this threshold can lead to missed backup SLAs and may render the server unresponsive. 
+>In case consider to add another MABS Server.
+
 **Storage** | **Details**
 --- | ---
 **MBS** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.

@@ -21,6 +21,15 @@ AzAcSnap 10 supports more databases and operating systems, therefore a self-inst
 
 ## Download AzAcSnap
 
+> [!CAUTION]
+> **AzAcSnap 11/11a and Non-Public Cloud Compatibility**
+> 
+> AzAcSnap versions 11 and 11a are experiencing compatibility issues in non-Public Cloud environments, such as Azure Government.
+> These issues may result in errors like `SubscriptionNotFound` or failed snapshot operations due to changes in authentication and configuration handling.
+> 
+> To avoid disruption, customers operating in non-Public Cloud environments are advised to remain on AzAcSnap 10a until a fix is released.
+> A future update is in development and will restore full compatibility. For updates and support, please refer to the https://aka.ms/azacsnap-release-notes.
+
 First, download the AzAcSnap executable file to any directory on your computer. AzAcSnap is provided as an executable file, so there's nothing to install.
 
 - [Linux x86-64](https://aka.ms/azacsnap-linux) (binary)

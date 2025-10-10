@@ -54,10 +54,17 @@ The following rule example identifies whether the MySQL database is found in the
   description: MySQL database found
   effort: 3
   labels:
-  - konveyor.io/target=azure-aks
-  - konveyor.io/source
-  - domain=azure-readiness
+  labels:
+  - target=azure-appservice
+  - target=azure-aks
+  - target=azure-container-apps
+  - source
+  - domain=cloud-readiness
   - category=database-migration
+  - database
+  - mysql
+  - os=windows
+  - os=linux
   links:
   - title: Azure Database for MySQL documentation
     url: https://learn.microsoft.com/azure/mysql
