@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 # ms.devlang: csharp, java, python, javascript
 ms.topic: how-to
-ms.date: 01/13/2025
+ms.date: 08/25/2025
 ms.author: zhiyuanliang
 ms.custom: devx-track-azurecli
 
@@ -116,7 +116,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
+Specify the `replicaDiscoveryEnabled` property in the `application.properties` file of your application.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
@@ -246,7 +246,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Edit the `endpoints` or `connection-strings` properties in the `bootstrap.properties` file of your application.
+Edit the `endpoints` or `connection-strings` properties in the `application.properties` file of your application.
 
 **Connect with Microsoft Entra ID**
 
