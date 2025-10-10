@@ -23,19 +23,19 @@ This article provides the release notes for Azure Migrate application and code a
 This release contains the following new features and enhancements:
 
 - **Enhanced command parameters**: Added new parameters to the `appcat analyze` command:
-  - `--list-capabilities`: Display available migration capabilities
-  - `--list-os`: Display available migration target operating systems
-  - `--capability`: Specify capability technologies for analysis
-  - `--os`: Specify operating systems for analysis
-- **Improved target specification**: Refined the `--targets` parameter by removing OS and capability values, which are now handled by dedicated parameters
-- **Unified output format**: Introduced a new consolidated **report.json** output file 
+  - `--list-capabilities`: Display available migration capabilities.
+  - `--list-os`: Display available migration target operating systems.
+  - `--capability`: Specify capability technologies for analysis.
+  - `--os`: Specify operating systems for analysis.
+- **Improved target specification**: Refined the `--targets` parameter by removing OS and capability values, which are now handled by dedicated parameters.
+- **Unified output format**: Introduced a new consolidated **report.json** output file.
 
 ### 7.7.0.3
 
 This release contains the following fixes and enhancements:
 
 - Refine issue domain names and category names.
-- Move *.appcat-ignore* into user home path instead of the AppCAT installation folder.
+- Move **.appcat-ignore** into user home path instead of the AppCAT installation folder.
 - Remove unnecessary temporary files during analysis, such as Eclipse-specific configuration.
 - Return error message directly for non-Java projects.
 

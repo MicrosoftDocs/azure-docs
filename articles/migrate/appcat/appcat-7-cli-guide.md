@@ -119,8 +119,8 @@ The `--list-os` parameter shows the following operating systems:
 
 | OS name | Description                                                   | OS       |
 |---------|---------------------------------------------------------------|----------|
-| Linux   | Best practices for migrating applications to Linux platform. | `linux`  |
-| Windows | Best practices for migrating applications to Windows platform. | `windows` |
+| Linux   | Best practices for migrating applications to the Linux platform. | `linux`  |
+| Windows | Best practices for migrating applications to the Windows platform. | `windows` |
 
 ##### Supported capabilities
 
@@ -135,7 +135,7 @@ The `--list-capabilities` parameter shows the following capabilities:
 
 ##### Configure ignore files
 
-In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to exclude specified folders or paths when running the `appcat analyze` command.
+In the AppCAT CLI install path, you can configure the **.appcat-ignore** file to exclude specified folders or paths when running the `appcat analyze` command.
 
 #### Global parameters
 
@@ -198,7 +198,7 @@ In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to e
       --target=<target-name>
   ```
 
-- Analyze a source code directory with specific source combine target technologies, capabilities and os:
+- Analyze a source code directory with specific source to combine target technologies, capabilities, and operating system:
 
   ```bash
   appcat analyze \
@@ -210,7 +210,11 @@ In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to e
       --os windows
   ```
 
-The `--target`, `--capabilities` and `-os` parameters are combined with an `AND` condition, meaning the rules must simultaneously match (1) an Azure service such as azure-aks, azure-appservice, or azure-container-apps, (2) the capability to detect containerization issues, and (3) the Windows OS platform.
+  The `--target`, `--capabilities`, and `-os` parameters are combined with an `AND` condition, meaning that the rules must simultaneously match the following criteria:
+
+  - An Azure service such as `azure-aks`, `azure-appservice`, or `azure-container-apps`.
+  - The capability to detect containerization issues.
+  - The Windows OS platform.
 
 - Analyze a source code directory and keep the detected context lines with custom line numbers:
 
@@ -221,29 +225,29 @@ The `--target`, `--capabilities` and `-os` parameters are combined with an `AND`
       --context-lines-number <line-number>
   ```
 
-The following screenshot shows an example of using `--context-lines-number 3`:
+  The following screenshot shows an example of using `--context-lines-number 3`:
 
-:::image type="content" source="media/java/appcat-7-cli-command-with-context-line-number.png" alt-text="Screenshot of the appcat report issue code snippet difference with context-lines-number parameter." lightbox="media/java/appcat-7-cli-command-with-context-line-number.png":::
+  :::image type="content" source="media/java/appcat-7-cli-command-with-context-line-number.png" alt-text="Screenshot of the appcat report issue code snippet difference with context-lines-number parameter." lightbox="media/java/appcat-7-cli-command-with-context-line-number.png":::
 
-- Restrict report content without code snippets
-```
+- Restrict report content without code snippets:
+
+  ```bash
   appcat analyze \
       --input <path-to-source> \
       --output <path-to-output> \
       --code-snips-number -1
-```
+  ```
 
-When `--code-snips-number -1` is set, code snippets are not exported to the report. This helps prevent sensitive data from being included.
+  When `--code-snips-number -1` is set, code snippets aren't exported to the report. This behavior helps prevent sensitive data from being included.
 
-:::image type="content" source="media/java/appcat-7-cli-command-with-code-snips-number.png" alt-text="Screenshot of the AppCAT report showing the difference with and without code snippets." lightbox="media/java/appcat-7-cli-command-with-code-snips-number.png":::
+  :::image type="content" source="media/java/appcat-7-cli-command-with-code-snips-number.png" alt-text="Screenshot of the AppCAT report showing the difference with and without code snippets." lightbox="media/java/appcat-7-cli-command-with-code-snips-number.png":::
 
-You can also check the `metadata.privacyMode` property in `report.json`.
+  You can also check the `metadata.privacyMode` property in `report.json`.
 
-PrivacyMode values
+  `PrivacyMode` values:
 
-- Unrestricted – the report will include code snippets
-
-- Restricted – the report will not include code snippets
+  - Unrestricted – the report includes code snippets.
+  - Restricted – the report doesn't include code snippets.
 
 ### appcat transform
 
