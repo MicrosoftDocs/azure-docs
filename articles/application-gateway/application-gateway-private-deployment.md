@@ -169,17 +169,6 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 After registering the feature, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.
 
-## Resource Changes
-
-After your gateway is provisioned, a resource tag is automatically assigned with the name of **EnhancedNetworkControl** and value of **True**. See the following example:
-
- ![Screenshot of the EnhancedNetworkControl tag.](./media/application-gateway-private-deployment/tags.png)
-
-The resource tag is cosmetic, and serves to confirm that the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value doesn't change any functional workings of the gateway. 
-
-> [!TIP]
-> The **EnhancedNetworkControl** tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
-
 ## Application Gateway Subnet 
 
 Application Gateway Subnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration, is important that this subnet can reach privately the resources that want to connect to your exposed app or site.
