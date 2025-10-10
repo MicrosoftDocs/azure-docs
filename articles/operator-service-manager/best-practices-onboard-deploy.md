@@ -22,7 +22,7 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 - The Azure Operator Service Manager command-line interface (CLI) extension assists with the publishing of network function definitions (NFDs) and NSDs. Use this tool as the starting point for creating new NFDs and NSDs. Consider using the CLI to create the initial files. Then edit them to incorporate infrastructure components before you publish.
   
 ## Publisher considerations
-- We recommend that you create a single publisher per NF supplier, or per NF type per NF supplier, where the NF supplier may provide more then one NF type. This practice;
+- We recommend that you create a single publisher per NF supplier, or per NF type per NF supplier, where the NF supplier may provide more than one NF type. This practice;
   - Provides for the most optimal support, maintenance, and governance experience, by preventing proliferation of publishers. Especially during upgrade activities where the same action is often executed across many NFs. 
   - Lowers total operating costs by reducing the number of publisher backing resources, like ACR or Storage Accounts.
   - Simplifies the network service design (NSD), where it may consist of multiple NFs from multiple vendors.
