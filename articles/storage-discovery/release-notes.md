@@ -1,12 +1,12 @@
 ---
 title: Release notes for the Azure Storage Discovery service | Microsoft Docs
 description: Read the release notes for the Azure Storage Discovery service.
-services: storage-mover
+services: storage-discovery
 author: pthippeswamy
-ms.author: shaas
+ms.author: pthippeswamy
 ms.service: azure-storage-discovery
 ms.topic: release-notes
-ms.date: 08/01/2025
+ms.date: 10/09/2025
 ms.custom: references_regions
 ---
 

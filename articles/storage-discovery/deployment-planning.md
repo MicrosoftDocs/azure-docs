@@ -3,9 +3,9 @@ title: Planning for an Azure Storage Discovery deployment
 titleSuffix: Azure Storage Discovery
 description: Considerations and best-practices for deploying the Azure Storage Discovery service
 author: fauhse
-ms.service: azure-storage-mover
+ms.service: azure-storage-discovery
 ms.topic: overview
-ms.date: 08/01/2025
+ms.date: 10/09/2025
 ms.author: fauhse
 ---
 

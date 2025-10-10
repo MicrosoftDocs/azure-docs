@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure Storage Discovery documentation
   description: Azure Storage Discovery provides organizations with deep, actionable insights into your data estate. It addresses the growing complexity of managing large-scale, distributed data by offering  visibility into Capacity, Operations, Resource and security configurations. 
-  ms.service: azure-storage-mover
+  ms.service: azure-storage-discovery
   ms.topic: hub-page
   author: fauhse
   ms.author: fauhse
