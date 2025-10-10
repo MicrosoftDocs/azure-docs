@@ -34,7 +34,7 @@ This article shows how to use the Azure portal to enable Defender for APIs from 
 
 * Currently, Defender for APIs discovers and analyzes REST APIs only. 
 * Defender for APIs currently doesn't onboard APIs that are exposed via the API Management [self-hosted gateway](self-hosted-gateway-overview.md) or managed via API Management [workspaces](workspaces-overview.md).
-* Some machine learning based detections and security insights (data classification, authentication check, unused and external APIs) aren't supported in secondary regions in [multi-region](api-management-howto-deploy-multi-region.md) deployments. Defender for APIs relies on local data pipelines to ensure regional data residency and improved performance in such deployments. 
+* Some machine-learning-based detections and security insights (data classification, authentication check, unused and external APIs) aren't supported in secondary regions in [multi-region](api-management-howto-deploy-multi-region.md) deployments. Defender for APIs relies on local data pipelines to ensure regional data residency and improved performance in such deployments. 
  
 ## Prerequisites
 
