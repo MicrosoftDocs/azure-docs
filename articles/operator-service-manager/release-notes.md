@@ -3,21 +3,18 @@ title: Release notes for Azure Operator Service Manager
 description: Official tracking or AOSM releases and available regions.
 author: msftadam
 ms.author: adamdor
-ms.date: 01/15/2025
+ms.date: 10/10/2025
 ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
 
 # Release Notes for Azure Operator Service Manager
-
 This article hosts release information for Azure Operator Service Manager (AOSM). This article is updated frequently and serves as the primary announcement method for new releases. Make sure to check back often and stay up-to-date.
 
-## Regional Availability of Releases
-
+## Release Email Notifications
 To receive email notications upon the general availability of new AOSM releases, join the AOSM notification distribution list by submitting contact information in the following sign-up form: https://forms.office.com/r/GPkgkNi2tx
 
 ## Regional Availability of Releases
-
 Releases described herewithin are generally available and supported across the following Azure regions:
 * eastus
 * southcentralus
@@ -30,12 +27,10 @@ Use of AOSM in these regions is permitted, based on prevailing Azure terms of se
 ## Release Attestation for All Versions
 All releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
-## Release Notes for the Latest Release
-
-### Release 2509.01 Summary
+## Release Notes for the Latest Release: 2509.01
 Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2509.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3194-224 and the RP version to 1.0.03180.486, the details of which are further outlined in the remainder of this document.
 
-### Release Details
+### Latest Release Details
 * NFO Release Version: 3.0.3194-224
 * RP Release Version: 1.0.03180.486
 * CLI Extension Release Version: 2.0.0b3
@@ -43,7 +38,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Is NFO update required: YES, Update only
 * Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
 
-### Release Feature Highlights
+### Latest Release Feature Highlights
 
 #### Support for interruption of service deployments
 **[FEATURE 2069409 / ART-465]** introduces a method to interrupt a broken service deployment operation while in a nonterminal state. Supporting only container network functions, the interruption is triggered by applying a static tag to the network function managed resource group. This tag must later be removed to restore proper service operations. This feature provides a mechanism for customer operation teams to terminate a deployment which maybe negatively impacting service performance and otherwise could take multiple hours to reach a terminal state. For more information, see our [learn documentation](how-to-cancel-service-deployments.md).
@@ -51,7 +46,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 #### Support for publisher artifact store resiliency
 **[FEATURE 2129209 / ART-535]** introduces artifact store geo-resiliency between the backing ACR resources in two Azure regional location pairs. Once enabled, the artifact-store resource now  survives a single region failure, continuing to operate in read-only mode from the hot standby instance. Seemless integration with Azure Operator Service Manager's cluster registry, combined with centralized management of registry pairs, make artifact store resiliency to get and keep running. For more information, see our [learn documentation](publisher-artifact-store-resiliency.md).
 
-### Release Updates to Improve Quality
+### Latest Release Updates to Improve Quality
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 * NFO - [381571] Cleanup of unused infrastructure scripts.
 * NFO - [373116] Update of Msi-Adapter service.
@@ -62,14 +57,13 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * RP  - [2388664] Fix for West Central US region test opreations.
 * RP  - [2309471] For to create ACR Names in lower case only.
 
-### Release Updates to Improve Security
+### Latest Release Updates to Improve Security
 * NFO - [CVE] A total of 2 CVEs are addressed in this release.
 * NFO - [383549] Helm version 3.18.4 downgrade (from 3.18.5).
 * RP  - [2301086] Secure Code Bugs-RP.
 * RP  - [2313679] 1ES Operational Vulnerabilities.
 
-## Release Notes for All Releases 
-
+## Release Notes for all Releases 
 Releases are listed in ascending chronological order.
 
 ## Release 2407.01
