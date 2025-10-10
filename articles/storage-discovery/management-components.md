@@ -10,14 +10,14 @@ ms.author: fauhse
 ms.custom: references_regions
 ---
 
-# Azure Storage Discovery preview concepts
+# Azure Storage Discovery concepts
 
 The concepts and terminology used throughout this documentation are defined below.
 
 ## Key concepts
 
 ### Azure Storage Discovery workspace 
-The Azure Storage Discovery workspace (ASDW) is the resource used to deploy and manage Storage Discovery in your subscription. It defines the scope of analysis - such as subscriptions or resource groups and once created, it enables visibility into capacity, transactions, and configuration trends across storage accounts within the selected "scope".
+The Azure Storage Discovery workspace is the resource used to deploy and manage Storage Discovery in your subscription. It defines the scope of analysis - such as subscriptions or resource groups and once created, it enables visibility into capacity, transactions, and configuration trends across storage accounts within the selected "scope".
 
 ### Workspace Root
 Azure Resource Manager (ARM) resource identifiers that define the root-level boundaries of an Azure Storage Discovery Workspace (ASDW). These roots specify the top-level Azure resources - such as subscriptions and/or resource groups - over which the discovery workspace will operate.

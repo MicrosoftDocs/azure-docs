@@ -5,11 +5,11 @@ description: Storage Discovery pricing and features available with each pricing 
 author: fauhse
 ms.service: azure-storage-mover
 ms.topic: overview
-ms.date: 09/30/2025
-ms.author: shaas
+ms.date: 10/09/2025
+ms.author: fauhse
 ---
 
-# Azure Storage Discovery preview pricing
+# Azure Storage Discovery pricing
 
 Azure Storage Discovery offers free and paid pricing plans. This article describes the differences and explains what influences the bill when choosing a paid option. 
 
