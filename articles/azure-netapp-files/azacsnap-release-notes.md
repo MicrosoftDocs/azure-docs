@@ -14,6 +14,15 @@ ms.author: phjensen
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
 
+> [!CAUTION]
+> **AzAcSnap 11/11a and Non-Public Cloud Compatibility**
+> 
+> AzAcSnap versions 11 and 11a are experiencing compatibility issues in non-Public Cloud environments, such as Azure Government.
+> These issues may result in errors like `SubscriptionNotFound` or failed snapshot operations due to changes in authentication and configuration handling.
+> 
+> To avoid disruption, customers operating in non-Public Cloud environments are advised to remain on AzAcSnap 10a until a fix is released.
+> A future update is in development and will restore full compatibility. For updates and support, please refer to the https://aka.ms/azacsnap-release-notes.
+
 We recommend that customers always use the latest release of the Azure Application Consistent Snapshot tool (AzAcSnap) to benefit from the most up-to-date security enhancements, performance improvements, and expanded platform support. Each release is designed to strengthen the tool’s reliability and security posture, ensuring alignment with Microsoft’s evolving best practices for data protection and compliance.
 
 > [!IMPORTANT]
