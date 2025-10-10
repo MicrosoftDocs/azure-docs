@@ -82,7 +82,7 @@ When there's a change in the optimal video count value, if the result indicates 
 
 Conversely, if the optimal count decreases and is [less than the current number of videos on the page](../../resources/troubleshooting/voice-video-calling/video-issues/reaching-max-number-of-active-video-subscriptions.md), consider disposing of a video using the dispose method and updating the application layout accordingly.
 
-#### Optimal Video Count Change Reason
+#### Optimal video count changed reason
 
 When the SDK adjusts the number of rendered video streams, developers can see why the change occurred. The `optimalVideoCountChanged` event includes a `reason` property, helping you adapt UI and troubleshoot quality issues.
 
