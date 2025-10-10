@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/9/2025
+ms.date: 10/10/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
