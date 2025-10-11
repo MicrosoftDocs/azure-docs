@@ -166,7 +166,7 @@ If you created node management private endpoint in the virtual network for your 
 
 ```
 # Windows
-Test-TcpConnection -ComputeName <nodeManagementEndpoint> -Port 443
+Test-NetConnection -ComputerName <nodeManagementEndpoint> -Port 443 -InformationLevel Detailed -Verbose
 # Linux
 nc -v <nodeManagementEndpoint> 443
 ```
