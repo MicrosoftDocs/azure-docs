@@ -46,6 +46,7 @@ The following [private-link resources](../../../private-link/private-endpoint-ov
 * Microsoft.Synapse/workspaces
 * Microsoft.Synapse/privateLinkHubs
 * Microsoft.Hybridcompute/privatelinkscopes
+* Microsoft.DBforMySQL/flexibleServers
 
 All other private-link resources don't support move.
 
