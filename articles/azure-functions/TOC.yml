@@ -271,7 +271,7 @@
 - name: Samples
   items:
   - name: Azure Serverless Community Library
-    href: https://www.serverlesslibrary.net/
+    href: https://aka.ms/AA4ul9b
   - name: Azure Samples
     items:
     - name: C#

@@ -84,7 +84,7 @@ landingContent:
           - text: Azure Functions samples
             url: /samples/browse/?expanded=azure&products=
           - text: Azure Serverless Community Library
-            url: https://www.serverlesslibrary.net/
+            url: https://aka.ms/AA4ul9b
           - text: Azure Resource Manager templates
             url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
       - linkListType: tutorial
