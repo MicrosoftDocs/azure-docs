@@ -16,8 +16,6 @@ zone_pivot_groups: programming-languages-set-functions
 
 The [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol intended to enable language models and agents to more efficiently discover and use external data sources and tools. 
 
-[!INCLUDE [functions-mcp-extension-preview-note](../../includes/functions-mcp-extension-preview-note.md)]
-
 The Azure Functions MCP extension allows you to use Azure Functions to create remote MCP servers. These servers can host MCP tool trigger functions, which MCP clients, such as language models and agents, can query and access to do specific tasks.
 
 | Action | Type |
@@ -28,10 +26,11 @@ The Azure Functions MCP extension allows you to use Azure Functions to create re
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]
 ## Prerequisites 
 
-+ The MCP extension relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using identity-based connections, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Reader](/azure/role-based-access-control/built-in-roles#storage-queue-data-reader) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor).   
++ When you use the SSE transport, the MCP extension relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using identity-based connections, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Reader](/azure/role-based-access-control/built-in-roles#storage-queue-data-reader) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor).
 + When running locally, the MCP extension requires version 4.0.7030 of the [Azure Functions Core Tools](functions-run-local.md), or a later version.
 ::: zone pivot="programming-language-csharp"
-+ Requires version 2.0.2 or later of the `Microsoft.Azure.Functions.Worker.Sdk` package.  
++ Requires version 2.1.0 or later of the `Microsoft.Azure.Functions.Worker` package.
++ Requires version 2.0.2 or later of the `Microsoft.Azure.Functions.Worker.Sdk` package.
 
 ## Install extension
 
@@ -46,17 +45,16 @@ Add the extension to your project by installing this [NuGet package](https://www
 <!---At GA, replace with:
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 -->
-[!INCLUDE [functions-extension-bundles-json-preview](../../includes/functions-extension-bundles-json-preview.md)]  
+> [!IMPORTANT]
+> A generally available version of the extension is now available. However, it isn’t yet included in the default extension bundle. The instructions show how to use the preview extension bundle, which includes an earlier preview version of the MCP extension, along with other preview dependencies. For now, to use the generally available version of the extension, you must [manually install the extension](./functions-bindings-register.md#explicitly-install-extensions).
+[!INCLUDE [functions-extension-bundles-json-preview](../../includes/functions-extension-bundles-json-preview.md)]
 ::: zone-end
 
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
-> [!NOTE]
-> Until the extension is no longer in preview, the JSON schema for `host.json` isn't updated, and specific properties and behaviors might change. During the preview period, you might see warnings in your editor that say the `mcp` section isn't recognized. You can safely ignore these warnings.
-
-You can use `host.json` to define MCP server information.
+You can use the `extensions.mcp` section in `host.json` to define MCP server information.
 
 ```json
 {
@@ -66,6 +64,7 @@ You can use `host.json` to define MCP server information.
       "instructions": "Some test instructions on how to use the server",
       "serverName": "TestServer",
       "serverVersion": "2.0.0",
+      "encryptClientState": true,
       "messageOptions": {
         "useAbsoluteUriForEndpoint": false
       }
@@ -79,6 +78,7 @@ You can use `host.json` to define MCP server information.
 | **instructions** | Describes to clients how to access the remote MCP server. |
 | **serverName** | A friendly name for the remote MCP server. |
 | **serverVersion** | Current version of the remote MCP server. |
+| **encryptClientState** | Determines if client state is encrypted. Defaults to true. Setting to false may be useful for debugging and test scenarios but isn't recommended for production. |
 | **messageOptions** | Options object for the message endpoint in the SSE transport. |
 | **messageOptions.UseAbsoluteUriForEndpoint** | Defaults to `false`. Only applicable to the server-sent events (SSE) transport; this setting doesn't affect the Streamable HTTP transport. If set to `false`, the message endpoint is provided as a relative URI during initial connections over the SSE transport. If set to `true`, the message endpoint is returned as an absolute URI. Using a relative URI isn't recommended unless you have a specific reason to do so.|
 
@@ -91,7 +91,7 @@ To connect to the MCP server exposed by your function app, you need to provide a
 | Streamable HTTP | `/runtime/webhooks/mcp` |
 | Server-Sent Events (SSE)<sup>1</sup> | `/runtime/webhooks/mcp/sse` |
 
-<sup>1</sup> Newer protocol versions have deprecated the Server-Sent Events transport. Unless your client specifically requires it, you should use the Streamable HTTP transport instead.
+<sup>1</sup> Newer protocol versions deprecated the Server-Sent Events transport. Unless your client specifically requires it, you should use the Streamable HTTP transport instead.
 
 When hosted in Azure, the endpoints exposed by the extension also require the [system key](./function-keys-how-to.md) named `mcp_extension`. If it isn't provided in the `x-functions-key` HTTP header, your client receives a `401 Unauthorized` response. You can retrieve the key using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key with the Azure CLI:
 
@@ -99,7 +99,7 @@ When hosted in Azure, the endpoints exposed by the extension also require the [s
 az functionapp keys list --resource-group <RESOURCE_GROUP> --name <APP_NAME> --query systemKeys.mcp_extension --output tsv
 ```
 
-MCP clients accept this configuration in various ways. Consult the documentation for your chosen client. The following example shows an `mcp.json` file like you might use to [configure MCP servers for GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_configuration-format). The example sets up two servers, both using the Streamable HTTP transport. The first is for local testing with the Azure Functions Core Tools. The second is for a function app hosted in Azure. The configuration takes input parameters for which VS Code prompts you when you first run the remote server. Using inputs ensures that secrets like the system key aren't saved to the file and checked into source control.
+MCP clients accept this configuration in various ways. Consult the documentation for your chosen client. The following example shows an `mcp.json` file like you might use to [configure MCP servers for GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_configuration-format). The example sets up two servers, both using the Streamable HTTP transport. The first is for local testing with the Azure Functions Core Tools. The second is for a function app hosted in Azure. The configuration takes input parameters for which Visual Studio Code prompts you when you first run the remote server. Using inputs ensures that secrets like the system key aren't saved to the file and checked into source control.
 
 ```json
 {

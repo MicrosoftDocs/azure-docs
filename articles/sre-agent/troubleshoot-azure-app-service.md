@@ -4,7 +4,7 @@ description: Learn how to use Azure SRE Agent Preview and Azure App Service to i
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 07/17/2025
+ms.date: 10/13/2025
 ms.service: azure-sre-agent
 ---
 
@@ -39,13 +39,7 @@ In this tutorial, you:
 
 * **Security context**: Ensure that your user account has the `Microsoft.Authorization/roleAssignments/write` permissions as either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
 
-* **Namespace**: By using Azure Cloud Shell in the Azure portal, run the following command to set up a namespace:
-
-    ```azurecli  
-    az provider register --namespace "Microsoft.App"
-    ```
-
-* **Access to the Sweden Central region**: During the preview, the only allowed region for SRE Agent is Sweden Central. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in the Sweden Central region.
+* **Access to the approved regions**: During the preview, the only allowed regions for SRE Agent are the *Sweden Central*, *East US 2*, and *Australia East* regions. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in the appropriate region.
 
 ## 1. Create an App Service app
 
@@ -192,7 +186,7 @@ Now, create an agent to monitor your App Service app:
     | **Subscription** | Your Azure subscription |  |
     | **Resource group** | **my-sre-agent-group** | New group for the agent. |
     | **Name** | **my-sre-agent** |  |
-    | **Region** | **Sweden Central** | During the preview, Azure SRE Agent is available only in the Sweden Central region. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to the Sweden Central region. |
+    | **Region** | **East US 2** | During the preview, Azure SRE Agent is available only in the *Sweden Central*, *East US 2*, and *Australia East* regions. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to the agent's region. |
 
 1. Choose **Select resource groups**.
 

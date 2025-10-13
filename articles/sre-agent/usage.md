@@ -3,7 +3,7 @@ title: Create and Use an agent in Azure SRE Agent Preview
 description: Learn how to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 10/13/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -16,7 +16,7 @@ This article demonstrates how to create an agent and connect it to your resource
 
 ## Preview access
 
-While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent-portal).
+While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent/portal).
 
 > [!NOTE]
 > By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -35,19 +35,13 @@ To create an agent, you need to grant your agent the correct permissions and acc
     az account set --subscription "<SUBSCRIPTION_ID>"
     ```
 
-* **Namespace**: By using Azure Cloud Shell in the Azure portal, run the following command to set up a namespace:
-
-    ```azurecli  
-    az provider register --namespace "Microsoft.App"
-    ```
-
-* **Access to the Sweden Central or East US 2 region**: During the preview, the only allowed regions for SRE Agent are Sweden Central and East US 2. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in one of these regions.
+* **Access to the approved regions**: During the preview, the only allowed regions for SRE Agent are the *Sweden Central*, *East US 2*, and *Australia East* regions. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in the appropriate region.
 
 ## Create an agent
 
 Create an agent by associating resource groups that you want to monitor with the agent:
 
-1. Open the [Azure portal](https://aka.ms/sreagent-portal).
+1. Open the [Azure portal](https://aka.ms/sreagent/portal).
 
 1. Select **Create**.
 
@@ -65,7 +59,7 @@ Create an agent by associating resource groups that you want to monitor with the
     | Property | Value |
     |---|---|
     | **Agent name** | Enter a name for your agent. |
-    | **Region** | Select **Sweden Central** or **East US 2**.<br><br>During the preview, Azure SRE Agent is available only in the Sweden Central or East US 2 regions. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to these regions. |
+    | **Region** | Select **East US 2**.<br><br>During the preview, Azure SRE Agent is available only in the *Sweden Central*, *East US 2*, and *Australia East* regions. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to these regions. |
 
 1. Select **Choose resource groups**.
 

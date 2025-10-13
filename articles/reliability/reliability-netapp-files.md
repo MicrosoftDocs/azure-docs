@@ -48,7 +48,7 @@ Azure NetApp Files supports *zonal* deployments of volumes. Use the [availabilit
 
 In the following diagram, blue arrows represent how all virtual machines (VMs) within the region in peered virtual networks can access all Azure NetApp Files resources. Green arrows represent how VMs that access Azure NetApp Files volumes in the same zone share the availability zone failure domain. There's no replication between the different volumes at the platform level.
 
-:::image type="complex" border="false" source="./media/reliability-netapp-files/availability-zone-diagram.png" alt-text="Diagram that shows Azure NetApp Files availability zone volume placement." lightbox="./media/reliability-netapp-files/availability-zone-diagram.png":::
+:::image type="complex" border="false" source="./media/reliability-netapp-files/availability-zone-diagram.svg" alt-text="Diagram that shows Azure NetApp Files availability zone volume placement.":::
    The diagram shows three availability zones in an Azure region. Blue arrows connect icons that represent VMs and Azure NetApp Files resources across availability zones. Green arrows connect VMs and Azure NetApp Files volumes in the same availability zone.
 :::image-end:::
 

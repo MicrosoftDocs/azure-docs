@@ -16,8 +16,6 @@ zone_pivot_groups: programming-languages-set-functions
 
 Use the MCP tool trigger to define tool endpoints in a [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) server. Client language models and agents can use tools to perform specific tasks, such as storing or accessing code snippets.
 
-[!INCLUDE [functions-mcp-extension-preview-note](../../includes/functions-mcp-extension-preview-note.md)]
-
 For information on setup and configuration details, see the [overview](functions-bindings-mcp.md).
 
 ## Example
@@ -72,8 +70,6 @@ builder.ConfigureFunctionsWebApplication();
 builder.Services
     .AddApplicationInsightsTelemetryWorkerService()
     .ConfigureFunctionsApplicationInsights();
-
-builder.EnableMcpToolMetadata();
 
 builder
     .ConfigureMcpTool("get_snippets")
@@ -440,20 +436,6 @@ In C#, you can define properties for your tools in several ways. Which approach 
 - You define a custom type with the properties, and the function binds to that type.
 - You use the `FunctionsApplicationBuilder` to define properties in your `Program.cs` file.
 
-In all cases, you must include a call to `builder.EnableMcpToolMetadata()` in your `Program.cs`:
-
-```csharp
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.ConfigureFunctionsWebApplication();
-
-builder.EnableMcpToolMetadata();
-
-// other configuration
-
-builder.Build().Run();
-```
-
 #### [`McpToolProperty` attribute](#tab/attribute)
 
 You can define one or more tool properties by applying the `McpToolProperty` attribute to input binding-style parameters in your function.  
@@ -506,8 +488,6 @@ You can define one or more tool properties in your entry point (`Program.cs`) fi
 var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.ConfigureFunctionsWebApplication();
-
-builder.EnableMcpToolMetadata();
 
 builder
     .ConfigureMcpTool("get_snippets")
