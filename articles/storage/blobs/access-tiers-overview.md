@@ -127,8 +127,6 @@ Keep in mind the following points when changing a blob's tier:
  
 - If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
-- If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
-
 ## Blob lifecycle management
 
 Blob storage lifecycle management offers a rule-based policy that you can use to transition your data to the desired access tier when your specified conditions are met. You can also use lifecycle management to expire data at the end of its life. See [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md) to learn more.

@@ -3,7 +3,7 @@ title: Disable local authentication in Azure Automation
 description: This article describes disabling local authentication in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/06/2024
+ms.date: 10/13/2025
 ms.custom: engagement-fy24
 ms.topic: how-to
 #Customer intent: As an administrator, I want disable local authentication so that I can enhance security.
@@ -48,7 +48,7 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 ## Re-enable local authentication
 
-To re-enable local authentication, execute the PowerShell cmdlet `Set-AzAutomationAccount` with the parameter `-DisableLocalAuth false`.  Allow a few minutes for the service to accept the change to allow local authentication requests.
+To re-enable local authentication, execute the PowerShell cmdlet [Set-AzAutomationAccount](https://learn.microsoft.com/powershell/module/az.automation/set-azautomationaccount?view=azps-13.4.0) with the parameter `-DisableLocalAuth false`.  Allow a few minutes for the service to accept the change to allow local authentication requests.
 
 ## Compatibility
 

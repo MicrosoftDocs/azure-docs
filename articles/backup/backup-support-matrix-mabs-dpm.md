@@ -60,17 +60,17 @@ For more information:
 > Backup of virtual machines hosted on public cloud platforms such as Azure VMs or AWS EC2 using DPM/MABS is not supported.
 > 
 > Also, Bare Metal Recovery (BMR) with MABS is supported only for recovery on the same hardware; recovery to different hardware or cloud environments (such as Azure VM or AWS EC2) isn't supported.
->
->
-> **Support Matrix**
->
+
+> **System state recovery support matrix**
+> 
 > | Scenario | Supported |
-> | --- | --- |
-> | Recover system state after BMR on the same hardware | ✅ Yes |
-> | Recover system state after BMR on different hardware | ❌ No |
-> | Recover system state after non-BMR full restore (same/different hardware) | ❌ No |
->
-> This limitation is primarily due to the fact that **system state backups contain hardware-dependent information**, making recovery on different environments technically infeasible.
+| --- | --- |
+| Recover system state after BMR on the same hardware | ✅ Yes |
+| Recover system state after BMR on different hardware | ❌ No |
+| Recover system state after non-BMR full restore (same/different hardware) | ❌ No |
+
+>[!Note]
+>This limitation is primarily due to the fact that **system state backups contain hardware-dependent information**, making recovery on different environments technically infeasible.
 
 ## Supported deployments
 

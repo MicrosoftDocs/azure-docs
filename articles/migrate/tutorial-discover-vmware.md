@@ -27,10 +27,15 @@ In this tutorial, you learn how to:
 > * Set up the Azure Migrate appliance.
 > * Start continuous discovery.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+Watch the following video to learn how to discover on-premises servers running in a VMware environment as part of your migration to Azure. 
+
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=edbc7f22-2ba1-44cd-a534-465dfd426a14]
+
 > [!NOTE]
 > Tutorials show you the quickest path for trying out a scenario. They use default options where possible. This scenario is also applicable for discovery of VM servers from AVS.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 ## Prerequisites
 

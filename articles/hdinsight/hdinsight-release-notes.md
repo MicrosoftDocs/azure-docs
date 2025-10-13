@@ -63,6 +63,11 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 * Disabled local user creation by default to strengthen access control. 
 
+## Updates
+
+* The following standalone drivers are no longer supported with HDInsight.
+   * [Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886)
+   * [Spark ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=49883)
 
 ## Reminder
 

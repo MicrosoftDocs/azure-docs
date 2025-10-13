@@ -13,7 +13,6 @@ Microsoft has developed many proven practices for managing network functions (NF
 
 ## General considerations
 We recommend that you first onboard and deploy your simplest NFs (one or two charts) by using the quickstarts to familiarize yourself with the overall flow. You can add necessary configuration details in subsequent iterations. As you go through the quickstarts, consider the following points:
-
 - Structure your artifacts to align with planned use. Consider separating global artifacts from the artifacts that you want to vary by site or instance.
 - Ensure service composition of multiple NFs with a set of parameters that matches the needs of your network. For example, you might customize 100 values in a chart that has 1,000 values. Make sure that in the configuration group schema (CGS) layer (covered more extensively in sections that follow), you expose only 100.
 - Think early on about how you want to separate infrastructure (for example, clusters) or artifact stores and access between suppliers, in particular within a single service. Make your set of publisher resources match this model.
@@ -27,19 +26,22 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
   - Lowers total operating costs by reducing the number of publisher backing resources, like ACR or Storage Accounts.
   - Simplifies the network service design (NSD), where it may consist of multiple NFs from multiple vendors.
 - After you test and approve the desired set of Azure Operator Service Manager publisher resources for production use, we recommend marking the entire set as immutable. Marking the set as immutable helps prevent accidental changes and ensure a consistent deployment experience. Consider relying on immutability capabilities to distinguish between:
-
   - Resources and artifacts used in production
   - Resources and artifacts used for testing and development
-  
-  You can query the state of the publisher resources and the artifact manifests to determine which ones are marked as immutable. For more information, see [Publisher Resource Preview Management feature](publisher-resource-preview-management.md).
 
-  Keep in mind the following logic:
-  
-  - If the network service design version (NSDV) is marked as immutable, the CGS also must be marked as immutable. Otherwise, the deployment call fails.
-  - If the network function definition version (NFDV) is marked as immutable, the artifact manifest also must be marked as immutable. Otherwise, the deployment call fails.
-  - If only the artifact manifest or the CGS is marked as immutable, the deployment call succeeds regardless of whether the NFDV and NSDV are marked as immutable.
-  - Marking an artifact manifest as immutable ensures that all artifacts listed in that manifest are also marked as immutable by enforcing necessary permissions on the artifact store. Listed artifacts typically include charts, images, and Azure Resource Manager templates (ARM templates).
+You can query the state of the publisher resources and the artifact manifests to determine which ones are marked as immutable. For more information, see [Publisher Resource Preview Management feature](publisher-resource-preview-management.md). 
+
+Keep in mind the following logic:  
+- If the network service design version (NSDV) is marked as immutable, the CGS also must be marked as immutable. Otherwise, the deployment call fails.
+- If the network function definition version (NFDV) is marked as immutable, the artifact manifest also must be marked as immutable. Otherwise, the deployment call fails.
+- If only the artifact manifest or the CGS is marked as immutable, the deployment call succeeds regardless of whether the NFDV and NSDV are marked as immutable.
+- Marking an artifact manifest as immutable ensures that all artifacts listed in that manifest are also marked as immutable by enforcing necessary permissions on the artifact store. Listed artifacts typically include charts, images, and Azure Resource Manager templates (ARM templates).
 - Consider using agreed-upon naming conventions and governance techniques to help address any remaining gaps.
+
+### Publisher high availability and disaster recovery
+The Azure Operator Service Manager publisher is a regional service deployed across local availability zones in supported regions only. Consider the following requirements for publisher high availability and disaster recovery:
+- To provide geo-redundancy, make sure you have a publisher in every region where you're planning to deploy NFs. Consider using pipelines to keep publisher artifacts and resources in sync across the regions.
+- The publisher name must be unique for each Microsoft Entra tenant in each region.
 
 ## NFDG and NFDV considerations
 The network function definition group (NFDG) represents the smallest component that you plan to reuse independently across multiple services. All parts of an NFDG are always deployed together. These parts are called `networkFunctionApplications` items.
@@ -74,7 +76,6 @@ For ARM templates that contain anything beyond the preceding list, all `PUT` cal
 A network service design group (NSDG) is a composite of one or more NFDGs and any infrastructure components deployed at the same time. These components might include clusters and VMs in Nexus Kubernetes or Azure Kubernetes Service (AKS). A site network service (SNS) refers to a single NSDV. Such a design provides a consistent and repeatable deployment of the network service to a site from a single SNS `PUT` call.
 
 An example NSDG might consist of:
-
 - Authentication Server Function (AUSF) NF
 - Unified data management (UDM) NF
 - Admin VM that supports AUSF or UDM
@@ -96,13 +97,11 @@ We recommend that you have a single SNS for the entire site, including the infra
 
 We recommend that you deploy every SNS with a user-assigned managed identity rather than a system-assigned managed identity. This user-assigned managed identity must have permissions to access the NFDV and must have the role of Managed Identity Operator on itself. For more information, see [Create and assign a user-assigned managed identity](how-to-create-user-assigned-managed-identity.md).
 
-## Azure Operator Service Manager resource mapping per use case
+## Resource scheme use-case examples 
 The following two scenarios illustrate Azure Operator Service Manager resource mapping.
 
 ### Scenario: Single network function
-An NF with one or two application components is deployed to a Nexus Kubernetes cluster.
-
-Here's the breakdown of resources:
+An NF with one or two application components is deployed to a Nexus Kubernetes cluster. Here's the breakdown of resources:
 - **NFDG**: If components can be used independently, two NFDGs (one per component). If components are always deployed together, then a single NFDG.
 - **NFDV**: As needed based on use cases that trigger NFDV minor or major version updates.
 - **NSDG**: Single. Combines the NFs and the Kubernetes cluster definitions.
@@ -113,7 +112,6 @@ Here's the breakdown of resources:
 
 ### Scenario: Multiple network functions
 Multiple NFs with some shared and independent components are deployed to a Nexus Kubernetes cluster. Here's the breakdown of resources:
-
 - **NFDG**:
   - Single for all shared components.
   - Single for every independent component or NF.
@@ -142,40 +140,12 @@ The following considerations apply for VNFs:
     - Deployment policy, to control whether VM deployment is allowed or not
   - In the NFDV, you need to parameterize `deployParameters` and `templateParameters` in such a way that you can supply the unique values by using CGVs for each.
 
-## Considerations for high availability and disaster recovery
-Azure Operator Service Manager is a regional service deployed across availability zones in regions that support them. For a list of regions where Azure Operator Service Manager is available, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=operator-service-manager,azure-network-function-manager&regions=all). For a list of Azure regions that have availability zones, see [Find the Azure geography that meets your needs](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
-
-Consider the following requirements for high availability and disaster recovery:
-- To provide geo-redundancy, make sure you have a publisher in every region where you're planning to deploy NFs. Consider using pipelines to keep publisher artifacts and resources in sync across the regions.
-- The publisher name must be unique for each Microsoft Entra tenant in each region.
-- If a region becomes unavailable, you can deploy (but not upgrade) an NF by using publisher resources in another region. Assuming that artifacts and resources are identical between the publishers, you need to change only the `networkServiceDesignVersionOfferingLocation` value in the SNS resource payload:
-
-```
-  <pre>
-  resource sns 'Microsoft.HybridNetwork/sitenetworkservices@2023-09-01' = {
-   name: snsName
-   location: location
-   identity: {
-    type: 'SystemAssigned'
-   }
-   properties: {
-     publisherName: publisherName
-     publisherScope: 'Private'
-     networkServiceDesignGroupName: nsdGroup
-     networkServiceDesignVersionName: nsdvName
-     <b>networkServiceDesignVersionOfferingLocation: location</b>
-  </pre>
-```
-
-## Troubleshooting considerations
+## Deployment troubleshooting considerations
 During installation and upgrade, by default:
-
 - The `atomic` and `wait` options are set to `true`.
 - The operation timeout is set to `27 minutes`.
 
-During initial onboarding, only while you're still debugging and developing artifacts, we recommend that you set the `atomic` flag to `false`. This setting prevents a Helm rollback upon failure and retains any logs or errors that might otherwise be lost. The optimal way to accomplish it is in the ARM template of the NF.
-
-In the ARM template, add the following section:
+During initial onboarding, only while you're still debugging and developing artifacts, we recommend that you set the `atomic` flag to `false`. This setting prevents a Helm rollback upon failure and retains any logs or errors that might otherwise be lost. The optimal way to accomplish it is in the ARM template of the NF. In the ARM template, add the following section:
 
 ```
 <pre>
@@ -231,76 +201,3 @@ As the first step toward cleaning up an onboarded environment, delete publisher 
 > Be sure to delete the SNS before you delete the NFDV.
 
 Azure Operator Service Manager does not delete namespaces as part of any deletion operation. As such, after all resources are deleted, some artifacts might remain on the cluster. To remove any remaining artifacts, you should delete any workload namespaces created on the cluster. Including the namespace deletion operation as part of the workflow pipeline is a recommendation to automate the action.
-
-## Sequential ordering behavior for CNF applications
-By default, CNF applications are installed or updated based on the order in which they appear in the NFDV. For the deletion operation, the CNF applications are deleted in the specified reverse order. If you need to define a specific order of CNF applications that's different from the default, use `dependsOnProfile` to define a unique sequence for installation, update, and deletion operations.
-
-### How to use dependsOnProfile
-You can use `dependsOnProfile` in the NFDV to control the sequence of Helm executions for CNF applications. In the example that follows:
-- During an installation operation, the CNF applications are deployed in the following order: `dummyApplication1`, `dummyApplication2`, `dummyApplication`.
-- During an update operation, the CNF applications are updated in the following order: `dummyApplication2`, `dummyApplication1`, `dummyApplication`.
-- During a deletion operation, the CNF applications are deleted in the following order: `dummyApplication2`, `dummyApplication1`, `dummyApplication`.
-
-```json
-{
-    "location": "eastus",
-    "properties": {
-        "networkFunctionTemplate": {
-            "networkFunctionApplications": [
-                {
-                  "dependsOnProfile": {
-                        "installDependsOn": [
-                            "dummyApplication1",
-                            "dummyApplication2"
-                        ],
-                        "uninstallDependsOn": [
-                            "dummyApplication1"
-                        ],
-                        "updateDependsOn": [
-                            "dummyApplication1"
-                        ]
-                    },
-                    "name": "dummyApplication"
-                },
-                {
-                  "dependsOnProfile": {
-                        "installDependsOn": [
-                        ],
-                        "uninstallDependsOn": [
-                            "dummyApplication2"
-                        ],
-                        "updateDependsOn": [
-                            "dummyApplication2"
-                        ]
-                    },
-                    "name": "dummyApplication1"
-                },
-                {
-                    "dependsOnProfile": null,
-                    "name": "dummyApplication2"
-                }
-            ],
-            "nfviType": "AzureArcKubernetes"
-        },
-        "networkFunctionType": "ContainerizedNetworkFunction"
-    }
-}
-```
-
-### Common errors
-Currently, if the `dependsOnProfile` code provided in the NFDV is invalid, the NF operation fails with a validation error. The message for the validation error appears in the operation status resource and looks similar to the following example:
-
-```json
- {
-  "id": "/providers/Microsoft.HybridNetwork/locations/EASTUS2EUAP/operationStatuses/ca051ddf-c8bc-4cb2-945c-a292bf7b654b*C9B39996CFCD97AB3A121AE136ED47F67BB13946C573EF90628C47628BC5EF5F",
-  "name": "ca051ddf-c8bc-4cb2-945c-a292bf7b654b*C9B39996CFCD97AB3A121AE136ED47F67BB13946C573EF90628C47628BC5EF5F",
-  "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/xinrui-publisher/providers/Microsoft.HybridNetwork/networkfunctions/testnfDependsOn02",
-  "status": "Failed",
-  "startTime": "2023-07-17T20:48:01.4792943Z",
-  "endTime": "2023-07-17T20:48:10.0191285Z",
-  "error": {
-    "code": "DependenciesValidationFailed",
-    "message": "CyclicDependencies: Circular dependencies detected at hellotest."
-  }
-}
-```

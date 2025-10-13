@@ -91,7 +91,8 @@ These are the prerequisites for backing up virtual machines with MABS:
         ```
         Install DPMAgentInstaller.exe`
         ```
-    
+     >[!Note]
+     >Default Application Control settings may prevent agent deployment, [switch application control to "Audit" mode](/azure/azure-local/manage/manage-wdac#switch-application-control-policy-modes) before agent installation to work around this issue. After deployment is complete, it is highly recommended to switch the application control back to "Enforced" mode. 
      2. After the installation is complete, run the following command to configure the agent on the node:
 
         ```
