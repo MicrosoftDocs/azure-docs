@@ -45,6 +45,15 @@ With the Explicit proxy mode (supported for HTTP/S), you can define proxy settin
 
    :::image type="content" source="media/explicit-proxy/shared-access-signature.png" alt-text="Screenshot showing generate shared access signature.":::
 
+## Governance and compliance
+
+To ensure consistent configuration of explicit proxy settings across your Azure Firewall deployments, you can use Azure Policy definitions. The following policies are available to govern explicit proxy configurations:
+
+- **Enforce Explicit Proxy Configuration for Firewall Policies**: Ensures that all Azure Firewall policies have explicit proxy configuration enabled.
+- **Enable PAC file configuration while using Explicit Proxy**: Audits that when explicit proxy is enabled, the PAC (Proxy Auto-Configuration) file is also properly configured.
+
+For more information about these policies and how to implement them, see [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md).
+
 ## Next steps
 
 - To learn more about Explicit proxy, see [Demystifying Explicit proxy: Enhancing Security with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/demystifying-explicit-proxy-enhancing-security-with-azure/ba-p/3873445).

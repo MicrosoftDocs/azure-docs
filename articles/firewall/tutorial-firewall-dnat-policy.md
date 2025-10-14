@@ -227,5 +227,6 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ## Next steps
 
+For advanced DNAT scenarios involving overlapped networks or non-routable network access, see:
 > [!div class="nextstepaction"]
-> [Deploy and configure Azure Firewall Premium](premium-deploy.md)
+> [Deploy Azure Firewall private IP DNAT for overlapped and non-routable networks](tutorial-private-ip-dnat.md)

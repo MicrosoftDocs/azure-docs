@@ -98,7 +98,7 @@ If you initiate the failover, two steps are required:
 2. Pull messages from the former primary namespace once it's available again. After that, use that namespace for regular messaging outside of your geo-recovery setup, or delete the old primary namespace.
 
 > [!NOTE]
-> Only fail forward semantics are supported. In this scenario, you fail over and then re-pair with a new namespace. Failing back is not supported; for example, in a SQL cluster. 
+> Only *fail-forward* semantics are supported. When you initiative a failover with geo-disaster recovery, you can optionally re-pair with a new namespace after failover completes. Failing back to the previous primary replica is not supported. These semantics might be different to other data stores you're used to, like Microsoft SQL Server clusters. 
 
 :::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Image showing the failover flow." lightbox="./media/event-hubs-geo-dr/geo2.png":::
 

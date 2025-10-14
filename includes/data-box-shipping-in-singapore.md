@@ -2,30 +2,31 @@
 author: stevenmatthew
 ms.service: azure-databox
 ms.topic: include
-ms.date: 04/29/2025
+ms.date: 10/14/2025
 ms.author: shaas
 ---
 
 Take the following steps if you're returning the device in Singapore.
 
 1. Keep the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). The tracking number is available after the **Prepare to ship** step completes successfully. Download the shipping label from this page and paste on the packing box.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
-5. Email SingPost Customer Service using the following email template with the tracking number.
+5. Email adbops@microsoft.com using the following template to get the return shipment label: 
+    * If you have multiple orders, email to ensure individual pickup.
 
     ```
-    To: g-keyacct@singpost.com
-    Subject: Microsoft Azure Pickup - OrderName 
-    Body: 
-        1. Requester name  
-        2. Requester contact number
-        3. Requester collection address
-        4. Preferred collection date
+    To: adbops@microsoft.com
+    Subject: Microsoft Azure return shipment Pickup | [Order Name] 
+    Body:
+    -  Name:
+    -  Contact Number:
+    -  Collection Address:
+    -  Preferred Collection Date and Time:
     ```
 
-   > [!NOTE]
-   > For booking requests received on a business day:
-   > * Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
-   > * After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+6. Print two copies of the reverse shipping label. Affix one label to the outside of the package. Use the second label to obtain a signature from the carrier team as acknowledgment.
+7. If you encounter pickup issues:
+   * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
+   * Include the Order Name and a description of the issue in the subject line.
+8. Once the device is picked up and scanned by the carrier, the order status in the Azure portal will update to “Picked Up” and a tracking ID will be displayed. 
 

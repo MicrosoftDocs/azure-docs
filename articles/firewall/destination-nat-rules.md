@@ -92,6 +92,20 @@ The following considerations are important when using DNAT rules with FQDN filte
 
 Analyzing these logs can help diagnose connectivity issues and ensure traffic is routed correctly to the intended backend.
 
+## Private IP DNAT scenarios
+
+For advanced scenarios involving overlapped networks or non-routable network access, you can use Azure Firewall's private IP DNAT capability. This feature allows you to:
+
+- Handle overlapped network scenarios where multiple networks share the same IP address space
+- Provide access to resources in non-routable networks
+- Use the firewall's private IP address for DNAT instead of public IP addresses
+
+To learn how to configure private IP DNAT for these scenarios, see [Deploy Azure Firewall private IP DNAT for overlapped and non-routable networks](tutorial-private-ip-dnat.md).
+
+> [!NOTE]
+> Private IP DNAT is available only in Azure Firewall Standard and Premium SKUs. The Basic SKU doesn't support this feature.
+
 ## Next steps
 
 - Learn how to monitor Azure Firewall logs and metrics using [Azure Monitor](monitor-firewall.md).
+- [Deploy Azure Firewall private IP DNAT for overlapped and non-routable networks](tutorial-private-ip-dnat.md)

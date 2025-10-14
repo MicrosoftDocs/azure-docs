@@ -174,7 +174,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[NTT DOCOMO BUSINESS - Flexible InterConnect](https://sdpf.ntt.com/)** |&check; |&check; | Jakarta<br/>Osaka<br/>Singapore2<br/>Tokyo<br/>Tokyo2 |
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |&check; |&check; | Tokyo |
 | **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |&check; |&check; | Amsterdam2<br/>Berlin<br/>Frankfurt<br/>London2 |
-| **[NTT Indonesia](https://jktix.id/cloud-connect/)** | &check; | &check; | Jakarta |
+| **[NTT Indonesia](https://jktix.com/service_cloudconnect.html)** | &check; | &check; | Jakarta |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |&check; |&check; | Osaka |
 | **[Ooredoo Cloud Connect](https://www.ooredoo.qa/web/en/business/local-connectivity/multi-cloud/)** |&check; |&check; | Doha<br/>Doha2<br/>London2<br/>Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** |&check; |&check; | Melbourne<br/>Sydney |
@@ -280,7 +280,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
   * [CoreSite](https://www.coresite.com/)
   * [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)
   * [Equinix Cloud Exchange](https://www.equinix.com/interconnection-services/equinix-fabric)
-  * [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
+  * [Interxion (Digital Reality)](https://www.digitalrealty.com/partners/microsoft-azure)
   * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [Momentum Telecom](https://gomomentum.com/)
@@ -358,7 +358,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | --- | --- | --- |
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | London |
 | **[Nianet](https://www.globalconnect.dk/)** |Equinix | Amsterdam<br/>Frankfurt |
-| **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/ue-for-expressroute)**| Equinix | Montreal<br/>Toronto |
+| **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/universaledge-main)**| Equinix | Montreal<br/>Toronto |
 | **POST Telecom Luxembourg**| Equinix | Amsterdam |
 | **[Proximus](https://www.proximus.be/en/id_cl_explore/companies-and-public-sector/networks/corporate-networks/explore.html)**| Bics | Amsterdam<br/>Dublin<br/>London<br/>Paris |
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  

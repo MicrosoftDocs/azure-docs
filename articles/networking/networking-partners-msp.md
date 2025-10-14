@@ -6,7 +6,7 @@ ms.author: mbender
 author: mbender-ms
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/30/2023
+ms.date: 10/14/2025
 # Customer intent: "As a network administrator, I want to explore managed networking services offered by Azure Networking partners, so that I can effectively implement and manage cloud and hybrid networking solutions tailored to my organization's needs."
 ---
 
@@ -22,7 +22,7 @@ Customers can purchase MSP-managed services offers in the Azure Marketplace, or 
 
 ## <a name="msp"></a>Azure Marketplace offers by Azure Networking MSP partners
 
-Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner is not listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com. 
+Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner isn't listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com. 
 
 | **MSP** | **Cloud Network Transformation Services** | **Managed ExpressRoute** | **Managed Virtual WAN** | **Managed Private Edge Zones** | **Managed Security** |
 | ---| ---| ---| ---| ---| ---|
@@ -39,7 +39,7 @@ Use the links in this section for more information about managed cloud networkin
 |[HCL](https://www.hcltech.com/)|HCL Cloud Network Transformation- One Day Assessment|[1-Hour Briefing of HCL Azure ExpressRoute Service](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazureexpressroute?tab=Overview)|[HCL Azure Virtual WAN Services - One Day Assessment](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazurevitualwan?search=vWAN&page=1)|[HCL Azure Private LTE offering - One Day Assessment](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclazureprivatelteoffering)|
 |[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[ExpressRoute implementation: 1-Hour Briefing](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[ExpressRoute: 2-Week Implementation](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys Integrate+ for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
-|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Azure Networking Assessment - Five Days](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
+|[Digital Realty (formerly Interxion)](https://www.digitalrealty.com/partners/microsoft-azure)|[Azure Networking Assessment - Five Days](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)||[ExpressRoute by IX Reach, a BSO company](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ixreach.cloudconnect?tab=Overview)||||
 |[KoçSistem](https://kocsistem.com.tr/en/)|[KoçSistem Managed Cloud Services for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kocsistem.kocsistemcloudmanagementtool?tab=Overview) | KoçSistem Azure ExpressRoute Management|[ KoçSistem Azure Virtual WAN Management || `KoçSistem Azure Security Center Managed Service` |
 |[Liquid Telecom](https://liquidcloud.africa/)| [Liquid Azure Expert Services](https://azuremarketplace.microsoft.com/marketplace/apps/liquidtelecommunicationsoperationslimited.5dab29ab-bb14-4df8-8978-9a8608a41ad7?tab=Overview)|[Liquid Managed ExpressRoute for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/idtelecommunicationssouthafricaptyltd1653309730001.expressroute_v1?tab=Overview)||||
@@ -50,7 +50,7 @@ Use the links in this section for more information about managed cloud networkin
 |[Nokia](https://www.nokia.com/networks/services/managed-services/) ||| NBConsult Nokia Nuage SDWAN; [Nuage SD-WAN 2.0 Azure Virtual WAN](https://azuremarketplace.microsoft.com/?tab=Overview)|[Nokia 4G & 5G Private Wireless (NDAC)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nokiaofamericacorporation1591716055441.ndac_5g-ready_private_wireless?tab=Overview)|
 |[NTT Ltd](https://www.nttglobal.net/)|[Azure Cloud Discovery: 2-Week Workshop](https://azuremarketplace.microsoft.com/marketplace/apps/capside.replica-azure-cloud-governance-capside?tab=Overview)|NTT Managed ExpressRoute Service;NTT Managed IP VPN Service|NTT Managed SD-WAN Service|||
 |[NTT Data](https://www.nttdata.com/global/en/services/cloud)|[Managed Services: 10-week Implementation](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
-|[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|[Enterprise Cloud Foundations: Workshop (~10 days)](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oncore_cloud_services-4944214.oncore_cloud_onboard_201810)|[UniversalEdge for Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
+|[Oncore Cloud Services]( https://www.oncore.cloud/universaledge)|[Enterprise Cloud Foundations: Workshop (~10 days)](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oncore_cloud_services-4944214.oncore_cloud_onboard_201810)|[UniversalEdge for Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
 |[OpenSystems](https://open-systems.com/solutions/microsoft-azure-virtual-wan)|||[Managed secure SD-WAN using Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/open_systems_ag.sdwan_0820?tab=Overview)||
 |[Orange Business Services](https://www.orange-business.com/en/partners/orange-business-services-become-microsoft-azure-networking-managed-services-provider)||[ExpressRoute Network Study : 3-week implementation](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/orangebusinessservicessa1603182943272.expressroute_study_obs_connectivity)|||
 |[Orixcom]( https://www.orixcom.com/solutions/cloudconnect)||[Orixcom Managed ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||

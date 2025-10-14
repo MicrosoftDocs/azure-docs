@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/13/2025
+ms.date: 10/14/2025
 ms.author: anfdocs
 ---
 
@@ -37,9 +37,15 @@ You must generate a PEM-formatted SSL certificate. You can create the SSL certif
 
 ### [Portal](#tab/portal)
 
-See the [Azure Key Vault documentation for creating a certificate](/azure/key-vault/certificates/tutorial-import-certificate). 
+See the [Azure Key Vault documentation for adding a certificate to Key Vault](/azure//key-vault/certificates/quick-create-portal#add-a-certificate-to-key-vault). 
 
-When creating the certificate, ensure the **Content Type** is set to PEM. In the **Subject** field, set the Common Name (CN) to the IP address or fully qualified domain name (FQDN) of your Azure NetApp Files object REST API-enabled endpoint.
+When creating the certificate, ensure:
+
+* the **Content Type** is set to PEM
+* the **Subject** field is set to the IP address or fully qualified domain name (FQDN) of your Azure NetApp Files endpoint using the format `CN=<IP or FQDN>`
+* the **DNS Names** entry specifies the IP address or FQDN
+
+:::image type="content" source="./media/object-rest-api-access-configure/create-certificate.png" alt-text="Screenshot of create certificate options." lightbox="./media/object-rest-api-access-configure/create-certificate.png":::
 
 ### [Script](#tab/script)
 
@@ -73,7 +79,7 @@ echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
 ```
 --- 
 
-## Enable object REST API access
+## Create a bucket
 
 To enable object REST API, you must create a bucket. 
 
@@ -116,20 +122,19 @@ To enable object REST API, you must create a bucket.
 
 1. Select **Create**. 
 
-<!-- 
-## Edit a bucket
+After you create a bucket, you need to generate credentials to access the bucket.
 
-After you create a bucket, you have the option to modify the user identifier (UID or GID) of the bucket.
+## Generate credentials
 
-1. In your NetApp account, navigate to **Buckets**. 
-1. Select the three dots `...` at the end of the line next to the name of the bucket you want to modify then select **Edit**. 
-1. Enter the new User ID or Group ID for the bucket. 
-1. Select **Save**. 
--->
+1. Navigate to your newly created bucket. Select **Generate keys**.
+1. Enter the desired Access key lifespan in days then select **Generate keys**. After you select **Generate keys**, the portal displays the access key and secret access key. 
+    >[!IMPORTANT]
+    >The access key and secret access key are only displayed once. Store the keys securely. Do not share the keys.
+1. After you set the credentials, you can generate a new access key and secret access key by selecting the `...` menu then selecting **Generate access keys**. Generating new keys immediately invalidates the existing keys. 
 
 ## Delete a bucket
 
-Deleting a bucket is a permanent operation. You can't recover the bucket once it's deleted. 
+Deleting a bucket is a permanent operation. You can't recover the bucket after deleting it. 
 
 1. In your NetApp account, navigate to **Buckets**. 
 1. Select the checkbox next to the bucket you want to delete. 

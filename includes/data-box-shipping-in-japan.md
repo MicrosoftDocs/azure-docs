@@ -12,27 +12,21 @@ Take the following steps if you're returning the device in Japan.
 2. Power off the device and remove the cables.
 3. Spool and securely place the power cord that was provided with the device in the back of the device.
 4. Write your company name and address information on the consignment note as your sender information.
-5. Email Quantium Solutions using the following email template.
-
-    * If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
+5. Email adbops@microsoft.com using the following template to get the return shipment label: 
     * If you have multiple orders, email to ensure individual pickup.
 
     ```
-    To: azure.qsjp@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box｜Job name： 
+    To: adbops@microsoft.com
+    Subject: Microsoft Azure return shipment Pickup | [Order Name] 
     Body:
-    - Japan Post Yu-Pack tracking number (reference number)：
-    - Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
+    -  Name:
+    -  Contact Number:
+    -  Collection Address:
+    -  Preferred Collection Date and Time:
     ```
 
-6. Receive an email confirmation from Quantium Solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
-
-If needed, you can contact Quantium Solutions Support (Japanese language) at the following information:
-
-* Email：[azure.qsjp@quantiumsolutions.com](mailto:azure.qsjp@quantiumsolutions.com)
-* Telephone：03-5755-0150
-
+6. Print two copies of the reverse shipping label. Affix one label to the outside of the package. Use the second label to obtain a signature from the carrier team as acknowledgment.
+7. If you encounter pickup issues:
+   * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
+   * Include the Order Name and a description of the issue in the subject line.
+8. Once the device is picked up and scanned by the carrier, the order status in the Azure portal will update to “Picked Up” and a tracking ID will be displayed.

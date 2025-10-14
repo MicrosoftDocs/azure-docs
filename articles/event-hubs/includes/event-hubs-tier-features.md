@@ -22,7 +22,8 @@ The following table shows the list of features that are available (or not availa
 | Ingress events | Pay per million events | Pay per million events | Included | Included |
 | Runtime audit logs | N/A | N/A | Yes | Yes |
 | Availability zone | Yes | Yes | Yes | Yes |
-| Geo-disaster | N/A | Yes | Yes | Yes |
+| Geo-disaster recovery | N/A | Yes | Yes | Yes |
+| Geo-replication | N/A | N/A | Yes | Yes |
 | IP firewall | N/A | Yes | Yes | Yes |
 
 > [!NOTE]

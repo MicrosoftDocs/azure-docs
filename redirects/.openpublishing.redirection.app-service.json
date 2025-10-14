@@ -2006,6 +2006,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/troubleshoot-dotnet-visual-studio.md",
+      "redirect_url": "/visualstudio/debugger/remote-debugging-azure-app-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-web-troubleshoot-http-502-http-503.md",
       "redirect_url": "/azure/app-service/troubleshoot-http-502-http-503",
       "redirect_document_id": false

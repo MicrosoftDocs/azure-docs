@@ -58,7 +58,7 @@ Azure supports several types of network access control, such as:
 Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems. Other communication attempts are blocked.
 
 > [!NOTE]
-> Storage Firewalls are covered in the [Azure storage security overview](../../storage/blobs/security-recommendations.md) article
+> Storage Firewalls are covered in the [Azure storage security overview](../../storage/blobs/security-recommendations.md) article.
 
 #### Network security rules (NSGs)
 
@@ -76,7 +76,7 @@ Learn more:
 
 #### Defender for Cloud just in time VM access
 
-[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized Defender for Cloud makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate Azure role-based access control ([Azure RBAC](../../role-based-access-control/overview.md)) permissions requests access. When the user is successfully authorized Defender for Cloud makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
 
 Learn more:
 

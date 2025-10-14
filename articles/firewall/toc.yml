@@ -94,6 +94,8 @@ items:
       href: tutorial-hybrid-ps.md
   - name: Firewall with inbound DNAT rules
     href: tutorial-firewall-dnat-policy.md
+  - name: Private IP DNAT for overlapped and non-routable networks
+    href: tutorial-private-ip-dnat.md
   - name: Firewall with DDoS protection
     href: tutorial-protect-firewall.md
   - name: Integrate NAT gateway with Azure Firewall

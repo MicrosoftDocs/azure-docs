@@ -75,8 +75,6 @@
       href: ../../automation/automation-runbook-gallery.md
   - name: Troubleshooting
     items:
-    - name: Troubleshoot with Visual Studio
-      href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Troubleshoot Node.js app
       href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Troubleshoot HTTP 502 & 503

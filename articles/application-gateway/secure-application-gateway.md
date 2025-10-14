@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.custom: security
+ms.custom: security, horz-security
 ms.date: 08/15/2025
 ai-usage: ai-assisted
 ---
