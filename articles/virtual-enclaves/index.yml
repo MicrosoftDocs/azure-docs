@@ -29,8 +29,6 @@ landingContent:
           url: virtual-enclaves-faq.md
         - text: Azure Virtual Enclaves Pricing
           url: virtual-enclaves-pricing.md
-        - text: "What's new?"
-          url: whats-new.md
       # - linkListType: learn
       #   links:
       #     - text: Understanding Enclave Networking
@@ -67,6 +65,10 @@ landingContent:
             url: understand-admin-vm.md
           - text: Understand Domain Name Service
             url: understand-domain-name-service.md
+      - linkListType: whats-new
+        links:
+          - text: "What's new?"
+            url: whats-new.md
   # Card
   - title: Get started
     linkLists:
@@ -113,7 +115,7 @@ landingContent:
   # Card
   - title: Governance, Security, and Compliance
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: learn
         links:
           - text: Observability
             url: observability.md
@@ -146,7 +148,7 @@ landingContent:
   # Card
   - title: Deploy from the Services Catalog
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links:
           - text: Deploy an Admin Virtual Machine from the service catalog
             url: deploy-admin-vm-service-catalog.md
@@ -160,7 +162,7 @@ landingContent:
             url: deploy-azure-kubernetes-service-service-catalog.md
           - text: Deploy RemoteApp Virtual Machine from the service catalog
             url: deploy-remoteapp-vm-service-catalog.md
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links:
           - text: Deploy Azure App Service from the service catalog
             url: deploy-app-service-web-app-service-catalog.md
@@ -179,7 +181,7 @@ landingContent:
   # Card
   - title: Manage and Monitor
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: learn
         links:
 #           - text: Monitor your enclaves
 #             url: monitor-your-enclaves.md
