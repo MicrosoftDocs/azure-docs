@@ -132,9 +132,9 @@ Read through these setup steps to determine if these configuration steps fit you
 
 ### Configure Network Watcher resource groups
 
-If these steps aren't completed, Network Watcher creates its own resource group for Network Watcher resources outside of the Azure Virtual Enclaves boundaries.
+In order to avoid potential issues with [Virtual Network (VNet) Flow Log](/azure/network-watcher/vnet-flow-logs-overview) creation later on, we recommend you either setup the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app `Owner` on the resource group, or verify that the setup occurred automatically and that RBAC roles were automatically assigned before creating your first enclave in the subscription.
 
-To mitigate this access issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` AVE App `Owner` on the NetworkWatcherRG:
+To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` AVE App `Owner` on the NetworkWatcherRG:
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
 ![Screenshot showing add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
 2. Select `Privileged administrator roles`, select `owner`, then select `Next`.
@@ -145,11 +145,10 @@ To mitigate this access issue, for each subscription, manually create the Networ
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 5. Once `Registered`, proceed to [next steps](#next-steps).
 
-If these steps aren't completed, when a Community or Enclave is created, the `Microsoft.Mission` resource provider:
-1. Checks if the `NetworkWatcherRG` exists. If not, that resource group is created.
-2. Checks if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. Inherited `Owner` permission isn't enough. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`.
-3. If any step fails, or if any errors occur, a warning message is displayed. 
-
+When a Community or Enclave is created, Azure Virtual Enclaves will attempt the following:
+1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
+2. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
+3. If any step fails, or if any errors occur, enclave deployments may fail when attempting to create VNet Flow Logs.
 
 ## Next Steps
 
