@@ -27,7 +27,7 @@ You can run the following code to quickly register all required resource provide
 
 ![Screenshot showing the location of the Cloud Shell icon in the portal.'](./media/portal-cloud-shell-link.png)
 
-3. [Set context](/azure/context-persistence#create-a-new-azure-context-from-subscription-information) to your subscription.
+3. [Set context](/powershell/azure/context-persistence#create-a-new-azure-context-from-subscription-information) to your subscription.
 4. Copy and paste this code into the Cloud Shell and press enter.
 
 ```
