@@ -217,6 +217,8 @@ For Application Gateway and WAF v2 SKU:
 |serverRouted | The backend server that application gateway routes the request to. |
 |serverStatus | HTTP status code of the backend server. |
 |serverResponseLatency | Latency of the response (in **seconds**) from the backend server. |
+|serverConnectTime | Time spent establishing a connection with an upstream server. |
+|serverHeaderTime | Time between establishing a connection to the upstream server and receiving the first byte of the response header. |
 |host | Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name. |
 |originalRequestUriWithArgs | This field contains the original request URL. |
 |requestUri | This field contains the URL after the rewrite operation on Application Gateway. |
@@ -262,6 +264,8 @@ For Application Gateway and WAF v2 SKU:
         "serverRouted": "52.239.221.65:443",
         "serverStatus": "200",
         "serverResponseLatency": "0.028",
+        "serverConnectTime":"0.008",
+        "serverHeaderTime":"0.028"
         "upstreamSourcePort": "21564",
         "originalHost": "20.110.30.194",
         "host": "20.110.30.194",
