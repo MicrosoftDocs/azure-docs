@@ -99,7 +99,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
 7. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
 ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`.
+8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 9. Once the update is complete, proceed to [next steps](#next-steps).
 
@@ -119,7 +119,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
 7. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
 ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`.
+8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 9. Once the update is complete, proceed to [next steps](#next-steps).
 
@@ -141,7 +141,7 @@ To mitigate this potential issue, for each subscription, manually create the Net
 ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
 3. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
 ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-4. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`.
+4. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 5. Once the update is complete, proceed to [next steps](#next-steps).
 
