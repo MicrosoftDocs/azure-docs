@@ -123,18 +123,18 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 9. Once `Registered`, proceed to [next steps](#next-steps).
 
-For reference, these are the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
+For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
 
 
 ## Azure setup
 
-Read through these setup steps to determine if these fit your use cases for Azure Virtual Enclaves.
+Read through these setup steps to determine if these configuration steps fit your use cases for Azure Virtual Enclaves.
 
 ### Configure Network Watcher resource groups
 
-If the step below is not completed, Network Watcher will create it's own resource group for Network Watcher resources outside of the Azure Virtual Enclaves boundaries.
+If these steps aren't completed, Network Watcher creates its own resource group for Network Watcher resources outside of the Azure Virtual Enclaves boundaries.
 
-To mitigate this access issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the AVE FPA "Owner" on the NetworkWatcherRG:
+To mitigate this access issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` AVE App `Owner` on the NetworkWatcherRG:
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
 ![Screenshot showing add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
 2. Select `Privileged administrator roles`, select `owner`, then select `Next`.
@@ -145,9 +145,9 @@ To mitigate this access issue, for each subscription, manually create the Networ
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 5. Once `Registered`, proceed to [next steps](#next-steps).
 
-If these steps are not completed, when a Community or Enclave is created, the `Microsoft.Mission` resource provider:
+If these steps aren't completed, when a Community or Enclave is created, the `Microsoft.Mission` resource provider:
 1. Checks if the `NetworkWatcherRG` exists. If not, that resource group is created.
-2. Checks if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. Inherited `Owner` permission is not enough. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`.
+2. Checks if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. Inherited `Owner` permission isn't enough. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`.
 3. If any step fails, or if any errors occur, a warning message is displayed. 
 
 
