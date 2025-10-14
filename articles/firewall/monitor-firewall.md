@@ -40,7 +40,7 @@ For the available resource log categories, their associated Log Analytics tables
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
 > [!TIP]
-> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
+> If you're familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -48,7 +48,7 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 Azure Resource Graph (ARG) is an Azure service designed to provide efficient and performant resource exploration at scale.  Azure Resource Graph (ARG) provides change analysis data for various management and troubleshooting scenarios. Users can find when changes were detected on an Azure Resource Manager (ARM) property, view property change details and query changes at scale across their subscription, management group, or tenant.  
 
-ARG change analysis recently added support for RuleCollectionGroups. You can now track changes to Azure Firewall Rule Collection Groups using an Azure Resource Graph query from the Azure Portal ResourceGraphExplorer page using a query like this:  
+ARG change analysis recently added support for RuleCollectionGroups. You can now track changes to Azure Firewall Rule Collection Groups using an Azure Resource Graph query from the Azure portal ResourceGraphExplorer page using a query like this:  
 
 :::image type="content" source="media/monitor-firewall/query.png" alt-text="Screenshot of the Azure Resource Graph query to track changes to Azure Firewall Rule Collection Groups.":::
 
@@ -56,7 +56,9 @@ Below is a sample change output.  
 
 :::image type="content" source="media/monitor-firewall/output.png" alt-text="Screenshot of the output that depicts the change to Azure Firewall Rule Collection Groups.":::
 
-This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.  
+This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.
+
+For comprehensive tracking of rule set changes with detailed queries and examples, see [Track rule set changes](rule-set-change-tracking.md).
 
 ## Structured Azure Firewall logs
 
@@ -87,7 +89,7 @@ In **Resource specific** mode, individual tables in the selected workspace are c
 New resource specific tables are now available in Diagnostic setting that allows you to utilize the following categories:
 
 - [Network rule log](/azure/azure-monitor/reference/tables/azfwnetworkrule) - Contains all Network Rule log data. Each match between data plane and network rule creates a log entry with the data plane packet and the matched rule's attributes.
-- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes. Asa note, the AZFWNATRule table logs only when a DNAT rule match occurs. If there is no match, no log is generated. 
+- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes. As a note, the AZFWNATRule table logs only when a DNAT rule match occurs. If there's no match, no log is generated. 
 - [Application rule log](/azure/azure-monitor/reference/tables/azfwapplicationrule) - Contains all Application rule log data. Each match between data plane and Application rule creates a log entry with the data plane packet and the matched rule's attributes.
 - [Threat Intelligence log](/azure/azure-monitor/reference/tables/azfwthreatintel) - Contains all Threat Intelligence events.
 - [IDPS log](/azure/azure-monitor/reference/tables/azfwidpssignature) - Contains all data plane packets that were matched with one or more IDPS signatures.
@@ -112,7 +114,7 @@ To enable Azure Firewall structured logs, you must first configure a Log Analyti
 Once you configure the Log Analytics workspace, you can enable structured logs in Azure Firewall by navigating to the Firewall's **Diagnostic settings** page in the Azure portal. From there, you must select the **Resource specific** destination table and select the type of events you want to log.
 
 > [!NOTE]
-> * To enable Azure Firewall Fat Flow Log (Top flow log) you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
+> * To enable Azure Firewall Fat Flow Log (Top flow log), you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
 
 :::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
 

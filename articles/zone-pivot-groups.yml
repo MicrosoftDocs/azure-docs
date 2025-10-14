@@ -1,5 +1,25 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: v-mallicka
+- id: backup-client-template-arm-bicep
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-template-arm
+    title: ARM template
+  - id: client-template-bicep
+    title: Bicep template
+# Owner: v-mallicka
+- id: backup-client-portal-powershell-cli
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-portal
+    title: Azure portal
+  - id: client-powershell
+    title: PowerShell
+  - id: client-cli
+    title: Azure CLI
 #Owner: kraigb
 - id: python-frameworks-01
   title: Web framework

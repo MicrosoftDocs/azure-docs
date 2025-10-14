@@ -9,6 +9,7 @@ ms.custom: include file
 # azure-netapp-files-create-volumes-smb
 # create-volumes-dual-protocol
 # azure-netapp-files-create-volumes
+# object-rest-api-access-configure.md
 # Customer intent: As a cloud administrator, I want to understand the volume quota options for Azure NetApp Files, so that I can select the appropriate volume size and ensure compliance with regional capacity requirements.
 ---
 

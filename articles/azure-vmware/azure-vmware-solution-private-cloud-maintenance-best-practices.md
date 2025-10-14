@@ -1,13 +1,13 @@
 ---
-title: Azure VMware Solution - Host maintenance best practices
+title: Azure VMware Solution - private cloud maintenance best practices
 description: Understand the best practices and recommendations to maintain Azure VMware Solution private cloud
 ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 03/25/2025
-# Customer intent: "As an IT administrator managing Azure VMware Solution, I want to follow best practices for host maintenance and monitoring, so that I can ensure optimal performance and minimize downtime during updates."
+# Customer intent: "As an IT administrator managing Azure VMware Solution, I want to follow best practices for private cloud maintenance and monitoring, so that I can ensure optimal performance and minimize downtime during updates."
 ---
 
-# Azure VMware Solution Software-Defined Data Center (SDDC) maintenance best practices
+# Azure VMware Solution private cloud maintenance best practices
 
 Azure VMware Solution undertakes periodic maintenance of the private cloud. This maintenance includes security patches, minor and major updates to VMware software stack. This page describes the host monitoring, remediation, and recommended best practices that help keep the private cloud ready for maintenance.
 

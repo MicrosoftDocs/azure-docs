@@ -94,38 +94,40 @@ Premium V4 is available in the following regions:
 ### Azure Public
 
 >[!IMPORTANT]
-> Not all Premium V4 regions offer availability zone support. To see which regions support availability zones, see [Regions with availability zones](../reliability/regions-list.md).
-
-- Australia East
-- Canada Central
+> Not all Premium V4 regions offer availability zone support. Regions marked with an (*) below currently support availability zones.
+- Australia East<sup>*</sup>
+- Canada Central<sup>*</sup>
 - Central India
 - Central US
 - East Asia
 - East US
-- East US 2
-- France Central
-- Germany West Central
-- Indonesia Central
-- Italy North
+- East US 2<sup>*</sup>
+- France Central<sup>*</sup>
+- Germany West Central<sup>*</sup>
+- Indonesia Central<sup>*</sup>
+- Italy North<sup>*</sup>
 - Japan East
-- Korea Central
+- Japan West<sup>*</sup>
+- Korea Central<sup>*</sup>
 - Mexico Central
 - North Central US
 - North Europe
-- Norway East
-- Poland Central
-- South Africa North
+- Norway East<sup>*</sup>
+- Poland Central<sup>*</sup>
+- South Africa North<sup>*</sup>
 - Southeast Asia
-- Spain Central
-- Sweden Central
-- Switzerland North
-- UAE North
-- UK South
+- Spain Central<sup>*</sup>
+- Sweden Central<sup>*</sup>
+- Switzerland North<sup>*</sup>
+- UAE North<sup>*</sup>
+- UK South<sup>*</sup>
 - West Central US
 - West Europe
 - West US
 - West US 2
 - West US 3
+
+<sup>*</sup> Region supports Premium v4 with availability zones.
 
 ## Scale up from an unsupported resource group and region combination
 

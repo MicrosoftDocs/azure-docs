@@ -214,6 +214,8 @@ items:
       href: monitor-firewall.md
     - name: Azure Firewall Workbooks
       href: firewall-workbook.md
+    - name: Track rule set changes
+      href: rule-set-change-tracking.md
   - name: Threat intelligence
     href: threat-intel.md
   - name: Best practices for performance

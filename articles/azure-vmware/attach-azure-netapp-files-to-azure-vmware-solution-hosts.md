@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/09/2025
+ms.date: 10/14/2025
 ms.custom: "references_regions, engagement-fy23"
 # Customer intent: "As an IT administrator, I want to attach Azure NetApp Files NFS datastores to Azure VMware Solution hosts, so that I can optimize storage performance and manage virtual machine workloads effectively in a cloud environment."
 ---
@@ -268,7 +268,7 @@ Now that you attached a datastore on Azure NetApp Files-based NFS volume to your
 
 - **How many datastores are we supporting with Azure VMware Solution?**
 
-    The default maximum is 8 but it can be increased to 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+    The default maximum is 8 but it can be increased to 256 by submitting a support ticket for your AVS SDDC. To submit a support ticket, go to [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 

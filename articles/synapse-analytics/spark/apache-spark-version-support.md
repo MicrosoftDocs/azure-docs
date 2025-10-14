@@ -22,13 +22,13 @@ The runtimes have the following advantages:
 ## Supported Azure Synapse runtime releases
 
 > [!TIP]
-> We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime which is [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md). Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
+> We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime which is [Azure Synapse Runtime for Apache Spark 3.5 (GA)](./apache-spark-35-runtime.md). Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
 
 The following table lists the runtime name, Apache Spark version, and release date for supported Azure Synapse Runtime releases.
 
 | Runtime name | Release date | Release stage                | End of Support announcement date | End of Support effective date |
 | --- | --- |------------------------------| --- | --- |
-| [Azure Synapse Runtime for Apache Spark 3.5](./apache-spark-35-runtime.md) | May 27, 2025 | Public Preview | N/A | N/A|
+| [Azure Synapse Runtime for Apache Spark 3.5](./apache-spark-35-runtime.md) | Oct 13, 2025 | GA | Oct 31, 2026 | Oct 31, 2027|
 | [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | EOSA | April 30, 2025| Q1 2026|
 | [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**deprecated and soon to be disabled**|July 12, 2024| March 31, 2025 
 

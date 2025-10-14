@@ -219,4 +219,5 @@ To create a diagnostic setting and enable Resource Specific Table, see [Create d
 ## Related content
 
 - See [Monitor Azure Firewall](monitor-firewall.md) for a description of monitoring Azure Firewall.
+- See [Track rule set changes](rule-set-change-tracking.md) for detailed Azure Resource Graph queries to track firewall rule modifications.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

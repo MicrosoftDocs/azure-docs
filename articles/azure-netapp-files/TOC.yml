@@ -25,6 +25,8 @@
         href: network-attached-storage-protocols.md
       - name: Understand SMB support 
         href: sever-message-block-support.md
+      - name: Understand Object REST API 
+        href: object-rest-api-introduction.md
       - name: Understand NAS permissions 
         items:
         - name: Understand NAS share permissions 
@@ -331,6 +333,16 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
+    - name: Manage object REST API access
+      items:
+      - name: Configure object REST API access
+        href: object-rest-api-access-configure.md
+      - name: Connect to Azure Databricks 
+        href: object-rest-api-databricks.md
+      - name: Connect to OneLake
+        href: object-rest-api-onelake.md
+      - name: Access volumes with an S3-compatible client 
+        href: object-rest-api-browser.md
     - name: Migrate volumes to Azure NetApp Files
       href: migrate-volumes.md
     - name: Manage volume access and encryption 

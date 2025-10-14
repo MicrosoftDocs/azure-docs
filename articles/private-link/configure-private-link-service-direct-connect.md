@@ -156,7 +156,7 @@ az network vnet subnet update \
     --resource-group $resourceGroupName \
     --vnet-name $vnetName \
     --name $subnetName \
-    --disable-private-link-service-network-policies true
+    --private-link-service-network-policies Disabled
 
 # Create Private Link service Direct Connect
 az network private-link-service create \
@@ -171,7 +171,7 @@ az network private-link-service create \
         "private-ip-allocation-method": "Static",
         "private-ip-address": "10.0.1.10",
         "subnet": {
-          "id": "/subscriptions/<subscription-id>/resourceGroups/'$resourceGroupName'/providers/Microsoft.Network/virtualNetworks/'$vnetName'/subnets/'$subnetName'"
+          "id": "/subscriptions/<your-subscription-id>/resourceGroups/'$resourceGroupName'/providers/Microsoft.Network/virtualNetworks/'$vnetName'/subnets/'$subnetName'"
         }
       },
       {
@@ -180,7 +180,7 @@ az network private-link-service create \
         "private-ip-allocation-method": "Static",
         "private-ip-address": "10.0.1.11",
         "subnet": {
-          "id": "/subscriptions/<subscription-id>/resourceGroups/'$resourceGroupName'/providers/Microsoft.Network/virtualNetworks/'$vnetName'/subnets/'$subnetName'"
+          "id": "/subscriptions/<your-subscription-id>/resourceGroups/'$resourceGroupName'/providers/Microsoft.Network/virtualNetworks/'$vnetName'/subnets/'$subnetName'"
         }
       }
     ]'
@@ -333,7 +333,7 @@ peResourceGroupName="rg-pe-test"
 peVnetName="pe-vnet" 
 peSubnetName="pe-subnet"
 privateEndpointName="pe-to-pls"
-privateLinkserviceId="/subscriptions/your-subscription-id/resourceGroups/rg-pls-destinationip/providers/Microsoft.Network/privateLinkservices/pls-with-destinationip"
+privateLinkserviceId="/subscriptions/<your-subscription-id>/resourceGroups/rg-pls-directconnect/providers/Microsoft.Network/privateLinkservices/pls-directconnect"
 
 # Create resource group for PE
 az group create --name $peResourceGroupName --location $location
@@ -351,7 +351,7 @@ az network vnet subnet update \
     --resource-group $peResourceGroupName \
     --vnet-name $peVnetName \
     --name $peSubnetName \
-    --disable-private-endpoint-network-policies true
+    --private-link-service-network-policies Disabled
 
 # Create Private Endpoint
 az network private-endpoint create \

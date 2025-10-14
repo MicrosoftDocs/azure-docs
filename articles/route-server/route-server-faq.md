@@ -119,6 +119,12 @@ Yes. When you create or delete a Route Server in a virtual network that contains
 
 No. By default, Azure Route Server doesn't propagate routes it receives from an NVA and a virtual network gateway to each other. The Route Server exchanges these routes after you enable **branch-to-branch** in it.
 
+### Do NVA-advertised routes get propagated from one Route Server to another Route Server via ExpressRoute MSEE? 
+
+No. If **branch-to-branch** is enabled, then the NVA-advertised routes will be advertised to the ExpressRoute-connected on-premises. However, the NVA-advertised routes will be dropped by the second Route Server. To illustrate this, the diagram below shows the SDWAN on-premises advertising 10.3.0.0/16 to the SDWAN NVA. This route gets learned by the first Route Server, and so any workloads in VNet 1 (or peered to VNet 1) also learn this route. In addition, the ExpressRoute-connected on-premises learns the 10.3.0.0/16 route if **branch-to-branch** is enabled. However, the second Route Server (in VNet 2) does not learn the 10.3.0.0/16 route, and so this route will not be learned by any workloads in VNet 2.  
+
+:::image type="content" source="./media/faq/route-server-msee-hairpin.png" alt-text="Diagram showing NVA-advertised route not being learned by second Route Server via ExpressRoute MSEE bow-tie.":::
+
 ### When the same route is learned over ExpressRoute, VPN, or SD-WAN, which network is preferred?
 
 By default, routes learned over ExpressRoute take precedence over those learned over VPN or SD-WAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference](hub-routing-preference.md).

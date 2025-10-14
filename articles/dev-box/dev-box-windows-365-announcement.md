@@ -50,11 +50,11 @@ As new developer capabilities are released in Windows 365, Microsoft will provid
 
 ### Why is Microsoft making this change? 
 
-Dev Box is built on Windows 365, and by transitioning these capabilities into Windows 365 and unifying the solution, developers will benefit from a consistent, flexible solution with additional SKUs to choose from, and seamless integration with enterprise identity and security. By consolidating value propositions, we aim to offer a predictable license-based business model. Each license will allow the creation of three persistent dev boxes and one active connection, supporting ephemeral scenarios, and a broader range of SKUs, including 2-core, 4-core, 8-core, and 16-core GPU options. This shift addresses critical feedback from our customers. 
+Dev Box is built on Windows 365, and by transitioning these capabilities into Windows 365 and unifying the solution, developers will benefit from a consistent, flexible solution with additional SKUs to choose from, and seamless integration with enterprise identity and security. By consolidating value propositions, we aim to offer a predictable license-based business model that supports multi-environment and ephemeral scenarios, along with a broader range of SKUs, including 2-core, 4-core, 8-core, and 16-core GPU options. This shift addresses critical feedback from our customers. 
 
 ### Which edition of Windows 365 will incorporate Microsoft Dev Box functionalities? 
 
-Dev Box capabilities will be enabled with Windows 365 Frontline. This edition is best suited for developers who need flexible work setups, advanced workstations, and support for multi-environment and hybrid development scenarios, which benefit geographically distributed development teams. Each license will allow creation of three persistent workstations and provides nonconcurrent access for as many as three users. 
+Dev Box capabilities will be enabled with Windows 365 Frontline. This edition is best suited for developers who need flexible work setups, advanced workstations, and support for multi-environment and hybrid development scenarios, which benefit geographically distributed development teams. Each Windows 365 Frontline license allows the provisioning of up to three Cloud PCs or development workstations, each dedicated to a specific user or workstation. 
 
 ### How do we define net new customers? 
 
@@ -70,11 +70,11 @@ No action is required at this time. You're encouraged to explore Windows 365 and
 
 ### What is the transition timeline for existing customers? 
 
-As new capabilities become available in Windows 365, Microsoft will provide migration guidance and timelines. No immediate action is required. 
+As new capabilities become available in Windows 365, Microsoft will provide migration guidance and timelines. 
 
 ### Will there be additional costs for using developer capabilities in Windows 365? 
 
-No. Customers who plan to use developer capabilities in Windows 365 once they become available will receive them as part of their Windows 365 license at no additional cost. 
+No. Customers who plan to use developer capabilities in Windows 365 once they become available will receive them as part of their Windows 365 license with no additional cost expected. 
 
 ### How will my data and configurations be handled during migration? 
 
