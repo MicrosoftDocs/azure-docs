@@ -101,7 +101,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
 8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`.
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-9. Once `Registered`, proceed to [next steps](#next-steps).
+9. Once the update is complete, proceed to [next steps](#next-steps).
 
 ### Option 2: Azure portal
 
@@ -121,7 +121,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
 8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`.
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-9. Once `Registered`, proceed to [next steps](#next-steps).
+9. Once the update is complete, proceed to [next steps](#next-steps).
 
 For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
 
@@ -143,7 +143,7 @@ To mitigate this potential issue, for each subscription, manually create the Net
 ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
 4. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`.
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-5. Once `Registered`, proceed to [next steps](#next-steps).
+5. Once the update is complete, proceed to [next steps](#next-steps).
 
 When a Community or Enclave is created, Azure Virtual Enclaves attempts the following steps:
 1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
