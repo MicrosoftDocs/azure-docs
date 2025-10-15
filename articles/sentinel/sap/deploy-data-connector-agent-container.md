@@ -415,6 +415,7 @@ The following table lists the customizable parameters for the SAP agentless data
 | **force-audit-log-to-read-from-all-clients** | Determines whether the Audit Log is read from all clients. | **true**: Read from all clients<br>**false**: Not read from all clients | **false** |
 | **ingestion-cycle-days** | Time, in days, given to ingest the full User Master data, including all roles and users. This parameter doesn't affect the ingestion of changes to User Master data. | Integer, between **1**-**14** | **1** |
 | **offset-in-seconds** | Determines the offset, in seconds, for both the start and end times of a data collection window. Use this parameter to delay data collection by the configured number of seconds. | Integer, between **1**-**600** | **60** |
+| **max-rows** | Acts as a safeguard that limits the number of records processed in a single data collection window. This helps prevent performance or memory issues in CPI caused by a sudden increase in event volume. | Integer, between 1–1000000 | 150000 |
 
 :::zone-end
 

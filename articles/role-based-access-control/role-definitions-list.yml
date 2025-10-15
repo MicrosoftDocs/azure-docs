@@ -591,6 +591,6 @@ relatedContent:
   - text: Azure custom roles
     url: custom-roles.md
   - text: List Azure role assignments using the Azure portal
-    url: role-assignments-list-portal.yml
+    url: /azure/role-based-access-control/role-assignments-list-portal
 
 #- [Assign Azure roles using the Azure portal](role-assignments-portal.md)

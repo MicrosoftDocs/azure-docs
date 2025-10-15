@@ -73,7 +73,7 @@ When an instance of your Application Gateway issues a DNS query, it uses the val
 
 The Application Gateway resource is deployed inside a virtual network, so checks are also performed to verify the permission on the virtual network resource. This validation is performed during both creation and management operations and also applies to the [managed identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
 
-Check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.yml) to verify that the users and service principals that operate application gateways have at least the following permissions on the virtual network or subnet:
+Check your [Azure role-based access control](/azure/role-based-access-control/role-assignments-list-portal) to verify that the users and service principals that operate application gateways have at least the following permissions on the virtual network or subnet:
 - **Microsoft.Network/virtualNetworks/subnets/join/action** 
 - **Microsoft.Network/virtualNetworks/subnets/read**
 
@@ -264,4 +264,4 @@ To view roles and permissions for other services, see the following links:
 - [Learn about frontend IP address configuration](configuration-frontend-ip.md)
 - [Learn about private Application Gateway deployment](application-gateway-private-deployment.md)
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
-- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+- [Azure Role Based Access Control](/azure/role-based-access-control/role-assignments-list-portal)

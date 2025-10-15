@@ -93,7 +93,7 @@ The following roles can provide consent on behalf of a company:
 - Application admin
 - Cloud application admin
 
-If you want to check roles in Azure portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.yml).
+If you want to check roles in Azure portal, see [List Azure role assignments](/azure/role-based-access-control/role-assignments-list-portal).
 
 To construct an Administrator consent URL, the Fabrikam Microsoft Entra Administrator does the following steps:
 

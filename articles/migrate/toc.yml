@@ -49,44 +49,60 @@ items:
       href: migrate-appliance.md
     - name: Register appliance using pre-configured Entra app
       href: how-to-register-appliance-using-entra-app.md
-    - name: Discover VMware
-      items:
-      - name: Discover VMware estate
-        href: tutorial-discover-vmware.md
-      - name: Scoped discovery of VMware estate
-        href: set-discovery-scope.md
-      - name: Support matrix for VMware discovery 
-        href: migrate-support-matrix-vmware.md 
-    - name: Discover Hyper-V estate
-      items: 
-      - name: Discover Hyper-V
-        href: tutorial-discover-hyper-v.md
-      - name: Hyper-V discovery support
-        href: migrate-support-matrix-hyper-v.md
-    - name: Discover physical servers
-      items:  
-      - name: Discover physical servers and servers running in AWS and GCP
-        href: tutorial-discover-physical.md
-      - name: Physical server discovery support
-        href: migrate-support-matrix-physical.md
     - name: Appliance configuration
       items:
         - name: Provide server credentials
           href: add-server-credentials.md
         - name: Appliance diagnostics
           href: troubleshoot-appliance-diagnostic.md 
-    - name: Discover workloads
+    - name: Discover VMware
+      items:
+      - name: Discover VMware Virtual Machines
+        href: tutorial-discover-vmware.md
+      - name: Scoped discovery of VMware hosted VMs
+        href: set-discovery-scope.md
+      - name: Support matrix for VMware discovery 
+        href: migrate-support-matrix-vmware.md 
+    - name: Discover Hyper-V Virtual Machines
+      items: 
+      - name: Discover Hyper-V
+        href: tutorial-discover-hyper-v.md
+      - name: Support matrix for Hyper-V discovery 
+        href: migrate-support-matrix-hyper-v.md
+    - name: Discover physical servers
       items:  
-      - name: Discover SQL servers and Webapps
-        href: how-to-discover-sql-existing-project.md
-      - name: Discover MySQL database instances
-        href: tutorial-discover-mysql-database-instances.md
-      - name: Discover software, databases, and web apps
-        href: how-to-discover-applications.md
-      - name: Create least privileged credentials for SQL discovery
-        href: least-privilege-credentials.md 
-      - name: Create least privileged credentials for PostgreSQL discovery
-        href: postgresql-least-privilege-configuration.md
+      - name: Discover physical servers and servers running in AWS and GCP
+        href: tutorial-discover-physical.md
+      - name: Support matrix for Physical server discovery
+        href: migrate-support-matrix-physical.md
+    # - name: Appliance configuration
+    #   items:
+    #     - name: Provide server credentials
+    #       href: add-server-credentials.md
+    #     - name: Appliance diagnostics
+    #       href: troubleshoot-appliance-diagnostic.md 
+    - name: Discover softwares and workloads
+      href: how-to-discover-applications.md
+    - name: Deep discover database workloads
+      items:
+      - name: SQL instances
+        items: 
+        - name: Discover SQL servers
+          href: how-to-discover-sql-existing-project.md
+        - name: Create least privileged credentials for SQL discovery
+          href: least-privilege-credentials.md 
+      - name: PgSQL instances
+        items:
+        - name: Create least privileged credentials for PostgreSQL discovery
+          href: postgresql-least-privilege-configuration.md    
+      - name: MySQL instances
+        items: 
+        - name: Discover MySQL database instances
+          href: tutorial-discover-mysql-database-instances.md
+      # - name: Discover software, databases, and web apps
+      #   href: how-to-discover-applications.md
+        # - name: Create least privileged credentials for PostgreSQL discovery
+        #   href: postgresql-least-privilege-configuration.md
   - name: Discover using inventory import
     items: 
       - name: CSV import
@@ -173,14 +189,14 @@ items:
           href: create-web-app-assessment.md
         - name: Review assessment report
           href: review-web-app-assessment.md
-#     - name: AVS assessment
-#       items:
-#       - name: Create an AVS assessment
-#         href: tutorial-assess-vmware-azure-vmware-solution.md
-#       - name: Customize assessment settings
-#         href: assessment-properties.md
-#       - name: Review assessment report
-#         href: review-azure-vmware-solution-assessment.md
+      - name: AVS assessment
+        items:
+        - name: Create an AVS assessment
+          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Customize assessment settings
+          href: assessment-properties.md
+        - name: Review assessment report
+          href: review-azure-vmware-solution-assessment.md
 #      - name: SAP assessment
 #       items:
 #       - name: Create a SAP assessment

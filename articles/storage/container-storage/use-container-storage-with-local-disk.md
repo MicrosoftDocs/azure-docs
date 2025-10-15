@@ -122,7 +122,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
        "kubernetes.io/os": linux
      containers:
        - name: fio
-         image: openeuler/fio
+         image: mayadata/fio
          args: ["sleep", "1000000"]
          volumeMounts:
            - mountPath: "/volume"

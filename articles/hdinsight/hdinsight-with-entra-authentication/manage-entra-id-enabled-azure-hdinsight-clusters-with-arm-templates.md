@@ -106,7 +106,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 					},
 					"resources": [
 						{
-							"apiVersion": "2023-04-15-preview",
+							"apiVersion": "2025-01-15-preview",
 							"name": "[parameters('clusterName')]",
 							"type": "Microsoft.HDInsight/clusters",
 							"location": "[parameters('location')]",

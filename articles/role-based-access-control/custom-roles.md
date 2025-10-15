@@ -195,7 +195,7 @@ Here are steps to help find the role assignments before deleting a custom role:
 
 - List the [custom role definition](role-definitions-list.yml).
 - In the [AssignableScopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
-- Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.yml).
+- Iterate over the `AssignableScopes` and [list the role assignments](/azure/role-based-access-control/role-assignments-list-portal).
 - [Remove the role assignments](role-assignments-remove.yml) that use the custom role.
 - If you are using [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles), remove eligible custom role assignments.
 - [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).

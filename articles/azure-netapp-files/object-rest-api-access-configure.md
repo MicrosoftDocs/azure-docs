@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/14/2025
+ms.date: 10/15/2025
 ms.author: anfdocs
 ---
 
@@ -19,15 +19,7 @@ Azure NetApp Files supports access to S3 objects with the [object REST API](obje
 
 ## Register the feature 
 
-The object REST API access feature in Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration can take up to 60 minutes to complete.
-
-You must submit a [waitlist request](https://forms.office.com/r/pTpTESUSZb) to use the object REST API feature. 
-
-You can check the status of the feature registration with the command:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI
-```
+The object REST API feature in Azure NetApp Files is currently in preview. You must submit a [waitlist request](https://forms.office.com/r/pTpTESUSZb) to use the object REST API feature. Activation takes approximately one week. An email notification is sent to confirm your enrollment in the preview. 
 
 ## Create the self-signed certificate
 
@@ -42,7 +34,7 @@ See the [Azure Key Vault documentation for adding a certificate to Key Vault](/a
 When creating the certificate, ensure:
 
 * the **Content Type** is set to PEM
-* the **Subject** field is set to the IP address or fully qualified domain name (FQDN) of your Azure NetApp Files endpoint using the format `CN=<IP or FQDN>`
+* the **Subject** field is set to the IP address or fully qualified domain name (FQDN) of your Azure NetApp Files endpoint using the format `"CN=<IP or FQDN>"`
 * the **DNS Names** entry specifies the IP address or FQDN
 
 :::image type="content" source="./media/object-rest-api-access-configure/create-certificate.png" alt-text="Screenshot of create certificate options." lightbox="./media/object-rest-api-access-configure/create-certificate.png":::

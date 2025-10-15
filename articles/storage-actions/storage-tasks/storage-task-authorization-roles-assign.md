@@ -18,7 +18,7 @@ This article describes the least privileged built-in Azure roles or RBAC actions
 
 ## Permission to manage storage task assignments
 
-To create an assignment, your identity must be assigned either the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role or a custom role that contains the following RBAC actions:
+To create an assignment, your identity must be assigned either the **Storage Actions Task Assignment Contributor** as built-in role or a custom role that contains the following RBAC actions:
 
 - Microsoft.Authorization/roleAssignments/write
 - Microsoft.Authorization/roleAssignments/delete

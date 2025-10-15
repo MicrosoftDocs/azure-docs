@@ -420,8 +420,6 @@
           href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
     - name: Validate VPN throughput to a VNet
       href: vpn-gateway-validate-throughput-to-vnet.md
-    - name: Community-suggested VPN or firewall device settings
-      href: vpn-gateway-third-party-settings.md
 - name: Reference
   items:
     - name: Azure PowerShell

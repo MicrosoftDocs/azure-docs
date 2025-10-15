@@ -5,7 +5,7 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 10/09/2025
+ms.date: 10/15/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -39,10 +39,7 @@ Azure Application Gateway V2 SKU offers two types of custom policies: Custom and
 
 | Unsupported cipher suites |
 | ---------- |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 * |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 * |
 | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 |
-| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 |
 | TLS_DHE_RSA_WITH_AES_256_CBC_SHA |
 | TLS_DHE_RSA_WITH_AES_128_CBC_SHA |
 | TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 |
@@ -52,7 +49,6 @@ Azure Application Gateway V2 SKU offers two types of custom policies: Custom and
 | TLS_RSA_WITH_3DES_EDE_CBC_SHA |
 | TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
 
-\* These cipher suites are available with the CustomV2 policy.
 
 ### Predefined policies for V1 SKUs
 

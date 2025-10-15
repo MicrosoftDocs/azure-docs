@@ -157,7 +157,7 @@ Some users might need more access than what a job function role can provide. If 
 
 1. Assign the Owner role with conditions.
 
-    For example, assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.yml). If you have PIM, make the user [eligible for Owner role assignment](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
+    For example, assign the [Owner role at subscription scope with conditions](/azure/role-based-access-control/role-assignments-portal-subscription-admin). If you have PIM, make the user [eligible for Owner role assignment](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
 
 1. [Remove Co-Administrator](#how-to-remove-a-co-administrator).
 

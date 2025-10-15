@@ -343,7 +343,7 @@ If you are an existing user, you already set up an Azure Migrate project. You pe
 
 1. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization. 
 1. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project is upgraded to version or later.
-1. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Resource Group else this step isn't complete.
+1. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Subscription else this step isn't complete.
 
 > [!NOTE]
 > Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Migrate appliance isn't up to date. Ensure that autoupdate service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)

@@ -160,6 +160,13 @@ Machine configuration policy definitions support custom virtual machine images a
 one of the operating systems in the previous table. Machine Configuration does not support VMSS 
 uniform but does support [VMSS Flex][46].
 
+> [!IMPORTANT]
+> For any VM extension to function correctly in Azure, write permissions must be granted to the /var/lib directory. Without this permission, the Machine Configuration extension cannot be installed.
+> For Azure Arc-enabled servers, write access to specific directories is also required to enable logging and telemetry.
+> As a result, Azure Machine Configuration does not have official support for default CIS-hardened or SELinux configurations.
+> Additional configuration may be necessary for the extension to operate as expected.
+> Customers using hardened environments should evaluate compatibility and plan accordingly.
+
 ## Network requirements
 
 Azure virtual machines can use either their local virtual network adapter (vNIC) or Azure Private

@@ -54,7 +54,7 @@ This error might be an intermittent problem with the Azure portal. Try again to 
 
 ## Can't delete a resource
 
-If you can't delete a Confluent resource, check that you have permissions to delete the resource. You must be allowed to take `Microsoft.Confluent/*/Delete` actions. For information about viewing permissions, see [List Azure role assignments by using the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml).
+If you can't delete a Confluent resource, check that you have permissions to delete the resource. You must be allowed to take `Microsoft.Confluent/*/Delete` actions. For information about viewing permissions, see [List Azure role assignments by using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
 If you have the correct permissions but still can't delete the resource, contact [Confluent support](https://support.confluent.io). This condition might be related to the Confluent retention policy. Confluent support can delete the organization and email address for you.
 

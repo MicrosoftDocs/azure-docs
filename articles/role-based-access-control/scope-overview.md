@@ -77,7 +77,7 @@ It's fairly simple to determine the scope for a management group, subscription, 
 
     :::image type="content" source="./media/scope-overview/scope-resource-id.png" alt-text="Screenshot of resource IDs for a storage account in Azure portal." lightbox="./media/scope-overview/scope-resource-id.png":::
 
-- Another way is to use the Azure portal to assign a role temporarily at the resource scope and then use [Azure PowerShell](role-assignments-list-powershell.yml) or [Azure CLI](role-assignments-list-cli.yml) to list the role assignment. In the output, the scope will be listed as a property.
+- Another way is to use the Azure portal to assign a role temporarily at the resource scope and then use [Azure PowerShell](/azure/role-based-access-control/role-assignments-list-powershell) or [Azure CLI](/azure/role-based-access-control/role-assignments-list-cli) to list the role assignment. In the output, the scope will be listed as a property.
 
     ```azurepowershell
     RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/test-rg/providers/Microsoft.Storage/storageAccounts/azurestorage12345/blobServices/default/containers/blob-container-01/pro

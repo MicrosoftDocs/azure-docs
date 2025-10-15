@@ -175,6 +175,17 @@ $params = @{
 }
 New-GuestConfigurationPackage @params
 ```
+```powershell
+# Create a package that will audit the configuration at 180 minute intervals
+$params = @{
+    Name          = 'MyConfig'
+    Configuration = './MyConfig/MyConfig.mof'
+    Type          = 'Audit'
+    Force         = $true
+    FrequencyMinutes = 180
+}
+New-GuestConfigurationPackage @params
+```
 
 An object is returned with the **Name** and **Path** of the created package.
 

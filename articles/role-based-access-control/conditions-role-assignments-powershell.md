@@ -195,7 +195,7 @@ If strings include special characters, such as square brackets ([ ]), you'll nee
 
 ## List a condition
 
-To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). For more information, see [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.yml).
+To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). For more information, see [List Azure role assignments using Azure PowerShell](/azure/role-based-access-control/role-assignments-list-powershell).
 
 ## Delete a condition
 

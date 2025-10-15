@@ -199,5 +199,5 @@ After importing APIs from API Management, you can view and manage the imported A
 * [Azure CLI reference for Azure API Center](/cli/azure/apic)
 * [Azure CLI reference for API Management](/cli/azure/apim)
 * [Use the Azure CLI to manage your API inventory](manage-apis-azure-cli.md)
-* [Assign Azure roles to a managed identity](../role-based-access-control/role-assignments-portal-managed-identity.yml)
+* [Assign Azure roles to a managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity)
 * [Azure API Management documentation](../api-management/index.yml)

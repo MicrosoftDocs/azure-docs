@@ -5,7 +5,7 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: conceptual
-ms.date: 07/21/2023
+ms.date: 10/10/2025
 ms.author: chrupa
 ---
 
