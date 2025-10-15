@@ -76,7 +76,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml). If you are using Privileged Identity Management, see [Discover Azure resources to manage](/entra/id-governance/privileged-identity-management/pim-resource-roles-discover-resources) or [Assign Azure resource roles](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
+    For information about assigning roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal). If you are using Privileged Identity Management, see [Discover Azure resources to manage](/entra/id-governance/privileged-identity-management/pim-resource-roles-discover-resources) or [Assign Azure resource roles](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
 
 1. Perform the steps in the following section to remove your elevated access.
 

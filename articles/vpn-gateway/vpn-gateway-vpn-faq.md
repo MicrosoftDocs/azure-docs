@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 05/09/2025
+ms.date: 09/09/2025
 ms.author: cherylmc
 # Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
@@ -155,6 +155,10 @@ We're taking action to ensure the continued operation of deployed VPN gateways t
 
 However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 
+> [!NOTE]
+> The timeline for the VPN Gateway using Azure Basic IP is subject to frequent updates.
+> For the latest migration timeline, please see [this page](/azure/vpn-gateway/whats-new#upcoming-projected-changes). 
+
 ### How is my VPN tunnel authenticated?
 
 Azure VPN Gateway uses preshared key (PSK) authentication. We generate a PSK when we create the VPN tunnel. You can change the automatically generated PSK to your own by using the Set Pre-Shared Key REST API or PowerShell cmdlet.
@@ -211,7 +215,7 @@ See the following articles:
 
 The Standard and High Performance SKUs will be deprecated on September 30, 2025. You can view the announcement on the [Azure Updates site](https://go.microsoft.com/fwlink/?linkid=2255127). The product team will make a migration path available for these SKUs by November 30, 2024. For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article.
 
-*At this time, there's no action that you need to take.*
+ For the latest migration timeline, please see [Upcoming projected changes](/azure/vpn-gateway/whats-new#upcoming-projected-changes). 
 
 
 [!INCLUDE [legacy SKU deprecation](../../includes/vpn-gateway-deprecate-sku-faq.md)]
@@ -226,14 +230,20 @@ The expected customer impact includes new [pricing](https://azure.microsoft.com/
  
 ### What is the anticipated timeline for the migration?
 
-These timelines may be subject to change. Please revisit this for the most updated timeline. Here's the anticipated timeline for the migration tool availability.
+Here is the anticipated timeline for the migration tool availability and Basic SKU Public IP deprecation.
 
-  | Date                | Event                                                      |
-  |---------------------|------------------------------------------------------------|
-  | Apr/May 2025        | Migration tooling availability for Active-Passive Gateways. |
-  | Jul/Aug 2025        | Migration tooling availability for Active-Active Gateways.  |
-  | May 2025 to Sep 2025| Customer-controlled migration can be initiated after tool availability. |
-  | Sep 2025            | Basic SKU IP addresses are deprecated.                     |
+| Date                          | Event                                                                                              |
+|-------------------------------|----------------------------------------------------------------------------------------------------|
+| Aug 4, 2025                   | Migration tooling for Basic SKU Public IP to Standard SKU becomes available (Public Preview) for **Active-Passive VPN Gateways** in Public Cloud. |
+| Sep 2025 (tentative GA)       | Temporary GA timeline for Public and Sovereign Cloud support.                                      |
+| End of Sep 2025 (tentative GA)| Migration tooling GA for **Active-Active VPN Gateways** (Basic → Standard SKU Public IP).          |
+| Oct 2025 (planned)            | Automated capability becomes available to remove the Basic public IP from **Basic SKU Gateways**. Existing IP addresses remain unchanged and connectivity is not interrupted. |
+| Aug 4, 2025 – End of Jan 2026 | Customer-controlled migrations can be initiated after tool availability (approx. 6 months window). |
+| End of Jan 2026               | Overall migration timeline for all VPN Gateways with Basic IP is extended until this date.         |
+| Feb 2026                      | Basic SKU Public IP addresses are fully deprecated.                                                |
+
+
+
 
 
 ### What are the required customer actions?

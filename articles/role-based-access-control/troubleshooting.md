@@ -626,5 +626,5 @@ If you're a Microsoft Entra Global Administrator and you don't have access to a 
 ## Next steps
 
 - [Troubleshoot for external users](role-assignments-external-users.md#troubleshoot)
-- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [View activity logs for Azure RBAC changes](change-history-report.md)

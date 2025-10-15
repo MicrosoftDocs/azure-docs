@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: seligj95
 ms.topic: overview
-ms.date: 09/02/2025
+ms.date: 10/15/2025
 ms.author: jordanselig
 ms.service: azure-app-service
 ---
@@ -21,6 +21,10 @@ The following are the minimum set of requirements for the subnet your App Servic
 - The subnet's `addressPrefix` property must be formatted as a string, not an array. 
 
 The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. For production scale, we recommend a `/24` address space (256 addresses) for your subnet. If you plan to scale near max capacity of 200 instances in our App Service Environment and you plan frequent up/down scale operations, we recommend a `/23` address space (512 addresses) for your subnet.
+
+>[!NOTE]
+> It's now possible to move your App Service Environment to a new subnet. To move your App Service Environment to a new subnet, create a support ticket. A support ticket is required because there are prerequisites and configurations that need to be validated and properly configured before changing the subnet to ensure a successful migration. Failure to properly migrate can lead to downtime and connectivity issues.
+> 
 
 If you use a smaller subnet, be aware of the following limitations:
 

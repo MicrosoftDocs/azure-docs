@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 10/15/2025
 ms.author: rolyon
 ms.custom: sfi-image-nochange
 ---
@@ -32,7 +32,7 @@ When you try to assign a role, you get the following error message:
 
 ### Cause
 
-Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. You should try to reduce the number of role assignments in the subscription.
+Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. [Eligible role assignments](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. You should try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
 > The **4000** role assignments limit per subscription is fixed and cannot be increased.
@@ -105,7 +105,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     For information about how to add principals in bulk, see [Bulk add group members in Microsoft Entra ID](../active-directory/enterprise-users/groups-bulk-import-members.md).
 
-1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
+1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     Now you can find and remove the principal-based role assignments.
 
@@ -260,7 +260,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Open the **Access control (IAM)** page at the same scope as the role assignments.
 
-1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
+1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     Now you can remove the built-in role assignments.
 

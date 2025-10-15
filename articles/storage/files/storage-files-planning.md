@@ -75,37 +75,9 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 - South India
 - UAE Central
 
-Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in the following regions:
+Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in a limited subset of regions:
 
-- Australia Central
-- Australia East
-- Brazil South
-- Canada Central 
-- Central US
-- East Asia
-- East US
-- France South
-- Germany West Central
-- India Central
-- India West
-- Japan East
-- Jio India West 
-- Korea Central
-- Malaysia South
-- Mexico Central
-- North Central US 
-- North Europe
-- Norway West 
-- Qatar Central
-- South Africa North
-- Sweden Central
-- Switzerland West 
-- Taiwan North
-- UAE Central
-- UK South
-- West Central US 
-- West US
-- West US 2
+- All Azure public cloud regions.
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 

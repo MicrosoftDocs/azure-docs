@@ -24,7 +24,7 @@ The following diagram shows a suggested pattern for using Azure RBAC.
 
 :::image type="content" source="./media/best-practices/rbac-least-privilege.png" alt-text="Diagram of suggested pattern for using Azure RBAC and least privilege." lightbox="./media/best-practices/rbac-least-privilege.png":::
 
-For information about how to assign roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
+For information about how to assign roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Limit the number of subscription owners
 

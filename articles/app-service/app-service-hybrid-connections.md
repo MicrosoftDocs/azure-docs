@@ -4,7 +4,7 @@ description: Learn how to create and use hybrid connections in Azure App Service
 author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: how-to
-ms.date: 07/07/2025
+ms.date: 10/15/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
@@ -119,7 +119,7 @@ App Service Hybrid Connections are only available in Basic, Standard, Premium, a
 |:----|:----|
 | Basic | 5 per plan |
 | Standard | 25 per plan |
-| Premium (v1-v3) | 220 per app |
+| Premium (v1-v4) | 220 per app |
 | IsolatedV2 | 220 per app |
 
 The App Service plan UI shows you how many Hybrid Connections are being used and by what apps.
@@ -241,6 +241,23 @@ Run `hcm list` to see the Hybrid Connections you added.
 You can also show the details of a specific Hybrid Connection with the `hcm show` command.
 
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-details-cli.png" alt-text="Screenshot of Hybrid Connection Details in CLI.":::
+
+### Configure proxy server settings
+
+If you need to configure proxy server settings for the Hybrid Connection Manager, edit the `ProxySettings` section in the `appsettings.json` file located at:
+
+- **Windows**: `C:\ProgramData\HybridConnectionManager\`
+- **Linux**: `/usr/share/HybridConnectionManager/`
+
+After you edit the configuration file, restart the Hybrid Connection Manager service to apply the new proxy settings:
+
+- **Windows**: Restart the service through **Services** from the **Start Menu**.
+- **Linux**: Run `systemctl restart hybridconnectionmanager.service`.
+
+Configuring a proxy server routes requests from the Hybrid Connection Manager through the selected proxy server before reaching the destination. Ensure your proxy server supports HTTP/HTTPS traffic so that the Hybrid Connection Manager can communicate with the Azure Relay Service.
+
+> [!NOTE]
+> All addresses set in `appsettings.json` (`ProxyAddress`, `BypassList`) should be in RegEx format if not an exact match.
 
 ### Redundancy
 

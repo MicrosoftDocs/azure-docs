@@ -6,7 +6,7 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: pmwongera
-  ms.date: 12/12/2024
+  ms.date: 10/15/2025
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -194,7 +194,7 @@ procedureSection:
   - title: | 
       List number of role assignments
     summary: |
-        You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
+        You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
         ![Screenshot of Access control and number of role assignments chart.](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
@@ -245,7 +245,7 @@ procedureSection:
 
 relatedContent:
   - text: Assign Azure roles using the Azure portal
-    url: role-assignments-portal.yml
+    url: /azure/role-based-access-control/role-assignments-portal
   - text: Troubleshoot Azure RBAC
     url: troubleshooting.md
 

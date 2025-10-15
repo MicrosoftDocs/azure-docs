@@ -53,7 +53,7 @@ sections:
       answer: Microsoft supports the three most recent minor versions of Azure IoT Operations. To learn more, see [Supported versions](../overview-support.md#supported-versions).
     - question: |
          Does Azure IoT Operations support Azure Private Link and private endpoints? 
-      answer: Yes, Azure IoT Operations supports deployment on Azure Arc–enabled Kubernetes clusters connected through Azure Private Link Scope. For questions or more details, please reach out to our team at [azureiotoperationslicensinghelp@microsoft.com](mailto:azureiotoperationslicensinghelp@microsoft.com). 
+      answer: Yes, Azure IoT Operations supports deployment on Azure Arc–enabled Kubernetes clusters connected through Azure Private Link. For questions or more details, please reach out to our team at [azureiotoperationslicensinghelp@microsoft.com](mailto:azureiotoperationslicensinghelp@microsoft.com). 
 additionalContent: |
     ## Related content
 

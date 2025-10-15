@@ -36,6 +36,10 @@ sections:
           > **Once you've connected:**  
           > See the [Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn how to manage your datastores and volumes.
 
+      - question: Who should I contact for support with Pure Storage Cloud?
+        answer: |
+          Pure Storage is the first point of contact for support. Azure Support will be engaged as needed. For assistance, visit [Pure Storage’s support site](https://pure1.purestorage.com/).
+      
       - question: Where can I find troubleshooting help?
         answer: |
           Access the [Troubleshooting guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html) for solutions to common issues.

@@ -86,7 +86,7 @@ If your organization has process or compliance reasons to limit the use of PIM, 
 
 1. In the **Edit assignment** pane, select **Active** for the assignment type and **Permanent** for the assignment duration.
 
-    For more information, see [Edit assignment](role-assignments-portal.yml#edit-assignment).
+    For more information, see [Edit assignment](/azure/role-based-access-control/role-assignments-portal#edit-assignment).
 
     :::image type="content" source="./media/shared/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/shared/assignment-type-edit.png":::
 
@@ -232,5 +232,5 @@ For information about how to assign an Azure Policy with parameters, see [Tutori
 
 ## Next steps
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure)

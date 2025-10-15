@@ -153,7 +153,7 @@ procedureSection:
 
 relatedContent:
   - text: Assign Azure roles using the Azure portal
-    url: role-assignments-portal.yml
+    url: /azure/role-based-access-control/role-assignments-portal
   - text: Organize your resources with Azure management groups
     url: ../governance/management-groups/overview.md
   - text: Alert on privileged Azure role assignments

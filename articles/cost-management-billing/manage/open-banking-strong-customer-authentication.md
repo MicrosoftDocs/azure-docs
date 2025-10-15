@@ -6,7 +6,7 @@ ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/01/2025
+ms.date: 10/14/2025
 ms.author: drjones
 ---
 
@@ -29,8 +29,9 @@ The following sections describe how to complete multifactor authentication in th
 You can change the active payment method of your Azure account by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator and navigate to **Cost Management + Billing**.
-2. In the **Overview** page, select the corresponding subscription from the **My subscriptions** grid.
-3. Under 'Billing', select **Payment methods**. You can add a new credit card or set an existing card as the active payment method for the subscription. If your bank requires multifactor authentication, you're prompted to complete an authentication challenge during the process.
+1. Inside Billing, select **Billing profiles** and select the billing profile from the list that is associated to your subscription.
+
+1. Under 'Billing', select **Payment methods**. You can add a new credit card or set an existing card as the active payment method for the Billing profile. If your bank requires multifactor authentication, you're prompted to complete an authentication challenge during the process.
 
 For more information, see [Add, update, or remove a credit card for Azure](change-credit-card.md).
 
@@ -40,8 +41,9 @@ If your bank rejects the charges, your Azure account status changes to **Past du
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 2. Search on **Cost Management + Billing.**
-3. On the **Cost Management + Billing** **Overview** page, review the status column in the **My subscriptions** grid.
-4. If your subscription is labeled **Past due**, select **Settle balance**. You're prompted to complete multifactor authentication during the process.
+1. On the **Cost Management + Billing** Overview page, refer to the "Amount due" tile and select **View invoices**.  Alternatively, you can select Invoice from inside of Billing in the navigation menu.
+
+1. If you have an outstanding balance this past due, select **Pay now**. You're prompted to complete multifactor authentication during the process.
 
 ### Settle outstanding charges for Marketplace and reservation purchases
 
@@ -51,7 +53,7 @@ Marketplace and reservation purchases are billed separately from Azure services.
 2. Search on **Cost Management + Billing.**
 3. Under 'Billing', select **Invoices**.
 5. In the subscription drop-down filter, select the subscription associated with your Marketplace or reservation purchase.
-6. In the invoices grid, review the type column. If the type is **Azure Marketplace and Reservations**, then you have a **Pay now** link if the invoice is due or past due. If you don't see **Pay now**, it means you already paid your invoice. You get prompted to complete multifactor authentication during Pay now.
+1. In the invoices grid, review the type column. If the type is **Azure Marketplace and Reservations**, then you have a **Pay now** link if the invoice is due or past due. If you don't see **Pay now**, it means you already paid your invoice. You get prompted to complete multifactor authentication during Pay now.
 
 ## Related content
 

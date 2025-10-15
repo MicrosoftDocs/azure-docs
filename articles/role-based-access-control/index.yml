@@ -69,7 +69,7 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: Portal
-            url: role-assignments-portal.yml
+            url: /azure/role-based-access-control/role-assignments-portal
           - text: Portal - Subscription admin
             url: /azure/role-based-access-control/role-assignments-portal-subscription-admin
           - text: PowerShell

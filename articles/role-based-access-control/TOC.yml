@@ -87,7 +87,7 @@
     - name: Portal
       items:
       - name: Assign roles
-        href: role-assignments-portal.yml
+        href: /azure/role-based-access-control/role-assignments-portal
       - name: Managed identity
         href: /azure/role-based-access-control/role-assignments-portal-managed-identity
       - name: External users
