@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 # Quickstart: Create a public IP address using the Azure CLI
 
-In this quickstart, you learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs: basic, and standard. Two tiers of public IP addresses are available: regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
+In this quickstart, you learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Two tiers of public IP addresses are available: regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
 
 :::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer.":::
 
@@ -61,32 +61,9 @@ To create an IPv6 address, modify the `--version` parameter to **IPv6**.
 > For versions of the API older than 2020-08-01, execute the command without specifying a `--zone` parameter to create a zone-redundant IP address. 
 >
 
-# [**Basic SKU**](#tab/create-public-ip-basic)
+## Create a zonal IP address
 
-In this section, you create a basic IP. Basic public IPs don't support availability zones.
-
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a basic static public IPv4 address named **myBasicPublicIP** in **QuickStartCreateIP-rg**.
-
-To create an IPv6 address, modify the `--version` parameter to **IPv6**. 
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group QuickStartCreateIP-rg \
-    --name myBasicPublicIP \
-    --version IPv4 \
-    --sku Basic \
-    --allocation-method Static
-```
-If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the **`--allocation-method`** to **Dynamic**. 
-
->[!NOTE]
-> A basic IPv6 address must always be `Dynamic`.
-
----
-
-## Create a zonal or no-zone IP address
-
-In this section, you learn how to create a zonal or no-zone public IP address.
+In this section, you learn how to create a zonal public IP address.
 
 # [**Zonal**](#tab/create-public-ip-zonal)
 
@@ -108,7 +85,7 @@ To create an IPv6 address, modify the `--version` parameter to **IPv6**.
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
-In this section, you create a non-zonal IP address. 
+In this section, you create a non-zonal IP address, which is used for regions without availability zones.  If this is used in regions with availability zones, a zone-redundant IP address will be created.
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later. For more information about the API version currently being used, see [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
@@ -124,7 +101,6 @@ To create an IPv6 address, modify the `--version` parameter to **IPv6**.
     --version IPv4 \
     --sku Standard
 ```
-The removal of the `--zone` parameter in the command is valid in all regions. 
 
 The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

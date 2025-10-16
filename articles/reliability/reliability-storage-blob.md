@@ -17,7 +17,7 @@ Azure Blob Storage is an object storage solution for the cloud from Microsoft. I
 
 Blob Storage supports built-in redundancy mechanisms that store multiple copies of your data across different fault domains. It provides comprehensive redundancy options that include availability zone deployment with zone-redundant storage (ZRS), multi-region protection through geo-redundant configurations, and sophisticated failover capabilities.
 
-This article describes reliability support in [Blob Storage](/azure/storage/blobs/storage-blobs-overview), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+This article describes reliability support in [Blob Storage](/azure/storage/blobs/storage-blobs-overview), as well as Blob Storage with a hierarchical namespace (Azure Data Lake Storage Gen2). Topics include [availability zones](#availability-zone-support), [multi-region deployments](#multi-region-support), and [backups](#backups).
 
 [!INCLUDE [Shared reliability description](includes/reliability-shared-responsibility-include.md)]
 

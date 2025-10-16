@@ -14,7 +14,7 @@ ms.custom: mode-api, devx-track-azurepowershell
 
 # Quickstart: Create a public IP address using PowerShell
 
-In this quickstart, you learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs: basic, and standard. Two tiers of public IP addresses are available: regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
+In this quickstart, you learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Two tiers of public IP addresses are available: regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
 
 :::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer.":::
 
@@ -69,38 +69,9 @@ New-AzPublicIpAddress @ip
 > For `Az.Network` modules older than 4.5.0, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
 >
 
-# [**Basic SKU**](#tab/create-public-ip-basic)
+## Create a zonal public IP address
 
->[!NOTE]
->Standard SKU public IP is recommended for production workloads. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
-
-In this section, you create a basic IP. Basic public IPs don't support availability zones.
-
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a basic static public IPv4 address named **myBasicPublicIP** in **QuickStartCreateIP-rg**. 
-
-To create an IPv6 address, modify the **`--IpAddressVersion`** parameter to **IPv6**. 
-
-```azurepowershell-interactive
-$ip = @{
-    Name = 'myBasicPublicIP'
-    ResourceGroupName = 'QuickStartCreateIP-rg'
-    Location = 'eastus2'
-    Sku = 'Basic'
-    AllocationMethod = 'Static'
-    IpAddressVersion = 'IPv4'
-}
-New-AzPublicIpAddress @ip
-```
-If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the **`-AllocationMethod`** to **Dynamic**. 
-
->[!NOTE]
-> A basic IPv6 address must always be `Dynamic`.
-
----
-
-## Create a zonal or no-zone public IP address
-
-In this section, you learn how to create a zonal or no-zone public IP address.
+In this section, you learn how to create a zonal public IP address.
 
 # [**Zonal**](#tab/create-public-ip-zonal)
 
@@ -125,7 +96,7 @@ New-AzPublicIpAddress @ip
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
-In this section, you create a non-zonal IP address. 
+In this section, you create a non-zonal IP address, which is used for regions without availability zones.  If this is used in regions with availability zones, a zone-redundant IP address will be created.
 
 >[!NOTE]
 >The following command works for `Az.Network` module version 4.5.0 or later. For more information about the PowerShell modules currently being used, see the [PowerShellGet documentation](/powershell/module/powershellget/).
@@ -138,7 +109,7 @@ To create an IPv6 address, modify the **`-IpAddressVersion`** parameter to **IPv
 $ip = @{
     Name = 'myStandardPublicIP-nozone'
     ResourceGroupName = 'QuickStartCreateIP-rg'
-    Location = 'eastus2'
+    Location = 'westus'
     Sku = 'Standard'
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'

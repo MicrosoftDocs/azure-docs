@@ -37,7 +37,7 @@ Alternatively, you can use the following CLI and PowerShell commands to create a
 | PowerShell |[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) |
 
 >[!NOTE]
->In regions with availability zones, you can use PowerShell or CLI commands to create a public IP address prefix as either: non-zonal, associated with a specific zone, or to use zone-redundancy. For API version 2020-08-01 or later, if a zone parameter isn't provided, a non-zonal public IP address prefix is created. For versions of the API older than 2020-08-01, a zone-redundant public IP address prefix is created. 
+>In regions with availability zones, you can use PowerShell or CLI commands to create a public IP address prefix as either associated with a specific zone or to use zone-redundancy.
 
 >[!NOTE]
 >For more information about deriving a Public IP Prefix from an onboarded Custom IP Prefix (BYOIP range), see [Manage Custom IP Address Prefix](manage-custom-ip-address-prefix.md#create-a-public-ip-prefix-from-a-custom-ip-prefix).

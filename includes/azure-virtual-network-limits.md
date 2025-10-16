@@ -5,7 +5,7 @@
  author: rdhillon
  ms.service: networking
  ms.topic: include
- ms.date: 07/22/2025
+ ms.date: 10/16/2025
  ms.author: rdhillon
  ms.custom: include file
 
@@ -62,9 +62,9 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP prefix length | /28 | Contact support |
 | Custom IP prefixes | 5 | Contact support |
 
-<sup>1</sup>Default limits for Public IPv4/v6 addresses vary by offer category type, such as Free Trial, pay-as-you-go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000 and the default for pay-as-you-go is 20. The majority of offers start at 10.  There's also an overall maximum number of Public IP addresses per subscription.
+<sup>1</sup>Default limits for Public IPv4/v6 addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000 and the default for Pay-As-You-Go is 20. Most offers start at 10.
 
-<sup>2</sup>Basic Public IP addresses are deprecated and will be retired as of September 30, 2025.  See [here](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) for additional details.
+<sup>2</sup>Basic Public IP addresses are retired as of September 30, 2025. See [here](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) for more details.
 
 <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 

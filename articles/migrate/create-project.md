@@ -28,9 +28,9 @@ A project is used to store discovery, assessment, and migration metadata collect
 Ensure you have the correct permissions to create a project using the following steps:
 
 1. In the Azure portal, open the relevant subscription, and select **Access control (IAM)**.
-2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Contributor* or *Owner* permissions. 
-
-## Create a project for the first time
+2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Contributor* or *Owner* (recommended) permissions. 
+ > [!Note]
+ > Starting November 2025, only users assigned the **Owner or Azure Migrate Owner** (upcoming) roles will be able to create Azure Migrate projects. Users without these role assignments will no longer have the required permissions to create new projects.
 
 ::: moniker range="migrate"
 

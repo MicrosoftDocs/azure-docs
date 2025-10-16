@@ -65,7 +65,7 @@ To request the billing ownership, you must have the **Admin Agent** or [billing 
 The subscription product owner (transfer request recipient) must have one of the following permissions:
 
 - For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
-- For an Enterprise Agreement, the person must be an account owner or EA administrator. 
+- For an Enterprise Agreement, the person must be an EA administrator. 
 
 ### Required permission for the reservation transfer recipient
 

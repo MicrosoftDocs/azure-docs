@@ -47,13 +47,13 @@ The virtual network gateway infrastructure autoscales between the minimum and ma
 
 ErGwScale is available in most regions except the following regions:
 
-* Asia South East
 * Belgium Central
-* Europe West
-* India West
 * Japan East
 * Qatar Central
-* US West 2
+* Southeast Asia
+* West Europe
+* West India
+* West US 2
 
 ### Pricing
 

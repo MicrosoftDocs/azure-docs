@@ -24,8 +24,7 @@ ms.service: dev-box
    | **Resource Group** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
    | **Name** | Enter a name for your dev center. |
    | **Location** | Select the location or region where you want the dev center to be created.</br> For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom). |
-   | **Create a default dev box definition (recommended)** | Ensure the checkbox is selected. Dev Box creates a default dev box definition so you can create dev boxes immediately. |
-   | **Attach the environment definition quick start catalog (recommended)** | Ensure the checkbox is selected. Dev Box attaches a quick start catalog that contains predefined environment configurations for your dev boxes. This catalog isn't used in the initial dev box creation but can be helpful later. |
+   |  **Attach the environment definition quick start catalog (recommended)** | Select to attach the quick start catalog to the dev center. Dev Box attaches a quick start catalog that contains predefined environment configurations. You can also create your own catalogs and attach them to the dev center. |
 
    :::image type="content" source="../media/create-dev-center-steps/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="../media/create-dev-center-steps/create-dev-center-basics.png":::
 

@@ -40,7 +40,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ## Create a public IP address prefix
 
-In this section, you create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
+In this section, you create a zone redundant and zonal public IP prefix using Azure PowerShell. 
 
 The prefixes in the examples are:
 
@@ -84,23 +84,6 @@ To create a IPv4 public IP prefix, enter **IPv4** in the `--version` parameter. 
 
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-# [**Non-zonal IPv4 prefix**](#tab/ipv4-non-zonal)
-
-To create a IPv4 public IP prefix, enter **IPv4** in the `--version` parameter. Remove the `--zone` parameter to create a non-zonal IP prefix.
-
-```azurecli-interactive
-  az network public-ip prefix create \
-    --length 28 \
-    --name myPublicIpPrefix-nozone \
-    --resource-group QuickStartCreateIPPrefix-rg \
-    --location westus2 \
-    --version IPv4
-```
-
-The removal of the `--zone` parameter in the command is valid in all regions.  
-
-The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
@@ -151,23 +134,6 @@ To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter. 
 
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-# [**Non-zonal IPv6 prefix**](#tab/ipv6-non-zonal)
-
-To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter. Remove the `--zone` parameter to create a non-zonal IP prefix.
-
-```azurecli-interactive
-  az network public-ip prefix create \
-    --length 124 \
-    --name myPublicIpPrefix-nozone \
-    --resource-group QuickStartCreateIPPrefix-rg \
-    --location westus2 \
-    --version IPv6
-```
-
-The removal of the `--zone` parameter in the command is valid in all regions.  
-
-The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 

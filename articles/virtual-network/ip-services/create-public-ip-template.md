@@ -18,8 +18,7 @@ This article shows how to create a public IP address resource within a Resource 
 
 :::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer.":::
 
-
-For more information on resources this public IP can be associated to and the difference between the basic and standard SKUs, see [Public IP addresses](public-ip-addresses.md). 
+For more information on resources this public IP can be associated to, see [Public IP addresses](public-ip-addresses.md). 
 
 ## Prerequisites
 
@@ -27,9 +26,9 @@ For more information on resources this public IP can be associated to and the di
 * A resource group in your Azure subscription.
 * An Azure Resource Manager template for the public IP sections.
 
-## Create standard SKU public IP with zones
+## Create standard SKU public IP
 
-In this section, you create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
+In this section, you create a standard SKU public IP. Public IP addresses can be zone-redundant or zonal.
 
 ### Zone redundant
 
@@ -94,11 +93,9 @@ Template section to add:
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## Create standard public IP without zones
+## Non-zonal
 
-In this section, you create a non-zonal IP address. 
-
-The code in this section creates a standard no-zone public IPv4 address named **myStandardPublicIP**. The code section is valid for all regions with or without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+In this section, you create a non-zonal IP address, which is used for regions without availability zones.  If this is used in regions with availability zones, a zone-redundant IP address will be created.
 
 To create an IPv6 address, modify the **publicIPAddressVersion** parameter to **IPv6**.
 
@@ -118,40 +115,6 @@ Template section to add:
     "publicIPAddressVersion": "IPv4"
   }
 ```
-> [!IMPORTANT]
-> For API versions older than 2020-08-01, not specifying a zone parameter for a Standard SKU will create a zone-redundant IP address. 
->
-
-
-## Create a basic public IP
-
-In this section, you create a basic IP. Basic public IPs don't support availability zones. 
-
-The code in this section creates a basic public IPv4 address named **myBasicPublicIP**.
-
-To create an IPv6 address, modify the **publicIPAddressVersion** parameter to **IPv6**. 
-
-Template section to add:
-
-```JSON
-{
-  "apiVersion": "2020-08-01",
-  "type": "Microsoft.Network/publicIPAddresses",
-  "name": "myBasicPublicIP",
-  "location": "[resourceGroup().location]",
-  "sku": {
-    "name": "Basic"
-  },
-  "properties": {
-    "publicIPAllocationMethod": "Static",
-    "publicIPAddressVersion": "IPv4"
-  }
-```
-
-If it's acceptable for the IP address to change over time, **publicIPAllocationMethod** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
-
->[!NOTE]
-> A basic IPv6 address must always be `Dynamic`.
 
 ## Routing preference and tier
 

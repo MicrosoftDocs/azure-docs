@@ -43,17 +43,17 @@ tasks:
   - name: ~/powershell
     displayName: "Modular Script"
     parameters:
-      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\cache-tests\modular-script\write-to-file.ps1
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\catalog-name\modular-script\contoso.ps1
   - name: ~/winget
     displayName: "Install VS Code"
     parameters:
-      configurationFile: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\cache-tests\modular-script\contoso.dsc.yaml
+      configurationFile: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\catalog-name\modular-script\contoso.dsc.yaml
 
 userTasks:
   - name: ~/winget
     displayName: "Install Insomnia"
     parameters:
-      configurationFile: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\cache-tests\modular-script\contoso-user.dsc.yaml
+      configurationFile: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\catalog-name\modular-script\contoso-user.dsc.yaml
 ```
 
-Dev Box scans the catalog recursively to find the tasks you reference. It downloads all Image Definition files to a set directory on the new dev box, along with the relevant task files. It then executes each task in its downloaded directory and uploads task status upon task completion.
+Dev Box validates that all tasks reference either intrinsic (like PowerShell or WinGet) or one that is available at the devcenter level. It downloads all Image Definition files to a set directory on the new dev box, along with the relevant task files. It then executes each task in its downloaded task directory and uploads task status upon completion.
