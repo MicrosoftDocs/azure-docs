@@ -75,7 +75,7 @@ flowchart
   HUB2 === VNET2
   VNET2 === AKS1
   Internet === HUB2
-  OnPremises === |VPN|TH === HUB1
+  OnPremises ===|VPN|TH=== HUB1
 
   
 %% Styling
