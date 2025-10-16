@@ -16,8 +16,8 @@
   - name: Quickstarts
     expanded: true
     items:
-#     - name: Onboard to AVE
-#       href: onboard-to-ave.md
+    - name: Get started with Azure Virtual Enclaves
+      href: onboard.md
     - name: Create a community
       href: create-community-portal.md
     - name: Create an enclave
