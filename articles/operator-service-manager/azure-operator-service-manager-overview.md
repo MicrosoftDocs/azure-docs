@@ -23,7 +23,7 @@ Managing complex network service lifecycle efficiently and reliably can be a cha
 
 ### Orchestrate service platforms
 
-Azure Operator Service Manager's deep integration with Azure Operator Nexus ensures comprehensive coverage of infrastruction operations required for any network function type. For virtual network functions (VNFs) create L2/L3 isolation domains, network resources, trunk, and content service network (CSN) resources. For container network functions (CNFs) create initial Nexus AKS (NAKS) cluster, finalize cluster and test cluster for standards/security compliance.
+Azure Operator Service Manager's deep integration with Azure Operator Nexus ensures comprehensive coverage of infrastructure operations required for any network function type. For virtual network functions (VNFs) create L2/L3 isolation domains, network resources, trunk, and content service network (CSN) resources. For container network functions (CNFs) create initial Nexus AKS (NAKS) cluster, finalize cluster and test cluster for standards/security compliance.
 
 ### Flexible service composition
 
