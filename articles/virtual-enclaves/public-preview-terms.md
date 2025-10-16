@@ -15,7 +15,7 @@ The following terms and conditions govern the use of the Azure Virtual Enclaves 
 Your use of Azure Virtual Enclaves is subject to your agreement governing your use of Azure.  In addition, Azure Virtual Enclaves will be provided as a preview, as described in the “Previews” section of the Product Terms; and the terms set forth below.   During the Preview, Azure Virtual Enclaves may only be used for non-production testing and validation purposes with non-sensitive data and content.
 
 ## Preview duration
-Unless explicitly extended by Microsoft, your Public Preview of Azure Virtual Enclaves commences on the later of June 12, 2025 or the date on which you complete your enrollment for Azure Virtual Enclaves, and continues through September 30, 2025, or as extended at the discretion of Microsoft.  After the Preview has ended, Azure Virtual Enclaves may enter general product availability.
+Unless explicitly extended by Microsoft, your Public Preview of Azure Virtual Enclaves commences on the later of October 22, 2025 or the date on which you complete your enrollment for Azure Virtual Enclaves, and continues through June 1, 2026, or as extended at the discretion of Microsoft.  After the Preview has ended, Azure Virtual Enclaves may enter general product availability.
 > [!NOTE]
 > 
 > Microsoft may choose not to make Azure Virtual Enclaves available for public preview or general availability.
@@ -24,7 +24,7 @@ Unless explicitly extended by Microsoft, your Public Preview of Azure Virtual En
 ## Accreditation
 Azure Virtual Enclaves and certain component services are not currently accredited to the same degree as the underlying Azure platform and infrastructure. E.g., Microsoft Government Community Cloud (GCC) offerings are generally accredited to satisfy relevant cybersecurity regimes including FEDRAMP and DoD Impact Levels. That may not be true for preview offerings, including those described herein.
 
-Azure Virtual Enclaves is an offering that deploys a secure cloud environment, meaning intrinsic to the product are certain IaaS and PaaS services that must be deployed by Microsoft on behalf of the customers. Some or all of these intrinsic services may not be accredited to the same degree as the underlying environment.  It is your responsibility to check the accreditation status of any services used with Azure Virtual Enclaves (whether deployed by you or Microsoft) and determine whether such status is suitable for your needs. To learn more about Azure Virtual Enclaves and its component services visit https://aka.ms/ave/privatepreview.
+Azure Virtual Enclaves is an offering that deploys a secure cloud environment, meaning intrinsic to the product are certain IaaS and PaaS services that must be deployed by Microsoft on behalf of the customers. Some or all of these intrinsic services may not be accredited to the same degree as the underlying environment.  It is your responsibility to check the accreditation status of any services used with Azure Virtual Enclaves (whether deployed by you or Microsoft) and determine whether such status is suitable for your needs. To learn more about Azure Virtual Enclaves and its component services visit https://aka.ms/ave/docs.
 
 ## Patches and updates
 You are responsible for ensuring any virtual machines or containers deployed in your Azure Virtual Enclaves instances are up to date and include, without limitation, the latest patches and security fixes.
