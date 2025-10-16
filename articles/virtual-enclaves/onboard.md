@@ -93,7 +93,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 
 ```
 
-5. Select subscription `Access control (IAM)` then select `Add` and `Add role assignment`.
+5. Select the subscription `Access control (IAM)` then select `Add` and `Add role assignment`.
 ![Screenshot showing add role selection in the portal.](./media/onboard-subscription-add-role.png)
 6. Select `Privileged administrator roles`, select `owner`, then select `Next`.
 ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
@@ -113,8 +113,8 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
    ![Screenshot showing the second set of resource providers required by Azure Virtual Enclaves.](./media/onboard-providers-2.png)
 4. Search for and select `Microsoft.Mission` and select `Register`.
    ![Screenshot showing the Microsoft.Mission resource provider registered successfully.](./media/onboard-mission-registered.png)
-5. Select subscription `Access control (IAM)` then select `Add` and `Add role assignment`.
-![Screenshot showing add role selection in the portal.](./media/onboard-subscription-add-role.png)
+5. Select the subscription `Access control (IAM)` then select `Add` and `Add role assignment`.
+![Screenshot showing add role selection in the Azure portal.](./media/onboard-subscription-add-role.png)
 6. Select `Privileged administrator roles`, select `owner`, then select `Next`.
 ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
 7. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
@@ -136,7 +136,7 @@ In order to avoid potential issues with [Virtual Network Flow Log](/azure/networ
 
 To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` AVE App `Owner` on the NetworkWatcherRG:
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
-![Screenshot showing add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
+![Screenshot showing resource group add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
 2. Select `Privileged administrator roles`, select `owner`, then select `Next`.
 ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
 3. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
