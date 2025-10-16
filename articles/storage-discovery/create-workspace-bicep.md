@@ -65,7 +65,7 @@ The template lists [Discovery workspace properties](/azure/templates/microsoft.s
 
 | Name             | Description |
 |------------------|-------------|
-|`workspaceRoots`  | The workspace root designates the storage resources to get insights for. This `string[]` can contain a combination of subscription IDs and resource group IDs. You may mix and match these resource types. The identity under which you deploy this template [must have permissions](deployment-planning.md#permissions-to-your-storage-resources) to all resources you list at the time of deployment. Alternatively, you may also provide a single tenant URI in this array. All storage resources under the tenant are then covered by this workspace. When choosing this option, you must not provide any other resource IDs. |
+|`workspaceRoots`  | The workspace root designates the storage resources to get insights for. This `string[]` can contain a combination of subscription IDs and resource group IDs. You may mix and match these resource types. The identity under which you deploy this template [must have permissions](deployment-planning.md#permissions-to-your-storage-resources) to all resources you list at the time of deployment. |
 |`scopes`          | You can create several scopes in a workspace. A scope allows you to filter the storage resources the workspace covers and obtain different reports for each of these scopes. Filtering is based on ARM resource tags on your storage resources. This property expects a `JSON` object containing sections for `tag key name` : `value` combinations or `tag key names` only. When your storage resources have matching ARM resource tags, they're included in this scope.|
 
 Here's an example of the `JSON` structure defining a single scope in a Discovery workspace.

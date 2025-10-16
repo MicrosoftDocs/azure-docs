@@ -182,6 +182,8 @@
       href: howto-chat-completion-config.md
     - name: .NET
       href: quickstart-chat-completion-dotnet.md
+    - name: Go
+      href: quickstart-chat-completion-go.md
 - name: Feature management
   items:
   - name: Overview

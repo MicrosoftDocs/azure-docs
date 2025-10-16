@@ -180,7 +180,7 @@ The following table describes some methods of using Jupyter notebooks to help yo
 
 ### MSTIC, Jupyter, and Python security tools
 
-The [Microsoft Threat Intelligence Center (MSTIC)](https://msrc-blog.microsoft.com/tag/mstic/) is a team of Microsoft security analysts and engineers who author security detections for several Microsoft platforms and work on threat identification and investigation.
+The [Microsoft Threat Intelligence Center (MSTIC)](https://www.microsoft.com/security/blog/topic/threat-intelligence) is a team of Microsoft security analysts and engineers who author security detections for several Microsoft platforms and work on threat identification and investigation.
 
 MSTIC built [MSTICPy](https://github.com/Microsoft/msticpy), a library for information security investigations and hunting in Jupyter Notebooks. MSTICPy provides reusable functionality that aims to speed up notebook creation, and make it easier for users to read notebooks in Microsoft Sentinel.
 

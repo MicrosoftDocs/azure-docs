@@ -62,8 +62,8 @@ The VMware vSphere hypervisor requirements are:
     **Provisioning** - Allow read-only disk access | Allow read-only disk access: Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomRead
     **Provisioning** - Allow disk access | Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomAccess
     **Provisioning** - Allow virtual machine download | Allow virtual machine download: Allows read operations on files associated with a VM to download the logs and troubleshoot if failure occurs. | Root host or vCenter Server | VirtualMachine.Provisioning.GetVmFiles
-    **Snapshot management** | Allow Discovery, Software Inventory, and Dependency Mapping on VMs. | Virtual machines | VirtualMachine.State.*
-    **Guest operations** | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*
+    **Snapshot management** | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.* 
+    **Guest operations** | Allow Discovery, Software Inventory, and Dependency Mapping on VMs. | Virtual machines | VirtualMachine.State.*
     **Interaction Power Off** | Allow the VM to be powered off during migration to Azure. | Virtual machines | VirtualMachine.Interact.PowerOff
 
 ### VM requirements (agentless)

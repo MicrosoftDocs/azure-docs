@@ -40,7 +40,7 @@ The data exploration collection is hosted in the following URL:
 ### Semantic search on table catalog (`search_tables`)
 This tool discovers data lake tables relevant to a given natural language input and returns schema definitions to support query authoring. You can use this tool to discover tables or understand a schema, or build valid Kusto Query Language (KQL) queries for a Microsoft Sentinel workspace. You can also use it to explore unfamiliar data sources or identify relevant tables for a specific investigative or analytical task. 
 
-For a full list of tables in this index, see [Azure Monitor Log Analytics log tables organized by category](https://learn.microsoft.com/azure/azure-monitor/reference/tables-category).
+For a full list of tables in this index, see [Azure Monitor Log Analytics log tables organized by category](/azure/azure-monitor/reference/tables-category).
 
 
 | Parameters | Required? | Description | 

@@ -210,6 +210,8 @@ items:
     href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
 - name: Operational excellence
   items:
+  - name: Prescaling
+    href: prescaling.md
   - name: Monitoring
     items:
     - name: Logs and metrics

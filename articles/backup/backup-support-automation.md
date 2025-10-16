@@ -1,7 +1,7 @@
 ---
 title: Automation in Azure Backup support matrix
 description: This article summarizes automation tasks related to Azure Backup support.
-ms.date: 10/14/2025
+ms.date: 10/16/2025
 ms.topic: reference
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -61,8 +61,8 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Backup | Create backup policy and configure backup | Currently not supported | Supported    <br><br> [See the examples](./tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance). | Supported | Currently not supported | N/A | Supported | Currently not supported | 
 | Backup | Run on-demand backup | Currently not supported | Supported    <br><br> [See the examples](./tutorial-sap-hana-backup-cli.md#trigger-an-on-demand-backup-for-sap-hana-database). | Supported | N/A | Supported – Examples   <br><br> [See the examples](./backup-rm-template-samples.md). | N/A | Currently not supported |
-| Restore | Restore to a distinct full/ differential/ incremental recovery point | Currently not supported | Supported    <br><br> [See the examples](./tutorial-sap-hana-restore-cli.md#restore-a-database). | Supported | N/A | N/A | N/A | N/A |
-| Restore | Restore to a point in time | Currently not supported  | Supported    <br><br> [See the examples](./tutorial-sap-hana-restore-cli.md#restore-a-database). | Supported | N/A | N/A | N/A | N/A |
+| Restore | Restore to a distinct full/ differential/ incremental recovery point | Currently not supported | Supported    <br><br> [See the examples](./tutorial-sap-hana-restore-cli.md#restore-an-sap-hana-database). | Supported | N/A | N/A | N/A | N/A |
+| Restore | Restore to a point in time | Currently not supported  | Supported    <br><br> [See the examples](./tutorial-sap-hana-restore-cli.md#restore-an-sap-hana-database). | Supported | N/A | N/A | N/A | N/A |
 | Restore | Cross-region restore | Currently not supported | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Monitor jobs | Currently not supported  | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Modify backup policy | Currently not supported | Supported    <br><br> [See the examples](./tutorial-sap-hana-manage-cli.md#change-policy). | Supported | N/A | N/A | N/A | Currently not supported |

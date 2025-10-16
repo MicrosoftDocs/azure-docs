@@ -24,7 +24,7 @@ You also need a workspace when asking the Azure Copilot about insights from Stor
 
 ## Workspace Root
 
-The workspace root designates the storage resources to get insights for. A workspace root can contain a combination of subscriptions and resource groups. You may mix and match these resource types. The identity under which you deploy the workspace [must have permissions](deployment-planning.md#permissions-to-your-storage-resources) to all resources you list at the time of deployment. Alternatively, you may also provide a single tenant ID in this array. All storage resources under the tenant are then covered by this workspace. When choosing this option, you must not provide any other resource IDs.
+The workspace root designates the storage resources to get insights for. A workspace root can contain a combination of subscriptions and resource groups. You may mix and match these resource types. The identity under which you deploy the workspace [must have permissions](deployment-planning.md#permissions-to-your-storage-resources) to all resources you list at the time of deployment.
 
 Example:
 

@@ -23,7 +23,7 @@ The agent creation tool collection in the Microsoft Sentinel Model Context Proto
 
 To access the agent creation tool collection, you must have the following prerequisites:
 - [Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
-- [Security Copilot](https://learn.microsoft.com/copilot/security/microsoft-security-copilot)
+- [Security Copilot](/copilot/security/microsoft-security-copilot)
 - Visual Studio Code (latest version)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 

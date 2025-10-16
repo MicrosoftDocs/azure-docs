@@ -461,6 +461,8 @@ items:
       href: set-up-authentication-agent-workflows.md
     - name: Authenticate with managed identities
       href: authenticate-with-managed-identity.md
+    - name: Authorize agent access to resources with OBO
+      href: set-up-on-behalf-of-user-flow.md
     - name: Block connector usage
       href: block-connections-connectors.md
     - name: Block connections across tenants

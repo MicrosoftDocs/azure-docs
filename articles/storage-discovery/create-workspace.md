@@ -46,10 +46,11 @@ Select the subscriptions and/or resource groups you want to include in the works
 > [!NOTE]
 > - Ensure that the user or service principal deploying the workspace is granted at least **Reader** access to each specified root.
 > - Up to 100 resources - subscriptions and/or resource groups can be included in one workspace.
+> - The default limit of 100 resources per workspace can be increased. Reach out [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Provide the tenantID, SubscriptionID where you would want this limit to be increased.
 
 :::image source="media/create-workspace/workspace-roots-checks-sml.png" alt-text="Screenshot of the workspaceRoots."  lightbox="media/create-workspace/workspace-roots-checks.png":::
 
-After you add your subscriptions, resource groups, or tenant to your workspace, the service runs an access check to verify that the user has `Microsoft.Storage/storageAccounts/read` on the added resources. The following image provides an example of an access check failure with the associated status message.
+After you add your subscriptions or resource groups to your workspace, the service runs an access check to verify that the user has `Microsoft.Storage/storageAccounts/read` on the added resources. The following image provides an example of an access check failure with the associated status message.
 
 :::image source="media/create-workspace/create-access-sml.png" alt-text="Screenshot of the access check on workspaceRoots."  lightbox="media/create-workspace/create-access.png":::
 
@@ -68,7 +69,7 @@ You can optionally add tags to this workspace resource. Then select **Review and
 :::image source="media/create-workspace/access-check-sml.png" alt-text="Screenshot of access checks running."  lightbox="media/create-workspace/access-check.png":::
 
 > [!NOTE]
-> Discovery resource creation fails if the access checks on any subscription, resource group, or tenant isn't successful.
+> Discovery resource creation fails if the access checks on any subscription or resource group isn't successful.
 
 After the access checks complete successfully, the resource can be deployed as shown in the following sample image.
 
@@ -125,7 +126,7 @@ az storage-discovery workspace create \
 | resource-group | The resource group where the workspace is created. |
 | name | The name of the workspace. |
 | location | Azure region for deployment. |
-| workspace-roots | The workspace root designates the storage resources to get insights for. This `string[]` can contain a combination of subscription IDs and resource group IDs. You may mix and match these resource types. The identity under which you deploy the workspace [must have permissions](deployment-planning.md#permissions-to-your-storage-resources) to all resources you list at the time of deployment. Alternatively, you may also provide a single tenant ID in this array. All storage resources under the tenant are then covered by this workspace. When choosing this option, you must not provide any other resource IDs. |
+| workspace-roots | The workspace root designates the storage resources to get insights for. This `string[]` can contain a combination of subscription IDs and resource group IDs. You may mix and match these resource types. The identity under which you deploy the workspace [must have permissions](deployment-planning.md#permissions-to-your-storage-resources) to all resources you list at the time of deployment. |
 | scopes | You can create several scopes in a workspace. A scope allows you to filter the storage resources the workspace covers and obtain different reports for each of these scopes. Filtering is based on ARM resource tags on your storage resources. This property expects a `JSON` object containing sections for `tag key name` : `value` combinations or `tag key names` only. When your storage resources have matching ARM resource tags, they're included in this scope. |
 | sku | Pricing tier (Free or Standard). |
 

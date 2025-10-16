@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 09/30/2025
+ms.date: 10/16/2025
 ---
 
 # Connector upgrade guidance
@@ -125,7 +125,7 @@ You can find more details from the table below on the connector list that is pla
 | [ServiceNow](connector-servicenow.md) | Scenario that doesn't use the custom SQL query in dataset in ServiceNow V1. <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.58 or above. |
 | [Snowflake](connector-snowflake.md) | Scenario that doesn't rely on capability below in Snowflake V1:<br><br>• Use any of below<br>&nbsp;&nbsp;properties: connection_timeout, disableocspcheck, enablestaging, on_error, query_tag, quoted_identifiers_ignore_case, skip_header, stage, table, timezone, token, validate_utf8, no_proxy, nonproxyhosts, noproxy. <br>• Use multi-statement query in script activity or lookup activity. <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above.   |
 | [Spark](connector-spark.md) | Scenario that doesn't rely on below capability in Spark (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• Username<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• SASL<br>&nbsp;&nbsp;• Binary<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• SharkServer<br>&nbsp;&nbsp;• SharkServer2<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.55 or above.|
-| [Teradata](connector-teradata.md)         | Scenario that doesn't rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;• BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;• EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;• GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;• IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;• NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;• Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)|
+| [Teradata](connector-teradata.md)         | Scenario that doesn't rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;• BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;• EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;• GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;• IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;• NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;• Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.58 or above.|
 | [Vertica](connector-vertica.md) | Scenario that doesn't rely on below capability in Vertica (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime (version 5.55 or above).<br><br> For more information, go to [Install Vertica ODBC driver for the version 2.0](connector-vertica.md#install-vertica-odbc-driver-for-the-version-20). |
 
 ## Related content

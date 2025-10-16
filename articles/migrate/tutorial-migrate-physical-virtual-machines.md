@@ -116,11 +116,11 @@ To set up a new appliance, you can use PowerShell installer script. Ensure you m
 
 The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, download the installer file for the appliance. Then run it on the machine you prepared. After you install the appliance, register it with your migrate project using the key copied from the portal.
 
-## Classic experience (Deprecated)
+## Classic experience (Retired)
 
 > [!NOTE]
-> Starting **October 30, 2025**, replication initialization will no longer be supported in the classic experience.
-> For agent-based migration of VMware servers and migration of physical servers, use the simplified experience for all new replications. The classic experience is scheduled for deprecation in **September 2026** [Learn more](../site-recovery/vmware-physical-azure-classic-deprecation.md)
+> Classic experience is scheduled for retirement on **30 September 2026**. Your existing replications and migrations will be supported till the retirement date.
+Please use simplified experience for all new migrations. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the simplified experience.
 
 ### Download the replication appliance installer
 

@@ -233,7 +233,7 @@ More information:
 
 * [AI gateway reference architecture using API Management](/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/reference-architectures/apim-based)
 * [AI hub gateway landing zone accelerator](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)
-* [Designing and implementing a gateway solution with Azure OpenAI resources](/ai/playbook/technology-guidance/generative-ai/dev-starters/gemonitoring API Management with Azurenai-gateway/)
+* [Designing and implementing a gateway solution with Azure OpenAI resources](/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/)
 * [Use a gateway in front of multiple Azure OpenAI deployments](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend)
 
 ## Related content
