@@ -126,7 +126,7 @@ Therefore, to create a Virtual Network connection to the Virtual WAN hub, you mu
 * Create a Virtual Network peering with the spoke Virtual Network (Microsoft.Network/virtualNetworks/peer/action)
 * Read the route table(s) that the Virtual Network connections are referencing (Microsoft.Network/virtualhubs/hubRouteTables/read)
 
-If you want to associate an inbound or out-bound route map is associated with the Virtual Network connection, you need an additional permission:
+To associate an inbound or outbound route map with a Virtual Network connection, you must have an additional permission:
 
 * Read the route map(s) that is applied to the Virtual Network connection (Microsoft.Network/virtualHubs/routeMaps/read).
 

@@ -35,7 +35,7 @@ You can configure two properties in the autoscaleConfiguration setting:
 
 When minCapacity and maxCapacity are set to the same value, the firewall runs at a fixed capacity with no autoscaling.
 
-> [!NOTE]
+> [!IMPORTANT]
 > The minimum and maximum capacity values must either be equal, or their difference must be greater than 1. For example, if minCapacity is 5, maxCapacity must be at least 7.
 
 ## Configuration options
@@ -104,13 +104,34 @@ Prescaling introduces a **Capacity Unit Hour** billing meter. You pay based on t
 
 ## Limitations
 
-Keep the following considerations in mind when using prescaling (Preview):
+Keep the following considerations in mind when using prescaling:
 
 - **No region-level capacity guarantees**: Scaling might fail or be delayed if the region lacks capacity.
 - **Fixed capacity disables autoscaling**: When minCapacity equals maxCapacity, autoscaling is disabled.
 - **Retention of previous settings**: If your firewall already has autoscaleConfiguration values set, and you deploy or update the resource without specifying the autoscaleConfiguration property (such as via Bicep, ARM template, or other templates), the firewall keeps using the existing autoscaleConfiguration values. This behavior helps prevent accidental overwriting or loss of your scaling settings.
 - **Configuration resets on resource changes**: Deleting, re-creating, or migrating the firewall might reset capacity values to defaults.
 - **Active scaling or maintenance events**: Prescaling changes might fail if the firewall is midscale or during an upgrade. Retry after completion.
+
+## Known issues
+
+There's a known issue when modifying prescaling configuration:
+
+When you attempt to reduce the maximum capacity value (maxCapacity) to a number lower than its previously configured value, the operation may fail.
+
+**Examples:**
+
+| Scenario | Description | Result |
+|----------|-------------|--------|
+| Example 1 | You were at the default scale of min=2, max=20, and you try to prescale to min=2, max=4. | ❌ Error occurs |
+| Example 2 | You were at the default scale of min=2, max=20, and you try to prescale to min=2, max=24. | ✅ Works as expected |
+| Example 3 | After the previous prescale (min=2, max=24), you try to prescale again to min=2, max=20. | ❌ Error occurs |
+
+**Mitigation steps:**
+
+If this issue occurs:
+
+1. Reset to the default scale in the Azure portal, or set the autoscaleConfiguration property to null using API or ARM.
+1. Reapply the prescaling configuration, ensuring that maxCapacity is greater than or equal to the previous max value (for example, maxCapacity >= 20).
 
 ## Next steps
 

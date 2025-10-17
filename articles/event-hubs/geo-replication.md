@@ -241,6 +241,17 @@ For example, if you enable geo-replication on a Premium namespace which has been
 
 Bandwidth is charged based on the data transferred between the primary and secondary regions.
 
+### Pricing Meters
+
+The pricing meters for the geo-replication data transfer bandwidth charge will show up with the below details - 
+
+| Product Name | Meter Description |
+| --- | ---|
+| Service Bus | Service Bus - Geo Replication Zone 1 GB Data Transfer - REGION NAME |
+| Service Bus | Service Bus - Geo Replication Zone 2 GB Data Transfer - REGION NAME |
+| Service Bus | Service Bus - Geo Replication Zone 3 GB Data Transfer - REGION NAME |
+
+
 ## Private endpoints
 
 This section provides additional considerations when using Geo-Replication with namespaces that utilize private endpoints. For general information on using private endpoints with Event Hubs, see [Integrate Azure Event Hubs with Azure Private Link](private-link-service.md).

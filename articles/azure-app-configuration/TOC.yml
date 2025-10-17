@@ -401,6 +401,8 @@
     - name: Python
       items:
       - name: Feature reference
+        href: ./reference-python-provider.md
+      - name: Pypi
         href: https://pypi.org/project/azure-appconfiguration-provider/
       - name: Azure SDK for Python
         href: https://go.microsoft.com/fwlink/?linkid=2103727

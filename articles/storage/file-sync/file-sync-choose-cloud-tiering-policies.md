@@ -36,6 +36,8 @@ The minimum file size for a file to tier is based on the file system cluster siz
 |1 MiB (1,048,576 bytes) | 2 MiB |
 |2 MiB (2,097,152 bytes) | 4 MiB |
 
+The volume cluster size can be found by executing the command `fsutil fsinfo ntfsinfo volumedriveletter:` from an administrative command prompt. The **Bytes Per Cluster** field displays the volume cluster size in bytes, and the value in kilobytes is shown in parentheses.
+
 Azure File Sync supports cloud tiering on volumes with cluster sizes up to 2 MiB.
 
 All file systems that are used by Windows organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes don't come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.

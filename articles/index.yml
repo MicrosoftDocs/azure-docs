@@ -51,7 +51,7 @@ productDirectory:
         - featured
         - ai-machine-learning
         - mobile
-      url: /azure/ai-studio/
+      url: /azure/ai-foundry/
     # Card
     - title: Speech
       summary: Speech to text, text to speech, translation, and speaker recognition
@@ -260,11 +260,12 @@ productDirectory:
         - management-and-governance
       url: /purview/index
     # Card
-    - title: Data Factory
+    - title: Azure Data Factory
       summary: Hybrid data integration at enterprise scale, made easy
       imageSrc: ./media/index/data-factory.svg
       azureCategories:
         - analytics
+        - databases
       url: data-factory/index.yml
     # Card
     - title: Data Lake Analytics
@@ -287,14 +288,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/index.yml
-    # Card
-    - title: Log Analytics
-      summary: Full observability into your applications, infrastructure, and network
-      imageSrc: ./media/index/log-analytics.svg
-      azureCategories:
-        - analytics
-        - management-and-governance
-      url: /azure/azure-monitor/
     # Card
     - title: Power BI Embedded
       summary: Embed fully interactive, stunning data visualizations in your applications
@@ -372,7 +365,7 @@ productDirectory:
         - containers
       url: /azure/aks/
     # Card
-    - title: Azure Kubernetes Fleet Manager (Fleet)
+    - title: Azure Kubernetes Fleet Manager
       summary: Enable multi-cluster and at-scale scenarios for Azure Kubernetes Service clusters
       imageSrc: ./media/index/kubernetes-fleet-manager.svg
       azureCategories:
@@ -469,7 +462,7 @@ productDirectory:
         - compute
       url: /azure/virtual-machine-scale-sets/
     # Card
-    - title: Service Fabric
+    - title: Azure Service Fabric
       summary: Develop microservices and orchestrate containers on Windows or Linux
       imageSrc: ./media/index/service-fabric-clusters.svg
       azureCategories:
@@ -596,14 +589,6 @@ productDirectory:
         - databases
       url: /azure/azure-sql/managed-instance/index
     # Card
-    - title: Azure SQL Edge
-      summary: Small-footprint, edge-optimized data engine with built-in AI
-      imageSrc: ./media/index/sql-database-edge.svg
-      azureCategories:
-        - databases
-        - iot
-      url: azure-sql-edge/index.yml
-    # Card
     - title: Table Storage
       summary: NoSQL key-value store using semi-structured datasets
       imageSrc: ./media/index/storage-accounts.svg
@@ -622,13 +607,6 @@ productDirectory:
         - web
       url: azure-app-configuration/index.yml
     # Card
-    - title: Azure Data Studio
-      summary: A lightweight editor that can run serverless SQL pool queries and view and save results as text, JSON, or Excel.
-      imageSrc: ./media/index/azure-data-studio.svg
-      azureCategories:
-        - developer-tools
-      url: /azure-data-studio/
-    # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
       imageSrc: ./media/index/devops.svg
@@ -645,13 +623,6 @@ productDirectory:
         - developer-tools
         - devops
       url: devtest-labs/index.yml
-    # Card
-    - title: Azure Lab Services
-      summary: Set up labs for classrooms, trials, development and testing, and other scenarios
-      imageSrc: ./media/index/lab-services.svg
-      azureCategories:
-        - developer-tools
-      url: lab-services/index.yml
     # Card
     - title: Azure Pipelines
       summary: Continuously build, test, and deploy to any platform and cloud
@@ -687,11 +658,12 @@ productDirectory:
       imageSrc: ./media/index/boards.svg
       azureCategories:
         - devops
+        - developer-tools
       url: /azure/devops/boards/
     # Card
     - title: Azure Deployment Environments
       summary: Quickly spin up app infrastructure environments with project-based templates 
-      imageSrc: ./media/index/deployment-environments.svg
+      imageSrc: ./media/index/azure.svg
       azureCategories:
         - devops
       url: deployment-environments/index.yml
@@ -741,14 +713,6 @@ productDirectory:
         - devops
         - management-and-governance
       url: managed-grafana/index.yml
-    # Card
-    - title: GitHub Actions for Azure
-      summary: Build, test, and deploy any app from GitHub to Azure
-      imageSrc: ./media/index/github-actions-icon.svg
-      azureCategories:
-        - devops
-        - developer-tools
-      url: /azure/developer/github/github-actions
     # Card
     - title: Microsoft Dev Box
       summary: Streamline development with secure, ready-to-code workstations in the cloud 
@@ -1393,7 +1357,7 @@ productDirectory:
    # Card
     - title: Azure Lab Services
       summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
-      imageSrc: ./media/index/azure.svg
+      imageSrc: ./media/index/lab-services.svg
       azureCategories:
        - azure-virtual-desktop
       url: /azure/lab-services/
@@ -1515,7 +1479,7 @@ hero:
       url: https://portal.azure.com
     - componentType: link
       text: Free account
-      url: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
+      url: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn-exp1
       color: primary
 getStarted:
   title: Get started with Azure
