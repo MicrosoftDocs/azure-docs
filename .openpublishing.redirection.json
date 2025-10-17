@@ -7920,6 +7920,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/reliability-spring-apps.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-hub-device-update/device-update-simulator.md",
       "redirect_url": "/azure/iot-hub-device-update/",
       "redirect_document_id": false

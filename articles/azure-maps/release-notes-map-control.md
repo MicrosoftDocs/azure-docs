@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 10/15/2025
+ms.date: 04/09/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -15,12 +15,6 @@ ms.subservice: web-sdk
 This document contains information about new features and other changes to the Map Control.
 
 ## v3 (latest)
-
-### [3.7.0] (CDN: October 15, 2025, npm: TBA)
-
-#### New features
-
-- Add support for zoom level 0, allowing users to view the entire globe within a small map canvas.
 
 ### [3.6.1] (CDN: April 7, 2025, npm: April 9, 2025)
 

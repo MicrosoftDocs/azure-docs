@@ -5,17 +5,13 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/15/2025
+ms.date: 10/17/2025
 ms.author: anfdocs
 ---
 
 # Configure object REST API access in Azure NetApp Files (preview)
 
 Azure NetApp Files supports access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake, and others.
-
-## Considerations
-
-* Editing a bucket isn't currently supported. If you need to edit a bucket, you should instead create a new bucket with the same name as the one you want to edit then adjust the properties. 
 
 ## Register the feature 
 
@@ -115,6 +111,20 @@ To enable object REST API, you must create a bucket.
 1. Select **Create**. 
 
 After you create a bucket, you need to generate credentials to access the bucket.
+
+## Update bucket access
+
+You can modify a bucket's access management settings.
+
+1. From your NetApp volume, select **Buckets**.
+1.	Select **+Create**.
+1.	Enter the name of the bucket you want to modify.
+1.	Change the access management settings as required.
+1.	You can modify the User ID, Group ID, Username (for SMB or dual-protocol volumes), and Permissions.
+1.	Click **Save** to modify the existing bucket.
+
+> [!NOTE]
+> You cannot modify a bucket’s path. To update a bucket’s path, delete and re-create the bucket with the new path.
 
 ## Generate credentials
 

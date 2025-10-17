@@ -1,16 +1,15 @@
 ---
 title: Manage file access logs in Azure NetApp Files
-description: File access logs provide file access logging for individual volumes, capturing file system operations on selected volume
+description: File access logs provide file access logging for individual volumes, capturing file system operations on selected volume.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/29/2025
+ms.date: 10/17/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
 ---
-
 # Manage file access logs in Azure NetApp Files
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
@@ -19,7 +18,6 @@ File access logs provide file access logging for individual volumes, capturing f
 
 >[!IMPORTANT]
 >The file access logs feature is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
-
 
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
@@ -126,12 +124,10 @@ You must set SACLs for SMB shares or Audit ACEs for NFSv4.1 exports for auditing
 
 ### [Set SACLs for SMB shares](#tab/sacls-smb)
 
-If you're logging access events on all files and directories within a volume, set SACLs by applying Storage-Level Access Guard security. 
+To enable logging access on individual files and directories, complete the following steps on the Windows administration host. 
 
 >[!NOTE]
 > Select only the events you need to log. Selecting too many log options can impact system performance. 
-
-To enable logging access on individual files and directories, complete the following steps on the  Windows administration host. 
 
 #### Steps 
 

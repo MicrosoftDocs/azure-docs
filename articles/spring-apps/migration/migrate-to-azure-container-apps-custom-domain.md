@@ -94,8 +94,7 @@ You need to handle client certificate verification in your code.
 
 ## Inter-application traffic
 
-Traffic between different container apps in the same app environment uses HTTP by default - for example, `http://<app-name>`. To secure this traffic, you can enable peer-to-peer encryption by using the following
-commands:
+By default, traffic between container apps in the same environment uses HTTP. To secure this traffic, enable peer-to-peer encryption with the following commands:
 
 ```azurecli
 # enable when creating the container app
@@ -112,7 +111,9 @@ az containerapp env update \
     --enable-peer-to-peer-encryption
 ```
 
-After you enable peer-to-peer-encryption, one container app can access other container apps using HTTPS with mTLS - for example, `https://<app-name>`. The certificate used in mTLS is system-assigned.
+Once enabled, Azure Container Apps automatically secures HTTP traffic through its built-in transparent proxying feature. Your application usually doesn't need to care whether the traffic is encrypted or not.
+
+If you want to use HTTPS for communication between apps internally, you must handle certificate verification. This is because the domain name might not match the certificate's Common Name (CN) or Subject Alternative Name (SAN).
 
 For more information, see the [Peer-to-peer encryption](../../container-apps/ingress-environment-configuration.md#peer-to-peer-encryption) section of [Configure ingress in an Azure Container Apps environment](../../container-apps/ingress-environment-configuration.md).
 

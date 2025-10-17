@@ -16,7 +16,7 @@ ms.author: jobreen
 >
 > In 2026, Azure Resource Manager will be deprecating the Custom Resource Provider (CuRP) service.
 >
-> We will retire the feature by **October 31, 2026**. We will be performing a scream test on October 27, 2025, as part of this deprecation. On July 31, 2026, creates, updates, patches, and actions to custom resources and resource providers will be blocked. You will only be able to read and delete your custom resources and resource providers.
+> We will retire the feature by **October 31, 2026**. We will be performing a scream test on February 24, 2026, as part of this deprecation. On July 31, 2026, creates, updates, patches, and actions to custom resources and resource providers will be blocked. You will only be able to read and delete your custom resources and resource providers.
 >
 > We understand that this deprecation may be an inconvenience to you and your team. Here are some potential CuRP alternatives you can use to support your existing workflows.
 > 

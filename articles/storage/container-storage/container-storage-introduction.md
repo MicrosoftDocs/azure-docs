@@ -41,6 +41,8 @@ You can use Azure Container Storage to:
 
 - **Kubernetes-native volume orchestration:** Seamlessly create storage classes and persistent volumes, manage the full lifecycle of volumes—including provisioning, expansion, deletion, and perform operations such as capturing snapshots, all using familiar `kubectl` commands. This unified approach eliminates the need to switch between different tools or interfaces, streamlining storage management within your Kubernetes environment.
 
+- **Open source and community-driven:** Azure Container Storage is developed as an open-source project. It can be installed either through an AKS extension, as described in the [quickstart guides](container-storage-aks-quickstart.md), or via Helm using the [local-csi-driver](https://github.com/Azure/local-csi-driver) repository. This open approach enables users to contribute, customize, and integrate with existing Kubernetes workflows and patterns.
+
 ## Supported storage types
 
 Azure Container Storage provides a Kubernetes-native orchestration and management layer for persistent volumes on Linux-based Kubernetes clusters. It uses existing Azure Storage offerings as the underlying data store. Currently, Azure Container Storage v2 only supports local NVMe disks for backing storage.

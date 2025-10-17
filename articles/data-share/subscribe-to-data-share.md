@@ -109,7 +109,7 @@ Start by preparing your environment for the Azure CLI:
 Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 
 ```azurecli
-az datashare consumer consumer-invitation list-invitation
+az datashare consumer-invitation list-invitation
 ```
 
 Copy your invitation ID for use in the next section.

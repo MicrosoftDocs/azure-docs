@@ -7,7 +7,7 @@ ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 05/01/2025
+ms.date: 10/15/2025
 ---
 
 # Troubleshoot a declined card

@@ -6,7 +6,7 @@ ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/01/2025
+ms.date: 10/14/2025
 ms.author: drjones
 ms.custom: references_regions
 ---
@@ -30,20 +30,23 @@ If your default payment method is credit card, the [account administrator](add-c
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the account administrator.
 1. Search for and select **Cost Management + Billing**.
-1. On the **Overview** pane, select the past-due subscription.
-1. On the **Subscription overview** pane, select the red banner that says your account is past due. Selecting the banner opens the **Settle balance** pane.
+1. Inside of Billing in the left nav menu, select **Invoices**.
 
-    > [!NOTE]
-    > - If you're not the account administrator, you can't settle the balance.
-    > - If your account has a bill ready to be paid, you see a blue banner that also takes you to the **Settle balance** pane.
-    > - If your account is in good standing, no banners appear.
+1. Click the **Settle balance** link if the invoice is due or past due. If you don't see Settle balance, it means you already paid your invoice. You get prompted to complete multifactor authentication during payment process.
+
+   > [!NOTE]
+   > - If you're not the account administrator, you can't settle the balance.
+   > - If your account has a bill ready to be paid, you see a blue banner that also takes you to the **Settle balance** pane.
+   > - If your account is in good standing, no banners appear.
+   
 1. Choose **Select payment method**.
 1. In the new area on the right, select a credit card from the dropdown list, or add a new one by selecting the blue **Add new payment method** link. This credit card becomes the active payment method for all subscriptions that currently use the failed payment method.
 
-    > [!NOTE]
-    > The total outstanding balance reflects outstanding charges across all Microsoft services that use the failed payment method.
-    >
-    > If the selected payment method also has outstanding charges for Microsoft services, the total outstanding balance reflects these charges. You must pay those charges too.
+   > [!NOTE]
+   > The total outstanding balance reflects outstanding charges across all Microsoft services that use the failed payment method.
+   > 
+   > If the selected payment method also has outstanding charges for Microsoft services, the total outstanding balance reflects these charges. You must pay those charges too.
+   
 1. Select **Pay**.
 
 ### Regional considerations

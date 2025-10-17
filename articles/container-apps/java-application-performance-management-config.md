@@ -321,7 +321,7 @@ Use the following steps to configure your init container with secrets, environme
                value: -javaagent:/java-agent/agent.jar
              volumeMounts:
              - mountPath: /java-agent
-                volumeName: java-agent-volume
+               volumeName: java-agent-volume
         ```
 
 1. Update the container app with the modified **app.yaml** file by using the following command:
