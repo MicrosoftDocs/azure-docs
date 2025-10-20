@@ -107,7 +107,7 @@ The implementation of Azure DNS Security Policy creates multiple layers of defen
 
 For Azure Virtual Enclaves deployments, Azure DNS Security Policy should be integrated as part of the overall security architecture. Organizations should configure DNS security policies to monitor and control DNS traffic from enclave workloads, ensuring that sensitive data remains protected even if individual workloads become compromised. Regular review and updating of DNS domain lists, combined with continuous monitoring of DNS logs, provides ongoing protection against evolving DNS-based threats and helps maintain the security integrity of the virtual enclave environment.
 
-More information is available at the [DNS Security Policy documentation](../dns/dns-security-policy.md).
+More information is available at the [DNS Security Policy documentation](/azure/dns/dns-security-policy.md).
 
 #### Implementing deny-by-default DNS security policies
 
