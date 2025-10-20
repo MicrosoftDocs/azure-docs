@@ -55,7 +55,7 @@ You can configure High Availability (HA) in two ways: Zone-Redundant HA, which p
 - **Zone-Redundant**: Provisions the standby server in a different availability zone from the primary, offering the highest resiliency against zone-level failures.
 - **Same-Zone**: Provisions the standby in the same zone as the primary, protecting against node-level failures and minimizing latency, but without zone-level isolation. 
 
-To simplify configuration and ensure zonal resiliency, the portal provides a Zonal Resiliency option with two radio buttons: Enabled and Disabled. Selecting Enabled attempts to create the standby in a different availability zone. If the region does not support zone-redundant HA, HA enablement will fail unless you select the fallback checkbox as highlighted in the image below which allows enabling HA with same-zone option.
+To simplify configuration and ensure zonal resiliency, the portal provides a Zonal Resiliency option with two radio buttons: Enabled and Disabled. Selecting Enabled attempts to create the standby in a different availability zone. If the region does not support zone-redundant HA, you can select the fallback checkbox (highlighted in the image below) to enable same-zone HA instead.
 
 :::image type="content" source="./media/postgresql/multi-az-ha.png" alt-text="Diagram that shows the checkbox for same-zone HA option" border="false" lightbox="./media/postgresql/multi-az-ha.png":::
 
