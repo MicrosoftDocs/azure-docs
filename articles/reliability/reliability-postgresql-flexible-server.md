@@ -54,7 +54,7 @@ To simplify configuration and ensure zonal resiliency, the portal provides a Zon
 :::image type="content" source="./media/postgresql/multi-az-ha.png" alt-text="Diagram that shows the checkbox for same-zone HA option" border="false" lightbox="./media/postgresql/multi-az-ha.png":::
 
 
-When checked, the system creates the standby in the same zone and later triggers an automatic migration workflow during a maintenance window, to move it to a different zone once capacity becomes available. If the checkbox is not selected and zonal capacity is unavailable, HA enablement fails. This design enforces zone-redundant HA as the default while providing a controlled fallback for same-zone HA, ensuring workloads eventually achieve full Zone resiliency without manual intervention.
+When checked, the system creates the standby in the same zone and later triggers an automatic migration workflow during a maintenance window, to move it to a different zone once capacity becomes available. If the checkbox is not selected and zonal capacity is unavailable, HA enablement fails. This design enforces zone-redundant HA as the default while providing a controlled fallback for same-zone HA, ensuring workloads eventually achieve full zone resiliency without manual intervention.
 
 ### High availability features
 
