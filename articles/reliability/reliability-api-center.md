@@ -6,9 +6,8 @@ ms.author: danlep
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-api-management
-ms.date: 04/15/2024
+ms.date: 10/17/2025
 ---
-
 
 # Reliability in Azure API Center
 
@@ -20,14 +19,13 @@ This article describes reliability support in Azure API Center, including availa
 
 In each [region](../api-center/overview.md) where it's available, Azure API Center supports zone redundancy by default. The Azure API Center service runs in a multitenant environment on availability zone-enabled components. You don't need to set it up or reconfigure for availability zone support. 
 
-
 ### Zone down experience
 
-During a zone-wide outage, the customer should expect a brief degradation of performance, until the service's self-healing rebalances underlying capacity to adjust to healthy zones. This isn't dependent on zone restoration; it's expected that the Microsoft-managed service self-healing state compensates for a lost zone, using capacity from other zones.
+During a zone-wide outage, the customer should expect a brief degradation of performance, until the service's self-healing rebalances underlying capacity to adjust to healthy zones. This period of performance degradation isn't dependent on zone restoration; the Microsoft-managed service self-healing state is expected to compensate for a lost zone, by using capacity from other zones.
 
 ## Cross-region disaster recovery limitations
 
-Currently, Azure API Center supports only a single-region configuration. There is no capability for automatic or customer-enabled cross-region failover for Azure API Center. Should a regional disaster occur, the service will be unavailable until the region is restored.
+Currently, Azure API Center supports only a single-region configuration. There's no capability for automatic or customer-enabled cross-region failover for Azure API Center. Should a regional disaster occur, the service is unavailable until the region is restored.
 
 ## Data residency
 

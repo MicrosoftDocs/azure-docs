@@ -5,7 +5,7 @@ author: dlepow
 ms.service: azure-api-center
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 08/25/2025
+ms.date: 10/15/2025
 ms.author: danlep 
 ---
 
@@ -22,7 +22,7 @@ ms.author: danlep
 
 ## Register the Microsoft.ApiCenter provider
 
-If you haven't already, you need to register the **Microsoft.ApiCenter** resource provider in your subscription. You only need to register the resource provider once. 
+If you haven't already, register the **Microsoft.ApiCenter** resource provider in your subscription. You only register the resource provider once.
 
 To register the resource provider in your subscription by using the Azure CLI, run the following [`az provider register`](/cli/azure/provider#az-provider-register) command:
 
@@ -48,7 +48,7 @@ az group create --name MyGroup --location eastus
 
 ## Create an API center
 
-Create an API center by using the [`az apic create`](/cli/azure/apic/#az-apic-create) command. 
+Create an API center by using the [`az apic create`](/cli/azure/apic/#az-apic-create) command.
 
 The following example creates an API center called *MyApiCenter* in the *MyGroup* resource group. In this example, the API center is deployed in the *West Europe* location. Substitute an API center name of your choice and enter one of the [available locations](overview.md#available-regions) for your API center.
 

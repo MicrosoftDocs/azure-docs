@@ -29,6 +29,8 @@ This article provides an overview of the current limitations when you're using [
 
 * In Azure China regions, using tags on resource groups and subscriptions in Azure Policy definitions for network group membership isn't currently supported.
 
+* An Azure Virtual Network Manager instance cannot be moved from the existing subscription to another.
+
 ## Limitations for connected groups 
 
 * A virtual network can be peered with up to 1,000 virtual networks using Azure Virtual Network Manager's hub-and-spoke connectivity configuration, meaning you can peer up to 1,000 spoke virtual networks to a hub virtual network.

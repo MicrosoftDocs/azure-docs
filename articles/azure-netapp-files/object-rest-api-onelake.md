@@ -40,6 +40,6 @@ After connecting to OneLake, you can connect a volume to [Azure AI Search](/azur
 ## More information 
 
 * [Understand object REST API](object-rest-api-introduction.md)
-* [Configure object REST API access in Azure NetApp Files](object-rest-api-access-configure.md)
+* [Configure object REST API in Azure NetApp Files](object-rest-api-access-configure.md)
 * [OneLake shortcuts](/fabric/onelake/onelake-shortcuts)
 * [What is an on-premises data gateway?](/data-integration/gateway/service-gateway-onprem)

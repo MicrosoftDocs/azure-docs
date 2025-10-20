@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to set up an API center for API d
 author: dlepow
 ms.service: azure-api-center
 ms.topic: quickstart
-ms.date: 08/25/2025
+ms.date: 10/13/2025
 ms.author: danlep 
 ---
 
@@ -28,7 +28,7 @@ To register the resource provider using the portal:
 
 1. In the sidebar menu, under **Settings**, select **Resource providers**.
 
-1. Search for **Microsoft.ApiCenter** in the list of resource providers. If it's not registered, select **Register**.
+1. Search for **Microsoft.ApiCenter** in the list of resource providers. If it isn't registered, select **Register**.
 
 ## Create an API center
 

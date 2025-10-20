@@ -4,7 +4,7 @@ description: Define custom metadata in your API center. Use custom and built-in 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: tutorial
-ms.date: 08/26/2025
+ms.date: 10/15/2025
 ms.author: danlep 
 #customer intent: As the owner of an Azure API center, I want a step by step introduction to configure custom metadata properties to govern my APIs.
 ---
@@ -15,8 +15,8 @@ This tutorial explains how to define custom metadata to help you organize your A
 
 For more information about metadata in Azure API Center, see:
 
-* [Key concepts - Metadata](key-concepts.md#metadata)
-* [Use metadata for API governance](metadata.md)
+* [Key concepts - Metadata](../key-concepts.md#metadata)
+* [Use metadata for API governance](../metadata.md)
 
 In this tutorial, you learn how to use the Azure portal to:
 > [!div class="checklist"]
@@ -25,13 +25,13 @@ In this tutorial, you learn how to use the Azure portal to:
 
 ## Prerequisites
 
-* An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
+* An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](../set-up-api-center.md).
 
 ## Define metadata
 
 Here you define two custom metadata examples: *Line of business* and *Public-facing*; if you prefer, define other metadata of your own. When you add or update APIs and other information in your inventory, set values for custom and any common built-in metadata.
 
-[!INCLUDE [metadata-sensitive-data](includes/metadata-sensitive-data.md)]
+[!INCLUDE [metadata-sensitive-data](../includes/metadata-sensitive-data.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to your API center.
 
@@ -45,11 +45,11 @@ Here you define two custom metadata examples: *Line of business* and *Public-fac
 
     1. Select type **Predefined choices** and enter choices such as *Marketing, Finance, IT, Sales*, and so on. Optionally, enable **Allow selection of multiple values**. Select **Next**.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot showing how to add custom metadata in the portal." lightbox="media/add-metadata-properties/metadata-property-details.png":::
+    :::image type="content" source="./media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot showing how to add custom metadata in the portal." lightbox="./media/add-metadata-properties/metadata-property-details.png":::
 
 1. On the **Assignments** tab, select **Required** for APIs. Select **Optional** for Deployments and Environments. You can add these entities in later tutorials. Select **Next**.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata assignments in the portal." :::
+    :::image type="content" source="./media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata assignments in the portal." :::
 
 1. On the **Review + create** tab, review the settings, and select **Create**. 
  
@@ -77,11 +77,11 @@ You can view and download the JSON schema for the metadata defined in your API c
 
 1. Select **View metadata schema** > **APIs** to see the metadata schema for APIs, which includes built-in and custom metadata. You can also view the metadata schema defined for deployments and environments in your API center.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/add-metadata-properties/metadata-schema.png":::
+    :::image type="content" source="./media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="./media/add-metadata-properties/metadata-schema.png":::
 
 ## Next step
 
 Add APIs to the inventory in your API center. 
 
 > [!div class="nextstepaction"]
-> [Register APIs in your API inventory](register-apis.md)
+> [Register APIs in your API inventory](.././tutorials/register-apis.md)

@@ -356,7 +356,7 @@ Confirm that the event subscription is provisioned successfully in your API cent
 Test the event subscription by registering an API in your API center:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1.  [Register an API](register-apis.md) in your API center. After the API is registered:
+1.  [Register an API](././tutorials/register-apis.md) in your API center. After the API is registered:
     * The event subscription triggers the logic app workflow.
     * The logic app workflow runs and sends a notification to the individual in Microsoft Teams.
 1. In Microsoft Teams, view the adaptive card, make an API status selection, and select **Submit**. 

@@ -1,6 +1,6 @@
 ---
-title: Understand Azure NetApp Files object REST API access
-description: Learn about object REST API access management for S3 workloads in Azure NetApp Files. 
+title: Understand Azure NetApp Files object REST API
+description: Learn about object REST API  access management for S3 workloads in Azure NetApp Files. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files

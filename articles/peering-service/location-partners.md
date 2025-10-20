@@ -51,7 +51,7 @@ The following table provides information on the Peering Service connectivity par
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) | Asia |
 | [Sunrise](https://www.sunrise.ch/business/en/home). | Europe |
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline.html) | Europe |
-| [Telstra International](https://www.telstrainternational.com/en/enterprise) | Asia, Europe |
+| [Telstra International](https://www.telstrainternational.com/en/enterprise/products/adaptive-networks/global-internet/global-internet-direct) | Asia, Europe |
 | [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) | Japan  |
 | [Vodacom](https://www.vodacom.com/index.php) | Africa |
 | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) | Asia, Europe, North America |
@@ -78,10 +78,10 @@ The following table provides information on the Peering Service connectivity par
 | Los Angeles | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |
 | London | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://www.colt.net/product/cloud-prioritisation/) |
 | Madrid | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Miami | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Milan | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Manila | [Converge ICT](https://www.convergeict.com/enterprise/) |
 | Marseilles | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
+| Miami | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
+| Milan | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Nairobi | [Liquid Telecom](https://liquidc2.com/connect/#maps) |
 | Osaka | [Colt](https://www.colt.net/product/cloud-prioritisation/), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/index.html), [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) |
 | Paris | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |

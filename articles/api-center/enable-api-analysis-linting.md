@@ -293,7 +293,7 @@ Now create an event subscription in your API center to trigger the function app 
 
 To test the event subscription, try uploading or updating an API definition file associated with an API version in your API center. For example, upload an OpenAPI or AsyncAPI document. After the event subscription is triggered, the function app invokes the API linting engine to analyze the API definition.
 
-* For detailed steps to add an API, API version, and API definition to your API center, see [Tutorial: Register APIs in your API center](register-apis.md).
+* For detailed steps to add an API, API version, and API definition to your API center, see [Tutorial: Register APIs in your API center](./tutorials/register-apis.md).
 * To create an API by uploading an API definition file using the Azure CLI, see [Register API from a specification file](manage-apis-azure-cli.md#register-api-from-a-specification-file---single-step).
 
 To confirm that the event subscription was triggered:

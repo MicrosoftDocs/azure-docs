@@ -149,7 +149,7 @@ Perform the following steps to verify your nested VM configuration:
 
 - Check which [Hyper-V virtual machine generation](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) you used for the nested VM. Some Linux distributions don't work with Gen 1 Hyper-V VMs.
 
-  Learn more about the [supported guest operating systems in Hyper-V](/virtualization/hyper-v-on-windows/about/supported-guest-os).
+  Learn more about the [supported guest operating systems in Hyper-V](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 ### Hyper-V doesn't start with error `The virtual machine is using processor-specific xsave features not supported`
 

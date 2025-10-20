@@ -111,8 +111,6 @@ items:
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create Standard workflows from templates - Portal
       href: create-single-tenant-workflows-templates.md
-    - name: Get AI-powered help from the workflow assistant
-      href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Export Standard from portal to Visual Studio Code
@@ -135,18 +133,14 @@ items:
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: AI scenarios
       items:
+      - name: Get AI-powered help from the workflow assistant
+        href: workflow-assistant-standard.md
       - name: Create autonomous agent workflows
         href: create-autonomous-agent-workflows.md
       - name: Create conversational agent workflows
         href: create-conversational-agent-workflows.md
-      - name: Multiagent scenarios
-        items:
-        - name: Single agent versus multiple agents
-          href: single-versus-multiple-agents.md
-        - name: Call AI agents sequentially
-          href: set-up-prompt-chain-agent-workflow.md
-        - name: Hand off AI agent tasks with chat continuity
-          href: set-up-handoff-agent-workflow.md
+      - name: Run workflows from actions in AI agents
+        href: add-agent-action-create-run-workflow.md
       - name: Create and register MCP servers and tools
         href: create-mcp-server-api-center.md
       - name: Set up Standard logic apps as MCP servers
@@ -157,6 +151,14 @@ items:
         href: parse-document-chunk-text.md
       - name: Create chat completions with prompt templates
         href: connectors/create-chat-completions-prompt-template.md
+      - name: Multiagent scenarios
+        items:
+        - name: Single agent versus multiple agents
+          href: single-versus-multiple-agents.md
+        - name: Call AI agents sequentially
+          href: set-up-prompt-chain-agent-workflow.md
+        - name: Hand off AI agent tasks with chat continuity
+          href: set-up-handoff-agent-workflow.md
     - name: Develop for rules engine integration
       items:
       - name: Overview for rules engine integration
@@ -237,8 +239,6 @@ items:
       href: create-parameters-workflows.md
     - name: Call Azure Functions
       href: call-azure-functions-from-workflows.md
-    - name: Run workflows from actions in AI agents
-      href: add-agent-action-create-run-workflow.md
     - name: Call workflows from Power Apps
       href: call-from-power-apps.md
     - name: Call, trigger, or nest logic apps

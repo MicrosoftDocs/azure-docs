@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-description
   - ai-seo-date:07/09/2025
 ms.service: azure-application-gateway
-ms.date: 07/29/2025
+ms.date: 10/14/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Application Gateway v2 works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
 ---
 
@@ -37,7 +37,17 @@ Application Gateway is a managed service. It's important to understand some key 
 
 - **Instances:** An *instance* is a virtual machine (VM)-level unit of the gateway. Each instance represents a dedicated VM that handles traffic. One instance is equal to one VM.
 
+  
+    >[!IMPORTANT]
+    For high availability, each gateway is always created with a minimum of two instances.  However, the Azure portal may indicate that your gateway has a single instance, even though it actually has two.
+
   You don't see or manage the VMs directly. The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances. It also manages the graceful removal of instances during scale-in events. This process is known as *connection draining*.
+
+  The following diagram shows a gateway with two instances:
+
+  :::image type="content" source="media/reliability-application-gateway-v2/gateway-instances.svg" alt-text="Diagram that shows Azure Application Gateway with two instances." border="false":::
+
+ To distribute instances across multiple availability zones and so increase redundancy and availability during datacenter failures, you can enable zone redundancy.
 
 - **Scaling:** An important aspect of a gateway's reliability is how it scales to meet traffic demand. If a gateway isn't scaled appropriately, traffic can't flow and your application can experience downtime. You can configure Application Gateway to use one of the following scaling modes.
 
@@ -67,7 +77,17 @@ Application Gateway provides two types of availability zone support when you dep
 
 - *Zone-redundant:* Azure automatically distributes the instances across two or more availability zones.
 
+  When you deploy a new gateway, it's zone-redundant by default.
+
+  The following diagram shows a zone-redundant gateway with three instances that are distributed across three availability zones:
+
+    :::image type="content" source="media/reliability-application-gateway-v2/zone-redundant.svg" alt-text="Diagram that shows Azure Application Gateway with three instances, each in a separate availability zone." border="false":::
+
 - *Zonal:* Azure deploys all of the Application Gateway instances into a single zone that you select within your chosen Azure region.
+
+  The following diagram shows a zonal gateway with three instances that are deployed into the same availability zone:
+
+  :::image type="content" source="media/reliability-application-gateway-v2/zonal.svg" alt-text="Diagram that shows Azure Application Gateway with three instances, all in the same availability zone." border="false":::
 
     > [!IMPORTANT]
     > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs and when you verify that the latency doesn't meet your requirements. By itself, a zonal gateway doesn't provide resiliency to an availability zone outage. To improve the resiliency of a zonal Application Gateway deployment, you need to explicitly deploy separate gateways into multiple availability zones and configure traffic routing and failover.
@@ -80,10 +100,10 @@ Application Gateway supports availability zones for the Standard_v2 and WAF_v2 t
 
 - You must use the Standard_v2 or WAF_v2 SKU to enable availability zone support.
 
-- Your gateway must have a minimum of two instances.
+- Your gateway must have at least two instances.
 
   > [!NOTE]
-  > All gateways have a minimum of two instances. Even if the Azure portal indicates that your gateway has a single instance, internally it's always created with a minimum of two instances.
+  > All gateways have a minimum of two instances for high availability. Even if the Azure portal indicates that your gateway has a single instance, internally it's always created with a minimum of two instances.
 
 ### Considerations
 
@@ -119,7 +139,7 @@ This section explains how to configure availability zone support for your gatewa
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Change the availability zone configuration of an existing Application Gateway v2 instance.** Microsoft is automatically upgrading all existing nonzonal gateways to be zone redundant, with no action from you. This upgrade is expected to be completed in 2025.
+- **Change the availability zone configuration of an existing Application Gateway v2 instance.** All gateways are zone-redundant unless you configured them to be zonal.
 
   If you need to move from a zone-redundant gateway to a zonal configuration, you need to deploy a new gateway.
 
@@ -155,7 +175,9 @@ The following section describes what to expect when Application Gateway v2 is co
 
   - *Zonal:* You need to detect the loss of an availability zone and initiate a failover to a secondary gateway that you create in another availability zone.
 
-- **Notification:** Zone failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of zone-level problems.
+- **Notification**: Application Gateway doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your gateway. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Application Gateway service, including any zone failures.
+  
+    Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
 - **Active requests:**  During a zone outage, requests that are being processed by instances in that zone are terminated. Clients should retry the requests by following the guidance for how to [handle transient faults](#transient-faults).
 
@@ -171,7 +193,7 @@ The following section describes what to expect when Application Gateway v2 is co
 
   - *Zone-redundant:* The platform attempts to maintain the capacity of your gateway by creating temporary instances in other availability zones.
 
-    Internally, Application Gateway uses virtual machine scale sets, which perform [best-effort zone balancing] [best-effort zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing). Because of this behavior, scaling operations might not occur when the capacity can't be evenly divided between zones (+/- 1 instance).
+    Internally, Application Gateway uses virtual machine scale sets, which perform [best-effort zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing). Because of this behavior, scaling operations might not occur when the capacity can't be evenly divided between zones (+/- 1 instance).
 
   - *Zonal:* You're responsible for creating instances in healthy zones if you require them.
 

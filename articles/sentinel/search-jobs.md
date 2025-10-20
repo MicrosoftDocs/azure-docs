@@ -28,7 +28,7 @@ Search jobs across certain data sets might incur extra charges. For more informa
 
 ### Implementation considerations
 
-See [Search job limitations](/azure/azure-monitor/logs/search-jobs#limitations) in the Azure Monitor documentation.
+See [Search job considerations](/azure/azure-monitor/logs/search-jobs#considerations) in the Azure Monitor documentation.
 
 ## Start a search job
 

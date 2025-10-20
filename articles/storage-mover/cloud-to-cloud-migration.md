@@ -1,14 +1,14 @@
 ---
-title: Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
-description: The Cloud-to-Cloud Migration feature (preview) in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
+title: Get started with cloud-to-cloud migration in Azure Storage Mover
+description: The Cloud-to-Cloud Migration feature in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 07/01/2025
+ms.date: 10/17/2025
 ---
 
-# Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
+# Get started with cloud-to-cloud migration in Azure Storage Mover
 
 The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage. 
 
@@ -25,12 +25,12 @@ Before you begin, ensure that you have:
 - An [Azure Storage account](../storage/common/storage-account-create.md) to use as the destination.
 - A [Storage Mover resource](storage-mover-create.md) deployed in your Azure subscription.
 
-## Preview limitations
+## Limits
 
-The Cloud-to-Cloud Migration feature in Azure Storage Mover is currently in preview. The following limitations apply:
+The Cloud-to-Cloud Migration feature in Azure Storage Mover has the following limits:
 
-- Each migration job supports the transfer of 10 million objects.
-- A maximum of 10 concurrent jobs is supported per subscription.
+- Each migration job supports the transfer of 500 million objects.
+- A maximum of 10 concurrent jobs is supported per subscription. If you need to run more than 10, you can do so by creating a support request.
 - Azure Storage Mover doesn't support automatic rehydration of archived objects. Data stored in AWS Glacier or Deep Archive must be restored before migration. Migration jobs should only be initiated after the data is fully restored.
 - Private Networking is currently not supported. However, Azure Storage Mover's Cloud-to-Cloud feature securely transfers data by limiting S3 access to trusted Azure IP ranges. This approach ensures secure, controlled connectivity over the public internet.
 

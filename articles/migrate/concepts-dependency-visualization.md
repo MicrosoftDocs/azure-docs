@@ -21,7 +21,7 @@ Dependency analysis identifies dependencies between discovered on-premises serve
 - You can identify servers that must be migrated together. This is especially useful if you're not sure which servers are part of an app deployment that you want to migrate to Azure.
 - You can identify whether servers are in use, and which servers can be decommissioned instead of migrated.
 - Analyzing dependencies helps ensure that nothing is left behind, and thus avoids surprise outages after migration.
-- [Review](common-questions-discovery-dependency-analysis.md#what-is-dependency-visualization) common questions about dependency analysis.
+- [Review](common-questions-discovery-dependency-analysis.md#what-is-dependency-analysis) common questions about dependency analysis.
 
 ## Analysis types
 
@@ -44,7 +44,7 @@ After discovery of dependency data begins, polling begins:
 - Polling gathers this data:
 
     - Name of processes that have active connections.
-    - Name of application that run processes that have active connections.
+    - Name of applications that run processes with active connections.
     - Destination port on the active connections.
 
 - The gathered data is processed on the Azure Migrate appliance, to deduce identity information, and is sent to Azure Migrate every six hours.
@@ -82,4 +82,4 @@ Data export | Last 30 days data can be downloaded in a CSV format. | Data can be
 
 - [Set up](how-to-create-group-machine-dependencies.md) agent-based dependency visualization.
 - [Try out](how-to-create-group-machine-dependencies-agentless.md) agentless dependency visualization for servers on VMware.
-- Review [common questions](common-questions-discovery-dependency-analysis.md#what-is-dependency-visualization) about dependency visualization.
+- Review [common questions](common-questions-discovery-dependency-analysis.md#what-is-dependency-analysis) about dependency visualization.

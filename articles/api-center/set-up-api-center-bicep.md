@@ -5,7 +5,7 @@ author: dlepow
 ms.service: azure-api-center
 ms.custom: devx-track-azurepowershell, devx-track-bicep
 ms.topic: quickstart
-ms.date: 08/26/2025
+ms.date: 10/17/2025
 ms.author: danlep 
 ---
 
@@ -26,7 +26,7 @@ ms.author: danlep
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from
-[Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/azure-api-center-create/). 
+[Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/azure-api-center-create/).
 
 In this example, the Bicep file creates an API center in the Free plan and registers a sample API in the default workspace. Currently, Azure API Center supports a single, default workspace for all child resources.
 
@@ -65,6 +65,7 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file. For more inf
 
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -apiName "<api-name>" -apiType "<api-type>"
     ```
+
     ---
 
 Replace `<api-name>` and `<api-type>` with the name and type of an API that you want to register in your API center.

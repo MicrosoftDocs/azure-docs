@@ -434,7 +434,7 @@ Enterprise administrators and department administrators are listed as invoice se
     - Confirm that your MCA billing scope aligns with the MCA framework. For more details, refer to [Understand and work with scopes](../costs/understand-work-scopes.md).
     - To learn more about Exports data types and supported scopes, refer to the Understand export data types section in [this article](../costs/tutorial-improved-exports.md).
 - **Tax exemption certificates** - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-- **Emissions Impact Dashboard** - You must update Billing Account ID as a Billing Account Administrator with a role as Billing Account Reader/Contributor/Owner. Learn more about it here: [Connect to the Emissions Impact Dashboard for Azure - Power BI](https://learn.microsoft.com/power-bi/connect-data/service-connect-to-emissions-impact-dashboard)
+- **Emissions Impact Dashboard** - You must update Billing Account ID as a Billing Account Administrator with a role as Billing Account Reader/Contributor/Owner. Learn more about it here: [Connect to the Emissions Impact Dashboard for Azure - Power BI](/power-bi/connect-data/service-connect-to-emissions-impact-dashboard)
 
 Here are some points to consider after migration.
 

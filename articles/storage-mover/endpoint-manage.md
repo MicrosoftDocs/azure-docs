@@ -74,9 +74,18 @@ There are many use cases that require preserving metadata values such as file an
 
 ### NFS endpoints
 
-Using the NFS protocol, you can transfer files between computers running Windows and other non-Windows operating systems, such as Linux or UNIX. The current Azure Storage Mover release supports migrations from NFS shares on a NAS or server device within your network to an Azure blob container only.
+Using the NFS protocol, you can transfer files between computers running Windows and other non-Windows operating systems, such as Linux or UNIX. Azure Storage Mover release supports migrations from NFS shares on a NAS or server device within your network to an Azure blob container or Azure file shares.
 
-Unlike SMB, NFS doesn't utilize the ACL concept or user-based authentication. This difference allows NFS endpoints to be accessed without Azure Key Vault integration. In addition, Storage Mover processes metadata differently for both NFS mount sources and their blob container target counterparts. The following table identifies outcomes for common metadata encountered during migration:
+Unlike SMB, NFS doesn't utilize the ACL concept or user-based authentication. This difference allows NFS endpoints to be accessed without Azure Key Vault integration. 
+Any endpoint created programmatically requires you to make the following assignments manually:
+
+|Role                                        |Resource                                                            |
+|--------------------------------------------|--------------------------------------------------------------------|
+|*Storage File Data Privileged Contributor*  | Your target file share resource                                    |
+
+Storage Mover processes metadata differently for both NFS mount sources and their Blob container or File share target counterparts. 
+
+For NFS mount source and Blob container targets, the following table identifies outcomes for common metadata encountered during migration:
 
 |Metadata property      |Outcome                                                                              |
 |-----------------------|-------------------------------------------------------------------------------------|
@@ -88,6 +97,21 @@ Unlike SMB, NFS doesn't utilize the ACL concept or user-based authentication. Th
 |Modified timestamp     |The original timestamp of the source file is preserved as custom blob metadata. The blob-native timestamp reflects the time at which the file was migrated.|
 |Last accessed timestamp|This timestamp is preserved as custom blob metadata if it exists on the source file. There's no blob-native timestamp of this type.|
 |Other metadata         |Other metadata is persisted in a custom metadata field of the target blob if it exists on source items. Only 4 KiB of metadata can be stored. Metadata of a larger size isn't migrated.|
+
+For NFS mount sources and Azure File share targets, the following table identifies outcomes for common metadata encountered during migration:
+
+|Metadata property      |Outcome                                                                              |
+|-----------------------|-------------------------------------------------------------------------------------|
+|Directory structure    |The original directory structure of the source will be preserved on the target share.|
+|Access permissions     |Access mode, user and group permissions will be preserved from source file or directory on the target share.|
+|Symbolic links         |Symbolic links are skipped.|
+|Hard links             |Target file will be copied as regular file. Files on the source which are hard links will not be linked at the destination.  The destination will receive full copies despite hard link status at the source.|
+|Create timestamp       |The original create timestamp of the source file will be preserved on the target share.|
+|Change timestamp       |Not preserved. NFS semantics treat ctime as a read-only attribute.|
+|Modified timestamp     |The original modified timestamp of the source file will be preserved on the target share. In some cases where directory information is updated before the files are updated, the “Modified timestamp” on directory will be reflected correctly after first sync and not during the initial copy.|
+|Last accessed timestamp|Not preserved. This last access timestamp is neither supported for a file nor a directory on the target share.|
+
+
 
 ## Create an endpoint
 

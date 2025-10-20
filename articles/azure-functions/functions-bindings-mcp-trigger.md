@@ -34,9 +34,9 @@ private const string BlobPath = "snippets/{mcptoolargs.snippetname}.json";
 public string SaveSnippet(
     [McpToolTrigger("save_snippet", "Saves a code snippet into your snippet collection.")]
         ToolInvocationContext context,
-    [McpToolProperty("snippetname", "string", "The name of the snippet.")]
+    [McpToolProperty("snippetname", "The name of the snippet.")]
         string name,
-    [McpToolProperty("snippet", "string", "The code snippet.")]
+    [McpToolProperty("snippet", "The code snippet.")]
         string snippet
 )
 {
@@ -392,7 +392,7 @@ The trigger supports these binding options, which are defined in your code:
 | **extraOutputs** | When defined, sends function output to another binding.  |
 | **handler** | The method that contains the actual function code. | 
 
-::: zone-end   
+::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
@@ -445,15 +445,16 @@ The `McpToolPropertyAttribute` type supports these properties:
 | Property | Description |
 | ---- | ----- |
 | **PropertyName** | Name of the tool property that gets exposed to clients.  |
-| **PropertyType** | The data type of the tool property, such as `string`.  |
-| **Description** | (Optional) Description of what the tool property does.  |
-| **Required** | (Optional) If set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
+| **Description** | Description of what the tool property does.  |
+| **IsRequired** | (Optional) If set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
+
+The property type is inferred from the type of the parameter to which you apply the attribute. For example `[McpToolProperty("snippetname", "The name of the snippet.")] string name` defines a tool property named `snippetname` of type `string` in MCP messages.
 
 You can see these attributes used in the `SaveSnippet` tool in the [Examples](#example).
 
 #### [Bind to custom type](#tab/poco)
 
-You can define one or more tool properties by binding to a plain-old CLR object (POCO) type that you define. Properties of that type are automatically exposed as tool properties. You can use the [Description] attribute to provide a description for each property. You can indicate that a property is required using the `required` keyword.
+You can define one or more tool properties by binding to a plain-old CLR object (POCO) type that you define. Properties of that type are automatically exposed as tool properties. You can use the [Description] attribute to provide a description for each property. You can indicate that a property is required using the `required` keyword. The class property type in the informs type used in MCP messages.
 
 This example uses a custom type to define tool properties for the `SaveSnippet` tool:
 
@@ -498,7 +499,7 @@ builder
 builder.Build().Run();
 ```
 
-You can call the `WithProperty()` method multiple times to define multiple properties for the tool.
+You can call the `WithProperty()` method multiple times to define multiple properties for the tool. Each call to `WithProperty()` includes a string representation of the MCP property type, which may not directly correspond to a CLR type. For example, use `"boolean"` to define a boolean property, even though the corresponding CLR type is `bool`. Valid types are: `"string"`, `"number"`, `"integer"`, `"boolean"`, `"object"`.
 
 For the complete example, see the [`Program.cs` file](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/Program.cs).
 
@@ -515,9 +516,21 @@ A `ToolProperty` object has this structure:
     "propertyName": "Name of the property",
     "propertyType": "Type of the property",
     "description": "Optional property description",
-    "required": true|false
+    "isRequired": true|false,
+    "isArray": true|false
 }
 ``` 
+
+The fields of a `ToolProperty` object are:
+
+| Property | Description |
+| ---- | ----- |
+| **propertyName** | Name of the tool property that gets exposed to clients. |
+| **propertyType** | Type of the tool property. Valid types are: `string`, `number`, `integer`, `boolean`, `object`. See `isArray` for array types. |
+| **description** | Description of what the tool property does. |
+| **isRequired** | (Optional) If set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
+| **isArray** | (Optional) If set to `true`, the tool property is an array of the specified property type. Defaults to `false`. |
+
 ::: zone-end  
 
 For more information, see [Examples](#example).

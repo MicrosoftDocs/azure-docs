@@ -333,9 +333,9 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
-    - name: Manage object REST API access
+    - name: Manage object REST API 
       items:
-      - name: Configure object REST API access
+      - name: Configure object REST API
         href: object-rest-api-access-configure.md
       - name: Connect to Azure Databricks 
         href: object-rest-api-databricks.md

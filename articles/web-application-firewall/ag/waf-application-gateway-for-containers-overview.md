@@ -56,15 +56,6 @@ The following functionality isn't supported on a WAF policy that's associated wi
 - **JavaScript challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to JavaScript challenge during the preview.
 - **Microsoft Security Copilot**: This offering isn't supported during the preview.
 
-## Pricing
-
-Azure Web Application Firewall usage is billed separately from Application Gateway for Containers usage. When you enable Azure Web Application Firewall on your Application Gateway for Containers resource, two WAF-specific meters are added to your bill:
-
-- **1 AGC WAF Hour**: A fixed cost charged for the duration that a security policy references a WAF policy.
-- **1M WAF Requests**: A consumption-based meter that bills per 1 million requests processed by the WAF and charges for each enabled rule set. For example, if you enable both the DRS and the Bot Manager Rule Set, you're billed for two rule sets.
-
-For more pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway) and [Azure Web Application Firewall pricing](https://azure.microsoft.com/pricing/details/web-application-firewall).
-
 ## Related content
 
 - [What is Azure Web Application Firewall?](../../web-application-firewall/overview.md)

@@ -4,16 +4,16 @@ description: Learn how to start the API inventory in your API center by register
 author: dlepow
 ms.service: azure-api-center
 ms.topic: tutorial
-ms.date: 08/27/2025
+ms.date: 10/15/2025
 ms.author: danlep 
 #customer intent: As the owner of an Azure API center, I want a step by step introduction to adding APIs to the API inventory.
 ---
 
 # Tutorial: Register APIs in your API inventory
 
-This tutorial explains how to start the API inventory in your organization's [API center](overview.md) by registering APIs and assigning metadata using the Azure portal. 
+This tutorial explains how to start the API inventory in your organization's [API center](../overview.md) by registering APIs and assigning metadata using the Azure portal. 
 
-For more information about APIs, API versions, definitions, and other entities that you can inventory in Azure API Center, see [Key concepts](key-concepts.md).
+For more information about APIs, API versions, definitions, and other entities that you can inventory in Azure API Center, see [Key concepts](../key-concepts.md).
 
 In this tutorial, you learn how to use the Azure portal to:
 > [!div class="checklist"]
@@ -22,14 +22,14 @@ In this tutorial, you learn how to use the Azure portal to:
 
 ## Prerequisites
 
-* An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
+* An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](../set-up-api-center.md).
 
 * One or more APIs that you want to register in your API center. Here are two examples, with links to their OpenAPI definitions:
 
     * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
     * [Conference API](https://bigconference.azurewebsites.net)
 
-* Complete the previous tutorial, [Define custom metadata](add-metadata-properties.md), to define custom metadata for your APIs.
+* Complete the previous tutorial, [Define custom metadata](./add-metadata-properties.md), to define custom metadata for your APIs.
 
 ## Register APIs
 
@@ -66,7 +66,7 @@ The following steps register two sample APIs: Swagger Petstore API and Conferenc
     | **Line of business** | If you added this metadata in the previous tutorial, make a selection from the dropdown, such as **Marketing**. | Custom metadata that identifies the business unit that owns the API  |
     | **Public-facing**  | If you added this metadata, select the checkbox.    |  Custom metadata that identifies whether the API is public-facing or internal only    |
 
-    :::image type="content" source="media/register-apis/register-api.png" alt-text="Screenshot of the dialog box to register an API in the Azure portal." lightbox="media/register-apis/register-api.png":::
+    :::image type="content" source="./media/register-apis/register-api.png" alt-text="Screenshot of the dialog box to register an API in the Azure portal." lightbox="./media/register-apis/register-api.png":::
 
 1. Select **Create** to register the API.
 
@@ -77,7 +77,7 @@ The following steps register two sample APIs: Swagger Petstore API and Conferenc
 
 The APIs appear on the **APIs** page in the portal. If you add a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
-:::image type="content" source="media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="media/register-apis/apis-page.png":::
+:::image type="content" source="./media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="./media/register-apis/apis-page.png":::
 
 After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see pages to manage the API registration. 
 
@@ -95,7 +95,7 @@ Here you add a version to one of your APIs:
 
 1. On the API page, under **Details**, select **Versions** > **+ Add version**.
 
-    :::image type="content" source="media/register-apis/add-version.png" alt-text="Screenshot of adding an API version in the portal." lightbox="media/register-apis/add-version.png":::
+    :::image type="content" source="./media/register-apis/add-version.png" alt-text="Screenshot of adding an API version in the portal." lightbox="./media/register-apis/add-version.png":::
 
 1. On the **Add API version** page, under **Version details**, enter or select the following information:
 
@@ -116,16 +116,16 @@ Here you add a version to one of your APIs:
     |**Specification version** | Enter a version identifier of your choice, such as *3.0*. | Specification version |
     |**File** or **URL**   | Browse to a local definition file for the Petstore API, or enter a URL. Example URL: `https://raw.githubusercontent.com/swagger-api/swagger-petstore/refs/heads/master/src/main/resources/openapi.yaml`   |  API definition file   |
 
-    :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png" :::
+    :::image type="content" source="./media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="./media/register-apis/add-definition.png" :::
 
 1. Select **Create**.
 
-As you build out your API inventory, take advantage of automated tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md) and the [Azure CLI](manage-apis-azure-cli.md).
+As you build out your API inventory, take advantage of automated tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](../build-register-apis-vscode-extension.md) and the [Azure CLI](../manage-apis-azure-cli.md).
 
 ## Next step
 
 Your API inventory is starting to take shape! Now you can add information about API environments and deployments.
 
 > [!div class="nextstepaction"]
-> [Add API environments and deployments](configure-environments-deployments.md)
+> [Add API environments and deployments](./configure-environments-deployments.md)
 

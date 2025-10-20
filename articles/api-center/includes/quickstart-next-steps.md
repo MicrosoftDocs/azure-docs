@@ -16,4 +16,4 @@ ms.custom: Include file
 Now you can start adding information to the inventory in your API center. To help you organize your APIs and other information, begin by defining custom metadata in your API center.
 
 > [!div class="nextstepaction"]
-> [Define custom metadata](../add-metadata-properties.md)
+> [Define custom metadata](.././tutorials/add-metadata-properties.md)
