@@ -296,7 +296,7 @@ Although it's not recommended, you can configure your flexible server without hi
 
 The picture below shows the transition between VM and storage failure.
 
-:::image type="content" source="./media/postgresql/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant ha":::
+:::image type="content" source="./media/postgresql/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant high availability (HA) in steady state":::
 
 ## Cross-region disaster recovery and business continuity
 
