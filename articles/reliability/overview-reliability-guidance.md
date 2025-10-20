@@ -76,7 +76,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure DNS| [Reliability in Azure DNS ](reliability-dns.md)||
 |Azure Elastic SAN| [Reliability in Elastic SAN](reliability-elastic-san.md)||
 |Azure Event Grid| [Reliability in Event Grid](./reliability-event-grid.md)||
-|Azure Event Hubs||[Best practices for insulating Azure Event Hubs applications against outages and disasters](/azure/event-hubs/event-hubs-business-continuity-outages-disasters)|
+|Azure Event Hubs| [Reliability in Azure Event Hubs](./reliability-event-hubs.md) ||
 |Azure ExpressRoute|| [Design for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p>[Design for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Files| [Reliability in Azure Files](reliability-storage-files.md)||
 |Azure Firewall| [Reliability in Azure Firewall](./reliability-firewall.md) ||

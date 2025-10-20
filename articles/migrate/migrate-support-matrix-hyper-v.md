@@ -308,7 +308,7 @@ Required privileges | Local admin. | **Read (r)** and **Execute (x)** permission
 Support | Details
 --- | ---
 Supported servers | You can enable agentless dependency analysis on up to 1,000 servers (across multiple Hyper-V hosts/clusters) discovered per appliance.
-Operating systems | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os) enabled.
+Operating systems | All Windows and Linux versions with [Hyper-V integration services](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) enabled.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
 Windows server access |  A user account (local or domain) with administrator permissions on servers
 Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> 

@@ -72,20 +72,24 @@ Container Instances supports availability zones in different ways, depending on 
 
 - **Manually created container groups:** An individual container group is a *zonal* resource, which means that it can be deployed into a single availability zone that you select. All containers within the group are deployed into the same availability zone. If that availability zone has an outage, the container group and all of its containers might experience downtime.
 
-   :::image type="complex" border="false" source="media/reliability-container-instances/container-groups-containers-zonal.svg" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone.":::
-   The image shows three availability zones: Availability Zone 1, Availability Zone 2, and Availability Zone 3. A container group in Availability Zone 1 includes two containers.
-   :::image-end:::
+    The following diagram shows a container group that's been manually deployed into availability zone 1:
 
-   > [!NOTE]
-   > To ensure that your application continues to run when any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
+    :::image type="complex" border="false" source="media/reliability-container-instances/container-groups-containers-zonal.svg" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone.":::
+    The image shows three availability zones: Availability Zone 1, Availability Zone 2, and Availability Zone 3. A container group in Availability Zone 1 includes two containers.
+    :::image-end:::
 
-   If you don't specify availability zones to use for your container group, it's *nonzonal* or *regional*, which means that it might be placed in any availability zone within the region or within the same zone. If any availability zone in the region has a problem, your container group might experience downtime.
+    > [!NOTE]
+    > To ensure that your application continues to run when any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
+
+    If you don't specify availability zones to use for your container group, it's *nonzonal* or *regional*, which means that it might be placed in any availability zone within the region or within the same zone. If any availability zone in the region has a problem, your container group might experience downtime.
 
 - **NGroups:** When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy an NGroup to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
 
-   :::image type="complex" border="false" source="media/reliability-container-instances/ngroup-zone-redundant.svg" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones.":::
-   The image shows three availability zones. Each availability zone includes a container group and two containers. A rectangle labeled NGroupdesiredCount=3, zones=1,2,3 spans all three availability zones.
-   :::image-end:::
+    The following diagram shows an NGroup that's deployed to three availability zones:
+
+    :::image type="complex" border="false" source="media/reliability-container-instances/ngroup-zone-redundant.svg" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones.":::
+    The image shows three availability zones. Each availability zone includes a container group and two containers. A rectangle labeled NGroupdesiredCount=3, zones=1,2,3 spans all three availability zones.
+    :::image-end:::
 
     If you don't specify availability zones to use for your NGroup, it's nonzonal and might experience downtime if any availability zone in the region has a problem.
 
@@ -128,9 +132,8 @@ There's no extra cost to configure availability zones for a container group.
        - [Bicep](/azure/container-instances/container-instances-quickstart-bicep)
        - An [Azure Resource Manager template (ARM template)](/azure/container-instances/container-instances-quickstart-template)
        - [Terraform](/azure/container-instances/container-instances-quickstart-terraform)
-       - The [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli)
 
-    - *NGroups:* You can deploy a zone-redundant NGroup by using an ARM template and specifying multiple zones. For more information, see [NGroups with zones sample](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups#ngroups-with-zones-sample).
+    - *NGroups:* You can deploy a zone-redundant NGroup by using a Bicep file or ARM template and specifying multiple zones. For more information, see [NGroups with zones sample](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups#ngroups-with-zones-sample).
     
     - *Standby pools:* You can deploy a standby pool that uses availability zones by specifying one or more zones when you create or update the pool. However, containers might not be created in multiple zones. Standby pools shouldn't be used for workloads that require resilience to zone failures. For more information, see [Create a standby pool for Container Instances](/azure/container-instances/container-instances-standby-pool-create).
 

@@ -34,9 +34,9 @@ private const string BlobPath = "snippets/{mcptoolargs.snippetname}.json";
 public string SaveSnippet(
     [McpToolTrigger("save_snippet", "Saves a code snippet into your snippet collection.")]
         ToolInvocationContext context,
-    [McpToolProperty("snippetname", "The name of the snippet.")]
+    [McpToolProperty("snippetname", "The name of the snippet.", isRequired: true)]
         string name,
-    [McpToolProperty("snippet", "The code snippet.")]
+    [McpToolProperty("snippet", "The code snippet.", isRequired: true)]
         string snippet
 )
 {
@@ -73,7 +73,7 @@ builder.Services
 
 builder
     .ConfigureMcpTool("get_snippets")
-    .WithProperty("snippetname", "string", "The name of the snippet.");
+    .WithProperty("snippetname", "string", "The name of the snippet.", required: true);
 
 builder.Build().Run();
 ```
@@ -448,7 +448,7 @@ The `McpToolPropertyAttribute` type supports these properties:
 | **Description** | Description of what the tool property does.  |
 | **IsRequired** | (Optional) If set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
 
-The property type is inferred from the type of the parameter to which you apply the attribute. For example `[McpToolProperty("snippetname", "The name of the snippet.")] string name` defines a tool property named `snippetname` of type `string` in MCP messages.
+The property type is inferred from the type of the parameter to which you apply the attribute. For example `[McpToolProperty("snippetname", "The name of the snippet.", true)] string name` defines a required tool property named `snippetname` of type `string` in MCP messages.
 
 You can see these attributes used in the `SaveSnippet` tool in the [Examples](#example).
 
@@ -492,7 +492,7 @@ builder.ConfigureFunctionsWebApplication();
 
 builder
     .ConfigureMcpTool("get_snippets")
-    .WithProperty("snippetname", "string", "The name of the snippet.");
+    .WithProperty("snippetname", "string", "The name of the snippet.", required: true);
 
 // other configuration
 

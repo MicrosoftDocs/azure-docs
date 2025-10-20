@@ -81,7 +81,8 @@ Any endpoint created programmatically requires you to make the following assignm
 
 |Role                                        |Resource                                                            |
 |--------------------------------------------|--------------------------------------------------------------------|
-|*Storage File Data Privileged Contributor*  | Your target file share resource                                    |
+|*Storage Blog Data Privileged Contributor*  | Your target Blob container resource                                |
+|*Storage File Data Privileged Contributor*  | Your target File share resource                                    |
 
 Storage Mover processes metadata differently for both NFS mount sources and their Blob container or File share target counterparts. 
 

@@ -158,6 +158,8 @@ items:
       href: reliability-energy-data-services.md
     - name: Azure Event Grid
       href: ./reliability-event-grid.md
+    - name: Azure Event Hubs
+      href: ./reliability-event-hubs.md
     - name: Azure Functions 
       href: reliability-functions.md
     - name: Azure Health Data Services

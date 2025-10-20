@@ -7920,8 +7920,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/reliability/reliability-event-hubs.md",
-      "redirect_url": "/azure/event-hubs/event-hubs-business-continuity-outages-disasters",
+      "source_path": "articles/event-hubs/event-hubs-business-continuity-outages-disasters.md",
+      "redirect_url": "/azure/reliability/reliability-event-hubs",
       "redirect_document_id": false
     },
     {
@@ -7939,9 +7939,5 @@
       "redirect_url": "/azure/iot-hub-device-update/",
       "redirect_document_id": false
     }
-
-
-
-    
   ]
 }

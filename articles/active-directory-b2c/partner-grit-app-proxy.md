@@ -18,7 +18,7 @@ ms.subservice: b2c
 
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-In this sample tutorial, learn how to migrate a legacy application using header-based authentication to Azure Active Directory B2C (Azure AD B2C) with [Grit's app proxy](https://www.gritiam.com/appProxy.html).
+In this sample tutorial, learn how to migrate a legacy application using header-based authentication to Azure Active Directory B2C (Azure AD B2C) with [Grit's app proxy](https://www.gritiam.com/grit_legacy_app_proxy.html).
 
 Benefits of using Grit's app proxy are as follows:
 
@@ -122,7 +122,7 @@ From the list, select the IdP.
 
 ## Additional resources
 
-- [Grit app proxy documentation](https://www.gritiam.com/appProxy.html)
+- [Grit app proxy documentation](https://www.gritiam.com/grit_legacy_app_proxy.html)
 
 - [Configure the Grit IAM B2B2C solution with Azure AD B2C](partner-grit-iam.md)
 

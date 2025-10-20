@@ -2,17 +2,17 @@
 title: Use Microsoft Entra External ID to grant access to the FHIR service in Azure Health Data Services
 description: Learn how to use Microsoft Entra External ID with the FHIR service to enable access to healthcare applications and users.
 services: healthcare-apis
-author: Mahesh
+author: maheshkopparthiwct
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 07/30/2025
-ms.author: Mahesh
+ms.author: v-kopparthim
 ---
 
 # Use Microsoft Entra External ID to grant access to the FHIR service
 
-Healthcare organizations can use [Microsoft Entra External ID](https://learn.microsoft.com/entra/external-id/external-identities-overview) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users. 
+Healthcare organizations can use [Microsoft Entra External ID](/entra/external-id/external-identities-overview) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users. 
 
 ## Create an Entra External ID tenant for the FHIR service
 
@@ -102,7 +102,7 @@ You need a test user in your Microsoft Entra External ID tenant to associate wit
 #### Link an Entra External ID user with the `fhirUser` custom user attribute
 
 The `fhirUser` custom user attribute is used to link a user in Microsoft Entra External ID with a corresponding patient resource in the FHIR service. In this example, a user named **Test Patient1** is created in the Entra External ID tenant. In a later step, a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is associated with the patient resource by setting the `fhirUser` attribute to the patient's FHIR resource identifier. For more information about custom attributes in Microsoft Entra External ID, see  
-[User flow custom attributes in Entra External ID.](https://learn.microsoft.com/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
+[User flow custom attributes in Entra External ID](/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
 
 1. Search for **External Identities** 
 
@@ -125,7 +125,7 @@ The `fhirUser` custom user attribute is used to link a user in Microsoft Entra E
 
 #### Create a new user flow in Microsoft Entra External ID
 
-User flows define the sequence of steps users must follow to sign in. In this example, a user flow is defined so that when a user signs in and the access token provided includes the `fhirUser` claim. For more information, see [Create user flows and custom policies in Microsoft Entra External ID](https://learn.microsoft.com/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers#create-and-customize-a-user-flow).
+User flows define the sequence of steps users must follow to sign in. In this example, a user flow is defined so that when a user signs in and the access token provided includes the `fhirUser` claim. For more information, see [Create user flows and custom policies in Microsoft Entra External ID](/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers#create-and-customize-a-user-flow).
 
 1. On the **External Identities** page in the left pane, choose **User flows**.
 
@@ -393,7 +393,7 @@ It's important to note that users in the Microsoft Entra External ID tenant aren
 
 #### Link the patient resource to Microsoft Entra External ID User. 
 
-Create an explicit link between the test user in the **Microsoft Entra External ID** tenant and the resource in the FHIR service. Use **extension attributes** in Microsoft Graph to define this link. For more information, see [Create custom user attributes in Entra External ID](https://learn.microsoft.com/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
+Create an explicit link between the test user in the **Microsoft Entra External ID** tenant and the resource in the FHIR service. Use **extension attributes** in Microsoft Graph to define this link. For more information, see [Create custom user attributes in Entra External ID](/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
 
 1. Go to the Entra External ID tenant. On the left pane, choose **App registrations**.
 
@@ -437,7 +437,7 @@ Create an explicit link between the test user in the **Microsoft Entra External 
    
    - Create the `PATCH` body. A `PATCH` body is a single key-value-pair, where the key format is `extension_{B2C_EXTENSION_APP_ID_NO_HYPHENS}_fhirUser` and the value is the fully qualified FHIR resource ID for the patient `https://{YOUR_FHIR_SERVICE}.azurehealthcareapis.com/Patient/1"`.
 
-   For more information, see [Manage extension attributes through Microsoft Graph](https://learn.microsoft.com/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
+   For more information, see [Manage extension attributes through Microsoft Graph](/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
 
 1. After the request is formatted, choose **Run query**. Wait for a successful response that confirms the user in the Entra External ID tenant is linked to the patient resource in the FHIR service.
 
@@ -511,10 +511,11 @@ Follow the steps in the [Get the FHIR patient data](using-rest-client.md#get-fhi
 
 [Configure multiple identity providers](configure-identity-providers.md)
  
-[Troubleshoot identity provider configuration](https://learn.microsoft.com/azure/healthcare-apis/fhir/troubleshoot-identity-provider-configuration)
+[Troubleshoot identity provider configuration](/azure/healthcare-apis/fhir/troubleshoot-identity-provider-configuration)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
        
+
 
 
 

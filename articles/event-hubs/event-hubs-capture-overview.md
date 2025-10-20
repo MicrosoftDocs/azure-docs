@@ -105,6 +105,8 @@ Learn how to enable this feature using the Azure portal and Azure Resource Manag
 - [Use an Azure Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 
+Learn about data redundancy options for your Capture destination storage account in [Reliability in Azure Blob Storage](../reliability/reliability-storage-blob.md).
+
 [Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/

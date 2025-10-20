@@ -1,6 +1,6 @@
 ---
-title: Microsoft Planetary Computer Pro Pricing
-description: This article explains the pricing model for Microsoft Planetary Computer Pro.
+title: Microsoft Planetary Computer Service Usage Meters
+description: This article explains the usage metering model for Microsoft Planetary Computer Pro.
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
