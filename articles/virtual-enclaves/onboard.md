@@ -56,7 +56,6 @@ $resourceProviders = @(
    "Microsoft.KeyVault",
    "Microsoft.Logic",
    "Microsoft.ManagedIdentity",
-   "Microsoft.MarketplaceNotifications",
    "Microsoft.MarketplaceOrdering",
    "Microsoft.Network",
    "Microsoft.OperationalInsights",
