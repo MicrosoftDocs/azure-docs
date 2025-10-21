@@ -26,11 +26,11 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 
 ### Example Scenarios
-Customers can create many different views that support how they organize their resources.   
+Customers can create many different views that support how they organize their resources.  
 
-* Aggregating  Metrics
-   * Organizations with multiple applications and environments can use Service Groups to aggregate  metrics across different environments. Member resources or resource containers could be from various environments within different management groups or subscriptions, can be linked to a single Service Group providing a unified view of metrics.
-   * Since Service Groups don't inherit permissions to the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources.
+* Unified View of Resources
+   * Organizations with multiple applications and environments can use Service Groups to create a centralized view of resource information across different environments. Member resources or resource containers from various environments within different management groups or subscriptions can be linked to a single Service Group, providing a unified reference point for resource details.
+   * Since Service Groups don’t inherit permissions from their members, customers can apply least-privilege principles to assign permissions on the Service Groups that allow viewing of resource information. This capability enables scenarios where two users can access the same Service Group, but only one is allowed to see certain resources.
         
 * Creating Inventory
     * Customers can connect resources to the Service Groups to get a consolidated view of all the resources of a particular type or function in the entire environment.

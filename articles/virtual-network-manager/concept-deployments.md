@@ -39,6 +39,15 @@ When you commit a configuration deployment, the API forms a POST operation. Once
 
 :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
+### Deployment Status Visibility
+The deployment status is visible on the Deployment page of your Azure Virtual Network Manager instance. This status reflects only the overall success or failure of the configuration deployment, not the individual resource-level (e.g., virtual network or subnet) results.
+### Error Message Emission
+Error messages are only populated when the deployment status is "Failed." If the deployment is successful, the error message field remains empty. This ensures customers focus on actionable errors and avoids confusion from internal or resource-level failures that do not impact the overall deployment.
+### Error Message Content
+For failed deployments, the error message should provide the reason for the failure.
+### Resource-Level Monitoring
+Detailed status for individual virtual networks or subnets, such as why a specific resource failed,  is available through deployment details and logs.
+
 ## <a name = "goalstate"></a> Goal state model
 
 When you commit a deployment of configurations, you describe the goal state of your network manager in the targeted regions. This goal state is enforced during the next deployment. For example, when you commit configurations *Config1* and *Config2* into a region, these two configurations get applied and become the region's goal state. If you decided to commit configurations *Config1* and *Config3* into the same region, *Config2* would then be removed, and *Config3* would be added. To remove all configurations, you would deploy **None** to the regions where you no longer wish to have any configurations applied.

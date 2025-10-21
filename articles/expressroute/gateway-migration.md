@@ -16,7 +16,7 @@ ms.author: duau
 
 # About ExpressRoute Gateway Migration
 
-This article outlines the ExpressRoute gateway migration process, allowing you to move from your current SKU to any equal or higher SKU and from Basic IP to Standard IP—enhancing reliability and availability, while downgrades are not supported.
+This article outlines the ExpressRoute gateway migration process, allowing you to move from your current SKU to any equal or higher SKU and from Basic IP to Standard IP—enhancing reliability and availability, while downgrades aren't supported.
 
 For guidance on upgrading Basic SKU public IP addresses for other networking services, see [Upgrading Basic to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade).
 
@@ -30,9 +30,9 @@ The gateway migration experience allows you to deploy a second virtual network g
 After migration, the old gateway and its connections are deleted, and the new gateway is tagged with **CreatedBy: GatewaySKUMigration** to identify it as a migrated resource and shouldn’t be deleted.
 ## Supported Migration Scenarios
 
-The guided ExpressRoute gateway migration experience enables customers to move from their current SKU to any equal or higher SKU. Migrating to a lower SKU (downgrades) is not supported.
+The guided ExpressRoute gateway migration experience enables customers to move from their current SKU to any equal or higher SKU. Migrating to a lower SKU (downgrades) isn't supported.
 
-If you have an ExpressRoute gateway deployed in the same virtual network as a VPN Gateway, you can use the ExpressRoute Gateway migration tool. There is no expected impact to VPN Gateway traffic during this process.
+If you have an ExpressRoute gateway deployed in the same virtual network as a VPN Gateway, you can use the ExpressRoute Gateway migration tool. There's no expected impact to VPN Gateway traffic during this process.
  
 Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).  
 Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
@@ -42,12 +42,12 @@ For enhanced reliability and high availability, we recommend migrating to an Az-
 ## Steps to migrate to a new gateway
 
 1. **Validate**: Check that all resources are in a succeeded state. If any prerequisites aren't met, validation fails and migration can't proceed.
-2. **Prepare**:  Azure create a new virtual network gateway, [automatically assigns a new Public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) a new Public IP  and re-establishes connections—this process can take up to 45 minutes; you can specify a custom name for the new gateway, or Azure will add **_migrated** to the original name by default. During preparation, the existing gateway is locked to prevent changes, with the option to **abort** and delete the new gateway and connections.
+2. **Prepare**:  Azure creates a new virtual network gateway, [automatically assigns a new Public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) a new Public IP  and re-establishes connections—this process can take up to 45 minutes; you can specify a custom name for the new gateway, or Azure will add **_migrated** to the original name by default. During preparation, the existing gateway is locked to prevent changes, with the option to **abort** and delete the new gateway and connections.
 
 > [!NOTE]
 > The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
 
-3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions. Do not navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
+3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions. Don't navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
 4. **Commit**: Finalize the migration by deleting the original gateway and its connections. If you need to cancel the migration, first switch traffic back to the original gateway by selecting the radio button in the **Migrate** section, then click **Migrate**, and finally choose **Abort** to delete the new gateway and its connections.
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ For detailed troubleshooting errors and best practices, see [Troubleshooting Gat
 
 ### How do I add a second prefix to the GatewaySubnet?
 
-Adding multiple prefixes to the GatewaySubnet is currently in Public Preview and supported only via PowerShell. For instructions, see [Create multiple prefixes for a subnet](../virtual-network/virtual-network-manage-subnet.md).
+Adding multiple prefixes to the GatewaySubnet is currently in Public Preview and supported only via PowerShell. When you add an additional prefix, both prefixes will be used by the migrated gateway, so don't delete the old prefix. For instructions, see [Create multiple prefixes for a subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 ### How do I monitor the health of the new gateway?
 
@@ -86,7 +86,7 @@ Migration may cause a few minutes of downtime. Plan to perform the migration dur
 
 ### How long can I wait before committing to the new gateway?
 
-There is no mandatory waiting period to do commit. However, if you need time to validate connectivity and ensure all requirements are met before finalizing the migration, then you have up to 15 days to commit after migration.
+There's no mandatory waiting period to do commit. However, if you need time to validate connectivity and ensure all requirements are met before finalizing the migration, then you have up to 15 days to commit after migration.
 
 ### How do I check if my gateway SKU is eligible for migration?
 
@@ -98,14 +98,14 @@ Azure Advisor will notify you if your gateway is eligible or requires migration.
 
 To confirm your gateway is zone resilient after migration:
 
-- Check Azure Advisor: If your gateway is zone resilient, you will no longer see Advisor alerts recommending a zone-redundant gateway.
+- Check Azure Advisor: If your gateway is zone resilient, you'll no longer see Advisor alerts recommending a zone-redundant gateway.
 - Verify resource tags: The migrated gateway will have a default tag labeled `GatewaySKUMigration`, indicating it has been moved to the zone-resilient deployment model.
 
 These checks confirm that your gateway is now zone resilient.
 
 ### Can I roll back this change?
 
-Yes, until it is committed. The migration is composed of four major steps:​
+Yes, until it's committed. The migration is composed of four major steps:​
 
 1. Validate – Confirms if your gateway is eligible for migration. ​
 No changes at this stage; nothing to roll back​
@@ -114,18 +114,18 @@ No changes at this stage; nothing to roll back​
 The process can be aborted after step 2 and the new gateway will be deleted.​
 
 3. Migrate – Transfer the configuration from the existing gateway to the new one.​
-If needed, the configuration can be reverted to the existing gateway after step 3.​ Do not navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
+If needed, the configuration can be reverted to the existing gateway after step 3.​ Don't navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
 
 4. Commit – Finalize the migration by decommissioning the old gateway and its connections. ​
-Once the change has been committed, it can no longer be rolled back.
+Once the change is committed, it can no longer be rolled back.
 
 ### What is the traffic impact during migration? Is there packet loss or routing disruption?
 
-During the migration process, traffic is rerouted seamlessly. There is no expected packet loss or routing disruption under normal conditions.
+During the migration process, traffic is rerouted seamlessly. There's no expected packet loss or routing disruption under normal conditions.
 
 ### What should I do if the Prepare step fails due to a cross-region connection on a Basic SKU circuit during gateway migration?
 
-If the Prepare step fails because your Basic SKU circuit has a cross-region connection, **abort** the gateway migration and **upgrade** the circuit SKU before trying again. This configuration is unsupported, and migration will continue to fail until the circuit SKU is upgraded.
+If the Prepare step fails because your Basic SKU circuit has a cross-region connection, **abort** the gateway migration and **upgrade** the circuit SKU before trying again. This configuration is unsupported, and migration continues to fail until the circuit SKU is upgraded.
 
 ## Next Steps
 

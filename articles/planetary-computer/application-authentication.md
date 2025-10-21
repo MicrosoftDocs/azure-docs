@@ -66,6 +66,8 @@ In this access scenario, a user signed into a client application. The client app
 1. Select **Add permissions**
 1. Select the "Grant admin consent" link (assuming your intent is to grant admin consent in the tenant for this permission)
 
+The delegated authentication pattern is also used when connecting from [QGIS](./configure-qgis.md).
+
 ## Microsoft Planetary Computer Pro RBAC configuration for applications
 
 Once you create a Managed identity for an application running on Azure, or a service principal for an application not running on Azure but registered in Microsoft Entra, you need to grant proper permissions to the identities to access the GeoCatalog resource via RBAC configuration.  

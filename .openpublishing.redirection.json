@@ -6065,9 +6065,9 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/reliability/reliability-postgre-flexible.md",
-      "redirect_url": "/azure/reliability/reliability-postgresql-flexible-server",
-      "redirect_document_id": false
+      "source_path_from_root": "/articles/reliability/reliability-postgresql-flexible-server.md",
+      "redirect_url": "/azure/reliability/reliability-azure-database-postgresql",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",

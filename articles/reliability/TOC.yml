@@ -120,8 +120,8 @@ items:
         href: /azure/mysql/flexible-server/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Disaster recovery
         href: /azure/mysql/flexible-server/how-to-restore-server-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore-to-latest-restore-point
-    - name: Azure Database for PostgreSQL - Flexible Server
-      href: reliability-postgresql-flexible-server.md
+    - name: Azure Database for PostgreSQL
+      href: reliability-azure-database-postgresql.md
     - name: Azure SQL Database
       href: reliability-sql-database.md
     - name: Azure SQL Managed Instance

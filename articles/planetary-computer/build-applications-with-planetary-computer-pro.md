@@ -61,6 +61,8 @@ Integrating Microsoft Planetary Computer Pro with ESRI ArcGIS Pro provides a sea
 
 For more information on how to connect ArcGIS Pro to a GeoCatalog resource, see the [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arc-gis-pro.md).
 
+Another desktop integration option is [QGIS](./configure-qgis.md), which connects via the STAC API for browsing and visualization.
+
 ## Authentication and authorization
 
 All applications that interact with Planetary Computer Pro must authenticate properly using Microsoft Entra ID. 
