@@ -179,16 +179,37 @@ You can obtain the current service tag and range information to include as part 
 
 You can programmatically retrieve the current list of service tags together with IP address range details:
 
-- [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
 - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+- [REST](/rest/api/virtualnetwork/servicetags/list)
 
-For example, to retrieve all the prefixes for the Storage Service Tag, you can use the following PowerShell cmdlets:
+For example, to retrieve all the prefixes for the Storage Service Tag, you can use the following:
+
+# [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell-interactive
 $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 $storage = $serviceTags.Values | Where-Object { $_.Name -eq "Storage" }
 $storage.Properties.AddressPrefixes
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az network list-service-tags --location eastus2 --query "values[?name=='Storage'].properties.addressPrefixes" -o json
+```
+
+# [REST API](#tab/rest-api)
+
+```bash
+TOKEN=$(az account get-access-token --query accessToken -o tsv)
+SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+
+curl -s -X GET \
+  "https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/providers/Microsoft.Network/locations/eastus2/serviceTags?api-version=2023-11-01" \
+  -H "Authorization: Bearer ${TOKEN}" \
+  -H "Content-Type: application/json" | \
+jq '.values[] | select(.name == "Storage") | .properties.addressPrefixes'
 ```
 
 > [!NOTE]
