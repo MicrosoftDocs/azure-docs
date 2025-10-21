@@ -1,13 +1,13 @@
 ---
 title: Prepare for Azure classic administrator roles retirement
 description: Learn about the retirement of Azure classic administrator roles and how to transition them to Azure role-based access control (RBAC) roles.
-author: presharm
+author: Nicholak-MS
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/14/2025
-ms.author: macyso
+ms.author: nicholak
 ms.custom: sfi-ga-nochange
 ---
 

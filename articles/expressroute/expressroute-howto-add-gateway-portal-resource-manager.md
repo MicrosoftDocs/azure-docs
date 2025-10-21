@@ -80,8 +80,7 @@ The steps for this tutorial use the values in the following configuration refere
     | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
     | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
     | Virtual network | Select *vnet-1*. |
-    | **Public IP address** | |
-    | Assignment | By default, all ExpressRoute Gateways will have an [Auto-Assigned Public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). |
+    | **Public IP address** | ExpressRoute Gateways now have an [Auto-Assigned Public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). This Public IP address is automatically assigned to the gateway during its creation, which means zonal gateways can no longer be created. |
 
     > [!IMPORTANT]
     > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).

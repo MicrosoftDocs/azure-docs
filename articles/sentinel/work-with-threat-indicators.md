@@ -172,7 +172,7 @@ Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndica
 
 >[!IMPORTANT]
 > On April 3, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicators` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
->**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+>**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelindicators) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 > For information on using and migrating to the new tables, see (Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview))[work-with-stix-objects-indicators.md]. 
 
 
@@ -247,7 +247,7 @@ There's also a rich resource for [Azure Monitor workbooks on GitHub](https://git
 
 ## Export threat intelligence
 
-Microsoft Sentinel lets you export threat intelligence from to other destinations. For example, if you've ingested threat intelligence using the **Threat Intelligence - TAXII** data connector, you can export threat intelligence back to the source platform for bi-directional intelligence sharing. The export feature reduces the need for manual processes or custom playbooks to distribute threat intelligence.
+Microsoft Sentinel lets you export threat intelligence to other destinations. For example, if you've ingested threat intelligence using the **Threat Intelligence - TAXII** data connector, you can export threat intelligence back to the source platform for bi-directional intelligence sharing. The export feature reduces the need for manual processes or custom playbooks to distribute threat intelligence.
 
 > [!IMPORTANT]
 > Carefully consider both the threat intelligence data you export and its destination, which might reside in a different geographic or regulatory region. Data export cannot be undone. Ensure you own the data or have proper authorization before exporting or sharing threat intelligence with third parties.

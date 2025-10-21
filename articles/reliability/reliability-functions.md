@@ -126,6 +126,8 @@ There are currently multiple ways to deploy a zone-redundant Flex Consumption ap
 
 #### [Azure portal](#tab/azure-portal)
 
+1. To create a function app in a zone-redundant plan, you must have an existing [zone-redundant storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you don't already have a zone-redundant storage account, create one before you proceed. 
+
 1. In the Azure portal, go to the **Create Function App** page. For more information about creating a function app in the portal, see [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
 
 1. Select **Flex Consumption** and then select the **Select** button.
@@ -140,7 +142,7 @@ There are currently multiple ways to deploy a zone-redundant Flex Consumption ap
     :::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-flex-basics-az.png" alt-text="Screenshot of the Basics tab of the Flex Consumption function app create page.":::
     
 
-1. On the **Storage** tab, enter the settings for your function app storage account. Pay special attention to the setting in the following table, which has specific requirements for zone redundancy.
+1. On the **Storage** tab, select the zone-redundant storage account for your function app. Pay special attention to the setting in the following table, which has specific requirements for zone redundancy.
 
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
@@ -240,13 +242,19 @@ After the storage accounts used by your app are updated, you can update the Flex
 
 #### [Azure portal](#tab/azure-portal)
 
-Not currently supported.
+1. In the Azure portal, search for and select the function app to update.
+
+1. Under **Settings**, select **Scale and Concurrency**.
+
+1. On the **Zone redundancy** tab, check **Add zone redundancy** to enable the feature. If already checked, you can uncheck this box to disable the feature.
+
+1. Select **Save** to commit your changes and restart the app.
+
+:::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-flex-update-az.png" alt-text="Screenshot of the Scale and Concurrency tab of a Flex Consumption function app.":::
 
 #### [Azure CLI](#tab/azure-cli)
 
-Not currently supported.
-<!--- unhide this after we get the required CLI fix implemented 
-Update the Flex Consumption app by using the [az functionapp plan update](/cli/azure/functionapp#az-functionapp-plan-update) command and setting the `--zone-redundant true` parameter:
+Update the app by using the `--zone-redundant` parameter of the [az functionapp plan update](/cli/azure/functionapp/plan#az-functionapp-plan-update) command. Use a value of `true` to enable zone redundancy and `false` disable the feature. This example enables zone redundancy for an existing app in a Flex Consumption plan:
 
 ```azurecli
 PLAN_RESOURCE_ID=$(az functionapp show --resource-group <RESOURCE_GROUP> --name <APP_NAME> --query "properties.serverFarmId"  -o tsv) 
@@ -254,7 +262,7 @@ PLAN_RESOURCE_ID=$(az functionapp show --resource-group <RESOURCE_GROUP> --name 
 az functionapp plan update --ids $PLAN_RESOURCE_ID --set zoneRedundant=true
 ```
 
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the names of your resource group and app, respectively. -->
+In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the names of your resource group and app, respectively.
 
 #### [Bicep template](#tab/bicep)
 

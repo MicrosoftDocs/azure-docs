@@ -1,13 +1,13 @@
 ---
 title: Manage a Microsoft Azure Consumption Commitment resource
 description: Learn how to manage your Microsoft Azure Consumption Commitment (MACC) resource, including moving it across resource groups or subscriptions.
-author: presharm
+author: Nicholak-MS
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/14/2025
-ms.author: macyso
+ms.author: nicholak
 ms.custom:
   - sfi-image-nochange
   - build-2025

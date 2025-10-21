@@ -180,7 +180,7 @@ Azure Maps uses a key-based authentication scheme. When you create your account,
 Azure Maps services are currently available except in the following countries/regions:
 
 * China
-* South Korea
+* Korea
 
 Verify that the location of your current IP address is in a supported country/region.
 

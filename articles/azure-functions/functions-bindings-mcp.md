@@ -93,7 +93,7 @@ To connect to the MCP server exposed by your function app, you need to provide a
 
 <sup>1</sup> Newer protocol versions deprecated the Server-Sent Events transport. Unless your client specifically requires it, you should use the Streamable HTTP transport instead.
 
-When hosted in Azure, the endpoints exposed by the extension also require the [system key](./function-keys-how-to.md) named `mcp_extension`. If it isn't provided in the `x-functions-key` HTTP header, your client receives a `401 Unauthorized` response. You can retrieve the key using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key with the Azure CLI:
+When hosted in Azure, the endpoints exposed by the extension also require the [system key](./function-keys-how-to.md) named `mcp_extension`. If it isn't provided in the `x-functions-key` HTTP header or in the `code` query string parameter, your client receives a `401 Unauthorized` response. You can retrieve the key using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key with the Azure CLI:
 
 ```azurecli
 az functionapp keys list --resource-group <RESOURCE_GROUP> --name <APP_NAME> --query systemKeys.mcp_extension --output tsv

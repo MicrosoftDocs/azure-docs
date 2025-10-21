@@ -41,8 +41,6 @@ The steps for this task use a VNet based on the values in the following configur
 | Gateway IP Name | *GWIP* |
 | Gateway IP configuration Name | *gwipconf* |
 | Type | *ExpressRoute* |
-| Gateway Public IP Name  | *gwpip* |
-
 ## Add a gateway
 
 > [!IMPORTANT]
@@ -106,7 +104,8 @@ The steps for this task use a VNet based on the values in the following configur
 
    > [!NOTE]
    > Basic SKU public IP isn't supported with new ExpressRoute virtual network gateway.
-   > Creating a public IP is no longer required, Microsoft will create and manage your public IP.
+   > Creating a public IP is no longer required, [Microsoft will create and manage your public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). This means all ExpressRoute virtual network gateways are created as zone-redundant.
+
    
 1. Create the configuration for your gateway. The gateway configuration defines the subnet to use. In this step, you're specifying the configuration that will be used when you create the gateway. Use the following sample to create your gateway configuration.
 

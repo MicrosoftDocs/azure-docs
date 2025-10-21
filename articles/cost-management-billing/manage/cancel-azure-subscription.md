@@ -1,13 +1,13 @@
 ---
 title: Cancel and delete your Azure subscription
 description: Describes how to cancel or deleted your Azure subscription, like the Free Trial subscription.
-author: macyso
+author: Nicholak-MS
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/13/2025
-ms.author: macyso
+ms.author: nicholak
 ms.custom: sfi-image-nochange
 ---
 

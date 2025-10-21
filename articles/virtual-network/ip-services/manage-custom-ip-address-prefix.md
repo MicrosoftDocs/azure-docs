@@ -36,6 +36,9 @@ This article explains how to:
 
 For information on provisioning an IP address, see [Create a custom IP address prefix - Azure portal](create-custom-ip-address-prefix-portal.md), [Create a custom IP address prefix - Azure PowerShell](create-custom-ip-address-prefix-powershell.md), or [Create a custom IP address prefix - Azure CLI](create-custom-ip-address-prefix-cli.md).
 
+> [!NOTE]
+> The examples below primarily reference the "unified" model for custom IP prefixes. For decommissoning and deprovisioning of custom IP prefixes using the "global/regional" model, see the special section at the end of this page.
+
 ## Create a public IP prefix from a custom IP prefix
 
 When a unified (or regional) model custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range.
@@ -116,7 +119,7 @@ To view a custom IP prefix, the following commands can be used in Azure CLI and 
 A custom IP prefix must be decommissioned to turn off advertisements.
 
 > [!NOTE]
-> All public IP prefixes created from a provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, see the following section on regional commissioning.
+> All public IP prefixes created from a provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, see the following section on [regional commissioning](#removal-of-prefixes-using-the-globalregional-model).
 > 
 > The estimated time to fully complete the decommissioning process is 3-4 hours.
 
@@ -169,6 +172,18 @@ The following commands can be used in Azure CLI and Azure PowerShell to deprovis
 |PowerShell|[Update-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix)with the flag to `-Deprovision` <br>[Remove-AzCustomIpPrefix](/powershell/module/az.network/remove-azcustomipprefix) to remove|
 
 Alternatively, a custom IP prefix can be decommissioned via the Azure portal using the **Deprovision** button in the **Overview** section of the custom IP prefix, and then deleted using the **Delete** button in the same section.
+
+## Removal of prefixes using the global/regional model
+
+The above examples use the unified model for custom IP prefixes.  When removing custom IP prefixes created using the global/regional model, a specific order is reccomended to ensure proper cleanup:
+
+1. Decommission the global custom IP prefix - this will prevent advertising from the Microsoft WAN.
+2. Ensure any public ip prefixes created from regional custom IP prefixes are deleted.
+3. Decommission all regional custom IP prefixes - this will prevent them from advertsing within their respective Azure regions.
+4. Deprovision all regional custom IP prefixes.
+5. Deprovision the global custom IP prefix.
+
+If you only want to remove specific regional custom IP prefixes, then steps 3 and 4 in isolation will work.
 
 ## Permissions
 

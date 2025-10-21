@@ -32,7 +32,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
   * [K3s requirements](https://docs.k3s.io/installation/requirements).
 
-* If you're going to deploy Azure IoT Operations to a multi-node cluster with fault tolerance enabled, review the hardware and storage requirements in [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/prepare-linux-edge-volumes).
+* If you're going to deploy Azure IoT Operations to a multi-node cluster with fault tolerance enabled, review the hardware and storage requirements in [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/howto-prepare-linux-edge-volumes).
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
@@ -218,9 +218,9 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 
 On multi-node Ubuntu clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations.
 
-If you want to enable fault tolerance during deployment, configure your clusters by following the steps in [Prepare Linux for Edge Volumes using a multi-node Ubuntu cluster](/azure/azure-arc/container-storage/multi-node-cluster-edge-volumes?pivots=ubuntu).
+If you want to enable fault tolerance during deployment, configure your clusters by following the steps in [Prepare Linux for Edge Volumes using a multi-node Ubuntu cluster](/azure/azure-arc/container-storage/howto-multi-node-cluster-edge-volumes?pivots=ubuntu-other).
 
-If you're running your cluster on a Kubernetes distribution other than k3s, review the guidance to [Prepare Linux with other platforms](/azure/azure-arc/container-storage/multi-node-cluster-edge-volumes?pivots=other).
+If you're running your cluster on a Kubernetes distribution other than k3s, review the guidance to [Prepare Linux with other platforms](/azure/azure-arc/container-storage/howto-multi-node-cluster-edge-volumes?pivots=other).
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 

@@ -92,7 +92,7 @@ When Auto-Assigned Public IP is enabled, the ExpressRoute gateway's Overview pag
 
 **How it works:**  
 
-When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability.
+When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability. Previously it was possible to create the public IP resource as a zonal resource which ensured that all instances of the gateway in that zone shared the same public IP address. New behavior is that the gateway is always zone redundant.
 
 **Availability:**  
 

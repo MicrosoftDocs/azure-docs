@@ -110,6 +110,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Indonesia                                           |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Japan                                               |                 |                |              |      ✓     |       ✓        |
 | Kiribati                                            |                 |                |              |      ✓     |       ✓        |
+| Korea<sup>1</sup>                                   |                 |                |              |      ✓     |       ✓        |
 | Laos                                                |        ✓        |                |       ✓     |      ✓     |       ✓        |
 | Macao SAR                                           |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Malaysia                                            |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
@@ -133,7 +134,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Samoa                                               |                 |                |              |      ✓     |       ✓        |
 | Singapore                                           |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Solomon Islands                                     |                 |                |              |      ✓     |       ✓        |
-| South Korea<sup>1</sup>                             |                 |                |              |      ✓     |       ✓        |
 | Sri Lanka                                           |                 |                |              |      ✓     |       ✓        |
 | Taiwan                                              |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Thailand                                            |        ✓        |                |       ✓     |      ✓     |       ✓        |
@@ -146,7 +146,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Vietnam                                             |        ✓        |                |       ✓     |      ✓     |       ✓        |
 | Wallis & Futuna                                     |                 |                |              |      ✓     |       ✓        |
 
-<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
+<sup>1</sup> Coverage is dependent on enabling data processing in Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
 ## Europe
 

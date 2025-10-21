@@ -4,7 +4,7 @@ description: Define custom metadata in your API center. Use custom and built-in 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: tutorial
-ms.date: 10/15/2025
+ms.date: 10/20/2025
 ms.author: danlep 
 #customer intent: As the owner of an Azure API center, I want a step by step introduction to configure custom metadata properties to govern my APIs.
 ---
@@ -15,17 +15,17 @@ This tutorial explains how to define custom metadata to help you organize your A
 
 For more information about metadata in Azure API Center, see:
 
-* [Key concepts - Metadata](../key-concepts.md#metadata)
-* [Use metadata for API governance](../metadata.md)
+- [Key concepts - Metadata](../key-concepts.md#metadata)
+- [Use metadata for API governance](../metadata.md)
 
 In this tutorial, you learn how to use the Azure portal to:
 > [!div class="checklist"]
-> * Define custom metadata in your API center
-> * View the metadata schema
+> - Define custom metadata in your API center
+> - View the metadata schema
 
 ## Prerequisites
 
-* An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](../set-up-api-center.md).
+- An API center in your Azure subscription. To create one, see [Quickstart: Create your API center](../set-up-api-center.md).
 
 ## Define metadata
 

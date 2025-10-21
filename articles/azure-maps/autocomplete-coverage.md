@@ -132,6 +132,7 @@ The following table shows which countries/regions support Azure Maps search auto
 | Kazakhstan                                         | ✓        | ✓      |
 | Kenya                                              |          | ✓      |
 | Kiribati                                           |          | ✓      |
+| Korea                                              |          | ✓      |
 | Kuwait                                             | ✓        | ✓      |
 | Kyrgyzstan                                         |          | ✓      |
 | Laos                                               |          | ✓      |
@@ -221,7 +222,6 @@ The following table shows which countries/regions support Azure Maps search auto
 | Somalia                                            |          | ✓      |
 | South Africa                                       | ✓        | ✓      |
 | South Georgia and the South Sandwich Islands       |          | ✓      |
-| South Korea                                        |          | ✓      |
 | South Sudan                                        |          | ✓      |
 | Spain                                              | ✓        | ✓      |
 | Sri Lanka                                          | ✓        | ✓      |
@@ -381,6 +381,7 @@ The following table shows which countries/regions support Azure Maps search auto
 | Kazakhstan                                        | 103,642       | 877,700     | 981,342     |
 | Kenya                                             | 0             | 17,054      | 17,054      |
 | Kiribati                                          | 0             | 356         | 356         |
+| Korea                                             | 0             | 7,228       | 7,228       |
 | Kuwait                                            | 17,602        | 1,332       | 18,934      |
 | Kyrgyzstan                                        | 0             | 7,204       | 7,204       |
 | Laos                                              | 0             | 10,077      | 10,077      |
@@ -470,7 +471,6 @@ The following table shows which countries/regions support Azure Maps search auto
 | Somalia                                           | 0             | 10,268      | 10,268      |
 | South Africa                                      | 213,154       | 62,426      | 275,580     |
 | South Georgia and the South Sandwich Islands      | 0             | 906         | 906         |
-| South Korea                                       | 0             | 7,228       | 7,228       |
 | South Sudan                                       | 0             | 1,873       | 1,873       |
 | Spain                                             | 1,188,521     | 112,615     | 1,301,136   |
 | Sri Lanka                                         | 1,963         | 13,237      | 15,200      |
