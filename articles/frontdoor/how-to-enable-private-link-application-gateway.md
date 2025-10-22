@@ -335,6 +335,8 @@ The following are common mistakes when configuring an Azure Application Gateway 
 
 ::: zone-end
 
+4. The combined length of the Application Gateway name and Private Link configuration name must not exceed 70 characters to avoid deployment failures.
+
 ## Next step
 
 > [!div class="nextstepaction"]

@@ -28,7 +28,7 @@ This page is updated with the details about the upcoming release approximately a
 
 With this release, all new Azure Data Manager for Energy instances provisioned automatically includes the latest set of Reference Data Values by default, ensuring out-of-the-box compliance with OSDU® standards and accelerating data onboarding workflows. The update delivers a complete library of reference values synced to the latest OSDU milestone (currently **M25**), improving interoperability, guaranteeing schema consistency, and eliminating manual setup during provisioning.  
 
-For more details on how to work with this feature, see the official documentation: [Reference Data Values in ADME](release-notes.md).
+For more details on how to work with this feature, see the official documentation: [Reference Data Values in ADME](concepts-reference-data-values.md).
 
 ## September 2025
 ### Rock and Fluid Samples (RAFS) Preview

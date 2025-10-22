@@ -234,7 +234,9 @@ The example in this section uses [Get Geocoding] to convert an address into lati
 
 The [Get Geocode Autocomplete] API supports both single-line and free-form address inputs, making it ideal for scenarios where a complete address is unavailable. You can submit either a full or partial address as the query. To enhance the accuracy and relevance of the results, it's recommended to constrain the search by specifying coordinates or a bounding box.
 
-This example demonstrates how to use the Get Geocode Autocomplete API to search the entire North American continent for partial input like "university of w." It then shows how to narrow the search scope to a specific country or region using the `countryRegion` parameter. Finally, it demonstrates how to use the `coordinates` parameter to focus the search to a specific area.
+### Search for a place
+
+This example demonstrates how to use the Get Geocode Autocomplete API to search for a place in the entire North American continent for partial input like "university of w." It then shows how to narrow the search scope to a specific country or region using the `countryRegion` parameter. Finally, it demonstrates how to use the `coordinates` parameter to focus the search to a specific area.
 
 > [!IMPORTANT]
 > To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
@@ -306,6 +308,50 @@ Next, focus your search to include more results in a specific area within the de
     > - **University of West Florida** in Escambia County, Florida, USA
     > - **University of Wisconsin-Stout** in Menomonie, Dunn County, Wisconsin, USA
 
+### Search for an address
+
+The examples in this section demonstrate the difference between searching for a place and searching for an address using the `resultTypeGroups` parameter of the [Get Geocode Autocomplete] API, using examples that search for Disneyland in southern California using partial input like "dis" and the `coordinates` parameter to focus the search to a specific area.
+
+> [!IMPORTANT]
+> To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
+
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
+
+    ```http
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&subscription-key={Your-Azure-Maps-Subscription-key}
+    ```
+
+1. Select the run button, then review the response body.
+
+    Notice that the response contains *place* values that include:
+
+    | Property name    | Property value                           |
+    |------------------|------------------------------------------|
+    | typeGroup        | Place                                    |
+    | type             | AmusementPark                            |
+    | name             | Disney California Adventure Park         |
+
+    > [!TIP]
+    > The `type` property is most relevant when using `resultTypeGroups=place`. To view available types, refer to the [Autocomplete ResultType Enum]. To define which types to search, use the `resultTypes` [URI parameter]. For implementation details, see the [Autocomplete API call to search for 'Muir Woods', filtered by park and populated place resultTypes, place resultTypeGroups] example.
+
+1. When no values are provided for the `resultTypeGroups` parameter, queries can return both place and address values. If your only interested in searching for addresses, include `resultTypeGroups=address` in your request:
+
+    ```http
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&resultTypeGroups=address&subscription-key={Your-Azure-Maps-Subscription-key}
+    ```
+
+    Notice that the response contains *address* values that include:
+
+    | Property name    | Property value                               |
+    |------------------|----------------------------------------------|
+    | typeGroup        | Address                                      |
+    | streetName       | Disneyland                                   |
+    | formattedAddress | Disneyland, Anaheim, CA 92802, United States |
+
 ## Search for a street address using Get Reverse Geocoding
 
 [Get Reverse Geocoding] translates coordinates into human readable street addresses. This API is often used for applications that consume GPS feeds and want to discover addresses at specific coordinate points.
@@ -375,26 +421,29 @@ This example demonstrates how to search for a cross street based on the coordina
 > [!div class="nextstepaction"]
 > [Best practices for Azure Maps Search service]
 
-[Get Geocode Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
+[Autocomplete API call to search for 'Muir Woods', filtered by park and populated place resultTypes, place resultTypeGroups]: /rest/api/maps/search/get-geocode-autocomplete?#autocomplete-api-call-to-search-for-'muir-woods',-filtered-by-park-and-populated-place-resulttypes,-place-resulttypegroups
+[Autocomplete ResultType Enum]: /rest/api/maps/search/get-geocode-autocomplete?#autocompleteresulttypeenum
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps geocoding coverage]: geocoding-coverage.md
 [Azure Maps Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
 [Best Practices for Search]: how-to-use-best-practices-for-search.md#geobiased-search-results
+[bruno]: https://www.usebruno.com/
 [Entity Types]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true#entitytype
 [Fuzzy Search URI Parameters]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true#uri-parameters
 [Fuzzy Search]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
 [geobias]: glossary.md#geobias
-[Get Geocoding]: /rest/api/maps/search/get-geocoding
+[Get Geocode Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
 [Get Geocoding Batch]: /rest/api/maps/search/get-geocoding-batch
-[Get Reverse Geocoding]: /rest/api/maps/search/get-reverse-geocoding
-[Get Reverse Geocoding Parameters]: /rest/api/maps/search/get-reverse-geocoding#uri-parameters
+[Get Geocoding]: /rest/api/maps/search/get-geocoding
 [Get Reverse Geocoding Batch]: /rest/api/maps/search/get-reverse-geocoding-batch
+[Get Reverse Geocoding Parameters]: /rest/api/maps/search/get-reverse-geocoding#uri-parameters
+[Get Reverse Geocoding]: /rest/api/maps/search/get-reverse-geocoding
 [Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Get Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
 [point of interest]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0&preserve-view=true#searchpoiresponse
 [Post Search Address Batch]: /rest/api/maps/search/postsearchaddressbatch
 [Post Search Address Reverse Batch]: /rest/api/maps/search/postsearchaddressreversebatch?view=rest-maps-1.0&preserve-view=true
-[bruno]: https://www.usebruno.com/
 [Reverse Address Search Results]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true#searchaddressreverseresult
 [Reverse Address Search]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Reverse Search Parameters]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true#uri-parameters
@@ -402,9 +451,9 @@ This example demonstrates how to search for a cross street based on the coordina
 [Route]: /rest/api/maps/route
 [Search Address Reverse Cross Street]: /rest/api/maps/search/getsearchaddressreversecrossstreet?view=rest-maps-1.0&preserve-view=true
 [Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
-[Azure Maps geocoding coverage]: geocoding-coverage.md
 [Search Polygon API]: /rest/api/maps/search/getsearchpolygon?view=rest-maps-1.0&preserve-view=true
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [URI Parameter reference]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true#uri-parameters
+[URI parameter]: /rest/api/maps/search/get-geocode-autocomplete?##uri-parameters
 [Weather]: /rest/api/maps/weather

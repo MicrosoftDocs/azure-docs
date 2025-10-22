@@ -146,19 +146,28 @@ If AFD-Profile-1 gets deleted, then the PE1 private endpoint across all the orig
 
 * No. Azure Front Door doesn't allow mixing public and private origins in the same origin group. This can cause configuration errors or traffic routing issues. Keep all public origins in one origin group and all private origins in a separate origin group.
 
-4. Why do I see an error when trying to access the private endpoint details by double clicking on the private endpoint in Azure portal?
+4. Why do I see the error “Origin Group can only have origins with private links or origins without private links. They cannot have a mix of both” when enabling Private Link simultaneously for multiple public origins?
+
+* This error can occur when you enable Private Link for more than one public origin in the same origin group at the same time. Although both origins are intended to be private, the update operation processes origins sequentially, not simultaneously. When the first origin is updated, the second origin is still technically public, creating a temporary mixed state, resulting in an error.
+* To avoid this error, enable Private Link for one origin at a time:
+  1.	Remove origins from the origin group till only a single origin remains.
+  2.	Enable Private Link for that origin and approve its Private Endpoint.
+  3.	After approval, add the second origin and enable Private Link for it.
+
+6. Why do I see an error when trying to access the private endpoint details by double clicking on the private endpoint in Azure portal?
 
 * While approving the private endpoint connection or after approving the private endpoint connection, if you double click on the private endpoint, you'll see an error message saying "You don't have access. Copy the error details and send them to your administrator to get access to this page." This is expected as the private endpoint is hosted within a subscription managed by Azure Front Door.
 
-5. What are the rate limits for Private Link traffic and how can I handle high traffic scenarios?
+6. What are the rate limits for Private Link traffic and how can I handle high traffic scenarios?
 
 * For platform protection, each Front Door regional cluster has a limit of 7200 RPS (requests per second) per Front Door profile. Requests beyond 7200 RPS at a region will be rate limited with "429 Too Many Requests". 
 
 * If you're onboarding or expecting traffic more than 7200 RPS, we recommend deploying multiple origins (each with a different Private Link region) so that traffic is spread across multiple Front Door regional clusters. It's recommended that each origin is a separate instance of your application to improve origin level redundancy. But if you can’t maintain separate instances, you can still configure multiple origins at Front Door level with each origin pointing to the same hostname but the regions are kept different. This way, Front Door will route the traffic to the same instance but via different regional clusters.
 
-6. For private link enabled origins, will health probes also follow the same network path as actual traffic?
+7. For private link enabled origins, will health probes also follow the same network path as actual traffic?
 
 * Yes.
+
 
 ## Related content
 

@@ -37,8 +37,6 @@ items:
     href: concepts-vmware-agentless-migration.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
-  - name: VMware to Azure disaster recovery hyper-v-migration-architecture.md
-    href: ../site-recovery/vmware-azure-architecture-modernized.md?toc=/azure/migrate/toc.json
 - name: Discover inventory
   items:
   - name: Discovery methods
@@ -209,6 +207,10 @@ items:
   items:
   - name: Overview of migration method
     href: server-migrate-overview.md
+  - name: Agentless migrations using portal
+    href: tutorial-migrate-vmware.md
+  - name: Agent-based migration using portal
+    href: tutorial-migrate-vmware-agent.md
   - name: Support Matrix
     items:
     - name: VMware vSphere migration requirements 
@@ -219,14 +221,8 @@ items:
       href: migrate-support-matrix-hyper-v-migration.md
   # - name: Agent-based migrations
   #   items:
-  #   - name: Agent-based migration using portal
-  #     href: tutorial-migrate-vmware-agent.md
   #   - name: Hydration process 
   #     href: hydration-process.md
-  # - name: Agentless migrations
-  #   items:
-  #   - name: Agentless migrations using portal
-  #     href: tutorial-migrate-vmware.md
   #   - name: Agentless migrations using scripts
   #     href: tutorial-migrate-vmware-powershell.md
 #   - name: Limitations
@@ -252,8 +248,8 @@ items:
     items:
     - name: Migrate VMware servers 
       items:
-        - name: Assess VMWare servers  
-          href: ../azure-vmware/tutorial-access-private-cloud.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json  
+        - name: Assess VMware servers  
+          href: tutorial-assess-vmware-azure-vm.md
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-vmware.md
         - name: Migrate to Azure Local 

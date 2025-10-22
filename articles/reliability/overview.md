@@ -27,13 +27,16 @@ In addition to the reliability service guides, Azure reliability documentation a
 
 ## What is reliability?
 
-Reliability refers to the ability of a workload to perform consistently at the expected level, and in accordance with business continuity requirements. Reliability is a key concept in cloud computing. In Azure, reliability is achieved through a combination of factors, including the design of the platform itself, its services, the architecture of your applications, and the implementation of best practices.
+*Reliability* refers to the ability of a workload to perform consistently at an acceptable service level, and in accordance with business continuity requirements. Reliability is a key concept in cloud computing. In Azure, reliability is achieved through a combination of factors, including the design of the platform itself, its services, the architecture of your applications, and the implementation of best practices.
 
-A key approach to achieve reliability in a workload is *resiliency*, which is a workload's ability to withstand and recover from faults and outages. Azure offers a number of resiliency features such as availability zones, multi-region support, data replication, and backup and restore capabilities. These features must be considered when designing a workload to meet its business continuity requirements. 
+Two key approaches to achieving reliability in a workload are:
+- *Resiliency:* the ability to withstand and continue operating when things go wrong, such as temporary errors, infrastructure outages, or unexpected spikes in demand. Resiliency helps you to avoid disruptions.
+- *Recoverability:* the ability to restore normal operations after a disruption. If a disruption does occur, recoverability helps you to restore back to a reliable state.
+
+The Azure platform and services offer a number of reliability features such as availability zones, multi-region support, data replication, and backup and restore. These features must be considered when designing a workload to meet its business continuity requirements.
 
 > [!TIP]
 > Reliability also incorporates other elements of your solution design too, including how you deploy changes safely, how you manage your performance to avoid downtime due to high load, and how you test and validate each part of your solution. To learn more, see the [Azure Well-Architected Framework](/azure/well-architected).
-
 
 ## Azure regions
 
@@ -52,7 +55,6 @@ Availability zones are close enough to have low-latency connections to other ava
 
 - For more information on availability zones, see [What are availability zones?](./availability-zones-overview.md).
 - To view which regions support availability zones, see [List of Azure regions](./regions-list.md).
-
 
 ## Reliability concepts
 
@@ -91,13 +93,11 @@ For more information on failover and failback, see [What is failover and failbac
 
 ### Shared responsibility
 
-Resiliency defines a workload's ability to automatically self-correct and recover from various forms of failures or outages. Azure services are built to be resilient to many common failures, and each product provides a service level agreement (SLA) that describes the uptime you can expect. However, the overall resiliency of your workload depends on how you have designed your solution to meet your business needs. Some business continuity plans may consider certain failure risks to be unimportant, while others may consider them critical.
+Azure services are built to be resilient to many common failures, and each product provides a service level agreement (SLA) that describes the uptime you can expect. However, the overall reliability of your workload depends on how you have designed your solution to meet your business needs. Some business continuity plans may consider certain failure risks to be unimportant, while others may consider them critical.
 
-In the Azure public cloud platform, resiliency is a shared responsibility between Microsoft and you. Because there are different levels of resiliency in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a resiliency perspective. To better understand how shared responsibility works, especially when confronting an outage or disaster, see [Shared responsibility for resiliency](concept-shared-responsibility.md).
-
+In the Azure public cloud platform, reliability is a shared responsibility between Microsoft and you. Because there are different levels of reliability in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a reliability perspective. To better understand how shared responsibility works, especially when confronting an outage or disaster, see [Shared responsibility for reliability](concept-shared-responsibility.md).
 
 ## Related content
-
 
 - [Availability of service by category](availability-service-by-category.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
