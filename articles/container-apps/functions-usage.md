@@ -79,7 +79,7 @@ The following steps show you how to use a sample container image to create your 
     | Subscription  | Select your subscription. |
     | Image type | Select **Public**. |
     | Registry login server  | Enter **mcr.microsoft.com** |
-    | Image and tag | Enter **azure-functions/dotnet8-quickstart-demo:1.0** |
+    | Image and tag | Enter **k8se/quickstart-functions:latest** |
 
 1. Under *Environment variables*, enter values for the following variables:
 

@@ -921,11 +921,11 @@ host.Run();
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs). Unless you are using .NET Aspire, configuring direct Application Insights integration is recommended because it gives you control over how those logs are emitted. 
+You can configure your isolated process application to emit logs directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs). Unless you are using [Aspire](#aspire-preview), configuring direct Application Insights integration is recommended because it gives you control over how those logs are emitted. 
 
 Application Insights integration is not enabled by default in all setup experiences. Some templates will create Functions projects with the necessary packages and startup code commented out. If you want to use Application Insights integration, you can uncomment these lines in `Program.cs` and the project's `.csproj` file. The instructions in the rest of this section also describe how to enable the integration.
 
-If your project is part of a [.NET Aspire orchestration](#net-aspire-preview), it uses OpenTelemetry for monitoring instead. You should not enable direct Application Insights integration within .NET Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of the [service defaults project](/dotnet/aspire/fundamentals/service-defaults#opentelemetry-configuration). If your Functions project uses Application Insights integration in a .NET Aspire context, the application will error on startup.
+If your project is part of an [Aspire orchestration](#aspire-preview), it uses OpenTelemetry for monitoring instead. You should not enable direct Application Insights integration within Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of the [service defaults project](/dotnet/aspire/fundamentals/service-defaults#opentelemetry-configuration). If your Functions project uses Application Insights integration in an Aspire context, the application will error on startup.
 
 #### Install packages
 
@@ -1218,9 +1218,9 @@ There are a few requirements for running .NET functions in the isolated worker m
 
 When you create your function app in Azure using the methods in the previous section, these required settings are added for you. When you create these resources [by using ARM templates or Bicep files for automation](functions-infrastructure-as-code.md), you must make sure to set them in the template. 
 
-## .NET Aspire (Preview)
+## <a name = "net-aspire-preview"></a>Aspire (Preview)
 
-[.NET Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. You can enlist .NET 8 and .NET 9 isolated worker model projects in Aspire 9.0 orchestrations using preview support. See [Azure Functions with .NET Aspire (Preview)](./dotnet-aspire-integration.md) for more information.
+[Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. You can enlist .NET 8 and .NET 9 isolated worker model projects in Aspire 9.0 orchestrations using preview support. See [Azure Functions with Aspire (Preview)](./dotnet-aspire-integration.md) for more information.
 
 ## Debugging
 
@@ -1386,7 +1386,7 @@ Keep these considerations in mind when using Functions with preview versions of 
 > [Migrate .NET apps to the isolated worker model][migrate]
 
 > [!div class="nextstepaction"]
-> [Integrate with .NET Aspire](./dotnet-aspire-integration.md)
+> [Integrate with Aspire](./dotnet-aspire-integration.md)
 
 [migrate]: ./migrate-dotnet-to-isolated-model.md
 

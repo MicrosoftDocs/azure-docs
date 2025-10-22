@@ -7,7 +7,7 @@ manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/25/2025
+ms.date: 10/22/2025
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 
@@ -55,7 +55,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.18.0</version>
+        <version>6.0.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -65,7 +65,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
 
 ## Feature flag declaration
 
-Each feature flag has two parts: a name and a list of one or more filters that are used to evaluate if a feature's state is *on* (that is, when its value is `True`). A filter defines a use case for when a feature should be turned on.
+Each feature flag has two parts: an id and a list of one or more filters that are used to evaluate if a feature's state is *on* (that is, when its value is `True`). A filter defines a use case for when a feature should be turned on.
 
 When a feature flag has multiple filters, the filter list is traversed in order until one of the filters determines the feature should be enabled. At that point, the feature flag is *on*, and any remaining filter results are skipped. If no filter indicates the feature should be enabled, the feature flag is *off*.
 
@@ -73,12 +73,16 @@ The feature manager supports *application.yml* as a configuration source for fea
 
 ```yml
 feature-management:
-  feature-a: true
-  feature-b: false
-  feature-c:
-    enabled-for:
-      -
-        name: PercentageFilter
+  feature_flags:
+  - id: feature-a
+    enabled: true
+  - id: feature-b
+    enabled: false
+  - id: feature-c
+    enabled: true
+    conditions:
+      client_filters:
+      - name: PercentageFilter
         parameters:
           Value: 50
 ```
