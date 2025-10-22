@@ -346,7 +346,7 @@ To create an event-driven job using the Azure portal, search for *Container App 
 
 For a complete tutorial, see [Deploy an event-driven job](tutorial-event-driven-jobs.md).
 
-For more information about scaling apps and scaling jobs, see (./scale-app.md#scaling-apps-and-scaling-jobs).
+For more information about scaling apps and scaling jobs, see [scaling apps and scaling jobs](./scale-app.md#scaling-apps-and-scaling-jobs).
 
 ## Start a job execution on demand
 
