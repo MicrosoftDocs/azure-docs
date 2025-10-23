@@ -163,7 +163,7 @@ The following table shows connectivity locations and the service providers for e
 | Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
 |--|--|--|--|--|--|
 | **Taipei** | Chief Telecom | 2 | Taiwan North | &check; | Chief Telecom<br/>Chunghwa Telecom<br/>FarEasTone |
-| **Taipei2** | Chunghwa Telecom | 2 | Taiwan North | &check; | Chunghwa Telecom |
+| **Taipei2** | Chunghwa Telecom | 2 | Taiwan North | &check; | Chunghwa Telecom<br/>FarEasTone |
 | **Tel Aviv** | Bezeq International | 2 | Israel Central | &check; | Bezeq International<br/>Cellcom Fixed Line Communication (l.p.) |
 | **Tel Aviv2** | SDS | 2 | Israel Central | &check; | Hot Telecom |
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | &check; | Aryaka Networks<br/>AT&T NetBond<br/>BBIX<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>Intercloud<br/>Internet Initiative Japan Inc. - IIJ<br/>Megaport<br/>NTT DOCOMO BUSINESS<br/>NTT EAST<br/>Orange<br/>Softbank<br/>Telehouse - KDDI<br/>Verizon </br></br> |
