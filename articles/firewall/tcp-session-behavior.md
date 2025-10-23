@@ -61,6 +61,20 @@ Certain applications, such as traditional SAP GUI and SAP Remote Function Call (
 > [!NOTE]
 > If you're running SAP workloads through an Azure Firewall, test your configuration and review the [SAP design documentation](/azure/sap/workloads/deployment-checklist?tabs=pilot#pilot-phase-strongly-recommended) to ensure a successful Azure deployment.
 
+### TCP reset behavior during scale-in events
+
+When Azure Firewall scales in, it enters a drain mode for 90 seconds before an underlying firewall instance is recycled: 
+
+- **First 45 seconds:** The firewall stops accepting new connections but allows existing connections to continue without sending TCP reset packets.
+- **Next 45 seconds:** The firewall sends TCP RST packets to all active session flows to ensure clean termination before recycling. These resets inform both the client and the server that the connection is closing cleaning, so neither side hangs indefinitely waiting for packets that will not arrive once the underlying instance is decommissioned.
+    - To ensure that both client and server endpoints promptly detect these resets, configure a **bi-directional TCP keep-alive messages at 30-second intervals**. Keep-alive probes generate periodic traffic even when no application data is exchanged, helping both sides detect connection closure in real time and avoid half-open sessions - cases where one side believes the connection is still alive after the other side has closed it. This configuration allows applications to gracefully recover connections when a firewall instance is recycled during scale-in.
+    - If a 30-second keep-alive interval is not feasible, consider configuring [prescaling](/azure/firewall/prescaling) to maintain a higher minimum capacity, reducing the likelihood of scale-in events that could disrupt long-running connections. 
+
+This scale-in TCP reset behavior applies for both north-south and east-west traffic. It ensures clients and servers are properly notified before the firewall instance is decommissioned. The drain period and reset behavior are not configurable during scale-in events.
+
+> [!NOTE]
+> TCP reset behavior during scale-in differs from idle timeout behavior. For idle timeout, RST packets are sent only for north-south traffic, while during scale-in, RST packets are sent for both north-south and east-west traffic.
+
 ## Next steps
 
 To learn more about Azure Firewall performance, see [Azure Firewall performance](firewall-performance.md).

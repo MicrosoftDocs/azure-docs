@@ -92,7 +92,7 @@ You can monitor the status of your environments through Azure Monitor alerts or 
 
 Understanding the limits and quotas for Container Apps environments helps you plan your application architecture effectively.
 
-To see the quotas relevant to your environment, see [Quotas in Azure Container Apps](./quotas.md) for ways to return your quota limits.
+To see the quotas relevant to your environment, see [Quotas for Azure Container Apps](./quotas.md) for ways to return your quota limits.
 
 For the most up-to-date limits and quotas, refer to the [Azure Container Apps service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#container-apps-limits).
 

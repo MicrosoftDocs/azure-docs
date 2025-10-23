@@ -62,7 +62,7 @@ This tool iterates on composing the Security Copilot agent YAML.
 | Parameters | Required? | Description | 
 |----------|----------|----------|
 | sessionID| Yes |Security Copilot session identifier created by the `start_agent_creation` tool. This shouldn't be the session identifier created by `search_for_tools`. |
-| userQuery| Yes |User input for the agent builder to process. This could be confirmations, clarifications, or additional information. |
+| userQuery| Yes |User input for the tool to process. This could be confirmations, clarifications, or additional information. |
 | existingDefinition| No |Optional existing agent definition YAML for the tool to edit. This could be generated from this tool's previous runs or provided by adding a YAML file to the context. |
 
 ### Get evaluation (`get_evaluation`)

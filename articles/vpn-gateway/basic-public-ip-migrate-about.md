@@ -29,6 +29,16 @@ To migrate your gateway, you first need to validate whether your resource is cap
 
 ## FAQ
 
+### How long does the end-to-end migration typically take?
+* The entire migration process usually takes up to 2 hours, depending on the size and configuration of your deployment.
+
+### How long does each migration step take?
+* Migration step durations can vary based on environment complexity. On average:
+
+Prepare: Typically up to 40 minutes, with a maximum of 1 hour.<br>
+Execute: Takes around 5–10 minutes. (This is the only step where brief downtime is expected.)<br>
+Commit: Typically up to 30 minutes, with a maximum of 1 hour.
+
 ### How will my gateway SKU be impacted after the Basic SKU public IP address migration?
 
 After you upgrade from a Basic SKU public IP address to a Standard SKU public IP address, your VPN gateway SKU VPNGW1-5 will be migrated to VPNGW1AZ-5. As a result, you might see the SKU changed from a Non-AZ to an AZ-SKU. For more information about SKU impact, see the [Gateway SKU migration](gateway-sku-consolidation.md) article.

@@ -19,12 +19,32 @@ The ExpressRoute scalable gateway (ErGwScale) is a new virtual network gateway S
 
 The virtual network gateway infrastructure autoscales between the minimum and maximum scale unit that you configure, based on the bandwidth or flow count utilization. Scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
 
+## Upgrade and migration paths
+
+You can move to the Scalable Gateway SKU using either an upgrade or migration process, depending on your current gateway SKU. The following diagram summarizes your options:
+
+```mermaid
+flowchart TD
+    A[Current Gateway SKU]
+    A -->|ErGw1, ErGw2, ErGw3| B[Direct Upgrade - Portal or PowerShell]
+    A -->|Standard, High Performance, Ultra Performance| C[ExpressRoute Gateway Migration Tool]
+    B --> D[Scalable Gateway SKU]
+    C --> D
+```
+**Upgrade options**
+- If you have an existing gateway using the ErGw1, ErGw2, or ErGw3 SKU, you can [upgrade](expressroute-howto-add-gateway-portal-resource-manager.md#upgrade-the-gateway-sku) directly to the Scalable Gateway SKU. No migration tool is required.
+- Upgrades can be performed through the Azure portal or by using PowerShell.
+
+This process may take up to 2 hours to complete. During this time, the gateway remains available and does not experience downtime.
+
+**Migration options**
+- If your gateway uses the Standard, High Performance, or Ultra Performance SKU, you must use the [migration Tool](gateway-migration.md) to move to the Scalable Gateway SKU.
+
 ## Limitations
 
+* **IPsec over ExpressRoute**: ErGwScale currently doesn't support IPsec traffic over ExpressRoute. 
 * **Basic IP**: ErGwScale doesn't support the Basic IP SKU. You need to use a Standard IP SKU to configure ErGwScale.
 * **Minimum and maximum scale units**: You can configure the scale unit for ErGwScale between 1 and 40. The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
-* **Migration scenarios**: You can't migrate from Standard/ErGw1Az or HighPerf/ErGw2Az/UltraPerf/ErGw3Az to ErGwScale in the preview.
-* **IPsec over ExpressRoute**: ErGwScale currently doesn't support IPsec traffic over ExpressRoute. 
 
 ### Supported performance per scale unit
 

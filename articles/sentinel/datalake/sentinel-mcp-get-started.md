@@ -66,7 +66,7 @@ Microsoft Sentinel's support for MCP tools works with the following AI-powered c
 # [Security Copilot](#tab/security-copilot)
 
 >[!IMPORTANT]
->You first need to build your own custom Security Copilot agent before you can add Sentinel's collection of MCP tools. For more information, see [Build an agent from scratch using the agent builder](/copilot/security/developer/create-agent-dev#steps-to-create-your-custom-agent).
+>You first need to build your own custom Security Copilot agent before you can add Sentinel's collection of MCP tools. For more information, see [Build an agent from scratch using the lite experience](/copilot/security/developer/create-agent-dev#steps-to-create-your-custom-agent).
 
 To add Microsoft Sentinel's collection of MCP tools during custom agent building:
 
