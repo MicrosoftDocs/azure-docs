@@ -5,7 +5,7 @@ description: Learn how to add threat intelligence in bulk from flat files like .
 author: poliveria  
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 3/14/2024
+ms.date: 10/23/2025
 ms.author: pauloliveria 
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

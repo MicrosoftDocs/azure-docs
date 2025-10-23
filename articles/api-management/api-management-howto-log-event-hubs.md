@@ -46,7 +46,7 @@ To log events to the event hub, you need to configure credentials for access fro
 
     * If you enable a user-assigned managed identity, take note of the identity's **Object ID**.
 
-1. Assign the identity the **Azure Event Hubs Data sender** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or another Azure tool.
+1. Assign the identity the **Azure Event Hubs Data sender** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or another Azure tool.
 
 
 ### Option 2: Configure an Event Hubs connection string

@@ -36,9 +36,9 @@ The key differences between the Classic and Simplified experience:
 
 ## Retirement of classic experience
 **Action required**
-- The classic experience retires on **30 September 2026**. Azure Migrate supports your existing replications and migrations on classic experience until that date. Switch sooner to gain the richer benefits of a simplified experience.
+- The classic experience retires on **30 September 2026**. Azure Migrate supports your existing replications and migrations on classic experience until that date. Switch sooner to gain the richer benefits of simplified experience.
 - You can continue using the classic experience for existing VMware and physical machines until **30 September 2026**. Plan your final migrations for these machines before the retirement date. After September 2026, you must move to the new simplified experience to continue replications and trigger migrations.
-- You won’t be able to view, manage, or perform replication & migration related operations on these machines through the Azure portal after this retirement date.
+- You won’t be able to view, manage, or perform replication & migration related operations on these machines through the Azure portal after the retirement date.
 - New features, security updates, enhancements, and mobility agent support for additional Linux distributions are available only in the simplified experience.
     
 ## Next steps

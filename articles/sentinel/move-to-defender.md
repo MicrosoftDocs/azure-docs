@@ -66,9 +66,15 @@ For more information, see:
 
 ### Onboarding to the Defender portal with customer-managed keys (CMK)
 
-If you onboard your Microsoft Sentinel-enabled workspace to the Defender portal, ingested workspace data/logs remain encrypted with CMK. Other data isn't encrypted with CMK and uses a Microsoft-managed key.
+If you enabled CMK before onboarding, when you onboard your Microsoft Sentinel-enabled workspace to the Defender portal, all log data in your workspace continues to be encrypted with CMK - including both previously and newly ingested data.
 
-For more information, see [Set up Microsoft Sentinel customer-managed key](customer-managed-keys.md).
+Analytic rules and other Sentinel content, such as automation rules, also continue to be CMK-encrypted. However, alerts and incidents will no longer be CMK-encrypted after onboarding.
+
+For more information about CMK, see [Set up Microsoft Sentinel customer-managed key](customer-managed-keys.md).
+
+> [!IMPORTANT]
+> CMK encryption is not fully supported for data stored in the Microsoft Sentinel data lake. All data ingested into the data lake - such as custom tables or transformed data - is encrypted using Microsoft-managed keys. 
+
 
 ### Configure multi-workspace and multitenant management
 

@@ -83,7 +83,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 ## Grant access to App Configuration
 
-The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. In the [Azure portal](https://portal.azure.com), select your App Configuration store.
 

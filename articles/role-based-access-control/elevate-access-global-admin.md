@@ -11,6 +11,7 @@ ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
   - sfi-ga-nochange
+#customer intent: As a Global Administrator, I want to temporarily elevate my access to manage all subscriptions and management groups so that I can regain access and configure resources across the tenant.
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 

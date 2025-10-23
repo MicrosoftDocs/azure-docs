@@ -1248,7 +1248,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | images | Yes | Yes |
 > | payloadGroups | No | No |
 > | proximityPlacementGroups | Yes | Yes |
-> | restorePointCollections | Yes | Yes |
+> | restorePointCollections | Yes | No |
 > | restorePointCollections / restorePoints | No | No |
 > | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |

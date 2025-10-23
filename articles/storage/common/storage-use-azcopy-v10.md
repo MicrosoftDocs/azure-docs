@@ -9,7 +9,7 @@ ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
-# Customer intent: As a cloud administrator, I want to use AzCopy to transfer data to and from Azure Storage, so that I can efficiently manage storage operations across my cloud environment.
+#customer intent: As a cloud administrator, I want to use AzCopy to transfer data to and from Azure Storage, so that I can efficiently manage storage operations across my cloud environment.
 ---
 
 # Get started with AzCopy

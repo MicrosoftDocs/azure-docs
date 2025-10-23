@@ -4,6 +4,7 @@ description: Understand common Azure subscription and service limits, quotas, an
 ms.topic: conceptual
 ms.date: 01/23/2025
 ms.custom: ignite-2024
+#customer intent: As a subscription owner or cloud operator, I want an authoritative list of subscription and service limits and guidance for requesting increases so that I can plan capacity and avoid service interruptions.
 ---
 
 # Azure subscription and service limits, quotas, and constraints

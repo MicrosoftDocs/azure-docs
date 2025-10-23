@@ -117,7 +117,7 @@ When you create the first user subscription mode Batch account in an Azure subsc
 1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
 1. Select **Review + assign** to go to **Review + assign** tab, and select **Review + create** again to apply role assignment changes. 
 
-For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+For detailed steps, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### Create a key vault
 
@@ -167,7 +167,7 @@ To grant access to the key vault manually in [Azure portal](https://portal.azure
 1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
 1. Select the **Review + create** button on the bottom to go to **Review + assign** tab, and select the **Review + create** button on the bottom again.
 
-For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+For detailed steps, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!NOTE]
 > **KeyVaultNotFound** error returns for Batch account creation if the RBAC role isn't assigned for Batch in the referenced key vault.

@@ -56,3 +56,4 @@ To associate a network security perimeter with a storage account, follow these [
 
 - Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
 - Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).
+- Enable [Diagnostic logs for Network Security Perimeter](/azure/private-link/network-security-perimeter-diagnostic-logs?source=recommendations).

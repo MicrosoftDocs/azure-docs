@@ -6,6 +6,7 @@ ms.date: 02/12/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: AI-contribution
 ai-usage: ai-assisted
+#customer intent: As a subscription owner or cloud operator, I want clear steps to view, register, and manage Azure resource providers and types so that I can enable required services in the right regions, choose appropriate API versions, and maintain least privilege.
 ---
 
 # Azure resource providers and types

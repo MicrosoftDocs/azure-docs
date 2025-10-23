@@ -9,6 +9,7 @@ ms.topic: overview
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.date: 09/11/2025
+#customer intent: As an integration developer, I want a high-level overview of Azure Logic Apps capabilities so that I can decide when to use Logic Apps for workflow automation.
 ---
 
 # What is Azure Logic Apps?

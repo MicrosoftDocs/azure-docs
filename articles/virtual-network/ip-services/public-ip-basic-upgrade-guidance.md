@@ -10,7 +10,7 @@ ms.topic: overview
 author: mbender-ms
 ms.author: mbender
 ms.date: 06/11/2025
-# Customer intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
+# Customer intent: As a cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
 # Upgrade Basic Public IP Address to Standard SKU in Azure

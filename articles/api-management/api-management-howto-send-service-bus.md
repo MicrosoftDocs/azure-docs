@@ -55,7 +55,7 @@ To send messages to the service bus, you need to configure a managed identity fo
 
     * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
 
-1. Assign the identity the **Azure Service Bus Data Sender** role, scoped to the service bus. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
+1. Assign the identity the **Azure Service Bus Data Sender** role, scoped to the service bus. To assign the role, use the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or other Azure tools.
 
 ## Configure send-service-bus-message policy
 

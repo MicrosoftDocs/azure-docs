@@ -10,6 +10,7 @@ ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
+#customer intent: As a developer or IT decision maker, I want a clear overview of Azure App Service features and supported workloads so that I can evaluate its fit for hosting my web applications, APIs, and back ends with minimal infrastructure management.
 ---
 
 # App Service overview

@@ -44,12 +44,12 @@ The following table lists the available unifying parsers:
 | Schema | Unifying parser | 
 | ------ | ------------------------- |
 | Audit Event | _Im_AuditEvent |
-| Authentication | imAuthentication | 
+| Authentication | _Im_Authentication | 
 | Dns | _Im_Dns |
-| File Event | imFileEvent |
+| File Event | _Im_FileEvent |
 | Network Session | _Im_NetworkSession | 
-| Process Event | - imProcessCreate<br> - imProcessTerminate |
-| Registry Event |  imRegistry |
+| Process Event | _Im_ProcessCreate<br> _Im_ProcessTerminate |
+| Registry Event |  _Im_Registry |
 | Web Session | _Im_WebSession |  
 
 

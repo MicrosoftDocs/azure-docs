@@ -259,4 +259,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 * The billing ownership of the Azure products is transferred to you. Keep track of the charges for these products in the [Azure portal](https://portal.azure.com).
-* Work with the customer to get access to the transferred Azure products. [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+* Work with the customer to get access to the transferred Azure products. [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).

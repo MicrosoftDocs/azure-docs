@@ -116,12 +116,12 @@ To set up a new appliance, you can use PowerShell installer script. Ensure you m
 
 The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, download the installer file for the appliance. Then run it on the machine you prepared. After you install the appliance, register it with your migrate project using the key copied from the portal.
 
-## Classic experience (Retired)
+## Classic experience (Retiring)
 
 > [!NOTE]
 > Classic experience is scheduled for retirement on **30 September 2026**. Your existing replications and migrations will be supported till the retirement date.
-Please use simplified experience for all new migrations. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the simplified experience.
-
+> Please use [simplified experience](simplified-experience-for-azure-migrate.md) for all new migrations. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the simplified experience.
+> 
 ### Download the replication appliance installer
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.

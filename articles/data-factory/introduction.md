@@ -7,6 +7,7 @@ ms.reviewer: weetok
 ms.topic: overview
 ms.subservice: authoring
 ms.date: 02/13/2025
+#customer intent: As a data engineer, I want to understand what Azure Data Factory is and how to use it so that I can orchestrate and automate data movement and transformation in the cloud.
 ---
 
 # What is Azure Data Factory?

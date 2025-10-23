@@ -1,8 +1,6 @@
 ---
 title: Create Azure Managed Application that deploys storage account encrypted with customer-managed key
 description: This article describes how to create an Azure Managed Application that deploys a storage account encrypted with a customer-managed key.
-ms.author: jojok
-author: jojokoshy
 ms.reviewer: evanhi
 ms.topic: how-to
 ms.date: 06/24/2024
@@ -73,7 +71,7 @@ After a successful deployment, select **Go to resource**.
 
 ## Create role assignments
 
-You need to create two role assignments for your key vault. For details, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+You need to create two role assignments for your key vault. For details, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### Grant key permission on key vault to the managed identity
 

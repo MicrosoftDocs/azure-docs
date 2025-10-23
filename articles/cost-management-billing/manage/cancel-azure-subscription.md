@@ -6,9 +6,10 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/13/2025
+ms.date: 10/21/2025
 ms.author: nicholak
 ms.custom: sfi-image-nochange
+#customer intent: As an Azure subscription owner, I want clear steps to cancel and delete a subscription so that I can properly deprovision resources and avoid unexpected charges.
 ---
 
 # Cancel and delete your Azure subscription
@@ -154,9 +155,10 @@ The **Delete subscription** option isn't available until **3 days** after you ca
       - If **Delete resources** doesn't display a green check mark, then you have resources that must be deleted in order to delete the subscription. You can select **View resources** to navigate to the Resources page to manually delete the resources. After resource deletion, you might need to wait 10 minutes for resource deletion status to update in order to delete the subscription.
       - If **Manual deletion date** doesn't display a green check mark, you must wait the required period before you can delete the subscription.  
 
->[!NOTE]
+> [!NOTE]
+> - You must be assigned the Subscription Owner role to see and use the Delete option for a subscription in the portal.
 > - The subscription is automatically deleted 90 days after you cancel a subscription.
-> - You can also contact Microsoft Support to help you remove a subscription. However you must make sure that you don't need the subscription anymore because the process only allows seven days to reactivate the subscription.
+> - You can also contact Microsoft Support to help you remove a subscription. However, you must make sure that you don't need the subscription anymore because the process only allows seven days to reactivate the subscription.
 > - If you deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
 > - If you have a disabled Access to Azure Active Directory subscription, the subscription gets automatically deleted after 90 days of canceling. No action is needed to manually delete it.
 

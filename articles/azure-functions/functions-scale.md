@@ -5,6 +5,7 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
 ms.date: 02/02/2025
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024, ignite-2024
+#customer intent: As a cloud developer or platform engineer, I want guidance on Functions scaling and hosting so I can choose the best hosting plan for performance and cost-efficiency when running my code in Azure.
 ---
 # Azure Functions hosting options
 

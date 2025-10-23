@@ -7,7 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 08/25/2025
 ms.author: cherylmc
-# Customer intent: As a cloud network administrator, I want to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway, so that I can ensure optimal performance and compliance with service standards during our infrastructure upgrade.
+#customer intent: As a cloud network administrator, I want to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway, so that I can ensure optimal performance and compliance with service standards during our infrastructure upgrade.
 ---
 
 # How to migrate a Basic SKU public IP address to Standard SKU for VPN Gateway - Preview

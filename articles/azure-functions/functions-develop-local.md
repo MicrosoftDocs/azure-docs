@@ -4,6 +4,8 @@ description: Learn how to code and test Azure Functions on your local computer b
 ms.topic: conceptual
 zone_pivot_groups: programming-languages-set-functions
 ms.date: 10/06/2025
+
+#customer intent: As a developer, I want clear, step-by-step guidance to run, debug, and test Azure Functions locally across languages and runtimes so that I can iterate quickly and validate behavior before I deploy to Azure.
 ---
 
 # Code and test Azure Functions locally

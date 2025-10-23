@@ -443,6 +443,48 @@ View dashboards, playlists, and query data sources.
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+## Log Analytics Data Reader
+
+Log Analytics Data Reader can query and search the logs it is allowed to view over Log Analytics workspaces and tables.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/query/read | Run queries over the data in the workspace |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/read | Gets an existing workspace |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/tables/data/read | Allows you to provide read data access to workspaces, or more fine-grained data entities, such as specific tables or rows. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Log Analytics Data Reader can query and search the logs it is allowed to view over Log Analytics workspaces and tables",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3b03c2da-16b3-4a49-8834-0f8130efdd3b",
+  "name": "3b03c2da-16b3-4a49-8834-0f8130efdd3b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.OperationalInsights/workspaces/query/read",
+        "Microsoft.OperationalInsights/workspaces/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.OperationalInsights/workspaces/tables/data/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Log Analytics Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Log Analytics Contributor
 

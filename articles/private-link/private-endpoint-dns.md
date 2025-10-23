@@ -8,7 +8,6 @@ ms.custom:
   - ignite-2024
 ms.topic: concept-article
 ms.date: 08/04/2025
-#CustomerIntent: As a network administrator, I want to configure the private DNS zone values for Azure services that support private endpoints.
 # Customer intent: As a network administrator, I want to configure private DNS zone values for Azure services with private endpoints, so that I can ensure proper DNS resolution for secure connections within my network.
 ---
 

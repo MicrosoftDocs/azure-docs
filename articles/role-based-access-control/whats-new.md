@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| October 2025 | Roles | Added [Log Analytics Data Reader](./built-in-roles/monitor.md#log-analytics-data-reader) role. |
 | October 2025 | Roles | Updated Azure permissions for Integration [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) list. |
 | September 2025 | Roles | Added [Arc Gateway Manager](./built-in-roles/hybrid-multicloud.md#arc-gateway-manager) role.<br/>Added Azure Kubernetes Service Namespace roles.<br/>[Azure Kubernetes Service Namespace Contributor](./built-in-roles/containers.md#azure-kubernetes-service-namespace-contributor)<br/>[Azure Kubernetes Service Namespace User](./built-in-roles/containers.md#azure-kubernetes-service-namespace-user)<br>Added Azure Container Instances Contributor role.<br/>[Azure Container Instances Contributor Role](./built-in-roles/containers.md#azure-container-instances-contributor-role) |
 | August 2025 | Roles | Added Azure Batch roles.<br/>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor)<br/>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader)<br/>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor)<br/>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) |

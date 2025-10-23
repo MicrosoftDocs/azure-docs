@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/05/2025
+ms.date: 10/20/2025
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -85,7 +85,6 @@ The following API Management capabilities are currently unavailable in the v2 ti
 **Developer portal**
 * Reports
 * Custom HTML code widget and custom widget
-* Self-hosted developer portal
 
 **Gateway**
 * Self-hosted gateway

@@ -9,7 +9,7 @@ ms.author: tefa
 ms.custom: Include file
 ---
 
-The following steps describe how to assign a SignalR App Server role to a service principal or a managed identity for an Azure SignalR Service resource. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+The following steps describe how to assign a SignalR App Server role to a service principal or a managed identity for an Azure SignalR Service resource. For detailed steps, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!NOTE]
 > You can assign a role to any scope, including management group, subscription, resource group, or single resource. To learn more about scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
@@ -52,7 +52,7 @@ The following steps describe how to assign a SignalR App Server role to a servic
 
 To learn more about how to assign and manage Azure roles, see:
 
-- [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Assign Azure roles by using the REST API](../../role-based-access-control/role-assignments-rest.md)
 - [Assign Azure roles by using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Assign Azure roles by using the Azure CLI](../../role-based-access-control/role-assignments-cli.md)

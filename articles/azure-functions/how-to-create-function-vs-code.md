@@ -10,6 +10,7 @@ ms.custom:
 ms.collection: 
   - ce-skilling-ai-copilot
 zone_pivot_groups: programming-languages-set-functions
+#customer intent: As a developer, I want to learn how to create, test, and deploy Azure Functions using Visual Studio Code so that I can build and publish serverless apps efficiently.
 ---
 
 # Quickstart: Create and deploy function code to Azure using Visual Studio Code

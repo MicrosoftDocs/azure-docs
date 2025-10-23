@@ -10,7 +10,7 @@ ms.custom:
   - build-2024
   - linux-related-content
   - sfi-ropc-nochange
-#customer intent: As a developer, I need easy access to the behavior and use of application settings to implement Azure Functions.
+#customer intent: As a developer, I want to understand the behavior and use of application settings so that I can configure and implement Azure Functions effectively.
 ---
 
 # App settings reference for Azure Functions

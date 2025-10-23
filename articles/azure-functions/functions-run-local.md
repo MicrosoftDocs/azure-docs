@@ -13,6 +13,7 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - sfi-ropc-nochange
+#customer intent: As an Azure Functions developer, I want to run and test Functions locally using Core Tools so that I can validate behavior before deploying to Azure.
 ---
 
 # Develop Azure Functions locally using Core Tools
