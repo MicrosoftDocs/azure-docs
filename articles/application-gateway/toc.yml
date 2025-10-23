@@ -114,6 +114,8 @@
       href: tutorial-autoscale-ps.md
 - name: Deploy
   items:
+    - name: JWT Validation 
+      href: jwt-validation.md
     - name: Host multiple sites
       href: create-multiple-sites-portal.md
     - name: Route by URL
