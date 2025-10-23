@@ -103,7 +103,7 @@ To run the script:
    -AppGWResourceGroupName "MyResourceGroup" `
    -privateIpAddress "10.0.0.1" `
    -publicIpResourceId "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
-   -enableAutoScale
+   
    ```
 ### Recommendations
 *  After script completion, review the V2 gateway configuration in the Azure portal and test connectivity by sending traffic directly to the V2 gateway’s IP.
@@ -262,6 +262,7 @@ To use this option, you must not have the Azure Az modules installed on your com
 Run the script with the following command to get the latest version:
 
 * For enhanced cloning script - `Install-Script -Name AzureAppGWClone -Force`
+* For enhanced cloning Public IP Retention script - `Install-Script -Name AzureAppGWIPMigrate -Force`
 
 * For the legacy cloning script  - `Install-Script -Name AzureAppGWMigration -Force`
 
@@ -312,7 +313,7 @@ You can **download** this Public IP retention script  from the  [PowerShell Gall
 
 After downloading and [installing the script](../application-gateway/migrate-v1-v2.md#installing-the-script)
 
-Execute AzureAppGWClone.ps1 with the required parameters:
+Execute AzureAppGWIPMigrate.ps1 with the required parameters:
  ```
 AzureAppGWIPMigrate.ps1
  -v1resourceId <V1 application gateway Resource ID>
@@ -320,7 +321,7 @@ AzureAppGWIPMigrate.ps1
  ```
    **Example**
    ```azurepowershell
-./AzureAppGWIPMigrate.ps1 `
+AzureAppGWIPMigrate.ps1 `
 -v1resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
 -v2resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv2appgateway `
   ```
