@@ -250,7 +250,7 @@ The `import` operation fails and returns `403 Forbidden`. The response body cont
 
 **import operation failed for reason: Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature.**
 Cause: The FHIR service uses a managed identity for source storage authentication. This error indicates a missing or incorrect role assignment.
-Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current).
+Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 
 ### 500 Internal Server Error
 

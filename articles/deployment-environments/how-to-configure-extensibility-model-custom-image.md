@@ -487,7 +487,7 @@ To assign the AcrPull role to the Project Environment Type:
 1. In the Azure portal, go to the ACR that you want to configure.
 1. On the left menu, select **Access Control (IAM)**.
 1. Select **Add** > **Add role assignment**.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |

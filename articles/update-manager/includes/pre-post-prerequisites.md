@@ -23,7 +23,7 @@ ms.date: 09/24/2024
   
    #### [Using Azure portal](#tab/portal)
     
-    Follow the steps in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml) to assign permissions
+    Follow the steps in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) to assign permissions
 
    #### [Using Azure PowerShell](#tab/powershell)
 

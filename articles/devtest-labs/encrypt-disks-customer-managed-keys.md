@@ -42,7 +42,7 @@ In Azure DevTest Labs, all OS disks and data disks created in a lab are encrypte
 
     1. On the **Disk Encryption Set** page, assign at least the Reader role to the lab for which the disk encryption set will be used.
 
-       For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+       For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     1. Go to the **Subscription** page in the Azure portal.
 

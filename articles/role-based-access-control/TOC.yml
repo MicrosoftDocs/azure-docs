@@ -69,7 +69,7 @@
 - name: How-to guides
   items:
   - name: List role definitions
-    href: role-definitions-list.yml
+    href: /azure/role-based-access-control/role-definitions-list
   - name: List role assignments
     items:
     - name: Portal
@@ -134,7 +134,7 @@
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
-    href: role-assignments-remove.yml
+    href: /azure/role-based-access-control/role-assignments-remove
   - name: List deny assignments
     href: deny-assignments.md
   - name: Create custom roles

@@ -5,7 +5,7 @@ description: Learn about compute environments that can be used with Azure Data F
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/06/2025
+ms.date: 10/23/2025
 ms.subservice: orchestration
 ms.custom: synapse
 ---
@@ -67,7 +67,7 @@ Note the following **important** points about on-demand HDInsight linked service
 > [!IMPORTANT]
 > It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.
 
-#### Example
+#### Example using Service Principal Key
 
 The following JSON defines a Linux-based on-demand HDInsight linked service. The service automatically creates a **Linux-based** HDInsight cluster to process the required activity. 
 
@@ -88,6 +88,73 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
       },
       "tenant": "<tenant id>",
       "clusterResourceGroup": "<resource group name>",
+      "clusterResourceGroupAuthType": "ServicePrincipalKey",
+      "version": "3.6",
+      "osType": "Linux",
+      "linkedServiceName": {
+        "referenceName": "AzureStorageLinkedService",
+        "type": "LinkedServiceReference"
+      }
+    },
+    "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
+    }
+  }
+}
+```
+
+#### Example using System Assigned Managed Identity
+
+The following JSON defines a Linux-based on-demand HDInsight linked service. The service automatically creates a **Linux-based** HDInsight cluster to process the required activity. 
+
+```json
+{
+  "name": "HDInsightOnDemandLinkedService",
+  "properties": {
+    "type": "HDInsightOnDemand",
+    "typeProperties": {
+      "clusterType": "hadoop",
+      "clusterSize": 1,
+      "timeToLive": "00:15:00",
+      "hostSubscriptionId": "<subscription ID>",
+      "clusterResourceGroup": "<resource group name>",
+      "clusterResourceGroupAuthType": "SystemAssignedManagedIdentity",
+      "version": "3.6",
+      "osType": "Linux",
+      "linkedServiceName": {
+        "referenceName": "AzureStorageLinkedService",
+        "type": "LinkedServiceReference"
+      }
+    },
+    "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
+    }
+  }
+}
+```
+
+#### Example using User Assigned Managed Identity
+
+The following JSON defines a Linux-based on-demand HDInsight linked service. The service automatically creates a **Linux-based** HDInsight cluster to process the required activity. 
+
+```json
+{
+  "name": "HDInsightOnDemandLinkedService",
+  "properties": {
+    "type": "HDInsightOnDemand",
+    "typeProperties": {
+      "clusterType": "hadoop",
+      "clusterSize": 1,
+      "timeToLive": "00:15:00",
+      "hostSubscriptionId": "<subscription ID>",
+      "clusterResourceGroup": "<resource group name>",
+      "clusterResourceGroupAuthType": "UserAssignedManagedIdentity",
+      "credential": {
+            "referenceName": "CredentialName",
+            "type": "CredentialReference"
+       },
       "version": "3.6",
       "osType": "Linux",
       "linkedServiceName": {
@@ -116,6 +183,8 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | clusterSize                  | Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details. | Yes      |
 | linkedServiceName            | Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this Azure Storage account. Azure HDInsight has limitation on the total number of cores you can use in each Azure region it supports. Make sure you have enough core quotas in that Azure region to meet the required clusterSize. For details, refer to [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Storage (Gen 2) as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Storage (Gen 2), use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Storage (Gen 2). </p> | Yes      |
 | clusterResourceGroup         | The HDInsight cluster is created in this resource group. | Yes      |
+| clusterResourceGroupAuthType | Specify the HDInsight On-demand cluster resource group authentication type. Supported auth types are "ServicePrincipalKey", "SystemAssignedManagedIdentity", "UserAssignedManagedIdentity". | Required for using Managed Identity authentication. If field is not there, will default to ServicePrincipalKey     |
+| credential                   | Specify the credential reference containing Managed Identity object which has access over the resource group.  | Only required for "UserAssignedManagedIdentity" authentication.     |
 | timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimal allowed value is 5 minutes (00:05:00).<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of the service by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster can stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
 | clusterType                  | The type of the HDInsight cluster to be created. Allowed values are "hadoop" and "spark". If not specified, default value is hadoop. Enterprise Security Package enabled cluster cannot be created on-demand, instead use an [existing cluster/ bring your own compute](#azure-hdinsight-linked-service). | No       |
 | version                      | Version of the HDInsight cluster. If not specified, it's using the current HDInsight defined default version. | No       |
@@ -148,6 +217,8 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 }]
 ```
 
+#### Authentication
+
 #### Service principal authentication
 
 The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Microsoft Entra ID and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
@@ -163,6 +234,20 @@ Use service principal authentication by specifying the following properties:
 | **servicePrincipalId**  | Specify the application's client ID.     | Yes      |
 | **servicePrincipalKey** | Specify the application's key.           | Yes      |
 | **tenant**              | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes      |
+
+
+#### Managed Identity authentication
+
+When using Managed Identity authentication for Azure HDInsight on-demand linked services, ensure that the Managed Identity object has Contributor role access to the resource group. 
+
+ADLS Gen2 primary storage accounts now support User Assigned Managed Identity (UAMI) based authentication in addition to existing key-based authentication. The UAMI must have Storage Blob Data Owner permissions on the primary storage account.
+
+Limitations:
+
+* The ADLS Gen2 primary storage account and the UAMI must reside in the same resource group as the resource group used to create the on-demand HDInsight cluster.
+* The credential object name for the UAMI in Data Factory must exactly match the UAMI name.
+
+For more information, see [Create Azure HDInsight - Azure Data Lake Storage Gen2 - portal](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-portal.md) and [Managed identities in Azure HDInsight](../hdinsight/hdinsight-managed-identities.md)
 
 #### Advanced Properties
 

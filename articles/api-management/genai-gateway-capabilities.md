@@ -67,7 +67,7 @@ More information:
 
 * [Import an AI Foundry API](azure-ai-foundry-api.md)
 * [Import a language model API](openai-compatible-llm-api.md)
-* [Export a REST API as an MCP server](export-rest-mcp-server.md)
+* [Expose a REST API as an MCP server](export-rest-mcp-server.md)
 * [Expose and govern an existing MCP server](expose-existing-mcp-server.md)
 
 ## Scalability and performance

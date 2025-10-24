@@ -136,4 +136,4 @@ If you created test role assignments that you no longer need:
 
 ## Related content
 
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)

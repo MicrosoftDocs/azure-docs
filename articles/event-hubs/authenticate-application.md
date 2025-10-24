@@ -57,9 +57,9 @@ The application requires a client secret to prove its identity when requesting a
 
 ## Assign Azure roles using the Azure portal
 
-Assign one of the [Event Hubs roles](#built-in-roles-for-azure-event-hubs) to the application's service principal at the desired scope, such as the Event Hubs namespace, resource group, or subscription. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+Assign one of the [Event Hubs roles](#built-in-roles-for-azure-event-hubs) to the application's service principal at the desired scope, such as the Event Hubs namespace, resource group, or subscription. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-After defining the role and its scope, test this behavior with samples available [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). To learn more about managing access to Azure resources using Azure role-based access control (RBAC) and the Azure portal, see [this article](../role-based-access-control/role-assignments-portal.yml).
+After defining the role and its scope, test this behavior with samples available [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). To learn more about managing access to Azure resources using Azure role-based access control (RBAC) and the Azure portal, see [this article](/azure/role-based-access-control/role-assignments-portal).
 
 ### Use client libraries to acquire tokens
 

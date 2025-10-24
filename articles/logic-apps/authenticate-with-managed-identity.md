@@ -565,7 +565,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    | **System-assigned** | **Logic App** | <*Azure-subscription-name*> | <*your-logic-app-name*> |
    | **User-assigned** | Not applicable | <*Azure-subscription-name*> | <*your-user-assigned-identity-name*> |
 
-   For more information about assigning roles, see [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+   For more information about assigning roles, see [Assign roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 After you're done, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 

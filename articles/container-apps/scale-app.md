@@ -1115,7 +1115,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 | HTTP | 0 | 10 |
 
 > [!IMPORTANT]
-> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app scales to zero and have no way of starting back up.
+> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app scales to zero and has no way of starting back up.
 
 ## Scale behavior
 

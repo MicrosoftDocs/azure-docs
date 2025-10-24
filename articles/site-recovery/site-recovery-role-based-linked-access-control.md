@@ -70,7 +70,7 @@ Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Co
 
 ## Next steps
 
-- [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml): Get started with Azure RBAC in the Azure portal.
+- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal): Get started with Azure RBAC in the Azure portal.
 - Learn how to manage access with:
     - [PowerShell](../role-based-access-control/role-assignments-powershell.md)
     - [Azure CLI](../role-based-access-control/role-assignments-cli.md)

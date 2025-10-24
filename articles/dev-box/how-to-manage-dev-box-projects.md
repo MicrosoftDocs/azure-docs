@@ -119,7 +119,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
    :::image type="content" source="./media/how-to-manage-dev-box-projects/project-permissions.png" alt-text="Screenshot that shows the page for project access control with the Add role assignment option highlighted.":::
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
    | Setting | Value |
    |---|---|

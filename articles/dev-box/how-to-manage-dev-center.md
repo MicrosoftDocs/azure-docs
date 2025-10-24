@@ -81,7 +81,7 @@ To make role assignments:
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign a role by configuring the following settings. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign a role by configuring the following settings. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     |---|---|

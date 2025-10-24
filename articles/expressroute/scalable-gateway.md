@@ -21,24 +21,16 @@ The virtual network gateway infrastructure autoscales between the minimum and ma
 
 ## Upgrade and migration paths
 
-You can move to the Scalable Gateway SKU using either an upgrade or migration process, depending on your current gateway SKU. The following diagram summarizes your options:
+You can move to the SKU ErGwScale using either an upgrade or migration process, depending on your current gateway SKU. 
 
-```mermaid
-flowchart TD
-    A[Current Gateway SKU]
-    A -->|ErGw1, ErGw2, ErGw3| B[Direct Upgrade - Portal or PowerShell]
-    A -->|Standard, High Performance, Ultra Performance| C[ExpressRoute Gateway Migration Tool]
-    B --> D[Scalable Gateway SKU]
-    C --> D
-```
 **Upgrade options**
-- If you have an existing gateway using the ErGw1, ErGw2, or ErGw3 SKU, you can [upgrade](expressroute-howto-add-gateway-portal-resource-manager.md#upgrade-the-gateway-sku) directly to the Scalable Gateway SKU. No migration tool is required.
+- If you have an existing gateway using the ErGw1Az, ErGw2Az, or ErGw3Az SKU, you can [upgrade](expressroute-howto-add-gateway-portal-resource-manager.md#upgrade-the-gateway-sku) directly to the Scalable Gateway SKU. No migration tool is required.
 - Upgrades can be performed through the Azure portal or by using PowerShell.
 
 This process may take up to 2 hours to complete. During this time, the gateway remains available and does not experience downtime.
 
 **Migration options**
-- If your gateway uses the Standard, High Performance, or Ultra Performance SKU, you must use the [migration Tool](gateway-migration.md) to move to the Scalable Gateway SKU.
+- If your gateway uses the Standard, High Performance, or Ultra Performance SKU, you must use the [migration Tool](gateway-migration.md) to move to ErGwScale.
 
 ## Limitations
 

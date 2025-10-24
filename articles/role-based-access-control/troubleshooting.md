@@ -235,7 +235,7 @@ You deleted a security principal that had a role assignment. If you assign a rol
 
 **Solution 2**
 
-It's a good practice to remove any role assignments that aren't being used. You can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.yml).
+It's a good practice to remove any role assignments that aren't being used. You can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove).
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you'll get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
 

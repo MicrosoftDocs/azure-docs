@@ -62,7 +62,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 1. In the **Subscriptions** page, select the subscription in which you want to create a project. 
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page. 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
  
 
     | Setting | Value |

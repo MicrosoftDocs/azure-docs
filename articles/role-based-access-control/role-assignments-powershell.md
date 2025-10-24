@@ -84,7 +84,7 @@ Here's how to list the details of a particular role.
 Get-AzRoleDefinition -Name <roleName>
 ```
 
-For more information, see [List Azure role definitions](role-definitions-list.yml#azure-powershell).
+For more information, see [List Azure role definitions](/azure/role-based-access-control/role-definitions-list#azure-powershell).
 
 ### Step 3: Identify the needed scope
 

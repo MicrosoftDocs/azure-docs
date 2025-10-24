@@ -44,6 +44,7 @@ The following table provides information on the Peering Service connectivity par
 | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) | Asia, Europe, North America |
 | [MainOne](https://mainone.net/connectivity-and-data-center-services/) | Africa |
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa |
+| [NEC](https://jpn.nec.com/) | Japan |
 | [NTT Communications](https://www.ntt.com/en/index.html) | Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/) | Asia |
 | [PIT Chile](https://www.pitchile.cl/wp/maps/) |LATAM|

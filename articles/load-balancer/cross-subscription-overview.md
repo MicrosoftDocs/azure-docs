@@ -33,7 +33,7 @@ This table illustrates some of the possible scenarios cross-subscription load ba
 | Load Balancer and Frontend IP address | Backend pool resources |
 
 ## Cross-subscription frontend IP configurations
-Cross-subscription frontends allow the frontend IP configuration to reside in a different subscription other than the load balancer’s subscription. To enable cross-subscription frontend IP configurations, the following tag needs to be set to true: `IsRemoteFrontend: True`, and the `SyncMode` property needs to be enabled on the backend pool. 
+Cross-subscription frontends allow the frontend IP configuration to reside in a different subscription other than the load balancer’s subscription. To enable cross-subscription frontend IP configurations, all backend pools need to have the `SyncMode` property configured.
 
 ### Public frontend IP configurations 
 Public IP addresses utilized by an Azure Load Balancer can reside in different subscription than the load balancer. If multiple public IP addresses are attached to a load balancer, each IP address can come from a different subscription. For example, if we have a Load Balancer (deployed in subscription C) with two frontend IPs, the first IP address can reside in subscription B and the second IP address can reside in subscription A.   

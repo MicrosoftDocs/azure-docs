@@ -1486,21 +1486,21 @@ getStarted:
   blocks:
     - componentType: icon-card
       title: What's new
-      summary: Explore the latest Azure updates from the past three months.
-      url: /azure/developer/intro/whats-new
+      summary: Latest releases and documentation updates for Azure OpenAI
+      url: /azure/ai-foundry/openai/whats-new
       icon:
         componentType: image
         src: '/media/hubs/azure/whats-new.svg'
     - componentType: icon-card
       title: Overview
-      summary: Learn about key services used to build on Azure
-      url: /azure/developer/intro/azure-developer-key-services
+      summary: Learn how to navigate and find resources in the Azure portal
+      url: /azure/azure-portal/azure-portal-overview
       icon:
         componentType: image
         src: '/media/hubs/azure/overview.svg'
     - componentType: icon-card
       title: For developers
-      summary: Step-by-step guide for first-time developers
+      summary: Introduction for developers new to Azure
       url: /azure/developer/intro/azure-developer-overview
       icon:
         componentType: image
@@ -1530,9 +1530,9 @@ recommendedContent:
         componentType: image
         src: '/media/hubs/azure/all-azure-training.svg'
     - componentType: icon-card
-      title: Azure concepts
-      summary: Learn how to create and manage resources
-      url: /azure/developer/intro/azure-developer-key-concepts
+      title: Migrate to Azure
+      summary: Discover essential steps, best practices, and technical resources 
+      url: /azure/migration/migrate-to-azure
       icon:
         componentType: image
         src: '/media/hubs/azure/azure-concepts.svg'

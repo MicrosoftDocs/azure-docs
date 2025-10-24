@@ -17,7 +17,7 @@ If you are trying to understand how an Azure role works or if you are creating y
 
 A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. It can also list the actions that are excluded from allowed actions or actions related to underlying data.
 
-The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](role-definitions-list.yml#azure-powershell):
+The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](/azure/role-based-access-control/role-definitions-list#azure-powershell):
 
 ```
 Name
@@ -33,7 +33,7 @@ Condition
 ConditionVersion
 ```
 
-The following shows an example of the properties in a role definition when displayed using the [Azure CLI](role-definitions-list.yml#azure-cli) or [REST API](role-definitions-list.yml#rest-api):
+The following shows an example of the properties in a role definition when displayed using the [Azure CLI](/azure/role-based-access-control/role-definitions-list#azure-cli) or [REST API](/azure/role-based-access-control/role-definitions-list#rest-api):
 
 ```
 roleName
@@ -97,7 +97,7 @@ The `{action}` portion of an action string specifies the type of actions you can
 
 Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) actions under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The actions under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprints assignments.
 
-Contributor role as displayed in [Azure PowerShell](role-definitions-list.yml#azure-powershell):
+Contributor role as displayed in [Azure PowerShell](/azure/role-based-access-control/role-definitions-list#azure-powershell):
 
 ```json
 {
@@ -128,7 +128,7 @@ Contributor role as displayed in [Azure PowerShell](role-definitions-list.yml#az
 }
 ```
 
-Contributor role as displayed in [Azure CLI](role-definitions-list.yml#azure-cli):
+Contributor role as displayed in [Azure CLI](/azure/role-based-access-control/role-definitions-list#azure-cli):
 
 ```json
 [

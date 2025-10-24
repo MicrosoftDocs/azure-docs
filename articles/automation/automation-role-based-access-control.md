@@ -180,7 +180,7 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Storage/storageAccounts/listKeys/action|List storage account keys.|
 |Microsoft.Support/*|Create and manage support tickets.|
-|Microsoft.HybridCompute/machines/extensions/write| Installs or Updates an Azure Arc extensions.|
+|Microsoft.HybridCompute/machines/extensions/write| Installs or Updates Azure Arc extensions.|
 
 ### Log Analytics Reader
 
@@ -322,7 +322,7 @@ The following section shows you how to configure Azure RBAC on your Automation a
 
 #### Remove role assignments from a user
 
-You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. The following steps show how to remove the role assignments from a user. For detailed steps, see [Remove Azure role assignments](../../articles/role-based-access-control/role-assignments-remove.yml):
+You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. The following steps show how to remove the role assignments from a user. For detailed steps, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove):
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.
 

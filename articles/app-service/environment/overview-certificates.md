@@ -3,7 +3,7 @@ title: Certificates in App Service Environment
 description: Explain the use of certificates in an App Service Environment. Learn how certificate bindings work on the single-tenanted apps in an App Service Environment.
 author: seligj95
 ms.topic: overview
-ms.date: 10/3/2023
+ms.date: 10/24/2025
 ms.author: jordanselig
 ms.service: azure-app-service
 ---
@@ -34,7 +34,7 @@ You can [configure the TLS setting](../configure-ssl-bindings.md#enforce-tls-ver
 A common use case is to configure your app as a client in a client-server model. If you secure your server with a private CA certificate, you need to upload the client certificate (*.cer* file) to your app. The following instructions load certificates to the trust store of the workers that your app is running on. You only need to upload the certificate once to use it with apps that are in the same App Service plan.
 
 >[!NOTE]
-> Private client certificates are only supported from custom code in Windows code apps. Private client certificates are not supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
+> Private client certificates are only supported from custom code in Windows code apps. Private client certificates aren't supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
 
 Follow these steps to upload the certificate (*.cer* file) to your app in your App Service Environment. The *.cer* file can be exported from your certificate. For testing purposes, there's a PowerShell example at the end to generate a temporary self-signed certificate:
 
@@ -63,12 +63,216 @@ $fileName = "exportedcert.cer"
 Export-Certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
 ```
 
+## Root Certificate API
+
+The Root Certificate API allows you to programmatically add root certificates to your App Service Environment v3, making them available to all apps during startup. Root certificates are public certificates that identify a root certificate authority (CA) and are essential for establishing trust in secure communications. By adding root certificates to your App Service Environment, all apps hosted within that environment have them installed in their root store, ensuring secure communication with internal services or APIs that use certificates issued by private or enterprise CAs.
+
+This capability is available for both Windows and Linux-based apps in App Service Environment v3. Root certificates added through this API are automatically injected into the trust store of apps at startup, eliminating the need for per-app configurations and simplifying certificate lifecycle management.
+
+### Important considerations
+
+- Certificates can be added to an App Service Environment using the REST API, Azure CLI, ARM templates, Bicep, or Terraform.
+- If you add a certificate to an App Service Environment with existing or running apps, you must **stop** and then **start** each app for the certificate store to be updated with the new root certificate. Adding all certificates before creating your apps is recommended to eliminate the need to stop and start apps individually.
+  - Stop and start operations are different from restarting your app. You must use the dedicated stop and start commands available in the Azure portal, Azure CLI, or REST API.
+  - Starting and stopping apps causes temporary outages while the apps are stopped.
+  - If you have multiple apps and want to automate this process, you can use the Azure CLI or REST API.
+- During the certificate addition process, you must provide the entire certificate blob in the request. You can't upload a *.cer* file directly.
+
+### Add a root certificate
+
+To add a root certificate to your App Service Environment, use one of the following methods:
+
+### [REST API](#tab/rest-api)
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
+
+Content-Type: application/json
+
+{
+  "location": "{location}",
+  "properties": {
+    "blob": "{raw certificate blob}",
+    "isRoot": true
+  }
+}
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az rest --method put \
+  --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01 \
+  --body "{'location': '{location}', 'properties': {'blob': '{raw certificate blob}', 'isRoot': true}}"
+```
+
+### [ARM Template](#tab/arm-template)
+
+To create a root certificate resource in your ARM template, add the following JSON:
+
+```json
+{
+  "type": "Microsoft.Web/hostingEnvironments/publicCertificates",
+  "apiVersion": "2024-04-01",
+  "name": "{certificateName}",
+  "location": "{location}",
+  "properties": {
+    "blob": "{raw certificate blob}",
+    "isRoot": true
+  }
+}
+```
+
+### [Bicep](#tab/bicep)
+
+```bicep
+resource rootCertificate 'Microsoft.Web/hostingEnvironments/publicCertificates@2024-04-01' = {
+  name: '{certificateName}'
+  parent: ase
+  location: location
+  properties: {
+    blob: '{raw certificate blob}'
+    isRoot: true
+  }
+}
+```
+
+### [Terraform](#tab/terraform)
+
+To create a root certificate resource in your Terraform configuration, add the following to your template. You must include `schema_validation_enabled = false` for the resource to be created successfully.
+
+```hcl
+resource "azapi_resource" "{certificateName}" {
+  type      = "Microsoft.Web/hostingEnvironments/publicCertificates@2024-04-01"
+  name      = "{certificateName}"
+  parent_id = "/subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.Web/hostingEnvironments/<aseName>"
+  body = jsonencode({
+    location = var.location
+    properties = {
+      blob   = "{raw certificate blob}"
+      isRoot = true
+    }
+    kind = "string"
+  })
+  schema_validation_enabled = false
+}
+```
+
+-----
+
+Replace the following placeholders:
+
+- `{subscriptionId}`: Your Azure subscription ID
+- `{resourceGroupName}`: The resource group containing your App Service Environment
+- `{aseName}`: The name of your App Service Environment
+- `{certificateName}`: A name for your certificate resource
+- `{location}`: The Azure region where your App Service Environment is deployed
+- `{raw certificate blob}`: The raw certificate blob from your root certificate
+
+### Remove a root certificate
+
+To remove a root certificate from your App Service Environment:
+
+### [REST API](#tab/rest-api-remove)
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
+```
+
+### [Azure CLI](#tab/azure-cli-remove)
+
+```azurecli-interactive
+az rest --method delete \
+  --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
+```
+
+-----
+
+### Retrieve a specific certificate
+
+To retrieve a specific root certificate from your App Service Environment:
+
+### [REST API](#tab/rest-api-get-specific)
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
+```
+
+### [Azure CLI](#tab/azure-cli-get-specific)
+
+```azurecli-interactive
+az rest --method get \
+  --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
+```
+
+-----
+
+### Retrieve all public certificates
+
+To retrieve all public certificates from your App Service Environment:
+
+### [REST API](#tab/rest-api-get-all)
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates?api-version=2024-04-01
+```
+
+### [Azure CLI](#tab/azure-cli-get-all)
+
+```azurecli-interactive
+az rest --method get \
+  --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates?api-version=2024-04-01
+```
+
+-----
+
+### Stop and start apps
+
+After adding a root certificate to an App Service Environment with existing apps, you must stop and start each app to update the certificate store.
+
+### [Azure portal](#tab/portal)
+
+1. Navigate to your app in the Azure portal.
+1. Select **Stop** from the overview page.
+1. Wait for the app to stop completely.
+1. Select **Start** to restart the app.
+
+### [REST API](#tab/rest-api-app)
+
+Stop the app:
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{appName}/stop?api-version=2024-04-01
+```
+
+Start the app:
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{appName}/start?api-version=2024-04-01
+```
+
+### [Azure CLI](#tab/azure-cli-app)
+
+Stop the app:
+
+```azurecli-interactive
+az webapp stop --name {appName} --resource-group {resourceGroupName}
+```
+
+Start the app:
+
+```azurecli-interactive
+az webapp start --name {appName} --resource-group {resourceGroupName}
+```
+
+---
+
 ## Private server certificate
 
 If your app acts as a server in a client-server model, either behind a reverse proxy or directly with private client and you're using a private CA certificate, you need to upload the server certificate (*.pfx* file) with the full certificate chain to your app and bind the certificate to the custom domain. Because the infrastructure is dedicated to your App Service Environment, the full certificate chain is added to the trust store of the servers. You only need to upload the certificate once to use it with apps that are in the same App Service Environment.
 
 >[!NOTE]
-> If you uploaded your certificate prior to October 1, 2023, you need to reupload and rebind the certificate for the full certificate chain to be added to the servers.
+> If you uploaded your certificate before October 1, 2023, you need to reupload and rebind the certificate for the full certificate chain to be added to the servers.
 
 Follow the [secure custom domain with TLS/SSL](../configure-ssl-bindings.md) tutorial to upload/bind your private CA rooted certificate to the app in your App Service Environment.
 

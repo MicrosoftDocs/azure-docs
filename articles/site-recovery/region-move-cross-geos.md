@@ -48,7 +48,7 @@ This tutorial shows you how to move Azure virtual machines between Azure Governm
 Make sure your Azure account has permissions for replication of virtual machines to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal) permissions. 
 
 ### Set up an Azure network
 

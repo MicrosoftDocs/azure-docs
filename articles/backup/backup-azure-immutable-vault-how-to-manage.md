@@ -3,7 +3,7 @@ title: How to manage Azure Backup Immutable vault operations
 description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 03/13/2025
+ms.date: 10/24/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24, ignite-2024
@@ -100,7 +100,7 @@ However, increasing the retention of backup items that are in suspended state is
 Let's try to stop backup on a VM and choose **Retain as per policy** for backup data retention.
 
 >[!NOTE]
-> When you stop backups and retain as per policy, all snapshot tier RPs and the last RPs (one in vault tier and one in vault-archive tier) are retained forever to ensure recovery against any unforeseen ransomware scenarios. You must manually delete these RPs after the backup policy expires to stop incurring PI charges.
+> When you stop backups and retain as per policy, the last hardened (vaulted) restore point and the latest restore point are retained forever to ensure recovery against any unforeseen ransomware scenarios. You must manually delete this RP after the backup policy expires to stop incurring PI charges.
 
 :::image type="content" source="./media/backup-azure-immutable-vault/attempt-to-increase-retention-of-backup-items-in-suspended-state.png" alt-text="Screenshot shows an attempt to increase retention of backup items in suspended state.":::
 

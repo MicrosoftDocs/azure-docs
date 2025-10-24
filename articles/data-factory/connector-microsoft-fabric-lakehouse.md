@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 08/29/2025
+ms.date: 10/23/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -648,6 +648,34 @@ When copying data to Microsoft Fabric Lakehouse table, the following mappings ar
 | String           | string              |
 | Byte array       | binary              |
 | Decimal          | decimal             |
+
+## Delta Lake table support
+
+In the sections below, you will find detailed information on Delta Lake table support for both the source and sink.
+
+### Source
+
+[Delta column mapping](https://docs.delta.io/latest/delta-column-mapping.html) is supported when you apply reader version 2 or reader version 3 with `columnMapping` in `readerFeatures` in your Microsoft Fabric Lakehouse Table. 
+
+Delta table's column mapping capability allows for more flexible schema evolution, ensuring that changes in table structure do not disrupt data workflows. With column mapping, you can read data from an existing delta Lake table with `delta.columnMapping.mode` set to `name` or `id`.
+
+[Deletion vectors](https://docs.delta.io/latest/delta-deletion-vectors.html) is supported 
+when you apply reader version 3 with `deletionVectors` in `readerFeatures` in your Microsoft Fabric Lakehouse Table. Rows that are soft deleted are marked in deletion vector files and skipped when reading the delta lake table. 
+
+[Change Data Feed](https://docs.delta.io/delta-change-data-feed/) is supported.
+
+### Sink
+
+[Delta column mapping](https://docs.delta.io/latest/delta-column-mapping.html) is supported. This capability allows for more flexible schema evolution, ensuring that changes in table structure do not disrupt data workflows. With column mapping, you can:
+
+- Write data to an existing delta lake table with `delta.columnMapping.mode` set to `name`.
+- Auto-create a table with `delta.columnMapping.mode` set to `name` when the sink table does not exist and the source columns include special characters and whitespaces.
+- Auto-create a table with `delta.columnMapping.mode` set to `name` when the table action is overwrite and the source dataset columns include special characters and whitespaces.
+
+[Deletion vectors](https://docs.delta.io/latest/delta-deletion-vectors.html) is supported.
+
+[Change Data Feed](https://docs.delta.io/delta-change-data-feed/) is supported.
+
 
 ## Mapping data flow properties
 

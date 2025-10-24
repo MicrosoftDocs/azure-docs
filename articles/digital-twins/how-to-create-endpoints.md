@@ -157,7 +157,7 @@ To assign a role to the identity, open the [Azure portal](https://portal.azure.c
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the desired role to the managed identity of your Azure Digital Twins instance. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the desired role to the managed identity of your Azure Digital Twins instance. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
