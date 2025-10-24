@@ -120,6 +120,8 @@
       href: /azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure SQL Edge
       href: prepay-sql-edge.md
+    - name: Copilot Credit Pre-Purchase
+      href: copilot-credit-p3.md
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md
     - name: Data Explorer

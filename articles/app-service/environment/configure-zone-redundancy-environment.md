@@ -3,7 +3,7 @@ title: Configure App Service Environments and Isolated v2 App Service Plans for 
 description: Learn how to configure zone redundancy for App Service Environments and Isolated v2 App Service plans to boost reliability and minimize service disruption.
 ms.topic: conceptual
 ms.service: azure-app-service
-ms.date: 07/16/2025
+ms.date: 10/24/2025
 author: anaharris
 ms.author: anaharris
 
@@ -67,7 +67,7 @@ For more information about zone redundancy, see [Reliability in an App Service E
     ---
     
     > [!NOTE]
-    > A zone redundancy status change in an App Service Environment takes 12 to 24 hours to complete. During the upgrade process, no downtime or performance problems occur.
+    > A zone redundancy status change in an App Service Environment takes 12 to 24 hours to complete. During the upgrade process, no downtime or performance problems occur. However, all App Service plans with fewer than 3 instances are scaled to 3 instances. Any plan with 3 or more instances remains unchanged. Once the operation to enable zone redundancy completes, you can scale your App Service plans as needed, including to fewer than 3 instances.
 
 ### Check for zone redundancy support for an App Service Environment
 

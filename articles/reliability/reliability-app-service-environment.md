@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 07/17/2025
+ms.date: 10/24/2025
 
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how an App Service Environment works from a reliability perspective and plan resiliency strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
@@ -94,6 +94,9 @@ For App Service plans that aren't zone redundant, the underlying VM instances ar
 You can enable zone redundancy on an App Service Environment or its plans at no extra cost. However, zone redundancy for a plan requires that it has two or more instances. You're charged based on your App Service plan SKU, the capacity that you specify, and any instances that you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity of fewer than two instances, the platform enforces a minimum instance of two. The platform charges you for those two instances.
+
+> [!IMPORTANT]
+> When you enable availability zones for an App Service Environment, all App Service plans with fewer than 3 instances are scaled to 3 instances. Any plan with 3 or more instances remains unchanged. Once the operation to enable availability zones completes, you can scale your App Service plans as needed, including to fewer than 3 instances.
 
 ### Configure availability zone support
 

@@ -54,6 +54,9 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 1. Create a file named `main.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-web-application-firewall/main.tf":::
 
+>[!NOTE]  
+> Use `waf_configuration` to define WAF settings directly on the Application Gateway. Use `firewall_policy_id` to associate an existing WAF policy resource with the Application Gateway. Only one method should be used in practice.
+
 1. Create a file named `outputs.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-web-application-firewall/outputs.tf":::
 

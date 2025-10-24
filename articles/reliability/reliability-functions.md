@@ -363,7 +363,7 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 1. When creating the Premium plan, add the `--zone-redundant true` parameter:
 
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --SKU EP1 --zone-redundant true 
+    az functionapp plan create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --SKU EP1 --zone-redundant true 
     ```
 
 #### [Bicep template](#tab/bicep)
@@ -378,7 +378,7 @@ The only properties to be aware of while creating a zone-redundant hosting plan 
 Following is a Bicep template snippet for a zone-redundant, Premium plan. It shows the `zoneRedundant` field and the `capacity` specification.
 
 ```bicep
-resource flexFuncPlan 'Microsoft.Web/serverfarms@2021-01-15' = {
+resource EPFuncPlan 'Microsoft.Web/serverfarms@2021-01-15' = {
     name: '<YOUR_PLAN_NAME>'
     location: '<YOUR_REGION_NAME>'
     sku: {
@@ -520,11 +520,9 @@ Read more on information and considerations for failover with [Service Bus](../s
 
 ### Active-active pattern for non-HTTPS trigger functions
 
-While you're encouraged to use the [active-passive pattern](#active-passive-pattern-for-non-https-trigger-functions) for non-HTTPS trigger functions, you can still create active-active deployments for non-HTTP triggered functions. Before you implement this pattern, you must consider how the two active regions interact or coordinate with one another. 
+While you're encouraged to use the [active-passive pattern](#active-passive-pattern-for-non-https-trigger-functions) for non-HTTPS trigger functions, you can still create active-active deployments for non-HTTP triggered functions. Before you implement this pattern, you must consider how the two active regions interact or coordinate with one another and the trigger source. 
 
-For example, consider having the same Service Bus triggered function code deployed to two regions but triggering on the same Service Bus queue. In this case, both functions act as competing consumers on dequeueing the single queue. While each message can only be processed by one of the two app instances, it also means there's still a single point of failure, which is the single Service Bus instance. 
-
-You might instead deploy two Service Bus queues, with one in a primary region, one in a secondary region. In this case, you could have two function apps, with each pointed to the Service Bus queue active in their region. The challenge with this topology is how the queue messages are distributed between the two regions. Often, this means that each publisher attempts to publish a message to *both* regions, and each message is processed by both active function apps. While this creates the desired active/active pattern, it also creates other challenges around duplication of compute and when or how data is consolidated. 
+For example, consider having the same Service Bus triggered function code deployed to two regions but triggering on the same Service Bus queue. In this case, both functions act as competing consumers on dequeueing the single queue. While each message can only be processed by one of the two app instances, it also means there's still a single point of failure, which is the single Service Bus instance. Consider enabling the [geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md) and [geo-replication](../service-bus-messaging/service-bus-geo-replication.md) features of Service Bus to ensure it is also resilient.
 
 ## Next steps
 
