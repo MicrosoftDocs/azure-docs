@@ -72,7 +72,7 @@ During the creation of the load balancer, you configure:
 
 1. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-1. Enter **backend-pool** for **Name** in **Add backend pool**.
+1. Enter **backend-pool-1** for **Name** in **Add backend pool**.
 
 1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
@@ -108,6 +108,23 @@ A second frontend is required for the load balancer to provide high availability
 
 1. Verify that in **Frontend IP configuration**, you have **frontend-1** and **frontend-2**.
 
+## Configure second load balancer backend pool
+1. In the Azure portal, search for and select **Load balancers**.
+
+1. Select **load-balancer**.
+
+1. In **Settings**, select **Backend Pools**.
+
+1. Select **+ Add**.
+
+1. Enter **-2** for **Name** in **Add backend pool**.
+
+1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+
+1. Select **Save**.
+
+1. Verify that in **Backend Pools**, you have **backend-pool-1** and **backend-pool-2**.
+
 ## Create load balancer rules
 
 The load balancer rules are used to distribute traffic to the virtual machines. Use the following steps to create the load balancer rules.
@@ -127,7 +144,7 @@ The load balancer rules are used to distribute traffic to the virtual machines. 
     | **Name** | Enter **lb-rule-1**. |
     | **IP version** | Select **IPv4**. |
     | **Frontend IP address** | Select **frontend-1**. |
-    | **Backend pool** | Select **backend-pool**. |
+    | **Backend pool** | Select **backend-pool-1**. |
     | **Protocol** | Select **UDP**. |
     | **Port** | Enter **67**. |
     | **Backend port** | Enter **67**. |
@@ -142,6 +159,7 @@ The load balancer rules are used to distribute traffic to the virtual machines. 
     | ---                     | ---                                                |
     | **Name** | Enter **lb-rule-2**. |
     | **Frontend IP address** | Select **frontend-2**. |
+    | **Backend Pool** | Select **backend-pool-2**. |
     | **Health probe** | Select **dhcp-health-probe**. |
 
 [!INCLUDE [create-two-virtual-machines-windows-load-balancer.md](../../includes/create-two-virtual-machines-windows-load-balancer.md)]
