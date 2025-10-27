@@ -89,4 +89,4 @@ This use case illustrates how organizations can utilize OpenText Migrate to seed
 You can find more detailed information in the [Carbonite sheet](https://www.carbonite.com/resources/datasheet/carbonite-migrate/).
 
 > [!NOTE]
-> For complete, step by step guidance, refer to Commvault documentation or contact your OpenText representative.
+> For complete, step by step guidance, refer to OpenText documentation or contact your OpenText representative.
