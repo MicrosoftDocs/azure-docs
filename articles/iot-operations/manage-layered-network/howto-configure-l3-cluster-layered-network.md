@@ -1,6 +1,6 @@
 ---
 title: Configure level 3 cluster in an isolated network
-description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management (preview) service
+description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management service
 author: SoniaLopezBravo
 ms.subservice: layered-network-management
 ms.author: sonialopez
@@ -15,9 +15,9 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management (preview)
+# Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management 
 
-You can configure a special isolated network environment for deploying Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster and Arc-enable it through the Azure IoT Layered Network Management (preview) service in the upper level. Before you start this process, the Layered Network Management (preview) service has to be ready for accepting the connection request from this level.
+You can configure a special isolated network environment for deploying Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster and Arc-enable it through the Azure IoT Layered Network Management (preview) service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
 
 You'll complete the following tasks:
 - Set up the host system and install all the required software in an internet facing environment.
@@ -26,7 +26,6 @@ You'll complete the following tasks:
 - Use a customized DNS setting to direct the network traffic to the Layered Network Management service in parent level.
 - Arc-enable the cluster.
 
-[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 
 ## Prerequisites
 
@@ -149,6 +148,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
         az extension add --name customlocation
         ```
     - [Install Azure CLI extension](/cli/azure/iot/ops) using `az extension add --name azure-iot-ops`.
+
 ## Create the AKS Edge Essentials cluster
 
 To create the AKS Edge Essentials cluster that's compatible with Azure IoT Operations:
@@ -204,7 +204,9 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     ```powershell
     az login
     ```
+
 1. Set environment variables for the rest of the setup. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created based on the names you provide:
+
     ```powershell
     # Id of the subscription where your resource group and Arc-enabled cluster will be created
     $SUBSCRIPTION_ID = "<subscription-id>"
@@ -217,6 +219,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     $CLUSTER_NAME = "<cluster-name>"
     ```
 1. Set the Azure subscription context for all commands:
+
     ```powershell
     az account set -s $SUBSCRIPTION_ID
     ```
@@ -234,13 +237,16 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     az provider register -n "Microsoft.SecretSyncController"
     ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
+
     ```bash
     az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
     ```
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it in the resource group you created in the previous step:
+
     ```powershell
     az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
     ```
+
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
@@ -251,14 +257,17 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 
 After you've deployed Azure IoT Operations to your cluster, enable inbound connections to MQTT broker and configure port forwarding:
 1. Enable a firewall rule for port 18883:
+
     ```powershell
     New-NetFirewallRule -DisplayName "MQTT broker" -Direction Inbound -Protocol TCP -LocalPort 18883 -Action Allow
     ```
 1. Run the following command and make a note of the IP address for the service called `aio-broker`:
+
     ```cmd
     kubectl get svc aio-broker -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
     ```
 1. Enable port forwarding for port 18883. Replace `<aio-broker IP address>` with the IP address you noted in the previous step:
+
     ```cmd
     netsh interface portproxy add v4tov4 listenport=18883 listenaddress=0.0.0.0 connectport=18883 connectaddress=<aio-broker IP address>
     ```

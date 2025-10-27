@@ -211,26 +211,28 @@ The resource providers for management services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.Advisor | [Azure Advisor](/azure/advisor/) |
+| Microsoft.Advisor | [Azure Advisor](/azure/advisor/advisor-overview) |
 | Microsoft.Authorization - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
-| Microsoft.Billing - [registered by default](#registration) | [Cost Management and Billing](/azure/billing/) |
+| Microsoft.Billing - [registered by default](#registration) | [Cost Management and Billing](../../cost-management-billing/index.yml) |
 | Microsoft.Blueprint | [Azure Blueprints](../../governance/blueprints/index.yml) |
+| Microsoft.ChangeSafety - [registered by default](#registration) | Safety checks that help Microsoft reduce risk and improve reliability in Microsoft service deployment |
 | Microsoft.ClassicSubscription - [registered by default](#registration) | Classic deployment model |
-| Microsoft.Consumption - [registered by default](#registration) | [Cost Management](/azure/cost-management/) |
-| Microsoft.CostManagement - [registered by default](#registration) | [Cost Management](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
+| Microsoft.Consumption - [registered by default](#registration) | [Cost Management](../../cost-management-billing/index.yml) |
+| Microsoft.CostManagement - [registered by default](#registration) | [Cost Management](../../cost-management-billing/index.yml) |
+| Microsoft.CostManagementExports | [Cost Management](../../cost-management-billing/index.yml) |
 | Microsoft.CustomProviders | [Azure Custom Providers](../custom-providers/overview.md) |
 | Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index) |
 | Microsoft.Features - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.ManagedServices | [Azure Lighthouse](/azure/lighthouse/) |
+| Microsoft.ManagedServices | [Azure Lighthouse](/azure/lighthouse/overview) |
 | Microsoft.Management | [Management Groups](../../governance/management-groups/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.Portal - [registered by default](#registration) | [Azure portal](/azure/azure-portal/) |
+| Microsoft.Portal - [registered by default](#registration) | [Azure portal](/azure/azure-portal/azure-portal-overview) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.ResourceGraph - [registered by default](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
-| Microsoft.ResourceHealth | [Azure Service Health](/azure/service-health/) |
+| Microsoft.ResourceHealth | [Azure Service Health](/azure/service-health/overview) |
+| Microsoft.ResourceNotification - [registered by default](#registration) | [Azure Resource Notifications](../../event-grid/event-schema-resource-notifications.md) |
 | Microsoft.Resources - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.SoftwarePlan | License |

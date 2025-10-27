@@ -1,6 +1,6 @@
 ---
-title: Create sample network environment for Layered Network Management (preview)
-description: Set up a test or sample network environment for Azure IoT Layered Network Management (preview).
+title: Create sample network environment for Layered Network Management 
+description: Set up a test or sample network environment for Azure IoT Layered Network Management.
 author: SoniaLopezBravo
 ms.subservice: layered-network-management
 ms.author: sonialopez
@@ -14,15 +14,15 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Create sample network environment for Azure IoT Layered Network Management (preview)
+# Create sample network environment for Azure IoT Layered Network Management
 
-To use Azure IoT Layered Network Management (preview) service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
-- *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management (preview) needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
+To use Azure IoT Layered Network Management service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
+
+- *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
 - *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet, or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
 Both approaches require you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
 
-[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 
 > [!IMPORTANT]
 > The network environments outlined in Layered Network Management documentation are examples for testing the Layered Network Management. It's not a recommendation of how you build your network and cluster topology for production.
@@ -54,12 +54,14 @@ The multiple levels of networks in this test setup are accomplished using subnet
 Refer to the following examples for setup this type of network environment.
 
 ### Example of logical segmentation with minimum hardware
+
 In this example, both machines are connected to an access point (AP) which connects to the internet. The level 4 host machine can access the internet. The level 3 host is blocked for accessing the internet with the AP's configuration.  For example, firewall or client control. As both machines are in the same network, the Layered Network Management instance hosted on level 4 cluster is by default visible to the level 3 machine and cluster.
 An extra custom DNS needs to be set up in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
 
 ![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
 ### Example of logical segmentation in Azure
+
 In this example, a test environment is created with a [virtual network](/azure/virtual-network/virtual-networks-overview) and a [Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal) in Azure.
 > [!IMPORTANT]
 > Virtual environment is for exploration and evaluation only. For more information, see [supported environments](../deploy-iot-ops/overview-deploy.md#supported-environments) for Azure IoT Operations.
@@ -88,11 +90,13 @@ A custom DNS is needed for level 3 and below. It ensures that DNS resolution for
 ### Configure CoreDNS
 
 While the DNS setup can be achieved many different ways, this example uses an extension mechanism provided by CoreDNS that is the default DNS server for K3S clusters. URLs on the allowlist, which need to be resolved are added to the CoreDNS.
+
 > [!IMPORTANT]
 > The CoreDNS approach is only applicable to K3S cluster on Ubuntu host at level 3.
 
 ### Create configmap from level 4 Layered Network Management
 After the level 4 cluster and Layered Network Management are ready, perform the following steps.
+
 1. Confirm the IP address of Layered Network Management service with the following command:
     ```bash
     kubectl get services -n azure-iot-operations
@@ -131,6 +135,7 @@ After the level 4 cluster and Layered Network Management are ready, perform the 
     This step creates a file named `configmap-custom-level4.yaml`
 
 ### Configure level 3 CoreDNS of K3S
+
 After setting up the K3S cluster and moving it to the level 3 isolated layer, configure the level 3 K3S's CoreDNS with the customized client-config that was previously generated.
 
 1. Copy the `configmap-custom-level4.yaml` to the level 3 host, or to the system where you're remotely accessing the cluster.

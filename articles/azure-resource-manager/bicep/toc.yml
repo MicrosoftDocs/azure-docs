@@ -267,6 +267,7 @@ items:
         href: variables.md
         displayName: configuration
       - name: Resources (resource)
+        displayName: batchsize,onlyifnotexists,description,decorators
         href: resource-declaration.md
       - name: Outputs (output)
         href: outputs.md

@@ -79,7 +79,7 @@ items:
     #       href: add-server-credentials.md
     #     - name: Appliance diagnostics
     #       href: troubleshoot-appliance-diagnostic.md 
-    - name: Discover softwares and workloads
+    - name: Discover software and workloads
       href: how-to-discover-applications.md
     - name: Deep discover database workloads
       items:

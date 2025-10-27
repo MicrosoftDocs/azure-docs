@@ -22,6 +22,8 @@ While deploying a Microsoft Sentinel data collector and solution for SAP provide
 
 :::zone pivot="connection-agent"
 
+[!INCLUDE [data-connector-agent-deprecation](../includes/data-connector-agent-deprecation.md)]
+
 :::image type="content" source="media/deployment-steps/settings.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Configure solution settings step." border="false":::
 
 :::zone-end
@@ -33,10 +35,6 @@ While deploying a Microsoft Sentinel data collector and solution for SAP provide
 :::zone-end
 
 Content in this article is relevant for your **security** team.
-
-> [!IMPORTANT]
-> Some components of the Microsoft Sentinel solution for SAP applications are currently in PREVIEW. The agentless data connector is in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Prerequisites
 

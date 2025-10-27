@@ -23,6 +23,9 @@ Reviewing and ensuring that you have or understand all the prerequisites is the 
 
 :::zone pivot="connection-agent"
 
+
+[!INCLUDE [data-connector-agent-deprecation](../includes/data-connector-agent-deprecation.md)]
+
 :::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
 Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams.
@@ -34,9 +37,6 @@ Content in this article is relevant for your **security**, **infrastructure**, a
 :::image type="content" source="media/deployment-steps/prerequisites-agentless.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
 Content in this article is relevant for your **security** and **SAP BASIS** teams.
-
-> [!IMPORTANT]
-> Microsoft Sentinel's agentless data connector for SAP is currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::zone-end
 

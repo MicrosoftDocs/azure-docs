@@ -56,7 +56,7 @@ Finally, Azure Managed Redis offers the Microsoft Entra ID authentication when y
 | Clustering policy                 | OSS, Enterprise                                   | OSS, Enterprise, Nonclustered    |
 | Geo-replication                   | Active                                            | Active                            |
 | SLA                               | Up to 99.999%                                     | Up to 99.999%                     |
-| Zone redundancy                   | Yes                                               | Yes (default)                     |
+| Zone redundancy                   | Yes                                               | \*Yes with high availability    |
 | Non-HA mode                       | No                                                | Yes (for dev/test)                |
 | Data persistence                  | Yes (in preview)                                  | Yes                               |
 | Scaling                           | Yes                                               | Yes                               |
@@ -65,6 +65,8 @@ Finally, Azure Managed Redis offers the Microsoft Entra ID authentication when y
 | Azure Region support              | Limited                                           | Extensive                         |
 | Azure Sovereign Cloud support     | No                                                | Yes (coming soon)                 |
 | Hostname DNS suffix               | `<name>.<region>.redisenterprise.cache.azure.net` | `<name>.<region>.redis.azure.net` |
+
+\* When **High availability** is enabled, Azure Managed Redis is zone redundant in regions with multiple Availability Zones.
 
 ## Considerations when you move from Enterprise to Azure Managed Redis
 
@@ -172,29 +174,32 @@ If you use any of the OSS SKUs, Basic, Standard, or Premium, moving to Azure Man
 
 Here's a table that compares the features from Azure Cache for Redis to the features in Azure Managed Redis
 
-| Feature Description               | Basic<br>_OSS_ | Standard<br>_OSS_ | Premium<br>_OSS_ | Balanced<br>_AMR_ | Memory Optimized<br>_AMR_ | Compute Optimized<br>_AMR_ |
-|-----------------------------------|:--------------:|:-----------------:|:----------------:|:-----------------:|:-------------------------:|:--------------------------:|
-| Availability                      | N/A            | 99.9%             | 99.9%            | Up to 99.999%     | Up to 99.999%             | Up to 99.999%              |
-| Data encryption in transit        | Yes            | Yes               | Yes              | Yes               | Yes                       | Yes                        |
-| Network isolation                 | Yes            | Yes               | Yes              | Yes               | Yes                       | Yes                        |
-| Scaling up/out                    | Yes            | Yes               | Yes              | Yes               | Yes                       | Yes                        |
-| Scaling down/in                   | Yes            | Yes               | Yes              | No                | No                        | No                         |
-| OSS clustering                    | No             | No                | Yes              | Yes               | Yes                       | Yes                        |
-| Data persistence                  | No             | No                | Yes              | Yes               | Yes                       | Yes                        |
-| Zone redundancy                   | No             | Yes (preview)     | Yes              | Yes               | Yes                       | Yes                        |
-| Geo-replication                   | No             | No                | Yes (Passive)    | Yes (Active)      | Yes (Active)              | Yes (Active)               |
-| Connection audit logs             | No             | No                | Yes              | Yes(Event-based)  | Yes(Event-based)          | Yes(Event-based)           |
-| Redis Modules                     | No             | No                | No               | Yes               | Yes                       | Yes                        |
-| Import/Export                     | No             | No                | Yes              | Yes               | Yes                       | Yes                        |
-| Reboot                            | Yes            | Yes               | Yes              | No                | No                        | No                         |
-| Scheduled updates                 | Yes            | Yes               | Yes              | No                | No                        | No                         |
-| Microsoft Entra ID authentication | Yes            | Yes               | Yes              | Yes               | Yes                       | Yes                        |
-| Microsoft Entra ID RBAC           | Yes            | Yes               | Yes              | No                | No                        | No                         |
-| Keyspace notification             | Yes            | Yes               | Yes              | No                | No                        | No                         |
-| Non High-availability             | N/A            | No                | No               | Yes               | Yes                       | Yes                        |
+| Feature Description               | Basic<br>_OSS_ | Standard<br>_OSS_ | Premium<br>_OSS_ | Balanced<br>_AMR_                | Memory Optimized<br>_AMR_        | Compute Optimized<br>_AMR_       |
+|-----------------------------------|:--------------:|:-----------------:|:----------------:|:--------------------------------:|:--------------------------------:|:--------------------------------:|
+| Availability                      | N/A            | 99.9%             | 99.9%            | Up to 99.999%                    | Up to 99.999%                    | Up to 99.999%                    |
+| Data encryption in transit        | Yes            | Yes               | Yes              | Yes                              | Yes                              | Yes                              |
+| Network isolation                 | Yes            | Yes               | Yes              | Yes                              | Yes                              | Yes                              |
+| Scaling up/out                    | Yes            | Yes               | Yes              | Yes                              | Yes                              | Yes                              |
+| Scaling down/in                   | Yes            | Yes               | Yes              | No                               | No                               | No                               |
+| OSS clustering                    | No             | No                | Yes              | Yes                              | Yes                              | Yes                              |
+| Data persistence                  | No             | No                | Yes              | Yes                              | Yes                              | Yes                              |
+| Zone redundancy                   | No             | Yes (preview)     | Yes              | \*Yes with high availability     | \*Yes with high availability     | \*Yes with high availability     |
+| Geo-replication                   | No             | No                | Yes (Passive)    | Yes (Active)                     | Yes (active)                     | Yes (active)                     |
+| Connection audit logs             | No             | No                | Yes              | Yes(Event-based)                 | Yes(Event-based)                 | Yes(Event-based)                 |
+| Redis Modules                     | No             | No                | No               | Yes                              | Yes                              | Yes                              |
+| Import/Export                     | No             | No                | Yes              | Yes                              | Yes                              | Yes                              |
+| Reboot                            | Yes            | Yes               | Yes              | No                               | No                               | No                               |
+| Scheduled updates                 | Yes            | Yes               | Yes              | No                               | No                               | No                               |
+| Microsoft Entra ID authentication | Yes            | Yes               | Yes              | Yes                              | Yes                              | Yes                              |
+| Microsoft Entra ID RBAC           | Yes            | Yes               | Yes              | No                               | No                               | No                               |
+| Keyspace notification             | Yes            | Yes               | Yes              | No                               | No                               | No                               |
+| Non High-availability             | N/A            | No                | No               | Yes                              | Yes                              | Yes                              |
 
 _OSS_ refers to Azure Cache for Redis<br>
 _AMR_ refers to Azure Managed Redis
+
+\* When **High availability** is enabled, Azure Managed Redis is zone redundant in regions with multiple Availability Zones.
+
 
 Here are some other differences to consider when implementing Azure Managed Redis. Consider these client application changes:
 
@@ -282,20 +287,6 @@ General steps to implement this option are:
 1. Export the RDB file from existing Azure Cache for Redis instance using these [export instructions](../../azure-cache-for-redis/cache-how-to-import-export-data.md#export) or the [PowerShell Export cmdlet](/powershell/module/az.rediscache/export-azrediscache)
 1. Import the RDB file into new Azure Managed Redis instance using these import instructions or the PowerShell Import cmdlet
 1. Update your application to use the new Azure Managed Redis instance connection string.
-
-<!-- **Export Data**:
-
-```cli
-az redis export --resource-group <ResourceGroupName> --name <Azure Cache for Redis instance name> --prefix <BlobPrefix> --container <ContainerName> --file-format <FileFormat>
-```
-
-**Import Data**:
-
-```cli
-az redis import --resource-group <ResourceGroupName> --name <Azure Managed Redis instance name> --files <BlobUris>
-```
-
-Replace *ResourceGroupName*, *CacheName*, *BlobPrefix*, *ContainerName*, and *FileFormat* with your specific values. The--file-format_ can be either RDB or AOF. -->
 
 #### Write to two Redis caches simultaneously during migration period
 

@@ -33,37 +33,37 @@ These functions are intended to serve as the principal user interface to the dat
 
 The **BAPI_XMI_LOGON** function is relevant when your SAP system is an older system using XAL, and authenticates to collect SAP XAL audit logs.
 
-The **BAPI_XMI_LOGON** function is supported only for the SAP agentless data connector (Preview). For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+The **BAPI_XMI_LOGON** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## BAPI_SYSTEM_MTE_GETTIDBYNAME (Preview)
 
 The **BAPI_SYSTEM_MTE_GETTIDBYNAME** function is relevant when your SAP system is an older system using XAL, and retrieves the ID of a system monitoring element by name.
 
-The **BAPI_SYSTEM_MTE_GETTIDBYNAME** function is supported only for the SAP agentless data connector (Preview). For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+The **BAPI_SYSTEM_MTE_GETTIDBYNAME** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## BAPI_SYSTEM_MTE_GETTREE (Preview)
 
 The **BAPI_SYSTEM_MTE_GETTREE** function is relevant when your SAP system is an older system using XAL, and retrieves the structure of system monitoring elements.
 
-The **BAPI_SYSTEM_MTE_GETTREE** function is supported only for the SAP agentless data connector (Preview). For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+The **BAPI_SYSTEM_MTE_GETTREE** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## BAPI_SYSTEM_MTE_GETMLHIS (Preview)
 
 The **BAPI_SYSTEM_MTE_GETMLHIS** function is relevant when your SAP system is an older system using XAL, and fetches historical performance and status data.
 
-The **BAPI_SYSTEM_MTE_GETMLHIS** function is supported only for the SAP agentless data connector (Preview). For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+The **BAPI_SYSTEM_MTE_GETMLHIS** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## BAPI_XMI_SET_AUDITLEVEL (Preview)
 
 The **BAPI_XMI_SET_AUDITLEVEL** function is relevant when your SAP system is an older system using XAL, and configures the XAL audit logging level.
 
-The **BAPI_XMI_SET_AUDITLEVEL** function is supported only for the SAP agentless data connector (Preview). For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+The **BAPI_XMI_SET_AUDITLEVEL** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## BAPI_XMI_GET_LOGHISTORY (Preview)
 
 The **BAPI_XMI_GET_LOGHISTORY** function is relevant when your SAP system is an older system using XAL, and retrieves past XAL audit log entries.
 
-The **BAPI_XMI_GET_LOGHISTORY** function is supported only for the SAP agentless data connector (Preview). For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+The **BAPI_XMI_GET_LOGHISTORY** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## SAPUsersAssignments
 

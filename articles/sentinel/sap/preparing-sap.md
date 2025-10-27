@@ -20,7 +20,9 @@ zone_pivot_groups: sentinel-sap-connection
 This article describes how to prepare your SAP environment for connecting to the SAP data connector. Preparation differs, depending on whether you're using the containerized data connector agent. Select the option at the top of the page that matches your environment.
 
 :::zone pivot="connection-agent"
-This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications. 
+This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications.
+
+[!INCLUDE [data-connector-agent-deprecation](../includes/data-connector-agent-deprecation.md)]
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
@@ -34,9 +36,6 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 
 Many of the procedures in this article are typically performed by your **SAP BASIS** team. Some steps include your **security** team too.
 :::zone-end
-
-> [!IMPORTANT]
-> Microsoft Sentinel's agentless data connector for SAP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -181,7 +180,7 @@ For more information, see [Database Collector in Background Processing](https://
 
     These roles are available only after you activate the cloud integration capability.
 
-1. Create an instance of the SAP Process Integration Runtime in your subaccount using service plan **integration-flow** (not api!).
+1. Create an instance of the SAP Process Integration Runtime in your subaccount using service plan **integration-flow** (not API!).
 
 1. Create a service key for the SAP Process Integration Runtime and save the JSON contents to a secure location. You must activate the cloud integration capability before creating a service key for SAP Process Integration Runtime.
 
@@ -191,7 +190,7 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/inte
 
 This procedure has steps both in Microsoft Sentinel and your SAP system, and requires coordination with the SAP administrator.
 
-1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agentless (Preview)** data connector.
+1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agentless** data connector.
 
 1. In the **Configuration** section, expand and follow the instructions in the **Initial connector configuration - Run the steps below once:** section. These steps will require both your SecuritySOC engineer and the SAP admin.
     1. Trigger automatic deployment of Azure resources (SOC Engineer).

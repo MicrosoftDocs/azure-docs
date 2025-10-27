@@ -1898,9 +1898,9 @@ groups:
   prompt: Choose a connection type
   pivots:
   - id: connection-agentless
-    title: Agentless data connector (Limited preview)
+    title: Agentless data connector
   - id: connection-agent
-    title: Data connector agent
+    title: Data connector agent (deprecated)
 # Owner: jodowns
 - id: logic-app-hosting-types
   title: Azure Logic Apps hosting model

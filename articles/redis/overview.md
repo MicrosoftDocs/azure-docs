@@ -76,25 +76,29 @@ Storing some data on-disk using the Flash Optimized tier doesn't increase data r
 
 The following table helps describe some of the features supported by tier:
 
-| Feature Description                                                                                   | Memory Optimized  | Balanced          | Compute Optimized | Flash Optimized   |
-|-------------------------------------------------------------------------------------------------------|:-----------------:|:-----------------:|:-----------------:|:-----------------:|
-| Size (GB)                                                                                             | 12 - 1920         | 0.5 - 960         | 3 - 720           | 250 - 4500        |
-| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)            | Yes               | Yes               | Yes               | Yes               |
-| Data encryption in transit                                                                            | Yes (Private endpoint)              | Yes (Private endpoint)               | Yes (Private endpoint)               | Yes (Private endpoint)               |
-| [Replication and failover](failover.md)                                                 | Yes               | Yes               | Yes               | Yes               |
-| [Network isolation](private-link.md)                                                    | Yes               | Yes               | Yes               | Yes               |
-| [Microsoft Entra ID based authentication](entra-for-authentication.md)                             | Yes               | Yes               | Yes               | Yes               |
-| [Scaling](how-to-scale.md)                                                              | Yes               | Yes               | Yes               | Yes               |
-| [Data persistence](how-to-persistence.md)                                       | Yes               | Yes               | Yes               | Yes               |
-| [Zone redundancy](high-availability.md)                                                 | Yes               | Yes               | Yes               | Yes               |
-| [Geo-replication](how-to-active-geo-replication.md)                                     | Yes (Active)      | Yes (Active)      | Yes (Active)      | No                |
-| Non-clustered instances                                                               | Yes             | Yes               | Yes                 | No                |
-| [Connection audit logs](monitor-diagnostic-settings.md)                                 | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) |
-| [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes               | Yes               | Yes               | Yes               |
-| [Search functionality (including vector search)](redis-modules.md)                      | Yes               | Yes               | Yes               | No                |
-| [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                    | Yes               | Yes               | Yes               | Yes               |
-| [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)             | Yes               | Yes               | Yes               | Yes               |
-| [Import/Export](how-to-import-export-data.md)                                           | Yes               | Yes               | Yes               | Yes               |
+| Feature Description                                                                        | Memory Optimized       | Balanced               | Compute Optimized      | Flash Optimized        |
+|--------------------------------------------------------------------------------------------|:----------------------:|:----------------------:|:----------------------:|:----------------------:|
+| Size (GB)                                                                                  | 12 - 1920              | 0.5 - 960              | 3 - 720                | 250 - 4500             |
+| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) | Yes                    | Yes                    | Yes                    | Yes                    |
+| Data encryption in transit                                                                 | Yes (Private endpoint) | Yes (Private endpoint) | Yes (Private endpoint) | Yes (Private endpoint) |
+| [Replication and failover](failover.md)                                                    | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Network isolation](private-link.md)                                                       | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Microsoft Entra ID based authentication](entra-for-authentication.md)                     | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Scaling](how-to-scale.md)                                                                 | Yes                    | Yes                    | Yes                    | Yes                    |
+| High availability                                                                          | \*Yes                  | \*Yes                  | \*Yes                  | \*Yes                  |
+| [Data persistence](how-to-persistence.md)                                                  | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Geo-replication](how-to-active-geo-replication.md)                                        | Yes (Active)           | Yes (Active)           | Yes (Active)           | No                     |
+| Non-clustered instances                                                                    | Yes                    | Yes                    | Yes                    | No                     |
+| [Connection audit logs](monitor-diagnostic-settings.md)                                    | Yes (Event-based)      | Yes (Event-based)      | Yes (Event-based)      | Yes (Event-based)      |
+| [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Search functionality (including vector search)](redis-modules.md)                         | Yes                    | Yes                    | Yes                    | No                     |
+| [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                   | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)            | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Import/Export](how-to-import-export-data.md)                                              | Yes                    | Yes                    | Yes                    | Yes                    |
+
+\* When **High availability** is enabled, Azure Managed Redis is zone redundant in regions with multiple Availability Zones. 
+
+When you use High availability (HA), an Azure Managed Redis instance is deployed with primary and replica shards across two nodes. In regions without Availability Zones, the primary and replica shards are deployed across two nodes in the same zone.
 
 > [!IMPORTANT]
 > The Balanced B0 and B1 SKU options don't support active geo-replication.
