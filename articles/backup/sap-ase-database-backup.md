@@ -33,7 +33,7 @@ Before you set up the SAP ASE database for backup, review the following prerequi
   | Operator role | Enable this **ASE database role** for the database user to create a custom database user for the backup and restore operations and pass it in the preregistration script. |
   | **Map external file** privilege | Enable this role to allow database file access. |
   | **Own any database** privilege |Allows differential backups. The **Allow incremental dumps** for the database should be **True**. |
-  | **Trunc log on chkpt** privilege | Disable this privilege for all databases that you want to protect using the **ASE Backup**. Allows you to back up the database log to recovery services vault. Learn more about the [SAP note - 2921874 - "trunc log on chkpt" in databases with HADR - SAP ASE - SAP for Me](https://me.sap.com/notes/0002921874). |
+  | **Truncate log on checkpoint** privilege | Disable this privilege for all databases that you want to protect using the **ASE Backup**. Allows you to back up the database log to recovery services vault. Learn more about the [SAP note - 2921874 - "truncate log on checkpoint" in databases with HADR - SAP ASE - SAP for Me](https://me.sap.com/notes/0002921874). |
 
   >[!Note]
   >Log backups aren't supported for the Master database. For other system databases, log backups can only be supported if the database's log files are stored separately from its data files. By default, system databases are created with both data and log files in the same database device, which prevents log backups. To enable log backups, the database administrator must change the location of the log files to a separate device.

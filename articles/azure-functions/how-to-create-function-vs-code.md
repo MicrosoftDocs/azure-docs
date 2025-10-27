@@ -23,7 +23,38 @@ Make sure to select your preferred development language at the top of the articl
 
 ## Prerequisites
 
-[!INCLUDE [functions-requirements-visual-studio-code](../../includes/functions-requirements-visual-studio-code.md)]
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
+::: zone pivot="programming-language-csharp"  
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
+
++ [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21(Linux).
+
++ [Apache Maven](https://maven.apache.org), version 3.0 or above.
+
++ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)       
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
++ [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.
+::: zone-end 
+::: zone pivot="programming-language-powershell"  
++ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
+
++ [.NET 6.0 runtime](https://dotnet.microsoft.com/download/dotnet)     
+
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
+::: zone-end
+::: zone pivot="programming-language-python" 
++ Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
+
++ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
+::: zone-end  
 
 [!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
 
@@ -187,7 +218,7 @@ You can customize your prompt to add specifics as needed, then run the app again
 >
 > When running in **Agent** mode, the results of this customization depend on the specific tools available to your agent.
  
-When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
+When you are satisfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 

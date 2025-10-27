@@ -300,10 +300,20 @@
               href: detection-tuning.md
             - name: Troubleshoot analytics rules
               href: troubleshoot-analytics-rules.md
-        - name: Tutorial - Detect threats using analytics rules
-          href: tutorial-log4j-detection.md
-        - name: MITRE ATT&CK coverage
-          href: mitre-coverage.md
+            - name: Tutorial - Detect threats using analytics rules
+              href: tutorial-log4j-detection.md
+            - name: MITRE ATT&CK coverage
+              href: mitre-coverage.md
+            - name: Compare analytics rules and custom detections
+              href: compare-analytics-rules-custom-detections.md
+        - name: Custom detections in the Defender portal
+          items:
+            - name: Overview
+              href: /defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Create detection rules
+              href: /defender-xdr/custom-detection-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Manage detection rules
+              href: /defender-xdr/custom-detection-manage?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
         - name: Data classification with entities
           items:
             - name: Overview

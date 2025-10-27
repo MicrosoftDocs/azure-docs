@@ -33,7 +33,10 @@ The following screenshot shows that multiple backups occurred in a day.
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/multiple-backups-per-day-inline.png" alt-text="Screenshot that shows the multiple backup instances that occurred in a day." lightbox="./media/backup-azure-vms-enhanced-policy/multiple-backups-per-day-expanded.png":::
 
-The preceding screenshot shows that one of the backups was transferred to the **Vault-Standard** tier.
+The preceding screenshot shows that one of the backups was transferred to the **Vault-Standard** tier. This happens when backups transition from the Vault-Archive tier to the Standard tier for restore operations or management tasks. The Vault-Standard tier provides faster access to data compared to the Archive tier, but at a higher storage cost.”
+
+> [!NOTE]
+> Backups may move between tiers (for example, from Archive to Vault-Standard) depending on retention policies, restore requirements, or lifecycle rules.
 
 ## Create an Enhanced policy and configure the VM backup
 

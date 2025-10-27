@@ -69,7 +69,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 1. Under **Settings**, select **Private Link**. Note down the name of the private link service seen under the **Name** column in **Private link configurations** tab
 
-1. Construct the resource ID of the private link service using the values from previous steps. The format is `subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/privateLinkServices/_e41f87a2_{applicationGatewayName}_{privateLinkResource.Name}`. This resource ID is used while configuring the Front Door origin.
+1. Construct the resource ID of the private link service using the values from previous steps. The format is `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/privateLinkServices/_e41f87a2_{applicationGatewayName}_{privateLinkResource.Name}`. This resource ID is used while configuring the Front Door origin.
 
 ## Create an origin group and add the application gateway as an origin
 

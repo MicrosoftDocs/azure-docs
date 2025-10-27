@@ -4967,6 +4967,81 @@ And returns this result XML:
 <person>
 ```
 
+*Example 4*
+
+The `xml()` function expects either an object or a string containing valid XML. The function doesn't accept a raw array as input.
+
+If your data is a JSON string, you can use the `json()` function to convert the string to a JSON object before you pass the result to the `xml()` function, for example:
+
+```
+xml(
+  json('{"root":{"array":[
+    { "ID": 1, "Name": "James" },
+    { "ID": 2, "Name": "John" },
+    { "ID": 3, "Name": "Sam" }
+  ]}}')
+)
+```
+
+If you have a JSON array, like the following example, you have two options.
+
+```json
+[
+  { "ID": 1, "Name": "James" },
+  { "ID": 2, "Name": "John" },
+  { "ID": 3, "Name": "Sam" }
+]
+```
+
+Option 1: Store the JSON array in a **Compose** action named **Compose1**. Then use the `outputs()` function to return a JSON object from **Compose1**.
+
+```
+{
+  "root": {
+    "array": @{outputs('Compose1')}
+  }
+}
+```
+
+Store the returned JSON object in another action named **Compose2**. You can then use the `xml()` and `outputs()` functions to create XML from the JSON object output from **Compose2**, for example: 
+
+```
+xml(outputs('Compose2'))
+```
+
+Option 2: Store the JSON array in a **Compose** action named **Compose1**. Then use the `outputs()`, `concat()`, `json()`, and `xml()` functions to create XML from the JSON object output, for example: 
+
+```
+xml(
+  json(
+    concat(
+      '{"root":{"array":',
+      outputs('Compose1'),
+      '}}'
+    )
+  )
+)
+```
+
+All three examples, which include the JSON string data example, option 1, and option 2, return the following XML result:
+
+```xml
+<root>
+  <array>
+    <ID>1</ID>
+    <Name>James</Name>
+  </array>
+  <array>
+    <ID>2</ID>
+    <Name>John</Name>
+  </array>
+  <array>
+    <ID>3</ID>
+    <Name>Sam</Name>
+  </array>
+</root>
+```
+
 <a name="xpath"></a>
 
 ### xpath

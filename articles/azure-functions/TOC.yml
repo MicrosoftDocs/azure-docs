@@ -18,211 +18,79 @@
   - name: Hosting plan options
     href: functions-scale.md
 - name: Quickstarts
+  displayName: quickstart, get started
   items:
-  - name: Create your first function
+  - name: Scenarios
+    expanded: true
+    displayName: Azure Developer CLI, azd
     items:
-    - name: C#
+    - name: Scalable web API
+      displayName: Flex Consumption plan
+      href: create-first-function-azure-developer-cli.md
+    - name: Respond to database changes
       items:
-      - name: Visual Studio
-        displayName: C#, quickstart, get started
-        href: functions-create-your-first-function-visual-studio.md
-      - name: Visual Studio Code
-        displayName: C#, quickstart, get started
-        href: how-to-create-function-vs-code.md?pivots=programming-language-csharp
-      - name: Command line
-        displayName: C#, quickstart, get started
-        href: how-to-create-function-azure-cli.md?pivots=programming-language-csharp
-      - name: Azure Developer CLI
-        displayName: C#, quickstart, get started, Flex Consumption plan
-        href: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
-    - name: Java
-      items:
+      - name: Azure Cosmos DB (NoSQL)
+        displayName: data validation, database
+        href: scenario-database-changes-azure-cosmosdb.md
+      - name: Azure SQL
+        displayName: data validation, database
+        href: scenario-database-changes-azure-sqldb.md
+  - name: Developer tools
+    items:
+    - name: Azure Developer CLI
+      displayName: Flex Consumption plan
+      href: create-first-function-azure-developer-cli.md
+    - name: Command line
+      displayName: quickstart, get started
+      href: how-to-create-function-azure-cli.md
+    - name: Visual Studio Code
+      href: how-to-create-function-vs-code.md
+    - name: Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
+    - name: Other
+      items:  
       - name: Eclipse
-        displayName: Java, quickstart, get started
         href: functions-create-maven-eclipse.md
-      - name: Gradle
-        displayName: Java, quickstart, get started
+      - name: Gradle 
         href: functions-create-first-java-gradle.md
       - name: IntelliJ IDEA
-        displayName: Java, quickstart, get started
         href: functions-create-maven-intellij.md
-      - name: Maven
-        displayName: Java, quickstart, get started
-        href: how-to-create-function-azure-cli.md?pivots=programming-language-java
       - name: Quarkus
-        displayName: Java, quickstart, get started
         href: functions-create-first-quarkus.md
       - name: Spring Cloud
-        displayName: Java, quickstart, get started
         href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
-      - name: Visual Studio Code
-        displayName: Java, quickstart, get started
-        href: how-to-create-function-vs-code.md?pivots=programming-language-java
-      - name: Azure Developer CLI
-        displayName: Java, quickstart, get started, Flex Consumption plan
-        href: create-first-function-azure-developer-cli.md?pivots=programming-language-java
-    - name: JavaScript
-      items:
-      - name: Visual Studio Code
-        displayName: JavaScript, quickstart, get started
-        href: how-to-create-function-vs-code.md?pivots=programming-language-javascript
-      - name: Command line
-        displayName: JavaScript, quickstart, get started
-        href: how-to-create-function-azure-cli.md?pivots=programming-language-javascript
-      - name: Azure Developer CLI
-        displayName: JavaScript, quickstart, get started, Flex Consumption plan
-        href: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
-    - name: PowerShell
-      items:
-      - name: Visual Studio Code
-        displayName: PowerShell, quickstart, get started
-        href: how-to-create-function-vs-code.md?pivots=programming-language-powershell
-      - name: Command line
-        displayName: PowerShell, quickstart, get started
-        href: how-to-create-function-azure-cli.md?pivots=programming-language-powershell
-      - name: Azure Developer CLI
-        displayName: PowerShell, quickstart, get started, Flex Consumption plan
-        href: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
-    - name: Python
-      items:
-      - name: Visual Studio Code
-        displayName: Python, quickstart, get started
-        href: how-to-create-function-vs-code.md?pivots=programming-language-python
-      - name: Command line
-        displayName: Python, quickstart, get started
-        href: how-to-create-function-azure-cli.md?pivots=programming-language-python
-      - name: Azure Developer CLI
-        displayName: Python, quickstart, get started, Flex Consumption plan
-        href: create-first-function-azure-developer-cli.md?pivots=programming-language-python
-    - name: TypeScript
-      items:
-      - name: Visual Studio Code
-        displayName: TypeScript, quickstart, get started
-        href: how-to-create-function-vs-code.md?pivots=programming-language-typescript
-      - name: Command line
-        displayName: TypeScript, quickstart, get started
-        href: how-to-create-function-azure-cli.md?pivots=programming-language-typescript
-      - name: Azure Developer CLI
-        displayName: TypeScript, quickstart, get started, Flex Consumption plan
-        href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
-    - name: Other (Go/Rust)
-      displayName: Go, Rust, quickstart, get started
+  - name: Resource Manager
+    items:
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: functions-create-first-function-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: functions-create-first-function-resource-manager.md
+    - name: Terraform
+      displayName: Terraform, quickstart, get started
+      href: functions-create-first-function-terraform.md
+    - name: Custom handlers (Go/Rust)
       href: create-first-function-vs-code-other.md
-    - name: Resource Manager
-      items:
-      - name: Bicep
-        displayName: ARM, Resource Manager, Template
-        href: functions-create-first-function-bicep.md
-      - name: ARM template
-        displayName: Resource Manager
-        href: functions-create-first-function-resource-manager.md
-      - name: Terraform
-        displayName: Terraform, quickstart, get started
-        href: functions-create-first-function-terraform.md
-    - name: Azure Container Apps
-      displayName: container, Docker, ACA
-      href: functions-deploy-container-apps.md
-    expanded: true
-  - name: Connect to storage
+  - name: Connect to services  
     items:
-    - name: C#
+    - name: Storage
       items:
-      - name: Visual Studio
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-vs.md
-      - name: Visual Studio Code
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp
-      - name: Command line
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp
-    - name: Java
-      items:
-      - name: Visual Studio Code
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java
-      - name: Command line
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java
-    - name: JavaScript
-      items:
-      - name: Visual Studio Code
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript
-      - name: Command line
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-javascript
-    - name: PowerShell
-      items:
-      - name: Visual Studio Code
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell
-      - name: Command line
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-powershell
-    - name: Python
-      items:
-      - name: Visual Studio Code
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python
-      - name: Command line
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
-    - name: TypeScript
-      items:
-      - name: Visual Studio Code
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-typescript
-      - name: Command line
-        displayName: Connect to storage
-        href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-typescript
-  - name: Connect to a database
-    items:
-    - name: C#
+        - name: Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
+        - name: Command line
+          href: functions-add-output-binding-storage-queue-cli.md
+    - name: Databases
       items:
       - name: Azure Cosmos DB
-        displayName: Connect to a database, Azure Cosmos DB
-        href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp
-      - name: Azure SQL
-        displayName: Connect to a database, Azure SQL
-        href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp
-    - name: JavaScript
-      items:
-      - name: Azure Cosmos DB
-        displayName: Connect to a database, Azure Cosmos DB
-        href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript
-      - name: Azure SQL
-        displayName: Connect to a database, Azure SQL
-        href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-javascript
-    - name: Python
-      items:
-      - name: Azure Cosmos DB
-        displayName: Connect to a database, Azure Cosmos DB
-        href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python
-      - name: Azure SQL
-        displayName: Connect to a database, Azure SQL
-        href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python
-  - name: Connect to OpenAI
-    items:
-    - name: C#
+        href: functions-add-output-binding-cosmos-db-vs-code.md
+      - name: Azure SQL Database
+        href: functions-add-output-binding-azure-sql-vs-code.md
+    - name: OpenAI
       displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md?pivots=programming-language-csharp
-    - name: Java
-      displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md?pivots=programming-language-java
-    - name: JavaScript
-      displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md?pivots=programming-language-javascript
-    - name: PowerShell
-      displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md?pivots=programming-language-powershell
-    - name: Python
-      displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md?pivots=programming-language-python
-    - name: TypeScript
-      displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md?pivots=programming-language-typescript
-  expanded: true
+      href: functions-add-openai-text-completion.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -515,8 +383,6 @@
         - name: Linux container (Premium)
           displayName: container, Docker, custom
           href: functions-deploy-container.md
-      - name: Azure Cosmos DB trigger
-        href: functions-create-cosmos-db-triggered-function.md
       - name: Blob storage trigger
         href: functions-create-storage-blob-triggered-function.md
       - name: Queue storage trigger
@@ -576,6 +442,8 @@
       - name: Functions in Kubernetes
         displayName: keda, container, docker
         href: functions-kubernetes-keda.md
+      - name: Azure Container Apps hosting (legacy)
+        href: functions-deploy-container-apps.md
     - name: Build and deploy using Azure Pipelines
       href: functions-how-to-azure-devops.md
     - name: Build and deploy using GitHub Actions
@@ -693,8 +561,6 @@
         href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
       - name: Work with Event Grid
         href: event-grid-how-tos.md
-    - name: Connect to SQL Database
-      href: functions-scenario-database-table-cleanup.md
     - name: Connect to a virtual Network
       href: ./functions-create-vnet.md
     - name: Create OpenAPI definitions

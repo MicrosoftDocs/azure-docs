@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 09/16/2025
+ms.date: 10/26/2025
 ms.custom: build-2025
 
 # Customer intent: As an Azure administrator, I want to implement virtual network flow logs so that I can effectively monitor network traffic, optimize performance, and ensure compliance within my virtual network.
@@ -243,14 +243,6 @@ Currently, these Azure services don't support virtual network flow logs:
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support virtual network flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
-
-## Known issues
-
-This section lists current known issues associated with virtual network flow logs. 
-
-| Issue | Description |
-| --- | --- | --- |
-| Users see inaccurate bytes and packet data instead of their actual flow count | Virtual network flow logs might report inaccurate byte and packet counts compared to actual flow data. This discrepancy can affect traffic analytics insights and downstream tools that rely on precise metrics. Users might observe inflated or deflated traffic volumes, which can lead to incorrect billing assumptions or misinformed security analysis. |
 
 ## Pricing
 
