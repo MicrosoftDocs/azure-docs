@@ -13,7 +13,7 @@ ms.date: 08/28/2025
 
 The Azure-managed **Default Rule Set (DRS)** in Azure Application Gateway Web Application Firewall (WAF) protects web applications against common vulnerabilities and exploits, including the OWASP top 10 attack types. The default rule set also incorporates the Microsoft Threat Intelligence Collection rules. We recommend always running the **latest ruleset version**, which includes the most recent security updates, rule enhancements, and fixes.
 
-The Azure-managed Default Rule Set (DRS) is the latest generation of rulesets in Azure WAF, replacing all previous Core Rule Set (CRS) versions. Among DRS releases, always use the highest available version (for example, DRS 2.2 when released) to ensure you have the most up-to-date protections.
+The Azure-managed Default Rule Set (DRS) is the latest generation of rulesets in Azure WAF, replacing all previous Core Rule Set (CRS) versions. Among DRS releases, always use the highest available version to ensure you have the most up-to-date protections.
 
 This article provides PowerShell examples for upgrading your Azure WAF policy to DRS 2.1. While the examples reference DRS 2.1 specifically, you should always upgrade to the latest available DRS version to ensure maximum protection. 
 
