@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 10/23/2025
+ms.date: 10/27/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to implement header rewriting in the Ingress API for Application Gateway for Containers, so that I can modify request and response headers for backend services to meet application requirements and facilitate better control over traffic management."
 ---
@@ -196,6 +196,9 @@ spec:
               - "client-custom-header"
 EOF
 ```
+
+>[!Note]
+>Modifying the `Host` header is not supported with a `requestHeaderModifier` rule. To override the `Host` value specified to the backend target, use a [URLRewrite](how-to-url-rewrite-ingress-api.md#deploy-the-required-ingress-api-resources) filter.
 
 Once the IngressExtension resource is created, ensure the resource returns _No validation errors_ and is valid.
 

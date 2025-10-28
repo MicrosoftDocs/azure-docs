@@ -68,7 +68,7 @@ The following information describes what happens when you have a zone-redundant 
 
 - **Detection and response:** Because Azure Device Registry detects and responds automatically to failures in an availability zone, you don't need to do anything to initiate an availability zone failover.
 
-- **Notification:** Zone failure events can be monitored through Azure Service Health. Set up alerts to receive notifications of zone-level issues.
+[!INCLUDE [Availability zone down notification (Service Health only)](./includes/reliability-availability-zone-down-notification-service-include.md)]
 
 - **Active requests:** Some active requests may be dropped and so may need to be retried in the same way as other transient faults. To make sure that your application is resilient to any transient faults, see [transient fault handling guidance](#transient-faults).
 

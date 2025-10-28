@@ -43,7 +43,7 @@ The agentless data connector is compatible with SAP S/4HANA Cloud, Private Editi
 
 The agentless data connector ingests critical security logs such as the security audit log, change docs logs and user master data including user roles and authorizations.
 
-### [Containerized data connector agent](#tab/agent)
+### [Containerized data connector agent (deprecated)](#tab/agent)
 
 For example, the following image shows a multi-SID SAP landscape with a split between production and nonproduction systems, including the SAP Business Technology Platform. All the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
 

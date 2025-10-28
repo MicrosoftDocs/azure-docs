@@ -31,11 +31,14 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 :::zone pivot="programming-language-csharp"
 
-* Install [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
     ```
+
+    > [!IMPORTANT]
+    > You must use the .NET 6.0 SDK to build and run the sample code in this article. The sample currently doesn't work with later versions of the SDK.
 
 :::zone-end
 

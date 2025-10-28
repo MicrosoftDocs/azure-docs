@@ -18,7 +18,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (October 2025)
 
-Public Preview: Dependency visualization across multiple servers [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-dependencies-across-servers)
+Public preview: Dependency visualization across multiple servers [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-dependencies-across-servers)
 
 You can use this capability to:
 - **Visualize network dependencies across servers:** This feature enables you to visualize network dependencies between discovered across different appliances. This comprehensive helps you understand how servers communicate within your datacenter.

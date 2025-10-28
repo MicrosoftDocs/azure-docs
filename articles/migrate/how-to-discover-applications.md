@@ -16,15 +16,16 @@ ms.custom: engagement-fy23
 
 This article describes how to discover installed software, ASP.NET web apps, and SQL, PostgreSQL and MYSQL Server instances and databases on servers running in your on-premises environment, using Azure Migrate.
 
+::: moniker range="migrate"
 In this tutorial, you learn how:
 - Software inventory helps identify the key software across categories such as Security & Compliance, Monitoring & operations, Business applications etc.
 - Software inventory identifies Web hosting and Databases & Data platform workloads to plan the migration of your workloads to Azure
 - Software insights helps identify the software running End-of-support (EoS) versions or have known vulnerabilities to prioritize them in your migration planning
 - Software insights provides a list of Potential Targets (1P & 3P Azure native services) that can be considered for migration of your software to Azure
+::: moniker-end
 
-    > [!NOTE]
-    > Software inventory is performed by the Azure Migrate appliance using server credentials. The discovery is completely agentless, that is, no agents are installed on the servers to collect this data.
-
+> [!NOTE]
+> Software inventory is performed by the Azure Migrate appliance using server credentials. The discovery is completely agentless, that is, no agents are installed on the servers to collect this data.
 
 ## Before you start
 
@@ -60,6 +61,24 @@ After the server discovery is complete, appliance initiates the discovery of ins
 
 ## Review the software inventory
 
+::: moniker range="migrate-classic"
+
+After software inventory has completed, you can review and export the inventory in the Azure portal.
+ 
+1. In **Azure Migrate - Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
+
+    > [!NOTE]
+    > At this stage you can optionally also enable dependency analysis for the discovered servers, so that you can visualize dependencies across servers you want to assess. [Learn more](concepts-dependency-visualization.md) about dependency analysis.
+   
+2. In **Software inventory** column, select the displayed count to review the discovered applications, roles, and features.
+4. To export the inventory, in **Discovered Servers**, select **Export software inventory**.
+ 
+The software inventory is exported and downloaded in Excel format. The **Software Inventory** sheet displays all the apps discovered across all the servers.
+
+::: moniker-end
+
+::: moniker range="migrate"
+
 After software inventory has completed, you can review the inventory in the Azure portal at the project level or per server level.
 
 ### Review software at project level
@@ -78,7 +97,7 @@ After software inventory has completed, you can review the inventory in the Azur
 10. You can select the **Vulnerabilities** count against each software to view the identified CVE (Common Vulnerabilities and Exposures) IDs for that software version along with other details such as CVSS (Common Vulnerability Scoring System), Risk Level, Age and date the CVE was published on. You can use this view to **Export** the vulnerabilities information for a particular software.
 
     > [!NOTE]
-    > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. For complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
+    > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. [Learn more](insights-overview.md#how-are-insights-derived) on how Insights (preview) are generated and and for complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
 11. You can also review the list of **Potential Targets** that have been suggested to plan the migration of your software to the Azure First Party(1P) services or Third Party (3P) Independent Software Vendor (ISV) services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
 12. The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, **Servers count** and **Vulnerabilities**.
@@ -157,6 +176,8 @@ In addition to reviewing software at project level, you can also review them at 
 3. In this tab, you can review each software metadata like **Name**, **Publisher**, **Version** and additional insights like **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
 4.  The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, and **Vulnerabilities**.
 5.  In addition to the software, you can select the **Roles and features** tab to view the roles and features installed on Windows servers.
+
+::: moniker-end
 
 ## Discover SQL Server instances and databases
 

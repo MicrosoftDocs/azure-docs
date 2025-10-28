@@ -1082,13 +1082,13 @@ Azure Functions supports the following Python versions:
 
 | Python<sup>1</sup> versions | Support level |
 | ----- | ----- |
-| 3.13 | Preview<sup>2</sup> |
-| 3.12 | Generally available (GA) |
+| 3.13 | Generally available (GA)<sup>2</sup> |
+| 3.12 | GA |
 | 3.11 | GA | 
 | 3.10 | GA |
 
 1. Official Python distributions
-2. Python 3.13 support is in preview and currently isn't supported by the [Consumption plan](./consumption-plan.md). 
+2. Python 3.13 isn't supported when your app runs in the [Consumption plan](./consumption-plan.md). 
 
 > [!IMPORTANT]  
 > Python 3.13 support introduces some improvements and a few breaking changes. For more information, see [Python 3.13+ in Azure Functions](./python-313-changes.md).

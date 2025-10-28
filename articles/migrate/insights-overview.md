@@ -7,13 +7,13 @@ ms.service: azure-migrate
 ms.topic: how-to 
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
-::: moniker range="migrate"
+monikerRange: migrate
 # Customer intent: IT administrators and cloud architects use the Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
 ---
 
 # Insights in Azure Migrate (preview)
 
-This article describes the **Insights** (preview) feature in Azure Migrate, which provides a security assessment of the infrastructure and software inventory discovered in your datacenter.
+This article describes the **Insights** (preview) feature in Azure Migrate, which provides security assessment of the infrastructure and software inventory discovered in your datacenter.
 
 ## Key benefits of Insights: What users gain 
 
@@ -22,7 +22,6 @@ This article describes the **Insights** (preview) feature in Azure Migrate, whic
 - Identify and plan upgrade of Windows and Linux servers with end of support operating system, end of support software and pending updates. 
 - Detect vulnerabilities in discovered software and take action to remediate risks.
 - Identify servers without security or patch management software, and plan to configure [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md).
-
 
 ## Security Insights data
 
@@ -34,45 +33,44 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 |  | OS end of support | Servers with end of support Operating system. | 
 |  | Software end of support | Servers with end of support Software discovered in Azure Migrate. | 
 |  | With vulnerabilities | Servers with known vulnerability (CVE) in OS and discovered Software. | 
-|  | Missing security software. | Servers without any discovered software belonging to Security software category. | 
-|  | Missing patch management software. | Servers without any discovered patch management software. | 
+|  | Missing security software | Servers without any discovered software belonging to Security software category. | 
+|  | Missing patch management software | Servers without any discovered patch management software. | 
 |  | Pending updates | Servers with pending updates or patches. | 
 | Software | With security risks | Software with at least one of the security risks – end of support, vulnerabilities. | 
 |  | End of support | Software declared end of support by vendor. | 
 |  | With vulnerabilities| Software with known vulnerability (CVE). | 
-
 
 ## How are Insights derived
 
 Azure Migrate identifies potential security risks in your datacenter using software inventory data collected through the [Azure Migrate appliance discovery process](how-to-review-discovered-inventory.md#deploy-and-configure-the-azure-migrate-appliance). When you run a discovery of your on-premises environment, you usually provide guest credentials for your Windows and Linux servers. This allows the tool to collect information about installed software, operating system configuration, and pending updates. Azure Migrate processes this data to generate key security insights without needing additional credentials or permissions.
 
 >[!Note]
-> Azure Migrate does not install additional agents or run a deep scan of your environment. Security insights are limited to software and operating system data discovered through the Azure Migrate appliance quick discovery. It analyzes the collected software inventory data and cross-references it with publicly available vulnerability and support lifecycle databases to highlight security risks in your datacenter.
+> Azure Migrate does not install additional agents or runs a deep scan of your environment. Security insights are limited to software and operating system data discovered through the Azure Migrate appliance quick discovery. It analyzes the collected software inventory data and cross-references it with publicly available vulnerability and support lifecycle databases to highlight security risks in your datacenter.
 
 Security risks are derived through a series of following analyses:
 
 - **End-of-support software**: Azure Migrate checks the versions of discovered software against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 7 days. If software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Identifying unsupported software early helps you plan upgrades or mitigations as part of your cloud migration.
 
-- **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software and OS to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each software version. It stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. Azure Migrate correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API for all CVE IDs but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
+- **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software and OS to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each software version. It stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. Azure Migrate correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
 
-- **Pending Updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on Windows Update metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
+- **Pending updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on [Windows Update](/windows/deployment/update/windows-update-overview) metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
 
-- **Missing Security and Patch Management Software**: Azure Migrate classifies software by processing its name and publisher into predefined categories and sub categories. It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Migrate flags the server as a potential security risk.
+- **Missing security and patch management software**: Azure Migrate classifies software by processing its name and publisher into predefined categories and sub categories. [Learn more](/azure/migrate/how-to-discover-applications?view=migrate#software-classification--potential-targets). It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Migrate flags the server as a potential security risk.
 
 Azure Migrate updates security insights whenever it refreshes discovered software inventory data. The platform updates insights when you run a new discovery or when the Azure Migrate appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reached end-of-life, will reflect in the updated security insights.
 
 ### Calculate number of security risks
 
-Use the following formula to calculate the security risk score for a server: 
+Use the following formula to calculate number of security risks for a server: 
 
-OS end-of-support flag + Software end-of-support flag + Number of vulnerabilities + Number of pending critical and security updates + Security software flag + Patch management software flag.
+OS end-of-support flag + Software end-of-support flag + Number of vulnerabilities + Number of pending critical and security updates + Security software flag + Patch management software flag
 
    - **OS end-of-support flag** = 1 if the server operating system is at end of support; otherwise, 0.
    - **Software end-of-support flag** = 1 if the software is at end of support; otherwise, 0.
    - **Number of vulnerabilities** = Count of CVEs identified for the server.
    - **Number of pending critical and security updates** = Pending updates for Windows and Linux servers that are classified as Critical or Security.
    - **Security software flag** = 1 if no software belonging to the Security category was discovered on the server; otherwise, 0.
-   - **Patch management software flag** = 1 if no software belonging to the Patch Management sub category was discovered on the server; otherwise, 0. 
+   - **Patch management software flag** = 1 if no software belonging to the Patch Management sub-category was discovered on the server; otherwise, 0. 
  
 >[!Note]
 > Security insights in Azure Migrate help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for comprehensive protection of your hybrid environment.
@@ -82,10 +80,10 @@ OS end-of-support flag + Software end-of-support flag + Number of vulnerabilitie
 Ensure the following prerequisites are met for generating complete Insights:
 
 - Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights. It might take up to 24 hours after discovery to generate Insights.[Import-based discovery](discovery-methods-modes.md) isn't supported.
-- Use an existing project or create an [Azure Migrate project using portal](quickstart-create-project.md).
+- Use an existing project or create an [Azure Migrate project using portal](quickstart-create-project.md) in any of the public regions supported by Azure Migrate. This capability is currently not supported in Government clouds.
 - Ensure guest discovery features are enabled on the appliance(s).
-- Ensure there are no software discovery issues. Go to **Action Center** in Azure Migrate project to filter issues for software inventory. 
-- Ensure Software inventory is gathered actively for all servers at least once in last 30 days
+- Ensure there are no software discovery issues. Go to [Action Center](/azure/migrate/centralized-issue-tracking?view=migrate) in Azure Migrate project to filter issues for software inventory. 
+- Ensure Software inventory is gathered actively for all servers at least once in last 30 days.
 
 ## Review Insights 
 
@@ -168,7 +166,6 @@ To review software with identified security risks, follow these steps:
 
     :::image type="content" source="./media/security-insights-overview/metadata-export-view.png" alt-text="Screenshot shows detailed list of discovered software and its metadata." lightbox="./media/security-insights-overview/metadata-export-view.png":::
 
-
 1. To view software with specific security risks, go to the **Insights** (preview) pane. here, you see a detailed list of software affected due to the following issues:
 
     - End-of-support status
@@ -192,7 +189,7 @@ To view detailed security insights for a specific server:
     - Pending critical and security updates
     - End-of-support software
     - Software with known vulnerabilities (CVEs)
-    The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
+    - The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
 
     :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the pending updates and vulnerabilities." lightbox="./media/security-insights-overview/pending-updates.png":::
 
@@ -210,6 +207,8 @@ Security insights are enabled by default for all users. To manage access, create
 |  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of VMware machine |
 
 
+Below error message is displayed when a user does not have permissions to view Insights:
+
 :::image type="content" source="./media/security-insights-overview/permissions.png" alt-text="Screenshot shows that you don't have permissions to view." lightbox="./media/security-insights-overview/permissions.png":::
 
 >[!Note]
@@ -218,6 +217,5 @@ Security insights are enabled by default for all users. To manage access, create
 ## Next steps
 
 - Learn more about [permissions in Azure Migrate](/azure/role-based-access-control/permissions/migration#microsoftmigrate).
-- Learn more about [creating custom role](/azure/role-based-access-control/role-definitions).
 - Learn more about [Security cost in Business case](concepts-business-case-calculation.md).
 - Learn more about [Assessments](concepts-overview.md).

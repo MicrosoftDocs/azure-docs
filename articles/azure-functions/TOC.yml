@@ -138,8 +138,8 @@
     href: functions-event-hub-cosmos-db.md
 - name: Samples
   items:
-  - name: Azure Serverless Community Library
-    href: https://www.serverlesslibrary.net/
+  - name: Azure Functions Samples in Github 
+    href: https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue&type=repositories
   - name: Azure Samples
     items:
     - name: C#

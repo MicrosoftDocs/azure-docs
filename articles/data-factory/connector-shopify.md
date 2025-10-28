@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/12/2025
+ms.date: 10/12/2025
 ---
 
 # Copy data from Shopify using Azure Data Factory or Synapse Analytics (Preview)
@@ -151,7 +151,10 @@ To copy data from Shopify, set the type property of the dataset to **ShopifyObje
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ShopifyObject** | Yes |
-| tableName | Name of the table. For version 2.0 (Preview), table names retain the Shopify GraphQL structure, for example `customers`. For version 1.0, table names use simplified names with prefix, for example, `"Shopify"."Customers"`.| Yes for version 2.0 (Preview).<br> No for version 1.0 (if "query" in activity source is specified) |
+| tableName | Name of the table. <br><br>For version 2.0 (Preview), table names retain the Shopify GraphQL structure, for example `customers`. <br><br>For version 1.0, table names use simplified names with prefixes, for example, `"Shopify"."Customers"`.| No (if "query" in activity source is specified) |
+
+> [!NOTE]
+> *tags* column can not be read when you specify `tableName` in the dataset. To read this column, [use `query`](#shopify-as-source).
 
 **Example**
 
@@ -181,10 +184,7 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ShopifySource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
-
-> [!Note]
-> `query` is not supported in version 2.0 (Preview).
+| query |For version 2.0, use the GraphQL query to read data. To learn more about this query, see this [article](https://shopify.dev/docs/api/admin-graphql). Note that the pagination query is only supported for outer tables, and each record in the outer table can include up to 250 inner table records. <br><br>For version 1.0, use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -207,8 +207,7 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
         ],
         "typeProperties": {
             "source": {
-                "type": "ShopifySource",
-                "query": "SELECT * FROM \"Products\" WHERE Product_Id = '123'"
+                "type": "ShopifySource"
             },
             "sink": {
                 "type": "<sink type>"
@@ -249,13 +248,13 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | Public Preview | • Table and column names retain the Shopify GraphQL structure. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. |
+| Version 2.0 | Public Preview |• Table and column names retain the Shopify GraphQL structure. <br><br> • Support GraphQL query only. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. |
 
 ### <a name="upgrade-the-shopify-connector-from-version-10-to-version-20"></a> Upgrade the Shopify connector from version 1.0 to version 2.0 (Preview)
 
 1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
 1. For version 2.0 (Preview), note that table and column names retain the Shopify GraphQL structure.
-1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
+1. If you use SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert them to the GraphQL query. To learn more about this query, see this [article](https://shopify.dev/docs/api/admin-graphql)
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

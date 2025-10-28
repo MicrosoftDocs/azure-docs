@@ -33,11 +33,14 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 :::zone pivot="programming-language-csharp"
 
-* Install [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
     ```
+
+    > [!IMPORTANT]
+    > You must use the .NET 6.0 SDK to build and run the sample code in this article. The sample currently doesn't work with later versions of the SDK.
 
 * (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) up to the step where you get an endorsement key for the device. Save the **Endorsement key**, as you use it later in this article.
 

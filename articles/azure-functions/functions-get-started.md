@@ -48,32 +48,32 @@ These sites let you browse existing functions reference projects and samples in 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=dotnetCsharp)
-+ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=C%23)
++ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AC%23&type=repositories&l=C%23)
 + [Azure Samples Browser](/samples/browse/?expanded=azure&languages=csharp&products=azure-functions) 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=java)
-+ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=Java)
++ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AJava&type=repositories&l=Java)
 + [Azure Samples Browser](/samples/browse/?expanded=azure&languages=java&products=azure-functions)
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=javascript)
-+ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=JavaScript)
++ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AJavaScript&type=repositories)
 + [Azure Samples Browser](/samples/browse/?expanded=azure&languages=javascript&products=azure-functions)
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=typescript)
-+ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=TypeScript)
++ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3ATypeScript+&type=repositories)
 + [Azure Samples Browser](/samples/browse/?expanded=azure&languages=typescript&products=azure-functions)
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=powershell)
-+ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=PowerShell) 
++ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3APowerShell&type=repositories) 
 + [Azure Samples Browser](/samples/browse/?expanded=azure&languages=powershell&products=azure-functions)
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=python)
-+ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=Python) 
++ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3APython+&type=repositories) 
 + [Azure Samples Browser](/samples/browse/?expanded=azure&languages=python&products=azure-functions)
 ::: zone-end  
 

@@ -19,7 +19,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The MariaDB connector version 2.0 provides improved native MariaDB support. If you are using MariaDB connector version 1.0 in your solution, please [upgrade your MariaDB connector](#upgrade-the-mariadb-driver-version) as version 1.0 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
+> The MariaDB connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the MariaDB connector](#upgrade-the-mariadb-driver-version) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
