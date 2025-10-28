@@ -159,7 +159,7 @@ The load balancer rules are used to distribute traffic to the virtual machines. 
     | ---                     | ---                                                |
     | **Name** | Enter **lb-rule-2**. |
     | **Frontend IP address** | Select **frontend-2**. |
-    | **Backend Pool** | Select **backend-pool-2**. |
+    | **Backend pool** | Select **backend-pool-2**. |
     | **Health probe** | Select **dhcp-health-probe**. |
 
 [!INCLUDE [create-two-virtual-machines-windows-load-balancer.md](../../includes/create-two-virtual-machines-windows-load-balancer.md)]
