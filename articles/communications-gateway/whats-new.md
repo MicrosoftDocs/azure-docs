@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Communications Gateway?
 description: Discover what's new in Azure Communications Gateway. Learn how to get started with the latest features.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: whats-new
 ms.date: 04/03/2024
 ---

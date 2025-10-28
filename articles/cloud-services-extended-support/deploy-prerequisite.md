@@ -2,7 +2,7 @@
 title: Prerequisites for deploying Cloud Services (extended support)
 description: Learn about the prerequisites for deploying Azure Cloud Services (extended support).
 ms.topic: concept-article
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

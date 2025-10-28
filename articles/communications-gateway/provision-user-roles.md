@@ -1,7 +1,7 @@
 ---
 title: Set up user roles for Azure Communications Gateway
 description: Learn how to configure the user roles required to deploy, manage, and monitor your Azure Communications Gateway.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 10/16/2025
 ms.custom: sfi-ga-nochange

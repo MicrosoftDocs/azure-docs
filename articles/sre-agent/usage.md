@@ -3,7 +3,7 @@ title: Create and Use an agent in Azure SRE Agent Preview
 description: Learn how to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 10/13/2025
+ms.date: 10/28/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -23,19 +23,7 @@ While access to SRE Agent was previously only available to customers via a waitl
 
 ## Prerequisites
 
-To create an agent, you need to grant your agent the correct permissions and access to the right namespace:
-
-* **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-
-* **Security context**: Make sure that your user account has the `Microsoft.Authorization/roleAssignments/write` permissions as either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
-
-* **Subscription ID for your allow list**: Make sure that your Azure CLI session is set to the subscription ID in the preview allow list. If you need to set the Azure CLI context to your subscription ID, use the following command:
-
-    ```azurecli  
-    az account set --subscription "<SUBSCRIPTION_ID>"
-    ```
-
-* **Access to the approved regions**: During the preview, the only allowed regions for SRE Agent are the *Sweden Central*, *East US 2*, and *Australia East* regions. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in the appropriate region.
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 
 ## Create an agent
 

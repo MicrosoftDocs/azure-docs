@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Communications Gateway to Zoom Phone Cloud Peering
 description:  After deploying Azure Communications Gateway, you can configure it to connect to Zoom servers for Zoom Phone Cloud Peering.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: integration
 ms.date: 04/25/2024
 ms.custom:

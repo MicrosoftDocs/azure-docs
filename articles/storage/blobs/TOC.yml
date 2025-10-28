@@ -885,8 +885,6 @@ items:
             href: storage-blobs-tune-upload-download-javascript.md
           - name: Implement a retry policy
             href: storage-retry-policy-javascript.md
-        - name: 'Tutorial: Upload and process image files'
-          href: blob-upload-function-trigger-javascript.md
       - name: Python
         items:
         - name: Get started

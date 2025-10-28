@@ -1,18 +1,18 @@
 ---
-title: Migrate to NFS Azure file shares from Linux
-description: Learn how to migrate from Linux file servers to NFS Azure file shares using recommended open source file copy tools. Compare the performance of file copy tools fpsync and rsync.
+title: Migrate to NFS Azure File Shares from Linux
+description: Learn how to migrate from Linux file servers to NFS Azure file shares using recommended file copy tools. Compare the performance of file copy tools fpsync and rsync.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 01/08/2023
+ms.date: 10/28/2025
 ms.author: kendownie
 # Customer intent: As a system administrator, I want to migrate data from Linux file servers to NFS Azure file shares using efficient file copy tools, so that I can ensure optimal performance and manage large datasets during the migration process.
 ---
 
 # Migrate to NFS Azure file shares
 
-This article covers the basic aspects of migrating from Linux file servers to NFS Azure file shares, which are only available as Premium file shares (FileStorage account kind). We'll also compare the open source file copy tools fpsync and rsync to understand how they perform when copying data to Azure file shares.
+This article covers the basic aspects of migrating from Linux file servers to NFS Azure file shares, which are only available as Premium file shares (SSD media tier). We'll also compare the open source file copy tools fpsync and rsync to understand how they perform when copying data to Azure file shares.
 
 > [!NOTE]
 > Azure Files doesn't support NFS access control lists (ACLs).
@@ -31,13 +31,17 @@ You'll need at least one NFS Azure file share mounted to a Linux virtual machine
 
 ## Migration tools
 
-Many open source tools are available to transfer data to NFS file shares. However, not all of them are efficient when dealing with a distributed file system with distinct performance considerations compared to on-premises setups. In a distributed file system, each network call involves a round trip to a server that might not be local. Therefore, optimizing the time spent on network calls is crucial to achieving optimal performance and efficient data transfer over the network.
+Many tools are available to transfer data to NFS file shares. However, not all of them are efficient when dealing with a distributed file system with distinct performance considerations compared to on-premises setups. In a distributed file system, each network call involves a round trip to a server that might not be local. Therefore, optimizing the time spent on network calls is crucial to achieving optimal performance and efficient data transfer over the network.
+
+### Use Azure Storage Mover
+
+You can now use [Azure Storage Mover](/azure/storage-mover/service-overview) to migrate your NFSv3 and NFSv4 file shares to NFSv4.1 Azure file shares. Azure Storage Mover is a fully managed migration service that enables you to migrate on-premises files and folders to Azure while minimizing downtime.
 
 ### Using fpsync vs. rsync
 
 Despite being single-threaded, [rsync](https://linux.die.net/man/1/rsync) is a versatile, open source file copy tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers many options and enables flexible specification of the set of files to be copied. However, [fpsync](https://manpages.ubuntu.com/manpages/questing/en/man1/fpsync.1.html) is a multithreaded application and therefore offers some advantages, including the ability to run rsync jobs in parallel.
 
-In this article, we'll use fpsync to move data from a Linux file server to NFS Azure file shares.
+In this article, we'll explain how to use fpsync to move data from a Linux file server to NFS Azure file shares.
 
 To copy the data, fpsync uses either rsync (default), [cpio](https://linux.die.net/man/1/cpio), or tar tools. It computes subsets of the source directory `src_dir/` and spawns synchronization jobs to synchronize them to the destination directory `dst_dir/`. It executes synchronization jobs on-the-fly while simultaneously crawling the file system, making it a useful tool for efficiently migrating large file systems and copying large datasets with multiple files.
 

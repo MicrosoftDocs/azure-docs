@@ -1,7 +1,7 @@
 ---
 title: Prepare for Zoom Phone Cloud Peering live traffic with Azure Communications Gateway
 description: After deploying Azure Communications Gateway, you must carry out further integration work before you can launch your Zoom Phone Cloud Peering service.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/25/2024
 ---

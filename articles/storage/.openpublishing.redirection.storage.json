@@ -2616,6 +2616,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/blob-upload-function-trigger-javascript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-javascript-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/storage-about-disks-and-vhds-linux.md",
             "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
             "redirect_document_id": false

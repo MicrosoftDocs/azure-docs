@@ -40,6 +40,7 @@ Choose your task version at the top of the article.
 * If you plan to use GitHub instead of Azure Repos, you also need a GitHub repository. If you don't have a GitHub account, you can [create one for free](https://github.com). 
 
 * An existing function app in Azure that has its source code in a supported repository. If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
+
     ### [C\#](#tab/csharp)
 
     [Quickstart: Create a C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp)
@@ -56,9 +57,13 @@ Choose your task version at the top of the article.
 
     [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-powershell)
 
+    ### [Java](#tab/java)
+
+    [Quickstart: Create a Java function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java)
+
     ---
     
-    Remember to upload the local code project to your GitHub or Azure Repos repository after you publish it to your function app. 
+Remember to upload the local code project to your GitHub or Azure Repos repository after you publish it to your function app. 
 
 ## Build your app
 
@@ -74,6 +79,7 @@ Choose your task version at the top of the article.
 ### Example YAML build pipelines
 
 The following language-specific pipelines can be used for building apps. 
+
 #### [C\#](#tab/csharp)
 
 You can use the following sample to create a YAML file to build a .NET app:
@@ -190,6 +196,39 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+#### [Java](#tab/java)
+
+You can use the following sample to create a YAML file to build a Java app:
+
+```yaml
+pool:
+  vmImage: 'ubuntu-latest'
+steps:
+  - task: JavaToolInstaller@0
+    displayName: 'Install Java 17'
+    inputs:
+      versionSpec: '17'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+  - task: Maven@3
+    displayName: 'Build with Maven'
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'clean package'
+      options: '-DskipTests=true'
+      publishJUnitResults: false
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)/target"
+      includeRootFolder: false
+      archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      artifactName: 'drop'
+```
+
 ---
 
 ::: zone-end  
@@ -324,6 +363,37 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+#### [Java](#tab/java)
+
+```yaml
+pool:
+  vmImage: 'ubuntu-latest'
+steps:
+  - task: JavaToolInstaller@0
+    displayName: 'Install Java 17'
+    inputs:
+      versionSpec: '17'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+  - task: Maven@3
+    displayName: 'Build with Maven'
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'clean package'
+      options: '-DskipTests=true'
+      publishJUnitResults: false
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)/target"
+      includeRootFolder: false
+      archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      artifactName: 'drop'
+```
+
 ---
 
 ::: zone-end

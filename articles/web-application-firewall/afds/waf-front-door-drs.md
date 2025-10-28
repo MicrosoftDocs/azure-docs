@@ -93,7 +93,7 @@ DRS 2.2 rules offer better protection than earlier versions of the DRS. It inclu
 DRS 2.2 includes 18 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or an entire rule set. DRS 2.2 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.4 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team.
 
 #### Disabled rules
-DRS 2.2 rules configured in Paranoia Level 2 are disabled by default. You can leave their state as disabled if you wish to keep your WAF policy configured in Paranoia Level 1. If you wish to increase the policy's paranoia level, you can safely change these rules' state to enabled and their action to log mode. Analyze the log, make the required fine tuning and enable the rules accordingly. For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md) and [#paranoia-level](Paranoia level)
+DRS 2.2 rules configured in Paranoia Level 2 are disabled by default. You can leave their state as disabled if you wish to keep your WAF policy configured in Paranoia Level 1. If you wish to increase the policy's paranoia level, you can safely change these rules' state to enabled and their action to log mode. Analyze the log, make the required fine tuning and enable the rules accordingly. For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md) and [Paranoia level](#paranoia-level).
 
 
 Some OWASP rules are superseded by Microsoft-authored replacements. The original rules are disabled by default and their descriptions end with "(replaced by …)".

@@ -424,6 +424,36 @@
         "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
         "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
         "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
+      "redirect_url": "/azure/reliability/reliability-event-grid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
+      "redirect_url": "/azure/reliability/reliability-event-grid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/move-custom-topics-across-regions.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/move-domains-across-regions.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/move-system-topics-across-regions.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/event-schema-storage-actions.md",
+      "redirect_url": "/azure/storage-actions/overview",
+      "redirect_document_id": false
     }
   ]
 }
