@@ -148,8 +148,8 @@ The following table lists limits for [Azure managed domains](../quickstarts/emai
 
 | Operation | Scope | Timeframe (minutes) | Limit (number of emails) | Higher limits available |
 | --- | --- | --- | --- | --- |
-| Send Email | Per Subscription | 1 | 5 | No |
-| Send Email | Per Subscription | 60 | 10 | No |
+| Send Email | Per Subscription | 1 | 30 | No |
+| Send Email | Per Subscription | 60 | 100 | No |
 | Get Email Status | Per Subscription | 1 |10 | No |
 | Get Email Status | Per Subscription | 60 |20 | No |
 
