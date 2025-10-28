@@ -37,6 +37,7 @@ You can configure Application Gateway Private Link using multiple methods:
 Before configuring Private Link, ensure you have:
 - An existing Application Gateway
 - A virtual network with a dedicated subnet for Private Link (separate from the Application Gateway subnet)
+- privateLinkServiceNetworkPolicies should be disabled in the dedicated subnet
 - Appropriate permissions to create and configure Private Link resources
 
 ## Define a subnet for Private Link configuration
