@@ -117,7 +117,7 @@ A second frontend is required for the load balancer to provide high availability
 
 1. Select **+ Add**.
 
-1. Enter **-2** for **Name** in **Add backend pool**.
+1. Enter **backend-pool-2** for **Name** in **Add backend pool**.
 
 1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
