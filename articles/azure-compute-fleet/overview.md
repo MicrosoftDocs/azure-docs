@@ -7,7 +7,7 @@ ms.topic: overview
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 04/21/2025
+ms.date: 10/29/2025
 ms.reviewer: jushiman
 # Customer intent: As a cloud administrator, I want to deploy and manage multiple virtual machines efficiently using an automated compute resource management tool, so that I can optimize resource allocation based on cost and capacity while ensuring high availability for my workloads.
 ---
@@ -32,7 +32,6 @@ Using Azure Compute Fleet, you can:
 ## Features and benefits
 
 - **Multiple VM series:** Compute Fleet launches multiple VM series within a given fleet. Overall availability in the fleet is enhanced by ensuring it isn't reliant on any single VM type.
-- **Distributing VMs across Availability Zones:** Compute Fleet automatically distributes VMs across multiple Availability Zones to ensure high availability and resilience against potential zone failures.
 - **Diverse pricing models:** Compute Fleet leverages various purchasing options, including Spot VMs for cost savings and standard pay-as-you-go VMs. You can also integrate Azure Reserved Instances and Savings Plans to optimize costs while ensuring consistent capacity. There's no extra charge for using Azure Compute Fleet. You're only charged for the VMs your Compute Fleet launches per hour. For more information, see [states and billing status of Azure VMs](/azure/virtual-machines/states-billing).
 - **Automated Replacement of Spot VMs:** When using Spot VMs, Compute Fleet can automatically replace Spot VMs when evicted due to price fluctuations or capacity constraints.
 - **Multi-Region deployment:** Compute Fleet allows you to dynamically distribute workloads across multiple regions. For more information, see [Multi-Region Compute Fleet (Preview)](multi-region-compute-fleet.md).

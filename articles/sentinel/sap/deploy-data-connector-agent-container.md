@@ -380,6 +380,9 @@ If you have an SAP agentless data connector for Microsoft Sentinel, you can use 
 
 This procedure is only relevant when you want to customize the SAP agentless data connector behavior. Skip this procedure if you're satisfied with the default functionality. For example, if you're using Sybase, we recommend that you turn off ingestion for Change Docs logs in the iflow by configuring the **collect-changedocs-logs** parameter. Due to database performance issues, ingesting Change Docs logs Sybase isn't supported.
 
+> [!TIP]
+> See [this blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/run-agentless-sap-connector-cost-efficiently/4464781) for more insights on the **implications of overriding the defaults**.
+
 ### Prerequisites for customizing data connector behavior
 
 - You must have access to the [SAP Integration Suite](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/sap-cloud-integration), with permissions to [edit value mappings](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/working-with-mapping).

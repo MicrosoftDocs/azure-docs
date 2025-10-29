@@ -14,6 +14,9 @@ ms.custom: sfi-image-nochange
 
 # Handle false positives in Microsoft Sentinel
 
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
+
 [Microsoft Sentinel analytics rules](threat-detection.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
 
 ## False positive causes and prevention

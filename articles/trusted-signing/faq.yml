@@ -194,7 +194,10 @@ sections:
     questions:  
        - question: How do I unenroll from Trusted Signing?
          answer: |
-          To unenroll from Trusted Signing, delete your Trusted Signing account. Unregister Microsoft.CodeSigning as the resource provider. Deleting the account deletes the certificate profiles underneath this account. This stops certificate renewal, effectively halting the signing process that's associated with those specific certificate profiles. However, deleting the account doesn't affect the certificates that were already used to sign your files. The associated identity validation needs to be explicitly deleted as identity validation is shared across different Trusted Signing accounts within the same subscription and can impact certificate profiles and signing from those accounts.
+          - To unenroll from Trusted Signing, delete your Trusted Signing account.  
+          - Unregister Microsoft.CodeSigning as the resource provider. 
+          - Deleting the account deletes the certificate profiles underneath this account. This stops certificate renewal, effectively halting the signing process that's associated with those specific certificate profiles. However, deleting the account doesn't affect the certificates that were already used to sign your files. 
+          - The associated identity validation needs to be explicitly deleted as identity validation is shared across different Trusted Signing accounts within the same subscription and can impact certificate profiles and signing from those accounts.
   - name: Misuse and abuse of Trusted Signing certificates
     questions:  
        - question: How can someone external report to Microsoft the suspected misuse and abuse of Trusted Signing certificates?

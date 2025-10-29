@@ -17,6 +17,9 @@ ms.collection: usx-security
 
 # Work with anomaly detection analytics rules in Microsoft Sentinel
 
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
+
 Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules are enabled, or activated, by default, so they will generate anomalies out-of-the-box. You can find and query these anomalies in the **Anomalies** table in the **Logs** section.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]

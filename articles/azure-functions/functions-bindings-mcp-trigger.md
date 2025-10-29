@@ -90,26 +90,32 @@ This code creates an endpoint to expose a tool named `SaveSnippets` that tries t
 ```java
 @FunctionName("SaveSnippets")
 @StorageAccount("AzureWebJobsStorage")
-public void saveSnippet(
+public String saveSnippet(
         @McpToolTrigger(
-                toolName = "saveSnippets",
-                description = "Saves a text snippet to your snippets collection.",
-                toolProperties = SAVE_SNIPPET_ARGUMENTS
+                name = "saveSnippets",
+                description = "Saves a text snippet to your snippets collection."
         )
-        String toolArguments,
-        @BlobOutput(name = "outputBlob", path = BLOB_PATH)
+        String mcpToolInvocationContext,
+        @McpToolProperty(
+                name = "snippetName",
+                propertyType = "string",
+                description = "The name of the snippet.",
+                required = true
+        )
+        String snippetName,
+        @McpToolProperty(
+                name = "snippet",
+                propertyType = "string",
+                description = "The content of the snippet.",
+                required = true
+        )
+        String snippet,
+        @BlobOutput(name = "outputBlob", path = "snippets/{mcptoolargs.snippetName}.json")
         OutputBinding<String> outputBlob,
         final ExecutionContext context
 ) {
     // Log the entire incoming JSON for debugging
-    context.getLogger().info(toolArguments);
-
-    // Parse the JSON and extract the snippetName/snippet fields
-    JsonObject arguments = JsonParser.parseString(toolArguments)
-            .getAsJsonObject()
-            .getAsJsonObject("arguments");
-    String snippetName = arguments.get(SNIPPET_NAME_PROPERTY_NAME).getAsString();
-    String snippet = arguments.get(SNIPPET_PROPERTY_NAME).getAsString();
+    context.getLogger().info(mcpToolInvocationContext);
 
     // Log the snippet name and content
     context.getLogger().info("Saving snippet with name: " + snippetName);
@@ -117,6 +123,8 @@ public void saveSnippet(
 
     // Write the snippet content to the output blob
     outputBlob.setValue(snippet);
+    
+    return "Successfully saved snippet '" + snippetName + "' with " + snippet.length() + " characters.";
 }
 ```
 
@@ -125,31 +133,37 @@ This code creates an endpoint to expose a tool named `GetSnippets` that tries to
 ```java
 @FunctionName("GetSnippets")
 @StorageAccount("AzureWebJobsStorage")
-public void getSnippet(
+public String getSnippet(
         @McpToolTrigger(
-                toolName = "getSnippets",
-                description = "Gets a text snippet from your snippets collection.",
-                toolProperties = GET_SNIPPET_ARGUMENTS
+                name = "getSnippets",
+                description = "Gets a text snippet from your snippets collection."
         )
-        String toolArguments,
-        @BlobInput(name = "inputBlob", path = BLOB_PATH)
+        String mcpToolInvocationContext,
+        @McpToolProperty(
+                name = "snippetName",
+                propertyType = "string",
+                description = "The name of the snippet.",
+                required = true
+        )
+        String snippetName,
+        @BlobInput(name = "inputBlob", path = "snippets/{mcptoolargs.snippetName}.json")
         String inputBlob,
         final ExecutionContext context
 ) {
     // Log the entire incoming JSON for debugging
-    context.getLogger().info(toolArguments);
-
-    // Parse the JSON and get the snippetName field
-    String snippetName = JsonParser.parseString(toolArguments)
-            .getAsJsonObject()
-            .getAsJsonObject("arguments")
-            .get(SNIPPET_NAME_PROPERTY_NAME)
-            .getAsString();
+    context.getLogger().info(mcpToolInvocationContext);
 
     // Log the snippet name and the fetched snippet content from the blob
     context.getLogger().info("Retrieving snippet with name: " + snippetName);
     context.getLogger().info("Snippet content:");
     context.getLogger().info(inputBlob);
+    
+    // Return the snippet content or a not found message
+    if (inputBlob != null && !inputBlob.trim().isEmpty()) {
+        return inputBlob;
+    } else {
+        return "Snippet '" + snippetName + "' not found.";
+    }
 }
 ```
 
@@ -272,17 +286,16 @@ For the complete code example, see [snippetsMcpTool.ts](https://github.com/Azure
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 
-This code uses the `generic_trigger` decorator to create an endpoint to expose a tool named `save_snippet` that tries to persist a named code snippet to blob storage.
+This code uses the `mcp_tool_trigger` decorator to create an endpoint to expose a tool named `save_snippet` that tries to persist a named code snippet to blob storage.
 
 ```python
-@app.generic_trigger(
+@app.mcp_tool_trigger(
     arg_name="context",
-    type="mcpToolTrigger",
-    toolName="save_snippet",
+    tool_name="save_snippet",
     description="Save a snippet with a name.",
-    toolProperties=tool_properties_save_snippets_json,
+    tool_properties=tool_properties_save_snippets_json,
 )
-@app.generic_output_binding(arg_name="file", type="blob", connection="AzureWebJobsStorage", path=_BLOB_PATH)
+@app.blob_output(arg_name="file", connection="AzureWebJobsStorage", path=_BLOB_PATH)
 def save_snippet(file: func.Out[str], context) -> str:
     content = json.loads(context)
     snippet_name_from_args = content["arguments"][_SNIPPET_NAME_PROPERTY_NAME]
@@ -299,17 +312,16 @@ def save_snippet(file: func.Out[str], context) -> str:
     return f"Snippet '{snippet_content_from_args}' saved successfully"
 ```
 
-This code uses the `generic_trigger` decorator to create an endpoint to expose a tool named `get_snippet` that tries to retrieve a code snippet by name from blob storage.
+This code uses the `mcp_tool_trigger` decorator to create an endpoint to expose a tool named `get_snippet` that tries to retrieve a code snippet by name from blob storage.
  
 ```python
-@app.generic_trigger(
+@app.mcp_tool_trigger(
     arg_name="context",
-    type="mcpToolTrigger",
-    toolName="get_snippet",
+    tool_name="get_snippet",
     description="Retrieve a snippet by name.",
-    toolProperties=tool_properties_get_snippets_json,
+    tool_properties=tool_properties_get_snippets_json,
 )
-@app.generic_input_binding(arg_name="file", type="blob", connection="AzureWebJobsStorage", path=_BLOB_PATH)
+@app.blob_input(arg_name="file", connection="AzureWebJobsStorage", path=_BLOB_PATH)
 def get_snippet(file: func.InputStream, context) -> str:
     """
     Retrieves a snippet by name from Azure Blob Storage.
@@ -348,15 +360,25 @@ See [Usage](#usage) to learn how to define properties of the endpoint as input p
 
 ## Annotations
 
-The `McpTrigger` annotation creates a function that exposes a tool endpoint in your remote MCP server. 
+The `@McpToolTrigger` annotation creates a function that exposes a tool endpoint in your remote MCP server. 
 
 The annotation supports the following configuration options:
 
 |Parameter | Description|
 |---------|----------------------|
-| **toolName**| (Required) name of the tool that's being exposed by the MCP trigger endpoint. |
+| **name**| (Required) name of the tool that's being exposed by the MCP trigger endpoint. |
 | **description**| (Optional) friendly description of the tool endpoint for clients. |
-| **toolProperties** | The JSON string representation of one or more property objects that expose properties of the tool to clients.  |
+
+The `@McpToolProperty` annotation defines individual properties for your tools. Each property parameter in your function should be annotated with this annotation.
+
+The `@McpToolProperty` annotation supports the following configuration options:
+
+|Parameter | Description|
+|---------|----------------------|
+| **name**| (Required) name of the tool property that gets exposed to clients. |
+| **propertyType**| (Required) type of the tool property. Valid types are: `string`, `number`, `integer`, `boolean`, `object`. |
+| **description**| (Optional) description of what the tool property does. |
+| **required** | (Optional) if set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"
@@ -364,18 +386,14 @@ The annotation supports the following configuration options:
 
 _Applies only to the Python v2 programming model._
 
->[!NOTE]  
->At this time, you must use a generic decorator to define an MCP trigger. 
-
-The following MCP trigger properties are supported on `generic_trigger`:
+The `mcp_tool_trigger` decorator requires version 1.24.0 or later of the [`azure-functions` package](https://pypi.org/project/azure-functions/). The following MCP trigger properties are supported on `mcp_tool_trigger`:
 
 | Property    | Description |
 |-------------|-----------------------------|
-| **type** | (Required) Must be set to `mcpToolTrigger` in the `generic_trigger` decorator. |
 | **arg_name** | The variable name (usually `context`) used in function code to access the execution context. |
-| **toolName**  | (Required) The name of the MCP server tool exposed by the function endpoint. |
+| **tool_name**  | (Required) The name of the MCP server tool exposed by the function endpoint. |
 | **description**  | A description of the MCP server tool exposed by the function endpoint.  |
-| **toolProperties** | The JSON string representation of one or more property objects that expose properties of the tool to clients.  |
+| **tool_properties** | The JSON string representation of one or more property objects that expose properties of the tool to clients.  |
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -506,7 +524,12 @@ For the complete example, see the [`Program.cs` file](https://github.com/Azure-S
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"  
+::: zone pivot="programming-language-java"
+In Java, you define tool properties by using the `@McpToolProperty` annotation on individual function parameters. Each parameter that represents a tool property should be annotated with this annotation, specifying the property name, type, description, and whether it's required.
+
+You can see these annotations used in the [Examples](#example).
+::: zone-end
+::: zone pivot="programming-language-python,programming-language-javascript,programming-language-typescript"
 You can configure tool properties in the trigger definition's `toolProperties` field, which is a string representation of an array of `ToolProperty` objects. 
 
 A `ToolProperty` object has this structure:

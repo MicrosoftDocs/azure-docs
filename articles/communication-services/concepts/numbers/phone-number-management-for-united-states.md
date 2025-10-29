@@ -45,7 +45,7 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 |Canada|
-|United States|
+|United States (excl. Puerto Rico)|
 
 ## Azure subscription billing locations where United States local and toll-free phone numbers are available
 
@@ -79,3 +79,4 @@ For more information about Azure Communication Services telephony options, see:
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+

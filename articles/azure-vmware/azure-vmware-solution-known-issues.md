@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 10/8/2025
+ms.date: 10/22/2025
 # Customer intent: "As a cloud administrator, I want to access detailed information about known issues in Azure VMware Solution so that I can implement workarounds and ensure the stability of my virtual environment."
 ---
 
@@ -16,6 +16,7 @@ Refer to the table to find details about resolution dates or possible workaround
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
+| Azure VMware Solution hosts and associated VMs may become unresponsive due to an [ESXi Mellanox driver issue](https://knowledge.broadcom.com/external/article/383273). | October 22, 2025 | Microsoft is actively monitoring and mitigating this issue and notifying all impacted customers that an urgent upgrade is necessary to remediate this issue. | October 22, 2025 - Resolved in [ESXi 8.0_U3f](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3f-release-notes.html) |
 | Compression and deduplication are disabled by default in vSAN OSA-based clusters. This behavior is observed starting from Cluster-2 onwards, whereas Cluster-1 was deployed with the default configuration. | September 29, 2025 | To remediate, use existing Set-vSANCompressDedupe Run command to enable Compression and Deduplication. Click the [link](https://learn.microsoft.com/azure/azure-vmware/configure-vsan#set-vmware-vsan-space-efficiency) to learn more about Set-vSANCompressDedupe cmdlet. | N/A |
 | [VMSA-2025-0016](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/36150) VMware vCenter Server and NSX updates address multiple vulnerabilities (CVE-2025-41250, CVE-2025-41251, CVE-2025-41252). | September 29, 2025 | These vulnerabilities do not apply to Azure VMware Solution since we have existing compensating controls to mitigate the risk of exploitation. | N/A |
 | [VMSA-2025-0015](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/36149) VMware Aria Operations and VMware Tools updates address multiple vulnerabilities (CVE-2025-41244, CVE-2025-41245, CVE-2025-41246). | September 29, 2025 | Microsoft has confirmed these vulnerabilities affect Azure VMware Solution. Microsoft strongly recommends immediately upgrading VMware Aria Operations and VMware Tools for remediation. To remediate CVE-2025-41244, apply version 12.5.4 or 13.0.5 of VMware Tools using the Azure VMware Solution Run command ``Set-Tools-Repo.`` | September 29, 2025 |

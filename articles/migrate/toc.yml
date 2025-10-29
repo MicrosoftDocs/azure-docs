@@ -53,21 +53,21 @@ items:
           href: add-server-credentials.md
         - name: Appliance diagnostics
           href: troubleshoot-appliance-diagnostic.md 
-    - name: Discover VMware
+    - name: Discover VMware estate
       items:
-      - name: Discover VMware Virtual Machines
+      - name: Discover Virtual Machines
         href: tutorial-discover-vmware.md
       - name: Scoped discovery of VMware hosted VMs
         href: set-discovery-scope.md
       - name: Support matrix for VMware discovery 
         href: migrate-support-matrix-vmware.md 
-    - name: Discover Hyper-V Virtual Machines
+    - name: Discover Hyper-V estate
       items: 
-      - name: Discover Hyper-V
+      - name: Discover Virtual Machines
         href: tutorial-discover-hyper-v.md
       - name: Support matrix for Hyper-V discovery 
         href: migrate-support-matrix-hyper-v.md
-    - name: Discover physical servers
+    - name: Discover Physical or Public-cloud estate
       items:  
       - name: Discover physical servers and servers running in AWS and GCP
         href: tutorial-discover-physical.md
@@ -139,7 +139,7 @@ items:
       href: cost-estimation.md   
     - name: Target right-sizing # help users understand how perf data is used in depth
       href: target-right-sizing.md
-    - name: Confidence rating
+    - name: Performance coverage
       href: confidence-ratings.md
     - name: Application assessment
       items:
@@ -149,6 +149,10 @@ items:
           href: assessment-properties.md
         - name: Review assessment report
           href: review-application-assessment.md
+        - name: Code level insights
+          items:
+            - name: Integrate with CAST highlights
+              href: cast-highlights-integration.md
     - name: Workload specific assessments
       items:
       - name: Azure VM assessment

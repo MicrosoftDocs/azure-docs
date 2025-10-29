@@ -159,29 +159,6 @@ The assessment summary shows the estimated compute and storage cost of running V
 2. Review monthly storage costs. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
 3. You can drill down to see cost details for specific VMs.
 
-### Review confidence rating
-
-Azure Migrate assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
-
-![Confidence rating](./media/tutorial-assess-gcp/confidence-rating.png)
-
-The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
-
-> [!NOTE]
-> Confidence ratings aren't assigned if you create an assessment based on a CSV file.
-
-
-Confidence ratings are as follows.
-
-**Data point availability** | **Confidence rating**
---- | ---
-0%-20% | 1 star
-21%-40% | 2 stars
-41%-60% | 3 stars
-61%-80% | 4 stars
-81%-100% | 5 stars
-
-[Learn more](assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
 
 ## Next steps
 

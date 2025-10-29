@@ -12,6 +12,9 @@ ms.date: 01/09/2023
 
 # Handle ingestion delay in scheduled analytics rules
 
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
+
 While Microsoft Sentinel can ingest data from [various sources](connect-data-sources.md), ingestion time for each data source may differ in different circumstances.
 
 This article describes how ingestion delay might impact your scheduled analytics rules and how you can fix them to cover these gaps.

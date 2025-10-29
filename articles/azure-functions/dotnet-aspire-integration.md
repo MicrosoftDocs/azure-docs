@@ -180,6 +180,155 @@ By default, when you publish an Azure Functions project to Azure, it's deployed 
 
 During the preview period, the container app resources don't support event-driven scaling. Azure Functions support is not available for apps deployed in this mode. If you need to open a support ticket, select the Azure Container Apps resource type.
 
+### Access keys
+
+Several Azure Functions scenarios use access keys to provide a basic mitigation against unwanted access. For example, HTTP trigger functions by default require an access key to be invoked, though this requirement can be disabled using the [`AuthLevel` property](./functions-bindings-http-webhook-trigger.md#attributes). See [Work with access keys in Azure Functions](./function-keys-how-to.md) for scenarios which may require a key.
+
+When you deploy a Functions project using Aspire to Azure Container Apps, the system doesn't automatically create or manage Functions access keys. If you need to use access keys, you can manage them as part of your App Host setup. This section shows you how to create an extension method that you can call from your app host's `Program.cs` file to create and manage access keys. This approach uses Azure Key Vault to store the keys and mounts them into the container app as secrets.
+
+> [!NOTE]
+> The behavior here relies on the `ContainerApps` secret provider, which is only available starting with Functions host version `4.1044.0`. This version is not yet available in all regions, and until it is, when you publish your Aspire project, the base image used for the Functions project may not include the necessary changes.
+
+These steps require Bicep version `0.38.3` or later. You can check your Bicep version by running `bicep --version` from a command prompt. If you have the Azure CLI installed, you can use `az bicep upgrade` to quickly update Bicep to the latest version.
+
+Add the following NuGet packages to your app host project:
+- [Aspire.Hosting.Azure.AppContainers](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppContainers)
+- [Aspire.Hosting.Azure.KeyVault](https://www.nuget.org/packages/Aspire.Hosting.Azure.KeyVault)
+
+Create a new class in your app host project and include the following code:
+
+```csharp
+using Aspire.Hosting.Azure;
+using Azure.Provisioning.AppContainers;
+
+namespace Aspire.Hosting;
+
+internal static class Extensions
+{
+    private record SecretMapping(string OriginalName, IAzureKeyVaultSecretReference Reference);
+
+    public static IResourceBuilder<T> PublishWithContainerAppSecrets<T>(
+        this IResourceBuilder<T> builder,
+        IResourceBuilder<AzureKeyVaultResource>? keyVault = null,
+        string[]? hostKeyNames = null,
+        string[]? systemKeyExtensionNames = null)
+        where T : AzureFunctionsProjectResource
+    {
+        if (!builder.ApplicationBuilder.ExecutionContext.IsPublishMode)
+        {
+            return builder;
+        }
+
+        keyVault ??= builder.ApplicationBuilder.AddAzureKeyVault("functions-keys");
+
+        var hostKeysToAdd = (hostKeyNames ?? []).Append("default").Select(k => $"host-function-{k}");
+        var systemKeysToAdd = systemKeyExtensionNames?.Select(k => $"host-systemKey-{k}_extension") ?? [];
+        var secrets = hostKeysToAdd.Union(systemKeysToAdd)
+            .Select(secretName => new SecretMapping(
+                secretName,
+                CreateSecretIfNotExists(builder.ApplicationBuilder, keyVault, secretName.Replace("_", "-"))
+            )).ToList();
+
+        return builder
+            .WithReference(keyVault)
+            .WithEnvironment("AzureWebJobsSecretStorageType", "ContainerApps")
+            .PublishAsAzureContainerApp((infra, app) => ConfigureFunctionsContainerApp(infra, app, builder.Resource, secrets));
+    }
+
+    private static void ConfigureFunctionsContainerApp(
+        AzureResourceInfrastructure infrastructure, 
+        ContainerApp containerApp, 
+        IResource resource, 
+        List<SecretMapping> secrets)
+    {
+        const string volumeName = "functions-keys";
+        const string mountPath = "/run/secrets/functions-keys";
+
+        var appIdentityAnnotation = resource.Annotations.OfType<AppIdentityAnnotation>().Last();
+        var containerAppIdentityId = appIdentityAnnotation.IdentityResource.Id.AsProvisioningParameter(infrastructure);
+
+        var containerAppSecretsVolume = new ContainerAppVolume
+        {
+            Name = volumeName,
+            StorageType = ContainerAppStorageType.Secret
+        };
+
+        foreach (var mapping in secrets)
+        {
+            var secret = mapping.Reference.AsKeyVaultSecret(infrastructure);
+
+            containerApp.Configuration.Secrets.Add(new ContainerAppWritableSecret()
+            {
+                Name = mapping.Reference.SecretName.ToLowerInvariant(),
+                KeyVaultUri = secret.Properties.SecretUri,
+                Identity = containerAppIdentityId
+            });
+
+            containerAppSecretsVolume.Secrets.Add(new SecretVolumeItem
+            {
+                Path = mapping.OriginalName.Replace("-", "."),
+                SecretRef = mapping.Reference.SecretName.ToLowerInvariant()
+            });
+        }
+
+        containerApp.Template.Containers[0].Value!.VolumeMounts.Add(new ContainerAppVolumeMount
+        {
+            VolumeName = volumeName,
+            MountPath = mountPath
+        });
+        containerApp.Template.Volumes.Add(containerAppSecretsVolume);
+    }
+
+    public static IAzureKeyVaultSecretReference CreateSecretIfNotExists(
+        IDistributedApplicationBuilder builder,
+        IResourceBuilder<AzureKeyVaultResource> keyVault,
+        string secretName)
+    {
+        var secretParameter = ParameterResourceBuilderExtensions.CreateDefaultPasswordParameter(builder, $"param-{secretName}", special: false);
+        builder.AddBicepTemplateString($"key-vault-key-{secretName}", """
+                param location string = resourceGroup().location
+                param keyVaultName string
+                param secretName string
+                @secure()
+                param secretValue string    
+
+                // Reference the existing Key Vault
+                resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+                  name: keyVaultName
+                }
+
+                // Deploy the secret only if it does not already exist
+                @onlyIfNotExists()
+                resource newSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
+                  parent: keyVault
+                  name: secretName
+                  properties: {
+                      value: secretValue
+                  }
+                }
+                """)
+            .WithParameter("keyVaultName", keyVault.GetOutput("name"))
+            .WithParameter("secretName", secretName)
+            .WithParameter("secretValue", secretParameter);
+
+        return keyVault.GetSecret(secretName);
+    }
+}
+```
+
+You can then use this method in your app host's `Program.cs` file:
+
+```csharp
+builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
+       .WithHostStorage(storage)
+       .WithExternalHttpEndpoints()
+       .PublishWithContainerAppSecrets(systemKeyExtensionNames: ["mcp"]);
+```
+
+This example uses a default key vault created by the extension method. It results in a default key and a system key for use with the [Model Context Protocol extension](./functions-bindings-mcp.md#connect-to-your-mcp-server).
+
+To use these keys from clients, you need to retrieve them from the key vault.
+
 ## Considerations and best practices
 
 Consider the following points when you're evaluating the integration of Azure Functions with Aspire:

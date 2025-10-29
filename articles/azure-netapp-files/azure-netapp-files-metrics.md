@@ -287,22 +287,22 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     Whether the status of the volume replication is transferring. 
 
 - *Volume replication lag time* <br>
-    Lag time is the actual amount of time the replication lags behind the source. It indicates the age of the replicated data in the destination volume relative to the source volume.
+    The delay between when data is written to the source volume and when it’s available on the destination volume.
 
 > [!NOTE]
 > When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication speed or the replication schedule. 
 
 - *Volume replication last transfer duration*   
-    The amount of time in seconds it took for the last transfer to complete. 
+    The time taken for the most recent replication session to transfer all changed data (example: blocks, snapshots) from the source volume to the destination volume. 
 
 - *Volume replication last transfer size*    
-    The total number of bytes transferred as part of the last transfer. 
-
+    The total amount of data transferred during the most recent replication session from a source volume to its destination volume.
+  
 - *Volume replication progress*    
     The total amount of data in bytes transferred for the current transfer operation. 
 
 - *Volume replication total transfer*   
-    The cumulative bytes transferred for the relationship. 
+    The cumulative volume of data transferred from the source volume to the destination volume throughout the entire lifetime of the replication relationship. 
 
 ## Throughput metrics for capacity pools   
 

@@ -193,7 +193,7 @@ After it calculates storage requirements, the assessment considers CPU and RAM r
 For *All servers to SQL Server on Azure VM* migration strategy, refer compute and storage sizing [here](concepts-assessment-calculation.md#calculate-sizing-as-is-on-premises).
 
 > [!NOTE]
-> Confidence ratings are not applicable to Azure SQL assessments using *As on-premises* sizing criteria.
+> Performance coverage is not applicable to Azure SQL assessments using *As on-premises* sizing criteria.
 
 
 ### Performance-based sizing calculation
@@ -318,4 +318,4 @@ A minimum of 5 GB storage cost is added in the cost estimate and additional stor
 ## Next steps 
  
 - [Review](best-practices-assessment.md) best practices for creating assessments. 
-- Learn how to run an [Azure SQL assessment](how-to-create-azure-sql-assessment.md). 
+- Learn how to run an [Azure SQL assessment](how-to-create-azure-sql-assessment.md).

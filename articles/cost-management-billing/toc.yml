@@ -25,6 +25,8 @@
     href: understand/understand-usage.md
   - name: Individual subscription invoice terms
     href: understand/understand-invoice.md
+  - name: Understand the billing and tenant relationship
+    href: understand/understand-billing-tenant-relationship.md  
   - name: Microsoft Customer Agreement usage terms
     href: understand/mca-understand-your-usage.md
   - name: Microsoft Customer Agreement invoice terms

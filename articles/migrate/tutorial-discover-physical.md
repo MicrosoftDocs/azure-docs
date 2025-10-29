@@ -311,7 +311,7 @@ To see how many months are left until the end of support, select **Columns** > *
 After discovery starts, you can delete any added server from the appliance configuration manager by searching for the server name in the **Add discovery source** table and selecting **Delete**.
 
 >[!Note]
-> If you delete a server after discovery starts, it stops the ongoing discovery and assessment. This action might affect the confidence rating of the assessment that includes the server. [Learn more](common-questions-discovery-assessment.md#why-is-the-confidence-rating-of-my-assessment-low).
+> If you delete a server after discovery starts, it stops the ongoing discovery and assessment. This action might affect the confidence rating of the assessment that includes the server. [Learn more](common-questions-discovery-assessment.md#why-is-the-performance-coverage-of-my-assessment-low).
 
 ## Next steps
 

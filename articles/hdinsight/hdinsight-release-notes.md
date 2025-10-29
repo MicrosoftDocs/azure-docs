@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
-ms.date: 10/28/2025
+ms.date: 10/29/2025
 ---
 
 # Azure HDInsight release notes
@@ -19,7 +19,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions.
 
-To subscribe, click the **watch** button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases/tag/2025-05-28).
+To subscribe, click the **watch** button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases/tag/2025-10-29).
 
 ## Release Information
 

@@ -1982,6 +1982,14 @@ groups:
     title: Elastic Observability
   - id: elastic-security
     title: Elastic Security
+- id: datadog-create
+  title: Datadog Create
+  prompt: Select your creation experience for Datadog.
+  pivots:
+  - id: azure-portal
+    title: Azure Portal
+  - id: azure-cli
+    title: Azure CLI
 # Owner: jodowns
 - id: sql-managed-instance-tiers
   title: Tier
