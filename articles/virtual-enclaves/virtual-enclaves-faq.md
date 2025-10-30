@@ -40,8 +40,8 @@ Azure Virtual Enclaves includes news roles to help you manage your environments 
 ## Using Azure Virtual Enclaves
 Guides for using Azure Virtual Enclaves.
 
-### How do I create a resource not in the Azure service allow list?
-When you are deploying an Azure service into a workload resource group and you see the error `Do not allow creation of resource types outside of the allowlist` this means the service is not in the policy allow list. You can create an exemption to the policy by
+### How do I create a resource not in the Azure service allowlist?
+When you're deploying an Azure service into a workload resource group and you see the error `Do not allow creation of resource types outside of the allowlist`, the error means the service isn't in the policy allowlist. You can create an exemption from the policy by
 1. Navigating to the workload resource
 2. Select `Governance` and `Policy Compliance` on the left side
 3. Search for "Allow" and select the policy for your workload resource group
@@ -52,14 +52,14 @@ Once the update action finishes, you can redeploy the service that was denied pr
 
 ### How do I prevent the creation of new Azure Virtual Enclaves resource types?
 
-If you're a cloud engineer and want to restrict the creation of new Communities in your subscription you can use Azure policy to prevent deployment of specific resource types.
+If you're a cloud engineer and want to restrict the creation of new Communities in your subscription, you can use Azure policy to prevent deployment of specific resource types.
 
 Currently, Azure Virtual Enclaves recommends following the [Tutorial: Disallow resource types in your cloud environment](/azure/governance/policy/tutorials/disallowed-resources) and defining the business logic your organization desires. The `Not allowed resource types` and `Allowed resource types` policies are linked in the tutorial.
 
 As an example, to prevent deploying Communities to a Subscription, you would assign the `Not allowed resource type` [policy definition](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6c112d4e-5bc7-47ae-a041-ea2d9dccd749) while including `Microsoft.Mission/communities` in the parameter list of not allowed resource types.
 
 ### Can I `move` my enclave?
-Moving the enclave resource itself isn't supported and moves for some of the resources deployed in the enclave managed resource group also don't support moves actions (for example bastion, IP groups, and user assigned managed identity). [Learn more](/azure/azure-resource-manager/management/move-support-resources).
+Moving the enclave resource itself isn't supported. Additionally, moves aren't supported for some of the resources deployed in the enclave managed resource group (for example bastion, IP groups, and user assigned managed identity). [Learn more](/azure/azure-resource-manager/management/move-support-resources).
 
 ## Billing
 Questions related to Azure Virtual Enclaves billing.
@@ -88,10 +88,10 @@ Enclaves deployed during part of an hour are charged for the full hour.
 
 ### Can I add a firewall to my enclave virtual network, in addition to the community firewall?
 
-This is not a recommended pattern and it is not supported at this time. The Virtual Network traffic is forced through the community firewall by default.
+Adding a virtual network firewall isn't a recommended pattern and it isn't supported at this time. The Virtual Network traffic is forced through the community firewall by default.
 
 ## Connections
 
 ### What access is allowed by default?
 
-A default firewall rule is created to allow access to the Key Management Service (KMS) which is used for volume activation of Microsoft products. The community firewall policy will include a network rule that allows outbound access to KMS resources.
+A default firewall rule is created to allow access to the Key Management Service (KMS) which is used for volume activation of Microsoft products. The community firewall policy includes a network rule that allows outbound access to KMS resources.
