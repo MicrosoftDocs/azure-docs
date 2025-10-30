@@ -24,6 +24,9 @@ This article explains Private Link service Direct Connect and how to create it u
 > [!NOTE]
 > This feature is in public preview and is available in select regions. Review all considerations before enabling it for your subscription.
 
+> [!NOTE]
+> Portal support is available via a preview link that activates the feature in your portal: ([aka.ms/PortalPLSDirectConnect](https://aka.ms/PortalPLSDirectConnect)). Full portal support without use of a preview link to access the feature is pending.
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
@@ -71,7 +74,7 @@ Note these limitations when using Private Link service Direct Connect:
 ## Considerations
 
 - **No migration support**: Deploying this feature requires a new Private Link service. Migration of existing private link services isn't supported.
-- **Available client support**: Use PowerShell, CLI, or Terraform to deploy this new Private Link service. Portal client support is available via a preview link that activates the feature in portal: ([aka.ms/PortalPLSDirectConnect](https://aka.ms/PortalPLSDirectConnect)). Full portal support without use of a preview link to configure the feature is pending.
+- **Available client support**: Use PowerShell, CLI, or Terraform to deploy this new Private Link service. Portal support is available via a preview link that activates the feature in portal: ([aka.ms/PortalPLSDirectConnect](https://aka.ms/PortalPLSDirectConnect)). Full portal support without use of a preview link to configure the feature is pending.
 - **IP forwarding is enabled**: If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration.
 
 ## Create a Private Link service Direct Connect

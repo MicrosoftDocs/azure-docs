@@ -12,7 +12,8 @@ This article explains how to disable a function in Azure Functions. To *disable*
 
 You can disable a function in place by creating an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in several ways, including by using the [Azure CLI](/cli/azure/), [Azure PowerShell](/powershell/azure/), and from your function's **Overview** tab in the [Azure portal](https://portal.azure.com). 
 
-Changes to application settings cause your function app to restart. For more information, see [App settings reference for Azure Functions](functions-app-settings.md).
+> [!NOTE]  
+> Changing application settings causes your function app to restart by default across all hosting plans. For zero-downtime deployments when changing settings, use the [Flex Consumption plan](flex-consumption-plan.md) with [rolling updates as the site update strategy](flex-consumption-site-updates.md). For other hosting plans, see [optimize deployments](functions-best-practices.md#optimize-deployments) for guidance on minimizing downtime.
 
 ## Disable a function
 

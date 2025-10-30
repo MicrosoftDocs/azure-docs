@@ -3,7 +3,7 @@ title: Create portal forms for template spec
 description: Learn how to create forms that are displayed in the Azure portal forms. Use the form to deploy a template spec.
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 01/30/2025
+ms.date: 10/29/2025
 ---
 
 # Tutorial: Create Azure portal forms for a template spec

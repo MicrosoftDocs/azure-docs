@@ -222,8 +222,12 @@
         href: functions-container-apps-hosting.md
     - name: Consumption plan
       href: consumption-plan.md
-  - name: Deployment options
-    href: functions-deployment-technologies.md
+  - name: Deployment
+    items:
+    - name: Deployment options
+      href: functions-deployment-technologies.md
+    - name: Flex Consumption update strategies
+      href: flex-consumption-site-updates.md
   - name: Events and messaging
     items:
     - name: Connect to services

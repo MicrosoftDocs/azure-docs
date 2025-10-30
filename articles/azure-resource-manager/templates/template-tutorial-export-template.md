@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Export and use Azure portal templates 
 description: Learn how to export a template from the Azure portal to use sample templates from Azure Quickstart Templates.
-ms.date: 10/27/2025
+ms.date: 10/29/2025
 ms.topic: tutorial
 ms.custom:
 ---

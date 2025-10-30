@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: concept-article
-ms.date: 11/05/2024
+ms.date: 10/30/2025
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange

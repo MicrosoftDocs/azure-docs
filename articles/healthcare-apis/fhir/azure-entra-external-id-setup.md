@@ -7,7 +7,7 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 07/30/2025
-ms.author: v-kopparthim
+ms.author: evach
 ---
 
 # Use Microsoft Entra External ID to grant access to the FHIR service

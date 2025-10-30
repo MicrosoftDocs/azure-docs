@@ -55,7 +55,7 @@ Create an app registration in your Microsoft Entra ID tenant. The app registrati
     * In the **Supported account types** section, select **Accounts in this organizational directory only**.
     * In **Redirect URI**, select **Single-page application (SPA)** and enter the following URL: `https://{your-api-management-service-name}.developer.azure-api.net/signin`, where `{your-api-management-service-name}` is the name of your API Management instance.
     * Select **Register** to create the application.
-1.On the app **Overview** page, find the **Application (client) ID** and **Directory (tenant) ID** and copy theses values to a safe location. You need them later.
+1.On the app **Overview** page, find the **Application (client) ID** and **Directory (tenant) ID** and copy these values to a safe location. You need them later.
 1. In the sidebar menu, under **Manage**, select **Certificates & secrets**. 
 1. From the **Certificates & secrets** page, on the **Client secrets** tab, select **+ New client secret**. 
     * Enter a **Description**.

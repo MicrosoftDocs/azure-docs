@@ -41,6 +41,9 @@ These settings are stored encrypted. For more information, see [App settings sec
 
 You can manage app settings from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage app settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings).
 
+> [!NOTE]  
+> Changing application settings causes your function app to restart by default across all hosting plans. For zero-downtime deployments when changing settings, use the [Flex Consumption plan](flex-consumption-plan.md) with [rolling updates as the site update strategy](flex-consumption-site-updates.md). For other hosting plans, see [optimize deployments](functions-best-practices.md#optimize-deployments) for guidance on minimizing downtime.
+
 ### [Azure portal](#tab/azure-portal)
 
 To view your app settings, see [Get started in the Azure portal](#get-started-in-the-azure-portal).

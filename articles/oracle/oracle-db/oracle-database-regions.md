@@ -26,11 +26,11 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Azure region   | OCI region   | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
 | -------------- | ----------------------- | ----------------------------- | -------------------------------- | -------- |---------|---------|---------|-----|
 | Australia East | Australia East (Sydney) | ✓         | ✓      | ✓ | ✓ | Preview available | |  Dual   |
-| Australia Southeast | Australia Southeast (Melbourne) | ✓        | ✓ | | |  | |   Single   |
+| Australia Southeast | Australia Southeast (Melbourne) | ✓        | ✓ | | |  | |   Dual   |
 | Central India | India West (Mumbai) | ✓  | ✓ | | | | |   Single   |
-| Japan East | Japan East (Tokyo) | ✓         | ✓  | ✓ | ✓ |Preview available | ✓ |   Dual   |
+| Japan East | Japan East (Tokyo) | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ |   Dual   |
 | Japan West | Japan Central (Osaka) | ✓  | ✓ | | | | |   Single   |
-| Southeast Asia |Singapore (Singapore) | ✓         | ✓      | ✓ | ✓ | | ✓ |  Dual   |
+| Southeast Asia |Singapore (Singapore) | ✓  | ✓   | ✓ | ✓ | ✓ | ✓ |  Dual   |
 
 
 
@@ -38,7 +38,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 
 | Azure region | OCI region                 | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
 | ------------ | -------------------------- | ----------------------------- | -------------------------------- | ------------------------------------------------- | --------------------------------------------------------- | ------ | --------------------- |-------|
-| Brazil South | Brazil Southeast (Vinhedo) | ✓                             | ✓                                | ✓                                                 | ✓                                                         |    |    | Dual                  |
+| Brazil South | Brazil Southeast (Vinhedo) | ✓    | ✓      | ✓   | ✓     | ✓  |    | Dual   |
 
 ## Europe, Middle East, Africa (EMEA)
 
@@ -49,13 +49,13 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Germany North |Germany Central (Frankfurt) | ✓  | ✓ | | | | |   Single    |
 | Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓ | ✓ | ✓ | ✓ | Dual |
 | Italy North | Italy North (Milan)   | ✓   | ✓   | ✓ |  ✓ | ✓ |  | Dual |
-| North Europe | Ireland (Dublin) | ✓  | ✓ |   | | | |   Single   |
+| North Europe | Ireland (Dublin) | ✓  | ✓ |   | | | |   Dual   |
 | Spain Central | 	Spain Central (Madrid) | ✓  | ✓ | | | | |   Dual    |
 | Sweden Central | 	Sweden Central (Stockholm) | ✓  | ✓ | | | | |   Dual    |
 | Switzerland North | Switzerland North (Zurich) | ✓  |  | | | | |   Single    |
 | UAE Central | UAE Central (Abu Dhabi) | ✓  | ✓ | | | | |   Single    |
-| UAE North | UAE North (Dubai) | ✓  | | | | | |   Dual    |
-| UK South| UK South (London)   | ✓   | ✓   | ✓ | ✓ | ✓ | ✓ | Dual|
+| UAE North | UAE North (Dubai) | ✓  | | ✓ | | | |   Dual    |
+| UK South| UK South (London)   | ✓   | ✓   | ✓ | ✓ | ✓ | ✓ | Dual |
 | UK West | UK West (Newport)	   | ✓   | ✓  | | ✓ | ✓ |  | Single |
 
 
@@ -70,8 +70,8 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | East US 2        | US East (Ashburn)          | ✓    | ✓         | ✓       |  ✓   |   |  | Dual     |
 | South Central US | US South (Dallas)   | ✓     |  ✓        |           |    |   |   | Dual |
 | West US          | US West (San Jose)    | ✓    | ✓      | ✓     |     | ✓ |  | Single   |
-| West US 2        | US West (Quincy)  | ✓    |   ✓  |     |     |  |  | Single |
-| West US 3        | US West (Phoenix)   | ✓   |   |     |    |  |  | Single   |
+| West US 2        | US West (Quincy)  | ✓    |   ✓  |  ✓   |     |  |  | Dual |
+| West US 3        | US West (Phoenix)   | ✓   |   |  ✓   |    |  |  | Dual   |
 
 
 > [!NOTE]

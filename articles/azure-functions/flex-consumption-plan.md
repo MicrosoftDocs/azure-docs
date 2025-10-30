@@ -106,6 +106,13 @@ To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP
 
 Deployments in the Flex Consumption plan follow a single path, and there's no longer the need for app settings to influence deployment behavior. After your project code is built and zipped into an application package, it's deployed to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
 
+### Zero-downtime deployments
+
+> [!NOTE]
+> Zero-downtime deployments with rolling updates are currently in public preview.
+
+Flex Consumption provides zero-downtime deployments through rolling updates as the [site update strategy](flex-consumption-site-updates.md), which allows code deployments and configuration changes to be applied gradually across instances without interrupting function execution. Other hosting plans use deployment slots to minimize downtime during deployments. For deployment options across all hosting plans, see [optimize deployments](functions-best-practices.md#optimize-deployments).
+
 ## Billing
 
 [!INCLUDE [functions-flex-consumption-billing-table](../../includes/functions-flex-consumption-billing-table.md)]

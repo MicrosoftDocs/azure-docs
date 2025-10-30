@@ -2,7 +2,7 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 10/29/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 

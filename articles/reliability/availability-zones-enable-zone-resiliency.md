@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 09/24/2025
+ms.date: 10/29/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ---
@@ -78,7 +78,7 @@ Use the following guidance to prioritize Azure service groups based on their cri
 
 1. **Compute services** are often the next priority. Compute services are often easy to replicate and distribute among zones because they're stateless.
 
-   Compute services include Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure Kubernetes Service (AKS), Azure App Service, App Service Environment, Azure Functions, and Azure Container Apps. 
+   Compute services include Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure Kubernetes Service (AKS), Azure App Service, App Service Environment, Azure Functions, Azure Service Fabric, and Azure Container Apps. 
 
 1. Review all **remaining business-critical** resources that are used in your critical flows. These resources might not be as critical as the resources listed previously, but they still play a role in your application's functionality and should be considered for zone resiliency.
 
@@ -165,12 +165,13 @@ This table summarizes the availability zone support for many Azure services and 
 | [Azure Load Balancer](migrate-load-balancer.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Modification | No cost impact |
 | [Azure Logic Apps - Consumption tier](./reliability-logic-apps.md?pivots=standard-workflow-service-plan#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |N/A |
 | [Azure Logic Apps - Standard tier](./reliability-logic-apps.md?pivots=consumption#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment | Minimum tier and instance count required |
-| [Azure Managed Grafana](/azure/managed-grafana/high-availability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeploy | Moderate cost increase |
+| [Azure Managed Grafana](/azure/managed-grafana/high-availability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment | Moderate cost increase |
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient | |
 | [Azure NetApp Files](./reliability-netapp-files.md#availability-zone-support) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment | Depends on replication configuration |
 | [Azure Queue Storage](./reliability-storage-queue.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement | Moderate cost increase |
 | [Azure Service Bus](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient | N/A |
-| [Azure Service Fabric](migrate-service-fabric.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment | No cost impact for same number of VMs |
+| [Azure Service Fabric](migrate-service-fabric.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Modification| No cost impact for same number of VMs |
+| [Azure Service Fabric managed cluster](/azure/service-fabric/how-to-managed-cluster-availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Modification| Minimum VM count required |
 | [Azure Site Recovery](migrate-recovery-services-vault.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment | No cost impact for Site Recovery, moderate cost increase for replica storage |
 | [Azure SQL Database: Business Critical tier](./reliability-sql-database.md?pivots=business-critical#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement | No cost impact |
 | [Azure SQL Database: General Purpose tier](./reliability-sql-database.md?pivots=business-critical#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement | Moderate cost increase |

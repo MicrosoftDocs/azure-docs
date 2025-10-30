@@ -82,7 +82,7 @@ With the caching policies shown in this example, the first request to a test ope
 1. Select **Save**.
 
 > [!TIP]
-> If you're using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you might want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-policies.md#caching) for more information.
+> If you're using an external cache, as described in [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md), you might want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-policies.md#caching) for more information.
 
 ## Call an operation to test the caching
 

@@ -634,6 +634,27 @@ You can't currently set HTTP concurrency limits using Visual Studio Code.
 
 ---
 
+## Set site update strategy
+
+The Flex Consumption plan uniquely supports two different site update strategies that control how your function app handles code deployments and configuration changes. By default, Flex Consumption plan apps use the `Recreate` strategy, which terminates currently executing functions during deployments. To enable zero-downtime deployments, you can configure the `RollingUpdate` strategy instead. For more information, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md).
+
+> [!NOTE]
+> Site update strategy configuration is currently in public preview and is only available through Bicep or ARM templates. You cannot configure this setting using the Azure CLI, Azure portal, or Visual Studio Code.
+
+### [Azure CLI](#tab/azure-cli)
+
+Site update strategy configuration isn't currently supported in the Azure CLI. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+
+### [Azure portal](#tab/azure-portal)
+
+Site update strategy configuration isn't currently supported in the Azure portal. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+
+### [Visual Studio Code](#tab/vs-code)
+
+Site update strategy configuration isn't currently supported in Visual Studio Code. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+
+---
+
 ## View currently supported regions
 
 To view the list of regions that currently support Flex Consumption plans: 

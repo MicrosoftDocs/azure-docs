@@ -1785,6 +1785,7 @@ These application configurations are maintained in `functionAppConfig`:
 | [Language runtime](functions-app-settings.md#functions_worker_runtime) | `runtime.name` |
 | [Language version](supported-languages.md) | `runtime.version` |
 | [Maximum instance count](event-driven-scaling.md#flex-consumption-plan) | `scaleAndConcurrency.maximumInstanceCount` |
+| [Site update strategy](flex-consumption-site-updates.md) | `siteUpdateStrategy.type` |
 
 The Flex Consumption plan also supports these application settings:
 

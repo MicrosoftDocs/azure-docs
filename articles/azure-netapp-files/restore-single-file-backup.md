@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/30/2025
 ms.author: anfdocs
 ---
-# Restore individual files with single-file restore from backups in Azure NetApp Files (preview)
+# Restore individual files with single-file restore from backups in Azure NetApp Files
 
 You can rely on your Azure NetApp Files backup to restore individual files that aren't available in an online snapshot [single-file snapshot restore](snapshots-restore-file-single.md). With single-file restore from backup, you can restore a single file to a specific location in a volume or up to eight files to a specific directory in the volume.
 
@@ -27,7 +27,7 @@ You can rely on your Azure NetApp Files backup to restore individual files that 
 
 ## Register the feature
 
-This feature is currently in preview. You must register for the feature before you can use it. 
+You must register for the feature before you can use it. 
 
 1. Register the feature: 
 
