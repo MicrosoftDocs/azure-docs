@@ -114,7 +114,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 
 1. Sign-in to your Azure tenant and open the subscription resource.
 2. Open the `Resource Providers` on the left side under `Settings`.
-3. The [listed resource providers](#option-1-powershell-fastest) must be registered in the subscription. The [PowerShell](#option-1-powershell-fastest) script to enable these resource providers is the fastest option. The [resource providers list](#option-1-powershell-fastest) is the authoritative source of resource providers and these images are provided as an example of the view you should see in the end.
+3. The [listed resource providers](#option-1-powershell-fastest) must be registered in the subscription. The [PowerShell](#option-1-powershell-fastest) script to enable these resource providers is the fastest option and includes the authoritative source of resource providers. These images are provided as an example of the view you should see in the end.
 
    ![Screenshot showing the first set of resource providers required by Azure Virtual Enclaves.](./media/onboard-providers-1.png)
    ![Screenshot showing the second set of resource providers required by Azure Virtual Enclaves.](./media/onboard-providers-2.png)

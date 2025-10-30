@@ -32,8 +32,8 @@ flowchart
   direction TB
   OnPremises[on-premises]
   Internet([Internet])
-  subgraph Subscription
-    subgraph Community
+  subgraph Subscription [Subscription]
+    subgraph Community [Community]
       subgraph VirtualWAN [Virtual WAN]
         HUB1([VWAN Hub East US
              with Firewall
@@ -66,6 +66,8 @@ flowchart
       end
     end
   end
+  Internet === HUB2
+  OnPremises ===|VPN|TH=== HUB1
   HUB1 === HUB2
   HUB1 ==== VNET1
   HUB1 ==== VNET3
@@ -74,19 +76,20 @@ flowchart
   VNET1 === SA1
   HUB2 === VNET2
   VNET2 === AKS1
-  Internet === HUB2
-  OnPremises ===|VPN|TH=== HUB1
+
 
   
 %% Styling
-  classDef subscription fill:#CFCFCF,stroke:#004578,color:#000;
+  linkStyle default stroke-width:2px,stroke:yellow;
+  
+  classDef subscription fill:#9F9F9F,stroke:#004578,color:#000;
   classDef community fill:#0078D4,stroke:#004578,color:#fff;
-  classDef virtualWAN fill:#777475,stroke:#0078D4,color:#000;
+  classDef virtualWAN fill:#CFCFCF,stroke:#0078D4,color:#000;
   classDef VWANhub fill:#F3F2F1,stroke:#0078D4,color:#000;
   classDef enclave fill:#E6F2FA,stroke:#0078D4,color:#000;
   classDef endpoint fill:#F3F2F1,stroke:#605E5C,color:#000;
-  classDef workload fill:#CFCFCF,stroke:#8A8886,color:#000;
-  classDef external fill:#FF5533,stroke:#8A8886,color:#000;
+  classDef workload fill:#CFCFCF,stroke:#000000,color:#000;
+  classDef external fill:orange,stroke:#8A8886,color:#000;
 
   class Subscription subscription;
   class Community community;
