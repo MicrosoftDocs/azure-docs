@@ -55,7 +55,7 @@ File shares (preview) are a new top-level Azure resource provided by the `Micros
 
 - **Granular configuration**: Networking and security settings are applied at the file share level, giving you precise control of access boundaries and isolation. This makes it easier to enforce security policies for specific apps, teams, or environments.
 
-- **Predictable, flexible billing**: File shares use the provisioned v2 billing model, which enables you to independently provsiion storage, IOPS, and throughput per share. Because billing in Azure is done per top-level Azure resource, using file shares enables you to easily track the costs of each individual share for cost attribution back to the project, team, or customer that is using the file share.
+- **Predictable, flexible billing**: File shares use the provisioned v2 billing model, which enables you to independently provision storage, IOPS, and throughput per share. Because billing in Azure is done per top-level Azure resource, using file shares enables you to easily track the costs of each individual share for cost attribution back to the project, team, or customer that is using the file share.
 
 - **Improved scale and performance**: File shares support higher limits and lower deployment times than classic file shares. For more information, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md).
 
@@ -251,6 +251,7 @@ The [migration overview article](storage-files-migration-overview.md) briefly co
 - [Deploying Azure Files](./storage-how-to-create-file-share.md)
 - [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 - [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)
+
 
 
 

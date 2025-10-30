@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in a Bicep file.
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 10/30/2025
 ms.custom:
   - devx-track-bicep
   - sfi-ga-nochange

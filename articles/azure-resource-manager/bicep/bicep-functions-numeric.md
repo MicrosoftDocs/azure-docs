@@ -3,7 +3,7 @@ title: Bicep functions - numeric
 description: Describes the functions to use in a Bicep file to work with numbers.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Numeric functions for Bicep

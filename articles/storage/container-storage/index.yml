@@ -29,10 +29,10 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: quickstart
+      - linkListType: tutorial
         links:
-          - text: Use Azure Container Storage with Azure Kubernetes Service (AKS)
-            url: container-storage-aks-quickstart.md
+          - text: Install Azure Container Storage for use with Azure Kubernetes Service
+            url: install-container-storage-aks.md
 
 # Card (optional)
   - title: How-to

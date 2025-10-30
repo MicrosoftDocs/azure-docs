@@ -20,7 +20,7 @@ Availability zones support for Azure Functions depends on your [Functions hostin
 
 | Hosting plan | Support level | For more information... |
 | ----- | ----- | ----- |
-|[Flex Consumption plan](../azure-functions/flex-consumption-plan.md) | Preview | Select **Flex Consumption** at the top of this article. |
+|[Flex Consumption plan](../azure-functions/flex-consumption-plan.md) | GA | Select **Flex Consumption** at the top of this article. |
 |[Elastic Premium plan](../azure-functions/functions-premium-plan.md) | GA | Select **Premium** at the top of this article. |
 |[Dedicated (App Service) plan](../azure-functions/dedicated-plan.md) | GA | See [Reliability in Azure App Service](reliability-app-service.md). |
 | [Consumption plan](../azure-functions/consumption-plan.md) | n/a | Not supported by the Consumption plan. |

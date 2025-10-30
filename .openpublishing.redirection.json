@@ -6029,8 +6029,11 @@
       "source_path": "articles/iot-hub-device-update/device-update-azure-real-time-operating-system.md",
       "redirect_url": "/azure/iot-hub-device-update/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/container-storage/container-storage-aks-quickstart.md",
+      "redirect_url": "/azure/storage/container-storage/install-container-storage-aks",
+      "redirect_document_id": true
     }
- 
-
   ]
 }

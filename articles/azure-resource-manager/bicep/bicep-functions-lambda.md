@@ -3,7 +3,7 @@ title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 # Lambda functions for Bicep
 

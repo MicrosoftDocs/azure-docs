@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 04/09/2025
+ms.date: 10/30/2025
 ---
 
 # Learn modules for Bicep

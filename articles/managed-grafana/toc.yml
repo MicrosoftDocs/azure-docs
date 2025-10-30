@@ -21,10 +21,6 @@ items:
   expanded: true
 - name: Concepts
   items:
-  - name: Service reliability
-    href: high-availability.md
-  - name: Encryption
-    href: encryption.md
   - name: Grafana settings
     href: grafana-settings.md
   expanded: true
@@ -110,6 +106,15 @@ items:
     - name: Troubleshoot connecting managed private endpoint to a private link service
       href: troubleshoot-mpe-connection.md
   expanded: true
+- name: Security
+  items:
+  - name: Secure Azure Managed Grafana
+    href: secure-azure-managed-grafana.md
+  - name: Service reliability
+    href: high-availability.md
+  - name: Encryption
+    href: encryption.md
+  
 - name: Reference
   items:
   - name: Azure CLI

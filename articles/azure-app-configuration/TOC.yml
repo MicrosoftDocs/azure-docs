@@ -278,6 +278,8 @@
     href: concept-preview-api-life-cycle.md
 - name: Security
   items:
+  - name: Overview
+    href: secure-azure-app-configuration.md
   - name: Authentication
     items:
     - name: Microsoft Entra ID

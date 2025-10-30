@@ -4,7 +4,7 @@ description: Learn about the support of multiple workspaces for Microsoft Sentin
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 09/18/2025
+ms.date: 10/21/2025
 appliesto: 
     - Microsoft Sentinel with Defender XDR in the Defender portal
 
@@ -20,7 +20,7 @@ This article primarily applies to the scenario where you onboard Microsoft Senti
 
 ## Primary and secondary workspaces
 
-Select your primary workspace when you onboard Microsoft Sentinel to the Defender portal. Any other workspaces that you onboard to the Defender portal are considered as secondary workspaces. The Defender portal supports one primary workspace and up to 99 secondary workspaces per tenant for Microsoft Sentinel.
+Select your primary workspace when you onboard Microsoft Sentinel to the Defender portal. Any other workspaces that you onboard to the Defender portal are considered as secondary workspaces. The Defender portal supports one primary workspace and an unlimited number of secondary workspaces per tenant for Microsoft Sentinel.
 
 When you also have Microsoft Defender XDR, alerts from your primary workspace are correlated with Defender XDR data, and incidents include alerts from both your primary workspace and Defender XDR in a unified queue. When you select a primary workspace, the [Defender XDR data connector](connect-microsoft-365-defender.md) for incidents and alerts is connected to the primary workspace only.
 

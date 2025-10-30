@@ -206,10 +206,6 @@ items:
     items:
       - name: Vector search concepts
         href: overview-vector-similarity.md
-      - name: Vector similarity search
-        href: tutorial-vector-similarity.md
-      - name: Semantic caching
-        href: tutorial-semantic-cache.md
   - name: ASP.NET
     items:
     - name: Use ASP.NET core output cache

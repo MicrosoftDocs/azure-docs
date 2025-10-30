@@ -3,7 +3,7 @@ title: Export Bicep files in Azure portal
 description: Use Azure portal to export a Bicep file from resources in your subscription.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 02/25/2025
+ms.date: 10/30/2025
 ---
 
 # Use Azure portal to export a Bicep file

@@ -71,7 +71,7 @@ Note these limitations when using Private Link service Direct Connect:
 ## Considerations
 
 - **No migration support**: Deploying this feature requires a new Private Link service. Migration of existing private link services isn't supported.
-- **Available client support**: Use PowerShell, CLI, or Terraform to deploy this new Private Link service. Portal client support is pending.
+- **Available client support**: Use PowerShell, CLI, or Terraform to deploy this new Private Link service. Portal client support is available via a preview link that activates the feature in portal: ([aka.ms/PortalPLSDirectConnect](https://aka.ms/PortalPLSDirectConnect)). Full portal support without use of a preview link to configure the feature is pending.
 - **IP forwarding is enabled**: If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration.
 
 ## Create a Private Link service Direct Connect

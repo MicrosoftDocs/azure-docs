@@ -2,7 +2,7 @@
 title: Bicep functions - objects
 description: Describes the functions to use in a Bicep file for working with objects.
 ms.topic: reference
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ms.custom:
   - devx-track-bicep
   - sfi-ropc-nochange

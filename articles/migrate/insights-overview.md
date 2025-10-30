@@ -1,5 +1,5 @@
 ---
-title: Insights In Azure Migrate - Assess, risk, plan Cloud migration
+title: Insights In Azure Migrate - Assess, risks, and plan Cloud migration
 description: Discover how Azure Migrate's Insights (preview) feature helps identify vulnerabilities, end-of-support software, and missing security tools in your datacenter. Plan secure and efficient cloud migrations with early risk visibility and actionable insights.
 author: habibaum
 ms.author: v-uhabiba
@@ -55,7 +55,7 @@ Security risks are derived through a series of following analyses:
 
 - **Pending updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on [Windows Update](/windows/deployment/update/windows-update-overview) metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
 
-- **Missing security and patch management software**: Azure Migrate classifies software by processing its name and publisher into predefined categories and sub categories. [Learn more](/azure/migrate/how-to-discover-applications?view=migrate#software-classification--potential-targets). It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Migrate flags the server as a potential security risk.
+- **Missing security and patch management software**: Azure Migrate classifies software by processing its name and publisher into predefined categories and sub categories. [Learn more](how-to-discover-applications.md#software-classification--potential-targets). It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Migrate flags the server as a potential security risk.
 
 Azure Migrate updates security insights whenever it refreshes discovered software inventory data. The platform updates insights when you run a new discovery or when the Azure Migrate appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reached end-of-life, will reflect in the updated security insights.
 
@@ -82,7 +82,7 @@ Ensure the following prerequisites are met for generating complete Insights:
 - Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights. It might take up to 24 hours after discovery to generate Insights.[Import-based discovery](discovery-methods-modes.md) isn't supported.
 - Use an existing project or create an [Azure Migrate project using portal](quickstart-create-project.md) in any of the public regions supported by Azure Migrate. This capability is currently not supported in Government clouds.
 - Ensure guest discovery features are enabled on the appliance(s).
-- Ensure there are no software discovery issues. Go to [Action Center](/azure/migrate/centralized-issue-tracking?view=migrate) in Azure Migrate project to filter issues for software inventory. 
+- Ensure there are no software discovery issues. Go to [Action Center](centralized-issue-tracking.md) in Azure Migrate project to filter issues for software inventory. 
 - Ensure Software inventory is gathered actively for all servers at least once in last 30 days.
 
 ## Review Insights 

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 10/29/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
@@ -45,14 +45,7 @@ When you create a mesh topology or enable direct connectivity in a hub-and-spoke
 > [!NOTE]
 > A virtual network can be part of up to two connected groups, meaning it can be part of up to two mesh topologies.
 
-### Enable high-scale connectivity in Azure Virtual Network Manager connected groups
-
-Azure Virtual Network Manager's high-scale connectivity feature in connected group feature empowers you to extend your network capacity. To you this feature, please register the preview feature "AllowHighScaleConnectedGroup" (you can find it with the Display Name of "Enable High Scale Connected Group
-".) This feature allows a connected group in the supported regions to contain up to 5,000 virtual networks.
-
 ### Enable high-scale private endpoints in Azure Virtual Network Manager connected groups
-
-[!INCLUDE [virtual-network-manager-high-scale-preview](../../includes/virtual-network-manager-high-scale-preview.md)]
 
 Azure Virtual Network Manager's high-scale private endpoint feature in connected group feature empowers you to extend your network capacity. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group.
 
@@ -60,12 +53,7 @@ Azure Virtual Network Manager's high-scale private endpoint feature in connected
 
 1. Review [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-vnet-limits.md) for detailed guidance on raising these limits. Enabling or disabling this feature initiates a one-time connection reset. We recommend performing these changes during a maintenance window.
 
-2. Register the feature flag of `Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath` for each subscription containing an Azure Virtual Network Manager instance and virtual networks in your connected group.
-
-   > [!IMPORTANT]
-   > This registration is essential for unlocking the extended private endpoint capacity. For more information, see [How to enable Azure preview features documentation](../azure-resource-manager/management/preview-features.md).
-
-3. In each virtual network within your connected group, configure the **Private Endpoint Network Policies** to either `Enabled` or `RouteTableEnabled`. This setting ensures your virtual networks are ready to support the high-scale private endpoints functionality. For detailed guidance, see [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-vnet-limits.md).
+2. In each virtual network within your connected group, configure the **Private Endpoint Network Policies** to either `Enabled` or `RouteTableEnabled`. This setting ensures your virtual networks are ready to support the high-scale private endpoints functionality. For detailed guidance, see [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-vnet-limits.md).
 
 #### Configure mesh topology for high-scale private endpoints
 
@@ -76,6 +64,10 @@ In this step, you configure the connectivity configuration's mesh topology setti
 1. Verify every virtual network in your entire mesh (connected group) is configured with high-scale private endpoints. The Azure portal validates the settings across the entire group. If a virtual network without the high-scale configuration is added later, it can't communicate with private endpoints in other virtual networks.
 
 1. After verifying all virtual networks are properly configured, deploy the connectivity configuration. This step finalizes the setup of your high-scale connected group.
+
+### Enable high-scale connectivity in Azure Virtual Network Manager connected groups
+
+Azure Virtual Network Manager's high-scale connectivity feature in connected group feature empowers you to extend your network capacity. To use this feature, register the preview feature "AllowHighScaleConnectedGroup" (you can find it with the Display Name of "Enable High Scale Connected Group"). This feature allows a connected group in the supported regions to contain up to 5,000 virtual networks.
 
 ## Hub-and-spoke topology
 

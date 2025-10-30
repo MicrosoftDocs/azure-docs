@@ -131,6 +131,9 @@ Data explorer exposes rich capabilities to analyze historical trends and correla
 
 * Personal dashboards can also be created to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-manage-dashboards.md) how-to article.
 
+> [!TIP]
+> For accessibility support, use line charts in preference to other chart types on your dashboards.
+
 ### Jobs
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Screenshot that shows the Jobs page where you can manage your application's jobs.":::

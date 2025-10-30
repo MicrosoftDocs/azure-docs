@@ -64,11 +64,11 @@ Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA
 Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | Preview | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
 Feature Flag Telemetry | GA | Preview | GA | GA | GA | WIP
 Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | GA
-Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | WIP
+Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | GA
 Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
 Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
 Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
-Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | WIP
+Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | GA
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
 Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | N/A 
 Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | GA | [GA](./reference-javascript-provider.md#tag-filters) | WIP 

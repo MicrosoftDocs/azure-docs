@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 10/30/2025
 ms.custom: template-concept
 ---
 
@@ -48,7 +48,51 @@ In a hub-and-spoke topology, if you enable the option to *use the hub as a gatew
 
 ### Members in the network group can't communicate with each other
 
-If you want to have members in the network group communicate with each other across regions in a hub and spoke topology configuration, you need to enable the global mesh option. 
+If you want to have members in the network group communicate with each other across regions in a hub and spoke topology configuration, you need to enable the global mesh option.
+
+## Resource group creation fails
+
+When deploying network manager configurations with Azure Virtual Network Manager, the service creates a managed resource group to host Azure Virtual Network Manager-managed resources. In certain cases, this process can fail due to Azure policies.
+
+### Why does resource group creation fail?
+
+Policy restrictions can cause resource group creation to fail. If your subscription enforces policies requiring specific tags or other constraints, Azure Virtual Network Manager can't create the resource group automatically. For example, a policy that mandates a tag on every resource group blocks Azure Virtual Network Manager's resource group creation.
+
+### How to resolve resource group creation failures
+
+You have two options to resolve resource group creation failures:
+
+#### Option 1: Update policy
+
+1. Temporarily adjust the policy to allow Azure Virtual Network Manager to create the resource group.
+1. After deployment, revert the policy if needed.
+
+#### Option 2: Manual resource group creation
+
+If policy changes aren't possible, you can manually create the resource group and recommit the Azure Virtual Network Manager configuration.
+
+1. Create a resource group in the target subscription.
+1. Use the required naming convention of `AVNM_Managed_ResourceGroup_<subscriptionId>` for resource group creation.
+1. Apply all mandatory tags and settings to comply with your policies.
+1. Recommit the Azure Virtual Network Manager configuration.
+
+### Best practices for resource group creation
+
+To avoid issues with resource group creation in Azure Virtual Network Manager, consider the following best practices:
+
+- Review Azure policies before onboarding Azure Virtual Network Manager.
+- Document internal tag requirements and ensure they align with Azure Virtual Network Manager's managed resource group process.
+- Keep the naming convention consistent across all subscriptions.
+
+## Mesh for High Scale Private Endpoints isn't working
+
+In order to use High Scale Private Endpoints in a mesh topology, you need to enable the High Scale Private Endpoint feature for each virtual network in the configuration.
+
+### How to identify inactive virtual networks for High Scale Private Endpoints
+
+The portal interface highlights which virtual networks are inactive for High Scale Private Endpoints (as illustrated below with red arrows). This indication appears only when the High Scale Private Endpoint feature is switched on (shown below with the green arrow). 
+
+For information on how to enable High Scale Private Endpoints, see [Enable high-scale connectivity in Azure Virtual Network Manager connected groups](concept-connectivity-configuration.md#enable-high-scale-connectivity-in-azure-virtual-network-manager-connected-groups).
 
 ## Next steps
 

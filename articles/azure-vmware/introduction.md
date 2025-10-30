@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 10/14/2025
+ms.date: 10/30/2025
 ms.custom: engagement-fy23
 ---
 
@@ -33,7 +33,7 @@ You can deploy new or scale existing private clouds through the Azure portal or 
 
 ## Azure VMware Solution private cloud extension with AV64 node size
 
-The AV64 is an Azure VMware Solution host SKU, which is available to expand the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. If you want to deploy AV64 directly, refer to [Azure VMWare Solution in an Azure Virtual Network](native-introduction.md). Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
+The AV64 is an Azure VMware Solution host SKU, which is available to expand the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. If you want to deploy AV64 directly, refer to [Azure VMware Solution in an Azure Virtual Network](native-introduction.md). Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
 
 :::image type="content" source="media/introduction/av64-mixed-sku-topology.png" alt-text="Diagram showing Azure VMware Solution private cloud with AV64 SKU in mixed SKU configuration." border="false" lightbox="media/introduction/av64-mixed-sku-topology.png":::
 

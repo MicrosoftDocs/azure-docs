@@ -1780,7 +1780,7 @@ These application configurations are maintained in `functionAppConfig`:
 | --- | --- |
 | [Always ready instances](flex-consumption-plan.md#always-ready-instances) |  `scaleAndConcurrency.alwaysReady`  |
 | [Deployment source](#deployment-sources) | `deployment` |
-| [Instance memory size](flex-consumption-plan.md#instance-memory) | `scaleAndConcurrency.instanceMemoryMB` |
+| [Instance size](flex-consumption-plan.md#instance-sizes) | `scaleAndConcurrency.instanceMemoryMB` |
 | [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency) | `scaleAndConcurrency.triggers.http.perInstanceConcurrency` |
 | [Language runtime](functions-app-settings.md#functions_worker_runtime) | `runtime.name` |
 | [Language version](supported-languages.md) | `runtime.version` |

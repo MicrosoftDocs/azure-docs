@@ -45,9 +45,9 @@ Service endpoints are available for the following Azure services and regions. Th
 
 - **[Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Azure AI services are available.
 
-**Public Preview**
+- **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Generally available in all Azure regions where Azure Container Registry is available.
 
-- **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Preview available in limited Azure regions where Azure Container Registry is available.
+**Public Preview**
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
