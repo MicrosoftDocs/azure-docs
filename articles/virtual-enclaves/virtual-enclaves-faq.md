@@ -75,7 +75,7 @@ Managed resources for Azure Virtual Enclaves include:
   - [Azure Firewall](/azure/firewall/overview) required for the community
   - [Virtual Network](/azure/virtual-network/virtual-networks-overview) required for the enclave
   - [Azure DNS](/azure/dns/private-dns-overview) required for the enclave
-  - [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview) user selectable for community, enclave, or both.
+  - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) user selectable for community, enclave, or both.
 
 Visit the Azure Virtual Enclaves community and enclave documentation for a complete list of managed resources and visit the Azure Virtual Enclaves pricing page for current costs.
 
