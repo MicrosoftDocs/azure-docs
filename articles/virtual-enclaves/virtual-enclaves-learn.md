@@ -28,8 +28,7 @@ This is the mermaid definition for the above graph. Use this to edit and regener
 ---
 title: Azure Virtual Enclaves - Network Overview
 ---
-flowchart
-  direction LR
+flowchart LR
   OnPremises[on-premises]
   Internet([Internet])
   subgraph Subscription [Subscription]
@@ -80,24 +79,28 @@ flowchart
 
   
 %% Styling
-  linkStyle default stroke-width:1px,stroke:yellow;
+  linkStyle default stroke-width:2px,stroke:yellow;
   
   classDef subscription fill:#9F9F9F,stroke:#004578,color:#000;
   classDef community fill:#0078D4,stroke:#004578,color:#fff;
   classDef virtualWAN fill:#CFCFCF,stroke:#0078D4,color:#000;
   classDef VWANhub fill:#F3F2F1,stroke:#0078D4,color:#000;
+  classDef vnet fill:#CFCFCF,stroke:#0078D4,color:#000;
   classDef enclave fill:#E6F2FA,stroke:#0078D4,color:#000;
   classDef endpoint fill:#F3F2F1,stroke:#605E5C,color:#000;
-  classDef workload fill:#CFCFCF,stroke:#000000,color:#000;
+  classDef workload fill:#7DC6DB,stroke:#000000,color:#000;
+  classDef service fill:#B59A51,stroke:#000000,color:#000;
   classDef external fill:orange,stroke:#8A8886,color:#000;
 
   class Subscription subscription;
   class Community community;
   class VirtualWAN virtualWAN;
   class HUB1,HUB2 VWANhub;
+  class VNET1,VNET2,VNET3 vnet;
   class Enclave1,Enclave2,Enclave3 enclave;
   class TH endpoint;
   class Workload1,Workload2,Workload3,Workload4 workload;
+  class CosmosDB,VM1,SA1,AKS1 service;
   class OnPremises,Internet external;
 ```
 -->
