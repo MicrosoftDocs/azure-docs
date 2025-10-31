@@ -116,6 +116,9 @@ Once you configure the Log Analytics workspace, you can enable structured logs i
 > [!NOTE]
 > * To enable Azure Firewall Fat Flow Log (Top flow log), you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
 
+> [!NOTE]
+> * After enabling Azure Firewall structured logs, it can take up to 30 minutes for logs to begin populating. If you're migrating from legacy Azure Diagnostics logs to the structured format, it's recommended to keep the original Diagnostics configuration in place alongside the new setup. This allows you to confirm successful log delivery under the new configuration before removing the legacy setting.
+
 :::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
 
 
