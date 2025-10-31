@@ -52,14 +52,14 @@ Once the update action finishes, you can redeploy the service that was denied pr
 
 ### How do I prevent the creation of new Azure Virtual Enclaves resource types?
 
-If you're a cloud engineer and want to restrict the creation of new Communities in your subscription, you can use Azure policy to prevent deployment of specific resource types.
+If you're a cloud engineer and want to restrict the creation of new Communities in your subscription, you can use Azure Policy to prevent deployment of specific resource types.
 
 Currently, Azure Virtual Enclaves recommends following the [Tutorial: Disallow resource types in your cloud environment](/azure/governance/policy/tutorials/disallowed-resources) and defining the business logic your organization desires. The `Not allowed resource types` and `Allowed resource types` policies are linked in the tutorial.
 
 As an example, to prevent deploying Communities to a Subscription, you would assign the `Not allowed resource type` [policy definition](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6c112d4e-5bc7-47ae-a041-ea2d9dccd749) while including `Microsoft.Mission/communities` in the parameter list of not allowed resource types.
 
 ### Can I `move` my enclave?
-Moving the enclave resource itself isn't supported. Additionally, moves aren't supported for some of the resources deployed in the enclave managed resource group (for example bastion, IP groups, and user assigned managed identity). [Learn more](/azure/azure-resource-manager/management/move-support-resources).
+Moving the enclave resource itself isn't supported. Additionally, moves aren't supported for some of the resources deployed in the enclave managed resource group (for example Azure Bastion, IP Groups, and user-assigned managed identity). [Learn more](/azure/azure-resource-manager/management/move-support-resources).
 
 ## Billing
 Questions related to Azure Virtual Enclaves billing.
