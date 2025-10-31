@@ -29,7 +29,7 @@ This is the mermaid definition for the above graph. Use this to edit and regener
 title: Azure Virtual Enclaves - Network Overview
 ---
 flowchart
-  direction TB
+  direction LR
   OnPremises[on-premises]
   Internet([Internet])
   subgraph Subscription [Subscription]
@@ -66,21 +66,21 @@ flowchart
       end
     end
   end
-  Internet === HUB2
-  OnPremises ===|VPN|TH=== HUB1
-  HUB1 === HUB2
-  HUB1 ==== VNET1
-  HUB1 ==== VNET3
-  VNET3 === CosmosDB
-  VNET1 === VM1
-  VNET1 === SA1
-  HUB2 === VNET2
-  VNET2 === AKS1
+  Internet --- HUB2
+  OnPremises ---|VPN|TH--- HUB1
+  HUB1 --- HUB2
+  HUB1 ---- VNET1
+  HUB1 ---- VNET3
+  HUB2 --- VNET2
+  VNET3 --- CosmosDB
+  VNET1 --- VM1
+  VNET1 --- SA1
+  VNET2 --- AKS1
 
 
   
 %% Styling
-  linkStyle default stroke-width:2px,stroke:yellow;
+  linkStyle default stroke-width:1px,stroke:yellow;
   
   classDef subscription fill:#9F9F9F,stroke:#004578,color:#000;
   classDef community fill:#0078D4,stroke:#004578,color:#fff;
