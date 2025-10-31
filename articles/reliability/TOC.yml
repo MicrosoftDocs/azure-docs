@@ -49,7 +49,7 @@ items:
     - name: Azure Batch
       href: reliability-batch.md
     - name: Azure Container Apps
-      href: reliability-azure-container-apps.md
+      href: reliability-container-apps.md
     - name: Azure Container Instances
       href: reliability-container-instances.md
     - name: Azure Data Factory
@@ -81,7 +81,7 @@ items:
       - name: Disaster recovery
         href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Container Apps
-      href: reliability-azure-container-apps.md
+      href: reliability-container-apps.md
     - name: Azure Container Instances
       href: reliability-container-instances.md
     - name: Azure Container Registry
@@ -299,7 +299,7 @@ items:
     - name: Azure App Service
       href: reliability-app-service.md
     - name: Azure Container Apps
-      href: reliability-azure-container-apps.md
+      href: reliability-container-apps.md
     - name: Azure Notification Hubs
       href: reliability-notification-hubs.md
     - name: Azure SignalR Service
@@ -349,7 +349,7 @@ items:
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
       - name: Azure Container Apps
-        href: reliability-azure-container-apps.md#availability-zone-migration
+        href: reliability-container-apps.md#availability-zone-support
       - name: Azure Container Instances
         href: migrate-container-instances.md#configure-availability-zone-support
       - name: Azure Container Registry

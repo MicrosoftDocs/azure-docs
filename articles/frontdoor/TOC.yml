@@ -91,8 +91,6 @@
       href: front-door-url-rewrite.md?pivots=front-door-standard-premium
     - name: URL redirect
       href: front-door-url-redirect.md?pivots=front-door-standard-premium
-    - name: Configure signed URLs
-      href: signed-request.md
     - name: Cross-Origin Resource Sharing (CORS)
       href: standard-premium/troubleshoot-cross-origin-resources.md
   - name: Origins

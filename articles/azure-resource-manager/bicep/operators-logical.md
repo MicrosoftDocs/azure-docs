@@ -3,7 +3,7 @@ title: Bicep logical operators
 description: Describes Bicep logical operators that evaluate conditions.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/21/2025
+ms.date: 10/30/2025
 ---
 
 # Bicep logical operators

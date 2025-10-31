@@ -81,7 +81,7 @@ To use this connector with Microsoft Entra service principal authentication, you
 
 Use the following steps to create a linked service to Dynamics 365 in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
+1. Browse to the **Manage** tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select **New**:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -502,6 +502,8 @@ Configure the corresponding interim data type in a dataset structure that is bas
 
 To write data into a lookup field with multiple targets like Customer and Owner, follow this guidance and example:
 
+# [Azure Data Factory](#tab/data-factory)
+
 1. Make your source contains both the field value and the corresponding target entity name.
    - If all records map to the same target entity, ensure one of the following conditions:
       - Your source data has a column that stores the target entity name.
@@ -509,6 +511,18 @@ To write data into a lookup field with multiple targets like Customer and Owner,
    - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
 
 1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+1. Make your source contains both the field value and the corresponding target entity schema name.
+   - If all records map to the same target entity, ensure one of the following conditions:
+      - Your source data has a column that stores the target entity schema name.
+      - You've added an additional column in the copy activity source to define the target entity.
+   - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
+
+1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
+---
 
 ### Setting the Owner field
 
@@ -533,13 +547,15 @@ In copy-activity column mapping, map the two columns as follows:
 
 :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png" alt-text="Dynamics lookup-field column mapping":::
 
-If all of your source records map to the same target entity and your source data doesn't contain the target entity name, here's a shortcut: in the copy activity source, add another column. Name the new column by using the pattern `{lookup_field_name}@EntityReference`, set the value to the target entity name, then proceed with column mapping as usual. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
+If all of your source records map to the same target entity and your source data doesn't contain the target entity schema name, here's a shortcut: in the copy activity source, add another column. Name the new column by using the pattern `{lookup_field_name}@EntityReference`, set the value to the target entity name, then proceed with column mapping as usual. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
 
 :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="Dynamics lookup-field adding an entity-reference column":::
 
 ## Writing data to a lookup field via alternative keys
 
 To write data into a lookup field using alternate key columns, follow this guidance and example: 
+
+# [Azure Data Factory](#tab/data-factory)
 
 1. Ensure your source contains all the lookup key columns. 
 
@@ -559,6 +575,24 @@ To write data into a lookup field using alternate key columns, follow this guida
 
 > [!Note]
 > Currently this is only supported when you use inline mode in the sink transformation of mapping data flows.
+
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+1. Ensure your source contains all the lookup key columns.
+
+2. The alternate key columns must be mapped to the column with the special naming pattern `{lookup_field_schema_name}@{alternate_key_column_name}`. The column doesn't exist in Dynamics. It's used to indicate that this column is used to look up the record in the target entity.
+
+4. Pass your value to the column with a structure like this: _"/{entity name}s(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx)"_
+
+    >[!IMPORTANT]    
+    > Your the entity name should be plural and lowercase.
+    >[!TIP]
+    > To generate this value, you can use the **Derived Column** block, for example, putting `"/{entity name}s(" + {dynamic lookup entity name} + ")"` into the expression field.
+> [!Note]
+> Currently this is only supported when you use inline mode in the sink transformation of mapping data flows.
+
+---
 
 ## Mapping data flow properties
 

@@ -182,7 +182,11 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
 #### Why do I see an alert showing I have a default outbound IP on my VM?
 
-There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. This is used to generate an Azure portal banner for VM/VMSS that flags this state.  The VM Advisor "Add explicit outbound method to disable default outbound" also operates by checking for this parameter.
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. This is used to generate an Azure portal banner for VM/VMSS that flags this state.  There are also specific Azure Advsior reccomendations with this information for your subscriptions. If you want to view which of your virtual machines or virtual machine scale sets have a default outbound IP assigned to them, follow these steps:
+1. Type in 'Advisor' into the search bar in the Azure portal and select on this option when it comes up.
+2. Select 'Operational Excellence'
+3. Look for the reccomendations 'Add explicit outbound method to disable default outbound' and/or 'Add explicit outbound method to disable default outbound for Virtual Machine Scale Sets' (note these are two different items)
+4. If either of these exist, select the respective reccomendation name and you will see the network interface cards (NICs) of all the virtual machnes/virtual machine scale set instances that have default outbound enabled.
 
 #### How do I clear this alert?
 

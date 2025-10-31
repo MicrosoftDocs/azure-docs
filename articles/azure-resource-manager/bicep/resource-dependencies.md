@@ -3,7 +3,7 @@ title: Set resource dependencies in Bicep
 description: Describes how to specify the order resources are deployed.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/18/2025
+ms.date: 10/30/2025
 ---
 
 # Resource dependencies in Bicep

@@ -1,16 +1,14 @@
 ---
-title: View resource changes in the Azure portal (preview)
+title: View resource changes in the Azure portal
 description: View resource changes with Azure Resource Graph Change Analysis in the Azure portal.
 author: iancarter-msft
 ms.author: daphnema
-ms.date: 06/14/2024
+ms.date: 10/28/2025
 ms.topic: how-to
 ms.custom: sfi-image-nochange
 ---
 
-# View resource changes in the Azure portal (preview)
-
-[!INCLUDE [preview](../../includes/resource-graph/preview/change-analysis.md)]
+# View resource changes in the Azure portal
 
 Change Analysis provides data for various management and troubleshooting scenarios, helping you understand which changes to your application caused which breaking issues. In addition to [querying Resource Graph for resource changes](./get-resource-changes.md), you can also view all changes to your applications via the Azure portal.
 
@@ -18,31 +16,21 @@ In this guide, you learn where to find Change Analysis in the portal and how to 
 
 ## Access Change Analysis screens
 
-Change Analysis automatically collects snapshots of change data for all Azure resources, without  needing to limit to a specific subscription or service. To view change data, navigate to **All Resources** from the main menu on the portal dashboard.
+Change Analysis automatically collects snapshots of change data for all Azure resources, without needing to limit to a specific subscription or service. To view change data, search for and select **Change Analysis** in the Azure portal search bar.
 
-:::image type="content" source="./media/view-resource-changes/all-resources-menu.png" alt-text="Screenshot of finding All Resources in the portal menu.":::
+:::image type="content" source="./media/view-resource-changes/search-change-analysis.png" alt-text="Screenshot of searching for Change Analysis in the Azure portal.":::
 
-Select **Changed resources**. In this example, all Azure resources are returned with no specific subscription selected.
-
-:::image type="content" source="./media/view-resource-changes/change-analysis-card.png" alt-text="Screenshot of the All Resources page and highlighting the Changed resources.":::
-
-Review the results in **Changed resources**.
-
-:::image type="content" source="./media/view-resource-changes/change-history-results.png" alt-text="Screenshot of the Azure Resource Graph Change Analysis resources.":::
+:::image type="content" source="./media/view-resource-changes/change-analysis-page.png" alt-text="Screenshot of the Change Analysis page.":::
 
 ## Filter and sort Change Analysis results
 
-Realistically, you only want to see the change history results for the resources you work with. You can use the filters and sorting categories in the Azure portal to weed out results unnecessary to your project.
+You can use the filters and sorting categories in the Azure portal to weed out results unnecessary to your project.
 
 ### Filter
 
 Use any of the filters available at the top of **Change Analysis** to narrow down the change history results to your specific needs.
 
 :::image type="content" source="./media/view-resource-changes/changes-filter.png" alt-text="Screenshot of the filters available for Change Analysis that help narrow down the Change Analysis results.":::
-
-You might need to reset filters set on **All resources** in order to use the resource changes filters.
-
-:::image type="content" source="./media/view-resource-changes/reset-filters.png" alt-text="Screenshot of the banner that indicates you might need to reset filters from All Resources.":::
 
 | Filter | Description |
 | ------ | ----------- |
@@ -51,7 +39,7 @@ You might need to reset filters set on **All resources** in order to use the res
 | Time span | Limit results to resources changed within a certain time range.  |
 | Change types | Types of changes made to resources. |
 | Resource types | Select **Add filter** to add this filter.</br> Search for resources by their resource type, like virtual machine. |
-| Resources | Select **Add filter** to add this filter.</br> Filter results based on their resource name. |
+| Resource names | Select **Add filter** to add this filter.</br> Filter results based on their resource name. |
 | Correlation IDs | Select **Add filter** to add this filter.</br> Filter resource results by [the operation's unique identifier](../../../expressroute/get-correlation-id.md). |
 | Changed by types | Select **Add filter** to add a tag filter.</br> Filter resource changes based on the descriptor of who made the change. |
 | Client types | Select **Add filter** to add this filter.</br> Filter results based on how the change is initiated and performed. |
@@ -69,8 +57,7 @@ In **Change Analysis**, you can organize the results into groups using the **Gro
 | None | Set to this grouping by default and applies no group settings. |
 | Subscription | Sorts the resources into their respective subscriptions. |
 | Resource Group | Groups resources based on their resource group. |
-| Type | Groups resources based on their Azure service type.  |
-| Resource | Sorts resources per their resource name. |
+| Resource Type | Groups resources based on their Azure service type.  |
 | Change Type | Organizes resources based on the collected change type. Values include _Create_, _Update_, and _Delete_. |
 | Client Type | Sorts by how the change is initiated and performed. Values include _CLI_ and _ARM template_. |
 | Changed By | Groups resource changes by who made the change. Values include user email ID or subscription ID. |
@@ -90,11 +77,7 @@ In the **Edit columns** pane, make your changes and then select **Save** to appl
 
 #### Add a column
 
-Select **+ Add column**.
-
-:::image type="content" source="./media/view-resource-changes/add-column-button.png" alt-text="Screenshot of selecting the button for adding a new column.":::
-
-Select a column property from the dropdown in the new column field.
+Click **+ Add column** and select a column property from the dropdown in the new column field.
 
 :::image type="content" source="./media/view-resource-changes/select-new-column.png" alt-text="Screenshot of the drop-down for selecting a new column.":::
 

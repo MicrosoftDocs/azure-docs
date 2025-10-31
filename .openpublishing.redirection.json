@@ -6031,6 +6031,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/reliability-azure-container-apps.md",
+      "redirect_url": "/azure/reliability/reliability-container-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/container-storage/container-storage-aks-quickstart.md",
       "redirect_url": "/azure/storage/container-storage/install-container-storage-aks",
       "redirect_document_id": true

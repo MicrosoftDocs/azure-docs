@@ -178,8 +178,6 @@
             href: troubleshoot-target-port-settings.md
           - name: Container start
             href: troubleshoot-container-start-failures.md
-    - name: Reliability in Azure Container Apps
-      href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: AI integration
   items:
     - name: AI integration
@@ -304,8 +302,10 @@
       href: dapr-component-resiliency.md
 - name: Reliability
   items:
-  - name: Reliability in Azure Container Apps
-    href: ../reliability/reliability-azure-container-apps.md
+    - name: Reliability in Azure Container Apps
+      href: ../reliability/reliability-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+    - name: Create a zone redundant container app
+      href: how-to-zone-redundancy.md
 - name: Dedicated compute
   items:
     - name: Workload profiles
