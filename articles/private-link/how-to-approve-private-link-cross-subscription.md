@@ -23,8 +23,6 @@ Azure Private Link enables you to connect privately to Azure resources. Private 
 
 - An administrator account for each subscription or an account with permissions in each subscription to create and manage resources.
 
-- Azure Private Link requires the private endpoint and the Private Link service to be in the same tenant, as cross-tenant configurations are not supported.
-
 Resources used in this article:
 
 | Resource | Subscription | Resource group | Location |

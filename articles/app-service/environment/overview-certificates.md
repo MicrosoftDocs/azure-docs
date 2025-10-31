@@ -3,7 +3,7 @@ title: Certificates in App Service Environment
 description: Explain the use of certificates in an App Service Environment. Learn how certificate bindings work on the single-tenanted apps in an App Service Environment.
 author: seligj95
 ms.topic: overview
-ms.date: 10/24/2025
+ms.date: 10/30/2025
 ms.author: jordanselig
 ms.service: azure-app-service
 ---
@@ -29,39 +29,21 @@ Once you add the certificate to your App Service app or function app, you can [s
 
 You can [configure the TLS setting](../configure-ssl-bindings.md#enforce-tls-versions) at an app level.
 
-## Private client certificate
+## Root certificates for private client scenarios
 
-A common use case is to configure your app as a client in a client-server model. If you secure your server with a private CA certificate, you need to upload the client certificate (*.cer* file) to your app. The following instructions load certificates to the trust store of the workers that your app is running on. You only need to upload the certificate once to use it with apps that are in the same App Service plan.
+When your app acts as a client connecting to services secured with private Certificate Authority (CA) certificates, you need to add root certificates to establish trust. App Service Environment v3 provides two methods for managing root certificates:
 
->[!NOTE]
-> Private client certificates are only supported from custom code in Windows code apps. Private client certificates aren't supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
+- **Root Certificate API** (Recommended): Environment-wide management for all apps
+- **Private client certificate**: Per-app configuration using Application Settings
 
-Follow these steps to upload the certificate (*.cer* file) to your app in your App Service Environment. The *.cer* file can be exported from your certificate. For testing purposes, there's a PowerShell example at the end to generate a temporary self-signed certificate:
+### Choosing the right method
 
-1. Go to the app that needs the certificate in the Azure portal
-1. Go to **Certificates** in the app. Select **Public Key Certificate (.cer)**. Select **Add certificate**. Provide a name. Browse and select your *.cer* file. Select upload. 
-1. Copy the thumbprint.
-1. Go to **Configuration** > **Application Settings**. Create an app setting WEBSITE_LOAD_ROOT_CERTIFICATES with the thumbprint as the value. If you have multiple certificates, you can put them in the same setting separated by commas and no whitespace like 
+| Method | Scope | Use when | Limitations |
+|--------|-------|----------|-------------|
+| **Root Certificate API** | All apps in the App Service Environment | - You manage multiple apps that need the same root certificates<br>- You want centralized certificate management<br>- You're deploying new environments with Infrastructure as Code | - Requires stopping and starting existing apps to pick up new certificates<br>- Requires API/CLI/IaC tools (not available in Azure portal at this time) |
+| **Private client certificate** | Apps in a single App Service plan | - You need certificates for only a few apps<br>- You prefer portal-based configuration<br>- Different apps need different root certificates | - Windows code apps only<br>- Must configure each App Service plan separately<br>- Certificates not available outside app code (can't be used for container registry authentication or front-end TLS validation) |
 
-	84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
-
-The certificate is available by all the apps in the same app service plan as the app, which configured that setting, but all apps that depend on the private CA certificate should have the Application Setting configured to avoid timing issues.
-
-If you need it to be available for apps in a different App Service plan, you need to repeat the app setting operation for the apps in that App Service plan. To check that the certificate is set, go to the Kudu console and issue the following command in the PowerShell debug console:
-
-```azurepowershell-interactive
-dir Cert:\LocalMachine\Root
-```
-
-To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
-
-```azurepowershell-interactive
-$certificate = New-SelfSignedCertificate -CertStoreLocation "Cert:\LocalMachine\My" -DnsName "*.internal.contoso.com","*.scm.internal.contoso.com"
-
-$certThumbprint = "Cert:\LocalMachine\My\" + $certificate.Thumbprint
-$fileName = "exportedcert.cer"
-Export-Certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
-```
+The general recommendation is to use the Root Certificate API for new deployments and when managing certificates across multiple apps. It provides better scalability, automation support, and works for both Windows and Linux apps.
 
 ## Root Certificate API
 
@@ -267,7 +249,49 @@ az webapp start --name {appName} --resource-group {resourceGroupName}
 
 ---
 
-## Private server certificate
+## Private client certificate (per-app configuration)
+
+> [!NOTE]
+> For most scenarios, use the [Root Certificate API](#root-certificate-api) instead of this method. The Root Certificate API provides environment-wide certificate management for both Windows and Linux apps, while this method is limited to Windows code apps within a single App Service plan.
+
+If you need to configure root certificates for specific apps only, or if you prefer using the Azure portal, you can use the private client certificate method. This approach uploads certificates to individual apps and makes them available to apps in the same App Service plan.
+
+>[!IMPORTANT]
+> Private client certificates are only supported from custom code in Windows code apps. Private client certificates aren't supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
+
+Follow these steps to upload the certificate (*.cer* file) to your app in your App Service Environment. The *.cer* file can be exported from your certificate. For testing purposes, there's a PowerShell example at the end to generate a temporary self-signed certificate:
+
+1. Go to the app that needs the certificate in the Azure portal
+1. Go to **Certificates** in the app. Select **Public Key Certificate (.cer)**. Select **Add certificate**. Provide a name. Browse and select your *.cer* file. Select upload. 
+1. Copy the thumbprint.
+1. Go to **Configuration** > **Application Settings**. Create an app setting WEBSITE_LOAD_ROOT_CERTIFICATES with the thumbprint as the value. If you have multiple certificates, you can put them in the same setting separated by commas and no whitespace like 
+
+	84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
+
+The certificate is available by all the apps in the same App Service plan as the app, which configured that setting, but all apps that depend on the private CA certificate should have the Application Setting configured to avoid timing issues.
+
+If you need it to be available for apps in a different App Service plan, you need to repeat the app setting operation for the apps in that App Service plan. To check that the certificate is set, go to the Kudu console and issue the following command in the PowerShell debug console:
+
+```azurepowershell-interactive
+dir Cert:\LocalMachine\Root
+```
+
+To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
+
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -CertStoreLocation "Cert:\LocalMachine\My" -DnsName "*.internal.contoso.com","*.scm.internal.contoso.com"
+
+$certThumbprint = "Cert:\LocalMachine\My\" + $certificate.Thumbprint
+$fileName = "exportedcert.cer"
+Export-Certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
+```
+
+---
+
+## Private server certificate (TLS/SSL binding)
+
+> [!NOTE]
+> This section covers server certificates for TLS/SSL bindings, which is different from the root certificates discussed previously. Server certificates are used to secure your app's custom domain with HTTPS, while root certificates establish trust for outbound client connections.
 
 If your app acts as a server in a client-server model, either behind a reverse proxy or directly with private client and you're using a private CA certificate, you need to upload the server certificate (*.pfx* file) with the full certificate chain to your app and bind the certificate to the custom domain. Because the infrastructure is dedicated to your App Service Environment, the full certificate chain is added to the trust store of the servers. You only need to upload the certificate once to use it with apps that are in the same App Service Environment.
 

@@ -19,18 +19,11 @@ zone_pivot_groups: spring-apps-tier-selection
 
 **This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to configure a managed Spring Cloud Config Server in Azure Spring Apps.
 
 Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Spring Cloud Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see [Spring Cloud Config](https://spring.io/projects/spring-cloud-config).
-
-::: zone pivot="sc-standard"
-
-> [!NOTE]
-> To use config server in the Standard consumption and dedicated plan, you must enable it first. For more information, see [Enable and disable Spring Cloud Config Server in Azure Spring Apps](../consumption-dedicated/quickstart-standard-consumption-config-server.md).
-
-::: zone-end
 
 ## Prerequisites
 

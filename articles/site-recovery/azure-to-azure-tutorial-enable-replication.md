@@ -3,7 +3,7 @@ title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
 ms.service: azure-site-recovery
-ms.date: 08/29/2025
+ms.date: 10/31/2025
 ms.custom: mvc
 ms.author: v-gajeronika
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
@@ -176,7 +176,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 1. In **Replication settings**, review the settings. Site Recovery creates default settings/policy for the target region. For the purposes of this tutorial, we use the default settings.
     >[!Note]
     >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md). You can select the **High Churn** option from  **Storage** > **View/edit storage configuration** > **Churn for the VM**.
-    >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churns.png" alt-text="Screenshot of churn."::: 
+    >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn."::: 
 
 2. Select **Next**.
   

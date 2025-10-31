@@ -82,8 +82,8 @@ The most requested quota changes are listed in the following table. Each scope i
 
 | Quota | Scope | Request | View | Remarks |
 |--|--|--|--|--|
-| Managed Environment Consumption NCA100 Gpus | Environment | [Manual request](quota-requests.md#manual-requests) | [Portal](#list-usage-portal) | The number of maximum consumption A100 GPU cores available for serverless GPUs within an environment. |
-| Managed Environment Consumption T4 Gpus | Environment | [Manual request](quota-requests.md#manual-requests) | [Portal](#list-usage-portal) | The number of maximum consumption T4 GPU cores available for serverless GPUs within an environment. |
+| Managed Environment Consumption NCA100 Gpus | Environment | [Manual request](quota-requests.md#manual-requests) | [CLI](#list-usage-cli) | The number of maximum consumption A100 GPU cores available for serverless GPUs within an environment. |
+| Managed Environment Consumption T4 Gpus | Environment | [Manual request](quota-requests.md#manual-requests) | [CLI](#list-usage-cli) | The number of maximum consumption T4 GPU cores available for serverless GPUs within an environment. |
 | Subscription NCA 100 GPUs | Region | [Integrated request](quota-requests.md#integrated-requests) | [Portal](#list-usage-portal) | The number of maximum dedicated A100 GPU cores environments across this region are allocated to use. |
 
 ### Dynamic sessions quotas

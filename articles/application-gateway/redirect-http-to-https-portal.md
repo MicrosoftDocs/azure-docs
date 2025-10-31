@@ -73,8 +73,6 @@ A virtual network is needed for communication between the resources that you cre
    - *myAppGateway* - for the name of the application gateway.
    - *myResourceGroupAG* - for the new resource group.
 
-     ![Create new application gateway](./media/create-url-route-portal/application-gateway-create.png)
-
 5. Accept the default values for the other settings and then click **OK**.
 6. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
@@ -82,8 +80,6 @@ A virtual network is needed for communication between the resources that you cre
    - *10.0.0.0/16* - for the virtual network address space.
    - *myAGSubnet* - for the subnet name.
    - *10.0.0.0/24* - for the subnet address space.
-
-     ![Create virtual network](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. Click **OK** to create the virtual network and subnet.
 8. Under **Frontend IP configuration**, ensure **IP address type** is **Public**, and **Create new** is selected. Enter *myAGPublicIPAddress* for the name. Accept the default values for the other settings and then click **OK**.
@@ -97,9 +93,6 @@ A virtual network is needed for communication between the resources that you cre
 
 1. Select **All resources** in the left-hand menu, and then select **myVNet** from the resources list.
 2. Select **Subnets**, and then click **Subnet**.
-
-    ![Create subnet](./media/create-url-route-portal/application-gateway-subnet.png)
-
 3. Type *myBackendSubnet* for the name of the subnet.
 4. Type *10.0.2.0/24* for the address range, and then select **OK**.
 

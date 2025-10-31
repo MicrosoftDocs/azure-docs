@@ -4,7 +4,7 @@ description: This article describes how to configure replication for Azure Disk 
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 08/28/2024
+ms.date: 10/31/2025
 ms.author: v-gajeronika
 ms.custom: sfi-image-nochange
 

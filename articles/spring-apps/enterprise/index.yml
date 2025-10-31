@@ -38,9 +38,7 @@ landingContent:
         links:
           - text: Basic/Standard plan
             url: ../basic-standard/index.yml
-          - text: Consumption and dedicated plan
-            url: ../consumption-dedicated/index.yml
- 
+
   # Card (optional)
   - title: About Azure Spring Apps
     linkLists:

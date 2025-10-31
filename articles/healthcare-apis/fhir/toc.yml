@@ -61,6 +61,8 @@ items:
 - name: Compliance with mandates
   expanded: true
   items: 
+    - name: US Core
+      href: us-core.md
     - name: CMS Interoperability and Patient Access rule introduction
       href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
@@ -130,6 +132,10 @@ items:
           href: store-profiles-in-fhir.md
         - name: Use $validate
           href: validation-against-profiles.md
+    - name: $docref
+      href: fhir-docref.md
+    - name: $expand
+      href: fhir-expand.md
 - name: API reference
   items: 
     - name: Access the FHIR service

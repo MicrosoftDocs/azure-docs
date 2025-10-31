@@ -1364,15 +1364,6 @@ groups:
   - id: sc-enterprise
     title: Enterprise
 # Owner: karler
-- id: spring-apps-enterprise-or-consumption-plan-selection
-  title: Azure Spring Apps plan
-  prompt: Select an Azure Spring Apps plan
-  pivots:
-    - id: sc-enterprise
-      title: Enterprise
-    - id: sc-consumption-plan
-      title: Standard consumption and dedicated (Preview)
-# Owner: karler
 - id: spring-apps-plan-selection
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
@@ -1381,8 +1372,6 @@ groups:
     title: Basic/Standard
   - id: sc-enterprise
     title: Enterprise
-  - id: sc-consumption-plan
-    title: Standard consumption and dedicated (Preview)
  # Owner: rahulmehta
 - id: azure-red-hat-openshift
   title: ARM and Bicep-OpenShift

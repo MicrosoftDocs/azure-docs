@@ -23,7 +23,7 @@ The application code used in this tutorial is a simple app. When you complete th
 
 ## 1. Prerequisites
 
-::: zone pivot="sc-consumption-plan,sc-standard"
+::: zone pivot="sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -87,12 +87,6 @@ The application code used in this tutorial is a simple app. When you complete th
 
 ::: zone-end
 
-::: zone pivot="sc-consumption-plan"
-
-[!INCLUDE [deploy-app-with-standard-consumption-plan](includes/quickstart/deploy-app-with-standard-consumption-plan.md)]
-
-::: zone-end
-
 ::: zone pivot="sc-standard"
 
 [!INCLUDE [deploy-app-with-basic-standard-plan](includes/quickstart/deploy-app-with-basic-standard-plan.md)]
@@ -108,38 +102,6 @@ The application code used in this tutorial is a simple app. When you complete th
 ## 5. Validate the app
 
 This section describes how to validate your application.
-
-::: zone pivot="sc-consumption-plan"
-
-### [Azure portal](#tab/Azure-portal)
-
-After the deployment finishes, find the application URL from the deployment outputs. Use the following steps to validate:
-
-1. Access the application URL from the **Outputs** page of the **Deployment**. When you open the app, you get the response `Hello World`.
-
-   :::image type="content" source="media/quickstart/hello-app-url.png" alt-text="Screenshot of the Azure portal that shows the Outputs page of the Deployment." border="false" lightbox="media/quickstart/hello-app-url.png":::
-
-1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
-
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
-
-After the deployment finishes, access the application with the output application URL. Use the following steps to check the app's logs to investigate any deployment issue:
-
-1. Access the output application URL from the **Outputs** page of the **Deployment**. When you open the app, you get the response `Hello World`.
-
-   :::image type="content" source="media/quickstart/hello-app-url.png" alt-text="Screenshot of the Azure portal that shows the Outputs page of the Deployment." border="false" lightbox="media/quickstart/hello-app-url.png":::
-
-1. From the navigation pane of the Azure Spring Apps instance **Overview** page, select **Logs** to check the app's logs.
-
-   :::image type="content" source="media/quickstart/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart/logs.png":::
-
-### [Azure Developer CLI](#tab/Azure-Developer-CLI)
-
-After the deployment finishes, access the application with the output endpoint. When you open the app, you get the response `Hello World`.
-
----
-
-::: zone-end
 
 ::: zone pivot="sc-standard"
 
@@ -253,7 +215,7 @@ Use the following steps to stream your application logs:
 > [!div class="nextstepaction"]
 > [Quickstart: Create a service connection in Azure Spring Apps with the Azure CLI](../../service-connector/quickstart-cli-spring-cloud-connection.md)
 
-::: zone pivot="sc-standard, sc-consumption-plan"
+::: zone pivot="sc-standard"
 
 > [!div class="nextstepaction"]
 > [Introduction to the sample app](./quickstart-sample-app-introduction.md)

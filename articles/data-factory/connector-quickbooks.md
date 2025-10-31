@@ -6,7 +6,7 @@ author: jianleishen
 ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 09/12/2025
+ms.date: 10/14/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -18,7 +18,8 @@ ms.custom:
 
 This article outlines how to use the copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [overview article about the copy activity](copy-activity-overview.md).
 
-This article also describes how to upgrade the QuickBooks connector from version 1.0 to 2.0. Version 2.0 provides improved native QuickBooks support.
+> [!IMPORTANT]
+> The QuickBooks connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the QuickBooks connector](#quickbooks-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -170,7 +171,7 @@ To copy data from QuickBooks Online, set the `type` property of the dataset to `
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | `type` | The type of the dataset. It must be set to `QuickBooksObject`. | Yes |
-| `tableName` | Name of the table. | No (if `query` in the activity source is specified) |
+| `tableName` | Name of the table.| No (if `query` in the activity source is specified) |
 
 Here's an example:
 
@@ -189,6 +190,129 @@ Here's an example:
 }
 ```
 
+The connector version 2.0 supports the following QuickBooks tables:
+
+- Account
+- Attachable
+- Attachable_AttachableRef
+- Attachable_AttachableRef_CustomField
+- Bill
+- BillPayment_Line
+- BillPayment_Line_LinkedTxn
+- Bill_Account_Based_Expense_Line
+- Bill_Item_Based_Expense_Line
+- Bill_LinkedTxn
+- Bill_Payment
+- Bill_TxnTaxDetail_TaxLine
+- Budget
+- Budget_Detail
+- Class
+- CompanyCurrency_CustomField
+- CompanyInfo_NameValue
+- Company_Currency
+- Company_Info
+- CreditCardPayment
+- CreditMemo_CustomField
+- CreditMemo_Description_Line
+- CreditMemo_Discount_Line
+- CreditMemo_Group_Individual_Item_Line
+- CreditMemo_Group_Item_Line
+- CreditMemo_Sales_Item_Line
+- CreditMemo_Subtotal_Line
+- CreditMemo_TxnTaxDetail_TaxLine
+- Credit_Memo
+- Customer
+- CustomerType
+- Department
+- Deposit
+- Deposit_CustomField
+- Deposit_Line
+- Deposit_Line_CustomField
+- Deposit_Linked_Transaction_Detail
+- Deposit_Linked_Transaction_Line
+- Deposit_TxnTaxDetail_TaxLine
+- Employee
+- Estimate
+- Estimate_CustomField
+- Estimate_Description_Line
+- Estimate_Discount_Line
+- Estimate_Group_Individual_Item_Line
+- Estimate_Group_Item_Line
+- Estimate_LinkedTxn
+- Estimate_Sales_Item_Line
+- Estimate_Subtotal_Line
+- Estimate_TxnTaxDetail_TaxLine
+- Invoice
+- Invoice_CustomField
+- Invoice_Description_Line
+- Invoice_Discount_Line
+- Invoice_Group_Individual_Item_Line
+- Invoice_Group_Item_Line
+- Invoice_LinkedTxn
+- Invoice_Sales_Item_Line
+- Invoice_Subtotal_Line
+- Invoice_TxnTaxDetail_TaxLine
+- Item
+- JournalCode_CustomField
+- JournalEntry_Description_Line
+- JournalEntry_Line
+- JournalEntry_TxnTaxDetail_TaxLine
+- Journal_Code
+- Journal_Entry
+- Payment
+- Payment_Line
+- Payment_Line_LinkedTxn
+- Payment_Method
+- Preferences
+- Preferences_SalesFormsPrefs_CustomField
+- Preferences_OtherPrefs_NameValue
+- Preferences_VendorAndPurchasesPrefs_POCustomField
+- Purchase
+- Purchase_Account_Based_Expense_Line
+- Purchase_Item_Based_Expense_Line
+- Purchase_TxnTaxDetail_TaxLine
+- Purchase_Order
+- PurchaseOrder_CustomField
+- PurchaseOrder_Account_Based_Expense_Line
+- PurchaseOrder_Item_Based_Expense_Line
+- PurchaseOrder_LinkedTxn
+- PurchaseOrder_TxnTaxDetail_TaxLine
+- RecurringTransaction
+- RecurringTransactionLines
+- RefundReceipt_CustomField
+- RefundReceipt_Description_Line
+- RefundReceipt_Discount_Line
+- RefundReceipt_Group_Individual_Item_Line
+- RefundReceipt_Group_Item_Line
+- RefundReceipt_Sales_Item_Line
+- RefundReceipt_Subtotal_Line
+- RefundReceipt_TxnTaxDetail_TaxLine
+- Refund_Receipt
+- ReimburseCharge
+- ReimburseCharge_Line
+- SalesReceipt_CustomField
+- SalesReceipt_Description_Line
+- SalesReceipt_Discount_Line
+- SalesReceipt_Group_Individual_Item_Line
+- SalesReceipt_Group_Item_Line
+- SalesReceipt_Sales_Item_Line
+- SalesReceipt_Subtotal_Line
+- SalesReceipt_TxnTaxDetail_TaxLine
+- Sales_Receipt
+- TaxClassification
+- TaxCode_PurchaseTaxRateList_TaxRateDetail
+- TaxCode_SalesTaxRateList_TaxRateDetail
+- Tax_Agency
+- Tax_Code
+- Tax_Rate
+- Term
+- Time_Activity
+- Transfer
+- Vendor
+- VendorCredit_Account_Based_Expense_Line
+- VendorCredit_Item_Based_Expense_Line
+- Vendor_Credit
+
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](concepts-pipelines-activities.md). This section provides a list of properties that the QuickBooks source supports.
@@ -200,7 +324,7 @@ To copy data from QuickBooks Online, set the source type in the copy activity to
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | `type` | The type of the copy activity source. It must be set to `QuickBooksSource`. | Yes |
-| `query` | Use the custom SQL query to read data. <br><br>For version 2.0 of the QuickBooks connector, you can use only the QuickBooks native query, with limitations. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. The `tableName` value specified in the query must match the `tableName` value in the dataset. <br><br>For version 1.0 of the QuickBooks connector, you can use the SQL-92 query. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if `tableName` in the dataset is specified) |
+| `query` | Use the custom SQL query to read data. <br><br>For version 2.0 of the QuickBooks connector, you can use only the QuickBooks native query, with limitations. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>For version 1.0 of the QuickBooks connector, you can use the SQL-92 query. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if `tableName` in the dataset is specified) |
 
 Here's an example:
 
@@ -265,8 +389,8 @@ The following table summarizes information about the versions of the QuickBooks 
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| 1.0 | End of support announced | Not applicable. |  
-| 2.0 | General availability |QuickBooks native query is supported, with limitations. `GROUP BY` clauses, `JOIN` clauses, and aggregate functions (`Avg`, `Max`, `Sum`) aren't supported. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>The `tableName` value specified in the query must match the `tableName` value in the dataset. <br><br>The SQL-92 query is not supported. <br><br>The `useEncryptedEndpoints` property is not supported.  |
+| 1.0 | Removed | Not applicable. |  
+| 2.0 | General availability |QuickBooks native query is supported, with limitations. `GROUP BY` clauses, `JOIN` clauses, and aggregate functions (`Avg`, `Max`, `Sum`) aren't supported. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>The SQL-92 query is not supported. <br><br>The `useEncryptedEndpoints` property is not supported. <br><br>Support specific Quickbooks tables. For the supported table list, go to [Dataset properties](#dataset-properties). |
 
 ### Upgrade the Quickbooks connector from version 1.0 to version 2.0
 
@@ -277,6 +401,7 @@ The following table summarizes information about the versions of the QuickBooks 
 1. On the **Edit linked service** pane, select **2.0** for the version. For more information, see the [linked service properties for version 2.0](#version-20) earlier in this article.
 
 1. If you use a SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert it to the QuickBooks native query. Learn more about the native query from [Copy activity properties](#copy-activity-properties) earlier in this article and from [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site.
+1. Note that version 2.0 supports specific Quickbooks tables. For the supported table list, go to [Dataset properties](#dataset-properties).
 
 ## Related content
 

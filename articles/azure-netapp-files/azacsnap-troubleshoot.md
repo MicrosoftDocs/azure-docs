@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 05/21/2025
+ms.date: 10/30/2025
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
 # Customer intent: "As a system administrator using Azure Application Consistent Snapshot tool, I want to troubleshoot command execution issues, so that I can ensure successful operations and maintain reliable backups of my applications."
@@ -146,34 +146,34 @@ Communication with Azure NetApp Files might fail or time out. To troubleshoot, m
 
 ### Use Cloud Shell to validate configuration files
 
-You can test whether the service principal is configured correctly by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
+You can test the AzAcSnap configuration by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
 
-1. In the Azure portal, open a [Cloud Shell](../cloud-shell/overview.md) session.
+> [!IMPORTANT]
+> Resolving any permission related issues are outside the scope of this guide.
+
+1. In the Azure portal, open a `bash` [Cloud Shell](../cloud-shell/overview.md) session.
 1. Make a test directory, for example `mkdir azacsnap`.
-1. Switch to the *azacsnap* directory, and download the latest version of AzAcSnap.
+1. Switch to the `azacsnap` directory, and download the latest version of AzAcSnap.
    
    ```bash
-   wget https://aka.ms/azacsnapinstaller
+   cd azacsnap
+   wget https://aka.ms/azacsnap-linux
    ```
-1. Make the installer executable, for example `chmod +x azacsnapinstaller`.
-1. Extract the binary for testing.
+
+1. Make the downloaded binary executable.
+   
+   ```bash
+   chmod +x azacsnap-linux
+   ```
+
+1. Create the AzAcSnap configuration file (for example `azacsnap.json`) for testing.  This can be done using the `vi` program or use the Cloud Shell Upload/Download icon to upload the AzAcSnap configuration file, and optionally the service principal file (for example `azureauth.json`) if still using this method for authentication.
+1. List snapshot details.
 
    ```bash
-   ./azacsnapinstaller -X -d .
-   ```
-   The results look like the following output:
-
-   ```output
-   +-----------------------------------------------------------+
-   | Azure Application Consistent Snapshot Tool Installer |
-   +-----------------------------------------------------------+
-   |-> Installer version '5.0.2_Build_20210827.19086'
-   |-> Extracting commands into ..
-   |-> Cleaning up .NET extract dir
+   ./azacsnap -c details
    ```
 
-1. Use the Cloud Shell Upload/Download icon to upload the service principal file, *azureauth.json*, and the AzAcSnap configuration file, such as *azacsnap.json*, for testing.
-1. Run the `storage` test.
+1. Run a storage test.
 
    ```bash
    ./azacsnap -c test --test storage
@@ -362,5 +362,5 @@ In the preceding example, adding the `DATABASE BACKUP ADMIN` privilege to the SY
 
 ## Next steps
 
-- [Tips and tricks for using AzAcSnap](azacsnap-tips.md)
+- [Tips for using AzAcSnap](azacsnap-tips.md)
 - [AzAcSnap command reference](azacsnap-cmd-ref-configure.md)

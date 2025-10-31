@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Machines disaster recovery - High Churn support
+ms.reviewer: v-gajeronika
 description: Describes how to protect your Azure Virtual Machines having high churning workloads.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 10/31/2025
 ms.author: v-gajeronika
 # Customer intent: As a cloud administrator, I want to enable High Churn support for Azure Virtual Machines, so that I can effectively protect high churning workloads and achieve better disaster recovery performance.
 ---
@@ -50,7 +51,7 @@ The following table summarizes Site Recovery limits:
 |Premium SSD with disk size 1TiB or more |24 KB and later |50 MB/s|
 
 
-## How to enable High Churn support
+## Enable High Churn support
 
 ### From Recovery Service Vault 
 
@@ -66,7 +67,7 @@ The following table summarizes Site Recovery limits:
 
    - **High Churn** - You can get up to 100 MB/s per virtual machine. Select High Churn to use *Premium Block Blob* storage accounts only for Cache Storage. Hence, Cache storage dropdown lists only *Premium Block blob* storage accounts. 
    
-      :::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churns.png" alt-text="Screenshot of churn.":::
+      :::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn.":::
 
 
 4. Select **High Churn** from the dropdown option.

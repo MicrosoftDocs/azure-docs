@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 10/28/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
@@ -13,9 +13,9 @@ ms.reviewer: dineshm
 
 # Copy blobs between Azure storage accounts by using AzCopy
 
-You can copy blobs, directories, and containers between storage accounts by using the AzCopy v10 command-line utility.
+You can use the AzCopy v10 command-line utility to copy blobs, directories, and containers between storage accounts.
 
-To see examples for other types of tasks such as uploading files, downloading blobs, and synchronizing with Blob storage, see the links presented in the [Next Steps](#next-steps) section of this article.
+For examples of other types of tasks, such as uploading files, downloading blobs, and synchronizing with Blob storage, see the links in the [Next Steps](#next-steps) section of this article.
 
 AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers.
 
@@ -24,23 +24,27 @@ AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [AP
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID and that your Microsoft Entra identity has the proper role assignments for both source and destination accounts. 
+> The examples in this article assume that you provide authorization credentials by using Microsoft Entra ID and that your Microsoft Entra identity has the proper role assignments for both source and destination accounts. 
 >
-> Alternatively you can append a SAS token to either the source or destination URL in each AzCopy command. For example: `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>'`.
+> Alternatively, you can append a SAS token to either the source or destination URL in each AzCopy command. For example: `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>'`.
 
 ## Guidelines
 
 Apply the following guidelines to your AzCopy commands.
 
-- If you're using Microsoft Entra authorization for both source and destination, then both accounts must belong to the same Microsoft Entra tenant.
+- If you use Microsoft Entra authorization for both source and destination, both accounts must belong to the same Microsoft Entra tenant.
 
-- Your client must have network access to both the source and destination storage accounts. To learn how to configure the network settings for each storage account, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
+- Your client must have **network access** to both the source and destination storage accounts. 
+  
+  To learn how to configure the network settings for each storage account, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
+
+  To learn about supported network topologies when copying between accounts, see [Copy blobs between storage accounts with access restriction](/troubleshoot/azure/azure-storage/blobs/connectivity/copy-blobs-between-storage-accounts-network-restriction#copy-blobs-between-storage-accounts-with-access-restriction).
 
 -  If you copy to a premium block blob storage account, omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`). Premium block blob storage accounts don't support access tiers.
 
 - You can increase the throughput of copy operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency).
 
-- If the source blobs have index tags, and you want to retain those tags, you'll have to reapply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
+- If the source blobs have index tags, and you want to retain those tags, you need to reapply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
 
 ## Copy a blob
 
@@ -65,7 +69,7 @@ azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFil
 azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+The copy operation is synchronous. When the command returns, it indicates that all files are copied.
 
 ## Copy a directory
 
@@ -90,7 +94,7 @@ azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDir
 azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer' --recursive
 ```
 
-The copy operation is synchronous. All files have been copied when the command returns.
+The copy operation is synchronous. When the command returns, all files are copied.
 
 ## Copy a container
 
@@ -115,7 +119,7 @@ azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https:/
 azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer' --recursive
 ```
 
-The copy operation is synchronous. All files have been copied when the command returns.
+The copy operation is synchronous. When the command returns, all files are copied.
 
 ## Copy containers, directories, and blobs
 
@@ -140,7 +144,7 @@ azcopy copy 'https://mysourceaccount.blob.core.windows.net/' 'https://mydestinat
 azcopy copy 'https://mysourceaccount.dfs.core.windows.net/' 'https://mydestinationaccount.dfs.core.windows.net' --recursive
 ```
 
-The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+The copy operation is synchronous. When the command returns, it indicates that all files are copied.
 
 <a id="copy-between-accounts-and-add-index-tags"></a>
 
@@ -148,13 +152,13 @@ The copy operation is synchronous so when the command returns, that indicates th
 
 Copy blobs to another storage account and add [blob index tags](../blobs/storage-manage-find-blobs.md) to the target blob.
 
-If you're using Microsoft Entra authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
+If you're using Microsoft Entra authorization, assign the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role to your security principal, or give it permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) through a custom Azure role. If you're using a Shared Access Signature (SAS) token, the token must provide access to the blob's tags through the `t` SAS permission.
 
-To add tags, use the `--blob-tags` option along with a URL encoded key-value pair.
+To add tags, use the `--blob-tags` option with a URL encoded key-value pair.
 
-For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter.
+For example, to add the key `my tag` and the value `my tag value`, add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter.
 
-Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
+Separate multiple index tags with an ampersand (`&`). For example, if you want to add the key `my second tag` and the value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 
 The following examples show how to use the `--blob-tags` option.
 
@@ -186,10 +190,10 @@ azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https:/
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/' 'https://mydestinationaccount.blob.core.windows.net' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
 ```
 
-The copy operation is synchronous. All files have been copied when the command returns.
+The copy operation is synchronous. When the command returns, all files are copied.
 
 > [!NOTE]
-> If you specify a directory, container, or account for the source, all the blobs that are copied to the destination will have the same tags that you specify in the command.
+> If you specify a directory, container, or account for the source, all the blobs that you copy to the destination have the same tags that you specify in the command.
 
 ## Copy with optional flags
 
@@ -203,6 +207,22 @@ You can tweak your copy operation by using optional flags. Here's a few examples
 
 For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
+## Specify source and destination types
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection might fail, such as in piping scenarios or emulators. This parameter helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `BlobBlob`             | Copy between two Azure Blob Storage locations                                         | 
+| `BlobBlobFS`           | Copy from Azure Blob Storage to Azure Data Lake Gen2 (BlobFS)                         |
+| `BlobFSBlob`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure Blob Storage                         |
+| `BlobFSBlobFS`         | Copy between two Azure Data Lake Gen2 (BlobFS) locations                              |
+| `BlobFSFile`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure File Storage                         |
+| `BlobFile`             | Copy from Azure Blob Storage to Azure File Storage                                    |
+| `FileBlob`             | Copy from Azure File Storage to Azure Blob Storage                                    |
+| `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                         |
+
+
 ## Next steps
 
 Find more examples in these articles:
@@ -213,7 +233,6 @@ Find more examples in these articles:
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
 - [Examples: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
-- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 See these articles to configure settings, optimize performance, and troubleshoot issues:
 

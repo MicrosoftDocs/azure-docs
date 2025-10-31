@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❎ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes how to configure planned maintenance in Azure Spring Apps. 
 

@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes the cost-saving options and capabilities that Azure Spring Apps provides.
 
@@ -40,8 +40,6 @@ If you have Azure Spring Apps instances that don't need to run continuously, you
 You can manually scale computing capacities to accommodate a changing environment. For more information, see [Scale an application in Azure Spring Apps](how-to-scale-manual.md).
 
 Autoscale reduces operating costs by terminating redundant resources when they're no longer needed. For more information, see [Set up autoscale for applications](how-to-setup-autoscale.md).
-
-You can also set up autoscale rules for your applications in the Azure Spring Apps Standard consumption and dedicated plan. For more information, see [Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan](../consumption-dedicated/quickstart-apps-autoscale-standard-consumption.md).
 
 ## Stop maintaining unused environments
 
