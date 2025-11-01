@@ -21,12 +21,16 @@ This diagram shows networking connections within Azure Virtual Enclaves. The dia
 
 [ ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.svg) ](./media/mermaid-virtual-enclaves-network-links.svg#lightbox)
 
+[ ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.png) ](./media/mermaid-virtual-enclaves-network-links.png#lightbox)
+
 <!--
 This is the mermaid definition for the above graph. Use this to edit and regenerate the graph image.
 
 ```mermaid
 ---
 title: Azure Virtual Enclaves - Network Overview
+config:
+  theme: base
 ---
 flowchart LR
   OnPremises[on-premises]
@@ -35,10 +39,10 @@ flowchart LR
     subgraph Community [Community]
       subgraph VirtualWAN [Virtual WAN]
         HUB1([VWAN Hub East US
-             with Firewall
+            with Firewall
             ])
         HUB2([VWAN Hub West US
-             with Firewall
+            with Firewall
             ])
         TH([Transit Hub])
       end
@@ -65,7 +69,7 @@ flowchart LR
       end
     end
   end
-  Internet --- HUB2
+  Internet ---- HUB2
   OnPremises ---|VPN|TH--- HUB1
   HUB1 --- HUB2
   HUB1 ---- VNET1
@@ -79,7 +83,7 @@ flowchart LR
 
   
 %% Styling
-  linkStyle default stroke-width:2px,stroke:yellow;
+  linkStyle default stroke-width:4px,stroke:Black;
   
   classDef subscription fill:#9F9F9F,stroke:#004578,color:#000;
   classDef community fill:#0078D4,stroke:#004578,color:#fff;
