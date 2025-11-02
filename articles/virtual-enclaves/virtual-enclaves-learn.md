@@ -23,6 +23,8 @@ This diagram shows networking connections within Azure Virtual Enclaves. The dia
 
 [ ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.png) ](./media/mermaid-virtual-enclaves-network-links.png#lightbox)
 
+:::image type="content" source="./media/mermaid-virtual-enclaves-network-links.svg" alt-text="Image alt text." lightbox="./media/mermaid-virtual-enclaves-network-links.svg":::
+
 <!--
 This is the mermaid definition for the above graph. Use this to edit and regenerate the graph image.
 
