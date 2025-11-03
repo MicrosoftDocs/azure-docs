@@ -32,11 +32,12 @@ This diagram shows two example Workloads. The `Shared Workload` is linked to thr
 This is the mermaid definition for the above graph. Use this to edit and regenerate the graph image.
 
 ```mermaid
--/-/-
+---
 title: Azure Virtual Enclaves - Workload
--/-/-
-flowchart
-  direction LR
+config:
+  theme: base
+---
+flowchart TB
   subgraph Subscription ["Single Azure Subscription"]
     subgraph ave-resource-groups [AVE Resources
                                   Resource Group]
@@ -53,7 +54,7 @@ flowchart
     end
 
     subgraph WL1-RG-Desktops ["Desktops
-                              (AVE Resource)"]
+                              (Resource Group)"]
     end
     subgraph WL1-RG-Storage ["Storage 
                              (Resource Group)"]
@@ -73,25 +74,31 @@ flowchart
     end
   end
 
-  Community =/=/= Community-MRG
-  Community =/=/= Enclave2
-  Enclave2 =/=/= Enclave2-MRG
-  Enclave2 =/=/= Workload1
-  Enclave2 =/=/= Workload2
-  Workload1 =/=/= WL1-RG-Desktops
-  Workload2 =/=/= WL2-RG-AKS
-  Workload1 =/=/= WL1-RG-CosmosDB
-  Workload1 =/=/= WL1-RG-Storage
+  Community --- Community-MRG
+  Community --- Enclave2
+  Enclave2 --- Enclave2-MRG
+  Enclave2 --- Workload1
+  Enclave2 --- Workload2
+  Workload1 --- WL1-RG-Desktops
+  Workload2 --- WL2-RG-AKS
+  Workload1 --- WL1-RG-CosmosDB
+  Workload1 --- WL1-RG-Storage
   
 %% Styling
-  classDef subscription fill:#777475,stroke:#004578,color:#000;
-  classDef resourceGroup fill:#E6F2FA,stroke:#00FF00,color:#000;
-  classDef community fill:#0078D4,stroke:#004578,color:#fff;
-  classDef enclave fill:#E6F2FA,stroke:#004578,color:#000;
-  classDef workload fill:#E6F2FA,stroke:#004578,color:#000;
+  linkStyle default stroke-width:4px,stroke:Black;
+
+  classDef subscription fill:#9F9F9F,stroke:#004578,color:#000;
+  classDef resourceGroup fill:#fff9db,stroke:#00FF00,color:#000;
+  classDef managedResourceGroup fill:#ffea8d,stroke:#00FF00,color:#000;
+  classDef workloadResourceGroup fill:#ffe366,stroke:#004578,color:#000;
+  classDef community fill:#00A4EF,stroke:#004578,color:#fff;
+  classDef enclave fill:#8ddbff,stroke:#004578,color:#000;
+  classDef workload fill:#dbf4ff,stroke:#004578,color:#000;
 
   class Subscription subscription;
-  class ave-resource-groups,Community-MRG,Enclave1-MRG,Enclave2-MRG,Enclave3-MRG,WL1-RG-Desktops,WL2-RG-AKS,WL1-RG-CosmosDB,WL1-RG-Storage resourceGroup;
+  class WL1-RG-Desktops,WL2-RG-AKS,WL1-RG-CosmosDB,WL1-RG-Storage workloadResourceGroup;
+  class Community-MRG,Enclave2-MRG managedResourceGroup;
+  class ave-resource-groups resourceGroup;
   class Community community;
   class Enclave2 enclave;
   class Workload1,Workload2 workload;
