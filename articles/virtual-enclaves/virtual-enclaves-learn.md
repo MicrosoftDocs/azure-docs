@@ -92,14 +92,14 @@ flowchart LR
   linkStyle default stroke-width:4px,stroke:Black;
   
   classDef subscription fill:#9F9F9F,stroke:#004578,color:#000;
-  classDef community fill:#0078D4,stroke:#004578,color:#fff;
+  classDef community fill:#00A4EF,stroke:#004578,color:#fff;
   classDef virtualWAN fill:#CFCFCF,stroke:#0078D4,color:#000;
   classDef VWANhub fill:#F3F2F1,stroke:#0078D4,color:#000;
   classDef vnet fill:#CFCFCF,stroke:#0078D4,color:#000;
-  classDef enclave fill:#E6F2FA,stroke:#0078D4,color:#000;
+  classDef enclave fill:#8ddbff,stroke:#0078D4,color:#000;
   classDef endpoint fill:#F3F2F1,stroke:#605E5C,color:#000;
-  classDef workload fill:#7DC6DB,stroke:#000000,color:#000;
-  classDef service fill:#B59A51,stroke:#000000,color:#000;
+  classDef workload fill:#dbf4ff,stroke:#000000,color:#000;
+  classDef service fill:#ffe366,stroke:#000000,color:#000;
   classDef external fill:orange,stroke:#8A8886,color:#000;
 
   class Subscription subscription;
