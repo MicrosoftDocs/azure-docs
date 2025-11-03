@@ -25,7 +25,7 @@ This diagram shows networking connections within Azure Virtual Enclaves. The dia
 
 :::image type="content" source="./media/mermaid-virtual-enclaves-network-links.svg" alt-text="Image alt text." alt-text="3Diagram showing an example community with two regions, three enclaves, and 4 workloads." lightbox="./media/mermaid-virtual-enclaves-network-links.svg":::
 
-:::image type="content" source="media/mermaid-virtual-enclaves-network-links.svg" alt-text="Image alt text." alt-text="4Diagram showing an example community with two regions, three enclaves, and 4 workloads." lightbox="./media/mermaid-virtual-enclaves-network-links.svg":::
+:::image type="content" source="media/virtual-enclaves/mermaid-virtual-enclaves-network-links.svg" alt-text="Image alt text." alt-text="4Diagram showing an example community with two regions, three enclaves, and 4 workloads." lightbox="./media/virtual-enclaves/mermaid-virtual-enclaves-network-links.svg":::
 
 :::image type="content" source="./media/virtual-enclaves/mermaid-virtual-enclaves-network-links.svg" alt-text="Image alt text." alt-text="5Diagram showing an example community with two regions, three enclaves, and 4 workloads." lightbox="./media/virtual-enclaves/mermaid-virtual-enclaves-network-links.svg":::
 
