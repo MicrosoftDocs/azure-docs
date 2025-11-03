@@ -19,18 +19,10 @@ You can think of a Virtual Enclaves environment as a connection of network resou
 
 This diagram shows networking connections within Azure Virtual Enclaves. The diagram should look similar to a typical hub and spoke network.
 
-[ ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.svg) ](./media/mermaid-virtual-enclaves-network-links.svg#lightbox)
-
-[ ![2Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.png) ](./media/mermaid-virtual-enclaves-network-links.png#lightbox)
-
-:::image type="content" source="./media/mermaid-virtual-enclaves-network-links.svg" alt-text="3Diagram showing an example community with two regions, three enclaves, and 4 workloads." border="false" lightbox="./media/mermaid-virtual-enclaves-network-links.svg":::
-
-:::image type="content" source="./media/mermaid-virtual-enclaves-network-links.svg" alt-text="4Diagram showing an example community with two regions, three enclaves, and 4 workloads." lightbox="./media/mermaid-virtual-enclaves-network-links.svg":::
-
-:::image type="content" source="./media/mermaid-virtual-enclaves-network-links.svg" alt-text="5Diagram showing an example community with two regions, three enclaves, and 4 workloads." lightbox="./media/mermaid-virtual-enclaves-network-links.svg":::
+[ ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.png) ](./media/mermaid-virtual-enclaves-network-links.png#lightbox)
 
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the graph image.
+This is the mermaid definition for the above graph. Use this to edit and regenerate the graph PNG image.
 
 ```mermaid
 ---
