@@ -12,7 +12,7 @@ The following list describes what to expect when App Service plans are configure
 
 - **Detection and response:** The App Service platform automatically detects failures in an availability zone and initiates a response. No manual intervention is required to initiate a zone failover.
 
-- **Notification:** You can monitor zone failure events through Azure Service Health and Azure Resource Health. Set up alerts on these services to receive notifications about zone-level problems.
+[!INCLUDE [Availability zone down notification (Service Health and Resource Health)](../reliability-availability-zone-down-notification-service-resource-include.md)]
 
 - **Active requests:** Any in-progress requests that connect to an App Service plan instance in the faulty availability zone are terminated. Retry those requests.
 

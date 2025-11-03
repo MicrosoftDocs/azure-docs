@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 10/23/2025
+ms.date: 11/3/2025
 ms.author: mbender
 # Customer intent: "As a Kubernetes developer, I want to understand the API specifications for the Application Gateway for Containers, so that I can effectively configure and manage load balancing and traffic routing for my containerized applications."
 ---
@@ -1546,19 +1546,19 @@ the implementation setting the Accepted Condition for the Route to <code>status:
 <tr>
 <td>/foo/bar</td>
 <td>/foo</td>
-<td><empty string></td>
+<td></td>
 <td>/bar</td>
 </tr>
 <tr>
 <td>/foo/</td>
 <td>/foo</td>
-<td><empty string></td>
+<td></td>
 <td>/</td>
 </tr>
 <tr>
 <td>/foo</td>
 <td>/foo</td>
-<td><empty string></td>
+<td></td>
 <td>/</td>
 </tr>
 <tr>
