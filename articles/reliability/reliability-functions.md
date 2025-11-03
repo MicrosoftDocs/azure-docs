@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
-ms.date: 05/09/2025
+ms.date: 10/27/2025
 zone_pivot_groups: reliability-functions-hosting-plan
 
 #Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
@@ -25,16 +25,12 @@ Availability zones support for Azure Functions depends on your [Functions hostin
 |[Dedicated (App Service) plan](../azure-functions/dedicated-plan.md) | GA | See [Reliability in Azure App Service](reliability-app-service.md). |
 | [Consumption plan](../azure-functions/consumption-plan.md) | n/a | Not supported by the Consumption plan. |
 
-
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Azure Functions supports a [zone-redundant deployment](availability-zones-service-support.md).  
 
 ## <a name="availability-zone-support"></a>Availability zones support
 ::: zone pivot="flex-consumption-plan"
-
->[!IMPORTANT]  
->Support for availability zones when hosting your app in a Flex Consumption plan is currently in preview.
 
 When you configure Flex Consumption plan apps as zone redundant, the platform automatically spreads instances of your function app across the zones in the selected region, with different rules for always-ready versus on-demand instances.
 

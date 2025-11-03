@@ -60,6 +60,9 @@ The following example shows the rules that are available for configuration.
         "no-deployments-resources" : {
           "level": "warning"
         },
+        "no-explicit-any": {
+          "level": "warning"
+        },
         "no-hardcoded-env-urls": {
           "level": "warning"
         },

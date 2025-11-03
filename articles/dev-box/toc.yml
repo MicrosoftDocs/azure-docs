@@ -26,11 +26,9 @@ items:
         displayName: connect, access dev box
   - name: Concepts
     items:
-      - name: Key concepts
-        href: concept-dev-box-concepts.md
-      - name: Architecture overview
+      - name: Architecture and key concepts
         href: concept-dev-box-architecture.md
-        displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
+        displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure,key concepts
       - name: Network requirements
         href: concept-dev-box-network-requirements.md
         displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags

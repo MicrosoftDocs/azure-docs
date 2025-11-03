@@ -202,4 +202,4 @@ The gallery is detached from the dev center. The gallery and its images aren't d
 
 ## Related content
 
-- Learn more about [key concepts in Microsoft Dev Box](./concept-dev-box-concepts.md).
+- Learn more about [Microsoft Dev Box architecture and key concepts](./concept-dev-box-architecture.md).

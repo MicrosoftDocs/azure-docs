@@ -109,7 +109,3 @@ make your messages dynamic. For example:  
 
 The above expressions will return the relevant error messages from a Copy activity failure, which can be redirected then to your Web activity that sends the email. Refer to the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
-
-## Related content
-
-[How to send Teams notifications from a pipeline](how-to-send-notifications-to-teams.md)

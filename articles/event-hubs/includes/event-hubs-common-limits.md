@@ -27,4 +27,4 @@ The following limits are common across all tiers.
 | Number of properties per schema group | | 1024 |
 | Size in bytes per schema group property key | | 256 | 
 | Size in bytes per schema group property value | | 1024 | 
-
+| Number of concurrent receive requests on a hub/topic | Subsequent receive requests are throttled. This quota applies to the combined number of concurrent receive operations across all consumers/consumer groups | 5000 |

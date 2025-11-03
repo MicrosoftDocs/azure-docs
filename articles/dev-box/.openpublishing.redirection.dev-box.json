@@ -149,6 +149,11 @@
       "source_path_from_root": "/articles/dev-box/how-to-configure-dev-box-imaging.md",
       "redirect_url": "/azure/dev-box/how-to-configure-dev-center-imaging",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/concept-dev-box-concepts.md",
+      "redirect_url": "/azure/dev-box/concept-dev-box-architecture",
+      "redirect_document_id": false
     }
   ]
 }

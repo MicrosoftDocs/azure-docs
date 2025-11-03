@@ -1,28 +1,31 @@
 ---
 title: Reliability in Azure AI Search
 titleSuffix: Azure AI Search
-description: Learn how to improve reliability in Azure AI Search by using availability zones, replicas, and multi-region deployments for more resilient performance.
+description: Learn how to make Azure AI Search resilient to transient faults, availability zone outages, and region outages using replicas and multi-region deployments.
 author: haileytap
 ms.author: haileytapia
 ms.service: azure-ai-search
 ms.topic: reliability-article
-ms.date: 08/25/2025
+ms.date: 10/31/2025
 ms.custom: subject-reliability
+ai-usage: ai-assisted
 ---
 
 # Reliability in Azure AI Search
 
-Azure AI Search is a scalable search infrastructure that indexes heterogeneous content and enables retrieval through APIs, applications, and AI agents. It's suitable for enterprise search scenarios and AI-powered customer experiences that require dynamic content generation through chat completion models.
-
-This article describes reliability support in [Azure AI Search](/azure/search/search-what-is-azure-search), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+[Azure AI Search](/azure/search/search-what-is-azure-search) is a scalable search infrastructure that indexes heterogeneous content and enables retrieval through APIs, applications, and AI agents. It's suitable for enterprise search scenarios and AI-powered customer experiences that require dynamic content generation through chat completion models. As an Azure service, AI Search provides a range of capabilities to support your reliability requirements.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
+This article describes how to make Azure AI Search resilient to a variety of potential outages and problems, including transient faults, availability zone outages, region outages, and service maintenance. It also describes how you can use backups to recover from other types of problems, and highlights some key information about the Azure AI Search service level agreement (SLA).
+
 ## Production deployment recommendations for reliability
 
-For production workloads, we recommend that you use a [billable tier](/azure/search/search-sku-tier) that has at least [two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas). This configuration makes your search service more resilient to transient faults and maintenance operations. It also meets the [service-level agreement (SLA)](#service-level-agreement) for AI Search. The SLA requires two replicas for read-only workloads and three or more replicas for read-write workloads.
+For production workloads, we recommend that you:
 
-AI Search doesn't provide an SLA for the Free tier, which is limited to one replica and is discouraged for production use.
+> [!div class="checklist"]
+> - Use a [billable tier](/azure/search/search-sku-tier) that has at least [two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas). This configuration makes your search service more resilient to transient faults and maintenance operations. It also meets the [service-level agreement (SLA)](#service-level-agreement) for AI Search. The SLA requires two replicas for read-only workloads and three or more replicas for read-write workloads.
+> - Don't use the Free tier for production use. AI Search doesn't provide an SLA for the Free tier, which is limited to one replica.
 
 ## Reliability architecture overview
 
@@ -52,7 +55,7 @@ You can also configure the number of *partitions*, which represent the storage t
 
 It's important to understand the impact of adding replicas and partitions because they each affect read and write performance in different ways. For more information about replicas and partitions, see [Estimate and manage capacity of a search service](/azure/search/search-capacity-planning).
 
-## Transient faults
+## Resilience to transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
@@ -62,7 +65,7 @@ Search services might experience transient faults during standard, unscheduled m
 
 If you build any applications that interact with AI Search, they should handle transient faults. Use a retry strategy with exponential backoffs for both read and write operations.
 
-## Availability zone support
+## Resilience to availability zone failures
 
 [!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
 
@@ -77,20 +80,16 @@ The following diagram illustrates how an example search service with four replic
 > [!IMPORTANT]
 > AI Search doesn't guarantee the exact placement of replicas. Placement is subject to capacity constraints, scaling operations, and other factors.
 
-### Region support
-
-Support for availability zones depends on infrastructure and storage. For a list of supported regions, see [Choose a region for AI Search](/azure/search/search-region-support).
-
 ### Requirements
 
 Zone redundancy is automatically enabled when your search service meets all of the following criteria:
 
-- Meets the [region requirements](#region-support)
-- Is on the [Basic tier or higher](/azure/search/search-sku-tier)
-- Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas)
+- **Region support:** Support for availability zones depends on infrastructure and storage. For a list of supported regions, see [Choose a region for AI Search](/azure/search/search-region-support).
+- **Tier:** Your service must be on the [Basic tier or higher](/azure/search/search-sku-tier)
+- **Number of replicas:** Your service must have [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas)
   
-> [!NOTE]
-> AI Search attempts to distribute replicas across multiple zones when you have two or more replicas. However, for read-write workloads, you should use three or more replicas so that you receive the highest possible availability SLA.
+  > [!NOTE]
+  > AI Search attempts to distribute replicas across multiple zones when you have two or more replicas. However, for read-write workloads, you should use three or more replicas so that you receive the highest possible availability SLA.
 
 ### Instance distribution across zones
 
@@ -110,7 +109,7 @@ If your search service meets the [requirements for zone redundancy](#requirement
 
 To prepare for availability zone failure, consider *overprovisioning* the number of replicas. Overprovisioning allows the search service to tolerate some capacity loss and continue to function without degraded performance. Adding replicas during an outage is challenging, so overprovisioning helps ensure that your search service can handle normal request volumes, even with reduced capacity. For more information, see [Manage capacity by overprovisioning](/azure/reliability/concept-redundancy-replication-backup#manage-capacity-with-over-provisioning).
 
-### Normal operations
+### Behavior when all zones are healthy
 
 This section describes what to expect when search services are configured for zone redundancy and all availability zones are operational.
 
@@ -118,17 +117,15 @@ This section describes what to expect when search services are configured for zo
 
 - **Data replication between zones:** Changes in data are automatically replicated between replicas across availability zones. Replication occurs asynchronously, which means that writes are committed to one primary replica before they're replicated to other replicas.
 
-### Zone-down experience
+### Behavior during a zone failure
 
 This section describes what to expect when search services are configured for zone redundancy and an availability zone outage occurs.
 
 - **Detection and response:** AI Search is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
-- **Notification:** AI Search doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of replicas. If a zone is down, the replicas in that zone show as unavailable. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the AI Search service, including any zone failures.
+[!INCLUDE [Availability zone down notification (Service Health and Resource Health)](./includes/reliability-availability-zone-down-notification-service-resource-include.md)]
 
-  Set up alerts on these services to receive notifications about zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
-
-- **Active requests:** Requests that replicas process in the failed zone are terminated. Clients should retry the requests by following the guidance for [handling transient faults](#transient-faults).
+- **Active requests:** Requests that replicas process in the failed zone are terminated. Clients should retry the requests by following the guidance for [handling transient faults](#resilience-to-transient-faults).
 
 - **Expected data loss:** If the affected availability zone only contains read replicas, no data loss is expected.
   
@@ -136,7 +133,7 @@ This section describes what to expect when search services are configured for zo
 
 - **Expected downtime:** In most situations, a zone failure isn't expected to cause downtime to your search service for read operations because read replicas in other availability zones continue to serve requests.
 
-    If the primary replica is lost because it was in the affected zone, AI Search automatically promotes another replica to become the new primary so that write operations can resume. It typically takes a few seconds for the replica promotion to occur. During this time, write operations might not succeed. Ensure that your applications are prepared by following [transient fault handling guidance](#transient-faults).
+    If the primary replica is lost because it was in the affected zone, AI Search automatically promotes another replica to become the new primary so that write operations can resume. It typically takes a few seconds for the replica promotion to occur. During this time, write operations might not succeed. Ensure that your applications are prepared by following [transient fault handling guidance](#resilience-to-transient-faults).
 
     However, there are some unlikely situations where all of your search service's replicas might be in a single availability zone. In this scenario, you might experience downtime until the zone recovers. For more information, and to understand a workaround, see [Instance distribution](#instance-distribution-across-zones).
 
@@ -146,15 +143,15 @@ This section describes what to expect when search services are configured for zo
 
 When the availability zone recovers, AI Search automatically restores normal operations and begins routing traffic to available replicas across all zones, including the recovered zone.
 
-### Testing for zone failures
+### Test for zone failures
 
 AI Search manages traffic routing for zone-redundant services. You don't need to initiate or validate any zone failure processes.
 
-## Multi-region support
+## Resilience to region-wide failures
 
 AI Search is a single-region service. If the region becomes unavailable, your search service also becomes unavailable.
 
-### Alternative multi-region approaches
+### Custom multi-region solutions for resiliency
 
 You can optionally deploy multiple AI Search services in different regions. You're responsible for deploying and configuring separate services in each region. If you create an identical deployment in a secondary Azure region that uses a multi-region architecture, your application becomes less susceptible to a single-region disaster.
 
@@ -164,8 +161,7 @@ To optimize the performance of your overall solution, look for opportunities to 
 
 For more information, see [Multi-region deployments in Azure AI Search](/azure/search/search-multi-region).
 
-## Backups
-
+## Backup and restore
 
 Because AI Search isn't a primary data storage solution, it doesn't provide self-service backup and restore options. However, you can use the `index-backup-restore` sample for [.NET](https://github.com/Azure-Samples/azure-search-dotnet-utilities/tree/main/index-backup-restore) or [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/utilities/index-backup-restore) to back up your index definition and its documents to a series of JSON files, which are then used to restore the index.
 

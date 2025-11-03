@@ -952,8 +952,6 @@ items:
     - name: Monitor pipelines with email notifications
       href: how-to-send-email.md
       displayName: logic app
-    - name: Monitor pipelines with Microsoft Teams notifications
-      href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor managed virtual network integration runtime
@@ -1109,8 +1107,6 @@ items:
     items:
     - name: Send email from a pipeline
       href: how-to-send-email.md
-    - name: Send Microsoft Teams notifications from a pipeline
-      href: how-to-send-notifications-to-teams.md
     - name: Data migration for data lake & EDW
       items:
       - name: Why Azure Data Factory

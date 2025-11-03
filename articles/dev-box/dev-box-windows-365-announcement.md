@@ -29,7 +29,7 @@ Effective November 1, 2025, the following changes will take place:
 
 - The Microsoft Dev Box service stops accepting net new customers. 
     - *Net new customers* are defined as those with no prior Dev Box deployment in any form. 
-    - As features are integrated into Windows 365 and made available publicly, Customers interested in continuing to leverage these capabilities should reach out to their Microsoft account team. 
+    - As features are integrated into Windows 365 and become publicly available, customers interested in using them should contact their Microsoft account team. 
 - There's no immediate change to existing customers 
     - Customers who have run a POC, experimented, or begun configuring Dev Box are considered existing customers, and they can continue using and scaling their current Dev Box deployments. 
     - If you plan to start using or scaling Dev Boxes into additional tenants, submit a request through [Azure Support](https://go.microsoft.com/fwlink/p/?linkid=2202692&clcid=0x409) to get your new tenants allowlisted.  
@@ -40,7 +40,8 @@ As new developer capabilities are released in Windows 365, Microsoft will provid
 
 ## Key Actions for Customers 
 
-- **No Immediate Action Required:** Continue using and scaling your Dev Box deployments as usual. Migration resources will be provided as new features roll out in Windows 365. 
+- **Existing customers:** Continue using the service as normal. No action is required. You can continue to use and scale your Dev Box deployments as usual. Migration resources will be provided as new features roll out in Windows 365. 
+- **New customers:** Starting November 1, 2025, Microsoft Dev Box no longer accepts new customers. If you previously evaluated or tested Dev Box and need to onboard after November 1, 2025, request an exception through [Name of form](https://aka.ms/link-to-form).
 - **Stay Informed:** Monitor communications from Microsoft and your account team for updates. 
 - **Interested in Previewing New Features?** Express your interest to your Microsoft account team. 
 

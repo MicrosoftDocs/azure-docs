@@ -259,7 +259,7 @@ items:
         displayName: parameters,variables,resources,outputs,condition,syntax
       - name: Data types
         href: data-types.md
-        displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
+        displayName: any,supported types,arrays,booleans,integers,objects,strings,secure,interpolation
       - name: Parameters (param)
         href: parameters.md
         displayName: decorators,secure,objects,constraints
@@ -493,6 +493,8 @@ items:
                 displayName: linter
               - name: No deployments resources
                 href: linter-rule-no-deployments-resources.md
+              - name: No explicit Any
+                href: linter-rule-no-explicit-any.md
                 displayName: linter
               - name: No hardcoded environment URLs
                 href: linter-rule-no-hardcoded-environment-urls.md

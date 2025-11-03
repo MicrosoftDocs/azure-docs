@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 08/04/2025
+ms.date: 10/31/2025
 ms.author: juergent
 # Customer intent: "As an IT administrator, I want to deploy SAP workloads on Azure VMs, so that I can leverage Azure's scalability and automated management features for mission-critical applications."
 ---
@@ -56,6 +56,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- October 31, 2025: Added clarification around Premium SSD Performance Plus and added storage configuration for Dv6/Ev6 certified HANA VMs in [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
 - September 10, 2025: Added a new document on [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) and updated the Azure Files NFS related sections in the existing documents on how to configure and deploy the Encryption in Transit. 
 - August 4, 2025: Updated colocation constraint command for SAPHanaSR configuration in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - August 4, 2025: Updated order constraints between SAPHana, SAPHanaTopology resources and Filesystem resources in [High availability of SAP HANA scale-up with Azure NetApp Files on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md).

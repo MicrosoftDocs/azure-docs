@@ -108,5 +108,5 @@ This roadmap outlines our current priorities, and we remain flexible to adapt ba
 
 - [What's new in Microsoft Dev Box](https://aka.ms/devbox/whatsnew)
 - [What is Microsoft Dev Box?](/azure/dev-box/overview-what-is-microsoft-dev-box)
-- [Key concepts for Microsoft Dev Box - Microsoft Dev Box | Microsoft Learn](/azure/dev-box/concept-dev-box-concepts)
+- [Microsoft Dev Box architecture and key concepts - Microsoft Dev Box | Microsoft Learn](/azure/dev-box/concept-dev-box-architecture)
 - [Microsoft Dev Box architecture - Microsoft Dev Box | Microsoft Learn](/azure/dev-box/concept-dev-box-architecture)

@@ -3,16 +3,25 @@ title: Troubleshooting Guide for Azure Synapse Link Initial Snapshot Issues for 
 description: Learn how to troubleshoot Azure Synapse Link initial snapshot issues for Azure SQL Database and SQL Server
 author: im-microsoft
 ms.author: imotiwala
-ms.date: 12/02/2024
+ms.reviewer: wiassaf, yexu
+ms.date: 10/31/2025
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: how-to
+ms.update-cycle: 1825-days
 ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot: Azure Synapse Link for SQL initial snapshot issues
 
 This article is a guide to troubleshooting issues with initial snapshot on Azure Synapse Link for Azure SQL Database and SQL Server.
+
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Cosmos DB, Oracle, Snowflake, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
 
 Start by reviewing your configuration. For more information, see [Configure your source Azure SQL database](../connect-synapse-link-sql-database.md#configure-your-source-azure-sql-database).
 

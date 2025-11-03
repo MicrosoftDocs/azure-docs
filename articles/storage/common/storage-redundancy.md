@@ -49,11 +49,11 @@ Azure Storage offers two options for how your data is replicated in the primary 
 
 ### Locally redundant storage
 
-Locally redundant storage (LRS) replicates the data within your storage accounts to one or more Azure availability zones located in the primary region of your choice. Although there is no option to choose your preferred availability zone, Azure may move or expand LRS accounts across zones to improve load balancing. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. Visit the [What are Azure availability zones](../../reliability/availability-zones-overview.md) article to learn more about availability zone reliability.
+Locally redundant storage (LRS) replicates the data within your storage accounts to one or more Azure availability zones located in the primary region of your choice. Choosing your preferred availability zone isn't supported, and Azure might move or expand LRS accounts across zones to improve load balancing. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. Visit the [What are Azure availability zones](../../reliability/availability-zones-overview.md) article to learn more about availability zone reliability.
 
-LRS is the lowest-cost redundancy option and offers the least durability compared to other options. LRS protects your data against drive, server, and rack failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS might be lost or unrecoverable, and in the case of a temporary event such as a thermal event occurs within the data center, all replicas may be temporarily unavailable until the event is resolved. To mitigate these risks, Microsoft recommends using [zone-redundant storage](#zone-redundant-storage) (ZRS), [geo-redundant storage](#geo-redundant-storage) (GRS), or [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS).
+LRS is the lowest-cost redundancy option and offers the least durability compared to other options. LRS protects your data against drive, server, and rack failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS might be lost or unrecoverable. If a temporary event, such as a thermal event, occurs within the data center, all replicas might be temporarily unavailable until the event is resolved. To mitigate these risks, Microsoft recommends using [zone-redundant storage](#zone-redundant-storage) (ZRS), [geo-redundant storage](#geo-redundant-storage) (GRS), or [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS).
 
-A write request to a storage account that is using LRS happens synchronously. The write operation returns successfully only after the data is written to all three replicas.
+A write request to a storage account that's using LRS happens synchronously. The write operation returns successfully only after the data is written to all three replicas.
 
 The following diagram shows how your data is replicated within a single data center with LRS:
 
@@ -71,7 +71,7 @@ Zone-redundant storage (ZRS) replicates the data within your storage accounts to
 
 When you utilize ZRS, your data remains accessible for both read and write operations even if a zone becomes unavailable. If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing. These updates could affect your application if you access data before the updates are complete. When designing applications for ZRS, follow practices for transient fault handling, including implementing retry policies with exponential back-off.
 
-A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones. If an availability zone is temporarily unavailable, the operation returns successfully after the data is written to all available zones.
+A write request to a storage account that's using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones. If an availability zone is temporarily unavailable, the operation returns successfully after the data is written to all available zones.
 
 Microsoft recommends using ZRS in the primary region for scenarios that require high availability. ZRS is also recommended for restricting replication of data to a particular region to meet data governance requirements.
 
@@ -107,7 +107,7 @@ When you utilize GRS or GZRS, the data in the secondary region isn't available f
 If the primary region becomes unavailable, you can choose to fail over to the secondary region. After the failover operation completes, the secondary region becomes the primary region and you're able to read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> Because data is replicated to the secondary region asynchronously, a failure that affects the primary region may result in data loss if the primary region cannot be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. The Azure Storage platform typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
+> Because data is replicated to the secondary region asynchronously, a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. The Azure Storage platform typically has an RPO of less than 15 minutes. New Service Level Agreement (SLA)-backed [priority replication features](#geo-and-object-replication-priority-replication) are available that guarantee a specific RPO for data replication to the secondary region.
 
 ### Geo-redundant storage
 
@@ -118,6 +118,19 @@ A write operation is first committed to the primary location and replicated usin
 The following diagram shows how your data is replicated with GRS or RA-GRS:
 
 :::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS or RA-GRS":::
+
+#### Geo and Object Replication Priority Replication
+
+Priority Replication for geo-redundancy and object replication is a blob data-specific **preview** feature that allows you to prioritize the replication of data to a secondary region. These features can be useful for scenarios where certain critical data needs to be available in the secondary region as quickly as possible. 
+
+SLAs for both priority replication features ensure that your high-priority data is replicated to the secondary region with minimal delay. The addition of these SLAs enhances the overall resilience and availability of your applications.
+
+By enabling these features, you incur a per-GB cost associated with the prioritized replication of your data. When you disable priority replication, you're billed for 30 days beyond the date on which the feature was disabled.
+
+> [!IMPORTANT]
+> Priority replication for geo redundant storage accounts and object replication is currently in PREVIEW.
+>
+> When you disable priority replication, you're billed for 30 days beyond the date on which the feature was disabled.
 
 ### Geo-zone-redundant storage
 
@@ -138,7 +151,7 @@ Geo-redundant storage (with GRS or GZRS) replicates your data to another physica
 If your applications require high availability, then you can configure your storage account for read access to the secondary region. When you enable read access to the secondary region, then your data is always available to be read from the secondary, including in a situation where the primary region becomes unavailable. Read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) configurations permit read access to the secondary region.
 
 > [!NOTE]
-> Azure Files does not support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).
+> Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).
 
 ### Design your applications for read access to the secondary
 

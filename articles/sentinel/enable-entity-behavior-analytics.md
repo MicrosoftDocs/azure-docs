@@ -80,7 +80,7 @@ To enable or disable this feature (these prerequisites aren't required to use th
 
     To sync user entities from on-premises Active Directory, you must onboard your Azure tenant to Microsoft Defender for Identity (either standalone or as part of Microsoft Defender XDR) and you must have the MDI sensor installed on your Active Directory domain controller. For more information, see [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites).
 
-1. Select the data sources on which you want to enable UEBA.
+1. Select **Connect all data sources** to connect all eligible data sources, or select specific data sources from the list.
 
     You can only enable these data sources from the Defender and the Azure portals:
     - Signin Logs

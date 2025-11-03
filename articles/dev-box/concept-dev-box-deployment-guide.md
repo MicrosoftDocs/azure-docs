@@ -49,7 +49,8 @@ Each of these roles has specific responsibilities during the deployment of Micro
 
 - **Development team lead**: assists with creating and managing the developer experience. This includes the following tasks:
     - Create and manage dev box pools within a project
-    - Provide input to platform engineers for creating and managing dev box definitions in the dev center
+    - Define team-specific requirements for image definitions and customizations
+    - Provide input to platform engineers for creating image definitions and configuring compute galleries
  
 - **Developer**: self-serve one or more dev boxes within their assigned projects.
     - Connect to a dev box from the developer portal
@@ -71,8 +72,8 @@ The following table lists requirements that could influence your Microsoft Dev B
 |-|-|-|
 | Development team setup    | Geographically distributed teams. | The Azure region of the [network connection of a dev box pool determines where the dev boxes are hosted](./concept-dev-box-architecture.md#network-connectivity). To optimize latency between the developer's machine and their dev box, host a dev box nearest the location of the dev box user. If you have multiple, geo-distributed teams, you can create multiple network connections and associated dev box pools to accommodate each region.  |
 |                           | Multiple project with different team leads and permissions. | Permissions for development projects are controlled at the level of the project within a dev center. Consider creating a new project when you require separation of control across different development teams.  |
-| Dev box configuration     | Different teams have different software requirements for their dev box. | Create one or more dev box definitions to represent different operating system/software/hardware requirements across your organization. A dev box definition uses a particular VM image, which can be purpose-built. For example, create a dev box definition for data scientists which has data science tooling, and other resources. Dev box definitions are shared across a dev center. When you create a dev box pool within a project, you can then select from the list of dev box definitions. |
-|                           | Multiple compute/resource configurations. | Dev box definitions combine both the VM image and the compute resources that are used for a dev box. Create one or more dev box definitions based on the compute resource requirements across your projects. When you create a dev box pool within a project, you can then select from the list of dev box definitions. |
+| Dev box configuration     | Different teams have different software requirements for their dev box. | Create image definitions, custom images, or use marketplace images to represent different operating system/software requirements across your organization. Image definitions use YAML-based customization files and allow independent selection of compute and storage. For example, create an image definition for data scientists with data science tooling. When you create a dev box pool within a project, you can select from available image sources and independently choose compute size and storage. |
+|                           | Multiple compute/resource configurations. | Modern dev box pools allow independent selection of compute size and storage, providing greater flexibility than legacy dev box definitions. Choose the appropriate compute and storage configurations when creating dev box pools based on team requirements. |
 |                           | Developers can customize their dev box. | For per-developer customization, for example to configure source control repositories or developer tool settings, you can [enable customizations for dev boxes](./how-to-customize-dev-box-setup-tasks.md). |
 |                           | Standardize on organization-specific VM images. | When you configure a dev center, you can specify one or more Azure compute galleries, which contain VM images that are specific to your organization. With a compute gallery, you can ensure that only approved VM images are used for creating dev boxes. |
 | Identity & access         | Cloud-only user management with Microsoft Entra ID. | Your user management solution affects the networking options for creating dev box pools. When you use Microsoft Entra ID, you can choose between both Microsoft-hosted and using your own networking. |
@@ -230,7 +231,7 @@ Consider creating one or more dev box definitions in the following cases:
 
 Consider the cost of the compute resources associated with a dev box definition to assess to total cost of your deployment.
 
-## Decision summary
+#### Decision summary
 
 - Need access to on-premises/corporate resources: use an Azure network connection with Microsoft Entra hybrid join.
 - Need strict egress control (NSGs/firewalls/custom routing): use an Azure network connection.
