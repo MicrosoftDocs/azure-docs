@@ -108,7 +108,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 
-9. Once the update is complete, proceed to [next steps](#next-steps).
+9. Once the update is complete, proceed to [Azure setup](#azure-setup) or [next steps](#next-steps).
 
 ### Option 2: Azure portal
 
@@ -139,14 +139,23 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 
-9. Once the update is complete, proceed to [next steps](#next-steps).
+9. Once the update is complete, proceed to [Azure setup](#azure-setup) or [next steps](#next-steps).
 
 For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
 
+## Transition steps for preview customers
+
+Customers who used Azure Virtual Enclaves before November 2025 need to re-register the Azure Virtual Enclaves resource provider so your subscriptions can use the latest API with the latest features and improvements.
+
+Complete these steps to use the latest Virtual Enclaves API:
+1. In the Azure portal, navigate to your subscription.
+2. Open the `Resource Providers` on the left side under `Settings`.
+3. Search for and select `Microsoft.Mission` and select `Re-register`.
+4. Repeat these steps for any more subscriptions.
 
 ## Azure setup
 
-Read through these setup steps to determine if these configuration steps fit your use cases for Azure Virtual Enclaves.
+Read through these setup steps to determine if these configuration steps fit your use cases for Azure Virtual Enclaves. 
 
 ### Configure Network Watcher resource groups
 
