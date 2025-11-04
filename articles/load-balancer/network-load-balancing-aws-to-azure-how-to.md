@@ -83,7 +83,7 @@ This migration is designed as a cutover migration. With this approach, you build
 - Rollback time: 15-30 minutes if needed
 
 > [!NOTE]
-> Resetting your DNS TTL values to 300 seconds (5 minutes) before the cutover helps reduce DNS caching delays for many resolvers; reducing the TTL to 60 seconds (1 minute) can further speed propagation for resolvers that respect short TTLs. Propogation depends on upstream and recursive resolvers and can't be guaranteed for all clients—prepare monitoring and rollback plans accordingly.
+> Resetting your DNS TTL values to 300 seconds (5 minutes) before the cutover helps reduce DNS caching delays for many resolvers; reducing the TTL to 60 seconds (1 minute) can further speed propagation for resolvers that respect short TTLs. Propagation depends on upstream and recursive resolvers and can't be guaranteed for all clients—prepare monitoring and rollback plans accordingly.
 
 ## Step 1: Assessment
 

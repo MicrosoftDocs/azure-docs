@@ -3,7 +3,7 @@ title: Overview of Azure SRE Agent Preview
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 10/13/2025
+ms.date: 11/03/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -90,6 +90,12 @@ Keep in mind the following considerations as you use Azure SRE Agent:
 - For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
 - Availability varies by region and tenant configuration.  
 - Preview [billing](billing.md) begins *September 1, 2025*, via Azure agent units (AAUs).
+
+When you create an agent, following resources are also automatically created for you:
+
+- Azure Application Insights
+- Log Analytics workspace
+- Managed Identity
 
 ## Preview access
 

@@ -2,7 +2,7 @@
 title: Configure backup for SAP ASE (Sybase) database on Azure VMs using Azure portal
 description: In this article, learn how to configure backup for SAP ASE (Sybase) databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 05/13/2025
+ms.date: 11/03/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -61,7 +61,7 @@ To discover the SAP ASE databases, follow these steps:
 
    :::image type="content" source="./media/sap-ase-database-backup/select-data-source-type.png" alt-text="Screenshot shows the selection of the data source type." lightbox="./media/sap-ase-database-backup/select-data-source-type.png":::
  
-3. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+3. Select **Start Discovery**. This process initiates discovery of unprotected Linux VMs in the vault region.
 
      :::image type="content" source="./media/sap-ase-database-backup/start-database-discovery.png" alt-text="Screenshot shows how to start the discovery of the database." lightbox="./media/sap-ase-database-backup/start-database-discovery.png":::
 
@@ -161,7 +161,36 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 After the backup configuration is complete, Azure Backup takes backup of the SAP ASE database as per the backup schedule set in the backup policy. You can also [run an on-demand backup](sap-ase-database-backup-tutorial.md#run-an-on-demand-backup-for-sap-ase-database) to create the first full backup.
 
-## Next steps
+## Configure backup for an SAP ASE High Availability cluster 
+
+You can now back up SAP ASE databases in High Availability (HA) clusters with Azure Backup. The service automatically manages backups during failover, so manual intervention isn't required. Azure Backup considers multiple physical nodes (primary and secondary) as one HA container for simplified management.
+
+### Other prerequisites
+
+Before you back up SAP ASE(Sybase) database HA cluster on Azure VMs, ensure that the following prerequisites are met:
+- Identify/[create a Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) in the same region and subscription as the two VMs/nodes of the SAP ASE HA Cluster database.
+- Allow connectivity from each of the VMs/nodes to the internet for communication with Azure.
+- [Download the latest preregistration script for SAP ASE HA cluster backup](https://aka.ms/preregscriptsapase) and run the script on both VMs or nodes that are part of SAP ASE HA cluster.
+
+  You can also download the script from the link on **Recovery Services vault** > **Backup** > **Discover DBs in VMs** > **Start Discovery**.
+- [Review the other prerequisites](#prerequisites).
+- Check if you're the root user for proper configuration and access.
+
+### Run the preregistration script and configure backup
+
+To run the preregistration script and configure backup for SAP ASE HA cluster databases, follow these steps:
+
+1. Run the script using the following command on both VMs or nodes that are part of the SAP ASE HA cluster. [Learn more how to run the preregistration script](sap-ase-database-backup-run-preregistration-quickstart.md#run-the-preregistration-script).
+
+   If your SAP ASE setup uses private endpoints, use the `-sn` or `--skip-network-checks` parameter when running the script.
+
+      ```bash
+      sudo "<Path_to_the_Pre-Reg_Script>" -aw SAPAse --sid "<SID>" --sid-user "<sidUser>" --db-port "<dbPort>" --db-user <dbUser> --db-host "<dbHost>" --enable-striping <true/false> --ha-unique-name <Logical Container Distributed Name> 
+      ```
+
+1. [Configure backup for the databases](#configure-the-sap-ase-sybase-database-backup).
+
+  ## Next steps
 
 - [Restore SAP ASE database on Azure VMs using Azure portal](sap-ase-database-restore.md).
 - [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).

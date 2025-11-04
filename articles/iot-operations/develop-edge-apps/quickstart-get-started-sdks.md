@@ -32,9 +32,6 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
 
 ### [Codespaces](#tab/codespaces)
 
-> [!CAUTION]
-> We're currently experiencing container corruption with Azure IoT Operations deployed in a codespace, so we don't recommend this path until we resolve the issue with the GitHub team.
-
 GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
 
 1. Create a **codespace** in GitHub Codespaces from the *Azure IoT Operations SDKs* repository:

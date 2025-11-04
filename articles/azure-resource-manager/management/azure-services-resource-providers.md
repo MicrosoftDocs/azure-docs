@@ -197,12 +197,13 @@ The resource providers for IoT services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
+| Microsoft.IoTOperations | [Azure IoT Operations](../../iot-operations/index.yml) |
+| Microsoft.DeviceRegistry | [Azure Device Registry](../../iot-operations/overview-iot-operations.md#manage-devices-and-assets) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Azure IoT Hub Device Provisioning Service](../../iot-dps/index.yml) |
 | Microsoft.DeviceUpdate | [Device Update for IoT Hub](../../iot-hub-device-update/index.yml) |
 | Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
-| Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
-| Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
+| Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 
 ## Management resource providers

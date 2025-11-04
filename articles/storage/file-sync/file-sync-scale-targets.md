@@ -1,26 +1,27 @@
 ---
-title: Azure File sync scalability and performance targets
-description: Learn about the scalability and performance targets for Azure File Sync, management and namespace limits.
+title: Azure File Sync Scale Targets
+description: Learn about the scalability and performance targets for Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/28/2025
+ms.date: 11/03/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
 # Scalability and performance targets for Azure File Sync
+
 [Azure File Sync](./file-sync-introduction.md) extends [Azure Files](../files/storage-files-introduction.md) to Windows Server, enabling local caching, multi-site sync, and cloud tiering for file shares. This article discusses the scalability and performance targets for Azure File Sync.
 
 Because Azure File Sync uses Azure Files as the backing store for data synced from your on-premises file servers, you should also consider the [scalability and performance targets for Azure Files](../files/storage-files-scale-targets.md?toc=/azure/storage/file-sync/toc.json).
 
 ## Azure File Sync scale targets
-The following table indicates which targets are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:
+
+The following table indicates which targets are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum. An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync won't be able to operate.
 
 | Resource | Target | Hard limit |
 |-|-|-|
-| Storage Sync Services per region | 100 Storage Sync Services | Yes |
-| Storage Sync Services per subscription | 15 Storage Sync Services | Yes |
+| Storage Sync Services per subscription | 100 Storage Sync Services | Yes |
 | Sync groups per Storage Sync Service | 200 sync groups | Yes |
 | Registered servers per Storage Sync Service | 100 servers | Yes |
 | Private endpoints per Storage Sync Service | 100 private endpoints | Yes |
@@ -33,10 +34,8 @@ The following table indicates which targets are soft, representing the Microsoft
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. | Yes |
 
-> [!NOTE]
-> An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync won't be able to operate.
-
 ## Azure File Sync performance metrics
+
 Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon many factors in your infrastructure, including:
 
 - Windows Server and the underlying disk configuration
@@ -57,7 +56,7 @@ The following table indicates the Azure File Sync performance targets:
 | Full download throughput | 60 objects per second per server endpoint |
 
 > [!NOTE]
-> The actual performance will depend on multiple factors as outlined in the beginning of this section.
+> Actual performance will depend on multiple factors as outlined in the beginning of this section.
 
 As a general guide for your deployment, you should keep a few things in mind:
 

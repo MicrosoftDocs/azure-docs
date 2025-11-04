@@ -108,7 +108,7 @@ As a benefit, there's a performance improvement after migrating:
 Important Dates:
 
 * **December 1, 2023**: No new gateway creations are possible using Standard or High Performance SKUs.
-* **Nov 15, 2025**: Begin Basic IP address migration through portal with automaticlaly migrating gateways to other SKUs.
+* **Nov 15, 2025**: Begin Basic IP address migration through portal with automatically migrating gateways to other SKUs.
 * **End of Mar, 2026**: Standard/High Performance SKUs will be retired and remaining deprecated legacy gateways will be automatically migrated and upgraded to AZ SKUs.
 
 ## SKU deprecation FAQs

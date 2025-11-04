@@ -4,7 +4,7 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 01/16/2025
+ms.date: 10/09/2025
 ms.service: azure-virtual-network-manager
 ms.custom:
   - references_regions
@@ -21,7 +21,7 @@ Azure Virtual Network Manager allows you to describe your desired routing behavi
 
 ## How does UDR management work?
 
-In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. Once the configuration is created, you need to [deploy the configuration](./concept-deployments.md) for it to apply to your resources. Upon deployment, all routes are stored in a route table located inside a virtual network manager-managed resource group.
+In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. Once the configuration is created, you need to [deploy the configuration](./concept-deployments.md) for it to apply to your resources. Upon deployment, by default, all routes are stored in a route table located inside a virtual network manager-managed resource group. You can also choose to use and update existing route tables for targeted subnets. Azure Virtual Network Manager will create new route tables only when necessary. The option to use and update existing route tables is a preview feature currently and needs the API version 2025-01-01 and later.
 
 Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, accesses the DNS service's address through a Firewall. Your network manager creates UDRs to make this routing behavior happen.
 
@@ -125,6 +125,10 @@ Newly created or deleted subnets have their route table updated with eventual co
 
 The following are impacts of UDR management with Azure Virtual Network Manager on routes and route tables:
 
+- UDR management allows users to create up to 1000 UDRs per route table.
+
+The following items apply when users choose to use AVNM-managed route tables.
+
 - When conflicting routing rules exist (rules with the same destination but different next hops), only one of the conflicting rules will be applied, while the others will be ignored. Any of the conflicting rules can be selected at random. It's important to note that conflicting rules within or across rule collections targeting the same virtual network or subnet aren't supported.
 - When you create a routing rule with the same destination as an existing route in the route table, the routing rule is ignored.
 - When a route table with existing UDRs is present, Azure Virtual Network Manager creates a new managed route table that includes both the existing routes and new routes based on the deployed routing configuration.
@@ -132,8 +136,10 @@ The following are impacts of UDR management with Azure Virtual Network Manager o
 - If an Azure Virtual Network Manager managed UDR is manually edited in the route table, that route is deleted when the configuration is removed from the region.
 - Azure Virtual Network Manager doesn't interfere with your existing UDRs. It just adds the new UDRs to the current ones, ensuring your routing continues to work as it does now. Also, UDRs for specific Azure services still function along with your network manager's UDRs without encountering new limitations.
 - Azure Virtual Network Manager requires a managed resource group to store the route table. If an Azure Policy enforces specific tags or properties on resource groups, those policies must be disabled or adjusted for the managed resource group to prevent deployment issues. Furthermore, if you need to delete this managed resource group, ensure that deletion occurs before initiating any new deployments for resources within the same subscription.
-- UDR management allows users to create up to 1000 UDRs per route table.
 
+The following items apply when users choose to use existing route tables.
+- When a common route table is attached to subnets in different network groups/collections, rules from all collections are added to the route table.
+- If a subnet is removed from a network group, its rules are not removed from the route table unless all associated subnets are removed.
 
 ## Next step
 

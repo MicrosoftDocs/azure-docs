@@ -57,7 +57,7 @@ In the SAP workload documentation space, you can find the following areas:
 ## Change Log
 
 - November 03, 2025: Deleted the document describing how to deploy SAP Business Suite on Windows and SQL Server in SAP Cloud Appliance Library (CAL) since offer was retired by SAP CAL
-October 31, 2025: Added clarification around Premium SSD Performance Plus and added storage configuration for Dv6/Ev6 certified HANA VMs in [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
+- October 31, 2025: Added clarification around Premium SSD Performance Plus and added storage configuration for Dv6/Ev6 certified HANA VMs in [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
 - September 10, 2025: Added a new document on [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) and updated the Azure Files NFS related sections in the existing documents on how to configure and deploy the Encryption in Transit. 
 - August 4, 2025: Updated colocation constraint command for SAPHanaSR configuration in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - August 4, 2025: Updated order constraints between SAPHana, SAPHanaTopology resources and Filesystem resources in [High availability of SAP HANA scale-up with Azure NetApp Files on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md).
