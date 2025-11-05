@@ -10,7 +10,7 @@ ms.service: azure-sre-agent
 
 # Overview of Azure SRE Agent Preview
 SRE Agent is designed to automate operational work and reduce toil, enabling developers and operators to focus on high-value tasks. By streamlining repetitive and complex processes, SRE Agent accelerates innovation and improves reliability across cloud and hybrid environments.
-Operational tasks often involve managing Azure resources or integrating with on-premises and SaaS systems. These tasks can require repetitive actions or complex orchestration across multiple tools. SRE Agent provides the ability to connect to these tools and automate workflows end-to-end.
+Typical operational tasks often include managing multiple Azure resources along with on-prem and SaaS systems. These tasks are often repetitive or require orchestrating together multiple tools to provide the insights you need. SRE Agent lets gives you AI-driven platform to connect to those systems together and automate the workflow end-to-end.
 
 ## What is SRE Agent?
 
