@@ -84,6 +84,28 @@ You can copy this text to a file and add the requested information.
 
 Then submit the information in an incident report at [Create a support ticket](https://azure.microsoft.com/support/create-ticket/), requesting to raise your email sending limit.
 
+# Pre-requisites for Email Quota Increase Request
+
+Before submitting a request to increase your email quota in Azure Communication Services, ensure the following:
+
+1. **Maintain a Positive Domain Reputation**
+   - Your domain should not be listed on any **Domain Name System blacklist (DNSBL)**.
+
+2. **Link Your Custom Domain to Azure Communication Resource**
+   - Your custom domain must be linked to the Azure Communication Services resource.
+   - *Note:* Azure-managed domains (AMD) are not considered.
+
+3. **Complete All Recommended DNS Records**
+   - Configure **SPF**, **DKIM**, **DMARC**, and **MX record**.
+
+4. **Monitor Failure Rates**
+   - All linked domains should maintain a failure rate below **2%**.
+
+5. **Validate Setup Using Email Sandbox Quota**
+   - Use the sandbox environment to confirm your configuration.
+
+6. **Complete All Form Questions**
+
 Email quota increase requests aren't automatically approved. The reviewing team considers your overall sender reputation when determining approval status. Sender reputation includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse. 
 
 ## Next steps
