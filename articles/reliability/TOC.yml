@@ -349,7 +349,7 @@ items:
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
       - name: Azure Container Apps
-        href: reliability-container-apps.md#availability-zone-support
+        href: reliability-container-apps.md#resilience-to-availability-zone-failures
       - name: Azure Container Instances
         href: migrate-container-instances.md#configure-availability-zone-support
       - name: Azure Container Registry

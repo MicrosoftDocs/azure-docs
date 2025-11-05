@@ -6,7 +6,7 @@ author: mberdugo
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
 ms.custom: sentinel-graph
-ms.date: 10/05/2025
+ms.date: 11/04/2025
 ms.author: monaberdugo  
 
 ms.collection: ms-security
@@ -62,7 +62,7 @@ To manage asset data connectors, you need to meet the following prerequisites:
 * Ensure you have the necessary [access and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake) to Microsoft Sentinel, as specified *Permissions* column of the [previous table](#required-permissions-for-asset-sources).
 * Search for the relevant solution containing the data connector in the Content Hub. Content Hub can be found under the **Microsoft Sentinel** menu **Content Management** > **Content Hub**. Install the solution if not already installed.
 
-:::image type="content" source="./media/enable-data-connectors/data-connectors.png" alt-text="Screenshot of Sentinel Defender data connectors page with the Azure Resource Graph data connector displayed.":::
+:::image type="content" source="./media/enable-data-connectors/data-connectors.png" alt-text="Screenshot of Sentinel Defender data connectors page with the Azure Resource Graph data connector displayed." lightbox="./media/enable-data-connectors/data-connectors.png":::
 
 ## Configure and Manage
 
@@ -78,7 +78,7 @@ Access the connector page in one of the following ways:
 To edit the table retention period, select on the three dots (…) to the right of the table name in the table manage grid. Select a retention period for up to 12 years.
 When asset data connector shows a *Connected* status, the toggle button text shows *Disconnect*. This indicates that ingestion is enabled. To disable the ingestion, select the *Disconnect* button. Once disconnected, the connector status shows *Disconnected* and the button text toggles to *Connect*.
 
-:::image type="content" source="./media/enable-data-connectors/disconnect.png" alt-text="Screenshot of asset home page with connect button.":::
+:::image type="content" source="./media/enable-data-connectors/disconnect.png" alt-text="Screenshot of asset home page with connect button." lightbox="./media/enable-data-connectors/disconnect.png":::
 
 ## Use asset data to enrich activity data
 
@@ -94,6 +94,23 @@ SigninLogs
 ) on $left.UserPrincipalName == $right.userPrincipalName
 | project Identity, UserPrincipalName, IsRisky, IPAddress, department, employeeHireDate
 ```
+
+## Execute KQL queries on asset data
+
+To execute KQL queries on asset data in the Sentinel data lake, ensure that you are querying within the correct workspace scope. Follow these steps:
+
+1. Navigate to the **Microsoft Sentinel** menu **Data lake exploration** > **KQL queries**
+1. Select the **Selected workspace** button.
+
+    :::image type="content" source="./media/enable-data-connectors/select-workspace.png" alt-text="Screenshot of the KQL queries information bar showing a button to select the workspace.":::
+
+1. Ensure that the *System tables* workspace is selected.
+
+    :::image type="content" source="./media/enable-data-connectors/workspace-scope.png" alt-text="Screenshot of the KQL queries information bar showing the System tables workspace selected.":::
+
+Asset data tables are shown under the Asset category:
+
+:::image type="content" source="./media/enable-data-connectors/kql-queries.png" alt-text="Screenshot of the KQL queries table picker showing asset data tables under the Asset category." lightbox="./media/enable-data-connectors/kql-queries.png":::
 
 ## Next Steps
 

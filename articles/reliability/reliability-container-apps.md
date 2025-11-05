@@ -1,20 +1,23 @@
 ---
 title: Reliability in Azure Container Apps
-description: Learn about reliability in Azure Container Apps, including availability zones and multi-region deployments.
+description: Learn about resiliency in Azure Container Apps, including resilience to transient faults, availability zone failures, region failures, and service maintenance.
 ms.author: cshoe
 author: craigshoemaker
 ms.topic: reliability-article
 ms.custom: subject-reliability, devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-container-apps
 ms.date: 10/23/2025
+ai-usage: ai-assisted
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Container Apps works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
 # Reliability in Azure Container Apps
 
-Azure Container Apps is a fully managed serverless container hosting service for deploying microservices and containerized applications. This article describes reliability support in [Azure Container Apps](../container-apps/overview.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [cross-region disaster recovery options](#multi-region-support).
+[Azure Container Apps](../container-apps/overview.md) is a fully managed serverless container hosting service for deploying microservices and containerized applications.
 
-[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+[!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
+
+This article describes how to make Container Apps resilient to a variety of potential outages and problems, including transient faults, availability zone outages, region outages, and service maintenance.  It also describes how you can use backups to recover from other types of problems, and highlights some key information about the Container Apps service level agreement (SLA).
 
 ## Production deployment recommendations
 
@@ -36,11 +39,11 @@ Container Apps is designed to support the reliability of your applications using
 
 - **Application resiliency through Dapr.** Container Apps provides tight integration with Dapr, which is a framework that offers a variety of features for operating production-grade microservices and containerized applications, including for resilience to issues in other services. For more information, see [Microservices with Azure Container Apps](/azure/container-apps/microservices).
 
-- **Infrastructure resiliency** for system components including the control plane, ingress controllers, and container runtime. In regions with availability zones, Container Apps provides zone redundancy. To learn more, see [Availability zone support](#availability-zone-support).
+- **Infrastructure resiliency** for system components including the control plane, ingress controllers, and container runtime. In regions with availability zones, Container Apps provides zone redundancy. To learn more, see [Resilience to availability zone failures](#resilience-to-availability-zone-failures).
 
-## Transient faults
+## Resilience to transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Resilience to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 Container Apps automatically handles many transient faults through its platform-level retry mechanisms and health monitoring. Follow these recommendations to ensure your applications are resilient to transient faults:
 
@@ -56,9 +59,9 @@ Container Apps automatically handles many transient faults through its platform-
 
 - **Design jobs to be resilient to transient faults**, including failures of the job execution or of its dependencies. Design your jobs to resume work if they're restarted, or design for idempotence so that they can be rerun safely.
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Resilience to availability zone failures](includes/reliability-availability-zone-description-include.md)]
 
 When you create a Container Apps environment, you can enable *zone redundancy* to distribute the underlying infrastructure across multiple availability zones within the selected Azure region. Container Apps automatically schedules the replicas of your apps across zones. This distribution happens transparently - you don't need to specify zone placement for individual replicas.
 
@@ -68,19 +71,14 @@ The following diagram shows an example zone-redundant container app that has thr
 
 :::image type="content" source="./media/reliability-container-apps/zone-redundant.svg" alt-text="Diagram that shows a zone-redundant app with three replicas, each running in a separate availability zone." border="false" :::
 
-### Region support
-
-Zone redundancy is available in all regions that support Container Apps and availability zones.
-
-To see which regions support availability zones, see [Azure regions with availability zone support](./regions-list.md).
-
-To see which regions support Container Apps, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
-
 ### Requirements
 
-Zone redundancy is available to all Container Apps plans including both Consumption and Dedicated workload profiles.
+- **Region support:** Zone redundancy is available in all regions that support Container Apps and availability zones.
+    To see which regions support availability zones, see [Azure regions with availability zone support](./regions-list.md).
 
-However, to use availability zones with Azure Container Apps you must meet the following requirements:
+    To see which regions support Container Apps, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
+
+- **Workload profiles:** Zone redundancy is available to all Container Apps plans including both Consumption and Dedicated workload profiles.
 
 - **Enable zone redundancy during environment creation.** This setting cannot be changed after the environment is created.
 
@@ -103,7 +101,7 @@ However, to use availability zones with Azure Container Apps you must meet the f
 
 ### Cost
 
-You don't incur additional charges beyond the standard Container Apps pricing when you enable zone redundancy for Azure Container Apps. You pay the same rates for compute resources, requests, and vCore seconds whether zone redundancy is enabled or not. For more information, see [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/) and [Container Apps billing](../container-apps/billing.md).
+You don't incur additional charges beyond the standard Container Apps pricing when you enable zone redundancy for Container Apps. You pay the same rates for compute resources, requests, and vCore seconds whether zone redundancy is enabled or not. For more information, see [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/) and [Container Apps billing](../container-apps/billing.md).
 
 ### Capacity planning and management
 
@@ -117,7 +115,7 @@ To configure your scale rules properly, follow these principles:
 
 For more information, see [Set scaling rules](../container-apps/scale-app.md) for configuration options.
 
-### Normal operations
+### Behavior when all zones are healthy
 
 This section describes what to expect when Container Apps resources are configured for zone redundancy and all availability zones are operational.
 
@@ -129,13 +127,13 @@ This section describes what to expect when Container Apps resources are configur
 
     The platform replicates only the control plane metadata including your app configurations, scaling rules, and secrets across zones for high availability. Container images are pulled from your container register into each zone as needed when replicas are created.
 
-### Zone-down experience
+### Behavior during a zone failure
 
-This section describes what to expect when Azure Logic Apps resources are configured for zone redundancy and there's an availability zone outage.
+This section describes what to expect when Container Apps resources are configured for zone redundancy and there's an availability zone outage.
 
 - **Detection and response**: Azure automatically detects zone failures. Container Apps immediately stops scheduling new replicas to the failed zone and begins redistributing traffic to healthy replicas in the remaining zones. The platform handles all failover operations automatically without requiring your intervention.
 
-- **Notification**: Container Apps doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Container Apps service, including any zone failures. Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+- **Notification:** [!INCLUDE [Availability zone down notification partial bullet (Service Health only)](./includes/reliability-availability-zone-down-notification-service-partial-include.md)]
 
     You can also monitor the health of your apps through Container Apps metrics in Azure Monitor. Configure alerts on replica count drops and request failure rates to receive immediate notification when zone-related issues occur.
 
@@ -143,7 +141,7 @@ This section describes what to expect when Azure Logic Apps resources are config
 
 - **Expected data loss**: No data loss occurs at the Container Apps platform level since the service is designed for stateless workloads. Any data stored in [ephemeral storage](/azure/container-apps/storage-mounts#ephemeral-storage) within the availability zone is lost when the replica is terminated, and ephemeral storage should only be used for temporary data.
 
-- **Expected downtime**: Applications experience minimal to no downtime during zone failures. The actual impact depends on your application's health probe settings and the number of replicas in healthy zones. Ensure clients follow [transient fault handling guidance](#transient-faults) to minimize any impact.
+- **Expected downtime**: Applications experience minimal to no downtime during zone failures. The actual impact depends on your application's health probe settings and the number of replicas in healthy zones. Ensure clients follow [transient fault handling guidance](#resilience-to-transient-faults) to minimize any impact.
 
     Any job executions running in the affected zone are aborted and marked as failed. If you need a job to be resilient to a zone failure, configure retries, or configure parallelism so that the job runs copies of the same execution. For more information, see [Advanced job configuration](/azure/container-apps/jobs#advanced-job-configuration).
 
@@ -167,11 +165,11 @@ The Container Apps platform manages traffic routing, failover, and failback for 
 
 To validate your application's resilience to zone failures, simulate zone-level disruptions at the application layer using controlled testing approaches. Stop or remove replicas from specific zones by scaling down your application and monitoring how the remaining replicas handle the increased load. [Monitor key metrics](../container-apps/observability.md) during your resilience testing including the replica count, request success rates, response times, and autoscaling behavior. Ensure your minimum replica count maintains service availability when replicas are removed, and verify that your scaling rules can handle the increased load on the remaining replicas. Test your health probe configurations by deliberately failing health endpoints to confirm the platform correctly removes unhealthy instances from rotation within your expected timeframes.
 
-## Multi-region support
+## Resilience to region-wide failures
 
 Container Apps is a single-region service. If the region becomes unavailable, your environment and apps are also unavailable.
 
-### Alternative multiple-region approaches
+### Custom multi-region solutions for resiliency
 
 To reduce the risk of a single-region failure affecting your application, you can deploy environments across multiple regions. The following steps help strengthen resilience:
 
@@ -179,19 +177,19 @@ To reduce the risk of a single-region failure affecting your application, you ca
 - Configure load balancing and failover policies by using a service like Azure Front Door or Azure Traffic Manager.
 - Replicate your data across regions so that you can recover your last application state.
 
-## Backups
+## Backup and restore
 
-Azure Container Apps doesn't provide built-in backup capabilities for your applications or data. As a stateless container hosting platform, Container Apps expects applications to manage their own data persistence and recovery strategies through external services. Your application containers and their local file systems are ephemeral, and any data stored locally is lost when replicas restart or move.
+Container Apps doesn't provide built-in backup capabilities for your applications or data. As a stateless container hosting platform, Container Apps expects applications to manage their own data persistence and recovery strategies through external services. Your application containers and their local file systems are ephemeral, and any data stored locally is lost when replicas restart or move.
 
-## Reliability during application updates
+## Resilience during application updates
 
 Use revision management to deploy updates to your application without downtime. You can create new revisions with updated container images, and perform a cutover using a [blue-green deployment strategy](../container-apps/blue-green-deployment.md), or gradually shift traffic using [traffic splitting rules](../container-apps/traffic-splitting.md). During application updates, the platform ensures minimum replica counts are maintained by creating new containers before terminating old ones, preventing service disruption. 
 
 For more information, see [Update and deploy changes in Azure Container Apps](../container-apps/revisions.md).
 
-## Reliability during service maintenance
+## Resilience to service maintenance
 
-Azure Container Apps performs automatic platform maintenance to apply security updates, deploy new features, and improve service reliability. The platform uses rolling updates across fault domains and availability zones to minimize impact on running applications. During maintenance windows, your containers continue running without interruption as updates are applied to the underlying infrastructure in stages.
+Container Apps performs automatic platform maintenance to apply security updates, deploy new features, and improve service reliability. The platform uses rolling updates across fault domains and availability zones to minimize impact on running applications. During maintenance windows, your containers continue running without interruption as updates are applied to the underlying infrastructure in stages.
 
 You can specify your own maintenance windows, which are periods of time that you want to have maintenance performed on your apps. However, critical updates might occur outside of your maintenance windows. For more information, see [Azure Container Apps planned maintenance](../container-apps/planned-maintenance.md).
 
@@ -199,7 +197,7 @@ You can specify your own maintenance windows, which are periods of time that you
 
 [!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
-The availability SLA for Azure Container Apps is based on the scale rules you set on your apps.
+The availability SLA for Container Apps is based on the scale rules you set on your apps.
 
 ## Related content
 

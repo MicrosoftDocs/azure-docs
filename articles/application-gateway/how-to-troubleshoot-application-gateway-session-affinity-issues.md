@@ -128,7 +128,7 @@ Enable logging using the Azure portal.
 
 ### Use web debugger to capture and analyze the HTTP or HTTPS traffics
 
-Web debugging tools like Fiddler can help you debug web applications by capturing network traffic between the Internet and test computers. These tools enable you to inspect incoming and outgoing data as the browser receives/sends them. Fiddler, in this example, has the HTTP replay option that can help you troubleshoot client-side issues with web applications, especially for authenticaton issues.
+Web debugging tools like Fiddler can help you debug web applications by capturing network traffic between the Internet and test computers. These tools enable you to inspect incoming and outgoing data as the browser receives/sends them. Fiddler, in this example, has the HTTP replay option that can help you troubleshoot client-side issues with web applications, especially for authentication issues.
 
 Use the web debugger of your choice. In this sample we'll use Fiddler to capture and analyze http or https traffics, follow the instructions:
 

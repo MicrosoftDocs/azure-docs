@@ -48,7 +48,7 @@ Latency between Azure resources and Oracle Database@Azure is within the Azure re
 
 ### Does Oracle Database@Azure support deploying Oracle Base Database, or do I need to migrate to the Autonomous Database service?
 
-No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single-instance, self-managed databases on Azure VMs. If you need Oracle-managed databases with Oracle RAC, we recommend that you use Autonomous Database via Oracle Database@Azure. For more information, see [Autonomous Database](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Database](provision-autonomous-oracle-databases.md).
+Yes, Oracle Base Database service is now generally available on Azure. You can now run any Oracle Database service with version flexibility (19c or 23ai).
 
 ### For the Oracle Database@Azure service, does automated disaster recovery use the Azure backbone or the OCI backbone?
 

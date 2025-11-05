@@ -25,7 +25,7 @@ These drawbacks are the primary motivations that drive developers to look for al
 With the recent surge in interest in AI, Web PubSub has become an invaluable tool to developers building AI-enabled applications for token streaming. The service is battle-tested to scale to tens of millions of concurrent connections and offers ultra-low latency.
 
 ### Delivering real-time updates
-Any app scenario where updates at the data resource need to be delivered to other components across network can benefit from using Azure Web PubSub. As the name suggests, the service facilities the communication between a publisher and subscribers. A publisher is a component that publishes data updates. A subscriber is a component that subscribes to data updates.
+Any app scenario where updates at the data resource need to be delivered to other components across network can benefit from using Azure Web PubSub. As the name suggests, the service facilitates the communication between a publisher and subscribers. A publisher is a component that publishes data updates. A subscriber is a component that subscribes to data updates.
 
 Azure Web PubSub service is used in a multitude of industries and app scenarios where data is time-sensitive. Here's a partial list of some common use cases.
 

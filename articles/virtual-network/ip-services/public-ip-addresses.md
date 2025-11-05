@@ -170,7 +170,7 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 * Azure doesn't support IPv6 communication for containers.
 
-* Use of IPv6-only virtual machines or virtual machines scale sets aren't supported. Each NIC must include at least one IPv4 IP configuration (dual-stack).
+* Use of IPv6-only virtual machines or virtual machines scale sets aren't supported. Each NIC must include at least one IPv4 IP configuration (dual-stack). 
 
 * IPv6 ranges can't be added to a virtual network with existing resource navigation links when adding IPv6 to existing IPv4 deployments.
 

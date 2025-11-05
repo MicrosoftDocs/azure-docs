@@ -9,4 +9,4 @@ ms.author: anaharris
 ms.custom: include file
 ---
 
-- **Notification**: Microsoft doesn't automatically notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the service, including any zone failures, and you can set up [Service Health alerts](/azure/service-health/resource-health-alert-arm-template-guide) to notify you of problems.
+- **Notification**: [!INCLUDE [Availability zone down notification partial bullet (Service Health only)](./reliability-availability-zone-down-notification-service-partial-include.md)]

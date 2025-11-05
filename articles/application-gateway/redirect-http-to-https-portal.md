@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 05/19/2023
+ms.date: 10/05/2023
 ms.author: mbender 
 ms.custom:
   - devx-track-azurepowershell

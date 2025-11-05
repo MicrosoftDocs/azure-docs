@@ -4,7 +4,7 @@ description: Learn how to ensure reliable IoT device management with Azure Devic
 author: isabellaecr
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: azure-device-registry
 ms.date: 07/30/2025
 ---
@@ -38,13 +38,7 @@ Microsoft manages setup and configuration for zone redundancy in Azure Device Re
 
 The following list of regions support availability zones in Azure Device Registry:
 
-| Americas         | Europe               |
-|------------------|----------------------|
-| East US          | North Europe         |
-| East US 2        | West Europe          |
-| West US          |                      |
-| West US 2        |                      |
-| West US 3        |                      |
+[!INCLUDE [Azure Device Registry availability zone region support](../iot-operations/includes/device-registry-availability-zone-regions-include.md)]
 
 ### Cost
 

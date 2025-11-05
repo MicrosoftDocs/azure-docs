@@ -79,7 +79,7 @@ Upgrading a public IP resource retains the IP address.
     :::image type="content" source="./media/public-ip-upgrade-portal/upgrade-ip-portal.png" alt-text="Screenshot showing the upgrade banner in Azure portal used to upgrade basic IP address." border="true":::
 
     > [!NOTE]
-    > The basic public IP you're upgrading must have static assignment. You'll receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address. Change the IP address assignment to static before upgrading.
+    > The basic public IP you're upgrading must have static assignment. You receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address. Change the IP address assignment to static before upgrading. Dynamic IP allocation isn't supported for Standard SKU public IP addresses and there is no replacement for dynamic allocation besides static allocation.
 
 1. Select the **I acknowledge** check box, and then select **Upgrade**.
 
@@ -93,7 +93,7 @@ In order to upgrade a public IP, it must not be associated with any resource. Fo
 Upgrading a public IP resource retains the IP address.
 
 >[!IMPORTANT]
->In the majority of cases, Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This means they can't be associated with an Azure resource that is either zone-redundant or tied to a prespecified zone in regions where this is offered. (In rare cases where the Basic Public IP has a specific zone assigned, it will retain this zone when upgraded to Standard.)
+>In most cases, Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This means they can't be associated with an Azure resource that is either zone-redundant or tied to a prespecified zone in regions where this is offered. (In rare cases where the Basic Public IP has a specific zone assigned, it retains this zone when upgraded to Standard.)
 
 > [!NOTE]
 > If you have multiple basic SKU public IP addresses attached to a virtual machine, it may be easier to use our [upgrade script](public-ip-upgrade-vm.md).
@@ -106,7 +106,7 @@ az network public-ip update \
 
 ```
 > [!NOTE]
-> The basic public IP you're upgrading must have static assignment. You'll receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address. Change the IP address assignment to static before upgrading.
+> The basic public IP you're upgrading must have static assignment. You receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address. Change the IP address assignment to static before upgrading. Dynamic IP allocation isn't supported for Standard SKU public IP addresses andthere is no replacement for dynamic allocation besides static allocation.
 
 > [!WARNING]
 > Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -118,7 +118,7 @@ In order to upgrade a public IP, it must not be associated with any resource. Fo
 Upgrading a public IP resource retains the IP address.
 
 >[!IMPORTANT]
->In the majority of cases, Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This means they can't be associated with an Azure resource that is either zone-redundant or tied to a prespecified zone in regions where this is offered. (In rare cases where the Basic Public IP has a specific zone assigned, it will retain this zone when upgraded to Standard.)
+>In most cases, Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This means they can't be associated with an Azure resource that is either zone-redundant or tied to a prespecified zone in regions where this is offered. (In rare cases where the Basic Public IP has a specific zone assigned, it retains this zone when upgraded to Standard.)
 
 > [!NOTE]
 > If you have multiple basic SKU public IP addresses attached to a virtual machine, it may be easier to use our [upgrade script](public-ip-upgrade-vm.md).
@@ -137,7 +137,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 
 ```
 > [!NOTE]
-> The basic public IP you're upgrading must have static assignment. You'll receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address. Change the IP address assignment to static before upgrading.
+> The basic public IP you're upgrading must have static assignment. You receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address. Change the IP address assignment to static before upgrading. Dynamic IP allocation isn't supported for Standard SKU public IP addresses and there is no replacement for dynamic allocation besides static allocation.
 
 > [!WARNING]
 > Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](../../reliability/availability-zones-overview.md).
