@@ -14,7 +14,7 @@ Typical operational tasks often include managing multiple Azure resources along 
 
 ## What is SRE Agent?
 
-SRE Agent is a service that brings automation and intelligence to site reliability engineering practices. It helps organizations reduce manual effort, improve system uptime, and deliver consistent operational outcomes. The agent integrates with Azure services and external systems to execute operational tasks with minimal human intervention.
+SRE Agent is a service that brings automation and intelligence to site reliability engineering practices. It helps you reduce manual effort, improve system uptime, and deliver consistent operational outcomes. As the agent integrates with both Azure services and external systems, it executes operational tasks with minimal human intervention.
 
 ## Primary use cases
 
