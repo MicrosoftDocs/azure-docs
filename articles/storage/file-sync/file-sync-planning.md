@@ -179,9 +179,29 @@ The following table shows the interoperability state of NTFS file system feature
 | Mount points | Partially supported | Mount points might be the root of a server endpoint, but they're skipped if a server endpoint's namespace contains them. |
 | Junctions | Skipped | Examples are Distributed File System (DFS) `DfrsrPrivate` and `DFSRoots` folders. |
 | Reparse points | Skipped | |
-| NTFS compression | Partially supported | Azure File Sync doesn't support server endpoints located on a volume that compresses the system volume information (SVI) directory. |
+| NTFS compression | Partially supported | Azure File Sync doesn't support server endpoints located on a volume that compresses the system volume information (SVI) directory. | 
 | Sparse files | Fully supported | Sparse files sync (aren't blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
 | Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags that File Classification Infrastructure creates aren't synced. Existing classification tags on files on each of the server endpoints are untouched. |
+
+> [!NOTE]
+> **NTFS compression with cloud tiering**
+>
+> Using NTFS compression on tiered files can cause significant performance impact. It is recommended not to use cloud tiering with compressed files.  
+>
+> If compressed files have already been tiered, they must be uncompressed after recalling the data from the cloud by running:
+>
+> ```powershell
+> Invoke-StorageSyncFileRecall -FilePath <path>
+> compact /U /S <filepath>
+> ```
+>
+> On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it.  
+>
+> If the file needs to be tiered again afterward, run:
+>
+> ```powershell
+> Invoke-StorageSyncCloudTiering -Path <path>
+> ```
 
 <a id="files-skipped"></a>Azure File Sync also skips certain temporary files and system folders:
 

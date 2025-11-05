@@ -1,5 +1,5 @@
 ---
-title: How to use the connector for SSE (preview)
+title: How to use the connector for SSE
 description: Use the operations experience web UI or the Azure CLI to configure assets and devices for connections to server-sent event (SSE) endpoints.
 author: dominicbetts
 ms.author: dobett
@@ -10,9 +10,9 @@ ms.date: 09/23/2025
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from SSE endpoints.
 ---
 
-# Configure the connector for SSE (preview)
+# Configure the connector for SSE
 
-In Azure IoT Operations, the connector for server-sent events (SSE) (preview) enables access to data from SSE endpoints exposed by HTTP services.
+In Azure IoT Operations, the connector for server-sent events (SSE) enables access to data from SSE endpoints exposed by HTTP services.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
@@ -22,14 +22,13 @@ The connector for SSE supports the following features:
 
 - Automatic retries when sampling failures occur. Reports a failed status for errors that can't be retried.
 - Integration with OpenTelemetry.
-- Use of _device endpoints_ and _namespace assets_.
+- Use of _device endpoints_ and _assets_.
 - Inferring a schema from the JSON payload.
 - Multiple authentication methods:
   - Username/password basic HTTP authentication
   - x509 client certificates
   - Certificate trust list
   - Anonymous access for testing purposes
-  - Certificate trust bundle to specify additional certificate authorities
 
 For each configured dataset, the connector for SSE:
 
@@ -44,7 +43,7 @@ This article explains how to use the connector for SSE to perform tasks such as:
 
 ## Prerequisites
 
-To configure devices and assets, you need a running preview instance of Azure IoT Operations.
+To configure devices and assets, you need a running instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -54,7 +53,7 @@ You need any credentials required to access the SSE source. If the SSE source re
 
 ## Deploy the connector for SSE
 
-[!INCLUDE [deploy-preview-media-connectors-simple](../includes/deploy-preview-media-connectors-simple.md)]
+[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
 ## Create a device
 
@@ -96,13 +95,37 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 
 ---
 
-## Create a namespace asset
+### Configure a device to use a username and password
 
-To define a namespace asset that publishes events from the SSE endpoint, follow these steps:
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
+
+To use the `Username password` authentication mode, complete the following steps:
 
 # [Operations experience](#tab/portal)
 
-1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create namespace asset**.
+[!INCLUDE [connector-username-password-portal](../includes/connector-username-password-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-username-password-cli](../includes/connector-username-password-cli.md)]
+
+---
+
+### Configure a device to use an X.509 certificate
+
+[!INCLUDE [connector-certificate](../includes/connector-certificate.md)]
+
+### Configure a certificate trust list for a device to use
+
+To manage the trusted certificates list for the connector for SSE, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
+
+## Create an asset
+
+To define an asset that publishes events from the SSE endpoint, follow these steps:
+
+# [Operations experience](#tab/portal)
+
+1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create asset**.
 
 1. Select the inbound endpoint for the connector for SSE that you created in the previous section.
 
@@ -110,15 +133,15 @@ To define a namespace asset that publishes events from the SSE endpoint, follow 
 
 1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
 
-1. On the **Events** page, select **Add event** to add an event for the asset. For example:
+1. On the **Datasets** page, create any datasets required and define the data points.
+
+1. On the **Event groups** page, create an event group to define the events to publish to the MQTT broker.
+
+1. In the event group, select **Add event** to add an event for the asset. For example:
 
     :::image type="content" source="media/howto-use-sse-connector/add-event.png" alt-text="Screenshot that shows how to add an event for SSE source." lightbox="media/howto-use-sse-connector/add-event.png":::
 
     Add details for each event to publish to the MQTT broker.
-
-1. To configure the destination for the data, select **Manage event groups** and then select the event group. Configure the MQTT destination:
-
-    :::image type="content" source="media/howto-use-sse-connector/configure-dataset.png" alt-text="Screenshot that shows how to configure the event-group for SSE source." lightbox="media/howto-use-sse-connector/configure-dataset.png":::
 
     Select **Next** to continue.
 

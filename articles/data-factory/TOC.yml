@@ -379,6 +379,8 @@ items:
         href: connector-lifecycle-overview.md
       - name: Connector upgrade guidance
         href: connector-upgrade-guidance.md
+      - name: Automatic connector upgrade 
+        href: automatic-connector-upgrade.md
       - name: Connector upgrade advisor
         href: connector-upgrade-advisor.md
       - name: Connector release stages and timelines

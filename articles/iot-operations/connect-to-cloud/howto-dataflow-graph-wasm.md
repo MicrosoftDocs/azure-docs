@@ -1,22 +1,17 @@
 ---
-title: Use WebAssembly With Data Flow Graphs (Preview)
+title: Use WebAssembly With Data Flow Graphs 
 description: Learn how to deploy and use WebAssembly modules with data flow graphs in Azure IoT Operations to process data at the edge.
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/24/2025
+ms.date: 10/24/2025
 ai-usage: ai-assisted
 
 ---
 
-# Use WebAssembly (WASM) with data flow graphs (preview)
-
-> [!IMPORTANT]
-> WebAssembly (WASM) with data flow graphs is in **preview**. This feature has limitations and isn't for production workloads.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
+# Use WebAssembly (WASM) with data flow graphs
 
 Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
 
@@ -28,7 +23,7 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 
 ## Prerequisites
 
-- Deploy an Azure IoT Operations instance, version 1.2 preview or later, on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 - Use Azure Container Registry (ACR) to store WASM modules and graphs.
 - Install the OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
 - Develop custom WASM modules by following guidance in [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
@@ -66,7 +61,7 @@ Use the ORAS CLI to push WASM modules and graph definitions to your container re
 
 ### Pull sample modules from public registry
 
-For this preview, use prebuilt sample modules:
+Use prebuilt sample modules:
 
 ```bash
 # Pull sample modules and graphs
@@ -124,15 +119,15 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 param acrName string = '<YOUR_ACR_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-07-01-preview'' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
   name: aioInstanceName
 }
 
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-15' existing = {
   name: customLocationName
 }
 
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-07-01-preview'' = {
+resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01' = {
   parent: aioInstance
   name: registryEndpointName
   extendedLocation: {
@@ -301,20 +296,20 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowGraphName string = '<GRAPH_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-07-01-preview'' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
   name: aioInstanceName
 }
 
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-15' existing = {
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-07-01-preview'' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
   parent: defaultDataflowProfile
   name: dataflowGraphName
   extendedLocation: {
@@ -576,20 +571,20 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowGraphName string = '<COMPLEX_GRAPH_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-07-01-preview'' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
   name: aioInstanceName
 }
 
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-15' existing = {
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-07-01-preview'' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
+resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
   parent: defaultDataflowProfile
   name: dataflowGraphName
   extendedLocation: {
@@ -865,7 +860,7 @@ When creating or editing a data flow graph, in the **Data flow properties** pane
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
   // ... other properties
   properties: {
     mode: 'Enabled'  // or 'Disabled'
@@ -906,12 +901,12 @@ When creating or editing a data flow graph, in the **Data flow properties** pane
 In Bicep, you specify the profile by creating the data flow graph as a child resource of the profile:
 
 ```bicep
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-07-01-preview'' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
   parent: defaultDataflowProfile  // This establishes the profile relationship
   // ... other properties
 }
@@ -955,7 +950,7 @@ When creating or editing a data flow graph, in the **Data flow properties** pane
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
   // ... other properties
   properties: {
     requestDiskPersistence: 'Enabled'

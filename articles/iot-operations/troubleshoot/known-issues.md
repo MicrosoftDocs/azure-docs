@@ -1,14 +1,14 @@
 ---
-title: "Known issues: Azure IoT Operations"
+title: Known Issues 
 description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 09/17/2025
+ms.date: 10/21/2025
 ---
 
-# Known issues: Azure IoT Operations
+# Known issues for Azure IoT Operations
 
 This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
@@ -34,43 +34,58 @@ MQTT broker resources created in your cluster using Kubernetes aren't visible in
 
 There's currently no workaround for this issue.
 
+
+## General connector issues
+
+This section lists current known issues that affect all connectors.
+
+### Connector doesn't detect updates to device credentials in Azure Key Vault
+
+---
+
+Issue ID: 6514
+
+---
+
+N/A
+
+---
+
+The connector doesn't receive a notification when device credentials stored in Azure Key Vault are updated. As a result, the connector continues to use the old credentials until it's restarted.
+
+Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
+
+### In the connector templates, the only supported authentication type is "artifact pull secrets"
+
+---
+
+Issue ID: 4570
+
+---
+
+Log signature: N/A
+
+---
+
+When deploying connectors using the provided connector templates, the only supported authentication type is "artifact pull secrets". Other authentication types, such as managed identities, aren't currently supported in the connector templates.
+
 ## Connector for OPC UA issues
 
 This section lists current known issues for the connector for OPC UA.
 
-### An OPC UA server modeled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
+### Can't use special characters in event names
 
 ---
 
-Issue ID: 2411
+Issue ID: 1532
 
 ---
 
-`2025-07-24T13:29:30.280Z aio-opc-supervisor-85b8c78df5-26tn5 - Maintaining the new asset test-opcua-asset | - | 1 is skipped because the endpoint profile test-opcua.opcplc-e2e-anon-000000 is not present`
+Log signature: `2025-10-22T14:51:59.338Z aio-opc-opc.tcp-1-68ff6d4c59-nj2s4 - Updated schema information for Boiler#1Notifier skipped!`
 
 ---
 
-When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any other endpoints aren't used.
-
-Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
-
-An OPC UA namespaced asset can only have a single dataset. Currently, any other datasets aren't used.
-
-Workaround: Create multiple namespace assets each with a single dataset.
-
-### Application error BadUnexpectedError
-
----
-
-Issue ID: 9044
-
----
-
-Log signature: `BadUnexpectedError`
-
----
-
-In the process control sample application, if you call the `Switch` method on the demo asset `demo-method-call.asset.yaml` then currently you receive a `BadUnexpectedError` application error.
+Schema generation fails if event names contain special characters such as `#`, `%`, or `&`. Avoid using these characters in event names to prevent schema generation issues.
 
 ## Connector for media and connector for ONVIF issues
 
@@ -205,3 +220,101 @@ The output might look like:
 ```
 
 The complex properties are flattened to the root, and the original structure is lost. If fields with the same name exist in the complex objects or the root, the values might overwrite the root values. In the example, `field2` from `complex_property_2` overwrites the `field2` from `complex_property_1`.
+
+
+### Can't use the same graph definition multiple times in a chained graph scenario
+
+---
+
+Issue ID: N/A
+
+---
+
+Failed to send config
+
+---
+
+You create a chained graph scenario by using the output of one data flow graph as the input to another data flow graph. However, if you try to use the same graph definition multiple times in this scenario, it currently doesn't work as expected. For example, the following code fails when using the same graph definition (`graph-passthrough:1.3.6`) for both `graph-1` and `graph-2`.
+
+```bicep
+      {
+          nodeType: 'Graph'
+          name: 'graph-1'
+          graphSettings: {
+            registryEndpointRef: dataflowRegistryEndpoint.name
+            artifact: 'graph-passthrough:1.3.6'
+            configuration: []
+            }
+      }
+      {
+          nodeType: 'Graph'
+          name: 'graph-2'
+          graphSettings: {
+            registryEndpointRef: dataflowRegistryEndpoint.name
+            artifact: 'graph-passthrough:1.3.6'
+            configuration: graphConfiguration
+            }
+      }
+  nodeConnections: [
+      {
+          from: {name: 'source'}
+          to: {name: 'graph-1'}
+      }
+      {
+          from: {name: 'graph-1'}
+          to: {name: 'graph-2'}
+      }
+      {
+          from: {name: 'graph-2'}
+          to: {name: 'destination'}
+      }
+  ]
+```
+
+To solve this error, push the graph definition to the ACR as many times as needed with the scenario with a different name or tag each time. For example, in the scenario described, the graph definition need to be pushed twice with either a different name or a different tag, such as `graph-passthrough-one:1.3.6` and `graph-passthrough-two:1.3.6`.
+
+### Can't use the same module within a graph multiple times
+
+---
+
+Issue ID: N/A
+
+---
+
+Failed to send config
+
+---
+
+You create a data flow graph that uses the same module multiple times. For example, the following declared the `"module-passthrough/filter"` operation once, but fails when using it twice in the connections.
+
+```yaml
+- operationType: "filter"
+  name: "module-passthrough/filter"
+  module: "module-passthrough:1.3.6"
+- operationType: "synk"
+  name: "synk"
+connections: 
+- from:
+    name: "source"
+  to:
+    name: "module-passthrough/filter"
+- from:
+    name: "module-passthrough/filter"
+  to:
+    name: "module-passthrough/filter"
+- from:
+    name: "module-passthrough/filter"
+  to:
+    name: "synk"
+```
+
+To resolve this issue, declare each operation as a separate instance with a unique name every time it is used. For example, in the scenario described, define the operation twice with distinct names, such as `"module-passthrough-one/filter"` and `"module-passthrough-two/filter"`.
+
+```yaml
+- operationType: "filter"
+  name: "module-passthrough-one/filter"
+  module: "module-passthrough:1.3.6"
+- operationType: "filter"
+  name: "module-passthrough-two/filter"
+  module: "module-passthrough:1.3.6"
+```

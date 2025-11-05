@@ -58,7 +58,7 @@ The target is where you want to replicate or save the clone definition. You can 
 
 - `--to-cluster-id`: Provide the full Azure resource ID of the target cluster where you want to replicate the cloned instance. When you use this option, the clone command deploys the version of Azure IoT Operations specified in the clone definition to the target cluster, and then applies all relevant resources to complete the deployment. Automatic federation of user-assigned managed identity (UAMI) credentials is currently supported only when cloning to a cluster target.
 
-- `--to-dir`: Provide a local directory path to replicate the clone definition to disk, where it can be deployed with existing ARM deployment tools with or without modification. If you inspect the clone definition, you see various parameterization in play to ease some customization.
+- `--to-dir`: Provide a local directory path to replicate the clone definition to disk, where it can be deployed with existing ARM deployment tools with or without modification. If you inspect the clone definition, you see various parameterizations in play to ease some customization.
 
 > [!IMPORTANT]
 > When selecting a target resource group, consider using a resource group that doesn't contain an existing IoT Operations installation and is separate from the model's resource group. By default, the clone definition preserves resource names from the model instance. If the target and model share the same resource group and you change the custom location, resource name conflicts may occur.
@@ -73,7 +73,7 @@ You can use the following optional parameters to customize the generated ARM tem
 
 - `--mode`: Specifies how sub-deployments are organized in the template.  
   - When `nested` mode is used (the default), all sub-deployments are self-contained within the root deployment file.  
-  - When `linked` mode is used, asset-related sub-deployments are split out and stored as separate files, which are then linked by the root deployment. Use `linked` mode if your instance contains a large number of namespace devices, namespace assets, root assets, and asset endpoint profiles to improve scalability and manageability. You don't need to specify this parameter unless you require this separation for large deployments.
+  - When `linked` mode is used, asset-related sub-deployments are split out and stored as separate files, which are then linked by the root deployment. Use `linked` mode if your instance contains a large number of devices and assets to improve scalability and manageability. You don't need to specify this parameter unless you require this separation for large deployments.
 
 - `--param`: Allows you to override built-in default parameters, such as `location`, `instanceName`, or `adrNamespaceId`, using the format `key=value`. Use `--help` to display the full list of keys. 
 

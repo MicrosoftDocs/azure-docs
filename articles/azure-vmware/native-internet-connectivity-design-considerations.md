@@ -35,7 +35,7 @@ Internet connectivity using Azure Firewall is similar to the way Azure virtual n
     >The Azure route tables (UDR), associated with private cloud uplink subnets, and private cloud VNet need to be in the same Azure resource group.
 4. Have necessary firewall rules to allow traffic to and from the internet.
 
-Related topics
+## Related topics
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
 - [Connect to on-premises environment](native-connect-on-premises.md)
 - [Connect multiple Gen 2 private clouds](native-connect-multiple-private-clouds.md)

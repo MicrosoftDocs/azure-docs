@@ -77,9 +77,9 @@ There are three key deadlines outlined in our documentation:
 
 ## How should I get an extension for legacy version of the connectors?
 
-In general, we don't recommend customers to request an extension. However, we recognize that, due to various factors, some customers may need more time to complete their upgrades. In such cases, we encourage customers to take full advantage of the service's [automatic upgrade](connector-upgrade-guidance.md#automatic-connector-upgrade) capabilities, which apply at the connector and pipeline activity level. These capabilities effectively grant your workload an extension by automatically upgrading it, thereby preventing failures after the end-of-support date.
+In general, we don't recommend customers to request an extension. However, we recognize that, due to various factors, some customers may need more time to complete their upgrades. In such cases, we encourage customers to take full advantage of the service's [automatic upgrade](automatic-connector-upgrade.md) capabilities, which apply at the connector and pipeline activity level. These capabilities effectively grant your workload an extension by automatically upgrading it, thereby preventing failures after the end-of-support date.
 
-It's important to note that the scope of automatic upgrades varies by connector. We strongly recommend reviewing the [criteria](connector-upgrade-guidance.md#supported-automatic-upgraded-criteria) and supported scenarios for each connector to prioritize workloads that require manual upgrades before the end-of-support date, ensuring uninterrupted operations.
+It's important to note that the scope of automatic upgrades varies by connector. We strongly recommend reviewing the [criteria](automatic-connector-upgrade.md#supported-automatic-upgraded-criteria) and supported scenarios for each connector to prioritize workloads that require manual upgrades before the end-of-support date, ensuring uninterrupted operations.
 
 While auto-upgraded workloads aren't immediately affected by the announced removal date of the older version, this approach gives customers additional time to evaluate, validate, and transition to the latest GA version without facing unexpected disruptions.
 
@@ -87,17 +87,17 @@ An extension allows the pipeline that relies on the existing legacy version to c
 
 ## If the activity is automatically upgraded, will they still fail after the version removal date?
 
-The auto-upgraded workloads aren't affected by the announced removal date of the older version, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures. Read this [article](connector-upgrade-guidance.md#automatic-connector-upgrade) for more details.
+The auto-upgraded workloads aren't affected by the announced removal date of the older version, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures. Read this [article](automatic-connector-upgrade.md) for more details.
 
 ## How can I leverage the auto-upgrade capability?
 
-As the service provides the auto-upgrade capabilities within a list of connectors, each connector has different supported scopes. To ensure that your workload can benefit from this capability, make sure that your configurations or the capabilities used in the impacted connectors are supported by auto-upgrade. You can find more details from the [table](connector-upgrade-guidance.md#supported-automatic-upgraded-criteria) for the individual connector that is planned for the automatic upgrade. The automatic upgrade is triggered from service side in a regular cadence depends on the service release plan as long as your workload meets criteria.  
+As the service provides the auto-upgrade capabilities within a list of connectors, each connector has different supported scopes. To ensure that your workload can benefit from this capability, make sure that your configurations or the capabilities used in the impacted connectors are supported by auto-upgrade. You can find more details from the [table](automatic-connector-upgrade.md#supported-automatic-upgraded-criteria) for the individual connector that is planned for the automatic upgrade. The automatic upgrade is triggered from service side in a regular cadence depends on the service release plan as long as your workload meets criteria.  
 
 While compatibility mode offers flexibility, we strongly encourage users to upgrade to the latest GA version as soon as possible to benefit from ongoing improvements, optimizations, and full support.
 
 ## How do I know which workload has been automatically upgraded?
 
-You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded. The examples below show the upgraded information in various activity outputs. You can find the payload examples from this [article](connector-upgrade-guidance.md#automatic-connector-upgrade).
+You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded. The examples below show the upgraded information in various activity outputs. You can find the payload examples from this [article](automatic-connector-upgrade.md).
 
 
 ## If my workload is automatically upgraded by the service, how much additional time can I get to upgrade to v2?

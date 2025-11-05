@@ -45,8 +45,6 @@ In the Azure portal, type *cost management + billing* in the search box and then
 
 If you have access to just one billing scope, select **Properties** from the left-hand side. You have access to a billing account for a Microsoft Partner Agreement if the billing account type is **Microsoft Partner Agreement**.
 
-:::image type="content" border="true" source="./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png" alt-text="Screenshot that shows Microsoft Partner Agreement in properties page.":::
-
 If you have access to multiple billing scopes, check the type in the billing account column. You have access to a billing account for a Microsoft Partner Agreement if the billing account type for any of the scopes is **Microsoft Partner Agreement**.
 
 :::image type="content" border="true" source="./media/review-partner-agreement-bill/mpa-in-the-list.png" alt-text="Screenshot that shows Microsoft Partner Agreement in billing account list page.":::

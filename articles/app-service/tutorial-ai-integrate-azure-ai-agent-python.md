@@ -3,7 +3,7 @@ title: Integrate web app with OpenAPI in Azure AI Foundry Agent Service (Python)
 description: Empower your existing Python web apps by integrating their capabilities into Azure AI Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
-ms.date: 08/21/2025
+ms.date: 10/28/2025
 ms.topic: tutorial
 ms.custom:
   - devx-track-python
@@ -147,6 +147,9 @@ FasAPI already contains OpenAPI functionality at the default path `/openapi.json
 
 1. In the **Define schema** page, paste the schema that you copied earlier. Review and save the action.
 
+> [!TIP]
+> In this tutorial, the OpenAPI tool is configured to call your app anonymously without authentication. For production scenarios, you should secure the tool with managed identity authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Azure AI Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md).
+
 ## Test the agent
 
 1. If the agents playground isn't already opened in the foundry portal, select the agent and select **Try in playground**.
@@ -163,7 +166,7 @@ FasAPI already contains OpenAPI functionality at the default path `/openapi.json
 
 When exposing APIs via OpenAPI in Azure App Service, follow these security best practices:
 
-- **Authentication and Authorization**: Protect your OpenAPI endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Authentication and Authorization**: Protect your OpenAPI endpoints with Microsoft Entra authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Azure AI Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md). You can also protect your endpoints behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
 - **Validate input data:** Always validate incoming data to prevent invalid or malicious input. For Python apps, use libraries such as [Pydantic](https://pypi.org/project/pydantic/) to enforce data validation rules with dedicated request schema models (such as RestaurantCreate and ReviewCreate). Refer to their documentation for best practices and implementation details.
 - **Use HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
 - **Limit CORS:** Restrict Cross-Origin Resource Sharing (CORS) to trusted domains only. For more information, see [Enable CORS](app-service-web-tutorial-rest-api.md#enable-cors).

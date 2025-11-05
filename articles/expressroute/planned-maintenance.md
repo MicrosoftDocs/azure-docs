@@ -79,7 +79,7 @@ You should track the status of connections through ExpressRoute circuits. Tracki
 
 Review the available metrics for [ExpressRoute monitoring](expressroute-monitoring-metrics-alerts.md) for ExpressRoute circuit and Direct ports. At the minimum you should configure alerts to trigger for **ARP availability**, **BGP availability** and **Line Protocol**. Then configure email notifications to be sent when an out of service occurs.  
 
-You can elevate the monitor information by using [Connection Monitor for ExpressRoute](how-to-configure-connection-monitor.md). Connection monitor is a cloud-based network monitoring solution that monitors connectivity between on-premises networks (branch offices, etc.) and Azure cloud deployments. This service is used to track not only service disruptions but also end-to-end performance degradation for your services.
+You can elevate the monitor information by using [Connection Monitor for ExpressRoute](configure-connection-monitor.md). Connection monitor is a cloud-based network monitoring solution that monitors connectivity between on-premises networks (branch offices, etc.) and Azure cloud deployments. This service is used to track not only service disruptions but also end-to-end performance degradation for your services.
 
 ## Next steps
 

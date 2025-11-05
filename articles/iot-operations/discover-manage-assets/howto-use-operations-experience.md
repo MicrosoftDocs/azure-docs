@@ -11,7 +11,7 @@ ms.date: 09/08/2025
 
 # Use the operations experience web UI
 
-The *operations experience* web UI lets OT users manage resources in Azure IoT Operations. The operations experience is a web-based user interface that gives you a consistent way to manage resources like devices, namespace assets, and data flows.
+The *operations experience* web UI lets OT users manage resources in Azure IoT Operations. The operations experience is a web-based user interface that gives you a consistent way to manage resources like devices, assets, and data flows.
 
 This article describes how to use the operations experience web UI to manage core resources like
 
@@ -19,14 +19,14 @@ This article describes how to use the operations experience web UI to manage cor
 - Notifications
 - Activity logs
 
-To learn how to use the operations experience to manage namespace assets and devices, see:
+To learn how to use the operations experience to manage assets and devices, see:
 
 - [Configure the connector for OPC UA](howto-configure-opc-ua.md)
-- [Configure the connector for ONVIF (preview)](howto-use-onvif-connector.md)
-- [Configure the media connector (preview)](howto-use-media-connector.md)
-- [Configure the connector for HTTP/REST (preview)](howto-use-http-connector.md)
-- [Configure the connector for SSE (preview)](howto-use-sse-connector.md)
-
+- [Configure the connector for ONVIF](howto-use-onvif-connector.md)
+- [Configure the media connector](howto-use-media-connector.md)
+- [Configure the connector for HTTP/REST](howto-use-http-connector.md)
+- [Configure the connector for SSE](howto-use-sse-connector.md)
+- [Configure the connector for MQTT (preview)](howto-use-mqtt-connector.md)
 To learn how to use the operations experience to manage data flows, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
 ## Prerequisites
@@ -77,7 +77,7 @@ Whenever you make a change to a resource in the operations experience, you see a
 
 To enable you to copy settings between Azure Iot Operations instances, the operations experience lets you export and import settings for the following configurations:
 
-- Tags and events for OPC UA endpoints (CSV)
+- Data points and events for OPC UA endpoints (CSV)
 - Data points and events for SSE endpoints (CSV)
 - Data points for HTTP endpoints (CSV)
 - Events and actions for ONVIF endpoints (CSV)
@@ -85,9 +85,9 @@ To enable you to copy settings between Azure Iot Operations instances, the opera
 - Data flow endpoints (JSON)
 - Data flow (JSON)
 
-For example, to export The tag definitions for a namespace asset that uses an OPC UA inbound endpoint, go to the **Tags** page for the asset, select the tags to export, and then select **Export tags**:
+For example, to export the data point definitions for an asset that uses an OPC UA inbound endpoint, go to the **Data points** page for the dataset, select the data points to export, and then select **Export data points**:
 
-:::image type="content" source="media/howto-use-operations-experience/export-tags.png" alt-text="A screenshot that shows how to export tag definitions to a CSV file." lightbox="media/howto-use-operations-experience/export-tags.png":::
+:::image type="content" source="media/howto-use-operations-experience/export-data-points.png" alt-text="A screenshot that shows how to export data point definitions to a CSV file." lightbox="media/howto-use-operations-experience/export-data-points.png":::
 
 For example, to import a previously exported data flow definition, go to **Create data flow**, select **Import**, and select the JSON file that contains the data flow definition:
 
@@ -109,5 +109,6 @@ To view activity logs as the resource level, select the resource that you want t
 - [Connector for ONVIF overview](howto-use-onvif-connector.md)
 - [Media connector overview](howto-use-media-connector.md)
 - [Connector for HTTP/REST overview](howto-use-http-connector.md)
-- [Connector for SSE (preview)](howto-use-sse-connector.md)
+- [Connector for SSE](howto-use-sse-connector.md)
+- [Connector for MQTT (preview)](howto-use-mqtt-connector.md)
 - [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md)

@@ -132,7 +132,7 @@ ExpressRoute uses [Azure Service Health](/azure/service-health/overview) to noti
 
 #### Configure connection monitor for ExpressRoute 
 
-[Connection Monitor](how-to-configure-connection-monitor.md) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). Connection Monitor is an agent-based solution.
+[Connection Monitor](configure-connection-monitor.md) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). Connection Monitor is an agent-based solution.
 
 #### Configure gateway health monitoring & alerting 
 

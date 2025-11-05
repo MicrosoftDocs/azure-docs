@@ -10,7 +10,7 @@ title: include file
  ms.custom: include file, references_regions
 ---
 
-The following table describes default limits for Azure general-purpose v2 (GPv2), general-purpose v1 (GPv1), and Blob storage accounts. A few entries in the table also apply to disk access resources, these are explicitly labeled. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
+The following table describes default limits for Azure general-purpose v2 (GPv2), general-purpose v1 (GPv1), and Blob storage accounts. A few entries in the table also apply to disk access, these are explicitly labeled. Disk access is a resource that is excusively used for the import or export of managed disks through [private links](/azure/virtual-machines/disks-restrict-import-export-overview#private-links). The *ingress* limit refers to all data that is sent to a storage account or disk access. The *egress* limit refers to all data that is received from a storage account or a disk access.
 
 Microsoft recommends that you use a GPv2 storage account for most scenarios. You can easily upgrade a GPv1 or a Blob storage account to a GPv2 account with no downtime and without the need to copy data. For more information, see [Upgrade to a GPv2 storage account](/azure/storage/common/storage-account-upgrade).
 

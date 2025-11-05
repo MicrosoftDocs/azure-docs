@@ -2,7 +2,7 @@
 title: Overview - Retention of Azure Database for MySQL - Flexible Server for the Long Term by Using Azure Backup
 description: This article provides an overview of Azure Database for MySQL - Flexible Server retention for the long term.
 ms.topic: overview
-ms.date: 11/21/2024
+ms.date: 01/27/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS

@@ -1,6 +1,46 @@
 {
   "redirections": [
     {
+      "source_path": "articles/migrate/concepts-azure-spring-apps-assessment-calculation.md",
+      "redirect_url": "/azure/migrate",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
+      "source_path": "articles/migrate/how-to-create-azure-spring-apps-assessment.md",
+      "redirect_url": "/azure/migrate",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
+      "source_path": "articles/migrate/troubleshoot-spring-boot-discovery.md",
+      "redirect_url": "/azure/migrate",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
+      "source_path": "articles/migrate/tutorial-assess-spring-boot.md",
+      "redirect_url": "/azure/migrate",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
+      "source_path": "articles/migrate/tutorial-discover-spring-boot.md",
+      "redirect_url": "/azure/migrate",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
       "source_path": "articles/azure-functions/functions-proxies.md",
       "redirect_url": "/previous-versions/azure/azure-functions/functions-proxies",
       "redirect_document_id": false

@@ -1,7 +1,7 @@
 ---
 title: How customer-managed planned failover works
 titleSuffix: Azure Storage
-description: Azure Storage supports account failover of geo-redundant storage accounts for disaster recovery testing and planning. Learn what happens to your storage account and storage services during a customer-managed planned failover (preview) to the secondary region to perform disaster recovery testing and planning.
+description: Azure Storage supports account failover of geo-redundant storage accounts for disaster recovery testing and planning. Learn what happens to your storage account and storage services during a customer-managed planned failover to the secondary region to perform disaster recovery testing and planning.
 services: storage
 author: stevenmatthew
 
@@ -19,7 +19,7 @@ Initial: 87 (1697/22)
 Current: 98 (1470/0)
 -->
 
-# How customer-managed planned failover (preview) works
+# How customer-managed planned failover works
 
 Customer managed planned failover can be useful in scenarios such as disaster and recovery planning and testing, proactive remediation of anticipated large-scale disasters, and non-storage related outages.
 
@@ -30,7 +30,7 @@ This article describes what happens during a customer-managed planned failover a
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5lHyDgJffhs" title="Azure Storage Planned Failover - Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
+<!--[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]-->
 
 <!--[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]-->
 

@@ -153,7 +153,7 @@ MCP clients accept this configuration in various ways. Consult the documentation
 
 ## Related articles
 
-[Create a tool endpoint in your remote MCP server](./functions-bindings-mcp-trigger.md) 
+- [Create a tool endpoint in your remote MCP server](./functions-bindings-mcp-trigger.md) 
+- [Configure built-in MCP server authorization][authorization]
 
-
-[extension bundle]: ./extension-bundles.md
+[authorization]: ../app-service/configure-authentication-mcp.md?toc=/azure/azure-functions/toc.json

@@ -24,7 +24,7 @@ Unlike traditional tabular data approaches, Sentinel graph enables defenders and
 
 ## Enable defense at all stages
 
-Sentinel graph offers interconnected security graphs to help you at every stage of defense. The graph capabilities are being extended with new scenarios throughout Defender and Microsoft Purview, providing graph-based defense strategies across all stages, from pre-breach to post-breach and across assets, activities, and threat intelligence.
+Sentinel graph offers interconnected security graphs to help you at every stage of defense. The graph capabilities are being extended with new scenarios throughout Defender and [Microsoft Purview](/purview/purview), providing graph-based defense strategies across all stages, from pre-breach to post-breach and across assets, activities, and threat intelligence.
 
 For example, your digital environment includes active directory, servers, virtual machines, and other assets, vulnerabilities, misconfigurations, and excessive privileges are common and can increase the risk of security breaches through compromised accounts. An attacker can infiltrate your organization, compromise tokens, and eventually gain access to sensitive information, resulting in data exfiltration.
 

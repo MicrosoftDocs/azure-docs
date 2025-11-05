@@ -1,6 +1,6 @@
 ---
 title: How to control OPC UA assets
-description: Learn how to configure OPC UA namespace assets and devices to enable you to control and OPC UA server.
+description: Learn how to configure OPC UA assets and devices to enable you to control and OPC UA server.
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
@@ -23,11 +23,14 @@ This article describes:
 
 The `opc-ua-commander` service in the Azure IoT Operations cluster connects to your OPC UA server and performs write operations on your behalf. The `opc-ua-commander` service uses the [RPC protocol](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md) over MQTT to receive write requests and send responses. The message must include the required system and user [message metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
 
+> [!IMPORTANT]
+> The tag name `_ErrorMessage` is reserved and should not be used.
+
 The commander service can perform the following types of write operations:
 
 ### Simple write using a dataset
 
-The boiler asset in the OPC PLC simulator has a tag called `TargetTemperature` that you can write to in order to set the target temperature of the boiler. Create a namespace asset that includes a dataset with a data point that maps to this tag:
+The boiler asset in the OPC PLC simulator has a tag called `TargetTemperature` that you can write to in order to set the target temperature of the boiler. Create an asset that includes a dataset with a data point that maps to this tag:
 
 | Name | Data source                                |
 |------|--------------------------------------------|
@@ -45,7 +48,7 @@ The message must include the required [metadata](https://github.com/Azure/iot-op
 
 ### Complex write using a dataset
 
-The boiler asset in the OPC PLC simulator has a tag called `BoilerStatus` that you can write to in order to set the status of the boiler. Create a namespace asset that includes a dataset with a data point that maps to this tag:
+The boiler asset in the OPC PLC simulator has a tag called `BoilerStatus` that you can write to in order to set the status of the boiler. Create an asset that includes a dataset with a data point that maps to this tag:
 
 | Name | Data source                                |
 |------|--------------------------------------------|
@@ -70,7 +73,7 @@ The message must include the required [metadata](https://github.com/Azure/iot-op
 
 ### Call a method using a management group
 
-The boiler asset in the OPC PLC simulator has an action called `Switch` that you can call to switch the boiler on or off. Create a namespace asset that includes a management group with an action that maps to this action:
+The boiler asset in the OPC PLC simulator has an action called `Switch` that you can call to switch the boiler on or off. Create an asset that includes a management group with an action that maps to this action:
 
 | name | targetUri  | actionType | typeRef |
 |------|------------|------------|---------|
@@ -103,7 +106,7 @@ Use explicit writes to write to data points that aren't part of a dataset. As co
 - The data points must be explicitly configured.
 - Value changes aren't transmitted as part of the telemetry. Therefore, the client must rely on the MQTT RPC response.
 
- Create a namespace asset that includes a management group with an action defined as follows:
+ Create an asset that includes a management group with an action defined as follows:
 
 | name | targetUri  | actionType |
 |------|------------|------------|
@@ -127,7 +130,7 @@ The message must include the required [metadata](https://github.com/Azure/iot-op
 
 ### Endpoint operations
 
-Endpoint operations are process control calls that work on an inbound endpoint only and don't need a namespace asset.
+Endpoint operations are process control calls that work on an inbound endpoint only and don't need an asset.
 
 For example, to dump the address space of an OPC UA server, send a message to the topic `azure-iot-operations/endpoint-operations/{InboundEndpointName}/browse`.
 

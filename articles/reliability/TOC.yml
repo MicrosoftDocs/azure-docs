@@ -146,8 +146,6 @@ items:
     items:
     - name: Microsoft Community Training
       href: reliability-community-training.md
-    - name: Sustainability data solutions in Fabric
-      href: reliability-sustainability-data-solutions-fabric.md
   - name: Integration
     items:
     - name: Azure API Management

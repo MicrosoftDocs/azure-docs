@@ -69,7 +69,7 @@ Azure IoT Operations architecture has two core elements:
 
 Azure IoT Operations connects to various industrial devices and assets. Use the operations experience or the Azure CLI to [manage the devices and assets](discover-manage-assets/overview-manage-assets.md) you want to connect to.
 
-Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service lets you manage assets on the edge from the Azure portal or the Azure CLI. The Azure Device Registry uses _namespaces (preview)_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service lets you manage assets on the edge from the Azure portal or the Azure CLI. The Azure Device Registry uses _namespaces_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
 
 The Azure Device Registry includes a schema registry for assets. Data flows use these schemas to deserialize and serialize messages.
 

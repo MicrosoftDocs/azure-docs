@@ -14,7 +14,7 @@ This article provides troubleshooting tips and recommendations for a few issues 
 ## Resource health
 The unhealthy period marked on the **Resource health** page of your Service Bus namespace in the Azure portal might be longer by a few minutes than the actual period. For example, the page might indicate that the namespace is unhealthy for 5-6 minutes, while the actual unhealthy period was only 1-2 minutes. 
 
-This behavior is due to the alert system's evaluation mechanism, which uses a 3-minute evaluation interval combined with a 5-minute lookback window. The lookback window is used to ensure that there are no errors for atleast 5 minutes before considering the namespace healthy. In the above example, the namespace got healthy in a minute or two but the next evaluation happened was atleast 5 minutes (lookback window) after the namespace became healthy. 
+This behavior is due to the alert system's evaluation mechanism, which uses a 3-minute evaluation interval combined with a 5-minute lookback window. The lookback window is used to ensure that there are no errors for at least 5 minutes before considering the namespace healthy. In the above example, the namespace got healthy in a minute or two but the next evaluation happened was at least 5 minutes (lookback window) after the namespace became healthy. 
 
 
 ## Connectivity issues

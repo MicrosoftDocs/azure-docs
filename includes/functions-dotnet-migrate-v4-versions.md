@@ -13,7 +13,7 @@ When you migrate your function app, you have the opportunity to choose the targe
 | .NET version | [.NET Official Support Policy] release type |  Functions process model<sup>1,2</sup> | 
 | --- | --- | --- |
 | .NET 10 | Preview<sup>3</sup> | [Isolated worker model] | 
-| .NET 9 | STS (end of support May 12, 2026)  | [Isolated worker model] | 
+| .NET 9 | STS (end of support November 10, 2026)<sup>4</sup>  | [Isolated worker model] | 
 | .NET 8 | LTS (end of support November 10, 2026) | [Isolated worker model],<br/>[In-process model]<sup>2</sup>  | 
 | .NET Framework 4.8 | [See policy][netfxpolicy] | [Isolated worker model] |  
 
@@ -22,6 +22,8 @@ When you migrate your function app, you have the opportunity to choose the targe
 <sup>2</sup> Support ends for the in-process model on November 10, 2026. For more information, see [this support announcement](https://aka.ms/azure-functions-retirements/in-process-model). For continued full support, you should  [migrate your apps to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
 
 <sup>3</sup> See [Preview .NET versions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#preview-net-versions) for details on support, current restrictions, and instructions for using the preview version.
+
+<sup>4</sup> .NET 9 previously had an expected end-of-support date of May 12, 2026. During the .NET 9 service window, the .NET team extended support for STS versions to 24 months, starting with .NET 9. For more information, see [the blog post](https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/).
 
 [.NET Official Support Policy]: https://dotnet.microsoft.com/platform/support/policy
 [netfxpolicy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework

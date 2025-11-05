@@ -1,5 +1,5 @@
 ---
-title: Data persistence for the Azure IoT Operations MQTT broker (preview)
+title: Data persistence for the Azure IoT Operations MQTT broker
 description: Learn how to configure the data persistence feature for the Azure IoT Operations MQTT broker for data durability.
 author: SoniaLopezBravo
 ms.author: sonialopez
@@ -10,7 +10,7 @@ ms.date: 10/27/2025
 
 ---
 
-# Configure MQTT broker persistence (preview)
+# Configure MQTT broker persistence
 
 The data persistence feature is designed as a complementary mechanism to the replication system. While the broker replicates data across multiple nodes, a cluster-wide shutdown can still result in data loss.
 

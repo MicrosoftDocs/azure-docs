@@ -1,32 +1,26 @@
 ---
-title: Resiliency Insights for ExpressRoute virtual network gateway (preview)
-description: Learn about the resiliency features of ExpressRoute gateway and how they can help you maintain connectivity to your on-premises network.
-services: expressroute
-author: duongau
+title: Resiliency Insights for ExpressRoute virtual network gateway
+ms.reviewer: duau
+description: Use Resiliency Insights to analyze your ExpressRoute gateway's reliability and take steps to strengthen connectivity to your Azure workloads.
+author: dpremchandani
 ms.service: azure-expressroute
+services: expressroute
 ms.topic: concept-article
-ms.date: 03/31/2025
-ms.author: duau
+ms.date: 11/04/2025
+ms.author: divyapr
 ms.custom: ai-usage
-# Customer intent: As a network administrator, I want to evaluate the resiliency index of my ExpressRoute connection, so that I can improve connectivity reliability between my on-premises network and Azure resources.
+# Customer intent: As a network administrator, I want to evaluate the resiliency index of my ExpressRoute connection so that I can improve connectivity reliability between my on-premises network and Azure resources.
 ---
 
-# Resiliency Insights for ExpressRoute virtual network gateway (preview)
+# Resiliency Insights for ExpressRoute virtual network gateway
 
-Resiliency Insights is an assessment capability designed to measure your network's reliability for ExpressRoute workloads. At the core of this capability is the resiliency index, a percentage score calculated based on factors such as route resilience, zone-redundant gateway usage, advisory recommendations, and resiliency validation tests. This index evaluates the control plane resiliency of the ExpressRoute connectivity between your ExpressRoute virtual network gateway and on-premises network. By analyzing and improving this index, you can enhance the robustness and reliability of your connectivity to Azure workloads through ExpressRoute.
+Resiliency Insights is a feature that measures the reliability of your ExpressRoute connection. It provides a resiliency index—a percentage score based on factors like route resilience, zone-redundant gateway usage, advisory recommendations, and resiliency validation tests. The index evaluates the control plane resiliency of the ExpressRoute connectivity between your ExpressRoute virtual network gateway and on-premises network. By analyzing and improving this index, you can strengthen the reliability of your connectivity to Azure workloads through ExpressRoute.
 
-> [!NOTE]
-> To participate in the preview, contact the [**Azure ExpressRoute team**](mailto:exr-resiliency@microsoft.com).
-
-:::image type="content" source="media/resiliency-insights/resiliency-insights.png" alt-text="Screenshot of the Resiliency Insights feature, accessible under the monitoring section in the left-hand menu of the ExpressRoute gateway resource.":::
-
-> [!IMPORTANT]
-> **Azure ExpressRoute Resiliency Insights** is currently in PREVIEW.  
-> Refer to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for the legal terms applicable to Azure features in beta, preview, or other prerelease stages.
+:::image type="content" source="media/resiliency-insights/resiliency-insights.png" alt-text="Screenshot of the Resiliency Insights feature, accessible under the Monitoring section in the left menu of the ExpressRoute gateway resource." lightbox="media/resiliency-insights/resiliency-insights.png":::
 
 ## Route set
 
-The Resiliency Insights topology provides a detailed view of your route sets, helping you determine if they're site-resilient. It also highlights issues such as Private peering BGP (Border Gateway Protocol) session failures at any peering location or uneven route advertisement across ExpressRoute connections. By expanding the route sets, you can trace how routes propagate through each circuit and connection at the peering location.
+The Resiliency Insights topology provides a detailed view of your route sets to help you determine if they're site-resilient. It also highlights issues like Private peering BGP (Border Gateway Protocol) session failures at any peering location or uneven route advertisement across ExpressRoute connections. By expanding the route sets, you can trace how routes propagate through each circuit and connection at the peering location.
 
 :::image type="content" source="media/resiliency-insights/route-set.png" alt-text="Screenshot of the route set section in the Resiliency Insights feature, showing the routes associated with ExpressRoute circuit.":::
 
@@ -34,7 +28,7 @@ A route set represents a group of routes advertised from your on-premises networ
 
 ## Resiliency index
 
-The resiliency index score is a metric designed to assess the reliability of your ExpressRoute connection. It's calculated based on four key factors that contribute to the resiliency of your ExpressRoute virtual network gateway: route resiliency, resiliency validation tests, gateway zone redundancy, and advisory recommendations. Each factor is evaluated to produce an overall resiliency index score, which ranges from 0 to 100. A higher score reflects a more resilient ExpressRoute connection, while a lower score highlights potential areas for improvement that could affect the reliability of your connection.
+The resiliency index score is a metric that assesses the reliability of your ExpressRoute connection. The value is calculated based on four key factors that contribute to the resiliency of your ExpressRoute virtual network gateway: route resiliency, resiliency validation tests, gateway zone redundancy, and advisory recommendations. Each factor is evaluated to produce an overall resiliency index score, which ranges from 0 to 100. A higher score indicates a more resilient ExpressRoute connection, while a lower score highlights potential areas for improvement that can affect the reliability of your connection.
 
 | Scoring Criteria | Weight |
 |-------------------|--------|
@@ -45,7 +39,7 @@ The resiliency index score is a metric designed to assess the reliability of you
 
 ### <a name="route"></a> Route resiliency score
 
-Route resiliency is a key factor in assessing the reliability of your ExpressRoute connection. Advertising routes through multiple ExpressRoute circuits at different peering locations creates redundant paths for your traffic. This redundancy minimizes the effect of circuit failures or maintenance events at a single site, ensuring uninterrupted access to your Azure resources.
+Route resiliency is a key factor in assessing the reliability of your ExpressRoute connection. When you advertise routes through multiple ExpressRoute circuits at different peering locations, you create redundant paths for your traffic. This redundancy minimizes the effect of circuit failures or maintenance events at a single site, so you have uninterrupted access to your Azure resources.
 
 - Advertising routes through two distinct peering locations: **20%**.
 - Advertising routes through ExpressRoute Metro: **10%**.
@@ -55,7 +49,7 @@ The route resiliency score is **zero** in both high-resiliency (ExpresRoute Metr
 
 ### <a name="redundancy"></a> Zone redundant virtual network gateway score
 
-The zone redundancy feature enhances the reliability of the virtual network gateway by deploying it across multiple failure zones. This configuration ensures higher resiliency for your ExpressRoute connection, maintaining connectivity between your on-premises network and Azure resources.
+The zone redundancy feature enhances the reliability of the virtual network gateway by deploying it across multiple failure zones. This configuration provides higher resiliency for your ExpressRoute connection and maintains connectivity between your on-premises network and Azure resources.
 
 - **Standard** and **High-Performance** SKUs:  **0%**.
 - **Ultra Performance** SKUs: **2%**.
@@ -68,7 +62,7 @@ The zone redundancy feature enhances the reliability of the virtual network gate
 
 ### <a name="recommendation"></a> Resiliency recommendation score
 
-Advisor recommendations provide actionable insights to improve the reliability of your ExpressRoute connection. Implementing these recommendations can enhance the resiliency of your connection and ensure uninterrupted access to Azure resources.
+Advisor recommendations provide actionable insights to improve the reliability of your ExpressRoute connection. When you implement these recommendations, you can enhance the resiliency of your connection and maintain uninterrupted access to Azure resources.
 
 If no advisory recommendations are provided, the resiliency score for this category is **10%**.
 
@@ -89,14 +83,13 @@ The following multipliers are applied to the route resiliency score based on the
 > [!IMPORTANT]
 > If resiliency validation is completed for only one of the two peering locations, the multiplier applied to the route resiliency score is reduced by **half**.
 
-The resiliency index score provides a comprehensive assessment of the reliability of your ExpressRoute connection. By understanding the key factors that influence this score, you can identify opportunities to enhance the resiliency of your connection. Implementing the recommendations and best practices outlined in this article help you strengthen your ExpressRoute setup, ensuring consistent and reliable connectivity between your on-premises network and Azure resources.
+The resiliency index score provides a comprehensive assessment of the reliability of your ExpressRoute connection. By understanding the key factors that influence this score, you can identify opportunities to enhance the resiliency of your connection. When you implement the recommendations and best practices outlined in this article, you strengthen your ExpressRoute setup and maintain consistent and reliable connectivity between your on-premises network and Azure resources.
 
-## Frequently asked questions
+## FAQ
 
 1. Why can't I see the Resiliency Insights feature in my ExpressRoute virtual network gateway?
 
-    - The Resiliency Insights feature is currently in preview. To gain access, contact the [Azure ExpressRoute team](mailto:exR-Resiliency@microsoft.com) for onboarding.
-    - This feature isn't supported for Virtual WAN ExpressRoute gateways.
+    - Resiliency Insights currently support Virtual Network ExpressRoute Gateways only. 
     - You must have Contributor-level authorization to access this feature.
 
 1. Why doesn't the pane refresh immediately after I select **Refresh**?

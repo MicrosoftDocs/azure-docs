@@ -7,11 +7,11 @@ ms.service: dev-box
 ---
 
 > [!IMPORTANT]
-> **Microsoft Dev Box capabilities are coming to Windows 365**
+> **Microsoft Dev Box is evolving into a unified offering within Windows 365**
 >
-> Starting November 1, 2025, Microsoft Dev Box no longer accepts new customers as we integrate Dev Box capabilities into Windows 365. 
+> Starting November 1, 2025, the following changes will take place: 
 >
-> - **Existing customers:** Continue using the service as normal. No action is required.
-> - **New customers:** If you previously evaluated or tested Dev Box and need to onboard after November 1, 2025, reach out to your Microsoft account team.
+> - **Existing customers:**  Continue using the service as normal. No immediate action is required. If you have evaluated or tested Dev Box and need to onboard additional tenants after November 1, 2025, submit a request through Azure Support to get your new tenants allowlisted.
+> - **Net New customers:** Microsoft Dev Box stops accepting net new customers directly. As features are integrated into Windows 365 and become publicly available, customers interested in using them should contact their Microsoft account team.
 >
 > For more information, see [Microsoft Dev Box capabilities are coming to Windows 365](../dev-box-windows-365-announcement.md).

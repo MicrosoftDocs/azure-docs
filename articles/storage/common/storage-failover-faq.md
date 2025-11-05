@@ -32,7 +32,7 @@ Each type of failover has a unique set of use cases and corresponding expectatio
 
 Planned failover can be utilized in multiple scenarios including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from nonstorage related outages. During the planned failover process, the primary and secondary regions are swapped and the account remains geo-redundant. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. Data loss isn't expected during the planned failover and failback process as long as the primary and secondary regions are available throughout the entire process. 
 
-To learn more, refer to the article on [How planned failover works](storage-failover-customer-managed-planned.md#how-customer-managed-planned-failover-preview-works).
+To learn more, refer to the article on [How planned failover works](storage-failover-customer-managed-planned.md#how-customer-managed-planned-failover-works).
 
 ### Unplanned Failover
 

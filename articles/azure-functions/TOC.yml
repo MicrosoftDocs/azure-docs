@@ -521,6 +521,8 @@
       href: ../app-service/configure-authentication-api-version.md?toc=/azure/azure-functions/toc.json
     - name: File-based configuration
       href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
+    - name: MCP server authorization
+      href: ../app-service/configure-authentication-mcp.md?toc=/azure/azure-functions/toc.json
   - name: Secure
     items:
     - name: Work with access keys

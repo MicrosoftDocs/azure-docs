@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: overview
-ms.date: 10/08/2025
+ms.date: 11/04/2025
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster. I want to understand how to read data from OPC UA servers and write data to implement process control.
 
@@ -15,7 +15,7 @@ ms.date: 10/08/2025
 
 OPC UA (OPC Unified Architecture) is a standard developed by the [OPC Foundation](https://opcfoundation.org/) to enable the exchange of data between industrial components at the edge and with the cloud. It can route messages from OPC UA servers to the MQTT broker and send control messages to OPC UA servers. OPC UA provides a consistent, secure, documented standard based on widely used data formats. Industrial components can implement the OPC UA standard to enable universal data exchange.
 
-The *OPC UA write capability (preview)* lets industrial developers and operations engineers use the connector for OPC UA to perform real-time control at the edge by writing values directly to OPC UA nodes. This capability enables immediate updates to configurations, triggers for automation, and dynamic process adjustments without relying on round-trips to the cloud.
+The *OPC UA write capability* lets industrial developers and operations engineers use the connector for OPC UA to perform real-time control at the edge by writing values directly to OPC UA nodes. This capability enables immediate updates to configurations, triggers for automation, and dynamic process adjustments without relying on round-trips to the cloud.
 
 The write capability useful in scenarios where latency, autonomy, or local decision making is critical such as in manufacturing lines, predictive maintenance, or in AI-driven control loops.
 
@@ -77,45 +77,15 @@ To write values to a node in a connected OPC UA server, the connector for OPC UA
 
 To generate a write request, publish a JSON message to the MQTT topic using MQTT v5 request/response semantics. Specify the dataset name and the values to be written in the payload. Each MQTT message includes metadata that defines system-level and user-defined properties such as `SourceId`, `ProtocolVersion`, and `CorrelationData` to ensure traceability and conformance.
 
-> [!NOTE]
-> During preview, write operations are limited to data points that are explicitly defined in a dataset.
-
 To synchronize OPC UA node properties to the distributed state store, the connector for OPC UA:
 
 1. Follows the `HasProperty` reference of all variable nodes that are referenced as data points within any dataset of all assets using the same OPC UA inbound endpoint.
 1. Adds the properties to the distributed state store under the ID: `{AioNamespace}.{AssetName}.{DatasetName}.{DataPointName}.{PropertyName}`.
 1. Automatically subscribes the `ModelChange` event of the OPC UA server and repopulates all properties after a `ModelChange` event occurs.
 
-During preview, you configure this behavior by adding `syncPropertiesIntoStateStore: true` to the `endpoints.inbound.<endpointname>.additionalConfiguration` of a `namespaces.deviceregistry.microsoft.com/v1/Device` resource. For example:
+To configure this behavior, select **Sync properties into state store** when you configure an inbound OPC UA endpoint in the operations experience web UI:
 
-```bicep
-resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-07-01-preview' = {
-   name: 'myDevice'
-   parent: namespace
-   location: resourceGroup().location
-   extendedLocation: {
-      type: 'CustomLocation'
-      name: customLocation.id
-   }
-   properties: {
-      endpoints: {
-         outbound: {
-            assigned: {}
-         }
-         inbound: {
-            opc-ua-connector-0: {
-               endpointType: 'Microsoft.OpcUa'
-               address: 'opc.tcp://opcplc-000000:4840'
-               authentication: {
-                  method: 'Anonymous'
-               }
-               additionalConfiguration: '{"syncPropertiesIntoStateStore": true}'
-            }
-         }
-      }
-   }
-}
-```
+:::image type="content" source="media/overview-opc-ua-connector/sync-properties.png" alt-text="Screenshot that shows the location of the sync properties to state store option." lightbox="media/overview-opc-ua-connector/sync-properties.png":::
 
 You can also force a synchronization of all properties by making an MQTT RPC call to the `azure-iot-operation/asset-operations/{AssetName}/builtin/syncProperties` topic. A payload `{}` forces a synchronization without observing `ModelChange` events. A payload `{"observeModelChanges": true}` forces a synchronization that observes `ModelChange` events.
 

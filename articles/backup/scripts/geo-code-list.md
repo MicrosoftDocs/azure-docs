@@ -2,7 +2,7 @@
 title: Geo-code mapping
 description: Learn about geo-codes mapped with the respective regions.
 ms.topic: sample
-ms.date: 11/30/2024
+ms.date: 04/30/2025
 ms.service: azure-backup
 ms.custom: references_regions
 author: AbhishekMallick-MS

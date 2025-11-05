@@ -153,12 +153,12 @@ To connect your cluster to Azure Arc:
    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
 
-## Install the preview version of `az iot ops`
+## Install the latest version of `az iot ops`
 
-This quickstart uses the latest preview version of Azure IoT Operations. To install the preview version you need the latest version of the Azure IoT Operations CLI extension:
+This quickstart uses the latest version of Azure IoT Operations. To install the latest version you need the latest version of the Azure IoT Operations CLI extension:
 
 ```azurecli
-az extension add --upgrade --name azure-iot-ops --allow-preview True
+az extension add --upgrade --name azure-iot-ops
 ```
 
 ## Create storage account and schema registry

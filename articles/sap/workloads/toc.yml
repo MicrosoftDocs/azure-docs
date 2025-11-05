@@ -105,6 +105,12 @@ items:
         href: disaster-recovery-overview-guide.md
       - name: Disaster recovery for SAP workloads
         href: disaster-recovery-sap-guide.md
+    - name: Security
+      items:
+      - name: Secure Azure Infrastructure for SAP
+        href: sap-security-infrastructure.md
+      - name: Identity Management and Authentication for SAP
+        href: sap-security-identity.md
   - name: How-to guides
     items:
     - name: DBMS

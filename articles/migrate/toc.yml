@@ -9,12 +9,16 @@ items:
     href: whats-new.md
 - name: Quickstarts
   items:
+  - name: Prepare Azure accounts using built-in roles
+    href: prepare-azure-accounts.md
   - name: Create a project
     href: create-project.md
   - name: Create a project - ARM template
     href: quickstart-create-migrate-project.md
   - name: Create a project - Portal
     href: quickstart-create-project.md
+  - name: Evaluate migration readiness and savings for Arc resources
+    href: quickstart-evaluate-readiness-savings-for-arc-resources.md
   - name: Create a business case using imported inventory
     href: how-to-build-a-business-case.md
 - name: Key Concepts # Includes Glossary and key concepts for users to understand the terminologies and journey
@@ -101,6 +105,16 @@ items:
       #   href: how-to-discover-applications.md
         # - name: Create least privileged credentials for PostgreSQL discovery
         #   href: postgresql-least-privilege-configuration.md
+  - name: Discovery using Azure Arc
+    items:
+    - name: Overview
+      href: concepts-arc-resource-discovery.md
+    - name: Manage Arc resource sync
+      href: how-to-manage-arc-resource-sync.md
+    - name: Collect additional data about Arc enabled servers
+      href: how-to-enable-additional-data-collection-for-arc-servers.md
+    - name: Azure Migrate VM Extension for Arc-enabled servers
+      href: migrate-virtual-machine-extension-reference.md
   - name: Discover using inventory import
     items: 
       - name: CSV import
@@ -234,20 +248,20 @@ items:
 #   - name: Limitations
 - name: Modernize applications
   items:
-  - name: Web App Migration and Modernization
-    items:
-    - name: Containerize ASP.NET apps and migrate to AKS
-      href: tutorial-app-containerization-aspnet-kubernetes.md
-    - name: Containerize Java web apps and migrate to AKS
-      href: tutorial-app-containerization-java-kubernetes.md
-    - name: Containerize Java web apps and migrate to App Service containers
-      href: tutorial-app-containerization-java-app-service.md 
-    - name: Modernize ASP.NET web apps to App Service code
-      href: tutorial-modernize-asp-net-appservice-code.md
-    - name: CI/CD for Day 2 operations
-      href: tutorial-app-containerization-azure-pipeline.md
-    - name: Modernization to App service code
-      href: tutorial-modernize-asp-net-appservice-code.md
+  - name: Overview of Web App Migration and Modernization
+    href: web-app-migration-modernization.md
+  - name: Containerize ASP.NET apps and migrate to AKS
+    href: tutorial-app-containerization-aspnet-kubernetes.md
+  - name: Containerize Java web apps and migrate to AKS
+    href: tutorial-app-containerization-java-kubernetes.md
+  - name: Containerize Java web apps and migrate to App Service containers
+    href: tutorial-app-containerization-java-app-service.md 
+  - name: Modernize ASP.NET web apps to App Service code
+    href: tutorial-modernize-asp-net-appservice-code.md
+  - name: CI/CD for Day 2 operations
+    href: tutorial-app-containerization-azure-pipeline.md
+  - name: Modernization to App service code
+    href: tutorial-modernize-asp-net-appservice-code.md
 - name: Tutorials 
   items:
   - name: Migration scenarios
