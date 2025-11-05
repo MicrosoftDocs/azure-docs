@@ -84,7 +84,7 @@ You can copy this text to a file and add the requested information.
 
 Then submit the information in an incident report at [Create a support ticket](https://azure.microsoft.com/support/create-ticket/), requesting to raise your email sending limit.
 
-# Pre-requisites for Email Quota Increase Request
+### Pre-requisites for Email Quota Increase Request
 
 Before submitting a request to increase your email quota in Azure Communication Services, ensure the following:
 
