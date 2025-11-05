@@ -44,7 +44,6 @@ Azure SRE Agent integrates with the following services:
 
 Use the following steps to start working with Azure SRE Agent.
 
-# [Handle an incident](#tab/incident)
 
 1. Enable integrations:  
 
