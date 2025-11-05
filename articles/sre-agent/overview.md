@@ -49,7 +49,7 @@ Use the following steps to start working with Azure SRE Agent.
 
     - Incident management tools: Link to ServiceNow, link to PagerDuty, or use Azure Monitor alerts.
   
-    - Create a new Incident response plan with custom instructions on how incident should be handled
+    - Create a new incident response plan with custom instructions detailing how to handle incidents.
 
     - Ticketing systems: Azure Boards.
 
