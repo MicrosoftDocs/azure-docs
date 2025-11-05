@@ -18,8 +18,9 @@ SRE Agent is a service that brings automation and intelligence to site reliabili
 
 ## Primary use cases
 
-Automate incidents: Connect to incident management platforms to automate triage, mitigation, and resolution, reducing mean time to recovery (MTTR) and improving service availability.
-Automate scheduled workflows: Set up proactive alerting and actions to automate routine and repetitive tasks that run on a defined schedule.
+- **Automate incidents**: Connect to incident management platforms to automate triage, mitigation, and resolution, reducing mean time to recovery (MTTR) and improving service availability.
+
+- **Automate scheduled workflows**: Set up proactive alerting and actions to automate routine and repetitive tasks that run on a defined schedule.
 
 Watch the following video to see SRE Agent in action.
 
