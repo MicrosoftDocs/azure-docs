@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/3/2025
+ms.date: 11/4/2025
 ms.author: mbender
 # Customer intent: As an DevOps engineer, I want to migrate my Azure Application Gateway and Web Application Firewall from V1 to V2, so that I can leverage the improved features and performance while ensuring minimal downtime during the transition.
 ---
@@ -84,7 +84,7 @@ To run the script:
 4. Install the script by following the steps-[Install Script](../application-gateway/migrate-v1-v2.md#installing-the-script)
 5. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
    ```
-   AzureAppGWClone.ps1
+   ./AzureAppGWClone.ps1
    -resourceId <V1 application gateway Resource ID>
    -subnetAddressRange <subnet space you want to use>
    -appgwName <string to use to append>
@@ -96,14 +96,13 @@ To run the script:
    ```
     **Example**
    ```azurepowershell
-   AzureAppGWClone.ps1 `
+   ./AzureAppGWClone.ps1 `
    -resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
    -subnetAddressRange 10.0.0.0/24 `
    -appgwname "MynewV2gw" `
    -AppGWResourceGroupName "MyResourceGroup" `
    -privateIpAddress "10.0.0.1" `
    -publicIpResourceId "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
-   -enableAutoScale
    ```
 ### Recommendations
 *  After script completion, review the V2 gateway configuration in the Azure portal and test connectivity by sending traffic directly to the V2 gateway’s IP.
@@ -144,7 +143,7 @@ The legacy script takes below parameters:
 > Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
 
   
-* **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
+* **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**. A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
 
   This parameter is only optional if you don't have HTTPS listeners configured for your V1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
   ```azurepowershell
@@ -185,7 +184,7 @@ The legacy script takes below parameters:
   ```
    To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
  
-* **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
+* **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway. This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
  
 * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway. If public Ip resource name is provided, ensure that it exists in succeeded state.
   If this isn't specified, the script allocates a new public IP address in the same resource group. The name is the V2 gateway's name with *-IP* appended. If AppGWResourceGroupName is provided and a public IP address isn't provided, ensure that public IP resource with name AppGWV2Name-IP doesn’t exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
@@ -206,21 +205,21 @@ To run the script:
 4. Install the script by following the steps-[Install Script](../application-gateway/migrate-v1-v2.md#installing-the-script)
 5. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 6. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
-   ```
-   AzureAppGWMigration.ps1
-    -resourceId <V1 application gateway Resource ID>
-    -subnetAddressRange <subnet space you want to use>
-    -appgwName <string to use to append>
-    -AppGWResourceGroupName <resource group name you want to use>
-    -sslCertificates <comma-separated SSLCert objects as above>
-    -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
-    -privateIpAddress <private IP string>
-    -publicIpResourceId <public IP name string>
-    -validateMigration -enableAutoScale
+   ```Azurepowershell
+      ./AzureAppGWMigration.ps1
+      -resourceId <V1 application gateway Resource ID>
+      -subnetAddressRange <subnet space you want to use>
+      -appgwName <string to use to append>
+      -AppGWResourceGroupName <resource group name you want to use>
+      -sslCertificates <comma-separated SSLCert objects as above>
+      -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
+      -privateIpAddress <private IP string>
+      -publicIpResourceId <public IP name string>
+      -validateMigration -enableAutoScale
    ```
    **Example**
-   ```azurepowershell
-      AzureAppGWMigration.ps1 `
+   ```Azurepowershell
+      ./AzureAppGWMigration.ps1 `
       -resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
@@ -260,7 +259,7 @@ To use this option, you must not have the Azure Az modules installed on your com
 
 Run the script with the following command to get the latest version:
 
-* For enhanced cloning script - `Install-Script -Name AzureAppGWClone -Force`
+* For enhanced cloning Public IP Retention script - `Install-Script -Name AzureAppGWIPMigrate -Force`
 
 * For the legacy cloning script  - `Install-Script -Name AzureAppGWMigration -Force`
 
@@ -311,17 +310,18 @@ You can **download** this Public IP retention script  from the  [PowerShell Gall
 
 After downloading and [installing the script](../application-gateway/migrate-v1-v2.md#installing-the-script)
 
-Execute AzureAppGWClone.ps1 with the required parameters:
- ```
-AzureAppGWIPMigrate.ps1
- -v1resourceId <V1 application gateway Resource ID>
- -v2resourceId <V2 application gateway Resource ID>
+Execute AzureAppGWIPMigrate.ps1 with the required parameters:
+
+ ```azurepowershell
+    ./AzureAppGWIPMigrate.ps1
+     -v1resourceId <V1 application gateway Resource ID>
+     -v2resourceId <V2 application gateway Resource ID>
  ```
    **Example**
    ```azurepowershell
-./AzureAppGWIPMigrate.ps1 `
--v1resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
--v2resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv2appgateway `
+    ./AzureAppGWIPMigrate.ps1 `
+    -v1resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
+    -v2resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv2appgateway `
   ```
  Once the IP swap is complete, customers should check control and data plane operations on the V2 gateway. All control plane actions except Delete will be disabled on the V1 gateway.
  > [!NOTE]
@@ -332,14 +332,14 @@ AzureAppGWIPMigrate.ps1
 
 ### Traffic Migration recommendations
 
-The following are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
+The following are a few scenarios where your current application gateway (Standard) can receive client traffic, and our recommendations for each one:
 * **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard V1 or WAF V1 gateway**.
-    You can update your DNS record to point to the frontend IP or DNS label associated with your Standard_V2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new V2 gateway.
+    You can update your DNS record to point to the frontend IP or DNS label associated with your Standard_V2 application gateway. Depending on the TTL configured on your DNS record, it can take a while for all your client traffic to migrate to your new V2 gateway.
 * **A custom DNS zone (for example, contoso.com) that points to the DNS label (for example: *myappgw.eastus.cloudapp.azure.com* using a CNAME record) associated with your V1 gateway**.
    You have two choices:
   * If you use public IP addresses on your application gateway, you can do a controlled, granular migration using a Traffic Manager profile to incrementally route traffic (weighted traffic routing method) to the new V2 gateway.
     You can do this by adding the DNS labels of both the V1 and V2 application gateways to the [Traffic Manager profile](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), and CNAMEing your custom DNS record (for example, `www.contoso.com`) to the Traffic Manager domain (for example, contoso.trafficmanager.net).
-  * Or, you can update your custom domain DNS record to point to the DNS label of the new V2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new V2 gateway.
+  * Or, you can update your custom domain DNS record to point to the DNS label of the new V2 application gateway. Depending on the TTL configured on your DNS record, it can take a while for all your client traffic to migrate to your new V2 gateway.
 * **Your clients connect to the frontend IP address of your application gateway**.
    Update your clients to use the IP address associated with the newly created V2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
 
@@ -364,7 +364,7 @@ There are five variants available in V1 SKU based on the Tier and Size - Standar
 | WAF Large | 654.08     |    262.8 |Same as for Standard Large |
 
 > [!NOTE]
-> The calculations shown here are based on East US and for a gateway with 2 instances in V1. The variable cost in V2 is based on one of the 3 dimensions with highest usage: New connections (50/sec), Persistent connections (2500 persistent connections/min), Throughput (1 CU can handle 2.22 Mbps). <br>
+> The calculations shown here are based on East US and for a gateway with two instances in V1. The variable cost in V2 is based on one of the three dimensions with highest usage: New connections (50/sec), Persistent connections (2500 persistent connections/min), Throughput (one CU can handle 2.22 Mbps). <br>
 > <br>
 > The scenarios described here are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 

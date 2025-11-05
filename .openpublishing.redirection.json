@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/backup/backup-azure-enhanced-soft-delete-tutorial.md",
+      "redirect_url": "/azure/backup/secure-by-default",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-azure-security-feature-cloud.md",
+      "redirect_url": "/azure/backup/secure-by-default",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/quick-backup-azure-enable-enhanced-soft-delete.md",
+      "redirect_url": "/azure/backup/secure-by-default",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/concepts-azure-spring-apps-assessment-calculation.md",
       "redirect_url": "/azure/migrate",
       "redirect_document_id": false,

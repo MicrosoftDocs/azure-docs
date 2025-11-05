@@ -6,7 +6,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.author: rmareddy
 author: duongau
-ms.date: 10/21/2025
+ms.date: 11/05/2025
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to understand the features of ExpressRoute FastPath so that I can determine if it meets my organization's performance needs.
 ---
@@ -124,6 +124,7 @@ FastPath supports Private Link connectivity for ExpressRoute Direct circuits (10
 - Cross-region connectivity for virtual networks, private endpoints, and Private Link services isn't supported. Traffic to cross-region resources flows through the ExpressRoute gateway
 - Azure Private Link pricing doesn't apply to traffic sent over FastPath. For more information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/)
 - If FastPath becomes unavailable, traffic automatically flows through the ExpressRoute gateway to maintain connectivity
+- We perform regular host and operating system maintenance on the ExpressRoute virtual network gateway to ensure service reliability. During these maintenance windows, you may experience brief or intermittent connectivity interruptions to private endpoint resources.
 
 ### User-Defined Routes (ExpressRoute Direct only)
 

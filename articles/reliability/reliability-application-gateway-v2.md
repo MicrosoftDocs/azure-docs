@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-description
   - ai-seo-date:07/09/2025
 ms.service: azure-application-gateway
-ms.date: 10/14/2025
+ms.date: 11/05/2025
 ai-usage: ai-assisted
 
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Application Gateway v2 works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
@@ -37,12 +37,14 @@ To learn about how to deploy Application Gateway to support your solution's reli
 
 Application Gateway is a managed service. It's important to understand some key elements of the service architecture so that you can make informed reliability decisions.
 
-- **Instances:** An *instance* is a virtual machine (VM)-level unit of the gateway. Each instance represents a dedicated VM that handles traffic. One instance is equal to one VM.
+- **Gateway:** When you deploy Application Gateway, you deploy a *gateway*, which is the Azure resource you work with.
+
+- **Instances:** An *instance* is a single unit of the gateway. A gateway has multiple instances. Each instance has its own private IP address, handles traffic, and routes requests.
 
   >[!IMPORTANT]
   > For high availability, each gateway is always created with a minimum of two instances.  However, the Azure portal may indicate that your gateway has a single instance, even though it actually has two.
 
-  You don't see or manage the VMs directly. The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances. It also manages the graceful removal of instances during scale-in events. This process is known as *connection draining*.
+  The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances. It also manages the graceful removal of instances during scale-in events. This process is known as *connection draining*.
 
   The following diagram shows a gateway with two instances:
 
@@ -119,9 +121,6 @@ This section explains how to configure availability zone support for your gatewa
   - *Zone-redundant:* New gateways are created as zone-redundant by default. Instances are spread across multiple availability zones and might use two or more zones in the region.
 
     To deploy a new gateway, see [Quickstart: Direct web traffic by using Application Gateway - Azure portal](../application-gateway/quick-create-portal.md).
-
-    > [!NOTE]
-    > After you deploy a new gateway by using the Azure portal, the portal or other tooling might indicate that the gateway isn't zone-redundant. However, if the gateway is deployed in a region that supports availability zones, it's guaranteed to be zone-redundant.
 
     When you use the Azure CLI, Azure PowerShell, Bicep, Azure Resource Manager templates (ARM templates), or Terraform, you can optionally specify the availability zones to deploy your gateway into. You can deploy a zone-redundant gateway by specifying two or more zones. However, we recommend that you omit the zone list so that your gateway can use all of the availability zones, unless you have a specific reason not to use a specific zone.
 
@@ -259,6 +258,11 @@ Application Gateway v2 performs regular service upgrades and other maintenance t
 ## Service-level agreement
 
 [!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
+
+For a gateway to be eligible for the Application Gateway availability SLA, it must meet the following criteria:
+
+- It must be configured correctly to perform your HTTP load balancing.
+- It must either be [zone redundant](#zone-recovery), or it must be configured to use autoscale.
 
 ## Related content
 

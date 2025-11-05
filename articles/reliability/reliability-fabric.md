@@ -23,11 +23,11 @@ This article describes reliability support in Microsoft Fabric, and both regiona
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Fabric uses Azure availability zones to protect Fabric and Power BI items and data from datacenter failures. Fabric makes commercially reasonable efforts to support availability zones, where resources automatically replicate across zones, without any need for you to set up or configure. 
+Fabric uses Azure availability zones to protect Fabric and Power BI items and data from datacenter failures. Fabric resources are automatically distributed across multiple zones without requiring any customer configuration.
 * Data engineering supports availability zones if you use OneLake. If you use other data sources such as ADLS Gen2, then you need to ensure that Zone-redundant storage (ZRS) is enabled.
 
 ### Zone down experience
-During a zone-wide outage, no action is required. Fabric capabilities self-heal and rebalance automatically to take advantage of the healthy zone. In some cases, in-progress operations may need to be restarted. For example, running Spark Jobs may fail if the master node is in the failed zone. In such a case, the jobs will need to be resubmitted. Datawarehouse and SQL analytics endpoint query might fail in case front end node is in the failed zone. In such a case, query needs to be safely restarted. 
+During a zone-wide outage, no customer action is required. Fabric capabilities self-heal and rebalance automatically to take advantage of the healthy zone. In some cases, in-progress operations may need to be restarted. For example, running Spark Jobs may fail if the master node is in the failed zone. In such a case, the jobs will need to be resubmitted. Datawarehouse and SQL analytics endpoint query might fail in case front end node is in the failed zone. In such a case, query needs to be safely restarted. 
 
 
 

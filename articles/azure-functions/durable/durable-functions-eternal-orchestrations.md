@@ -26,6 +26,9 @@ When *continue-as-new* is called, the orchestration instance restarts itself wit
 > [!NOTE]
 > The Durable Task Framework maintains the same instance ID but internally creates a new *execution ID* for the orchestrator function that gets reset by *continue-as-new*. This execution ID is not exposed externally, but it may be useful to know about when debugging orchestration execution.
 
+> [!IMPORTANT]
+> If during execution the orchestration encounters an uncaught exception, then the orchestration enters a "failed" state and execution will complete. In particular, this means that a call to *continue-as-new*, even in a `finally` block, will *not* restart the orchestration in the case of an uncaught exception.
+
 ## Periodic work example
 
 One use case for eternal orchestrations is code that needs to do periodic work indefinitely.

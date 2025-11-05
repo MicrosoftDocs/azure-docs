@@ -86,6 +86,9 @@ You can use the `extensions.mcp` section in `host.json` to define MCP server inf
       "encryptClientState": true,
       "messageOptions": {
         "useAbsoluteUriForEndpoint": false
+      },
+      "system": {
+        "webhookAuthorizationLevel": "System"
       }
     }    
   }
@@ -100,6 +103,8 @@ You can use the `extensions.mcp` section in `host.json` to define MCP server inf
 | **encryptClientState** | Determines if client state is encrypted. Defaults to true. Setting to false may be useful for debugging and test scenarios but isn't recommended for production. |
 | **messageOptions** | Options object for the message endpoint in the SSE transport. |
 | **messageOptions.UseAbsoluteUriForEndpoint** | Defaults to `false`. Only applicable to the server-sent events (SSE) transport; this setting doesn't affect the Streamable HTTP transport. If set to `false`, the message endpoint is provided as a relative URI during initial connections over the SSE transport. If set to `true`, the message endpoint is returned as an absolute URI. Using a relative URI isn't recommended unless you have a specific reason to do so.|
+| **system** | Options object for system-level configuration. |
+| **system.webhookAuthorizationLevel** | Defines the authorization level required for the webhook endpoint. Defaults to "System". Allowed values are "System" and "Anonymous". When you set the value to "Anonymous", an access key is no longer required for requests. Regardless of if a key is required or not, you can use [built-in MCP server authorization][authorization] as an identity-based access control layer.<br/>This setting is only available when running on Functions host version 4.1045.0 or later.|
 
 ## Connect to your MCP server
 
@@ -112,7 +117,9 @@ To connect to the MCP server exposed by your function app, you need to provide a
 
 <sup>1</sup> Newer protocol versions deprecated the Server-Sent Events transport. Unless your client specifically requires it, you should use the Streamable HTTP transport instead.
 
-When hosted in Azure, the endpoints exposed by the extension also require the [system key](./function-keys-how-to.md) named `mcp_extension`. If it isn't provided in the `x-functions-key` HTTP header or in the `code` query string parameter, your client receives a `401 Unauthorized` response. You can retrieve the key using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key with the Azure CLI:
+When hosted in Azure, by default, the endpoints exposed by the extension also require the [system key](./function-keys-how-to.md) named `mcp_extension`. If it isn't provided in the `x-functions-key` HTTP header or in the `code` query string parameter, your client receives a `401 Unauthorized` response. You can remove this requirement by setting the `system.webhookAuthorizationLevel` property in `host.json` to `Anonymous`. For more information, see the [host.json settings](#hostjson-settings) section.
+
+You can retrieve the key using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key with the Azure CLI:
 
 ```azurecli
 az functionapp keys list --resource-group <RESOURCE_GROUP> --name <APP_NAME> --query systemKeys.mcp_extension --output tsv
