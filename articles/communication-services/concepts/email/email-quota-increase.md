@@ -89,7 +89,7 @@ Then submit the information in an incident report at [Create a support ticket](h
 Before submitting a request to increase your email quota in Azure Communication Services, ensure the following:
 
 1. **Maintain a Positive Domain Reputation**
-   - Your domain should not be listed on any **Domain Name System blacklist (DNSBL)**.
+   - Your domain should not be listed on any **DNSBL**.
 
 2. **Link Your Custom Domain to Azure Communication Resource**
    - Your custom domain must be linked to the Azure Communication Services resource.
