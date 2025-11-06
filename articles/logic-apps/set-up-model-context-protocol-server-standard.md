@@ -288,9 +288,7 @@ Now, continue on to set up your logic app as an MCP server.
 
 For this task, you need to edit the **host.json** file for your Standard logic app resource.
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
-
-1. On the resource sidebar, under **Development Tools**, select **Advanced Tools** **>** **Go**. If prompted, consent to leaving the Azure portal.
+1. For this task, you need to create the **mcpservers.json** file for your Standard logic app resource. This file holds your configuration for MCP servers.
 
 1. On the **Kudu** toolbar, from the **Debug console** menu, select **CMD**.
 
@@ -339,7 +337,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
         | `mcpServers[].tools[].name` | string | Yes      | **Must match the workflow name** in your Logic App. Each workflow becomes a callable MCP tool. |
 
 1. When you're done, save your **mcpservers.json** file.
-1. Edit the **host.json file**. Next to the **host.json** file, select the edit icon (pencil).
+1. Edit the **host.json** file. Next to the **host.json** file, select the edit icon (pencil).
 
 1. In the editor window, following the `extensionBundle` JSON object, add the `extensions` JSON object at the same level as `extensionBundle`.
 
