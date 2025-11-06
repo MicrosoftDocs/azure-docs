@@ -56,7 +56,7 @@ As part of the default security posture:
 - Only required management traffic is allowed to reach platform services.
 
 > [!Note]
-You may see a warning in the Azure portal indicating that certain ports appear to be exposed to the internet. This occurs because the portal evaluates only the customer-visible Network Security Group (NSG) configuration. However, Azure VMware Solution also applies additional system-managed Network Security Groups that are not visible in the portal. These system-managed Network Security Groups block inbound traffic unless access has been explicitly enabled through Azure VMware Solution configuration.
+> You may see a warning in the Azure portal indicating that certain ports appear to be exposed to the internet. This occurs because the portal evaluates only the customer-visible Network Security Group (NSG) configuration. However, Azure VMware Solution also applies additional system-managed Network Security Groups that are not visible in the portal. These system-managed Network Security Groups block inbound traffic unless access has been explicitly enabled through Azure VMware Solution configuration.
 
 This design ensures that the AVS environment is isolated and secure out of the box, while still allowing customers to control and customize network access based on their specific requirements.
 

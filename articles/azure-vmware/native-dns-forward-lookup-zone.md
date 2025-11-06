@@ -32,7 +32,7 @@ DNS forward lookup zone can be configured at the time of creation or changed aft
 
 ## Using Public DNS Resolution with Azure VMware Solution Gen 2
 
-Azure VMware Solution Gen 2 allows you to use public Domain Name System (DNS) resolution for fully qualified domain names such as the VMware vCenter Server or NSX Manager public endpoints. Public DNS resolution enables you to resolve these names to their corresponding public IP addresses.
+Azure VMware Solution Gen 2 allows you to use public Domain Name System (DNS) resolution for fully qualified domain names such as the VMware vCenter Server or NSX Manager public endpoints. Public DNS resolution enables you to resolve these names to their corresponding private IP addresses.
 
 ### How Public DNS Resolution Works
 
@@ -41,7 +41,7 @@ Public DNS records resolve successfully from any location with internet access, 
 - On-premises networks
 - External networks
 
-If you are testing name resolution from a workload segment inside Azure VMware Solution, ensure that internet access is enabled for that segment. Without outbound internet access, DNS resolution to public DNS servers will not succeed.
+If you are testing name resolution from a workload segment inside Azure VMware Solution, ensure that internet access is enabled for the Private Cloud for workload networking, specifically using the "nsx-gw" and "nsx-gw-1 subnets. Without outbound internet access, DNS resolution to public DNS servers will not succeed.
 
 ### Verifying DNS Resolution
 
@@ -49,7 +49,7 @@ To verify that public DNS resolution is working:
 1. Open a terminal or command prompt from any machine with internet access.
 2. Run the following command:"nslookup vc123.eastus.avs.azure.com".
 
-If DNS resolution is successful, the command returns a public IP address. If the command does not return an IP address, then either the DNS zone is private or the DNS server being used cannot reach the internet.
+If DNS resolution is successful, the command returns a private IP address. If the command does not return an IP address, then either the DNS zone is private or the DNS server being used cannot reach the internet.
 
 ## Configure private DNS for your Azure VMware Solution Generation 2 private cloud  
  

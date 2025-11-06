@@ -10,18 +10,18 @@ ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
 
-With Azure NetApp Files' migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The feature is now available via both the REST API and the portal (currently in public preview).
+With Azure NetApp Files' migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The migration assistant is generally available with the REST API and in preview for the Azure portal.
 
 ## Requirements 
 
 * In ONTAP or Cloud Volumes ONTAP, you must be running ONTAP 9.10.0 or later.
 * SnapMirror license entitlement needs to be obtained and applied to the on-premises ONTAP or Cloud Volumes ONTAP cluster. Work with your account team to involve an Azure Technology Specialist in applying the license to the on-premises storage cluster.
-* Snapshot locking must be turned off for volumes in the source cluster. If snapshot locking is enabled, you receive a `Last transfer error`. To disable snapshot locking, see [ONTAP documentation](https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html#enable-snapshot-locking-when-creating-a-volume).
+* Snapshot locking must be turned off for volumes in the source cluster. If snapshot locking is enabled, you receive a `Last transfer error` message. To disable snapshot locking, see [ONTAP documentation](https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html#enable-snapshot-locking-when-creating-a-volume).
 * Ensure your [network topology](azure-netapp-files-network-topologies.md) is supported for Azure NetApp Files. Ensure you have established connectivity from your on-premises storage to Azure NetApp Files. 
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to the migration volumes.
 * The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing. 
 * With the migration assistant, Azure NetApp Files volumes must be using Standard networking features. For more information about setting network features, see [Configure network features](configure-network-features.md).
-* After issuing the peering request, the request must be accepted within 60 minutes of making the request. Peer requests expire if not accepted within 60 minutes.
+* After issuing the peering request, the request must be accepted within 60 minutes. Peer requests expire if not accepted within 60 minutes.
 * You should complete migrations from a single source cluster using one Azure subscription before migrating volumes destined for another subscription. Cluster peering fails when using a second Azure subscription and the same external source clusters. 
 * If you use Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
 * When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional seven NICs are consumed.
@@ -54,7 +54,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Before you begin 
 
-You must create Express Route or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. There are multiple ways to ensure network connectivity. Connectivity includes this set of firewall rules (bidirectional for all): 
+You must create ExpressRoute or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. There are multiple ways to ensure network connectivity. Connectivity includes this set of firewall rules, which are all bidirectional: 
 
 - ICMP
 - TCP 11104
@@ -244,74 +244,52 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 The portal version of the migration assistant is currently in preview.
 
-1.	From the NetApp account view, select **Migration assistant**.
+1.	From your NetApp account view, select **Migration assistant**.
     
     :::image type="content" source="./media/migrate-volume/new-migration-portal.png" alt-text="Screenshot of navigation to the migration assistant portal." lightbox="./media/migrate-volume/new-migration-portal.png":::
 
     The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations. These actions are:
-    
-    **New migration**
-    
-    Initiates the migration process and proceeds to the creation of an ANF Migration volume.
 
-    **Sync now**
-
-    Initiates a manual data replication for the migration, ensuring your latest changes are synced.
-
-    **Dry run**
-    
-    Pauses the migration to perform a dry run exercise to test your applications and data access before the cut over.  
-
-    **Resume** 
-
-    Resumes the migration process after the dry run is complete. Resuming the process erases all the data written to the volume during the pause.
-    
-    **Cut over**
-
-    Removes the replication relationship. If this is the last migration to this Azure NetApp Files storage, the peering relationship will also be removed.
-
-    **Finalize migration**
-
-    Deletes the external migration relationship and converts the destination volume into a regular volume. If this is the last migration to this Azure NetApp Files storage, the peering relationship will also be removed.
-
-    **Cancel migration**
-
-    Cancels the migration process and deletes the destination volume. The peering relationship between the ONTAP cluster and Azure NetApp Files will be removed if it is not used by any other migration volume.
-
-    **View migration details**
-
-    Migration details provide information about the migration for a specific volume. To view these details, under the **Actions** column, click the three dots `...` associated with the volume and select **View migration details**.
-
+    | Action | Description |
+    | - | --- | 
+    | **New migration** | Initiates the migration process and creates the Azure NetApp Files migration volume. |
+    | **Sync now** | Initiates manual data replication for the migration, ensuring your latest changes are synced. |
+    | **Dry run** | Pauses the migration to perform a dry run exercise to test your applications and data access before the cut over. | 
+    | **Resume** | Resumes the migration process after the dry run is complete. Resuming the process erases all the data written to the volume during the pause. |    
+    | **Cut over** | Removes the replication relationship. If this is the last migration to this Azure NetApp Files storage, the peering relationship is also removed. |
+    | **Finalize migration** |  Deletes the external migration relationship and converts the destination volume into a regular volume. If this is the last migration to this Azure NetApp Files account, the peering relationship is also removed. |
+    | **Cancel migration** | Cancels the migration process and deletes the destination volume. The peering relationship between the ONTAP cluster and Azure NetApp Files is removed if it's not used by any other migration volume. |
+    | **View migration details** | Migration details provide information about the migration for a specific volume. To view these details, go to the under the **Actions** column then select the three dots `...` associated with the volume and **View migration details**. |
  
 2.  Select **New migration**.
 3.	In the **Source** tab, provide the following information:
-
-    :::image type="content" source="./media/migrate-volume/new-migration-source-information.png" alt-text="Screenshot of the source tab to provide volume details." lightbox="./media/migrate-volume/new-migration-source-information.png":::
 
     * **Cluster Name**
     Enter the name for the cluster that contains the volume you're migrating.
 
     * **SVM Name**
-    Enter the name for the external SVM that contains the volume you're migrating.
+    Enter the name for the external storage VM that contains the volume you're migrating.
     
     * **Source volume name**
     Enter the name for the external ONTAP volume that you're migrating. 
 
     * **Volume size**
-    Enter the size of the volume that you are migrating.
+    Enter the quota of the volume that you are migrating.
 
     * **Replication schedule** 
-    Select the desired replication schedule for how often the data is synced from the source volume on the external ONTAP cluster to the Azure NetApp Files Migration volume.
+    Choose how often the data should be synced from the source volume on the external ONTAP cluster to the Azure NetApp Files migration volume.
 
-4.  Complete the remaining information and proceed to create the Azure NetApp Files volume. Follow the steps for your appropriate protocol. See [Create an NFS volume](azure-netapp-files-create-volumes.md), [Create an SMB volume](azure-netapp-files-create-volumes-smb.md), and [Create a dual-protocol volume](create-volumes-dual-protocol.md).
+    :::image type="content" source="./media/migrate-volume/new-migration-source-information.png" alt-text="Screenshot of the source tab to provide volume details." lightbox="./media/migrate-volume/new-migration-source-information.png":::
+
+4.  Complete the remaining information and proceed to create the Azure NetApp Files volume. Follow the steps for your appropriate protocol. See [Create an NFS volume](azure-netapp-files-create-volumes.md), [Create an SMB volume](azure-netapp-files-create-volumes-smb.md), or [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
 5.  Select **Review + Create** to review the volume details. Select **Create** to create the Azure NetApp Files Migration volume.
 
-    The volume you created appears in the Migration Assistant view and is also visible among the list of all volumes for NetApp account or selected pool in pool view.
+    The volume you created appears in the migration assistant view and is also visible among the list of all volumes for NetApp account or selected pool in pool view.
  
-    A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab. Once the deployment of the Azure NetApp Files Migration volume has been completed, click **Go to resource** to navigate to the overview blade for the newly created volume.
+    A volume inherits subscription, resource group, and location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab. Once the deployment of the Azure NetApp Files Migration volume has been completed, select **Go to resource** to navigate to the overview blade for the newly created volume.
 
-6.  Navigate to the **Migration** tab and select **Configure Peering**.
+6.  Navigate to the **Migration** tab then select **Configure Peering**.
 
     :::image type="content" source="./media/migrate-volume/navigate-cluster-peering.png" alt-text="Screenshot of navigation to cluster peering." lightbox="./media/migrate-volume/navigate-cluster-peering.png":::
 
@@ -321,7 +299,7 @@ The portal version of the migration assistant is currently in preview.
     
     Wait until cluster peering command and passphrase are returned.
 
-8.	Run the cluster peering command on the external cluster and authenticate with the provided passphrase and select **Continue to SVM Peering**.
+8.	Run the cluster peering command on the external cluster and authenticate with the provided passphrase. Once authenticated, select **Continue to SVM Peering**.
 
     :::image type="content" source="./media/migrate-volume/configure-storage-machine-peering.png" alt-text="Screenshot to configure SVM peering." lightbox="./media/migrate-volume/configure-storage-machine-peering.png":::
 
@@ -329,15 +307,15 @@ The portal version of the migration assistant is currently in preview.
 
     :::image type="content" source="./media/migrate-volume/storage-machine-peering-command.png" alt-text="Screenshot to copy SVM peering command." lightbox="./media/migrate-volume/storage-machine-peering-command.png":::
 
-    After the peering is complete, the migration transfer is initialized, and the baseline data is transferred from the source external ONTAP volume to the Azure NetApp Files Migration volume. Once the initial transfer is complete, the data between the two volumes will be synced according to the replication schedule selected during migration volume creation.
+    After the peering is complete, the migration transfer is initialized, and the baseline data is transferred from the source external ONTAP volume to the Azure NetApp Files migration volume. Once the initial transfer is complete, the data between the two volumes is synchronized according to the replication schedule selected during migration volume creation.
 
 10. Pause the migration to perform a dry run exercise to test and make changes or perform the cut over to prepare for finalizing the migration. 
 
     :::image type="content" source="./media/migrate-volume/pause-migration-dry-run.png" alt-text="Screenshot to pause migration to perform dry run." lightbox="./media/migrate-volume/pause-migration-dry-run.png":::
 
-    Pausing the migration makes the volume read-writeable but resuming after pausing will erase all the data written to the volume during the pause.
+    Pausing the migration makes the volume read-writeable. Resuming after pausing erases all the data written to the volume during the pause.
 
-11.	Once the migration is complete, you can finalize the migration which deletes the replication relationship and clean up the infrastructure.
+11.	Once the migration is complete, you can finalize the migration. Finalizing deletes the replication relationship and cleans up the infrastructure.
 
     :::image type="content" source="./media/migrate-volume/finalize-migration.png" alt-text="Screenshot to finalize migration." lightbox="./media/migrate-volume/finalize-migration.png":::
 

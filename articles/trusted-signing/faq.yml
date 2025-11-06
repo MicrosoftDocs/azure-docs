@@ -42,6 +42,9 @@ sections:
           - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
   - name: Identity validation
     questions:
+      - question: What if my country/region is not listed in country/region drop down on the Identity Validation page?
+        answer: | 
+          - For Public Trust certificates, Trusted Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
@@ -56,9 +59,7 @@ sections:
           - If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Trusted Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
       - question: What if Organization identity validation fails?
         answer: | 
-          - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
-          - An organization based out of US or Canada cannot be onboarded.
-          - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
+          - Ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
           - In cases where additional documents were required, you've exhausted all 3 attempts. Therefore, we cannot proceed further with the onboarding.
       - question: What if I need assistance with identity validation?

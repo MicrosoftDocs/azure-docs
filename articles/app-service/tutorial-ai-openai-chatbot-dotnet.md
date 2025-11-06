@@ -16,7 +16,7 @@ ms.service: azure-app-service
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (.NET)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Java Spring Boot application and deploying it to Azure App Service. You'll create a Razor page that sends chat completion requests to a model in Azure OpneAI and streams the response back to the page.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Java Spring Boot application and deploying it to Azure App Service. You'll create a Razor page that sends chat completion requests to a model in Azure OpenAI and streams the response back to the page.
 
 :::image type="content" source="media/tutorial-ai-openai-chatbot-dotnet/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
@@ -175,7 +175,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     - Adding the Cognitive Services OpenAI Contributor role to the managed identity for the Azure OpenAI resource.
     - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
 
-    Your app is now deployed and connected to Azure OpenAI with managed identity. I reads the `AZURE_OPENAI_ENDPOINT` app setting through the [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) injection.
+    Your app is now deployed and connected to Azure OpenAI with managed identity. It reads the `AZURE_OPENAI_ENDPOINT` app setting through the [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) injection.
 
 3. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
 

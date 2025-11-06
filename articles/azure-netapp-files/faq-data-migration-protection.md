@@ -5,14 +5,16 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 09/10/2025
+ms.date: 11/06/2025
 # Customer intent: "As a data engineer, I want to migrate data to Azure NetApp Files using file-based copy tools, so that I can efficiently manage and protect my organization's critical data in the cloud."
 ---
 # Data migration and protection FAQs for Azure NetApp Files
 
 This article answers frequently asked questions (FAQs) about Azure NetApp Files data migration and protection.
 
-## Generic FAQs
+## General migration FAQs
+
+Learn about options for migrating data to Azure NetApp Files and how data is stored. 
 
 ### How do I migrate data to Azure NetApp Files?
 
@@ -63,15 +65,17 @@ The requirements for replicating an Azure NetApp Files volume to another Azure r
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
 
-## FAQs about migration assistant
+## Migration assistant
+
+The Azure NetApp Files [migration assistant](migrate-volumes.md)
 
 ### Does the Azure NetApp Files migration assistant support bandwidth throttling during data transfers?
 
-Bandwidth throttling can be configured on the remote ONTAP system. For more information, follow the steps in [SnapMirror documentation](https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-global-throttling-concept.html).
+Bandwidth throttling can be configured on the remote ONTAP system. For more information, follow the steps in [the ONTAP SnapMirror documentation](https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-global-throttling-concept.html).
 
 ### Is migration with Azure Data Box supported?
 
-No. Azure Data Box does not support Azure NetApp Files currently. 
+No. Azure Data Box doesn't support Azure NetApp Files currently. 
 
 ### Is migration with Azure Import/Export service supported?
 
@@ -79,29 +83,31 @@ No. Azure Import/Export service does not support Azure NetApp Files currently.
 
 ### Is there a specific timeframe for users to provide commands for migration?
 
-Yes, the user enters the commands within the specific timeframe. For example: The passphrase is valid only for 60 minutes from the time it is generated and the SVM peering command is valid only for 10 minutes.
+Yes, you must enter the commands within a specific timeframe when using the migration assistant. For example, the passphrase is valid only for 60 minutes from the time it's generated; the storage VM peering command is valid only for 10 minutes.
 
-### What happens if I close the Migration assistant tool page before the migrating volume workflow is  complete?
+### What happens if I close the migration assistant tool page before the migrating volume workflow is complete?
 
-You will not receive the cluster peering and SVM peering commands and therefore, you will need to restart the complete workflow.
+If you close the migration assistant tool page before the workflow is complete, you won't receive the cluster peering or storage VM peering commands. You will need to restart the workflow to complete it. 
 
-### Are the inputs provided case-sensitive in the Migration assistant tool?
+### Are the inputs provided case-sensitive in the migration assistant tool?
 
-Yes, the inputs provided in the Migration assistant tool are case-sensitive.
+Yes, the inputs provided in the migration assistant tool are case-sensitive.
 
-### Can I configure peering with less than 6 free IP addresses in the subnet?
+### Can I configure peering with less than six free IP addresses in the subnet?
 
 No. If you want to use the existing subnet, you should clean up the IP addresses on the subnet or use a different subnet.
 
-### Can I enable cool access on a migration volume in the Migration assistant tool?
-To enable cool access, you should finalize the migration or use a different volume. Finalizing the migration will make the volume a regular ANF volume allowing you to enable cool access.
+### Can I enable cool access on a migration volume in the migration assistant tool?
 
-### Why am I not able to resume migrations after it has been paused from the Migration assistant tool?
-Select the action from the **Migration** tab of the volume and not from the Migration Assistant view. The Migration tab is up to date for all migrations that are paused or resumed.
+You should only enable cool access if you've finalized migration. Otherwise, use a different volume. Finalizing the migration converts the volume a regular Azure NetApp Files volume allowing you to enable cool access.
 
-### Are there post migration steps to be performed on ONTAP systems?
-For external ONTAP, you should manually delete the existing peering before creating a new one.
+### Why am I not able to resume migrations after it has been paused from the migration assistant tool?
 
+Select the action from the **Migration** tab of the volume, not from the migration assistant view. The Migration tab is up to date for all migrations that are paused or resumed.
+
+### Are there post-migration steps to be performed on ONTAP systems?
+
+For external ONTAP, you should manually delete the existing peering relationship before creating a new one.
 
 ## Next steps  
 

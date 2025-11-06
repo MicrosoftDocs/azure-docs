@@ -57,7 +57,7 @@ You can peer a virtual network with an IPv6 address space to Route Server's virt
 
 By default, an Azure Route Server is deployed with a capacity of two routing infrastructure units. This default deployment supports 4,000 connected VMs deployed in Route Server's virtual network and all peered virtual networks. 
 
-You can specify more routing infrastructure units to increase Route Server's capacity in increments of 1,000 VMs. Each additional routing infrastructure unit costs $0.10/hour.
+You can specify more routing infrastructure units to increase Route Server's capacity in increments of 1,000 VMs. Each additional routing infrastructure unit costs $0.10/hour in the United States. Prices in other regions may vary. Full pricing, including regional differences, will be available in mid-December in the official [Azure pricing page](https://azure.microsoft.com/pricing/details/route-server/).
 
 
 ## Routing

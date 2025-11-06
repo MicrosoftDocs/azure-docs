@@ -191,7 +191,7 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 > [!IMPORTANT]
 > - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
-> - Allow 2-6 hours for accounts to be onboarded once registration is complete.
+> - Once AFEC is registered , please contact azfilespreview@microsoft.com for further instructions.
 
 ### Performance improvements with metadata caching
 

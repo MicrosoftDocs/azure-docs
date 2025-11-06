@@ -30,7 +30,7 @@ Effective November 1, 2025, the following changes will take place:
 - The Microsoft Dev Box service stops accepting net new customers. 
     - *Net new customers* are defined as those with no prior Dev Box deployment in any form. 
     - As features are integrated into Windows 365 and become publicly available, customers interested in leveraging existing dev box capabilities should contact their Microsoft account team. 
-- There's no immediate change to existing customers 
+- There's no immediate change to existing customers. 
     - Customers who have run a POC, experimented, or begun configuring Dev Box are considered existing customers, and they can continue using and scaling their current Dev Box deployments. 
     - If you plan to start using or scaling Dev Boxes into additional tenants, submit a request through [Azure Support](https://go.microsoft.com/fwlink/p/?linkid=2202692&clcid=0x409) to get your new tenants allowlisted.  
 
@@ -79,4 +79,4 @@ Previews will be available as features are integrated into Windows 365. Contact 
 ## Related content
 - [Windows 365 integration with Microsoft Dev Box](https://aka.ms/WindowsSeptAnnouncements)
 - [What is Windows 365?](/windows-365/overview)
- 
+

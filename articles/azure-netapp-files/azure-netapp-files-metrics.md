@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 05/27/2025
+ms.date: 09/22/2025
 ms.author: anfdocs
 # Customer intent: As a cloud storage administrator, I want to analyze performance and usage metrics for Azure NetApp Files, so that I can optimize storage provisioning and ensure efficient operation of my storage resources.
 ---
@@ -369,6 +369,44 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 * *Volume cool tier data write size*   
     Data tiered out using `PUT` per volume. 
+
+## Cache volume metrics (preview)
+
+* *Cache miss blocks*      
+
+    This metric counts missed blocks in the caching process. During steady-state, after warming of cache, if this value exceeds client requested blocks, this is indicative of a less than ideal workload type.
+
+* *Client requested blocks*
+
+    A data movement over time count to provide insights into latency. 
+
+* *Constituents at capacity count*    
+
+    A count of the constituents that are at least 90% full.
+
+* *Flex Cache connection status*  
+
+    The metric displays 1 if all the cache volumes can connect to the origin volume. A value of 0 means the connection isn't working. 
+
+* *Maximum file size*  
+   
+    The maximum file size in bytes.
+
+### Ways to access cache volume metrics
+
+Azure NetApp Files metrics are natively integrated into Azure monitor. From within the Azure portal, you can find metrics for Azure NetApp Files cache volumes.
+
+1. In **Select a scope**, enter the full resource ID for the cache volume in the **Search to filter** items box.  
+
+    :::image type="content" source="./media/azure-netapp-files-metrics/access-cache-volumes-metrics.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for cache volumes." lightbox="./media/azure-netapp-files-metrics/access-cache-volumes-metrics.png":::
+
+1. Select the volume and apply the scope.   
+
+    :::image type="content" source="./media/azure-netapp-files-metrics/select-cache-volumes-metrics.png" alt-text="Snapshot that shows how to select cache volumes metrics pull-down." lightbox="./media/azure-netapp-files-metrics/select-cache-volumes-metrics.png":::
+
+    Cache-specific metrics along with general volume metrics can be selected from the **Metric** drop down. 
+
+
  
 ## Next steps
 

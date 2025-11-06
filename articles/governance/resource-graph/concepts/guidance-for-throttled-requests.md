@@ -225,6 +225,17 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 // Inspect throttling headers in query response and delay the next call if needed.
 }
 ```
+## Differentiate between throttling requests for ARG and ARM
+
+It is important to understand the source of throttling in order to reach out to the right team for quota increases. If you receive the following error message, the source of throttling is due to ARM, *not* ARG: 
+
+```txt
+<value>
+Number of 'read' requests for subscription '{1}' actor '{2}' exceeded. Please try again after '{3}' seconds after additional tokens are available. Refer to https://aka.ms/arm-throttling for additional information.
+</value>
+```
+
+Please raise a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for throttling requests related to ARM. 
 
 ## ARG GET/LIST API  
 

@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 11/04/2025
+ms.date: 11/06/2025
 ms.author: anfdocs
 # Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
@@ -156,7 +156,7 @@ You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to re
 
 ### Register for breakthrough mode
 
-To use breakthrough mode with large volumes, you must first register for the feature using the [waitlist form](https://forms.cloud.microsoft/r/P11Zn9zHMY).
+To use breakthrough mode with large volumes, you must first register for the feature using the [waitlist form](https://aka.ms/ANFlargevolumebreakthroughmodesignup).
  
 Check the status of the feature registration: 
     

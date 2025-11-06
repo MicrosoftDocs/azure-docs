@@ -26,7 +26,7 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 ## Prerequisites
 
 > [!NOTE]
-> Trusted Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada.
+> For Public Trust certificates, Trusted Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
 
 To complete this quickstart, you need:
 

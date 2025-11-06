@@ -424,7 +424,7 @@ password2=<new-rotating-key>
 
 ### Update existing volume mount
 
-If you have already a volume mounted on a supported distro with an appropiate version of cifs-utils, you can use the following command to modify the mount option by adding the `password2=` option.
+If you have already a volume mounted on a supported distro with an appropriate version of cifs-utils, you can use the following command to modify the mount option by adding the `password2=` option.
 
 ```bash
 # During rotation:
