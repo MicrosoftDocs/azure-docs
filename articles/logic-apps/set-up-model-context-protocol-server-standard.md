@@ -23,6 +23,9 @@ ms.update-cycle: 180-days
 
 Typically, large language models (LLMs) work with AI agents that handle and fulfill requests by using prebuilt *tools* that agents call to complete tasks, like send an email, query a database, or trigger a workflow. In Azure Logic Apps, you can jumpstart building these tools by reconfiguring a Standard logic app as your own *remote* Model Context Protocol (MCP) server. This capability means that you can expose existing workflows as tools that LLMs, AI agents, and MCP clients can use to interact with enterprise resources and assets. In this context, *remote* means that the MCP server runs outside the environment where the interface for your AI agent interface.
 
+You can now configure multiple MCP servers within a single Standard Logic App.  
+This new approach provides a more scalable, organized, and flexible way to expose workflows as tools to large language models (LLMs), AI agents, and MCP clients. Each MCP server acts as an independent grouping of workflows that can be discovered and called separately from your MCP client.  
+
 MCP is an open standard that lets LLMs, AI agents, and MCP clients work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so agents can interact with real-world systems like databases, APIs, and business workflows. Consider an MCP server as a bridge between an LLM, AI agent, or MCP client and the tools they use.
 
 For example, suppose you have a Standard logic app-based MCP server that runs in Azure. On your local computer, Visual Studio Code has an MCP client that you use to remotely connect to your MCP server. This scenario differs from local MCP servers that run on your computer. The following diagram shows relationships between the different components at work in this scenario:
@@ -51,6 +54,7 @@ The following table describes the benefits that you get when you set up Standard
 | Access points | Azure Logic Apps supports different connectivity models for running your MCP server. You can run your server in the cloud, expose your server as a private endpoint, or connect to virtual networks and on-premises resources. |
 | Security | When you expose your logic app as an MCP server, you set up a strong security posture so you can meet your enterprise security requirements. By default, MCP endpoints use [OAuth 2.0](/entra/identity-platform/v2-oauth2-auth-code-flow) for authentication and authorization. For more information, see [What is OAuth](https://www.microsoft.com/security/business/security-101/what-is-oauth)? <br><br>You can use *Easy Auth* to secure your MCP server and Standard workflows. Easy Auth is the current name for the native authentication and authorization features in Azure App Service, Azure Functions, and Azure Container Apps. For more information, see [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md). |
 | Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics so you get the data necessary to manage and monitor your MCP server tools and support diagnostics, troubleshooting, reporting, traceability, and auditing. |
+| Scalability | Host multiple logical MCP servers within a single Logic App, each grouping related workflows. |
 
 Standard logic app based MCP servers support the [Streamable HTTP and Server-Sent Events (SSE) transports for MCP](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports).
 
@@ -280,7 +284,7 @@ Now set up Easy Auth authentication on the Standard logic app that you want to u
 
 Now, continue on to set up your logic app as an MCP server.
 
-## Set up logic app as MCP server
+## Set up MCP servers in a logic app
 
 For this task, you need to edit the **host.json** file for your Standard logic app resource.
 
@@ -291,8 +295,51 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 1. On the **Kudu** toolbar, from the **Debug console** menu, select **CMD**.
 
 1. From the directory table, go to the following folder: **site/wwwroot**
+   
+1. If a **mcpservers.json** file doesn’t already exist, create a new one:
+   - Select the `New File` icon, and name it `mcpservers.json`.
+   - In the editor window, add the configuration.
+   - The following example shows a *mcpservers.json* file with the required fields.
+        ```json
+        {
+            "mcpServers": [
+            {
+                "name": "mcp-server1",
+                "description": "First MCP server",
+                "tools": [
+                {
+                    "name": "CreateTicket"
+                },
+                {
+                    "name": "CloseTicket"
+                }
+                ]
+            },
+            {
+                "name": "mcp-server2",
+                "description": "Second MCP server",
+                "tools": [
+                {
+                    "name": "SubmitLeave"
+                },
+                {
+                    "name": "ApproveLeave"
+                }
+                ]
+            }]
+        }
 
-1. Next to the **host.json** file, select the edit icon (pencil).
+        ```
+        | Field| Type| Required|Description|
+        | --------------------------- | ------ | -------- | ---------------------------------------------------------------------------------------------- |
+        | `mcpServers`                | array  | Yes      | List of MCP server definitions. Each represents a logical MCP server.                          |
+        | `mcpServers[].name`         | string | Yes      | The name of the MCP server. Appears in the server endpoint path `/api/mcpservers/{name}/mcp`.  |
+        | `mcpServers[].description`  | string | No       | Optional friendly description for the server.                                                  |
+        | `mcpServers[].tools`        | array  | Yes      | List of tools (Logic App workflows) exposed by this server.                                    |
+        | `mcpServers[].tools[].name` | string | Yes      | **Must match the workflow name** in your Logic App. Each workflow becomes a callable MCP tool. |
+
+1. When you're done, save your **mcpservers.json** file.
+1. Edit the **host.json file**. Next to the **host.json** file, select the edit icon (pencil).
 
 1. In the editor window, following the `extensionBundle` JSON object, add the `extensions` JSON object at the same level as `extensionBundle`.
 
@@ -369,25 +416,43 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 ## Test your MCP server setup
 
-1. Get the URL for your MCP server.
+1. Get the URLs for your MCP servers
 
-   This value combines the default domain URL for your logic app resource and the **`api/mcp`** suffix.
+   Each MCP server defined in your mcpservers.json file has its own unique endpoint URL. You can retrieve all of them at once by calling the List MCP Servers API.
 
    To get the URL, send an HTTPS request by using the **POST** method and the following URL:
 
-   `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<logic-app-name>/hostruntime/runtime/webhooks/workflow/api/management/listMcpServerUrl?api-version=<version-number>`
+   `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<logic-app-name>/hostruntime/runtime/webhooks/workflow/api/management/listMcpServers?api-version=<version-number>`
 
    The following example shows a sample request and response:
 
-   `POST https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/fabrikam-resource-group/providers/Microsoft.Web/sites/fabrikam-mcpserver/hostruntime/runtime/webhooks/workflow/api/management/listMcpServerUrl?api-version=2021-02-01`
+   `POST https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/fabrikam-resource-group/providers/Microsoft.Web/sites/fabrikam-mcpserver/hostruntime/runtime/webhooks/workflow/api/management/listMcpServers?api-version=2021-02-01`
 
    ```json
-   {
-       "value": "https://fabrikam-mcpserver.azurewebsites.net/api/mcp",
-       "method": "POST",
-       "basePath": "https://fabrikam-mcpserver.azurewebsites.net/api/mcp"
-   }
-   ```
+    {
+        "values": [
+        {
+            "name": "MyEmailsManagementMCPServer",
+            "description": "email MCP server",
+            "url": "https://fabrikam-mcpserver.azurewebsites.net/api/mcpservers/myemailsmanagementmcpserver/mcp",
+            "tools": [
+                { "name": "SendEmailToVendors" },
+                { "name": "SendApprovalEmailForOrder" },
+                { "name": "StatefulWorkflow1" }
+            ]
+        },
+        {
+            "name": "MyCalendarManagementMCPServer",
+            "description": "calendar MCP server",
+            "url": "https://fabrikam-mcpserver.azurewebsites.net/api/mcpservers/mycalendarManagementMCPServer/mcp",
+            "tools": [
+                { "name": "GetCalendars" },
+                { "name": "GetCalendar" },
+                { "name": "GetMeetingInfo" }
+            ]
+        }]
+    }
+```
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. Find and select **MCP: Add Server**.
 
