@@ -71,7 +71,7 @@ In the previous tutorials, you deploy a template that creates a storage account,
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -84,7 +84,7 @@ In the previous tutorials, you deploy a template that creates a storage account,
     },
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-03-01",
       "name": "[variables('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -104,7 +104,7 @@ In the previous tutorials, you deploy a template that creates a storage account,
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-03-01",
       "name": "[variables('webAppName')]",
       "location": "[parameters('location')]",
       "kind": "app",
@@ -170,7 +170,7 @@ You can separate the storage account resource into a linked template:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -230,7 +230,7 @@ The following template is the main template. The `Microsoft.Resources/deployment
     {
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -248,7 +248,7 @@ The following template is the main template. The `Microsoft.Resources/deployment
     },
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-03-01",
       "name": "[variables('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -268,7 +268,7 @@ The following template is the main template. The `Microsoft.Resources/deployment
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-03-01",
       "name": "[variables('webAppName')]",
       "location": "[parameters('location')]",
       "dependsOn": [

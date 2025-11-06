@@ -19,6 +19,23 @@ The ExpressRoute scalable gateway (ErGwScale) is a new virtual network gateway S
 
 The virtual network gateway infrastructure autoscales between the minimum and maximum scale unit that you configure, based on the bandwidth or flow count utilization. Scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
 
+> [!IMPORTANT]
+>The minimum scale unit must be 1, when the maximum scale unit is 1.
+
+
+You can configure the gateway's scaling, as per requirements, by setting the minimum and maximum scale units:
+- To configure a fixed-size gateway, set both the **minimum** and **maximum** scale units to the same value (for example, set both to **1**, set both to **20**, set both to **40**).
+- To enable autoscaling, set the **minimum scale unit** to **2** or higher, and specify the desired **maximum scale unit** (up to 40).
+
+This allows the gateway to automatically scale based on your workload requirements.
+
+| Scenario              | Minimum Scale Unit | Maximum Scale Unit | Autoscaling Enabled? |
+|-----------------------|-------------------|-------------------|---------------------|
+| Fixed scaling         | 1                 | 1                 | No                  |
+| Fixed scaling         | 20                | 20                | No                  |  
+| Fixed scaling         | 40                | 40                | No                  |  
+| Autoscaling           | 2 or higher       | Up to 40          | Yes                 |
+
 ## Upgrade and migration paths
 
 You can move to the SKU ErGwScale using either an upgrade or migration process, depending on your current gateway SKU. 
@@ -34,9 +51,9 @@ This process may take up to 2 hours to complete. During this time, the gateway r
 
 ## Limitations
 
-* **IPsec over ExpressRoute**: ErGwScale currently doesn't support IPsec traffic over ExpressRoute. 
+* **IPsec over ExpressRoute**: ErGwScale currently doesn't support [IPsec traffic over ExpressRoute](expressroute-about-encryption.md). 
 * **Basic IP**: ErGwScale doesn't support the Basic IP SKU. You need to use a Standard IP SKU to configure ErGwScale.
-* **Minimum and maximum scale units**: You can configure the scale unit for ErGwScale between 1 and 40. The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
+* **Minimum and maximum scale units**: The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
 
 ### Supported performance per scale unit
 

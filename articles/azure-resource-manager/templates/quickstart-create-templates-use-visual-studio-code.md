@@ -49,7 +49,7 @@ Update the resources section with the following snippet to include a storage acc
 "resources": [{
   "name": "storageaccount1",
   "type": "Microsoft.Storage/storageAccounts",
-  "apiVersion": "2025-01-01",
+  "apiVersion": "2025-06-01",
   "tags": {
     "displayName": "storageaccount1"
   },
@@ -129,7 +129,7 @@ Upon completion, your template looks like:
     {
       "name": "[parameters('storageAccountName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "tags": {
         "displayName": "storageaccount1"
       },

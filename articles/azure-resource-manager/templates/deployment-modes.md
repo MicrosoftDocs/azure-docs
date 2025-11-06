@@ -123,7 +123,7 @@ The following example shows a linked template set to incremental deployment mode
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2025-04-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",

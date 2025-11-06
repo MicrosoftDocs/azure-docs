@@ -104,7 +104,7 @@ In this section, suppose you have an ARM template that you want to deploy one ti
      "resources": [
        {
          "type": "Microsoft.Network/virtualNetworks",
-         "apiVersion": "2024-07-01",
+         "apiVersion": "2025-01-01",
          "name": "[parameters('vnetName')]",
          "location": "[parameters('location')]",
          "properties": {

@@ -79,7 +79,7 @@ Add a virtual machine extension resource to the existing template with the follo
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2021-04-01",
+  "apiVersion": "2025-04-01",
   "name": "[format('{0}/{1}', variables('vmName'), 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [

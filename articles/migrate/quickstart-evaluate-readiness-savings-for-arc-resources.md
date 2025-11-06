@@ -24,7 +24,7 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
 
 ## Prerequisites
 
-- You must have the **Contributor** or **Owner** role on at least one resource group where you'll create the Migrate project. 
+- You must have the **Azure Migrate Owner** or **Owner** role on at least one resource group where you'll create the Migrate project. 
     - Ensure the `Microsoft.OffAzure` and `Microsoft.Migrate` resource providers are registered on the subscription. Learn how to [register resource providers](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 - You must have the **Migrate Arc Discovery Reader - Preview** role or a custom role with equivalent permissions on the subscriptions with Arc resources. 
     - Ensure subscriptions with Arc resources that you want to include in the project also have `Microsoft.OffAzure` resource provider registered. 

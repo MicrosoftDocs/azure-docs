@@ -521,7 +521,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2022-07-01",
+  "apiVersion": "2025-05-01",
   "name": "vaultName",
   "properties": {
     "tenantId": "[subscription().tenantId]",
@@ -639,7 +639,7 @@ The following example deploys a resource and references it:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -1198,7 +1198,7 @@ Often, you need to use this function when using a storage account or virtual net
   "resources": [
     {
       "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2022-11-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('nicName')]",
       "location": "[parameters('location')]",
       "properties": {

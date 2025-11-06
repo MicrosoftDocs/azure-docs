@@ -71,7 +71,7 @@ The following example creates a variable number of storage accounts and returns 
         "count": "[parameters('storageCount')]"
       },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}{1}', copyIndex(), variables('baseName'))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -128,7 +128,7 @@ The next example returns three properties from the new storage accounts.
         "count": "[length(range(0, parameters('storageCount')))]"
       },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}{1}', range(0, parameters('storageCount'))[copyIndex()], variables('baseName'))]",
       "location": "[parameters('location')]",
       "sku": {

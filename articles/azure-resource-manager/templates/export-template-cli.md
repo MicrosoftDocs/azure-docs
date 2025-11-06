@@ -70,7 +70,7 @@ If you use the `--skip-resource-name-params` parameter when exporting the templa
 "resources": [
   {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-03-01",
     "name": "demoHostPlan",
     ...
   }

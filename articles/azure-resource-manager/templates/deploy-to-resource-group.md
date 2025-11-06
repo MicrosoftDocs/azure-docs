@@ -122,7 +122,7 @@ In the following example, the nested deployment targets a resource group named `
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "resourceGroup": "demoResourceGroup",
       "properties": {
@@ -150,7 +150,7 @@ To deploy resources to a resource group in a different subscription, add a neste
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "subscriptionId": "00000000-0000-0000-0000-000000000000",
       "resourceGroup": "demoResourceGroup",
@@ -179,7 +179,7 @@ To deploy resources to a subscription, add a nested deployment and include the `
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "location": "centralus",
       "subscriptionId": "0000000-0000-0000-0000-000000000000",
@@ -210,7 +210,7 @@ To use a nested deployment, set `scope` and `location`:
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "location": "centralus",
       "scope": "/",
@@ -298,7 +298,7 @@ To deploy resources in the target resource group, define those resources in the 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -356,7 +356,7 @@ The following example deploys two storage accounts. The first storage account is
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('firstStorageName')]",
       "location": "[resourceGroup().location]",
       "sku": {
@@ -368,7 +368,7 @@ The following example deploys two storage accounts. The first storage account is
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedTemplate",
       "resourceGroup": "[parameters('secondResourceGroup')]",
       "subscriptionId": "[parameters('secondSubscriptionID')]",
@@ -382,7 +382,7 @@ The following example deploys two storage accounts. The first storage account is
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-06-01",
               "name": "[variables('secondStorageName')]",
               "location": "[parameters('secondStorageLocation')]",
               "sku": {
@@ -519,7 +519,7 @@ From a resource group deployment, you can switch to the subscription level and c
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('storageName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -531,7 +531,7 @@ From a resource group deployment, you can switch to the subscription level and c
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "demoSubDeployment",
       "location": "westus",
       "subscriptionId": "[parameters('nestedSubscriptionID')]",
@@ -545,7 +545,7 @@ From a resource group deployment, you can switch to the subscription level and c
           "resources": [
             {
               "type": "Microsoft.Resources/resourceGroups",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-04-01",
               "name": "[parameters('newResourceGroupName')]",
               "location": "[parameters('location')]",
               "properties": {}

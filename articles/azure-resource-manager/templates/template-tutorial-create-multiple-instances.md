@@ -105,7 +105,7 @@ The completed template looks like:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}', copyIndex(), uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {

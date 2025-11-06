@@ -109,14 +109,6 @@ To enable or disable Accelerated Networking for an existing VM through the Azure
 
 To confirm whether Accelerated Networking is enabled for an existing VM:
 
-1. From the portal page for the VM, select **Networking** from the left menu.
-
-1. On the **Networking** page, select the **Network Interface**.
-
-1. On the network interface **Overview** page, under **Essentials**, note whether **Accelerated networking** is set to **Enabled** or **Disabled**.
-
-To confirm whether Accelerated Networking is enabled for an existing VM:
-
 1. From the [Azure portal](https://portal.azure.com) page for the VM, select **Networking** from the left menu.
 
 1. On the **Networking** page, select the **Network Interface**.

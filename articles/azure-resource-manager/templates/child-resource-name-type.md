@@ -47,7 +47,7 @@ The following example shows a virtual network and with a subnet. Notice that the
 "resources": [
   {
     "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2024-07-01",
+    "apiVersion": "2025-01-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -106,7 +106,7 @@ The following example shows a virtual network and subnet that are both defined a
 "resources": [
   {
     "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2024-07-01",
+    "apiVersion": "2025-01-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -119,7 +119,7 @@ The following example shows a virtual network and subnet that are both defined a
   },
   {
     "type": "Microsoft.Network/virtualNetworks/subnets",
-    "apiVersion": "2024-07-01",
+    "apiVersion": "2025-01-01",
     "name": "VNet1/Subnet1",
     "dependsOn": [
       "VNet1"

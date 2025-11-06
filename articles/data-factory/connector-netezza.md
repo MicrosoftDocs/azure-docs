@@ -21,7 +21,7 @@ This article outlines how to use Copy Activity in Azure Data Factory or Synapse 
 >For data migration scenario from Netezza to Azure, learn more from [Migrate data from on-premises Netezza server to Azure](data-migration-guidance-netezza-azure-sqldw.md).
 
 > [!IMPORTANT]
-> The Netezza connector version 2.0 provides improved native Netezza support. If you are using Netezza connector version 1.0 in your solution, please [upgrade the Netezza connector](#upgrade-the-netezza-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **October 31, 2025** if not upgraded. Refer to this [section](#differences-between-netezza-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Netezza connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Netezza connector](#differences-between-netezza-version-20-and-version-10) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -367,7 +367,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support | / |  
+| Version 1.0 | Removed | Not applicable. |
 | Version 2.0 | GA version available | • Only support the self-hosted integration runtime. <br><br>• BYTEINT is read as Int16 data type. <br><br> • DATE is read as Date data type. <br><br>• TIME is read as Time data type. <br><br>• INTERVAL is not supported.|
 
 ### <a name="upgrade-the-netezza-connector"></a> Upgrade the Netezza connector from version 1.0 to version 2.0

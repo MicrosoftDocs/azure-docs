@@ -387,7 +387,7 @@ For inline comments, you can use either `//` or `/* ... */`. In Visual Studio Co
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2023-03-01",
+  "apiVersion": "2025-04-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "dependsOn": [ /* storage account and network interface must be deployed first */
@@ -434,7 +434,7 @@ For `resources`, add a `comments` element or a `metadata` object. The following 
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-06-01",
     "name": "[format('{0}{1}', 'storage', uniqueString(resourceGroup().id))]",
     "comments": "Storage account used to store VM disks",
     "location": "[parameters('location')]",
@@ -482,7 +482,7 @@ You can break a string into multiple lines. For example, see the `location` prop
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2023-03-01",
+  "apiVersion": "2025-04-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')

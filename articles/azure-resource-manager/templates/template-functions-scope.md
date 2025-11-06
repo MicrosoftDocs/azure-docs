@@ -99,7 +99,7 @@ The next example creates a new management group and uses this function to set th
   "resources": [
     {
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2020-05-01",
+      "apiVersion": "2021-04-01",
       "scope": "/",
       "name": "[parameters('mgName')]",
       "properties": {

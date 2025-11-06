@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 11/04/2025
+ms.date: 11/06/2025
 ---
 
 # Automatic connector upgrade
@@ -67,7 +67,7 @@ You can find more details from the table below on the connector list that is pla
 
 | Connector        | Scenario |
 |------------------|----------|
-| [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md) | Scenario that doesn't rely on capability below in Oracle (version 1.0):<br><br>• Use procedureRetResults, batchFailureReturnsError, truststore, and truststorepassword as connection properties.<br>• Use query ends with the semicolon.<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above. |
+| [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md) | Scenario that doesn't rely on capability below in Amazon RDS for Oracle (version 1.0):<br><br>• Use procedureRetResults, truststore, and truststorepassword as connection properties.<br>• Set the connection properties batchFailureReturnsError to 0 and enableBulkLoad to 0.<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.58 or above. |
 | [Amazon Redshift](connector-amazon-redshift.md) | Scenario that doesn't rely on below capability in Amazon Redshift (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br>• Use [UNLOAD](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime.<br><br> For more information, go to [Install Amazon Redshift ODBC driver for the version 2.0](connector-amazon-redshift.md#install-amazon-redshift-odbc-driver-for-the-version-20).|
 | [Google BigQuery](connector-google-bigquery.md)  | Scenario that doesn't rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.55 or above. |
 | [Greenplum](connector-greenplum.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above. |
@@ -75,7 +75,7 @@ You can find more details from the table below on the connector list that is pla
 | [Impala](connector-impala.md) | Scenario that doesn't rely on below capability in Impala (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• SASL Username<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.55 or above. |
 | [MariaDB](connector-mariadb.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above. |
 | [MySQL](connector-mysql.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above. |
-| [Oracle](connector-oracle.md) | Scenario that doesn't rely on capability below in Oracle (version 1.0):<br><br>• Use procedureRetResults, batchFailureReturnsError, truststore, and truststorepassword as connection properties.<br>• Use Oracle connector as sink.<br>• Use query ends with the semicolon.<br>• Use PL/SQL command in Script activity<br>• Use script parameters in Script activity<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above. |
+| [Oracle](connector-oracle.md) | Scenario that doesn't rely on capability below in Oracle (version 1.0):<br><br>• Use procedureRetResults, truststore and truststorepassword as connection properties.<br>• Set the connection properties batchFailureReturnsError to 0 and enableBulkLoad to 0 <br>• Use PL/SQL command in Script activity<br>• Use script parameters in Script activity<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.58 or above. |
 | [PostgreSQL](connector-postgresql.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above. |
 | [Presto](connector-presto.md) |Scenario that doesn't rely on capability below in Presto (version 1.0):<br><br>• Use MAP,  ARRAY, or ROW data types. <br>• trustedCertPath/allowSelfSignedServerCert/allowSelfSignedServerCert (will be supported soon)   <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.57 or above. |
 | [Salesforce](connector-salesforce.md) | Scenario that doesn't rely on capability below in Salesforce V1:<br><br>• Use the following SOQL queries and your pipeline runs on the self-hosted integration runtime with a version below 5.58.<br>&nbsp;&nbsp;• TYPEOF clauses<br>&nbsp;&nbsp;• Compound address/geolocations fields<br>•  Use the following SQL-92 queries and your pipeline runs on the self-hosted integration runtime.<br>&nbsp;&nbsp;• Timestamp ts keyword<br>&nbsp;&nbsp;• Top keyword<br>&nbsp;&nbsp;• Comments with -- or /*<br>&nbsp;&nbsp;• Group By and Having <br>• Report query {call "\<report name>"}|

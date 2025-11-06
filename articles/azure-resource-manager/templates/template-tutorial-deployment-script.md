@@ -175,7 +175,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     ```json
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [

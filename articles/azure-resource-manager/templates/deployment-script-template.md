@@ -90,7 +90,7 @@ The following JSON is an example. For more information, see the latest [template
 ```json
 {
   "type": "Microsoft.Resources/deploymentScripts",
-  "apiVersion": "2020-10-01",
+  "apiVersion": "2023-08-01",
   "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
   "tags": {
@@ -221,7 +221,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
   "resources": [
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "runPowerShellInlineWithOutput",
       "location": "[resourceGroup().location]",
       "kind": "AzurePowerShell",
@@ -328,7 +328,7 @@ The following template shows how to pass values between two `deploymentScripts` 
   "resources": [
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "scriptInTemplate1",
       "location": "[resourceGroup().location]",
       "kind": "AzurePowerShell",
@@ -350,7 +350,7 @@ The following template shows how to pass values between two `deploymentScripts` 
     },
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "scriptInTemplate2",
       "location": "[resourceGroup().location]",
       "kind": "AzurePowerShell",
@@ -408,7 +408,7 @@ In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose 
   "resources": [
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "runBashWithOutputs",
       "location": "[resourceGroup().location]",
       "kind": "AzureCLI",
@@ -883,7 +883,7 @@ The following ARM template shows how to configure the environment for running a 
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2023-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('vnetName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -918,7 +918,7 @@ The following ARM template shows how to configure the environment for running a 
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {

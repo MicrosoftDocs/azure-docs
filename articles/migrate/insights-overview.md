@@ -207,6 +207,8 @@ Security insights are enabled by default for all users. To manage access, create
 |  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of VMware machine |
 
 
+You can also implement built-in roles for Azure Migrate to manage access to view Insights. [Learn more](/azure/migrate/prepare-azure-accounts?view=migrate)
+
 Below error message is displayed when a user does not have permissions to view Insights:
 
 :::image type="content" source="./media/security-insights-overview/permissions.png" alt-text="Screenshot shows that you don't have permissions to view." lightbox="./media/security-insights-overview/permissions.png":::

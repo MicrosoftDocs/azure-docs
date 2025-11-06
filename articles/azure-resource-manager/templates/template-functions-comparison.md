@@ -125,7 +125,7 @@ The `equals` function is often used with the `condition` element to test if a re
   "condition": "[equals(parameters('newOrExisting'),'new')]",
   "type": "Microsoft.Storage/storageAccounts",
   "name": "[variables('storageAccountName')]",
-  "apiVersion": "2022-09-01",
+  "apiVersion": "2025-06-01",
   "location": "[resourceGroup().location]",
   "sku": {
     "name": "[variables('storageAccountType')]"

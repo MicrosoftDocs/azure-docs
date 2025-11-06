@@ -42,7 +42,7 @@ You create a template spec from an ARM template. Copy the following template, an
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -168,7 +168,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
               "resources": [
                 {
                   "type": "Microsoft.Storage/storageAccounts",
-                  "apiVersion": "2025-01-01",
+                  "apiVersion": "2025-06-01",
                   "name": "[[parameters('storageAccountName')]",
                   "location": "[[parameters('location')]",
                   "sku": {
@@ -419,7 +419,7 @@ To make a change to the template in your template spec, revise the template. The
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -556,7 +556,7 @@ Instead of creating a new template spec for the revised template, add a new vers
               "resources": [
                 {
                   "type": "Microsoft.Storage/storageAccounts",
-                  "apiVersion": "2025-01-01",
+                  "apiVersion": "2025-06-01",
                   "name": "[[parameters('storageAccountName')]",
                   "location": "[[parameters('location')]",
                   "sku": {

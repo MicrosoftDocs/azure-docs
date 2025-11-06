@@ -55,7 +55,7 @@ At the end of the previous tutorial, your template had the following JSON:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -113,7 +113,7 @@ The following example highlights the change to your template to add an output va
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "sku": {

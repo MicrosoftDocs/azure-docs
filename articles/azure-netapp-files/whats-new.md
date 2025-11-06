@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 10/30/2025
+ms.date: 11/04/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -17,6 +17,22 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## November 2025
+
+* [Azure NetApp Files migration assistant portal experience](migrate-volumes.md) (Preview)
+
+    Azure NetApp Files [migration assistant](migrate-data.md) enables you to accelerate and simplify migrations of business-critical applications and data to Azure. Migration assistant offers efficient and cost-effective data migration, leveraging ONTAP's built-in replication engine for seamless transition from on-premises storage or Cloud Volumes ONTAP to Azure NetApp Files. It's a storage-efficient data transfer that reduces network transfer costs for both baseline and incremental updates. Migration assistant also offers a low cutover/downtime window, ensuring faster and more efficient final updates, minimizing disruption to operations. Volume migration using migration assistant includes source volume snapshots for primary data protection, and directory and file metadata maintaining security attributes.
+
+* [Large volumes breakthrough mode](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) (preview)
+
+    Breakthrough mode in Azure NetApp Files enables extreme performance and scalability for demanding HPC and EDA workloads. It supports large volumes up to 2 PiB, delivering throughput up to 50 GiB/second, depending on workload characteristics. Breakthrough mode uses six storage endpoints for each large volume, ensuring consistent performance. Storage systems hosting breakthrough mode volumes are reserved for each customer to provide peak performance and not compete with other workloads. Key benefits include: 
+
+    * High-capacity scaling for large-scale, latency-sensitive workloads 
+    * Simplified network management with multiple storage endpoints per volume 
+    * Dedicated capacity stamps to eliminate noisy neighbor interference and maintain predictable performance 
+
+    This feature is supported in [all regions that support large volumes](large-volumes-requirements-considerations.md#supported-regions). Breakthrough mode is currently in preview. 
+    
 ## October 2025
 
 * [Restore individual files using single-file restore from backup](restore-single-file-backup.md) is now generally available (GA)

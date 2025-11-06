@@ -137,7 +137,7 @@ Copy this file and save it locally. This tutorial assumes you named it **keyvaul
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2025-05-01",
       "name": "[parameters('keyVaultName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -167,7 +167,7 @@ Copy this file and save it locally. This tutorial assumes you named it **keyvaul
     },
     {
       "type": "Microsoft.KeyVault/vaults/secrets",
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2025-05-01",
       "name": "[format('{0}/{1}', parameters('keyVaultName'), parameters('secretName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"

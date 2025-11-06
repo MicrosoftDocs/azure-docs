@@ -6,13 +6,15 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 10/30/2025
+ms.date: 11/04/2025
 ms.author: anfdocs
 # Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
 # Requirements and considerations for Azure NetApp Files large volumes
 
-This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
+Azure NetApp Files support [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) at sizes between 50 TiB and 1,024 TiB.
+
+With breakthrough mode, you can create large volumes at sizes between 2,400 GiB and 2,400 TiB. You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. 
 
 ## Requirements and considerations
 
@@ -70,6 +72,17 @@ The following requirements and considerations apply to large volumes. For perfor
     For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
 * Cool access is supported with large volumes. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
+
+### Requirements and considerations for breakthrough mode (preview)
+
+Large volumes breakthrough mode are currently in preview and you must request the feature before using it for the first time. 
+
+* Breakthrough mode large volumes are supported at sizes between 2,400 GiB up to 2,400 TiB (2 PiB). 
+* With breakthrough mode, you can achieve up 50 GiB/s throughput depending on your workload's characteristics and system placement.
+* The [migration assistant](migrate-volumes.md) isn't supported for large volumes with breakthrough mode. 
+* Breakthrough mode is supported on the Flexible, Standard, Premium, and Ultra service levels. 
+* Cool access can only be enabled on large volumes in breakthrough mode _after_ the volume has been created.
+
 
 ## About 64-bit file IDs
 
@@ -139,6 +152,18 @@ Check the status of the feature registration:
   Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes 
   ```
     
+You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
+
+### Register for breakthrough mode
+
+To use breakthrough mode with large volumes, you must first register for the feature using the [waitlist form](https://forms.cloud.microsoft/r/P11Zn9zHMY).
+ 
+Check the status of the feature registration: 
+    
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
+```
+
 You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
 
 ## Next steps

@@ -24,7 +24,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 |------------------------------------|----------------|------------------------------------|-----------------------|-----------------------|
 | [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md) | /              | Removed                 | /                     | /                     |
 | [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md)                          | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support announced          | October 31, 2025         | March 31, 2026      |
+|                                    | version 1.0    | End of support          | October 31, 2025         | March 31, 2026      |
 | [Amazon Redshift](connector-amazon-redshift.md)                          | version 2.0    | GA          | /                   | /                   |
 |                                    | version 1.0    | GA          | To be determined      | /                   |
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)         | /              | Removed                    | December 31, 2024     | December 31, 2024     |
@@ -47,11 +47,11 @@ For comprehensive details on support levels and recommended usage at each stage,
 |                                    | version 1.0    | Removed                                | August 31, 2025     | September 30, 2025                    |
 | [HBase](connector-hbase.md)                              | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Hive](connector-hive.md)                          | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support         | September 30, 2025         | October 31, 2025    |
+|                                    | version 1.0    | Removed         | September 30, 2025         | October 31, 2025    |
 | [HubSpot](connector-hubspot.md)                          | version 2.0    |GA                            | /                   | /                   |
 |                                    | version 1.0    | End of support          | October 22, 2025         | November 22, 2025      |
 | [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support           | September 30, 2025         | October 31, 2025    |
+|                                    | version 1.0    | Removed          | September 30, 2025         | October 31, 2025    |
 | [Magento (Preview)](connector-magento.md)                  | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [MariaDB](connector-mariadb.md)                            | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | Removed                    | October 31, 2024      | September 30, 2025    |
@@ -59,9 +59,9 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [MySQL](connector-mysql.md)                              | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | Removed                | October 31, 2024      | September 30, 2025    |
 | [Netezza](connector-netezza.md)                          | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support          | September 30, 2025         | October 31, 2025    |
+|                                    | version 1.0    | Removed          | September 30, 2025         | October 31, 2025    |
 | [Oracle](connector-oracle.md)                             | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support announced          | October 31, 2025         | March 31, 2026      |
+|                                    | version 1.0    | End of support          | October 31, 2025         | March 31, 2026      |
 | [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)      | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Oracle Responsys (Preview)](connector-oracle-responsys.md) | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md) | /              | Removed                    | December 31, 2024     | December 31, 2024     |
@@ -81,18 +81,18 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [ServiceNow V2](connector-servicenow.md)                   | /              | GA                                | /                   | /                   |
 | [ServiceNow V1](connector-servicenow-legacy.md)            | /              | Removed          | June 30, 2025         | September 30, 2025    |
 | [Shopify (Preview)](connector-shopify.md)                        | version 2.0    | Public Preview                    | /                   |/
-|                                    | version 1.0    | End of support announced                                | October 22, 2025     | November 22, 2025                    |
+|                                    | version 1.0    | End of support                                 | October 22, 2025     | November 22, 2025                    |
 | [Snowflake V2](connector-snowflake.md)                     | version 1.1    | GA                                | /                   | /                   |
 |                                    | version 1.0    | GA                                | /                   | /                   |
 | [Snowflake V1](connector-snowflake-legacy.md)              | /              | Removed        | June 30, 2025         | September 30, 2025    |
 | [Spark](connector-spark.md)                               | version 2.0    | GA                 | /                   | /                   |
-|                                    | version 1.0    | End of support                               |September 30, 2025     | October 31, 2025                  |
+|                                    | version 1.0    | Removed                          |September 30, 2025     | October 31, 2025                  |
 | [SQL Server](connector-sql-server.md)                 | version 2.0  | GA                           | /                      | /                      |
 |                                                       | version 1.0  | GA                           | To be determined       | /       |
 | [Square (Preview)](connector-square.md)                        | version 2.0    | Public Preview                    | /                   |/
 |                                    | version 1.0    | End of support announced                                | October 15, 2025     | November 15, 2025                    |
 | [Teradata](connector-teradata.md)                          | version 2.0    | GA                  | /                   | /                   |
-|                                    | version 1.0    | End of support                                | September 30, 2025     | October 31, 2025                     |
+|                                    | version 1.0    | Removed                                | September 30, 2025     | October 31, 2025                     |
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | Removed       | July 31, 2025         | September 30, 2025    |
 | [Xero](connector-xero.md)                            | version 2.0    | GA                                | /                   | /                   |

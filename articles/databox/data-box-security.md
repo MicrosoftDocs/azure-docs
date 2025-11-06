@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 03/14/2025
+ms.date: 11/06/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 ms.custom: sfi-image-nochange
@@ -142,16 +142,16 @@ The following security guidelines are implemented in Data Box:
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)                            | Data protection         |
 |Appendix A, for ATA Hard Disk Drives in [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) | Data sanitization       |
 
-## Media Sanitization details
+## Secure erase media sanitization details
 
 The secure erasure process performed on our devices is compliant with [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) and following are the details of the implementation:
 
-|Device   |Data Erasure type   |Tool used   |Validation step   |
-|----------------|------------|-------------|---------|
-|Azure Data Box | In Public cloud: Crypto Erase <br> In Gov cloud: Crypto Erase + Disk overwrite |ARCCONF tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
-|Azure Data Box 120  | In Public and Gov cloud: Block Erase |ARCCONF tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
-|Azure Data Box 525  | In Public and Gov cloud: Block Erase |ARCCONF tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
-|Azure Data Box Disk   | In Public and Gov cloud: Block Erase |MSECLI tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
+|Device   |Data Erasure type   |Tool used   |
+|----------------|------------|-------------|
+|Azure Data Box | In Public cloud: Crypto Erase <br> In Gov cloud: Crypto Erase + Disk overwrite |ARCCONF tool | 
+|Azure Data Box 120  | In Public and Gov cloud: Block Erase |ARCCONF tool | 
+|Azure Data Box 525  | In Public and Gov cloud: Block Erase |ARCCONF tool | 
+|Azure Data Box Disk   | In Public and Gov cloud: Block Erase |MSECLI tool | 
 
 
 ## Next steps

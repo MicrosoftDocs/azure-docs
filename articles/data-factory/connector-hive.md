@@ -16,7 +16,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Hive connector version 2.0 provides improved native Hive support. If you are using Hive connector version 1.0 in your solution, please [upgrade the Hive connector](#upgrade-the-hive-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **October 31, 2025** if not upgraded. Refer to this [section](#differences-between-hive-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Hive connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Hive connector](#differences-between-hive-version-20-and-version-10) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -339,7 +339,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
-| Version 1.0 | End of support | / |
+| Version 1.0 | Removed | Not applicable. |
 | Version 2.0 | GA version available | • The self-hosted integration runtime version should be 5.54 or above.  <br><br>• `enableServerCertificateValidation` is supported. <br><br>• The default value of `enableSSL` is true. <br><br>• For WindowsAzureHDInsightService authentication type, the default value of `httpPath` is `/hive2`. <br><br>• DECIMAL is read as Decimal data type. <br><br>• TINYINT is read as SByte data type. <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported. <br><br>• HiveServer1 and HiveThriftServer are not supported for `ServerType`.  <br><br>• Username authentication type is not supported. SASL transport protocol only supports UsernameAndPassword authentication type. Binary transport protocol only supports Anonymous authentication type. <br><br>• `serviceDiscoveryMode`, `zooKeeperNameSpace` and `useNativeQuery` are not supported. |
 
 ### <a name="upgrade-the-hive-connector"></a> Upgrade the Hive connector from version 1.0 to version 2.0

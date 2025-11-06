@@ -371,7 +371,7 @@ The next example shows how to use a value from the function when setting a tag v
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "[parameters('rgName')]",
       "location": "westeurope",
       "tags": {

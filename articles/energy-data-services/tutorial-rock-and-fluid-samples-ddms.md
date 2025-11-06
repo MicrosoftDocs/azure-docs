@@ -47,7 +47,7 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
 
 ## 1. Create a legal tag
 
-Legal tags are essential for compliance purpose and will be used in subsequent records.
+Legal tags are essential for compliance purposes and are used in subsequent records.
 
 ```bash
 curl --request POST \
@@ -3412,6 +3412,24 @@ Sample response:
   "total_size": 1
 }
 ```
+## Troubleshooting
+To troubleshoot issues, review the `OEPDataplaneLogs` diagnostic logs in your Log Analytics workspace. These logs provide detailed information about RAFS DDMS operations and can help identify errors or unexpected behavior. In the Azure portal, navigate to your Azure Data Manager for Energy resource, select **Diagnostic settings** under the **Monitoring** section, and then choose the `Rock and Fluid Samples DDMS Logs` category.
+
+**Sample Kusto query:**
+
+```kusto
+OEPDataplaneLogs
+| where Category == "RafsDdmsLogs"
+| project TenantId, TimeGenerated, Message, _ResourceId
+```
+
+**Sample Kusto response:**
+
+| TenantId                               | TimeGenerated [UTC]      | Message                                                                                                                                                                                                                              | _ResourceId                                                                                                                                         |
+|----------------------------------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| aaaabbbb-0000-cccc-1111-dddd2222eeee   | 2025-10-21 13:33:12.495  | 2025-10-21 13:33:12,495 [11][INFO] --- {correlation-id=rafs-ddms-7f9c2e1a-4b2d-4e3a-8c1d-9a2b3c4d5e6f} uvicorn.access: 127.0.0.6:32997 - "GET /api/rafs-ddms/healthz HTTP/1.1" 200                                                  | /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/test-rg/providers/microsoft.openenergyplatform/energyservices/adme-instance     |
+
+
 
 ## Related content
 [RAFS OSDU community tutorial](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/rock-and-fluid-sample/rafs-ddms-services/-/tree/release/0.28/docs/tutorial)

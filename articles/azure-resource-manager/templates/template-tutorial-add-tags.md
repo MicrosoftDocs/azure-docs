@@ -74,7 +74,7 @@ Your previous template deployed a storage account, an App Service plan, and a we
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -87,7 +87,7 @@ Your previous template deployed a storage account, an App Service plan, and a we
     },
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2021-03-01",
+      "apiVersion": "2025-03-01",
       "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -107,7 +107,7 @@ Your previous template deployed a storage account, an App Service plan, and a we
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2021-03-01",
+      "apiVersion": "2025-03-01",
       "name": "[variables('webAppPortalName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -200,7 +200,7 @@ The following example shows the changes to the template. Copy the whole file, an
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "tags": "[parameters('resourceTags')]",
@@ -214,7 +214,7 @@ The following example shows the changes to the template. Copy the whole file, an
     },
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2021-03-01",
+      "apiVersion": "2025-03-01",
       "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "tags": "[parameters('resourceTags')]",
@@ -235,7 +235,7 @@ The following example shows the changes to the template. Copy the whole file, an
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2021-03-01",
+      "apiVersion": "2025-03-01",
       "name": "[variables('webAppPortalName')]",
       "location": "[parameters('location')]",
       "dependsOn": [

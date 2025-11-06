@@ -16,7 +16,7 @@ author: jasminemehndir
 
 > [!IMPORTANT]
 > - Update Management patching will not work when local authentication is disabled. 
-> - When you disable local authentication, it impacts the starting a runbook using a webhook, Automation Desired State Configuration and agent-based Hybrid Runbook Workers. For more information, see the [available alternatives](#compatibility).
+> - When you disable local authentication, it impacts starting a runbook using a webhook, source control auto sync, Automation Desired State Configuration, and agent-based Hybrid Runbook Workers. For more information, see the [available alternatives](#compatibility).
 
 Azure Automation provides Microsoft Entra authentication support for all Automation service public endpoints. This critical security enhancement removes certificate dependencies and gives organizations control to disable local authentication methods. This feature provides you with seamless integration when centralized control and management of identities and resource credentials through Microsoft Entra ID is required.
 
@@ -48,7 +48,7 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 ## Re-enable local authentication
 
-To re-enable local authentication, execute the PowerShell cmdlet [Set-AzAutomationAccount](https://learn.microsoft.com/powershell/module/az.automation/set-azautomationaccount?view=azps-13.4.0) with the parameter `-DisableLocalAuth false`.  Allow a few minutes for the service to accept the change to allow local authentication requests.
+To re-enable local authentication, change the properties from `disableLocalAuth = $true` to `disableLocalAuth = $false` in above powershell script and then use same [`Invoke-AzRestMethod`](/powershell/azure/manage-azure-resources-invoke-azrestmethod) cmdlet.  Allow a few minutes for the service to accept the change to allow local authentication requests.
 
 ## Compatibility
 

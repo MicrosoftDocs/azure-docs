@@ -27,7 +27,7 @@ At the end of the previous tutorial, your template has the following JSON file:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-06-01",
       "name": "{provide-unique-name}",
       "location": "eastus",
       "sku": {
@@ -64,7 +64,7 @@ Copy the whole file, and replace your template with its contents:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageName')]",
       "location": "eastus",
       "sku": {
@@ -151,7 +151,7 @@ The previous template always deploys a standard locally redundant storage (LRS) 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageName')]",
       "location": "eastus",
       "sku": {

@@ -12,7 +12,9 @@ ms.date: 09/10/2025
 
 This article answers frequently asked questions (FAQs) about Azure NetApp Files data migration and protection.
 
-## How do I migrate data to Azure NetApp Files?
+## Generic FAQs
+
+### How do I migrate data to Azure NetApp Files?
 
 Azure NetApp Files provides NFS and SMB volumes. You can use any file-based copy tool to migrate data to the service. To migrate volumes from on-premises ONTAP storage systems, you can also use Azure NetApp Files [migration assistant tool](migrate-volumes.md) for efficient migration with more flexible cutover time. 
 
@@ -41,11 +43,11 @@ The requirements for data migration from on premises to Azure NetApp Files are a
 >[!NOTE]
 >When copying files to Azure NetApp Files, the C Time Stamp updates.  
 
-## Where does Azure NetApp Files store customer data?   
+### Where does Azure NetApp Files store customer data?   
 
 By default, your data stays within the region where you deploy your Azure NetApp Files volumes. However, you can choose to replicate your data on a volume-by-volume basis to available destination regions using [cross-region replication](replication.md).
 
-## How do I create a copy of an Azure NetApp Files volume in another Azure region?
+### How do I create a copy of an Azure NetApp Files volume in another Azure region?
 	
 Azure NetApp Files provides NFS and SMB volumes. Any file based-copy tool can be used to replicate data between Azure regions. 
 
@@ -61,17 +63,45 @@ The requirements for replicating an Azure NetApp Files volume to another Azure r
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
 
-## Does the Azure NetApp Files migration assistant support bandwidth throttling during data transfers?
+## FAQs about migration assistant
+
+### Does the Azure NetApp Files migration assistant support bandwidth throttling during data transfers?
 
 Bandwidth throttling can be configured on the remote ONTAP system. For more information, follow the steps in [SnapMirror documentation](https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-global-throttling-concept.html).
 
-## Is migration with Azure Data Box supported?
+### Is migration with Azure Data Box supported?
 
 No. Azure Data Box does not support Azure NetApp Files currently. 
 
-## Is migration with Azure Import/Export service supported?
+### Is migration with Azure Import/Export service supported?
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
+
+### Is there a specific timeframe for users to provide commands for migration?
+
+Yes, the user enters the commands within the specific timeframe. For example: The passphrase is valid only for 60 minutes from the time it is generated and the SVM peering command is valid only for 10 minutes.
+
+### What happens if I close the Migration assistant tool page before the migrating volume workflow is  complete?
+
+You will not receive the cluster peering and SVM peering commands and therefore, you will need to restart the complete workflow.
+
+### Are the inputs provided case-sensitive in the Migration assistant tool?
+
+Yes, the inputs provided in the Migration assistant tool are case-sensitive.
+
+### Can I configure peering with less than 6 free IP addresses in the subnet?
+
+No. If you want to use the existing subnet, you should clean up the IP addresses on the subnet or use a different subnet.
+
+### Can I enable cool access on a migration volume in the Migration assistant tool?
+To enable cool access, you should finalize the migration or use a different volume. Finalizing the migration will make the volume a regular ANF volume allowing you to enable cool access.
+
+### Why am I not able to resume migrations after it has been paused from the Migration assistant tool?
+Select the action from the **Migration** tab of the volume and not from the Migration Assistant view. The Migration tab is up to date for all migrations that are paused or resumed.
+
+### Are there post migration steps to be performed on ONTAP systems?
+For external ONTAP, you should manually delete the existing peering before creating a new one.
+
 
 ## Next steps  
 
