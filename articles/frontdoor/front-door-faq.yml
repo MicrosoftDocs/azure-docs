@@ -75,7 +75,21 @@ sections:
           > [!NOTE]  
           > Custom TLS/SSL certificate updates might take longer, up to an hour, to be deployed globally.
           
-          Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there's no risk of outage.
+          **Submit multiple purge requests**
+          
+          Each purge request can include up to 100 URLs (combination of domain and path). The first batch is processed and takes effect within approximately 45 minutes.
+          
+          If you have more than 100 URLs to purge, you must wait and verify for the first batch to complete (approximately 45 minutes) before you submit the next batch. If you submit a new purge request before the previous batch completes, the request will be rejected.
+
+          **Example: Purge 256 URLs**
+          1. Submit the first 100 URLs in the initial purge request.
+          2. Wait approximately 45 minutes and verify the first batch completed successfully.
+          3. Submit the next 101-200 URLs in the second request.
+          4. Wait approximately 45 minutes for the second batch to complete.
+          5. Submit the remaining 201-256 URLs in the third request.
+          
+          Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there is no downtime.
+
       - question: |
           Can I move Front Door and CDN profiles between resource groups or subscriptions without any downtime?
         answer:  |

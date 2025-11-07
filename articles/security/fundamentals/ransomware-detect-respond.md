@@ -16,22 +16,25 @@ Ransomware incidents typically present with distinct warning signs that security
 
 In general, such infections are obvious from basic system behavior, the absence of key system or user files, and the demand for ransom. In such cases, the analyst should consider whether to immediately declare and escalate the incident, including taking any automated actions to mitigate the attack.
 
+> [!TIP]
+> For comprehensive ransomware detection and response guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware). This article focuses specifically on Azure-based detection and response capabilities.
+
 ## Detecting ransomware attacks
 
-Microsoft Defender for Cloud provides high-quality threat detection and response capabilities, also called Extended Detection and Response (XDR).
+Microsoft Defender for Cloud provides high-quality threat detection and response capabilities for Azure resources, also called Extended Detection and Response (XDR).
 
-Ensure rapid detection and remediation of common attacks on VMs, SQL Servers, Web applications, and identity.
+Ensure rapid detection and remediation of common attacks on Azure VMs, SQL Servers, Web applications, and identity in your Azure environment.
 
 - **Prioritize Common Entry Points** – Ransomware (and other) operators favor Endpoint/Email/Identity + Remote Desktop Protocol (RDP)
-  - **Integrated XDR** - Use integrated Extended Detection and Response (XDR) tools like Microsoft [Defender for Cloud](https://azure.microsoft.com/services/azure-defender/) to provide high quality alerts and minimize friction and manual steps during response
-  - **Brute Force** - Monitor for brute-force attempts like [password spray](/defender-for-identity/compromised-credentials-alerts)
+  - **Integrated XDR** - Use integrated Extended Detection and Response (XDR) tools like Microsoft [Defender for Cloud](https://azure.microsoft.com/services/azure-defender/) to provide high quality alerts for Azure resources and minimize friction and manual steps during response
+  - **Brute Force** - Monitor for brute-force attempts like [password spray](/defender-for-identity/compromised-credentials-alerts) against Azure resources
 - **Monitor for Adversary Disabling Security** – Often part of Human-Operated Ransomware (HumOR) attack chain
 
-- **Event Logs Clearing** – especially the Security Event log and PowerShell Operational logs
+- **Event Logs Clearing** – especially the Security Event log and PowerShell Operational logs on Azure VMs
   - **Disabling of security tools/controls** (associated with some groups)
 - **Don't Ignore Commodity Malware** - Ransomware attackers regularly purchase access to target organizations from dark markets
-- **Integrate outside experts** – into processes to supplement expertise, such as the [Microsoft Incident Response team (formerly DART/CRSP)](https://aka.ms/dart).
-- **Rapidly isolate** compromised devices using [Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#isolate-devices-from-the-network) in on-premises deployment.
+- **Integrate outside experts** – into processes to supplement expertise, such as the [Microsoft Incident Response team](https://aka.ms/dart).
+- **Rapidly isolate** compromised Azure VMs using [Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#isolate-devices-from-the-network).
 
 ## Responding to ransomware attacks
 
@@ -59,11 +62,11 @@ The following are recommended actions to contain or mitigate a declared incident
 
 ## Road to recovery
 
-The Microsoft Detection and Response Team help protect you from attacks
+The Microsoft Incident Response team helps protect you from attacks.
 
 Understanding and fixing the fundamental security issues that led to the compromise in the first place should be a priority for ransomware targets.
 
-Integrate outside experts into processes to supplement expertise, such as [Microsoft Incident Response](https://aka.ms/dart). Microsoft Incident Response engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred.
+Integrate outside experts into processes to supplement expertise, such as [Microsoft Incident Response](https://aka.ms/dart). Microsoft Incident Response engages with customers around the world, helping to protect and harden Azure environments against attacks before they occur, as well as investigating and remediating when an attack has occurred.
 
 Customers can engage our security experts directly from within the Microsoft Defender Portal for timely and accurate response. Experts provide insights needed to better understand the complex threats affecting your organization, from alert inquiries, potentially compromised devices, root cause of a suspicious network connection, to additional threat intelligence regarding ongoing advanced persistent threat campaigns.
 
@@ -71,16 +74,19 @@ Microsoft is ready to assist your company in returning to safe operations.
 
 Microsoft performs hundreds of compromise recoveries and has a tried-and-true methodology. Not only will it get you to a more secure position, it affords you the opportunity to consider your long-term strategy rather than reacting to the situation. 
 
-Microsoft provides Rapid Ransomware Recovery services. Under this, assistance is provided in all areas such as restoration of identity services, remediation and hardening and with monitoring deployment to help targets of ransomware attacks to return to normal business in the shortest possible timeframe.
+Microsoft provides Rapid Ransomware Recovery services. Under this, assistance is provided in all areas such as restoration of identity services, remediation and hardening, and monitoring deployment to help targets of ransomware attacks return to normal business in the shortest possible timeframe.
 
-Our Rapid Ransomware Recovery services are treated as "Confidential" for the duration of the engagement. Rapid Ransomware Recovery engagements are exclusively delivered by the Compromise Recovery Security Practice (CRSP) team, part of the Azure Cloud & AI Domain. For more information, you can contact CRSP at [Request contact about Azure security](https://azure.microsoft.com/overview/meet-with-an-azure-specialist/). 
+Our Rapid Ransomware Recovery services are treated as "Confidential" for the duration of the engagement. Rapid Ransomware Recovery engagements are exclusively delivered by the Microsoft Incident Response team. For more information, you can contact Microsoft Incident Response at [Request contact about Azure security](https://azure.microsoft.com/overview/meet-with-an-azure-specialist/). 
 
 ## What's next
 
+For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
+
 See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
-Other articles in this series:
+Other Azure ransomware articles:
 
 - [Ransomware protection in Azure](ransomware-protection.md)
 - [Prepare for a ransomware attack](ransomware-prepare.md)
 - [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
+- [Improve your security defenses for ransomware attacks with Azure Firewall Premium](ransomware-protection-with-azure-firewall.md)

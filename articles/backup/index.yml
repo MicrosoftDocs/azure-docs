@@ -71,7 +71,7 @@ landingContent:
             url: azure-elastic-storage-area-network-backup-overview.md
           - text: SAP ASE (Sybase) database backup support
             url: sap-ase-database-about.md        
-          - text: Azure Data Lake Storage backup support (preview)
+          - text: Azure Data Lake Storage vaulted backup support
             url: azure-data-lake-storage-backup-overview.md
           - text: Azure Files vaulted backup support
             url: azure-file-share-backup-overview.md?tabs=vault-standard

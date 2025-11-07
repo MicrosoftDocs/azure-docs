@@ -531,6 +531,8 @@ items:
         href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Change redundancy configuration - FAQs
         href: ../common/storage-redundancy-change-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Geo Priority replication
+        href: ../common/storage-redundancy-priority-replication.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Disaster recovery
       items:
       - name: Disaster recovery planning and failover
@@ -570,6 +572,8 @@ items:
       items:
       - name: Object replication
         href: object-replication-overview.md
+      - name: Object replication priority replication
+        href: object-replication-priority-replication.md
       - name: Configure object replication policies
         href: object-replication-configure.md
       - name: Prevent object replication across tenants

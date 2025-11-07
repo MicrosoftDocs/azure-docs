@@ -238,7 +238,7 @@ Snapshots are always differential from the live share and from each other. In th
 Some value-added services for Azure Files use snapshots as part of their value proposition. For more information, see [value-added services for Azure Files](#value-added-services).
 
 ### Provisioned v2 soft delete
-Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the defined retention period. To ensure that a deleted file share can always be restored, the provisioned storage, IOPS, and throughput of the share count against the storage account's limits until the file share is purged. However, they aren't billed. For more information on soft delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
+When soft delete is enabled, deleted file shares are billed based on their used storage capacity during the retention period. The provisioned storage, IOPS, and throughput of a deleted share continue to count toward the storage account’s limits until the share is purged, ensuring it can be restored. However, these resources are not billed. For details on enabling soft delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
 
 ### Provisioned v2 billing meters
 File shares provisioned using the provisioned v2 billing model are billed against the following billing meters:

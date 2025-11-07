@@ -69,7 +69,7 @@ After the upgrade has completed, break the leases you created to resume allowing
 
 ### Make any planned changes to the names of archived blobs
 
-If you plan the change the name of an archived blob or the name of any parent directory that leads up to the archived blob, make sure modifications **before** you upgrade. If you change the name of an archived blob or any parent directory leading to the archived blob **after** the upgrade, then you won't be able to rehydrate it. This is a temporary limitation of the current release. 
+If you plan to change the name of an archived blob or any parent directory that leads up to the archived blob, make these modifications **before** you upgrade. If you change the name of an archived blob or any parent directory leading to the archived blob **after** the upgrade, then you won't be able to rehydrate it. This is a temporary limitation of the current release. 
 
 ## Perform the upgrade
 

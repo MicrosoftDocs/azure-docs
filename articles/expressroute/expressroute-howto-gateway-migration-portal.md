@@ -23,9 +23,6 @@ When creating an ExpressRoute virtual network gateway, you must select a [gatewa
 - Review the [gateway migration](gateway-migration.md) article before starting.
 - Ensure you have an existing [ExpressRoute virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md) in your Azure subscription.
 
-> [!TIP]
-> You can now deploy two ExpressRoute gateways within the same virtual network. To do this, create a second ExpressRoute gateway with its admin state set to **disabled**. Once the second gateway is deployed, initiate the *Prepare* step in the migration tool. This step establishes the connection without redeploying the gateway, as it's already in place. Finally, run the *Migrate* step, which will change the new gateway's admin state to **_enabled_**, completing the migration process. The second ExpressRoute Gateway can be deployed admin state set to **disabled** using Azure PowerShell command [**New-AzVirtualNetworkGateway**](/powershell/module/az.network/new-azvirtualnetworkgateway) with the flag **-AdminState "Disabled"**. This method minimizes the migration or maintenance window, significantly reducing downtime when transitioning from a non-zonal to a zone-redundant gateway.
-
 ## Steps to migrate to a new gateway in Azure portal
 
 Follow these steps to migrate to a new gateway using the Azure portal:

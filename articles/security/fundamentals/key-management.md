@@ -3,10 +3,9 @@ title: Overview of Key Management in Azure
 description: This article provides an overview of Key Management in Azure.
 services: security
 author: msmbaldwin
-
 ms.service: security
 ms.topic: article
-ms.date: 04/16/2025
+ms.date: 11/04/2025
 ms.author: mbaldwin
 ms.collection:
   - zerotrust-extra
@@ -18,7 +17,7 @@ ms.collection:
 
 In Azure, encryption keys can be either platform managed or customer managed.
 
-Platform-managed keys (PMKs) are encryption keys generated, stored, and managed entirely by Azure. Customers do not interact with PMKs. The keys used for [Azure Data Encryption-at-Rest](encryption-atrest.md), for instance, are PMKs by default.  
+Platform-managed keys (PMKs) are encryption keys generated, stored, and managed entirely by Azure. Customers do not interact with PMKs. The keys used for [Azure Data Encryption-at-Rest](/azure/security/fundamentals/encryption-atrest), for instance, are PMKs by default.  
 
 Customer-managed keys (CMK), on the other hand, are keys read, created, deleted, updated, and/or administered by one or more customers. Keys stored in a customer-owned key vault or hardware security module (HSM) are CMKs. Bring Your Own Key (BYOK) is a CMK scenario in which a customer imports (brings) keys from an outside storage location into an Azure key management service (see the [Azure Key Vault: Bring your own key specification](/azure/key-vault/keys/byok-specification)).
 
@@ -30,7 +29,7 @@ Customer-managed keys can be stored on-premises or, more commonly, in a cloud ke
 
 Azure offers several options for storing and managing your keys in the cloud, including Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM. These options differ in terms of their FIPS compliance level, management overhead, and intended applications.
 
-For a comprehensive guide to choosing the right key management solution for your specific needs, see [How to Choose the Right Key Management Solution](key-management-choose.md).
+For a comprehensive guide to choosing the right key management solution for your specific needs, see [How to Choose the Right Key Management Solution](/azure/security/fundamentals/key-management-choose).
 
 ### Azure Key Vault (Standard Tier)
 
@@ -38,7 +37,7 @@ A FIPS 140-2 Level 1 validated multitenant cloud key management service that can
 
 ### Azure Key Vault (Premium Tier)
 
-A FIPS 140-2 Level 2 validated, PCI compliant, multitenant HSM offering that can be used to store asymmetric keys, secrets, and certificates. Keys are stored in a secure hardware boundary*. Microsoft manages and operates the underlying HSM, and keys stored in Azure Key Vault Premium can be used for encryption-at-rest and custom applications. Azure Key Vault Premium also provides a modern API and a breadth of regional deployments and integrations with Azure Services. If you are an Azure Key Vault Premium customer looking for higher security compliance, key sovereignty, single tenancy, and/or higher crypto operations per second, you may want to consider Azure Key Vault Managed HSM instead. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
+A FIPS 140-3 Level 3 validated, PCI compliant, multitenant HSM offering that can be used to store asymmetric keys, secrets, and certificates. Keys are stored in a secure hardware boundary using Marvell LiquidSecurity HSMs*. Microsoft manages and operates the underlying HSM, and keys stored in Azure Key Vault Premium can be used for encryption-at-rest and custom applications. Azure Key Vault Premium also provides a modern API and a breadth of regional deployments and integrations with Azure Services. If you are an Azure Key Vault Premium customer looking for key sovereignty, single tenancy, and/or higher crypto operations per second, you may want to consider Azure Key Vault Managed HSM instead. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
 ### Azure Key Vault Managed HSM
 
@@ -65,7 +64,7 @@ Azure Key Vault Managed HSM, Azure Dedicated HSM, and Azure Payment HSM offer de
 
 ## Encryption-At-Rest
 
-Azure Key Vault and Azure Key Vault Managed HSM have integrations with Azure Services and Microsoft 365 for Customer Managed Keys, meaning customers may use their own keys in Azure Key Vault and Azure Key Vault Managed HSM for encryption-at-rest of data stored in these services. Azure Dedicated HSM and Azure Payment HSM are Infrastructure-as-Service offerings and do not offer integrations with Azure Services. For an overview of encryption-at-rest with Azure Key Vault and Azure Key Vault Managed HSM, see [Azure Data Encryption-at-Rest](encryption-atrest.md).
+Azure Key Vault and Azure Key Vault Managed HSM have integrations with Azure Services and Microsoft 365 for Customer Managed Keys, meaning customers may use their own keys in Azure Key Vault and Azure Key Vault Managed HSM for encryption-at-rest of data stored in these services. Azure Dedicated HSM and Azure Payment HSM are Infrastructure-as-Service offerings and do not offer integrations with Azure Services. For an overview of encryption-at-rest with Azure Key Vault and Azure Key Vault Managed HSM, see [Azure Data Encryption-at-Rest](/azure/security/fundamentals/encryption-atrest).
 
 ## APIs
 
@@ -73,7 +72,7 @@ Azure Dedicated HSM and Azure Payment HSM support the PKCS#11, JCE/JCA, and KSP/
 
 ## What's next
 
-- [How to Choose the Right Key Management Solution](key-management-choose.md)
+- [How to Choose the Right Key Management Solution](/azure/security/fundamentals/key-management-choose)
 - [Azure Key Vault](/azure/key-vault/general/overview)
 - [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)
 - [Azure Dedicated HSM](/azure/dedicated-hsm/overview)

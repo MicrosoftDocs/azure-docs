@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 ---
 
 
-#  Add GitHub Copilot Code insights to Web App Assessments
+#  Add GitHub Copilot Code insights to Web App Assessments (preview)
 
 This article describes how to improve web app assessments by adding code scan insights using GitHub Copilot assessment when modernizing applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 

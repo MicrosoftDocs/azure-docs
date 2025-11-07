@@ -189,7 +189,7 @@
       href: data-protection-disaster-recovery-options.md
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
-    - name: Understand caching
+    - name: Azure NetApp Files caching
       items: 
       - name: Understand Azure NetApp Files cache volumes
         href: cache-volumes.md    
@@ -351,8 +351,6 @@
         href: object-rest-api-browser.md
     - name: Migrate volumes to Azure NetApp Files
       href: migrate-volumes.md
-    - name: Configure a cache volume  
-      href: configure-cache-volumes.md
     - name: Manage volume access and encryption 
       items:
       - name: Configure export policy for NFS or dual protocol
@@ -479,6 +477,10 @@
         href: reestablish-deleted-volume-relationships.md
       - name: Test disaster recovery with cross-region replication
         href: test-disaster-recovery.md
+    - name: Manage caching
+      items:
+      - name: Configure a cache volume  
+        href: configure-cache-volumes.md   
     - name: Manage availability zones and cross-zone replication
       items: 
       - name: Manage availability zone volume placement

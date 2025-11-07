@@ -4,7 +4,6 @@ title: Azure operational security overview| Microsoft Docs
 description: Learn about Azure operational security in this overview. Operational security refers to asset protection services, controls, and features.
 services: security
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -55,7 +54,7 @@ For more information, see the [Azure Backup components table](../../backup/backu
 -	Provides central access management, single sign-on (SSO), and reporting.
 -	Supports integrated access management for [thousands of applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
 
-Microsoft Entra ID also includes a full suite of [identity management capabilities](./identity-management-overview.md#security-monitoring-alerts-and-machine-learning-based-reports), including these:
+Microsoft Entra ID also includes a full suite of [identity management capabilities](./identity-management-overview.md), including these:
 
 - [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 - [Self-service password management](/shows/azure/how-to-configure-self-service-password-reset-users-in-windows-azure-ad)

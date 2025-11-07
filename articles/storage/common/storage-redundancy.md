@@ -107,7 +107,7 @@ When you utilize GRS or GZRS, the data in the secondary region isn't available f
 If the primary region becomes unavailable, you can choose to fail over to the secondary region. After the failover operation completes, the secondary region becomes the primary region and you're able to read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> Because data is replicated to the secondary region asynchronously, a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. The Azure Storage platform typically has an RPO of less than 15 minutes. New Service Level Agreement (SLA)-backed [priority replication features](#geo-and-object-replication-priority-replication) are available that guarantee a specific RPO for data replication to the secondary region.
+> Because data is replicated to the secondary region asynchronously, a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. Azure Storage now offers Geo priority replication which ensures the RPO for Block Blobs are less than or equal to 15 minutes. For more information, see the [Azure Storage Geo Priority Replication](storage-redundancy-priority-replication.md) article.
 
 ### Geo-redundant storage
 
@@ -118,19 +118,6 @@ A write operation is first committed to the primary location and replicated usin
 The following diagram shows how your data is replicated with GRS or RA-GRS:
 
 :::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS or RA-GRS":::
-
-#### Geo and Object Replication Priority Replication
-
-Priority Replication for geo-redundancy and object replication is a blob data-specific **preview** feature that allows you to prioritize the replication of data to a secondary region. These features can be useful for scenarios where certain critical data needs to be available in the secondary region as quickly as possible. 
-
-SLAs for both priority replication features ensure that your high-priority data is replicated to the secondary region with minimal delay. The addition of these SLAs enhances the overall resilience and availability of your applications.
-
-By enabling these features, you incur a per-GB cost associated with the prioritized replication of your data. When you disable priority replication, you're billed for 30 days beyond the date on which the feature was disabled.
-
-> [!IMPORTANT]
-> Priority replication for geo redundant storage accounts and object replication is currently in PREVIEW.
->
-> When you disable priority replication, you're billed for 30 days beyond the date on which the feature was disabled.
 
 ### Geo-zone-redundant storage
 

@@ -27,7 +27,7 @@ A GPv1 account is the original **general-purpose** Azure Storage account type. I
 
 ### Can I still create a new GPv1 account?
 
-GPv1 Accounts are already blocked on the Azure portal. From Q1, 2026 all new GPv1 account creation will be blocked via the Azure Resource Manager (ARM) API.
+GPv1 Accounts are already blocked on the Azure portal. From March 3, 2026 all new GPv1 account creation will be blocked via the Azure Resource Manager (ARM) API.
 
 ### Which redundancy options are available on GPv2 accounts?
 General-purpose v2 supports:

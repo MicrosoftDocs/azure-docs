@@ -99,11 +99,11 @@ No. If you want to use the existing subnet, you should clean up the IP addresses
 
 ### Can I enable cool access on a migration volume in the migration assistant tool?
 
-You should only enable cool access if you've finalized migration. Otherwise, use a different volume. Finalizing the migration converts the volume a regular Azure NetApp Files volume allowing you to enable cool access.
+You should only enable cool access if you've finalized migration. Otherwise, use a different volume. Finalizing the migration converts the volume to a regular Azure NetApp Files volume, allowing you to enable cool access.
 
 ### Why am I not able to resume migrations after it has been paused from the migration assistant tool?
 
-Select the action from the **Migration** tab of the volume, not from the migration assistant view. The Migration tab is up to date for all migrations that are paused or resumed.
+Select the action icon from the **Migration** tab of the volume, not from the migration assistant view. 
 
 ### Are there post-migration steps to be performed on ONTAP systems?
 

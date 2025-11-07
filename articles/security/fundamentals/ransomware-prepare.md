@@ -1,6 +1,6 @@
 ---
 title: Prepare for a ransomware attack
-description: Prepare for a ransomware attack
+description: Prepare for a ransomware attack with Azure-specific guidance
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
@@ -10,6 +10,11 @@ ms.date: 04/23/2025
 ---
 
 # Prepare for a ransomware attack
+
+This article provides Azure-specific guidance for preparing your organization to defend against and recover from ransomware attacks.
+
+> [!TIP]
+> This article focuses specifically on Azure capabilities and best practices. For comprehensive ransomware preparation guidance across all Microsoft platforms and services, see [Prepare your ransomware recovery plan](/security/ransomware/protect-against-ransomware-phase1).
 
 ## Adopt a Cybersecurity framework
 
@@ -38,32 +43,38 @@ Ultimately, the Framework is aimed at reducing and better managing cybersecurity
 
 ## Prioritize mitigation
 
-Based on our experience with ransomware attacks, we find that prioritization should focus on:
-1. Prepare
-1. Limit
-1. Prevent
+Based on our experience with ransomware attacks on Azure environments, we find that prioritization should focus on:
+1. Prepare - Have backups and recovery plans for your Azure resources
+1. Limit - Protect privileged access to Azure resources
+1. Prevent - Harden Azure security controls
  
 This may seem counterintuitive, since most people want to prevent an attack and move on. Unfortunately, we must assume breach (a key Zero Trust principle) and focus on reliably mitigating the most damage first. This prioritization is critical because of the high likelihood of a worst-case scenario with ransomware. While it's not a pleasant truth to accept, we're facing creative and motivated human attackers who are adept at finding a way to control the complex real-world environments in which we operate. Against that reality, it's important to prepare for the worst and establish frameworks to contain and prevent attackers' ability to get what they're after.
 
 While these priorities should govern what to do first, we encourage organizations to run steps in parallel where possible, including pulling quick wins forward from step 1 when you can.
 
+For comprehensive guidance on the three-phase approach to ransomware protection, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
+
 ## Make it harder to get in
 
-Prevent a ransomware attacker from entering your environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This causes attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it's a continuous journey and may not be possible to achieve 100% prevention  and rapid response across a real-world organizations (complex multi-platform and multicloud estate with distributed IT responsibilities).
+Prevent a ransomware attacker from entering your Azure environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This causes attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it's a continuous journey and may not be possible to achieve 100% prevention and rapid response across a real-world organization's complex multi-platform and multicloud estate with distributed IT responsibilities.
 
-To achieve this, organizations should identify and execute quick wins to strengthen  security controls to prevent entry, and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy [here](https://aka.ms/zerotrust). Specifically, against Ransomware, organizations should prioritize:
-- Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate. 
-- Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility, and alerting on attacker activity and respond to active threats.
+To achieve this, organizations should identify and execute quick wins to strengthen security controls for their Azure resources to prevent entry, and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy. Specifically, for Azure resources, organizations should prioritize:
+- Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for Azure resources. 
+- Implementing Protection, Detection and Response controls for Azure workloads that can protect against commodity and advanced threats, provide visibility, and alerting on attacker activity and respond to active threats.
+
+For comprehensive guidance on making it harder for attackers to access your environment, see [Defend against ransomware attacks](/security/ransomware/protect-against-ransomware-phase3).
 
 ## Limit scope of damage
 
-Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources drastically lowers the chances they're successful at attacking you and demanding payment / profiting.
+Ensure you have strong controls (prevent, detect, respond) for privileged accounts with access to your Azure resources like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your Azure resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources drastically lowers the chances they're successful at attacking you and demanding payment / profiting.
 
-Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's Security rapid modernization plan, which covers:
+Organizations should have elevated security for privileged accounts with Azure access (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's Security rapid modernization plan, which covers:
 - End to End Session Security (including multifactor authentication (MFA) for admins)
 - Protect and Monitor Identity Systems
 - Mitigate Lateral Traversal
 - Rapid Threat Response
+
+For comprehensive guidance on limiting the scope of damage, see [Limit the impact of ransomware attacks](/security/ransomware/protect-against-ransomware-phase2).
 
 ## Prepare for the worst
 
@@ -80,102 +91,67 @@ To realize this, organizations should ensure they:
 Protect backups against deliberate erasure and encryption with offline storage, immutable storage, and/or out of band steps (MFA or PIN) before modifying/erasing online backups.
 - Test 'Recover from Zero' Scenario – test to ensure your business continuity / disaster recovery (BC/DR) can rapidly bring critical business operations online from zero functionality (all systems down). Conduct practice exercises to validate cross-team processes and technical procedures, including out-of-band employee and customer communications (assume all email/chat/etc. is down).  
   It's critical to protect (or print) supporting documents and systems required for recovery including restoration procedure documents, CMDBs, network diagrams, SolarWinds instances, etc. Attackers destroy these regularly.
-- Reduce on-premises exposure – by moving data to cloud services with automatic backup & self-service rollback.
+- Reduce on-premises exposure – by moving data to Azure cloud services with automatic backup & self-service rollback.
 
-## Promote awareness and ensure there's no knowledge gap
+For comprehensive guidance on preparing for the worst case scenario, including awareness training and SOC readiness, see [Prepare your ransomware recovery plan](/security/ransomware/protect-against-ransomware-phase1).
 
-There are a number of activities that may be undertaken to prepare for potential ransomware incidents.
+## Azure-specific technical controls for ransomware protection
 
-### Educate end users on the dangers of ransomware
+Azure provides a wide variety of native technical controls to protect, detect, and respond to ransomware incidents with emphasis on prevention. Organizations running workloads in Azure should leverage these Azure-native capabilities:
 
-As most ransomware variants rely on end-users to install the ransomware or connect to compromised Web sites, all end users should be educated about the dangers. This would typically be part of annual security awareness training as well as ad hoc training available through the company's learning management systems. The awareness training should also extend to the company's customers via the company's portals or other appropriate channels.
+### Detection and prevention tools for Azure
 
-### Educate security operations center (SOC) analysts and others on how to respond to ransomware incidents
+- **[Microsoft Defender for Cloud](/azure/defender-for-cloud/)** - Unified security management providing threat protection for Azure workloads including VMs, containers, databases, and storage
+- **[Azure Firewall Premium](../../firewall/premium-features.md)** - Next-generation firewall with IDPS capabilities to detect and block ransomware C&C communications
+- **[Microsoft Sentinel](/azure/sentinel/)** - Cloud-native SIEM/SOAR platform with built-in ransomware detection analytics and automated response
+- **[Azure Network Watcher](/azure/network-watcher/)** - Network monitoring and diagnostics to detect anomalous traffic patterns
+- **[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/)** - For Azure VMs running Windows or Linux
 
-SOC analysts and others involved in ransomware incidents should know the fundamentals of malicious software and ransomware specifically.  They should be aware of major variants/families of ransomware, along with some of their typical characteristics. Customer call center staff should also be aware of how to handle ransomware reports from the company's end users and customers.
+### Data protection for Azure resources
 
-## Ensure that you have appropriate technical controls in place
+- **[Azure Backup](/azure/backup/)** with immutability and soft delete for Azure VMs, SQL databases, and file shares
+- **[Azure Storage immutable blobs](/azure/storage/blobs/immutable-storage-overview)** - WORM (Write Once, Read Many) storage that cannot be modified or deleted
+- **[Azure role-based access control (RBAC)](/azure/role-based-access-control/)** - Principle of least privilege for Azure resource access
+- **[Azure Policy](/azure/governance/policy/)** - Enforce backup policies and security configurations across Azure subscriptions
+- **Regular backup verification** using Azure Site Recovery for disaster recovery testing
 
-There are a wide variety of technical controls that should be in place to protect, detect, and respond to ransomware incidents with a strong emphasis on prevention. At a minimum, SOC analysts should have access to the telemetry generated by antimalware systems in the company, understand what preventive measures are in place, understand the infrastructure targeted by ransomware, and be able to assist the company teams to take appropriate action.
- 
-This should include some or all of the following essential tools: 
+For comprehensive incident handling guidance, see [Prepare your ransomware recovery plan](/security/ransomware/protect-against-ransomware-phase1).
 
-- Detective and preventive tools
-  - Enterprise server antimalware product suites (such as Microsoft Defender for Cloud)
-  - Network antimalware solutions (such as Azure Anti-malware)
-  - Security data analytics platforms (such as Azure Monitor, Sentinel)
-  - Next generation intrusion detection and prevention systems
-  - Next generation firewall (NGFW)
+## Azure backup and recovery capabilities
 
-- Malware analysis and response toolkits
-  - Automated malware analysis systems with support for most major end-user and server operating systems in the organization
-  - Static and dynamic malware analysis tools
-  - Digital forensics software and hardware
-  - Non- Organizational Internet access (for example, 4G dongle)
-  - For maximum effectiveness, SOC analysts should have extensive access to almost all antimalware platforms through their native interfaces in addition to unified telemetry within the security data analysis platforms.  The platform for Azure native Antimalware for Azure Cloud Services and Virtual Machines provides step-by-step guides on how to accomplish this.
-  - Enrichment and intelligence sources
-  - Online and offline threat and malware intelligence sources (such as sentinel, Azure Network Watcher)
-  - Active directory and other authentication systems (and related logs)
-  - Internal Configuration Management Databases (CMDBs) containing endpoint device info
+Ensure that you have appropriate processes and procedures in place for Azure workloads. Almost all ransomware incidents result in the need to restore compromised systems. Appropriate and tested backup and restore processes should be in place for Azure resources, along with suitable containment strategies to stop ransomware from spreading.
 
-- Data protection
-  - Implement data protection to ensure rapid and reliable recovery from a ransomware attack + block some techniques.
-  - Designate Protected Folders – to make it more difficult for unauthorized applications to modify the data in these folders. 
-  - Review Permissions – to reduce risk from broad access enabling ransomware
-  - Discover broad write/delete permissions on fileshares, SharePoint, and other solutions
-  - Reduce broad permissions while meeting business collaboration requirements
-  - Audit and monitor to ensure broad permissions don't reappear
-  - Secure backups 
-  - Ensure critical systems are backed up and backups are protected against deliberate attacker erasure/encryption.
-  - Back up all critical systems automatically on a regular schedule
-  - Ensure Rapid Recovery of business operations by regularly exercising business continuity / disaster recovery (BC/DR) plan
-  - Protect backups against deliberate erasure and encryption
-  - Strong Protection – Require out of band steps (like MUA/MFA) before modifying online backups such as Azure Backup
-  - Strongest Protection – Isolate backups from online/production workloads to enhance the protection of backup data.
-  - Protect supporting documents required for recovery such as restoration procedure documents, CMDB, and network diagrams
+The Azure platform provides multiple backup and recovery options through Azure Backup and built-in capabilities within various Azure data services and workloads:
 
-## Establish an incident handling process
+### Isolated backups with Azure Backup
 
-Ensure your organization undertakes a number of activities roughly following the incident response steps and guidance described in the US National Institute of Standards and Technology (NIST) Computer Security Incident Handling Guide (Special Publication 800-61r2) to prepare for potential ransomware incidents. These steps include:
-
-1. **Preparation**: This stage describes the various measures that should be put into place prior to an incident.  This may include both technical preparations (such as the implementation of suitable security controls and other technologies) and non-technical preparations (such as the preparation of processes and procedures).
-1. **Triggers / Detection**: This stage describes how this type of incident may be detected and what triggers may be available that should be used to initiate either further investigation or the declaration of an incident.  These are generally separated into high-confidence and low-confidence triggers.
-1. **Investigation / Analysis**: This stage describes the activities that should be undertaken to investigate and analyze available data when it isn't clear that an incident has occurred, with the goal of either confirming that an incident should be declared or concluded that an incident hasn't occurred.
-1. **Incident Declaration**: This stage covers the steps that must be taken to declare an incident, typically with the raising of a ticket within the enterprise incident management (ticketing) system and directing the ticket to the appropriate personnel for further evaluation and action.
-1. **Containment / Mitigation**: This stage covers the steps that may be taken either by the Security Operations Center (SOC), or by others, to contain or mitigate (stop) the incident from continuing to occur or limiting the effect of the incident using available tools, techniques, and procedures.
-2. **Remediation / Recovery**: This stage covers the steps that may be taken to remediate or recover from damage caused by the incident before it was contained and mitigated.
-3. **Post-Incident Activity**: This stage covers the activities that should be performed once the incident is closed. This can include capturing the final narrative associated with the incident and identifying lessons learned.
-
-:::image type="content" source="./media/ransomware/ransomware-17.png" alt-text="Flowchart of an incident handling process":::
-
-## Prepare for a quick recovery
-
-Ensure that you have appropriate processes and procedures in place. Almost all ransomware incidents result in the need to restore compromised systems. So appropriate and tested backup and restore processes and procedures should be in place for most systems. There should also be suitable containment strategies in place with suitable procedures to stop ransomware from spreading and recovery from ransomware attacks.
-
-Ensure that you have well-documented procedures for engaging any third-party support, particularly support from threat intelligence providers, anti-malware solution providers and from the malware analysis provider. These contacts may be useful if the ransomware variant may have known weaknesses or decryption tools may be available.
-
-The Azure platform provides backup and recovery options through Azure Backup as well built in within various data services and workloads.
-
-Isolated backups with [Azure Backup](../../backup/backup-azure-security-feature.md#prevent-attacks)
+[Azure Backup](../../backup/backup-azure-security-feature.md#prevent-attacks) provides immutable, isolated backups with soft delete and MFA protection for:
 - Azure Virtual Machines
 - Databases in Azure VMs: SQL, SAP HANA
 - Azure Database for PostgreSQL
 - On-premises Windows Servers (back up to cloud using MARS agent)
 
-Local (operational) backups with Azure Backup
-- Azure Files
-- Azure Blobs
-- Azure Disks
+### Operational backups
 
-Built-in backups from Azure services
-- Data services like Azure Databases (SQL, MySQL, MariaDB, PostgreSQL), Azure Cosmos DB, and ANF offer built-in backup capabilities
+- **Azure Files** - Share snapshots with point-in-time restore
+- **Azure Blobs** - Soft delete, versioning, and immutable storage
+- **Azure Disks** - Incremental snapshots
+
+### Built-in backups from Azure data services
+
+Data services like Azure SQL Database, Azure Database for MySQL/MariaDB/PostgreSQL, Azure Cosmos DB, and Azure NetApp Files offer built-in backup capabilities with automated schedules.
+
+For detailed guidance, see [Backup and restore plan to protect against ransomware](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware).
 
 ## What's Next
 
+For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
+
 See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
-Other articles in this series:
+Other Azure ransomware articles:
 
 - [Ransomware protection in Azure](ransomware-protection.md)
 - [Detect and respond to ransomware attack](ransomware-detect-respond.md)
 - [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
+- [Improve your security defenses for ransomware attacks with Azure Firewall Premium](ransomware-protection-with-azure-firewall.md)

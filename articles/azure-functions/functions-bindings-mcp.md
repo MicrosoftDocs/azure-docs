@@ -42,11 +42,11 @@ Add the extension to your project by installing this [NuGet package](https://www
 `Microsoft.Azure.Functions.Worker.Extensions.Mcp`  
 ::: zone-end
 ::: zone pivot="programming-language-java"
-+ Requires version 3.2.1 or later of the [`azure-functions-java-library` dependency](https://central.sonatype.com/artifact/com.microsoft.azure.functions/azure-functions-java-library).
-+ Requires version **TBD** or later of the [`azure-functions-maven-plugin` dependency](https://central.sonatype.com/artifact/com.microsoft.azure.functions/azure-functions-maven-plugin).
++ Requires version 3.2.2 or later of the [`azure-functions-java-library` dependency](https://central.sonatype.com/artifact/com.microsoft.azure.functions/azure-functions-java-library).
++ Requires version 1.40.0 or later of the [`azure-functions-maven-plugin` dependency](https://central.sonatype.com/artifact/com.microsoft.azure/azure-functions-maven-plugin).
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ Requires version 4.8.0 or later of the [`@azure/functions` dependency](https://www.npmjs.com/package/@azure/functions)
++ Requires version 4.9.0 or later of the [`@azure/functions` dependency](https://www.npmjs.com/package/@azure/functions)
 ::: zone-end
 ::: zone pivot="programming-language-python"
 + Requires version 1.24.0 or later of the [`azure-functions` package](https://pypi.org/project/azure-functions/).
@@ -55,14 +55,14 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
-The MCP extension specifically requires bundle version 4.28.0 or later. You can ensure you get this version by specifying it as the minimum version in your `host.json` file:
+The MCP extension specifically requires bundle version 4.29.0 or later. You can ensure you get this version by specifying it as the minimum version in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.28.0, 5.0.0)"
+    "version": "[4.29.0, 5.0.0)"
   }
 }
 ```

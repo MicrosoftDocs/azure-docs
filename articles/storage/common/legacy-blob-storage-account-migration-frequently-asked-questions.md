@@ -28,7 +28,7 @@ A legacy blob storage account is a legacy Azure storage account type designed fo
 
 ### Can I still create a new legacy blob storage account?
 
-No. Starting **Q1 2026**, creation of new legacy blob storage accounts will be disabled.
+No. Starting **March 3 2026**, creation of new legacy blob storage accounts will be disabled.
 
 > [!IMPORTANT]
 > Plan migrations ahead of this date to ensure policy compliance and avoid deployment blocks for new storage needs.

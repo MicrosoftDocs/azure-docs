@@ -654,7 +654,7 @@ sourceSettings:
 
 To learn more, see [Understand message schemas](concept-schema-registry.md).
 
-## Request disk persistence (preview)
+## Request disk persistence
 
 Request disk persistence lets data flows keep state across restarts. When you enable this feature, the graph recovers processing state if the connected broker restarts. This feature is useful for stateful processing scenarios where losing intermediate data is a problem. When you enable request disk persistence, the broker persists the MQTT data, like messages in the subscriber queue, to disk. This approach makes sure your data flow's data source doesn't lose data during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need persistence use this feature.
 
@@ -687,10 +687,10 @@ Add the `requestDiskPersistence` property to your data flow configuration file:
 
 # [Bicep](#tab/bicep)
 
-Add the `requestDiskPersistence` property to your data flow resource. The API version is `2025-07-01-preview` or later:
+Add the `requestDiskPersistence` property to your data flow resource. The API version is `2025-10-01` or later:
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2025-07-01-preview' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2025-10-01' = {
   parent: defaultDataflowProfile
   name: dataflowName
   extendedLocation: {

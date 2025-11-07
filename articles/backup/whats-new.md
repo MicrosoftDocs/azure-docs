@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 09/22/2025
+ms.date: 11/18/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -19,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- November 2025
+  - [Vaulted backup support for Azure Data Lake storage is now generally available](#vaulted-backup-support-for-azure-data-lake-storage-is-now-generally-available)
 - September 2025
   - [Vaulted backup support for Azure Files (Premium) is now generally available](#vaulted-backup-support-for-azure-files-premium-is-now-generally-available)
 - July 2025
@@ -58,6 +60,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+
+## Vaulted backup support for Azure Data Lake storage is now generally available 
+
+Azure Backup allows you to create vaulted backups for [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)-enabled storage accounts, which protect your data from ransomware attacks and malicious or accidental deletions. You can define backup schedules to generate recovery points and set retention policies to keep backups in the vault for up to **10 years**.
+
+The backup data is stored in the [Backup vault](backup-vault-overview.md) that gives you an offsite copy for long-term protection. If the source account loses data, you can restore it to an alternate account and regain access quickly. You can also manage backups at scale using [Resiliency](../business-continuity-center/business-continuity-center-overview.md) and monitor them using Azure Backup’s advanced alerting and reporting capabilities.
+
+For more information, see [About Azure Data Lake Storage vaulted backup](azure-data-lake-storage-backup-overview.md).
 
 ## Vaulted backup support for Azure Files (Premium) is now generally available
 

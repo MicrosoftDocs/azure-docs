@@ -1381,6 +1381,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-mount-file-share.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-windows",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/storage/files/storage-files-deployment-guide.md",
             "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
             "redirect_document_id": false

@@ -207,6 +207,14 @@ items:
           href: create-web-app-assessment.md
         - name: Review assessment report
           href: review-web-app-assessment.md
+#     - name: AVS assessment
+#       items:
+#       - name: Create an AVS assessment
+#         href: tutorial-assess-vmware-azure-vmware-solution.md
+#       - name: Customize assessment settings
+#         href: assessment-properties.md
+#       - name: Review assessment report
+#         href: review-azure-vmware-solution-assessment.md
         - name: Enhance web app assessment by adding code scan report
           href: add-copilot-code-insights.md
       - name: AVS assessment
@@ -225,6 +233,18 @@ items:
 #         href: assessment-properties.md
 #       - name: Review assessment report
 #         href: review-sap-assessment.md
+  - name: Wave planning
+    items:
+    - name: Overview
+      href: overview.md
+    - name: Plan and create waves
+      href: how-to-plan-create-waves.md
+    - name: Complete a wave plan
+      href: how-to-complete-wave-plan.md  
+    - name: Execute and track waves
+      href: how-to-execute-track-waves.md  
+    - name: Wave planning
+      href: common-questions-wave-planning.md
 - name: Execute migrations
   items:
   - name: Overview of migration method

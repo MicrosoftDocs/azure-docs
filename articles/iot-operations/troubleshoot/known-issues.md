@@ -143,22 +143,6 @@ If you create more than 70 data flows for a single data flow profile, deployment
 
 To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
 
-### The request persistence flag is not set for MQTT sessions created for data flow graphs (WASM)
-
----
-
-Issue ID: 6415
-
----
-
-Log signature: N/A
-
----
-
-When you create a data flow graph using the WASM, the MQTT session doesn't have the request persistence flag set.
-
-To work around this issue, set MQTT broker **Retained messages** mode to `All`. For more information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
-
 ### Data flow graphs only support specific endpoint types
 
 ---
@@ -179,48 +163,6 @@ To work around this issue, use one of the supported endpoint types:
 - [OpenTelemetry endpoints](../connect-to-cloud/howto-configure-opentelemetry-endpoint.md) for sending metrics and logs to observability platforms (destination only)
 
 For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
-
-### Complex data might be flattened when enriching data in a data flow
-
----
-
-Issue ID: 7385
-
----
-
-Log signature: N/A
-
----
-
-When enriching data using complex object DSS reference data, the output might be moved to the root level instead of preserving the original structure.
-
-For example, if you have a complex object with properties like:
-
-```json
-{
-  "complex_property_1": {
-      "field1": 12,
-      "field2": 13 
-  },
-  "complex_property_2": {
-     "field2": 24
-  }
-}
-```
-
-The output might look like:
-
-```json
-{
-  "property_1": 2,
-  "property_2": 3,
-  "field1": 12,
-  "field2": 24,
-}
-```
-
-The complex properties are flattened to the root, and the original structure is lost. If fields with the same name exist in the complex objects or the root, the values might overwrite the root values. In the example, `field2` from `complex_property_2` overwrites the `field2` from `complex_property_1`.
-
 
 ### Can't use the same graph definition multiple times in a chained graph scenario
 

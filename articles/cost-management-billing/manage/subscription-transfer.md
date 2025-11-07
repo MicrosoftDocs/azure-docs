@@ -7,7 +7,7 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 10/21/2025
+ms.date: 11/06/2025
 ---
 
 # Azure product transfer hub

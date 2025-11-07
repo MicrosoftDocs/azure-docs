@@ -196,7 +196,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     GET https://<region>.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<>?api-version=2025-06-01&...
     ```
 
-    An example response: 
+    The response looks like: 
 
     ```json
     {
@@ -259,7 +259,7 @@ The portal version of the migration assistant is currently in preview.
     | **Cut over** | Removes the replication relationship. If this is the last migration to this Azure NetApp Files storage, the peering relationship is also removed. |
     | **Finalize migration** |  Deletes the external migration relationship and converts the destination volume into a regular volume. If this is the last migration to this Azure NetApp Files account, the peering relationship is also removed. |
     | **Cancel migration** | Cancels the migration process and deletes the destination volume. The peering relationship between the ONTAP cluster and Azure NetApp Files is removed if it's not used by any other migration volume. |
-    | **View migration details** | Migration details provide information about the migration for a specific volume. To view these details, go to the under the **Actions** column then select the three dots `...` associated with the volume and **View migration details**. |
+    | **View migration details** | Learn about the migration status and details for a specific volume. To view these details, select the three dots `...` associated with the volume under the Actions column then **View migration details**. |
  
 2.  Select **New migration**.
 3.	In the **Source** tab, provide the following information:
@@ -268,7 +268,7 @@ The portal version of the migration assistant is currently in preview.
     Enter the name for the cluster that contains the volume you're migrating.
 
     * **SVM Name**
-    Enter the name for the external storage VM that contains the volume you're migrating.
+    Enter the name for the external SVM that contains the volume you're migrating.
     
     * **Source volume name**
     Enter the name for the external ONTAP volume that you're migrating. 

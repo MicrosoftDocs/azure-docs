@@ -61,8 +61,6 @@
         href: storage-files-identity-assign-share-level-permissions.md
       - name: Configure directory/file-level permissions
         href: storage-files-identity-configure-file-level-permissions.md
-    - name: Mount file share
-      href: storage-files-identity-mount-file-share.md
   - name: Linux identity-based authentication (SMB)
     href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Authorize access to file data
@@ -235,6 +233,8 @@
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
   - name: SSD file shares redundancy support
     href: redundancy-premium-file-shares.md
+  - name: Zonal placement
+    href: zonal-placement.md    
 - name: Performance, scale, and cost
   items:
   - name: Understanding performance

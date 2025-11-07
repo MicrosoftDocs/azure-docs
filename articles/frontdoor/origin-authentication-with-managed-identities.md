@@ -15,7 +15,7 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
-Managed identities provided by Microsoft Entra ID enables your Azure Front Door Standard/Premium instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. For more information, see [What is  managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview.md).
+Managed identities provided by Microsoft Entra ID enables your Azure Front Door Standard/Premium instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. For more information, see [What is  managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
 After you enable managed identity for Azure Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. 
 
@@ -114,5 +114,5 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 * If your clients are already sending their own tokens under the Authorization header, the token value will be overwritten by AFD with the origin authentication token. If you want AFD to send the client token to the origin, you can configure an AFD rule using the server variable {http_req_header_Authorization} to send the token under a separate header.
     :::image type="content" source="media/managed-identity/rules-engine.png" alt-text="Screenshot of the rule for sending the client token to origin via a different header.":::
 * It is recommended that you use different managed identities for origin authentication and for AFD to Azure Key Vault authentication.
-* For best practices while using managed identities, refer to [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md).
+* For best practices while using managed identities, refer to [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 * For best practices while assigning RBAC role for Azure storage account, refer to [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md)
