@@ -1,13 +1,13 @@
 ---
 title: Overview of business templates in Business Process Solutions
 description: Overview of business templates in Business Process Solutions.
-author: momakhij
+author: mohitmakhija1
 ms.service: sap-on-azure
 ms.subservice: business-process-solutions
 ms.topic: overview
 ms.custom: subject-monitoring
 ms.date: 11/07/2024
-ms.author: momakhij
+ms.author: mohitmakhija1
 ---
 
 # Overview of available Business Templates
