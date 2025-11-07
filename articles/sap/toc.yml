@@ -11,3 +11,5 @@ items:
     href: automation/toc.yml
   - name: Azure Monitor for SAP solutions
     href: monitor/toc.yml
+  - name: Business Process Solutions
+    href: business-process-solutions/toc.yml
