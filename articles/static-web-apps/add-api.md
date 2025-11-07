@@ -284,7 +284,7 @@ Install npm dependencies and build the app into the _dist_ folder.
 
 ```bash
 npm install
-npm run dist
+npm run build
 ```
 
 # [Vue](#tab/vue)
