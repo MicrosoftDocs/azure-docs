@@ -308,7 +308,7 @@ The following example creates a new management group in the root management grou
   "resources": [
     {
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2024-02-01-preview",
       "name": "[parameters('mgName')]",
       "scope": "/",
       "location": "eastus",
@@ -343,7 +343,7 @@ The next example creates a new management group in the management group specifie
     {
       "name": "[parameters('mgName')]",
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2024-02-01-preview",
       "scope": "/",
       "location": "eastus",
       "properties": {
@@ -411,7 +411,7 @@ The following example shows how to [define](../../governance/policy/concepts/def
     {
       "type": "Microsoft.Authorization/policyDefinitions",
       "name": "[variables('policyDefinition')]",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2025-03-01",
       "properties": {
         "policyType": "Custom",
         "mode": "All",
@@ -433,7 +433,7 @@ The following example shows how to [define](../../governance/policy/concepts/def
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "location-lock",
-      "apiVersion": "2022-06-01",
+      "apiVersion": "2025-03-01",
       "dependsOn": [
         "[variables('policyDefinition')]"
       ],

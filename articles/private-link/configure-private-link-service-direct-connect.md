@@ -67,7 +67,7 @@ Note these limitations when using Private Link service Direct Connect:
 - **Minimum 2 IP configurations required**: At least 2 IP configurations, or multiples of 2 ([limit](/azure/azure-resource-manager/management/azure-subscription-service-limits) of 8 max) are required to deploy a PLS Direct Connect.
 - **Maximum of 10 PLS per subscription**: There is a hardware limitation of 10 PLS per region per subscription.
 - **Bandwidth limitation**: Each PLS Direct Connect can support a bandwidth of up to 10 Gbps.
-- **Static IP requirement**: The destination IP must be private, static, and directly reachable, dynamically changing IPs are not supported.
+- **Static IP requirement**: The target destination IP address must be allocated statically, there is no support for dynamically allocated target IP address.
 - **Cross-region limitation**: The source private endpoint, private link service, and client VM must be in the same region. This restriction is to be removed when the feature is generally available.
 - **Regional availability**: This feature is available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central).
 

@@ -27,6 +27,11 @@
     - name: Scalable web API
       displayName: Flex Consumption plan
       href: create-first-function-azure-developer-cli.md
+    - name: AI tools and MCP
+      items:
+      - name: MCP server extension
+        displayName: AI, agent, agentic, tools
+        href: scenario-custom-remote-mcp-server.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)

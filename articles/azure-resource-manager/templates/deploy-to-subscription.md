@@ -293,7 +293,7 @@ Or, you can set the scope to `/` for some resource types like management groups:
   "resources": [
     {
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2024-02-01-preview",
       "name": "[parameters('mgName')]",
       "scope": "/",
       "location": "eastus",
@@ -473,7 +473,7 @@ The following example assigns an existing policy definition to the subscription.
   "resources": [
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2022-06-01",
+      "apiVersion": "2025-03-01",
       "name": "[parameters('policyName')]",
       "properties": {
         "scope": "[subscription().id]",
@@ -528,7 +528,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2025-03-01",
       "name": "locationpolicy",
       "properties": {
         "policyType": "Custom",
@@ -546,7 +546,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
     },
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2022-06-01",
+      "apiVersion": "2025-03-01",
       "name": "location-lock",
       "dependsOn": [
         "locationpolicy"

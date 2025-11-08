@@ -513,6 +513,29 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "functions-scenarios-custom-mcp-dotnet",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-dotnet",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-custom-mcp-python",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-python",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-custom-mcp-java",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-java",
+            "branch": "main",
+            "branch_mapping": {}
+        },        {
+            "path_to_root": "functions-scenarios-custom-mcp-typescript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-typescript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "ImmersiveReaderSdk",
             "url": "https://github.com/microsoft/immersive-reader-sdk",
             "branch": "master",

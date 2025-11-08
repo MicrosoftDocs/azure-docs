@@ -9,10 +9,15 @@ ms.custom: generated
 ---
 # Windows security baseline
 
+> [!NOTE]
+> This page applies specifically to the Azure Security Baseline for Windows Server 2022, 2019, 2016, and 2012 — **not** for any other server editions.
+> Windows Server 2022 SKUs support the new Customizeable Machine Configuration Security Baseline experience so you may modify the content of the baseline from including/excluding rules to setting different values. ***We currently do not support the other editions listed above for baseline customization.***
+
+
 This article details the configuration settings for Windows guests as applicable in the following
 implementations:
 
-- **\[Preview\]: Windows machines should meet requirements for the Azure compute security baseline**
+- **Windows machines should meet requirements for the Azure compute security baseline**
   Azure Policy guest configuration definition
 - **Vulnerabilities in security configuration on your machines should be remediated** in Azure
   Security Center
@@ -528,6 +533,6 @@ Additional articles about Azure Policy and guest configuration:
 
 - [Azure Policy guest configuration](../concepts/guest-configuration.md).
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
-- Review other examples at [Azure Policy samples](/azure/governance/policy/samples/index).
+- Review baseline content for Windows Server 2025 [Windows 2025 Security](../samples/guest-configuration-baseline-windows-server-2025.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

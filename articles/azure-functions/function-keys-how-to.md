@@ -3,7 +3,7 @@ title: Work with access keys in Azure Functions
 description: Learn about access keys in Azure Functions, including how to get and renew keys and how to use access keys when calling function endpoints.
 ms.service: azure-functions
 ms.topic: how-to 
-ms.date: 07/13/2025
+ms.date: 11/06/2025
 
 #CustomerIntent: As an Azure Functions developer, I want learn how to work with access keys so that I can properly harden both my function endpoints and my overall function app running in Azure.
 ---
@@ -135,6 +135,9 @@ $path = "/subscriptions/$((Get-AzContext).Subscription.Id)/resourceGroups/$rGrou
 In this script, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the resource group and your function app name.
 
 ---
+
+>[!TIP]
+>You can also obtain access keys for your functions by using the Azure Functions Core Tools command `func azure functionapp list-functions` with the `--show-keys` option. For more information, see the [Azure Functions Core Tools reference](functions-core-tools-reference.md#func-azure-functionapp-list-functions).
 
 ## Renew or create access keys
 

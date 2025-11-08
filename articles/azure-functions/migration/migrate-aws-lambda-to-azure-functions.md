@@ -118,7 +118,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 | Programming language  | [AWS Lambda supported versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported)  | [Azure Functions supported versions](/azure/azure-functions/supported-languages) |
 |---|---|---|
 | Node.js | 20, 22 | 20, 22 |
-| Python | 3.9, 3.10, 3.11, 3.12, 3.13 | 3.9, 3.10, 3.11 |
+| Python | 3.9, 3.10, 3.11, 3.12, 3.13 | 3.9, 3.10, 3.11, 3.12, 3.13 |
 | Java | 8, 11, 17, 21 | 8, 11, 17, 21 |
 | PowerShell | Not supported | 7.4 |
 | .NET | .NET 8 | .NET 8, .NET 9, .NET Framework 4.8.1 |

@@ -146,7 +146,7 @@ The next example template shows how to set the start time for an automation sche
     ...
     {
       "type": "Microsoft.Automation/automationAccounts/schedules",
-      "apiVersion": "2022-08-08",
+      "apiVersion": "2024-10-23",
       "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
 
       "properties": {

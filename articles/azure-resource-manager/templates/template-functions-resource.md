@@ -438,7 +438,7 @@ Azure Cosmos DB isn't a zonal resource, but you can use the `pickZones` function
 "resources": [
   {
     "type": "Microsoft.DocumentDB/databaseAccounts",
-    "apiVersion": "2021-04-15",
+    "apiVersion": "2025-05-01-preview",
     "name": "[variables('accountName_var')]",
     "location": "[parameters('location')]",
     "kind": "GlobalDocumentDB",
@@ -830,7 +830,7 @@ The following example deploys a resource collection and references that resource
         "count": "[length(range(0, parameters('numWorkers')))]"
       },
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2025-09-01",
       "name": "[format('worker-{0}', range(0, parameters('numWorkers'))[copyIndex()])]",
       "location": "[parameters('location')]",
       "properties": {
@@ -869,7 +869,7 @@ The following example deploys a resource collection and references that resource
     },
     "containerController": {
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2025-09-01",
       "name": "controller",
       "location": "[parameters('location')]",
       "properties": {
@@ -1413,7 +1413,7 @@ The following template creates and assigns a policy definition. It uses the `man
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2025-03-01",
       "name": "[variables('policyDefinitionName')]",
       "properties": {
         "policyType": "Custom",
@@ -1434,7 +1434,7 @@ The following template creates and assigns a policy definition. It uses the `man
     },
     "location_lock": {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2022-06-01",
+      "apiVersion": "2025-03-01",
       "name": "location-lock",
       "properties": {
         "scope": "[variables('mgScope')]",
@@ -1506,7 +1506,7 @@ Built-in policy definitions are tenant-level resources. To deploy a policy assig
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "[parameters('policyAssignmentName')]",
-      "apiVersion": "2022-06-01",
+      "apiVersion": "2025-03-01",
       "properties": {
         "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
         "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"

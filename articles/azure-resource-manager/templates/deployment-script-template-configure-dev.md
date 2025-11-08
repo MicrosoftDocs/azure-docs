@@ -114,7 +114,7 @@ The following Azure Resource Manager template (ARM template) creates a container
     },
     {
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2025-09-01",
       "name": "[variables('containerGroupName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -301,7 +301,7 @@ The following ARM template creates a container instance and a file share, and th
     },
     {
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2025-09-01",
       "name": "[variables('containerGroupName')]",
       "location": "[parameters('location')]",
       "properties": {

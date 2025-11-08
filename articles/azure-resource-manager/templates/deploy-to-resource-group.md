@@ -241,7 +241,7 @@ Or, you can set the scope to `/` for some resource types like management groups:
   "resources": [
     {
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2024-02-01-preview",
       "name": "[parameters('mgName')]",
       "scope": "/",
       "location": "eastus",

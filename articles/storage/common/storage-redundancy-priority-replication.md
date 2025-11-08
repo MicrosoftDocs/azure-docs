@@ -52,11 +52,10 @@ While there are many benefits to using geo priority replication, it's especially
 
 While Geo Priority Replication introduces an SLA-backed capability for Azure Blob Storage, it comes with several important exclusions. Users benefit from prioritized replication along with the improved visibility into their Blob Geo Lag while Geo priority replication is enabled. However, there are workloads and time periods where users aren't eligible for the Service Level Agreement for Geo priority replication. These limitations include:
 
-- Other blob types, such as page blobs and append blobs. The SLA applies exclusively to Block Blob data. If these unsupported blob types contribute to geo lag, the affected time window is excluded from SLA eligibility,
-- Storage accounts where Append or Page Blob API calls were made within the last 30 days,
-    - This might impact users that have features enabled on their account that create append or page blobs. For example, Change Feed, Object Replication or
-- Storage accounts with a Last Sync Time greater than 15 minutes lagged during the enablement of Geo priority replication. Data replication prioritization begins immediately after enabling the feature, but the SLA might not apply during this initial sync period. If the account's Last Sync Time exceeds 15 minutes during this time, the SLA doesn't apply until the Last Sync Time is consistently at or below 15 minutes lagged. Customers can [monitor their LST](last-sync-time-get.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) and replication status through Azure's provided metrics and dashboards.
-- During time periods where:
+- Other blob types, such as page blobs and append blobs.<br />The SLA applies exclusively to Block Blob data. If these unsupported blob types contribute to geo lag, the affected time window is excluded from SLA eligibility.
+- Storage accounts where Append or Page Blob API calls were made within the last 30 days.<br />This might impact users that have features enabled on their account that create append or page blobs. For example, Change Feed, Object Replication or resource logs in Azure Monitor
+- Storage accounts with a Last Sync Time greater than 15 minutes lagged during the enablement of Geo priority replication.<br />Data replication prioritization begins immediately after enabling the feature, but the SLA might not apply during this initial sync period. If the account's Last Sync Time exceeds 15 minutes during this time, the SLA doesn't apply until the Last Sync Time is consistently at or below 15 minutes lagged. Customers can [monitor their LST](last-sync-time-get.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) and replication status through Azure's provided metrics and dashboards.
+- Time periods where:
     - Your storage account data transfer rate exceeds 1 gigabit per second (Gbps) and the resulting back log of writes are being replicated, or
     - Your storage account exceeds 100 CopyBlob requests per second and the resulting back log of writes are being replicated
     
@@ -102,11 +101,13 @@ To enable Geo Priority Replication when creating a new storage account, complete
 Connect-AzAccount
 
 # Set variables 
-$rgname = 
-$newAccountName = 
+$rgname         = "<resource-group-name">
+$newAccountName = "<new-account-name>"
  
 # Create storage account with geo priority replication enabled
-$account = New-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $newAccountName -SkuName Standard_GRS -Location centralusEUAP -EnableBlobGeoPriorityReplication $true
+$account = New-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $newAccountName -SkuName Standard_GRS `
+    -Location centralusEUAP -EnableBlobGeoPriorityReplication $true
 
 ```
 # [Azure CLI](#tab/cli)
