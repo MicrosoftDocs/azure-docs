@@ -294,6 +294,25 @@ To understand how you can expose an AKS service to the internet over HTTP or HTT
 
 ## Set up a shared Application Gateway deployment
 
+### Limitation: Sharing an Application Gateway across multiple AGIC instances
+
+When more than one AKS cluster (or AGIC instance) manages the **same** Application Gateway, **each AGIC must be deployed in shared mode** and use a **unique sub-resource name prefix**.  
+Without this isolation, controllers can generate identical sub-resource names (listeners, URL path maps, routing rules), causing overwrites or `InvalidResourceReference` errors.
+
+```yaml
+# Example Helm configuration
+appgw:
+  name: <applicationGatewayName>
+  resourceGroup: <resourceGroup>
+  shared: true                  # Enables shared ownership
+  subResourceNamePrefix: "dev-" # Must be unique per AGIC instance (e.g., "prod-")
+```
+
+Each AGIC should also manage **non-overlapping hostnames or paths**, which you can enforce with [`AzureIngressProhibitedTarget`](https://learn.microsoft.com/azure/application-gateway/ingress-controller-install-existing#enable-a-shared-application-gateway-deployment-by-using-a-new-agic-installation).
+
+> **Note:** Set `appgw.subResourceNamePrefix` to a unique value per cluster when sharing an App Gateway. This ensures Azure resources are uniquely named per controller and prevents one AGIC from deleting or overwriting another’s configuration.
+
+
 By default, AGIC assumes full ownership of the Application Gateway deployment that it's linked to. AGIC version 0.8.0 and later can share a single Application Gateway deployment with other Azure components. For example, you could use the same Application Gateway deployment for an app
 that's hosted on an [Azure virtual machine scale set](https://azure.microsoft.com/services/virtual-machine-scale-sets/) and an AKS cluster.
 
