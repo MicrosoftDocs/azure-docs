@@ -136,7 +136,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
 
    ```azurecli
    az logic integration-account create --resource-group myresourcegroup \
-       --name integration_account_01 --location westus --sku name=Standard
+       --name integration_account_01 --location westus --sku Standard
    ```
 
    Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses (()), and periods (.).

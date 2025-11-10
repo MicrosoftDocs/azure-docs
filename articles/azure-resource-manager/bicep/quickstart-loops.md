@@ -37,7 +37,7 @@ The following Bicep file defines one storage account:
 ```bicep
 param rgLocation string = resourceGroup().location
 
-resource createStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource createStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -81,7 +81,7 @@ A for loop with an index is used in the following sample to create two storage a
 param rgLocation string = resourceGroup().location
 param storageCount int = 2
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -132,7 +132,7 @@ param storageNames array = [
   'fabrikam'
 ]
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for name in storageNames: {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for name in storageNames: {
   name: '${name}str${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -161,7 +161,7 @@ param storages array = [
   }
 ]
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storage in storages: {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for storage in storages: {
   name: '${storage.name}obj${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -186,7 +186,7 @@ param storageNames array = [
   'fabrikam'
 ]
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for (name, i) in storageNames: {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for (name, i) in storageNames: {
   name: '${i}${name}${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -218,7 +218,7 @@ param storageConfig object = {
   }
 }
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for config in items(storageConfig): {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for config in items(storageConfig): {
   name: '${config.value.name}${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -241,7 +241,7 @@ param rgLocation string = resourceGroup().location
 param storageCount int = 2
 param createNewStorage bool = true
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): if(createNewStorage) {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, storageCount): if(createNewStorage) {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {

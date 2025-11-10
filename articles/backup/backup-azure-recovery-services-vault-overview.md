@@ -2,7 +2,7 @@
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
 ms.topic: overview
-ms.date: 06/23/2025
+ms.date: 11/10/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -78,3 +78,4 @@ Use the following articles to:
 - [Back up an IaaS VM](backup-azure-arm-vms-prepare.md).
 - [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 - [Back up a Windows Server](backup-windows-with-mars-agent.md).
+- [Reconfigure backup for datasources in an alternate vault](../business-continuity-center/tutorial-reconfigure-backup-alternate-vault.md).

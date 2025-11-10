@@ -36,7 +36,7 @@ param storageAccountName string = '${prefix}stg${uniqueString(resourceGroup().id
 param vnetName string = '${prefix}Vnet'
 param subnetName string = '${prefix}Subnet'
 
-resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: vnetName
   location: location
   properties: {
@@ -74,7 +74,7 @@ resource subnet 'Microsoft.Network/virtualNetworks/subnets@2024-05-01' existing 
   parent: vnet
   name: subnetName
 }
-resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -96,7 +96,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   }
 }
 
-resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2024-11-30' = {
+resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2025-01-31-preview' = {
   name: userAssignedIdentityName
   location: location
 }
@@ -131,7 +131,7 @@ param vnetName string
 param subnetName string
 param userAssignedIdentityName string
 
-resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' existing = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' existing = {
   name: vnetName
 
   resource subnet 'subnets' existing = {
@@ -139,7 +139,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' existing = {
   }
 }
 
-resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2024-11-30' existing = {
+resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2025-01-31-preview' existing = {
   name: userAssignedIdentityName
 }
 

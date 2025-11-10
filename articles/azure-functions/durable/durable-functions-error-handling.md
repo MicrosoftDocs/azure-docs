@@ -15,13 +15,16 @@ Durable Function orchestrations are implemented in code and can use the programm
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
-## Errors in activity functions
+## Errors in activity functions and sub-orchestrations
 
-Any exception that is thrown in an activity function is marshaled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
+In Durable Functions, unhandled exceptions thrown within activity functions or sub-orchestrations are marshaled back to the orchestrator function using standardized exception types.
 
-For example, consider the following orchestrator function that transfers funds from one account to another:
+For example, consider the following orchestrator function that performs a fund transfer between two accounts:
 
 # [C# (InProc)](#tab/csharp-inproc)
+In Durable Functions C# in-process, unhandled exceptions are thrown as [FunctionFailedException](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception).
+
+The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the `InnerException` property.
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -45,7 +48,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
                 Amount = transferDetails.Amount
             });
     }
-    catch (Exception)
+    catch (FunctionFailedException)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
@@ -63,6 +66,10 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [C# (Isolated)](#tab/csharp-isolated)
+
+In Durable Functions C# Isolated, unhandled exceptions are surfaced as [TaskFailedException](/dotnet/api/microsoft.durabletask.taskfailedexception).
+
+The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [FailureDetails](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -85,7 +92,7 @@ public static async Task Run(
                 Amount = transferDetails.Amount
             });
     }
-    catch (Exception)
+    catch (TaskFailedException)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
@@ -98,6 +105,10 @@ public static async Task Run(
     }
 }
 ```
+
+> [!NOTE]  
+> - The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.  
+> - By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object).  If you want to include additional exception properties in the failure output, see [Include Custom Exception Properties for FailureDetails (.NET Isolated)](#include-custom-exception-properties-for-failuredetails-net-isolated).  
 
 # [JavaScript (PM3)](#tab/javascript-v3)
 
@@ -185,7 +196,7 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 # [PowerShell](#tab/powershell)
 
-By default, cmdlets in PowerShell do not raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
+By default, cmdlets in PowerShell don't raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
 
 1. Use the `-ErrorAction Stop` flag when invoking cmdlets, such as `Invoke-DurableActivity`.
 2. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
@@ -234,6 +245,122 @@ public void transferFunds(
 ---
 
 If the first **CreditAccount** function call fails, the orchestrator function compensates by crediting the funds back to the source account.
+
+## Errors in entity functions
+Exception handling behavior for entity functions differs based on the Durable Functions hosting model:
+
+# [C# (InProc)](#tab/csharp-inproc)
+
+In Durable Functions using C# in-process, original exception types thrown by entity functions are directly returned to the orchestrator.
+
+```csharp
+[FunctionName("Function1")]
+public static async Task<string> RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    try
+    {
+        var entityId = new EntityId(nameof(Counter), "myCounter");
+        await context.CallEntityAsync(entityId, "Add", 1);
+    }
+    catch (Exception ex)
+    {
+        // The exception type will be InvalidOperationException with the message "this is an entity exception".
+    }
+    return string.Empty;
+}
+
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
+{
+    switch (ctx.OperationName.ToLowerInvariant())
+    {
+        case "add":
+            throw new InvalidOperationException("this is an entity exception");
+        case "get":
+            ctx.Return(ctx.GetState<int>());
+            break;
+    }
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+In Durable Functions C# Isolated, exceptions are surfaced to the orchestrator as an `EntityOperationFailedException`. To access the original exception details, inspect its `FailureDetails` property.
+
+```csharp
+[Function(nameof(MyOrchestrator))]
+public static async Task<List<string>> MyOrchestrator(
+   [Microsoft.Azure.Functions.Worker.OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var entityId = new Microsoft.DurableTask.Entities.EntityInstanceId(nameof(Counter), "myCounter");
+    try
+    {
+        await context.Entities.CallEntityAsync(entityId, "Add", 1);
+    }
+    catch (EntityOperationFailedException ex)
+    {
+        // Add your error handling
+    }
+
+    return new List<string>();
+}
+```
+# [JavaScript (PM3)](#tab/javascript-v3)
+
+```javascript
+df.app.orchestration("counterOrchestration", function* (context) {
+    const entityId = new df.EntityId(counterEntityName, "myCounter");
+
+    try {
+        const currentValue = yield context.df.callEntity(entityId, "get");
+        if (currentValue < 10) {
+            yield context.df.callEntity(entityId, "add", 1);
+        }
+    } catch (err) {
+        context.log(`Entity call failed: ${err.message ?? err}`);
+    }
+});
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+df.app.orchestration("counterOrchestration", function* (context) {
+    const entityId = new df.EntityId(counterEntityName, "myCounter");
+
+    try {
+        const currentValue = yield context.df.callEntity(entityId, "get");
+        if (currentValue < 10) {
+            yield context.df.callEntity(entityId, "add", 1);
+        }
+    } catch (err) {
+        context.log(`Entity call failed: ${err.message ?? err}`);
+    }
+});
+```
+
+# [Python](#tab/python)
+
+```python
+@myApp.orchestration_trigger(context_name="context")
+def run_orchestrator(context):
+    try:
+        entityId = df.EntityId("Counter", "myCounter")
+        yield context.call_entity(entityId, "get")
+        return "finished"
+    except Exception as e:
+        # Add your error handling
+```
+# [PowerShell](#tab/powershell)
+
+Entity functions aren't currently not supported in PowerShell.
+
+# [Java](#tab/java)
+
+Entity functions aren't currently not supported in Java.
+
+---
 
 ## Automatic retry on failure
 
@@ -365,7 +492,7 @@ The activity function call in the previous example takes a parameter for configu
 
 ## Custom retry handlers
 
-When using the .NET or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies are not expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
+When using the .NET or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies aren't expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -636,11 +763,90 @@ public boolean timerOrchestrator(
 ---
 
 > [!NOTE]
-> This mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeout) documentation.
+> This mechanism doesn't actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeout) documentation.
 
 ## Unhandled exceptions
 
 If an orchestrator function fails with an unhandled exception, the details of the exception are logged and the instance completes with a `Failed` status.
+
+## Include Custom Exception Properties for FailureDetails (.NET Isolated)
+
+When running Durable Task workflows in the .NET Isolated model, task failures are automatically serialized into a FailureDetails object. By default, this object includes standard fields such as:
+- ErrorType — the exception type name
+- Message — the exception message
+- StackTrace — the serialized stack trace
+- InnerFailure – a nested FailureDetails object for recursive inner exceptions
+
+Starting with Microsoft.Azure.Functions.Worker.Extensions.DurableTask [v1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0), You can extend this behavior by implementing an IExceptionPropertiesProvider (defined in the Microsoft.DurableTask.Worker starting from [v1.16.1](https://www.nuget.org/packages/Microsoft.DurableTask.Worker/1.16.1)package). This provider defines which exception types and which of their properties should be included in the FailureDetails.Properties dictionary.
+
+> [!NOTE]  
+> - This feature is available in **.NET Isolated** only. Support for Java will be added in a future release.  
+> - Make sure you're using **Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.9.0** or later.  
+> - Make sure you're using **Microsoft.DurableTask.Worker v1.16.1** or later.
+
+### Implement an Exception Properties Provider
+Implement a custom IExceptionPropertiesProvider to extract and return selected properties for the exceptions you care about. The returned dictionary will be serialized into the Properties field of FailureDetails when a matching exception type is thrown.
+
+```csharp
+using Microsoft.DurableTask.Worker;
+
+public class CustomExceptionPropertiesProvider : IExceptionPropertiesProvider
+{
+    public IDictionary<string, object?>? GetExceptionProperties(Exception exception)
+    {
+        return exception switch
+        {
+            ArgumentOutOfRangeException e => new Dictionary<string, object?>
+            {
+                ["ParamName"] = e.ParamName,
+                ["ActualValue"] = e.ActualValue
+            },
+            InvalidOperationException e => new Dictionary<string, object?>
+            {
+                ["CustomHint"] = "Invalid operation occurred",
+                ["TimestampUtc"] = DateTime.UtcNow
+            },
+            _ => null // Other exception types not handled
+        };
+    }
+}
+```
+
+### Register the Provider
+Register your custom IExceptionPropertiesProvider in your .NET Isolated worker host, typically in Program.cs:
+```csharp
+using Microsoft.DurableTask.Worker;
+using Microsoft.Extensions.DependencyInjection;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults(builder =>
+    {
+        // Register custom exception properties provider
+        builder.Services.AddSingleton<IExceptionPropertiesProvider, CustomExceptionPropertiesProvider>();
+    })
+    .Build();
+
+host.Run();
+```
+Once registered, any exception that matches one of the handled types will automatically include the configured properties in its FailureDetails.
+
+### Sample FailureDetails Output
+When an exception occurs that matches your provider’s configuration, the orchestration receives a serialized FailureDetails structure like this:
+```json
+{
+  "errorType": "TaskFailedException",
+  "message": "Activity failed with an exception.",
+  "stackTrace": "...",
+  "innerFailure": {
+    "errorType": "ArgumentOutOfRangeException",
+    "message": "Specified argument was out of range.",
+    "properties": {
+      "ParamName": "count",
+      "ActualValue": 42
+    }
+  }
+}
+```
 
 ## Next steps
 

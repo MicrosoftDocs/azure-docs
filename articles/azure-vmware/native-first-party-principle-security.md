@@ -17,7 +17,10 @@ In this article, you learn how to re-enable the Azure VMware Solution service pr
 You must have the permissions to edit applications in your Microsoft Entra ID tenant, such as:  
 - Cloud Application Administrator  
 - Application Administrator  
-- Global Administrator  
+- Global Administrator
+
+> [!NOTE]
+> Roles must be assigned without conditions. Conditional role assignments are not supported for private cloud deployment.
 
 ## Enable first-party application service principal for Azure VMware Solution Gen 2 Private Clouds
 

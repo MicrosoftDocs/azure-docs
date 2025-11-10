@@ -48,6 +48,8 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless).<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). For discovery of installed applications and for agentless dependency analysis, Windows servers must have PowerShell version 2.0 or later installed.<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
 **SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account [requires these permissions](migrate-support-matrix-hyper-v.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. You can use the [account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
+[!INCLUDE [migrate-rbac-permissions](includes/migrate-rbac-permissions.md)]
+
 ## Prepare an Azure user account
 
 To create a project and register the Azure Migrate appliance, you need an account with:

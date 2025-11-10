@@ -907,7 +907,7 @@ param guidValue string = newGuid()
 
 var storageName = 'storage${uniqueString(guidValue)}'
 
-resource myStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource myStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageName
   location: 'West US'
   sku: {
@@ -1502,7 +1502,7 @@ uniqueString(resourceGroup().id, deployment().name)
 The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }

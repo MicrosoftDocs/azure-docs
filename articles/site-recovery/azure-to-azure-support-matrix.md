@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 10/27/2025
+ms.date: 11/07/2025
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -91,6 +91,9 @@ When you enable replication via the VM workflow for cross-subscriptions, the por
 
 Site Recovery supports replication of Azure VMs running the operating systems listed in this section. For example, an already-replicating machine's operating system is later upgraded (or downgraded) to a different major version of the operating system, as in Red Hat Enterprise Linux (RHEL) 8 to RHEL 9. Then you must disable replication, uninstall the mobility agent, and re-enable replication after the upgrade.
 
+>[!NOTE]
+>ASR has launched Preview to support Major Linux OS upgrade. [Learn more](#upgrade-linux-major-os-version-without-disabling-replication-preview).
+
 ### Windows
 
 Operating system | Details
@@ -155,6 +158,34 @@ Ubuntu | New kernel within an already supported kernel series within a supported
 Debian | New kernel within an already supported kernel series within a supported Debian version. An example is 4.19.0-27-cloud-amd64 for Debian 10 if 4.19.0-26-cloud-amd64 is already supported for Debian 10 because both belong to the 4.19.0-* kernel series. Applies to Azure kernels (`-cloud-amd64`) and stock kernels (`-amd64`) only. | New major OS version released. For example, assume Debian releases Debian 11, which Site Recovery doesn't support yet.<br/><br/> New kernel series not previously supported for the same Debian version. An example is 5.10.0-0.deb10.30-cloud-amd64 for Debian 10 if no kernel from the 5.10.0-* series is supported.
 SUSE | New kernel within an already supported kernel series within a supported service pack (SP) version. An example is 6.4.0-150600.8.8 for SUSE 15 SP6 if 6.4.0-150600.8.5 is already supported for SUSE 15 SP6 because both belong to the 6.4.0-150600.8.* kernel series. Applies to Azure kernels (`-azure:`[service pack number]). Stock kernels (`-default`) are supported by default. | New service pack releases. For example, assume SUSE releases SUSE 15 SP7, which Site Recovery doesn't support yet.<br/><br/> New kernel series isn't previously supported for the same SP version.
 RHEL, Rocky, Alma, and Oracle Linux. (All distros are based on RHEL kernels.) | A new kernel for RHEL 8.x or 9.y would be supported if it meets two criteria. The minor OS version (RHEL 8.x or RHEL 9.y) is supported. The kernel series is already supported for that minor OS version. For RHEL 8.x, this support applies only if x ≥6. <br/><br/> For Oracle Linux UEK kernels, this support applies only if new kernels are within a supported UEK kernel series within a supported OS version. | New major version released. For example, assume RHEL 10.x, Rocky Linux 10.x, Alma Linux 10.x, or Oracle Linux 10.x is released, which Site Recovery doesn't support. <br/><br/> Minor OS version is released within a supported major OS version. For example, assume RHEL 9.5 is released, which Site Recovery doesn't support.<br/><br/> New kernels for RHEL 8.x where x <6 (for example, RHEL 8.4) aren't supported within 30 days.<br/><br/> Site Recovery doesn't support new kernel releases for a UEK kernel series.
+
+## Upgrade Linux major OS version without disabling replication (preview)  
+
+Azure Site Recovery (ASR) now supports major version upgrades for Linux OS without disabling replication. This feature is currently available for Azure-to-Azure (A2A) disaster recovery scenario.  
+
+When you upgrade Linux OS to a new major version, ASR detects the change and prompts to update the Mobility Agent as needed. This ensures that replication continues seamlessly and disaster recovery setup remains protected.  
+
+### Supported Linux distributions  
+
+- Red Hat Enterprise Linux (RHEL) - Upgrade from RHEL 7 to RHEL 8, Upgrade from RHEL 8 to RHEL 9. 
+- SUSE Linux Enterprise Server (SLES) - Upgrade from SLES 12 to SLES 15.
+
+>[!NOTE]
+>Support for this feature in preview is available only from ASR agent version 9.66.7567.1 and above. So, first update the ASR agent to version 9.66.7567.1 and later and then, you can do major OS upgrades.
+
+If you configure auto update of ASR agent, ASR agent gets automatically updated in the next update cycle to be compatible with the upgraded OS version. 
+
+To update ASR agent manually, follow these steps: 
+
+1. Upgrade Linux OS and navigate to the **Replicated Items** page of the VM in the Azure portal.  
+2. Select **Update Agent to support new OS version detected on VM**.
+  
+     :::image type="content" source="./media/azure-to-azure-support-matrix/replicated-items.png" alt-text="Screenshot of replicated items." lightbox="./media/azure-to-azure-support-matrix/replicated-items.png":::
+
+3. Review the details in the context pane and proceed with the agent upgrade as prompted.  
+
+>[!NOTE]
+>If you upgrade your Linux OS without updating the ASR Mobility Agent to a compatible version, replication may fail. Ensure that the agent version supports your new OS version. After a major Linux OS upgrade, data resynchronization occurs when the agent is updated.
 
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure VMs
 

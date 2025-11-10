@@ -134,7 +134,7 @@ You can use the what-if operation through the Azure SDKs.
 To see how what-if works, let's runs some tests. First, deploy a Bicep file that creates a virtual network. Save the following Bicep file as `what-if-before.bicep`:
 
 ```bicep
-resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'vnet-001'
   location: resourceGroup().location
   tags: {
@@ -198,7 +198,7 @@ New-AzResourceGroupDeployment `
 After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. Comparing to the preceding example, the following example  misses one of the original tags, a subnet has been removed, and the address prefix has changed. Save the following Bicep file as `what-if-after.bicep`:
 
 ```bicep
-resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'vnet-001'
   location: resourceGroup().location
   tags: {
@@ -494,7 +494,7 @@ If an unevaluated expression appears in the output, it means what-if cannot eval
 ```bicep
 param now string = utcNow()
 
-resource sa 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'acct'
   location: resourceGroup().location
   sku: {

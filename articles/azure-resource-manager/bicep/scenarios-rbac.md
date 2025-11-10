@@ -29,7 +29,7 @@ param storageSkuName string = 'Standard_LRS'
 param roleDefinitionResourceId string
 param principalId string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   kind: 'StorageV2'
@@ -126,7 +126,7 @@ param roleDefinitionResourceId string
 
 var managedIdentityName = 'MyManagedIdentity'
 
-resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
+resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2025-01-31-preview' = {
   name: managedIdentityName
   location: location
 }

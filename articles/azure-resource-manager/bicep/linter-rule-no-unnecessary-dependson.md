@@ -25,7 +25,7 @@ The following example fails this test because the dependsOn entry `appServicePla
 ```bicep
 param location string = resourceGroup().location
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2025-03-01' = {
   name: 'name'
   location: location
   sku: {
@@ -34,7 +34,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   }
 }
 
-resource webApplication 'Microsoft.Web/sites@2023-12-01' = {
+resource webApplication 'Microsoft.Web/sites@2025-03-01' = {
   name: 'name'
   location: location
   properties: {
@@ -51,7 +51,7 @@ You can fix it by removing the unnecessary dependsOn entry:
 ```bicep
 param location string = resourceGroup().location
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2025-03-01' = {
   name: 'name'
   location: location
   sku: {
@@ -60,7 +60,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   }
 }
 
-resource webApplication 'Microsoft.Web/sites@2023-12-01' = {
+resource webApplication 'Microsoft.Web/sites@2025-03-01' = {
   name: 'name'
   location: location
   properties: {

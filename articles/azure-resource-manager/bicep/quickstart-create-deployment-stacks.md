@@ -26,7 +26,7 @@ param resourceGroupLocation string = resourceGroup().location
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param vnetName string = 'vnet${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: resourceGroupLocation
   kind: 'StorageV2'
@@ -35,7 +35,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   }
 }
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: vnetName
   location: resourceGroupLocation
   properties: {

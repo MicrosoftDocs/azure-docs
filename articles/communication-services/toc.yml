@@ -499,6 +499,8 @@ items:
         href: how-tos/calling-sdk/dominant-speaker.md
       - name: Transfer calls
         href: how-tos/calling-sdk/transfer-calls.md
+      - name: Active Call Transfer
+        href: how-tos/calling-sdk/active-call-transfer.md
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
       - name: View PowerPoint Live

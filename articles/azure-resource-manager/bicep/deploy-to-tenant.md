@@ -146,7 +146,7 @@ Resources defined within the Bicep file are applied to the tenant.
 targetScope = 'tenant'
 
 // create resource at tenant
-resource mgName_resource 'Microsoft.Management/managementGroups@2023-04-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2024-02-01-preview' = {
   ...
 }
 ```
@@ -208,7 +208,7 @@ The following template creates a management group.
 targetScope = 'tenant'
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource mgName_resource 'Microsoft.Management/managementGroups@2023-04-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2024-02-01-preview' = {
   name: mgName
   properties: {}
 }

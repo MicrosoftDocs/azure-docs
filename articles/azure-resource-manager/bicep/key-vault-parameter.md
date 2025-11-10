@@ -169,7 +169,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   name: sqlServerName
   location: location
   properties: {
@@ -192,7 +192,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -221,7 +221,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   name: sqlServerName
   location: location
   properties: {

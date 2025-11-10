@@ -51,7 +51,7 @@ param availabilityZones array = [
   '3'
 ]
 
-resource apiManagementService 'Microsoft.ApiManagement/service@2023-05-01-preview' = {
+resource apiManagementService 'Microsoft.ApiManagement/service@2024-10-01-preview' = {
   name: apiManagementServiceName
   location: location
   zones: ((length(availabilityZones) == 0) ? json('null') : availabilityZones)
@@ -102,7 +102,7 @@ param availabilityZones array = [
   '3'
 ]
 
-resource apiManagementService 'Microsoft.ApiManagement/service@2023-05-01-preview' = {
+resource apiManagementService 'Microsoft.ApiManagement/service@2024-10-01-preview' = {
   name: apiManagementServiceName
   location: location
   zones: ((length(availabilityZones) == 0) ? null : availabilityZones)

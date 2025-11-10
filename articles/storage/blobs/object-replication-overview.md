@@ -55,7 +55,7 @@ Object replication asynchronously copies block blobs in a container according to
 > [!IMPORTANT]
 > Because block blob data is replicated asynchronously, the source account and destination account aren't immediately in sync. 
 >
-> OR now supports priority replication, which prioritizes the replication of the operations in an OR Policy. A Service Level Agreement (SLA) guarantees replication performance when the OR policy's source and destination accounts are located within the same continent. The SLA ensures 99.0% of operations are replicated within 15 minutes from source to destination container under the OR policy during the billing month. To learn more about priority replication, visit the [Object Replication Priority Replication](object-replication-priority-replication.md) article.
+> OR now supports priority replication, which prioritizes the replication of all operations in an OR Policy. When OR priority replication is enabled the replication performance of all operations are significantly improved. When a replication policy's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. For more information, visit the [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) and the [Object Replication Priority Replication](object-replication-priority-replication.md) article.
 >
 > You can also check the replication status on the source blob to determine whether replication is complete. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
 

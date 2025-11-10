@@ -5,7 +5,7 @@ services: web-application-firewall
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.date: 01/14/2025
+ms.date: 11/10/2025
 ms.topic: overview
 # Customer intent: "As a web application administrator, I want to implement a centralized web application firewall so that I can efficiently protect my web applications from common vulnerabilities and security threats."
 ---

@@ -18,7 +18,18 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (November 2025)
 
+- Azure Migrate now offers three built-in roles for role-based access control (RBAC), enabling you to implement least privilege access for your Azure Migrate projects. These new roles replace the previous requirement for Contributor or Owner permissions at the subscription level and allow you to grant only the necessary permissions for each migration phase.
+
+  The three new built-in roles are:
+  - **[Azure Migrate Owner](prepare-azure-accounts.md#azure-migrate-owner)**: Permissions to perform end-to-end operations across all migration phases (Decide, Plan, and Execute). A user must be assigned the Azure Migrate Owner role or a higher privileged role to create an Azure Migrate project.
+  - **[Azure Migrate Decide & Plan Expert](prepare-azure-accounts.md#azure-migrate-decide-and-plan-expert)**: Provides limited permissions to perform scoped operations in the Decide and Plan phases of migration.
+  - **[Azure Migrate Execute Expert](prepare-azure-accounts.md#azure-migrate-execute-expert)**: Permissions for executing migrations and monitoring progress during the Execute phase.
+
+  This enhanced security model follows Azure security best practices and enables organizations to implement granular access control for their migration teams.
 - Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get recommend migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).
+- Public preview: Azure Migrate now enables **Windows Server redeployment to Azure using Infrastructure as Code (IaC)**. Generate IaC templates for assessed workloads, deploy application landing zones, and integrate disk configurations for complete, repeatable migrations—reducing manual effort and improving consistency. [Learn more](server-redeploy.md).
+
+- Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get the recommended migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).
 
 - Public preview: Azure Migrate now supports Arc-based discovery, enabling you to assess on-premises servers and SQL Server instances that are already Azure Arc-enabled—without deploying additional infrastructure. This integration accelerates migration planning by leveraging existing Arc data to generate business cases and assessments within an hour. [Learn more](concepts-arc-resource-discovery.md). 
     - The VM extension is an optional component that collects performance data from Arc-enabled servers to provide right sized recommendations in assessments and business cases. [Learn more](migrate-virtual-machine-extension-reference.md).

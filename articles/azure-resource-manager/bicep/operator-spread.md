@@ -101,7 +101,7 @@ param tier string = 'Hot'
 var storageAccountName = uniqueString(resourceGroup().id)
 var accessTier = tier != '' ? {accessTier: tier} : {}
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -122,7 +122,7 @@ param tier string = 'Hot'
 
 var storageAccountName = uniqueString(resourceGroup().id)
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -143,7 +143,7 @@ param storageProperties {
   accessTier: string?
 }
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueString(resourceGroup().id)
   location: location
   sku: {

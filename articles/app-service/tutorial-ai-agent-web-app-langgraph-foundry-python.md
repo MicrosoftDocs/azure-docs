@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 08/20/2025
+ms.date: 11/10/2025
 ms.custom:
   - devx-track-python
 ms.collection: ce-skilling-ai-copilot

@@ -235,6 +235,9 @@ This procedure has steps both in Microsoft Sentinel and your SAP system, and req
    - **SIAG_ROLE_GET_AUTH**, to retrieve security role authorizations
       
    - **/OSP/SYSTEM_TIMEZONE**, to retrieve SAP system timezone details
+
+> [!NOTE] 
+> The provided [role](#configure-the-microsoft-sentinel-role) is configured for least privilege access. This ensures function modules such as RFC_READ_TABLE are used only as needed. Consider [SAP's best practices for RFC access](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configure-access-control-rfc#loioca5868997e48468395cf0ca4882f5783__limit) and SAP Unified Connectivity (UCON) settings to control function module access beyond the controls of SAP Cloud Connector and the SAP role.
       
 1. Add a new destination in SAP BTP that points the virtual host you'd created earlier. Use the following details to populate the new destination:
 

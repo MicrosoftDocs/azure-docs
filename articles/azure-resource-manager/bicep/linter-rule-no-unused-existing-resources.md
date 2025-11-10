@@ -23,7 +23,7 @@ To reduce confusion in your template, delete any [existing resources](./existing
 The following example fails this test because the existing resource **stg** is declared but never used:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: 'examplestorage'
 }
 ```

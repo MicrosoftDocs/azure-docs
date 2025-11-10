@@ -17,17 +17,14 @@ ms.custom: references_regions
 
 Object replication (OR) currently copies all operations from a source storage account to one or more destination accounts asynchronously, with no guaranteed completion time. However, with the introduction of object replication priority replication, users can now choose to prioritize the replication of the operations in their replication policy.
 
-Priority replication comes with a Service Level Agreement (SLA) guarantee if your policy's source and destination account are located within the same continent. The SLA ensures 99.0% of operations replicate from the source account to the destination account within 15 minutes during a billing month. Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
+When a replication's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. For more information, see [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
+[!INCLUDE [object-replication-alert](includes/object-replication-alert.md)]
 
-> [!IMPORTANT]
-> This feature is generally available and offered in all regions.
->
-> To gain access to the Azure portal experience of Object Replication priority replication, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowPriorityObjectReplicationInPortal as the feature name. The provider name for this preview feature is `Microsoft.Storage`.
 
 ## Benefits of priority replication
 
-Priority replication significantly improves the performance and observability for Azure Object Replication (OR). Moreover, priority replication comes with a Service Level Agreement (SLA) that provides users with a performance guarantee provided the source and destination storage accounts are located within the same continent. The SLA guarantees that 99.0% of operations are replicated from the source to the destination storage account within 15 minutes during a billing month. This level of assurance is especially valuable for scenarios involving disaster recovery, business continuity, and high-availability architectures.
+Object Replication (OR) priority replication significantly improves the replication performance and observability for Azure Object Replication. Moreover, priority replication comes with a Service Level Agreement (SLA) that provides users with a performance guarantee provided the source and destination storage accounts are located within the same continent. For supported workloads OR priority replication also replicates 99.0% of objects within 15 minutes. This level of assurance is especially valuable for scenarios involving disaster recovery, business continuity, and high-availability architectures.
 
 In addition to performance guarantees, priority replication automatically enables OR metrics, which enhances visibility into replication progress. These metrics allow users to monitor the number of operations and bytes pending replication, segmented into time buckets such as 0–5 minutes, 5–10 minutes, and beyond. This detailed insight helps teams proactively manage replication health and identify potential delays. To learn more about OR metrics, see the [replication metrics](object-replication-overview.md#replication-metrics) article.
 
@@ -96,6 +93,10 @@ To enable OR Priority Replication when creating a new OR policy, complete the fo
 
 # [Azure PowerShell](#tab/powershell)
 
+Before running the following commands, ensure you have the latest Azure PowerShell version installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell).
+
+You can use the `Set-AzStorageObjectReplicationPolicy` cmdlet together with the `New-AzStorageObjectReplicationPolicyRule` cmdlet to enable OR Priority Replication on a new policy. Use the example script below, or refer to the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy?view=azps-14.6.0&preserve-view=true) for more details.
+
 ```powershell
 
 # Login to your Azure account
@@ -127,6 +128,10 @@ $srcPolicy.PriorityReplication.Enabled
 ```
 
 # [Azure CLI](#tab/cli)
+
+Before running the following commands, ensure you have the latest Azure CLI version installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
+
+You can use the `az storage account or-policy create` command to create a new Object Replication policy with priority replication enabled. Use the example script below, or refer to the [az storage account create](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-create) documentation for more details.
 
 ```azurecli-interactive
 
@@ -181,7 +186,9 @@ In the Azure portal, navigate to the storage account you want to modify. In the 
 
 # [Azure PowerShell](#tab/powershell)
 
-Open PowerShell and ensure you have the latest Azure PowerShell module installed. 
+Before running the following commands, ensure you have the latest Azure PowerShell version installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell).
+
+You can use the `Set-AzStorageObjectReplicationPolicy` cmdlet to enable or disable OR Priority Replication on an existing policy. Use the example script below, or refer to the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy?view=azps-14.6.0&preserve-view=true) for more details.
 
 ```powershell
 
@@ -234,6 +241,10 @@ $srcPolicy.PriorityReplication.Enabled
 ```
 
 # [Azure CLI](#tab/cli)
+
+Before running the following commands, ensure you have the latest Azure CLI version installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
+
+You can use the `az storage account or-policy update` command to enable or disable an existing Object Replication policy. Use the example script below, or refer to the [az storage account update](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-update) documentation for more details.
 
 ```azurecli-interactive
 

@@ -26,7 +26,7 @@ Vaulted backups of Azure Data Lake Storage are available in the following region
 
 | Availability type | Region |
 | --- | --- |
-| **General availability** | East Asia, France South, Southeast US, Switzerland North, Switzerland West, UAE North, UK West, West India. |
+| **General availability** | East Asia, France South, US South Central, Switzerland North, Switzerland West, UAE North, UK West, West India. |
 | **Preview** | Australia East, Central India, Central US, East US, East US 2, Germany West Central, North Central US, North Europe, South India, Southeast Asia, West Central US, West US, West US 2, West US 3. |
 
 ## Supported storage accounts

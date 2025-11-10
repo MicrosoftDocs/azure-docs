@@ -334,8 +334,6 @@ items:
             href: troubleshoot/iot-operations-faq.yml
       - name: Reference
         items:
-          - name: Azure IoT Operations Arc Jumpstart scenario
-            href: https://aka.ms/ArcJumpstartAIO
           - name: Azure IoT Operations release notes
             href: https://github.com/Azure/azure-iot-operations/releases
           - name: Azure IoT Operations CLI

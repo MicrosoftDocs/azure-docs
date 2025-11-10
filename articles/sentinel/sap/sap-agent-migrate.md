@@ -49,7 +49,7 @@ Your existing investment in the Microsoft Sentinel Solution for SAP analytic rul
     | order by TimeGenerated desc
     ```
 1. **Monitor**: Run both the containerized agent and the agentless data connector in parallel for a defined period to ensure stability and completeness of log collection.
-1. **Decommission**: Once you have validated that the agentless data connector is functioning correctly, proceed to decommission the containerized SAP agent. Stop the container, remove all migrated SAP connections on Microsoft Sentinel from the containerized agent, and optionally delete all associated resources on Azure like the virtual machine running the container and the Azure KeyVault holding your configuration.
+1. **Decommission**: Once you have validated that the agentless data connector is functioning correctly, proceed to decommission the containerized SAP agent. See the "[Stop SAP data collection](stop-collection.md)" article for details.
 
 ## Feature parity
 

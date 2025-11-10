@@ -45,7 +45,7 @@ In some cases, you can fix it by getting a property from a resource you've deplo
 param storageAccountName string
 param location string = resourceGroup().location
 
-resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {

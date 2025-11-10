@@ -132,7 +132,7 @@ param location string = resourceGroup().location
 
 var nsgconfig = loadJsonContent('nsg-security-rules.json')
 
-resource newNSG 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+resource newNSG 'Microsoft.Network/networkSecurityGroups@2025-01-01' = {
   name: 'example-nsg'
   location: location
   properties: {
@@ -201,7 +201,7 @@ param location string = resourceGroup().location
 
 var nsgconfig = loadYamlContent('nsg-security-rules.yaml')
 
-resource newNSG 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+resource newNSG 'Microsoft.Network/networkSecurityGroups@2025-01-01' = {
   name: 'example-nsg'
   location: location
   properties: {

@@ -23,7 +23,7 @@ The following example fails this test because `fizz` is defined in the parent te
 ```bicep
 var fizz = 'buzz'
 
-resource nested 'Microsoft.Resources/deployments@2024-03-01' = {
+resource nested 'Microsoft.Resources/deployments@2025-04-01' = {
   name: 'name'
   properties: {
     mode: 'Incremental'

@@ -25,21 +25,9 @@ Azure Blob Storage Geo Priority Replication is designed to meet the stringent co
 
 For supported workloads, a Service Level Agreement (SLA) also backs geo priority replication, and applies to any account that has Geo priority replication enabled. It guarantees that the Last Sync Time (LST) for your account's Block Blob data remains lagged 15 minutes or less for 99.0% of the billing month. In addition to prioritized replication traffic, the feature includes enhanced monitoring and detailed telemetry.
 
-<!--
-> [!IMPORTANT]
-> This feature is generally available but is currently only offered in a limited number of regions.
->
-> Priority replication is available only within the following regions:
-> - East US 2
-> - West US 2
-> - North Europe
-> - West Europe
-> - Japan East
-> - Japan West
-> - Central India
-> - Switzerland North
-> - UAE North
--->
+Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
+
+[!INCLUDE [replication-disclaimer](includes/geo-replication-alert.md)]
 
 ## Benefits of geo priority replication
 
@@ -76,6 +64,9 @@ To ensure transparency and empower customers to track the performance of Geo pri
 
 After geo priority replication is enabled and you register for the Geo Blob Lag metric (preview) you have the ability to view the new metric.
 
+> [!IMPORTANT]
+> Geo Blob Lag metrics can take up to 24 hours to begin displaying after registering for the feature.
+
 :::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled-sml.png" alt-text="Screenshot showing the geo priority replication enabled status for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-enabled-lrg.png":::
 
 ## Enable and disable Geo-Redundant Storage replication
@@ -95,6 +86,10 @@ To enable Geo Priority Replication when creating a new storage account, complete
 
 # [Azure PowerShell](#tab/powershell)
 
+Before running the following commands, ensure you have the latest Azure PowerShell version installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell).
+
+You can use the `New-AzStorageAccount` cmdlet to create a new storage account with Geo Priority Replication enabled. Use the example script below, or refer to the [New-AzStorageAccount documentation](/powershell/module/az.storage/new-azstorageaccount?view=azps-14.6.0&preserve-view=true#example-22-create-a-storage-account-with-blob-geo-priority-replication-enabled) for more details.
+
 ```powershell
 
 # Login to your Azure account
@@ -111,6 +106,10 @@ $account = New-AzStorageAccount -ResourceGroupName $rgname `
 
 ```
 # [Azure CLI](#tab/cli)
+
+Before running the following commands, ensure you have the latest Azure CLI version installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
+
+You can use the `az storage account create` command to create a new storage account with Geo Priority Replication enabled. Use the example script below, or refer to the [az storage account create](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-create) documentation for more details.
 
 ```azurecli-interactive
 
@@ -158,6 +157,10 @@ To enable or disable Geo Priority Replication for an existing storage account, c
 
 # [Azure PowerShell](#tab/powershell)
 
+Before running the following commands, ensure you have the latest Azure PowerShell version installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell).
+
+You can use the `Set-AzStorageAccount` cmdlet to enable Geo Priority Replication on an existing storage account. Use the example script below, or refer to the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount?view=azps-14.6.0&preserve-view=true#-enableblobgeopriorityreplication) documentation for more details.
+
 ```powershell
 # Login to your Azure account
 Connect-AzAccount
@@ -174,6 +177,10 @@ $account = Set-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $
 ```
 
 # [Azure CLI](#tab/cli)
+
+Before running the following commands, ensure you have the latest Azure CLI installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
+
+You can use the `az storage account update` command to enable or disable Geo Priority Replication on an existing storage account. Use the example script below, or refer to the [az storage account update](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-update) documentation for more details.
 
 ```azurecli-interactive
 

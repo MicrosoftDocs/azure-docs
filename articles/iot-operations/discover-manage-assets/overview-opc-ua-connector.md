@@ -37,7 +37,7 @@ As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes
 
 The connector for OPC UA supports the following features as part of Azure IoT Operations:
 
-- Simultaneous connections to multiple OPC UA servers configured by using Kubernetes `AssetEndpointProfile` custom resources (CRs).
+- Simultaneous connections to multiple OPC UA servers configured by using Kubernetes `device` custom resources (CRs).
 - Publish OPC UA data value changes in OPC UA PubSub format with JSON encoding.
 - Publish message headers as user properties in the MQTT message. The headers in the messages published by the connector for OPC UA are based on the [CloudEvents specification for OPC UA](https://github.com/cloudevents/spec/blob/main/cloudevents/extensions/opcua.md).
 - Publish OPC UA events with predefined event fields.
@@ -47,7 +47,8 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 - Integrated [OpenTelemetry](https://opentelemetry.io/) compatible observability.
 - OPC UA transport encryption.
 - Anonymous authentication and authorization based on username and password.
-- `AssetEndpointProfile` and `Asset` CRs configurable by using Azure REST API and the operations experience web UI.
+- `device` and `asset` CRs configurable by using Azure REST API and the operations experience web UI.
+- Dynamic resolution of nodes at runtime using the OPC UA `TranslateBrowsePathToNodeId` service.
 
 ## How it works
 
@@ -73,7 +74,7 @@ To write values to a node in a connected OPC UA server, the connector for OPC UA
 
 1. Checks the payload to ensure all data points exist in the target dataset.
 
-1. Writes the values to the OPC UA server, and publishes a success or failure response to the MQTT broker. The changed value is published to the standard telemetry topic associated with the dataset.
+1. Writes the values to the OPC UA server, and publishes a success or failure response to the MQTT broker. The changed value is published to the standard message topic associated with the dataset.
 
 To generate a write request, publish a JSON message to the MQTT topic using MQTT v5 request/response semantics. Specify the dataset name and the values to be written in the payload. Each MQTT message includes metadata that defines system-level and user-defined properties such as `SourceId`, `ProtocolVersion`, and `CorrelationData` to ensure traceability and conformance.
 
@@ -147,6 +148,38 @@ The subject field contains the name of the asset that the message is related to.
 
 > [!NOTE]
 > For assets created in the operations experience web UI, the subject property for any messages sent by the asset is set to the `externalAssetId` value. In this case, the `subject` property contains a GUID rather than a friendly asset name.
+
+## Resolve nodes dynamically using browse paths
+
+When you configure OPC UA data points or events in an asset, you typically add an OPC UA server node ID in the **Data source** field. This approach assumes that node IDs are stable across server restarts and deployments. However, some OPC UA servers create node IDs dynamically at runtime or on demand. You can't persist these dynamic node IDs in an asset configuration because they might change over time.
+
+To address this scenario, the connector can resolve dynamic nodes at runtime using the OPC UA `TranslateBrowsePathToNodeId` service. This service resolves a target node ID from a starting object and a relative browse path. When you configure a **Start instance** value in a dataset or event configuration, each data point or event requires a valid relative browse path in its **Data source** property. The connector translates the relative browse path to a concrete node ID at runtime.
+
+> [!NOTE]
+> If you don't provide a **Start instance** value, the connector uses the **Data source** property as a fixed node ID.
+
+Example **Start instance** values:
+
+* `i=2555`
+* `nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1`
+* `nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=5`
+* `ns=10;s=System.Pump1`
+* `ns=1;b=M/RbKBsRVkePCePcx24oRA==`
+
+Example relative browse paths to use in the **Data source** field:
+
+* `/1:SYSTEM/1:PUMP/1:P1`
+* `/2:Block&.Output`
+* `/3:Truck.0:NodeVersion`
+* `<!HasChild>Truck`
+* `<1:ConnectedTo>1:Boiler/`
+
+For more information about the relative browse path syntax, see [OPC Foundation Part 4 A.2](https://reference.opcfoundation.org/Core/Part4/v105/docs/A.2).
+
+The relative browse paths must use numeric OPC UA namespace indexes. There's currently no support for namespace names in string format.
+
+> [!IMPORTANT]
+> Namespace indexes can change within the server. If namespace indexes change, you must reconfigure them in the asset definition.
 
 ## How does it relate to Azure IoT Operations?
 

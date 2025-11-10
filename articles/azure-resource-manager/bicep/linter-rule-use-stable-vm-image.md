@@ -27,7 +27,7 @@ The following example fails this test.
 ```bicep
 param location string = resourceGroup().location
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'virtualMachineName'
   location: location
   properties: {
@@ -47,7 +47,7 @@ You can fix it by using an image that doesn't contain the string `preview` in th
 ```bicep
 param location string = resourceGroup().location
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'virtualMachineName'
   location: location
   properties: {

@@ -158,6 +158,8 @@ A dataset defines where the connector sends the data it collects from a collecti
 
     :::image type="content" source="media/howto-configure-opc-ua/create-dataset.png" alt-text="Screenshot that shows how to create a dataset in the operations experience." lightbox="media/howto-configure-opc-ua/create-dataset.png":::
 
+    Use the **Start instance** field to specify the starting node for resolving relative browse paths for data points in the dataset. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
+
 1. Select **Create and next** to create the dataset.
 
 > [!TIP]
@@ -187,6 +189,9 @@ Now you can define the data points associated with the dataset. To add OPC UA da
     | ------- | -------- |
     | ns=3;s=FastUInt10 | Temperature |
     | ns=3;s=FastUInt100 | Humidity |
+
+    > [!NOTE]
+    > If you're using relative browse paths to resolve dynamic nodes, the **Data source** field contains a relative browse path. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
 
 1. On the **data points** page, select **Next** to go to the **Add events** page.
 
@@ -249,6 +254,9 @@ Now you can define the events associated with the asset. To add OPC UA events:
       - Key frame count. You can override the default value for this data point.
 
     :::image type="content" source="media/howto-configure-opc-ua/add-event.png" alt-text="Screenshot that shows adding events in the operations experience." lightbox="media/howto-configure-opc-ua/add-event.png":::
+
+    > [!NOTE]
+    > To resolve node IDs dynamically, use the **Start instance** field to specify the starting node ID, and the **Data source** field to specify the relative browse path. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
 
 1. Select **Manage default settings** to configure default event settings for the asset. These settings apply to all the OPC UA events that belong to the asset. You can override these settings for each event that you add. Default event settings include:
 

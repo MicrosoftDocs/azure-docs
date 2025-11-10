@@ -95,7 +95,7 @@ var role = {
 }
 var uniqueStorageName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -118,7 +118,7 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2022-04-01' 
 You can apply an extension resource to an existing resource. The following example adds a lock to an existing storage account.
 
 ```bicep
-resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: 'examplestore'
 }
 

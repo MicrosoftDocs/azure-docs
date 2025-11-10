@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-mallicka
-  ms.date: 09/22/2025
+  ms.date: 11/01/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -65,6 +65,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Threat Detection with Microsoft Defender for Cloud integration (preview)
+            url: threat-detection-overview.md
           - text: Azure Files (Premium) vaulted backup
             url: azure-file-share-backup-overview.md
           - text: Azure Elastic SAN backup (preview)

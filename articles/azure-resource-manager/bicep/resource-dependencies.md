@@ -50,7 +50,7 @@ A resource that includes the [parent](./child-resource-name-type.md) property ha
 The following example shows a storage account and file service. The file service has an implicit dependency on the storage account.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -59,12 +59,12 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-05-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2025-06-01' = {
   name: 'default'
   parent: storage
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-05-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01' = {
   name: 'exampleshare'
   parent: service
 }

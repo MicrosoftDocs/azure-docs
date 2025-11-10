@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/06/2025
+ms.date: 11/10/2025
 ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a cache volume in Azure NetApp Files, so that I can leverage scalable storage solutions and reduce cost.
@@ -45,7 +45,6 @@ If you're enabling write-back on the external origin volume:
 * Each external origin system node has at least 128 GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
 * Testing is executed for files smaller than 100 GB and WAN roundtrip times between the cache and origin not exceeding 100 milliseconds. Any workloads outside of these limits might result in unexpected performance characteristics.
 * The external origin must remain less than 80% full. Cache volumes aren't granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
-* You shouldn't configure qtree, user, or group quotas at an origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
 
 ### Interoperability considerations 
 

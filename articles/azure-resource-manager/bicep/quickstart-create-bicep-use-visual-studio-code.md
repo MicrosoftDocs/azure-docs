@@ -36,7 +36,7 @@ Launch Visual Studio Code, and create a new file named _main.bicep_. In _main.bi
 Your Bicep file now contains the following code:
 
 ```bicep
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'name'
   location: location
   properties: {
@@ -157,7 +157,7 @@ After the single quote for the resource type, add **=** and a space. You're pres
 This option adds all of the properties for the resource type that are required for deployment. After selecting this option, your storage account has the following properties:
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name:
   location:
   sku: {
@@ -184,7 +184,7 @@ When finished, you have:
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'exampleVNet'
   location: location
   properties: {
@@ -210,7 +210,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   }
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {

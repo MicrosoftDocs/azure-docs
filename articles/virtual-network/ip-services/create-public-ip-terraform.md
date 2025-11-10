@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.topic: quickstart
-ms.date: 05/12/2025
+ms.date: 11/05/2025
 ms.custom: mode-api, devx-track-terraform 
 # Customer intent: As a cloud engineer, I want to create and configure public IP addresses using Terraform, so that I can facilitate public connections to Azure resources with the appropriate routing preferences and tiers for my applications.
 ---
@@ -47,6 +47,10 @@ An Azure resource group is a logical container into which Azure resources are de
 
 # [Standard SKU](#tab/create-public-ip-standard)
 
+### Create a standard zone-redundant IP address
+
+In this section, you learn how to create a standard zone-redundant public IP address.
+
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
 >
@@ -58,11 +62,13 @@ An Azure resource group is a logical container into which Azure resources are de
 > For versions of the API older than 2020-08-01, omit the `zone` field to create a zone-redundant IP address. 
 >
 
-## Create a zonal or no-zone public IP address
 
-In this section, you learn how to create a zonal and a no-zone public IP address. Note this latter type of address is only valid in regions with no availability zones.
 
 # [Zonal](#tab/create-public-ip-zonal)
+
+### Create a zonal public IP address
+
+In this section, you learn how to create a zonal public IP address. Note this latter type of address is only valid in regions with no availability zones.
 
 The following code snippet creates a standard zonal public IPv4 address in Zone 2 named **myZonalStandardPublicIP**.
 
@@ -72,19 +78,6 @@ To create an IPv6 address, set the `ip_version` value to **IPv6**.
 
 >[!NOTE]
 >For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-# [Non-zonal](#tab/create-public-ip-non-zonal)
-
-The following code snippet creates a standard public IPv4 address as a non-zonal resource named **myNonZonalStandardPublicIP**, which is used for regions without availability zones. If this template is used in regions with availability zones, a zone-redundant IP address will be created.
-
->[!NOTE]
->The following command works for API version 2020-08-01 or later. For more information about the API version currently being used, see [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
-
-To create an IPv6 address, set the `ip_version` value to **IPv6**.
-
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="47-56":::
-
-The removal of the `zone` field is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 

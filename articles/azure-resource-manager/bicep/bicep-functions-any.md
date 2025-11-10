@@ -38,7 +38,7 @@ The value in a form that's compatible with any data type in Bicep.
 The following example shows how to use the Bicep `any()` function to provide numeric values as strings.
 
 ```bicep
-resource wpAci 'Microsoft.ContainerInstance/containerGroups@2023-05-01' = {
+resource wpAci 'Microsoft.ContainerInstance/containerGroups@2025-09-01' = {
   name: 'wordpress-containerinstance'
   location: location
   properties: {

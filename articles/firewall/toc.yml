@@ -180,6 +180,8 @@ items:
     href: snat-private-range.md
   - name: Customer-controlled maintenance
     href: customer-controlled-maintenance.md
+  - name: Packet capture on Azure Firewall
+    href: packet-capture.md
 - name: Secure
   items:
   - name: Secure firewall deployment
