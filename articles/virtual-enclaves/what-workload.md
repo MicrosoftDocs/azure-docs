@@ -29,7 +29,7 @@ This diagram shows two example Workloads. The `Shared Workload` is linked to thr
 [ ![Diagram showing two example workloads linked to both the other Virtual Enclaves resources and their workload resource groups.](./media/mermaid-workloads-example.png) ](./media/mermaid-workloads-example.png#lightbox)
 
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the graph image.
+This is the mermaid definition for the above graph. Use this to edit and regenerate the PNG image.
 
 ```mermaid
 ---
