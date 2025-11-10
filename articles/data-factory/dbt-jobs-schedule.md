@@ -1,3 +1,11 @@
+title: dbt Jobs in Microsoft Fabric – Schedule dbt job
+description: Learn how to create and configure dbt Jobs in Microsoft Fabric.
+author: vasquezd21
+ms.author: vasquezd21
+ms.topic: how-to
+ms.date: 11/10/2025
+---
+
 ## How to schedule a dbt job
 
 1. **Open your dbt job** in Fabric.
@@ -20,4 +28,5 @@
 
 - **Automate model refreshes:** Keep your analytics up to date.
 - **Support CI/CD workflows:** Schedule builds and tests after data loads.
+
 - **Reduce manual effort:** dbt jobs run automatically at your chosen intervals.
