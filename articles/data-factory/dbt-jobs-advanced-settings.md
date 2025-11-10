@@ -1,9 +1,16 @@
-### Advanced Settings
+title: dbt Jobs in Microsoft Fabric – advanced settings
+description: Learn how to create and configure dbt Jobs in Microsoft Fabric.
+author: vasquezd21
+ms.author: vasquezd21
+ms.topic: how-to
+ms.date: 11/10/2025
+---
+# Advanced Settings
 
 
 After configuring your dbt job’s Profile, click **Advanced Settings** to fine-tune execution and run behavior. The Advanced Settings panel is split into two tabs:
 
-##### General Settings
+## General Settings
 
 Here you can adjust project-level execution options:
 
@@ -17,7 +24,7 @@ Here you can adjust project-level execution options:
 3. (Optional) Enable **Fail fast** or **Full refresh** as needed.
 4. Click **Apply** to save.
 
-<img src="images\dbtadvancedgeneral.png" width="700px" />
+<img src="images\dbtadvancedgeneral.png" />
 
 ---
 
@@ -42,3 +49,4 @@ This tab lets you control which models to run and how to select them:
    - For simple runs, select models from the tree.
    - For advanced runs, configure selectors for targeted execution.
 3. Click **Apply** to save.
+
