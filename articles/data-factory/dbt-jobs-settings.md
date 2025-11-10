@@ -1,4 +1,12 @@
-## dbt Job Settings and Commands
+title: dbt Jobs in Microsoft Fabric – dbt Settings and Commands
+description: Learn how to create and configure dbt Jobs in Microsoft Fabric.
+author: vasquezd21
+ms.author: vasquezd21
+ms.topic: how-to
+ms.date: 11/10/2025
+---
+
+# dbt Job Settings and Commands
 
 ### Settings and Tabs
 Each dbt job in Fabric includes key tabs to help manage your project:
@@ -55,4 +63,5 @@ The following dbt adapters are supported in Microsoft Fabric:
 
 
 Each adapter supports its respective connection parameters and SQL dialect.
+
 
