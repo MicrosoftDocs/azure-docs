@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 11/10/2025
 ---
 
-## How to schedule a dbt job
+# How to schedule a dbt job
 
 1. **Open your dbt job** in Fabric.
 2. Click the **Schedule** tab in the top panel.
@@ -30,3 +30,4 @@ ms.date: 11/10/2025
 - **Support CI/CD workflows:** Schedule builds and tests after data loads.
 
 - **Reduce manual effort:** dbt jobs run automatically at your chosen intervals.
+
