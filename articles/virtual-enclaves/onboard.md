@@ -78,37 +78,9 @@ $resourceProviders = @(
 
 $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ -Verbose}
 
-$subID = (Get-AzContext).subscription.id
-$objectId = (Get-AzADServicePrincipal -DisplayName "Mission Enclave").Id
-# This Powershell command assigns the "Contributor" role to a specified user or service principal within a given Azure subscription.
-# 
-# Parameters:
-# - $objectId: The Object ID of the user or service principal to which the role will be assigned.
-# - $subId: The subscription ID where the role assignment will take place.
-# 
-# The -Verbose flag is used to provide detailed information about the execution of the command.
-New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "Contributor" -Scope "/subscriptions/$subId" -Verbose
-New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Administrator" -Scope "/subscriptions/$subId" -Verbose  
-
 ```
 
-5. Select the subscription `Access control (IAM)` then select `Add` and `Add role assignment`.
-
-![Screenshot showing add role selection in the portal.](./media/onboard-subscription-add-role.png)
-
-6. Select `Privileged administrator roles`, select `owner`, then select `Next`.
-
-![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
-
-7. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
-
-![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-
-8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
-
-![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-
-9. Once the update is complete, proceed to [Azure setup](#azure-setup) or [next steps](#next-steps).
+5. Once the update is complete, proceed to [Azure setup](#azure-setup) or [next steps](#next-steps).
 
 ### Option 2: Azure portal
 
@@ -123,23 +95,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 
    ![Screenshot showing the Microsoft.Mission resource provider registered successfully.](./media/onboard-mission-registered.png)
 
-5. Select the subscription `Access control (IAM)` then select `Add` and `Add role assignment`.
-
-![Screenshot showing add role selection in the Azure portal.](./media/onboard-subscription-add-role.png)
-
-6. Select `Privileged administrator roles`, select `owner`, then select `Next`.
-
-![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
-
-7. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
-
-![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-
-8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
-
-![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-
-9. Once the update is complete, proceed to [Azure setup](#azure-setup) or [next steps](#next-steps).
+5. Proceed to [Azure setup](#azure-setup) or [next steps](#next-steps).
 
 For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
 
