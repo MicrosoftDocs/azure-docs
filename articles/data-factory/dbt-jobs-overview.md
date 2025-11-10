@@ -1,3 +1,11 @@
+title: dbt Jobs in Microsoft Fabric – Overview
+description: Learn how to create and configure dbt Jobs in Microsoft Fabric.
+author: vasquezd21
+ms.author: vasquezd21
+ms.topic: how-to
+ms.date: 11/10/2025
+---
+
 # dbt Jobs in Microsoft Fabric
 
 ### What is a dbt Job?
@@ -10,4 +18,5 @@ This native experience simplifies collaboration, improves governance, and ensure
 <!-- ### When to Use dbt job
 Use dbt jobs in Microsoft Fabric when you want to:
 - **Automate SQL transformations** without managing external orchestration (no Airflow, no CLI)
+
 - **Collaborate in-platform**, keeping transformations, pipelines, and reporting in one Fabric workspace. -->
