@@ -51,12 +51,12 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v4.x](#tab/v4/isolated-process)
 
-| Supported version | Support level | Expected end-of-support date |
-| ---- | ---- |--- |
-| .NET 10 | Preview | See [.NET and .NET Core release lifecycle][dotnet-policy]. |
-| .NET 9 | GA | [November 10, 2026][dotnet-policy]<sup>1</sup> |
-| .NET 8 | GA | [November 10, 2026][dotnet-policy] |
-| .NET Framework 4.8.1 | GA | See [.NET Framework Support Policy][dotnet-framework-policy]. |
+| Supported version    | Support level | Expected end-of-support date                                  |
+|----------------------|---------------|---------------------------------------------------------------|
+| .NET 10              | GA            | [November 14, 2028][dotnet-policy].                           |
+| .NET 9               | GA            | [November 10, 2026][dotnet-policy]<sup>1</sup>                |
+| .NET 8               | GA            | [November 10, 2026][dotnet-policy]                            |
+| .NET Framework 4.8.1 | GA            | See [.NET Framework Support Policy][dotnet-framework-policy]. |
 
 <sup>1</sup> .NET 9 previously had an expected end-of-support date of May 12, 2026. During the .NET 9 service window, the .NET team extended support for STS versions to 24 months, starting with .NET 9. For more information, see [the blog post](https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/).
 

@@ -312,3 +312,8 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
+
+
+## Review Application Gateway Activity Log
+
+When troubleshooting Application Gateway Ingress Controller issues, it's good practice to check the Application Gateway's Activity Log in addition to Kubernetes resources. Every time AGIC applies a new configuration, a corresponding entry is recorded in the Activity Log in the Azure portal. Reviewing these entries helps to confirm whether configuration updates were successfully applied and can often reveal gateway-related issues that aren't visible from the Kubernetes side.

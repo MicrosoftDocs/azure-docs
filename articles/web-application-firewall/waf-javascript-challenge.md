@@ -1,21 +1,16 @@
 ---
-title: Web Application Firewall JavaScript Challenge (Preview)
+title: Web Application Firewall JavaScript Challenge
 description: This article is an overview of the Azure Web Application Firewall JavaScript challenge feature.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.custom: devx-track-js
-ms.date: 06/13/2025
+ms.date: 11/04/2025
 ms.topic: concept-article
-#customer intent: As a cloud network architect, I want to understand the Azure Web Application Firewall JavaScript challenge feature to determine if I want to deploy it.
 # Customer intent: As a cloud network architect, I want to evaluate the JavaScript challenge feature of Azure Web Application Firewall, so that I can assess its effectiveness in mitigating bot traffic for our web applications and decide on its deployment.
 ---
 
-# Azure Web Application Firewall JavaScript challenge (preview)
-
-> [!IMPORTANT]
-> Azure Web Application Firewall JavaScript challenge is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Azure Web Application Firewall JavaScript challenge
 
 Azure Web Application Firewall (WAF) on Azure Front Door and Azure Application Gateway offers a JavaScript challenge feature as one of the mitigation options for advanced bot protection. For Azure Front Door, It's available on the premium version as an action in the custom rule set and the Bot Manager 1.x ruleset.
 

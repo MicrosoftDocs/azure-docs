@@ -156,6 +156,10 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+  - name: Migration
+    items:
+    - name: Migrate Amazon API Gateway to Azure API Management
+      href: migrate-amazon-api-gateway-to-api-management.md
 - name: Logs and monitoring
   items:
   - name: Observability

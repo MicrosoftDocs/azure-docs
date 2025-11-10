@@ -297,7 +297,7 @@
     - name: Isolated worker model
       displayName: .NET isolated
       href: dotnet-isolated-process-guide.md
-    - name: .NET Aspire integration (Preview)
+    - name: Aspire integration
       href: dotnet-aspire-integration.md
     - name: Legacy models
       items:

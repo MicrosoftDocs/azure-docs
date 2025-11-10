@@ -6,6 +6,36 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-l3-cluster-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-l4-cluster-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-connect-arc-enabled-servers.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-deploy-aks-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-opcua-message-format.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector",
             "redirect_document_id": false

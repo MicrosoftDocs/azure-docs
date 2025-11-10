@@ -8,7 +8,7 @@ ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/27/2024
+ms.date: 11/10/2025
 ms.author: mbaldwin
 
 ---

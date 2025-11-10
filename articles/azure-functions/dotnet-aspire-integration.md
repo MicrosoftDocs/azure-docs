@@ -3,28 +3,25 @@ title: Guide for Using Azure Functions with Aspire
 description: Learn how to use Azure Functions with Aspire, which simplifies authoring of distributed applications in the cloud.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 04/21/2025
+ms.date: 10/31/2025
 ---
 
-# Azure Functions with Aspire (preview)
+# Azure Functions with Aspire
 
 [Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. The integration of Aspire with Azure Functions enables you to develop, debug, and orchestrate an Azure Functions .NET project as part of the Aspire app host.
-
-> [!IMPORTANT]
-> The integration of Aspire with Azure Functions is currently in preview and is subject to change.
 
 ## Prerequisites
 
 Set up your development environment for using Azure Functions with Aspire:
 
-- Install the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) and [Aspire 9.0 or later](/dotnet/aspire/fundamentals/setup-tooling). Although the .NET 9 SDK is required, Aspire 9.0 supports the .NET 8 and .NET 9 frameworks.
-- If you use Visual Studio, update to version 17.12 or later. You must also have the latest version of the Azure Functions tools for Visual Studio. To check for updates:
+- [Install the Aspire Prerequisites](/dotnet/aspire/fundamentals/setup-tooling#install-aspire-prerequisites).
+    - Full support for the Azure Functions integration requires Aspire 13.1 or later. Aspire 13.0 also includes a preview version of `Aspire.Hosting.Azure.Functions` which acts as a release candidate with go-live support.
+- Install the [Azure Functions Core Tools](./functions-run-local.md).
+
+If you use Visual Studio, update to version 17.12 or later. You must also have the latest version of the Azure Functions tools for Visual Studio. To check for updates:
   1. Go to **Tools** > **Options**.
   1. Under **Projects and Solutions**, select **Azure Functions**.
   1. Select **Check for updates** and install updates as prompted.
-  
-> [!NOTE]
-> The Azure Functions integration with Aspire doesn't yet support .NET 10 Preview.
 
 ## Solution structure
 
@@ -176,11 +173,18 @@ For details on the connection formats that each binding supports, and the permis
 
 ## Hosting the application
 
-By default, when you publish an Azure Functions project to Azure, it's deployed to Azure Container Apps.
+Aspire supports two different ways to host your Functions project in Azure:
 
-During the preview period, the container app resources don't support event-driven scaling. Azure Functions support is not available for apps deployed in this mode. If you need to open a support ticket, select the Azure Container Apps resource type.
+- [Publish as a container app (default)](#publish-as-a-container-app)
+- [Publish as a function app](#publish-as-a-function-app) using preview App Service integration
 
-### Access keys
+In both cases, your project is deployed as a container. Aspire takes care of building the container image for you and pushing it to Azure Container Registry.
+
+### Publish as a container app
+
+By default, when you publish an Aspire project to Azure, it's deployed to Azure Container Apps. The system sets up scaling rules for your Functions project using [KEDA](https://keda.sh/). When using Azure Container Apps, additional setup is needed for function keys. See [Access keys on Azure Container Apps](#access-keys-on-azure-container-apps) for more information.
+
+#### Access keys on Azure Container Apps
 
 Several Azure Functions scenarios use access keys to provide a basic mitigation against unwanted access. For example, HTTP trigger functions by default require an access key to be invoked, though this requirement can be disabled using the [`AuthLevel` property](./functions-bindings-http-webhook-trigger.md#attributes). See [Work with access keys in Azure Functions](./function-keys-how-to.md) for scenarios which may require a key.
 
@@ -329,11 +333,59 @@ This example uses a default key vault created by the extension method. It result
 
 To use these keys from clients, you need to retrieve them from the key vault.
 
+### Publish as a function app
+
+> [!NOTE]
+> Publishing as a function app requires the Aspire Azure App Service integration, which is currently in preview.
+
+You can configure Aspire to deploy to a function app using the [Aspire Azure App Service integration](/dotnet/aspire/azure/azure-app-service-integration). Because Aspire publishes the Functions project as a container, the hosting plan for your function app must support deploying containerized applications.
+
+To publish your Aspire Functions project as a function app, follow these steps:
+
+1. Add a reference to the [Aspire.Hosting.Azure.AppService] NuGet package in your app host project.
+1. In the `AppHost.cs` file, call `AddAzureAppServiceEnvironment()` on your `IDistributedApplicationBuilder` instance to create an App Service plan. Note that despite the name, this does not provision an App Service Environment resource. 
+1. On the Functions project resource, call `.WithExternalHttpEndpoints()`. This is required for deploying with the Aspire Azure App Service integration.
+1. On the Functions project resource, call `.PublishAsAzureAppServiceWebsite((infra, app) => app.Kind = "functionapp,linux")` to publish that project to the plan.
+
+> [!IMPORTANT]
+> Make sure that you set the `app.Kind` property to `"functionapp,linux"`. This setting ensures the resource is created as a function app, which affects experiences for working with your application.
+
+The following example shows a minimal `AppHost.cs` file for an app host project that publishes a Functions project as a function app:
+
+```csharp
+var builder = DistributedApplication.CreateBuilder(args);
+builder.AddAzureAppServiceEnvironment("functions-env");
+builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
+    .WithExternalHttpEndpoints()
+    .PublishAsAzureAppServiceWebsite((infra, app) => app.Kind = "functionapp,linux");
+```
+
+By default, this configuration creates a Premium V3 plan. When using a dedicated App Service plan SKU, scaling isn't event-based. Instead, scaling is managed through the App Service plan settings. If you want to change the SKU, you can do so through the `ConfigureInfrastructure` method on the environment resource. The following example shows how you can set up an Elastic Premium plan:
+
+```csharp
+using Azure.Provisioning.AppService;
+
+var builder = DistributedApplication.CreateBuilder(args);
+builder.AddAzureAppServiceEnvironment("functions-env");
+    .ConfigureInfrastructure(infra =>
+    {
+        var plan = infra.GetProvisionableResources().OfType<AppServicePlan>().First();
+        plan.Sku = new AppServiceSkuDescription
+        {
+           Name = "EP1",
+           Tier = "ElasticPremium"
+        };
+    });
+builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
+    .WithExternalHttpEndpoints()
+    .PublishAsAzureAppServiceWebsite((infra, app) => app.Kind = "functionapp,linux");
+```
+
+When you configure the plan to use an Elastic Premium SKU, you can only publish Functions projects to that plan. If your app host project includes other web apps, you should use a dedicated App Service plan SKU.
+
 ## Considerations and best practices
 
 Consider the following points when you're evaluating the integration of Azure Functions with Aspire:
-
-- Support for the integration is currently in preview.
 
 - Trigger and binding configuration through Aspire is currently limited to specific integrations. For details, see [Connection configuration with Aspire](#connection-configuration-with-aspire) in this article.
 
@@ -354,6 +406,7 @@ Consider the following points when you're evaluating the integration of Azure Fu
 [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/
 
 [Aspire.Hosting.Azure.Functions]: https://www.nuget.org/packages/Aspire.Hosting.Azure.Functions
+[Aspire.Hosting.Azure.AppService]: https://www.nuget.org/packages/Aspire.Hosting.Azure.AppService
 
 [Storage Account Contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [Storage Blob Data Owner]: ../role-based-access-control/built-in-roles.md#storage-blob-data-owner

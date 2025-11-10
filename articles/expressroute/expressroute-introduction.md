@@ -110,22 +110,6 @@ Key features that ExpressRoute Direct provides include, but aren't limited to:
 
 For more information, see [About ExpressRoute Direct](./expressroute-erdirect-about.md).
 
-### Connection Monitor
-
-Connection Monitor provides end-to-end monitoring for your ExpressRoute connections, helping you proactively identify and troubleshoot connectivity issues before they impact your workloads. Unlike traditional monitoring tools that only track individual components, Connection Monitor continuously tests your entire ExpressRoute path—from your on-premises servers through the ExpressRoute circuit to your Azure workloads—with hop-by-hop path visualization to quickly pinpoint problem locations.
-
-Key capabilities include:
-
-* **End-to-end visibility**: Monitor connectivity between your on-premises network and Azure resources across your ExpressRoute circuit with continuous synthetic traffic testing.
-* **Performance tracking**: Track latency, packet loss, and connection availability in real-time with historical data for trend analysis.
-* **Proactive problem detection**: Automatically detect connectivity and performance degradation with configurable alerts that notify you of issues before they impact production.
-* **Precise troubleshooting**: View hop-by-hop network path visualization to quickly identify whether issues are in your network, Azure's infrastructure, or the connectivity provider's network.
-* **No additional cost**: Connection Monitor is available at no additional charge when configured through the Azure portal for ExpressRoute connections.
-
-Connection Monitor is powered by Azure Network Watcher and provides insights into both ExpressRoute private peering and Microsoft peering connections. The service automatically creates bi-directional tests between your selected on-premises and Azure endpoints, with a default alert rule that fires when connectivity issues are detected.
-
-For more information, see [Connection Monitor for ExpressRoute overview](connection-monitor-overview.md) and [Configure Connection Monitor for ExpressRoute](configure-connection-monitor.md).
-
 ### Bandwidth options
 
 You can purchase ExpressRoute circuits for a wide range of bandwidths. The supported bandwidths are listed as follows. Be sure to check with your connectivity provider to determine the bandwidths they support.

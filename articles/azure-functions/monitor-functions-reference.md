@@ -29,7 +29,7 @@ These metrics are used to estimate the costs associated with _on demand_ and _al
 
 [!INCLUDE [functions-flex-consumption-metrics-table](../../includes/functions-flex-consumption-metrics-table.md)]
 
-In this table, all execution units are calculated by multipling the fixed instance memory size, such as 512 MB or 2,048 MB, by total execution times, in milliseconds.
+In this table, all execution units are calculated by multiplying the fixed instance memory size, such as 512 MB or 2,048 MB, by total execution times, in milliseconds.
 
 These metrics are used to monitor the performance and scaling behavior of your function app in a Flex Consumption plan:
 

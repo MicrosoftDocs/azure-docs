@@ -231,30 +231,8 @@ items:
         items:
           - name: Overview
             href: manage-layered-network/overview-layered-network.md
-            displayName: ISA-95, Purdue, layered, network, isolated
           - name: IoT Operations in layered network
             href: manage-layered-network/concept-iot-operations-in-layered-network.md
-            displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-          - name: Configure Layered Network Management
-            href: manage-layered-network/howto-deploy-aks-layered-network.md
-            displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-          - name: How to
-            items:
-              - name: Deploy Azure IoT Operations in isolated network
-                href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-              - name: Create sample network environment
-                href: manage-layered-network/howto-configure-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-              - name: Configure L4 cluster
-                href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 4, L4
-              - name: Configure L3 cluster
-                href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 3, L3
-              - name: Connect Azure Arc-enabled servers
-                href: manage-layered-network/howto-connect-arc-enabled-servers.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
       - name: Configure observability and monitoring
         items:
           - name: Deploy observability resources

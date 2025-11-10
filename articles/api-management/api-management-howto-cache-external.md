@@ -86,7 +86,7 @@ The **Use from** setting in the configuration specifies the location of your API
 1. Select **Save**.
 
 > [!NOTE]
-> The default connection string is in the form `<cache-name>:10000,<cache-access-key>,ssl=True,abortConnect=False`. API Management stores the string as a secret named value. If you need to view or edit the string to  rotate the access key or troubleshoot connection issues, go to the **Named values** blade.
+> The default connection string is in the form `<cache-name>:10000,password=<cache-access-key>,ssl=True,abortConnect=False`. API Management stores the string as a secret named value. If you need to view or edit the string to  rotate the access key or troubleshoot connection issues, go to the **Named values** blade.
 
 ### Add a Redis-compatible cache hosted outside of the current Azure subscription or Azure in general
 

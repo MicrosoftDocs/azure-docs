@@ -75,6 +75,8 @@ landingContent:
             url: /azure/data-factory/data-migration-guidance-s3-azure-storage
           - text: Connect AWS and Azure using a BGP-enabled VPN gateway
             url: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
+          - text: Migrate Amazon API Gateway to Azure API Management
+            url: /azure/api-management/migrate-amazon-api-gateway-to-api-management
 
   - title: Migration training modules
     linkLists:

@@ -50,7 +50,7 @@ Information about Service Groups
 * A Service Group is created within the Microsoft.Management Resource Provider.  
 * Service Groups allow self nesting to create up to 10 "levels" of grouping depth. Nesting can be managed via the 'parent' property within the Service Group resource. 
 * Role assignments on the Service Group can be inherited to the **child Service Groups only**. There's **no inheritance** through the memberships to the resources or resource containers.
-* There's a limit of 2000 service group members coming from within the same subscription. This means that within one subscription, resources, or resource groups, there can only be 2,000 memberships to Service Groups. 
+* There's a limit of 2000 service group members coming from within the same subscription. 
 * Within the Preview window, there's a limit of 10,000 Service Groups in a single tenant.   
 * Service Groups and Service Group Member IDs support up to 250 characters. They can be alphanumeric and special characters: - _ ( ). ~
 * Service Groups require a globally unique ID. Two Microsoft Entra tenants can't have a Service Group with identical IDs.
@@ -67,7 +67,7 @@ This table shows a summary of the differences between the groups.
 
 [!INCLUDE [scenario-comparison](../includes/scenario-comparison.md)]
 
-### Important facts about service groups
+## Important facts about service groups
 
 - A single tenant can support 10,000 service groups.
 - Service group tree can support up to 10 levels of depth.
@@ -76,7 +76,7 @@ This table shows a summary of the differences between the groups.
 - A single service group name/ID can be up to 250 characters.
 - There are no limits of number of members of service groups, but there's a limit of 2,000 relationships (including ServiceGroupMember) within a subscription
 
-### The Root Service Group 
+## The Root Service Group 
 
 Service Groups, similarly to Management Groups, has a one root Service Group, which is the top parent of all service groups in that tenant. Root Service Group's ID is same as its Tenant ID.
 
@@ -84,7 +84,7 @@ Service Groups creates the Root Service Group on the first request received with
 
 Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](../../role-based-access-control/elevate-access-global-admin.md)
 
-### Role Based Access Controls 
+## Role Based Access Controls 
 There are three built-in roles definitions to support Service Groups in the preview.  
 
 > [!NOTE]

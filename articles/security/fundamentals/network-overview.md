@@ -7,8 +7,8 @@ author: msmbaldwin
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: overview
-ms.date: 11/04/2025
+ms.topic: article
+ms.date: 11/10/2025
 ms.author: mbaldwin
 #Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
