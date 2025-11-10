@@ -39,9 +39,11 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
   - Create new subnet `agentSubnet /26 [example: 10.0.2.128 - 10.0.2.191]`
     - Use this subnet for Azure Kubernetes Service managed cluster API server
   - For a 30 pod cluster with a max node count of 3, a /26 subnet will be required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: `(node count + 1) + ((node count + 1) * maximum pods per node that you configure)`.
-> [!NOTE]
-> 
-> You can't resize a subnet once resources are deployed inside the subnet.
+
+    > [!NOTE]
+    > 
+    > You can't resize a subnet once resources are deployed inside the subnet.
+
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
