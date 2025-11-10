@@ -1,4 +1,12 @@
-### Configuring dbt Jobs
+title: dbt Jobs in Microsoft Fabric – Configure dbt job
+description: Learn how to create and configure dbt Jobs in Microsoft Fabric.
+author: vasquezd21
+ms.author: vasquezd21
+ms.topic: how-to
+ms.date: 11/10/2025
+---
+
+# Configuring dbt Jobs
 When creating or editing a dbt job, click the dbt configurations button to open the profile setup page. Here, you’ll define how your dbt job connects to your data warehouse.
 
 
@@ -34,4 +42,5 @@ Use **dbt configurations** to set (or review) your dbt Profile:
 **What changes when you switch**
 - The **Adapter** and **Connection** backing the Profile.
 - Dependent fields (e.g., **Schema**) may need re‑validation.
+
 - Runtime behavior must align with the adapter’s SQL dialect and capabilities.
