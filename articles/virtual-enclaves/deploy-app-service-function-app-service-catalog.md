@@ -34,10 +34,12 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
   - The first subnet is used for the "Subnet Name" template parameter. Create a subnet name with a name like `FunctionAppSubnet` and use the name in deployment step 5 below.
     - Add subnet delegation `Microsoft.Web/serverFarms`
   - The second subnet is used for the "Private Link Subnet Name" template parameter. Create a subnet name like `PrivateLinkSubnet` and use the name in deployment step 5 below.
-> [!NOTE]
-> 
-> You can't resize a subnet once resources are deployed inside the subnet.
-> Two "/26" subnets leave space in the enclave subnet for more subnets (for example another "/26"). If these two subnets are the only subnets needed in the enclave, they can be resized according to your needs.
+
+  > [!NOTE]
+  > 
+  > You can't resize a subnet once resources are deployed inside the subnet.
+  > Two "/26" subnets leave space in the enclave subnet for more subnets (for example another "/26"). If these two subnets are the only subnets needed in the enclave, they can be resized according to your needs.
+
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).

@@ -43,9 +43,11 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
     - Add NSG rule set
     - Add subnet delegation `Microsoft.Web/serverFarms`
     - Use this subnet for Function App resources
-> [!NOTE]
-> 
-> You can't resize a subnet once resources are deployed inside the subnet.
+
+  > [!NOTE]
+  > 
+  > You can't resize a subnet once resources are deployed inside the subnet.
+
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - Create `privatelink.azurewebsites.net` under `Additional Private DNS Zone names` which is required to access the web app privately.
 

@@ -27,9 +27,9 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 - Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
 
 ## Prerequisites
-There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
+There are guardrail policies on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This policy requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](/azure/virtual-network/subnet-delegation-overview) for the private endpoints to work properly.
+1. Subnet for Private Endpoints: You can create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](/azure/virtual-network/subnet-delegation-overview) for the private endpoints to work properly.
   - Create new subnet `AzureVirtualEnclaveSubnet /26 [example: 10.0.2.0 - 10.0.2.63]`
     - Add NSG rule set
     - Don't delegate this subnet
@@ -38,11 +38,11 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
     - Use this subnet for Azure Kubernetes Service agent pools
   - Create new subnet `agentSubnet /26 [example: 10.0.2.128 - 10.0.2.191]`
     - Use this subnet for Azure Kubernetes Service managed cluster API server
-  - For a 30 pod cluster with a max node count of 3, a /26 subnet will be required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: `(node count + 1) + ((node count + 1) * maximum pods per node that you configure)`.
+  - For a 30 pod cluster with a max node count of 3, a /26 subnet is required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: `(node count + 1) + ((node count + 1) * maximum pods per node that you configure)`.
 
-    > [!NOTE]
-    > 
-    > You can't resize a subnet once resources are deployed inside the subnet.
+  > [!NOTE]
+  > 
+  > You can't resize a subnet once resources are deployed inside the subnet.
 
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
@@ -51,9 +51,11 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 3. Create an RSA key for SSH named **aks-ssh-public-key** and store it as a secret in your key vault. To create the public key type use ssh-keygen from PowerShell: `ssh-keygen -t RSA -f test`
     - Two files are created and you use the public key. (located in test.pub)
     - Save this as a secret named 'aks-ssh-public-key' in your keyvault
+
     > [!NOTE]
     >
     > You must create or use a Key Vault for your AKS cluster. If using Key Vault for secret management, it needs to be configured for Role Base Access Control (RBAC) by enabling the `RBAC Access Policy`. The RBAC roles for the AKS identity need to be set to `Key Vault Admin` and the disk encryption set you created needs the `Key Vault Crypto Service Encryption User` role.
+
 4. A Key Vault, Customer Managed Key (CMK), Managed Identity, and Disk Encryption Set are required for this template. Create a Key Vault, CMK, Managed Identity, and Disk Encryption Set in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
     - After creating the User Managed Identity, ensure it has access to the CMK key
@@ -62,16 +64,20 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
         - Assign `Key Vault Contributor` access to the resource group containing the ssh-key.
         - (Optional) Azure Container Registry: Typical configuration requires granting the `Acr Pull` role to the AKS managed identity for the container registry resource. In addition if the container registry is configured to use a public storage account, that URL must be added as a community endpoint to create the firewall policy.
     - External services using the enclave Virtual Network: If using the enclave Virtual Network as the dedicated subnet for the cluster service, you'll also need to grant the managed identity `Contributor` on the Virtual Network resource group. (This seems like it should be `Network Contributor` but in testing that wasn't enough).
-5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this, first set your azContext to ensure you're using the correct subscription, and then run the following:
+5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this setting, first set your azContext to ensure you're using the correct subscription, and then run the following:
 `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`.
+
 > [!NOTE]
 > 
 > This might take several minutes, to check on the status of this registration run:
 `Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`
+
 6. In order to deploy AKS within a virtual enclave, you must deploy to a subscription that allows `EnableAPIServerVnetIntegrationPreview`. To do this, first set your azContext to ensure you're using the correct subscription, and then run the following: `Register-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`.
+
 > [!NOTE]
 > 
 > This might take several minutes, to check on the status of this registration run: `Get-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`
+
 7. Add the following Firewall rule to your community firewall policy as an Application rule:
     - Source: 10.0.2.0/23
     - Protocol: Https:443

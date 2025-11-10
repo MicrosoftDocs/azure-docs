@@ -50,12 +50,13 @@ The template used in this quickstart can be found [here](https://github.com/Azur
 - Transit hub:
     - Input parameter to a remote virtual network; covering Gateway connection
 - Enclave connections
-    - | Source | Destination |
-      |--|--|
-      | Enclave 2 | Enclave 1 Endpoint `ADDS-TCP/UDP` |
-      | Enclave 2 | Community Endpoint `bing-outlook` |
-      | Enclave 2 | Community Endpoint `ep-example` |
-      | Community (via Transit hub) | Enclave 1 Endpoint `ADDS-TCP/UDP` |
+
+| Source | Destination |
+|--|--|
+| Enclave 2 | Enclave 1 Endpoint `ADDS-TCP/UDP` |
+| Enclave 2 | Community Endpoint `bing-outlook` |
+| Enclave 2 | Community Endpoint `ep-example` |
+| Community (via Transit hub) | Enclave 1 Endpoint `ADDS-TCP/UDP` |
 
 ## Deploy the template
 1. Sign in to the Azure portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section upload or copy and paste the above ARM template.

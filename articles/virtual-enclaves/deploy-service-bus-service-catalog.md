@@ -17,8 +17,6 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 > 
 > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
-
-
 ## Before you begin
 - This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
 
