@@ -1,4 +1,12 @@
-## Create dbt Jobs
+title: dbt Jobs in Microsoft Fabric – Create dbt job
+description: Learn how to create and configure dbt Jobs in Microsoft Fabric.
+author: vasquezd21
+ms.author: vasquezd21
+ms.topic: how-to
+ms.date: 11/10/2025
+---
+
+# Create dbt Jobs
 
 ### Overview
 To create a dbt job in Fabric:
@@ -34,5 +42,6 @@ Use **dbt configurations** to set (or review) your dbt Profile:
 4. Enter **Schema** (e.g., `jaffle_shop_demo`).
 5. (Optional) Check **Seed date** if you want to load CSVs on `dbt seed` or `dbt build`.
 6. Click **Apply**.
+
 
 <img src="images\dbtconfigs.png" />
