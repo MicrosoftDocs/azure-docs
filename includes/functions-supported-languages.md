@@ -113,11 +113,11 @@ The following table shows the language versions supported for Python function ap
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| Python 3.14 | GA | October 2030 |
 | Python 3.13 | GA | October 2029 |
 | Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
-| Python 3.9 | GA | October 2025 |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md).
 ::: zone-end
