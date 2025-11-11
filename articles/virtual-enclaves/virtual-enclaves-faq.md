@@ -95,3 +95,7 @@ Adding a virtual network firewall isn't a recommended pattern and it isn't suppo
 ### What access is allowed by default?
 
 A default firewall rule is created to allow access to the Key Management Service (KMS) which is used for volume activation of Microsoft products. The community firewall policy includes a network rule that allows outbound access to KMS resources.
+
+### How can I make deployments faster?
+
+When you create templates to create Azure Virtual Enclaves, you can make use of the enclaves connection batching by sending connections at the same time. Batching allows a larger batch of enclave connections to be create at the same time which is faster than creating the connections one at a time. In your templates, you can configure a batch of enclave connections to deploy only once all enclave endpoints and community endpoints have been created. Enclave connections to a transit hub can be batched separately once the transit hub has been created.
