@@ -8,6 +8,7 @@ ms.reviewer: v-mallicka
 ms.date: 11/10/2025
 ms.topic: tutorial
 ms.service: azure-backup
+ms.custom: references_regions
 ---
 
 # Threat Detection in Azure Backup with Microsoft Defender for Cloud integration (preview)

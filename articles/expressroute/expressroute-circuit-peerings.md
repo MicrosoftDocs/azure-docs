@@ -85,7 +85,7 @@ Each peering requires separate BGP sessions (one pair for each peering type). Th
 
 ExpressRoute circuits can be monitored for availability, connectivity to VNets, and bandwidth utilization using [ExpressRoute Network Insights](expressroute-network-insights.md).
 
-Connection Monitor for ExpressRoute monitors the health of Azure private peering and Microsoft peering. For more information on configuration, see [Configure Connection Monitor for ExpressRoute](configure-connection-monitor.md).
+Connection Monitor for ExpressRoute monitors the health of Azure private peering and Microsoft peering. For more information on configuration, see [Configure Connection Monitor for ExpressRoute](how-to-configure-connection-monitor.md).
 
 ## Next steps
 

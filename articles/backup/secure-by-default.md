@@ -30,7 +30,7 @@ Secure by default with soft delete for Azure Backup allows you to recover your b
 
 | Vault Type               | Availability Type    | Regions                                      |
 |--------------------------|----------------------|---------------------------------------------|
-| Recovery Services Vault  | General Availability | East Asia                                   |
+| Recovery Services Vault  | General Availability | West Central US                            |
 | Recovery Services Vault  | Preview              | All remaining Azure Public Regions         |
 | Backup Vault             | Preview              | Australia East, West Central US, East Asia |
 

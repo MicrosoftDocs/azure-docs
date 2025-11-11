@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ai-usage: ai-assisted
 ---
 # Connect a virtual network to an ExpressRoute circuit using Azure PowerShell
 
@@ -88,15 +87,6 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "ERConnection1" -Resou
 highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name2 "ERConnection2" -Peer2 $circuit1.Peerings[0] -RoutingWeight2 10 -VirtualNetworkGateway1 $gw -ExistingVirtualNetworkGatewayConnection $connection
 ```
 
-**Configure Connection Monitor**
-
-After creating your ExpressRoute connections, you can configure Connection Monitor to track the health and performance of your connections. Connection Monitor continuously tests network paths between on-premises and Azure endpoints using synthetic traffic.
-
-To configure Connection Monitor for an existing connection using the Azure portal, see [Configure Connection Monitor](configure-connection-monitor.md). The portal experience provides a guided workflow for selecting endpoints and configuring test settings.
-
-> [!TIP]
-> When creating a new connection through the Azure portal, you can configure Connection Monitor directly on the **Monitoring** tab during the connection creation process.
-
 # [**Standard/High Resiliency**](#tab/standard)
 
 **Standard resiliency**: provides a single redundant connection from the virtual network gateway to a single ExpressRoute circuit.
@@ -111,22 +101,13 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 > [!NOTE]
 > For **High Resiliency**, you must connect to a Metro circuit instead of a Standard circuit.
 
-**Configure Connection Monitor**
-
-After creating your ExpressRoute connection, you can configure Connection Monitor to track the health and performance of your connection. Connection Monitor continuously tests network paths between on-premises and Azure endpoints using synthetic traffic. 
-
-To configure Connection Monitor for an existing connection using the Azure portal, see [Configure Connection Monitor](configure-connection-monitor.md). The portal experience provides a guided workflow for selecting endpoints and configuring test settings.
-
-> [!TIP]
-> When creating a new connection through the Azure portal, you can configure Connection Monitor directly on the **Monitoring** tab during the connection creation process.
-
 ---
 
 ## Connect a virtual network in a different subscription to a circuit
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
 > [!NOTE]
-> Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+> Connecting virtual networks between Azure sovereign clouds and global Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
 
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
@@ -287,7 +268,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ```
 
 > [!NOTE]
-> You can use [Connection Monitor](configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 
 > [!NOTE]
 > Enabling FastPath Private Link support for limited GA scenarios may take upwards of 4 weeks to complete. Please plan your deployment(s) in advance.
@@ -312,6 +293,9 @@ Remove-AzVirtualNetworkGatewayConnection "MyConnection" -ResourceGroupName "MyRG
 
 ## Next steps
 
-In this article, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-After connecting your virtual network to an ExpressRoute circuit, you can set up monitoring to track the health and performance of your connection. For more information, see [Connection Monitor overview](connection-monitor-overview.md), [Configure Connection Monitor](configure-connection-monitor.md), and [Configure alerts](connection-monitor-alerts.md).
+To learn how to configure, route filters for Microsoft peering using PowerShell, advance to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md)

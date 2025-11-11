@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: duau
 ms.custom: template-tutorial, devx-track-azurecli
-ai-usage: ai-assisted
 ---
 # Connect a virtual network to an ExpressRoute circuit using Azure CLI
 
@@ -48,21 +47,12 @@ You can connect a virtual network gateway to an ExpressRoute circuit by using th
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
-**Configure Connection Monitor**
-
-After creating your ExpressRoute connection, you can configure Connection Monitor to track the health and performance of your connection. Connection Monitor continuously tests network paths between on-premises and Azure endpoints using synthetic traffic.
-
-To configure Connection Monitor for an existing connection using the Azure portal, see [Configure Connection Monitor](configure-connection-monitor.md). The portal experience provides a guided workflow for selecting endpoints and configuring test settings.
-
-> [!TIP]
-> When creating a new connection through the Azure portal, you can configure Connection Monitor directly on the **Monitoring** tab during the connection creation process.
-
 ## Connect a virtual network in a different subscription to a circuit
 
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
 > [!NOTE]
-> Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+> Connecting virtual networks between Azure sovereign clouds and global Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
 
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
@@ -185,7 +175,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 ```
 
 > [!NOTE]
-> You can use [Connection Monitor](configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 >
 
 ## Clean up resources
@@ -200,5 +190,7 @@ az network vpn-connection delete --name ERConnection --resource-group ExpressRou
 
 In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about the ExpressRoute gateway, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-After connecting your virtual network to an ExpressRoute circuit, you can set up monitoring to track the health and performance of your connection. For more information, see [Connection Monitor overview](connection-monitor-overview.md), [Configure Connection Monitor](configure-connection-monitor.md), and [Configure alerts](connection-monitor-alerts.md).
+To learn how to configure route filters for Microsoft peering using Azure CLI, advance to the next tutorial.
 
+> [!div class="nextstepaction"]
+> [Configure route filters for Microsoft peering](how-to-routefilter-cli.md)

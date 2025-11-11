@@ -476,6 +476,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/expressroute/configure-connection-monitor.md",
+      "redirect_url": "/azure/expressroute/how-to-configure-connection-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/connection-monitor-alerts.md",
+      "redirect_url": "/azure/expressroute/how-to-configure-connection-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/connection-monitor-overview.md",
+      "redirect_url": "/azure/expressroute/how-to-configure-connection-monitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-center/discover-shadow-apis-dev-proxy.md",
       "redirect_url": "/previous-versions/azure/api-center/discover-shadow-apis-dev-proxy",
       "redirect_document_id": false

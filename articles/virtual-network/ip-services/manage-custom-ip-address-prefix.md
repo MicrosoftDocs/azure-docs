@@ -37,7 +37,7 @@ This article explains how to:
 For information on provisioning an IP address, see [Create a custom IP address prefix - Azure portal](create-custom-ip-address-prefix-portal.md), [Create a custom IP address prefix - Azure PowerShell](create-custom-ip-address-prefix-powershell.md), or [Create a custom IP address prefix - Azure CLI](create-custom-ip-address-prefix-cli.md).
 
 > [!NOTE]
-> The examples below primarily reference the "unified" model for custom IP prefixes. For decommissoning and deprovisioning of custom IP prefixes using the "global/regional" model, see the special section at the end of this page.
+> The examples below primarily reference the "unified" model for custom IP prefixes. For decommissioning and deprovisioning of custom IP prefixes using the "global/regional" model, see the [special section at the end of this page](#removal-of-prefixes-using-the-globalregional-model).
 
 ## Create a public IP prefix from a custom IP prefix
 

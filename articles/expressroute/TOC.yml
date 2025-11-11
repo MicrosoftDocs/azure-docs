@@ -262,14 +262,8 @@
           href: monitor-expressroute.md
         - name: Network Insights
           href: expressroute-network-insights.md
-        - name: Connection Monitor
-          items:
-            - name: Overview
-              href: connection-monitor-overview.md
-            - name: Configure Connection Monitor
-              href: configure-connection-monitor.md
-            - name: Configure alerts
-              href: connection-monitor-alerts.md
+        - name: Configure Connection Monitoring for ExpressRoute
+          href: how-to-configure-connection-monitor.md
         - name: Configure ExpressRoute Traffic Collector
           href: how-to-configure-traffic-collector.md
         - name: View and configure maintenance alerts

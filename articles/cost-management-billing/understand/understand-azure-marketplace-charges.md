@@ -7,10 +7,10 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/01/2025
+ms.date: 11/10/2025
 ms.custom:
-  - build-2025
-  - sfi-image-nochange
+- build-2025
+- sfi-image-nochange
 ---
 
 # Understand your Azure external services charges
