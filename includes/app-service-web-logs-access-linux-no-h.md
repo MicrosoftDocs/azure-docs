@@ -10,7 +10,7 @@ ms.author: cephalin
 ms.custom: include file, linux-related-content
 ---
 
-You can access the console logs generated from inside the container.
+You can access the console logs that are generated from inside the container.
 
 To turn on container logging, run the following command:
 

@@ -1,10 +1,10 @@
 ---
 title: Prepare source machines to install the Mobility Service through push installation for disaster recovery of VMware VMs and physical servers to Azure
 description: Learn how to prepare your server to install Mobility agent through push installation for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.date: 09/24/2024
 ms.custom: engagement-fy23, linux-related-content
 # Customer intent: As an IT administrator preparing for disaster recovery, I want to install the Mobility Service through push installation on VMware VMs and physical servers, so that I can ensure data protection and continuity in Azure during a disaster event.

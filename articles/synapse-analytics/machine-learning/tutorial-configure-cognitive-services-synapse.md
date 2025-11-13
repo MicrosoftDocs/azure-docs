@@ -8,7 +8,9 @@ ms.topic: quickstart
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Configure prerequisites for using Azure AI services in Azure Synapse Analytics
@@ -22,7 +24,7 @@ This quickstart covers:
 > - Create an Azure Key Vault linked service in your Azure Synapse Analytics workspace.
 > - Create an Azure AI services linked service in your Azure Synapse Analytics workspace.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

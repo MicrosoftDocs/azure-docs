@@ -13,7 +13,7 @@ This quickstart shows you how to deploy an ASP.NET app in a Windows image from [
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Connect to Azure

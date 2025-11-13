@@ -27,7 +27,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Git](https://git-scm.com/)
 * [PHP](https://php.net/downloads.php)
 * [Azure CLI](/cli/azure/install-azure-cli) to run commands in any shell to create and configure Azure resources.

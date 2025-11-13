@@ -7,6 +7,7 @@ ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Move files with Azure Data Factory

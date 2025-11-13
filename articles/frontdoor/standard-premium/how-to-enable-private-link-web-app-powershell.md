@@ -16,7 +16,7 @@ This article guides you through how to configure Azure Front Door Premium tier t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell installed locally or Azure Cloud Shell
 - Azure FrontDoor Premium profile, endpoint, and origin group. For more information on how to create an Azure Front Door profile, see [Create a Front Door - PowerShell](../create-front-door-powershell.md).
 - Azure App Service (WebApp) instance. For more information on how to create an Azure App Service, see [Create an App Service - PowerShell](../../app-service/quickstart-dotnetcore.md?tabs=net80&pivots=development-environment-ps).

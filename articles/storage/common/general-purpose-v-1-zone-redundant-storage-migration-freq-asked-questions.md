@@ -20,7 +20,7 @@ General-purpose v2 (GPv2) storage accounts are the recommended account type for 
 This FAQ addresses common questions about upgrading from **GPv1 standard ZRS** to **GPv2**. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right redundancy option. Use this resource to plan your upgrade and ensure a smooth transition before GPv1 standard ZRS retirement.
 
 > [!IMPORTANT]
-> Microsoft will retire accounts that use **GPv1 standard ZRS** on **September 1, 2026**. All affected accounts must be upgraded to **GPv2** before this date to avoid service disruption.  
+> Microsoft will retire accounts that use **GPv1 standard ZRS** on **October 13, 2026**. All affected accounts must be upgraded to **GPv2** before this date to avoid service disruption.  
 > See: [Upgrade storage account](storage-account-upgrade.md) [general purpose v1 (GPv1) with ZRS redundancy migration overview](general-purpose-version-1-zone-redundant-storage-migration-overview.md)
 
 
@@ -102,6 +102,15 @@ Blobs pricing: https://azure.microsoft.com/pricing/details/storage/blobs/
 ### Can I enable geo-redundancy after upgrading?
 
 Yes. **GPv2** supports **GRS**, **RA-GRS**, **GZRS**, and **RA-GZRS**.
+
+### Why can I not upgrade my GPv1 account to GPv2 in the Azure portal?
+The Azure portal may not allow you to upgrade your GPv1 account to GPv2 if the account is in a region that does not support GPv2, or if there are specific configurations or features in your GPv1 account that are incompatible with GPv2. In such cases, you may need to use Azure CLI or PowerShell to perform the upgrade, or consider creating a new GPv2 account and migrating your data.
+
+### Why does PowerShell or CLI allow me to upgrade my GPv1 account to GPv2 but my account doesn't upgrade?
+PowerShell and Azure CLI may bypass certain restrictions present in the Azure portal, allowing you to upgrade your GPv1 account to GPv2 even if the portal does not permit it. This could be due to differences in how the tools validate account configurations or regional support. However, using these tools may still require you to address any underlying compatibility issues before a successful upgrade can occur.
+
+### What if I don't want LRS or GRS as my redundancy option after the upgrade?
+If you prefer a different redundancy option and you are in a region that doesn't support ZRS, you can choose to upgrade to GPv2 with LRS or GRS initially and then later migrate your account to a region that supports ZRS. Alternatively, you can create a new GPv2 account in a supported region with your desired redundancy option and migrate your data there.
 
 ### What if I need help with the upgrade process?
 

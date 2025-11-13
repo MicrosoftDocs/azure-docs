@@ -1,9 +1,10 @@
 ---
 title: Cluster Templates
 description: Use or build cluster templates within Azure CycleCloud. See configuration notation, cluster template parameters, machine types, spot virtual machines, and more.
-author: adriankjohnson
-ms.date: 06/30/2025
-ms.author: adjohnso
+author: dougclayton
+ms.author: doclayto
+ms.date: 09/23/2025
+ms.update-cycle: 3650-days
 ms.topic: how-to
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
@@ -260,30 +261,6 @@ The GUI includes the **Label** and **Description** attributes, which appear in t
 | Cloud.Credentials | Displays a dropdown containing all of the available credentials.         |
 | Cloud.Region      | Displays a dropdown containing all available regions.                    |
 
-## Chef Server support
-
-Azure CycleCloud supports [ChefServer](https://docs.chef.io/server_components.html).
-
-Create the file `chefserver.json` and add your credentials. `ValidationKey`
-corresponds to the `validation.pem` file for your chef server. You also must provide the
-`validation_client_name` if you change it from the default value of `chef-validator`:
-
-``` JSON
-{
-"AdType" : "Cloud.Locker",
-"ValidationKey" : "YOURVALIDATION.PEMHERE",
-"ValidationClientName" : "chef-validator",
-"Credentials" : "default",
-"Location" : "https://mychefserver",
-"ChefRepoType" : "chefserver",
-"LockerType" : "chefrepo",
-"Name" : "chefrepo",
-"AccountId" : "default",
-"Shared" : false
-}
-```
-
-Next, place the file in the directory `/opt/cycle_server/config/data`. The server automatically imports the file.
 
 ## Custom user images in templates
 

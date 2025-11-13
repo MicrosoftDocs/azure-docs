@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer, and I want to learn how to configure Ping Identity with Azure Active Directory B2C for secure hybrid access (SHA). I need to extend the capabilities of Azure AD B2C and enable secure hybrid access using PingAccess and PingFederate.
 ---
@@ -76,7 +77,7 @@ Use this function to contextually, dynamically, or declaratively switch an inbou
 To get started, you'll need:
 
 - An Azure subscription
-  - If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription
 - PingAccess and PingFederate deployed in Docker containers or on Azure virtual machines (VMs)
 

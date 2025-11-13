@@ -18,13 +18,10 @@ Today, users are [limited](/azure/azure-resource-manager/management/azure-subscr
 
 For users looking to surpass these current limits, we recommend upgrading to *High Scale Private Endpoints*. This feature increases standard limits to 5,000 private endpoints in a singular virtual network and 20,000 private endpoints across peered networks. This article details how to opt into this feature and provide extra considerations before enablement.
 
-> [!NOTE]
-> This feature is currently in public preview and available in select regions. We recommend reviewing all considerations before enabling it for your subscription.
 
 ## Prerequisites
 
-* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* Register feature flag Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath on current subscription, see [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
+* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Understanding of [Hub and Spoke](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) or [Mesh network](/azure/virtual-network-manager/concept-connectivity-configuration) topology.
 * A virtual network with private endpoint configured, see [Create a private endpoint](/azure/private-link/create-private-endpoint-portal).
 * Private Endpoint Network Policies set to **Enabled** or **RouteTableEnabled** for all Private Endpoint Subnets, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
@@ -177,7 +174,6 @@ $vnet.PrivateEndpointVNetPolicies
 
 | **Limit** | **Description** |
 |---|---|
-| Subscription must be enabled before enabling High Scale Private Endpoints. | Enabling Private Endpoint virtual network Policies before allow listing subscription feature flag requires a reconfiguration. |
 | Access to Baremetal subnets from an HSPE enabled peered VNet isn't supported | Connections destined to Azure baremetal subnets won't work  |
 | Feature currently available in all public regions | Mooncake and Azure Gov regions aren't supported at this time |
 

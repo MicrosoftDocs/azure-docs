@@ -6,7 +6,10 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 01/19/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a cloud architect, I want to configure an Azure Load Balancer using the portal, so that I can effectively manage traffic distribution across my virtual machine instances for improved application performance and availability.
 ---
 

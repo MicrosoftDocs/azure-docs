@@ -18,7 +18,7 @@ This Quickstart shows you how to enable managed identities for an Azure Automati
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure Automation account. For instructions, see [Create an Automation account](./create-azure-automation-account-portal.md).
 

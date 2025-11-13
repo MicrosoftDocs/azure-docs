@@ -6,6 +6,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 12/11/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub and leverage destination NAT.
 ---
 # How to configure Destination NAT (DNAT) for Network Virtual Appliance in an Azure Virtual WAN hub

@@ -4,6 +4,7 @@ description: A step-by-step tutorial that shows you how to configure NAT for a f
 ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
+ms.custom: sfi-image-nochange
 
 #Customer intent: As an enterprise developer, I want a consistent and predictable outbound IP address for my function so that an external party can add my function's IP to the allowlist.
 ---
@@ -33,7 +34,7 @@ Functions running in the Premium plan have the same hosting capabilities as web 
 
 For this tutorial, it's important that you understand IP addressing and subnetting. You can start with [this article that covers the basics of addressing and subnetting](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Many more articles and videos are available online.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 If you've already completed the [integrate Functions with an Azure virtual network](./functions-create-vnet.md) tutorial, you can skip to [Create an HTTP trigger function](#create-function).
 

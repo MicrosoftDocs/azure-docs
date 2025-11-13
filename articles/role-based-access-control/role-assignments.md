@@ -1,11 +1,11 @@
 ---
 title: Understand Azure role assignments - Azure RBAC
 description: Learn about Azure role assignments in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
-author: jenniferf-skc
+author: rolyon
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.date: 05/28/2025
-ms.author: jfields
+ms.author: rolyon
 ---
 # Understand Azure role assignments
 
@@ -28,7 +28,7 @@ For example, you can use Azure RBAC to assign roles like:
 - Everybody in the Cloud Administrators group in Microsoft Entra ID has reader access to all resources in the resource group *ContosoStorage*.
 - The managed identity associated with an application is allowed to restart virtual machines within Contoso's subscription.
 
-The following shows an example of the properties in a role assignment when displayed using [Azure PowerShell](role-assignments-list-powershell.yml):
+The following shows an example of the properties in a role assignment when displayed using [Azure PowerShell](/azure/role-based-access-control/role-assignments-list-powershell):
 
 ```json
 {
@@ -48,7 +48,7 @@ The following shows an example of the properties in a role assignment when displ
 }
 ```
 
-The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](role-assignments-list-cli.yml), or the [REST API](role-assignments-list-rest.md):
+The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](/azure/role-based-access-control/role-assignments-list-cli), or the [REST API](role-assignments-list-rest.md):
 
 ```json
 {

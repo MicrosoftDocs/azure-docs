@@ -8,8 +8,13 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ai-video-demo
 ai-usage: ai-assisted
+ms.custom:
+  - devx-track-csharp
+  - ai-video-demo
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+#customer intent: As a developer, I want a lightweight local emulator for Azure Storage so that I can develop and test storage scenarios without provisioning cloud resources.
 ---
 
 # Use the Azurite emulator for local Azure Storage development

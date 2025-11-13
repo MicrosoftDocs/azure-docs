@@ -4,6 +4,7 @@ ms.service: azure-vpn-gateway
 ms.topic: include
 ms.date: 03/20/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 ---
 
 1. In the Azure portal, go to the virtual network gateway for the virtual network to which you want to connect.

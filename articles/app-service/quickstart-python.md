@@ -6,8 +6,16 @@ ms.date: 04/24/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.devlang: python
-ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed, devx-track-azurecli, devx-track-python
 ms.service: azure-app-service
+ms.custom:
+  - devx-azure-cli
+  - devx-azure-portal
+  - devx-vscode-azure-extension
+  - devdivchpfy22
+  - vscode-azure-extension-update-completed
+  - devx-track-azurecli
+  - devx-track-python
+  - sfi-image-nochange
 ---
 
 # Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure App Service
@@ -16,7 +24,7 @@ In this quickstart, you deploy a Python web app (Django, Flask, or FastAPI) to [
 
 To complete this quickstart, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3.9 or higher</a> installed locally.
 
 > [!NOTE]

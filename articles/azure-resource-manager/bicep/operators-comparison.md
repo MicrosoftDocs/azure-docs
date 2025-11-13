@@ -3,7 +3,7 @@ title: Bicep comparison operators
 description: Describes Bicep comparison operators that compare values.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Bicep comparison operators

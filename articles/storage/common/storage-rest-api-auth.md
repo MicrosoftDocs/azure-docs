@@ -26,7 +26,7 @@ The sample application lists the blob containers for a storage account. To try o
 
 - Install [Visual Studio](https://www.visualstudio.com/vs) and include the **Azure development** workload. This example was built using Visual Studio 2019. If you use a different version, the guidance might vary slightly.
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - A general-purpose storage account. If you don't yet have a storage account, see [Create a storage account](storage-account-create.md).
 

@@ -194,7 +194,7 @@ The Azure Maps Power BI visual is available in the following services and applic
 At this time, Azure Maps is currently available in all countries and regions except:
 
 - China
-- South Korea
+- Korea
 - Azure Government (GCC + GCC High)
 
 For coverage details for the different Azure Maps services that power this visual, see [Geographic coverage information].

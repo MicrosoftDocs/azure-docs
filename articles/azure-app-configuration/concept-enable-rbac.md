@@ -3,7 +3,7 @@ title: Access Azure App Configuration using Microsoft Entra ID
 description: Use Microsoft Entra ID and Azure role-based access control (RBAC) to access your Azure App Configuration store.
 author: zhenlan
 ms.author: zhenlwa
-ms.date: 10/05/2024
+ms.date: 10/30/2025
 ms.topic: concept-article
 ms.service: azure-app-configuration
 

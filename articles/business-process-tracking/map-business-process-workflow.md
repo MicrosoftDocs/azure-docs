@@ -4,8 +4,9 @@ description: Map your business process stages to operations and outputs in Stand
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/09/2025
-# CustomerIntent: As an integration developer, I want a way to map previously business process stages to actual resources that implement these business use cases and scenarios.
+ms.date: 09/11/2025
+ms.update-cycle: 365-days
+# Customer intent: As an integration developer, I want a way to map previously business process stages to actual resources that implement these business use cases and scenarios.
 ---
 
 # Map a business process to a Standard logic app workflow

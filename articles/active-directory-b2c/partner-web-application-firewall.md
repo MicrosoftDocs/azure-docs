@@ -28,7 +28,7 @@ See [What is Azure Web Application Firewall?](../web-application-firewall/overvi
 To get started, you need:
 
 * An Azure subscription
-* If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * **An Azure AD B2C tenant** – authorization server that verifies user credentials using custom policies defined in the tenant
   * Also known as the identity provider (IdP)
   * See [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) 

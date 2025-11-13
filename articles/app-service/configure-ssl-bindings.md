@@ -3,7 +3,6 @@ title: Secure Your Domain with TLS/SSL
 description: Secure your custom domain in Azure App Service by enabling HTTPS with a TLS/SSL certificate for improved security and trust.
 keywords: TLS/SSL certificate, secure domain, HTTPS, Azure App Service, domain security
 tags: buy-ssl-certificates
-ms.custom: devx-track-azurepowershell
 
 ms.topic: how-to
 ms.date: 02/14/2025
@@ -11,6 +10,9 @@ ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 # Enable HTTPS for a custom domain in Azure App Service
 

@@ -1,10 +1,10 @@
 ---
 title: Reliability in Azure Device Registry
-description: Find out about reliability in Azure Device Registry, including availability zones and multi-region deployments.
+description: Learn how to ensure reliable IoT device management with Azure Device Registry by using availability zones, multi-region support, and automatic failover.
 author: isabellaecr
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: azure-device-registry
 ms.date: 07/30/2025
 ---
@@ -38,13 +38,7 @@ Microsoft manages setup and configuration for zone redundancy in Azure Device Re
 
 The following list of regions support availability zones in Azure Device Registry:
 
-| Americas         | Europe               |
-|------------------|----------------------|
-| East US          | North Europe         |
-| East US 2        | West Europe          |
-| West US          |                      |
-| West US 2        |                      |
-| West US 3        |                      |
+[!INCLUDE [Azure Device Registry availability zone region support](../iot-operations/includes/device-registry-availability-zone-regions-include.md)]
 
 ### Cost
 
@@ -68,7 +62,7 @@ The following information describes what happens when you have a zone-redundant 
 
 - **Detection and response:** Because Azure Device Registry detects and responds automatically to failures in an availability zone, you don't need to do anything to initiate an availability zone failover.
 
-- **Notification:** Zone failure events can be monitored through Azure Service Health. Set up alerts to receive notifications of zone-level issues.
+[!INCLUDE [Availability zone down notification (Service Health only)](./includes/reliability-availability-zone-down-notification-service-include.md)]
 
 - **Active requests:** Some active requests may be dropped and so may need to be retried in the same way as other transient faults. To make sure that your application is resilient to any transient faults, see [transient fault handling guidance](#transient-faults).
 

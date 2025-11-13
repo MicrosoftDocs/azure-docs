@@ -74,9 +74,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
-   | **Deployment version**| Select 1.1 (GA version) or 1.2 (Preview version). If you select 1.2 (Preview version), check the box to consent to the preview terms. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
-
-   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-basics.png" alt-text="A screenshot that shows the first tab for deploying Azure IoT Operations from the portal.":::
+   | **Deployment version**| Select 2.0 version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
 
 1. Select **Next: Configuration**.
 
@@ -146,13 +144,6 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
    az extension add --upgrade --name azure-iot-ops
    ```
 
-    > [!IMPORTANT]
-    > For [preview releases](./howto-upgrade.md#upgrade-to-preview-version), you need to append the `--allow-preview` flag to the `az extension add` command to install the preview version of the Azure IoT Operations CLI extension.
-    >
-    > ```azurecli
-    > az extension add --upgrade --name azure-iot-ops --allow-preview
-    > ```
-
 1. Copy and run the provided [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create) command to create a schema registry which is used by Azure IoT Operations components. If you chose to use an existing schema registry, this command isn't displayed on the **Automation** tab.
 
    > [!NOTE]
@@ -169,9 +160,6 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
       1. In the search box, type and select **Azure Device Registry**.
       1. In the left menu, select **Namespaces**. 
       1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
-
-    > [!NOTE]
-    > Namespace resources are available from [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.36). If you're using an earlier release version, namespaces aren't available and you can skip this step. 
 
 1. To prepare the cluster for Azure IoT Operations deployment, copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
@@ -193,11 +181,8 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
         ```bash
         --feature connectors.settings.preview=Enabled
         ```
-    
-        > [!NOTE]
-        > The `--feature` configuration parameter is only available in the [latest GA version](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59). If you're using the [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.36), this parameter isn't available.
 
-    * If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
+   * If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
 
         ```bash
         --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>

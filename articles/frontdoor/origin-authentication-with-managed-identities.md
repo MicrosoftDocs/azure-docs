@@ -15,7 +15,7 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
-Managed identities provided by Microsoft Entra ID enables your Azure Front Door Standard/Premium instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+Managed identities provided by Microsoft Entra ID enables your Azure Front Door Standard/Premium instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. For more information, see [What is  managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
 After you enable managed identity for Azure Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. 
 
@@ -31,7 +31,7 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An Azure Front Door Standard or Premium profile. To create a new profile, see [create an Azure Front Door](create-front-door-portal.md).
 
@@ -94,10 +94,14 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
     :::image type="content" source="./media/managed-identity/add-role-assignment-menu.png" alt-text="Screenshot of access control settings.":::
 3.	Under **Job function roles** in the **Roles** tab, select an appropriate role (for example, Storage Blob Data Reader) from the list and then select **Next**.
     :::image type="content" source="./media/managed-identity/storage-job-function-roles.png" alt-text="Screenshot of Roles tab under Add role assignment.":::
-4.	In the **Members** tab, under the **Assign access to**, choose **Managed identity** and then click on **Select members**.
+  	
+> [!IMPORTANT]
+> When granting any identity, including a managed identity, permissions to access services, always grant the least permissions needed to perform the desired actions. For example, if a managed identity is used to read data from a storage account, there's no need to allow that identity permissions to also write data to the storage account. Granting extra permissions, for example, making the managed identity a contributor of a storage account when it’s not needed, can make requests coming via AFD capable of write and delete operations.
+
+5.	In the **Members** tab, under the **Assign access to**, choose **Managed identity** and then click on **Select members**.
     :::image type="content" source="./media/managed-identity/members.png" alt-text="Screenshot of Members tab under Add role assignment.":::
-5. The **Select managed identities** window opens. Choose the subscription where your Front Door is located and under **Managed identity** dropdown, choose **Front Door and CDN profiles**. Under the **Select** dropdown, choose the managed identity created for your Front Door. Click on the **Select** button in the bottom.
-6.	Select **Review and assign** and then select **Review and assign** once more after the validation is complete.
+6. The **Select managed identities** window opens. Choose the subscription where your Front Door is located and under **Managed identity** dropdown, choose **Front Door and CDN profiles**. Under the **Select** dropdown, choose the managed identity created for your Front Door. Click on the **Select** button in the bottom.
+7.	Select **Review and assign** and then select **Review and assign** once more after the validation is complete.
 
 ## Tips while using origin authentication
 * If you are facing errors during origin group configuration,
@@ -110,3 +114,5 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 * If your clients are already sending their own tokens under the Authorization header, the token value will be overwritten by AFD with the origin authentication token. If you want AFD to send the client token to the origin, you can configure an AFD rule using the server variable {http_req_header_Authorization} to send the token under a separate header.
     :::image type="content" source="media/managed-identity/rules-engine.png" alt-text="Screenshot of the rule for sending the client token to origin via a different header.":::
 * It is recommended that you use different managed identities for origin authentication and for AFD to Azure Key Vault authentication.
+* For best practices while using managed identities, refer to [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+* For best practices while assigning RBAC role for Azure storage account, refer to [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md)

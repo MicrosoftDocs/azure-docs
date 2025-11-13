@@ -7,9 +7,10 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/01/2025
+ms.date: 11/10/2025
 ms.custom:
-  - build-2025
+- build-2025
+- sfi-image-nochange
 ---
 
 # Understand your Azure external services charges
@@ -17,7 +18,9 @@ Third-party software vendors in the Azure Marketplace publish external services.
 
 ## How external services are billed
 
-- If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your Azure services. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA.
+- If you have a Microsoft Customer Agreement (MCA), your third-party services are billed similar to your first-party services.  Usage-based services are billed with the rest of your Azure services.  Seat-based subscriptions are billed the day after purchase.  [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA.
+- If you have a Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your Azure services. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA.
+
 - If you don't have an MCA or MPA, your external services are billed separately from your Azure services. You receive two invoices each billing period: one invoice for Azure services and another for Marketplaces purchases.
 - Each external service has a different billing model. Some services are billed in a pay-as-you-go fashion while others have monthly charges that are fixed.
 - You can't use monthly free credits for external services. If you're using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to charges from external services. When you provision a new external service or resource, a warning is shown. You can choose to continue with the provisioning or cancel it.
@@ -28,7 +31,7 @@ EA customers can see external service spending in the [Azure portal](https://por
 
 ## View and download invoices for external services
 
-If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your Azure services on a single invoice. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA. If you do, see [View and download invoices in the Azure portal](download-azure-invoice.md) to see your third-party charges.
+If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed same as the rest of your first-party services. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA. If you do, see [View and download invoices in the Azure portal](download-azure-invoice.md) to see your third-party charges.
 
 If you don't have an MCA or MPA, you have separate invoices for third-party charges. 
 
@@ -58,7 +61,7 @@ You can view and download your Azure Marketplace invoices from the Azure portal 
 
 ## Pay for external services in the Azure portal
 
-If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your Azure services. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA. If you do, you can pay for your entire invoice in the Azure portal by following the steps in [Pay your bill for Microsoft Azure](pay-bill.md).
+If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your first-party services. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA. If you do, you can pay for your entire invoice in the Azure portal by following the steps in [Pay your bill for Microsoft Azure](pay-bill.md).
 
 If you don't have an MCA or MPA, you can pay for your Marketplace invoices in the Azure portal by following these steps:
 

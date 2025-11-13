@@ -3,7 +3,11 @@ title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: how-to
 ms.date: 08/05/2025
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-arm-template
+  - sfi-ga-nochange
 ---
 
 # Tenant deployments with ARM templates
@@ -185,7 +189,7 @@ To target a management group within the tenant, add a nested deployment and spec
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedMG",
       "scope": "[variables('mgId')]",
       "location": "eastus",
@@ -214,7 +218,7 @@ To target a subscription within the tenant, use a nested deployment and the `sub
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedSub",
       "location": "westus2",
       "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -248,7 +252,7 @@ To target a resource group within the tenant, use a nested deployment. Set the `
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedRGDeploy",
       "subscriptionId": "00000000-0000-0000-0000-000000000000",
       "resourceGroup": "demoResourceGroup",

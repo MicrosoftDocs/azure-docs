@@ -4,9 +4,9 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
-ms.author: jfields
+ms.author: rolyon
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -123,6 +123,21 @@ Grants full access to manage all resources, including the ability to assign role
 ## Azure File Sync Administrator
 
 This role provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC.
+
+When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
+ 
+1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
+ 
+2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
+ 
+3. Select **Create role assignment**, and then click **Select**.
+ 
+4. Select **Add expression**, and then select **Request**.
+ 
+5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
+ 
+6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
+ 
 
 [Learn more](/azure/storage/file-sync/file-sync-deployment-guide)
 

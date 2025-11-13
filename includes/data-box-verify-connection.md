@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 12/07/2018
 ms.author: shaas
+ms.custom: sfi-image-nochange
 ---
 
 Follow these steps to connect to the storage account and verify the connection.

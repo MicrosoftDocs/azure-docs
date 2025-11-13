@@ -2,13 +2,13 @@
 title: Common cost analysis uses in Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
-author: shasulin
-ms.author: shasulin
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/26/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: shasulin
+ms.reviewer: vikdesai
 ---
 
 # Common cost analysis uses

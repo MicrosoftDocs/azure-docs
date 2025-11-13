@@ -9,6 +9,9 @@ ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 # Customer intent: I'm a developer, and I need to understand how to build a global identity solution using a funnel-based approach, so I can implement it in my organization's Azure AD B2C environment.
 ---

@@ -107,7 +107,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
 > [!NOTE]
-> Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+> Connecting virtual networks between Azure sovereign clouds and global Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
 
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
@@ -124,7 +124,7 @@ The 'circuit owner' is an authorized Power User of the ExpressRoute circuit reso
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
 
   > [!NOTE]
-  > Circuit owner is not an built-in RBAC role or defined on the ExpressRoute resource.
+  > Circuit owner is not a built-in RBAC role or defined on the ExpressRoute resource.
   > The definition of the circuit owner is any role with the following access:
   > - Microsoft.Network/expressRouteCircuits/authorizations/write
   > - Microsoft.Network/expressRouteCircuits/authorizations/read
@@ -257,7 +257,7 @@ With Virtual Network Peering and UDR support, FastPath will send traffic directl
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. With both of these features enabled, FastPath will directly send traffic to a Private Endpoint deployed in a "spoke" Virtual Network.
 
-This scenarios is Generally Available for limited scenarios with connections associated to 10 Gbps and 100 Gbps ExpressRoute Direct circuits. To enable, follow the below guidance:
+This scenario is Generally Available for limited scenarios with connections associated to 10 Gbps and 100 Gbps ExpressRoute Direct circuits. To enable, follow the below guidance:
 1. Complete this [Microsoft Form](https://aka.ms/fplimitedga) to request to enroll your subscription. Requests may take up to 4 weeks to complete, so plan deployments accordingly.
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive

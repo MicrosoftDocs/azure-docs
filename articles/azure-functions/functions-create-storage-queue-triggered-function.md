@@ -4,7 +4,10 @@ description: Use Azure Functions to create a serverless function that is invoked
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
 ms.date: 09/18/2024
-ms.custom: mvc, cc996988-fb4f-47
+ms.custom:
+  - mvc
+  - cc996988-fb4f-47
+  - sfi-image-nochange
 ---
 # Create a function triggered by Azure Queue storage
 
@@ -14,7 +17,7 @@ Learn how to create a function that is triggered when messages are submitted to 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create an Azure Function app
 

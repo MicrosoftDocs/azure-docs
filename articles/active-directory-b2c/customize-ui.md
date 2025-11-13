@@ -10,10 +10,12 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 02/19/2025
-ms.custom: "b2c-support"
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 #Customer intent: As a developer, I want to customize the user interface of my application, so that I can provide a seamless and branded user experience for sign-up, sign-in, profile editing, and password resetting.
 

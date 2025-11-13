@@ -4,10 +4,13 @@ description: Learn to create a job that processes queue messages with Azure Cont
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 12/09/2024
 ms.author: cshoe
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Deploy an event-driven job with Azure Container Apps

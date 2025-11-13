@@ -6,6 +6,7 @@ ms.author: maghan
 ms.reviewer: prwilk, chkittel
 ms.date: 03/24/2025
 ms.topic: concept-article
+ms.service: azure
 ms.collection:
  - migration
  - aws-to-azure

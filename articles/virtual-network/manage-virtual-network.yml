@@ -11,11 +11,12 @@ metadata:
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
-    - template-how-to
-    - engagement-fy23
-    - devx-track-azurecli
-    - devx-track-azurepowershell
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - devx-track-azurepowershell
+    - devx-track-azurecli
+    - engagement-fy23
+    - template-how-to
 
 title: |
   Create, change, or delete a virtual network
@@ -24,7 +25,7 @@ introduction: |
 
 prerequisites:
   summary: |
-    If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
+    If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Complete one of these tasks before starting the remainder of this article:
     
       - **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     

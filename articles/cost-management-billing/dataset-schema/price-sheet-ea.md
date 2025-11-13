@@ -1,20 +1,15 @@
 ---
 title: Enterprise Agreement price sheet schema
 description: Learn about the data fields available in the Enterprise Agreement price sheet.
-author: jojohpm
-ms.reviewer: jojoh
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 06/26/2025
-ms.author: jojoh
+ms.author: vikdesai
 ---
-
 # Enterprise Agreement price sheet schema
-
-This article lists all of the data fields available in the Enterprise Agreement (EA) price sheet. It's a data file that contains all of the prices for your Azure services.
-
-## Version 2023-05-01
 
 The latest EA price sheet includes prices for Azure Reserved Instances (RI) only for the current billing period. We recommend downloading an Azure Price Sheet for when entering a new billing period if you want to keep a record of past RI pricing.
 

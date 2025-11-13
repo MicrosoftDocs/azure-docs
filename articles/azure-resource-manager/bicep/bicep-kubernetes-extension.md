@@ -63,7 +63,7 @@ extension kubernetes with {
 The following sample shows how to pass `kubeConfig` value from a parent Bicep file:
 
 ```bicep
-resource aks 'Microsoft.ContainerService/managedClusters@2024-10-01' existing = {
+resource aks 'Microsoft.ContainerService/managedClusters@2025-08-02-preview' existing = {
   name: 'demoAKSCluster'
 }
 

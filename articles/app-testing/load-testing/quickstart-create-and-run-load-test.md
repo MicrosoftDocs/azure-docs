@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create and run a load test with Azure Load Testing'
-description: 'This quickstart shows how to create an Azure Load Testing resource and run a high-scale load test for an external website by using the Azure portal.'
+description: 'Learn how to create and run load tests in Azure App Testing using the portal. Quickly simulate traffic, validate app performance, and optimize reliability.'
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
@@ -23,9 +23,13 @@ To create a URL-based load test, you perform the following steps:
 
 After you complete this quickstart, you'll have a resource and load test that you can use for other tutorials.
 
+> [!VIDEO 91f2c095-db22-49fe-a4c8-bdd3e62154de]
+
+
+
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure account with permission to create and manage resources in the subscription, such as the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
 
 ## What problem will we solve?

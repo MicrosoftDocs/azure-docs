@@ -4,8 +4,8 @@
  services: iot-hub
  author: SoniaLopezBravo
  ms.service: azure-iot-hub
- ms.topic: conceptual
- ms.date: 11/24/2020
+ ms.topic: concept-article
+ ms.date: 08/07/2025
  ms.author: sonialopez
 ---
 
@@ -29,7 +29,7 @@ New features are in public preview for IoT Hub, including:
 - TLS fragment length negotiation
 - X509 CA chain support for HTTPS/WebSocket
 
-These features are improvements at the IoT Hub protocol and authentication layers, so they're only available for **new** IoT hub for now. They're *not* available for existing IoT hubs yet. To preview these features, the IoT hub must be created with preview mode turned on.
+These features are improvements at the IoT Hub protocol and authentication layers, so they're only available for **new** IoT hubs for now. They're *not* available for existing IoT hubs yet. To preview these features, the IoT hub must be created with preview mode turned on.
 
 ## Turn on preview mode for a new IoT hub
 
@@ -45,13 +45,13 @@ These features are improvements at the IoT Hub protocol and authentication layer
     - West Europe
     - South East Asia
 
-1. Select **Management** tab, then expand the **Advanced settings** section.
+1. Select the **Management** tab.
 
 1. Next to **Preview mode**, select **On**. Review the warning text carefully.
 
     :::image type="content" source="media/iot-hub-preview-mode/turn-on-preview-mode-at-create.png" alt-text="Image showing where to select the preview mode option when creating a new IoT hub":::
 
-1. Select **Next: Review + create**, then **Create**.
+1. Select **Review + create**, then **Create**.
 
 Once created, an IoT hub in preview mode always shows this banner, letting you know to use this IoT hub for preview purposes only: 
 
@@ -61,14 +61,14 @@ Once created, an IoT hub in preview mode always shows this banner, letting you k
 
 Do *not* use an IoT hub in preview mode for production. Preview mode is intended *only* to preview the select features listed at top of this page. Some other limitations to IoT Hub preview mode are
 
-- Some existing IoT Hub features such as IP filter, private link, managed identity, device streams, and failover may work unexpectedly or not at all.
+- Some existing IoT Hub features such as IP filter, private link, managed identity, device streams, and failover might work unexpectedly or not at all.
 - An IoT hub in preview mode can't be changed or upgraded to a normal IoT hub.
-- We can't guarantee the normal [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) - do not use for production.
+- We can't guarantee the normal [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) - don't use an IoT hub in preview mode for production.
 
 > [!TIP]
 > Preview mode isn't required for [device streams](iot-hub-device-streams-overview.md) and [distributed tracing](iot-hub-distributed-tracing.md). To use these older preview features, follow their documentation as normal.
 
 ## Next steps
 
-- To preview the ECC server certificate, see [Elliptic Curve Cryptography (ECC) server TLS certificate (preview)](iot-hub-tls-support.md#elliptic-curve-cryptography-ecc-server-tls-certificate)
-- To preview TLS fragment size negotiation, see [TLS maximum fragment length negotiation (preview)](iot-hub-tls-support.md#tls-maximum-fragment-length-negotiation)
+- To preview the ECC server certificate, see [Elliptic Curve Cryptography (ECC) server TLS certificate](iot-hub-tls-support.md#elliptic-curve-cryptography-ecc-server-tls-certificate)
+- To preview TLS fragment size negotiation, see [TLS maximum fragment length negotiation](iot-hub-tls-support.md#tls-maximum-fragment-length-negotiation)

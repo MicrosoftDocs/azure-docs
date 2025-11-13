@@ -4,6 +4,7 @@ description: This article describes how to use the Azure portal to create an ins
 ms.topic: quickstart
 zone_pivot_groups: elastic-resource-type
 ms.date: 07/15/2025
+ms.custom: sfi-image-nochange
 #customer intent: As an Azure developer, I want to create Elastic resources to use search, log analytics, and security monitoring functions for Azure environments.
 
 ---
@@ -48,8 +49,6 @@ Select **Elastic Search**.
     | Billing term        | Select a value.                                           | 
     | Price + Payment options | Review this information.                              |
 
-    > [!NOTE]
-    > Currently, the **Serverless** hosting type is available only in the East US region.
 
 1. At the bottom of the page, select **Next: Logs & metrics**.
 
@@ -103,9 +102,6 @@ Select **Elastic Observability**.
     | Billing term        | Select a value.                                           | 
     | Price + Payment options | Review this information.                              |
 
-    > [!NOTE]
-    > Currently, the **Serverless** hosting type is available only in the East US region.
-
 1. At the bottom of the page, select **Next: Logs & metrics**.
 
 ### Logs & metrics tab (optional)
@@ -157,9 +153,6 @@ Select **Elastic Security**.
     | Plan                | To choose a different plan, select **Change plan**.       |
     | Billing term        | Select a value.                                           | 
     | Price + Payment options | Review this information.                              |
-
-    > [!NOTE]
-    > Currently, the **Serverless** hosting type is available only in the East US region.
 
 1. At the bottom of the page, select **Next: Logs & metrics**.
 

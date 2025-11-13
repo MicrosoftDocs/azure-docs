@@ -6,7 +6,7 @@ metadata:
   author: zhenlan
   ms.service: azure-app-configuration
   ms.topic: faq
-  ms.date: 10/01/2024
+  ms.date: 08/25/2025
   ms.author: zhenlwa
   ms.custom: references_regions
 title: Azure App Configuration FAQ
@@ -54,7 +54,7 @@ sections:
 
           This key-value limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere, and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
 
-          For a complete list of limits, see [Azure subscription and service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
+          For a complete list of limits, see [naming restrictions](/azure/azure-resource-manager/management/resource-name-rules#microsoftappconfiguration) and [subscription and service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
 
       - question: How should I store configurations for multiple environments (test, staging, production, and so on)?
         answer: |
@@ -122,7 +122,7 @@ sections:
         answer: |
           You can upgrade an App Configuration store at any time, for example, from the Free tier to the Developer, Standard or Premium tier, or from the Developer, Standard tier to the Premium tier.
           
-          You can downgrade an App Configuration store from the Premium tier to the Standard tier, as both tiers are designed for production usage. However, downgrading to a non-production tier, such as the Free tier, is not supported. To achieve this, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
+          You can downgrade an App Configuration store from the Premium tier to the Standard tier, as both tiers are designed for production usage. However, downgrading to a non-production tier, such as the Free tier, isn't supported. To achieve this, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
           
           Before downgrading an App Configuration store from the Premium tier to the Standard tier, ensure that your usage of regular storage and snapshot storage is below the limits of the Standard tier. You can verify your current usage through the [Azure Monitor metrics](monitor-app-configuration.md#analyzing-metrics), Daily Storage Usage and Snapshot Storage Size, of your App Configuration store in the Azure portal.
 
@@ -174,11 +174,12 @@ sections:
           Receiving momentary HTTP status code 429 responses usually causes no harm, as App Configuration clients handle them gracefully. However, if your application regularly experiences HTTP status code 429 responses, consider the following options:
           
           - **Upgrade your store to the Premium tier**: This tier has no quota limit on requests and has increased storage quota and higher throughput allowance.
-          - **Use App Configuration Providers**: The providers have built-in retry and caching capabilities along with many other resiliency features. Be sure to update to the latest version of the provider for all the latest enhancements.
+          - **Use App Configuration Providers**: The [providers](./configuration-provider-overview.md) have built-in retry and caching capabilities along with many other resiliency features. Be sure to update to the latest version of the provider for all the latest enhancements.
           - **Use App Configuration SDKs** if your application needs to send write requests. Although the SDKs may not be as feature-rich as providers, they automatically retry on HTTP status code 429 responses and other transient errors.
           - **Include retry logic in custom clients** if you can't use App Configuration Providers or SDKs. The `retry-after-ms` header in the response provides a suggested wait time (in milliseconds) before retrying the request.
           - **Distribute requests across multiple client instances**: This helps achieve the maximum throughput from your App Configuration store.
           - **Reduce requests made to App Configuration**: Follow the guidance to [minimize the number of requests](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
+          - **Reduce key-value revision retention** if you perform frequent key-value updates and you don't need to retain revisions for the maximum duration allowed by your App Configuration store. Revisions count toward your store's total storage usage. If the storage quota is exceeded, you'll no longer be able to create or modify key-values or feature flags.
           - **Improve your application resiliency**: Consider integrating geo-replication to allow failover and load balancing. Check the best practices for [building highly resilient applications](./howto-best-practices.md#building-applications-with-high-resiliency).
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
@@ -210,7 +211,7 @@ sections:
 
           When the Spring profile is set to `dev`, the value of `config.message` will be `Hello from dev`. When the Spring profile is set to `prod`, the value of `config.message` will be `Hello from prod`.
 
-          This default behavior can be overridden by setting the label filter in your bootstrap file. The Spring provider library loads key-values with the specified label(s) regardless of the active Spring profile.
+          This default behavior can be overridden by setting the label filter in your application properties file. The Spring provider library loads key-values with the specified label(s) regardless of the active Spring profile.
 
           ```yaml
           spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label

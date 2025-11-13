@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/28/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 # Deploy the NVIDIA DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU

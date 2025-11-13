@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 08/25/2024
+ms.date: 10/23/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
@@ -33,6 +35,10 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
+This connector supports connecting to Microsoft Fabric Lakehouse in the workspace with a private link enabled. You can set up and use a private link in Microsoft Fabric by referring to this [article](/fabric/security/security-workspace-level-private-links-set-up).
+
+To support workspace-level private link in the self-hosted integration runtime (version 5.58.9377.1 or above), you need to add `*.dfs.fabric.microsoft.com` to the allowlist to ensure Microsoft Fabric Lakehouse connector can access Onelake APIs through the network.
+ 
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
@@ -599,6 +605,77 @@ To copy data to Microsoft Fabric Lakehouse using Microsoft Fabric Lakehouse Tabl
     }
 ]
 ```
+
+## Data type mapping for Microsoft Fabric Lakehouse table
+
+When copying data from Microsoft Fabric Lakehouse table, the following mappings are used from Microsoft Fabric Lakehouse table data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| Microsoft Fabric Lakehouse table data type | Interim service data type |
+|---------------------|------------------|
+| string              | String           |
+| long                | Int64            |
+| integer             | Int32            |
+| short               | Int16            |
+| byte                | SByte            |
+| float               | Single           |
+| double              | Double           |
+| decimal             | Decimal          |
+| boolean             | Boolean          |
+| binary              | Byte array       |
+| date                | Date             |
+| timestamp           | DateTime         |
+
+When copying data to Microsoft Fabric Lakehouse table, the following mappings are used from interim data types used by the service internally to supported delta sink data types.
+
+| Interim service data type | Supported delta sink type |
+|---------------------|------------------|
+| Boolean          | boolean             |
+| SByte            | byte                |
+| Byte             | short               |
+| Int16            | short               |
+| UInt16           | integer             |
+| Int32            | integer             |
+| UInt32           | long                |
+| Int64            | long                |
+| UInt64           | decimal (20,0)      |
+| Single           | float               |
+| Double           | double              |
+| GUID             | string              |
+| Date             | date                |
+| TimeSpan         | Not supported       |
+| DateTime         | timestamp           |
+| DateTimeOffset   | timestamp           |
+| String           | string              |
+| Byte array       | binary              |
+| Decimal          | decimal             |
+
+## Delta Lake table support
+
+In the sections below, you will find detailed information on Delta Lake table support for both the source and sink.
+
+### Source
+
+[Delta column mapping](https://docs.delta.io/latest/delta-column-mapping.html) is supported when you apply reader version 2 or reader version 3 with `columnMapping` in `readerFeatures` in your Microsoft Fabric Lakehouse Table. 
+
+Delta table's column mapping capability allows for more flexible schema evolution, ensuring that changes in table structure do not disrupt data workflows. With column mapping, you can read data from an existing delta Lake table with `delta.columnMapping.mode` set to `name` or `id`.
+
+[Deletion vectors](https://docs.delta.io/latest/delta-deletion-vectors.html) is supported 
+when you apply reader version 3 with `deletionVectors` in `readerFeatures` in your Microsoft Fabric Lakehouse Table. Rows that are soft deleted are marked in deletion vector files and skipped when reading the delta lake table. 
+
+[Change Data Feed](https://docs.delta.io/delta-change-data-feed/) is supported.
+
+### Sink
+
+[Delta column mapping](https://docs.delta.io/latest/delta-column-mapping.html) is supported. This capability allows for more flexible schema evolution, ensuring that changes in table structure do not disrupt data workflows. With column mapping, you can:
+
+- Write data to an existing delta lake table with `delta.columnMapping.mode` set to `name`.
+- Auto-create a table with `delta.columnMapping.mode` set to `name` when the sink table does not exist and the source columns include special characters and whitespaces.
+- Auto-create a table with `delta.columnMapping.mode` set to `name` when the table action is overwrite and the source dataset columns include special characters and whitespaces.
+
+[Deletion vectors](https://docs.delta.io/latest/delta-deletion-vectors.html) is supported.
+
+[Change Data Feed](https://docs.delta.io/delta-change-data-feed/) is supported.
+
 
 ## Mapping data flow properties
 

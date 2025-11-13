@@ -192,7 +192,7 @@ param storageAccountName string
 ])
 param storageAccountSKU string = 'Standard_LRS'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -216,7 +216,7 @@ type storageAccountConfigType = {
 
 param storageAccountConfig storageAccountConfigType
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountConfig.name
   location: location
   sku: {
@@ -454,7 +454,7 @@ param storageAccountProps resourceInput<'Microsoft.Storage/storageAccounts@2023-
 }
 
 // Resource declaration using the typed parameter
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'mystorageacct123'
   location: resourceGroup().location
   sku: {

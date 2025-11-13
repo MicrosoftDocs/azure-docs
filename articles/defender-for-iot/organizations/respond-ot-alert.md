@@ -3,6 +3,7 @@ title: Respond to an alert in the Azure portal - Microsoft Defender for IoT
 description: Learn about how to fully respond to OT network alerts in Microsoft Defender for IoT.
 ms.date: 12/05/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Investigate and respond to an OT network alert
@@ -17,7 +18,7 @@ Alternately, you might be an OT engineer watching for operational alerts directl
 
 Before you start, make sure that you have:
 
-- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A cloud-connected [OT network sensor](onboard-sensors.md) onboarded to Defender for IoT, with alerts streaming into the Azure portal.
 

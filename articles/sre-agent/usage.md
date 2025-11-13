@@ -3,7 +3,7 @@ title: Create and Use an agent in Azure SRE Agent Preview
 description: Learn how to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 07/17/2025
+ms.date: 10/28/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -16,38 +16,20 @@ This article demonstrates how to create an agent and connect it to your resource
 
 ## Preview access
 
-Access to SRE Agent is available only as a preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
+While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent/portal).
 
 > [!NOTE]
 > By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-To create an agent, you need to grant your agent the correct permissions and access to the right namespace:
-
-* **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* **Security context**: Make sure that your user account has the `Microsoft.Authorization/roleAssignments/write` permissions as either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
-
-* **Subscription ID for your allow list**: Make sure that your Azure CLI session is set to the subscription ID in the preview allow list. If you need to set the Azure CLI context to your subscription ID, use the following command:
-
-    ```azurecli  
-    az account set --subscription "<SUBSCRIPTION_ID>"
-    ```
-
-* **Namespace**: By using Azure Cloud Shell in the Azure portal, run the following command to set up a namespace:
-
-    ```azurecli  
-    az provider register --namespace "Microsoft.App"
-    ```
-
-* **Access to the Sweden Central region**: During the preview, the only allowed region for SRE Agent is Sweden Central. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in the Sweden Central region.
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 
 ## Create an agent
 
 Create an agent by associating resource groups that you want to monitor with the agent:
 
-1. Follow the link provided in your onboarding email to access Azure SRE Agent in the Azure portal.
+1. Open the [Azure portal](https://aka.ms/sreagent/portal).
 
 1. Select **Create**.
 
@@ -65,7 +47,7 @@ Create an agent by associating resource groups that you want to monitor with the
     | Property | Value |
     |---|---|
     | **Agent name** | Enter a name for your agent. |
-    | **Region** | Select **Sweden Central**.<br><br>During the preview, Azure SRE Agent is available only in the Sweden Central region. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to the Sweden Central region. |
+    | **Region** | Select **East US 2**.<br><br>During the preview, Azure SRE Agent is available only in the *Sweden Central*, *East US 2*, and *Australia East* regions. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to these regions. |
 
 1. Select **Choose resource groups**.
 

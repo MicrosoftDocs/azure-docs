@@ -2,10 +2,10 @@
 title: Set up Azure VM disaster recovery to a secondary region with Azure Site Recovery
 description: Quickly set up disaster recovery to another Azure region for an Azure VM, using the Azure Site Recovery service.
 ms.topic: quickstart
-ms.date: 06/17/2025
+ms.date: 09/09/2025
 ms.custom: mvc, mode-other
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.service: azure-site-recovery
 # Customer intent: "As an IT administrator, I want to configure disaster recovery for Azure VMs to a secondary region, so that I can ensure business continuity and reduce downtime during outages."
 ---
@@ -22,7 +22,7 @@ This quickstart describes how to set up disaster recovery for an Azure VM by rep
 
 To complete this tutorial, you need an Azure subscription and a VM.
 
-- If you don't have an Azure account with an active subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you don't have an Azure account with an active subscription, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A VM with a minimum 1 GB of RAM is recommended. [Learn more](/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
 
 ## Sign in to Azure
@@ -43,7 +43,7 @@ The following steps enable VM replication to a secondary location.
    >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
    >:::image type="High churn" source="media/concepts-azure-to-azure-high-churn-support/churn-for-vms.png" alt-text="Screenshot of Churn for VM.":::
    >
-   >Azure Site Recovery for Premium SSD v2 (preview) and Ultra by default uses High Churn and a Premium Block Blob type. 
+   >Azure Site Recovery for Premium SSD v2 and Ultra by default uses High Churn and a Premium Block Blob type. 
 1. To start the job that enables VM replication, select **Start replication**.
 
    :::image type="content" source="media/azure-to-azure-quickstart/enable-replication1.png" alt-text="Enable replication.":::

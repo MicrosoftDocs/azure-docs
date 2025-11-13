@@ -318,4 +318,4 @@ When the gallery images are available in the dev center, you can use the custom 
 
 ## Related content
 
-- [Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [Manage a dev box definition](how-to-manage-dev-box-definitions.md)

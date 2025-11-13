@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
 
 ## 1. Create an Azure OpenAI resource

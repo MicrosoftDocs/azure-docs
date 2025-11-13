@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Blob Storage
-description: Learn about reliability in Azure Blob Storage, including availability zones and multi-region deployments.
+description: Learn how to ensure reliability in Azure Blob Storage by using zone redundancy, geo-redundant storage, and high availability for object storage.
 ms.author: anaharris
 author: anaharris-ms
 ms.topic: reliability-article
@@ -17,7 +17,7 @@ Azure Blob Storage is an object storage solution for the cloud from Microsoft. I
 
 Blob Storage supports built-in redundancy mechanisms that store multiple copies of your data across different fault domains. It provides comprehensive redundancy options that include availability zone deployment with zone-redundant storage (ZRS), multi-region protection through geo-redundant configurations, and sophisticated failover capabilities.
 
-This article describes reliability support in [Blob Storage](/azure/storage/blobs/storage-blobs-overview), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+This article describes reliability support in [Blob Storage](/azure/storage/blobs/storage-blobs-overview), as well as Blob Storage with a hierarchical namespace (Azure Data Lake Storage Gen2). Topics include [availability zones](#availability-zone-support), [multi-region deployments](#multi-region-support), and [backups](#backups).
 
 [!INCLUDE [Shared reliability description](includes/reliability-shared-responsibility-include.md)]
 
@@ -153,6 +153,8 @@ For more information, see [Blob Storage pricing](https://azure.microsoft.com/pri
 ### Alternative multi-region approaches
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
+
+[!INCLUDE [Storage - Alternative multi-region approaches - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
 
 [!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
 

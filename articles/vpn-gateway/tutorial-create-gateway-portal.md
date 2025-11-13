@@ -7,6 +7,7 @@ ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 06/24/2025
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As a network administrator, I want to create and manage a VPN gateway using the cloud portal, so that I can securely connect our on-premises resources to our virtual network."
 ---
@@ -35,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-You need an Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+You need an Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## <a name="CreateVNet"></a>Create a virtual network
 

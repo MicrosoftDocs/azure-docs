@@ -13,7 +13,7 @@ This quickstart shows you how to deploy an ASP.NET app in a Windows image from A
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)

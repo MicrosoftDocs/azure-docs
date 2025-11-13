@@ -29,7 +29,7 @@ You can choose to create a gateway load balancer using the Azure portal, Azure C
 
 # [Azure portal](#tab/azureportal)
 
-- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
 
@@ -39,14 +39,14 @@ You can choose to create a gateway load balancer using the Azure portal, Azure C
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using the Azure CLI](quickstart-load-balancer-standard-public-cli.md)**.
     - For the purposes of this tutorial, the existing load balancer in the examples is named **myLoadBalancer**.
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-- An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md)**.
     - For the purposes of this tutorial, the existing load balancer in the examples is named **myLoadBalancer**.
 - Azure PowerShell installed locally or Azure Cloud Shell
@@ -550,7 +550,7 @@ New-AzLoadBalancer @lb
 
 ## Add network virtual appliances to the Gateway Load Balancer backend pool
 > [!NOTE]
-> If leveraging your own custom network virtual appliance in the backend pool of a Gateway Load Balancer, please ensure the MTU of all NVA virtual machines are raised to a minimum of 1550 bytes to accomodate for the VXLAN encapsulated headers. This will allow source packets up to the limit of 1500 byte packets in Azure, avoiding fragmentation.
+> If leveraging your own custom network virtual appliance in the backend pool of a Gateway Load Balancer, please ensure the MTU of all NVA virtual machines are raised to a minimum of 1550 bytes to accommodate for the VXLAN encapsulated headers. This will allow source packets up to the limit of 1500 byte packets in Azure, avoiding fragmentation.
 
 # [Azure portal](#tab/azureportal)
 

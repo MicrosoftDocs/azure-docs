@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 06/18/2025
+ms.date: 08/25/2025
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -19,7 +19,7 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
@@ -71,7 +71,7 @@ To create a new Spring Boot project:
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.22.0</version>
+        <version>6.0.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -93,6 +93,7 @@ To create a new Spring Boot project:
 
         If you're using a properties file, use the following code:
         ```properties
+        spring.config.import=azureAppConfiguration
         spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
         spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
         ```
@@ -100,9 +101,11 @@ To create a new Spring Boot project:
         If you're using a yaml file, use the following code:
         ```yaml
         spring:
-            cloud:
+          config:
+            import: azureAppConfiguration
+          cloud:
             azure:
-                appconfiguration:
+              appconfiguration:
                 stores:
                     -
                     feature-flags:
@@ -154,8 +157,9 @@ To create a new Spring Boot project:
         ```
 
     ### [Connection string](#tab/connection-string)
-    If you are using a properties file, use the following code:
-    ```properties
+   If you are using a properties file, use the following code:
+   ```properties
+    spring.config.import=azureAppConfiguration
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
@@ -163,6 +167,8 @@ To create a new Spring Boot project:
     If you are using a yaml file, use the following code:
     ```yaml
     spring:
+      config:
+        import: azureAppConfiguration
       cloud:
         azure:
           appconfiguration:

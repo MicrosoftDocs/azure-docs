@@ -6,6 +6,7 @@ ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: how-to
 ms.date: 02/12/2025
+ms.custom: sfi-image-nochange
 ---
 
 # How to revoke a consumer's share subscription in Azure Data Share

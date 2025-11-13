@@ -8,7 +8,10 @@ ms.subservice: data-movement
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/13/2025
-ms.custom: devx-track-python, mode-api
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
@@ -24,7 +27,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * [Python 3.6+](https://www.python.org/downloads/).
 

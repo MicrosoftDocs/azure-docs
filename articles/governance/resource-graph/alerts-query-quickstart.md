@@ -23,7 +23,7 @@ This article includes two examples of alerts:
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Resources deployed in Azure like virtual machines or storage accounts.
 - To use the example for the Azure Resource Graph and Log Analytics query, you need at least one Azure virtual machine with the Azure Monitor Agent.
 

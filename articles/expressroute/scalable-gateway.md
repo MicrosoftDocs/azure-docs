@@ -19,12 +19,41 @@ The ExpressRoute scalable gateway (ErGwScale) is a new virtual network gateway S
 
 The virtual network gateway infrastructure autoscales between the minimum and maximum scale unit that you configure, based on the bandwidth or flow count utilization. Scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
 
+> [!IMPORTANT]
+>The minimum scale unit must be 1, when the maximum scale unit is 1.
+
+
+You can configure the gateway's scaling, as per requirements, by setting the minimum and maximum scale units:
+- To configure a fixed-size gateway, set both the **minimum** and **maximum** scale units to the same value (for example, set both to **1**, set both to **20**, set both to **40**).
+- To enable autoscaling, set the **minimum scale unit** to **2** or higher, and specify the desired **maximum scale unit** (up to 40).
+
+This allows the gateway to automatically scale based on your workload requirements.
+
+| Scenario              | Minimum Scale Unit | Maximum Scale Unit | Autoscaling Enabled? |
+|-----------------------|-------------------|-------------------|---------------------|
+| Fixed scaling         | 1                 | 1                 | No                  |
+| Fixed scaling         | 20                | 20                | No                  |  
+| Fixed scaling         | 40                | 40                | No                  |  
+| Autoscaling           | 2 or higher       | Up to 40          | Yes                 |
+
+## Upgrade and migration paths
+
+You can move to the SKU ErGwScale using either an upgrade or migration process, depending on your current gateway SKU. 
+
+**Upgrade options**
+- If you have an existing gateway using the ErGw1Az, ErGw2Az, or ErGw3Az SKU, you can [upgrade](expressroute-howto-add-gateway-portal-resource-manager.md#upgrade-the-gateway-sku) directly to the Scalable Gateway SKU. No migration tool is required.
+- Upgrades can be performed through the Azure portal or by using PowerShell.
+
+This process may take up to 2 hours to complete. During this time, the gateway remains available and does not experience downtime.
+
+**Migration options**
+- If your gateway uses the Standard, High Performance, or Ultra Performance SKU, you must use the [migration Tool](gateway-migration.md) to move to ErGwScale.
+
 ## Limitations
 
+* **IPsec over ExpressRoute**: ErGwScale currently doesn't support [IPsec traffic over ExpressRoute](expressroute-about-encryption.md). 
 * **Basic IP**: ErGwScale doesn't support the Basic IP SKU. You need to use a Standard IP SKU to configure ErGwScale.
-* **Minimum and maximum scale units**: You can configure the scale unit for ErGwScale between 1 and 40. The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
-* **Migration scenarios**: You can't migrate from Standard/ErGw1Az or HighPerf/ErGw2Az/UltraPerf/ErGw3Az to ErGwScale in the preview.
-* **IPsec over ExpressRoute**: ErGwScale currently doesn't support IPsec deployment over ExpressRoute. 
+* **Minimum and maximum scale units**: The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
 
 ### Supported performance per scale unit
 
@@ -47,21 +76,27 @@ The virtual network gateway infrastructure autoscales between the minimum and ma
 
 ErGwScale is available in most regions except the following regions:
 
-* Asia South East
 * Belgium Central
-* Europe West
-* India West
 * Japan East
 * Qatar Central
+* Southeast Asia
+* West Europe
+* West India
+* West US 2
 
-### Pricing
 
-ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
+## Pricing
+
+| SKU                | Price per hour per scale unit |
+|-------------------------|------------------------------|
+| **ErGwScale**   | **$0.21**                    |
+
+For more information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
 
 
 ## Next steps
 
-- Learn how to [create an ExpressRoute scalable gateway](expressroute-howto-add-gateway-resource-manager.md).
+- Learn how to [create an ExpressRoute scalable gateway](expressroute-howto-scalable-portal.md).
 - Learn more about [ExpressRoute gateways](expressroute-about-virtual-network-gateways.md).
 
 

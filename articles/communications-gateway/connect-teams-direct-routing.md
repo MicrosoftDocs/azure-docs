@@ -1,11 +1,12 @@
 ---
 title: Connect Azure Communications Gateway to Microsoft Teams Direct Routing
 description:  After deploying Azure Communications Gateway, you can configure it to connect to the Microsoft Phone System for Microsoft Teams Direct Routing.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: integration
 ms.date: 03/22/2024
 ms.custom:
     - template-how-to-pattern
+    - sfi-ga-nochange
 ---
 
 # Connect Azure Communications Gateway to Microsoft Teams Direct Routing

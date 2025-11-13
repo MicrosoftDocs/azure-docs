@@ -8,6 +8,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/10/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # Configure users of the developer portal to authenticate using usernames and passwords 

@@ -6,6 +6,7 @@ ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 04/20/2022
+ms.custom: sfi-image-nochange
 ---
 # Use reference data from a SQL Database for an Azure Stream Analytics job
 

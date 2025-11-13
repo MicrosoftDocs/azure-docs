@@ -1,5 +1,5 @@
 ---
-title: Configure table settings in Microsoft Sentinel (preview)
+title: Configure table settings in Microsoft Sentinel
 description: Configure Microsoft Sentinel and Defender XDR table settings in Microsoft Defender Portal to optimize security operations and cost efficiency.
 ms.reviewer: dzatakovi
 ms.author: guywild
@@ -9,13 +9,13 @@ ms.date: 07/13/2025
 # Customer intent: As an IT administrator or subscription owner, I want to manage Microsoft Sentinel and Defender XDR table tiers and retention settings in Microsoft Defender Portal to optimize security operations needs and cost efficiency.
 ---
 
-# Configure table settings in Microsoft Sentinel (preview)
+# Configure table settings in Microsoft Sentinel
 
 The Microsoft Defender portal provides a centralized experience for configuring table-level data retention and tier settings across Microsoft Sentinel and Microsoft Defender XDR. You can view and manage retention settings, switch between analytics and data lake tiers, and optimize data storage based on operational and cost requirements. 
 
 This article explains how to configure retention and tier settings for tables in Microsoft Sentinel and Defender XDR in the Microsoft Defender portal. 
 
-For more information about how data tiers and retention work, see [Manage data tiers and retention in Microsoft Sentinel (preview)](manage-data-overview.md).
+For more information about how data tiers and retention work, see [Manage data tiers and retention in Microsoft Sentinel](manage-data-overview.md).
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ To view and manage table settings in the Microsoft Defender portal:
       > [!NOTE]
       > Tier changes aren't available for all tables. For example, XDR and Microsoft Sentinel solution tables must be available in the analytics tier because Microsoft security services require the data in these tables for near-real-time analytics. 
 
-    For more information about retention and tier settings work, see [Manage data tiers and retention in Microsoft Sentinel (preview)](manage-data-overview.md).
+    For more information about retention and tier settings work, see [Manage data tiers and retention in Microsoft Sentinel](manage-data-overview.md).
     
 1.	Review warnings and messages. These messages help you understand important implications of changing table settings. 
 
@@ -90,6 +90,6 @@ To view and manage table settings in the Microsoft Defender portal:
 
 Learn more about:
 
-- [Microsoft Sentinel data lake (preview)](datalake/sentinel-lake-overview.md)
-- [KQL jobs in Microsoft Sentinel (preview)](datalake/kql-jobs.md)
+- [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md)
+- [KQL jobs in Microsoft Sentinel](datalake/kql-jobs.md)
 

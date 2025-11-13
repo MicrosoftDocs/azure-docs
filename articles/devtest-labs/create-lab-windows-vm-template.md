@@ -5,8 +5,13 @@ description: Create labs with virtual machines in Azure DevTest Labs by using Az
 ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template, UpdateFrequency2
 ms.date: 06/19/2024
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a developer, I want to use ARM templates in Azure DevTest Labs so that I can create labs with virtual machines.
 ---
@@ -21,7 +26,7 @@ DevTest Labs can use ARM templates for many tasks, from creating and provisionin
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review template resources
 

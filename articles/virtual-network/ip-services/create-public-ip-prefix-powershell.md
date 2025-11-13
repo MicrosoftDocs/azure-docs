@@ -21,7 +21,7 @@ When you create a public IP address resource, you can assign a static public IP 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -42,7 +42,7 @@ New-AzResourceGroup @rg
 
 ## Create a public IP address prefix
 
-In this section, you create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
+In this section, you create a zone redundant and zonal public IP prefix using Azure PowerShell. 
 
 The prefixes in the examples are:
 
@@ -90,23 +90,6 @@ New-AzPublicIpPrefix @ipv4
 
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-# [**Non-zonal IPv4 prefix**](#tab/ipv4-non-zonal)
-
-To create a IPv4 public IP prefix, enter **IPv4** in the `-IpAddressVersion` parameter. Remove the `-Zone` parameter to create a non-zonal IP prefix.
-
-```azurepowershell-interactive
-$ipv4 =@{
-    Name = 'myPublicIpPrefix-nozone'
-    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
-    Location = 'westus2'
-    PrefixLength '28'
-    IpAddressVersion = 'IPv4'
-}
-New-AzPublicIpPrefix @ipv4
-```
-
-The removal of the `-Zone` parameter in the command is valid in all regions.  
 
 The removal of the `-Zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -168,23 +151,6 @@ New-AzPublicIpPrefix @ipv6
 
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-# [**Non-zonal IPv6 prefix**](#tab/ipv6-non-zonal)
-
-To create a IPv6 public IP prefix, enter **IPv6** in the `-IpAddressVersion` parameter. Remove the `-Zone` parameter to create a non-zonal IP prefix.
-
-```azurepowershell-interactive
-$ipv6 =@{
-    Name = 'myPublicIpPrefix-nozone'
-    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
-    Location = 'westus2'
-    PrefixLength = '124'
-    IpAddressVersion = 'IPv6'
-}
-New-AzPublicIpPrefix @ipv6
-```
-
-The removal of the `-Zone` parameter in the command is valid in all regions.  
 
 The removal of the `-Zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

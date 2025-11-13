@@ -127,11 +127,7 @@ Some Azure Maps services require elevated privileges to perform write or delete 
 
 | Azure Maps service                 | Azure Maps Role Definition  |
 | :----------------------------------| :-------------------------- |
-| [Creator] (Deprecated<sup>1</sup>) | Azure Maps Data Contributor |
-| [Spatial] (Deprecated<sup>1</sup>) | Azure Maps Data Contributor |
 | Batch [Search] and [Route]         | Azure Maps Data Contributor |
-
-<sup>1</sup> Azure Maps Creator, and the Data registry and Spatial services are now deprecated and will be retired on 9/30/25.
 
 For information about viewing your Azure RBAC settings, see [How to configure Azure RBAC for Azure Maps].
 
@@ -147,8 +143,6 @@ Here are some example scenarios where custom roles can improve application secur
 | :----------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
 | A public facing or interactive sign-in web page with base map tiles and no other REST APIs.| `Microsoft.Maps/accounts/services/render/read`                                                  |
 | An application, which only requires reverse geocoding and no other REST APIs.              | `Microsoft.Maps/accounts/services/search/read`                                                  |
-| A role for a security principal, which requests a reading of Azure Maps Creator based map data and base map tile REST APIs. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read` |
-| A role for a security principal, which requires reading, writing, and deleting of Creator based map data. Defined as a map data editor role that doesn't allow access to other REST API like base map tiles. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
 
 ### Understand scope
 
@@ -215,9 +209,9 @@ Consider the application topology where the endpoint `https://us.atlas.microsoft
 
 As described in [Azure Maps QPS rate limits](azure-maps-qps-rate-limits.md), the rate limits for individual service offerings are enforced collectively at the account level.
 
-Consider the case of **Search service - Non-Batch Reverse**, with its limit of 250 queries per second (QPS) for the following tables. Each table represents estimated total successful transactions from example usage.
+Consider the case of **Search service - single request reverse**, with its limit of 250 queries per second (QPS) for the following tables. Each table represents estimated total successful transactions from example usage.
 
-The first table shows one token that has a maximum request per second of 500, and actual usage of the application is 500 request per second for a duration of 60 seconds. **Search service - Non-Batch Reverse** has a rate limit of 250, meaning of the total 30,000 requests made in the 60 seconds; 15,000 of those requests are billable transactions. The remaining requests result in status code `429 (TooManyRequests)`.
+The first table shows one token that has a maximum request per second of 500, and actual usage of the application is 500 request per second for a duration of 60 seconds. **Search service - single request reverse** has a rate limit of 250, meaning of the total 30,000 requests made in the 60 seconds; 15,000 of those requests are billable transactions. The remaining requests result in status code `429 (TooManyRequests)`.
 
 | Name  | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
 | :---- | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |
@@ -427,11 +421,8 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [Azure services that can use managed identities to access other services]: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
 [Authentication flows and application scenarios]: ../active-directory/develop/authentication-flows-app-scenarios.md
 [Azure role-based access control (Azure RBAC)]: ../role-based-access-control/overview.md
-[Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.yml
+[Assign Azure roles using the Azure portal]: /azure/role-based-access-control/role-assignments-portal
 
-[Data]: /rest/api/maps/data
-[Creator]: /rest/api/maps-creator/
-[Spatial]: /rest/api/maps/spatial
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Route]: /rest/api/maps/route
 

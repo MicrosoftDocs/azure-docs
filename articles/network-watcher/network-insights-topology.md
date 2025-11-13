@@ -5,10 +5,11 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 06/05/2024
-ms.custom: subject-monitoring
+ms.date: 09/23/2025
+ms.custom:
+  - subject-monitoring
+  - sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I want to see my resources across multiple resource groups, regions, and subscriptions so that I can easily manage resource inventory and have connectivity and traffic insights.
 # Customer intent: "As an Azure administrator, I want to visualize resource topologies and their connectivity, so that I can effectively monitor and troubleshoot network infrastructure across multiple subscriptions and regions."
 ---
 
@@ -22,7 +23,7 @@ In this article, you learn how to use topology to visualize virtual networks and
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The necessary [role-based access control (RBAC) permissions](required-rbac-permissions.md) to use Azure Network Watcher capabilities.
 
 ## Supported resource types

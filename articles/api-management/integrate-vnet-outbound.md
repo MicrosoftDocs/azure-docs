@@ -62,7 +62,7 @@ The subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
 
 > [!NOTE]
-> You might need to register the `Microsoft.Web/serverFarms` resource provider in the subscription so that you can delegate the subnet to the service.
+> You might need to register the `Microsoft.Web/serverFarms` resource provider in the subscription so that you can delegate the subnet to the service, even if you see it on the list of available services in the subnet delegation setup in the portal. 
 
 
 For more information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).

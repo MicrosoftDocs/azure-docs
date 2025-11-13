@@ -41,8 +41,6 @@ The steps for this task use a VNet based on the values in the following configur
 | Gateway IP Name | *GWIP* |
 | Gateway IP configuration Name | *gwipconf* |
 | Type | *ExpressRoute* |
-| Gateway Public IP Name  | *gwpip* |
-
 ## Add a gateway
 
 > [!IMPORTANT]
@@ -98,12 +96,7 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
    ```
-1. Request a public IP address. The IP address is requested before creating the gateway. You can't specify the IP address that you want to use; it’s dynamically assigned. You'll use this IP address in the next configuration section. The AllocationMethod must be Dynamic.
-
-   ```azurepowershell-interactive
-   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
-   ```
-    If you want to create the gateway in an Azure Extended Zone, request a public IP address in the Extended Zone using the **-ExtendedLocation** parameter.
+1. Public IP is no longer required for ExpressRoute gateways, except in the case of extended zone gateways. If you want to create the gateway in an Azure Extended Zone, request a public IP address in the Extended Zone using the **-ExtendedLocation** parameter.
 
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -ExtendedLocation $ExtendedLocation -AllocationMethod Static -SKU Standard
@@ -111,12 +104,18 @@ The steps for this task use a VNet based on the values in the following configur
 
    > [!NOTE]
    > Basic SKU public IP isn't supported with new ExpressRoute virtual network gateway.
-   > Creating a public IP is no longer required, Microsoft will create and manage your public IP.
+   > Creating a public IP is no longer required, [Microsoft will create and manage your public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). This means all ExpressRoute virtual network gateways are created as zone-redundant.
+
    
-1. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you're specifying the configuration that will be used when you create the gateway. Use the following sample to create your gateway configuration.
+1. Create the configuration for your gateway. The gateway configuration defines the subnet to use. In this step, you're specifying the configuration that will be used when you create the gateway. Use the following sample to create your gateway configuration.
 
    ```azurepowershell-interactive
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet 
+   ```
+    If you want to create the gateway in an Azure Extended Zone, Use the following sample.
+   
+   ```azurepowershell-interactive
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddressId $pip.Id 
    ```
 1. Create the gateway. In this step, the **-GatewayType** is especially important. You must use the value **ExpressRoute**. After running these cmdlets, the gateway can take 45 minutes or more to create.
 

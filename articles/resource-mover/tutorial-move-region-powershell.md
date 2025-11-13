@@ -6,7 +6,9 @@ ms.topic: tutorial
 author: jasminemehndir
 ms.author: v-jasmineme
 ms.date: 07/31/2025
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an Azure administrator, I want to efficiently move Azure resources across regions using PowerShell, so that I can optimize resource distribution and comply with regional requirements.
 ---
 # Move resources across regions in PowerShell

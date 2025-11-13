@@ -283,7 +283,7 @@ To connect the frontend and backend pool, perform the following steps:
     - Enable Request Header Rewrite: Select **Yes**.  
     - Add a request header:
       - Header name: `X-Forwarded-Host`
-      - Value: `{host}`
+      - Value: `{var_host}`
 
     This action ensures that the original `Host` header from the client request is preserved and accessible by the backend application.  
 

@@ -3,6 +3,7 @@ title: Use private endpoints to integrate Azure Functions with a virtual network
 description: This tutorial shows you how to connect a function to an Azure virtual network and lock it down by using private endpoints.
 ms.topic: article
 ms.date: 3/24/2023
+ms.custom: sfi-image-nochange
 
 #Customer intent: As an enterprise developer, I want to create a function that can connect to a virtual network with private endpoints to secure my function app.
 ---

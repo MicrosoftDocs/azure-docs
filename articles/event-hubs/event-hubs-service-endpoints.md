@@ -3,13 +3,14 @@ title: Secure Azure Event Hubs Using Virtual Network Integration
 description: Discover how to bind Azure Event Hubs to virtual networks for private, secure communication between workloads.
 #customer intent: As an IT admin, I want to bind Event Hubs namespaces to virtual networks so that I can isolate messaging services from public internet access.  
 ms.topic: article
+ms.date: 07/28/2025
 ms.custom:
   - devx-track-azurepowershell, devx-track-azurecli
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:07/28/2025
   - ai-gen-description
-ms.date: 07/28/2025
+  - sfi-image-nochange
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific virtual networks 

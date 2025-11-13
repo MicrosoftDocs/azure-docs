@@ -60,9 +60,7 @@ Use one of the following options to perform the settings change at scale:
 
 #### [Windows](#tab/third-party-win)
 
-Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. 
-
-This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
+Azure Update Manager uses the locally configured update repository to update supported Windows systems. These repositories can be Windows Update or WSUS. When you use WSUS, import and publish third-party applications and custom updates to WSUS.
 
 #### [Linux](#tab/third-party-lin)
 

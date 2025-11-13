@@ -4,7 +4,7 @@ description: Frequently asked questions in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: concept-article
-ms.date: 08/26/2025
+ms.date: 10/13/2025
 ms.service: azure-sre-agent
 ---
 
@@ -33,7 +33,7 @@ If your naming and your network configuration are correct, use the following ste
 
 :::image type="content" source="media/troubleshoot/sre-agent-failure-notification.png" alt-text="Screenshot that shows a notification of provisioning failure in Azure SRE Agent.":::
 
-1. Confirm that your user account has owner or admin permissions, along with permissions to create resources in the Sweden Central region.
+1. Confirm that your user account has owner or admin permissions, along with permissions to create resources in the *Sweden Central*, *East US 2*, or *Australia East* regions (depending on your deployment).
 
 1. Check whether the subscription is in the allow list for SRE Agent Preview. Run the following command:
 

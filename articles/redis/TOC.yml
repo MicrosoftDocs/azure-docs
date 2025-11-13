@@ -38,8 +38,6 @@ items:
         href: dotnet-how-to-use-azure-redis-cache.md
       - name: Java app
         href: java-get-started.md
-      - name: Java app with JCache
-        href: java-redisson-get-started.md
       - name: Node.js app
         href: nodejs-get-started.md
       - name: Python app
@@ -123,6 +121,8 @@ items:
     items:
     - name: Using TLS with a managed cache
       href: tls-configuration.md
+    - name: Configure disk encryption 
+      href: how-to-encryption.md
     - name: Connect to cache using Private Link
       href: private-link.md
     - name: Security controls by Azure Policy
@@ -137,8 +137,6 @@ items:
       href: configure.md
     - name: Import/Export data
       href: how-to-import-export-data.md
-    - name: Configure disk encryption 
-      href: how-to-encryption.md
     - name: Configure redis-cli access
       href: how-to-redis-cli-tool.md
     - name: Management FAQs
@@ -177,7 +175,7 @@ items:
   - name: Move from Azure Cache for Redis to Azure Managed Redis 
     href: migrate/migrate-overview.md
   - name: Migrate to Azure Redis from other caches
-    href: /azure/azure-cache-for-redis/cache-migration-guide
+    href: migrate/migration-guide.md
 
 - name: Azure Cache for Redis 
   href: /azure/azure-cache-for-redis/index
@@ -208,10 +206,6 @@ items:
     items:
       - name: Vector search concepts
         href: overview-vector-similarity.md
-      - name: Vector similarity search
-        href: tutorial-vector-similarity.md
-      - name: Semantic caching
-        href: tutorial-semantic-cache.md
   - name: ASP.NET
     items:
     - name: Use ASP.NET core output cache
@@ -243,6 +237,7 @@ items:
   items:
   - name: Azure Redis FAQ
     href: /azure/redis/faq
+
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+managed+redis
   - name: Microsoft Q&A question page

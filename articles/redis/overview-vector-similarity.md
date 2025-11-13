@@ -87,7 +87,7 @@ Azure Cache for Redis can be used effectively as a vector database to store embe
 
 - [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
 - [LangChain](https://python.langchain.com/docs/integrations/vectorstores/redis)
-- [LlamaIndex](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/RedisIndexDemo.html)
+- [LlamaIndex](https://developers.llamaindex.ai/python/examples/vector_stores/redisindexdemo)
 
 These frameworks feature rich integrations with Redis. For example, the Redis LangChain integration [automatically generates an index schema for metadata](https://python.langchain.com/docs/integrations/vectorstores/redis#inspecting-the-created-index) passed in when using Redis as a vector store. This makes it much easier to filter results based on metadata.
 

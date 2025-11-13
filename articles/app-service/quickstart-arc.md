@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
-ms.date: 06/10/2024
+ms.date: 10/07/2025
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 author: msangapu-msft
@@ -12,6 +12,9 @@ ms.service: azure-app-service
 ---
 
 # Create an App Service app on Azure Arc (Preview)
+
+> [!IMPORTANT]
+> [Azure App Service on Arc enabled Kubernetes will be **retired on March 31, 2026**](https://azure.microsoft.com/updates/?id=500016). From September 30, 2025, customers will no longer be able to install the extension. We request you [migrate to other solutions such as Azure Container Apps on Arc enabled Kubernetes](migrate-app-service-arc.md), migrating also allows you to take advantage of [Logic Apps Hybrid](/azure/logic-apps/set-up-standard-workflows-hybrid-deployment-requirements) for your integration workloads.
 
 In this quickstart, you create an [App Service app to an Azure Arc-enabled Kubernetes cluster](overview-arc-integration.md) (Preview). This scenario supports Linux apps only, and you can use a built-in language stack or a custom container.
 

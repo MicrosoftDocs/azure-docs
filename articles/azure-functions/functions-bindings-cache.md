@@ -96,11 +96,11 @@ When connecting to a cache instance with an Azure function, you can use one of t
 
 ### [User-assigned managed identity](#tab/user-assigned)
 
-A user-assigned mananged identity must be associated with your function app, and that identity must also be granted explicit permissions in your cache service. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+A user-assigned managed identity must be associated with your function app, and that identity must also be granted explicit permissions in your cache service. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 ### [System-assigned managed identity](#tab/system-assigned)
 
-The built-in system-assigned mananged identity must be enabled in your function app, and that identity must also be granted explicit permissions in your cache service. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+The built-in system-assigned managed identity must be enabled in your function app, and that identity must also be granted explicit permissions in your cache service. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 ### [Connection string](#tab/connection-string)
 

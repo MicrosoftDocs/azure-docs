@@ -416,6 +416,8 @@ items:
       href: configure-authentication-api-version.md
     - name: Use file-based configuration
       href: configure-authentication-file-based.md
+    - name: Authenticate AI Foundry tool calls
+      href: configure-authentication-ai-foundry-openapi-tool.md
 - name: Security and networking
   items:
     - name: Security overview
@@ -621,6 +623,8 @@ items:
           href: manage-create-arc-environment.md
         - name: Create app on Azure Arc
           href: quickstart-arc.md
+        - name: Migrate from App Service on Arc-enabled Kubernetes to Container Apps on Arc-enabled Kubernetes
+          href: migrate-app-service-arc.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples

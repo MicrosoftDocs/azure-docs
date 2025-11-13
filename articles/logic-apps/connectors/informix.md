@@ -39,7 +39,7 @@ The following table provides more information about the available connector oper
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * To connect with on-premises Informix databases, you need to [download and install the on-premises data gateway](../logic-apps-gateway-install.md) on a local computer and then [create an Azure data gateway resource in the Azure portal](../logic-apps-gateway-connection.md).
 

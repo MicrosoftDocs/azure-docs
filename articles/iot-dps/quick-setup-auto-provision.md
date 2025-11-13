@@ -9,8 +9,11 @@ ms.date: 08/16/2024
 ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
-ms.custom: mvc, mode-ui
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal
@@ -26,7 +29,7 @@ Before you can provision your devices, you first perform the following steps:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create an IoT hub
 

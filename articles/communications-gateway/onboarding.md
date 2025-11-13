@@ -1,7 +1,7 @@
 ---
 title: Onboarding for Azure Communications Gateway
 description: Understand the Included Benefits and your other options for onboarding to Azure Communications Gateway for Microsoft or Zoom connectivity
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual 
 ms.date: 11/06/2023
 ms.custom: template-concept 

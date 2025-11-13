@@ -1,13 +1,13 @@
 ---
 title: Transfer subscriptions under an Azure plan from one partner to another
 description: This article helps you understand what you need to know before and after you transfer billing ownership of your Azure subscription.
-author: presharm
+author: Nicholak-MS
+ms.author: nicholak
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/18/2025
-ms.author: presharm
 ---
 
 # Transfer subscriptions under an Azure plan from one partner to another
@@ -22,7 +22,7 @@ The steps that a partner takes are documented at [Transfer a customer's Azure su
 
 Access to existing users, groups, or service principals that were assigned using Azure role-based access control (Azure RBAC) isn't affected during the transition. [Azure RBAC](../../role-based-access-control/overview.md) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. Your new partner isn't given any Azure RBAC access to your resources by the subscription transfer. Your previous partner keeps their Azure RBAC access.
 
-Consequently, it's important that you remove Azure RBAC access for the old partner and add access for the new partner. For more information about giving your new partner access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) For more information about removing your previous partner's Azure RBAC access, see [Remove Azure role assignments](../../role-based-access-control/role-assignments-remove.yml).
+Consequently, it's important that you remove Azure RBAC access for the old partner and add access for the new partner. For more information about giving your new partner access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) For more information about removing your previous partner's Azure RBAC access, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove).
 
 Additionally, your new partner doesn't automatically get Admin on Behalf Of (AOBO) access to your subscriptions. AOBO is necessary for your partner to manage the Azure subscriptions on your behalf. For more information about Azure privileges, see [Obtain permissions to manage a customer's service or subscription](/partner-center/customers-revoke-admin-privileges).
 

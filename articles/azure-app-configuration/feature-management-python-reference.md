@@ -7,9 +7,11 @@ author: mrm9084
 ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
-ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 11/15/2024
+ms.custom:
+  - devx-track-python
+  - sfi-ropc-nochange
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 

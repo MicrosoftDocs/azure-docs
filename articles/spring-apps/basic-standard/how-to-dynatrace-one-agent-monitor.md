@@ -7,15 +7,19 @@ ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # How to monitor Spring Boot apps with Dynatrace Java OneAgent
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎️ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎️ Enterprise
 
 This article shows you how to use Dynatrace OneAgent to monitor Spring Boot applications in Azure Spring Apps.
 

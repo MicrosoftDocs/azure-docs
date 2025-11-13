@@ -6,11 +6,13 @@ ms.author: sethm
 ms.date: 07/11/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
-ms.custom: devx-track-azurecli
 services: iot-edge
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices
@@ -56,7 +58,7 @@ This tutorial uses a two device hierarchy for simplicity. The **top layer device
 To create a hierarchy of IoT Edge devices, you need:
 
 * A computer (Windows or Linux) with internet connectivity.
-* An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A Bash shell in Azure Cloud Shell using [Azure CLI](/cli/azure/install-azure-cli) with the [Azure IoT extension](https://github.com/Azure/azure-iot-cli-extension) installed. This tutorial uses the [Azure Cloud Shell](../cloud-shell/overview.md). To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az-version).
 * Two Linux devices to configure your hierarchy. If you don't have devices available, you can create Azure virtual machines for each device in your hierarchy using the [IoT Edge Azure Resource Manager template](https://github.com/Azure/iotedge-vm-deploy). IoT Edge version 1.5 is preinstalled with this Resource Manager template. If you're installing IoT Edge on your own devices, see [Install Azure IoT Edge for Linux](how-to-provision-single-device-linux-symmetric.md) or [Update IoT Edge](how-to-update-iot-edge.md).

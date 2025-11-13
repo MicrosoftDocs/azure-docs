@@ -17,7 +17,7 @@ This article describes how to use the Azure portal to configure an [Azure Applic
 >[!NOTE]
 > The URL Rewrite feature is available only for the Standard_v2 and Web Application Firewall_v2 SKU of Application Gateway. When URL Rewrite is configured on a Web Application Firewall-enabled gateway, Web Application Firewall evaluation takes place on the rewritten request headers and the URL. For more information, see [Use URL rewrite or host header rewrite with Web Application Firewall (WAF_v2 SKU)](rewrite-http-headers-url.md#using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Before you begin
 

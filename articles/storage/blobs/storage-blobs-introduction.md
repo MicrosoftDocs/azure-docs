@@ -4,13 +4,12 @@ titleSuffix: Azure Storage
 description: Use Azure Blob Storage to store massive amounts of unstructured object data, such as text or binary data. Azure Blob Storage is highly scalable and available.
 services: storage
 author: akashdubey-ms
-
 ms.service: azure-blob-storage
 ms.topic: overview
 ms.date: 03/28/2023
 ms.author: akashdubey
 ms.custom: engagement-fy23
-# Customer intent: As a data engineer, I want to understand how to effectively utilize Blob Storage, so that I can store and manage large volumes of unstructured data efficiently while ensuring high availability and scalability.
+#customer intent: As a data engineer, I want to understand how to effectively utilize Blob Storage, so that I can store and manage large volumes of unstructured data efficiently while ensuring high availability and scalability.
 ---
 
 # Introduction to Azure Blob Storage

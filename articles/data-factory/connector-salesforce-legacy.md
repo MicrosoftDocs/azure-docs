@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 05/07/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from and to Salesforce V1 using Azure Data Factory or Azure Synapse Analytics 
@@ -18,7 +20,8 @@ ms.date: 05/07/2025
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The [Salesforce V2 connector](connector-salesforce.md) provides improved native Salesforce support. If you are using the [Salesforce V1 connector](connector-salesforce-legacy.md) in your solution, please [upgrade your Salesforce connector](connector-salesforce.md#upgrade-the-salesforce-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](connector-salesforce.md#differences-between-salesforce-and-salesforce-legacy) for details on the difference between V2 and V1. 
+> The Salesforce V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Salesforce connector](connector-salesforce.md#differences-between-salesforce-and-salesforce-legacy) from V1 to V2.
+
 
 ## Supported capabilities
 

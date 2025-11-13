@@ -18,7 +18,7 @@ Microsoft Planetary Computer Pro offers APIs and connectors that enable develope
 
 ## Prerequisites
 
-- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Access to a Microsoft Planetary Computer Pro [GeoCatalog resource](./deploy-geocatalog-resource.md)
 
 ## Application integration approaches
@@ -60,6 +60,8 @@ Integrating Microsoft Planetary Computer Pro with ESRI ArcGIS Pro provides a sea
 - Accelerate decision-making by integrating cloud-based data with local projects, enabling richer insights and more informed outcomes.
 
 For more information on how to connect ArcGIS Pro to a GeoCatalog resource, see the [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arc-gis-pro.md).
+
+Another desktop integration option is [QGIS](./configure-qgis.md), which connects via the STAC API for browsing and visualization.
 
 ## Authentication and authorization
 

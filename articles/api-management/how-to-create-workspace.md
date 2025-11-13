@@ -80,7 +80,7 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 > 
 
 * For a list of built-in workspace roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
-* For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+* For steps to assign a role, see [Assign Azure roles using the portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 
 
 ### Assign a service-scoped role

@@ -16,7 +16,7 @@ ms.service: azure-app-service
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Express.js)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Node.js application and deploying it to Azure App Service. You'll create an Express app with a view and a controller that sends chat completion requests to a model in Azure OpneAI.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Node.js application and deploying it to Azure App Service. You'll create an Express app with a view and a controller that sends chat completion requests to a model in Azure OpenAI.
 
 :::image type="content" source="media/tutorial-ai-openai-chatbot-nodejs/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
 
 ## 1. Create an Azure OpenAI resource

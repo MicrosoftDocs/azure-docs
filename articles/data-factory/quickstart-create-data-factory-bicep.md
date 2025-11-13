@@ -6,8 +6,12 @@ author: whhender
 ms.subservice: data-movement
 ms.author: whhender 
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 06/06/2025
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-bicep
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep
@@ -25,7 +29,7 @@ This quickstart describes how to use Bicep to create an Azure data factory. The 
 
 ### Azure subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

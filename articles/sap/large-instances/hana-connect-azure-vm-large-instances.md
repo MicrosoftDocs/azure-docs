@@ -10,7 +10,9 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/28/2021
 ms.author: jushiman
-ms.custom: H1Hack27Feb2017
+ms.custom:
+  - H1Hack27Feb2017
+  - sfi-image-nochange
 # Customer intent: As a network engineer, I want to set up connectivity between Azure virtual machines and SAP HANA Large Instances, so that I can ensure effective data communication and leverage the capabilities of SAP HANA in a cloud environment.
 ---
 
@@ -137,9 +139,3 @@ At the end of the deployment process, Microsoft delivers the following data to y
      - ExpressRoute PeerID
 - Data for accessing HANA Large Instances after you establish the ExpressRoute circuit and Azure virtual network.
 
-## Next steps
-
-Learn about connecting a virtual network to HANA Large Instance ExpressRoute.
-
-> [!div class="nextstepaction"]
-> [Connect a virtual network to HANA large instances](hana-connect-vnet-express-route.md)

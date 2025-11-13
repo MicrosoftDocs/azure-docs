@@ -63,22 +63,6 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 
 **To download the SNMP MIB file** from [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
 
-## Query SNMP configuration on the sensor
-
-> [!NOTE]
-> - You can query the SNMP configuration only on sensor in version **25.2.1 and later.**
-
-
-**Validate and query the SNMP MIB Monitoring configuration in the OT sensor:**
-
-1. In the OT sensor, go to **System settings > Sensor management**
-1. To [access the Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md#defender-for-iot-cli-access), sign in as the *cyberx* user, using a terminal emulator and SSH.
-1.  Run the following query depending on what SNMP version was configured and update the variables accordingly:
-
-    - For version 2 type: `snmpwalk -v 2c -c<community-string> <sensor-ip> isa`
-
-    - For version 3 type: `snmpwalk -v 3 -aMD5|SHA -xDES|AES -A<password> -X<secret-key> -u<username> -|autoPriv <sensor-ip> isa`
-
 ## OT sensor OIDs for manual SNMP configurations
 
 If you're configuring Defender for IoT sensors on your SNMP monitoring system manually, use the following table for reference regarding sensor object identifier values (OIDs):

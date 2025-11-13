@@ -1,11 +1,14 @@
 ---
-title: Deploy Azure Site Recovery replication appliance - Modernized
+title: Deploy Azure Site Recovery Replication Appliance - Modernized
 description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized.
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 01/24/2025
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 # Customer intent: As a system administrator, I want to deploy the Azure Site Recovery replication appliance for VMware, so that I can ensure effective disaster recovery of my on-premises VMs to Azure.
 ---
 
@@ -147,7 +150,7 @@ If there are any organizational restrictions, you can manually set up the Site R
 
 4. After saving connectivity details, select **Continue** to proceed to registration with Microsoft Azure.
 
-5. Ensure the [prerequisites](./replication-appliance-support-matrix.md#pre-requisites) are met, proceed with registration.
+5. Ensure the [prerequisites](./replication-appliance-support-matrix.md#prerequisites) are met, proceed with registration.
 
     :::image type="Register appliance" source="./media/deploy-vmware-azure-replication-appliance-modernized/app-setup-register.png" alt-text="Screenshot showing register appliance.":::
 

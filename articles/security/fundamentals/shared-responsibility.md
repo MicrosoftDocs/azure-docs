@@ -9,7 +9,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 09/29/2024
 ms.author: mbaldwin
-
+#customer intent: As a cloud security administrator, I want to understand the shared responsibility model in Azure so that I can clearly identify which security tasks are mine and which are handled by Microsoft.
 ---
 # Shared responsibility in the cloud
 

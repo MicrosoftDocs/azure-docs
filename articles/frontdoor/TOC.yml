@@ -409,7 +409,7 @@
       items:
       - name: HTTP/2 support
         href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/toc.json
-      - name: Retrieve POP IP's
+      - name: Retrieve POP IPs
         href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/toc.json
       - name: China content delivery
         href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/toc.json

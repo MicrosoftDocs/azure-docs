@@ -7,7 +7,9 @@ ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a dedicated SQL pool using the Azure portal
@@ -16,11 +18,11 @@ Azure Synapse Analytics offers various analytics engines to help you ingest, tra
 
 In this quickstart, you learn how to create a dedicated SQL pool in a Synapse workspace by using the Azure portal.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
-- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/)
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Synapse workspace](./quickstart-create-workspace.md)
 
 ## Sign in to the Azure portal

@@ -32,6 +32,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='nested-deployment-template-scoping' />[nested-deployment-template-scoping](./linter-rule-nested-deployment-template-scoping.md) | error |
 | <a id='no-conflicting-metadata' />[no-conflicting-metadata](./linter-rule-no-conflicting-metadata.md) | warning |
 | <a id='no-deployments-resources' />[no-deployments-resources](./linter-rule-no-deployments-resources.md) | warning |
+| <a id='no-explicit-any' />[no-explicit-any](./linter-rule-no-explicit-any.md) | warning |
 | <a id='no-hardcoded-env-urls' />[no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md) | warning |
 | <a id='no-hardcoded-location' />[no-hardcoded-location](./linter-rule-no-hardcoded-location.md) | off |
 | <a id='no-loc-expr-outside-params' />[no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md) | off |

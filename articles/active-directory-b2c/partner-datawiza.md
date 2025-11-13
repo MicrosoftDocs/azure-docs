@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer, and I want to integrate Azure Active Directory B2C with Datawiza Access Proxy (DAP). My goal is to enable single sign-on (SSO) and granular access control for on-premises legacy applications, without rewriting them.
 ---
@@ -25,7 +26,7 @@ In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2
 To get started, you'll need:
 
 - A Microsoft Entra subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - [Docker](https://docs.docker.com/get-docker/), an open platform for developing, shipping, and running applications, is required to run DAB
   - Your applications can run on platforms such as virtual machine and bare metal

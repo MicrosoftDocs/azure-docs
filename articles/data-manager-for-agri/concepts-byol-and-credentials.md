@@ -6,7 +6,9 @@ ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 06/23/2023
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - sfi-image-nochange
 ---
 
 # Store and use your own license keys
@@ -17,7 +19,7 @@ Azure Data Manager for Agriculture supports a range of data ingress connectors t
 
 ## Prerequisites
 
-To use BYOL, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+To use BYOL, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 
 ## Overview

@@ -2,20 +2,15 @@
 title: Get small cost datasets on demand
 titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
-author: jojohpm
-ms.author: jojoh
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
-
 # Get small cost datasets on demand
-
-Use the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if you want to analyze smaller cost data sets of 2 GB (2 million rows) or less. However, you should use Exports for ongoing data ingestion workloads and for the download of larger datasets.
-
-If you want to get large amounts of exported data regularly, see [Retrieve large cost datasets recurringly with exports](../costs/ingest-azure-usage-at-scale.md).
 
 To learn more about the data in cost details (formerly referred to as *usage details*), see [Ingest cost details data](automation-ingest-usage-details-overview.md).
 

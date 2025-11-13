@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 08/18/2025
+ms.date: 08/27/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from Square using Azure Data Factory or Synapse Analytics (Preview)
@@ -28,8 +30,8 @@ This Square connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
-|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;(only for version 1.0)|
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;(only for version 1.0)|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
@@ -38,6 +40,13 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+
+> [!NOTE]
+> Version 2.0 (Preview) is supported with the self-hosted integration runtime version 5.56.0.0 or above.
 
 ## Getting started
 
@@ -90,6 +99,7 @@ The Square linked service supports the following properties when apply version 2
 | clientSecret | The client secret associated with your Square application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | accessToken | The access token obtained from Square. Grants limited access to a Square account by asking an authenticated user for explicit permissions. OAuth access tokens expires 30 days after issued, but refresh tokens do not expire. Access tokens can be refreshed by refresh token.<br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). For more information about access token types, see [Access token types](#access-token-types). | Yes |
 | refreshToken | The refresh token obtained from Square. Used to obtain new access tokens when the current one expires.<br>Mark this field as a SecureString to store it securelyFactory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. You can use the self-hosted integration runtime and its version should be 5.56.0.0 or above. |No |
 
 **Example:**
 
@@ -114,6 +124,10 @@ The Square linked service supports the following properties when apply version 2
                 "type": "SecureString",
                 "value": "<refresh token>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -287,13 +301,16 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | Public Preview | • Date, Timestamp and Timestamp with offset are read as String data type. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   <br><br> • Self-hosted integration runtime is not supported. <br><br>• `query` is not supported.  |
+| Version 2.0 | Public Preview |  • The self-hosted integration runtime version should be 5.56.0.0 or above. <br><br>• Date, Timestamp and Timestamp with offset are read as String data type. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   <br><br>• `query` is not supported.  |
 
 ### <a name="upgrade-the-square-connector-from-version-10-to-version-20"></a> Upgrade the Square connector from version 1.0 to version 2.0 (Preview)
 
 1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
-1. The data type mapping for the Square linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Square](#data-type-mapping-for-square).
-1. Self-hosted integration runtime is only supported in version 1.0. You should use the Azure integration runtime instead of self-hosted integration runtime in version 2.0 (Preview).
+
+1. The data type mapping for the Square linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Square](#data-type-mapping-for-square).
+
+1. Apply a self-hosted integration runtime with version 5.56.0.0 or above.
+
 1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
 
 

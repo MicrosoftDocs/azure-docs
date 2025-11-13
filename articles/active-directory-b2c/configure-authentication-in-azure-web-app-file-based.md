@@ -10,7 +10,9 @@ ms.topic: how-to
 ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a web app developer, I want to configure Azure AD B2C authentication in my Azure Web App, so that users can securely sign in to the app using their Azure AD B2C credentials.

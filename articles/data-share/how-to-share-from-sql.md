@@ -6,6 +6,7 @@ ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: how-to
 ms.date: 02/12/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
@@ -109,7 +110,7 @@ When you share data from a SQL source, the following mappings are used from SQL 
 
 To share data snapshots from your Azure SQL resources, you first need to prepare your environment. You'll need:
 
-- An Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md) with tables and views that you want to share.
 - [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
 - Your data recipient's Azure sign-in e-mail address (using their e-mail alias won't work).
@@ -247,7 +248,7 @@ Before you can accept a data share invitation, you need to prepare your environm
 
 Confirm that all prerequisites are complete before accepting a data share invitation:
 
-- Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 - Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you'll create a Data Share resource and the Azure subscription where your target Azure data stores are located.
 - You'll need a resource in Azure to store the shared data. You can use these kinds of resources:

@@ -6,8 +6,11 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure reverse DNS lookup zones for my assigned IP ranges using Azure DNS, so that I can manage accurate reverse DNS resolution for those IP addresses efficiently.
 ---
 

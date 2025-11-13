@@ -127,8 +127,6 @@ Keep in mind the following points when changing a blob's tier:
  
 - If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
-- If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
-
 ## Blob lifecycle management
 
 Blob storage lifecycle management offers a rule-based policy that you can use to transition your data to the desired access tier when your specified conditions are met. You can also use lifecycle management to expire data at the end of its life. See [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md) to learn more.
@@ -211,7 +209,7 @@ The cold tier requires the following minimum versions of REST, SDKs, and tools
 
 | Environment | Minimum version |
 |---|---|
-| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2021-21-02 |
+| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2021-12-02 |
 | [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0 |
 | [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
 | [Python](/python/api/azure-storage-blob/) | 12.15.0 |

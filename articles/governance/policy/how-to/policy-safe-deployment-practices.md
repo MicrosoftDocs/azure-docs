@@ -7,19 +7,11 @@ ms.topic: conceptual
 
 # Safe deployment of Azure Policy assignments
 
-As your environment expands, so does the demand for a controlled continuous deployment (CD)
-pipeline with progressive exposure control. Accordingly, Microsoft recommends DevOps teams follow
-the safe deployment practices (SDP) framework. The
-safe deployment of Azure Policy definitions and assignments helps limiting the impact of
-unintended behaviors of policy resources.
+As your environment expands, so does the demand for a controlled continuous deployment (CD) pipeline with progressive exposure control. Accordingly, Microsoft recommends DevOps teams follow the safe deployment practices (SDP) framework. The safe deployment of Azure Policy definitions and assignments helps limiting the impact of unintended behaviors of policy resources.
 
-The high-level approach of implementing SDP with Azure Policy is to gradually rollout policy assignments
-by rings to detect policy changes that affect the environment in early stages before it
-affects the critical cloud infrastructure.
+The high-level approach of implementing SDP with Azure Policy is to gradually rollout policy assignments by tiers to detect policy changes that affect the environment in early stages before it affects the critical cloud infrastructure.
 
-Deployment rings can be organized in diverse ways. In this how-to tutorial, rings are divided by
-different Azure regions with _Ring 0_ representing non-critical, low traffic locations,
-and _Ring 5_ denoting the most critical, highest traffic locations.
+Deployment tiers can be organized in diverse ways. In this how-to tutorial, tiers are divided by different Azure regions with _Tier 5_ representing non-critical, low traffic locations, and _Tier 0_ denoting the most critical, highest traffic locations.
 
 ## Steps for safe deployment of Azure Policy assignments with deny or append effects
 
@@ -34,8 +26,8 @@ Policy assignments that use the `deny` or `append` policy effects.
 Flowchart step numbers:
 
 1. Once you've selected your policy definition, assign the policy at the highest-level scope inclusive
-of all deployment rings. Apply _resource selectors_ to narrow the applicability to the least
-critical ring by using the `"kind": "resource location"` property. Configure the `audit` effect type
+of all deployment tiers. Apply _resource selectors_ to narrow the applicability to the least
+critical tier by using the `"kind": "resource location"` property. Configure the `audit` effect type
 by using _assignment overrides_. Sample selector with `eastUS` location and effect as `audit`:
 
     ```json
@@ -69,7 +61,7 @@ validate that the compliance result is as expected.
     and impact of the policy. If the results aren't as expected due to application configuration,
     refactor the application as appropriate.
 
-3. Repeat by expanding the resource selector property values to include the next rings.
+3. Repeat by expanding the resource selector property values to include the next tiers.
 locations and validating the expected compliance results and application health. Example selector with an added location value:
 
     ```json
@@ -82,9 +74,9 @@ locations and validating the expected compliance results and application health.
     }]
     ```
 
-4. Once you have successfully assigned the policy to all rings using `audit` mode,
+4. Once you have successfully assigned the policy to all tiers using `audit` mode,
 the pipeline should trigger a task that changes the policy effect to `deny` and reset
-the resource selectors to the location associated with _Ring 0_. Example selector with one region and effect set to deny:
+the resource selectors to the location associated with _Tier 0_. Example selector with one region and effect set to deny:
 
     ```json
     "resourceSelectors": [{
@@ -103,9 +95,9 @@ the resource selectors to the location associated with _Ring 0_. Example selecto
 5. Once the effect is changed, automated tests should check whether enforcement is taking place as
 expected.
 
-6. Repeat by including more rings in your resource selector configuration.
+6. Repeat by including more tiers in your resource selector configuration.
 
-7. Repeat this process for all production rings.
+7. Repeat this process for all production tiers.
 
 ## Steps for safe deployment of Azure Policy assignments with modify or deployIfNotExists effects
 
@@ -117,8 +109,8 @@ Review the following flowchart with modified steps 5-9:
 Flowchart step numbers:
 
 1. Once you've selected your policy definition, assign the policy at the highest-level scope inclusive
-of all deployment rings. Apply _resource selectors_ to narrow the applicability to the least
-critical ring by using the `"kind": "resource location"` property. Configure the _enforcement mode_ of the assignment to _DoNotEnforce_. Sample selector with `eastUS` location and _enforcementMode_ as  _DoNotEnforce_:
+of all deployment tiers. Apply _resource selectors_ to narrow the applicability to the least
+critical tier by using the `"kind": "resource location"` property. Configure the _enforcement mode_ of the assignment to _DoNotEnforce_. Sample selector with `eastUS` location and _enforcementMode_ as  _DoNotEnforce_:
 
     ```json
     "resourceSelectors": [{
@@ -150,8 +142,7 @@ validate that the compliance result is as expected.
 
     You may also [trigger remediation tasks](../how-to/remediate-resources.md) to remediate existing non-compliant resources. Ensure the remediation tasks are bringing resources into compliance as expected.
 
-3. Repeat by expanding the resource selector property values to include the next ring's
-locations and validating the expected compliance results and application health. Example selector with an added location value:
+3. Repeat by expanding the resource selector property values to include the next tier's locations and validating the expected compliance results and application health. Example selector with an added location value:
 
     ```json
     "resourceSelectors": [{
@@ -163,9 +154,9 @@ locations and validating the expected compliance results and application health.
     }]
     ```
 
-4. Once you have successfully assigned the policy to all rings using _DoNotEnforce_ mode,
+4. Once you have successfully assigned the policy to all tiers using _DoNotEnforce_ mode,
 the pipeline should trigger a task that changes the policy `enforcementMode` to _Default_ enablement and reset
-the resource selectors to the location associated with _Ring 0_. Example selector with one region and effect set to deny:
+the resource selectors to the location associated with _Tier 0_. Example selector with one region and effect set to deny:
 
     ```json
     "resourceSelectors": [{
@@ -181,14 +172,14 @@ the resource selectors to the location associated with _Ring 0_. Example selecto
 5. Once the effect is changed, automated tests should check whether enforcement is taking place as
 expected.
 
-6. Repeat by including more rings in your resource selector configuration.
+6. Repeat by including more tiers in your resource selector configuration.
 
-7. Repeat this process for all production rings.
+7. Repeat this process for all production tiers.
 
 ## Steps for safely updating built-in definition version within Azure Policy assignment
 
 1. Within the existing assignment, apply _overrides_ to update the version of the definition for the least
-critical ring. We're using a combination of _overrides_ to change the definitionVersion and _selectors_ within the _overrides_ condition to narrow the applicability by `"kind": "resource location"` property. Any resources that are outside of the locations specified will continue to be assessed against the version  from the `definitionVersion` top-level property in the assignment. Example override updating the version of the definition to `2.0.*` and only apply it to resources in `EastUs`.
+critical tier. We're using a combination of _overrides_ to change the definitionVersion and _selectors_ within the _overrides_ condition to narrow the applicability by `"kind": "resource location"` property. Any resources that are outside of the locations specified will continue to be assessed against the version  from the `definitionVersion` top-level property in the assignment. Example override updating the version of the definition to `2.0.*` and only apply it to resources in `EastUs`.
 
     ```json
     "overrides":[{
@@ -218,7 +209,7 @@ validate that the compliance result is as expected.
     and impact of the policy. If the results aren't as expected due to application configuration,
     refactor the application as appropriate.
 
-3. Repeat by expanding the resource selector property values to include the next rings.
+3. Repeat by expanding the resource selector property values to include the next tiers.
 locations and validating the expected compliance results and application health. Example with an added location value:
 
     ```json

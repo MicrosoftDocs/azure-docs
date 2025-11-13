@@ -2,14 +2,17 @@
 title: Troubleshoot Azure RBAC
 description: Troubleshoot issues with Azure role-based access control (Azure RBAC).
 services: azure-portal
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.topic: troubleshooting
 ms.date: 05/27/2025
-ms.author: jfields
-ms.custom: seohack1, devx-track-azurecli
+ms.author: rolyon
+ms.custom:
+  - seohack1
+  - devx-track-azurecli
+  - sfi-ga-nochange
 ---
 # Troubleshoot Azure RBAC
 
@@ -232,7 +235,7 @@ You deleted a security principal that had a role assignment. If you assign a rol
 
 **Solution 2**
 
-It's a good practice to remove any role assignments that aren't being used. You can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.yml).
+It's a good practice to remove any role assignments that aren't being used. You can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove).
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you'll get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
 
@@ -623,5 +626,5 @@ If you're a Microsoft Entra Global Administrator and you don't have access to a 
 ## Next steps
 
 - [Troubleshoot for external users](role-assignments-external-users.md#troubleshoot)
-- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [View activity logs for Azure RBAC changes](change-history-report.md)

@@ -10,7 +10,7 @@ ms.date: 08/05/2025
 
 In this article, you learn how [Azure Resource Health](/azure/service-health/resource-health-overview) helps you diagnose and get support for service problems that affect your Private Cloud resources. Azure Resource Health reports on the current and past health of your private cloud infrastructure resources and provides you with a dashboard of the health of the infrastructure resources. Azure Resource Health allows you to report on historical events related to your Azure VMware Solution private cloud.
 
-:::image type="content" source="media/resource-health/resource-health-overview.png" alt-text="Screenshot showing resource health alerts.":::
+:::image type="content" source="media/resource-health/resource-health-overview.png" alt-text="Screenshot showing resource health alerts." lightbox="media/resource-health/resource-health-overview.png":::
 
 ## Benefits of Resource Health
 

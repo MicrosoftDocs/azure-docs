@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 04/22/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to understand application volume groups in Azure NetApp Files, so that I can optimize the deployment and performance of application workloads while ensuring data availability and compliance."
 ---
 
@@ -56,7 +57,7 @@ Volume placement within the application volume group enables administrators to e
 
 #### Data locality and latency optimization
 
-Volume placement within the application volume group allows you to optimize data locality and minimize latency for applications with stringent performance requirements. By deploying volumes closer to compute resources, administrators can reduce data access latency and improve application responsiveness particularly for latency-sensitive workloads such as database applications.
+Optimizing data locality and minimizing latency for applications with stringent performance requirements can be achieved through volume placement using application volume group. By deploying volumes using application volume group rather than individually, you can significantly reduce data access latency and enhance application responsiveness. This approach is particularly beneficial for latency-sensitive workloads, such as database applications.
 
 #### Cost optimization
 

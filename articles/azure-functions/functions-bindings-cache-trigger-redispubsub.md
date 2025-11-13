@@ -28,7 +28,7 @@ For more information about Azure Cache for Redis triggers and bindings, [Redis E
 >
 
 > [!WARNING]
-> This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
+> This trigger isn't supported on a [Consumption plan](/azure/azure-functions/consumption-plan) or a [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) plan because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
 >
 
 ::: zone pivot="programming-language-javascript"  
@@ -562,11 +562,11 @@ Redis features [publish/subscribe functionality](https://redis.io/docs/latest/co
 
 - The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/latest/develop/pubsub/keyspace-notifications/) on clustered caches.
 - Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
-- The `RedisPubSubTrigger` isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
+- The `RedisPubSubTrigger` isn't supported on a [Consumption plan](/azure/azure-functions/consumption-plan) or a [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
 - Functions with the `RedisPubSubTrigger` shouldn't be scaled out to multiple instances. Each instance listens and processes each pub sub message, resulting in duplicate processing.
 
 > [!WARNING]
-> This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
+> This trigger isn't supported on a [Consumption plan](/azure/azure-functions/consumption-plan) or a [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
 >
 
 ## Triggering on keyspace notifications

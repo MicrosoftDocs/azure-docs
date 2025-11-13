@@ -8,7 +8,9 @@ ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 04/17/2025
 ms.author: allensu
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to troubleshoot the deletion of a virtual network, so that I can resolve any issues preventing its removal and maintain the efficiency of my cloud resources.
 ---
 

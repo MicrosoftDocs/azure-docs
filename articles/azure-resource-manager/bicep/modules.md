@@ -254,7 +254,7 @@ module storage 'br/public:avm/res/storage/storage-account:0.18.0' = {
 }
 ```
 
-You can override the public alias in the _bicepconfig.json_ file.
+You can override the public alias in the *bicepconfig.json* file.
 
 ### File in template spec
 
@@ -353,7 +353,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -507,7 +507,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -548,6 +548,28 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
 With Bicep version 0.35.1 and later, the `@secure()` decorator can be applied to module outputs to mark them as sensitive, ensuring that their values are not exposed in logs or deployment history. This is useful when a module needs to return sensitive data, such as a generated key or connection string, to the parent Bicep file without risking exposure. For more information, see [Secure outputs](./outputs.md#secure-outputs).
+
+## Module identity
+
+Starting with Bicep version 0.36.1, you can assign a user-assigned managed identity to a module. This makes the identity available within the module—for example, to access a Key Vault. However, this capability is intended for future use and is not yet supported by backend services.
+
+```bicep
+param identityId string
+
+module mod './module.bicep' = {
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${identityId}': {}
+    }
+  }
+  name: 'mod'
+  params: {
+    keyVaultUri: 'keyVaultUri'
+    identityId: identityId
+  }
+}
+```
 
 ## Related content
 

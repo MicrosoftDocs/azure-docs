@@ -10,6 +10,7 @@ ms.date: 10/11/2024
 ms.author: gasinh
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer integrating Azure AD B2C authentication with Trusona Authentication Cloud. I want to configure Trusona Authentication Cloud as an identity provider (IdP) in Azure AD B2C, so I can enable passwordless authentication and provide a better user experience for my web application users.
 ---
@@ -41,7 +42,7 @@ Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 To get started, you need:
 
 - A Trusona Authentication Cloud trial account. To request an account, [contact Trusona](mailto:info@trusona.com).
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ::: zone pivot="b2c-custom-policy"

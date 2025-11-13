@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/12/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Use managed identities to access Azure Key Vault certificates
@@ -30,7 +31,7 @@ You can configure Azure Key Vault access using either [role-based access control
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure Front Door Standard or Premium profile. To create a new profile, see [create an Azure Front Door](create-front-door-portal.md).
 

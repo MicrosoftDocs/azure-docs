@@ -6,7 +6,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
 ms.topic: include
-ms.date: 04/29/2025
+ms.date: 11/07/2025
 ms.custom: include file
 ---
 
@@ -18,7 +18,5 @@ Deleting Azure resources and resource groups is irreversible. Make sure that you
 To delete the resources:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
-
-2. Select the name of the resource group that contains your IoT Edge test resources.
-
-3. Review the list of resources that your resource group contains. If you want to delete all of them, you can select **Delete resource group**. If you want to delete only some of them, you can select each resource to delete them individually.
+1. Select the name of the resource group that contains your IoT Edge test resources.
+1. Review the list of resources that your resource group contains. If you want to delete all of them, you can select **Delete resource group**. If you want to delete only some of them, you can select each resource to delete them individually.

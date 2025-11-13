@@ -7,8 +7,9 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 08/06/2025
+ms.date: 11/05/2025
 ms.update-cycle: 180-days
+ms.custom: sfi-image-nochange
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -53,7 +54,7 @@ For more information, see the following documentation:
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An [Azure Storage account](../storage/common/storage-account-overview.md). If you don't have one, you can either create a storage account in advance or during logic app creation.
 
@@ -104,7 +105,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
    :::image type="content" source="media/create-single-tenant-workflows-azure-portal/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with the words, logic app, and shows the selection, Logic apps." lightbox="media/create-single-tenant-workflows-azure-portal/find-select-logic-apps.png":::
 
-1. On the **Logic apps** page toolbar, select **Add**.
+1. On the **Logic apps** page toolbar, select **Create**.
 
    The **Create Logic App** page appears and shows the following options:
 
@@ -453,7 +454,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
       - **Storage Queue Data Contributor**
       - **Storage Table Data Contributor**
 
-   For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) and [Understand role assignments](../role-based-access-control/role-assignments.md).
+   For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Understand role assignments](../role-based-access-control/role-assignments.md).
 
 1. [Follow these steps to add the user-assigned managed identity to your Standard logic app resource](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
 

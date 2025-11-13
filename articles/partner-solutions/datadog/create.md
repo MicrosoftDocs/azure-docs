@@ -2,12 +2,14 @@
 title: Create a Datadog resource
 description: Get started with Datadog on Azure by creating a new resource, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
 ms.topic: quickstart
-ms.date: 03/10/2025
+zone_pivot_groups: datadog-create
+ms.date: 09/04/2025
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
   - ai-gen-desc
   - ai-seo-date:12/03/2024
+  - sfi-image-nochange
 ---
 
 # QuickStart: Get started with Datadog
@@ -22,10 +24,66 @@ In this quickstart, you create a new instance of Datadog.
 
 ## Create a Datadog resource
 
-[!INCLUDE [create-resource](../includes/create-resource.md)]
-
 > [!NOTE] 
-> The steps in this article are for creating a new Datadog organization.  See [link to an existing Datadog organization](link-to-existing-organization.md) if you have an existing Datadog organization you'd prefer to link your Azure subscription to.
+> The steps in this article are for creating a new Datadog organization.  See [Link to an existing Datadog organization](link-to-existing-organization.md) if you have an existing Datadog organization you'd prefer to link your Azure subscription to.
+
+::: zone pivot="azure-cli"
+
+Start by preparing your environment for the Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+After you sign in, use the [az datadog monitor create](/cli/azure/datadog/monitor#az-datadog-monitor-create) command to create the new monitor resource:
+
+```azurecli
+az datadog monitor create --name "myMonitor" --resource-group "myResourceGroup" \
+ --location "my location" \ 
+ --offer-detail id="string" plan-id="string" plan-name="string" publisher-id="string" term-unit="string" \ 
+ --user-detail email-address="contoso@microsoft.com" first-name="string" last-name="string" \ 
+ --tags Environment="Dev" 
+```
+
+> [!NOTE]
+> If you want the command to return before the create operation completes, add the optional parameter `--no-wait`. The operation continues to run until the Datadog monitor is created.
+
+To pause CLI execution until a monitor's specific event or condition occurs, use the [az datadog monitor wait](/cli/azure/datadog/monitor#az-datadog-monitor-wait) command. For example, to wait until a monitor is created:
+
+```azurecli
+az datadog monitor wait --name "myMonitor" --resource-group "myResourceGroup" --created
+```
+
+To see a list of existing monitors, use the [az datadog monitor list](/cli/azure/datadog/monitor#az-datadog-monitor-list) command.
+
+You can view all of the monitors in your subscription:
+
+```azurecli
+az datadog monitor list
+```
+
+Or, view the monitors in a resource group:
+
+```azurecli
+az datadog monitor list --resource-group "myResourceGroup"
+```
+
+To see the properties of a specific monitor, use the [az datadog monitor show](/cli/azure/datadog/monitor#az-datadog-monitor-show) command.
+
+You can view the monitor by name:
+
+```azurecli
+az datadog monitor show --name "myMonitor" --resource-group "myResourceGroup"
+```
+
+Or, view the monitor by resource ID:
+
+```azurecli
+az datadog monitor show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Datadog/monitors/{myMonitor}"
+
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
 ### Basics tab
 
@@ -108,7 +166,9 @@ Select the **Next** button at the bottom of the page.
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
-## Next steps
+::: zone-end
 
-- [Manage Datadog resources](manage.md)
+## Next step
+> [!div class="nextstepaction"]
+> [Manage Datadog resources](manage.md)
 

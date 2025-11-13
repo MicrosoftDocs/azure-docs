@@ -5,12 +5,17 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: how-to 
 ms.date: 07/17/2024
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - linux-related-content
+  - sfi-ropc-nochange
  
 # customer intent: As a developer, I want to configure a data source for Tomcat, JBoss, or Java SE apps.
  
@@ -45,7 +50,7 @@ For more information, see the [Spring Boot documentation on data access](https:/
 ::: zone pivot="java-tomcat"
 
 > [!TIP]
-> By default, the Linux Tomcat containers can automatically configure shared data sources for you in the Tomcat server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared database to */usr/local/tomcat/conf/context.xml*, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md).
+> Linux Tomcat containers can automatically configure shared data sources for you in the Tomcat server by setting the environment variable `WEBSITE_AUTOCONFIGURE_DATABASE` to `true`. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared database to */usr/local/tomcat/conf/context.xml*, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md).
 
 These instructions apply to all database connections. You need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
@@ -104,16 +109,23 @@ To configure an application-level data source:
 
 # [Linux](#tab/linux)
 
-Adding a shared, server-level data source requires you to edit Tomcat's server.xml. The most reliable way to do this is as follows:
+> [!TIP]
+> Linux Tomcat containers can automatically apply XSLT files using the following convention for files copied to `/home/site/wwwroot`: If `server.xml.xsl` or `server.xml.xslt` are present, they will be applied to Tomcat's `server.xml`. If `context.xml.xsl` or `context.xml.xslt` are present, they will be applied to Tomcat's `context.xml`.
+
+Adding a shared, server-level data source requires you to edit Tomcat's `server.xml`. Because file changes outside of the `/home` directory are ephemeral, changes to Tomcat's configuration files need to be applied programatically, as follows:
 
 1. Upload a [startup script](./faq-app-service-linux.yml) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
 
-Your startup script makes an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
+Your startup script makes an [XSL transform](https://www.w3schools.com/xml/xsl_intro.asp) to the `server.xml` file and output the resulting XML file to `/usr/local/tomcat/conf/server.xml`. The startup script should install `libxslt` or `xlstproc` depending on the [distribution of the version of Tomcat](/azure/app-service/language-support-policy?tabs=linux#java-specific-runtime-statement-of-support) of your web app. Your XSL file and startup script can be uploaded via FTP. Below is an example startup script.
 
 ```sh
-# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+# Install the libxslt package on Alpine-based images:
 apk add --update libxslt
 
+# Install the xsltproc package on Debian or Ubuntu-based images:
+apt install xsltproc
+
+# Also copy the transform file to /home/tomcat/conf/
 # Usage: xsltproc --output output.xml style.xsl input.xml
 xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
@@ -381,7 +393,7 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar
 ::: zone pivot="java-jboss"
 
 > [!TIP]
-> By default, the Linux JBoss containers can automatically configure shared data sources for you in the JBoss server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared data source, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a JBoss web app with Azure App Service on Linux and MySQL](tutorial-java-jboss-mysql-app.md).
+> By default, the Linux JBoss containers can automatically configure shared data sources for you in the JBoss server. The only thing for you to do is add an App Setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and add the App Setting / Environment variable `WEBSITE_AUTOCONFIGURE_DATABASE` with the value `true`. JDBC Connections created with Service Connector are also supported. App Service automatically adds the corresponding shared data source (based on the App Setting name and the suffix `_DS`), using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a JBoss web app with Azure App Service on Linux and MySQL](tutorial-java-jboss-mysql-app.md).
 
 There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): 
 

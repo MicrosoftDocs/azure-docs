@@ -1,9 +1,10 @@
 ---
 title: Connecting to Azure Communications Gateway
 description: Learn about connecting Azure Communications Gateway to your networks and the IP addresses and domain names you need to know.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 04/26/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As someone planning a deployment, I want to learn about my options for connectivity, so that I can start deploying
 ---

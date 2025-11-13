@@ -7,6 +7,9 @@ ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
 ms.date: 05/15/2024
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure portal

@@ -7,7 +7,9 @@ ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 08/04/2025
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
 # Customer intent: "As a network administrator, I want to create custom DNS records in Azure DNS for my web app, so that I can allow users to access it via a personalized domain name."
 ---
@@ -31,7 +33,7 @@ In this tutorial, you learn how to:
 > * Add custom host names to your web app
 > * Test the custom host names
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -46,11 +48,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ### [Portal](#tab/azure-portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/azure-powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Azure Cloud Shell or Azure PowerShell.
 

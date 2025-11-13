@@ -31,10 +31,11 @@ To achieve high availability of a firewall, Azure Firewall automatically provide
 
 To achieve protection against server and server rack failures, Azure Firewall automatically distributes instances across multiple fault domains within a region. 
 
-To increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
+The following diagram shows a firewall with two instances:
 
-> [!NOTE]
-> If you create your firewall in the Azure portal, zone redundancy is automatically enabled.
+:::image type="content" source="media/reliability-firewall/firewall-instances.svg" alt-text="Diagram that shows Azure Firewall with two instances." border="false":::
+
+To increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
 
 ## Transient faults
 
@@ -56,7 +57,18 @@ Azure Firewall supports both zone-redundant and zonal deployment models:
 
     Zone-redundant firewalls achieve the highest uptime service-level agreement (SLA). They are recommended for production workloads that require maximum availability.
 
+    The following diagram shows a zone-redundant firewall with three instances that are distributed across three availability zones:
+
+    :::image type="content" source="media/reliability-firewall/zone-redundant.svg" alt-text="Diagram that shows Azure Firewall with three instances, each in a separate availability zone." border="false":::
+
+    > [!NOTE]
+    > If you create your firewall using the Azure portal, zone redundancy is automatically enabled.
+
 - **Zonal:** If your solution is unusually sensitive to cross-zone latency, you can associate Azure Firewall with a specific availability zone. You can use a zonal deployment to deploy in closer proximity to your back-end servers. All of the instances of a zonal firewall are deployed within that zone.
+
+  The following diagram shows a zonal firewall with three instances that are deployed into the same availability zone:
+
+  :::image type="content" source="media/reliability-firewall/zonal.svg" alt-text="Diagram that shows Azure Firewall with three instances, all in the same availability zone." border="false":::
 
     > [!IMPORTANT]
     > We recommend that you pin to a single availability zone only when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) exceeds acceptable limits and you have confirmed that the latency doesn't meet your requirements. A zonal firewall alone doesn't provide resiliency to an availability zone outage. To improve the resiliency of a zonal Azure Firewall deployment, you must manually deploy separate firewalls into multiple availability zones and configure traffic routing and failover.

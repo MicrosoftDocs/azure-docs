@@ -97,7 +97,7 @@ ApiManagementGatewayLlmLog
     RequestContent = tostring(RequestArray.content),
     ResponseContent = tostring(ResponseArray.content)
 | summarize
-    Input = strcat_aray(make_list(RequestContent), " . "),
+    Input = strcat_array(make_list(RequestContent), " . "),
     Output = strcat_array(make_list(ResponseContent), " . ")
     by CorrelationId
 | where isnotempty(Input) and isnotempty(Output)

@@ -70,6 +70,7 @@ For more help using the Datadog, see the following links to the [Datadog website
 - [Blog announcing the Datadog <> Azure Partnership](https://www.datadoghq.com/blog/azure-datadog-partnership/)
 - [Datadog Pricing Page](https://www.datadoghq.com/pricing/)
 
-## Next steps
+## Next step
 
-- [QuickStart: Get started with Datadog](create.md)
+> [!div class="nextstepaction"]
+> [QuickStart: Get started with Datadog](create.md)

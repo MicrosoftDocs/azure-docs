@@ -1218,7 +1218,7 @@ The following example uses the `newGuid` function to create a unique name for a 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('storageName')]",
       "location": "West US",
       "sku": {

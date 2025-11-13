@@ -2,7 +2,7 @@
 title: Use Azure Key Vault to Pass a Secret as a Parameter During Bicep Deployment
 description: Learn how to pass a secret from a key vault as a parameter during Bicep deployment.
 ms.topic: conceptual
-ms.date: 01/31/2025
+ms.date: 10/30/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -169,7 +169,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   name: sqlServerName
   location: location
   properties: {
@@ -192,7 +192,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -221,7 +221,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   name: sqlServerName
   location: location
   properties: {

@@ -168,9 +168,6 @@ items:
     - name: Application Insights
       tocHref: /azure/azure-monitor/azure-monitor-app-hub
       topicHref: /azure/azure-monitor/azure-monitor-app-hub
-  - name: Azure Remote Rendering
-    tocHref: /azure/remote-rendering/
-    topicHref: /azure/remote-rendering/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
@@ -947,9 +944,6 @@ items:
     - name: Basic/Standard plan
       tocHref: /azure/spring-apps/basic-standard/
       topicHref: /azure/spring-apps/basic-standard/index
-    - name: Standard consumption and dedicated plan
-      tocHref: /azure/spring-apps/consumption-dedicated/
-      topicHref: /azure/spring-apps/consumption-dedicated/index
   - name: Dev Box
     tocHref: /azure/dev-box/
     topicHref: /azure/dev-box/index

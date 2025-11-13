@@ -27,7 +27,7 @@ This article shows how to deploy large CPU and memory applications in Azure Spri
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Azure Spring Apps service instance.
 - The [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`.
 

@@ -7,11 +7,12 @@ metadata:
   title: Azure Integration Environments documentation
   description: Centrally organize Azure resources for integration solutions.
   ms.service: azure
+  ms.subservice: azure-integration-environments
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan
-  ms.date: 06/12/2025
-  ms.subservice: azure-integration-environments
+  ms.date: 09/11/2025
+  ms.update-cycle: 1095-days
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

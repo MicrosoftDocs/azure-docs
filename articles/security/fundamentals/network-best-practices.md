@@ -8,12 +8,12 @@ ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/27/2024
+ms.date: 11/10/2025
 ms.author: mbaldwin
 
 ---
 # Azure best practices for network security
-This article discusses a collection of Azure best practices to enhance your network security. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.
+This article discusses a collection of Azure best practices to enhance your network security. These best practices are derived from our experience with Azure networking, and the experiences of customers like yourself.
 
 For each best practice, this article explains:
 
@@ -189,7 +189,8 @@ Point-to-site VPN is more secure than direct RDP or SSH connections because the 
 Use Azure Private Link to access Azure PaaS Services (for example, Azure Storage and SQL Database) over a private endpoint in your virtual network. Private Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network. Exposing your virtual network to the public internet is no longer necessary to consume Azure PaaS Services. 
 
 Azure Private Link provides the following benefits:
-- **Improved security for your Azure service resources**: With Azure Private Link, Azure service resources can be secured to your virtual network using private endpoint. Securing service resources to a private endpoint in virtual network provides improved security by fully removing public internet access to resources, and allowing traffic only from  private endpoint in your virtual network.
+- **Improved security for your Azure service resources**: With Azure Private Link, Azure service resources can be secured to your virtual network using private endpoint. Securing service resources to a private endpoint in virtual network provides improved security by fully removing public internet access to resources, and allowing traffic only from private endpoint in your virtual network.
+
 - **Privately access Azure service resources on the Azure platform**: Connect your virtual network to services in Azure using private endpoints. There's no need for a public IP address. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network.
 - **Access from On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. There's no need to configure ExpressRoute Microsoft peering or traverse the internet to reach the service. Private Link provides a secure way to migrate workloads to Azure.
 - **Protection against data leakage**: A private endpoint is mapped to an instance of a PaaS resource instead of the entire service. Consumers can only connect to the specific resource. Access to any other resource in the service is blocked. This mechanism provides protection against data leakage risks.

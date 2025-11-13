@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Queue Storage
-description: Learn about reliability in Azure Queue Storage, including availability zones and multi-region deployments.
+description: Learn how to ensure reliability in Azure Queue Storage by using zone redundancy, geo-redundancy, and high availability for message delivery.
 ms.author: anaharris
 author: anaharris-ms
 ms.topic: reliability-article
@@ -54,7 +54,7 @@ To manage transient faults effectively by using Queue Storage, you can take the 
 
 - **Configure appropriate timeouts** in your Queue Storage client to balance responsiveness with resilience to temporary slowdowns. The default timeouts in Azure Storage client libraries are typically suitable for most scenarios.
 
-- **Implement circuit breaker patterns** in your application when it processes messages from queues. Circuit breaker patters prevent cascading failures when downstream services experience problems.
+- **Implement circuit breaker patterns** in your application when it processes messages from queues. Circuit breaker patterns prevent cascading failures when downstream services experience problems.
 
 - **Use visibility timeouts appropriately** when your application receives messages. Visibility timeouts ensure that messages become available for retry if your application encounters failures during processing.
 
@@ -173,6 +173,8 @@ For detailed pricing information, see [Queue Storage pricing](https://azure.micr
 ### Alternative multi-region approaches
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
+
+[!INCLUDE [Storage - Alternative multi-region approaches - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
 
 > [!NOTE]
 > For advanced multi-region requirements, consider using Service Bus instead, which includes support for nonpaired regions.

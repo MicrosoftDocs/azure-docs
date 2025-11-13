@@ -28,7 +28,7 @@ You need to perform the steps in this quickstart before you can [create a deploy
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure role-based access control role that has permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 ## Create a dev center
@@ -194,11 +194,11 @@ Before developers can create environments based on the environment types in a pr
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |
-    | **Role** | Select **[Deployment Environments User](how-to-configure-deployment-environments-user.md)**. |
+    | **Role** | Select **[Deployment Environments User](how-to-manage-deployment-environments-access.md)**. |
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 

@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer integrating Azure Active Directory B2C with the Arkose Labs platform. I need to configure the integration, so I can protect against bot attacks, account takeover, and fraudulent account openings.
 
@@ -26,7 +27,7 @@ In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2
 To get started, you'll need:
 
 - An Azure subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription
 - An Arkose Labs account
   - Go to arkoselabs.com to [request a demo](https://www.arkoselabs.com/bot-management-demo/)

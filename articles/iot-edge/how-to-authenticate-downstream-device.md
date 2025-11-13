@@ -7,6 +7,7 @@ ms.date: 05/27/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 
 # Authenticate a downstream device to Azure IoT Hub

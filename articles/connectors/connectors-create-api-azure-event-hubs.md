@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/05/2025
+ms.custom: sfi-image-nochange
 #customer intent: As an integration developer, I want to connect my logic app workflows to Azure Event Hubs so I can automate tasks that monitor and manage events in my event hub.
 ---
 
@@ -23,7 +24,7 @@ For information about this connector's operations, their parameters, and other t
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 

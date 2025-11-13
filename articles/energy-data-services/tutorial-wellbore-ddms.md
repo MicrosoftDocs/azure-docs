@@ -7,7 +7,9 @@ ms.author: preetisingh
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 7/22/2025
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-blocked
 
 #Customer intent: As a developer, I want to learn how to use the Wellbore DDMS APIs so that I can store and retrieve similar kinds of data records.
 ---

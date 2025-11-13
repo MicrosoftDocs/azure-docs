@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 10/26/2025
 ms.custom: build-2025
 
 # Customer intent: As an Azure administrator, I want to implement virtual network flow logs so that I can effectively monitor network traffic, optimize performance, and ensure compliance within my virtual network.
@@ -215,6 +215,10 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 - **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription associated with the same Microsoft Entra tenant of the virtual network's subscription.
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, virtual network flow logs stop working. To fix this problem, you must disable and then re-enable virtual network flow logs.
+
+### ExpressRoute gateway traffic
+
+Outbound flows from virtual machines (VMs) to ExpressRoute circuit aren't recorded if flow logging is enabled on the ExpressRoute gateway subnet. Such flows must be recorded at the subnet or NIC of the VM. Traffic also bypasses the ExpressRoute gateway when [FastPath](../expressroute/about-fastpath.md) is enabled and isn't recorded if flow logging is enabled on the ExpressRoute gateway subnet.
 
 ### Private endpoint traffic
 

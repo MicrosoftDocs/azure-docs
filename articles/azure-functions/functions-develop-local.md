@@ -3,7 +3,9 @@ title: Develop and run Azure Functions locally
 description: Learn how to code and test Azure Functions on your local computer before you run them on Azure Functions.
 ms.topic: conceptual
 zone_pivot_groups: programming-languages-set-functions
-ms.date: 02/24/2025
+ms.date: 10/06/2025
+
+#customer intent: As a developer, I want clear, step-by-step guidance to run, debug, and test Azure Functions locally across languages and runtimes so that I can iterate quickly and validate behavior before I deploy to Azure.
 ---
 
 # Code and test Azure Functions locally
@@ -132,6 +134,19 @@ The following application settings can be included in the **`Values`** array whe
 |**`AzureWebJobs.<FUNCTION_NAME>.Disabled`**| `true`\|`false` | To disable a function when running locally, add `"AzureWebJobs.<FUNCTION_NAME>.Disabled": "true"` to the collection, where `<FUNCTION_NAME>` is the name of the function. To learn more, see [How to disable functions in Azure Functions](disable-function.md#disable-functions-locally). |
 |**`FUNCTIONS_WORKER_RUNTIME`** | `dotnet`<br/>`dotnet-isolated`<br/>`node`<br/>`java`<br/>`powershell`<br/>`python`| Indicates the targeted language of the Functions runtime. Required for version 2.x and higher of the Functions runtime. This setting is generated for your project by Core Tools. To learn more, see the [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) reference.|
 | **`FUNCTIONS_WORKER_RUNTIME_VERSION`** | `~7` |Indicates to use PowerShell 7 when running locally. If not set, then PowerShell Core 6 is used. This setting is only used when running locally. The PowerShell runtime version is determined by the `powerShellVersion` site configuration setting, when it runs in Azure, which can be [set in the portal](functions-reference-powershell.md#changing-the-powershell-version). |
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+To learn how to use values from the `values` array as environment variables in your function code, see [Environment variables](functions-reference-node.md#environment-variables) in the developer guide.  
+::: zone-end  
+::: zone pivot="programming-language-java"  
+To learn how to use values from the `values` array as environment variables in your function code, see [Environment variables](functions-reference-java.md#environment-variables) in the developer guide.  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+To learn how to use values from the `values` array as environment variables in your function code, see [Environment variables](functions-reference-powershell.md#environment-variables) in the developer guide.  
+::: zone-end  
+::: zone pivot="programming-language-python"  
+To learn how to use values from the `values` array as environment variables in your function code, see [Environment variables](functions-reference-python.md#environment-variables) in the developer guide.  
+::: zone-end  
 
 ## Synchronize settings
 

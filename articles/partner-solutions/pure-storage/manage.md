@@ -9,7 +9,7 @@ ms.date: 07/14/2025
 
 # Manage Azure Native Pure Storage resources 
 
-This article describes how to manage your Pure Storage Cloud Resource and connect storage to AVS.
+This article describes how to manage your Pure Storage Cloud Resource and connect storage to your Azure VMware Solution (AVS) resource.
 
 ## Resource overview
 

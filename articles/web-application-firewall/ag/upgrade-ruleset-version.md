@@ -22,7 +22,7 @@ This article provides PowerShell examples for upgrading your Azure WAF policy to
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing Azure WAF policy with a Core Rule Set (CRS) or Default Rule Set (DRS) applied. If you don't have a WAF policy yet, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 

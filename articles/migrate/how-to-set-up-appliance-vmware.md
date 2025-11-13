@@ -1,11 +1,12 @@
 ---
 title: Set up an Azure Migrate appliance for server assessment in a VMware environment
 description: Learn how to set up an Azure Migrate appliance to assess and migrate servers in VMware environment.
-author: vikram1988
-ms.author: vibansa
-ms.manager: abhemraj
+author: molishv
+ms.author: molir
+ms.manager: runai
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23
 # Customer intent: As a cloud administrator, I want to set up an appliance for Azure Migrate in my VMware environment, so that I can effectively assess and migrate my servers to Azure.
@@ -61,31 +62,7 @@ In **2: Download Azure Migrate appliance**, select the OVA file, and select **Do
 
 ##### Verify security
 
-Before you deploy the OVA file, verify that the file is secure:
-
-1. On the server on which you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
-1. Run the following command to generate the hash for the OVA file:
-
-    ```
-    C:\>CertUtil -HashFile <file_location> <hashing_algorithm>
-    ```
-
-    For example:
-    ```
-    C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256
-    ```
-
-1. Verify the latest appliance versions and hash values:
-
-    - For the Azure public cloud:
-    
-      [!INCLUDE [public-cloud-vmware.md](./includes/public-cloud-vmware.md)]
-
-    - For Azure Government:
-
-        **Algorithm** | **Download** | **SHA256**
-        --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](./includes/security-hash-value.md)]
+Before you deploy the OVA file, [verify security](migrate-appliance.md#verify-security) by validating the SHA256 values.
 
 #### Create the appliance server
 

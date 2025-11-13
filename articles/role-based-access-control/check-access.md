@@ -2,13 +2,15 @@
 title: Quickstart - Check access for a user to a single Azure resource - Azure RBAC
 description: In this quickstart, you learn how to check the access for yourself or another user to an Azure resource using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: quickstart
 ms.date: 12/12/2024
-ms.author: jfields
-ms.custom: mode-other
+ms.author: rolyon
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 #Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
 ---
 
@@ -99,4 +101,4 @@ Follow these steps to check the access for a single user, group, service princip
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)
+> [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal)

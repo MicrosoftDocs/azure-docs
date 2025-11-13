@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/15/2025
+ms.date: 10/20/2025
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -80,11 +80,11 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Upgrade to v2 tiers from classic tiers 
 * CA Certificates
 * Sending events to Event Grid
+* Event Hubs event metrics
 
 **Developer portal**
 * Reports
 * Custom HTML code widget and custom widget
-* Self-hosted developer portal
 
 **Gateway**
 * Self-hosted gateway

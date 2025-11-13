@@ -2,11 +2,11 @@
 title: Azure Resource Manager Templates
 description: Azure Resource Manager templates for using Azure Site Recovery features.
 services: site-recovery
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: sample
 ms.date: 07/08/2024
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.custom: engagement-fy23, devx-track-arm-template
 # Customer intent: "As a cloud administrator, I want to utilize Azure Resource Manager templates for configuring Azure Site Recovery, so that I can efficiently manage disaster recovery processes for my Azure virtual machines."
 ---

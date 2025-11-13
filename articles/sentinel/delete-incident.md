@@ -1,8 +1,8 @@
 ---
 title: Delete incidents in Microsoft Sentinel in the Azure portal
 description: Delete incidents in Microsoft Sentinel from the Azure portal, through the API, or using a Logic App.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 08/22/2022
 appliesto:

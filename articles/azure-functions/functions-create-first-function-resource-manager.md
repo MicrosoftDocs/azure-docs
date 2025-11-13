@@ -26,7 +26,7 @@ After you create the function app, you can deploy your Azure Functions project c
 
 ### Azure account 
 
-Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 

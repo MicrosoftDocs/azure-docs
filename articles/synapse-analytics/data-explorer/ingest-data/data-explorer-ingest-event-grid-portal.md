@@ -8,6 +8,7 @@ ms.author: shsagir
 ms.reviewer: tzgitlin
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a database administrator, I want Azure Synapse Data Explorer to track my blob storage and ingest new blobs.
 ---

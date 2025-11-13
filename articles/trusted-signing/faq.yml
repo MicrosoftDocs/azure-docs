@@ -42,6 +42,9 @@ sections:
           - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
   - name: Identity validation
     questions:
+      - question: What if my country/region is not listed in country/region drop down on the Identity Validation page?
+        answer: | 
+          - For Public Trust certificates, Trusted Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
@@ -56,9 +59,7 @@ sections:
           - If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Trusted Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
       - question: What if Organization identity validation fails?
         answer: | 
-          - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
-          - An organization based out of US or Canada cannot be onboarded.
-          - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
+          - Ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
           - In cases where additional documents were required, you've exhausted all 3 attempts. Therefore, we cannot proceed further with the onboarding.
       - question: What if I need assistance with identity validation?
@@ -71,6 +72,20 @@ sections:
       - question: What if email validation says "Failed" and you think you never received the email validation link?
         answer: | 
           - Create another identity validation request. Ensure that the email address used is not a distribution list and the email address can receive links from external email addresses.
+      - question: Where can I find Identity Validation Id? 
+        answer: |
+          -  On Identity Validation page, click on the Identity Validation you intend to use. The Identity Validation Id will be shown as "Id" in the details pane that opens.
+             :::image type="content" source="media/trusted-signing-identity-validation-id-faq.png" alt-text="Screenshot that shows copying the identity validation ID for an identity validation." lightbox="media/trusted-signing-identity-validation-id-faq.png":::
+      - question: What if I already have a Verified ID? 
+        answer: |  
+          - Follow the steps to present your existing valid (not an expired) VID for Trusted Signing.
+      - question: For Individual identity validation, what if I don’t have an address on a bank statement or utility bill? 
+        answer: |  
+          - Be sure to use a government-issued ID with an address on it, to successfully go through the process. 
+      - question: For Individual identity validation, I see an error - "You do not have permission to access this page". 
+        answer: |  
+          - If you see the error, it is because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
+          :::image type="content" source="media/trusted-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/trusted-signing-indie-validation-email-mismatch.png"::: 
   - name: Certificate profiles
     questions:
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
@@ -162,7 +177,7 @@ sections:
           | Error code (-2147467259/0x80004005)            |  If you use Service Principal + certificate based authentication, check your Environment Variables listed under the table for ["Service principal with certificate"](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet).|
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
           | `Azure.Identity.CredentialUnavailableException`      |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you are working outside of Azure, we recommend that you add "exclude ManagedIdentity" to your manifest file. |
-          | 403          |  - Check your Trusted Signing role.  <br>  - Check the Trusted Signing account name and the Trusted Signing certificate profile name in your *metadata.json* file. <br> - Check the dlib and dlib path. <br>  - Install C++ Redistributables from https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check your .NET version, dlib version, and Windows SDK version. <br>  - Check if the Trusted Signing role is assigned to the identity that's trying to sign the file. <br>  - Check if the corresponding identity validation has a status of **Completed**.<br>  - Verify whether you access the Trusted Signing endpoint from this virtual machine or computer. Try executing the action on a different virtual machine or computer. The error might indicate a network issue. <br> - For Private Trust scenarios 403: The user object ID that does the signing is different from the user object ID that calls  `Get-azCodeSigningRootCert`. The appropriate object ID must have the role Trusted Signing Certificate Profile Signer.|
+          | 403          |  - Check the status of your Azure subscription should be "Registered".  <br>  - Check the identity trying to sign the file has Trusted Certificate Profile Signer role.  <br>  - Check the Trusted Signing account name and the Trusted Signing certificate profile name in your *metadata.json* file. <br> - Check the dlib and dlib path. <br>  - Install C++ Redistributables from https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check your .NET version, dlib version, and Windows SDK version. <br>  - Check if the corresponding identity validation has a status of **Completed**.<br> - Check the status of the Certificate Profile must be active.  <br> - Verify whether you access the Trusted Signing endpoint from this virtual machine or computer. Try executing the action on a different virtual machine or computer. The error might indicate a network issue. <br> - For Private Trust scenarios 403: The user object ID that does the signing is different from the user object ID that calls  `Get-azCodeSigningRootCert`. The appropriate object ID must have the role Trusted Signing Certificate Profile Signer.|
   - name: Cost management and billing
     questions:  
        - question: How do I view usage costs and billing information for Trusted Signing resources?
@@ -180,4 +195,15 @@ sections:
     questions:  
        - question: How do I unenroll from Trusted Signing?
          answer: |
-          To unenroll from Trusted Signing, delete your Trusted Signing account. Deleting the account also deletes the associated identity validation and certificate profiles. This stops certificate renewal, effectively halting the signing process that's associated with those specific certificate profiles. However, deleting the account doesn't affect the certificates that were already used to sign your files.   
+          - To unenroll from Trusted Signing, delete your Trusted Signing account.  
+          - Unregister Microsoft.CodeSigning as the resource provider. 
+          - Deleting the account deletes the certificate profiles underneath this account. This stops certificate renewal, effectively halting the signing process that's associated with those specific certificate profiles. However, deleting the account doesn't affect the certificates that were already used to sign your files. 
+          - The associated identity validation needs to be explicitly deleted as identity validation is shared across different Trusted Signing accounts within the same subscription and can impact certificate profiles and signing from those accounts.
+  - name: Misuse and abuse of Trusted Signing certificates
+    questions:  
+       - question: How can someone external report to Microsoft the suspected misuse and abuse of Trusted Signing certificates?
+         answer: |
+          Please reach out here: https://www.microsoft.com/en-us/wdsi/filesubmission.
+       - question: What happens when misuse and abuse of Trusted Signing certificate is confirmed?
+         answer: |
+          Trusted Signing may revoke certificate(s) and suspend access to Trusted Signing service if misuse or abuse is confirmed.

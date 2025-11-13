@@ -3,7 +3,9 @@ title: Manage your device inventory from the Azure portal
 description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
 ms.date: 08/27/2023
 ms.topic: how-to
-ms.custom: enterprise-iot
+ms.custom:
+  - enterprise-iot
+  - sfi-image-nochange
 ---
 
 # Manage your device inventory from the Azure portal

@@ -3,6 +3,7 @@ title: Configure your own key for encrypting Azure Event Hubs data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Event Hubs data rest. 
 ms.topic: conceptual
 ms.date: 05/13/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Configure customer-managed keys for encrypting Azure Event Hubs data at rest

@@ -47,10 +47,6 @@
     href: how-to-custom-domain-suffix.md
   - name: Upgrade preference for planned maintenance
     href: how-to-upgrade-preference.md
-- name: Migrate to an App Service Environment v3
-  items:
-  - name: Auto-migration overview
-    href: auto-migration.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -75,8 +71,6 @@
       href: ../../automation/automation-runbook-gallery.md
   - name: Troubleshooting
     items:
-    - name: Troubleshoot with Visual Studio
-      href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Troubleshoot Node.js app
       href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Troubleshoot HTTP 502 & 503

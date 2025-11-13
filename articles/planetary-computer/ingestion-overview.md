@@ -22,7 +22,7 @@ This diagram provides an overview of how the various elements in the ingestion s
 
 ## Prerequisites
 
-- [Azure account with an active subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Azure account with an active subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Deployed GeoCatalog resource](./deploy-geocatalog-resource.md)
 
 ## Ingestion Sources

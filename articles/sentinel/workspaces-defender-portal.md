@@ -4,7 +4,7 @@ description: Learn about the support of multiple workspaces for Microsoft Sentin
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 06/10/2025
+ms.date: 10/21/2025
 appliesto: 
     - Microsoft Sentinel with Defender XDR in the Defender portal
 
@@ -20,7 +20,7 @@ This article primarily applies to the scenario where you onboard Microsoft Senti
 
 ## Primary and secondary workspaces
 
-Select your primary workspace when you onboard Microsoft Sentinel to the Defender portal. Any other workspaces that you onboard to the Defender portal are considered as secondary workspaces. The Defender portal supports one primary workspace and up to 99 secondary workspaces per tenant for Microsoft Sentinel.
+Select your primary workspace when you onboard Microsoft Sentinel to the Defender portal. Any other workspaces that you onboard to the Defender portal are considered as secondary workspaces. The Defender portal supports one primary workspace and an unlimited number of secondary workspaces per tenant for Microsoft Sentinel.
 
 When you also have Microsoft Defender XDR, alerts from your primary workspace are correlated with Defender XDR data, and incidents include alerts from both your primary workspace and Defender XDR in a unified queue. When you select a primary workspace, the [Defender XDR data connector](connect-microsoft-365-defender.md) for incidents and alerts is connected to the primary workspace only.
 
@@ -42,11 +42,11 @@ Where you have multiple Microsoft Sentinel workspaces within a Microsoft Entra I
 
 Use one of the following roles or role combinations to manage primary and secondary workspaces:
 
-|Task  |Required roles or role combinations  |
-|---------|---------|
-|**Connect a primary workspace**     | One of the following: <br>- Global Administrator AND subscription Owner <br>- Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor|
-|**Change the primary workspace**     | One of the following: <br>- Global Administrator <br>- Security Administrator |
-|**Onboard or offboard secondary workspaces**     |  One of the following:  <br>- Global Administrator AND subscription Owner <br>- Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor <br>- Subscription Owner <br>- User access administrator AND Sentinel contributor|
+ |Task |Microsoft Entra or Azure built-in role required |Scope  |
+  |---------|---------|---------|
+  |**Onboard Microsoft Sentinel to the Defender portal**| [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) or [security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) in Microsoft Entra ID <br><br> [Owner](/azure/role-based-access-control/built-in-roles#owner) or </br>[User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) AND [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) |Tenant<br><br><br>- Subscription for Owner or User Access Administrator roles </br></br>- Subscription, resource group, or workspace resource for Microsoft Sentinel Contributor|
+  |**Connect or disconnect a secondary workspace**|  [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) or [security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) in Microsoft Entra ID <br><br> [Owner](/azure/role-based-access-control/built-in-roles#owner) or </br>[User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) AND [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) |Tenant<br><br><br>- Subscription for Owner or User Access Administrator roles </br></br>- Subscription, resource group, or workspace resource for Microsoft Sentinel Contributor|
+  |**Change the primary workspace**|  [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) or [security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) in Microsoft Entra ID <br><br> [Owner](/azure/role-based-access-control/built-in-roles#owner) or </br>[User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) AND [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) |Tenant<br><br><br>- Subscription for Owner or User Access Administrator roles </br></br>- Subscription, resource group, or workspace resource for Microsoft Sentinel Contributor|
 
 > [!IMPORTANT]
 > Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.

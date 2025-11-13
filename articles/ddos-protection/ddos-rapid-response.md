@@ -15,7 +15,7 @@ During an active attack, Azure DDoS Network Protection customers have access to 
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Before you can complete the steps in this guide, you must first create a [Azure DDoS Protection plan](manage-ddos-protection.md).
 
 ## When to engage DRR

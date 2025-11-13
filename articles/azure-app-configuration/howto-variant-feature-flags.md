@@ -59,7 +59,7 @@ In this tutorial, you create a web app named _Quote of the Day_. When the app is
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An [App Configuration store](./quickstart-azure-app-configuration-create.md).
 
 ## Create a variant feature flag

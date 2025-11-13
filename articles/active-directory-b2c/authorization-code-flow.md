@@ -8,7 +8,9 @@ ms.topic: concept-article
 ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-ropc-nochange
 
 # Customer intent: As a developer who is building a web app, I want to learn more about the OAuth 2.0 authorization code flow in Azure AD B2C, so that I can add sign-up, sign-in, and other identity management tasks to my app.
 

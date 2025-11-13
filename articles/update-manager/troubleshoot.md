@@ -6,12 +6,13 @@ ms.date: 02/17/2025
 ms.topic: troubleshooting
 author: habibaum
 ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
 # Customer intent: As a system administrator managing virtual machines, I want to troubleshoot issues with Azure Update Manager, so that I can ensure successful patching and compliance for my deployed resources.
 ---
 
 # Troubleshoot issues with Azure Update Manager
 
-This article describes the errors that might occur when you deploy or use Azure Update Manager, how to resolve them, and the known issues and limitations of scheduled patching.  
+This article describes the errors that might occur when you deploy or use Azure Update Manager, how to resolve them, and the known issues and limitations of scheduled patching.
 
 ## General troubleshooting
 
@@ -108,7 +109,7 @@ When a VM is moved to another subscription or resource group, the scheduled main
 
 ### Resolution
 
-Maintenance configurations do not currently support the moving of assigned resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a prerequisite, first remove the assignment before following the steps.** 
+Maintenance configurations do not currently support the moving of assigned resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a prerequisite, first remove the assignment before following the steps.**
 
 If you're using a `static` scope:
 
@@ -134,7 +135,7 @@ You want to ensure that the Windows Update client won't install patches on your 
 
 ### Resolution
 
-If you don't want any patch installation to be orchestrated by Azure or aren't using custom patching solutions, you can change the patch orchestration option to **Customer Managed Schedules (Preview)** or `AutomaticByPlatform` and `ByPassPlatformSafetyChecksOnUserSchedule` and not associate a schedule/maintenance configuration to the machine. This setting ensures that no patching is performed on the machine until you change it explicitly. For more information, see **Scenario 2** in [User scenarios](prerequsite-for-schedule-patching.md#user-scenarios).
+If you don't want any patch installation to be orchestrated by Azure or aren't using custom patching solutions, you can change the patch orchestration option to **Customer Managed Schedules (Preview)** or `AutomaticByPlatform` and `ByPassPlatformSafetyChecksOnUserSchedule` and not associate a schedule/maintenance configuration to the machine. This setting ensures that no patching is performed on the machine until you change it explicitly.
 
 :::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Screenshot that shows a notification of failed update settings.":::
 
@@ -161,7 +162,7 @@ This issue is frequently caused by network configuration and firewall problems. 
   * If the machines are configured for Windows Update, make sure that you can reach the endpoints described in [Issues related to HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
   * If the machines are configured for Windows Server Update Services (WSUS), make sure that you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
 
-If you see an `HRESULT` error code, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.
+If you see an `HRESULT` error code, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.  
 
 |Exception  |Resolution or action  |
 |---------|---------|
@@ -182,6 +183,27 @@ You can also download and run the [Windows Update troubleshooter](https://suppor
 > [!NOTE]
 > The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
 
+## An internal execution error occurred. Retry later. The operation didn’t return a response and may be incomplete.
+
+### Issue
+
+Azure Update Manager failed to patch the VM with an internal execution error.
+
+### Cause
+This issue might occur because of a temporary problem or communication failure between Azure Update Manager and the VM. Common causes include:
+- A temporary platform or backend service issue.
+- An unresponsive or outdated Azure VM Agent.
+- The VM is under heavy load or rebooting during the operation.
+- A network or connectivity issue.
+
+### Resolution
+
+- Retry the update after a few minutes.
+- Ensure VM Agent is healthy and up to date. You can also try to reboot the VM if the Agent status is "**Not Ready**"
+- If the Agent status shows Not Ready, try rebooting the VM.
+- Check VM resource usage (CPU, memory, disk). Restart if needed.
+- Verify network connectivity to Azure services.
+- Review logs on the VM and Update Manager for more details. 
 
 ## Known issues in scheduled patching
 
@@ -244,7 +266,7 @@ The Windows/Linux OS Update extension must be successfully installed on Arc mach
 
 #### Resolution
 
-Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule. 
+Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule.
 
 If the extension is already present on an Arc machine but the extension status is not **Succeeded**, ensure that you [remove the extension](/azure/azure-arc/servers/manage-vm-extensions-portal#remove-extensions) and trigger an on-demand operation so that it is installed again.
 
@@ -254,9 +276,9 @@ If the extension is already present on an Arc machine but the extension status i
 The Windows/Linux patch update extension must be successfully installed on Azure machines to perform on-demand assessment or patching, scheduled patching and for periodic assessments.
 
 #### Resolution
-Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule. 
+Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule.
 
-If the extension is already present on the machine but the extension status is not **Succeeded**, trigger an on-demand operation which will install it again. 
+If the extension is already present on the machine but the extension status is not **Succeeded**, trigger an on-demand operation which will install it again.
 
 ### Allow Extension Operations check failed
 
@@ -265,7 +287,7 @@ If the extension is already present on the machine but the extension status is n
 The property [AllowExtensionOperations](/dotnet/api/microsoft.azure.management.compute.models.osprofile.allowextensionoperations) is set to false in the machine OSProfile.
 
 #### Resolution
-The property should be set to true to allow extensions to work properly. 
+The property should be set to true to allow extensions to work properly.
 
 ### Sudo privileges not present
 
@@ -297,15 +319,15 @@ Grant sudo privileges to ensure assessment or patching operations succeed. You w
 
 #### Issue
 
-Proxy is configured on Windows or Linux machines that may block access to endpoints required for assessment or patching operations to succeed. 
+Proxy is configured on Windows or Linux machines that may block access to endpoints required for assessment or patching operations to succeed.
 
 #### Resolution
 
-For Windows, see [issues related to proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#issues-related-to-httpproxy). 
+For Windows, see [issues related to proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#issues-related-to-httpproxy).
 
 For Linux, ensure proxy setup doesn't block access to repositories that are required for downloading and installing updates.
 
-### TLS 1.2 Check Failed 
+### TLS 1.2 Check Failed
 
 #### Issue
 
@@ -314,7 +336,7 @@ TLS 1.0 and TLS 1.1 are deprecated.
 #### Resolution
 
 Use TLS 1.2 or higher.
- 
+
 For Windows, see [Protocols in TLS/SSL Schannel SSP](/windows/win32/secauthn/protocols-in-tls-ssl--schannel-ssp-).
 
 For Linux, execute the following command to see the supported versions of TLS for your distro.
@@ -324,17 +346,17 @@ For Linux, execute the following command to see the supported versions of TLS fo
 
 #### Issue
 
-HTTPS connection is not available which is required to download and install updates from required endpoints for each operating system. 
+HTTPS connection is not available which is required to download and install updates from required endpoints for each operating system.
 
 #### Resolution
 
-Allow HTTPS connection from your machine. 
+Allow HTTPS connection from your machine.
 
-### MsftLinuxPatchAutoAssess service is not running, or Time is not active 
+### MsftLinuxPatchAutoAssess service is not running, or Time is not active
 
 #### Issue
 
-[MsftLinuxPatchAutoAssess](https://github.com/Azure/LinuxPatchExtension) is required for successful periodic assessments on Linux machines. 
+[MsftLinuxPatchAutoAssess](https://github.com/Azure/LinuxPatchExtension) is required for successful periodic assessments on Linux machines.
 
 #### Resolution
 
@@ -344,7 +366,7 @@ Ensure that the LinuxPatchExtension status is succeeded for the machine. Reboot 
 
 #### Issue
 
-The updates are downloaded from configured public or private repositories for each Linux distro. The machine is unable to connect to these repositories to download or assess the updates. 
+The updates are downloaded from configured public or private repositories for each Linux distro. The machine is unable to connect to these repositories to download or assess the updates.
 
 #### Resolution
 

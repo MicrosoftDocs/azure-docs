@@ -5,14 +5,15 @@ description: Learn how-to to set up Azure Application Gateway Private Link using
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
+ms.topic: how-to
+ms.date: 11/5/2025
+ms.author: mbender
 ms.custom:
   - devx-track-azurecli, devx-track-azurepowershell
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:06/16/2025
-ms.topic: how-to
-ms.date: 07/09/2025
-ms.author: mbender
+  - sfi-image-nochange
 # Customer intent: As a cloud architect, I want to configure Application Gateway Private Link so that I can securely connect workloads over a private network without exposing them to the public internet.
 ---
 
@@ -70,6 +71,9 @@ Follow these steps to create the Private Link configuration:
    - **Private IP address settings**: Configure at least one IP address
 6. Select **Add** to create the configuration.
 7. From your Application Gateway settings, copy and save the **Resource ID**. This identifier is required when setting up Private Endpoints from different Microsoft Entra tenants.
+
+>[!CAUTION]
+>Private link configuration will momentarily cause traffic disruption (less than 1 minute) while the change is applied. Changes are recommended to be conducted during a maintenance window or period of low-traffic.  During this time, you may see connection timeouts or 4XX http status codes returned on request.  Add/Remove/Approval/Rejection of private endpoints will not cause traffic disruption.
 
 ## Configure Private Endpoint
 

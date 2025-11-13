@@ -13,8 +13,7 @@ ms.date: 12/18/2024
 
 # Tutorial: Run end-to-end Playwright tests with Microsoft Playwright Testing service
 
-> [!NOTE]
-> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcements).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this tutorial, you learn how to integrate your Playwright test suite with Microsoft Playwright Testing, run tests faster using cloud-hosted browsers, and troubleshoot efficiently using the service's reporting features. You simulate a Playwright test suite, connect it to the service for faster execution, and use reporting tools for streamlined troubleshooting.
 
@@ -27,7 +26,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * The [Azure CLI](/cli/azure/install-azure-cli) installed on your local computer.
 * Azure CLI version 2.2.0 or later. Run `az --version` to check the installed version on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 * Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).

@@ -1,11 +1,12 @@
 ---
 title: Set up SAP NetWeaver disaster recovery with Azure Site Recovery 
 description: Learn how to set up disaster recovery for SAP NetWeaver with Azure Site Recovery.
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 08/19/2025
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As an IT administrator managing SAP NetWeaver deployments, I want to set up a disaster recovery solution using cloud-based replication, so that I can ensure business continuity and minimize downtime during incidents."
 ---

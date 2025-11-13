@@ -18,7 +18,7 @@ In this article, you learn how to use rule-based routing with Azure Container Ap
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 

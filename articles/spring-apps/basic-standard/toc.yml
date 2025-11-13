@@ -90,8 +90,6 @@ items:
       href: quickstart-logs-metrics-tracing.md
     - name: Integrate with Azure Database for MySQL
       href: quickstart-integrate-azure-database-mysql.md
-  - name: Authenticate client with Spring Cloud Gateway
-    href: ../enterprise/tutorial-authenticate-client-with-gateway.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: App and deployment

@@ -64,7 +64,7 @@ Since it's your first time, you start with an empty estimate.
 
 1. Use the product picker to find a product. You can browse the catalog or search for the Azure service name.
 2. Select product tile to add it to the estimate. It adds the product with a default configuration.
-3. The pop of the configuration shows high-level filters like region, product type, tiers, and so on. Use the filters to narrow your product selection. The configurations offered change to reflect the features offered by the selected subproduct.
+3. Top part of the product module shows high-level filters like region, product type, tiers, and so on. Use the filters to narrow your product selection. The configuration options change to reflect features offered by the selected subproduct.
 4. Update the default configurations to show your expected monthly consumption. Estimates automatically update for the new configuration. For example, a virtual machine configuration defaults to run for one month (730 hours). Changing the configuration to 200 hours automatically updates the estimate.
 5. Some products offer special pricing plans, like reserved instances or savings plans. You can choose these options, if available, to lower your costs.
 6. Depending on the selected product or pricing plan, the estimate is split into upfront and monthly costs.

@@ -1,7 +1,7 @@
 ---
 title: Use template reference
 description: Use the Azure Resource Manager template (ARM template) reference to create a template.
-ms.date: 06/20/2024
+ms.date: 10/29/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
@@ -23,13 +23,11 @@ This tutorial covers the following tasks:
 > * Edit the template
 > * Deploy the template
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
-To complete this article, you need:
-
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+To complete this article, you need [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Open a Quickstart template
 
@@ -71,16 +69,13 @@ Using the template reference, you can find out whether you're using the latest A
 ## Find the template reference
 
 1. Browse to [Azure Template reference](/azure/templates/).
-1. In the **Filter by title** box, enter **storage accounts**, and select the first **Storage Accounts** under **Reference > Storage**.
-
-    ![Resource Manager template reference storage account](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)
-
+1. From the left menu, find **Storage**, expand **Storage**, and then select **Storage Accounts**
 1. Select **ARM template**.
-1. A resource type usually has several API versions. This page shows the latest template schema version by default. Select the **Latest** dropdown box to see the versions. The latest version is **2022-09-01**. Select either **Latest** or the version right beneath **Latest** to see the latest version. Make sure this version matches the version used for the storage account resource in your template. If you update the API version, verify the resource definition matches the template reference.
+1. A resource type usually has several API versions. This page shows the latest template schema version by default. Select the **Latest** dropdown box to see the versions. The latest version is **2025-06-01**. Select either **Latest** or the version right beneath **Latest** to see the latest version. Make sure this version matches the version used for the storage account resource in your template. If you update the API version, verify the resource definition matches the template reference.
 
     ![Resource Manager template reference storage account versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-versions.png)
 
-1. This page lists the details of the storageAccount resource type. For example, it lists the allowed values for the **Sku** object. There are eight SKUs, and they match the ones listed in the quickstart template that you opened earlier.
+1. This page lists the details of the storageAccount resource type. For example, it lists the allowed values for the **Sku** object. There are 14 SKUs for API version 2025-06-01.
 
     ![Resource Manager template reference storage account skus](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-skus.png)
 

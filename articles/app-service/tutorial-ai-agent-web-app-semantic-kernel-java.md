@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 07/16/2025
+ms.date: 11/10/2025
 ms.custom:
   - devx-track-java
 ms.collection: ce-skilling-ai-copilot
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/java).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## Open the sample with Codespaces

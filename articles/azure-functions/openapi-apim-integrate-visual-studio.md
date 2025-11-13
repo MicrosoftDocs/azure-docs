@@ -26,7 +26,7 @@ The serverless function you create provides an API that lets you determine wheth
 
 + [Visual Studio 2022](https://azure.microsoft.com/downloads/). Make sure you select the **Azure development** workload during installation. 
 
-+ An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet/) before you begin.
++ An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create the code project
 

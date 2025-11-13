@@ -12,12 +12,6 @@ To deploy a resource through an Azure Resource Manager template (ARM template), 
 
 [languageVersion 2.0](./syntax.md#languageversion-20) makes a list of enhancements to ARM JSON templates, such as changing the resources declaration from an array to an object. Most the samples shown in this article still use `resources` array.  For languageVersion 2.0 specific information, see [Use symbolic name](#use-symbolic-name).
 
-
-
-
-
-[!INCLUDE [VS Code ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
-
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource declaration](../bicep/resource-declaration.md).
 
@@ -33,7 +27,7 @@ The following example shows how to set the resource type and API version for a s
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2019-06-01",
+    "apiVersion": "2025-06-01",
     ...
   }
 ]
@@ -54,7 +48,7 @@ Each resource has a name. When setting the resource name, pay attention to the [
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2019-06-01",
+    "apiVersion": "2025-06-01",
     "name": "[parameters('storageAccountName')]",
     ...
   }
@@ -80,7 +74,7 @@ Many resources require a location. You can determine if the resource needs a loc
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2019-06-01",
+    "apiVersion": "2025-06-01",
     "name": "[parameters('storageAccountName')]",
     "location": "[parameters('location')]",
     ...
@@ -119,7 +113,7 @@ Use intellisense or [template reference](/azure/templates/) to determine which p
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -188,7 +182,7 @@ Symbolic names are case-sensitive. The allowed characters for symbolic names are
   "resources": {
     "myStorage": {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -224,7 +218,7 @@ With [`languageVersion 2.0`](./syntax.md#languageversion-20) and using symbolic 
   "resources": {
     "storageAccount": {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "storageacct",
       "existing": true
     }

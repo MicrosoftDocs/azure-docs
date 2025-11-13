@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Virtual Network
-description: Find out about reliability in Azure Virtual Network, including availability zones and multi-region deployments.
+description: Learn how to ensure reliability in Azure Virtual Network by using availability zones, zone redundancy, multi-region deployments, and high resiliency for networking.
 author: asudbring
 ms.author: allensu
 ms.topic: reliability-article

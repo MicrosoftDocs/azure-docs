@@ -1,13 +1,17 @@
 ---
 title: About Azure Network Function Manager
 description: Learn about Azure Network Function Manager, a fully managed cloud-native orchestration service that lets you deploy and provision network functions on Azure Stack Edge Pro with GPU for a consistent hybrid experience using the Azure portal.
-author: polarapfel
+author: msftadam
+ms.author: adamdor
 ms.service: azure-network-function-manager
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: tobiaw
 ---
+
 # What is Azure Network Function Manager?
+
+> [!WARNING]
+> Azure Network Function Manager service to be sunset 10/1/2025
 
 Azure Network Function Manager offers an [Azure Marketplace](https://azure.microsoft.com/marketplace/) experience for deploying network functions such as mobile packet core, SD-WAN edge, and VPN services to your [Azure Stack Edge device](https://azure.microsoft.com/products/azure-stack/edge/) running in your on-premises environment. You can now rapidly deploy a private mobile network service or SD-WAN solution on your edge device directly from the Azure management portal. Network Function Manager brings network functions from a growing ecosystem of [partners](#partners). Network Function Manager is supported on [Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-overview.md).
 

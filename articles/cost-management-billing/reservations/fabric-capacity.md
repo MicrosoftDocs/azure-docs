@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 07/08/2025
+ms.date: 10/28/2025
 ms.author: primittal
 ms.custom: ignite-2023
 ---
@@ -120,7 +120,7 @@ The following examples show how the Fabric capacity reservation discount applies
 - **Example 2** - A reservation that's larger than your used capacity. For example, you buy 64 CUs of capacity and you only deploy an F32. In this example, the reservation discount is applied to the F32. For the remaining 32 CUs of unused reservation capacity, if you don't have matching resources for any hour. You lose the reservation quantity for that hour. You can't carry forward unused reserved hours.
 - **Example 3** - A reservation that's smaller than the used capacity. For example, you buy 64 CUs of capacity and you deploy an F128. In this example, your discount is applied to 64 CUs that were used. For the remaining 64 CUs, you pay the pay-as-you-go rate.
 - **Example 4** - A reservation that's the same size as two used capacities that equal the size of the reservation. For example, you buy 64 CUs of capacity and you deploy two F32s. In this example, the discount is applied to all used capacity.
-- **Example 5** - This example explains the relationship between smoothing and reservations. Smoothing is a feature of Fabric and allows spikes in usage to be spread out over time. Smoothing spreads background process like Spark jobs and semantic model refreshes over a 24-hour interval. Interactive process like Power BI reports, KQL, and SQL queries are spread out of a 10-minute interval. For more information, see the detailed explanation at [Smoothing](https://support.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming).  
+- **Example 5** - This example explains the relationship between smoothing and reservations. Smoothing is a feature of Fabric and allows spikes in usage to be spread out over time. Smoothing spreads background process like Spark jobs and semantic model refreshes over a 24-hour interval. Interactive process like Power BI reports, KQL, and SQL queries are spread out of a 10-minute interval. For more information, see the detailed explanation at [Smoothing](https://blog.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming/).  
     For example, You purchase a Fabric capacity reservation of two CUs, and assume that your usage spikes to 4 CUs for an hour. The process runs and consumes 4 CUs, however, the CU usage is spread out of the 24 hours. This feature allows you to purchase for average workload rather than the peak. Review the link provided to understand the effect of smoothing if you use more CU that available over 24 hours.  
 
 ## Increase the size of a Fabric Capacity reservation

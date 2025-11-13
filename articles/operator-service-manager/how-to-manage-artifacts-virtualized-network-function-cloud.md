@@ -1,8 +1,8 @@
 ---
 title: How to push and pull images and other artifacts to/from a Storage Account backed artifact store.
 description: Learn how to push and pull images and other artifacts to/from a Storage Account backed artifact store.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 03/18/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager

@@ -10,19 +10,21 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Azure portal
+  - name: Create a resource - Azure portal
     href: create.md
-  - name: Azure CLI
+  - name: Create a resource - Azure CLI
     href: create-cli.md
-  - name: Azure PowerShell
+  - name: Create a resource - Azure PowerShell
     href: create-powershell.md
     displayName: Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show
 - name: How to
   items:
   - name: Create Confluent resources
     href: create-confluent-resources.md
-  - name: Use Confluent connectors
+  - name: Create a connector to Blob Storage 
     href: add-confluent-connectors.md
+  - name: Create a connector to Azure Cosmos DB
+    href: add-cosmos-db-connector.md
   - name: Manage
     items:
     - name: Manage a resource
@@ -30,6 +32,8 @@ items:
       displayName: Azure CLI, az confluent organization delete
     - name: Manage access
       href: manage-access.md
+    - name: Manage confluent connectors
+      href: manage-confluent-connectors.md
   - name: Connect to compute services
     href: add-connectors.md
   - name: Troubleshoot

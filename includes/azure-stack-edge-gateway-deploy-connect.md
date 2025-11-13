@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 

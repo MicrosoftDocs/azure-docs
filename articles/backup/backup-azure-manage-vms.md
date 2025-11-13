@@ -2,7 +2,7 @@
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 10/24/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -191,7 +191,7 @@ To protect your data, Azure Backup includes the soft delete feature. With soft d
 ### Backup item where primary data source no longer exists
 
 * If Azure VMs configured for Azure Backup are deleted or moved (to another resource group or subscription) without stopping protection, then both scheduled backup jobs and on-demand backup jobs will fail with the error *UserErrorVmNotFoundV2*. The backup pre-check will appear as critical only for failed on-demand backup jobs (failed scheduled jobs doesn't appear).
-* These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the most recent recovery point) are cleaned according to the retention range set in the backup policy.
+* These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (the last hardened (vaulted) restore point and the latest restore point) are cleaned according to the retention range set in the backup policy.
 * To avoid any additional cost, we recommend deleting the backup items where the primary data source no longer exists. This is in a scenario where the backup item/data for the deleted resources is no longer required, since the most recent recovery point is retained forever and you're charged according to the applicable backup pricing.
 
 ## Re-install the VMSnapshot backup extension for Azure VM protection

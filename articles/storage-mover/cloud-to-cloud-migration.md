@@ -1,14 +1,14 @@
 ---
-title: Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
-description: The Cloud-to-Cloud Migration feature (preview) in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
+title: Get started with cloud-to-cloud migration in Azure Storage Mover
+description: The Cloud-to-Cloud Migration feature in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 07/01/2025
+ms.date: 11/04/2025
 ---
 
-# Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
+# Get started with cloud-to-cloud migration in Azure Storage Mover
 
 The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage. 
 
@@ -25,12 +25,12 @@ Before you begin, ensure that you have:
 - An [Azure Storage account](../storage/common/storage-account-create.md) to use as the destination.
 - A [Storage Mover resource](storage-mover-create.md) deployed in your Azure subscription.
 
-## Preview limitations
+## Limits
 
-The Cloud-to-Cloud Migration feature in Azure Storage Mover is currently in preview. The following limitations apply:
+The Cloud-to-Cloud Migration feature in Azure Storage Mover has the following limits:
 
-- Each migration job supports the transfer of 10 million objects.
-- A maximum of 10 concurrent jobs is supported per subscription.
+- Each migration job supports the transfer of 500 million objects.
+- A maximum of 10 concurrent jobs is supported per subscription. If you need to run more than 10, you can do so by creating a support request.
 - Azure Storage Mover doesn't support automatic rehydration of archived objects. Data stored in AWS Glacier or Deep Archive must be restored before migration. Migration jobs should only be initiated after the data is fully restored.
 - Private Networking is currently not supported. However, Azure Storage Mover's Cloud-to-Cloud feature securely transfers data by limiting S3 access to trusted Azure IP ranges. This approach ensures secure, controlled connectivity over the public internet.
 
@@ -117,6 +117,7 @@ Follow the steps in this section to configure an AWS S3 source endpoint and an A
 
 ### Configure an AWS S3 Source Endpoint
 
+### [Azure portal](#tab/portal)
 1. Navigate to your Storage mover instance in Azure.
 1. From the **Resource management** group within the left navigation, select **Storage endpoints**. Select the **Source endpoints** tab, and then **Add endpoint** to open the **Create source endpoint** pane.
 1. In the **Create source endpoint** pane:
@@ -129,8 +130,75 @@ Follow the steps in this section to configure an AWS S3 source endpoint and an A
 
         :::image type="content" source="media/cloud-to-cloud-migration/endpoint-source-create-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/endpoint-source-create.png":::
 
+### [Azure PowerShell](#tab/powershell)
+
+Use the `New-AzStorageMoverMultiCloudConnectorEndpoint` command to create a multicloud connector endpoint:
+
+```powershell
+New-AzStorageMoverMultiCloudConnectorEndpoint `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -MultiCloudConnectorId <String> `
+    -AWSS3BucketId <String>
+```
+
+**Parameters:**
+
+- **Name**: The name of the multicloud connector endpoint.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+- **MultiCloudConnectorId**: The resource ID of the multicloud connector.
+- **AWSS3BucketId**: The Azure resource ID of the AWS S3 bucket that you want to create an endpoint for.
+
+**Example:**
+
+```powershell
+New-AzStorageMoverMultiCloudConnectorEndpoint `
+    -Name "my-s3-endpoint" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -MultiCloudConnectorId "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.StorageMover/storageMovers/myStorageMover/multiCloudConnectors/myConnector" `
+    -AWSS3BucketId "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Arc/multiCloudConnectors/myConnector/awsS3Buckets/my-bucket-name"
+```
+
+### [Azure CLI](#tab/CLI)
+Use the `az storage-mover endpoint create-for-multi-cloud-connector` command:
+
+```bash
+az storage-mover endpoint create-for-multi-cloud-connector \
+    --aws-s3-bucket-id <String> \
+    --connector-id <String> \
+    --endpoint-name <String> \
+    --resource-group <String> \
+    --storage-mover-name <String> \
+```
+
+**Parameters:**
+
+- **aws-s3-bucket-id**: The Azure resource ID of the AWS S3 bucket.
+- **connector-id**: The resource ID of the multicloud connector.
+- **endpoint-name**: The name of the endpoint to create.
+- **resource-group**: The name of the resource group containing the Storage Mover resource.
+- **storage-mover-name**: The name of the Storage Mover resource.
+
+**Example:**
+
+```Bash
+az storage-mover endpoint create-for-multi-cloud-connector \
+    --aws-s3-bucket-id "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Arc/multiCloudConnectors/myConnector/awsS3Buckets/my-bucket-name" \
+    --connector-id "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Arc/multiCloudConnectors/myConnector" \
+    --endpoint-name "my-s3-endpoint" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover" \
+    --description "AWS S3 bucket endpoint for migration"
+```
+
+---
+
 ### Configure an Azure Blob Storage Target Endpoint
 
+### [Azure portal](#tab/portal)
 1. From the **Resource management** group within the left navigation, select **Storage endpoints**. Select the **Target endpoints** tab, and then **Add endpoint** to open the **Create target endpoint** pane.
 1. In the **Create target endpoint** pane:
  
@@ -142,6 +210,175 @@ Follow the steps in this section to configure an AWS S3 source endpoint and an A
 
         :::image type="content" source="media/cloud-to-cloud-migration/endpoint-target-create-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Target Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/endpoint-target-create.png":::
 
+
+### [Azure PowerShell](#tab/powershell)
+
+Use the `New-AzStorageMoverAzStorageContainerEndpoint` command to create an Azure Blob Storage target endpoint:
+
+```powershell
+New-AzStorageMoverAzStorageContainerEndpoint `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -BlobContainerName <String> `
+    -StorageAccountResourceId <String>
+```
+
+**Parameters:**
+
+- **Name**: The name of the Azure Blob Storage endpoint.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+- **BlobContainerName**: The name of the blob container in the storage account where you want to migrate data.
+- **StorageAccountResourceId**: The Azure resource ID of the storage account that contains the blob container.
+
+**Example:**
+
+```powershell
+New-AzStorageMoverAzStorageContainerEndpoint `
+    -Name "my-blob-endpoint" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -BlobContainerName "migration-container" `
+    -StorageAccountResourceId "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+```
+
+### [Azure CLI](#tab/CLI)
+
+Use the `az storage-mover endpoint create-for-storage-container` command to create an Azure Blob Storage target endpoint:
+
+```bash
+az storage-mover endpoint create-for-storage-container \
+    --container-name <String> \
+    --endpoint-name <String> \
+    --resource-group <String> \
+    --storage-account-id <String> \
+    --storage-mover-name <String>
+```
+
+**Parameters:**
+
+- **container-name**: The name of the blob container where you want to migrate data.
+- **endpoint-name**: The name of the endpoint to create.
+- **resource-group**: The name of the resource group containing the Storage Mover resource.
+- **storage-account-id**: The Azure resource ID of the storage account that contains the blob container.
+- **storage-mover-name**: The name of the Storage Mover resource.
+
+**Example:**
+
+```bash
+az storage-mover endpoint create-for-storage-container \
+    --container-name "migration-container" \
+    --endpoint-name "my-blob-endpoint" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-account-id "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount" \
+    --storage-mover-name "myStorageMover"
+```
+
+---
+
+### Assign RBAC Role to Target Endpoint
+
+### [Azure portal](#tab/portal)
+
+When you create an Azure Blob Storage target endpoint through the Azure portal, the **Storage Blob Data Contributor** RBAC role is automatically assigned to the system-assigned managed identity of the endpoint. No other steps are required.
+
+### [Azure PowerShell](#tab/powershell)
+
+You must assign the **Storage Blob Data Contributor** RBAC role to the system-assigned managed identity of the target endpoint. First, retrieve the principal ID of the target endpoint's managed identity using the `Get-AzStorageMoverAzStorageContainerEndpoint` command:
+
+```powershell
+$endpoint = Get-AzStorageMoverAzStorageContainerEndpoint `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -Name <String>
+
+$principalId = $endpoint.Identity.PrincipalId
+```
+
+Then, use the `New-AzRoleAssignment` command to assign the role:
+
+```powershell
+New-AzRoleAssignment `
+    -ObjectId <String> `
+    -RoleDefinitionName "Storage Blob Data Contributor" `
+    -Scope <String>
+```
+
+**Parameters:**
+
+- **ObjectId**: The object ID (principal ID) of the system-assigned managed identity of the target endpoint.
+- **RoleDefinitionName**: Set to **"Storage Blob Data Contributor"**.
+- **Scope**: The Azure resource ID of the target blob storage container.
+
+**Example:**
+
+```powershell
+# Get the target endpoint
+$endpoint = Get-AzStorageMoverEndpoint `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -Name "my-blob-endpoint"
+
+# Assign the RBAC role using the principal ID
+New-AzRoleAssignment `
+    -ObjectId $endpoint.Identity.PrincipalId `
+    -RoleDefinitionName "Storage Blob Data Contributor" `
+    -Scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/containers/migration-container"
+```
+
+
+### [Azure CLI](#tab/CLI)
+
+First, retrieve the principal ID of the target endpoint's managed identity using the `az storage-mover endpoint show` command:
+
+```bash
+az storage-mover endpoint show \
+    --resource-group <String> \
+    --storage-mover-name <String> \
+    --name <String> \
+    --query identity.principalId \
+    --output tsv
+```
+
+Then, use the `az role assignment create` command to assign the role:
+
+```bash
+az role assignment create \
+    --assignee-object-id <String> \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Blob Data Contributor" \
+    --scope <String>
+```
+
+**Parameters:**
+
+- **assignee-object-id**: The object ID (principal ID) of the system-assigned managed identity of the target endpoint.
+- **assignee-principal-type**: Set to **"ServicePrincipal"**.
+- **role**: Set to **"Storage Blob Data Contributor"**.
+- **scope**: The Azure resource ID of the target blob storage container.
+
+**Example:**
+
+```Bash
+# Get the principal ID
+PRINCIPAL_ID=$(az storage-mover endpoint show \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover" \
+    --name "my-blob-endpoint" \
+    --query identity.principalId \
+    --output tsv)
+
+# Assign the RBAC role using the principal ID
+az role assignment create \
+    --assignee-object-id $PRINCIPAL_ID \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Blob Data Contributor" \
+    --scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/containers/migration-container"
+```
+
+---
+
 ## Create a migration project and job definition
 
 After you define source and target endpoints for your migration, the next steps are to create a Storage Mover migration project and job definition.
@@ -150,6 +387,9 @@ A *migration project* allows you to organize large migrations into smaller, more
 
 Follow the steps in this section to create a migration project and run a migration job.
 
+### Create a Project
+
+### [Azure portal](#tab/portal)
 1. Navigate to the **Project explorer** tab in your Storage Mover instance and select **Create project**.
 1. Provide values for the following fields:
     - **Name**: A meaningful name for the migration project.
@@ -159,6 +399,64 @@ Follow the steps in this section to create a migration project and run a migrati
 
     :::image type="content" source="media/cloud-to-cloud-migration/project-create-sml.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/cloud-to-cloud-migration/project-create.png":::
 
+
+### [Azure PowerShell](#tab/powershell)
+
+Use the `New-AzStorageMoverProject` command to create a migration project:
+
+```powershell
+New-AzStorageMoverProject `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String>
+```
+
+**Parameters:**
+
+- **Name**: The name of the migration project.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+
+**Example:**
+
+```powershell
+New-AzStorageMoverProject `
+    -Name "my-migration-project" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover"
+```
+
+### [Azure CLI](#tab/CLI)
+
+Use the `az storage-mover project create` command to create a migration project:
+
+```bash
+az storage-mover project create \
+    --name <string> \
+    --resource-group <string> \
+    --storage-mover-name <string>
+```
+
+**Parameters:**
+
+- **--name**: The name of the migration project.
+- **--resource-group**: The name of the resource group containing the Storage Mover resource.
+- **--storage-mover-name**: The name of the Storage Mover resource.
+
+**Example:**
+
+```bash
+az storage-mover project create \
+    --name "my-migration-project" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover"
+```
+
+---
+
+### Create a Job Definition
+
+### [Azure portal](#tab/portal)
 1.  Select the project after it appears, and then select **Create job definition**. The **Create a Migration Job** page opens to the **Basics** tab. Provide values for the following fields:
     - **Name**: A meaningful name for the migration job.
     - **Migration type**: Select `Cloud to cloud`.
@@ -192,8 +490,93 @@ Follow the steps in this section to create a migration project and run a migrati
 
     :::image type="content" source="media/cloud-to-cloud-migration/job-review-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Review tab selected and all settings displayed." lightbox="media/cloud-to-cloud-migration/job-review.png":::
 
+
+### [Azure PowerShell](#tab/powershell)
+
+Use the `New-AzStorageMoverJobDefinition` command to create a job definition:
+
+```powershell
+New-AzStorageMoverJobDefinition `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -ProjectName <String> `
+    -SourceEndpointName <String> `
+    -TargetEndpointName <String> `
+    -JobType CloudToCloud
+```
+
+**Parameters:**
+
+- **Name**: The name of the job definition.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+- **ProjectName**: The name of the project to which the job definition belongs.
+- **SourceEndpointName**: The name of the AWS S3 source endpoint.
+- **TargetEndpointName**: The name of the Azure Blob Storage target endpoint.
+- **JobType**: Set to **"CloudToCloud"** for cloud-to-cloud migrations.
+
+**Example:**
+
+```powershell
+New-AzStorageMoverJobDefinition `
+    -Name "my-job-definition" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -ProjectName "my-migration-project" `
+    -SourceEndpointName "my-s3-endpoint" `
+    -TargetEndpointName "my-blob-endpoint" `
+    -JobType CloudToCloud
+```
+
+### [Azure CLI](#tab/CLI)
+
+Use the `az storage-mover job-definition create` command to create a job definition:
+
+```bash
+az storage-mover job-definition create \
+    --copy-mode {Additive|Mirror} \
+    --job-definition-name <string> \
+    --job-type CloudToCloud \
+    --project-name <string> \
+    --resource-group <string> \
+    --source-name <string> \
+    --storage-mover-name <string> \
+    --target-name <string>
+```
+
+**Parameters:**
+
+- **--copy-mode**: The copy mode for the job. Use **Additive** to copy only new files, or **Mirror** to synchronize the source and target.
+- **--job-definition-name**: The name of the job definition.
+- **--job-type**: The type of job. Set to **CloudToCloud** for cloud-to-cloud migrations.
+- **--project-name**: The name of the project to which the job definition belongs.
+- **--resource-group**: The name of the resource group containing the Storage Mover resource.
+- **--source-name**: The name of the AWS S3 source endpoint.
+- **--storage-mover-name**: The name of the Storage Mover resource.
+- **--target-name**: The name of the Azure Blob Storage target endpoint.
+
+**Example:**
+
+```bash
+az storage-mover job-definition create \
+    --copy-mode Mirror \
+    --job-definition-name "my-job-definition" \
+    --job-type CloudToCloud \
+    --project-name "my-migration-project" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --source-name "my-s3-endpoint" \
+    --storage-mover-name "myStorageMover" \
+    --target-name "my-blob-endpoint"
+```
+
+---
+
 ## Run a migration job
 
+### Start a Job Definition
+
+### [Azure portal](#tab/portal)
 1. Navigate to the **Migration Jobs** tab. The **Migration Jobs** tab displays all migration jobs created within your Storage Mover resource, including the one you recently created. It might take a moment for the newly created migration job to appear in the list of migration jobs. Refresh the page if necessary. 
 
     :::image type="content" source="media/cloud-to-cloud-migration/migration-jobs-sml.png" alt-text="A screen capture showing the Migration Jobs page with the Migration Jobs tab selected and all Migration Jobs displayed." lightbox="media/cloud-to-cloud-migration/migration-jobs.png":::
@@ -205,6 +588,67 @@ Follow the steps in this section to create a migration project and run a migrati
     The multicloud connector attempts to assign roles to the storage account and blob container. After the roles are assigned, select **Start** to begin the migration job. The job runs in the background, and you can monitor its progress in the **Migration overview** tab.
 
     :::image type="content" source="media/cloud-to-cloud-migration/migration-job-start-sml.png" alt-text="A screen capture showing the Migration Job page's Start Job pane." lightbox="media/cloud-to-cloud-migration/migration-job-start.png":::
+
+
+### [Azure PowerShell](#tab/powershell)
+
+Use the `Start-AzStorageMoverJobDefinition` command to start a migration job:
+
+```powershell
+Start-AzStorageMoverJobDefinition `
+    -JobDefinitionName <String> `
+    -ProjectName <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String>
+```
+
+**Parameters:**
+
+- **JobDefinitionName**: The name of the job definition to start.
+- **ProjectName**: The name of the project containing the job definition.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+
+**Example:**
+
+```powershell
+Start-AzStorageMoverJobDefinition `
+    -JobDefinitionName "my-job-definition" `
+    -ProjectName "my-migration-project" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover"
+```
+
+### [Azure CLI](#tab/CLI)
+
+Use the `az storage-mover job-definition start` command to start a migration job:
+
+```bash
+az storage-mover job-definition start \
+    --job-definition-name <string> \
+    --project-name <string> \
+    --resource-group <string> \
+    --storage-mover-name <string>
+```
+
+**Parameters:**
+
+- **--job-definition-name**: The name of the job definition to start.
+- **--project-name**: The name of the project containing the job definition.
+- **--resource-group**: The name of the resource group containing the Storage Mover resource.
+- **--storage-mover-name**: The name of the Storage Mover resource.
+
+**Example:**
+
+```bash
+az storage-mover job-definition start \
+    --job-definition-name "my-job-definition" \
+    --project-name "my-migration-project" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover"
+```
+
+---
 
 ## Monitor migration progress
 
@@ -221,7 +665,7 @@ Follow the steps in this section to monitor the progress of a Storage Mover Migr
 1. Select **Logs** to check for any errors or warnings.
 1. After the migration is complete, verify the data in **Azure Blob Storage**.
 
-## Post-Migration Validation 
+## Post-Migration Validation
 
 Post-migration data validation ensures that your data is accurate and that the transfer from AWS S3 to Azure Blob Storage is complete. This validation process verifies data integrity and consistency by comparing migrated data to the same data from the source. You can also choose to conduct user acceptance tests to further confirm functionality. Validation helps identify and resolve discrepancies, ensuring the migrated data is reliable and meets your business requirements.
 
@@ -230,6 +674,7 @@ Follow the steps in this section to complete manual validation and clean up unus
 - Compare source and destination storage to ensure all files are transferred.
 - Enable incremental sync if you need to keep AWS S3 and Azure Blob in sync over time.
 - Delete the AWS S3 bucket after migration is fully completed and verified.
+
 
 ## Troubleshooting & Support 
 

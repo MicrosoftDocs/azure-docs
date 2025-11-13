@@ -5,7 +5,10 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/18/2025
 ms.topic: tutorial
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 

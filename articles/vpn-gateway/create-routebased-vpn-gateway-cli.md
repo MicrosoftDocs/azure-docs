@@ -4,10 +4,12 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to create a virtual network gateway for VPN Gateway connections using CLI.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/18/2024
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: "As a network engineer, I want to create a VPN gateway using CLI, so that I can establish secure connections to on-premises networks and between virtual networks efficiently."
 ---
 
@@ -31,7 +33,7 @@ The steps in this article create a virtual network, a subnet, a gateway subnet, 
 
 ## Before you begin
 
-These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

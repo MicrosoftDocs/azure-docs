@@ -2,13 +2,28 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 07/07/2025
+ms.date: 10/23/2025
 ms.custom: devx-track-bicep
 ---
 
 # Data types in Bicep
 
 This article describes the data types that are supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
+
+## Any
+
+With Bicep version v0.38.3 and later, the `any` type in Bicep is a permissive type that disables compile-time type checking for the associated symbol. A value of type `any` can hold data of any type, including `string`, `int`, `bool`, `array`, `object`, or complex expressions.
+
+```bicep
+param foo any
+output bar any = foo
+```
+
+In the preceding example, `foo` can accept any type of value, and `bar` outputs the same value as `foo` regardless of its type.
+
+Because `any` bypasses Bicep's type safety, it should be used only when the exact type can't be determined ahead of time. For example, when passing data through a module that handles multiple data shapes or when working with untyped JSON input.
+
+Using `any` makes Bicep less predictable and can lead to runtime errors. When possible, prefer specific types or a union of expected types to preserve validation and IntelliSense support. The [No explicit Any](linter-rule-no-explicit-any.md) linter rule helps identify and discourage the use of the `any` type in Bicep files.
 
 ## Arrays
 

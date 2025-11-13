@@ -48,7 +48,7 @@ Here are the important steps to create this solution:
     * Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time.
 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 

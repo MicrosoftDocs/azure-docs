@@ -10,7 +10,10 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: golang
-ms.custom: devx-track-go, devguide-go
+ms.custom:
+  - devx-track-go
+  - devguide-go
+  - sfi-ropc-nochange
 # Customer intent: "As a Go developer, I want to set up a project that connects to Azure Blob Storage, so that I can manage and interact with containers and blobs effectively."
 ---
 
@@ -26,7 +29,7 @@ If you're looking to start with a complete example, see [Quickstart: Azure Blob 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Go 1.18+](https://go.dev/doc/install)
 

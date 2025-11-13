@@ -6,7 +6,10 @@ author: ahartoon
 ms.author: anboisve
 ms.date: 12/17/2024
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code.
 ---
 
@@ -17,7 +20,7 @@ In this quickstart, you create, run and submit an Azure Stream Analytics (ASA) j
 > Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
 
 ## Prerequisites
-* Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Install the Azure Stream Analytics Tools extension

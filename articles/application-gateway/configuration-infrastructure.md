@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 03/07/2025
+ms.date: 9/5/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure the Azure Application Gateway infrastructure, so that I can ensure optimal deployment within my virtual network and manage network security, addressing, and permissions efficiently.
 ---
@@ -73,7 +73,7 @@ When an instance of your Application Gateway issues a DNS query, it uses the val
 
 The Application Gateway resource is deployed inside a virtual network, so checks are also performed to verify the permission on the virtual network resource. This validation is performed during both creation and management operations and also applies to the [managed identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
 
-Check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.yml) to verify that the users and service principals that operate application gateways have at least the following permissions on the virtual network or subnet:
+Check your [Azure role-based access control](/azure/role-based-access-control/role-assignments-list-portal) to verify that the users and service principals that operate application gateways have at least the following permissions on the virtual network or subnet:
 - **Microsoft.Network/virtualNetworks/subnets/join/action** 
 - **Microsoft.Network/virtualNetworks/subnets/read**
 
@@ -93,7 +93,7 @@ Depending on whether you're creating new resources or using existing ones, add t
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
 > [!NOTE]
-> When deploying an Application Gateway as part of an [Azure Managed Applicaton](../azure-resource-manager/managed-applications/overview.md), ensure that any deny assignments do not conflict with the RBAC Owner role assignment, as deny assignments take precedence over RBAC permissions.
+> When deploying an Application Gateway as part of an [Azure Managed Application](../azure-resource-manager/managed-applications/overview.md), ensure that any deny assignments do not conflict with the RBAC Owner role assignment, as deny assignments take precedence over RBAC permissions.
 
 ## Roles scope
 In the process of custom role definition, you can specify a role assignment scope at four levels: management group, subscription, resource group, and resources. To grant access, you assign roles to users, groups, service principals, or managed identities at a particular scope.
@@ -138,7 +138,7 @@ Security admin rule configuration in Azure Virtual Network Manager allows you to
 You can use NSGs for your Application Gateway subnet, but be aware of some key points and restrictions.
 
 > [!IMPORTANT]
-> These NSG limitations are relaxed when you use [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md#network-security-group-control).
+> These NSG limitations are relaxed when you use [Private Application Gateway deployment](application-gateway-private-deployment.md#network-security-group-control).
 
 ### Required security rules
 
@@ -264,4 +264,4 @@ To view roles and permissions for other services, see the following links:
 - [Learn about frontend IP address configuration](configuration-frontend-ip.md)
 - [Learn about private Application Gateway deployment](application-gateway-private-deployment.md)
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
-- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+- [Azure Role Based Access Control](/azure/role-based-access-control/role-assignments-list-portal)

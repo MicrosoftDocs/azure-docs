@@ -5,12 +5,18 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to understand how to configure settings in Azure App Service, including command line options.
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - AppServiceConnectivity
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Configure an App Service app

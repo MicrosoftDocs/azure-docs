@@ -7,8 +7,11 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 07/03/2025
 ms.author: jianleishen
-ms.custom: synapse
 ai-usage: ai-assisted
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+#customer intent: As a data engineer, I want troubleshooting guidance for connectors so that I can resolve common data ingestion issues and keep pipelines running.
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors

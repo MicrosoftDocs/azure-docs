@@ -247,6 +247,8 @@ To check that customizations from the image definition file are applied, create 
 
 Make changes to the image definition file and create a new dev box to test them. When you're sure the customizations are correct, build a reusable image.
 
+[!INCLUDE [customizations-modular-scripts](includes/customizations-modular-scripts.md)]
+
 ## Next step
 
 Now that you have an image definition file that configures and creates dev boxes for your development team, learn how to optimize dev box creation time with dev center imaging.

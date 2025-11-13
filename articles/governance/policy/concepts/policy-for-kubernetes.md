@@ -610,12 +610,29 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.15.1
+
+- Released Nov 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.1-2
+
+#### 1.14.2
+Patch [CVE-2025-4802](https://nvd.nist.gov/vuln/detail/cve-2025-4802).
+
+- Released Oct 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.1-2
+
+##### Gatekeeper 3.20.1-2
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.20.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.19.1...v3.20.1
+
 #### 1.13.1
 Patch [CVE-2025-47907](https://nvd.nist.gov/vuln/detail/CVE-2025-47907).
 
 - Released August 2025
 - Kubernetes 1.27+
-- Gatekeeper 3.20.0-1
+- Gatekeeper 3.20.0
 
 #### 1.13.0
 EU Data Boundary now supported by Azure Policy for Kubernetes on AKS. To learn more generally about the EU Data Boundary visit: [Overview of EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).

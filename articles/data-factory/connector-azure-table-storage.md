@@ -6,8 +6,11 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 08/01/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data to and from Azure Table storage using Azure Data Factory or Synapse Analytics

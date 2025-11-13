@@ -4,6 +4,7 @@ description: Provides an overview of Azure VMware Solution assessment calculatio
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 12/06/2024
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
 # Customer intent: "As an IT administrator, I want to assess the suitability of my on-premises vSphere servers for migration to Azure VMware Solution, so that I can make informed decisions on resource allocation and cost estimation for successful migration."
 ---
@@ -240,13 +241,13 @@ The available storage on a 3 node cluster will be based on the default storage p
 
 The limiting factor shown in assessments could be CPU or memory or storage resources based on the utilization on nodes. It's the resource, which is limiting or determining the number of hosts/nodes required to accommodate the resources. For example, in an assessment if it was found that after migrating 8 VMware VMs to Azure VMware Solution, 50% of CPU resources will be utilized, 14% of memory is utilized and 18% of storage will be utilized on the 3 AV36 nodes and thus CPU is the limiting factor.
 
-## Confidence ratings
+## Performance coverage
 
-Each performance-based assessment in Azure Migrate is associated with a confidence rating that ranges from one (lowest) to five stars (highest).
+Each performance-based assessment in Azure Migrate is associated with a performance coverage that ranges from one (lowest) to five stars (highest).
 
-- The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment.
-- The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
-- Confidence ratings aren't applicable for *as on-premises* assessments.
+- The performance coverage is assigned to an assessment based on the availability of data points needed to compute the assessment.
+- The performance coverage of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
+- Performance coverage isn't applicable for *as on-premises* assessments.
 - For performance-based sizing, Azure VMware Solution assessments need the utilization data for CPU and VM memory. The following data is collected but not used in sizing recommendations for Azure VMware Solution:
 
   - The disk IOPS and throughput data for every disk attached to the VM.
@@ -254,9 +255,9 @@ Each performance-based assessment in Azure Migrate is associated with a confiden
 
   If any of these utilization numbers are unavailable in vCenter Server, the size recommendation might not be reliable.
 
-Depending on the percentage of data points available, the confidence rating for the assessment goes as follows.
+Depending on the percentage of data points available, the performance coverage for the assessment goes as follows.
 
-**Availability of data points** | **Confidence rating**
+**Availability of data points** | **Performance coverage**
 --- | --- 
 0-20% | 1 star
 21-40% | 2 stars
@@ -264,9 +265,9 @@ Depending on the percentage of data points available, the confidence rating for 
 61-80% | 4 stars
 81-100% | 5 stars
 
-### Low confidence ratings
+### Low performance coverage
 
-Here are a few reasons why an assessment could get a low confidence rating:
+Here are a few reasons why an assessment could get a low performance coverage:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
 - Assessment isn't able to collect the performance data for some or all the VMs in the assessment period. For a high confidence rating, ensure that:

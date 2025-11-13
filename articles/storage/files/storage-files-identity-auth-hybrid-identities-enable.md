@@ -1,13 +1,13 @@
 ---
-title: Microsoft Entra Kerberos for hybrid identities on Azure Files
-description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Your users can then access Azure file shares by using their Microsoft Entra credentials.
+title: Microsoft Entra Kerberos Authentication for Azure Files
+description: Learn how to enable identity-based Kerberos authentication over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Your users can then access Azure file shares by using their Microsoft Entra credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 10/08/2025
 ms.author: kendownie
 recommendations: false
-# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication for hybrid user identities on Azure Files, so that users can securely access file shares with their existing credentials without requiring constant connectivity to on-premises domain controllers.
+# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that users can securely access file shares with their existing credentials without requiring constant connectivity to on-premises domain controllers.
 ---
 
 # Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files
@@ -19,7 +19,7 @@ This configuration allows hybrid users to access Azure file shares using Kerbero
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md). For more information, see [this deep dive](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
 > [!IMPORTANT]
-> You can only use one AD method for identity-based authentication with Azure Files. If Microsoft Entra Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-ad-ds-overview.md) or [Microsoft Entra Domain Services](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
+> You can only enable one identity source on your storage account for identity-based authentication with Azure Files. If Microsoft Entra Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-ad-ds-overview.md) or [Microsoft Entra Domain Services](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
 
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
@@ -43,11 +43,13 @@ Before you enable Microsoft Entra Kerberos authentication over SMB for Azure fil
 
 The following prerequisites are mandatory. Without these, you can't authenticate using Microsoft Entra ID.
 
-- Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you've already chosen another AD method for your storage account, you must disable it before enabling Microsoft Entra Kerberos.
+- Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you've already chosen another identity source for your storage account, you must disable it before enabling Microsoft Entra Kerberos.
 
 - This feature doesn't currently support user accounts that you create and manage solely in Microsoft Entra ID. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID.
 
-- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) and IP Helper service (`iphlpsvc`) are required. Their state should be set to running.
+- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) is required, and must be in the "running" state. You may optionally [disable Web Proxy Auto-Discovery (WPAD)](/troubleshoot/windows-server/networking/disable-http-proxy-auth-features#how-to-disable-wpad), but the service should still be running.
+
+- The IP Helper service (`iphlpsvc`) is required, and must be in the "running" state.
 
 - You must disable multifactor authentication (MFA) on the Microsoft Entra app representing the storage account. For instructions, see [Disable multifactor authentication on the storage account](#disable-multifactor-authentication-on-the-storage-account).
 
@@ -59,11 +61,12 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 The following prerequisites are required for the standard Microsoft Entra Kerberos authentication flow as described in this article. If some or all of your client machines don't meet these, you can still enable Microsoft Entra Kerberos authentication for SMB file shares, but you'll also need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
 
-Operating system requirements:
+Using Microsoft Entra Kerberos authentication requires one of the following operating systems:
 
   - Windows 11 Enterprise/Pro single or multi-session.
   - Windows 10 Enterprise/Pro single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
-  - Windows Server, version 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
+  - Windows Server 2025 with the latest cumulative updates installed.
+  - Windows Server 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
 
 To learn how to create and configure a Windows VM and log in by using Microsoft Entra ID-based authentication, see [Log in to a Windows virtual machine in Azure by using Microsoft Entra ID](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
@@ -85,14 +88,14 @@ To enable Microsoft Entra Kerberos authentication using the [Azure portal](https
 
 1. Sign in to the Azure portal and select the storage account you want to enable Microsoft Entra Kerberos authentication for.
 1. Under **Data storage**, select **File shares**.
-1. Next to **Active Directory**, select the configuration status (for example, **Not configured**).
+1. Next to **Identity-based access**, select the configuration status (for example, **Not configured**).
  
-   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/configure-active-directory.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account. Active Directory configuration settings are selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/configure-active-directory.png" border="true":::
+   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" border="true":::
 
 1. Under **Microsoft Entra Kerberos**, select **Set up**.
 1. Select the **Microsoft Entra Kerberos** checkbox.
 
-   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/enable-azure-ad-kerberos.png" alt-text="Screenshot of the Azure portal showing Active Directory configuration settings for a storage account. Microsoft Entra Kerberos is selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/enable-azure-ad-kerberos.png" border="true":::
+   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/enable-entra-kerberos.png" alt-text="Screenshot of the Azure portal showing identity-based access configuration settings for a storage account. Microsoft Entra Kerberos is selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/enable-entra-kerberos.png" border="true":::
 
 1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you must specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need unimpeded network connectivity to the on-premises AD.
 
@@ -227,7 +230,7 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKe
 
 ---
 
-Changes are not instant, and require a policy refresh or a reboot to take effect.
+Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
 > [!IMPORTANT]
 > Once this change is applied, the client(s) won't be able to connect to storage accounts that are configured for on-premises AD DS integration without configuring Kerberos realm mappings. If you want the client(s) to be able to connect to storage accounts configured for AD DS as well as storage accounts configured for Microsoft Entra Kerberos, follow the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds).
@@ -288,7 +291,7 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKe
 
 ---
 
-Changes are not instant, and require a policy refresh or a reboot to take effect.
+Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
 If you followed the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds), you can optionally remove all host name to Kerberos realm mappings from the client machine. Use one of the following three methods:
 
@@ -334,7 +337,7 @@ To disable Microsoft Entra Kerberos authentication on your storage account by us
 
 1. Sign in to the Azure portal and select the storage account you want to disable Microsoft Entra Kerberos authentication for.
 1. Under **Data storage**, select **File shares**.
-1. Next to **Active Directory**, select the configuration status.
+1. Next to **Identity-based access**, select the configuration status.
 1. Under **Microsoft Entra Kerberos**, select **Configure**.
 1. Uncheck the **Microsoft Entra Kerberos** checkbox.
 1. Select **Save**.

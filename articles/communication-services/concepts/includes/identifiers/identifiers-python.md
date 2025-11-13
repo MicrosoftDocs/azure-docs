@@ -123,7 +123,7 @@ gcch_teams_user = TeamsExtensionUserIdentifier(user_id, tenant_id, resource_id, 
 
 #### API reference
 
-[TeamsExtensionUserIdentifier](/python/api/azure-communication-chat/azure.communication.chat.teamsextensionuseridentifier)
+[TeamsExtensionUserIdentifier](/python/api/azure-communication-chat/azure.communication.chat)
 
 ### Unknown
 

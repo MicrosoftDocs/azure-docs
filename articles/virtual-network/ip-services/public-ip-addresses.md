@@ -57,7 +57,7 @@ Public IP addresses can be created with an IPv4 or IPv6 address. You may be give
 
 ## SKU
 >[!Important]
->On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
+>On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU as soon as possible. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
 
 Public IP addresses are created with a SKU of **Standard** or **Basic**. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.
 
@@ -97,17 +97,18 @@ Static public IP addresses are commonly used in the following scenarios:
 
 ## Availability Zone
 > [!IMPORTANT]
-> We're updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
-> Region availability: Central Korea, Central Mexico, Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2, Central Spain, North Europe, UK South, Australia East, UAE North, Central US, Switzerland North, India Central, East Japan, West Japan, East US, West Europe, South US, North US
+> All formerly Standard non-zonal IPs [are now zone-redundant](https://azure.microsoft.com/blog/azure-public-ips-are-now-zone-redundant-by-default/) in all regions that support availability zones. The means that IPs that show as either "zones 1 2 3" or have no zones are equivalently zone-redundant.
 > 
 
-Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../reliability/availability-zones-region-support.md). Basic SKU Public IPs don't have any zones and are created as non-zonal. Once created, a public IP address can't change its availability zone.
+Standard SKU Public IPs can be created as zonal or zone-redundant in [regions that support availability zones](../../reliability/availability-zones-region-support.md). Basic SKU Public IPs don't have any zones and are created as non-zonal. Once created, a public IP address can't change its availability zone.
+
+In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones will be made zone-redundant once the region is in general availability status with multiple availability zones.
 
 | Value | Behavior |
 | --- | --- |
-| Non-zonal |  A non-zonal public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy. |
-| Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
 | Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
+| Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
+| Non-zonal	| Only valid in regions that do not support availability zones. |
 
 ## Domain Name Label
 
@@ -169,7 +170,7 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 * Azure doesn't support IPv6 communication for containers.
 
-* Use of IPv6-only virtual machines or virtual machines scale sets aren't supported. Each NIC must include at least one IPv4 IP configuration (dual-stack).
+* Use of IPv6-only virtual machines or virtual machines scale sets aren't supported. Each NIC must include at least one IPv4 IP configuration (dual-stack). 
 
 * IPv6 ranges can't be added to a virtual network with existing resource navigation links when adding IPv6 to existing IPv4 deployments.
 

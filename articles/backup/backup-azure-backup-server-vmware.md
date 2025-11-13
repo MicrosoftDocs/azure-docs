@@ -6,6 +6,7 @@ ms.date: 07/15/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
+ms.custom: sfi-ropc-nochange
 # Customer intent: As a VMware administrator, I want to configure Azure Backup Server to back up VMware VMs, so that I can ensure data protection and recovery for my virtual machine environment.
 ---
 # Back up VMware VMs using Azure Backup Server

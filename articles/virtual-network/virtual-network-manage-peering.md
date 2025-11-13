@@ -12,6 +12,7 @@ ms.custom:
   - devx-track-azurepowershell
   - devx-track-azurecli
   - build-2025
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to create, modify, or delete virtual network peerings, so that I can improve connectivity and manage traffic flow between virtual networks across regions using the Azure backbone network.
 ---
 
@@ -21,7 +22,7 @@ This article explains how to create, change, or delete Azure virtual network pee
 
 ## Prerequisites
 
-If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
+If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Complete one of these tasks before starting the remainder of this article:
 
 # [**Portal**](#tab/peering-portal)
 

@@ -8,7 +8,12 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure IP addresses for an Azure network interface, so that I can manage connectivity and communication for virtual machines within Azure and ensure they can reach the Internet as necessary.
 ---
 
@@ -20,7 +25,7 @@ If you need to create, change, or delete a network interface, read the [Manage a
 
 ## Prerequisites
 
-If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
+If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Complete one of these tasks before starting the remainder of this article:
 
 - **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 

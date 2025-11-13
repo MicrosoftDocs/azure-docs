@@ -4,8 +4,9 @@ description: Edit a business process, make a copy, discard pending changes, or u
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/09/2025
-# CustomerIntent: As a business analyst or business SME, I want to learn ways to manage an existing business process, for example, edit the details, discard pending changes, copy a business process, or remove the deployment for a business process.
+ms.date: 09/11/2025
+ms.update-cycle: 365-days
+# Customer intent: As a business analyst or business SME, I want to learn ways to manage an existing business process, for example, edit the details, discard pending changes, copy a business process, or remove the deployment for a business process.
 ---
 
 # Manage a business process in an application group

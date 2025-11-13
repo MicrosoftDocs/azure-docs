@@ -40,7 +40,7 @@ The intent of the table columns is explained by the following items:
 | [Glimmer](https://glimmerjs.com/) | `dist` | n/a | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a | n/a |
 | [Hugo](https://gohugo.io/) | `public` | n/a | n/a |
-| [Hyperapp](https://hyperapp.dev/) | `/` | n/a | n/a |
+| [Hyperapp](https://github.com/jorgebucaran/hyperapp) | `/` | n/a | n/a |
 | [JavaScript](https://developer.mozilla.org/docs/Web/javascript) | `/` | n/a | n/a |
 | [jQuery](https://jquery.com/) | `/` | n/a | n/a |
 | [KnockoutJS](https://knockoutjs.com/) | `dist` | n/a | n/a |

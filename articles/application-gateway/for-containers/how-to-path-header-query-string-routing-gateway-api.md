@@ -211,6 +211,9 @@ spec:
 EOF
 ```
 
+>[!Tip]
+>Application Gateway for Containers supports regular expression matching for `headers`, `queryParams`, and `path` rules using Regular Expression 2 (RE2) syntax. More information can be found in the [Gateway API specification](https://gateway-api.sigs.k8s.io/reference/spec/?h=RegularExpression#headermatchtype).
+
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 
 ```bash

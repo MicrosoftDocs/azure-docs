@@ -10,9 +10,10 @@ metadata:
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
-    - template-how-to
-    - engagement-fy23
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - engagement-fy23
+    - template-how-to
 
 title: |
   Add network interfaces to or remove network interfaces from virtual machines
@@ -23,7 +24,7 @@ introduction: |
 
 prerequisites:
   summary: |
-    If you don't have one, set up an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
+    If you don't have one, set up an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Complete one of these tasks before starting the remainder of this article:
   
     - **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
   

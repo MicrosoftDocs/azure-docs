@@ -16,7 +16,7 @@ In this quickstart, you learn how to use Azure CLI to create a storage task and 
 
 ## Prerequisites
 
-- An Azure subscription. See [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. See [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
   

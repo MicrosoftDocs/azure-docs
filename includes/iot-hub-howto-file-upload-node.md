@@ -8,7 +8,10 @@ ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
 ms.date: 07/01/2024
-ms.custom: mqtt, devx-track-js
+ms.custom:
+  - mqtt
+  - devx-track-js
+  - sfi-ropc-nochange
 ---
 
 ## Overview

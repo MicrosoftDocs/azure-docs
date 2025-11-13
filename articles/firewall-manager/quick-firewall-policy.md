@@ -7,7 +7,11 @@ ms.author: duau
 ms.date: 01/08/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Firewall and a firewall policy - ARM template
@@ -30,7 +34,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 

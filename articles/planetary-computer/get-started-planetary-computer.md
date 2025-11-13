@@ -17,7 +17,7 @@ Microsoft Planetary Computer Pro is an Azure cloud service for storing, catalogi
 
 ## Prerequisites
 
-- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Table of Contents
 
@@ -106,6 +106,7 @@ Data that is [configured for visualization](./configure-collection-web-interface
 Data can also be accessed directly using the [GeoCatalog APIs](/rest/api/planetarycomputer). For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
 
 Planetary Computer Pro supports [connecting collections to ESRI's ArcGIS Pro Service](./create-connection-arc-gis-pro.md) to enable GIS-type work flows. 
+You can also use [QGIS](./configure-qgis.md) to work with your GeoCatalog data in an open-source desktop GIS.
 
 ## Get help
 

@@ -19,12 +19,15 @@ zone_pivot_groups: azure-cli-or-portal
 
 In this article, you learn how to connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. In this tutorial, you create an Azure Container Apps workload profiles environment, an Azure Front Door, and connect them securely through a private link. You then verify the connectivity between your container app and the Azure Front Door.
 
+> [!IMPORTANT]
+> There are [additional charges](./private-endpoints-with-dns.md#billing) for enabling private endpoints in both the Dedicated and Consumption plans.
+
 ::: zone pivot="azure-portal"
 
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - This feature is only supported for workload profile environments.
 
@@ -74,6 +77,9 @@ Create a resource group to organize the services related to your container app d
 1. In the *Create Container App* page, select the **Container** tab.
 
 1. Select **Use quickstart image**.
+
+    > [!NOTE]
+    > The quickstart image enables ingress automatically. If you do not use the quickstart image, please ensure that you **enable ingress**. This will allow the container app to accept traffic from Azure Front Door through the private endpoint.
 
 <!-- Deploy the container app -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
@@ -155,7 +161,7 @@ If you're not going to continue to use this application, you can delete the cont
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - To ensure you're running the latest version of the [Azure CLI](/cli/azure/install-azure-cli), run the following command.
 

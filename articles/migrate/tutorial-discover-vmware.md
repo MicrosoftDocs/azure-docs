@@ -4,6 +4,7 @@ description: Learn how to discover on-premises servers, applications, and depend
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
@@ -26,10 +27,15 @@ In this tutorial, you learn how to:
 > * Set up the Azure Migrate appliance.
 > * Start continuous discovery.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+Watch the following video to learn how to discover on-premises servers running in a VMware environment as part of your migration to Azure. 
+
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=edbc7f22-2ba1-44cd-a534-465dfd426a14]
+
 > [!NOTE]
 > Tutorials show you the quickest path for trying out a scenario. They use default options where possible. This scenario is also applicable for discovery of VM servers from AVS.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 ## Prerequisites
 
@@ -321,6 +327,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * [Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server. Web apps configuration data is updated once every 24 hours.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
+* Along with software inventory, pending updates for Windows and Linux servers are gathered. No additional permissions are required for identifying pending updates. Software and pending updates metadata is processed further to generate [Insights](/azure/migrate/insights-overview?view=migrate), that provides security risks in the datacenter.
 * Web apps and SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
 * By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses TLS to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 

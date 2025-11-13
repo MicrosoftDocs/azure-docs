@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) common schema fields reference (preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) common schema fields reference | Microsoft Docs
 description: This article describes the Advanced Information Security (ASIM) common schema fields
 author: oshezaf
 ms.topic: reference
@@ -12,7 +12,7 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) common schema fields reference (preview)
+# The Advanced Security Information Model (ASIM) common schema fields reference
 
 Some fields are common to all ASIM schemas. Each schema might add guidelines for using some of the common fields in the context of the specific schema. For example, permitted values for the **EventType** field might vary per schema, as might the value of the **EventSchemaVersion** field.
 

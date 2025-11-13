@@ -3,12 +3,19 @@ title: "Quickstart: Azure Blob Storage library - Java"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: stevenmatthew
 ms.author: shaas
-ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java, devx-track-extended-azdevcli
 ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
 zone_pivot_groups: azure-blob-storage-quickstart-options
+ms.custom:
+  - devx-track-java
+  - mode-api
+  - passwordless-java
+  - devx-track-extended-java
+  - devx-track-extended-azdevcli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a Java developer, I want to implement a Blob Storage application using the Azure Blob Storage client library, so that I can manage blobs and containers effectively for my projects.
 ---
 
@@ -51,17 +58,17 @@ In this article, you use the [Azure Developer CLI](/azure/developer/azure-develo
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 1.8_101 or above
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ::: zone-end
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 1.8_101 or above
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 

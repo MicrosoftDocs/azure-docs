@@ -1,7 +1,7 @@
 ---
 title: Provisioning Azure Communications Gateway
 description: Learn about customer and number configuration with the Provisioning API and Number Management Portal for Azure Communications Gateway.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 10/22/2024
 

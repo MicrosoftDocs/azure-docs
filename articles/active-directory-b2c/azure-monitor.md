@@ -12,7 +12,10 @@ ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.date: 09/11/2024
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to monitor sign-in and auditing logs using Azure Monitor, so that I can route the logs to different monitoring solutions and gain insights into my environment.
@@ -66,7 +69,7 @@ In summary, you'll use Azure Lighthouse to allow a user or group in your Azure A
 
 - An Azure AD B2C account with [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role on the Azure AD B2C tenant.
 
--  A Microsoft Entra account with the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. See how to [Assign a user as an administrator of an Azure subscription](../role-based-access-control/role-assignments-portal-subscription-admin.yml). 
+-  A Microsoft Entra account with the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. See how to [Assign a user as an administrator of an Azure subscription](/azure/role-based-access-control/role-assignments-portal-subscription-admin). 
 
 ## 1. Create or choose resource group
 

@@ -37,7 +37,7 @@ In this section, you'll use GitHub Codespaces to create an Azure OpenAI resource
     ```
 
     > [!IMPORTANT]
-    > The region is critical as it's tied to the regional availability of the chosen model. Model availability and [deployment type availability](/azure/ai-services/openai/how-to/deployment-types) vary from region to region. This tutorial uses `gpt-4o-mini`, which is available in `eastus2` under the Standard deployment type. If you deploy to a different region, this model might not be available or might require a different tier. Before changing regions, consult the [Model summary table and region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability) to verify model support in your preferred region.
+    > The region is critical as it's tied to the regional availability of the chosen model. Model availability and [deployment type availability](/azure/ai-foundry/foundry-models/concepts/deployment-types) vary from region to region. This tutorial uses `gpt-4o-mini`, which is available in `eastus2` under the Standard deployment type. If you deploy to a different region, this model might not be available or might require a different tier. Before changing regions, consult the [Model summary table and region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability) to verify model support in your preferred region.
     > 
 
 6. Create a resource group and an Azure OpenAI resource with a custom domain, then add a gpt-4o-mini model:

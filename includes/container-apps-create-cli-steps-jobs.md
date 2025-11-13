@@ -10,7 +10,7 @@ ms.custom: references_regions
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Refer to [jobs restrictions](../articles/container-apps/jobs.md#jobs-restrictions) for a list of limitations.
 

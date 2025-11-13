@@ -58,12 +58,11 @@ Network security perimeter supports secure by default behavior by introducing a 
 
 On resource creation, if `publicNetworkAccess` is set to `SecuredByPerimeter`, the resource is created in the lockdown mode even when not associated with a perimeter. Only private link traffic will be allowed if configured. Once associated to a perimeter, network security perimeter governs the resource access behavior. The following table summarizes access behavior in various modes and public network access configuration: 
 
-| **Association access mode** | **Not associated** | **Transition mode** | **Enforced mode** |
-|-----------------|-------------------|-----------------|-----------------|
-| **Public network access** |   |  |   |
-| **Enabled** | **Inbound:** Resource rules</br></br>**Outbound** Allowed | **Inbound:** Network security perimeter + Resource rules</br>**Outbound** Network security perimeter rules + Allowed | **Inbound:** Network security perimeter rules</br>**Outbound** Network security perimeter rules |
-| **Disabled** | **Inbound:** Denied </br></br>**Outbound:** Allowed | **Inbound:** Network security perimeter rules</br>**Outbound:** Network security perimeter rules + Allowed | **Inbound:** Network security perimeter rules</br>**Outbound:** Network security perimeter rules |
-| **SecuredByPerimeter** | **Inbound:** Denied</br></br>**Outbound:** Denied |**Inbound:** Network security perimeter rules</br></br>**Outbound:** Network security perimeter rules | - **Inbound:** Network security perimeter rules</br>- **Outbound:** Network security perimeter rules |
+|  | Profile not associated | Association access mode: Transition | Association access mode: Enforced |
+|--------------------------|----------------|------------------|---------------|
+| Public Network Access: **Enabled** | **Inbound:** Resource rules<br>**Outbound:** Allowed | **Inbound:** Network security perimeter + Resource rules<br>**Outbound:** Network security perimeter rules + Allowed | **Inbound:** Network security perimeter rules<br>**Outbound:** Network security perimeter rules |
+| Public Network Access: **Disabled** | **Inbound:** Denied<br>**Outbound:** Allowed | **Inbound:** Network security perimeter rules<br>**Outbound:** Network security perimeter rules + Allowed | **Inbound:** Network security perimeter rules<br>**Outbound:** Network security perimeter rules |
+| Public Network Access: **SecuredByPerimeter** | **Inbound:** Denied<br>**Outbound:** Denied | **Inbound:** Network security perimeter rules<br>**Outbound:** Network security perimeter rules | **Inbound:** Network security perimeter rules<br>**Outbound:** Network security perimeter rules |
 
 ### Steps to configure publicNetworkAccess and accessMode properties
 

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 05/09/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Connect privately to API Management using an inbound private endpoint
@@ -249,7 +250,12 @@ To list private endpoint connections to the API Management instance:
 
 ## Optionally disable public network access
 
-To optionally limit incoming traffic to the API Management instance only to private endpoints, disable the public network access property. You can only disable public network access after you've configured a private endpoint. 
+To optionally limit incoming traffic to the API Management instance only to private endpoints, disable the public network access property. 
+
+
+> [!IMPORTANT]
+> * You can only disable public network access *after* you've configured a private endpoint.
+> * You can only disable public network access in an *existing* API Management instance, not during the deployment process. 
 
 > [!NOTE] 
 > Public network access can only be disabled in API Management instances configured with a private endpoint, not with other networking configurations.

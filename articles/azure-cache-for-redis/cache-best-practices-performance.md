@@ -14,6 +14,8 @@ appliesto:
 
 # Performance testing
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 
 Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/)** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)**. This article focuses on redis-benchmark.

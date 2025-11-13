@@ -7,8 +7,11 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 07/02/2025
-ms.custom: devx-track-azurecli, build-2025
 zone_pivot_groups: front-door-dev-exp-portal-cli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
+  - sfi-image-nochange
 ---
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
@@ -19,7 +22,7 @@ This article guides you through configuring Azure Front Door Premium to connect 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ::: zone pivot="front-door-portal"
 

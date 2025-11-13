@@ -29,7 +29,7 @@ Learn more: [Overview of Microsoft Dynamics 365 Fraud Protection](/dynamics365/f
 To get started, you'll need:
 
 - An Azure subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A Microsoft DFP subscription
   - See, [Dynamics 365 pricing](https://dynamics.microsoft.com/pricing/#Sales)

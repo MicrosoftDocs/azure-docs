@@ -7,10 +7,15 @@ ms.date: 03/12/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 services: iot-dps 
-ms.custom: mvc, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want provision groups of devices using X.509 certificate chains and the Azure IoT device SDK.
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - devx-track-extended-java
+  - devx-track-python
+  - devx-track-js
+  - sfi-image-nochange
 ---
 
 # Tutorial: Provision multiple X.509 devices using enrollment groups
@@ -41,7 +46,7 @@ In this tutorial, you complete the following objectives:
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 

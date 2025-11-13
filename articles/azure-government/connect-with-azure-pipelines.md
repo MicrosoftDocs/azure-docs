@@ -3,9 +3,11 @@ title: Deploy an app in Azure Government with Azure Pipelines
 description: Configure continuous deployment to your applications hosted in Azure Government by connecting from Azure Pipelines.
 ms.service: azure-government
 ms.topic: article
-ms.custom: devx-track-azurepowershell
 recommendations: false
 ms.date: 06/27/2022
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Deploy an app in Azure Government with Azure Pipelines

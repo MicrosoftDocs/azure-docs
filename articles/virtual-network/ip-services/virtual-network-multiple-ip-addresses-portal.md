@@ -8,7 +8,10 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to assign multiple IP addresses to a virtual machine, so that I can host multiple services or applications on a single server and manage them efficiently.
 ---
 # Assign multiple IP addresses to virtual machines using the Azure portal
@@ -35,7 +38,7 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing Azure virtual machine with a Public IP. For more information about creating a virtual machine, see [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal). 
     - The example used in this article is named **myVM**. Replace this value with your virtual machine name.

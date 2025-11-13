@@ -81,7 +81,7 @@ To make role assignments:
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign a role by configuring the following settings. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign a role by configuring the following settings. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     |---|---|
@@ -92,5 +92,5 @@ To make role assignments:
 ## Related content
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
-- [Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [Create a dev box definition](how-to-manage-dev-box-definitions.md#create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

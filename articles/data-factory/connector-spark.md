@@ -16,7 +16,7 @@ ms.date: 08/19/2025
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Spark. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Spark connector version 2.0 provides improved native Spark support. If you are using Spark connector version 1.0 in your solution, please [upgrade the Spark connector](#upgrade-the-spark-connector) before **September 30, 2025**. Refer to this [section](#differences-between-spark-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Spark connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Spark connector](#differences-between-spark-version-20-and-version-10) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -270,7 +270,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
-| Version 1.0 | End of support announced | / |
+| Version 1.0 | Removed | Not applicable. |
 | Version 2.0 | GA version available |  • `enableServerCertificateValidation` is supported. <br><br>• The default value of `enableSSL` is true.  <br><br>• For WindowsAzureHDInsightService authentication type, the default value of `httpPath` is `/sparkhive2`.<br><br>• DecimalType is read as Decimal data type. <br><br>• TimestampType is read as DateTimeOffset data type. <br><br>•  YearMonthIntervalType, DayTimeIntervalType are read as String data type. <br><br>• `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• SharkServer and SharkServer2 are not supported for `serverType`. <br><br>• Binary and SASL are not supported for `thriftTransportProtocl`. <br><br>• Username authentication type is not supported. |
 
 ### <a name="upgrade-the-spark-connector"></a> Upgrade the Spark connector from version 1.0 to version 2.0

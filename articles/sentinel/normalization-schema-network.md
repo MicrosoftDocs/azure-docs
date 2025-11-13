@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Network Session normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Network Session normalization schema reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel Network Session normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -12,7 +12,7 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) Network Session normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Network Session normalization schema reference
 
 The Microsoft Sentinel Network Session normalization schema represents an IP network activity, such as network connections and network sessions. Such events are reported, for example, by operating systems, routers, firewalls, and intrusion prevention systems.
 
@@ -21,12 +21,6 @@ The network normalization schema can represent any type of an IP network session
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 This article describes version 0.2.x of the network normalization schema. [Version 0.1](normalization-schema-v1.md) was released before ASIM was available and doesn't align with ASIM in several places. For more information, see [Differences between network normalization schema versions](normalization-schema-v1.md#changes).
-
-> [!IMPORTANT]
-> The network normalization schema is currently in *preview*. This feature is provided without a service level agreement. We don't recommend it for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 

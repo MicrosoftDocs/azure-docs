@@ -2,7 +2,7 @@
 title: Move Azure classic deployment resources
 description: Use Azure Resource Manager to move classic deployment resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 02/11/2025
+ms.date: 09/15/2025
 ms.custom: devx-track-arm-template
 ---
 

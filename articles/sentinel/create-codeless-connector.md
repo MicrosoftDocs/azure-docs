@@ -75,6 +75,9 @@ We recommend testing your components with an API testing tool like one of the fo
 
 ## Build the data connector
 
+>[!TIP]
+>If you're an Independent Software Vendor (ISV) and need support when building a Microsoft Sentinel integration using the Microsoft Sentinel Codeless Connector Framework, the Microsoft App Assure team may be able to assist. To engage the App Assure team, send an email to azuresentinelpartner@microsoft.com.
+
 There are four components required to build the CCF data connector.
 
 1. [Output table definition](#output-table-definition)

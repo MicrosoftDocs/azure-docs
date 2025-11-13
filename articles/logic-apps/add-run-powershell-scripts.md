@@ -35,7 +35,7 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The logic app resource with the Standard workflow where you want to add your PowerShell script.
 
@@ -200,7 +200,7 @@ The following table lists the outputs that are generated when you call `Get-Acti
 | **StartTime** | DateTime | The start time for the trigger or action |
 | **EndTime** | DateTime | The end time for the trigger or action |
 | **ScheduledTime** | DateTime | The scheduled time to run the trigger or action or trigger |
-| **OriginHistoryName** | String | The origin history name for triggers with the `SplitOn` option enabled |
+| **OriginHistoryName** | String | The origin history name for triggers that use the `splitOn` property |
 | **SourceHistoryName** | String | The source history name for a resubmitted trigger |
 | **TrackingId** | String | The operation tracking ID |
 | **Code** | String | The status code for the result |

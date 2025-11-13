@@ -14,7 +14,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../manage-teams-identity.md?pivots=programming-language-java) for your Azure Communication Service.

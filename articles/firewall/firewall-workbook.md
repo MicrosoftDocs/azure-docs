@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 12/06/2023
 ms.author: duau
+ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to analyze and visualize Azure Firewall data using workbooks, so that I can gain insights into firewall events and enhance security monitoring across multiple firewalls in the Azure environment.
 ---
 
@@ -152,3 +153,4 @@ The investigation section enables exploration and troubleshooting, offering addi
 ## Next steps
 
 - Learn more about [Azure Firewall Diagnostics](firewall-diagnostics.md)
+- Learn how to [Track rule set changes](rule-set-change-tracking.md) using Azure Resource Graph

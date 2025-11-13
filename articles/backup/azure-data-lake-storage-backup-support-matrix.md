@@ -1,8 +1,8 @@
 ---
-title: Support matrix for Azure Data Lake Storage Vaulted Backup (preview)
-description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
+title: Support matrix for Azure Data Lake Storage Vaulted Backup
+description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage.
 ms.topic: reference
-ms.date: 08/26/2025
+ms.date: 11/18/2025
 ms.custom:
   - references_regions
   - engagement-fy24
@@ -10,22 +10,24 @@ ms.custom:
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: "As a cloud administrator, I want to understand the supported scenarios and limitations for vaulted backups of Azure Data Lake Storage, so that I can effectively configure and manage data protection for my storage accounts."
+# Customer intent: "As a cloud administrator, I want to understand the supported scenarios and limitations for backups of Azure Data Lake Storage, so that I can effectively configure and manage data protection for my storage accounts."
 ---
 
-# Support matrix for Azure Data Lake Storage vaulted backup (preview)
+# Support matrix for Azure Data Lake Storage vaulted backup
 
-This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
+This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage.
+Azure Backup now enables enhanced protection and recovery for Azure Data Lake Storage through vaulted backups that offer ransomware resilience, secure offsite storage, and long-term data retention. See the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/protect-azure-data-lake-storage-with-vaulted-backups/4410707).
 
-For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage (preview) that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
+For more insights on Azure Backup’s support for backups in Azure Data Lake Storage that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India Central, South East Asia.
+Vaulted backups of Azure Data Lake Storage are available in the following regions: 
 
->[!Note]
->- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
->- To enroll in this preview feature, fill [this form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+| Availability type | Region |
+| --- | --- |
+| **General availability** | East Asia, France South, US South Central, Switzerland North, Switzerland West, UAE North, UK West, West India. |
+| **Preview** | Australia East, Central India, Central US, East US, East US 2, Germany West Central, North Central US, North Europe, South India, Southeast Asia, West Central US, West US, West US 2, West US 3. |
 
 ## Supported storage accounts
 
@@ -36,6 +38,7 @@ The following table lists the supported storage account details:
 | Account  Kind            | Only block blobs in a standard general-purpose v2 HNS-enabled storage account. <br><br>*Accounts using Network File Shares (NFS) 3.0, and Secure File Transfer Protocol (SFTP) protocols for blobs are currently not supported*.|
 | Redundancy              | Locally redundant storage (LRS), Zone-redundant storage (ZRS), Geo-redundant storage (GRS) enabled storage account. |
 | Tier              | Hot, Cool, and Cold tier blobs are supported.<br><br>*Archive tier blob backup isn't supported*. |
+| Upgraded storage accounts              | Accounts upgraded from Azure Blob Storage to Azure Data Lake Storage aren't supported*. |
 
 ## Protection limits
 
@@ -46,9 +49,9 @@ The following table lists the protection limits:
 | Maximum number of containers in a storage account that can be protected | 100 |
 | Vault redundancy              | LRS/ZRS/GRS |
 
-### Supported and unsupported scenarios for Azure Data Lake Storage protection (preview)
+### Supported and unsupported scenarios for Azure Data Lake Storage protection
 
-Azure Data Lake Storage protection (preview) has the following supported and unsupported scenarios:
+Azure Data Lake Storage protection has the following supported and unsupported scenarios:
 
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
@@ -99,5 +102,10 @@ The following table lists the restore method limits:
 
 ## Next steps
 
-- [Configure vaulted backup for Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-configure-backup.md).
-- [Restore Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-restore.md).
+- [Configure vaulted backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI](azure-data-lake-storage-configure-backup.md).
+- [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
+- [Manage vaulted backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
+
+## Related content
+
+[Access tiers for blob data](/azure/storage/blobs/access-tiers-overview).

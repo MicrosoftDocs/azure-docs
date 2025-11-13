@@ -4,7 +4,9 @@ description: Learn how to integrate Traffic Manager with Azure VMware Solution t
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/22/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 
 # Customer intent: As a cloud architect, I want to deploy Traffic Manager with Azure VMware Solution to balance application workloads, so that I can ensure optimal performance and availability across multiple regions.
 ---

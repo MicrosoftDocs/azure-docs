@@ -6,7 +6,9 @@ ms.date: 08/11/2025
 ms.topic: troubleshooting
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator managing Azure Files, I want to troubleshoot backup and restore issues, so that I can ensure reliable data protection and recovery for our file shares."
 ---
 

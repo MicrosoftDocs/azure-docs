@@ -52,33 +52,38 @@ There are several ways to check whether a file has been tiered to your Azure fil
         fsutil reparsepoint query <your-file-name>
         ```
 
-       If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that is owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
+       If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that's owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
 
         > [!WARNING]
         > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Don't execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss.
 
 ## How to exclude files or folders from being tiered
 
-If you want to exclude files or folders from being tiered and remain local on the Windows Server, you can configure the **GhostingExclusionList** registry setting under `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`. You can exclude files by file name, file extension or path.
+If you want to exclude files or folders from being tiered and remain local on the Windows Server, you can configure the **GhostingExclusionList** registry setting under `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`. You can exclude files by file name, file extension, or path.
 
-To exclude files or folders from cloud tiering, perform the following steps:
+To exclude files or folders from cloud tiering, follow these steps:
 
 1. Open an elevated command prompt.
+
 2. Run one of the following commands to configure exclusions:
 
-	To exclude certain file extensions from tiering (for example, .one, .lnk, .log), run the following command:  
-	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d .one|.lnk|.log /f**
+   To exclude certain file extensions from tiering (for example, .one, .lnk, .log), run the following command:  
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d .one|.lnk|.log /f**
 
-	To exclude a specific file name from tiering (for example, FileName.vhd), run the following command:  
-	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d FileName.vhd /f**
+   To exclude a specific file name from tiering (for example, FileName.vhd), run the following command:  
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d FileName.vhd /f**
 
-	To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:
-	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
+   To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
 
-	To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
-	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
+   To exclude all files under a folder having one or more of these characters from tiering (for example, D:\ShareRoot\+$Folder\() SubFolder), run the following command: 
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\ShareRoot\\\+\$Folder\\\(\)SubFolder /f**
 
-3. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:  
+   To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
+
+3. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:
+
 	**net stop filesyncsvc**  
 	**net start filesyncsvc**
 

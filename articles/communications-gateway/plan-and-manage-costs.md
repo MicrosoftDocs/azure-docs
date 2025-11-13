@@ -2,7 +2,7 @@
 title: Plan and manage costs for Azure Communications Gateway
 description: Learn how to plan for and manage costs for Azure Communications Gateway by using cost analysis in the Azure portal.
 ms.custom: subject-cost-optimization
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 01/08/2024
 ---

@@ -28,7 +28,7 @@ Clone the repo from [Azure-Samples/azure-cache-redis-samples](https://github.com
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
 - [.NET Framework 4 or higher](https://dotnet.microsoft.com/download/dotnet-framework) is required by the StackExchange.Redis client.
 

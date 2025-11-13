@@ -12,86 +12,87 @@ ms.custom: engagement-fy24
 
 # Configure Windows update settings for Azure Update Manager
 
-Azure Update Manager relies on the [Windows Update client](/windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed by:
+Azure Update Manager (AUM) uses the native Windows Update client to manage to patch. However, the behavior differs depending on whether the machine is an Azure VM or an Azure Arc-enabled server. This guide outlines how to configure update settings, what AUM modifies, and how to avoid conflicts with Group Policy.
 
-- Local Group Policy Editor
-- Group Policy
-- PowerShell
-- Directly editing the Registry
+##  Key Differences: Azure VMs vs. Arc Machines
 
-Azure Update Manager respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, Update Manager will also manage those updates.
+|Feature|Azure VMs|Azure Arc Machines|
+|----|----|----|
+|Patch orchestration|Azure-orchestrated or OS-orchestrated|OS-orchestrated only|
+|Registry changes by AUM|Yes (when Azure-orchestrated)|No (AUM doesn't modify registry)|
+|Group Policy interaction|Can override AUM settings|Fully controls update behavior|
+|WSUS support|Supported|Supported|
+|Pre download support|Not supported|Not supported|
 
-For additional recommendations on setting up WSUS in your Azure subscription and to secure your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](/azure/architecture/example-scenario/wsus).
+## What AUM Configures Automatically (Azure VMs Only)
+When **Azure-orchestrated patching** is enabled on an Azure VM, AUM may configure the following registry keys:
 
-## Pre-download updates
+### Registry Keys Modified by AUM
 
-Pre-download of updates isn't supported in Azure Update Manager.
+|Registry Path|Key|Purpose|
+|----|----|----|
+|HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU|AUOptions|Sets automatic update behavior|
+|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update|RebootRequired|Tracks reboot status|
+|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services|ServiceID|Registers Microsoft Update service|
 
-## Configure reboot settings
+These changes are applied only when the VM is configured for Azure-orchestrated patching *(AutomaticByPlatform = Azure-Orchestrated)*. Arc machines aren't affected.
 
-The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **Update Deployment** settings. Configure these registry keys to best suit your environment.
+## Group Policy Conflicts
 
-## Enable updates for other Microsoft products
+Group Policy can override or conflict with AUM settings. This is especially important for:
 
-By default, the Windows Update client is configured to provide updates only for Windows operating system. In Windows update, select **Check online for Windows updates**. It will check updates for other Microsoft products to enable the **Give me updates for other Microsoft products when I update Windows** to receive updates for other Microsoft products, including security patches for Microsoft SQL Server and other Microsoft software. 
+**Automatic Updates**: If Group Policy enforces a different *AUOptions* value, AUM might not be able to control update timing.
+**Reboot Behavior**: Even if AUM is set to "Never Reboot" Group Policy or registry keys can still trigger reboots.
+**Microsoft Update Source**: Group Policy might restrict updates to WSUS or block Microsoft Update, which can cause AUM deployments to fail.
 
-Use one of the following options to perform the settings change at scale:
+### Best Practice
 
-- For Servers configured to patch on a schedule from Update Manager (that has the VM PatchSettings set to AutomaticByPlatform = Azure-Orchestrated), and for all Windows Servers running on an earlier operating system than server 2016, Run the following PowerShell script on the server you want to change.
+If you use Group Policy:
 
-    ```powershell
-    $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
-    $ServiceManager.Services
-    $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
-    $ServiceManager.AddService2($ServiceId,7,"")
-    ```
+Ensure it aligns with AUM’s intended behavior.
+Avoid setting conflicting values in Configure Automatic Updates or No auto-restart with logged on users.
 
-- For servers running Server 2016 or later which aren't using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+## How to Enable Microsoft Updates
 
+To receive updates for products like SQL Server or Office:
 
-## Configure a Windows server for Microsoft updates
+### For Azure VMs (Azure-orchestrated patching)
 
-The Windows update client on Windows servers can get their patches from either of the following Microsoft hosted patch repositories:
-- Windows update - hosts operating system patches.
-- Microsoft update - hosts operating system and other Microsoft patches. For example MS Office, SQL Server and so on.
+Run this PowerShell script:
 
-> [!NOTE]
-> For the application of patches, you can choose the update client at the time of installation, or later using Group policy or by directly editing the registry.
-> To get the non-operating system Microsoft patches or to install only the OS patches, we recommend you to change the patch repository as this is an operating system setting and not an option that you can configure within Azure Update Manager.
+```
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
 
-### Patching using group policy on Azure Update Manager
+### For Arc Machines or OS-orchestrated VMs
 
-If your machine is patched using Azure Update Manager, and has Automatic updates enabled on the client, you can use the group policy to have complete control. To patch using group policy, follow these steps:
+Use Group Policy:
 
-1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Manage end user experience**.
-1. Select **Configure Automatic Updates**.
-1. Select or deselect the **Install updates for other Microsoft products** option.
+1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Manage end user experience**
+2. Open the **Configure Automatic Updates** setting
+3. Set the option to **Enabled** and then select the box labeled **Install updates for other Microsoft products**
 
-   :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-inline.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products." lightbox="./media/configure-wu-agent/configure-updates-group-policy-expanded.png":::
+## WSUS Configuration
 
-For Windows Server 2022:
+AUM supports WSUS. To configure:
 
-1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Configure Automatic Updates**.
-1. Select **Configure Automatic Updates**.
-1. Select or deselect the **Install updates for other Microsoft products** option.
+- Use Group Policy to set the WSUS server location.
+- Ensure updates are approved in WSUS, or AUM deployments fails.
+- To restrict internet access, enable **Do not connect to any Windows Update Internet locations**.
 
-   :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-windows.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products in Windows Server 2022.":::
+## Verify Patch Source
 
-## WSUS configuration settings
+Check these registry keys to confirm update source:
 
-Update Manager supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, the update deployment fails, if the updates aren't approved in WSUS. 
+- HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\
+- HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services
 
-To restrict machines to the internal update service, see [do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
+## Not Supported
 
-## Registry settings
+- Pre download of updates isn't supported by AUM.
+- To change the patch source (for example, from WSUS to Microsoft Update), use Windows settings or Group Policy. Do not use AUM for this configuration.
 
-It's possible to check the patch source under the following two registry keys.
-
-- HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\
-- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services
-
-See [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) for more details.
-
-## Next steps
-
-Configure an update deployment by following instructions in [Deploy updates](deploy-updates.md).
+## Next Steps
+After configuring your update settings, proceed to [Deploy updates](deploy-updates.md) using Azure Update Manager.

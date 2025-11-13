@@ -5,7 +5,8 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: concept-article
 ms.date: 05/08/2025
-monikerRange: migrate-classic
+ms.reviewer: v-uhabiba
+monikerRange:
 # Customer intent: "As a database administrator, I want to use an assessment tool to evaluate my on-premises MySQL database for migration, so that I can understand readiness, sizing, and costs for transitioning to Azure Database for MySQL."
 ---
 
@@ -132,51 +133,42 @@ Azure Migrate calculates the total disk space used by the MySQL instance (includ
 ### IOPS sizing
 Azure Migrate recommends the [Autoscale IOPS feature in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-service-tiers-storage#autoscale-iops), which enables the MySQL instance to automatically scale the database instance’s performance (IO) seamlessly and independent of the selected storage size, depending on the workload needs. With Autoscale IOPS, you pay only for the IO the server uses, eliminating the need to provision and pay for resources that aren't fully utilized, thereby saving time and money.
 
-## Confidence ratings
+## Performance coverage
 
-Each MySQL assessment is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
--  The rating is based on the availability of data points that are required to compute the assessment.
+Each MySQL assessment is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
+-  The coverage is based on the availability of data points that are required to compute the assessment.
 - For performance-based sizing, the assessment collects performance data of all the MySQL instances and databases, which include:
   - CPU utilization (%)
-  -	Memory utilization (%)
-  -	IOPS
+  - Memory utilization (%)
+  - IOPS
   - Number of connections to the MySQL instance
   - Read-write ratio
-- If any of these utilization numbers aren't available, the size recommendations might be unreliable. This table shows the assessment confidence ratings, which depend on the percentage of available data points:
+- If any of these utilization numbers aren't available, the size recommendations might be unreliable. This table shows the assessment performance coverage, which depend on the percentage of available data points:
 
-    **Data point availability** | **Confidence rating**
-    --- | ---
-    0%-20% | One star
-    21%-40% | Two stars
-    41%-60% | Three stars
-    61%-80% | Four stars
-    81%-100% | Five stars
+### Low performance coverage
 
-
-### Low confidence ratings
-
-Here are a few reasons why an assessment could get a low confidence rating:
+Here are a few reasons why an assessment could get a low performance coverage:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
-- The Assessment isn't able to collect the performance data for some or all the servers in the assessment period. 
+- The Assessment isn't able to collect the performance data for some or all the servers in the assessment period.
 
-**Recalculate** the assessment to reflect the latest changes in confidence rating.
+**Recalculate** the assessment to reflect the latest changes in performance coverage.
 
-- Some database instances were created during the time for which the assessment was calculated. For example, you created an assessment for the performance history of the last month, but some instances were created only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low.
+- Some database instances were created during the time for which the assessment was calculated. For example, you created an assessment for the performance history of the last month, but some instances were created only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the performance coverage would be low.
 
-### High confidence ratings
+### High performance coverage
 
-Here are a few reasons why an assessment could have a high confidence rating:
+Here are a few reasons why an assessment could have a high performance coverage:
 
   - Servers are powered on during the assessment.
   - Outbound connections on ports 3306 are allowed.
   - If Azure Migrate connection status of the MySQL agent in Azure Migrate is Connected, check the last heartbeat.
   - Azure Migrate connection status for all MySQL instances is Connected in the discovered MySQL instance section.
 
- **Recalculate** the assessment to reflect the latest changes in confidence rating.
+ **Recalculate** the assessment to reflect the latest changes in performance coverage.
 
 > [!NOTE]
-> As MySQL assessments are performance-based assessments, if the confidence rating of any assessment is fewer than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable.
+> As MySQL assessments are performance-based assessments, if the performance coverage of any assessment is fewer than 80%, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable.
 
 ## Calculate monthly costs
 Once the sizing recommendations are complete, MySQL assessment calculates the compute, storage, and IO costs for the recommended Azure Database for MySQL configurations using an internal pricing API. It aggregates these costs across all the instances to determine the total monthly cost.

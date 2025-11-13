@@ -1,12 +1,12 @@
 ---
 title: Activate eligible Azure role assignments - Azure RBAC
 description: Learn how to activate eligible Azure role assignments in Azure role-based access control (Azure RBAC) using the Azure portal.
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 12/12/2024
-ms.author: jfields
+ms.author: rolyon
 ---
 
 # Activate eligible Azure role assignments
@@ -63,7 +63,7 @@ These steps describe how to activate an eligible role assignment using the Azure
 
     When activation is complete, you see a message that the role was successfully activated.
 
-    Once an eligible role assignment has been activated, it will be listed as an active time-bound role assignment on the **Check access** and  **Role assignments** tabs. For more information, see [List Azure role assignments using the Azure portal](./role-assignments-list-portal.yml#list-role-assignments-at-a-scope).
+    Once an eligible role assignment has been activated, it will be listed as an active time-bound role assignment on the **Check access** and  **Role assignments** tabs. For more information, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-at-a-scope).
 
 ## Next steps
 

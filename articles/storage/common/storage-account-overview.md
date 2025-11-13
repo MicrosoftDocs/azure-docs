@@ -10,7 +10,7 @@ ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 03/04/2025
 ms.author: akashdubey
-# Customer intent: "As a cloud architect, I want to understand the different types of storage accounts and their features, so that I can choose the right account type based on my application's performance, redundancy, and cost requirements."
+#customer intent: As a cloud architect, I want to understand the different types of storage accounts and their features, so that I can choose the right account type based on my application's performance, redundancy, and cost requirements.
 ---
 
 # Storage account overview

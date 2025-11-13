@@ -7,7 +7,9 @@ ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 02/14/2024
-ms.custom: template-tutorial 
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: As a network engineer, I want to migrate my virtual machine public IP address to a NAT gateway to improve outbound connectivity.
 ---
 
@@ -27,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An Azure Virtual Machine with a public IP address assigned to its network interface. For more information on creating a virtual machine with a public IP, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
     

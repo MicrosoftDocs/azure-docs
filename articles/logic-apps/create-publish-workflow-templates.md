@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 07/10/2025
+ms.custom: sfi-image-nochange
 #Customer intent: As a developer, I want to create and share workflow templates for use with Azure Logic Apps.
 ---
 
@@ -62,7 +63,7 @@ This guide shows how to create and publish a workflow template in the following 
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The deployed Consumption or Standard logic app resource and workflow to use as the source workflow definition for the template.
 

@@ -3,6 +3,7 @@ title: Verify and update detected device inventory - Microsoft Defender for IoT
 description: Learn how to fine-tune your newly detected device inventory on an OT sensor, such as updating device types and properties, merging devices as needed, and more.
 ms.date: 03/09/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Verify and update your detected device inventory

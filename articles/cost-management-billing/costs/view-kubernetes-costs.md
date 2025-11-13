@@ -1,15 +1,15 @@
 ---
 title: View Kubernetes costs
 description: This article helps you view Azure Kubernetes Service (AKS) cost in Microsoft Cost management.
-author: sdoultani
-ms.author: sadoulta
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/27/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.custom:
   - ignite-2023
-ms.reviewer: sadoulta
+ms.reviewer: vikdesai
 ---
 
 # View Kubernetes costs

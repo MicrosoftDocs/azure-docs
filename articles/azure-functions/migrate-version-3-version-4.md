@@ -2,10 +2,19 @@
 title: Migrate apps from Azure Functions version 3.x to 4.x
 description: Learn how to migrate your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli, ignite-2023, linux-related-content, devx-track-ts
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 09/30/2025
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-azurecli
+  - ignite-2023
+  - linux-related-content
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Migrate apps from Azure Functions version 3.x to version 4.x 
@@ -470,7 +479,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 ### Runtime
 
-- Azure Functions Proxies is a legacy feature for versions 1.x through 3.x of the Azure Functions runtime. Support for Functions Proxies can be re-enabled in version 4.x so that you can successfully update your function apps to the latest runtime version. As soon as possible, you should instead switch to integrating your function apps with Azure API Management. API Management lets you take advantage of a more complete set of features for defining, securing, managing, and monetizing your Functions-based APIs. For more information, see [API Management integration](functions-proxies.md#api-management-integration). To learn how to re-enable Proxies support in Functions version 4.x, see [Re-enable Proxies in Functions v4.x](legacy-proxies.md#re-enable-proxies-in-functions-v4x).  
+- Azure Functions Proxies was a feature in versions 1.x through 3.x of the Azure Functions runtime. This feature isn't supported in version 4.x. For more information, see [Serverless REST APIs using Azure Functions](functions-proxies.md).  
 
 - Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You should instead use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 

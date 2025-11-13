@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 05/02/2024
 ms.author: midesa
+ms.custom: sfi-ropc-nochange
 ---
 
 # Load data with Petastorm (deprecated)

@@ -6,7 +6,9 @@ ms.author: sancha
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 01/04/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to use a managed identity to access Azure Data Manager for Energy from other Azure services, such as Azure Functions.
 ---
 

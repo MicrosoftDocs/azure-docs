@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 10/28/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 
@@ -13,16 +13,16 @@ ms.subservice: storage-common-concepts
 
 # Replace blob properties and metadata by using AzCopy v10
 
-You can use AzCopy to change the [access tier](../blobs/access-tiers-overview.md) of one or more blobs and replace (_overwrite_) the metadata, and index tags of one or more blobs. 
+You can use AzCopy to change the [access tier](../blobs/access-tiers-overview.md) of one or more blobs and replace (_overwrite_) the metadata and index tags of one or more blobs. 
 
 ## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
+> The examples in this article assume that you provide authorization credentials by using Microsoft Entra ID.
 >
-> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> If you want to use a SAS token to authorize access to blob data, append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Change the access tier
 
@@ -93,7 +93,7 @@ azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontaine
 
 ## Replace index tags
 
-To replace the index tags of a blob, use the [azcopy set-properties](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties) command and set the `--blob-tags` parameter to one or more key-value pairs. Setting blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission). In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permission can perform this operation.
+To replace the index tags of a blob, use the [azcopy set-properties](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties) command and set the `--blob-tags` parameter to one or more key-value pairs. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role and anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission) can set blob index tags. In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permission can perform this operation.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -127,7 +127,6 @@ Find more examples in these articles:
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
 - [Examples: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
-- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 See these articles to configure settings, optimize performance, and troubleshoot issues:
 

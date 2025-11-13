@@ -3,6 +3,7 @@ title: Create data mining queries and reports in Defender for IoT
 description: Learn how to create granular reports about network devices.
 ms.date: 10/14/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Create data mining queries

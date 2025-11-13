@@ -1,7 +1,7 @@
 ---
 title: Get ready to use Azure Communications Gateway's Provisioning API
 description: Learn how to integrate with the Provisioning API for Azure Communications Gateway. The Provisioning API allows you to configure customers and associated numbers.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 03/29/2024
 ---

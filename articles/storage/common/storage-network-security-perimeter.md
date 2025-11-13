@@ -15,7 +15,7 @@ ms.author: normesta
 
 [Network security perimeter](../../private-link/network-security-perimeter-concepts.md) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. This helps prevent unwanted data exfiltration from your storage resources. Within a network security perimeter, member resources can freely communicate with each other. Network security perimeter rules override the storage account’s own firewall settings. Access from within the perimeter takes highest precedence over other network restrictions.
 
-You can find the list of services that are onboarded to the network security perimeter [here](../../private-link/network-security-perimeter-concepts.md#onboarded-private-link-resources). If a service isn't listed, it is not onboarded yet. To allow access to a specific resource from a non-onboarded service, you can create a subscription-based rule for the network security perimeter. A subscription-based rule grants access to all resources within that subscription. For details on how to add a subscription-based access rule, see [this documentation](/rest/api/networkmanager/nsp-access-rules/create-or-update).
+You can find the list of services that are onboarded to the network security perimeter [here](../../private-link/network-security-perimeter-concepts.md#onboarded-private-link-resources). If a service isn't listed, it is not onboarded yet. To allow access to a specific resource from a non-onboarded service, you can create a subscription-based rule for the network security perimeter. A subscription-based rule grants access to all resources within that subscription. For details on how to add a subscription-based access rule, see [this documentation](/rest/api/network-security-perimeter/network-security-perimeter-access-rules/create-or-update).
 
 ## Access Modes
 
@@ -42,6 +42,7 @@ When a storage account is associated with a network security perimeter, all stan
 | Network file system (NFS) access over [Azure Blobs](../blobs/network-file-system-protocol-support.md) and [Azure Files](../files/files-nfs-protocol.md), Server message block (SMB) access over Azure Files and [SSH File transfer protocol (SFTP)](../blobs/secure-file-transfer-protocol-support.md) over Azure Blobs | All protocols other than HTTPS based access are blocked when storage account is associated with a network security perimeter | If you need to use any of these protocols to access your storage account, don't associate the account with a network security perimeter |
 | Azure Backup | Not supported. Azure Backup as a service is not onboarded to network security perimeter yet. | We recommend not associating an account with network security perimeter if you have backups enabled or if you plan to use Azure Backup. Once Azure Backup onboards to network security perimeter, you can start using both these features together |
 | Unmanaged disks | [Unmanaged disks](/azure/virtual-machines/unmanaged-disks-deprecation) don't honor network security perimeter rules. | Avoid using unmanaged disks on storage accounts protected by network security perimeter |
+| [Static Website](../blobs/storage-blob-static-website.md)| Not supported | Static website, being open in nature cannot be used with network security perimeter. If static website is already enabled, you cannot associate a network security perimeter. Similarly, if a network security perimeter is already associated, you cannot enable static website. This restriction prevents you from configuring an unsupported scenario. |
 
 
 > [!WARNING]
@@ -55,3 +56,4 @@ To associate a network security perimeter with a storage account, follow these [
 
 - Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
 - Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).
+- Enable [Diagnostic logs for Network Security Perimeter](/azure/private-link/network-security-perimeter-diagnostic-logs?source=recommendations).

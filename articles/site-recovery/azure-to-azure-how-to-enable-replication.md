@@ -1,11 +1,12 @@
 ---
 title: Configure replication for Azure VMs in Azure Site Recovery
 description: Learn how to configure replication to another region for Azure VMs, using Site Recovery.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
-ms.date: 06/17/2025
+ms.date: 10/31/2025
 ms.service: azure-site-recovery
+ms.custom: sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to configure replication for Azure VMs to another region, so that I can ensure disaster recovery and maintain business continuity in the event of a regional outage."
 ---
 
@@ -75,7 +76,7 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
        - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. High Churn is the only option available to protect VMs using Premium SSD v2/Ultra Disks.
          >[!Note]
          >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
-         >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churns.png" alt-text="Screenshot of churn.":::    
+         >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn.":::    
     
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]

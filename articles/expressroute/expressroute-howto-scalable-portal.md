@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Configure a Scalable Gateway using Azure portal and PowerShell'
+title: 'Azure ExpressRoute: Configure a Scalable Gateway using Azure portal'
 description: Learn how to configure a scalable ExpressRoute gateway in Azure using the Azure portal and PowerShell. This guide provides step-by-step instructions to help you set up and manage a scalable gateway for your ExpressRoute connection.
 author: mekaylamoore
 ms.service: azure-expressroute
@@ -47,26 +47,6 @@ Before deployment, review the About Scalable Gateway (link) to confirm region su
 
 :::image type="content" source="media/expressroute-howto-scalablegw/create-scale.png" alt-text="Screenshot of the create page in Azure portal with Scalable Gateway." :::
 
-## Update the gateway SKU to Scalable Gateway after migration
-
-After migrating your ExpressRoute gateway to a new deployment, you can further enhance its performance and resiliency by updating its SKU and scale units using Azure PowerShell.
-
-> [!IMPORTANT]
-> To upgrade your gateway, first set the maximum scale unit to 10. After the upgrade is complete, you can adjust the configuration to your desired maximum scale unit.
-
-To update your gateway configuration, run the following PowerShell commands:
-
-```powershell
-$vng = Get-AzVirtualNetworkGateway -Name <GatewayName> -ResourceGroupName <ResourceGroupName>
-Set-AzVirtualNetworkGateway -VirtualNetworkGateway $vng -MinScaleUnit 2 -MaxScaleUnit 2 -GatewaySku ErGwScale
-```
-
-**Instructions:**
-- Replace `<GatewayName>` with the name of your migrated Virtual Network Gateway.
-- Replace `<ResourceGroupName>` with the name of the resource group containing your gateway.
-
-The example above sets both the minimum and maximum scale units to 2 and updates the gateway SKU to `ErGwScale` for improved scalability and throughput.
-
 ## Change the scale units
 
 1. In the Azure portal, go to your ExpressRoute virtual network gateway.
@@ -77,3 +57,4 @@ The example above sets both the minimum and maximum scale units to 2 and updates
 
 > [!NOTE]
 > To migrate your existing ExpressRoute gateway to a scalable gateway, follow the steps in the [ExpressRoute gateway migration guide](expressroute-howto-gateway-migration-portal.md).
+

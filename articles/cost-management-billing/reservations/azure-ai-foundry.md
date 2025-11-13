@@ -6,7 +6,7 @@ ms.reviewer: benshy, primittal, liuyizhu
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 10/28/2025
 ms.author: primittal
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure AI Foundry Provisioned Throughput Reservations and buy one.
 ---
@@ -22,7 +22,7 @@ When you purchase a reservation, the Azure AI Foundry Provisioned Throughput usa
 >[!NOTE]
 >Reservations for Global, Data Zone, and Regional deployments aren't interchangeable. You need to purchase a separate reservation for each deployment type. As an example, if you purchase a reservation for Global the benefit will only apply to Global deployments and not to Data Zone or Regional.
 >
->You can exchange or cancel reservations for Global, Data Zone, and Regional deployment with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
+>If you delete a deployment, the associated PTU reservation is not canceled or changed automatically. You must use Azure Reservations in the portal to cancel or exchange it manually. Azure Reservations cannot be deleted—only canceled or exchanged. You can exchange or cancel reservations for Global, Data Zone, and Regional deployment with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
 ## Reservation application
 

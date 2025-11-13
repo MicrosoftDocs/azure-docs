@@ -45,7 +45,7 @@ items:
   - name: Access tokens for end users
     href: quickstarts/identity/access-tokens.md
   - name: Authenticate Microsoft Entra ID users
-    href: quickstarts/identity/microsoft-entra-id-authentication-integration.md
+    href: quickstarts/identity/microsoft-entra-id-authentication-integration.md    
   - name: Sign an HTTP Request using HMAC
     href: tutorials/hmac-header-tutorial.md
   - name: Authenticate services
@@ -160,6 +160,13 @@ items:
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Chat hero sample
       href: samples/chat-hero-sample.md
+    - name: Authentication service hero sample
+      href: samples/trusted-auth-sample.md
+    - name: Migrate to Android push notifications FCM v1
+      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
+    - name: Register for Android push notifications FCM v1
+      href: tutorials/call-chat-register-android-push-fcm-v1.md
+
   - name: References
     items:
     - name: Chat (JavaScript)
@@ -366,10 +373,6 @@ items:
       href: quickstarts/sms/apply-for-toll-free-verification.md
     - name: Enable alphanumeric sender ID
       href: quickstarts/sms/enable-alphanumeric-sender-id.md
-    - name: Migrate to Android push notifications FCM v1
-      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
-    - name: Register for Android push notifications FCM v1
-      href: tutorials/call-chat-register-android-push-fcm-v1.md
   - name: References
     items:
     - name: SMS (JavaScript)
@@ -496,6 +499,8 @@ items:
         href: how-tos/calling-sdk/dominant-speaker.md
       - name: Transfer calls
         href: how-tos/calling-sdk/transfer-calls.md
+      - name: Active Call Transfer
+        href: how-tos/calling-sdk/active-call-transfer.md
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
       - name: View PowerPoint Live
@@ -1223,6 +1228,8 @@ items:
       href: quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md
     - name: Access Teams Phone without going through the Teams client
       href: quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md
+    - name: Emergency Calling
+      href: quickstarts/tpe/teams-phone-extensibility-emergency-call.md
     - name: Teams Extension User Authentication Sample
       href: https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/tpe-token-and-access-management
     - name: REST API for Teams Phone extensibility

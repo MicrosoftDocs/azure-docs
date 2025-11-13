@@ -6,11 +6,14 @@ ms.author: cephalin
 ms.reviewer: ushan
 ms.topic: how-to
 ms.date: 01/16/2025
-ms.custom: github-actions-azure, devx-track-azurecli
 
 #customer intent: As a build developer, I want to learn how to automate my deployment of web apps by using Azure App Service and GitHub.
 
 ms.service: azure-app-service
+ms.custom:
+  - github-actions-azure
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Deploy to Azure App Service by using GitHub Actions
@@ -19,7 +22,7 @@ Use [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) to
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
 
 ## Set up GitHub Actions deployment when creating an app

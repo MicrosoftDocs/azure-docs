@@ -31,7 +31,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ::: zone pivot="azure-managed-redis"
@@ -74,31 +74,21 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 1. Change to the new **redis-jedis-test** project directory.
 1. Open the **pom.xml** file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
-    ### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
+
+    > [!NOTE]
+    > Microsoft has entered into a partnership with Redis, Inc. As part of this collaboration, Microsoft Entra ID authentication support has been moved from Azure SDK to Redis Entra ID extensions. The new `redis-authx-entraid` library provides enhanced authentication capabilities and is the recommended approach for Microsoft Entra ID authentication with Azure Cache for Redis.
 
     ```xml
     <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-identity</artifactId>
-        <version>1.15.0</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+        <groupId>redis.clients.authentication</groupId>
+        <artifactId>redis-authx-entraid</artifactId>
+        <version>0.1.1-beta2</version>
     </dependency>
 
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>5.2.0</version> <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
-    </dependency>
-    ```
-
-    ### [Access key authentication](#tab/accesskey)
-
-    [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
-
-    ```xml
-    <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>5.2.0</version> <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+        <version>6.0.0</version> 
     </dependency>
     ```
 
@@ -106,47 +96,52 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 1. Open **App.java** and see the code with the following code:
 
-    ### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
     ```java
     package example.demo;
 
-    import com.azure.identity.DefaultAzureCredential;
     import com.azure.identity.DefaultAzureCredentialBuilder;
-    import com.azure.core.credential.TokenRequestContext;
+    import redis.clients.authentication.core.TokenAuthConfig;
+    import redis.clients.authentication.entraid.AzureTokenAuthConfigBuilder;
     import redis.clients.jedis.DefaultJedisClientConfig;
-    import redis.clients.jedis.Jedis;
+    import redis.clients.jedis.HostAndPort;
+    import redis.clients.jedis.UnifiedJedis;
+    import redis.clients.jedis.authentication.AuthXManager;
+
+    import java.util.Set;
 
     /**
-     * Redis test
-     *
-     */
+    * Redis test with Microsoft Entra ID authentication using redis-authx-entraid
+    * For more information about Redis authentication extensions, see:
+    * https://redis.io/docs/latest/develop/clients/jedis/amr/
+    *
+    */
     public class App
     {
         public static void main( String[] args )
         {
+            String REDIS_CACHE_HOSTNAME = System.getenv("REDIS_CACHE_HOSTNAME");
+            int REDIS_PORT = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "10000"));
+            String SCOPES = "https://redis.azure.com/.default"; // The scope for Azure Cache for Redis
 
-            boolean useSsl = true;
+            // Build TokenAuthConfig for Microsoft Entra ID authentication
+            TokenAuthConfig tokenAuthConfig = AzureTokenAuthConfigBuilder.builder()
+                    .defaultAzureCredential(new DefaultAzureCredentialBuilder().build())
+                    .scopes(Set.of(SCOPES))
+                    .tokenRequestExecTimeoutInMs(2000)
+                    .build();
 
-            //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client CertificateCredential / ManagedIdentityCredential etc.
-            DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
+            DefaultJedisClientConfig config = DefaultJedisClientConfig.builder()
+                    .authXManager(new AuthXManager(tokenAuthConfig))
+                    .ssl(true)
+                    .build();
 
-            // Fetch a Microsoft Entra token to be used for authentication. This token will be used as the password.
-                    String token = defaultAzureCredential
-                            .getToken(new TokenRequestContext()
-                                    .addScopes("https://redis.azure.com/.default")).block().getToken();
+            UnifiedJedis jedis = new UnifiedJedis(
+                    new HostAndPort(REDIS_CACHE_HOSTNAME, REDIS_PORT),
+                    config);
 
-            String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
-            String username = System.getenv("USER_NAME");
-            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "6380"));
-
-            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-            Jedis jedis = new Jedis(cacheHostname, port, DefaultJedisClientConfig.builder()
-                    .password(token) // Microsoft Entra access token as password is required.
-                    .user(username) // Username is Required
-                    .ssl(useSsl) // SSL Connection is Required
-                    .build());
-            // Perform cache operations using the cache connection object...
+            // Test the connection
+            System.out.println(String.format("Database size is %d", jedis.dbSize()));
 
             // Simple PING command
             System.out.println( "\nCache Command  : Ping" );
@@ -162,64 +157,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
             // Demonstrate "SET Message" executed as expected...
             System.out.println( "\nCache Command  : GET Message" );
             System.out.println( "Cache Response : " + jedis.get("Message"));
-
-            // Get the client list, useful to see if connection list is growing...
-            System.out.println( "\nCache Command  : CLIENT LIST" );
-            System.out.println( "Cache Response : " + jedis.clientList());
-
-            jedis.close();
-        }
-    }
-    ```
-
-    ### [Access key authentication](#tab/accesskey)
-
-    ```java
-    package example.demo;
-
-    import redis.clients.jedis.DefaultJedisClientConfig;
-    import redis.clients.jedis.Jedis;
-
-    /**
-     * Redis test
-     *
-     */
-    public class App
-    {
-        public static void main( String[] args )
-        {
-
-            boolean useSsl = true;
-            String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
-            String cachekey = System.getenv("REDIS_CACHE_KEY");
-            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "6380"));
-
-            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-            Jedis jedis = new Jedis(cacheHostname, port, DefaultJedisClientConfig.builder()
-                .password(cachekey)
-                .ssl(useSsl)
-                .build());
-
-            // Perform cache operations using the cache connection object...
-
-            // Simple PING command
-            System.out.println( "\nCache Command  : Ping" );
-            System.out.println( "Cache Response : " + jedis.ping());
-
-            // Simple get and put of integral data types into the cache
-            System.out.println( "\nCache Command  : GET Message" );
-            System.out.println( "Cache Response : " + jedis.get("Message"));
-
-            System.out.println( "\nCache Command  : SET Message" );
-            System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
-
-            // Demonstrate "SET Message" executed as expected...
-            System.out.println( "\nCache Command  : GET Message" );
-            System.out.println( "Cache Response : " + jedis.get("Message"));
-
-            // Get the client list, useful to see if connection list is growing...
-            System.out.println( "\nCache Command  : CLIENT LIST" );
-            System.out.println( "Cache Response : " + jedis.clientList());
 
             jedis.close();
         }
@@ -228,7 +165,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
     ---
 
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed.
+    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` commands are also executed.
 
 1. Close the **App.java** file.
 
@@ -240,7 +177,7 @@ Execute the following Maven command to build and run the app:
 mvn compile exec:java -D exec.mainClass=example.demo.App
 ```
 
-In the following output, you can see that the `Message` key previously had a cached value. The value was updated to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
+In the following output, you can see that the `Message` key previously had a cached value. The value was updated to a new value using `jedis.set`. The app also executed the `PING` commands.
 
 ```output
 Cache Command  : Ping
@@ -255,8 +192,6 @@ Cache Response : OK
 Cache Command  : GET Message
 Cache Response : Hello! The cache is working from Java!
 
-Cache Command  : CLIENT LIST
-Cache Response : id=777430 addr=             :58989 fd=22 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 ow=0 owmem=0 events=r cmd=client numops=6
 ```
 
 [!INCLUDE [redis-cache-resource-group-clean-up](includes/redis-cache-resource-group-clean-up.md)]

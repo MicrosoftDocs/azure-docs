@@ -4,8 +4,8 @@ description: Introduction to core concepts for Apache Spark in Azure Synapse Ana
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: overview
-author: guyhay
-ms.author: guyhay
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 04/02/2024 
 ---
 
@@ -21,17 +21,17 @@ A serverless Apache Spark pool is created in the Azure portal. It's the definiti
 
 As there's no dollar or resource cost associated with creating Spark pools, any number can be created with any number of different configurations. Permissions can also be applied to Spark pools allowing users only to have access to some and not others.
 
-A best practice is to create smaller Spark pools that may be used for development and debugging and then larger ones for running production workloads.
+A best practice is to create smaller Spark pools that for development and debugging and then larger ones for running production workloads.
 
 You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Azure Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## Spark instances
 
-Spark instances are created when you connect to a Spark pool, create a session, and run a job. As multiple users may have access to a single Spark pool, a new Spark instance is created for each user that connects.
+Spark instances are created when you connect to a Spark pool, create a session, and run a job. As multiple users can have access to a single Spark pool, a new Spark instance is created for each user that connects.
 
 When you submit a second job, if there's capacity in the pool, the existing Spark instance also has capacity. Then, the existing instance processes the job. Otherwise, if capacity is available at the pool level, a new Spark instance is created.
 
-Billing for the instances starts when the Azure VM(s) starts. Billing for the Spark pool instances stops when pool instances change to terminating. For more information on how Azure VMs are started and deallocated, see [States and billing status of Azure Virtual Machines](/azure/virtual-machines/states-billing).
+Billing for the instances starts when the Azure virtual machine starts. Billing for the Spark pool instances stops when pool instances change to terminating. For more information on how Azure VMs are started and deallocated, see [States and billing status of Azure Virtual Machines](/azure/virtual-machines/states-billing).
 
 ## Examples
 
@@ -40,7 +40,7 @@ Billing for the instances starts when the Azure VM(s) starts. Billing for the Sp
 - You create a Spark pool called SP1; it has a fixed cluster size of 20 medium nodes
 - You submit a notebook job, J1 that uses 10 nodes, a Spark instance, SI1 is created to process the job
 - You now submit another job, J2, that uses 10 nodes because there's still capacity in the pool and the instance, the J2, is processed by SI1
-- If J2 had asked for 11 nodes, there wouldn't have been capacity in SP1 or SI1. In this case, if J2 comes from a notebook, then the job is rejected; if J2 comes from a batch job, it is queued.
+- If J2 had asked for 11 nodes, there wouldn't have been capacity in SP1 or SI1. In this case, if J2 comes from a notebook, then the job is rejected; if J2 comes from a batch job, it's queued.
 - Billing starts at the submission of notebook job J1.
   - The Spark pool is instantiated with 20 medium nodes, each with 8 vCores, and typically takes ~3 minutes to start. 20 x 8 = 160 vCores.
   - Depending on the exact Spark pool start-up time, idle timeout and the runtime of the two notebook jobs; the pool is likely to run for between 18 and 20 minutes (Spark pool instantiation time + notebook job runtime + idle timeout).
@@ -70,7 +70,7 @@ Billing for the instances starts when the Azure VM(s) starts. Billing for the Sp
   - Depending on the exact Spark pool start-up time, the ide timeout and the runtime of the first, and third notebook job; The SI1 pool is likely to run for between 18 and 20 minutes (Spark pool instantiation time + notebook job runtime + idle timeout).
   - Another Spark pool SI2 is instantiated with 20 medium nodes, each with 8 vCores, and typically takes ~3 minutes to start. 20 x 8, 160 vCores
   - Depending on the exact Spark pool start-up time, the ide timeout and the runtime of the first notebook job; The SI2 pool is likely to run for between 18 and 20 minutes (Spark pool instantiation time + notebook job runtime + idle timeout).
-  - Assuming the two pools run for 20 minutes each, 160 x .03 x 2 = 96 vCore hours.
+  - Assuming the two pools run for 20 minutes each, 160 x 0.03 x 2 = 96 vCore hours.
   - Note: vCore hours are billed per minute and vCore pricing varies by Azure region. For more information, see [Azure Synapse Pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing)
 
 ## Quotas and resource constraints in Apache Spark for Azure Synapse
@@ -97,7 +97,7 @@ The following article describes how to request an increase in workspace vCore qu
 
 ### Spark pool level
 
-When you define a Spark pool you're effectively defining a quota per user for that pool, if you run multiple notebooks, or jobs or a mix of the 2 it's possible to exhaust the pool quota. If you do, then an error message will be generated
+When you define a Spark pool you're effectively defining a quota per user for that pool, if you run multiple notebooks, jobs, or a mix of the two, it's possible to exhaust the pool quota. If you do, then an error message will be generated
 
 ```console
 Failed to start session: Your Spark job requested xx vCores.

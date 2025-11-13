@@ -16,7 +16,7 @@ In some cases, it may be necessary to process requests in a region different fro
 This article guides you on configuring global data processing settings to comply with data residency laws using multiple approaches including the [Azure Portal](#configure-global-data-processing-in-the-azure-portal), [REST APIs](#configure-global-data-processing-using-rest-api) or an [ARM deployment template](#configure-global-data-processing-using-an-arm-deployment-template). This allows Azure Maps to process address requests within the specified country's region, regardless of your Azure Maps Account's region.
 
 > [!IMPORTANT]
-> If your scenarios don't involve South Korea data, there is no need to enable cross-region processing. This requirement is specific to South Korea due to its data residency laws.
+> If your scenarios don't involve Korean data, there is no need to enable cross-region processing. This requirement is specific to Korea due to its data residency laws.
 
 ## Configure global data processing in the Azure portal
 

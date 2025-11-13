@@ -7,7 +7,9 @@ ms.author: baanders
 ms.date: 06/19/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Create endpoints in Azure Digital Twins
@@ -18,7 +20,7 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
 
 ## Prerequisites
 
-* An Azure account, which you can [set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account, which you can [set up for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Digital Twins instance in your Azure subscription. If you don't have an instance, create one by following the steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup available to use later in this article:
     - Instance name
     - Resource group
@@ -155,7 +157,7 @@ To assign a role to the identity, open the [Azure portal](https://portal.azure.c
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the desired role to the managed identity of your Azure Digital Twins instance. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the desired role to the managed identity of your Azure Digital Twins instance. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |

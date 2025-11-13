@@ -12,11 +12,21 @@ adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 author: cephalin
 ms.author: cephalin
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a .NET developer, I want to deploy a web app to Azure App Services by using my preferred development process.
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - devcenter
+  - vs-azure
+  - devdivchpfy22
+  - devx-track-azurepowershell
+  - devx-track-dotnet
+  - ai-video-demo
+  - devx-track-extended-azdevcli
+  - sfi-image-nochange
 ---
 
 <!-- NOTES:
@@ -51,13 +61,13 @@ Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux 
 
 ### [.NET 8.0](#tab/net80)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload.
 - **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload. Ensure the optional checkbox **.NET Framework project and item templates** is selected.
 - **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
@@ -72,7 +82,7 @@ If you already installed Visual Studio 2022:
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio Code</a>.
 - The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension.
 - <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">The latest .NET 8.0 SDK.</a>
@@ -84,7 +94,7 @@ If you already installed Visual Studio 2022:
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
 - <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">The latest .NET 8.0 SDK.</a>
 - **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -95,7 +105,7 @@ If you already installed Visual Studio 2022:
 :::zone target="docs" pivot="development-environment-ps"
 <!-- markdownlint-enable MD044 -->
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
 - <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">The latest .NET 8.0 SDK.</a>
 
@@ -103,7 +113,7 @@ If you already installed Visual Studio 2022:
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account [Create an account for free](https://github.com/).
 
 :::zone-end

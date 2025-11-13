@@ -7,6 +7,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 10/22/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Manage IoT Central organizations
