@@ -119,7 +119,7 @@ AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-secur
 
 ### Azure Security best practices
 
-AVE recommends following [Microsoft Azure Security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for deploying Azure resources and implementing workloads. some recommendations were implemented as part of the default settings deployed by the AVE Resource Provider or was slightly modified as part of the broader hub-and-spoke network architecture and design patterns of AVE.
+AVE recommends following [Microsoft Azure Security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for deploying Azure resources and implementing workloads.
 
 Customers are also recommended to follow the [Azure security best practices - Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/security-top-10) for organizing their systems, cloud infrastructure, IT personnel and teaming structures, and corporate cybersecurity awareness trainings.
 
