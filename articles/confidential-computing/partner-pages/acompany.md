@@ -2,12 +2,12 @@
 title: Acompany Co., Ltd.
 description: Confidential computing solutions from Acompany on Azure
 services: virtual-machines
-author: reesegifford
+author: magifford
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 11/13/2025
-ms.author: reesegifford
+ms.author: magifford
 # Customer intent: Customers use their technology to operate privacy-preserving data clean rooms for a Fortune Global 500 telecom company, optimize manufacturing analytics, and support mission-critical national security initiatives.
 ---
 # Acompany
