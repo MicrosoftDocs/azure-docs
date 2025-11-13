@@ -21,6 +21,38 @@ Building and running workloads successfully in AVE requires understanding and im
 
 The AVE product group, engineering teams, and field teams developed the following best practices and conceptual articles. The articles were created to help community and enclave owners and developers better understand important concepts and implement the appropriate features.
 
+## Azure setup
+
+Read through these setup steps to determine if these configuration steps fit your use cases for Azure Virtual Enclaves. 
+
+### Configure Network Watcher resource groups
+
+In order to avoid potential issues with [Virtual Network Flow Log](/azure/network-watcher/vnet-flow-logs-overview) creation later on, we recommend you either set up the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app `Owner` on the resource group, or verify that the setup occurred automatically and that permissions were automatically assigned before creating your first enclave in the subscription.
+
+To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` AVE App `Owner` on the NetworkWatcherRG:
+1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
+
+![Screenshot showing resource group add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
+
+2. Select `Privileged administrator roles`, select `owner`, then select `Next`.
+
+![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
+
+3. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
+
+![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
+
+4. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
+
+![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
+
+5. Once the update is complete, proceed to [next steps](#next-steps).
+
+When a Community or Enclave is created, Azure Virtual Enclaves attempts the following steps:
+1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
+2. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
+3. If any step fails, or if any errors occur, enclave deployments might fail when attempting to create virtual network Flow Logs.
+
 ## Networking and Organizational Design Patterns for Azure Virtual Enclaves
 
 ### Multi-tenancy
@@ -29,7 +61,7 @@ The AVE product group, engineering teams, and field teams developed the followin
 
 ### Networking design
 
-AVE brings together the capabilities and flexibility of several Azure networking products in a simplified user interface. These include:
+AVE brings together the capabilities and flexibility of several Azure networking products in a simplified user interface including:
 - Azure Virtual WAN
 - Azure Firewall
 - Azure Virtual Network
@@ -81,13 +113,13 @@ AVE employs a defense-in-depth approach when it comes to cybersecurity. When you
 
 As a service on Azure, AVE also is committed to upholding the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. For AVE specifically, [workloads](./what-workload.md) are the customer's responsibility. Platform shared responsibility is inherited in workloads if the customer deployed PaaS services into their workloads.
 
-Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves use a shared responsibility model where the AVE Resource Provider creates a secured, preconfigured hub-and-spoke network environment for the customer. This network environment can then be managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AVE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
+Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves use a shared responsibility model where the AVE Resource Provider creates a secured, preconfigured hub-and-spoke network environment for the customer. This network environment is then managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AVE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
 
-AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AVE Resource Provider creates a secured, preconfigured list of [Azure Policy initiatives](/azure/virtual-enclaves/aks-initiative) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which overrides the preconfigured list for the workload. Despite this, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
+AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AVE Resource Provider creates a secured, preconfigured list of [Azure Policy initiatives](/azure/virtual-enclaves/aks-initiative) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which overrides the preconfigured list for the workload. Despite the policy requirements, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
 
 ### Azure Security best practices
 
-AVE recommends following [Microsoft Azure Security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for deploying Azure resources and implementing workloads. Certain exclusions to the general rule apply where the recommendation was implemented as part of the default settings deployed by the AVE Resource Provider or was slightly modified as part of the broader hub-and-spoke network architecture and design patterns of AVE.
+AVE recommends following [Microsoft Azure Security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for deploying Azure resources and implementing workloads. some recommendations were implemented as part of the default settings deployed by the AVE Resource Provider or was slightly modified as part of the broader hub-and-spoke network architecture and design patterns of AVE.
 
 Customers are also recommended to follow the [Azure security best practices - Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/security-top-10) for organizing their systems, cloud infrastructure, IT personnel and teaming structures, and corporate cybersecurity awareness trainings.
 
@@ -237,8 +269,8 @@ The workload is linked to one or more resource groups where you can create and o
 Adding a new resource group normally requires the user to have permissions to create a new resource group. Subscription `Owner` or `Contributor` roles have this permission but the person creating the workload resource group might not have or need this privileged permission. Azure Virtual Enclaves attempts three ways to create the new resource group, by following a tiered approach, ranging from the highest to lowest user permission requirements, offering flexibility for the user:
 
 - Option 1: Requires the most privileged permissions for the individual creating or updating the workload, providing full control but necessitating elevated access.
-- Option 2: Involves manual intervention by the user to [grant our `Mission Enclave` app ownership at the subscription level](./onboard.md), which might not align with all customers’ preferences.
-- Option 3: Requires no permissions for either the user or our FPA, making it the easiest method but imposing a strict 1:1 relationship between the resource group and workload.
+- Option 2: Involves manual intervention by the user to [grant our `Mission Enclave` application ownership at the subscription level](./onboard.md), which might not align with all customers’ preferences.
+- Option 3: Requires no permissions for either the user or the `Mission Enclave` application, making it the easiest method but imposing a strict 1:1 relationship between the resource group and workload.
 
 Each option has benefits and limitations, balancing control, convenience, and flexibility to fit varying needs. These options are each evaluated starting with Option 1 and the first option to succeed is used to create the new resource group.
 
