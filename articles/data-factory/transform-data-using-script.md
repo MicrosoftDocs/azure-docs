@@ -167,6 +167,37 @@ Sample output:
 
 Inline scripts integrate well with Pipeline CI/CD since the script is stored as part of the pipeline metadata.
 
+> [!NOTE]
+> When you define parameters in a Script activity, each parameter must be explicitly referenced in the query text to be passed at runtime.  
+> 
+> For example:
+> 
+> ```json
+> {
+>   "type": "Script",
+>   "typeProperties": {
+>     "scripts": [
+>       {
+>         "type": "Query",
+>         "text": "EXEC dbo.my_procedure @param1 = @param1",
+>         "parameters": [
+>           {
+>             "name": "param1",
+>             "type": "String",
+>             "value": {
+>               "value": "@pipeline().parameters.myValue",
+>               "type": "Expression"
+>             },
+>             "direction": "Input"
+>           }
+>         ]
+>       }
+>     ]
+>   }
+> }
+> ```
+
+
 ### Logging
 
 :::image type="content" source="media/transform-data-using-script/logging-settings.png" alt-text="Screenshot showing the UI for the logging settings for a script.":::
