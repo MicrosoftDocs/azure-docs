@@ -33,7 +33,7 @@ Highlights:
 Learn more: [AutoPrivacy DataCleanRoom](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/acompany.autoprivacy-datacleanroom).
 
 
-## Research behind our prodcuts
+## Research behind our products
 Our work on nested attestation for confidential serverless computing on Intel® SGX is the foundation of DCR’s trust model. Unlike approaches that rely on sandboxing inside the enclave, we use Key Separation and Sharing (KSS) to bind workloads to immutable enclave IDs and prevent reuse. This helps DCR verify each component and maintain a clear chain of trust.
 
 Read the paper with Intel Labs: ["Securing Nested Attestation of Confidential Serverless Computing without Intra-Enclave Isolation"](https://eprint.iacr.org/2025/727).
