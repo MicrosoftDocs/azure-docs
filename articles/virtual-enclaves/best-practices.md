@@ -46,7 +46,7 @@ To mitigate this potential issue, for each subscription, manually create the Net
 
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 
-5. Once the update is complete, proceed to [next steps](#next-steps).
+5. Once the update is complete, you can start deploying Azure Virtual Enclaves resources.
 
 When a Community or Enclave is created, Azure Virtual Enclaves attempts the following steps:
 1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
