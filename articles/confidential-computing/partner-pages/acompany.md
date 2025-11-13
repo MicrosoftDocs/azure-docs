@@ -28,7 +28,7 @@ DCR implements Acompany’s nested attestation to verify trust — from the Azur
 Highlights:
 - Confidential by design: Workloads run inside hardware-based enclaves to protect data in use.
 - Fast adoption: Integrates with current analytics and marketing stacks; no need to re-platform.
-- Enterprise - proven: In production with a Fortune Global 500 company.
+- Enterprise-proven: In production with a Fortune Global 500 company.
 
 Learn more: [AutoPrivacy DataCleanRoom](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/acompany.autoprivacy-datacleanroom).
 
