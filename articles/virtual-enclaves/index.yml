@@ -84,7 +84,7 @@ landingContent:
             url: create-enclave-portal.md
           - text: Create an enclave endpoint
             url: create-enclave-endpoint-portal.md
-          - text: Create an enclave 
+          - text: Create an enclave connection
             url: create-enclave-connection-portal.md
           - text: Create a workload
             url: create-workload-portal.md

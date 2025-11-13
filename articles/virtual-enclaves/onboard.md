@@ -78,37 +78,9 @@ $resourceProviders = @(
 
 $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ -Verbose}
 
-$subID = (Get-AzContext).subscription.id
-$objectId = (Get-AzADServicePrincipal -DisplayName "Mission Enclave").Id
-# This Powershell command assigns the "Contributor" role to a specified user or service principal within a given Azure subscription.
-# 
-# Parameters:
-# - $objectId: The Object ID of the user or service principal to which the role will be assigned.
-# - $subId: The subscription ID where the role assignment will take place.
-# 
-# The -Verbose flag is used to provide detailed information about the execution of the command.
-New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "Contributor" -Scope "/subscriptions/$subId" -Verbose
-New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Administrator" -Scope "/subscriptions/$subId" -Verbose  
-
 ```
 
-5. Select the subscription `Access control (IAM)` then select `Add` and `Add role assignment`.
-
-![Screenshot showing add role selection in the portal.](./media/onboard-subscription-add-role.png)
-
-6. Select `Privileged administrator roles`, select `owner`, then select `Next`.
-
-![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
-
-7. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
-
-![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-
-8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
-
-![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-
-9. Once the update is complete, proceed to [next steps](#next-steps).
+5. Once the update is complete, proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
 ### Option 2: Azure portal
 
@@ -123,70 +95,31 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 
    ![Screenshot showing the Microsoft.Mission resource provider registered successfully.](./media/onboard-mission-registered.png)
 
-5. Select the subscription `Access control (IAM)` then select `Add` and `Add role assignment`.
-
-![Screenshot showing add role selection in the Azure portal.](./media/onboard-subscription-add-role.png)
-
-6. Select `Privileged administrator roles`, select `owner`, then select `Next`.
-
-![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
-
-7. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
-
-![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-
-8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
-
-![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-
-9. Once the update is complete, proceed to [next steps](#next-steps).
+5. Proceed to [Azure setup best practices](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
 For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
 
+## Transition steps for preview customers
 
-## Azure setup
+Customers who used Azure Virtual Enclaves before November 2025 need to re-register the Azure Virtual Enclaves resource provider so your subscriptions can use the latest API with the latest features and improvements.
 
-Read through these setup steps to determine if these configuration steps fit your use cases for Azure Virtual Enclaves.
-
-### Configure Network Watcher resource groups
-
-In order to avoid potential issues with [Virtual Network Flow Log](/azure/network-watcher/vnet-flow-logs-overview) creation later on, we recommend you either set up the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app `Owner` on the resource group, or verify that the setup occurred automatically and that permissions were automatically assigned before creating your first enclave in the subscription.
-
-To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` AVE App `Owner` on the NetworkWatcherRG:
-1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
-
-![Screenshot showing resource group add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
-
-2. Select `Privileged administrator roles`, select `owner`, then select `Next`.
-
-![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
-
-3. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
-
-![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-
-4. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
-
-![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-
-5. Once the update is complete, proceed to [next steps](#next-steps).
-
-When a Community or Enclave is created, Azure Virtual Enclaves attempts the following steps:
-1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
-2. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
-3. If any step fails, or if any errors occur, enclave deployments might fail when attempting to create virtual network Flow Logs.
+Complete these steps to use the latest Virtual Enclaves API:
+1. In the Azure portal, navigate to your subscription.
+2. Open the `Resource Providers` on the left side under `Settings`.
+3. Search for and select `Microsoft.Mission` and select `Re-register`.
+4. Repeat these steps for any more subscriptions.
 
 ## Next Steps
 
 Now the Azure Virtual Enclaves resource provider can begin deploying Azure Virtual Enclaves resources into your subscription on your behalf.
 
-  - Use the following guides and start building your Virtual Enclaves Community:
+  - Start building your Virtual Enclaves Community:
 
     - [Create a community](./create-community-portal.md)
     - [Create an enclave](./create-enclave-portal.md)
     - [Create a workload](./create-workload-portal.md)
 
-  - Use the following guides to establish network connectivity within your Community
+  - Establish network connectivity within your Community
 
     - [Create an Enclave Endpoint](./create-enclave-endpoint-portal.md)
     - [Create an enclave connection](./create-enclave-connection-portal.md)

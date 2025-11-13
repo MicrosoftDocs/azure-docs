@@ -65,6 +65,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 ## Join a domain (optional)
 1. Should you choose to Domain Join your RemoteApp, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
 2. For the `Active Directory` Domain join options, see the following examples
+
    > [!NOTE]
    > 
    > If the domain controller is inside an enclave, you need an enclave endpoint for the enclave with the domain controller to allow domain joining in the domain controller subnet, `TCP, UDP` protocols, and these ports `53,88,135,138,139,389,443,445,464,636,686,3268`.
@@ -139,11 +140,13 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
             - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm.md) of the container.
-            - For `App folder in private container` select "true". If it is a private container, this enables reader role access to the storage account via the VM. 
+            - For `App folder in private container` select "true". If it is a private container, this enables reader role access to the storage account via the VM.
+
         > [!NOTE] 
         > 
         > If in Microsoft Azure for U.S. Government, do the following steps: 
         > For the `AzCopy File URI` add the URI to the azcopy.exe from the container.
+
     7. Select `Review + Create`, if all validations passed, select `Create`.
 
 Otherwise, start using the RemoteApp VM 

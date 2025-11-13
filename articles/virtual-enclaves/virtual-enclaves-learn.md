@@ -13,16 +13,16 @@ If you're new to Azure Virtual Enclaves (AVE), this article helps introduce core
 
 ## Visualize Azure Virtual Enclaves
 
-You can think of a Virtual Enclaves environment as a connection of network resources or as an organization of resource groups. Both can be helpful depending on your role and goals.
+You can think of a Virtual Enclaves environment as a connection of network resources or as an organization of resource groups. Both are correct and can be helpful when visualizing a Virtual Enclaves environment depending on your role and goals.
 
 ### Network diagram
 
-This diagram shows networking connections within Azure Virtual Enclaves. The diagram should look similar to a typical hub and spoke network.
+This diagram shows networking connections within Azure Virtual Enclaves. The diagram should look similar to a typical hub and spoke network. The community Virtual WAN is the hub and each enclave is a spoke off of that hub. 
 
 [ ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.png) ](./media/mermaid-virtual-enclaves-network-links.png#lightbox)
 
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the graph PNG image.
+This is the mermaid definition for the above graph. Use this to edit and regenerate the PNG image.
 
 ```mermaid
 ---
