@@ -26,6 +26,9 @@ Verify that you have the following configuration already set up in your environm
 * A Virtual WAN and a virtual hub.
 * A site-to-site VPN gateway deployed in the virtual hub.
 * You can also have connections connecting VPN sites to your site-to-site VPN gateway.
+* A publically acessible Azure Storage Account.
+* Private Endpoints for Blob Storage will not work for Azure VWAN VPN Gateway packet captures, as the DNS for the VPN Gateway can not be modified by the customer. 
+* Serive Endpoints are not a valid connectivity method for Azure VWAN VPN Gateway packet captures as they can not be enabled on the Gateway subnet.
 
 ### Working with Azure PowerShell
 
