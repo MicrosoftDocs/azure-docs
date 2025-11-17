@@ -21,6 +21,9 @@ VMware vSphere Replication is VMware's hypervisor-based replication technology f
 
 > [!NOTE]
 > The current version of VMware Live Site Recovery in Azure VMware Solution is 9.0.2.1.
+>
+> [!NOTE]
+> Broadcom has announced external storage as a source or target for vSphere Replication in VMware Live Site Recovery with Hyperscalers. Azure VMware Solutions is currently testing and ensuring VLSR is operating and performing as expected with non vSAN based Azure 1P storage solutions. More details will be published soon."
 
 ## Supported scenarios
 
