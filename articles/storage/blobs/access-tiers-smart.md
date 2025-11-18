@@ -28,6 +28,7 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 - When a GZRS account fails over, convert the LRS account to zone-redundant within 60 days to continue Smart tier support. 
 - Smart tier characteristics might change during or after the public preview phase.
 - Smart tier monitoring operations are billed based on the price displayed on the Azure pricing pages. This pricing will go into effect starting January 1, 2026.
+- The metrics view for smart tiered objects might display incomplete or wrong tiers until the first object in the subscription is tiered down by smart tier.
 
 ## Enabling smart tier
 Enable access to the smart tier public preview by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
@@ -57,11 +58,11 @@ Versions and snapshots are billed full content length in current public preview 
 
 
 ## Client Tooling
-The Azure portal supports the current smart tier public preview. Smart tier requires the following minimum versions of REST, SDKs, and tools.
+The Azure portal supports the current smart tier public preview. Smart tier requires the following minimum versions of REST, SDKs, and tools for account level tiering.
 
 | Environment | Minimum version |
 |---|---|
-| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-08-01 |
+| [REST API](/rest/api/storagerp/storage-accounts?view=rest-storagerp-2025-06-01)| 2025-06-01 |
 
 
 ## Next steps
