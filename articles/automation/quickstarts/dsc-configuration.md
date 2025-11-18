@@ -4,7 +4,7 @@ description: This article helps you get started configuring an Azure VM with Des
 services: automation
 ms.subservice: desired-state-config
 keywords: dsc, configuration, automation
-ms.date: 08/08/2024
+ms.date: 11/17/2025
 ms.topic: quickstart
 ms.custom: mvc, mode-other
 ms.service: azure-automation

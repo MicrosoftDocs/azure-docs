@@ -77,7 +77,7 @@ To deploy an Azure Migrate appliance to discover on-premises servers, follow the
 
 After the appliance begins discovering servers, you can group the servers you want to assess and run an assessment for the group with the assessment type **Azure VMware Solution (AVS)**.
 
-Follow these steps to create your first [Azure VMware Solution assessment]((how-to-create-azure-vmware-solution-assessment.md)
+Follow these steps to create your first [Azure VMware Solution assessment](how-to-create-azure-vmware-solution-assessment.md).
 
 ## What data does the appliance collect?
 

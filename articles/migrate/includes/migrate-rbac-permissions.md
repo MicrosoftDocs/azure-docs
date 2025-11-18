@@ -15,3 +15,5 @@ Assign the following built-in roles to prepare Azure accounts. To create an Azur
 | 3 | Azure Migrate Execute Expert | Grants **restricted access on an Azure Migrate project** to only perform **migration related operations**,  including replication, executing test migrations, tracking and monitoring migration progress, and performing agentless and agent-based migrations. | 1cfa4eac-9a23-481c-a793-bfb6958e836b | Source resource group or subscription where **Azure Migrate project is created**; **Target resource group or subscription** where servers and workloads are migrated to. |
 
 To register an Azure Migrate appliance or an Azure Site Recovery replication appliance, users must have additional Application Developer role at Microsoft Entra ID level. 
+Refer [this article](../prepare-azure-accounts.md) to prepare Azure accounts.
+

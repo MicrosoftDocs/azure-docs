@@ -4,7 +4,7 @@ description: Learn how to enable Microsoft Entra Kerberos authentication over SM
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 10/31/2025
 ms.author: kendownie
 recommendations: false
 ms.custom: sfi-ga-nochange
@@ -17,7 +17,7 @@ Many organizations want to use identity-based authentication for SMB Azure file 
 
 In such scenarios, customers can enable Microsoft Entra Kerberos authentication for hybrid user identities and then establish a cloud trust between their on-premises AD DS and Microsoft Entra ID to access SMB file shares using their on-premises credentials. This article explains how a cloud trust works, and provides instructions for setup and validation. It also includes steps to rotate a Kerberos key for your service account in Microsoft Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
 
-This article focuses on authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). **Cloud-only identities aren't currently supported for Azure Files**.
+This article focuses on authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md).
 
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |

@@ -116,6 +116,10 @@ During onboarding, your data lake is provisioned in the same [region](/azure/sen
 
 You must connect your Microsoft Sentinel primary workspace to the Defender portal to onboard to the data lake. Your data lake is located in the same region as your primary Sentinel workspace. You can connect other workspaces in the same region as your primary workspace to the Defender portal so you can use them with the data lake. If you onboarded to the data lake, data in Microsoft Sentinel workspaces that are connected to Defender and enabled for use with the data lake. For more information on how to connect Microsoft Sentinel to the Defender portal, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
+## Offboard from Microsoft Sentinel data lake and graph
+
+To disable Microsoft Sentinel data lake and graph, [submit a support request](/defender-xdr/contact-defender-support).
+
 ## Ready to get started?
 
 For step-by-step guidance to onboard and configure Microsoft Sentinel data lake and graph in Microsoft solutions, see the following articles:

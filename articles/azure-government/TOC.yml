@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Government?
     href: documentation-government-welcome.md
+  - name: Azure Government product General Availability
+    href: documentation-government-product-roadmap.md
   - name: Compare Azure Government and global Azure
     href: compare-azure-government-global-azure.md
 - name: Quickstarts

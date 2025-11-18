@@ -57,8 +57,6 @@ Besides the reference documentation, you can use the following tutorials to get 
 - [Code an ASP.NET web app](../redis/web-app-cache-howto.md)
 - [Code an ASP.NET Core web app](../redis/web-app-aspnet-core-howto.md)
 - [Code a Java app](../redis/java-get-started.md)
-- [Code a Node.js app](../redis/nodejs-get-started.md)
-- [Code a Python app](../redis/python-get-started.md)
 
 ## Best practices for Redisson (Java)
 

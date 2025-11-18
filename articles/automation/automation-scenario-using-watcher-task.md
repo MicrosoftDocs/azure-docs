@@ -4,7 +4,7 @@ description: This article tells how to create a watcher task in the Azure Automa
 services: automation
 ms.subservice: process-automation
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 11/17/2025
 ms.service: azure-automation
 ms.author: v-jasmineme
 author: jasminemehndir

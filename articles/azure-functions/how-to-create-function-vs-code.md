@@ -3,6 +3,7 @@ title: Create and deploy function code to Azure using Visual Studio Code
 description: Learn how to create a function, then publish the local code project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 09/25/2025
+ms.update-cycle: 180-days
 ms.custom: 
   - mode-api
   - vscode-azure-extension-update-complete

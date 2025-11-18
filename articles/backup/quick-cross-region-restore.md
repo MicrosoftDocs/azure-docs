@@ -2,7 +2,7 @@
 title: Quickstart - Restore a PostgreSQL database across regions using Azure Backup 
 description: Learn how to restore a PostgreSQL database across regions by using Azure Backup.
 ms.topic: quickstart
-ms.date: 11/22/2024
+ms.date: 11/12/2025
 ms.service: azure-backup
 ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to enable Cross Region Restore for my PostgreSQL database, so that I can ensure data availability and perform restoration drills in case of regional failures or compliance audits."
@@ -12,7 +12,7 @@ ms.author: v-mallicka
 
 This quickstart describes how to enable Cross Region Restore on your Backup vault to restore the data to an alternate region when the primary region is down. 
 
-The Cross Region Restore option allows you to restore data in a secondary [Azure paired region](/azure/reliability/cross-region-replication-azure) even when no outage occurs in the primary region; thus, enabling you to perform drills when there's an audit or compliance requirement.
+With Cross Region Restore, you can restore data to a secondary [Azure paired region](/azure/reliability/cross-region-replication-azure) at any time. This feature allows you to perform drills for audits or compliance, even if the primary region is working normally.
 
 > [!NOTE]
 >- Currently, Geo-redundant Storage (GRS) vaults with Cross Region Restore enabled can't be changed to Zone-redundant Storage (ZRS) or Locally redundant Storage (LRS) after the protection starts for the first time.
@@ -25,7 +25,7 @@ To begin with the Cross Region Restore, ensure that:
 - A Backup vault with Cross Region Restore configured. [Create one](./create-manage-backup-vault.md#create-a-backup-vault) in case you don’t a Backup vault. 
 - PostgreSQL database is protected by using Azure Backup, and one full backup is run. To protect and back up a database, see [Back up Azure Database for PostgreSQL server](backup-azure-database-postgresql.md). 
 
-## Restore the database using Azure portal  
+## Restore the PostgreSQL database using Azure portal  
 
 To restore the database to the secondary region using the Azure portal, follow these steps:
 

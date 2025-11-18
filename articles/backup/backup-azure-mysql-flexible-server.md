@@ -2,7 +2,7 @@
 title: Back Up an Azure Database for MySQL Flexible Server by Using Azure Backup
 description: Learn how to back up an Azure Database for MySQL flexible server.
 ms.topic: how-to
-ms.date: 11/21/2024
+ms.date: 11/18/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to configure and manage backup policies for Azure Database for MySQL Flexible Server, so that I can ensure data protection and meet compliance requirements through scheduled and on-demand backups."
@@ -14,11 +14,13 @@ ms.author: v-mallicka
 
 This article describes how to back up your Azure Database for MySQL flexible server by using Azure Backup.
 
-Here are important considerations for this preview feature:
+## Considerations for Azure Database for MySQL - Flexible Server backup
+
+Before you start configuring backups for your Azure Database for MySQL flexible server, review the following important considerations for this preview feature:
 
 - Currently, this feature supports only the *weekly backup* option. However, you can schedule the backups on multiple days of the week.
 
-- Retention duration ranges from 7 days to 10 years in the backup data store.
+- Retention duration ranges from seven days to 10 years in the backup data store.
 
 - Each retention rule requires inputs for specific backups, data store, and retention duration for the backups.
 
@@ -26,7 +28,7 @@ Here are important considerations for this preview feature:
 
   Default retention settings are applied when no other rules qualify. For example, the same recovery point might be the first successful backup taken every week in addition to the first successful backup taken every month. However, because the priority of the monthly rule is higher than the priority of the weekly rule, the retention that corresponds to the first successful backup taken every month applies.
 
-- By default, the retention rule is set to 3 months if no retention rule is set.
+- By default, the retention rule is set to three months if no retention rule is set.
   
 Learn more about the [supported scenarios, considerations, and limitations](backup-azure-mysql-flexible-server-support-matrix.md).
 
@@ -78,7 +80,7 @@ To configure a backup, follow these steps:
 
 3. Select the Azure Database for MySQL - Flexible Server instance to back up.
 
-   You can choose an Azure Database for MySQL flexible server across subscriptions if it's in the same region as that of the vault.
+   You can choose an Azure Database for MySQL flexible server across subscriptions if it's in the same region as the vault.
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/datasources-select-resources.png" alt-text="Screenshot that shows the selection of a database server for a backup." lightbox="./media/backup-azure-mysql-flexible-server/datasources-select-resources.png":::
 
@@ -98,7 +100,7 @@ To configure a backup, follow these steps:
 
    To track the progress, go to **Backup Instances**.
 
-## Run an on-demand backup
+## Run an on-demand backup for Azure Database for MySQL - Flexible Server
 
 To trigger an on-demand backup (a backup that's not in the schedule specified in the policy), follow these steps:
 
@@ -112,7 +114,7 @@ To trigger an on-demand backup (a backup that's not in the schedule specified in
 
 4. Select **Backup now**.
 
-## Monitor a backup job
+## Monitor a backup job for Azure Database for MySQL - Flexible Server
 
 Azure Backup creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job's status, go to **Backup jobs**.
 
@@ -124,7 +126,7 @@ To view the status of all backup jobs, select **All** for **Status**. The ongoin
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server/review-track-backup-jobs.png" alt-text="Screenshot that shows how to view all jobs." lightbox="./media/backup-azure-mysql-flexible-server/review-track-backup-jobs.png":::
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Restore an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server-restore.md)

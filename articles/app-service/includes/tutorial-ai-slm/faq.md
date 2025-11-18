@@ -2,7 +2,7 @@
 author: cephalin
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 05/07/2025
+ms.date: 11/18/2025
 ms.author: cephalin
 ms.custom:
   - build-2025

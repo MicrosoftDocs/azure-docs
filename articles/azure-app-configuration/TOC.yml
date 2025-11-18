@@ -111,6 +111,8 @@
     items:
     - name: App Service & Azure Functions
       href: /azure/app-service/app-service-configuration-references
+    - name: Azure Front Door
+      href: how-to-connect-azure-front-door.md
   - name: Deployment
     items:
     - name: Overview
@@ -278,8 +280,6 @@
     href: concept-preview-api-life-cycle.md
 - name: Security
   items:
-  - name: Overview
-    href: secure-azure-app-configuration.md
   - name: Authentication
     items:
     - name: Microsoft Entra ID

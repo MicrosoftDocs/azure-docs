@@ -51,7 +51,7 @@
           href: storage-files-identity-auth-domain-services-enable.md
       - name: Microsoft Entra Kerberos authentication
         items:
-        - name: Enable authentication for hybrid identities
+        - name: Enable authentication for hybrid or cloud-only identities
           href: storage-files-identity-auth-hybrid-identities-enable.md
         - name: Enable authentication for hybrid identities on legacy clients
           href: storage-files-identity-auth-hybrid-cloud-trust.md

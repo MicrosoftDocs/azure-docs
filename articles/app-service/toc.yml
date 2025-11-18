@@ -9,6 +9,8 @@ items:
     href: environment/overview.md
   - name: Compare web hosting options
     href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Managed Instance overview
+    href: overview-managed-instance.md
 - name: Integrate AI with App Service
   href: overview-ai-integration.md
 - name: Get started
@@ -51,6 +53,9 @@ items:
         href: app-service-asp-net-migration.md
       - name: Migrate containerized .NET
         href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
+      - displayName: Migrate legacy apps with Managed Instance
+        name: Migrate to Managed Instance
+        href: quickstart-managed-instance.md
     - name: AI
       items:
         - name: Chatbot with OpenAI
@@ -218,6 +223,10 @@ items:
         href: wordpress-faq.md
 - name: Deployment and configuration
   items:
+    - name: Deploy Managed Instance
+      href: quickstart-managed-instance.md
+    - name: Configure a Managed Instance
+      href: configure-managed-instance.md
     - name: Deployment best practices
       href: deploy-best-practices.md
     - name: Deploy using ARM template

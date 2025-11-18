@@ -68,6 +68,8 @@ The following table describes the metrics available for Azure Route Server monit
 | [BGP Peer Status](#bgp) | Scalability | Count | Maximum | BGP availability from Route Server to Peer | BGP Peer IP, BGP Peer Type, Route Server Instance | Yes |
 | [Count of Routes Advertised to Peer](#advertised) | Scalability | Count | Maximum | Count of routes advertised from Route Server to Peer | BGP Peer IP, BGP Peer Type, Route Server Instance | Yes |
 | [Count of Routes Learned from Peer](#received) | Scalability | Count | Maximum | Count of routes learned from Peer | BGP Peer IP, BGP Peer Type, Route Server Instance | Yes | 
+| Routing Infrastructure Units | Scalability | Count | Maximum | Total number of routing infrastructure units, which represents Route Server's capacity | none | No | 
+| Spoke VM Utilization | Scalability | Percent | Maximum | Number of deployed spoke VMs as a percentage of the total number of spoke VMs that Route Server's routing infrastructure units can support | none | No | 
 
 > [!IMPORTANT]
 > Azure Monitor includes a metric called **Data Processed by the Virtual Hub Router** that appears in Route Server monitoring. This metric doesn't apply to Route Server and should be ignored when monitoring your deployment.

@@ -38,7 +38,7 @@ Together, the media connector, connector for ONVIF, Azure IoT Operations, and co
 - Defect detection and quality assurance by cameras to detect any defects in products on the assembly line.
 - Safety monitoring such as collision detection, safety zone detection, and personal safety equipment detection.
 
-This article describes how to use the operations experience web UI to:
+This article describes how to use the operations experience web UI and Azure CLI to:
 
 - Add a device that has an ONVIF endpoint for a compliant camera.
 - View the assets and devices discovered at the ONVIF endpoint.
@@ -53,20 +53,11 @@ To establish a TLS connection to the ONVIF camera, you can configure a certifica
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+[!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
 An ONVIF compliant camera that you can reach from your Azure IoT Operations cluster.
-
-## Manage and control cameras
-
-The connector for ONVIF enables you to:
-
-- Read camera information and capabilities.
-- Discover the media URIs exposed by the ONVIF camera.
-- Configure ONVIF devices, for example by updating setting or selecting presets.
-- Control the camera hardware by using PTZ commands.
 
 ## ONVIF compliance
 
@@ -99,7 +90,7 @@ To add a device that includes an ONVIF endpoint for a compliant camera:
 
     :::image type="content" source="media/howto-use-onvif-connector/list-devices.png" alt-text="Screenshot that shows the list of devices in the operations experience." lightbox="media/howto-use-onvif-connector/list-devices.png":::
 
-1. Select **Create new**. On the **Device details** page, enter a name for the device such as `my-onvif-camera`. Then select **New** on the **Microsoft.Onvif** tile. Enter the details for your ONVIF camera, such as:
+1. Select **Create new**. On the **Device details** page, enter a name for the device such as `my-onvif-camera`. To define the inbound endpoint, select **New** on the **Microsoft.Onvif** tile. Enter the details for your ONVIF camera, such as:
 
     :::image type="content" source="media/howto-use-onvif-connector/add-onvif-endpoint.png" alt-text="Screenshot that shows how to add an ONVIF endpoint to a device." lightbox="media/howto-use-onvif-connector/add-onvif-endpoint.png":::
 
@@ -147,7 +138,7 @@ To use the `Username password` authentication mode, complete the following steps
 
 To manage the trusted certificates list for the connector for ONVIF, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
 
-When you create the inbound endpoint, you can also select:
+When you create the inbound endpoint in the operations experience, you can also select the following options on the **Advanced** tab:
 
 | Option | Type | Description |
 | ------ | ---- | ----------- |
@@ -155,15 +146,18 @@ When you create the inbound endpoint, you can also select:
 | **Accept invalid certificates** | Yes/No | Accept invalid certificates for the ONVIF connection, defaults to **No** |
 | **Fallback to username token auth** | Yes/No | Fall back to **UsernameToken** authentication if digest authentication fails for the ONVIF connection, defaults to **No** |
 
+> [!TIP]
+> For more information about how to use the Azure CLI to configure these settings, see the [az iot ops ns device endpoint inbound add](/cli/azure/iot/ops/ns/device/endpoint/inbound/add) command reference.
+
 ## View the discovered assets and devices
 
-After you create a device with an ONVIF endpoint, the connector for ONVIF automatically discovers the assets and devices that are available at the endpoint. To view the discovered assets and devices in the operations experience web UI, select **Discovery** from the left navigation pane:
+After you create a device with an ONVIF endpoint, the connector for ONVIF automatically discovers the ONVIF assets and media devices that are available at the endpoint. To view the discovered assets and devices in the operations experience web UI, select **Discovery** from the left navigation pane:
 
 :::image type="content" source="media/howto-use-onvif-connector/discovered-assets.png" alt-text="Screenshot that shows the list of discovered devices and assets in the operations experience." lightbox="media/howto-use-onvif-connector/discovered-assets.png":::
 
-If you choose to **Import and create asset** from the discovered ONVIF asset, you can create an asset that represents the capabilities of the ONVIF compliant camera. For example, you can create an asset that captures events from the ONVIF camera or enables you to control the ONVIF camera. The **Create asset** experience guides you through the process of creating the asset with fields prepopulated with values from the discovered ONVIF asset. For more information, see the section [Create an ONVIF asset for event management and control](#create-an-onvif-asset-for-event-management-and-control).
+- Choose **Import and create asset** from the discovered ONVIF asset to create an asset that represents the capabilities of the ONVIF compliant camera. For example, you can create an asset that captures events from the ONVIF camera or enables you to control the ONVIF camera. For more information, see the section [Create an ONVIF asset for event management and control](#create-an-onvif-asset-for-event-management-and-control).
 
-If you choose to **Import and create asset** from the discovered ONVIF device, you can create a device that connects to the media endpoints exposed by the ONVIF compliant camera. You can then create media assets that capture snapshots or video streams from the media endpoints.
+- Choose **Import and create device** from the discovered ONVIF device to create a device that connects to the media endpoints exposed by the ONVIF compliant camera. After you create the media device, you can create media assets that capture snapshots or video streams from the media endpoints. For more information, see the section [Create a device with media endpoints](#create-a-device-with-media-endpoints).
 
 ## Create a device with media endpoints
 
@@ -171,20 +165,20 @@ To create a device with media endpoints from the discovered device, follow these
 
 1. In the operations experience web UI, select **Discovery** from the left navigation pane. Then select **Discovered devices**.
 
-1. Select the device that you created in the previous section, such as `my-onvif-camera`. Then select **Import and create device**.
+1. Select the discovered media device, such as `my-onvif-camera`. Then select **Import and create device**.
 
 1. The **Device details** page shows all the discovered media inbound endpoints. Enter a name for the device, such as `my-onvif-camera-media`, and select an **Authentication method** for each endpoint:
 
     :::image type="content" source="media/howto-use-onvif-connector/create-media-device.png" alt-text="Screenshot that shows how to create a media device from the discovered ONVIF device." lightbox="media/howto-use-onvif-connector/create-media-device.png":::
 
     > [!TIP]
-    > You can remove an inbound endpoint that you don't want to use by selecting it and then selecting **Remove inbound endpoint**.
+    > You can remove an inbound endpoint that you don't need by selecting it and then selecting **Remove inbound endpoint**.
 
     Then select **Next**.
 
 1. On the **Add custom property** page, you can see the discovered properties. You can optionally update, remove, or add custom properties to the device. Select **Next** when you're done.
 
-1. On the **Summary** page, review the details of the device. Select **Create** to create the device. After a few minutes, the **Devices** page shows the new device.
+1. On the **Summary** page, review the details of the device. Select **Create** to create the device. After a few minutes, the **Devices** page shows the new media device.
 
     :::image type="content" source="media/howto-use-onvif-connector/media-device-created.png" alt-text="Screenshot that shows the media device created in the operations experience." lightbox="media/howto-use-onvif-connector/media-device-created.png":::
 
@@ -200,13 +194,15 @@ You can now use the discovered media device to create an asset that captures sna
 
     Update any custom properties for the media asset and then select **Next**.
 
-1. On the **Streams** page, select **Add stream**. Use the following settings to configure an example stream:
+1. On the **Streams** page, select **Add stream**. Use the following settings to configure an example stream that publishes snapshots to the MQTT broker:
 
     - **Stream name**: `myassetvideo`
     - **Destination**: `MQTT`
     - **Topic**: `myassetvideo`
-    - **Task type**
-    - **Stream type**: `snapshot-to-mqtt`
+    - **Task type**: `snapshot-to-mqtt`
+    
+    > [!TIP]
+    > The topic you choose here is automatically nested under `azure-iot-operations/data/<asset-name>/` when the connector for ONVIF publishes the snapshots to the MQTT broker.
 
     Leave the other settings as default. Then select **Add**. The stream is added to the asset configuration:
 
@@ -243,6 +239,8 @@ To create an ONVIF asset for event management and control:
 1. For each event you keep, configure the MQTT topic it publishes to:
 
     :::image type="content" source="media/howto-use-onvif-connector/event-group-detail.png" alt-text="Screenshot that shows how to configure an event group." lightbox="media/howto-use-onvif-connector/event-group-detail.png":::
+
+    Select **Next** to continue.
 
 1. On the **Management groups** page, configure the actions, such as pan, tilt, and zoom, that you want to use to control the ONVIF camera.
 

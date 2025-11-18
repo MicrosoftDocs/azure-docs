@@ -32,14 +32,14 @@ zip -r default.zip .
 appName=<app-name>
 
 az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region --is-linux
-az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "node:18-lts"
+az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "node:24-lts"
 az webapp config appsettings set --resource-group $groupName --name $appName --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 az webapp deploy --resource-group $groupName --name $appName --src-path ./default.zip
 ```
 
 The preceding commands:
 * Create a linux app service plan
-* Create a web app for Node.js 18 LTS
+* Create a web app for Node.js 24 LTS
 * Configure the web app to install the npm packages on deployment
 * Upload the zip file, and install the npm packages
 

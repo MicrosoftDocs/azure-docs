@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/09/2025
+ms.date: 11/13/2025
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -172,7 +172,7 @@ The following table shows connectivity locations and the service providers for e
 | **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | &check; | AT TOKYO<br/>BBIX<br/>China Telecom Global<br/>China Unicom Global<br/>Colt<br/>Console Connect (PCCW Global Limited)<br/>DE-CIX<br/>Digital Realty<br/>Equinix<br/>IPC<br/>IX Reach<br/>Megaport<br/>Tokai Communications |
 | **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | &check; | BBIX<br/NEC<br/>SCSK |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | &check; | AT&T NetBond<br/>Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Equinix<br/>IX Reach<br/>Megaport<br/>Orange<br/>Telus<br/>Verizon<br/>Zayo |
-| **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | &check; | Fibrenoire<br/>Megaport<br/>Zayo |
+| **Toronto2** | [Allied REIT](https://alliedreit.com/city/toronto/) | 1 | Canada Central | &check; | Fibrenoire<br/>Megaport<br/>Zayo |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | &cross; | &check; | Bell Canada<br/>Cologix<br/>Megaport<br/>Telus<br/>Zayo |
 | **Vienna** | [Digital Realty VIE1](https://www.digitalrealty.com/data-centers/emea/vienna/vie1) | 1 | &cross; | &check; | A1 Telekom Austria<br/>Conova<br/>Digital Realty<br/>next layer GmbH |
 | **Vienna2** | [NTT Data VIE1](https://services.global.ntt/en-us/services-and-products/global-data-centers/global-locations/emea/vienna-1-data-center) | 1 | &cross; | &check; | A1 Telekom Austria<br/>Conova<br/>next layer GmbH |

@@ -468,7 +468,7 @@
     },
     {
       "source_path_from_root": "/articles/documentdb/index.md",
-      "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
+      "redirect_url": "/azure/cosmos-db/mongodb/vcore",
       "redirect_document_id": false
     },
     {

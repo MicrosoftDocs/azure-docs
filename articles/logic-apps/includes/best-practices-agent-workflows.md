@@ -2,7 +2,7 @@
 ms.service: azure-logic-apps
 ms.author: estfan
 author: ecfan
-ms.date: 09/08/2025
+ms.date: 10/18/2025
 ms.topic: include
 ---
 
@@ -20,7 +20,7 @@ Rather than use actual actions and live connections to prototype your agent and 
 
 - **Compose** actions don't produce side effects, which make these actions useful for ideation, design, and testing.
 
-- You can draft and refine system instructions, prompts, tool names and descriptions plus agent parameters and descriptions - all without having to set up and use live connections.
+- You can draft and refine agent instructions, prompts, tool names and descriptions plus agent parameters and descriptions - all without having to set up and use live connections.
 
 - When you confirm that your agent and tools work with only the **Compose** actions, you're ready to swap in the actual actions.
 
@@ -36,7 +36,7 @@ Here are some approaches to reduce your agent history:
 
 - Reduce the size of results from tools by using the [**Compose** action](/azure/logic-apps/logic-apps-perform-data-operations#compose-action). For more information, see [Tools - Best practices](#tools).
 
-- Carefully craft your system instructions and prompts to control the model's behavior.
+- Carefully craft your agent instructions and prompts to control the model's behavior.
 
 - **Experimental capability**: You have the option to try chat reduction so you can reduce the maximum number of tokens or messages to keep in chat history and pass into the model.
 

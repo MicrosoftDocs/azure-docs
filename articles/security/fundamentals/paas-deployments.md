@@ -55,13 +55,16 @@ The following figure shows how the security perimeter has evolved from a network
 
 ![Identity as new security perimeter](./media/paas-deployments/identity-perimeter.png)
 
-Initially, Azure PaaS services (for example, web roles and Azure SQL) provided little or no traditional network perimeter defenses. It was understood that the element's purpose was to be exposed to the Internet (web role) and that authentication provides the new perimeter (for example, Azure SQL).
+Initially, Azure PaaS services (for example, Azure App Service and Azure SQL) provided little or no traditional network perimeter defenses. It was understood that the element's purpose was to be exposed to the Internet (web role) and that authentication provides the new perimeter (for example, Azure SQL).
 
 Modern security practices assume that the adversary has breached the network perimeter. Therefore, modern defense practices have moved to identity. Organizations must establish an identity-based security perimeter with strong authentication and authorization hygiene.
 
 ## Best practices for identity management
 
 The following are best practices for managing the identity perimeter.
+
+**Best practice**: You should first consider using managed identities for Azure resources to securely access other services without storing credentials.
+**Detail**: [Managed identities](/entra/identity/managed-identities-azure-resources/overview) automatically provide an identity for applications running in Azure services, enabling them to authenticate to services that support Microsoft Entra ID without requiring credentials in code or configuration files. This reduces the risk of credential exposure and simplifies identity management for your applications.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.
 **Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](/azure/key-vault/general/overview) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
@@ -74,9 +77,9 @@ The following are best practices for managing the identity perimeter.
 
 Use platform-supplied authentication and authorization mechanisms instead of custom code. The reason is that developing custom authentication code can be error prone. Most of your developers are not security experts and are unlikely to be aware of the subtleties and the latest developments in authentication and authorization. Commercial code (for example, from Microsoft) is often extensively security reviewed.
 
-Use [multifactor authentication (MFA)](/entra/identity/authentication/concept-mfa-howitworks). MFA is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use Microsoft Entra multifactor authentication.
+Use [multifactor authentication (MFA)](/entra/identity/authentication/concept-mfa-howitworks), and ensure that phishing-resistant MFA methods — such as [Passkeys](/entra/identity/authentication/concept-authentication-passwordless#passkey-fido2), [FIDO2](/entra/identity/authentication/how-to-enable-passkey-fido2), or [Certificate-Based Authentication (CBA)](/entra/identity/authentication/concept-certificate-based-authentication) — are enforced through [Conditional Access policies](/entra/identity/conditional-access/overview). At a minimum, require these for all administrators, and for optimal security, implement them tenant-wide. Access to both Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use Microsoft Entra multifactor authentication.
 
-Use standard authentication protocols, such as OAuth2 and Kerberos. These protocols have been extensively peer reviewed and are likely implemented as part of your platform libraries for authentication and authorization.
+For app sign-in, use [OpenID Connect (OIDC)](/entra/architecture/auth-oidc) with [OAuth 2.0](/entra/architecture/auth-oauth2) via Microsoft Entra ID. These protocols have been extensively peer reviewed and are likely implemented as part of your platform libraries for authentication and authorization.
 
 ## Use threat modeling during application design
 
@@ -109,7 +112,10 @@ Following are best practices for using App Service.
 **Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](/azure/key-vault/general/overview) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
 
 **Best practice**: Restrict incoming source IP addresses.
-**Detail**: [App Service Environment](/azure/app-service/environment/intro) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](/azure/app-service/overview-vnet-integration).
+**Detail**: [App Service Environment](/azure/app-service/environment/intro) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](/azure/app-service/overview-vnet-integration). In addition, you can also use [private link (private endpoint)](/azure/app-service/overview-private-endpoint) and disable the public network to force the private network connection between App Service and other services.
+
+**Best practice**: Enforce HTTPS-only traffic and require TLS 1.2 or higher for all connections. Disable FTP access where possible; if file transfer is necessary, use FTPS to ensure secure, encrypted transfers.
+**Detail**: Configuring your App Service to accept only HTTPS traffic ensures data is encrypted in transit, protecting sensitive information from interception. Requiring TLS 1.2 or higher provides stronger security against vulnerabilities found in earlier protocol versions. Disabling FTP reduces the risk of credentials or data being transmitted unencrypted. If file transfer is required, enable only FTPS, which encrypts both credentials and data during transit.
 
 **Best practice**: Monitor the security state of your App Service environments.
 **Detail**: Use Microsoft Defender for Cloud to monitor your App Service environments. When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Microsoft Defender for App Service provides threat protection for your App Service resources.
@@ -124,9 +130,14 @@ Web applications are increasingly targets of malicious attacks that exploit comm
 
 ## DDoS protection
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. You should enable Azure DDoS Protection on any perimeter virtual network.
+Azure offers two main DDoS protection tiers: [DDoS IP Protection](/azure/ddos-protection/ddos-protection-overview#ddos-ip-protection) and [DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview#ddos-network-protection). These options cover different scenarios and have distinct features and pricing.
 
-Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](/azure/web-application-firewall/shared/application-ddos-protection).
+- **DDoS IP Protection**: Best for protecting specific public IP addresses, ideal for smaller or targeted deployments needing essential DDoS mitigation at the IP level.
+- **DDoS Network Protection**: Covers entire virtual networks with advanced mitigation, analytics, and integration; suited for larger or enterprise environments needing broader security.
+
+Choose DDoS IP Protection for focused, cost-sensitive cases; select DDoS Network Protection for comprehensive coverage and advanced features.
+
+DDoS Protection defends at the network layer (3/4). For application-layer (7) defense, add a WAF. See [Application DDoS protection](/azure/web-application-firewall/shared/application-ddos-protection).
 
 ## Monitor application performance
 

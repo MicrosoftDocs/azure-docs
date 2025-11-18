@@ -254,8 +254,8 @@
       href: backup-azure-recovery-services-vault-overview.md
     - name: Backup vault
       href: backup-vault-overview.md
-  - name: Azure Business Continuity center
-    href: ../business-continuity-center/business-continuity-center-overview.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+  - name: Resiliency
+    href: ../resiliency/resiliency-overview.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json    
   - name: Backup center
     href: backup-center-overview.md
   - name: Azure VM backup
@@ -342,42 +342,42 @@
         href: create-manage-backup-vault.md
       - name: Manage
         href: manage-backup-vault.md
-  - name: Azure Business Continuity Center
+  - name: Resiliency
     items:
     - name: View protectable resources
-      href: ../business-continuity-center/tutorial-view-protectable-resources.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-view-protectable-resources.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Create and manage vaults
       items:
       - name: Create
-        href: ../business-continuity-center/backup-vaults.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
-      - name: Manage
-        href: ../business-continuity-center/manage-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+        href: ../resiliency/backup-vaults.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: Manage    
+        href: ../resiliency/manage-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Create and manage protection policy
       items:
-      - name: Create
-        href: ../business-continuity-center/backup-protection-policy.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: Create  
+        href: ../resiliency/backup-protection-policy.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json  
       - name: Manage
-        href: ../business-continuity-center/manage-protection-policy.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+        href: ../resiliency/manage-protection-policy.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json    
     - name: Configure protection for datasources
-      href: ../business-continuity-center/tutorial-configure-protection-datasource.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-configure-protection-datasource.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Reconfigure backup in an alternate vault
-      href: ../business-continuity-center/tutorial-reconfigure-backup-alternate-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-reconfigure-backup-alternate-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json  
     - name: Recover item
-      href: ../business-continuity-center/tutorial-recover-deleted-item.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-recover-deleted-item.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: View protected items and perform actions
-      href: ../business-continuity-center/tutorial-view-protected-items-and-perform-actions.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-view-protected-items-and-perform-actions.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Review security posture
-      href: ../business-continuity-center/tutorial-review-security-posture.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-review-security-posture.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Monitor jobs
-      href: ../business-continuity-center/tutorial-monitor-operate.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-monitor-operate.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Monitor alerts and metrics
-      href: ../business-continuity-center/tutorial-monitor-alerts-metrics.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-monitor-alerts-metrics.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Monitoring protection summary
-      href: ../business-continuity-center/tutorial-monitor-protection-summary.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-monitor-protection-summary.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Govern and view compliance
-      href: ../business-continuity-center/tutorial-govern-monitor-compliance.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/tutorial-govern-monitor-compliance.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json  
     - name: Support Matrices
-      href: ../business-continuity-center/business-continuity-center-support-matrix.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../resiliency/resiliency-support-matrix.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json      
   - name: Backup center
     items:
     - name: Monitor and Operate

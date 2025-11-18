@@ -14,7 +14,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-The `send-service-bus-message` policy sends a message to an Azure Service Bus queue or topic.
+The `send-service-bus-message` policy sends a message to an Azure Service Bus queue or topic. The API request can optionally be forwarded to the backend service.
 
 > [!NOTE]
 > * This policy is currently in preview.

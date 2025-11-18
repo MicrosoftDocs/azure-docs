@@ -52,7 +52,7 @@
         },
         {
             "source_path_from_root": "/articles/reliability/reliability-spring-apps.md",
-            "redirect_url": "/azure/reliability/overview-reliability-guidance",
+            "redirect_url": "/azure/spring-apps/basic-standard/reliability-spring-apps",
             "redirect_document_id": false
         },
         {

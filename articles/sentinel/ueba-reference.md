@@ -387,6 +387,34 @@ These fields don't exist at all in the new, unified schema.
 
 ---
 
+## UEBA integration with Microsoft Sentinel workflows
+
+UEBA insights are integrated throughout Microsoft Sentinel to enhance your security operations workflows:
+
+### Entity pages and user investigation
+
+- **Anomalies in User Panel**: View the top 3 user anomalies from the last 30 days directly in the user side panel and overview tab of user pages. This provides immediate UEBA context when investigating users across various portal locations. For more information, see [Investigate entities with entity pages](entity-pages.md).
+
+### Hunting and detection enhancement
+
+- **Go Hunt Anomalies Query**: Access built-in anomalies queries directly from incident graphs when investigating user entities, enabling immediate contextual hunting based on UEBA outcomes.
+- **Anomalies Table Recommendations**: Receive intelligent suggestions to enhance hunting queries by adding the UEBA Anomalies table when querying eligible data sources.
+
+For more information about these hunting enhancements, see [Threat hunting in Microsoft Sentinel](hunting.md).
+
+### Investigation workflows
+
+- **Enhanced investigation graph**: When investigating incidents with user entities, access UEBA anomalies queries directly from the investigation graph to gain immediate behavioral context.
+
+For more information about investigation enhancements, see [Investigate Microsoft Sentinel incidents in depth](investigate-incidents.md).
+
+### Prerequisites for enhanced UEBA integration
+
+To access these enhanced UEBA capabilities:
+- UEBA must be enabled in your Microsoft Sentinel workspace
+- Your workspace must be onboarded to the Microsoft Defender portal (for some features)
+- Appropriate permissions to view UEBA data and run hunting queries
+
 ## Next steps
 
 This document described the Microsoft Sentinel entity behavior analytics table schema.

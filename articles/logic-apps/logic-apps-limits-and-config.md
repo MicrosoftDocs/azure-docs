@@ -25,7 +25,7 @@ This reference guide describes the limits and configuration information for Azur
 
 The following table briefly summarizes differences between a Consumption logic app and a Standard logic app.
 
-[!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
+[!INCLUDE [Logic app resource type and environment differences](includes/logic-apps-resource-environment-differences-table.md)]
 
 <a name="definition-limits"></a>
 

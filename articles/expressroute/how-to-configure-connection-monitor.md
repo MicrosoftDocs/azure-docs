@@ -76,7 +76,6 @@ $workspaceName = "Workspace name should come here"
 $solution = @{
     Location          = $location
     Properties        = @{
-        workspaceResourceId
         workspaceResourceId = "/subscriptions/$($subscriptionId)/resourcegroups/$($resourceGroup)/providers/Microsoft.OperationalInsights/workspaces/$($workspaceName)"
     }
     Plan              = @{

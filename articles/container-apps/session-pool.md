@@ -56,7 +56,7 @@ You can define the following settings when you create a session pool:
 
 | Setting | Description |
 |---------|-------------|
-| `--container-type` | The type of code interpreter to use. The only supported value is `PythonLTS`. |
+| `--container-type` | The type of code interpreter to use. Supported values include `PythonLTS`, `NodeLTS`, and `Shell`. |
 | `--max-sessions` | The maximum number of allocated sessions allowed concurrently. The maximum value is `600`. |
 | `--cooldown-period` | The number of allowed idle seconds before termination. The idle period is reset each time the session's API is called. The allowed range is between `300` and `3600`. |
 | `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |

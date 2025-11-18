@@ -3,7 +3,7 @@ title: Deploy an Azure Resource Manager template in an Azure Automation PowerShe
 description: This article describes how to deploy an Azure Resource Manager template stored in Azure Storage from a PowerShell runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 11/17/2025
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As a developer, I want to use Runbooks to deploy ARM templates so that I can increase efficiency.

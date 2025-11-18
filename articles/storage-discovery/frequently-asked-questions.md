@@ -46,6 +46,13 @@ Activity, Security, and Consumption reports show insights only for Standard pric
 </details>
 
 <details>
+<summary> I can't see insights for Blob Storage in the archive tier.</summary>
+
+Insights such as capacity and activity for storage accounts with the [default access tier](../storage/blobs/access-tiers-overview.md#default-account-access-tier-setting) set to [archive](../storage/blobs/access-tiers-overview.md#archive-access-tier) are currently not included in the Storage Discovery reports. An update is in progress to begin incorporating these insights. Once completed, insights for these storage accounts automatically appear in the reports and also are reflected in the monthly [Storage Discovery bill](pricing.md).
+
+</details>
+
+<details>
 <summary>Unable to add more than 10 scopes in a workspace.</summary>
 
 Discovery workspace has a default limit of 10 scopes per workspace. Support team may be contacted with a request to increase this limit if needed. Provide the tenantID, SubscriptionID where you would want this limit to be increased.

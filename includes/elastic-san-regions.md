@@ -59,9 +59,3 @@ Elastic SAN is also available in the following regions, but without Availability
 - UK West - LRS
 - West Central US - LRS
 - West US - LRS
-
-
-To enable these regions, run the following command to register the necessary feature flag: 
-```azurepowershell
-Register-AzProviderFeature -FeatureName "EnableElasticSANRegionalDeployment" -ProviderNamespace "Microsoft.ElasticSan"
-```

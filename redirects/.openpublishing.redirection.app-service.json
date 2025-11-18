@@ -1956,6 +1956,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/scripts/terraform-backup.md",
+      "redirect_url": "/azure/app-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-linux-acr-aspnetcore.md",
+      "redirect_url": "/azure/app-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/quickstart-python-1.md",
+      "redirect_url": "/azure/app-service/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/get-resource-events.md",
       "redirect_url": "/azure/app-service/monitor-app-service",
       "redirect_document_id": false

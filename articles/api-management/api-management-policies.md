@@ -24,7 +24,7 @@ More information about policies:
 + [Policy expressions](api-management-policy-expressions.md)
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
 + [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
-+ [Author policies using Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
++ [Author policies using Azure Copilot](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 > [!IMPORTANT]
 >  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.

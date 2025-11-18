@@ -57,7 +57,7 @@ Key Azure-native protection capabilities include:
 - **[Microsoft Defender for Cloud](/azure/defender-for-cloud/)** - Provides threat detection and response (XDR) for Azure workloads, with ransomware-specific detection capabilities
 - **[Azure Backup](/azure/backup/)** - Offers immutable backups with soft delete and MFA protection to ensure recovery options
 - **[Azure Firewall Premium](../../firewall/premium-features.md)** - Includes IDPS to detect and block ransomware Command & Control (C&C) communications
-- **[Microsoft Entra ID Protection](/azure/active-directory/identity-protection/)** - Detects credential theft and suspicious authentication patterns targeting Azure resources
+- **[Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection)** - Detects credential theft and suspicious authentication patterns targeting Azure resources
 - **[Azure Policy](/azure/governance/policy/)** - Enforces security configurations and compliance across Azure resources
 - **[Microsoft Sentinel](/azure/sentinel/)** - Provides SIEM/SOAR capabilities with ransomware-specific detection analytics
 

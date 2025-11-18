@@ -4,7 +4,7 @@ description: Learn how to control access to Azure Files by assigning share-level
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/06/2025
+ms.date: 11/07/2025
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
@@ -19,12 +19,13 @@ Once you've enabled an identity source for your storage account, you must config
 
 ## Choose how to assign share-level permissions
 
-Share-level permissions on Azure file shares are configured for Microsoft Entra users, groups, or service principals, while directory and file-level permissions are enforced using Windows access control lists (ACLs). You must assign share-level permissions to the Microsoft Entra identity representing the user, group, or service principal that should have access. Authentication and authorization against identities that only exist in Microsoft Entra ID, such as Azure Managed Identities (MSIs), aren't supported.
+Share-level permissions on Azure file shares are configured for Microsoft Entra users, groups, or service principals, while directory and file-level permissions are enforced using Windows access control lists (ACLs). You must assign share-level permissions to the Microsoft Entra identity representing the user, group, or service principal that should have access.
 
 Most users should assign share-level permissions to specific Microsoft Entra users or groups, and then use Windows ACLs for granular access control at the directory and file level. This is the most stringent and secure configuration.
 
-There are three scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) to allow reader, contributor, elevated contributor, privileged contributor, or privileged reader access to all authenticated identities:
+There are some scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) to allow reader, contributor, elevated contributor, privileged contributor, or privileged reader access to all authenticated identities:
 
+- You're using Microsoft Entra Kerberos to authenticate cloud-only identities (preview).
 - If you're unable to sync your on-premises AD DS to Microsoft Entra ID, you can use a default share-level permission. Assigning a default share-level permission allows you to work around the sync requirement because you don't need to specify the permission to identities in Microsoft Entra ID. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
     - Identities that are tied to an AD but aren't syncing to Microsoft Entra ID can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer accounts.
 - The on-premises AD DS you're using is synched to a different Microsoft Entra ID than the Microsoft Entra ID the file share is deployed in.
@@ -45,12 +46,15 @@ There are built-in Azure role-based access control (RBAC) roles for Azure Files,
 |[Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor)     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers.         |
 |[Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles/storage.md#storage-file-data-privileged-contributor) |Allows read, write, delete, and modify ACLs in Azure file shares by overriding existing ACLs. |
 |[Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles/storage.md#storage-file-data-privileged-reader) |Allows read access in Azure file shares by overriding existing ACLs. |
+|[Storage File Data SMB Admin](../../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-admin) |Allows for admin access equivalent to storage account key for end users over SMB. |
 
 <a name='share-level-permissions-for-specific-azure-ad-users-or-groups'></a>
 
 ## Share-level permissions for specific Microsoft Entra users or groups
 
-If you intend to use a specific Microsoft Entra user or group to access Azure file share resources, that identity must be a [hybrid identity](../../active-directory/hybrid/whatis-hybrid-identity.md) that exists in both on-premises AD DS and Microsoft Entra ID. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Microsoft Entra ID as user1@contoso.com using Microsoft Entra Connect Sync or Microsoft Entra Connect cloud sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups and service principals.
+If you intend to use a specific Microsoft Entra user or group to access Azure file share resources, that identity must be a [hybrid identity](../../active-directory/hybrid/whatis-hybrid-identity.md) that exists in both on-premises AD DS and Microsoft Entra ID. Cloud-only identities must use a default share-level permission.
+
+For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Microsoft Entra ID as user1@contoso.com using Microsoft Entra Connect Sync or Microsoft Entra Connect cloud sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups and service principals.
 
 > [!IMPORTANT]
 > **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard.

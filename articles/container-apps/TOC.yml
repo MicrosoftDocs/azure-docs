@@ -110,6 +110,8 @@
           displayName: Deploy Azure DevOps (Azure Pipelines) agents and GitHub Actions runners
     - name: Revision management
       href: revisions-manage.md
+    - name: Deployment labels
+      href: deployment-labels.md
     - name: Environment Variables
       href: environment-variables.md
     - name: Use health probes
@@ -126,6 +128,8 @@
           href: functions-overview.md
         - name: Create a Functions app
           href: functions-usage.md
+        - name: Create your Azure functions on Azure Container Apps
+          href: functions-container-apps.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
@@ -146,8 +150,14 @@
                       href: sessions-tutorial-semantic-kernel.md
                 - name: Use the REST API
                   items:
-                    - name: JavaScript Code interpreter (preview)
+                    - name: JavaScript code interpreter
                       href: sessions-tutorial-nodejs.md
+                    - name: Shell session
+                      href: sessions-tutorial-shell.md
+                    - name: Shell session with MCP
+                      href: sessions-tutorial-shell-mcp.md
+                    - name: Python code interpreter with MCP
+                      href: sessions-tutorial-python-mcp.md
         - name: Custom container sessions
           href: sessions-custom-container.md
     - name: Event-driven processing
@@ -178,8 +188,10 @@
               href: troubleshoot-container-start-failures.md
 - name: AI integration
   items:
-    - name: AI integration
+    - name: Overview
       href: ai-integration.md
+    - name: Compose for agents
+      href: compose-agent.md
     - name: GPUs
       items:
         - name: Serverless GPUs
@@ -402,10 +414,12 @@
           href: user-defined-routes.md
         - name: Rule based routing
           items:
-            - name: Use rule-based routing
-              href: rule-based-routing.md
-            - name: Use a custom domain with rule-based routing
-              href: rule-based-routing-custom-domain.md
+          - name: Use rule-based routing
+            href: rule-based-routing.md
+          - name: Use a custom domain with rule-based routing
+            href: rule-based-routing-custom-domain.md
+        - name: Use premium ingress
+          href: premium-ingress.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
         - name: Use mTLS

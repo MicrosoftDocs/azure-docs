@@ -14,7 +14,7 @@ In this article, you learn how to upgrade Azure VMware Solution for HCX service 
 You can update HCX Connector and HCX Cloud systems during separate maintenance windows, but for optimal compatibility, we recommend you update both systems together. Apply service updates during a maintenance window where no new HCX operations are queued up.
 
 > [!CAUTION]
-> Broadcom has announced the end-of-support (EOS) for VMware HCX versions 4.11.0 - 4.11.2, effective February 20, 2026. To ensure supportability and proactiely address this change, Microsoft will soon begin communicating to all Azure VMware Solution customers to upgrade their HCX Cloud Manager to HCX version 4.11.3. HCX 4.11.3 formally deprecates the WAN Optimization feature and, as such, your HCX Cloud Manager will **not** be able to be upgraded if HCX WAN Optimization is still enabled. We advise you to look for alternatives before your upgrade window. Refer to [HCX 4.11.3 release notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-411-release-notes.html) for more information on what’s new with HCX 4.11.3.
+> Broadcom has announced the end-of-support (EOS) for VMware HCX versions 4.11.0 - 4.11.2, effective February 20, 2026. To ensure supportability and proactively address this change, Microsoft will soon begin communicating to all Azure VMware Solution customers to upgrade their HCX Cloud Manager to HCX version 4.11.3. HCX 4.11.3 formally deprecates the WAN Optimization feature and, as such, your HCX Cloud Manager will **not** be able to be upgraded if HCX WAN Optimization is still enabled. We advise you to look for alternatives before your upgrade window. Refer to [HCX 4.11.3 release notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-411-release-notes.html) for more information on what’s new with HCX 4.11.3.
 
 > [!IMPORTANT]
 > Microsoft now manages the upgrade of **HCX Cloud Manager** on behalf of customers. These upgrades are either rolled out in waves to all customers or scheduled individually based on customer preference. Customers can **select their preferred maintenance window** for the upgrade when prompted by Microsoft. HCX Connector and Service Mesh appliance upgrades remain customer-managed tasks.
@@ -67,7 +67,7 @@ The HCX update is first applied to the HCX Manager systems.
 
 **Procedure**
 - **Microsoft-managed:** Microsoft upgrades the **HCX Cloud Manager** on behalf of customers during the agreed maintenance window. Microsoft may initiate mass rollouts of newer validated versions or request customer confirmation prior to upgrade scheduling.  
-- **Customer-managed:** To manually upgrade **HCX Connector** on-premises or perform validation steps, follow the VMware procedure in [Upgrading the HCX Manager](hhttps://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/vmware-hcx-user-guide-4-11/updating-vmware-hcx/hcx-service-update-procedures/upgrade-hcx-manager-for-connected-sites.html).
+- **Customer-managed:** To manually upgrade **HCX Connector** on-premises or perform validation steps, follow the VMware procedure in [Upgrading the HCX Manager](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/vmware-hcx-user-guide-4-11/updating-vmware-hcx/hcx-service-update-procedures/upgrade-hcx-manager-for-connected-sites.html).
 
 
 ### Upgrade HCX Service Mesh appliances 

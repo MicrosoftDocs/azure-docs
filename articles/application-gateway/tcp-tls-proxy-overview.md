@@ -1,18 +1,18 @@
 ---
-title: Application Gateway TCP/TLS proxy overview (Preview)
+title: Application Gateway TCP/TLS proxy overview
 description: This article provides an overview of Azure Application Gateway's TCP/TLS (layer 4) proxy service. 
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 10/14/2025
+ms.date: 11/17/2025
 ms.author: mbender
 # Customer intent: As a network architect, I want to implement TCP/TLS proxy capabilities on an application gateway, so that I can efficiently manage both HTTP and non-HTTP workloads while ensuring secure connections to backend servers.
 ---
 
-# Application Gateway TCP/TLS proxy overview (Preview)
+# Application Gateway TCP/TLS proxy overview
 
-In addition to the existing Layer 7 capabilities (HTTP, HTTPS, WebSockets and HTTP/2), Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying.  This feature is currently in public preview. To preview this feature, see [Register to the preview](how-to-tcp-tls-proxy.md#register-to-the-preview).
+In addition to the existing Layer 7 capabilities (HTTP, HTTPS, WebSockets and HTTP/2), Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying.
 
 ## TLS/TCP proxy capabilities on Application Gateway
 

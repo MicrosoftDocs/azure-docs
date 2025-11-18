@@ -41,7 +41,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Concur (Preview)](connector-concur.md)                   | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Couchbase (Preview)](connector-couchbase.md)                | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Drill](connector-drill.md)                              | /              | Removed                    | December 31, 2024     | December 31, 2024     |
-| [Google BigQuery V2](connector-google-bigquery.md)          | /              | GA                                | /                   | /                   |
+| [Google BigQuery V2](connector-google-bigquery.md)                    | version 1.1    | GA                                | /                   | /                   |
+|                                    | version 1.0    | GA                                | /                   | /                   |
 | [Google BigQuery V1](connector-google-bigquery-legacy.md)   | /              | Removed                   | October 31, 2024      | September 30, 2025    |
 | [Greenplum](connector-greenplum.md)                        | version 2.0    | GA                   | /                   | /                   |
 |                                    | version 1.0    | Removed                                | August 31, 2025     | September 30, 2025                    |

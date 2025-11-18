@@ -99,6 +99,28 @@ When you use the operations experience to add secrets or certificates, you might
 
 When you use the operations experience to add secrets or certificates, it adds them as secrets in your Azure Key Vault. Your Microsoft Entra ID account needs **Secrets officer** permissions at the resource level for the Azure Key Vault used by your Azure IoT Operations instance. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
+## Troubleshoot device and asset discovery
+
+Akri discovery requires that resource sync rules are enabled on your cluster. To enable resource sync rules, follow these steps:
+
+Run `enable-rsync` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
+
+```bash
+az iot ops enable-rsync - n <my instance> -g <my resource group>
+```
+
+If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
+
+```bash
+az iot ops enable-rsync --k8-bridge-sp-oid <k8 bridge service principal object ID>
+```
+
+> [!NOTE]
+> You can manually look up the OID by a signed-in CLI principal that has MS Graph app read permissions. Run the following command to get the OID:
+> 
+> ```bash
+> az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv
+> ```
 
 ## Troubleshoot OPC UA server connections
 
@@ -142,7 +164,16 @@ If you receive one of the following error messages:
 - Message: The request is not authorized
 - Code: PermissionDenied
 
-Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-configure-opc-ua.md#prerequisites) section for operations experience access.
+To create a suitable Microsoft Entra ID account in your Azure tenant:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
+1. In the Azure portal, go to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
+1. In the Azure portal, go to the resource group that contains your **Kubernetes - Azure Arc** instance. On the **Access control (IAM)** page, select **+Add > Add role assignment**.
+1. On the **Add role assignment page**, select **Privileged administrator roles**. Then select **Contributor** and then select **Next**.
+1. On the **Members** page, add your new user to the role.
+1. Select **Review and assign** to complete setting up the new user.
+
+You can now use the new user account to sign in to the [operations experience](https://iotoperations.azure.com) web UI.
 
 ## Troubleshoot data flows
 

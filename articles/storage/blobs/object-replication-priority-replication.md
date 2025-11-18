@@ -80,6 +80,8 @@ To enable OR Priority Replication when creating a new OR policy, complete the fo
 
 # [Azure portal](#tab/portal)
 
+[!INCLUDE [object-replication-alert](includes/object-replication-alert.md)]
+
 1. Navigate to the Azure portal and create a new storage account.
 1. Select the **Create replication rules** tab to open the **Create replication rules** pane as shown in the following screenshot.
 

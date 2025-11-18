@@ -37,7 +37,7 @@ ms.date: 03/19/2025
    | Storage backend | Select **Durable Task Scheduler**. | 
    | Region | It's recommended that the scheduler and function app regions should be the same. | 
    | Durable task scheduler | Use the scheduler name offered, or click **Create new** to create a custom name. | 
-   | Plan | Only **Dedicated** is available at the moment. | 
+   | Plan | Select the [pricing plan](../durable-task-scheduler-dedicated-sku.md) that fits your project best. | 
    | Capacity units | Currently, you can only choose one Capacity Unit as an option. | 
 
 1. Click **Review + create** to review the resource creation. 

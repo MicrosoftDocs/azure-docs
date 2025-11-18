@@ -13,6 +13,8 @@ ms.custom: Include file
 
 <!-- Limits - API Management classic tiers -->
 
+Starting March 2026, Azure API Management will apply updated limits to instances in the Classic tiers. 
+
 [!INCLUDE [api-management-service-limits-mitigation](api-management-service-limits-mitigation.md)]
 
 | Resource | Consumption | Developer | Basic | Standard | Premium |
@@ -27,9 +29,9 @@ ms.custom: Include file
 | Custom gateway domains | N/A | 20 | N/A | N/A | 20 |
 | CA certificates<sup>5</sup> | N/A | 10 | 10 | 10 | 10 |
 | Client certificates<sup>6</sup> | 50 | 100 | 100 | 100 | 100 |
-| APIs (including versions and revisions)<sup>6</sup> | 150 | 150 | 150 | 500 | 2,500 |
+| APIs (including versions and revisions)<sup>6</sup> | 50 | 150 | 150 | 500 | 2,500 |
 | API releases<sup>6</sup> | 100 | 100 | 100 | 100 | 100 |
-| API operations<sup>6</sup> | 3,000 | 3,000 | 3,000 | 10,000 | 20,000 |
+| API operations<sup>6</sup> | 1,000 | 3,000 | 3,000 | 10,000 | 20,000 |
 | API operations per API<sup>6</sup> | 100 | 100 | 100 | 100 | 100 |
 | API version sets<sup>6</sup> | 100 | 100 | 100 | 100 | 100 |
 | API tags<sup>6</sup> | 100 | 100 | 100 | 100 | 100 |
@@ -82,5 +84,5 @@ ms.custom: Include file
 <sup>3</sup> The number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.<br/>
 <sup>4</sup> Up to a maximum of 60,000 connections.<br/>
 <sup>5</sup> This is a hard limit and cannot be adjusted.<br/>
-<sup>6</sup> Limit introduced starting November 2025. Existing services that already exceed the limit are not impacted.
+<sup>6</sup> Limit introduced starting March 2026. Existing services that already exceed the limit are not impacted.
 

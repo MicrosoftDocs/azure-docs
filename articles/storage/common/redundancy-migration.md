@@ -46,6 +46,8 @@ There are three ways to change the replication settings:
 Geo-redundancy and read-access can be changed at the same time. However, any change that also involves zone-redundancy requires a conversion and must be performed separately using a two-step process. These two steps can be performed in any order.
 
 For answers to common questions about changing replication types, see the [Storage redundancy change FAQ](storage-redundancy-change-faq.md) article.
+> [!NOTE]
+> For storage accounts that leverage the smart tier public preview, redundancy conversions and account failover scenarios have additional dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 
 ### Changing redundancy configuration
 

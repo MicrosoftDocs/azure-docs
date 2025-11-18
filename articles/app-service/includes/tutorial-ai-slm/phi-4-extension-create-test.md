@@ -2,7 +2,7 @@
 author: cephalin
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 05/07/2025
+ms.date: 11/18/2025
 ms.author: cephalin
 ---
 
@@ -11,12 +11,12 @@ ms.author: cephalin
 In this section, you add the Phi-4 sidecar extension to your ASP.NET Core application hosted on Azure App Service.
 
 1. Navigate to the Azure portal and go to your app's management page.
-2. In the left-hand menu, select **Deployment** > **Deployment Center**.
-3. On the **Containers** tab, select **Add** > **Sidecar extension**.
-4. In the sidecar extension options, select **AI: phi-4-q4-gguf (Experimental)**.
-5. Provide a name for the sidecar extension.
-6. Select **Save** to apply the changes.
-7. Wait a few minutes for the sidecar extension to deploy. Keep selecting **Refresh** until the **Status** column shows **Running**.
+1. In the left-hand menu, select **Deployment** > **Deployment Center**.
+1. On the **Containers** tab, select **Add** > **Sidecar extension**.
+1. In the sidecar extension options, select **AI: phi-4-q4-gguf (Experimental)**.
+1. Provide a name for the sidecar extension.
+1. Select **Save** to apply the changes.
+1. Wait a few minutes for the sidecar extension to deploy. Keep selecting **Refresh** until the **Status** column shows **Running**.
 
 This Phi-4 sidecar extension uses a [chat completion API like OpenAI](https://platform.openai.com/docs/api-reference/chat/create) that can respond to chat completion response at `http://localhost:11434/v1/chat/completions`. For more information on how to interact with the API, see:
 

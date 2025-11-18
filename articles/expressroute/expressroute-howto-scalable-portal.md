@@ -1,60 +1,76 @@
 ---
-title: 'Azure ExpressRoute: Configure a Scalable Gateway using Azure portal'
-description: Learn how to configure a scalable ExpressRoute gateway in Azure using the Azure portal and PowerShell. This guide provides step-by-step instructions to help you set up and manage a scalable gateway for your ExpressRoute connection.
+title: 'Azure ExpressRoute: Configure a scalable gateway'
+description: Learn how to configure a scalable ExpressRoute gateway in Azure using the Azure portal. This guide provides step-by-step instructions to set up and manage a scalable gateway for your ExpressRoute connection.
 author: mekaylamoore
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 11/06/2025
 ms.author: duau
 ---
-# Configure a scalable ExpressRoute gateway using Azure portal and PowerShell
+# Configure a scalable ExpressRoute gateway
 
-This article walks you through configuring a scalable ExpressRoute gateway in Azure using both the Azure portal and PowerShell. A scalable gateway lets you adjust bandwidth and performance for your ExpressRoute connection as your workload needs change.
+This article shows you how to configure a scalable ExpressRoute gateway using the Azure portal. A scalable gateway allows you to adjust bandwidth and performance for your ExpressRoute connection as your workload needs change.
 ## Prerequisites
 
-### Subnet requirement
-The scalable gateway must be deployed in a subnet that is /26 or larger. This ensures enough IP address space for gateway scaling and high availability.
+Before you begin, make sure you have:
 
-### Regional availability
-Before deployment, review the About Scalable Gateway (link) to confirm region support. Some regions may not currently support scalable gateway functionality.
+- An Azure account with an active subscription.
+- A virtual network with a gateway subnet that is /26 or larger. This size ensures enough IP address space for gateway scaling and high availability.
+- Verified that your region supports the scalable gateway. For region availability, see [About ExpressRoute scalable gateway](scalable-gateway.md#region-availability).
 
-## Create the virtual network gateway
+## Create a virtual network gateway
 
-1. In the Azure portal, select **Create a resource** from the left menu. Search for "Virtual Network Gateway" and select it from the results. On the **Virtual network gateway** page, choose **Create**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the **Create virtual network gateway** page, provide the following settings:
+1. Select **Create a resource**, search for **Virtual Network Gateway**, and select it from the results.
+
+1. On the **Virtual network gateway** page, select **Create**.
+
+1. On the **Create virtual network gateway** page, enter or select the following settings:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |  |
-    | Subscription | Ensure the correct subscription is selected. |
-    | Resource Group | The resource group is automatically selected after you choose the virtual network. |
+    | Subscription | Select your subscription. |
+    | Resource Group | This field is automatically populated after you select your virtual network. |
     | **Instance details** |  |
-    | Name | Enter a name for your gateway resource. This isn't the same as the gateway subnet name. |
-    | Region | Select the region where your virtual network is located. If the region doesn't match your virtual network, it will not appear in the **Virtual network** dropdown.<br>If you want to deploy in an [Azure Extended Zone](../extended-zones/overview.md), select **Deploy to an Azure Extended Zone**. |
-    | Gateway type | Choose **ExpressRoute**. |
-    | SKU | Select **ErGwScale** from the dropdown. For details, see [ExpressRoute gateway SKUs](expressroute-about-virtual-network-gateways.md#gwsku). |
-    | Minimum Scale Units | Enter the minimum number of scale units. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
-    | Maximum Scale Units | Enter the maximum number of scale units. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
-    | Virtual network | Select *vnet-1*. |
+    | Name | Enter a name for your gateway. This name is for the gateway resource, not the gateway subnet. |
+    | Region | Select the region where your virtual network is located. If you want to deploy in an [Azure Extended Zone](../extended-zones/overview.md), select **Deploy to an Azure Extended Zone**. |
+    | Gateway type | Select **ExpressRoute**. |
+    | SKU | Select **ErGwScale**. For more information about gateway SKUs, see [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md#gwsku). |
+    | Minimum Scale Units | Enter the minimum number of scale units (1-40). For more information, see [About ExpressRoute scalable gateway](scalable-gateway.md). |
+    | Maximum Scale Units | Enter the maximum number of scale units (1-40). For more information, see [About ExpressRoute scalable gateway](scalable-gateway.md). |
+    | Virtual network | Select your virtual network. |
     | **Public IP address** |  |
-    | Assignment | By default, ExpressRoute gateways use an [Auto-Assigned Public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). |
+    | Public IP address | By default, ExpressRoute gateways use an auto-assigned public IP address. For more information, see [Auto-assigned public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). |
 
     > [!IMPORTANT]
-    > The ErGwScale SKU does not support IPsec over ExpressRoute or workloads that rely on UDP flow count at this time.
+    > The ErGwScale SKU doesn't currently support IPsec over ExpressRoute. For more information, see [About IPsec over ExpressRoute private peering](expressroute-about-encryption.md).
 
-3. Select **Review + Create**, then **Create** to start the deployment. Validation occurs, and the gateway creation process may take up to 45 minutes.
+1. Select **Review + create** to validate your configuration.
+
+1. After validation passes, select **Create** to begin the deployment.
+
+The deployment can take up to 45 minutes to complete.
 
 :::image type="content" source="media/expressroute-howto-scalablegw/create-scale.png" alt-text="Screenshot of the create page in Azure portal with Scalable Gateway." :::
 
-## Change the scale units
+## Change scale units
+
+After you create your gateway, you can adjust the scale units as your needs change.
 
 1. In the Azure portal, go to your ExpressRoute virtual network gateway.
-2. Under **Settings**, select **Configuration**.
-3. In the **Configuration** pane, adjust the **Minimum Scale Units** and/or **Maximum Scale Units** as needed.
 
-:::image type="content" source="media/expressroute-howto-scalablegw/change-scale.png" alt-text="Screenshot of the configuration blade to change the scale units of your gateway." lightbox="./media/expressroute-howto-scalablegw/zoom-scale.png":::
+1. Under **Settings**, select **Configuration**.
 
-> [!NOTE]
-> To migrate your existing ExpressRoute gateway to a scalable gateway, follow the steps in the [ExpressRoute gateway migration guide](expressroute-howto-gateway-migration-portal.md).
+1. Adjust the **Minimum Scale Units** or **Maximum Scale Units** values as needed.
 
+1. Select **Save** to apply your changes.
+
+Scale changes can take up to 30 minutes to complete.
+
+:::image type="content" source="media/expressroute-howto-scalablegw/change-scale.png" alt-text="Screenshot of the Configuration page showing Minimum Scale Units and Maximum Scale Units fields." lightbox="./media/expressroute-howto-scalablegw/zoom-scale.png":::
+
+## Next steps
+
+To migrate an existing ExpressRoute gateway to a scalable gateway, see [Migrate to a scalable ExpressRoute gateway](expressroute-howto-gateway-migration-portal.md).

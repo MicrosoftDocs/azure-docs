@@ -52,7 +52,7 @@ This section describes requirements for each content type that can be included i
 **Partners must use the Codeless Connector Framework (CCF) to create data connectors.** The Codeless Connector Framework (CCF) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel. Connectors created using the CCF require no service installations and the entire infrastructure for polling and pulling data is managed behind the scenes by Microsoft Sentinel. CCF comes with inbuilt health monitoring, full support from Microsoft Sentinel, and scales automatically to support varying ingestion sizes. With the CCF platform, customers have a simple UI interface through which they can configure ingestion, without having to deploy resources in Azure. Customers aren't charged for the compute capacity required to poll and ingest data into Microsoft Sentinel and are only charged for data that is ingested into Microsoft Sentinel. 
 
 > [!CAUTION]
-> Partners are required to use the Codeless Connector Framework (CCF), instead of Azure functions, for all new data connectors. If you find any blockers during the development of your data connector due to limitations in the CCF framework, log an issue with title "CCF Limitations" at https://github.com/Azure/Azure-Sentinel/issues. The Microsoft Sentinel team will work with you to resolve the issue or provide a workaround. If the issue is a blocker, the Microsoft Sentinel team will work with you to create an exception for your data connector. 
+> Partners are required to use the Codeless Connector Framework (CCF), instead of Azure functions, for all new data connectors. If you find any blockers during the development of your data connector due to limitations in the CCF framework, log an issue with title "CCF Limitations" at https://github.com/Azure/Azure-Sentinel/issues. The Microsoft Sentinel team will work with you to resolve the issue or provide a workaround. If the issue is a blocker, the Microsoft Sentinel team will work with you to create an exception for your data connector. To contact the Microsoft Sentinel team for assistance, email Microsoft Sentinel Partners at [AzureSentinelPartner@microsoft.com](mailto:AzureSentinelPartner@microsoft.com).
 
 ## Analytics rules 
 
@@ -61,6 +61,11 @@ Analytic rules must have appropriate MITRE mappings to ensure that customers can
 It's important that rules are scoped to cover all key data columns that are pulled by the data connector so customers don’t feel like they’re being charged for ingesting data that isn't being used. 
 
 Entities need to be mapped to the rule output where applicable. Mapping rule output to standardized entities ensures that the rule output can be correlated with other data points in Microsoft Sentinel. Some common examples of entities are user accounts, hosts, mailboxes, IP addresses, files, cloud applications, processes, and URLs. To know more about entities in Microsoft Sentinel, see [Entities in Microsoft Sentinel](/azure/sentinel/entities). 
+
+> [!CAUTION]
+> Partners must create at least one analytic rule as part of their Sentinel solution.
+> 
+> Analytic rules are at the core of the value a Microsoft Sentinel SIEM solution can offer to customers. Getting the data into Microsoft Sentinel is only the first step. However, it's important for customers to monitor their security infrastructure and get notified of any issues. Getting data into Microsoft Sentinel without any detections written on the data wouldn't add any value for customers. To ensure that customers can deploy a Microsoft Sentinel SIEM solution and get started with monitoring their security infrastructure, it's important to have prebuilt analytic rules as part of the solution. This ensures that customers get value out-of-the-box as soon as they install and configure the Microsoft Sentinel SIEM solution, without any extra development effort by the customers.
 
 ## Playbooks
 

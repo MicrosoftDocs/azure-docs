@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 10/03/2025
+ms.date: 11/13/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -23,7 +23,7 @@ Use the AI gateway to manage a wide range of AI endpoints, including:
 
 * [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Azure AI Foundry Models](/azure/ai-foundry/openai/overview) deployments
 * [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) deployments
-* Remote MCP servers
+* Remote MCP servers and A2A agent APIs
 * OpenAI-compatible models and endpoints hosted by non-Microsoft providers
 * Self-hosted models and endpoints
 
@@ -57,6 +57,7 @@ With the AI gateway, you can:
 * Manage models deployed in Azure AI Foundry or providers such as Amazon Bedrock
 * Govern chat completions, responses, and real-time APIs
 * Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers
+* Import and manage A2A agent APIs (preview)
 
 For example, to onboard a model deployed in AI Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
 
@@ -69,6 +70,7 @@ More information:
 * [Import a language model API](openai-compatible-llm-api.md)
 * [Expose a REST API as an MCP server](export-rest-mcp-server.md)
 * [Expose and govern an existing MCP server](expose-existing-mcp-server.md)
+* [Import an A2A agent API](agent-to-agent-api.md)
 
 ## Scalability and performance
 

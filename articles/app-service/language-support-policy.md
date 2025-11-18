@@ -15,7 +15,7 @@ This article describes the language runtime support policy for updating existing
 
 ## Updates to existing stacks
 
-App Service updates existing stacks after they become available from each community. App Service updates major versions of stacks but can't guarantee any specific minor versions or patch versions. The platform controls minor and patch versions. For example, App Service updates Node 18 but doesn't guarantee a specific Node 18.x.x version. If you need a specific minor or patch version, use a [custom container](quickstart-custom-container.md).
+App Service updates existing stacks after they become available from each community. App Service updates major versions of stacks but can't guarantee any specific minor versions or patch versions. The platform controls minor and patch versions. For example, App Service updates Node 24 but doesn't guarantee a specific Node 24.x.x version. If you need a specific minor or patch version, use a [custom container](quickstart-custom-container.md).
 
 ## Retirements
 

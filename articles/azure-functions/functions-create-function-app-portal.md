@@ -35,39 +35,7 @@ You must have a function app to host the execution of your functions. A function
 Use these steps to create your function app and related Azure resources in the Azure portal. 
 
 ::: zone pivot="flex-consumption-plan"
-1. From the Azure portal menu or the **Home** page, select **Create a resource**.
-
-1. In the **New** page, select **Function App**.
-
-1. Under **Select a hosting option**, select **Flex Consumption** > **Select** to create your app in a [Flex Consumption plan](flex-consumption-plan.md). In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting option, you pay only for the time your functions run. To learn more about different hosting plans, see [Overview of plans](functions-scale.md#overview-of-plans). 
-
-1. On the **Basics** page, use the function app settings as specified in the following table:
-
-    | Setting      | Suggested value  | Description |
-    | ------------ | ---------------- | ----------- |
-    | **Subscription** | Your subscription | The subscription under which you create your new function app. |
-    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a new resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
-    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`. To guarantee a unique app name, you can optionally enable **Secure unique default hostname**, which is currently in preview. |
-    |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |
-    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language.  |
-    |**Version**| Version number | Choose the version of your installed runtime. |
-    |**Instance Size**| 2048 MB | The instance memory size used for each instance of the app as it scales. |
-
-1. On the **Storage** page, accept the default behavior of creating a new [default host storage account](storage-considerations.md) or choose to use an existing storage account.
-
-1. On the **Monitoring** page, make sure that **Enable Application Insights** is selected. Accept the default to create a new Application Insights instance, or else choose to use an existing instance. When you create an Application Insights instance, you're also asked to select a Log Analytics **Workspace**.
-
-1. On the **Authentication** page, change the **Authentication type** to **Managed identity** for all resources. With this option, a user-assigned managed identity is also created that your app uses to access these Azure resources using Microsoft Entra ID authentication. Managed identities with Microsoft Entra ID provides the highest level of security for connecting to Azure resources.   
-
-1. Accept the default options in the remaining tabs and then select **Review + create** to review the app configuration you chose.
-
-1. When you're satisfied, select **Create** to provision and deploy the function app and related resources.
-
-1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
-
-1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
-
-    :::image type="content" source="../../includes/media/functions-create-function-app-portal/function-app-create-notification-new.png" alt-text="Screenshot of deployment notification.":::
+[!INCLUDE [functions-create-flex-consumption-app-portal-full](../../includes/functions-create-flex-consumption-app-portal-full.md)] 
 ::: zone-end
 ::: zone pivot="consumption-plan"
 [!INCLUDE [Create Consumption plan app Azure portal](../../includes/functions-create-function-app-portal.md)]

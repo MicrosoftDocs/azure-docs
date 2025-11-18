@@ -59,6 +59,10 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ::: zone-end
 
+> [!NOTE]
+> While configuring via Azure portal, the region chosen in Azure Front Door origin configuration must be the same region where the Application Gateway is located in.
+> If you want the Azure Front Door origin region and the Application Gateway region to be different, use CLI/PowerShell. This will be needed in cases where the Application Gateway is located in a region where Azure Front Door doesn't support Private Link.
+
 ::: zone pivot="front-door-portal"
 
 ## Enable private connectivity to Azure Application Gateway
@@ -96,7 +100,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
     | Private link | Enable private link service |
     | Select a private link | By ID or alias |
     | ID/alias | Enter the private link service resource ID obtained while configuring the Application Gateway. |
-    | Region | Select the region that matches or is closest to your origin. |
+    | Region | Select the region where Application Gateway is located. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
    :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin settings for configuring Application Gateway as a private origin.":::    

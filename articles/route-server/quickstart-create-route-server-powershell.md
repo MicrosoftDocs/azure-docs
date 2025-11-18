@@ -76,11 +76,16 @@ Route Server requires a public IP address to ensure connectivity to the backend 
     $publicIp = New-AzPublicIpAddress -ResourceGroupName 'myResourceGroup' -Name 'myRouteServerIP' -Location 'EastUS' -AllocationMethod 'Static' -Sku 'Standard' -IpAddressVersion 'Ipv4'
     ```
 
+1. Configure Route Server's capacity using the [New-AzVirtualRouterAutoScaleConfiguration](/powershell/module/az.network/new-azvirtualrouterautoscaleconfiguration) cmdlet. For more information, see [Route Server Capacity](route-server-capacity.md).
+     ```azurepowershell-interactive
+    $autoscale = New-AzVirtualRouterAutoScaleConfiguration -MinCapacity 4
+    ```
+
 1. Create the Route Server using the [New-AzRouteServer](/powershell/module/az.network/new-azrouteserver) cmdlet:
 
     ```azurepowershell-interactive
     # Create the Route Server
-    New-AzRouteServer -RouteServerName 'myRouteServer' -ResourceGroupName 'myResourceGroup' -Location 'EastUS' -HostedSubnet $subnetId -PublicIP $publicIp
+    New-AzRouteServer -RouteServerName 'myRouteServer' -ResourceGroupName 'myResourceGroup' -Location 'EastUS' -HostedSubnet $subnetId -PublicIP $publicIp -VirtualRouterAutoScaleConfiguration $autoscale
     ```
 
     [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]

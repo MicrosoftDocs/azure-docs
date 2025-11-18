@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.custom:
   - devx-track-python
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.service: azure-app-service
 ---
 

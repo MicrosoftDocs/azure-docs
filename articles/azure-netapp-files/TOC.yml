@@ -387,6 +387,8 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
+      - name: Generate user and group quota reports for a volume 
+        href: generate-user-group-quota-reports.md 
       - name: Manage storage with cool access 
         href: manage-cool-access.md
       - name: Manage file access logs 

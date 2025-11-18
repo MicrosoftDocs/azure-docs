@@ -40,11 +40,11 @@ You can use this integration in two different experience:
 
     :::image type="content" source="media/firewall-copilot/security-copilot-overview.png" alt-text="Screenshot of the Security Copilot portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/security-copilot-overview.png":::
 
-- [Copilot in Azure](/azure/copilot/overview) (embedded experience) in the Azure portal:
+- [Azure Copilot](/azure/copilot/overview) (embedded experience) in the Azure portal:
 
     :::image type="content" source="media/firewall-copilot/azure-copilot-overview-image.png" alt-text="Screenshot of the Azure portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/azure-copilot-overview-image.png"::: 
 
-For more information, see  [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot) and [Microsoft Copilot in Azure capabilities](/azure/copilot/capabilities).
+For more information, see  [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot) and [Azure Copilot capabilities](/azure/copilot/capabilities).
 
 ## Key features
 
@@ -72,11 +72,11 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 
     :::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
 
-1. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Copilot in Azure](/azure/copilot/overview) experience in the Azure portal.
+1. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Azure Copilot](/azure/copilot/overview) experience in the Azure portal.
 
     > [!IMPORTANT]
-    > Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](/security-copilot/get-started-security-copilot#security-compute-units). You can deploy SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
-    > If you don't have Security Copilot properly configured but ask a question relevant to the Azure Firewall capabilities through the Copilot in Azure experience then you'll see an error message.
+    > Use of Azure Copilot to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](/security-copilot/get-started-security-copilot#security-compute-units). You can deploy SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
+    > If you don't have Security Copilot properly configured but ask a question relevant to the Azure Firewall capabilities through the Azure Copilot experience then you'll see an error message.
    
 ## Sample Azure Firewall prompts
 
@@ -134,7 +134,7 @@ Get **information from documentation** about using Azure Firewall's IDPS feature
 - What is the difference in risk between alert only and alert and block modes for IDPS?
 
     > [!NOTE]
-    > Security Copilot may also use the _Ask Microsoft Documentation_ capability to provide this information and when using this capability via the Copilot in Azure experience, the _Get Information_ capability may be used to provide this information.
+    > Security Copilot may also use the _Ask Microsoft Documentation_ capability to provide this information and when using this capability via the Azure Copilot experience, the _Get Information_ capability may be used to provide this information.
 
 ## Provide feedback
 
@@ -150,18 +150,18 @@ Select **How’s this response?** at the bottom of each completed prompt and cho
 
 For each feedback option, you can provide additional information in the subsequent dialog box. Whenever possible, and especially when the result is **Needs improvement**, write a few words explaining how the outcome can be improved. If you entered prompts specific to Azure Firewall and the results aren't related, include that information.
 
-### Through Copilot in Azure
+### Through Azure Copilot
 
 Use the **like** and **dislike** buttons at the bottom of each completed prompt. For either feedback option, you can provide additional information in the subsequent dialog box. Whenever possible, and especially when you dislike a response, write a few words explaining how the outcome can be improved. If you entered prompts specific to Azure Firewall and the results aren't related, include that information.
 
 ## Privacy and data security in Security Copilot
 
-When you interact with Security Copilot either through the Security Copilot portal or the Copilot in Azure experience to get information, Copilot pulls that data from Azure Firewall. The prompts, the data retrieved, and the output shown in the prompt results are processed and stored within the Copilot service. For more information, see [Privacy and data security in Microsoft Security Copilot](/copilot/security/privacy-data-security).
+When you interact with Security Copilot either through the Security Copilot portal or the Azure Copilot experience to get information, Copilot pulls that data from Azure Firewall. The prompts, the data retrieved, and the output shown in the prompt results are processed and stored within the Copilot service. For more information, see [Privacy and data security in Microsoft Security Copilot](/copilot/security/privacy-data-security).
 
 ## Related content
 
 - [What is Microsoft Security Copilot?](/security-copilot/microsoft-security-copilot)
 - [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot)
 - [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot)
-- [What is Microsoft Copilot in Azure?](/azure/copilot/overview)
-- [Microsoft Copilot in Azure Capabilities](/azure/copilot/capabilities)
+- [What is Microsoft Azure Copilot?](/azure/copilot/overview)
+- [Azure Copilot Capabilities](/azure/copilot/capabilities)

@@ -3,7 +3,7 @@ title: Disable local authentication in Azure Automation
 description: This article describes disabling local authentication in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/13/2025
+ms.date: 11/17/2025
 ms.custom: engagement-fy24
 ms.topic: how-to
 #Customer intent: As an administrator, I want disable local authentication so that I can enhance security.

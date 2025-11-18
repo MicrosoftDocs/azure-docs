@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/11/2025
+ms.date: 11/18/2025
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As an IT admin, I want to configure mutual authentication for my Application Gateway using PowerShell, so that I can ensure secure client-server communication through certificate verification."
@@ -25,7 +25,7 @@ This article requires the Azure PowerShell module version 1.0.0 or later. Run `G
 
 To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate is used to validate the certificate the client presents to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure.
 
-To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-authentication).
+To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-tls-strict-mode-authentication).
 
 ## Create a resource group
 

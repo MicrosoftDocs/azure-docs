@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: overview 
 ms.custom:
 ms.service: azure-automation

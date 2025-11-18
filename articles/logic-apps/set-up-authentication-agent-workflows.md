@@ -48,7 +48,7 @@ This guide shows how to create an app registration and then set up Easy Auth for
 
 For more information, see the following articles:
 
-- [Built-in authentication and authorization with Easy Auth for agent workflows](agent-workflows-concepts.md#easy-auth-built-in-authentication-and-authorization)
+- [Built-in authentication and authorization with Easy Auth for agent workflows](agent-workflows-concepts.md#easy-auth)
 - [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app)
 
 ## Prerequisites

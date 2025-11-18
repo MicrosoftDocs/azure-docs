@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Managed identity in Azure SRE Agent Preview
+# Managed identity in Azure SRE Agent  Preview
 
 The Azure SRE Agent features a flexible model for managing roles and access management based on Azure role-based access control (RBAC) and the [Principle of Least Privilege](/entra/identity-platform/secure-least-privileged-access). This model ensures users only interact with the agent and managed resources according to Azure RBAC policies.
 

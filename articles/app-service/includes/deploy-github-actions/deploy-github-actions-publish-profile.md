@@ -193,7 +193,7 @@ on: [push]
 env:
   AZURE_WEBAPP_NAME: my-app-name   # Set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # Set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '18.x'                # Set this to the node version to use
+  NODE_VERSION: '24.x'                # Set this to the node version to use
 
 jobs:
   build-and-deploy:

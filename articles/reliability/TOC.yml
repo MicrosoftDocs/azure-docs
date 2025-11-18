@@ -220,12 +220,8 @@ items:
       href: reliability-dns.md
     - name: Azure DDoS Protection
       href: reliability-ddos.md
-    - name: Azure ExpressRoute
-      items:
-      - name: Availability zones
-        href: ../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure ExpressRoute gateway
+      href: reliability-virtual-network-gateway.md?pivot=expressroute
     - name: Azure Firewall
       href: reliability-firewall.md
     - name: Azure Load Balancer
@@ -249,11 +245,7 @@ items:
       - name: Disaster recovery
         href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure VPN Gateway
-      items:
-      - name: Availability zones
-        href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json   
-      - name: Disaster recovery
-        href: ../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json    
+      href: reliability-virtual-network-gateway.md?pivot=vpn
   - name: Security
     items:
     - name: Azure Disk Encryption 

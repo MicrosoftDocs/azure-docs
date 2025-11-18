@@ -53,8 +53,6 @@ items:
       href: concepts-using-c-sdk-and-embedded-c-sdk.md
     - name: Manage device reconnections
       href: concepts-manage-device-reconnections.md
-    - name: IoT device selection
-      href: concepts-iot-device-selection.md
   - name: Integrate using IoT Plug and Play
     items:
     - name: Overview

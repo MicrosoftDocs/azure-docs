@@ -3,7 +3,7 @@ title: Create a Python 3.8 runbook in Azure Automation
 description: This article teaches you to create, test, and publish a simple Python 3.8 runbook in your Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/17/2023
+ms.date: 11/17/2025
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python, py-fresh-zinc
 ms.service: azure-automation

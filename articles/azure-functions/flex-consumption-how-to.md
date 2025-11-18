@@ -114,16 +114,9 @@ To support your function code, you need to create three resources:
 
     Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app only incurs costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
 
-
 ### [Azure portal](#tab/azure-portal)
 
-[!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
-
-6. Select **Review + create** to review the app configuration you chose, and then select **Create** to provision and deploy the function app.
-
-7. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
-
-8. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+[!INCLUDE [functions-create-flex-consumption-app-portal-full](../../includes/functions-create-flex-consumption-app-portal-full.md)]
 
 ### [Visual Studio Code](#tab/vs-code)
 
@@ -343,7 +336,7 @@ Use these steps to create your function app with virtual network integration and
 
 [!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
 
-6. In the **Networking** tab, set **Enable public access** to **Off** and **Enable network injection** to **On**.
+6. In the **Networking** tab, set **Enable public access** to **Off** and **Enable network injection** to **On**. 
 
 7. For **Virtual network**, select or create a virtual network that is in the same region as your app.
 

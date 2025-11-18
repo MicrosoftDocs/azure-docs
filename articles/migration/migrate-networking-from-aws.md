@@ -4,8 +4,8 @@ description: Learn about concepts, how-tos, and best practices for migrating net
 author: mbender-ms
 ms.author: mbender
 ms.reviewer: prwilk, chkittel
+ms.topic: concept-article
 ms.date: 10/28/2025
-ms.topic: conceptual
 ms.service: azure
 ms.collection:
  - migration

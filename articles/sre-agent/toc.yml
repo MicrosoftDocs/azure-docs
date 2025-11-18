@@ -1,5 +1,5 @@
 items:
-  - name: Azure SRE Agent documentation
+  - name: Azure SRE Agent Preview documentation
     href: index.yml
   - name: Get started
     items:
@@ -15,6 +15,14 @@ items:
             href: troubleshoot-azure-app-service.md
           - name: Troubleshoot Container Apps
             href: troubleshoot-azure-container-apps.md
+  - name: Connect to external services
+    href: connectors.md
+  - name: Build custom subagents
+    items:
+      - name: Overview
+        href: subagent-builder-overview.md
+      - name: Create and manage subagents
+        href: subagent-builder-scenarios.md
   - name: Deep investigation
     href: deep-investigation.md
   - name: Connect source code repositories

@@ -2,7 +2,7 @@
 title: Configure Azure Elastic SAN backup using Azure portal (preview)
 description: Learn how to configure Azure Elastic SAN backup (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 07/15/2025
+ms.date: 11/18/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to configure backup for Azure Elastic SAN using the Azure portal, so that I can ensure data protection and recovery for my storage resources."
@@ -29,9 +29,9 @@ To back up Elastic SAN, ensure you have a Backup vault in the same subscription.
 
 A backup policy defines the schedule and frequency for backing up Elastic SAN volumes. You can either create a backup policy from the Backup vault or create it on the go during the backup configuration.
 
-To create a backup policy for Elastic SAN from Azure Business Continuity Center, follow these steps:
+To create a backup policy for Elastic SAN from Resiliency, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to the **Azure Business Continuity Center** > **Protection policies**, and then select **+ Create Policy** > **Create Backup Policy**.
+1. In the [Azure portal](https://portal.azure.com/), go to the **Resiliency** > **Protection policies**, and then select **+ Create Policy** > **Create Backup Policy**.
 1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy under **Policy name**, and then select **Datasource type** as **Elastic SAN (Preview)**.
 
    :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/azure-elastic-storage-area-network-backup-configure/create-policy.png":::
@@ -57,7 +57,7 @@ To create a backup policy for Elastic SAN from Azure Business Continuity Center,
 
 To configure backup for your Elastic SAN, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to the **Business Continuity Center**, and then select **+ Configure protection**. 
+1. In the [Azure portal](https://portal.azure.com/), go to the **Resiliency**, and then select **+ Configure protection**. 
 1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Elastic SAN volumes (Preview)**, **Solution** as **Azure Backup**, and then select **Continue**.
 
    :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/start-protection-configuration.png" alt-text="Screenshot shows how to start configuring backup." lightbox="./media/azure-elastic-storage-area-network-backup-configure/start-protection-configuration.png":::

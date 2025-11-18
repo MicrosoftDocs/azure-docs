@@ -4,7 +4,7 @@ description: This article describes how to set up a user-assigned managed identi
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 08/16/2024
+ms.date: 11/17/2025
 ms.topic: how-to 
 ms.service: azure-automation
 ms.author: v-jasmineme

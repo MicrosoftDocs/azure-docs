@@ -54,6 +54,9 @@ This is the new experience that offers an improved migration experience by:
 * Eliminating the need for manual input of frontend SSL certificates and backend trusted root certificates.
 * Supporting the deployment of private-only V2 gateways.
 
+> [!NOTE]
+> If the existing V1 Application Gateway is configured with a private-only frontend, you must [register the EnableApplicationGatewayNetworkIsolation feature in the subscription](../application-gateway/application-gateway-private-deployment.md#onboard-to-the-feature) for Private Deployment before running the migration script. This step is required to avoid deployment failures.
+
 You can **download** the Enhanced cloning script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWClone).
  
 **Parameters for the script:**

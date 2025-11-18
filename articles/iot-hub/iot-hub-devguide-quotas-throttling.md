@@ -3,7 +3,6 @@ title: Understand Azure IoT Hub quotas and throttling
 titleSuffix: Azure IoT Hub
 description: This article provides a description of the quotas that apply to IoT Hub and the expected throttling behavior.
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
@@ -13,27 +12,38 @@ ms.custom: ["Role: Cloud Development", "Role: Operations", "Role: Technical Supp
 
 # IoT Hub quotas and throttling
 
-This article explains the limits that apply to IoT Hub resources.
+This article explains the limits that apply to IoT Hub resources. 
+
+## Tier and unit quotas
+
+There are seven types of tiers for IoT Hub: Free, Basic (B1, B2, B3), and Standard (S1, S2, S3). The Free tier is intended for testing and evaluation. The Basic and Standard tiers are intended for production use. For more information about the differences between the tiers, see [Choose the right IoT Hub tier and size for your solution](./iot-hub-scaling.md).
 
 Each Azure subscription can have at most 50 IoT hubs, and at most one hub in the free tier.
 
-Each IoT hub is provisioned with units in a specific tier. The tier and number of units determine the maximum daily quota of messages. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4 KB for all other tiers. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/) or [Choose the right IoT Hub tier and size for your solution](./iot-hub-scaling.md).
+Each IoT hub is provisioned with units in a specific tier. The tier and number of units determine the maximum daily quota of messages. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4 KB for all other tiers. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/). The tier also determines the throttling limits that IoT Hub enforces on all operations.
 
-You can find your hub's quota limit in the Azure portal. Your IoT hub's **Overview** page lists the **Daily message limit**. You can also view and adjust this limit in **Hub settings** > **Pricing and scale**.
+## View your quota limit
 
-The tier also determines the throttling limits that IoT Hub enforces on all operations.
+You can find your hub's quota limit in the Azure portal. 
+
+1. Navigate to your IoT hub in the [Azure portal](https://portal.azure.com).
+1. Select **Overview** page. The **Overview** page lists the **Daily message limit**. 
+1. You can view and adjust the daily message limit in **Hub settings** > **Pricing and scale**.
 
 ## Operation throttles
 
 Operation throttles are rate limitations that are applied in minute ranges and are intended to prevent abuse. They're also subject to [traffic shaping](#traffic-shaping).
 
-It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429, and the client should back-off and retry. These limits are per hub (or in some cases per hub per unit). For more information, see [Retry patterns](../iot/concepts-manage-device-reconnections.md#retry-patterns).
+It's a good practice to throttle your calls so that you don't hit or exceed the throttling limits. If you hit the limit, IoT Hub responds with `error code 429`, and the client should back-off and retry. These limits are per hub (or in some cases per hub per unit). For more information, see [Retry patterns](../iot/concepts-manage-device-reconnections.md#retry-patterns).
 
 For pricing details about which operations are charged and under what circumstances, see [Azure IoT Hub billing information](iot-hub-devguide-pricing.md).
 
 ### Basic and standard tier operations
 
 The following table shows the enforced throttles for operations that are available in all IoT Hub tiers. Values refer to an individual hub.
+
+> [!IMPORTANT]
+> Azure Device Registry and certificate management are only available in the Free and S1 tiers.
 
 | Throttle | Free, B1, and S1 | B2 and S2 | B3 and S3 |
 | -------- | ------- | ------- | ------- |
@@ -46,6 +56,9 @@ The following table shows the enforced throttles for operations that are availab
 ### Standard tier operations
 
 The following table shows the enforced throttles for operations that are available in standard tiers only. Values refer to an individual hub.
+
+> [!IMPORTANT]
+> Azure Device Registry and certificate management are only available in the Free and S1 tiers.
 
 | Throttle | Free and S1 | S2 | S3 |
 | -------- | ------- | ------- | ------- |

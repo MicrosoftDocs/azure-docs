@@ -150,7 +150,7 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 > [!NOTE]
-> To create or manage topics and subscriptions using the REST API, see the [Service Bus REST API reference for subscriptions](https://learn.microsoft.com/rest/api/servicebus/create-subscription).
+> To create or manage topics and subscriptions using the REST API, see the [Service Bus REST API reference for subscriptions](/rest/api/servicebus/create-subscription).
 
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md

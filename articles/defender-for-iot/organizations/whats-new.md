@@ -15,7 +15,7 @@ This article describes features available in Microsoft Defender for IoT, across 
 Features released earlier than nine months ago are described in the [What's new archive for Microsoft Defender for IoT for organizations](whats-new-archive.md). For more information specific to OT monitoring software versions, see [OT monitoring software release notes](release-notes.md).
 
 > [!NOTE]
-> Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Noted features listed below are in PREVIEW. bThe [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
@@ -48,6 +48,8 @@ Features released earlier than nine months ago are described in the [What's new 
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
 
 The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
+
+The URL information applies only to HTTP-based connections and doesn’t appear for other protocols or for encrypted traffic such as HTTPS. You can view the URL details both on the sensor and in the Azure portal.
 
 :::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of URL information in alert details." lightbox="media/whats-new/url-parameters.png":::
 

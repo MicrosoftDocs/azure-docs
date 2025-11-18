@@ -103,9 +103,9 @@ Ingress and egress for managed services occurs via the Azure/OCI backbone and do
 
 This section includes questions related to onboarding, provisioning, and migrating to Oracle Database@Azure.
 
-### Can a CSP or an outsourcer use Oracle Database@Azure?
+### Can a CSP, reseller, or an outsourcer use Oracle Database@Azure?
 
-No. Oracle Database@Azure doesn't support cloud service providers (CSPs), Outsourcer Channel Agreement (OCAs), or multi-party private offers (MPPOs).  
+Oracle Database@Azure doesn't support cloud service providers (CSPs), or Outsourcer Channel Agreements (OCAs). However, Oracle Database@Azure supports multiparty private offers. Multiparty private offers are supported in US, UK, and Canada. For more information on MPO, refer to the [Azure Marketplace documentation](/partner-center/marketplace-offers/multiparty-private-offers-for-channel-partners).
 
 ### To set up Oracle Database@Azure, what role assignments does the Azure user need?
 

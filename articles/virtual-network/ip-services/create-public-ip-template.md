@@ -30,7 +30,7 @@ For more information on resources this public IP can be associated to, see [Publ
 
 In this section, you create a standard SKU public IP. Public IP addresses can be zone-redundant or zonal.
 
-### Zone redundant
+### Zone redundant (Standard)
 
 The code in this section creates a standard zone-redundant public IPv4 address named **myStandardPublicIP**.
 
@@ -64,11 +64,11 @@ Template section to add:
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### Zonal
+### Zone redundant (Standardv2)
 
-The code in this section creates a standard zonal public IPv4 address named **myStandardPublicIP-zonal**. 
+The code in this section creates a standard v2 zone-redundant public IPv4 address named **myStandardv2PublicIP**. Standard v2 SKU public IP is required for use of the Standard v2 NAT Gateway with zone-redundancy.
 
-To create a standard zonal public IP address in Zone 2, the **"zones"** property contains a '2'.
+To create an IPv6 address, modify the **`publicIPAddressVersion`** parameter to **IPv6**.
 
 Template section to add:
 
@@ -76,19 +76,24 @@ Template section to add:
 {
   "apiVersion": "2020-08-01",
   "type": "Microsoft.Network/publicIPAddresses",
-  "name": "myStandardPublicIP-zonal",
+  "name": "myStandardv2PublicIP",
   "location": "[resourceGroup().location]",
   "sku": {
-    "name": "Standard"
+    "name": "Standardv2"
   },
   "zones": [
-    "2"
+    "1",
+    "2",
+    "3"
   ],
   "properties": {
     "publicIPAllocationMethod": "Static",
     "publicIPAddressVersion": "IPv4"
   }
 ```
+> [!IMPORTANT]
+> For API versions older than 2020-08-01, use the code above without specifying a zone parameter for a Standard SKU to create a zone-redundant IP address. 
+>
 
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

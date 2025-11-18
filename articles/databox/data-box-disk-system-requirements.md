@@ -105,9 +105,9 @@ The following table contains supported storage types for Data Box Disks.
 | **Storage account** | **Supported access tiers** |
 | --- | --- |
 | Classic Standard | |
-| General-purpose v1 Standard  | Hot, Cool |
+| General-purpose v1 Standard  | Hot, Cool, Cold, Archive |
 | General-purpose v1 Premium   |  |
-| General-purpose v2 Standard<sup>*</sup> | Hot, Cool |
+| General-purpose v2 Standard<sup>*</sup> | Hot, Cool, Cold, Archive |
 | General-purpose v2 Premium   |  |
 | Blob storage account | |
 | Block Blob storage Premium | |

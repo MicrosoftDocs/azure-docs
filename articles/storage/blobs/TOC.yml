@@ -615,6 +615,8 @@ items:
         items:
         - name: Best practices
           href: access-tiers-best-practices.md
+        - name: Smart tiering
+          href: access-tiers-smart.md
         - name: Change a blob's access tier
           href: access-tiers-online-manage.md
         - name: Archive and rehydrate

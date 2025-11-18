@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-### Failover types
+#### Failover types
 
 Azure Storage supports three types of failover for different scenarios.
 

@@ -97,6 +97,9 @@ The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
    > - Rocky8, Rocky9
    > - SUSE (SLES 15)
 
+> [!TIP] 
+> AZNFS 3.0 is now in public preview. This release delivers higher throughput, supports larger files, enhances metadata performance, and eliminates user group restrictions. To learn about improvements and view instructions to try AZNFS 3.0, see the [AZNFS wiki](https://github.com/Azure/AZNFS-mount/wiki).
+
 ## Step 6: Mount the container
 
 Create a directory on your Linux system and then mount the container in the storage account.

@@ -5,9 +5,11 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: overview
-ms.date: 09/01/2025
+ms.date: 11/18/2025
 ms.custom:
   - build-2025
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Integrate AI into your Azure App Service applications

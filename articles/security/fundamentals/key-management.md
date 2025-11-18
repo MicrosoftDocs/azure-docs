@@ -37,7 +37,12 @@ A FIPS 140-2 Level 1 validated multitenant cloud key management service that can
 
 ### Azure Key Vault (Premium Tier)
 
-A FIPS 140-3 Level 3 validated, PCI compliant, multitenant HSM offering that can be used to store asymmetric keys, secrets, and certificates. Keys are stored in a secure hardware boundary using Marvell LiquidSecurity HSMs*. Microsoft manages and operates the underlying HSM, and keys stored in Azure Key Vault Premium can be used for encryption-at-rest and custom applications. Azure Key Vault Premium also provides a modern API and a breadth of regional deployments and integrations with Azure Services. If you are an Azure Key Vault Premium customer looking for key sovereignty, single tenancy, and/or higher crypto operations per second, you may want to consider Azure Key Vault Managed HSM instead. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
+A FIPS 140-3 Level 3 validated, PCI compliant, multitenant HSM offering that can be used to store asymmetric keys, secrets, and certificates. Keys are stored in a secure hardware boundary using Marvell LiquidSecurity HSMs*. Microsoft manages and operates the underlying HSM, and keys stored in Azure Key Vault Premium can be used for encryption-at-rest and custom applications. Azure Key Vault Premium also provides a modern API and a breadth of regional deployments and integrations with Azure Services. 
+
+> [!IMPORTANT]
+> **Azure Integrated HSM**: Starting with new Azure server hardware (AMD D and E Series v7 Preview), Microsoft-designed HSM chips are being embedded directly on servers, meeting FIPS 140-3 Level 3 standards. These tamper-resistant chips keep encryption keys within secure hardware boundaries, eliminating latency and exposure risks. The integrated HSM operates transparently by default for supported services like Azure Key Vault and Azure Storage encryption, providing hardware-enforced trust without additional configuration. This integration ensures that cryptographic operations benefit from hardware-level security isolation while maintaining the performance and scalability of cloud services.
+
+If you are an Azure Key Vault Premium customer looking for key sovereignty, single tenancy, and/or higher crypto operations per second, you may want to consider Azure Key Vault Managed HSM instead. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
 ### Azure Key Vault Managed HSM
 

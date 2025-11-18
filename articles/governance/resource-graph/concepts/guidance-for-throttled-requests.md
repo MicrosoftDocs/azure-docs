@@ -225,9 +225,37 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 // Inspect throttling headers in query response and delay the next call if needed.
 }
 ```
+
 ## Differentiate between throttling requests for ARG and ARM
 
-It is important to understand the source of throttling in order to reach out to the right team for quota increases. If you receive the following error message, the source of throttling is due to ARM, *not* ARG: 
+When using the ARG GET / LIST API, you may encounter throttling errors in response to your requests. It’s important to identify the source of throttling, as it can occur at two levels:
+
+- ARG API throttling: limits applied by Azure Resource Graph.
+- ARM throttling: limits enforced by Azure Resource Manager.
+
+Knowing which layer is causing the throttling helps you apply the right mitigation strategy.
+
+The following is an example of an **ARG throttling** error:
+
+```txt
+{
+    "error": {
+        "code": "RateLimiting",
+        "message": "Please provide below info when asking for support: timestamp = 2025-10-16T18:06:54.4721412Z, correlationId = a90921ec-4649-431a-9c92-7a4394a15883.",
+        "details": [
+            {
+                "code": "RateLimiting",
+                "message": "Client application has been throttled and should not attempt to repeat the request until an amount of time has elapsed. Please see https://aka.ms/resourcegraph-throttling for help."
+            }
+        ]
+    }
+}
+```
+
+On the other hand, the following is an example of an **ARM throttling** error:
+
+> [!NOTE]
+> ARM limits are **hard limits** that cannot be increased.
 
 ```txt
 <value>
@@ -235,7 +263,7 @@ Number of 'read' requests for subscription '{1}' actor '{2}' exceeded. Please tr
 </value>
 ```
 
-Please raise a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for throttling requests related to ARM. 
+If you receive an ARM throttling error, we recommend that you go through the [ARM recommendations](/azure/azure-resource-manager/management/request-limits-and-throttling#azure-resource-graph-throttling) to understand how ARM limits are enforced.
 
 ## ARG GET/LIST API  
 

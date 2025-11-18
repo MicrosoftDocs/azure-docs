@@ -31,7 +31,7 @@ The Azure Maps Power BI visual provides a rich set of data visualizations for sp
 The Azure Maps Power BI visual connects to cloud service hosted in Azure to retrieve location data such as map images and coordinates that are used to create the map visualization.
 
 - Details about the area the map is focused on are sent to Azure to retrieve images needed to render the map canvas (also known as map tiles).
-- Data in the Location, Latitude, and Longitude buckets may be sent to Azure to retrieve map coordinates (a process called geocoding).
+- Data in the Location bucket may be sent to Azure to retrieve map coordinates (a process called geocoding).
 - Telemetry data may be collected on the health of the visual (for example, crash reports), if the telemetry option in Power BI is enabled.
 
 Other than the scenarios previously described, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.

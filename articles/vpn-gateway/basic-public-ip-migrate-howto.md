@@ -139,7 +139,9 @@ Invoke-AzVirtualNetworkGatewayAbortMigration -InputObject $gateway
 
 ---
 
-## Point-to-Site VPN Gateways using legacy DNS limitation
+## Known Issues
+
+### Point-to-Site VPN Gateways using legacy DNS limitation
 
 Point-to-Site VPN Gateways that were originally deployed using legacy cloudapp.NET DNS infrastructure have specific limitations that prevent them from using the standard migration process described in this article. This section helps you identify if your gateway has this limitation and provides guidance on next steps.
 
@@ -190,7 +192,7 @@ Follow these steps to determine if your VPN Gateway uses legacy cloudapp.NET DNS
 
 For the latest updates on legacy DNS gateway migration availability, see the [VPN Gateway - What's New](whats-new.md) article.
 
-## Known Issues
+## Known Issues continuation
 
 * For VpnGw1 CSES to Virtual Machine Scale Sets migration, we are seeing higher CPU utilization due to .NET core optimization. This is a known issue and we recommend to either wait for 10 minutes after prepare stage or upgrade to a higher gateway SKU during the migration process.
 

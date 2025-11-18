@@ -39,11 +39,6 @@ sections:
           No, explicit permissions aren't required.
 
       - question: |
-          Where does the collector virtual machine (VM) reside?  
-        answer: |
-          When deploying Azure Monitor for SAP solutions, we recommend you choose the same VNET for your monitoring resource as your SAP HANA server. So we recommend the collector VM be in the same VNET as the SAP HANA server. If you're using a non-HANA database, the collector VM will be in the same VNET as the non-HANA database.
-
-      - question: |
           Which versions of HANA are supported?  
         answer: |
           HANA 1.0 SPS 12 (Rev. 120 or higher) and HANA 2.0 SPS03 or higher are supported.

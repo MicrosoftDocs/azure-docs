@@ -78,7 +78,7 @@ The price difference between both options is reflected in the internet egress da
 
 ## Limitations
 
-* Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address isn't supported.
+* Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Standard v2 SKU and Basic SKU public IP addresses aren't supported.
 
 * Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses aren't supported.
 

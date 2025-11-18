@@ -30,6 +30,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Central India | India West (Mumbai) | ✓  | ✓ | | | | |   Single   |
 | Japan East | Japan East (Tokyo) | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ |   Dual   |
 | Japan West | Japan Central (Osaka) | ✓  | ✓ | | | | |   Single   |
+| South India | 	India South (Chennai) | ✓  |  | | | | |   Single   |
 | Southeast Asia |Singapore (Singapore) | ✓  | ✓   | ✓ | ✓ | ✓ | ✓ |  Dual   |
 
 
@@ -45,7 +46,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 |Azure region |OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure| Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
 |------------|--|--------------------------|------------------------------| ------| ---- | ---- |----|-------|
 | France Central       |France central (Paris) | ✓   | ✓ | ✓ | ✓ | | |  Dual |
-| France South | France South (Marseille) |  ✓  | | | | | |   Single    |
+| France South | France South (Marseille) |  ✓  | | | | | |   Single   |
 | Germany North |Germany Central (Frankfurt) | ✓  | ✓ | | | | |   Single    |
 | Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓ | ✓ | ✓ | ✓ | Dual |
 | Italy North | Italy North (Milan)   | ✓   | ✓   | ✓ |  ✓ | ✓ |  | Dual |
@@ -68,10 +69,11 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Central US       | US Midwest (Chicago)       | ✓       | ✓      | ✓    |  ✓   |    |      | Dual    |
 | East US          | US East (Ashburn)          | ✓     | ✓      | ✓      | ✓     | ✓ | ✓ | Dual|
 | East US 2        | US East (Ashburn)          | ✓    | ✓         | ✓       |  ✓   |   |  | Dual     |
+| North Central US | US Midwest (Chicago)   | ✓    |       |      |     |  |  | Single   |
 | South Central US | US South (Dallas)   | ✓     |  ✓        |           |    |   |   | Dual |
 | West US          | US West (San Jose)    | ✓    | ✓      | ✓     |     | ✓ |  | Single   |
 | West US 2        | US West (Quincy)  | ✓    |   ✓  |  ✓   |     |  |  | Dual |
-| West US 3        | US West (Phoenix)   | ✓   |   |  ✓   |    |  |  | Dual   |
+| West US 3        | US West (Phoenix)   | ✓   |   |  ✓ |    |  |  | Dual   |
 
 
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Graph GET/LIST API Guidance (Preview)
+title: Azure Resource Graph GET/LIST API Guidance 
 description: Learn to use the GET/LIST API to avoid requests being throttled in Azure Resource Graph.
 ms.date: 05/14/2025
 ms.topic: conceptual

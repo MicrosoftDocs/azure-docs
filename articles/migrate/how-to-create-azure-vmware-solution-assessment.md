@@ -49,28 +49,44 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 ## Run an Azure VMware Solution (AVS) assessment
 
-1. In **Servers, databases and web apps**, select **Assess and migrate servers**.
+1. In **Infrastructure**, select the list of all workloads you want to assess the cost for.
 
-1. In **Azure Migrate: Discovery and assessment**, select **Assess**.
+1. From the top menu, click on **Create assessment** drop-down, select **For Azure VMware Solution (AVS)**.
 
-1. In **Assess**, select **Azure VMware Solution (AVS)**.
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/create-azure-vmware-solution-assessment-v2.png" alt-text="Screenshot of page for selecting the assessment settings." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/create-azure-vmware-solution-assessment-v2.png" :::
 
-1. In **Discovery source**:
+1. Provide **Assessment name** for the assessment. Click on **Add workloads** in case you need additional workloads for the assessment. Click on **Next** once the page is ready to proceed.
 
-    - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
-    - If you discovered servers using an imported CSV or RVTools file, select **Imported servers**. 
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-basics-tab-v2.png" alt-text="Screenshot of page for adding Basic details for the assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-basics-tab-v2.png" :::
+
+1. Under **General** settings, provide the **Target location** you want to provision your private cloud in, the **Currency**, **Program/offer** you want to have the assessment evaluated in, and other settings you may want to change.
+
+    - In **Pricing**:
+        - In **Program/Offer**, [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in is displayed. The Assessment estimates the cost for that offer.
+        - In **Currency**, select the billing currency for your account.
+        - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+
+    - In **Sizing criteria**, select if you want to base the assessment on static metadata, or on performance-based data. If you use performance data:
+        - In **Performance history**, indicate the data duration on which you want to base the assessment
+        - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
+
+    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
     
-1. Select **Edit** to review the assessment properties.
+        **Component** | **Effective utilization** | **Add comfort factor (2.0)**
+        --- | --- | ---
+        Cores | 2  | 4
+        Memory | 8 GB | 16 GB  
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
- 
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-edit-settings-v2.png" alt-text="Screenshot of first page for editing settings for the assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-edit-settings-v2.png" :::
 
-1. In **Assessment settings** > **Target settings**:
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-edit-settings-2-v2.png" alt-text="Screenshot of second page for editing settings for assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-edit-settings-2-v2.png" :::
 
-    - In **Assessment type**, specify "New SDDC" if you are creating a new SDDC. Use "AVS SDDC expansion" if you already have an AVS SDDC with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding an SDDC, it will not consider the available capacity in the AVS SDDC but will consider the capacity requirements for management appliances.
+1. In **Advanced** settings, click on **Edit defaults** and ensure the **Target services** has "Azure VMware Solution (AVS)" and then click on **Edit defaults**:
+
+    - In **SDDC type**, specify "New SDDC" if you are creating a new SDDC. Use "AVS SDDC expansion" if you already have an AVS SDDC with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding an SDDC, it will not consider the available capacity in the AVS SDDC but will consider the capacity requirements for management appliances.
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
-    - The **Storage type** is defaulted to **vSAN** and **Azure NetApp Files (ANF) - Standard**, **ANF - Premium**, and **ANF - Ultra** tiers. ANF is an external storage type in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & elastic SAN as the storage datastores. When performance metrics are provided (IOPS and throughput) in settings or via the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. If the assessment is performed using the Azure Migrate appliance or an RVTools file or without providing performance metrics like throughput and IOPS, **ANF - Standard** tier is used for assessment by default.
+    - The **Storage type** is defaulted to **vSAN**, **Elastic SAN** and **Azure NetApp Files (ANF) - Standard**, **ANF - Premium**, and **ANF - Ultra** tiers. Elastic SAN and ANF are external storage types in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & elastic SAN as the storage datastores. When performance metrics are provided (IOPS and throughput) in settings or via the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. If the assessment is performed using the Azure Migrate appliance or an RVTools file or without providing performance metrics like throughput and IOPS, **ANF - Standard** tier is used for assessment by default.
    - In **Reserved Instances**, specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs.
     - If you select to use a reserved instance, you can't specify '**Discount (%)**. [Learn more](../azure-vmware/reserved-instance.md).
 
@@ -88,25 +104,10 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - The **Node type** is defaulted to use all the SKUs available in the given region. SKUs supported for assessment are AV36, AV36P, AV48, AV52 & AV64 (both Gen 1 & [Gen 2](/azure/azure-vmware/native-introduction)). Azure Migrate attempts to get the minimum number of nodes needed to host the VMs on the Azure VMware Solution private cloud. However, availability of the SKU will depend upon capacity availability.
     - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
     - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
-1. In **Node Size**: 
-    - In **Sizing criterion**, select if you want to base the assessment on static metadata, or on performance-based data. If you use performance data:
-        - In **Performance history**, indicate the data duration on which you want to base the assessment
-        - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
-    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
-    
-        **Component** | **Effective utilization** | **Add comfort factor (2.0)**
-        --- | --- | ---
-        Cores | 2  | 4
-        Memory | 8 GB | 16 GB  
-
-1. In **Pricing**:
-    - In **Offer**, [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in is displayed. The Assessment estimates the cost for that offer.
-    - In **Currency**, select the billing currency for your account.
-    - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 
 1. Select **Save** if you make changes.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings-with-storage-dropdown.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings-with-storage-dropdown.png":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-settings-v2.png" alt-text="Screenshot of assessment properties." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-settings-v2.png":::
 
 1. In **Assess Servers**, select **Next**.
 

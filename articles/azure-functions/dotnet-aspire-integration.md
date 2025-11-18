@@ -360,28 +360,7 @@ builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProjec
     .PublishAsAzureAppServiceWebsite((infra, app) => app.Kind = "functionapp,linux");
 ```
 
-By default, this configuration creates a Premium V3 plan. When using a dedicated App Service plan SKU, scaling isn't event-based. Instead, scaling is managed through the App Service plan settings. If you want to change the SKU, you can do so through the `ConfigureInfrastructure` method on the environment resource. The following example shows how you can set up an Elastic Premium plan:
-
-```csharp
-using Azure.Provisioning.AppService;
-
-var builder = DistributedApplication.CreateBuilder(args);
-builder.AddAzureAppServiceEnvironment("functions-env");
-    .ConfigureInfrastructure(infra =>
-    {
-        var plan = infra.GetProvisionableResources().OfType<AppServicePlan>().First();
-        plan.Sku = new AppServiceSkuDescription
-        {
-           Name = "EP1",
-           Tier = "ElasticPremium"
-        };
-    });
-builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
-    .WithExternalHttpEndpoints()
-    .PublishAsAzureAppServiceWebsite((infra, app) => app.Kind = "functionapp,linux");
-```
-
-When you configure the plan to use an Elastic Premium SKU, you can only publish Functions projects to that plan. If your app host project includes other web apps, you should use a dedicated App Service plan SKU.
+This configuration creates a Premium V3 plan. When using a dedicated App Service plan SKU, scaling isn't event-based. Instead, scaling is managed through the App Service plan settings.
 
 ## Considerations and best practices
 

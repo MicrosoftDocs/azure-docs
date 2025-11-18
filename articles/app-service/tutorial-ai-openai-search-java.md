@@ -6,12 +6,14 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/19/2025
+ms.date: 11/18/2025
 ms.custom:
   - devx-track-java
   - devx-track-azurecli
   - references_regions
   - build-2025
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Spring Boot)

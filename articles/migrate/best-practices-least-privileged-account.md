@@ -5,7 +5,7 @@ author: molishv
 ms.author: molir
 ms.reviewer: v-uhabiba
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/04/2025
 ms.custom:
   - build-2025

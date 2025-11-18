@@ -1,8 +1,9 @@
 ---
 title: Best practices for performance testing for Azure Managed Redis
 description: Learn how to test the performance of Azure Managed Redis.
-ms.date: 08/18/2025
+ms.date: 11/10/2025
 ms.topic: conceptual
+ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
@@ -38,7 +39,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 - If you're not getting the performance you need, try scaling up to a more advanced tier. The Balanced tier typically has twice as many vCPUs as the Memory Optimized tier, and the Compute Optimized tier typically has twice as many vCPUs as the Balanced tier. Because Azure Managed Redis is built on Redis Enterprise rather than community Redis, the core Redis process is able to utilize multiple vCPUs. As a result, instances with more vCPUs have significantly better throughput performance.
   
-- Scaling up to larger memory sizes also adds more vCPUs, increasing performance. However, scaling up to larger memory sizes is typically less effective than using a more performant tier. See [Tiers and SKUs at a glance](how-to-scale.md#tiers-and-skus-at-glance) for a detailed breakdown of the vCPUs available for each size and tier.
+- Scaling up to larger memory sizes also adds more vCPUs, increasing performance. However, scaling up to larger memory sizes is typically less effective than using a more performant tier. See [Tiers and SKUs at a glance](how-to-scale.md#tiers-and-skus-at-a-glance)for a detailed breakdown of the vCPUs available for each size and tier.
 
 - Benchmarking the Flash Optimized tier can be difficult because some keys are stored on DRAM whiles some are stored on a NVMe flash disk. The keys on DRAM benchmark almost as fast as other Azure Managed Redis instances, but the keys on the NVMe flash disk are slower. Since the Flash Optimized tier intelligently places the most-used keys into DRAM, ensure that your benchmark configuration matches the actual usage you expect.
 

@@ -26,6 +26,8 @@ Connectors created using the CCF are fully SaaS, with no requirements for servic
 
 This article will show you how to complete each step and provide an [example codeless connector](#example) to build along the way.
 
+If you're a software development partner and need support to build a CCF data connector, contact Microsoft Sentinel Partners at [AzureSentinelPartner@microsoft.com](mailto:AzureSentinelPartner@microsoft.com) for assistance.
+
 ## How is this CCF different from the previous version?
 
 The initial version of the CCF was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [legacy release](create-codeless-connector-legacy.md) is no longer recommended. This new version of the CCF has the following key improvements:

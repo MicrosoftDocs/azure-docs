@@ -22,9 +22,7 @@ This section describes what to expect when a storage account is configured for g
       > [!WARNING]
       > An unplanned failover can [result in data loss](/azure/storage/common/storage-disaster-recovery-guidance#anticipate-data-loss-and-inconsistencies). Before you initiate a customer-managed failover, decide whether the restoration of service justifies the risk of data loss.
     
-    - **Notification:** Azure Storage doesn't notify you when a region is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your storage account. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Storage service, including any region failures.
-        
-        Set up alerts on these services to receive notifications of region-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
+    [!INCLUDE [Region down notification (Service Health and Resource Health)](../reliability-region-down-notification-service-resource-include.md)]
     
     - **Active requests:** During the failover process, both the primary and secondary storage account endpoints become temporarily unavailable for both reads and writes. Any active requests might be dropped, and client applications need to retry after the failover completes.
 
@@ -42,9 +40,7 @@ This section describes what to expect when a storage account is configured for g
 
     - **Detection and response:** You're responsible for deciding to fail over. You typically make this decision if you need to fail over between regions, even though your storage account is healthy. For example, you might trigger a failover when there's a major outage of another application component that you can't recover from in the primary region.
 
-    - **Notification:** Azure Storage doesn't notify you when a region is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your storage account. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Storage service, including any region failures.
-        
-        Set up alerts on these services to receive notifications of region-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
+      [!INCLUDE [Region down notification (Service Health and Resource Health)](../reliability-region-down-notification-service-resource-include.md)]
 
     - **Active requests:** During the failover process, both the primary and secondary storage account endpoints become temporarily unavailable for both reads and writes. Any active requests might be dropped, and client applications need to retry after the failover completes.
 
@@ -60,9 +56,7 @@ This section describes what to expect when a storage account is configured for g
 
 - **Microsoft-managed failover:** In the rare event of a major disaster where Microsoft determines that the primary region is permanently unrecoverable, an automatic failover to the secondary region might be initiated. Microsoft handles the entire process and no customer action is required. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation.
 
-  - **Notification:** Azure Storage doesn't notify you when a region is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your storage account. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Storage service, including any region failures.
-        
-    Set up alerts on these services to receive notifications of region-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
+  [!INCLUDE [Region down notification (Service Health and Resource Health)](../reliability-region-down-notification-service-resource-include.md)]
 
   > [!IMPORTANT]
   > Use customer-managed failover options to develop, test, and implement your DR plans. **Don't rely on Microsoft-managed failover**, which might only be used in extreme circumstances. A Microsoft-managed failover is likely initiated for an entire region. It can't be initiated for individual storage accounts, subscriptions, or customers. Failover might occur at different times for different Azure services. We recommend that you use customer-managed failover.

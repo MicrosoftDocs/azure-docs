@@ -71,9 +71,34 @@ New-AzPublicIpAddress @ip
 > For `Az.Network` modules older than 4.5.0, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
 >
 
-# [**Zonal**](#tab/create-public-ip-zonal)
+# [**Standardv2 SKU**](#tab/create-public-ip-standardv2)
 
-### Create a zonal IP address
+>[!NOTE]
+>Standard v2 SKU public IP is required for use of the Standard v2 NAT Gateway with zone-redundancy. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+>
+>The following command works for `Az.Network` module version 4.5.0 or later. For more information about the PowerShell modules currently being used, see the [PowerShellGet documentation](/powershell/module/powershellget/).
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard zone-redundant public IPv4 address named **myStandardv2PublicIP** in **QuickStartCreateIP-rg**. 
+
+To create an IPv6 address, modify the **`--IpAddressVersion`** parameter to **IPv6**.
+
+```azurepowershell-interactive
+$ip = @{
+    Name = 'myStandardv2PublicIP'
+    ResourceGroupName = 'QuickStartCreateIP-rg'
+    Location = 'eastus2'
+    Sku = 'Standardv2'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @ip
+```
+> [!IMPORTANT]
+> For `Az.Network` modules older than 4.5.0, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
+>
+
+# [**Basic SKU**](#tab/create-public-ip-basic)
 
 In this section, you learn how to create a zonal public IP address.
 

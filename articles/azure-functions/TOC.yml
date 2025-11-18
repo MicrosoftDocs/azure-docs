@@ -27,11 +27,17 @@
     - name: Scalable web API
       displayName: Flex Consumption plan
       href: create-first-function-azure-developer-cli.md
+    - name: Process file uploads
+      displayName: storage, blob, Event Grid
+      href: scenario-blob-storage-events.md  
     - name: AI tools and MCP
       items:
-      - name: MCP server extension
-        displayName: AI, agent, agentic, tools
+      - name: Custom remote MCP server
+        displayName: AI, agent, agentic, tools, trigger
         href: scenario-custom-remote-mcp-server.md
+      - name: Host MCP server using SDKs
+        displayName: AI, agent, agentic, tools, MCP SDKs
+        href: scenario-host-mcp-server-sdks.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
@@ -40,6 +46,9 @@
       - name: Azure SQL
         displayName: data validation, database
         href: scenario-database-changes-azure-sqldb.md
+    - name: Run scheduled tasks
+      displayName: timer trigger, schedule
+      href: scenario-scheduled-tasks.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI
@@ -100,6 +109,9 @@
   items:
   - name: Functions with Logic Apps
     href: functions-twitter-email.md
+  - name: Host MCP servers for AI-enabled functions
+    displayName: agent, agentic, Foundry
+    href: functions-mcp-tutorial.md 
   - name: Develop Python functions with VS Code
     href: ./create-first-function-vs-code-python.md
   - name: Create serverless APIs using Visual Studio
@@ -227,6 +239,8 @@
         href: functions-container-apps-hosting.md
     - name: Consumption plan
       href: consumption-plan.md
+    - name: MCP server hosting
+      href: self-hosted-mcp-servers.md
   - name: Deployment
     items:
     - name: Deployment options
@@ -288,6 +302,8 @@
     href: ip-addresses.md
   - name: Custom handlers
     href: functions-custom-handlers.md
+  - name: Self-hosted MCP servers
+    href: self-hosted-mcp-servers.md
 - name: Languages
   items:
   - name: Supported languages
@@ -582,6 +598,8 @@
       - name: Visual Studio with API Management (C#)
         displayName: OpenAPI, Swagger
         href: openapi-apim-integrate-visual-studio.md
+    - name: Register an MCP server in API Center
+      href: register-mcp-server-api-center.md    
     - name: Use a managed identity
       href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
     - name: Manage on-premises resources

@@ -6,7 +6,7 @@ author: dearandyxu
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 10/29/2025
 ms.author: yexu
 ---
 #  Data consistency verification in copy activity
@@ -68,14 +68,14 @@ The following example provides a JSON definition to enable data consistency veri
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | If you set true for this property, when copying binary files, copy activity will check file size, lastModifiedDate, and MD5 checksum for each binary file copied from source to destination store to ensure the data consistency between source and destination store. When copying tabular data, copy activity will check the total row count after job completes, ensuring the total number of rows read from the source is same as the number of rows copied to the destination plus the number of incompatible rows that were skipped. Be aware the copy performance is affected by enabling this option.  | True<br/>False (default) | No
+validateDataConsistency | If you set true for this property, when copying binary files, copy activity will check file size, lastModifiedDate, and checksum for each binary file copied from source to destination store to ensure the data consistency between source and destination store. When copying tabular data, copy activity will check the total row count after job completes, ensuring the total number of rows read from the source is same as the number of rows copied to the destination plus the number of incompatible rows that were skipped. Be aware the copy performance is affected by enabling this option.  | True<br/>False (default) | No
 dataInconsistency | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the inconsistent files. <br/> -True: you want to copy the rest by skipping inconsistent files.<br/> - False: you want to abort the copy activity once inconsistent file found.<br/>Be aware this property is only valid when you are copying binary files and set validateDataConsistency as True.  | True<br/>False (default) | No
 logSettings | A group of properties that can be specified to enable session log to log skipped files. | | No
 linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log files. | The names of an `AzureBlobStorage` or `AzureBlobFS` types linked service, which refers to the instance that you use to store the log files. | No
 path | The path of the log files. | Specify the path that you want to store the log files. If you do not provide a path, the service creates a container for you. | No
 
 >[!NOTE]
->- When copying binary files from or to Azure Blob or Azure Data Lake Storage Gen2, the service does block level MD5 checksum verification leveraging [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) and [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, the service does file level MD5 checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, the service writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
+>- When copying binary files from or to Azure Blob or Azure Data Lake Storage Gen2, the service does block level checksum verification leveraging [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) and [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, the service does file level checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, the service writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
 >- The service does file size verification when copying binary files between any storage stores.
 
 ## Monitoring

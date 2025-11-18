@@ -22,29 +22,28 @@ No, wave planning isn't a mandatory to migrate with Azure Migrate. It's a guided
 
 ## How do I ensure waves show latest data? 
 
-Create, edit, delete, and other wave operations can take time depending on the size of the wave. To see the latest data, do the following
+Create, edit, or delete, and other wave operations can take time depending on the size of the wave. To see the latest data, follow the steps:
 
 1. Ensure deployments for each operation are complete. 
 
 :::image type="content" source="./media/common-questions-wave-planning/notifications.png" alt-text="The screenshot shows the notifications." lightbox="./media/common-questions-wave-planning/notifications.png":::
 
-2. Refresh the page using the Refresh action.
+2. Select **Refresh** to update the page.
 
-## Explain why can't I add an application to a wave?
+## Why can't I add an application to a wave?
 
-Each workload in a migration wave can have only unique  migration plan and be part of only one wave. If any workload of an application is part of another wave, you can add the entire application to a different wave. 
+Each workload in a migration wave can have a unique  migration plan and be part of only one wave. If any workload of an application is part of another wave, you can add the entire application to a different wave. 
 
-Alternatively, switch to workload selection view, filter by the application name, and add the remaining workloads to the wave.  
+Alternatively, switch to **Workload selection** view, filter by the application name, and add the remaining workloads to the wave.  
 
 ## Why does the number of workloads or apps in a wave differ from the count added to the wave?
 
-Following are the reasons why the workloads/apps selected for the wave may vary from the count, which is added to the wave:
+Following are the reasons why the workloads/apps selected for the wave may vary from the count:
 
-1. The workloads aren't supported in migration Waves. Unsupported workloads are omitted from the wave. Unsupported list includes: Postgre SQL.
 1. The workload is part of multiple applications. Migrating this workload moves parts of various applications, so the complete list of applications appears in the wave.
-1. The application contains an unsupported workload. This application is split into multiple workloads, and the remaining of workloads are added to the wave. 
+1. The application contains an unsupported workload. This application is split into multiple workloads, and the remaining workloads are added to the wave. 
 
-## Which migration executions are supported through Waves?
+## Which migration executions are supported in Wave planning?
 
 There are two types of category tracking in Azure Migrate: 
 

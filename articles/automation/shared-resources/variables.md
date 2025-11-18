@@ -3,7 +3,7 @@ title: Manage variables in Azure Automation
 description: This article tells how to work with variables in runbooks and DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/15/2024
+ms.date: 11/17/2025
 ms.topic: overview
 ms.custom: devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation

@@ -40,12 +40,12 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 
 | **Category** | **Operation** | **PowerShell** | **CLI** | **REST API** | **Azure Policy** | **ARM Template** | **Bicep** | **Terraform** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Backup | Create backup policy and configure backup | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#configure-a-backup-policy). | Supported | Supported | Currently not supported | Supported    <br><br> [See the examples](./backup-rm-template-samples.md). | Supported | Currently not supported |
-| Backup | Enable auto-protection | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#enable-autoprotection) | Supported | Supported | N/A | N/A | N/A | Currently not supported |
+| Backup | Create backup policy and configure backup | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#configure-a-backup-policy-for-sql-databases). | Supported | Supported | Currently not supported | Supported    <br><br> [See the examples](./backup-rm-template-samples.md). | Supported | Currently not supported |
+| Backup | Enable auto-protection | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#enable-autoprotection-for-future-sql-databases) | Supported | Supported | N/A | N/A | N/A | Currently not supported |
 | Backup | Run on-demand backup | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#on-demand-backup). | Supported | Supported | N/A | N/A | N/A | Currently not supported |
 | Restore | Restore to a distinct full/differential recovery point | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#original-restore-with-distinct-recovery-point). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Restore | Restore to a point in time | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#original-restore-with-log-point-in-time). | Supported | Supported | N/A | N/A | N/A | N/A |
-| Restore | Cross-region restore | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#alternate-workload-restore-to-a-vault-in-secondary-region). | Supported | Supported | N/A | N/A | N/A | N/A |
+| Restore | Cross-region restore | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#alternate-workload-restores-to-a-vault-in-secondary-region). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Monitor jobs | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#track-azure-backup-jobs). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Manage Azure Monitor Alerts (preview) | Supported    <br><br> [See the examples](/azure/azure-monitor/powershell-samples). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Manage Azure Monitor Metrics (preview) | Supported    <br><br> [See the examples](/azure/azure-monitor/powershell-samples). | Supported | Supported | N/A | N/A | N/A | N/A |

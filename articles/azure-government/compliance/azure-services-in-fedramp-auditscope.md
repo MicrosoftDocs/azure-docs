@@ -489,3 +489,15 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 - [DoD Impact Level 6](/azure/compliance/offerings/offering-dod-il6)
 - [Azure Government isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md)
 - [Azure guidance for secure isolation](../azure-secure-isolation-guidance.md)
+
+## Federal Compliance Documentation
+
+Azure compliance programs maintain federal compliance documentation on an access controlled private Microsoft website to ensure secure and professional handling of compliance documentation.
+- To obtain access, stakeholders must provide information for one of the following sales channel:
+   - The full name and @microsoft.com email address of a Microsoft Point of Contact (POC) from Customer Service Account Management or a Cloud Solution Architect.
+   - The reseller company name if Azure Online Services were purchased through a reseller.
+   - The Microsoft Azure or M365 cloud tenant ID to confirm customer status.
+- Once sales channel information is validated, access will be granted on an individual basis. Please provide the following information to process and provision access requests:
+   - Cloud instance in use (e.g., Azure Commercial, Azure Government, Azure DoD IL4 & IL5)
+   - Include the full names and email addresses of all individuals requiring access. Individuals granted access must not download or share documents with other stakeholders. 
+You can send the requested information to the Azure Federal Documentation group email at AzFedDoc@microsoft.com. 

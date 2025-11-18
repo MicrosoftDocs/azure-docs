@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 11/07/2025
+ms.date: 11/11/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -18,6 +18,18 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## November 2025
+
+* [Large volumes up to 7.2 PiB with cool access](large-volumes-requirements-considerations.md#register-for-large-volumes-up-to-72-pib) (preview)
+
+   Azure NetApp Files now supports large volumes up to 7.2 PiB on dedicated capacity, designed for workloads where most data is infrequently accessed. This enhancement extends cool access support beyond the previous 2 PiB limit, giving you a new scale option for large deployments. By combining petabyte-scale capacity, cool-tier economics, and enterprise-grade performance, organizations can store massive datasets cost-effectively without compromising efficiency. 
+
+    This capability helps reduce storage costs for infrequently accessed data while maintaining predictable performance for active workloads. It's ideal for industries managing large archives, backups, and compliance-driven datasets where at least 80% of data resides in the cool tier. Use cases include archives, media libraries, healthcare imaging, compliance data lakes, AI/ML datasets, EDA projects, and large file shares—delivering multi-petabyte consolidation, transparent tiering, and lower TCO without sacrificing enterprise-grade performance. 
+
+    This feature is supported in all regions that support [large volumes](large-volumes-requirements-considerations.md#supported-regions). Large volumes up to 7.2 PiB with cool access is currently in preview.
+  
+* [User and group quota reporting](generate-user-group-quota-reports.md) (preview)
+
+    If you're using individual user and group quotas in Azure NetApp Files to manage capacity on NFS, SMB, and dual-protocol volumes, the user and group quota reporting feature now offers clear visibility into key metrics such as quota limits, used capacity, and percentage utilization for each target user and quota rule. Administrators can generate quota usage reports and modify quota rules directly within the Azure portal for any volume with quota rules, removing the previous dependency on host-based tools and the need to mount the volume for reporting.
 
 * [Azure NetApp Files cache volumes](configure-cache-volumes.md) (preview)
 
@@ -51,7 +63,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the Object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Azure AI services, and other Azure offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
 
-    The Object REST API introduces native S3-compatible read/write access, allowing modern applications to interact with your data directly and efficiently. Enterprises benefit from simplified integration, enhanced productivity, and improved data security, as data remains in place and protected by Azure NetApp Files’ robust security measures. This feature is ideal for organizations looking to leverage AI-driven insights, streamline workflows, and maintain compliance with industry standards. This feature is currently in preview.
+    The Object REST API introduces native S3-compatible read/write access, allowing modern applications to interact with your data directly and efficiently. Enterprises benefit from simplified integration, enhanced productivity, and improved data security, as data remains in place and protected by Azure NetApp Files' robust security measures. This feature is ideal for organizations looking to leverage AI-driven insights, streamline workflows, and maintain compliance with industry standards. This feature is currently in preview.
 
 * [Support for FreeIPA, OpenLDAP, and Red Hat Directory Server](configure-directory-server.md) (preview)
  
@@ -274,7 +286,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is now generally available (GA)
 
-    In environments with Azure NetApp Files volumes shared among multiple departments, projects, and users, many users can see the existence of other files and folders in directory listings even if they don't have permissions to access those items. Enabling Access-based enumeration (ABE) on Azure NetApp Files volumes ensures users only see those files and folders in directory listings that they have permission to access. If a user doesn't have read or equivalent permissions for a folder, the Windows client hides the folder from the user’s view. This capability provides an additional layer of security by only displaying files and folders a user has access to, and conversely hiding file and folder information a user has no access. You can enable ABE on Azure NetApp Files SMB volume and dual-protocol volume with NTFS security style.
+    In environments with Azure NetApp Files volumes shared among multiple departments, projects, and users, many users can see the existence of other files and folders in directory listings even if they don't have permissions to access those items. Enabling Access-based enumeration (ABE) on Azure NetApp Files volumes ensures users only see those files and folders in directory listings that they have permission to access. If a user doesn't have read or equivalent permissions for a folder, the Windows client hides the folder from the user's view. This capability provides an additional layer of security by only displaying files and folders a user has access to, and conversely hiding file and folder information a user has no access. You can enable ABE on Azure NetApp Files SMB volume and dual-protocol volume with NTFS security style.
 
 * [Non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) are now generally available (GA)
 
@@ -308,7 +320,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-zone replication](replication.md) is now generally available (GA).
 
-    Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs and is highly cost-effective. 
+    Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn't involve any network transfer costs and is highly cost-effective. 
     
     Cross-zone replication is available in all [regions with availability zones](../reliability/availability-zones-region-support.md) and with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
     
@@ -362,7 +374,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files online snapshots are enhanced with backup of snapshots. With this backup capability, you can offload (vault) your Azure NetApp Files snapshots to a Backup vault in a fast and cost-effective way, further protecting your data from accidental deletion. 
      
-    Backup further extends Azure NetApp Files’ built-in snapshot technology; when snapshots are vaulted to a Backup vault only changed data blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots however are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative full-incremental recovery process.   
+    Backup further extends Azure NetApp Files' built-in snapshot technology; when snapshots are vaulted to a Backup vault only changed data blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots however are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative full-incremental recovery process.   
 
     This feature is now generally available in all [supported regions](backup-introduction.md#supported-regions). 
 
@@ -402,7 +414,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Volume and protocol enhancement](understand-volume-languages.md): extended language support for file and path names
 
-    Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world’s languages on the Basic Multilingual Plane (BMP) (including Japanese, German, and most of Hebrew and Cyrillic). 
+    Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world's languages on the Basic Multilingual Plane (BMP) (including Japanese, German, and most of Hebrew and Cyrillic). 
     
     Azure NetApp Files now supports characters outside of the BMP using surrogate pair logic, where multiple character byte sets are combined to form new characters. Emoji symbols, for example, fall into this category and are now supported in Azure NetApp Files.
 
@@ -582,7 +594,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) (preview)
 
-    Access-based enumeration (ABE) displays only the files and folders that a user has permissions to access. If a user doesn't have Read (or equivalent) permissions for a folder, the Windows client hides the folder from the user’s view. This new capability provides an additional layer of security by only displaying files and folders a user has access to, and as a result hiding file and folder information a user has no access to. You can now enable ABE on Azure NetApp Files [SMB](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [dual-protocol](create-volumes-dual-protocol.md#access-based-enumeration) (with NTFS security style) volumes.
+    Access-based enumeration (ABE) displays only the files and folders that a user has permissions to access. If a user doesn't have Read (or equivalent) permissions for a folder, the Windows client hides the folder from the user's view. This new capability provides an additional layer of security by only displaying files and folders a user has access to, and as a result hiding file and folder information a user has no access to. You can now enable ABE on Azure NetApp Files [SMB](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [dual-protocol](create-volumes-dual-protocol.md#access-based-enumeration) (with NTFS security style) volumes.
 
 * [Non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) (preview)
 
@@ -590,7 +602,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * Option to **delete base snapshot** when you [restore a snapshot to a new volume using Azure NetApp Files](snapshots-restore-new-volume.md)
 
-    By default, the new volume includes a reference to the snapshot that was used for the restore operation, referred to as the *base snapshot*. If you don’t want the new volume to contain this base snapshot, you can select the **Delete base snapshot** option during volume creation.
+    By default, the new volume includes a reference to the snapshot that was used for the restore operation, referred to as the *base snapshot*. If you don't want the new volume to contain this base snapshot, you can select the **Delete base snapshot** option during volume creation.
 
 * The [Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md) features are now generally available (GA).
 
@@ -643,9 +655,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-zone replication](create-cross-zone-replication.md) (preview)
 
-    With Azure’s push towards the use of availability zones (AZs), the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](replication.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
+    With Azure's push towards the use of availability zones (AZs), the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](replication.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
 
-    Cross-zone replication helps you protect your data from unforeseeable zone failures without the need for host-based data replication. Cross-zone replication minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required and also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs, hence it's highly cost-effective.
+    Cross-zone replication helps you protect your data from unforeseeable zone failures without the need for host-based data replication. Cross-zone replication minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required and also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn't involve any network transfer costs, hence it's highly cost-effective.
 
     The public preview of the feature is currently available in the following regions: Australia East, Brazil South, Canada Central, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Japan East, North Europe, Norway East, Southeast Asia, South Central US, UK South, West Europe, West US 2, and West US 3.
 
@@ -667,7 +679,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) (preview)
 
-    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../reliability/availability-zones-overview.md) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure's push towards the use of [availability zones (AZs)](../reliability/availability-zones-overview.md) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure's [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
 
 * [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
 
@@ -923,7 +935,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Automatic resizing of a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-replication-destination-volume)
 
-    In a cross-region replication relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior applies when the volumes are in an active replication relationship. It also applies when replication peering is broken with the resync operation. For this feature to work, you need to ensure sufficient headroom in the capacity pools for both the source and the destination volumes.
+    In a cross-region replication relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don't need to resize the destination volume separately. This automatic resizing behavior applies when the volumes are in an active replication relationship. It also applies when replication peering is broken with the resync operation. For this feature to work, you need to ensure sufficient headroom in the capacity pools for both the source and the destination volumes.
 
 ## December 2020
 
@@ -953,7 +965,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Manual QoS Capacity Pool](azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) (preview)
 
-    In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It's determined by the combination of the pool size and the service-level throughput. Alternatively, a capacity pool’s [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) can be auto (automatic), which is the default. In an auto QoS capacity pool, throughput is assigned automatically to the volumes in the pool, proportional to the size quota assigned to the volumes.
+    In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It's determined by the combination of the pool size and the service-level throughput. Alternatively, a capacity pool's [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) can be auto (automatic), which is the default. In an auto QoS capacity pool, throughput is assigned automatically to the volumes in the pool, proportional to the size quota assigned to the volumes.
 
 * [LDAP signing](create-active-directory-connections.md#create-an-active-directory-connection) (preview)
 

@@ -70,5 +70,5 @@ To learn more about Azure Reservations, see the following articles:
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Manage Reservations for Azure resources](manage-reserved-vm-instance.md)
 
-To learn more about Copilot Credit costs, see [Plan costs and understand Copilot Credit pricing and billing](https://learn.microsoft.com/microsoft-copilot-studio/requirements-messages-management).
+To learn more about Copilot Credit costs, see [Plan costs and understand Copilot Credit pricing and billing](/microsoft-copilot-studio/requirements-messages-management).
 

@@ -51,6 +51,7 @@ This section walks you through creating Azure Route Server using the Azure porta
     | Name | Enter **myRouteServer**. |
     | Region | Select **East US** or any region you prefer to create the Route Server in. |
     | Routing Preference | Select **ExpressRoute**. Other available options: **VPN** and **ASPath**. |
+    | Route Server capacity | Select from the dropdown. For more information, see [Route Server Capacity](route-server-capacity.md). |
     | **Configure virtual networks** |  |
     | Virtual network | Select **Create new**. <br>In **Name**, enter **myVirtualNetwork**. <br>In **Address range**, enter **10.0.0.0/16**. <br>In **Subnet name** and **Address range**, enter **RouteServerSubnet** and **10.0.1.0/26** respectively. <br>Select **OK**. |
     | Subnet | Once you created the virtual network and subnet, the **RouteServerSubnet** populates. <br>- The subnet must be named **RouteServerSubnet**.<br>- The subnet must be a minimum of /26 or larger. |

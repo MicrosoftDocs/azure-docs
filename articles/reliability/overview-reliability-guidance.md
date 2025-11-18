@@ -77,7 +77,7 @@ The following table provides links to reliability guidance for Azure services. E
 |Azure Elastic SAN| [Reliability in Elastic SAN](reliability-elastic-san.md)||
 |Azure Event Grid| [Reliability in Event Grid](./reliability-event-grid.md)||
 |Azure Event Hubs| [Reliability in Azure Event Hubs](./reliability-event-hubs.md) ||
-|Azure ExpressRoute|| [Design for high availability by using ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) </p>[Design for disaster recovery by using ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md)|
+|Azure ExpressRoute| [Reliability in Azure ExpressRoute](reliability-virtual-network-gateway.md?pivot=expressroute) ||
 |Azure Files| [Reliability in Azure Files](reliability-storage-files.md)||
 |Azure Firewall| [Reliability in Azure Firewall](./reliability-firewall.md) ||
 |Azure Functions|  [Reliability in Azure Functions ](reliability-functions.md)||
@@ -120,7 +120,7 @@ The following table provides links to reliability guidance for Azure services. E
 |Azure Virtual Network| [Reliability in Virtual Network](reliability-virtual-network.md) ||
 |Azure Virtual WAN||[Availability zones and resiliency in Virtual WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)</p> [Disaster recovery design](/azure/virtual-wan/disaster-recovery-design) |
 |Azure VMware Solution|| [Deploy disaster recovery by using VMware HCX](../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md)|
-|Azure VPN Gateway|| [About zone-redundant virtual network gateway in Azure availability zones](../vpn-gateway/about-zone-redundant-vnet-gateways.md)</p>[Highly available cross-premises and virtual network-to-virtual network connectivity](../vpn-gateway/vpn-gateway-highlyavailable.md) |
+|Azure VPN Gateway| [Reliability in VPN Gateway](reliability-virtual-network-gateway.md?pivot=vpn) ||
 |Azure Web Application Firewall| | [Deploy Azure Firewall with availability zones by using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md) </p> [Achieve a disaster recovery scenario across datacenters by using Application Gateway](../application-gateway/application-gateway-faq.yml#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway)|
 |Community Training| [Reliability in Community Training](reliability-community-training.md) ||
 |Microsoft Fabric| [Reliability in Fabric](reliability-fabric.md)||

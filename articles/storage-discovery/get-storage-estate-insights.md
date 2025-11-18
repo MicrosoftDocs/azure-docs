@@ -170,21 +170,21 @@ The [get started with reports](get-started-reports.md) article has more details.
 
 ### Access insights through Copilot in the Azure portal
 
-In addition to the prebuilt reports in the Azure portal, you can ask the Azure Copilot for insights about your storage estate.
-Asking Copilot enables you to pivot data in ways that aren't available in the prebuilt reports. There are so many insights that they can't all be available in prebuilt reports after all.
+In addition to the prebuilt reports in the Azure portal, you can ask Azure Copilot for insights about your storage estate.
+Asking Azure Copilot enables you to pivot data in ways that aren't available in the prebuilt reports. There are so many insights that they can't all be available in prebuilt reports after all.
 
 Select the `Copilot` button in the top navigation bar of the Azure portal.
 
 :::image type="content" source="media/get-storage-estate-insights/copilot-start.png" alt-text="Azure portal screenshot with Copilot chat open and showing useful Discovery sample prompts.":::
 
-When you ask the Azure Copilot a question, the answer must always come in the context of a Discovery workspace and a scope.
+When you ask Azure Copilot a question, the answer must always come in the context of a Discovery workspace and a scope.
 Copilot asks you to select both before responding with the chart or table that illustrates the insight you requested.
 
-Alternatively, you can enter the chat with the context of a workspace and scope by opening the Copilot chat from within a Discovery workspace report page.
+Alternatively, you can enter the chat with the context of a workspace and scope by opening Azure Copilot chat from within a Discovery workspace report page.
 A click on the Copilot button `Ask Copilot`, found next to any chart on a report page, can launch the chat with the needed context.
 
 > [!TIP]
-> Asking well crafted prompts is important to unlock the insight you need. The article [Discover insights with Copilot in Azure](/azure/copilot/discover-storage-estate-insights) has important details and sample prompts you can use and learn from for your successful Copilot interaction.
+> Asking well crafted prompts is important to unlock the insight you need. The article [Discover insights with Azure Copilot](/azure/copilot/discover-storage-estate-insights) has important details and sample prompts you can use and learn from for your successful Copilot interaction.
 
 ## Clean up resources
 

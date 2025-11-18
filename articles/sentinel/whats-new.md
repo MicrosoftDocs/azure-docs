@@ -20,7 +20,37 @@ The listed features were released in the last six months. For information about 
 
 ## November 2025
 
-- [Call to action: update queries and automation by December 13, 2025 - standardized account entity naming in incidents and alerts](#call-to-action-update-queries-and-automation-by-december-13-2025---standardized-account-entity-naming-in-incidents-and-alerts)
+### New Entity Behavior Analytics (UEBA) experiences in the Defender portal (Preview)
+
+Microsoft Sentinel introduces new UEBA experiences in the Defender portal, bringing behavioral insights directly into key analyst workflows. These enhancements help analysts prioritize investigations and apply UEBA context more effectively.
+
+#### Anomaly-focused user investigations
+
+In the Defender portal, users with behavioral anomalies are automatically tagged with **UEBA Anomalies**, helping analysts quickly identify which users to prioritize.
+
+Analysts can view the top three anomalies from the past 30 days in a dedicated Top UEBA anomalies section, available in:
+
+- User side panels accessible from various portal locations.
+- The **Overview** tab of user entity pages.
+
+This section also includes direct links to anomaly queries and the Sentinel events timeline, enabling deeper investigation and faster context gathering.
+
+#### Drilldown to user anomalies from incident graphs
+
+Analysts can quickly access all anomalies related to a user by selecting **Go Hunt > All user anomalies** from the incident graph. This built-in query provides immediate UEBA context to support deeper investigation.
+
+#### Enriched advanced hunting and custom detections queries with behavior insights
+
+Advanced hunting and custom detection experiences now include a contextual banner that prompts analysts to join the UEBA Anomalies table to queries that include UEBA data sources.  
+
+All features require UEBA to be enabled and are workspace-scoped to the currently selected workspace.
+
+For more information, see [How UEBA empowers analysts and streamlines workflows](identify-threats-with-entity-behavior-analytics.md#ueba-experiences-in-the-defender-portal-empower-analysts-and-streamline-workflows).
+
+
+- [Agentless data connector](sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md) for Sentinel Solution for SAP now generally available. Learn more from our [Tech Community blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/microsoft-sentinel-for-sap-agentless-connector-ga/4464490).
+
+- Deprecation: Containerized SAP data connector will be out of support by September 30th 2026. [Migrate to our Agentless SAP data connector](sap/sap-agent-migrate.md) today.
 
 ### Call to action: update queries and automation by December 13, 2025 - standardized account entity naming in incidents and alerts
 

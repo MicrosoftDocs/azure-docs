@@ -268,9 +268,9 @@ Learn more at:
 | Dual-write data to two caches       | No data loss or downtime. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time.                                                   |
 | Migrate data programmatically       | Full control over how data are moved.                                                                      | Requires custom code.                                                                              |
 
-#### Create a new Azure Cache for Redis
+#### Create a new Azure Managed Redis Instance
 
-This approach technically isn't a migration. If losing data isn't a concern, the easiest way to move to Azure Managed Redis tier is to create new cache instance and connect your application to it. For example, if you use Redis as a look-aside cache of database records, you can easily rebuild the cache from scratch.
+This approach technically isn't a migration. If losing data isn't a concern, the easiest way to move to Azure Managed Redis tier is to create a new cache instance and connect your application to it. For example, if you use Redis as a look-aside cache of database records, you can easily rebuild the cache from scratch.
 General steps to implement this option are:
 
 1. Create a new Azure Managed Redis instance.

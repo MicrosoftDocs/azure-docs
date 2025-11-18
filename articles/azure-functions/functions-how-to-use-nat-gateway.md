@@ -3,7 +3,7 @@ title: Control Azure Functions outbound IP with an Azure virtual network NAT gat
 description: A step-by-step tutorial that shows you how to configure NAT for a function connected to an Azure virtual network
 ms.topic: tutorial
 ms.author: kyburns
-ms.date: 2/26/2021
+ms.date: 11/11/2025
 ms.custom: sfi-image-nochange
 
 #Customer intent: As an enterprise developer, I want a consistent and predictable outbound IP address for my function so that an external party can add my function's IP to the allowlist.
@@ -21,6 +21,9 @@ This tutorial shows you how to use NAT gateways to route outbound traffic from a
 > * Create a public IP address
 > * Create a NAT gateway
 > * Configure function app to route outbound traffic through the NAT gateway
+
+> [!NOTE]
+> You can't use a NAT gateway to route outbound traffic to an Azure Storage account in the same region as your function app. Services deployed in the same region your storage account use private Azure IP addresses for communication. For more information, see [NAT Gateway frequenty asked questions](/azure/nat-gateway/faq#can-i-use-nat-gateway-to-connect-to-a-storage-account-public-endpoint-in-the-same-region). 
 
 ## Topology
 
@@ -65,7 +68,7 @@ Next, you create a function app in the [Premium plan](functions-premium-plan.md)
 
 ## Create a function app in a Premium plan
 
-This tutorial shows you how to create your function app in a [Premium plan](functions-premium-plan.md). The same functionality is also available when using a [Dedicated (App Service) plan](dedicated-plan.md).
+This tutorial shows you how to create your function app in a [Premium plan](functions-premium-plan.md). The same functionality is also available when you host your app in a [Flex Consumption plan](flex-consumption-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md).
 
 > [!NOTE]  
 > For the best experience in this tutorial, choose .NET for runtime stack and choose Windows for operating system. Also, create your function app in the same region as your virtual network.

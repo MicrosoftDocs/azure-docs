@@ -47,7 +47,7 @@ Support is defined as a time period that a HDInsight version supported by Micros
 
 | Action | Standard Support| Basic support | Retirement |
 | -- | -- |--|--|
-| Use existing cluster without support | Yes | Yes | Yes |
+| Use existing cluster without support | Yes | Yes | No |
 | Create Cluster | Yes | Yes | No |
 | Scale up/down cluster | Yes | Yes | No |
 | Troubleshoot runtime issues | Yes | No | No |

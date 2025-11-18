@@ -56,7 +56,7 @@ To use FastPath, you need an ExpressRoute virtual network gateway to exchange ro
 
 - Ultra Performance
 - ErGw3AZ
-- ErGwScale with a minimum of 10 scale units (Preview)
+- ErGwScale with a minimum of 10 scale units
 
 For more information about gateway performance and available SKUs, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 

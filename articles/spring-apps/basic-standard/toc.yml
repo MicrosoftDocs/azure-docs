@@ -301,7 +301,7 @@ items:
   - name: Disaster recovery
     items:
     - name: Redundancy and high availability
-      href: ../../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+      href: reliability-spring-apps.md
   - name: Troubleshoot
     items:
     - name: Self-diagnose and solve problems

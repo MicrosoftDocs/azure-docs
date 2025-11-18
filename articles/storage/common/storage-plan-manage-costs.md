@@ -174,13 +174,18 @@ If you've been using Blob Storage for some time, you should periodically review 
 - [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.yml)
 
 > [!TIP]
-> You can use Microsoft Copilot in Azure to get suggestions on reducing the cost of your storage account. For more information, see [Manage and troubleshoot storage accounts using Microsoft Copilot in Azure](/azure/copilot/improve-storage-accounts#reduce-storage-costs).
+> You can use Azure Copilot to get suggestions on reducing the cost of your storage account. For more information, see [Manage and migrate storage accounts using Azure Copilot](/azure/copilot/improve-storage-accounts#reduce-storage-costs).
 
 If you can model future capacity requirements, you can save money with Azure Storage reserved capacity. Azure Storage reserved capacity is available for most access tiers and offers you a discount on capacity for block blobs and for Azure Data Lake Storage data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage data. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
-You can also reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the _hot_ tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the _cold_ or _archive_ tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. See any of these articles:
+You can also reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the _hot_ tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the _cold_ or _archive_ tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. 
+
+Smart tier is a great option to choose when you want to store your data on standard online tiers but are not fully aware of the data access patterns or do not want to manage data transitions across online tiers. The automatic movement of inactive data into a cooler tier can lead to cost savings over time. While charging a small monitoring fee, it provides additional simplification to the billing model by not charging tier transitions, early deletes or capacity rehydration.
+
+See any of these articles:
 
 - [Access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal)
+- [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 - [Best practices for using blob access tiers](../blobs/access-tiers-best-practices.md)
 - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
 

@@ -44,7 +44,7 @@ This guide shows how to set up the OBO authorization, delegated permissions, and
 
 - A Standard logic app resource and conversational agent workflow
 
-  Make sure that you have a deployed *large language model* (LLM) per the [prerequisites for conversational agent workflows](create-conversational-agent-workflows.md#prerequisites) and that you [connect your agent to that model](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
+  Make sure that you have a deployed *large language model* (LLM) per the [prerequisites for conversational agent workflows](create-conversational-agent-workflows.md?tabs=standard#prerequisites) and that you [connect your agent to that model](create-conversational-agent-workflows.md?tabs=standard#agent-model).
   
   This example uses **Admin agent** as the agent name, for example:
 
@@ -134,7 +134,7 @@ The following steps show how to set up OBO authorization after you select an OBO
 
 1. On the designer, in the agent, complete the following tasks:
 
-   - Follow the [general steps](create-conversational-agent-workflows.md#create-tool-weather) to create an agent tool by selecting an OBO-supported managed connector action.
+   - Follow the [general steps](create-conversational-agent-workflows.md?tabs=standard#create-tool-weather) to create an agent tool by selecting an OBO-supported managed connector action.
 
       This example uses the **Office 365 Outlook** action named **Get emails (V3)**.
 

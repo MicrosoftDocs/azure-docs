@@ -105,6 +105,47 @@ Log signature: N/A
 
 When using secret sync, ensure that secret names are globally unique. If a local secret with the same name exists, connectors might fail to retrieve the intended secret.
 
+### ONVIF asset event destination can only be configured on group or asset level
+
+---
+
+Issue ID: 9545
+
+---
+
+Log signature similar to:
+
+`No matching event subscription for topic: "tns1:RuleEngine/CellMotionDetector/Motion"`
+
+---
+
+Currently, ONVIF asset event destinations are only recognized at the event group or asset level. Configuring destinations at the individual event level results in log entries similar to the example, and no event data is published to the MQTT broker.
+
+As a workaround, configure the event destination at the event group or asset level instead of the individual event level. For example, using `defaultEventsDestinations` at the event group level:
+
+```yaml
+eventGroups:
+  - dataSource: ""
+    events:
+    - dataSource: tns1:RuleEngine/CellMotionDetector/Motion
+      destinations:
+      - configuration:
+          qos: Qos1
+          retain: Never
+          topic: azure-iot-operations/data/motion
+          ttl: 5
+        target: Mqtt
+      name: Motion
+    name: Default
+    defaultEventsDestinations:
+    - configuration:
+        qos: Qos1
+        retain: Never
+        topic: azure-iot-operations/data/motion
+        ttl: 5
+      target: Mqtt
+```
+
 ## Data flows issues
 
 This section lists current known issues for data flows.

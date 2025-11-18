@@ -60,7 +60,11 @@
     - name: Rewrite HTTP headers and URL
       href: rewrite-http-headers-url.md
   - name: TCP/TLS proxy
-    href: tcp-tls-proxy-overview.md
+    items:
+    - name: Overview
+      href: tcp-tls-proxy-overview.md
+    - name: Client IP preservation
+      href: proxy-protocol-header.md 
   - name: Support for working remotely
     href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: High traffic support

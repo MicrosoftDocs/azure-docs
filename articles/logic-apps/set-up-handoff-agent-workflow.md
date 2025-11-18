@@ -36,7 +36,7 @@ The following table lists the inputs, tasks, and outputs:
 
 ## Prerequisites
 
-Same requirements as [Create conversational agent workflows](create-conversational-agent-workflows.md#prerequisites).
+Same requirements as [Create conversational agent workflows](create-conversational-agent-workflows.md?tabs=standard#prerequisites).
 
 The Standard logic app resource that you need can be empty or have other workflows. In this guide, you create the conversational agent workflow that you need. The workflow includes an empty agent and the default trigger that fires when a new chat session starts. You can't delete the default trigger, which is required for the workflow.
 
@@ -77,7 +77,7 @@ Follow these steps to add set-up your customer service agent:
 
 1. On the information pane that opens, select the default action name, and rename the action to **Customer service agent**.
 
-1. If you don't have a connection between the agent action and the LLM that you want to use, follow these steps to [connect the agent action to your LLM](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
+1. If you don't have a connection between the agent action and the LLM that you want to use, follow these steps to [connect the agent action to your LLM](create-conversational-agent-workflows.md?tabs=standard#agent-model).
 
 1. On the **Parameters** tab, in the **System instructions** box, provide the following information:
 
@@ -557,6 +557,6 @@ The following table lists common problems that you might encounter with the hand
 ## Related content
 
 - [Single agent versus multiple agents](single-versus-multiple-agents.md)
-- [Create conversational agent workflows](create-conversational-agent-workflows.md)
+- [Create conversational agent workflows](create-conversational-agent-workflows.md?tabs=standard)
 - [Lab: Implement the handoff pattern](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_multi_agent_systems/handoff-pattern)
 

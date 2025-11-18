@@ -23,7 +23,7 @@ Object replication asynchronously copies block blobs between a source storage ac
 
 The following diagram shows how object replication replicates block blobs from a source storage account in one region to destination accounts in two different regions.
 
-:::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram showing how object replication works":::
+:::image type="content" source="media/object-replication-overview/object-replication-diagram-sml.png" alt-text="Diagram showing how object replication works." lightbox="media/object-replication-overview/object-replication-diagram-lrg.png":::
 
 To learn how to configure object replication, see [Configure object replication](object-replication-configure.md).
 
@@ -55,7 +55,7 @@ Object replication asynchronously copies block blobs in a container according to
 > [!IMPORTANT]
 > Because block blob data is replicated asynchronously, the source account and destination account aren't immediately in sync. 
 >
-> OR now supports priority replication, which prioritizes the replication of all operations in an OR Policy. When OR priority replication is enabled the replication performance of all operations are significantly improved. When a replication policy's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. For more information, visit the [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) and the [Object Replication Priority Replication](object-replication-priority-replication.md) article.
+> OR now supports priority replication, which prioritizes the replication of all operations in an OR Policy. When OR priority replication is enabled, the replication performance of all operations is improved. When a replication policy's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. Feature performance is guaranteed with a service level agreement (SLA). For more information, visit the [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) and the [Object Replication Priority Replication](object-replication-priority-replication.md) article.
 >
 > You can also check the replication status on the source blob to determine whether replication is complete. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
 
@@ -90,7 +90,7 @@ Immutability policies for Azure Blob Storage include time-based retention polici
 
 If the destination container has a container-level immutability policy in place, changes to objects in the source container, such as updates or deletions, might still succeed. However, those changes might fail to replicate to the destination container due to the immutability restriction. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with container-level scope](immutable-container-level-worm-policies.md#scenarios).
 
-If a destination account's blob version has an active version-level immutability policy, and a delete or update operation is performed on the corresponding source container's blob version, the operation might succeed on the source. However, replication of that operation to the destination object fails. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with version-level scope](immutable-version-level-worm-policies.md#scenarios).
+If a destination account's blob version has an active version-level immutability policy, a delete or update operation performed on the corresponding source container's blob version might succeed. However, replication of that operation to the destination object fails. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with version-level scope](immutable-version-level-worm-policies.md#scenarios).
 
 ## Object replication policies and rules
 
@@ -170,7 +170,7 @@ The policy definition file previously required only the account name, instead of
 
 Although using only the account name is still supported for cross-tenant replication, Microsoft recommends using the full resource ID as a best practice. All previous versions of the Azure Storage resource provider REST API support using the full resource ID path in object replication policies.
 
-The following table compares replication policy behavior when using a full resource ID versus an account name, depending on whether cross-tenant replication is allowed for the storage account.
+The following table shows how replication policy behavior differs when you use a full resource ID versus an account name. The comparison depends on whether cross-tenant replication is allowed for the storage account.
 
 | Storage account identifier in policy definition | Cross-tenant replication allowed | Cross-tenant replication disallowed |
 |--|--|--|
@@ -192,7 +192,7 @@ The following table summarizes which values to use for the **policyId** and **ru
 
 A Microsoft Entra tenant is a dedicated instance of Microsoft Entra ID that represents an organization for identity and access management. Each Azure subscription has a trust relationship with a single Microsoft Entra tenant. All resources in a subscription, including storage accounts, are associated with the same Microsoft Entra tenant. For more information, see [What is Microsoft Entra ID?](../../active-directory/fundamentals/active-directory-whatis.md)
 
-By default, cross-tenant replication is disabled for new accounts created starting December 15, 2023. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow replication across tenants by setting a security property, the **AllowCrossTenantReplication** property (preview). When you disallow cross-tenant object replication for a storage account, then for any object replication policy that is configured with that storage account as the source or destination account, Azure Storage requires that both the source and destination accounts reside within the same Microsoft Entra tenant. For more information about disallowing cross-tenant object replication, see [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md).
+By default, cross-tenant replication is disabled for new accounts created starting December 15, 2023. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow replication across tenants by setting a security property, the **AllowCrossTenantReplication** property (preview). When you disable cross-tenant object replication for a storage account, Azure Storage imposes an additional requirement. For any object replication policy that uses this storage account as either the source or the destination, both accounts must belong to the same Microsoft Entra tenant. For more information about disallowing cross-tenant object replication, see [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md).
 
 To disallow cross-tenant object replication for a storage account, set the **AllowCrossTenantReplication** property to *false*. If the storage account doesn't currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination.
 
@@ -209,7 +209,7 @@ Object replication supports two metrics to provide you with insights into the re
 - **Operations pending for replication**: Total number of operations pending replication from source to destination storage account emitted per the time buckets
 - **Bytes pending for replication**: Sum of bytes pending replication from source to destination storage accounts emitted per the time buckets
 
-Each of the metrics listed previously can be viewed with the dimension of time buckets. This enables insights into how many bytes or operations are pending for replication per time buckets as follows:
+Each of the metrics listed previously can be viewed with the dimension of time buckets. This breakdown enables insights into how many bytes or operations are pending for replication per time buckets as follows:
 
 - 0-5 mins
 - 5-10 mins
@@ -250,7 +250,7 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Billing
 
-There's no cost to configure object replication. This includes the task of enabling change feed, enabling versioning, and adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
+There's no cost to configure object replication, including the task of enabling change feed, enabling versioning, and adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts. Egress charges for the replication of data from the source account to the destination account also incurs cost, as do read charges while processing change feed. 
 
 Here's a breakdown of the costs. To find the price of each cost component, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

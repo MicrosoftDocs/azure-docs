@@ -10,7 +10,7 @@ ms.service: azure-sre-agent
 
 # Azure SRE Agent Preview frequently asked questions
 
-This article covers common problems that you might face when you're working with Azure SRE Agent Preview, along with practical solutions to resolve them. The problems are typically related to permissions, regional availability, and administrative access requirements.
+This article covers common problems that you might face when you're working with Azure SRE Agent, along with practical solutions to resolve them. The problems are typically related to permissions, regional availability, and administrative access requirements.
 
 ## Common troubleshooting scenarios
 
@@ -35,7 +35,7 @@ If your naming and your network configuration are correct, use the following ste
 
 1. Confirm that your user account has owner or admin permissions, along with permissions to create resources in the *Sweden Central*, *East US 2*, or *Australia East* regions (depending on your deployment).
 
-1. Check whether the subscription is in the allow list for SRE Agent Preview. Run the following command:
+1. Check whether the subscription is in the allow list for SRE Agent. Run the following command:
 
     ```azurecli
     az provider show -n Microsoft.App | grep -C 15 agents

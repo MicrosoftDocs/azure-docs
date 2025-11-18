@@ -26,7 +26,7 @@ CA certificates uploaded to API Management can be used for certificate validatio
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
-
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

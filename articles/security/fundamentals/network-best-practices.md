@@ -70,6 +70,9 @@ Best practices are:
 **Best practice**: Enable port access only after workflow approval.  
 **Detail**: You can use [just-in-time VM access in Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
+**Best practice**: Use Azure Bastion for secure remote VM access without exposing public IP addresses or opening inbound ports.  
+**Detail**: [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless RDP/SSH connectivity to your virtual machines directly through the Azure portal over TLS. Azure Bastion Developer SKU is now available at no additional cost across 35+ Azure regions, making it ideal for Dev/Test scenarios. It eliminates the need for jump boxes or exposing VMs to the internet, significantly reducing your attack surface while streamlining administrative access. For production workloads, consider upgrading to Standard or Premium SKUs for additional features like host scaling and session recording. See [Quickstart: Connect with Azure Bastion Developer](/azure/bastion/quickstart-developer) to get started.
+
 **Best practice**: Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.  
 **Detail**: Use just-in-time access in Microsoft Entra Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
 

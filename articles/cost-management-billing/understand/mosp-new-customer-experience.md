@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/26/2025
+ms.date: 11/11/2025
 ms.author: jkinma
 ms.custom: sfi-image-nochange
 ---
@@ -56,7 +56,7 @@ Your new experience includes the following cost management and billing capabilit
 
 **More predictable monthly billing period** - In your new account, the billing period begins from the first day of the month and ends at the last day of the month, no matter when you sign up to use Azure. An invoice will be generated at the beginning of each month, and will contain all consumption-based charges from the previous month.
 
-**Get a single monthly invoice for multiple subscriptions** - In your existing account, you get an invoice for each Azure subscription. When your account is updated, the existing behavior is maintained but you have the flexibility to consolidate the charges of your subscriptions on a single invoice. After your account is updated, follow the steps below to consolidate your charges on a single invoice:
+**Get a single monthly invoice for multiple subscriptions** - In your existing account, you get an invoice for each Azure subscription. When your account is updated, the existing behavior is maintained but you have the flexibility to consolidate the charges of your Azure subscriptions on a single invoice. After your account is updated, follow the steps below to consolidate your charges on a single invoice:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing**.  
@@ -72,7 +72,7 @@ Your new experience includes the following cost management and billing capabilit
 8. Select **Change**.
 9. Repeat steps 6-8 for all other subscriptions. 
 
-**Receive a single monthly invoice for Azure subscriptions, support plans, and Azure Marketplace products** - You'll get one monthly invoice for all charges including usage charges for Azure subscriptions, and support plans and Azure Marketplace purchases.
+**Receive a single monthly invoice for Azure subscriptions and support plans** - You'll get one monthly invoice for all charges including usage charges for Azure subscriptions, and support plans.
 
 **Group costs on the invoice based on your needs** - You can group costs on your invoice based on your needs - by departments, projects, or teams.
 

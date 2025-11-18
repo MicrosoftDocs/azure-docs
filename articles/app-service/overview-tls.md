@@ -26,7 +26,7 @@ App Service supports TLS to help ensure:
 
 > [!TIP]
 >
-> You can also ask Copilot in Azure, an AI-powered assistant in the Azure portal, these questions:
+> You can also ask [Azure Copilot](/azure/copilot/) these questions:
 >
 > - *What versions of TLS are supported in App Service?*
 > - *What are the benefits of using TLS 1.3 instead of earlier versions?*

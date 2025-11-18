@@ -11,7 +11,7 @@ ms.author: allensu
 
 # Secure and view DNS traffic
 
-This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md).
+This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md) and secure your DNS traffic with Threat intelligence feed in Azure DNS.
 
 ## Prerequisites
 
@@ -131,6 +131,20 @@ To configure diagnostic settings:
 9. Refresh the view to verify that the rule was added successfully. You can edit traffic actions, DNS domain lists, rule priority, and rule state.
 
     ![Screenshot of DNS traffic rules.](./media/dns-traffic-log-how-to/dns-traffic-rules.png)
+
+## Secure DNS traffic with Threat intelligence feed
+
+The threat intelligence feed is a fully managed domain list that’s continuously updated in the background. Within DNS Security Policy, it’s treated just like any other standard domain list — using the same configuration model for priority and for the chosen action (allow, block, or alert). 
+
+Select it by adding a new DNS traffic rule and configure it with the action you would like to apply and its respective priority. 
+
+Associate threat intelligence feed with a DNS traffic rule by selecting **Azure DNS threat intel**: 
+
+:::image type="content" source="./media/dns-traffic-log-how-to/enable-threat-intelligence-feed.png" alt-text="Screenshot of enablement of Threat intelligence feed." lightbox="./media/dns-traffic-log-how-to/enable-threat-intelligence-feed.png":::
+
+Configure the action and priority:
+
+:::image type="content" source="./media/dns-traffic-log-how-to/threat-intelligence-rule.png" alt-text="Screenshot of threat intelligence rule." lightbox="./media/dns-traffic-log-how-to/threat-intelligence-rule.png":::
 
 ## View and test DNS logs
 

@@ -4,7 +4,7 @@ description: Learn about concepts, how-tos, and best practices for moving databa
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure
 ms.collection:
  - migration

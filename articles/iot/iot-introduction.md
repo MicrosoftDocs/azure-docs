@@ -187,7 +187,7 @@ The following table summarizes current options for devices and connectivity:
 | Connected object types          | Category 1 and 2 IoT devices | Category 2 and 3 IoT devices |
 | Device connectivity protocols   | HTTP, AMQP, MQTT v3.1.1      | Azure IoT Edge enables HTTP, AMQP, MQTT v3.1.1, and MQTT v5. <br><br> Azure IoT Operations enables MQTT v3.1.1, and MQTT v5 for category 2 devices, connectors enable other protocols such as OPC UA, ONVIF, SQL, and REST for category 3 devices. Custom connectors are possible. |
 | Device implementation           | Microsoft Azure IoT [device SDKs](iot-sdks.md#device-sdks) and [embedded device SDKs](iot-sdks.md#embedded-device-sdks)   | Category 2 devices can use any MQTT library to connect to the MQTT broker. <br><br> Category 3 devices typically come with standard firmware. |
-| Device management               | [IoT DPS](../iot-dps/index.yml), [Device Update](../iot-hub-device-update/index.yml), [IoT Central](../iot-central/index.yml)  | In Azure IoT Operations, use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). Use Akri to enable automated device discovery with native protocols. <br><br> In IoT Edge, use [IoT DPS](../iot-dps/index.yml) for large-scale device management.|
+| Device management               | [IoT DPS](../iot-dps/index.yml), [Device Update](../iot-hub-device-update/index.yml), [IoT Central](../iot-central/index.yml), Azure Device Registry (preview)  | In Azure IoT Operations, use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). Use Akri to enable automated device discovery with native protocols. <br><br> In IoT Edge, use [IoT DPS](../iot-dps/index.yml) for large-scale device management.|
 
 ## Services and applications
 
@@ -239,7 +239,7 @@ The following table summarizes current service and edge application options:
 
 | Current offerings (GA)    | Cloud-based solution | Edge-based solution |
 |---------------------------|----------------------|---------------------|
-| Services                  | [IoT Hub](../iot-hub/index.yml), [IoT DPS](../iot-dps/index.yml), [IoT Hub Device Update](../iot-hub-device-update/index.yml), [Azure Digital Twins](../digital-twins/index.yml) | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), with [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). <br><br> You can also use [IoT Edge](../iot-edge/index.yml).  |
+| Services                  | [IoT Hub](../iot-hub/index.yml), [IoT DPS](../iot-dps/index.yml), [IoT Hub Device Update](../iot-hub-device-update/index.yml), [Azure Digital Twins](../digital-twins/index.yml), Azure Device Registry (preview)    | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), with [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). <br><br> You can also use [IoT Edge](../iot-edge/index.yml).  |
 | Edge applications options | None                                                  | With [Azure IoT Operations](../iot-operations/overview-iot-operations.md), you can use [DAPR](../iot-operations/create-edge-apps/howto-deploy-dapr.md) (distributed application runtime apps). <br><br> With [IoT Edge](../iot-edge/index.yml), you can use IoT Edge modules.           |
 
 ### Deployment comparisons

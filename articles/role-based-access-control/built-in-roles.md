@@ -353,6 +353,9 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='azure-device-registry-contributor'></a>[Azure Device Registry Contributor](./built-in-roles/internet-of-things.md#azure-device-registry-contributor) | Allows for full access to IoT devices within Azure Device Registry Namespace. | a5c3590a-3a1a-4cd4-9648-ea0a32b15137 |
+> | <a name='azure-device-registry-credentials-contributor'></a>[Azure Device Registry Credentials Contributor](./built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) | Allows for full access to manage credentials and policies within Azure Device Registry Namespace. | 09267e11-2e06-40b5-8fe4-68cea20794c9 |
+> | <a name='azure-device-registry-onboarding'></a>[Azure Device Registry Onboarding](./built-in-roles/internet-of-things.md#azure-device-registry-onboarding) | Allows for full access to Azure Device Registry Namespace and X.509 certificate provisioning. | 547f7f0a-69c0-4807-bd9e-0321dfb66a84 |
 > | <a name='azure-digital-twins-data-owner'></a>[Azure Digital Twins Data Owner](./built-in-roles/internet-of-things.md#azure-digital-twins-data-owner) | Full access role for Digital Twins data-plane | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 > | <a name='azure-digital-twins-data-reader'></a>[Azure Digital Twins Data Reader](./built-in-roles/internet-of-things.md#azure-digital-twins-data-reader) | Read-only role for Digital Twins data-plane properties | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | <a name='device-provisioning-service-data-contributor'></a>[Device Provisioning Service Data Contributor](./built-in-roles/internet-of-things.md#device-provisioning-service-data-contributor) | Allows for full access to Device Provisioning Service data-plane operations. | dfce44e4-17b7-4bd1-a6d1-04996ec95633 |

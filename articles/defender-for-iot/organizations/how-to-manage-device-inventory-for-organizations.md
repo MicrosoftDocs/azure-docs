@@ -38,7 +38,7 @@ For more information, see [Device inventory column data](device-inventory.md#dev
 
 
 > [!NOTE]
-> If your OT sensors detect multiple devices in the same zone with the same IP or MAC address, those devices are automatically merged and identified as a single, unique device. Devices that have different IP addresses, but the same MAC address, are not merged, and continue to be listed as unique devices.
+> If your OT sensors detect multiple devices in the same zone with the same IP or MAC address, those devices are automatically merged and identified as a single, unique device. Devices that have different IP addresses, but the same MAC address, aren't merged, and continue to be listed as unique devices.
 >
 > Merged devices are listed only once in the **Device inventory** page. For more information, see [Separating zones for recurring IP ranges](best-practices/plan-corporate-monitoring.md#separating-zones-for-recurring-ip-ranges).
 
@@ -146,6 +146,12 @@ Delete inactive devices to maintain a correct representation of current network 
 In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
+
+> [!NOTE]
+> Device deletions are one-directional.  
+> When you delete a device from the **Azure portal**, the deletion doesn't sync to the sensor connected to the same site.  
+> When you delete a device from the **sensor**, the deletion syncs to the **Device inventory** in the Azure portal.
+
 
 ## Next steps
 

@@ -1,23 +1,19 @@
 ---
-title: Compose XML using schemas
-description: Learn how to compose XML documents using schemas in Standard workflows with Azure Logic Apps.
+title: Compose XML using Schemas in Standard Workflows
+description: Learn to compose XML documents using schemas with Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 11/18/2025
 ---
 
-# Compose XML using schemas in Standard workflows with Azure Logic Apps (Preview)
+# Compose XML using schemas with Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In enterprise integration business-to-business (B2B) or BizTalk migration scenarios, you might have to create XML documents from JSON data. Your Standard logic app workflow can compose XML documents by using the action named **Compose XML with schema**, which requires an XSD schema.
 

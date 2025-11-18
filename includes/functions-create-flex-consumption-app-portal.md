@@ -25,4 +25,4 @@ ms.topic: include
     |**Version**| Language version | Choose a supported version of your language runtime stack. |
     |**Instance size** | Default | Determines the amount of instance memory allocated for each instance of your app. For more information, see [Instance sizes](../articles/azure-functions/flex-consumption-plan.md#instance-sizes).|
 
-1. Accept the default options in the remaining tabs, including the default behavior of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance. 
+1. On the **Storage** page, accept the default behavior of creating a new [default host storage account](../articles/azure-functions/storage-considerations.md) or choose to use an existing storage account.

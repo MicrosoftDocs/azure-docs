@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 11/11/2025
 ms.author: danlep
 ms.custom:
   - build-2025
@@ -25,14 +25,14 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 > * For information about resource limits in different tiers, see [API Management limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits).
 
 
-| Feature                                                                                      | Consumption | Developer | Basic | Basic v2 |Standard | Standard v2 | Premium | Premium v2 (preview) |
+| Feature                                                                                      | Consumption | Developer | Basic | Basic v2 |Standard | Standard v2 | Premium | Premium v2 |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | --------- | --------- | ----- | -------- | ------- | ------- | 
 | Microsoft Entra integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes      | Yes      | Yes     | Yes |
 | Virtual network injection support                                                               | No          | Yes       | No    | No       | No       | No       | Yes    | Yes |
-| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes      | Yes     | Yes  | No   |
+| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes      | Yes     | Yes  | Yes   |
 | Outbound virtual network integration support                                                             | No          | No       | No    | No       | No       | Yes       | No    | Yes |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | No       | No       | Yes     | No |
-| Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     | No  |
+| Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     | Yes  |
 | Multiple custom domain names for gateway                                                                 | No          | Yes        | No    | No      | No       | No        | Yes     | No |
 | Developer portal<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | Built-in cache | No      | Yes                                            | Yes          | Yes       | Yes   | Yes      | Yes     | Yes |
@@ -52,8 +52,8 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Static IP                                                                                    | No          | Yes       | Yes   | No          |Yes      | No          | Yes     | No |
 | Export API to Power Platform                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
 | Export API to Postman                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
-| Export API to MCP server (preview)                                                        | No          | No       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
-| Expose existing MCP server (preview)                                                      | No          | No       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
+
+
 
 <sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam)) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>

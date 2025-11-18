@@ -4,7 +4,7 @@ description: This article tells how to convert configurations to composite resou
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.subservice: desired-state-config
-ms.date: 08/20/2024
+ms.date: 11/17/2025
 ms.custom: engagement-fy23
 ms.topic: how-to
 ms.service: azure-automation

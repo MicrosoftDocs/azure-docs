@@ -50,13 +50,13 @@ Returns:
 List all tables in a given database.
 
 ```python
-data_provider.list_tables([database],[id])
+data_provider.list_tables([database_name],[database_id])
    
 ```
 
 Parameters:
-- `database` (str, optional): The name of the database (workspace) to list tables from. IF not specified the system tables database is used.
-- `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
+- `database_name` (str, optional): The name of the database (workspace) to list tables from. IF not specified the system tables database is used.
+- `database_id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:
 - `list[str]`: A list of table names in the specified database.
@@ -71,10 +71,10 @@ data_provider.list_tables()
 ```
 
 
-List all tables in a specific database. Specify the `id` of the database if your workspace names aren't unique:
+List all tables in a specific database. Specify the `database_id` of the database if your workspace names aren't unique:
 
 ```python
-data_provider.list_tables("workspace1", id="ab1111112222ab333333")
+data_provider.list_tables("workspace1", database_id="ab1111112222ab333333")
 ```
 
 
@@ -83,13 +83,13 @@ data_provider.list_tables("workspace1", id="ab1111112222ab333333")
 Load a DataFrame from a table in Lake.
 
 ```python
-data_provider.read_table({table}, [database], [id])
+data_provider.read_table({table}, [database_name], [database_id])
 ```
 
 Parameters:
 - `table_name` (str): The name of the table to read.
-- `database` (str, optional): The name of the database (workspace) containing the table. Defaults to `System tables`.
-- `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
+- `database_name` (str, optional): The name of the database (workspace) containing the table. Defaults to `System tables`.
+- `database_id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:
 - `DataFrame`: A DataFrame containing the data from the specified table.
@@ -104,14 +104,14 @@ df = data_provider.read_table("EntraGroups", "Workspace001")
 Write a DataFrame as a managed table. You can write to the lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.                
 
 ```python
-data_provider.save_as_table({DataFrame}, {table_name}, [database], [id], [write_options])
+data_provider.save_as_table({DataFrame}, {table_name}, [database_name], [database_id], [write_options])
 ```
 
 Parameters:
 - `DataFrame` (DataFrame): The DataFrame to write as a table.
 - `table_name` (str): The name of the table to create or overwrite.
-- `database` (str, optional): The name of the database (workspace) to save the table in. Defaults to `System tables`.
-- `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
+- `database_name` (str, optional): The name of the database (workspace) to save the table in. Defaults to `System tables`.
+- `database_id` (str, optional, analytics tier only): The unique identifier of the database in the analytics tier if workspace names aren't unique.
 - `write_options` (dict, optional): Options for writing the table. Supported options:
                 - mode: `append` or `overwrite` (default: `append`)
                 - partitionBy: list of columns to partition by
@@ -127,10 +127,10 @@ Returns:
 
 Examples:
 
-Create new custom table in the data lake tier in the `lakeworkspace` workspace.
+Create new custom table in the data lake tier in the `System tables` workspace.
 
 ```python
-data_provider.save_as_table(dataframe, "CustomTable1_SPRK", "lakeworkspace")
+data_provider.save_as_table(dataframe, "CustomTable1_SPRK", "System tables")
 ```
 
 Append to a table in the system tables database (workspace) in the data lake tier.
@@ -166,19 +166,19 @@ Deletes the table from the lake tier. You can delete table from lake tier by usi
 
 
 ```python
-data_provider.delete_table({table_name}, [database], [id])
+data_provider.delete_table({table_name}, [database_name], [database_id])
 ```
 Parameters:
 - `table_name` (str): The name of the table to delete.
-- `database` (str, optional): The name of the database (workspace) containing the table. Defaults to `System tables`.
-- `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
+- `database_name` (str, optional): The name of the database (workspace) containing the table. Defaults to `System tables`.
+- `database_id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:
 - `dict`: A dictionary containing the result of the delete operation.
 
 Example:
 ```python
-data_provider.delete_table("customtable_SPRK", "lakeworkspace")
+data_provider.delete_table("customtable_SPRK", "System tables")
 ``` 
 
 

@@ -7,7 +7,7 @@ ms.manager: dhananjayanr
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: how-to
-ms.date: 09/22/2025
+ms.date: 11/11/2025
 # Customer intent: As a system administrator managing physical and VMware environments, I want to utilize an upgraded agent-based migration stack so that I can efficiently migrate newer Linux distributions and ensure a seamless migration process to Azure.
 ---
 
@@ -36,8 +36,8 @@ The key differences between the Classic and Simplified experience:
 
 ## Retirement of classic experience
 **Action required**
-- The classic experience retires on **30 September 2026**. Azure Migrate supports your existing replications and migrations on classic experience until that date. Switch sooner to gain the richer benefits of simplified experience.
-- You can continue using the classic experience for existing VMware and physical machines until **30 September 2026**. Plan your final migrations for these machines before the retirement date. After September 2026, you must move to the new simplified experience to continue replications and trigger migrations.
+- The classic experience retires on **30 September 2026**. Final recovery point for replications will be on **31 May 2026**. Support for migrations will continue until the retirement date. Switch sooner to gain the richer benefits of simplified experience.
+- You can continue using the classic experience for existing VMware and physical machines migrations until **30 September 2026**. Plan your final migrations for these machines before the retirement date. After September 2026, you must move to the new simplified experience to continue replications and trigger migrations.
 - You won’t be able to view, manage, or perform replication & migration related operations on these machines through the Azure portal after the retirement date.
 - New features, security updates, enhancements, and mobility agent support for additional Linux distributions are available only in the simplified experience.
     

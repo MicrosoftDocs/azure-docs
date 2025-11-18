@@ -19,7 +19,7 @@ The following table shows limits that are different for Basic, Standard, Premium
 
 | Limit | Basic | Standard | Premium | Dedicated |
 | ----- | ----- | -------- | -------- | --------- | 
-| Maximum size of Event Hubs publication | 256 KB | 1 MB | 1 MB | 1 MB |
+| Maximum size of Event Hubs publication | 256 KB | 1 MB | 1 MB | 20 MB |
 | Number of consumer groups per event hub | 1 | 20 | 100 | 1,000<br/>No limit per CU |
 | Number of Kafka consumer groups per namespace | NA | 1,000 | 1,000 | 1,000 |
 | Number of brokered connections per namespace | 100 | 5,000 | 10,000 per PU<br/><br/>For example, if the namespace is assigned 4 PUs, the limit is 40,000. | 100,000 per CU |
@@ -27,7 +27,7 @@ The following table shows limits that are different for Basic, Standard, Premium
 | Event storage for retention | 84 GB per TU | 84 GB per TU | 1 TB per PU | 10 TB per CU | 
 | Maximum TUs or PUs or CUs | 40 TUs | 40 TUs | 16 PUs | 20 CUs |
 | Number of partitions per event hub | 32 | 32 | 100 per event hub, but there's a limit of 200 per PU at the namespace level.<br/><br/> For example, if a namespace is assigned 2 PUs, the limit for total number of partitions in all event hubs in the namespace is 2 * 200 = 400. | 1,024 per event hub<br/> 2,000 per CU |
-| Number of namespaces per subscription | 1,000 | 1,000 | 1,000 | 1,000 (50 per CU) |
+| Number of namespaces per subscription per region | 1,000 (all tiers) | 1,000 (all tiers) | 1,000 (all tiers) | 1,000 (50 per CU) |
 | Number of event hubs per namespace | 10 | 10 | 100 per PU | 1,000 |
 | Capture | N/A | Pay per hour | Included | Included |
 | Size of compacted event hub | N/A | 1 GB per partition | 250 GB per partition | 250 GB per partition |

@@ -139,9 +139,11 @@ items:
         href: create-autonomous-agent-workflows.md
       - name: Create conversational agent workflows
         href: create-conversational-agent-workflows.md
-      - name: Run workflows from actions in AI agents
+      - name: Add agent tools in Foundry backed by connectors
+        href: add-agent-tools-connector-actions.md
+      - name: Add agent actions in Foundry backed by workflows
         href: add-agent-action-create-run-workflow.md
-      - name: Create and register MCP servers and tools
+      - name: Create MCP servers and tools from connectors
         href: create-mcp-server-api-center.md
       - name: Set up Standard logic apps as MCP servers
         href: set-up-model-context-protocol-server-standard.md
@@ -193,7 +195,9 @@ items:
       href: set-up-cd-deployment-center-standard.md
     - name: Deploy Standard logic apps to private storage accounts
       href: deploy-single-tenant-logic-apps-private-storage-account.md
-    - name: Export Consumption workflows to Standard logic app
+    - name: Clone Consumption to Standard - Portal
+      href: clone-consumption-logic-app-to-standard-workflow.md
+    - name: Export Consumption to Standard - Visual Studio Code
       href: export-from-consumption-to-standard-logic-app.md
   - name: Hybrid deployment for Azure Logic Apps
     items:
@@ -393,6 +397,8 @@ items:
       href: ../connectors/connectors-create-api-ftp.md
     - name: Gmail - Google data security & privacy policies
       href: ../connectors/connectors-google-data-security-privacy-policy.md
+    - name: HL7
+      href: connectors/integrate-healthcare-systems.md
     - name: HTTP
       href: ../connectors/connectors-native-http.md
     - name: HTTP + Swagger

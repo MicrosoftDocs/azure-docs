@@ -68,8 +68,6 @@
           href: basic-public-ip-migrate-howto.md
     - name: About active-active mode gateways
       href: about-active-active-gateways.md
-    - name: About zone-redundant gateways
-      href: about-zone-redundant-vnet-gateways.md
     - name: VPN Gateway configuration settings
       href: vpn-gateway-about-vpn-gateway-settings.md
     - name: IPv6 configuration settings
@@ -102,12 +100,6 @@
           href: about-active-active-gateways.md
         - name: Change a gateway to active-active or active-standby
           href: gateway-change-active-active.md
-    - name: Zone-redundant gateways
-      items:
-        - name: About zone-redundant gateways
-          href: about-zone-redundant-vnet-gateways.md
-        - name: Configure a zone redundant gateway
-          href: create-zone-redundant-vnet-gateway.md
     - name: Delete a VPN gateway
       items:
         - name: Azure portal
@@ -350,6 +342,14 @@
       href: roles-permissions.md
     - name: Azure Security blog
       href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+- name: Reliability
+  items:
+  - name: Reliability in VPN Gateway
+    href: ../reliability/reliability-virtual-network-gateway.md?pivot=vpn&toc=/azure/vpn-gateway/TOC.json
+  - name: Configure a zone redundant gateway
+    href: create-zone-redundant-vnet-gateway.md
+  - name: Design highly available gateway connections
+    href: vpn-gateway-highlyavailable.md
 - name: Routing
   items:
     - name: Forced tunneling

@@ -49,40 +49,7 @@ Requirement | Details
 **SQL Server access** | To discover SQL Server instances and databases, the Windows account, or SQL Server account [requires these permissions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) for each SQL Server instance. You can use the [account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
 ## Prepare an Azure user account
-
-To create a project and register the Azure Migrate appliance, you must have an Azure account that has these permissions:
-
-- Contributor or Owner permissions in the Azure subscription.
-- Permissions to register Microsoft Entra apps.
-- Owner or Contributor and User Access Administrator permissions at subscription level to create an instance of Azure Key Vault, which is used during agentless server migration.
-
-If you created a free Azure account, by default, you're the owner of the Azure subscription. If you're not the subscription owner, work with the owner to assign permissions.
-
-To set Contributor or Owner permissions in the Azure subscription:
-
-1. In the Azure portal, search for **Subscriptions**. Under **Services** in the search results, select **Subscriptions**.
-
-    :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Screenshot that shows how to search for an Azure subscription in the search box.":::
-
-1. In **Subscriptions**, select the subscription in which you want to create a project. 
-1. Select **Access control (IAM)**. 
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
-
-
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | Contributor or Owner |
-    | Assign access to | User |
-    | Members | azmigrateuser |
-
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
-
-    To give the account the required permissions to register Microsoft Entra apps:
-
-1. In the portal, go to **Microsoft Entra ID** > **Users**. 
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+Refer [this article](prepare-azure-accounts.md) to prepare Azure accounts.
 
 ## Prepare VMware
 

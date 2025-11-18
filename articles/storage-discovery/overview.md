@@ -13,7 +13,7 @@ ms.author: fauhse
 
 **Azure Storage Discovery** is a fully managed service that provides enterprise-wide visibility into your Azure Blob Storage and Azure Data Lake Storage estate. In a single pane of glass you can understand and analyze how your data estate evolved over time, optimize costs, enhance security, and drive operational efficiency.
 
-Azure Storage Discovery integrates with Copilot in Azure, enabling you to unlock insights and accelerate decision-making without utilizing any query language.
+Azure Storage Discovery integrates with Azure Copilot, enabling you to unlock insights and accelerate decision-making without utilizing any query language.
 
 Whether you're shaping cloud strategy or safeguarding data, Azure Storage Discovery gives you instant clarity on your Blob Storage estate.
 From architecture to governance, it delivers fast answers that help you take control of your Azure data landscape.

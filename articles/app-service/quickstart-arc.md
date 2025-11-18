@@ -44,28 +44,42 @@ Supported runtimes:
 
 | Description | Runtime Value for CLI |
 |-|-|
-| .NET Core 3.1 | DOTNETCORE\|3.1 |
-| .NET 5.0 | DOTNETCORE\|6.0 |
-| Node JS 12 | NODE\|12-lts |
-| Node JS 14 | NODE\|14-lts |
-| Python 3.6 | PYTHON\|3.6 |
-| Python 3.7 | PYTHON\|3.7 |
-| Python 3.8 | PYTHON\|3.8 |
-| PHP 7.3 | PHP\|7.3 |
-| PHP 7.4 | PHP\|7.4 |
+| .NET Core 8.0 | DOTNETCORE\|8.0 |
+| .NET 5.0 | DOTNETCORE\|9.0 |
+| .NET 5.0 | DOTNETCORE\|10.0 |
+| Node JS 20 | NODE\|20-lts |
+| Node JS 22 | NODE\|22-lts |
+| Node JS 24 | NODE\|24-lts |
+| Python 3.10 | PYTHON\|3.10 |
+| Python 3.11 | PYTHON\|3.11 |
+| Python 3.12 | PYTHON\|3.12 |
+| Python 3.13 | PYTHON\|3.13 |
+| Python 3.14 | PYTHON\|3.14 |
+| PHP 8.1 | PHP\|8.1 |
+| PHP 8.2 | PHP\|8.2 |
+| PHP 8.3 | PHP\|8.3 |
+| PHP 8.4 | PHP\|8.4 |
 | Java 8 | JAVA\|8-jre8 |
 | Java 11 | JAVA\|11-java11 |
-| Tomcat 8.5 | TOMCAT\|8.5-jre8 |
-| Tomcat 8.5 | TOMCAT\|8.5-java11 |
+| Java 17 | JAVA\|17-java17 |
+| Java 21 | JAVA\|21-java21 |
 | Tomcat 9.0 | TOMCAT\|9.0-jre8 |
 | Tomcat 9.0 | TOMCAT\|9.0-java11 |
+| Tomcat 9.0 | TOMCAT\|9.0-java17 |
+| Tomcat 9.0 | TOMCAT\|9.0-java21 |
+| Tomcat 10.1 | TOMCAT\|10.1-java11 |
+| Tomcat 10.1 | TOMCAT\|10.1-java17 |
+| Tomcat 10.1 | TOMCAT\|10.1-java21 |
+| Tomcat 11.0 | TOMCAT\|11.0-java11 |
+| Tomcat 11.0 | TOMCAT\|11.0-java17 |
+| Tomcat 11.0 | TOMCAT\|11.0-java21 |
 
 ```azurecli-interactive
  az webapp create \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
-    --runtime 'NODE|14-lts'
+    --runtime 'NODE|24-lts'
 ```
 
 ## 4. Deploy some code

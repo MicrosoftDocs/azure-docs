@@ -25,7 +25,7 @@ In this quickstart, you deploy a Python web app (Django, Flask, or FastAPI) to [
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- <a href="https://www.python.org/downloads/" target="_blank">Python 3.9 or higher</a> installed locally.
+- <a href="https://www.python.org/downloads/" target="_blank">Python 3.14 or higher</a> installed locally.
 
 > [!NOTE]
 > This article contains current instructions on deploying a Python web app using Azure App Service. Python on Windows is no longer supported.

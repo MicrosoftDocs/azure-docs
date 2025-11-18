@@ -1,29 +1,26 @@
 ---
 title: Reliability in Azure Table Storage
-description: Learn about reliability in Azure Table Storage, including availability zones and multi-region deployments.
+description: Learn about resiliency in Azure Table Storage, including resilience to transient faults, availability zone failures, and region failures.
 ms.author: anaharris
 author: anaharris-ms
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-table-storage
 ms.date: 08/18/2025
+ai-usage: ai-assisted
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Table Storage works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
 # Reliability in Azure Table Storage
 
-This article describes reliability support in Azure Table Storage, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+[Azure Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores structured NoSQL data in the cloud. It provides a schemaless store where each entity is accessed via a key and contains a set of attributes. A single table can contain entities that have different sets of properties, and properties can consist of various data types.
 
-[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+[!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
 
-[Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores structured NoSQL data in the cloud. It provides a schemaless store where each entity is accessed via a key and contains a set of attributes. A single table can contain entities that have different sets of properties, and properties can consist of various data types.
-
-Table Storage provides several reliability features through the underlying Azure Storage platform. As part of Azure Storage, Table Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your table data.
-
-This article describes reliability and availability zones support in Table Storage. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
+This article describes how to make Table Storage resilient to a variety of potential outages and problems, including transient faults, availability zone outages, and region outages. It also describes how you can use backups to recover from other types of problems, and highlights some key information about the Table Storage service level agreement (SLA).
 
 > [!NOTE]
-> Table Storage is part of the Azure Storage platform. Some of the capabilities of Table Storage are common across many Azure Storage services. In this article, we use *Azure Storage* to refer to these common capabilities.
+> Table Storage is part of the Azure Storage platform. Some of the capabilities of Table Storage are common across many Azure Storage services. In this article, we use *Azure Storage* or *Storage* to refer to these common capabilities.
 
 ## Production deployment recommendations
 
@@ -41,9 +38,9 @@ Table Storage operates as a distributed NoSQL database within the Azure Storage 
 
 [!INCLUDE [Storage - Reliability architecture overview](includes/storage/reliability-storage-architecture-include.md)]
 
-## Transient faults
+## Resilience to transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Resilience to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 [Table Storage client libraries and SDKs](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/) include built-in retry policies that automatically handle common transient failures such as network timeouts, temporary service unavailability (HTTP 503), throttling responses (HTTP 429), and partition server overload conditions. When your application experiences these transient conditions, the client libraries automatically retry operations by using exponential backoff strategies.
 
@@ -57,27 +54,25 @@ To manage transient faults effectively when you use Table Storage, take the foll
 
 To learn more about the Table Storage architecture and how to design resilient and high-scale applications, see [Performance and scalability checklist for Table Storage](/azure/storage/tables/storage-performance-checklist).
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Resilience to availability zone failures](includes/reliability-availability-zone-description-include.md)]
 
 Table Storage is zone-redundant when you deploy it with ZRS configuration. Unlike locally redundant storage (LRS), ZRS guarantees that Azure synchronously replicates your table data across multiple availability zones. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before the service completes the write, which provides strong consistency guarantees.
 
 Zone redundancy is enabled at the storage account level and applies to all Table Storage resources within that account. Because the setting applies to the entire storage account, you can't configure individual entities for different redundancy levels. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from you or your application.
 
-[!INCLUDE [Storage - Availability zone support](includes/storage/reliability-storage-availability-zone-support-include.md)]
-
-### Region support
-
-[!INCLUDE [Storage - Availability zone region support](includes/storage/reliability-storage-availability-zone-region-support-include.md)]
+[!INCLUDE [Storage - Resilience to availability zone failures - Support](includes/storage/reliability-storage-availability-zone-support-include.md)]
 
 ### Requirements
 
-You must use a Standard general-purpose v2 storage account to enable ZRS for Table Storage. Premium storage accounts don't support Table Storage.
+[!INCLUDE [Storage - Supported regions](includes/storage/reliability-storage-availability-zone-region-support-include.md)]
+
+- **Storage account types:** You must use a Standard general-purpose v2 storage account to enable ZRS for Table Storage. Premium storage accounts don't support Table Storage.
 
 ### Cost
 
-[!INCLUDE [Storage - Availability zone cost](includes/storage/reliability-storage-availability-zone-cost-include.md)]
+[!INCLUDE [Storage - Cost](includes/storage/reliability-storage-availability-zone-cost-include.md)]
 
 For detailed pricing information, see [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
@@ -91,96 +86,96 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 
 [!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
 
-### Normal operations
+### Behavior when all zones are healthy
     
 This section describes what to expect when a Table Storage account is configured for zone redundancy and all availability zones are operational.
 
-[!INCLUDE [Storage - Normal operations](includes/storage/reliability-storage-availability-zone-normal-operations-include.md)]
+[!INCLUDE [Storage - Behavior when all zones are healthy](includes/storage/reliability-storage-availability-zone-normal-operations-include.md)]
 
-### Zone-down experience
+### Behavior during a zone failure
 
 When an availability zone becomes unavailable, Table Storage automatically handles the failover process by responding with the following behaviors:
 
-[!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
+[!INCLUDE [Storage - Behavior during a zone failure](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
 - **Traffic rerouting:** If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing so that requests are directed to the remaining healthy availability zones. The service maintains full functionality by using the healthy zones and doesn't require customer intervention.
 
 ### Zone recovery
 
-[!INCLUDE [Storage - Zone failback](includes/storage/reliability-storage-availability-zone-failback-include.md)]
+[!INCLUDE [Storage - Zone recovery](includes/storage/reliability-storage-availability-zone-failback-include.md)]
 
-### Testing for zone failures
+### Test for zone failures
 
-[!INCLUDE [Storage - Testing for zone failures](includes/storage/reliability-storage-availability-zone-testing-include.md)]
+[!INCLUDE [Storage - Test for zone failures](includes/storage/reliability-storage-availability-zone-testing-include.md)]
 
-## Multi-region support
+## Resilience to region-wide failures
 
-[!INCLUDE [Storage - Multi-region support introduction](includes/storage/reliability-storage-multi-region-support-include.md)]
+[!INCLUDE [Storage - Resilience to region-wide failures](includes/storage/reliability-storage-multi-region-support-include.md)]
 
-[!INCLUDE [Storage - Multi-region support introduction RA-GRS addendum](includes/storage/reliability-storage-multi-region-support-read-access-include.md)]
+### Geo-redundant storage
 
-[!INCLUDE [Storage - Multi-region support introduction failover types](includes/storage/reliability-storage-multi-region-support-failover-types-include.md)]
+[!INCLUDE [Storage - Resilience to region-wide failures - RA-GRS addendum](includes/storage/reliability-storage-multi-region-support-read-access-include.md)]
 
-### Region support
+[!INCLUDE [Storage - Resilience to region-wide failures - failover types](includes/storage/reliability-storage-multi-region-support-failover-types-include.md)]
 
-[!INCLUDE [Storage - Multi-region support region support](includes/storage/reliability-storage-multi-region-region-support-include.md)]
+#### Requirements
 
-### Requirements
+[!INCLUDE [Storage - Supported regions](includes/storage/reliability-storage-multi-region-region-support-include.md)]
 
-[!INCLUDE [Storage - Multi Region Requirements](includes/storage/reliability-storage-multi-region-requirements-include.md)]
+[!INCLUDE [Storage - Requirements](includes/storage/reliability-storage-multi-region-requirements-include.md)]
 
-### Considerations
+#### Considerations
 
 When you implement multi-region Table Storage, consider the following important factors:
 
-[!INCLUDE [Storage - Multi Region Considerations - Latency](includes/storage/reliability-storage-multi-region-considerations-latency-include.md)]
+[!INCLUDE [Storage - Considerations - Latency](includes/storage/reliability-storage-multi-region-considerations-latency-include.md)]
 
-[!INCLUDE [Storage - Multi Region Considerations - Secondary region access (read access)](includes/storage/reliability-storage-multi-region-considerations-secondary-read-access-include.md)]
+[!INCLUDE [Storage - Considerations - Secondary region access](includes/storage/reliability-storage-multi-region-considerations-secondary-read-access-include.md)]
 
-[!INCLUDE [Storage - Multi Region Considerations - Feature limitations](includes/storage/reliability-storage-multi-region-considerations-feature-limitations-include.md)]
+[!INCLUDE [Storage - Considerations - Feature limitations](includes/storage/reliability-storage-multi-region-considerations-feature-limitations-include.md)]
 
-### Cost
+#### Cost
 
-[!INCLUDE [Storage - Multi Region cost](includes/storage/reliability-storage-multi-region-cost-include.md)]
+[!INCLUDE [Storage - Cost](includes/storage/reliability-storage-multi-region-cost-include.md)]
 
 For detailed pricing information, see [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
-### Configure multi-region support
+#### Configure multi-region support
 
-[!INCLUDE [Storage - Multi Region Configure multi-region support - create](includes/storage/reliability-storage-multi-region-configure-create-include.md)]
+[!INCLUDE [Storage - Configure multi-region support - Create](includes/storage/reliability-storage-multi-region-configure-create-include.md)]
 
-[!INCLUDE [Storage - Multi Region Configure multi-region support - enable-disable](includes/storage/reliability-storage-multi-region-configure-enable-disable-include.md)]
+[!INCLUDE [Storage - Configure multi-region support - Enable/disable](includes/storage/reliability-storage-multi-region-configure-enable-disable-include.md)]
 
-### Normal operations
+#### Behavior when all regions are healthy
 
-[!INCLUDE [Storage - Multi Region Normal operations](includes/storage/reliability-storage-multi-region-normal-operations-include.md)]
+[!INCLUDE [Storage - Behavior when all regions are healthy](includes/storage/reliability-storage-multi-region-normal-operations-include.md)]
 
-### Region-down experience
+#### Behavior during a region failure
 
-[!INCLUDE [Storage - Multi Region Down experience](includes/storage/reliability-storage-multi-region-down-experience-include.md)]
+[!INCLUDE [Storage - Behavior during a region failure](includes/storage/reliability-storage-multi-region-down-experience-include.md)]
 
-### Region recovery
+#### Region recovery
 
-[!INCLUDE [Storage - Multi Region Failback](includes/storage/reliability-storage-multi-region-failback-include.md)]
+[!INCLUDE [Storage - Region recovery](includes/storage/reliability-storage-multi-region-failback-include.md)]
 
-### Testing for region failures
+#### Test for region failures
 
-[!INCLUDE [Storage - Multi Region Testing](includes/storage/reliability-storage-multi-region-testing-include.md)]
+[!INCLUDE [Storage - Test for region failures](includes/storage/reliability-storage-multi-region-testing-include.md)]
 
-### Alternative multi-region approaches
+## Custom multi-region solutions for resiliency
 
-[!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
+[!INCLUDE [Storage - Custom multi-region solutions - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
-[!INCLUDE [Storage - Alternative multi-region approaches - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
+[!INCLUDE [Storage - Custom multi-region solutions - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
 
 > [!NOTE]
 > For applications built to use Table Storage, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/overview). Azure Cosmos DB for Table supports advanced multi-region requirements, including support for nonpaired regions. It's also designed for compatibility with applications built for Table Storage.
 
-[!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
+[!INCLUDE [Storage - Custom multi-region solutions - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
 
 For Table Storage, a multiple-account approach requires you to manage data distribution, handle synchronization between tables across regions including conflict resolution, and implement custom failover logic.
 
-## Backups
+## Backup and restore
 
 Table Storage doesn't provide traditional backup capabilities like point-in-time restore (PITR). However, you can implement custom backup strategies for table data. For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md).
 
@@ -196,7 +191,7 @@ When you design backup strategies for Table Storage, consider the partitioned na
 
 ## Service-level agreement
 
-[!INCLUDE [Storage - SLA](includes/storage/reliability-storage-sla-include.md)]
+[!INCLUDE [Storage - Service-level agreement](includes/storage/reliability-storage-sla-include.md)]
 
 ## Related content
 

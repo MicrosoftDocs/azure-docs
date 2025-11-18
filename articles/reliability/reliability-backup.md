@@ -27,7 +27,7 @@ Azure Backup supports the following data redundant storage options:
 - **Zone-redundant storage (ZRS):**  To replicate your backup data in availability zones, you can use ZRS. ZRS guarantees data residency and resiliency in the same region. [Azure Blob Storage - zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
->The redundancy options are applicable to how backup data is stored and not on the Azure Backup Service itself. 
+>These storage redundancy options apply to where backup copies are replicated, not to the Azure Backup service itself. Backup protection and storage redundancy are complementary - backups protect against data loss, while redundancy protects against infrastructure failures. 
 
 ## Vault storage overview
 

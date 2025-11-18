@@ -165,6 +165,24 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "functions-host-mcp-sdk-dotnet",
+            "url": "https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-host-mcp-sdk-node",
+            "url": "https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-host-mcp-sdk-python",
+            "url": "https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "azure-functions-durable-js",
             "url": "https://github.com/Azure/azure-functions-durable-js",
             "branch": "v2.x",
@@ -247,6 +265,24 @@
           "url": "https://github.com/Azure-Samples/functions-quickstart-typescript-azd",
           "branch": "main",
           "branch_mapping": {}
+        },
+        {
+          "path_to_root": "functions-azd-timer-dotnet",
+          "url": "https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-timer",
+          "branch": "main",
+          "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-timer-python",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-python-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-timer-typescript",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-typescript-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
         },
         {
             "path_to_root": "azure-functions-templates-v3",

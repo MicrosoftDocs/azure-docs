@@ -4,7 +4,7 @@ description: Learn about the shared responsibility model for reliability on the 
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 08/13/2025
+ms.date: 11/13/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
@@ -14,19 +14,19 @@ ms.custom: subject-reliability
 
 In the Azure public cloud platform, reliability is a shared responsibility between Microsoft and you. Because there are different levels of reliability in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a reliability perspective.
 
-To help you better understand how shared responsibility works, especially when confronting an outage or disaster, this article describes the *shared responsibility model* for resiliency. For more information on how to actually use this model to plan for disaster recovery, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
+To help you better understand how shared responsibility works, especially when confronting an outage or disaster, this article describes the *shared responsibility model* for reliability. For more information on how to actually use this model to plan for disaster recovery, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
 
 ## Shared responsibility model for reliability
 
 The shared responsibility model for reliability is composed of three levels:
 
 - [Core platform reliability](#core-platform-reliability). The Azure platform provides a base level of reliability for all customers and all services through the underlying infrastructure, services, and processes.
-- [Resilience-enhancing capabilities](#resilience-enhancing-capabilities) Azure offers a suite of built-in features and services that enhance resiliency, such as using availability zones, deploying across multiple regions, and implementing backup strategies. While Azure provides these capabilities, it's your responsibility to evaluate and configure them to align with your specific requirements. Requirements can include reliability, cost, performance, and compliance with regulatory standards.
-- [Applications](#applications). To make effective use of the other levels, your application and workload must be designed for resiliency.
+- [Reliability-enhancing capabilities](#reliability-enhancing-capabilities) Azure offers a suite of built-in features and services that enhance reliability, such as using availability zones, deploying across multiple regions, and implementing backup strategies. While Azure provides these capabilities, it's your responsibility to evaluate and configure them to align with your specific requirements. Requirements can include reliability, cost, performance, and compliance with regulatory standards.
+- [Applications](#applications). To make effective use of the other levels, your application and workload must be designed for reliability.
 
-:::image type="content" source="media/concept-shared-responsibility/shared-responsibility-model.svg" alt-text="Diagram showing shared responsibility model for reliability: Core platform reliability, resilience-enhancing capabilities, and applications." border="false":::
+:::image type="content" source="media/concept-shared-responsibility/shared-responsibility-model.svg" alt-text="Diagram showing shared responsibility model for reliability: Core platform reliability, reliability-enhancing capabilities, and applications." border="false":::
 
-Microsoft is solely responsible for core platform reliability. Microsoft is also responsible for providing resilience-enhancing capabilities that you can use. You're responsible for selecting and using the appropriate components.
+Microsoft is solely responsible for core platform reliability. Microsoft is also responsible for providing reliability-enhancing capabilities that you can use. You're responsible for selecting and using the appropriate components.
 
 Whether you choose SaaS, PaaS, or IaaS service categories determines what kind of decisions you make. For example, if you use a SaaS service, you typically don't need to opt into using availability zones. If you use PaaS services for your data tier, you might have automated capabilities for backup available to you. If you use IaaS services, you typically need to plan and implement many reliability capabilities yourself.
 
@@ -52,9 +52,9 @@ The Microsoft cloud platform consists of a large amount of infrastructure, hardw
 
 All Azure services benefit from these core platform reliability capabilities, and with the ongoing improvements Microsoft makes.
 
-### Resilience-enhancing capabilities
+### Reliability-enhancing capabilities
 
-Azure provides many different resilience-enhancing capabilities. Although Microsoft is responsible for providing these capabilities, you are entirely responsible for selecting and using the appropriate ones for your needs. Some examples of these capabilities include:
+Azure provides many different reliability-enhancing capabilities. Although Microsoft is responsible for providing these capabilities, you are entirely responsible for selecting and using the appropriate ones for your needs. Some examples of these capabilities include:
 
 - **Regions.** Azure has over 70 regions, and you can use multiple regions in a single solution to achieve geo-redundancy, meet your data residency needs, and enable low-latency communication to users globally. To learn more about regions, see [What are Azure regions?](./regions-overview.md).
 

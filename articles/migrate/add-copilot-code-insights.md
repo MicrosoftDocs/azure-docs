@@ -14,12 +14,12 @@ ms.custom: engagement-fy24
 
 #  Add GitHub Copilot Code insights to Web App Assessments (preview)
 
-This article describes how to improve web app assessments by adding code scan insights using GitHub Copilot assessment when modernizing applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
+This article describes how to enhance web app assessments by adding code scan insights using GitHub Copilot assessment when modernizing applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan.
 
 In this article, you’ll learn how to: 
 
 - Add code insights to Web app assessments  
-- Generate the GitHub Copilot Assessment report using supported methods. 
+- Generate a GitHub Copilot Assessment report using supported methods. 
 - View updated assessment along with code insights. 
 
 You can add code insights to web app assessment using either of the following two methods:  
@@ -29,11 +29,11 @@ You can add code insights to web app assessment using either of the following tw
 
 ##  Manually upload code scan reports using a Zip File
 
-With this approach, you must generate the code scan report manually upload the reports as Zip file. 
+With this approach, you must generate the code scan report manually and upload it as a Zip file. 
 
 ### Prerequisites
 
-- Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment.
+- Ensure a web app assessment exists for each required web app because code scan reports can only be added to an existing assessment.
 - Have the GitHub Copilot Assessment report ready for web apps you want to update.
 
 #### Generate GitHub Copilot Assessment report
@@ -41,55 +41,55 @@ With this approach, you must generate the code scan report manually upload the r
 To generate report, complete the following steps:
 
 >[!Note]
->  To upload an assessment report as a zip file, use reports from AppCAT CLI. Support for GitHub Copilot App Mod reports will be added soon. 
+>  To upload an assessment report as a ZIP file, use reports from AppCAT CLI. Support for GitHub Copilot App Mod reports will be added soon. 
 
 1. Install AppCAT:
 
-    - For .NET you use the below command
+    - For .NET use the below command
     `dotnet tool install --global Microsoft.AppCAT.Tool` For detailed instructions, see [Install the .NET global tool](/dotnet/azure/migration/appcat/install#install-the-net-global-tool).
     - For guidance on assessing Java projects, see [Assess a Java project using AppCAT 7](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#download-and-install).
 1. Generate AppCAT Reports
-   - After installing AppCAT, generate reports for all web apps you have assessed: For .NET applications, use the .NET CLI to analyze applications. For more details, see [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
+   - After installing AppCAT, generate reports for all assessed web apps: For .NET applications, use the .NET CLI to analyze applications. For more details, see [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
     - For Java applications: To run AppCAT against a sample Java project, see [Run AppCAT against a sample Java project](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#run-appcat-against-a-sample-java-project).
-1. Create a zip file for all the reports that you want to add to assessment. 
+1. Create a ZIP file for all the reports you want to add to assessment. 
 
-### Upload zip file 
+### Upload a ZIP file 
 
-1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
+1. On the Azure Migrate **Overview** page under **Decide and Plan** select **Assessments**.
 2. Search for the assessment with the **Workloads** filter and select it. 
 3. On the assessment **Overview** page, under **Add code insights** select **Using GitHub Copilot assessment**. 
 
 :::image type="content" source="./media/add-copilot-code-insights/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using GitHub copilot assessment." lightbox="./media/add-copilot-code-insights/using-github-copilot-assessment.png":::
 
-4. In the Add code insights page, select **Upload a zip file**.  
+4. In the Add Code Insights page, select **Upload a zip file**.  
 
 :::image type="content" source="./media/add-copilot-code-insights/upload-zip-file.png" alt-text="The screenshot shows how to upload a zip file." lightbox="./media/add-copilot-code-insights/upload-zip-file.png":::
 
-5. Select **Browse**, and then select the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
+5. Select **Browse**, and select the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
 
 :::image type="content" source="./media/add-copilot-code-insights/add-code-insights.png" alt-text="The screenshot shows how to add code insights." lightbox="./media/add-copilot-code-insights/add-code-insights.png":::
 
-6. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
+6. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from ZIP file**. 
 
 :::image type="content" source="./media/add-copilot-code-insights/upload-from-zip-file.png" alt-text="The screenshot shows how to upload from the zip file." lightbox="./media/add-copilot-code-insights/upload-from-zip-file.png":::
 
-7. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
+7. Select the appropriate report to map to the corresponding web app. Repeat these steps for all required web app.  
 8. After mapping, select **Add** and wait for the process to complete.
 
 :::image type="content" source="./media/add-copilot-code-insights/add.png" alt-text="The screenshot shows how to add web app." lightbox="./media/add-copilot-code-insights/add.png":::
  
-9. After mapping is complete the assessment will be marked as outdated. Select **Recalculate** to initiate recalculation.
+9. After mapping is complete the assessment is marked as outdated. Select **Recalculate** to initiate recalculation.
 10. After recalculation is complete, review the updated code insights.  
 
 ## Request report via GitHub
 
-This method connects Azure Migrate to a GitHub repository using provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot app modernization extension, you can scan your code and upload the reports directly to the related GitHub issue. After updating the issue, Azure Migrate automatically attach the code scan reports to the associated web applications. This approach allows cloud administrators and developers to collaborate while maintaining application code security boundaries. 
+This method connects Azure Migrate to a GitHub repository using the provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot app modernization extension, you can scan your code and upload reports directly to the related GitHub issue. After updating the issue, Azure Migrate automatically attaches the code scan reports to the associated web applications. This approach allows Cloud administrators and developers to collaborate while maintaining application code security boundaries. 
 
 ### Prerequisites
 
-- Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment. 
+- Ensure a web app assessment exists for each web app because code scan reports can only be added to an existing assessment. 
 - Provide information about the GitHub repository required for integration with Azure Migrate to allow automatic requests and synchronization of code scan reports. 
-- Provide GitHub application details that grant permission to create issues and read comments on issues within the target repository. 
+- Provide GitHub application details with permissions to create issues and read comments in the target repository. 
 
 ### Create new GitHub app 
 
@@ -101,10 +101,10 @@ Create a new **GitHub App** by following these steps:
       - Select **Your organization** and then **Settings** from right of the organization. 
     - For an app owned by an enterprise:  
       - If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
-      - If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
+      - If you use personal accounts, select **Your enterprises** then select to **Settings** from the right of the enterprise. 
 1. Navigate to the **GitHub App** settings. 
     - For an app owned by a personal account or organization:
-      - In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
+      - In the left sidebar, select **Developer settings**, and then select **GitHub Apps**. 
     - For an app owned by an enterprise
       - In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     
@@ -128,7 +128,7 @@ Create a new **GitHub App** by following these steps:
   | Metadata  | Read-only  |
   | Webhook   | Read and write  |
 
-10. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
+10. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
   
 :::image type="content" source="./media/add-copilot-code-insights/permissions.png" alt-text="The screenshot shows the available permissions." lightbox="./media/add-copilot-code-insights/permissions.png":::
     

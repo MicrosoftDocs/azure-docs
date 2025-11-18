@@ -13,21 +13,21 @@ monikerRange: migrate
 
 # Plan high-fidelity execution for predictable migration and modernization (preview)
 
-This article explains how for creating a high-fidelity migration plan in Azure Migrate, including defining targets, configuring settings, adding tasks, and preparing prerequisites to ensure predictable migration and modernization.
+This article explains how to create a high-fidelity migration plan in Azure Migrate, including defining targets, configuring settings, adding tasks, and preparing prerequisites to ensure predictable migration and modernization.
 
 Creating a high-fidelity plan including all the migration details is essential for ensuring predictable migration and modernization without deviations and plans and outcomes. The primary details include:
 
-1. Azure services for hosting my applications and workloads.
+1. Azure services for hosting applications and workloads.
 1. Tools and the approach required for migration and modernization.
 1. Activities to be performed during migration and modernization.
 1.  Timeline and prerequisites to prepare for migration.
 
 ## Identify Azure migration targets before moving workloads 
 
-Before migrating workloads and applications, you should identify the Azure destination and determine the appropriate method for moving them. The assessment provides recommendations and details about migration targets in Azure.
+Before migrating workloads and applications, identify the Azure destination and determine the appropriate method for moving them. The assessment provides recommendations and details about migration targets in Azure.
 
 >[!Note]
-> At present, the assessment link suggests an Azure target for every workload, but specific configurations, such as storage or compute SKUs are only available for integrated server migrations.
+> Currently, the Azure Migrate assessment link suggests an Azure target for every workload, but specific configurations, such as storage or compute SKUs are only available for integrated server migrations.
 
 To review and update these settings in Azure Migrate Wave planning, follow these steps:
 
@@ -52,7 +52,7 @@ To link an assessment to the application links the assessment to all workloads f
 
 ### Configure Workload Targets and migration tasks
 
-Use workload target settings to configure Azure targets, select migration tools, and add tasks for your migration plan.
+Use workload target settings to configure Azure targets, select migration tools, and add tasks to your migration plan.
 
 1. Select **Configure target** to review and configure the Azure target. The system sets the target by default when you select an assessment. 
 2. Select **None** for workloads that are planned for retirement and not to be migrated.
@@ -65,11 +65,11 @@ Use workload target settings to configure Azure targets, select migration tools,
 6. Review and add tasks using **Add tasks** that need to be performed and tracked for migrations.
 7. Select **Save tasks** to save.
     
-Refer to the [FAQ](common-questions-wave-planning.md) to learn about the supported tools and targets for the execute phase of migration and modernization.
+See the [FAQ](common-questions-wave-planning.md) for supported tools and targets for the execution phase of migration and modernization.
 
 ## Prepare your Wave for migration: Key prerequisites
 
-Azure Migrate identifies the prerequisites you need to complete before starting migration, based on the migration targets, tools, and tasks you define. To review and add other prerequisites for tracking and to make the wave ready for migration, do the following:
+Azure Migrate identifies the prerequisites you need to complete before starting migration, based on the migration targets, tools, and tasks you define. To review and add other prerequisites for tracking and to make the wave ready for migration, follow the steps:
 
 1. Select **View details** in the Wave settings tile.  
 

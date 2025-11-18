@@ -33,6 +33,8 @@
     href: next-hop-ip.md
   - name: Azure Route Server support for ExpressRoute and Azure VPN
     href: expressroute-vpn-support.md
+  - name: Azure Route Server Capacity
+    href: route-server-capacity.md
   - name: Dual-homed network
     href: about-dual-homed-network.md
   - name: Path selection

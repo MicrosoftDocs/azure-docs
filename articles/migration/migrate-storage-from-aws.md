@@ -5,7 +5,7 @@ author: chasedmicrosoft
 ms.author: doveychase
 ms.reviewer: prwilk, chkittel
 ms.date: 03/25/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure
 ms.collection:
  - migration

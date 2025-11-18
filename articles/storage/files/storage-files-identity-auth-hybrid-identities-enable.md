@@ -1,39 +1,31 @@
 ---
 title: Microsoft Entra Kerberos Authentication for Azure Files
-description: Learn how to enable identity-based Kerberos authentication over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Your users can then access Azure file shares by using their Microsoft Entra credentials.
+description: Learn how to enable identity-based Kerberos authentication over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Hybrid and cloud-only users can then access Azure file shares by using their Microsoft Entra credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 11/07/2025
 ms.author: kendownie
 recommendations: false
-# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that users can securely access file shares with their existing credentials without requiring constant connectivity to on-premises domain controllers.
+# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access file shares with their Microsoft Entra credentials.
 ---
 
-# Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files
+# Enable Microsoft Entra Kerberos authentication for hybrid and cloud-only identities (preview) on Azure Files
 
-This article focuses on enabling and configuring Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). **Cloud-only identities aren't currently supported**.
+**Applies to:** :heavy_check_mark: SMB Azure file shares
 
-This configuration allows hybrid users to access Azure file shares using Kerberos authentication, using Microsoft Entra ID to issue the necessary Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring unimpeded network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined clients. However, configuring Windows access control lists (ACLs)/directory and file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
+This article focuses on enabling and configuring Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities (preview).
 
-For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md). For more information, see [this deep dive](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
+- Hybrid identities are on-premises Active Directory Domain Services (AD DS) identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md).
+
+- Cloud-only identities are created and managed only in Microsoft Entra ID.
+
+Enabling Microsoft Entra Kerberos authentication allows users to access Azure file shares using Kerberos authentication. Microsoft Entra ID issues the necessary Kerberos tickets to access the file share with the SMB protocol. For cloud-only users, this means that Azure file shares no longer need a domain controller for authorization or authentication (preview). However, for hybrid identities, configuring Windows access control lists (ACLs) and directory/file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
+
+For more information, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md) and [this deep dive](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
 > [!IMPORTANT]
-> You can only enable one identity source on your storage account for identity-based authentication with Azure Files. If Microsoft Entra Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-ad-ds-overview.md) or [Microsoft Entra Domain Services](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
-
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+> You can only enable one identity source on your storage account for identity-based authentication with Azure Files. If Microsoft Entra Kerberos authentication doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-ad-ds-overview.md) or [Microsoft Entra Domain Services](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
 
 ## Prerequisites
 
@@ -45,7 +37,7 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 - Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you've already chosen another identity source for your storage account, you must disable it before enabling Microsoft Entra Kerberos.
 
-- This feature doesn't currently support user accounts that you create and manage solely in Microsoft Entra ID. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID.
+- If you want to authenticate hybrid identities, you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID. This doesn't apply to cloud-only identities.
 
 - The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) is required, and must be in the "running" state. You may optionally [disable Web Proxy Auto-Discovery (WPAD)](/troubleshoot/windows-server/networking/disable-http-proxy-auth-features#how-to-disable-wpad), but the service should still be running.
 
@@ -61,7 +53,12 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 The following prerequisites are required for the standard Microsoft Entra Kerberos authentication flow as described in this article. If some or all of your client machines don't meet these, you can still enable Microsoft Entra Kerberos authentication for SMB file shares, but you'll also need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
 
-Using Microsoft Entra Kerberos authentication requires one of the following operating systems:
+Using Microsoft Entra Kerberos authentication for cloud-only identities (preview) requires one of the following operating systems:
+
+  - Windows 11 Enterprise/Pro single or multi-session.
+  - Windows Server 2025 with the latest cumulative updates installed.
+
+Using Microsoft Entra Kerberos authentication for hybrid identities requires one of the following operating systems:
 
   - Windows 11 Enterprise/Pro single or multi-session.
   - Windows 10 Enterprise/Pro single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
@@ -76,11 +73,11 @@ Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](../../
 
 This feature is supported in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
 
-<a name='enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts'></a>
+<a name='enable-azure-ad-kerberos-authentication'></a>
 
-## Enable Microsoft Entra Kerberos authentication for hybrid user accounts
+## Enable Microsoft Entra Kerberos authentication
 
-You can enable Microsoft Entra Kerberos authentication on Azure Files for hybrid user accounts using the Azure portal, PowerShell, or Azure CLI.
+You can enable Microsoft Entra Kerberos authentication on Azure Files using the Azure portal, PowerShell, or Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -97,7 +94,7 @@ To enable Microsoft Entra Kerberos authentication using the [Azure portal](https
 
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/enable-entra-kerberos.png" alt-text="Screenshot of the Azure portal showing identity-based access configuration settings for a storage account. Microsoft Entra Kerberos is selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/enable-entra-kerberos.png" border="true":::
 
-1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you must specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need unimpeded network connectivity to the on-premises AD.
+1. **Optional:** If you're authenticating hybrid identities and want to configure directory and file-level permissions through Windows File Explorer, then you must specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions using Windows File Explorer isn't currently supported for cloud-only identities (preview).**
 
 1. Select **Save**.
 
@@ -109,7 +106,7 @@ To enable Microsoft Entra Kerberos using Azure PowerShell, run the following com
 Set-AzStorageAccount -ResourceGroupName <resourceGroupName> -StorageAccountName <storageAccountName> -EnableAzureActiveDirectoryKerberosForFile $true
 ```
 
-**Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
+**Optional:** If you're authenticating hybrid identities and you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions using Windows File Explorer isn't currently supported for cloud-only identities (preview).**
 
 You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
 
@@ -133,7 +130,7 @@ To enable Microsoft Entra Kerberos using Azure CLI, run the following command. R
 az storage account update --name <storageaccountname> --resource-group <resourcegroupname> --enable-files-aadkerb true
 ```
 
-**Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
+**Optional:** If you're authenticating hybrid identities and you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions using Windows File Explorer isn't currently supported for cloud-only identities (preview).**
 
 You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
 
@@ -152,7 +149,7 @@ az storage account update --name <storageAccountName> --resource-group <resource
 ---
 
 > [!WARNING]
-> If you've previously enabled Microsoft Entra Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Microsoft Entra joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Microsoft Entra ID" under [Potential errors when enabling Microsoft Entra Kerberos authentication for hybrid users](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
+> If you've previously enabled Microsoft Entra Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Microsoft Entra joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Microsoft Entra ID" under [Potential errors when enabling Microsoft Entra Kerberos authentication](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
 
 ## Grant admin consent to the new service principal
 
@@ -168,8 +165,9 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 1. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
 1. Select **Yes** to confirm.
 
-  > [!IMPORTANT]
-  > If you're connecting to a storage account via a private endpoint/private link using Microsoft Entra Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Microsoft Entra application. For instructions, see the entry in our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
+If you're connecting to a storage account via a private endpoint/private link using Microsoft Entra Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Microsoft Entra application. For instructions, see our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
+
+If you have more than 1,010 security identifiers (SIDs) in a Microsoft Entra group, you might need to take [additional steps](/troubleshoot/windows-server/windows-security/logging-on-user-account-fails) in order to overcome the Kerberos ticket limit.
 
 ## Disable multifactor authentication on the storage account
 
@@ -191,11 +189,11 @@ For guidance on disabling MFA, see the following:
 
 When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
 
-To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md).
+To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md). Cloud-only identities can only be assigned a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated identities.
 
 ## Configure directory and file-level permissions
 
-Once share-level permissions are in place, you can assign directory/file-level permissions to the user or group. **This requires using a device with unimpeded network connectivity to an on-premises AD**.
+Once share-level permissions are in place, you can assign Windows ACLs (directory/file-level permissions) to the user or group. **For hybrid identities, this requires using a device with unimpeded network connectivity to an on-premises AD**.
 
 To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
 
@@ -329,7 +327,7 @@ Changes aren't instant, and require a policy refresh or a reboot to take effect.
 If you want to use another authentication method, you can disable Microsoft Entra authentication on your storage account by using the Azure portal, Azure PowerShell, or Azure CLI.
 
 > [!NOTE]
-> Disabling this feature means that there will be no Active Directory configuration for file shares in your storage account until you enable one of the other Active Directory sources to reinstate your Active Directory configuration.
+> Disabling this feature means that there will be no identity-based access for file shares in your storage account until you enable and configure one of the other identity sources.
 
 # [Portal](#tab/azure-portal)
 
@@ -367,5 +365,5 @@ If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set 
 ## Next steps
 
 - [Mount an Azure file share](storage-files-identity-mount-file-share.md)
-- [Potential errors when enabling Microsoft Entra Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
+- [Potential errors when enabling Microsoft Entra Kerberos authentication](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
 - [Create a profile container with Azure Files and Microsoft Entra ID](/azure/virtual-desktop/create-profile-container-azure-ad)

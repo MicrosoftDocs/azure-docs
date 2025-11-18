@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 07/17/2025
+ms.date: 11/04/2025
 ms.author: cshoe
 ---
 
@@ -51,7 +51,7 @@ A common security pattern is using [managed identities to pull images](managed-i
 - Supports both system-assigned and user-assigned identities
 - Can be controlled to limit access to specific containers
 
-For more information, see [Managed identities](managed-identity.md) and [Image pull from Azure Container Registry with managed identity](managed-identity-image-pull.md) for more details on how to set up a managed identities for your application.
+For more information, see [Managed identities](managed-identity.md) and [Image pull from Azure Container Registry with managed identity](managed-identity-image-pull.md) for more details on how to set up a managed identity for your application.
 
 ## Secrets management
 
@@ -59,19 +59,19 @@ Azure Container Apps provides built-in mechanisms to securely store and access s
 
 ### Key security features for secrets
 
-- **Secret isolation**: Secrets are scoped to an application level, isolated from specific revisions
-- **Environment variable references**: Expose secrets to containers as environment variables
-- **Volume mounts**: Mount secrets as files within containers
-- **Key Vault integration**: Reference secrets stored in Azure Key Vault
+- **Secret isolation**: Secrets are scoped to an application level and isolated from specific revisions.
+- **Environment variable references**: Expose secrets to containers as environment variables.
+- **Volume mounts**: Mount secrets as files within containers.
+- **Key Vault integration**: Reference secrets stored in Azure Key Vault.
 
 ### Security best practices for secrets
 
-- Avoid storing secrets directly in Container Apps for production environments
-- Use Azure Key Vault integration for centralized secret management
-- Implement least privilege when granting access to secrets
-- Use secret references in environment variables instead of hard-coding values
-- Use volume mounts to access secrets as files when appropriate
-- Implement proper secret rotation practices
+- Avoid storing secrets directly in Container Apps for production environments.
+- Use Azure Key Vault integration for centralized secret management.
+- Implement least privilege when granting access to secrets.
+- Use secret references in environment variables instead of hard-coding values.
+- Use volume mounts to access secrets as files when appropriate.
+- Implement proper secret rotation practices.
 
 For more information, see [Import certificates from Azure Key Vault](key-vault-certificates-manage.md) for more details on how to set up secrets management for your application.
 
@@ -79,18 +79,18 @@ For more information, see [Import certificates from Azure Key Vault](key-vault-c
 
 The token store feature provides a secure way to manage authentication tokens independent of your application code.
 
-### How token store works
+### How the token store works
 
 - Tokens are stored in Azure Blob Storage, separate from your application code
-- Cached tokens are only accessible to the associated user
-- Container Apps handles token refresh automatically
-- The feature reduces the attack surface by eliminating custom token management code
+- Only the associated user can access cached tokens.
+- Container Apps automatically handles token refresh.
+- This feature reduces the attack surface by eliminating custom token management code.
 
 For more information, see [Enable an authentication token store](token-store.md) for more details on how to set up a token store for your application.
 
 ## Network security
 
-Implementing proper network security measures helps safeguard your workloads from unauthorized access and potential threats while enabling secure communication between your apps and other services.
+Implementing proper network security measures helps safeguard your workloads from unauthorized access and potential threats. It also enables secure communication between your apps and other services.
 
 For more information on network security in Azure Container Apps, see the following articles:
 
@@ -103,3 +103,9 @@ For more information on network security in Azure Container Apps, see the follow
   - [Use a private endpoint](./how-to-use-private-endpoint.md)
   - [Use mTLS](./mtls.md)
   - [Integrate with Azure Front Door](./how-to-integrate-with-azure-front-door.md)
+
+## Confidential compute (Preview)
+
+Azure Container Apps includes a confidential compute workload profile (public preview) that runs containerized workloads inside hardware-based Trusted Execution Environments (TEEs). Confidential computing complements Azure encryption at rest and in transit by protecting data in use by encrypting memory and attesting the environment before code is executed. This capability helps reduce the risk of unauthorized access to sensitive workloads, including access from cloud operators.
+
+Use the confidential compute workload profile when your applications process regulated or highly sensitive data and require attestation-based assurances. The preview is available in UAE North. For an overview of the platform capabilities, see [Azure confidential computing](/azure/confidential-computing/).

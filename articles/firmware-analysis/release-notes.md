@@ -17,6 +17,10 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 into your RSS feed reader.
 
+## November 2025
+
+- **Download ZIP files of analysis results**: Added functionality for users to download a ZIP file of analysis results of one or multiple firmware images.
+
 
 ## October 27, 2025
 

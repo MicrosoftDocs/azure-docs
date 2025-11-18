@@ -10,6 +10,7 @@ ms.date: 11/10/2025
 ms.custom:
   - devx-track-python
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Tutorial: Build an agentic web app in Azure App Service with LangGraph or Azure AI Foundry Agent Service (Python)

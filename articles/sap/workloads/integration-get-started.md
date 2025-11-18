@@ -329,7 +329,7 @@ For more information about Azure integration with SAP Business Technology Platfo
 These resources include Customer Engagement Initiatives (CEI), public BETAs, and Customer Influence programs:
 
 - [SAP Joule integration with Microsoft Copilot private preview](https://aka.ms/CopilotJoule)
-- [SAP Event Mesh integration with Microsoft Azure Event Grid - Aug 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
+- [SAP Customer Influence](https://pages.community.sap.com/topics/influence-adopt)
 
 ## Free developer accounts
 

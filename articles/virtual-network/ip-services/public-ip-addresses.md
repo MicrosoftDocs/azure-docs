@@ -63,16 +63,19 @@ Public IP addresses are created with a SKU of **Standard** or **Basic**. The SKU
 
 Full details are listed in the table below:
 
-| Public IP address | Standard  | Basic |
+| Public IP address | Standard (v1 or v2) | Basic |
 | --- | --- | --- |
 | Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
 | Idle Timeout | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
 | Security | Secure by default model and be closed to inbound traffic when used as a frontend. Allow traffic with [network security group (NSG)](../../virtual-network/network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
-| [Availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../reliability/availability-zones-region-support.md) are live.** IPs created before availability zones aren't zone redundant. | Not supported. | 
-| [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
-| Global tier | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
+| [Availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. Standard v2 IPs can be zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../reliability/availability-zones-region-support.md) are live.** | Not supported. | 
+| [Routing preference Internet](routing-preference-overview.md)| Standard: Supported for use with [specific resource types](routing-preference-overview.md#supported-services) for more granular control on how traffic is routed between Azure and the Internet.<br>Standardv2: Not supported| Not supported.| 
+| Global tier | Standard: Supported for use with [cross-region load balancers](../../load-balancer/cross-region-overview.md).<br>Standardv2: Not yet supported| Not supported. |
 
 Virtual machines attached to a backend pool don't need a public IP address to be attached to a public load balancer. But if they do, matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously. New designs should consider using Standard SKU resources. For more information about a standard load balancer, see [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+>[!Note]
+>Standard v2 IPs can only be utilized with the Standard v2 NAT GW at this time.  Standard IPs can't be used with the Standard v2 NAT GW.
 
 ## IP address assignment
 

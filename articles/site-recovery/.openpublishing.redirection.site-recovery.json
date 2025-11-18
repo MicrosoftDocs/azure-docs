@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/site-recovery/upgrade-2012r2-to-2016.md",
+            "redirect_url": "/azure/site-recovery/site-recovery-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
             "redirect_url": "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
             "redirect_document_id": false

@@ -140,6 +140,20 @@ sudo dnf install aznfs
 ---
 
 
+If your setup requires a **noninteractive install**, set the following environment variables before installing AZNFS:
+
+For all distros, you can use:
+```bash
+export AZNFS_NONINTERACTIVE_INSTALL=1
+```
+For DEBIAN based distros, you can additionally use:
+```bash
+export DEBIAN_FRONTEND=noninteractive
+```
+
+> [!NOTE]
+> Installing noninteractively will set AUTO_UPDATE_AZNFS=true by default.
+
 ### Step 2: Mount the NFS file share
 
 To mount the NFS file share **with TLS encryption**:
@@ -213,6 +227,7 @@ If mounting issues continue, check the log files for more troubleshooting detail
 ## See also
  
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
+
 
 
 

@@ -25,6 +25,7 @@ The following section details the parameters when creating a public IP prefix.
 | Resource group|Yes|Can exist in the same, or different, [resource group](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address prefix to. |
 | Name | Yes | The name must be unique within the resource group you select.|
 | Region | Yes | Must exist in the same [region](https://azure.microsoft.com/regions)as the public IP addresses assigned from the range. |
+| SKU | Yes | Standard v2 SKU is required for the Standard v2 NAT GW; otherwise use Standard SKU. |
 | IP version | Yes | IP version of the prefix (v4 or v6). |
 | Prefix ownership | Yes | Specify if the IP ranges will be owned by Microsoft or you, see [Custom IP Prefix](custom-ip-address-prefix.md) for more information on the latter case. |
 | Prefix size | Yes | The size of the prefix you need. A range with 16 IP addresses (/28 for v4 or /124 for v6) is the default limit for Microsoft owned ranges. |

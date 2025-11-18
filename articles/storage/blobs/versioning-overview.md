@@ -223,6 +223,8 @@ If you've changed a blob or version's tier, then you're billed for the entire ob
 
 For more information about billing details for blob snapshots, see [Blob snapshots](snapshots-overview.md).
 
+For storage accounts that leverage the smart tier public preview, versions and snapshots are billed at full content length. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
+
 ### Billing when the blob tier has not been explicitly set
 
 If you have not explicitly set the blob tier for any versions of a blob, then you're charged for unique blocks or pages across all versions, and any snapshots it may have. Data that is shared across blob versions is charged only once. When a blob is updated, then data in the new current version diverges from the data stored in previous versions, and the unique data is charged per block or page.

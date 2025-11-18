@@ -81,6 +81,9 @@ If you're a billing administrator, use following steps to view and manage all re
 3. The complete list of reservations for your EA enrollment or billing profile is shown.
 4. Billing administrators can take ownership of a reservation by selecting it and then selecting **Grant access** in the window that appears.
 
+> [!NOTE]
+> As a billing profile Owner or Contributor, you cannot grant access to reservations that reside in a different Microsoft Entra tenant (directory). The reservation Owner can either change the reservation order’s directory or add you directly to grant access.
+
 ## Change billing subscription for an Azure Reservation
 
 We don’t allow changing the billing subscription after a reservation is purchased. [Subscription transfer](../manage/ea-transfers.md#change-azure-subscription-or-account-ownership) doesn't transfer an Azure reservation. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.

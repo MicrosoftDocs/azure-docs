@@ -6,7 +6,7 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: how-to
 ms.author: msangapu
 author: msangapu-msft
-ms.date: 08/29/2025
+ms.date: 11/17/2025
 ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3"
 
@@ -95,6 +95,24 @@ You can find **Clone App** in the **Development Tools** section of the left pane
 For information about scaling up the pricing tier of an App Service plan, see [Scale up an app in Azure](manage-scale-up.md).
 
 For information about scaling out an app's instance count, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started).
+
+## Scale an App Service Plan Asynchronously (Preview)
+
+When creating or manually scaling out an App Service Plan you may experience situations where you're advised to retry with lower instance counts than you originally requested, for example potentially you have asked to scale out to 15 instances but are told only 6 are available, so you must scale to 6 then wait and retry to get to your target 15 instances.
+
+The preview of App Service Plan Asynchronous enables you to request your target number of instances and the platform scales out to the target number, without you having to modify your original request and retrying. The platform scales to the number of available instances and then triggers the underlying platform to make more instances available. You can make use of this functionality during scale-out operations or at plan creation time.  This functionality is supported for all Basic, Standard, and Premium pricing plans.
+
+### [Scale-out (CLI)](#tab/asyncscaleout)
+```azurecli-interactive
+az appservice plan update -g <resourceGroupName> -n <App Service Plan Name> --async-scaling-enabled true --number-of-workers <number of workers to scale out to>
+```
+
+### [Create (CLI)](#tab/asynccreate)
+```azurecli-interactive
+az appservice plan create -g asyncasp -n asyncasplinuxexample --number-of-workers 25 --sku p1v3 --async-scaling-enabled true --location northeurope
+```
+
+---
 
 <a name="delete"></a>
 
