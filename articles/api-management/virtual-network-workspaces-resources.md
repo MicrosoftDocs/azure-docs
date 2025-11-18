@@ -84,6 +84,7 @@ A network security group (NSG) must be associated with the subnet. To set up a n
 | Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
 | Inbound | VirtualNetwork | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
 | Outbound | VirtualNetwork | * | Storage | 443 | TCP | Allow | Dependency on Azure Storage |
+| Outbound | VirtualNetwork | * | AzureKeyVault | 443 | TCP | Allow | Dependency on Azure Key Vault |
 
 ---
 
