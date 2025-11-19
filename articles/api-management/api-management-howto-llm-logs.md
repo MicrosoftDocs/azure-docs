@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 08/22/2025
 ms.author: danlep
 ai-usage: ai-assisted
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ---

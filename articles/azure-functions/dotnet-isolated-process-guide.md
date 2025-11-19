@@ -17,11 +17,6 @@ ms.custom:
 
 # Guide for running C# Azure Functions in the isolated worker model
 
-> [!NOTE]
-> GA support for .NET 10 is rolling out but is not yet available in all regions. For the latest information about support for .NET 10 in global Azure, see this [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
->
-> You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](./flex-consumption-plan.md).
-
 This article is an introduction to working with Azure Functions in .NET, using the isolated worker model. This model allows your project to target versions of .NET independently of other runtime components. For information about specific .NET versions supported, see [supported version](#supported-versions). 
 
 Use the following links to get started right away building .NET isolated worker model functions.
@@ -1328,21 +1323,16 @@ Before a generally available release, a .NET version might be released in a _Pre
 
 While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with Preview or Go-live releases noted in this section.
 
-<!-- Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use. -->
+Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
-Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
+<!-- Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
 
 | Operating system | .NET preview version |
 |------------------|----------------------|
-| Linux            | .NET 10 RC1          |
-| Windows          | .NET 10 Preview 5    |
+| Linux            |                      |
+| Windows          |                      |
 
-> [!NOTE]
-> GA support for .NET 10 is rolling out but is not yet available in all regions. For the latest information about support for .NET 10 in global Azure, see this [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
->
-> You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](./flex-consumption-plan.md).
-
-<!-- See [Supported versions][supported-versions] for a list of generally available releases that you can use. -->
+See [Supported versions][supported-versions] for a list of generally available releases that you can use. -->
 
 ### Using a preview .NET SDK
 

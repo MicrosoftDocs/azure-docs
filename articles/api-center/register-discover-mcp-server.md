@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 09/08/2025
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 # Customer intent: As an API program manager, I want to register and discover  MCP servers as APIs in my API Center inventory.
 ms.custom:
   - build-2025

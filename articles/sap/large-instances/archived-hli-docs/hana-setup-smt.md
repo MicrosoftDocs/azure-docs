@@ -157,4 +157,4 @@ You configured the SMT client of the HLI to connect to the SMT server installed 
 Learn about migrating SAP HANA on Azure Large Instance to Azure Virtual Machines.
 
 > [!div class="nextstepaction"]
-> [SAP HANA on Azure Large Instance migration to Azure Virtual Machines](hana-large-instance-virtual-machine-migration.md)
+> [SAP HANA on Azure Large Instance migration to Azure Virtual Machines](../hana-large-instance-virtual-machine-migration.md)

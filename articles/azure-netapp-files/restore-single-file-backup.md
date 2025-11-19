@@ -6,16 +6,15 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 11/17/2025
 ms.author: anfdocs
 ---
 # Restore individual files with single-file restore from backups in Azure NetApp Files
 
-You can rely on your Azure NetApp Files backup to restore individual files that aren't available in an online snapshot [single-file snapshot restore](snapshots-restore-file-single.md). With single-file restore from backup, you can restore a single file to a specific location in a volume or up to eight files to a specific directory in the volume.
+You can rely on your Azure NetApp Files backup to restore individual files that aren't available in an online snapshot. With single-file restore from backup, you can restore a single file to a specific location in a volume or up to eight files to a specific directory in the volume.
 
 ## Considerations
 
-* This feature is only available in regions that support [Azure NetApp Files backup](backup-introduction.md#supported-regions).
 * If no destination path is provided during the restore operation, the file is restored in the original file location. If the file already exists at that location, it's overwritten by the restore operation. 
     * The destination path can't be blank. To restore to the original location, enter a slash (/) in the destination path field. 
     * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore operation can't create new directories. 
@@ -84,3 +83,4 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
+* [Single-file snapshot restore](snapshots-restore-file-single.md)

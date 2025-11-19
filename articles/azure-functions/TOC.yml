@@ -104,7 +104,7 @@
         href: functions-add-output-binding-azure-sql-vs-code.md
     - name: OpenAI
       displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md
+      href: functions-add-openai-text-completion.md  
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -117,6 +117,8 @@
   - name: Create serverless APIs using Visual Studio
     displayName: OpenAPI, Swagger
     href: openapi-apim-integrate-visual-studio.md
+  - name: OpenTelemetry distributed tracing
+    href: monitor-functions-opentelemetry-distributed-tracing.md
   - name: Networking
     items:
     - name: Connect to a Virtual Network

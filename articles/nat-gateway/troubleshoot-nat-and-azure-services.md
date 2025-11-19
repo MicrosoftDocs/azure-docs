@@ -90,10 +90,6 @@ StandardV2 SKU NAT Gateway can only be deployed as a User-Assigned NAT gateway.
 
 Learn more at [Managed NAT Gateway](/azure/aks/nat-gateway).
 
-### Virtual network level StandardV2 NAT gateway with AKS isn't supported
-
-StandardV2 NAT Gateway attached at the virtual network level is not recognized as a valid configuration for AKS workloads. To use StandardV2 NAT Gateway with AKS, attach it directly to the subnet. 
-
 ### Connecting from AKS cluster to the AKS API server over the internet
 
 To manage an AKS cluster, the cluster interacts with its API server. When you create a non-private cluster that resolves to the API server's fully qualified domain name (FQDN), the API server is assigned a public IP address by default. The API server cluster traffic is routed and processed through the cluster's outbound type. When the outbound cluster type is set to NAT gateway (Managed or User-Assigned), the API server traffic is processed as public traffic through the NAT gateway. To prevent API server traffic from being processed as public traffic, consider using a [private cluster](/azure/aks/private-clusters) or use the [API Server VNet Integration](/azure/aks/api-server-vnet-integration) feature (in preview).

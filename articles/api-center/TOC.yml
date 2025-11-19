@@ -58,6 +58,12 @@
     href: export-to-copilot-studio.yml
   - name: Track API dependencies
     href: track-resource-dependencies.md
+- name: Agent-to-Agent
+  items:
+  - name: Overview
+    href: agent-to-agent-overview.md
+  - name: Register and manage agents 
+    href: register-manage-agents.md
 - name: MCP servers
   items:
   - name: Register and discover MCP servers

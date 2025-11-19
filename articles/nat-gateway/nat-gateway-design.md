@@ -30,9 +30,7 @@ In the presence of other outbound configurations within a virtual network, such 
 
 StandardV2 NAT Gateway supports availability zone scenarios. 
 
-When StandardV2 NAT gateway is deployed, outbound connections can flow out of any zone in the region. When a zone goes down, some in flight connections from the failed zone may be impacted, but all new connections flow out of the remaining healthy zones.  
-
-StandardV2 NAT gateway can be configured to individual subnets or to a virtual network to provide zone-resilient outbound connectivity to the internet.  
+When StandardV2 NAT gateway is deployed, outbound connections can flow out of any zone in the region. When a zone goes down, some in flight connections from the failed zone may be impacted, but all new connections flow out of the remaining healthy zones.   
 
 To learn more information, see [NAT gateway availability zones](/azure/nat-gateway/nat-availability-zones). 
 
@@ -110,7 +108,7 @@ NAT Gateway supersedes any outbound configuration from a load-balancing rule or 
 | Virtual machine scale set (Subnet 1) | Inbound </br> Outbound | Load balancer </br> NAT gateway |
 | VMs (Subnet 2) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets 1 and 2 use the NAT gateway exclusively for outbound and return traffic. Instance-level public IPs take precedence over load balancer. The VM in subnet 1 uses the instance level public IP for inbound originating traffic. Virtual machine scale-sets (VMSS) don't have instance-level public IPs.
+The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets 1 and 2 use the NAT gateway exclusively for outbound and return traffic. Instance-level public IPs take precedence over load balancer. The VM in subnet 1 uses the instance level public IP for inbound originating traffic. Virtual machine scale-sets don't have instance-level public IPs.
 
 ## How to use service tagged public IPs with NAT Gateway
 [Service tags](/azure/virtual-network/service-tags-overview) represent a group of IP addresses from a given Azure service. Microsoft manages the address prefix encompassed by the service tag and automatically updates the service tag as addresses change, which reduces the complexity of managing network security rules. 

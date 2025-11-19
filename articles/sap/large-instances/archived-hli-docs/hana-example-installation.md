@@ -133,7 +133,4 @@ You need an SAP S-user or other user, which allows you to access the SAP Marketp
 
 ## Next steps
 
-Learn about SAP HANA Large Instances high availability and disaster recovery on Azure.
-
-> [!div class="nextstepaction"]
-> [SAP HANA Large Instances high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
+For information about SAP HANA high availability and disaster recovery options on Azure, including guidance for Large Instances deployments, see the current SAP HANA high availability documentation in the Azure documentation.

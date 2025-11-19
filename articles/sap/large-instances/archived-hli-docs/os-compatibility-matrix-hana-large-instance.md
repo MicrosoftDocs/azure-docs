@@ -45,9 +45,5 @@ ms.custom: H1Hack27Feb2017
 
 ## Next steps
 
-Learn more about:
-
-- [Available SKUs](hana-available-skus.md)
-- [Upgrading the operating system](os-upgrade-hana-large-instance.md)
-- [Supported scenarios for HANA Large Instances](hana-supported-scenario.md)
+For more information about SAP HANA Large Instances, including available SKUs, OS upgrade procedures, and supported scenarios, consult with your Microsoft account team or refer to the current SAP HANA Large Instances documentation.
   

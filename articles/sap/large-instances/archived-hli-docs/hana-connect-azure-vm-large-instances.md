@@ -20,7 +20,7 @@ ms.custom:
 
 In this article, we'll look at what's involved in connecting your Azure VMs to HANA Large Instances (otherwise known as BareMetal Infrastructure instances). 
 
-The article [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md) mentions that the minimal deployment of HANA Large Instances with the SAP application layer in Azure looks like this:
+The minimal deployment of HANA Large Instances with the SAP application layer in Azure looks like this:
 
 ![Azure VNet connected to SAP HANA on Azure (Large Instances) and on-premises](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -35,7 +35,7 @@ Looking closer at the Azure virtual network side, you'll need:
 >[!Note]
 >The Azure virtual network for HANA Large Instances must be created by using the Azure Resource Manager deployment model. The older Azure deployment model, commonly known as the classic deployment model, isn't  supported by the HANA Large Instance solution.
 
-You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. (For more information, see [Create a virtual network using the Azure portal](../../virtual-network/manage-virtual-network.yml#create-a-virtual-network)). In the following example, we look at a virtual network that's created by using the Azure portal.
+You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. Refer to the current Azure virtual network documentation for detailed steps. In the following example, we look at a virtual network that's created by using the Azure portal.
 
 In this documentation, **address space** refers to the address space that the Azure virtual network is allowed to use. This address space is also the address range that the virtual network uses for BGP route propagation. This **address space** can be seen here:
 
@@ -70,7 +70,7 @@ The following list summarizes important facts about Azure virtual networks that 
 - The defined **virtual network address space** is used for BGP routing propagation.
 - The name of the gateway subnet must be: **"GatewaySubnet"**.
 - The  address space is used as a filter on the HANA Large Instance side to allow or disallow traffic to the HANA Large Instance units from Azure. The BGP routing information of the Azure virtual network and the IP address ranges configured for filtering on the HANA Large Instance side should match. Otherwise, connectivity issues can occur.
-- There are further important details about the gateway subnet. For more information, see [Connect a virtual network to HANA large instances](hana-connect-vnet-express-route.md).
+- There are further important details about the gateway subnet that must be considered when configuring the ExpressRoute connection.
 
 ## Different IP address ranges to be defined 
 
@@ -89,13 +89,10 @@ Some of the IP address ranges necessary for deploying HANA Large Instances have 
 
 Optional IP address ranges to eventually submit to Microsoft:
 
-- If you choose to use [ExpressRoute Global Reach](../../expressroute/expressroute-global-reach.md) to enable direct routing from on-premises to HANA Large Instance units, you need to reserve another /29 IP address range. This range may not overlap with any of the other IP addresses ranges you defined before.
-- If you choose to use [ExpressRoute Global Reach](../../expressroute/expressroute-global-reach.md) to enable direct routing from a HANA Large Instance tenant in one Azure region to another HANA Large Instance tenant in another Azure region, you need to reserve another /29 IP address range. This range may not overlap with the other IP address ranges you defined before.
+- If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to HANA Large Instance units, you need to reserve another /29 IP address range. This range may not overlap with any of the other IP addresses ranges you defined before.
+- If you choose to use ExpressRoute Global Reach to enable direct routing from a HANA Large Instance tenant in one Azure region to another HANA Large Instance tenant in another Azure region, you need to reserve another /29 IP address range. This range may not overlap with the other IP address ranges you defined before.
 
-For more information about ExpressRoute Global Reach and usage around HANA large instances, see:
-
-- [SAP HANA (Large Instances) network architecture](./hana-network-architecture.md)
-- [Connect a virtual network to HANA large instances](./hana-connect-vnet-express-route.md)
+For more information about ExpressRoute Global Reach, refer to the current Azure ExpressRoute documentation.
  
 You need to define and plan the IP address ranges previously described. However, you don't need to transmit all of them to Microsoft. The IP address ranges that you're required to name to Microsoft are:
 

@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 09/23/2025
+ms.date: 11/18/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -16,6 +16,14 @@ ms.custom:
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2025
+
+### 2025 quarter 4 (October, November, December)
+
+#### Entra-only identity support for SMB Azure file shares is now in public preview
+
+Microsoft Entra Kerberos authentication now supports cloud-only identities. With native Microsoft Entra ID authentication, customers can move beyond the limitations of on-premises Active Directory and hybrid sync tools, enabling cloud-created identities to access file shares securely, from anywhere. 
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/cloud-native-identity-with-azure-files-entra-only-secure-access-for-the-modern-e/4469778).
 
 ### 2025 quarter 3 (July, August, September)
 

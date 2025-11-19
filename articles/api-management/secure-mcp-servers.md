@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 11/10/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.custom:
 ---
 

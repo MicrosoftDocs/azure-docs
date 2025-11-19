@@ -207,10 +207,6 @@ Resource selectors have the following properties:
     - `resourceType`: This property is used to select resources based on their type.
 
     - `resourceWithoutLocation`: This property is used to select resources at the subscription level that don't have a location. Currently only supports `subscriptionLevelResources`. Can't be used in the same resource selector as `resourceLocation`.
-      
-    - `userPrincipalId`: the list of the allowed user object IDs can be exempt in the request. This can be associated with an individual user, an MSI, or a service principal. 
-      
-    - `groupPrincipalId`: the list of the allowed security group IDs can be exempt in the request.  
 
   - `in`: The list of allowed values for the specified `kind`. Can't be used with `notIn`. Can contain up to 50 values.
 

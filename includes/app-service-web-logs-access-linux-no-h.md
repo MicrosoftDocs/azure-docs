@@ -18,7 +18,7 @@ To turn on container logging, run the following command:
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
-Replace `<app-name>` and `<resource-group-name>` with names that are appropriate for your web app.
+Replace the `<app-name>` and `<resource-group-name>` values with names that are appropriate for your web app.
 
 After you turn on container logging, run the following command to see the log stream:
 
@@ -28,4 +28,4 @@ az webapp log tail --name <app-name> --resource-group <resource-group-name>
 
 If console logs don't appear immediately, check again in 30 seconds.
 
-To stop log streaming at any time, select **Ctrl**+**C**.
+To stop log streaming at any time, use the keyboard shortcut Ctrl+C.

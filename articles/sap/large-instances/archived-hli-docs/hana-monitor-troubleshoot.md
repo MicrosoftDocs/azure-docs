@@ -32,13 +32,13 @@ To analyze problems related to SAP HANA on Azure (Large Instances), you'll want 
 
 First, check the current SAP HANA alert logs. In SAP HANA Studio, go to **Administration Console: Alerts: Show: all alerts**. This tab will show all SAP HANA alerts for values (free physical memory, CPU use, and so on) that fall outside the set minimum and maximum thresholds. By default, checks are automatically refreshed every 15 minutes.
 
-![In SAP HANA Studio, go to Administration Console: Alerts: Show: all alerts](./media/troubleshooting-monitoring/image1-show-alerts.png)
+![In SAP HANA Studio, go to Administration Console: Alerts: Show: all alerts](../media/troubleshooting-monitoring/image1-show-alerts.png)
 
 ## CPU
 
 For an alert triggered by improper threshold setting, reset to the default value or a more reasonable threshold value.
 
-![Reset to the default value or a more reasonable threshold value](./media/troubleshooting-monitoring/image2-cpu-utilization.png)
+![Reset to the default value or a more reasonable threshold value](../media/troubleshooting-monitoring/image2-cpu-utilization.png)
 
 The following alerts may indicate CPU resource problems:
 
@@ -51,11 +51,11 @@ You may notice high CPU consumption on your SAP HANA database from:
 - Alert 5 (Host CPU usage) is raised for current or past CPU usage
 - The displayed CPU usage on the overview screen
 
-![Displayed CPU usage on the overview screen](./media/troubleshooting-monitoring/image3-cpu-usage.png)
+![Displayed CPU usage on the overview screen](../media/troubleshooting-monitoring/image3-cpu-usage.png)
 
 The Load graph might show high CPU consumption, or high consumption in the past:
 
-![The Load graph might show high CPU consumption, or high consumption in the past](./media/troubleshooting-monitoring/image4-load-graph.png)
+![The Load graph might show high CPU consumption, or high consumption in the past](../media/troubleshooting-monitoring/image4-load-graph.png)
 
 An alert triggered by high CPU use could be caused by several reasons:
 - Execution of certain transactions
@@ -110,11 +110,11 @@ For detailed network troubleshooting steps, see [SAP HANA Troubleshooting: Netwo
 
 Let's say there are issues with I/O performance. End users may then find applications, or the system as a whole, runs sluggishly, is unresponsive, or can even stop responding. In the **Volumes** tab in SAP HANA Studio, you can see the attached volumes and what volumes are used by each service.
 
-![In the Volumes tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
+![In the Volumes tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service](../media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
 On the lower part of the screen (on the Volumes tab), you can see details of the volumes, such as files and I/O statistics.
 
-![On the lower part of the screen, you can see details of the volumes, such as files and I/O statistics](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
+![On the lower part of the screen, you can see details of the volumes, such as files and I/O statistics](../media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
 For I/O troubleshooting steps, see [SAP HANA Troubleshooting: I/O Related Root Causes and Solutions](https://help.sap.com/viewer/4e9b18c116aa42fc84c7dbfd02111aba/2.0.05/en-US/dc6ff98fa36541e997e4c719a632cbd8.html?q=I%2FO%20Related%20Root%20Causes%20and%20Solutions). For disk-related troubleshooting steps, see [SAP HANA Troubleshooting: Disk Related Root Causes and Solutions](https://help.sap.com/viewer/bed8c14f9f024763b0777aa72b5436f6/2.0.05/en-US/474cb08a715c42fe9f7cc5efdc599959.html?q=Disk%20Related%20Root%20Causes%20and%20Solutions).
 
@@ -126,7 +126,7 @@ Do an SAP HANA Health Check through HANA\_Configuration\_Minichecks. This tool r
 
 2. In SAP HANA Studio, on the **System Information** tab, right-click in the **Name** column and select **Import SQL Statements**.
 
-    ![In SAP HANA Studio, on the System Information tab, right-click in the Name column and select Import SQL Statements](./media/troubleshooting-monitoring/image7-import-statements-a.png)
+    ![In SAP HANA Studio, on the System Information tab, right-click in the Name column and select Import SQL Statements](../media/troubleshooting-monitoring/image7-import-statements-a.png)
 
 3. Select the SQL Statements.zip file stored locally; a folder with the corresponding SQL statements will be imported. At this point, the many different diagnostic checks can be run with these SQL statements.
 
@@ -134,15 +134,15 @@ Do an SAP HANA Health Check through HANA\_Configuration\_Minichecks. This tool r
 
     The complete SQL statement opens allowing input parameters (modification section) to be changed and then executed.
 
-    ![The complete SQL statement opens allowing input parameters (modification section) to be changed and then executed](./media/troubleshooting-monitoring/image8-import-statements-b.png)
+    ![The complete SQL statement opens allowing input parameters (modification section) to be changed and then executed](../media/troubleshooting-monitoring/image8-import-statements-b.png)
 
 4. Another example is to right-click on the statements under **Replication: Overview**. Select **Execute** from the context menu:
 
-    ![Another example is to right-click on the statements under Replication: Overview. Select Execute from the context menu](./media/troubleshooting-monitoring/image9-import-statements-c.png)
+    ![Another example is to right-click on the statements under Replication: Overview. Select Execute from the context menu](../media/troubleshooting-monitoring/image9-import-statements-c.png)
 
     You'll view information helpful with troubleshooting:
 
-    ![You'll view information helpful with troubleshooting](./media/troubleshooting-monitoring/image10-import-statements-d.png)
+    ![You'll view information helpful with troubleshooting](../media/troubleshooting-monitoring/image10-import-statements-d.png)
 
 5. Do the same for HANA\_Configuration\_Minichecks and check for any _X_ marks in the _C_ (Critical) column.
 
@@ -150,23 +150,23 @@ Do an SAP HANA Health Check through HANA\_Configuration\_Minichecks. This tool r
 
     **HANA\_Configuration\_MiniChecks\_Rev102.01+1** for general SAP HANA checks.
 
-    ![HANA\_Configuration\_MiniChecks\_Rev102.01+1 for general SAP HANA checks](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
+    ![HANA\_Configuration\_MiniChecks\_Rev102.01+1 for general SAP HANA checks](../media/troubleshooting-monitoring/image11-configuration-minichecks.png)
 
     **HANA\_Services\_Overview** for an overview of which SAP HANA services are currently running.
 
-    ![HANA\_Services\_Overview for an overview of which SAP HANA services are currently running](./media/troubleshooting-monitoring/image12-services-overview.png)
+    ![HANA\_Services\_Overview for an overview of which SAP HANA services are currently running](../media/troubleshooting-monitoring/image12-services-overview.png)
 
     **HANA\_Services\_Statistics** for SAP HANA service information (CPU, memory, and so on).
 
-    ![HANA\_Services\_Statistics for SAP HANA service information](./media/troubleshooting-monitoring/image13-services-statistics.png)
+    ![HANA\_Services\_Statistics for SAP HANA service information](../media/troubleshooting-monitoring/image13-services-statistics.png)
 
     **HANA\_Configuration\_Overview\_Rev110+** for general information on the SAP HANA instance.
 
-    ![HANA\_Configuration\_Overview\_Rev110+ for general information on the SAP HANA instance](./media/troubleshooting-monitoring/image14-configuration-overview.png)
+    ![HANA\_Configuration\_Overview\_Rev110+ for general information on the SAP HANA instance](../media/troubleshooting-monitoring/image14-configuration-overview.png)
 
     **HANA\_Configuration\_Parameters\_Rev70+** to check SAP HANA parameters.
 
-    ![HANA\_Configuration\_Parameters\_Rev70+ to check SAP HANA parameters](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
+    ![HANA\_Configuration\_Parameters\_Rev70+ to check SAP HANA parameters](../media/troubleshooting-monitoring/image15-configuration-parameters.png)
 
 ## Next steps
 

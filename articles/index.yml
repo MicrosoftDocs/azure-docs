@@ -44,7 +44,7 @@ productDirectory:
         - ai-machine-learning
       url: /azure/ai-services/openai/
     # Card
-    - title: Azure AI Foundry
+    - title: Microsoft Foundry
       summary: Build market-ready applications for your organization with AI
       imageSrc: ./media/index/ai-studio.svg
       azureCategories:

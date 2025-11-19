@@ -49,6 +49,10 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 - With Microsoft Entra Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
 
+- Cloud-only identities support (preview) is only available using a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities).
+
+- Azure Files SMB support for external identities is currently limited to FSLogix scenarios running on Azure Virtual Desktop (AVD). This applies to external users invited to a Microsoft Entra ID tenant in the public cloud, with the exception of cross-cloud users (those invited into the tenant from Azure Government or Azure operated by 21Vianet). Government cloud scenarios aren't supported. Non-AVD scenarios aren't supported for business-to-business guest users or users from other Microsoft Entra tenants.
+
 ### Operating system and domain prerequisites
 
 The following prerequisites are required for the standard Microsoft Entra Kerberos authentication flow as described in this article. If some or all of your client machines don't meet these, you can still enable Microsoft Entra Kerberos authentication for SMB file shares, but you'll also need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
@@ -71,7 +75,9 @@ Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](../../
 
 ## Regional availability
 
-This feature is supported in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
+Support for hybrid identities is available in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
+
+Support for cloud-only identities (preview) is available only in the Azure Public clouds and is limited to using a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) for all authenticated identities.
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 

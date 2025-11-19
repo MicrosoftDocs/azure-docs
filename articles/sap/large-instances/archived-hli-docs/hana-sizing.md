@@ -39,7 +39,4 @@ Memory requirements for HANA increase as data volume grows. Be aware of your cur
 
 ## Next steps
 
-Learn about onboarding requirements for HANA Large Instances.
-
-> [!div class="nextstepaction"]
-> [Onboarding requirements](hana-onboarding-requirements.md)
+For information about onboarding requirements and deployment considerations for HANA Large Instances, consult with your Microsoft account team or refer to the current SAP HANA Large Instances documentation.

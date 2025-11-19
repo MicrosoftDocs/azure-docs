@@ -249,13 +249,13 @@ Configuration (install) scripts are executed with **Administrator** permissions 
 
 Operators connecting via Bastion have **Administrator** privileges during the session.
 
-## How do I troubleshoot failures with my configuration (install) script or registry/storage adapters?
+### How do I troubleshoot failures with my configuration (install) script or registry/storage adapters?
 
 To troubleshoot, review the logs for configuration (install) scripts. They can be found in C:\InstallScripts\Script\Install.log on the instance (not the web app). Alternatively, App Service console logs can be shipped to Azure Monitor and Log Analytics.
 
 Adapter logs can be found in the root of the machine, alternatively they're logged into App Service Platform Logs.
 
-## What is the addressable memory of a Managed Instance on Azure App Service worker instance?
+### What is the addressable memory of a Managed Instance on Azure App Service worker instance?
 
 The addressable memory of a Managed Instance on Azure App Service worker instance varies dependent on the pricing plan chosen. The following table lists the addressable memory for the Managed Instance on Azure App Service worker instance. It's important to consider if you have a configuration script that installs more components, services, etc. These resources affect the amount of memory available for use by your web apps.
 
@@ -271,35 +271,35 @@ The addressable memory of a Managed Instance on Azure App Service worker instanc
 | P4Mv4 | 16 | 121088 |
 | P5Mv4 | 32 | 246016 |
 
-## Which Azure Storage service should I use to upload a configuration (install) script?
+### Which Azure Storage service should I use to upload a configuration (install) script?
 
 Use Azure Storage blob service for uploading the script and required dependencies.
 
-## Is there a restriction on naming and format for the configuration (install) script?
+### Is there a restriction on naming and format for the configuration (install) script?
 
 Yes, the script must be named `Install.ps1`. Only PowerShell is supported. Ensure to upload configuration (install) script and dependencies as a single .zip file.
 
-## Is there a size limit for the dependencies that I can upload as part of the zip file?
+### Is there a size limit for the dependencies that I can upload as part of the zip file?
 
 No size limit is enforced. Remember that the overall size of dependencies impacts the instance provisioning time.
 
-## Does adding or editing Managed Instance on App Service plan adapters restart the plan instances?
+### Does adding or editing Managed Instance on App Service plan adapters restart the plan instances?
 
 Yes, adding or editing Managed Instance plan adapters (configuration script/storage/registry) restart the underlying instances and affect all web apps deployed to the plan. Remember that instance restarts removes all changes made via RDP session. Always use configuration (install) script to persist dependencies installation or other configuration changes required.
 
-## My Managed Instance plan has multiple instances can I restart a single instance?
+### My Managed Instance plan has multiple instances can I restart a single instance?
 
 Yes, browse to the Managed Instance and select Instances in the left menu. Then select restart next to the instance name.
 
-## My Managed Instance on App Service plan has multiple web applications can I restart a single web application?
+### My Managed Instance on App Service plan has multiple web applications can I restart a single web application?
 
 Yes, browse to the app's **Overview** page and select **Restart**.
 
-## Can I assign Managed Identity to my web application within the Managed Instance on App Service plan?
+### Can I assign Managed Identity to my web application within the Managed Instance on App Service plan?
 
 Yes, you can assign a _different_ Managed identity to a web application within the Managed Instance. Follow the [Managed Identity guidance](overview-managed-identity.md?tabs=portal%2Chttp)
 
-## Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?
+### Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?
 
 No, there's no limit on the number of storage or registry adapters. You can only create a single configuration (install) script adapter for Managed Instance on App Service plan. The increasing the number of adapters could affect provisioning time for Managed Instance.
 

@@ -85,8 +85,6 @@ Application layer keepalives can also be used to refresh idle flows and reset th
 ### Impact of removing public IPs or subnets from the NAT Gateway
 Any active connections associated with a public IP address terminate when the public IP address is removed from the NAT gateway. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs. Traffic will also be disrupted if NAT gateway is removed from any subnets with active connections. Consider updating configurations on your NAT gateway during maintenance windows so as to minimize impact to outbound connectivity.
 
-When the source virtual network is removed from the StandardV2 NAT Gateway, all subnets in the virtual network will see a disruption in outbound connectivity. 
-
 ## Datapath availability drop on NAT gateway but no connection failures
 
 **Scenario**
@@ -166,8 +164,6 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * NAT gateway misconfiguration.
 
-* NAT gateway configured at the subnet level takes priority over a NAT gateway configured at the virtual network level.
-
 * Active connection with another Azure outbound connectivity method such as Azure Load balancer or instance-level public IPs on virtual machines or default outbound access. Active connection flows continue to use the previous public IP address that was assigned when the connection was established. When NAT gateway is deployed, **new** connections start using NAT gateway right away.
 
 * Private IPs are used to connect to Azure services by service endpoints or Private Link.
@@ -179,8 +175,6 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 **How to troubleshoot**
 
 * Check that your NAT gateway has at least one public IP address or prefix associated and at least one subnet.
-
-* Check if you have a NAT gateway attached to a subnet in the same virtual network as a different NAT gateway attached to a source virtual network. A NAT gateway attached to a subnet directly takes priority over a NAT gateway attached to a source virtual network. 
 
 * Verify if any previous outbound connectivity method, such as a public Load balancer, is still active after deploying NAT gateway.
 
@@ -195,8 +189,6 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 ### Possible solutions for NAT gateway public IP not used to connect outbound
 
 * Attach a public IP address or prefix to NAT gateway. Ensure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
-
-* If you have a NAT gateway attached at a subnet level which is taking priority over a different NAT gateway attached at the source virtual network level, determine which NAT gateway needs to be used to provide egress. The source virtual network level NAT gateway will be used for all existing and future subnets in the virtual network. The subnet level NAT gateway will be used only by the subnets it’s directly associated with. 
 
 * Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs, or default outbound access by:
 

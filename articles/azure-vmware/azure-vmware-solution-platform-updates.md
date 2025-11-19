@@ -12,6 +12,13 @@ ms.date: 09/12/2025
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance-best-practices.md#host-maintenance-and-lifecycle-management).
 
+## November 2025
+
+
+**Disaster Recovery**
+
+Broadcom has introduced support for leveraging external storage as both a source and target in vSphere Replication for VMware Live Site Recovery across hyperscaler environments. Azure VMware Solution is actively validating this functionality to ensure seamless performance and operational integrity when using non-vSAN Azure first-party storage.
+
 ## September 2025
 
 **Azure VMware Solution Generation 2 Private Clouds**

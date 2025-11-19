@@ -23,7 +23,7 @@ This article focuses on creating and configuring the YAML graph definitions. For
 
 ## Graph definition structure
 
-Graph definitions follow a formal [JSON schema](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/ConfigGraph.json) that validates structure and ensures compatibility. The configuration includes:
+Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-wasm-graph-config-1.0.0.json) that validates structure and ensures compatibility. The configuration includes:
 
 - Module requirements for API and host library version compatibility
 - Module configurations for runtime parameters and operator customization  

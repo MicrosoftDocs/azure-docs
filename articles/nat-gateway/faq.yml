@@ -81,10 +81,6 @@ sections:
         answer: |
           No, Standard Public IPs can't be used with StandardV2 NAT Gateway. To use StandardV2 NAT Gateway, you must use StandardV2 Public IPs. For more information, see [NAT Gateway SKUs](nat-sku.md).
       
-      - question: How do I use the source virtual network property for StandardV2 NAT Gateway?
-        answer: |
-          The source virtual network property applies StandardV2 NAT Gateway to all existing and future subnets in a single virtual network. To use this property, set the source virtual network property to the resource ID of the virtual network when creating or updating a StandardV2 NAT Gateway.
-      
       - question: Can I attach StandardV2 NAT Gateway to multiple virtual networks?
         answer: |
           No, a StandardV2 NAT Gateway can only be attached to a single virtual network at a time.
@@ -208,7 +204,7 @@ sections:
 
       - question: Can a NAT gateway be attached to multiple subnets? 
         answer: |
-          Yes, Standard NAT gateway can be associated with up to 800 subnets in a virtual network. It isn't required to be associated with all subnets within a virtual network. StandardV2 NAT Gateway can be associated with up to 800 subnets when attached at the subnet level and up to 3,000 subnets when attached at the virtual network level.
+          Yes, NAT gateway can be associated with up to 800 subnets in a virtual network. It isn't required to be associated with all subnets within a virtual network. 
       
       - question: Can a NAT gateway be attached to a gateway subnet? 
         answer: |

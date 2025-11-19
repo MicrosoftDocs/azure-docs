@@ -23,9 +23,6 @@ NAT gateway can be integrated with Azure Firewall by configuring NAT gateway dir
 > Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-> [!NOTE]
-> Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to create a v2 NAT gateway.
-
 :::image type="content" source="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png":::
 
 >[!NOTE]

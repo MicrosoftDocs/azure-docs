@@ -52,7 +52,4 @@ To enable this solution, you need to understand the following key aspects:
 
 ## Next steps
 
-Learn about available SKUs for HANA Large Instances.
-
-> [!div class="nextstepaction"]
-> [Available SKUs for HLI](hana-available-skus.md)
+For information about available SKUs and sizing considerations for HANA Large Instances, consult with your Microsoft account team or refer to the SAP HANA certified IaaS Platforms site mentioned earlier in this document.

@@ -17,9 +17,9 @@ ms.custom:
 # Azure HANA Large Instances control through Azure portal
 
 >[!NOTE]
->For Rev 4.2, follow the instructions in the [Manage BareMetal Instances through the Azure portal](../../baremetal-infrastructure/connect-baremetal-infrastructure.md) topic.
+>For Rev 4.2, refer to the current Azure BareMetal Infrastructure documentation for managing instances through the Azure portal.
 
-This document covers the way how [HANA Large Instances](./hana-overview-architecture.md) are presented in the [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
+This document covers the way how HANA Large Instances are presented in the [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
 
 ## Register HANA Large Instance Resource Provider
 Usually your Azure subscription you were using for HANA Large Instance deployments is registered for the HANA Large Instance Resource Provider. However, if you can’t see you deployed HANA Large Instance units, you should register the Resource Provider in your Azure subscription. There are two ways in registering the HANA Large Instance Resource provider
@@ -31,7 +31,7 @@ You need to be logged into your Azure subscription, used for the HANA Large Inst
 az provider register --namespace Microsoft.HanaOnAzure
 ```
 
-For more information, see the article [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
+For more information, refer to the current Azure documentation on resource providers and types.
 
 
 ### Register through Azure portal
@@ -41,12 +41,12 @@ You can (re-)register the HANA Large Instance Resource Provider through Azure po
 
 In the screenshot shown, the resource provider was already registered. In case the resource provider is not yet registered, press "re-register" or "register".
 
-For more information, see the article [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)
+For more information, refer to the current Azure documentation on resource providers and types.
 
 
 ## Display of HANA Large Instance units in the Azure portal
 When submitting an HANA Large Instance deployment request, you are asked to specify the Azure subscription that you are connecting to the HANA Large Instances as well. It is recommended, to use the same subscription you are using to deploy the SAP application layer that works against the HANA Large Instance units.
-As your first HANA Large Instances are getting deployed, a new [Azure resource group](../../azure-resource-manager/management/manage-resources-portal.md) is created in the Azure subscription you submitted in the deployment request for your HANA Large Instance(s).  The new resource group will list all your HANA Large Instance units you have deployed in the specific subscription.
+As your first HANA Large Instances are getting deployed, a new Azure resource group is created in the Azure subscription you submitted in the deployment request for your HANA Large Instance(s). For more information about resource groups, refer to the current Azure resource management documentation.  The new resource group will list all your HANA Large Instance units you have deployed in the specific subscription.
 
 In order to find the new Azure resource group, you list the resource group in your subscription by navigating through the left navigation pane of the Azure portal
 
@@ -74,10 +74,7 @@ In the overview screen, after clicking 'Show more', you are getting a presentati
 
 ![Show overview of an HLI unit](./media/hana-li-portal/portal-show-overview.png)
 
-Looking at the different attributes shown, those attributes look hardly different than Azure VM attributes. On the left-hand side header, it shows the Resource group, Azure region, subscription name, and ID as well as some tags that you added. By default, the HANA Large Instance units have no tag assigned. On the right-hand side of the header, the name of the unit is listed as assigned when the deployment was done. The operating system is shown as well as the IP address. As with VMs the HANA Large instance unit type with the number of CPU threads and memory is shown as well. More details on the different HANA Large Instance units, are shown here:
-
-- [Available SKUs for HLI](./hana-available-skus.md)
-- [SAP HANA (Large Instances) storage architecture](./hana-storage-architecture.md) 
+Looking at the different attributes shown, those attributes look hardly different than Azure VM attributes. On the left-hand side header, it shows the Resource group, Azure region, subscription name, and ID as well as some tags that you added. By default, the HANA Large Instance units have no tag assigned. On the right-hand side of the header, the name of the unit is listed as assigned when the deployment was done. The operating system is shown as well as the IP address. As with VMs the HANA Large instance unit type with the number of CPU threads and memory is shown as well. More details on the different HANA Large Instance units can be found in the SAP HANA Large Instances documentation. 
 
 Additional data on the right lower side is the revision of the HANA Large Instance stamp. Possible values are:
 
@@ -85,7 +82,7 @@ Additional data on the right lower side is the revision of the HANA Large Instan
 - Revision 4
 
 Revision 4 is the latest architecture released of HANA Large Instances with major improvements in network latency between Azure VMs and HANA Large instance units deployed in Revision 4 stamps or rows.
-Another very important information is found in the lower right corner of the overview with the name of the Azure Proximity Placement Group that is automatically created for each deployed HANA Large Instance unit. This Proximity Placement Group needs to be referenced when deploying the Azure VMs that host the SAP application layer. By using the [Azure proximity placement group](/azure/virtual-machines/co-location) associated with the HANA Large Instance unit, you make sure that the Azure VMs are deployed in close proximity to the HANA Large Instance unit. The way how proximity placement groups can be used to locate the SAP application layer in the same Azure datacenter as Revision 4 hosted HANA Large Instance units is described in [Azure Proximity Placement Groups for optimal network latency with SAP applications](../workloads/proximity-placement-scenarios.md).
+Another very important information is found in the lower right corner of the overview with the name of the Azure Proximity Placement Group that is automatically created for each deployed HANA Large Instance unit. This Proximity Placement Group needs to be referenced when deploying the Azure VMs that host the SAP application layer. By using the [Azure proximity placement group](/azure/virtual-machines/co-location) associated with the HANA Large Instance unit, you make sure that the Azure VMs are deployed in close proximity to the HANA Large Instance unit. For information about using proximity placement groups to locate the SAP application layer in the same Azure datacenter as Revision 4 hosted HANA Large Instance units, refer to the current Azure documentation on proximity placement groups and SAP applications.
 
 An additional field in the right column of the header informs about the power state of the HANA Large instance unit.
 
@@ -93,7 +90,7 @@ An additional field in the right column of the header informs about the power st
 > The power state describes whether the hardware unit is powered on or off. It does not give information about the operating system being up and running. As you restart a HANA Large Instance unit, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
 > 
 
-If you press 'See more', additional information is shown. One additional information is displaying the revision of the HANA Large Instance stamp, the unit got deployed in. See the article [What is SAP HANA on Azure (Large Instances)](./hana-overview-architecture.md) for the different revisions of HANA Large Instance stamps
+If you press 'See more', additional information is shown. One additional information is displaying the revision of the HANA Large Instance stamp, the unit got deployed in. Consult the SAP HANA Large Instances documentation for information about the different revisions of HANA Large Instance stamps
 
 ## Check activities of a single HANA Large Instance unit 
 Beyond giving an overview of the HANA Large Instance units, you can check activities of the particular unit. An activity log could look like:
@@ -105,7 +102,7 @@ One of the main activities recorded are restarts of a unit. The data listed incl
 Another activity that is getting recorded are changes to the unit in the Azure meta data. Besides the restart initiated, you can see the activity of **Write HANAInstances**. This type of activity performs no changes on the HANA Large Instance unit itself, but is documenting changes to the meta data of the unit in Azure. In the case listed, we added and deleted a tag (see next section).
 
 ## Add and delete an Azure tag to a HANA Large Instance unit
-Another possibility you have is to add a [tag](../../azure-resource-manager/management/tag-resources.md) to a HANA Large Instance unit. The way tags are getting assigned does not differ from assigning tags to VMs. As with VMs the tags exist in Azure meta data and, for HANA Large Instances, have the same restrictions as tags for VMs.
+Another possibility you have is to add a tag to a HANA Large Instance unit. For more information about Azure resource tagging, refer to the current Azure resource management documentation. The way tags are getting assigned does not differ from assigning tags to VMs. As with VMs the tags exist in Azure meta data and, for HANA Large Instances, have the same restrictions as tags for VMs.
 
 Deleting tags works the same way as with VMs. Both activities, applying and deleting a tag will be listed in the activity log of the particular HANA Large Instance unit.
 
@@ -115,7 +112,7 @@ The section **Properties** includes important information that you get when the 
 
 ![top part of HLI properties in Azure portal](./media/hana-li-portal/portal-properties-top.png)
 
-The first few data items, you saw in the overview screen already. But an important portion of data is the ExpressRoute Circuit ID, which you got as the first deployed units were handed over. In some support cases, you might get asked for that data. An important data entry is shown at the bottom of the screenshot. The data displayed is the IP address of the NFS storage head that isolates your storage to your **tenant** in the HANA Large Instance stack. This IP address is also needed when you edit the [Configure Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-configure.md). 
+The first few data items, you saw in the overview screen already. But an important portion of data is the ExpressRoute Circuit ID, which you got as the first deployed units were handed over. In some support cases, you might get asked for that data. An important data entry is shown at the bottom of the screenshot. The data displayed is the IP address of the NFS storage head that isolates your storage to your **tenant** in the HANA Large Instance stack. This IP address is also needed when configuring the Azure Application Consistent Snapshot tool. For more information, refer to the current Azure NetApp Files documentation. 
 
 As you scroll down in the property pane, you get additional data like a unique resource ID for your HANA Large Instance unit, or the subscription ID which was assigned to the deployment.
 
