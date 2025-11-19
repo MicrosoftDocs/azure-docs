@@ -2180,6 +2180,45 @@ Allows for read access on files/directories in Azure file shares. This role is e
 }
 ```
 
+## Storage File Data SMB Take Ownership
+
+Allows end user to assume ownership of a file/directory
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/takeOwnership/action | File Take Ownership Privilege |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows end user to assume ownership of a file/directory",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5d9bac3f-34b2-432f-bde5-78aa8e73ce6b",
+  "name": "5d9bac3f-34b2-432f-bde5-78aa8e73ce6b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Data SMB Take Ownership",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Storage File Delegator
 
 Get a user delegation key, which can then be used to create a shared access signature for a file or Azure file share that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).

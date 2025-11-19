@@ -34,56 +34,10 @@ By default (unless cool access retrieval policy is configured otherwise), data b
 
 Metadata is never cooled and always remains in the hot tier. Tiering doesn't affect the activities of metadata-intensive workloads like high file-count environments like chip design, version control systems, and home directories.
 
+
 ## Supported regions 
 
-Azure NetApp Files storage with cool access is supported for the following regions:
-
-* Australia Central
-* Australia Central 2
-* Australia East 
-* Australia Southeast
-* Brazil South 
-* Brazil Southeast
-* Canada Central 
-* Canada East
-* Central India 
-* Central US
-* East Asia  
-* East US
-* East US 2   
-* France Central
-* Germany North 
-* Germany West Central
-* Israel Central
-* Italy North 
-* Japan East
-* Japan West 
-* Korea Central
-* Korea South 
-* North Central US 
-* North Europe  
-* Norway East
-* Norway West
-* Qatar Central
-* South Africa North
-* South Central US
-* South India
-* Southeast Asia
-* Spain Central
-* Switzerland North 
-* Switzerland West 
-* Sweden Central
-* UAE Central
-* UAE North 
-* UK South
-* UK West
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia 
-* West Europe
-* West US
-* West US 2
-* West US 3
+Azure NetApp Files storage with cool access is available in all Azure NetApp Files-enabled regions.
 
 ## Metrics 
 

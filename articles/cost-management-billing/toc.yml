@@ -169,6 +169,8 @@
         href: manage/mca-request-billing-ownership.md
       - name: Transfer Microsoft Partner Agreement ownership
         href: manage/mpa-request-ownership.md
+      - name: To update COCP in Azure portal
+        href: manage/change-of-channel-partner.md
   - name: Perform key billing administration tasks
     items:
     - name: Enable Azure Marketplace purchases

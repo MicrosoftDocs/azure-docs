@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| November 2025 | Roles | Added [Storage File Data SMB Take Ownership](./built-in-roles/storage.md#storage-file-data-smb-take-ownership) role. |
 | November 2025 | Roles | Added [Storage File Data SMB Admin](./built-in-roles/storage.md#storage-file-data-smb-admin) role. |
 | October 2025 | Roles | Added [Log Analytics Data Reader](./built-in-roles/monitor.md#log-analytics-data-reader) role. |
 | October 2025 | Roles | Updated Azure permissions for Integration [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) list. |

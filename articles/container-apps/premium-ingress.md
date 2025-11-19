@@ -71,8 +71,6 @@ az containerapp env workload-profile add \
   --name my-container-apps-env \
   --workload-profile-name Ingress-D4 \
   --workload-profile-type D4 \
-  --min-nodes 2 \
-  --max-nodes 4
 ````
 
 Your workload profile must have at least two nodes to use premium ingress.
@@ -120,8 +118,6 @@ az containerapp env premium-ingress update \
   --resource-group my-resource-group \
   --name my-container-apps-env \
   --workload-profile-name Ingress-D4 \
-  --min-nodes 3 \
-  --max-nodes 6 \
   --termination-grace-period 500 \
   --request-idle-timeout 4 \
   --header-count-limit 100

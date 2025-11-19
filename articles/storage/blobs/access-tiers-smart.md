@@ -29,6 +29,8 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 - Smart tier characteristics might change during or after the public preview phase.
 - Smart tier monitoring operations are billed based on the price displayed on the Azure pricing pages. This pricing will go into effect starting January 1, 2026.
 
+- The metrics view for smart tiered objects might display incomplete or wrong tiers until the first down-tiering occurred by smart tier in the subscription.
+
 ## Enabling smart tier
 Enable access to the smart tier public preview by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
 After you enable smart tier on existing storage accounts, all blobs in the account that don't have an explicitly set access tier will move to smart tier.
@@ -61,7 +63,7 @@ The Azure portal supports the current smart tier public preview. Smart tier requ
 
 | Environment | Minimum version |
 |---|---|
-| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-08-01 |
+| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-06-01 |
 
 
 ## Next steps

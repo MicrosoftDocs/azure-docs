@@ -2,8 +2,8 @@
 title: Tutorial - Configure protection for data sources
 description: Learn how to configure protection for your datasources, which are currently not protected by any solution using Resiliency in Azure.
 ms.topic: tutorial
-ms.date: 11/01/2025
-ms.service: azure-business-continuity-center
+ms.date: 11/19/2025
+ms.service: resiliency
 ms.custom:
   - ignite-2023
   - ignite-2024

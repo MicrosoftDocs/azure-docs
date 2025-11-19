@@ -60,6 +60,14 @@ items:
       href: how-to-share-dashboard.md
     - name: Use reporting and image rendering
       href: how-to-use-reporting-and-image-rendering.md
+    - name: Create dashboards for GenAI applications
+      items:
+      - name: Azure AI Foundry dashboard
+        href: azure-ai-foundry-dashboard.md
+      - name: Agent Framework dashboard
+        href: agent-framework-dashboard.md
+      - name: Agent Framework Workflow dashboard
+        href: agent-framework-workflow-dashboard.md
     expanded: false
   - name: Alerts and notifications
     items:

@@ -2,8 +2,8 @@
 title: Tutorial - Monitor and operate jobs
 description: In this tutorial, learn how to monitor jobs across your resiliency estate using Resiliency in Azure.
 ms.topic: tutorial
-ms.date: 11/01/2025
-ms.service: azure-business-continuity-center
+ms.date: 11/19/2025
+ms.service: resiliency
 ms.custom:
   - ignite-2023
   - ignite-2024

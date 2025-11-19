@@ -13,7 +13,7 @@ ms.date: 09/01/2025
 
 # Default outbound access in Azure
 
-In Azure, when a virtual machine (VM) is deployed in a virtual network without an explicitly defined outbound connectivity method, it's automatically assigned an outbound public IP address. This IP address enables outbound connectivity from the resources to the internet and to other public endpoints within Microsoft. This access is referred to as default outbound access.
+In Azure, when you deploy a virtual machine (VM) in a virtual network without an explicitly defined outbound connectivity method, Azure automatically assigns it an outbound public IP address. This IP address enables outbound connectivity from the resources to the internet and to other public endpoints within Microsoft. This access is referred to as default outbound access.
 
 Examples of explicit outbound connectivity for virtual machines are:
 
@@ -182,7 +182,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
 #### Why do I see an alert showing I have a default outbound IP on my VM?
 
-There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. This is used to generate an Azure portal banner for VM/VMSS that flags this state.  There are also specific Azure Advsior reccomendations with this information for your subscriptions. If you want to view which of your virtual machines or virtual machine scale sets have a default outbound IP assigned to them, follow these steps:
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. This is used to generate an Azure portal banner for VM/VMSS that flags this state.  There are also specific Azure Advisor reccomendations with this information for your subscriptions. If you want to view which of your virtual machines or virtual machine scale sets have a default outbound IP assigned to them, follow these steps:
 1. Type in 'Advisor' into the search bar in the Azure portal and select on this option when it comes up.
 2. Select 'Operational Excellence'
 3. Look for the reccomendations 'Add explicit outbound method to disable default outbound' and/or 'Add explicit outbound method to disable default outbound for Virtual Machine Scale Sets' (note these are two different items)

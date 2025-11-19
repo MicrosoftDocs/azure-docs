@@ -592,7 +592,7 @@
         "articles/baremetal-infrastructure/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/bastion/**/*": "https://learn.microsoft.com/answers/tags/119/azure-bastion/",
         "articles/batch/**/*": "https://learn.microsoft.com/answers/tags/140/azure-batch/",
-        "articles/business-continuity-center/NO-QA-TAG-USE-GLOBAL/": "",
+        "articles/resiliency/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/business-process-tracking/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/cdn/**/*": "https://learn.microsoft.com/answers/tags/155/azure-cdn/",
         "articles/certification/NO-QA-TAG-USE-GLOBAL/": "",

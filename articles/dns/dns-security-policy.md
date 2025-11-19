@@ -18,7 +18,7 @@ For more information about configuration of DNS security policy and Threat intel
 
 - [Secure and view DNS traffic ](dns-traffic-log-how-to.md).
 
-- [Secure your VNet with Threat intelligence feed](dns-traffic-log-how-to.md).
+- [Secure your VNet with Threat intelligence feed](dns-traffic-log-how-to.md#secure-dns-traffic-with-threat-intelligence-feed).
 
 ## What is DNS security policy?
 

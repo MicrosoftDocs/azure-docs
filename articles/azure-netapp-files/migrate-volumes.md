@@ -81,7 +81,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     The "remote path" values are the host, server, and volume names of your on-premises storage. 
 
     ```rest
-    PUT: https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/Migvolfinal?api-version=2025-06-01
+    PUT: https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/Migvolfinal?api-version=2025-07-01
     Body: {
        "type":"Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
        "location":"<LOCATION>",
@@ -140,7 +140,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     >Every node in your ONTAP system needs an IC LIF. Each IC LIF needs to be listed here. 
 
     ```rest
-        PUT https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2025-06-01
+        PUT https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2025-07-01
     
         Body: {
            "PeerAddresses":[
@@ -156,7 +156,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 1. In your ONTAP or Cloud Volumes ONTAP system, accept the cluster peer request from Azure NetApp Files by sending a GET request using Azure-AsyncOperation ID.
 
     ```rest
-    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2025-06-01...
+    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2025-07-01...
     ```
     
     >[!NOTE]
@@ -187,13 +187,13 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 1. Issue an `authorizeExternalReplication` API request for your migration volumes. Repeat this request for each migration volume. 
 
     ```rest
-    POST: https://<region>.management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/authorizeExternalReplication?api-version=2025-06-01
+    POST: https://<region>.management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/authorizeExternalReplication?api-version=2025-07-01
     ```
 
 1. Accept the storage virtual machine (SVM) peer request from Azure NetApp Files by sending a GET request using the Azure-AsyncOperation ID in step 4. 
 
     ```rest
-    GET https://<region>.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<>?api-version=2025-06-01&...
+    GET https://<region>.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<>?api-version=2025-07-01&...
     ```
 
     The response looks like: 
@@ -220,13 +220,13 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 1. If there were changes to the data after the baseline transfer, send a "Perform Replication Transfer" request to capture any incremental data written after the baseline transfer was completed. Repeat this operation for _each_ migration volume. 
 
     ```rest
-        POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-names>/providers/Microsoft.NetApp/netAppAccounts/<account-name>>/capacityPools/<capacity-pool>/volumes/<volumes>/performReplicationTransfer?api-version=2024-06-01 
+        POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-names>/providers/Microsoft.NetApp/netAppAccounts/<account-name>>/capacityPools/<capacity-pool>/volumes/<volumes>/performReplicationTransfer?api-version=2025-07-01 
     ```
 
 1. Break the replication relationship. [To break replication in the portal, navigate to each volume's **Replication** menu then select **Break peering**.](cross-region-replication-manage-disaster-recovery.md) You can alternately submit an API request: 
 
     ```rest
-    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool-name>>/volumes/<volumes>/breakReplication?api-version=2025-06-01
+    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool-name>>/volumes/<volumes>/breakReplication?api-version=2025-07-01
     ```
 
     >[!NOTE]
@@ -235,7 +235,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 1. Delete the migration replication relationship. If the deleted replication is the last migration associated with your subscription, the associated cluster peer and intercluster LIFs are deleted. 
 
     ```rest
-    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2025-06-01
+    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2025-07-01
     ```
 
     Finalizing replication removes all the peering information on Azure NetApp Files. Manually confirm that all replication data is removed on the ONTAP cluster. If any peering information remains, run the `cluster peer delete` command. 

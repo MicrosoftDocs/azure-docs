@@ -6,14 +6,14 @@ summary: Resiliency in Azure (formerly Azure Business Continuity Center) unifies
 metadata:
   title: Resiliency Documentation
   description: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zonal Resiliency & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
-  ms.service: azure-business-continuity-center
+  ms.service: resiliency
   ms.custom:
     - ignite-2023
     - ignite-2024
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-mallicka
-  ms.date: 03/25/2025
+  ms.date: 11/19/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

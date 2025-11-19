@@ -374,6 +374,8 @@ items:
           href: tutorial-auth-aad.md
         - name: App to app to another Azure service as user
           href: tutorial-connect-app-app-graph-javascript.md
+    - name: Connect by using agent identity
+      href: overview-agent-identity.md
 - name: Scaling and performance
   items:
     - name: Scale up server capacity

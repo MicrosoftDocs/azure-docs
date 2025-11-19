@@ -2,8 +2,8 @@
 title: Security levels in Resiliency
 description: An overview of the levels of Security available in Resiliency.
 ms.topic: overview
-ms.date: 11/01/2025
-ms.service: azure-business-continuity-center
+ms.date: 11/19/2025
+ms.service: resiliency
 ms.custom:
   - ignite-2023
   - ignite-2024

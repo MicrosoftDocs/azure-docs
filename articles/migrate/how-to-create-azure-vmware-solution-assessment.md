@@ -21,8 +21,10 @@ This article describes how to create an Azure VMware Solution assessment for on-
 
 - [Create](./create-manage-projects.md) an Azure Migrate project.
 - [Add](how-to-assess.md) the Azure Migrate: Discovery and assessment tool if you've already created a project.
-- Set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
-- [Import](./tutorial-discover-import.md) the server metadata in comma-separated values (CSV) format or [import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md).
+- Discover your on-premises inventory data using either of the following approach:
+    - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md).
+    - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md)
+    - Set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
 
 
 ## Azure VMware Solution (AVS) Assessment overview
@@ -44,8 +46,8 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 **Assessment** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | For RVTools and CSV file-based assessments and performance-based assessments, the assessment considers the **In Use MiB** and **Storage In Use** respectively for storage configuration of each VM. For appliance-based assessments and performance-based assessments, the assessment considers the collected CPU & memory performance data of on-premises servers. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment.
-**As on-premises** | Assessments based on on-premises sizing. | **Recommended Node size**: Based on the on-premises server size along with the node type, storage type, and FTT setting that you select for the assessment.
+**Performance-based** | For RVTools and CSV file-based assessments and performance-based assessments, the assessment considers the utilized storage by each VM. For appliance-based assessments, the assessment considers the CPU & memory utilization data of each VM. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and storage policies that you select for the assessment.
+**As on-premises** | Assessments based on on-premises VM's resource allocation. | **Recommended Node size**: Based on the on-premises server size along with the node type, storage type, and storage policies that you select for the assessment.
 
 ## Run an Azure VMware Solution (AVS) assessment
 
@@ -86,13 +88,13 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - In **SDDC type**, specify "New SDDC" if you are creating a new SDDC. Use "AVS SDDC expansion" if you already have an AVS SDDC with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding an SDDC, it will not consider the available capacity in the AVS SDDC but will consider the capacity requirements for management appliances.
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
-    - The **Storage type** is defaulted to **vSAN**, **Elastic SAN** and **Azure NetApp Files (ANF) - Standard**, **ANF - Premium**, and **ANF - Ultra** tiers. Elastic SAN and ANF are external storage types in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & elastic SAN as the storage datastores. When performance metrics are provided (IOPS and throughput) in settings or via the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. If the assessment is performed using the Azure Migrate appliance or an RVTools file or without providing performance metrics like throughput and IOPS, **ANF - Standard** tier is used for assessment by default.
+    - The **Storage type** is defaulted to consider all three: **vSAN**, **Elastic SAN** and **Azure NetApp Files (ANF)** (Standard, Premium and Ultra tiers). Elastic SAN and ANF are external storage types in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & elastic SAN as the storage datastores. When performance metrics are provided (IOPS and throughput) in settings or via the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. If the assessment is performed using an RVTools file or the Azure Migrate appliance without providing performance metrics like throughput and IOPS, **Elastic SAN** or **ANF - Standard** (the most cost-effective one among the two) is used for assessment by default.
    - In **Reserved Instances**, specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs.
     - If you select to use a reserved instance, you can't specify '**Discount (%)**. [Learn more](../azure-vmware/reserved-instance.md).
 
 1. In **Storage Settings**:
-    - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination. **FTT 1, RAID 1 & FTT 2, RAID 6** are selected by default. The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
-    - In **Dedupe and compression factor**, specify the anticipated deduplication and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage config and this might vary by workload. A value of 3 would mean 3x so for 300 GB disk only 100 GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
+    - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination. **FTT 1, RAID 1 & FTT 2, RAID 6** are selected by default. The selected FTT option and other storage policies, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
+    - In **Dedupe and compression factor**, specify the anticipated deduplication and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage config and this might vary by workload. A value of 3 would mean 3x so for 300 GB disk only 100 GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place. If you are using vSAN on-premises, you can refer to your on-premises vCenter statistics to get the dedupe and comparession factor for your on-premises VMs.
     - In **IOPS per GiB**, select the expected average read and write speed per gibibyte of the external storage device. This, along with the disk capacity requirement, helps Azure Migrate determine the external storage capacity needs.
     - In **Throughput per GiB**, select the expected average amount of data transfer speed per gibibyte of the storage device. This, along with the disk capacity requirement would help Azure Migrate determine the external storage capacity requirements.
 1. In **Elastic SAN Settings**:

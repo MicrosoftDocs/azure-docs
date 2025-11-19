@@ -2,8 +2,8 @@
 title: What is Resiliency?
 description: Resiliency is a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure that enables you to manage your protection estate across solutions and environments.
 ms.topic: overview
-ms.service: azure-business-continuity-center
-ms.date: 11/01/2025
+ms.service: resiliency
+ms.date: 11/19/2025
 ms.custom:
   - mvc
   - ignite-2023

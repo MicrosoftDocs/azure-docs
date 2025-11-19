@@ -1,7 +1,7 @@
 ---
 title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-ms.date: 10/22/2025
+ms.date: 11/19/2025
 ms.topic: reference
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -69,7 +69,8 @@ Windows 11 (Enterprise, Pro, Home, IoT Enterprise) | Yes | No |  Check the corre
 Windows 10 (Enterprise, Pro, Home, IoT Enterprise) | Yes | No |  Check the corresponding server version for software/module requirements
 Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version for software/module requirements
 Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
-Windows Server 2022 (Standard, Datacenter, Essentials, Server IoT) | Yes | Yes |  Check the corresponding server version for software/module requirements
+Windows Server 2025 (Standard, Datacenter, Essentials, Server IoT) | Yes | Yes |  - .NET 4.8 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2022 (Standard, Datacenter, Essentials, Server IoT) | Yes | Yes |  - .NET 4.8 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials, Server IoT) | Yes | Yes | - .NET 4.8 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.8 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .NET 4.8 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0

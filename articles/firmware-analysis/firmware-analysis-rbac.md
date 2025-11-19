@@ -11,6 +11,12 @@ ms.service: azure
 # Overview of Azure Role-Based Access Control for firmware analysis
 As a user of firmware analysis, you may want to manage access to your firmware image analysis results. Azure Role-Based Access Control (RBAC) is an authorization system that enables you to control who has access to your analysis results, what permissions they have, and at what level of the resource hierarchy. This article explains how to store firmware analysis results in Azure, manage access permissions, and use RBAC to share these results within your organization and with third parties. To learn more about Azure RBAC, visit [What is Azure Role-Based Access Control (Azure RBAC)?](./../role-based-access-control/overview.md).
 
+> [!NOTE]
+> - RBAC (Role-Based Access Control) and Azure Policy are separate controls in Azure. Even if you have the correct RBAC roles, your organization’s Azure Policy may still block you from creating or using a Firmware Analysis Workspace.
+> - In addition to verifying your RBAC permissions, check with your IT administrator to ensure the “Firmware Analysis Workspace” resource type is allow-listed in your subscription’s Azure Policy.
+> - If you encounter a policy restriction, contact your IT team to request an exemption or allow-listing for this resource type.
+For instructions on how to check your subscription’s policy settings, see [Read your subscription policy](../cost-management-billing/manage/manage-azure-subscription-policy.md#read-subscription-policy).
+
 ## Roles
 Roles are a collection of permissions packaged together. There are two types of roles:
 

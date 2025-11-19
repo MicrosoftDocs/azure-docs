@@ -2,11 +2,11 @@
 title: Review security posture
 description: Learn how to review security posture
 ms.topic: tutorial
-ms.service: azure-business-continuity-center
+ms.service: resiliency
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 11/01/2025
+ms.date: 11/19/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---

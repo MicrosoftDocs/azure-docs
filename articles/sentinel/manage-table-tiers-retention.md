@@ -62,9 +62,9 @@ To view and manage table settings in the Microsoft Defender portal, follow these
     
     - **Analytics tier retention settings**:     
       - **Analytics retention**: 30 days to two years.
-      - **Total retention**: Up to 12 years of long-term storage in the data lake. By default, all analytics tier data is mirrored to the data lake tier, total retention is equal to analytics retention, which means there's no additional long-term retention. To enable long-term retention, set the total retention to a value greater than analytics retention. 
-      
-        Example: To retain six months of data in long-term retention total and 90 days of data in analytics retention, set **Analytics retention** to 90 days and **Total retention** to 180 days.
+      - **Total retention**: Up to 12 years of long-term storage in the data lake. If you have Sentinel data lake, total retention represents retention of the data in the lake and by default is equal to analytics retention. For example, setting analytics retention to six months, also retains the data in the data lake for six months by default, at no extra cost.
+      You can extend long-term retention in the lake for longer than the analytics tier retention. For example, setting analytics retention to six months and total retention to 1 year. Data lake retention is charged only for the duration beyond analytics retention, in this case 6 months.
+    
     - **Data lake tier**: Set **Retention** to a value between 30 days and 12 years. Selecting **Data lake tier** stores data exclusively in the data lake.
     - **Tier changes**: If necessary, you can change tiers at any time based on your cost management and data usage needs.
 

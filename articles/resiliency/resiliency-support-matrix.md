@@ -2,12 +2,12 @@
 title: Resiliency support matrix
 description: Provides a summary of support settings and limitations for the Resiliency in Azure service.
 ms.topic: reference
-ms.date: 11/01/2025
+ms.date: 11/19/2025
 ms.custom:
   - references_regions
   - ignite-2023
   - ignite-2024
-ms.service: azure-business-continuity-center
+ms.service: resiliency
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---
