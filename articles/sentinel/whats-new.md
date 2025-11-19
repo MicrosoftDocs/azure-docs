@@ -52,7 +52,7 @@ For more information, see [How UEBA empowers analysts and streamlines workflows]
 
 - Deprecation: Containerized SAP data connector will be out of support by September 30th 2026. [Migrate to our Agentless SAP data connector](sap/sap-agent-migrate.md) today.
 
-### Call to action: update queries and automation by December 13, 2025 - standardized account entity naming in incidents and alerts
+### Call to action: update queries and automation by July 1, 2026 - standardized account entity naming in incidents and alerts
 
 Microsoft Sentinel is updating how it identifies account entities in incidents and alerts. This change introduces a standardized naming logic to improve consistency and reliability across your analytics and automation workflows.
 
@@ -78,7 +78,7 @@ Test all changes in a nonproduction workspace before rolling out to production.
 ## October 2025
 
 - [Export STIX threat intelligence objects (Preview)](#export-stix-threat-intelligence-objects-preview)
-- [Call to action: update queries and automation by December 13, 2025 - standardized account entity naming in incidents and alerts](#call-to-action-update-queries-and-automation-by-december-13-2025---standardized-account-entity-naming-in-incidents-and-alerts)
+- [Call to action: update queries and automation by July 1, 2026 - standardized account entity naming in incidents and alerts](#call-to-action-update-queries-and-automation-by-july-1-2026---standardized-account-entity-naming-in-incidents-and-alerts)
 
 ### Export STIX threat intelligence objects (Preview)
 

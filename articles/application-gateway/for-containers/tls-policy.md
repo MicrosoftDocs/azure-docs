@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 7/24/2025
+ms.date: 07/24/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure a custom TLS policy for the Application Gateway in my Kubernetes environment, so that I can enhance security and compliance by controlling the TLS version and cipher suites used for secure connections.
 ---

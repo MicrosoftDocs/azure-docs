@@ -26,6 +26,9 @@ The following steps define how recommendations are calculated:
 
 The recommendations account for existing reservations and savings plans. So, previously purchased reservations and savings plans are excluded when providing recommendations.
 
+> [!NOTE]
+> Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 3 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
+
 ## Recommendations in the Azure portal
 
 Reservation purchase recommendations are also shown in the Azure portal in the purchase experience. Recommendations are shown with the **Recommended Quantity**. When purchased, the quantity that Azure recommends gives the maximum savings possible. Although you can buy any quantity that you like, if you buy a different quantity your savings aren't optimal.

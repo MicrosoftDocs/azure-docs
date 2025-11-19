@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 7/21/2025
+ms.date: 07/21/2025
 ms.author: mbender
 
 # Customer intent: As an IT operations manager, I want to monitor performance metrics for Application Gateway for Containers, so that I can ensure optimal application performance and troubleshoot issues effectively.

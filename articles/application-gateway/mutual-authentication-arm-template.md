@@ -42,100 +42,290 @@ This template creates:
   - SSL certificate and SSL profile for client certificate passthrough.
   - HTTPS listener and routing rule.
   - Backend pool pointing to an app service.
+Please update the template with your configuration details and include a valid SSL certificate.
 
 ### Parameter file: `deploymentParameters.json`
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "addressPrefix": { "value": "10.0.0.0/16" },
-    "subnetPrefix": { "value": "10.0.0.0/24" },
-    "skuName": { "value": "Standard_v2" },
-    "capacity": { "value": 2 },
-    "adminUsername": { "value": "ubuntu" },
-    "adminSSHKey": { "value": "<your-ssh-public-key>" },
-    "certData": { "value": "<Base64-encoded-PFX-data>" },
-    "certPassword": { "value": "<certificate-password>" }
-  }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "addressPrefix": {
+            "value": "10.0.0.0/16"
+        },
+        "subnetPrefix": {
+            "value": "10.0.0.0/24"
+        },
+        "skuName": {
+            "value": "Standard_v2"
+        },
+        "capacity": {
+            "value": 2
+        },
+        "adminUsername": {
+            "value": "ubuntu"
+        },
+        "adminSSHKey": {
+            "value": "<your-ssh-public-key>"
+        },
+        "certData": {
+            "value": "<Base64-encoded-PFX-data>"
+        },
+        "certPassword": {
+            "value": "<certificate-password>"
+        }
+    }
 }
 
 ```
 ### Template file: deploymentTemplate.json
 
-```
+``` json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "addressPrefix": { "type": "String", "defaultValue": "10.0.0.0/16" },
-    "subnetPrefix": { "type": "String", "defaultValue": "10.0.0.0/24" },
-    "skuName": { "type": "String", "defaultValue": "Standard_v2" },
-    "capacity": { "type": "Int", "defaultValue": 2 },
-    "adminUsername": { "type": "String" },
-    "adminSSHKey": { "type": "SecureString" },
-    "certData": { "type": "String" },
-    "certPassword": { "type": "SecureString" }
-  },
-  "variables": {
-    "applicationGatewayName": "mtlsAppGw",
-    "publicIPAddressName": "mtlsPip",
-    "virtualNetworkName": "mtlsVnet",
-    "subnetName": "appgwsubnet"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2024-07-01",
-      "name": "[variables('virtualNetworkName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": { "addressPrefixes": [ "[parameters('addressPrefix')]" ] },
-        "subnets": [
-          {
-            "name": "[variables('subnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnetPrefix')]",
-              "delegations": [
-                {
-                  "name": "Microsoft.Network/applicationGateways",
-                  "properties": { "serviceName": "Microsoft.Network/applicationGateways" }
-                }
-              ]
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "addressPrefix": {
+            "defaultValue": "10.0.0.0/16",
+            "type": "String",
+            "metadata": {
+                "description": "Address prefix for the Virtual Network"
             }
-          }
-        ]
-      }
+        },
+        "subnetPrefix": {
+            "defaultValue": "10.0.0.0/24",
+            "type": "String",
+            "metadata": {
+                "description": "Subnet prefix"
+            }
+        },
+        "skuName": {
+            "defaultValue": "Standard_Medium",
+            "type": "String",
+            "metadata": {
+                "description": "Sku Name"
+            }
+        },
+        "capacity": {
+            "defaultValue": 2,
+            "type": "Int",
+            "metadata": {
+                "description": "Number of instances"
+            }
+        },
+        "adminUsername": {
+            "type": "String"
+        },
+		"adminSSHKey": {
+            "type": "securestring"
+        },
+        "certData": {
+            "type": "String",
+            "metadata": {
+                "description": "ssl cert data"
+            }
+        },
+        "certPassword": {
+            "type": "SecureString",
+            "metadata": {
+                "description": "ssl cert password"
+            }
+        }
     },
-    {
-      "type": "Microsoft.Network/applicationGateways",
-      "apiVersion": "2025-03-01",
-      "name": "[variables('applicationGatewayName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "sku": { "name": "[parameters('skuName')]", "tier": "[parameters('skuName')]", "capacity": "[parameters('capacity')]" },
-        "sslCertificates": [
-          {
-            "name": "sslCert",
-            "properties": { "data": "[parameters('certData')]", "password": "[parameters('certPassword')]" }
-          }
-        ],
-        "sslProfiles": [
-          {
-            "name": "sslPassthrough",
+    "variables": {
+        "applicationGatewayName": "mtlsAppGw",
+        "idName": "identity",
+        "publicIPAddressName": "mtlsPip",
+        "virtualNetworkName": "mtlsVnet",
+        "subnetName": "appgwsubnet",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
+        "publicIPRef": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+        "applicationGatewayID": "[resourceId('Microsoft.Network/applicationGateways',variables('applicationGatewayName'))]",
+        "apiVersion": "2025-03-01",
+        "identityID": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities',variables('idName'))]",
+        "backendSubnetId": "[concat(variables('vnetID'),'/subnets/backendsubnet')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[variables('virtualNetworkName')]",
+            "apiVersion": "2024-07-01",
+            "location": "[resourceGroup().location]",
             "properties": {
-              "clientAuthConfiguration": {
-                "VerifyClientAuthMode": "Passthrough",
-                "VerifyClientCertIssuerDN": false,
-                "VerifyClientRevocation": "None"
-              }
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('addressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('subnetName')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetPrefix')]",
+                             "delegations": [
+                                {
+                                    "name": "Microsoft.Network/applicationGateways",
+                                    "properties": {
+                                        "serviceName": "Microsoft.Network/applicationGateways"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "backendSubnet",
+                        "properties": {
+                            "addressPrefix": "10.0.2.0/24"
+                        }
+                    }
+                ]
             }
-          }
-        ]
-      }
-    }
-  ]
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Standard"
+            },
+            "name": "[variables('publicIPAddressName')]",
+            "apiVersion": "2024-07-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publicIPAllocationMethod": "Static"
+            }
+        },
+        {
+            "type": "Microsoft.Network/applicationGateways",
+            "name": "[variables('applicationGatewayName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sku": {
+                    "name": "Standard_v2",
+                    "tier": "Standard_v2",
+                    "capacity": 3
+                },
+                "sslCertificates": [
+                    {
+                        "name": "sslCert",
+                        "properties": {
+                            "data": "[parameters('certData')]",
+                            "password": "[parameters('certPassword')]"
+                        }
+                    }
+                ],
+                "sslPolicy": {
+                    "policyType": "Predefined",
+                    "policyName": "AppGwSslPolicy20220101"
+                },
+                "sslProfiles": [
+                    {
+                        "name": "sslnotrustedcert",
+                        "id": "[concat(resourceId('Microsoft.Network/applicationGateways',  variables('applicationGatewayName')), '/sslProfiles/sslnotrustedcert')]",
+                        "properties": {
+                            "clientAuthConfiguration": {
+                                "VerifyClientCertIssuerDN": false,
+                                "VerifyClientRevocation": "None",
+                                "VerifyClientAuthMode": "Passthrough"
+                            }
+                        }
+                    }                   
+                ],
+                "gatewayIPConfigurations": [
+                    {
+                        "name": "appGatewayIpConfig",
+                        "properties": {
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            }
+                        }
+                    }
+                ],
+                "frontendIPConfigurations": [
+                    {
+                        "name": "appGatewayFrontendIP",
+                        "properties": {
+                            "PublicIPAddress": {
+                                "id": "[variables('publicIPRef')]"
+                            }
+                        }
+                    }
+                ],
+                "frontendPorts": [
+                    {
+                        "name": "port2",
+                        "properties": {
+                            "Port": 444
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "pool2",
+                        "properties": {
+                            "BackendAddresses": [
+							  {
+                                "fqdn": "headerappgw-hsa5gjh8fpfebcfd.westus-01.azurewebsites.net"
+                              }
+							]
+                        }
+                    }
+                ],
+                "backendHttpSettingsCollection": [
+                    {
+                        "name": "settings2",
+                        "properties": {
+                            "Port": 80,
+                            "Protocol": "Http"
+                        }
+                    }
+                ],
+                "httpListeners": [
+                    {
+                        "name": "listener2",
+                        "properties": {
+                            "FrontendIPConfiguration": {
+                                "Id": "[concat(variables('applicationGatewayID'), '/frontendIPConfigurations/appGatewayFrontendIP')]"
+                            },
+                            "FrontendPort": {
+                                "Id": "[concat(variables('applicationGatewayID'), '/frontendPorts/port2')]"
+                            },
+                            "Protocol": "Https",
+                            "SslCertificate": {
+                                "Id": "[concat(variables('applicationGatewayID'), '/sslCertificates/sslCert')]"
+                            },
+                            "sslProfile": {
+                                "id": "[concat(variables('applicationGatewayID'), '/sslProfiles/sslnotrustedcert')]"
+                            }
+                        }
+                    }
+                ],
+                "requestRoutingRules": [
+                    {
+                        "Name": "rule2",
+                        "properties": {
+                            "RuleType": "Basic",
+                            "priority": 2000,
+                            "httpListener": {
+                                "id": "[concat(variables('applicationGatewayID'), '/httpListeners/listener2')]"
+                            },
+                            "backendAddressPool": {
+                                "id": "[concat(variables('applicationGatewayID'), '/backendAddressPools/pool2')]"
+                            },
+                            "backendHttpSettings": {
+                                "id": "[concat(variables('applicationGatewayID'), '/backendHttpSettingsCollection/settings2')]"
+                            }
+                        }
+                    }
+                ]
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]"
+            ]
+        }
+    ]
 }
 ```
 

@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 7/21/2025
+ms.date: 07/21/2025
 ms.author: mbender
 # Customer intent: As a cloud engineer, I want to enable and configure diagnostic logging for Application Gateway for Containers, so that I can monitor access patterns and troubleshoot performance issues effectively.
 ---

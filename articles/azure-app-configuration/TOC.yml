@@ -156,6 +156,8 @@
       href: concept-snapshots.md
     - name: Create and use snapshots
       href: howto-create-snapshots.md
+    - name: Snapshot references
+      href: concept-snapshot-references.md
   - name: Push notifications
     items:
     - name: Overview

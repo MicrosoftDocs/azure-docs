@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.date: 7/9/2019
+ms.date: 07/09/2019
 ms.author: mbender
 # Customer intent: "As an IT administrator managing Azure Application Gateway, I want to monitor the resource health of my application gateways, so that I can quickly diagnose issues and ensure optimal performance and reliability of my services."
 ---
