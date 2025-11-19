@@ -13,7 +13,7 @@ ms.custom:
 | --- | --- | --- | --- | --- | --- | 
 | Default [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | 30 | 30 |30<sup>1</sup> | 30<sup>16</sup> |5 |
 | Max [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | unbounded<sup>9</sup> | unbounded<sup>9</sup> | unbounded<sup>2</sup> | unbounded<sup>17</sup> |10 |
-| Max outbound connections (per instance) |  unbounded | unbounded | unbounded | unbounded |600 active (1200 total) |
+| Max outbound connections (per instance) |  unbounded | See [Azure App Service Limits](https://github.com/MicrosoftDocs/azure-docs/blob/main/includes/azure-websites-limits.md) | [Azure App Service Limits](https://github.com/MicrosoftDocs/azure-docs/blob/main/includes/azure-websites-limits.md) | unbounded |600 active (1200 total) |
 | Max request size (MB)<sup>3</sup> |  210 | 210 | 210 | 210 |210 |
 | Max query string length<sup>3</sup> |  4096 | 4096 | 4096 | 4096 | 4096 |
 | Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 8192 | 
