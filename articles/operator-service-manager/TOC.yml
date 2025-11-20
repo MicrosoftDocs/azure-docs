@@ -10,20 +10,30 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Best Practices
+  - name: Getting Started
     expanded: false
     items:
       - name: Role-Based Persona Model
         href: roles-interfaces.md
-      - name: Publisher Tenants, Subscriptions and Regions
+      - name: Tenants, Subscriptions and Regions
         href: publisher-resource-preview-management.md
+      - name: Onboarding and Deploying Basics
+        href: best-practices-onboard-deploy.md
+  - name: Publisher Best Practices
+    expanded: false
+    items:
       - name: Helm Package Requirements
         href: helm-requirements.md
-      - name: Onboarding and Deployment Considerations
-        href: best-practices-onboard-deploy.md
+      - name: Publisher Resource Cleanup Management
+        href: resource-cleanup-management.md
+      - name: Publisher Artifact Store Resiliency
+        href: publisher-artifact-store-resiliency.md
+  - name: Designer Best Practices
+    expanded: false
+    items:
       - name: Workload Configuration Management 
         href: configuration-guide.md
-  - name: Azure Operator Service Manager CLI Extension
+  - name: Azure CLI Extension
     expanded: false
     items:
       - name: About the Azure Operator Service Manager CLI extension
@@ -86,6 +96,8 @@
   items:
   - name: Manage the network function operator extension
     href: manage-network-function-operator.md
+  - name: Interrupt a service deployment operation
+    href: how-to-cancel-service-deployments.md
   - name: Create required subscription, roles and identities
     expanded: false
     items:
@@ -135,3 +147,8 @@
     href: glossary.md
   - name: REST API
     href: /rest/api/hybridnetwork
+
+
+
+
+

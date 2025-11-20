@@ -6,8 +6,14 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 02/07/2025
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy24
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a Hyper-V administrator, I want to discover on-premises servers using Azure Migrate, so that I can gather performance data and prepare for migration to the cloud.
 ---
 
@@ -42,34 +48,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless).<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). For discovery of installed applications and for agentless dependency analysis, Windows servers must have PowerShell version 2.0 or later installed.<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
 **SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account [requires these permissions](migrate-support-matrix-hyper-v.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. You can use the [account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
-## Prepare an Azure user account
-
-To create a project and register the Azure Migrate appliance, you need an account with:
-- Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Microsoft Entra apps.
-
-If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
-
-1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**. 
-    :::image type="content" source="./media/tutorial-discover-hyper-v/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
-
-1. In the **Subscriptions** page, select the subscription in which you want to create a project. 
-1. Select **Access control (IAM)**.
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page. 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
- 
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | Contributor or Owner |
-    | Assign access to | User |
-    | Members | azmigrateuser |
-
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of add role assignment page in Azure portal.":::
-
-1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.** 
-1. In the portal, go to **Microsoft Entra ID** > **Users**.
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+[!INCLUDE [migrate-rbac-permissions](includes/migrate-rbac-permissions.md)]
 
 ## Prepare Hyper-V hosts
 

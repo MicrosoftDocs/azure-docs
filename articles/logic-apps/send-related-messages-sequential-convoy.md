@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, azla
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
@@ -30,7 +31,7 @@ For more information, see [Sequential convoy pattern - Azure Architecture Cloud 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * A Service Bus namespace and a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md), which is a messaging entity that you'll use in your logic app. These items and your logic app need to use the same Azure subscription. Make sure that you select **Enable sessions** when you create your queue. If you don't have these items, learn [how to create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
 

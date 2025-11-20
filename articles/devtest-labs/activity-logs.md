@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/10/2020
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 ---
 
 # View activity logs for labs in Azure DevTest Labs 

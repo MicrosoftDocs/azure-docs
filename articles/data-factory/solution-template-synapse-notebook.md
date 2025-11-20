@@ -6,6 +6,7 @@ author: chugugrace
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: integration-services
+ms.custom: sfi-image-nochange
 ---
 
 # Call Synapse pipeline with a notebook activity

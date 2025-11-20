@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 03/23/2025
+ms.date: 10/31/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.
 ---
@@ -139,7 +139,25 @@ To delete a dev box definition in the Azure portal:
 
    :::image type="content" source="./media/how-to-manage-dev-box-definitions/delete-warning.png" alt-text="Screenshot of the warning message about deleting a dev box definition.":::
 
+## Migrate to using images
+
+For new deployments or when updating existing configurations, consider migrating from dev box definitions to images defined through image definitions, custom images, or marketplace images. These approaches provide greater flexibility and customization options.
+
+### Recommended migration path
+
+- **For team-specific customizations**: Create [image definitions](how-to-configure-team-customizations.md) with YAML-based customization files
+- **For organization-specific images**: Use [custom images from Azure Compute Gallery](how-to-configure-azure-compute-gallery.md) in your pools
+- **For standard configurations**: Use [marketplace images](how-to-manage-dev-box-pools.md#understanding-image-and-definition-types) directly in your pools 
+
+### Benefits of using images
+
+- **Better customization**: YAML-based team customizations with image definitions
+- **Simplified management**: Pool-level configuration without pre-defined bundles
+- **Greater flexibility**: Independent selection of compute size and storage
+
 ## Related content
 
-- [Provide access to projects for project admins](./how-to-project-admin.md)
+- [Manage dev box pools](./how-to-manage-dev-box-pools.md)
+- [Configure team customizations](./how-to-configure-team-customizations.md)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
+- [Provide access to projects for project admins](./how-to-project-admin.md)

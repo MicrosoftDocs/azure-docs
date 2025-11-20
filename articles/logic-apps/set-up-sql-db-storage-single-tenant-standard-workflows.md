@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/21/2025
+ms.custom: sfi-image-nochange
 #Customer intent: As an integration solution developer working with Azure Logic Apps, I want to use my own SQL server as the storage provider, rather than Azure Storage.
 ---
 
@@ -55,7 +56,7 @@ The following table describes some reasons why you might want to use SQL:
 
 ## Prerequisites
 
-- An Azure account and active subscription. If you don't have one already, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and active subscription. If you don't have one already, [sign up for a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A SQL environment to use with your logic app. However, before you set up your environment, complete the following steps:
 

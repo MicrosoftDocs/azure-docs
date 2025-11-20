@@ -29,7 +29,7 @@ For a demonstration of this process, see the following video:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli).
   - Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 - [Git](https://git-scm.com/downloads).

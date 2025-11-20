@@ -6,12 +6,11 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/05/2024
+ms.date: 09/30/2025
 ms.author: jianleishen
 ---
 
 # Copy activity in Azure Data Factory and Azure Synapse Analytics
-
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,7 +26,7 @@ The Copy activity is executed on an [integration runtime](concepts-integration-r
 An integration runtime needs to be associated with each source and sink data store. For information about how the Copy activity determines which integration runtime to use, see [Determining which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 > [!NOTE]
-> You cannot use more than one self-hosted integration runtime within the same Copy activity. The source and sink for the activity must be connected with the same self-hosted integration runtime.
+> You can't use more than one self-hosted integration runtime within the same Copy activity. The source and sink for the activity must be connected with the same self-hosted integration runtime.
 
 To copy data from a source to a sink, the service that runs the Copy activity performs these steps:
 
@@ -68,7 +67,7 @@ You can use the Copy activity to copy files as-is between two file-based data st
 
 ## Supported regions
 
-The service that enables the Copy activity is available globally in the regions and geographies listed in [Azure integration runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Products by region](https://azure.microsoft.com/regions/#services) to check the availability of Data Factory, Synapse Workspaces and data movement in a specific region.
+The service that enables the Copy activity is available globally in the regions and geographies listed in [Azure integration runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Products by region](https://azure.microsoft.com/regions/#services) to check the availability of Data Factory, Synapse Workspaces, and data movement in a specific region.
 
 ## Configuration
 
@@ -161,20 +160,20 @@ The [copy activity monitoring](copy-activity-monitoring.md) experience shows you
 
 ## Resume from last failed run
 
-Copy activity supports resume from last failed run when you copy large size of files as-is with binary format between file-based stores and choose to preserve the folder/file hierarchy from source to sink, e.g. to migrate data from Amazon S3 to Azure Data Lake Storage Gen2. It applies to the following file-based connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
+Copy activity supports resume from last failed run when you copy large size of files as-is with binary format between file-based stores and choose to preserve the folder/file hierarchy from source to sink, for example, to migrate data from Amazon S3 to Azure Data Lake Storage Gen2. It applies to the following file-based connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md), and [SFTP](connector-sftp.md).
 
-You can leverage the copy activity resume in the following two ways:
+You can use the copy activity resume in the following two ways:
 
-- **Activity level retry:** You can set retry count on copy activity. During the pipeline execution, if this copy activity run fails, the next automatic retry will start from last trial's failure point.
-- **Rerun from failed activity:** After pipeline execution completion, you can also trigger a rerun from the failed activity in the ADF UI monitoring view or programmatically. If the failed activity is a copy activity, the pipeline will not only rerun from this activity, but also resume from the previous run's failure point.
+- **Activity level retry:** You can set retry count on copy activity. During the pipeline execution, if this copy activity run fails, the next automatic retry starts from last trial's failure point.
+- **Rerun from failed activity:** After pipeline execution completion, you can also trigger a rerun from the failed activity in the ADF UI monitoring view or programmatically. If the failed activity is a copy activity, the pipeline won't only rerun from this activity, but also resume from the previous run's failure point.
 
     :::image type="content" source="media/copy-activity-overview/resume-copy.png" alt-text="Copy resume":::
 
 Few points to note:
 
-- Resume happens at file level. If copy activity fails when copying a file, in next run, this specific file will be re-copied.
-- For resume to work properly, do not change the copy activity settings between the reruns.
-- When you copy data from Amazon S3, Azure Blob, Azure Data Lake Storage Gen2 and Google Cloud Storage, copy activity can resume from arbitrary number of copied files. While for the rest of file-based connectors as source, currently copy activity supports resume from a limited number of files, usually at the range of tens of thousands and varies depending on the length of the file paths; files beyond this number will be re-copied during reruns.
+- Resume happens at file level. If copy activity fails when copying a file, in next run, this specific file will be recopied.
+- For resume to work properly, don't change the copy activity settings between the reruns.
+- When you copy data from Amazon S3, Azure Blob, Azure Data Lake Storage Gen2, and Google Cloud Storage, copy activity can resume from arbitrary number of copied files. While for the rest of file-based connectors as source, currently copy activity supports resume from a limited number of files, usually at the range of tens of thousands and varies depending on the length of the file paths; files beyond this number will be recopied during reruns.
 
 For other scenarios than binary file copy, copy activity rerun starts from the beginning.
 
@@ -187,8 +186,8 @@ While copying data from source to sink, in scenarios like data lake migration, y
 
 ## Add metadata tags to file based sink
 When the sink is Azure Storage based (Azure data lake storage or Azure Blob Storage), we can opt to add some metadata to the files. These metadata will be appearing as part of the file properties as Key-Value pairs. 
-For all the types of file based sinks, you can add metadata involving dynamic content using the pipeline parameters, system variables, functions and variables. 
-In addition to this, for binary file based sink, you have the option to add Last Modified datetime (of the source file) using the keyword $$LASTMODIFIED, as well as custom values as a metadata to the sink file. 
+For all the types of file based sinks, you can add metadata involving dynamic content using the pipeline parameters, system variables, functions, and variables. 
+In addition to this, for binary file based sink, you have the option to add Last Modified datetime (of the source file) using the keyword $$LASTMODIFIED, and custom values as a metadata to the sink file. 
 
 ## Schema and data type mapping
 
@@ -263,7 +262,7 @@ To configure it programmatically, add the `additionalColumns` property in your c
 
 ## Auto create sink tables
 
-When you copy data into SQL database/Azure Synapse Analytics, if the destination table does not exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
+When you copy data into SQL database/Azure Synapse Analytics, if the destination table doesn't exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
 
 This feature is supported when copying data from any source into the following sink data stores. You can find the option on *ADF authoring UI* -> *Copy activity sink* -> *Table option* -> *Auto create table*, or via `tableOption` property in copy activity sink payload.
 
@@ -280,10 +279,10 @@ By default, the Copy activity stops copying data and returns a failure when sour
 
 ## Data consistency verification
 
-When you move data from source to destination store, copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. See [Data consistency verification in copy activity](copy-activity-data-consistency.md) for details.
+When you move data from source to destination store, copy activity provides an option for you to do extra data consistency verification to ensure the data isn't only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. See [Data consistency verification in copy activity](copy-activity-data-consistency.md) for details.
 
 ## Session log
-You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session sign in copy activity](copy-activity-log.md) for details.
+You can log your copied file names, which can help you to further ensure the data isn't only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session sign in copy activity](copy-activity-log.md) for details.
 
 ## Related content
 See the following quickstarts, tutorials, and samples:

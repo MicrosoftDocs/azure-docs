@@ -27,7 +27,7 @@ Here are some example ways to use these actions:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). To use an action, your workflow must start with a trigger. You can use any trigger you want and add other actions before you add a delay action.
 

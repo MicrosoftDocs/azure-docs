@@ -20,7 +20,7 @@ This guide shows how to add a map for your workflow to use. You can add maps eit
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The map that you want to upload.
 

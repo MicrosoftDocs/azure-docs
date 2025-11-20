@@ -6,7 +6,8 @@ ms.topic: how-to
 ms.date: 10/18/2024
 ms.author: danlep
 author: dlepow
-ms.custom: 
+ms.custom:
+  - sfi-image-nochange
 # Customer intent: As an API program manager, I want to automate a workflow for an individual to receive a Microsoft Teams notification to set status for an API that is registered in my organization's API center.
 ---
 
@@ -355,7 +356,7 @@ Confirm that the event subscription is provisioned successfully in your API cent
 Test the event subscription by registering an API in your API center:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1.  [Register an API](register-apis.md) in your API center. After the API is registered:
+1.  [Register an API](././tutorials/register-apis.md) in your API center. After the API is registered:
     * The event subscription triggers the logic app workflow.
     * The logic app workflow runs and sends a notification to the individual in Microsoft Teams.
 1. In Microsoft Teams, view the adaptive card, make an API status selection, and select **Submit**. 

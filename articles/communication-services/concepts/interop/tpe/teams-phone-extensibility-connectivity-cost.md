@@ -66,7 +66,7 @@ Choosing the best PSTN connectivity solution for Teams Phone extensibility depen
 
 - End users can take advantage of their Teams Calling plans or any of the connectivity options for PSTN usage with inbound / outbound and any associated extra usage. Users must enable the required Teams licenses including Teams Phone License for any agent involved in the call including SMEs, and Resource Account license for the provisioned Teams resource account. For more information, see [Microsoft Teams Phone - Cloud Phone System](https://www.microsoft.com/microsoft-teams/microsoft-teams-phone).
 
-- **As of November 1st 2025**, Calling Plan licenses on resource accounts will no longer be supported for On-Behalf-Of PSTN outbound calls. A Pay-As-You-Go license will be required. For more information, see [Plan for Teams Auto attendants and Call queues](https://learn.microsoft.com/microsoftteams/plan-auto-attendant-call-queue).
+- **As of November 1st 2025**, Calling Plan licenses on resource accounts will no longer be supported for On-Behalf-Of PSTN outbound calls. A Pay-As-You-Go license will be required. For more information, see [Plan for Teams Auto attendants and Call queues](/microsoftteams/plan-auto-attendant-call-queue).
 
 ## Related articles
 

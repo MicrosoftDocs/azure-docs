@@ -1,31 +1,31 @@
 ---
-title: Install Azure Container Storage using Azure Arc CLI commands
-description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service (AKS) using Azure Arc CLI commands. Create an AKS cluster, label the node pool, and install Azure Container Storage.
+title: Install Azure Container Storage (version 1.x.x) using Azure Arc CLI commands
+description: Learn how to install Azure Container Storage (version 1.x.x) for use with Azure Kubernetes Service (AKS) using Azure Arc CLI commands. Create an AKS cluster, label the node pool, and install Azure Container Storage.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/09/2024
+ms.date: 09/03/2025
 ms.author: kendownie
-ms.custom: devx-track-azurecli
-# Customer intent: As a cloud architect, I want to install Azure Container Storage on an AKS cluster using Azure Arc CLI commands so that I can enable scalable and flexible storage solutions for my containerized applications.
+ms.custom: devx-track-azurecli, references_regions
+# Customer intent: As a cloud architect, I want to install Azure Container Storage (version 1.x.x) on an AKS cluster using Azure Arc CLI commands so that I can enable scalable and flexible storage solutions for my containerized applications.
 ---
 
-# Tutorial: Install Azure Container Storage using Azure Arc CLI commands
+# Tutorial: Install Azure Container Storage (version 1.x.x) using Azure Arc CLI commands
 
-This article shows you how to create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage on the cluster using Azure Arc CLI commands.
+This article shows you how to create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage (version 1.x.x) on the cluster using Azure Arc CLI commands. It describes a manual installation process that only certain customers will want to use, for example if you want to install an older version of Azure Container Storage.
 
 > [!IMPORTANT]
-> This article describes a manual installation process that only certain customers will want to use, for example if you want to install an older version of Azure Container Storage. The preferred method of installing the latest production version of Azure Container Storage is using AKS CLI as described in [this QuickStart](container-storage-aks-quickstart.md).
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-* This article requires the latest version (2.35.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started).
+* This article requires the latest version of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started).
 
 * You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
-* Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
+* Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction-version-1.md#regional-availability).
 
 ## Getting started
 
@@ -223,6 +223,6 @@ Now you can create a storage pool and volumes. Follow the steps in the appropria
 
 - [Use Azure managed disks](use-container-storage-with-managed-disks.md)
 - [Use Azure Elastic SAN](use-container-storage-with-elastic-san.md)
-- [Use local NVMe](use-container-storage-with-local-disk.md)
+- [Use local NVMe](use-container-storage-with-local-disk-version-1.md)
 - [Use temp SSD](use-container-storage-with-temp-ssd.md)
 - [Use local NVMe and volume replication](use-container-storage-with-local-nvme-replication.md)

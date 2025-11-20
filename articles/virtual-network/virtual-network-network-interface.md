@@ -4,10 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, and delete Azure network interfaces using the Azure portal, PowerShell, or CLI. Step-by-step guide with examples for managing VM networking.
 author: asudbring
 ms.service: azure-virtual-network
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/28/2025
 ms.author: allensu
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a cloud engineer, I want to create, change, or delete Azure network interfaces using the portal, CLI, or PowerShell so that I can effectively manage virtual machine networking in my cloud environment."
 ---
 
@@ -23,7 +26,7 @@ A VM you create in the Azure portal has one NIC with default settings. You can c
 
 You need the following prerequisites:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using the Azure portal](quick-create-portal.md).
 
 To run the procedures in this article, sign in to the [Azure portal](https://portal.azure.com) with your Azure account. You can replace the placeholders in the examples with your own values.
@@ -32,7 +35,7 @@ To run the procedures in this article, sign in to the [Azure portal](https://por
 
 To run the commands in this article, you need the following prerequisites:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure CLI](quick-create-cli.md).
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from Azure CLI on your computer.
@@ -51,7 +54,7 @@ In the following procedures, you can replace the example placeholder names with 
 
 To run the commands in this article, you need the following prerequisites:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure PowerShell](quick-create-powershell.md).
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from PowerShell on your computer.

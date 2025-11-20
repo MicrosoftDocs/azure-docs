@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 2/28/2025
+ms.date: 02/28/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to add readiness and liveness health probes to my AKS pods, so that I can ensure they are properly monitored for availability and performance within my application deployment.
 ---

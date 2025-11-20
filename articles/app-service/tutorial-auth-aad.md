@@ -7,11 +7,16 @@ ms.author: cephalin
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 07/03/2025
-ms.custom: devx-track-azurecli, engagement-fy23, AppServiceIdentity, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
 #customer intent: As an app developer, I want to authenticate and authorize uses seamlessly for front-end and back-end apps in the Azure App Service.
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurecli
+  - engagement-fy23
+  - AppServiceIdentity
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
@@ -83,7 +88,7 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Create and deploy the front-end web app with the [az webapp up](/cli/azure/webapp#az-webapp-up) command. The web app name has to be globally unique. Replace `<front-end-app-name>` with a unique name. 
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --os-type Windows --location "West Europe" --runtime "NODE:20LTS"
+   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --os-type Windows --location "West Europe" --runtime "NODE:24LTS"
    ```
 
 1. Change into the `backend` web app directory.
@@ -95,7 +100,7 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique string of letters and numbers.
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --os-type Windows --location "West Europe" --runtime "NODE:20LTS"
+    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --os-type Windows --location "West Europe" --runtime "NODE:24LTS"
     ```
 
 ::: zone-end
@@ -111,7 +116,7 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Create and deploy the front-end web app with the [az webapp up](/cli/azure/webapp#az-webapp-up) command. The web app name has to be globally unique. Replace `<front-end-app-name>` with a unique string of letters and numbers. 
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:20-lts"
+   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:24-lts"
     ```
 
 1. Change into the `backend` web app directory.
@@ -123,7 +128,7 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique string of letters and numbers. 
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --sku FREE --location "West Europe" --runtime "NODE:16-lts"
+   az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --sku FREE --location "West Europe" --runtime "NODE:24-lts"
    ```
 
 ::: zone-end

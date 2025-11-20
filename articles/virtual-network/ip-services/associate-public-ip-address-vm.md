@@ -9,7 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 12/11/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to associate a public IP address to a virtual machine so that I can enable external connectivity for the VM and manage network traffic effectively."
 ---
 
@@ -25,7 +30,7 @@ Public IP addresses have a nominal fee. For details, see [pricing](https://azure
 
 ## Prerequisites
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 # [Azure portal](#tab/azure-portal)
 

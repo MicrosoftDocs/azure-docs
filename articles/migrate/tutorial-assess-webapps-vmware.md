@@ -4,6 +4,7 @@ description: Learn how to create assessment for Azure App Service in VMware VMs 
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy24, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-app-service
 # Customer intent: "As a cloud migration specialist, I want to assess ASP.NET and Java web apps running on VMware VMs for migration to Azure App Service, so that I can evaluate their cloud readiness, identify risks, and estimate associated costs and complexity."

@@ -30,7 +30,7 @@ To run your workflow by sending an outgoing or outbound request instead, use the
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The logic app resource with the workflow where you want to receive the inbound HTTPS request.
 

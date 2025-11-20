@@ -11,6 +11,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security administrator, I want to enable the data connector for Microsoft Defender Threat Intelligence so that I can ingest high fidelity threat intelligence into my Microsoft Sentinel workspace for enhanced threat monitoring and response.

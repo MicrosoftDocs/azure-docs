@@ -7,6 +7,7 @@ ms.author: meiyl
 author: meiyl
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Use the diagnose connectivity feature in the SSIS integration runtime

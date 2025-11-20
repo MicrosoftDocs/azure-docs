@@ -4,13 +4,15 @@ titleSuffix: Microsoft Sentinel
 description: Learn how to plan your Microsoft Sentinel costs, and understand pricing and billing using the pricing calculator and other methods.
 author: EdB-MSFT
 ms.author: edbaynash
-ms.custom: subject-cost-optimization
 ms.topic: concept-article
-ms.date: 07/09/2025
+ms.date: 09/11/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
+ms.custom:
+  - subject-cost-optimization
+  - sfi-image-nochange
 
 
 #Customer intent: As a SOC manager, I want to understand Microsoft Sentinel's pricing and billing models so that I can optimize costs and accurately forecast expenses.
@@ -33,7 +35,7 @@ This article is part of the [Deployment guide for Microsoft Sentinel](deploy-ove
 
 Enable Microsoft Sentinel on an Azure Monitor Log Analytics workspace and the first 10 GB/day ingested using the Analytics logs plan is free for 31 days. The cost for both Log Analytics data ingestion and Microsoft Sentinel analysis charges up to the 10 GB/day limit, are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
-See the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page for information on how usage beyond these limits is charged. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial, as well as any Microsoft Sentinel data lake related charges.
+See the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page for information on how usage beyond these limits is charged. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial, and any Microsoft Sentinel data lake related charges.
 
 During your free trial, find resources for cost management, training, and more on the [**News & guides > Free trial**](https://portal.azure.com/#view/Microsoft_Azure_Security_Insights/MainMenuBlade/~/NewsAndGuides) tab in Microsoft Sentinel on the Azure portal. This tab also displays details about the dates of your free trial, and how many days left until the trial expires.
 
@@ -55,7 +57,7 @@ There are two ways to pay for the analytics tier: **Pay-As-You-Go** and **Commit
 
 - Log Analytics and Microsoft Sentinel have **Commitment Tier** pricing, formerly called Capacity Reservations. These pricing tiers are combined into simplified pricing tiers that are more predictable and offer substantial savings compared to **Pay-As-You-Go** pricing.
 
-    **Commitment Tier** pricing starts at 100 GB per day. Any usage above the commitment level is billed at the Commitment tier rate you selected. For example, a Commitment tier of **100 GB per day** bills you for the committed 100 GB data volume, plus any extra GB/day at the discounted effective rate for that tier. The **Effective Per GB Price** is simply the **Microsoft Sentinel Price** divided by the **Tier** GB per day quantity. For more information, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+    **Commitment Tier** pricing starts at 100 GB per day. Any usage above the commitment level is billed at the Commitment tier rate you selected. For example, a Commitment tier of **100 GB per day** bills you for the committed 100-GB data volume, plus any extra GB/day at the discounted effective rate for that tier. The **Effective Per GB Price** is simply the **Microsoft Sentinel Price** divided by the **Tier** GB per day quantity. For more information, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
     Increase your Commitment tier anytime to optimize costs as your data volume increases. Lowering the Commitment tier is only allowed every 31 days. To see your current Microsoft Sentinel pricing tier, select **Settings** in Microsoft Sentinel, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
@@ -65,35 +67,22 @@ There are two ways to pay for the analytics tier: **Pay-As-You-Go** and **Commit
 
 #### Data lake tier
 
-The data lake tier is a cost-effective option for ingesting secondary security data. They're charged at a flat, low rate per GB. The data lake tier provides querying and jobs scheduling capabilities and once enabled, mirrors all data available in the analytics tier.
+To learn more about the Microsoft Sentinel data lake, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
 
-For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md)  
+The data lake tier incurs charges based on usage of various data lake capabilities. 
+- **Data lake ingestion** is charged per GB for all data ingested into tables with retention set to data lake tier only. Data lake ingestion charges don't apply when data is ingested into tables with retention set to include both analytic and data lake tiers.
+- **Data processing** is charged per GB for data ingested into tables with retention set to data lake tier only. It supports transformations like redaction, splitting, filtering, and normalization. Data processing charges don't apply when data is ingested into tables with retention set to include both analytic and data lake tiers.
+- **Data lake storage** charges are applied per GB per month for any data that remains in the data lake tier after the analytic tier retention period ends. Charges are based on a simple and uniform data compression rate of 6:1. For example, if you retain 600 GB of raw data, it's billed as 100 GB of compressed data.
+- **Data lake query** charges apply per GB of uncompressed data analyzed using Kusto Query Language (KQL) queries or KQL jobs.
+- **Advanced data insights** charges apply per compute hour used when using data lake exploration notebook sessions or running data lake exploration notebook jobs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running. Data lake notebook sessions and jobs are available in pools of four, eight, and 16 cores.
 
-The data lake tier incurs charges based on usage of various data like capabilities. 
-- **Data lake ingestion** charges are incurred per GB of data ingested for tables in Lake only mode.
-- **Data lake storage** charges are incurred per GB per month for any data stored beyond the interactive retention period or in Lake only mode.
-- **Data processing** charges are incurred per GB processed to transform 3rd party data. This bills for the [data collection rules](data-transformation.md#dcr-support-in-microsoft-sentinel) capability over data ingested into data lake.
-- **Data lake query** charges are incurred per GB of data analyzed using data lake exploration KQL queries, KQL jobs, or Search.
-- **Advanced data insights** charges are incurred per compute hour used when using data lake exploration notebook sessions or running data lake exploration notebook jobs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running.
+Once onboarded, usage from Microsoft Sentinel workspaces begins to be billed through the previously described meters rather than existing long-term retention (formerly known as Archive), search, or auxiliary logs ingestion meters.
 
-Once onboarded, usage from Microsoft Sentinel workspaces begins to be billed through the above described meters rather than existing long-term retention (formerly known as Archive), search or auxiliary logs ingestion meters.
+> [!IMPORTANT]
+> Existing Microsoft Sentinel customers currently using and billed for auxiliary logs ingestion, long-term retention, and search will see charges transition to the new data lake ingestion, data lake storage, and data lake query meters respectively, once they onboard to Microsoft Sentinel data lake. Pricing from previous meters doesn't carry over. For more information on pricing, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
->[!IMPORTANT]
->While in preview, once onboarded to the Microsoft Sentinel data lake, billing through new meters is billed at the respective meters' list rate. Pricing from previous meters doesn't carry over. For more details on pricing, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
->Existing customers that are currently billed for Auxiliary logs ingestion, long-term retention and search, will see charges transition to the new data lake ingestion, data lake storage and data lake query meters respectively.
+For customers that haven't onboarded to Microsoft Sentinel data lake and are currently using auxiliary or basic logs, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for relevant information.
 
-For customers that haven't onboarded to the Microsoft Sentinel data lake and are currently using Auxiliary or Basic logs, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for relevant information.
-
-##### Preview specific considerations for data lake tier metering
-
-The following are considerations that are going to apply during preview:
-- Data lake ingestion includes 30-days of retention for data ingested directly into the lake.
-- Entra asset data retention is offered free of charge.
-- Data processing of data ingested into data lake is offered free of charge.
-- While long-term retention billing will transition to the data lake storage meter for existing customers, data in long-term retention will initially only be accessible through **Microsoft Sentinel > Data lake exploration > Search & restore**.
-- Charges for data lake usage will show in part under a workspace resource and in part under a SentinelPlatformServices resource.
-- Data written to analytics tier using jobs will be charged through the analytics ingestion meter.
-  
 ### Simplified pricing tiers
 
 Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel and ingestion storage costs of Log Analytics into a single pricing tier. The following screenshot shows the simplified pricing tier that all new workspaces use.
@@ -213,7 +202,7 @@ After you enable Microsoft Sentinel on a Log Analytics workspace, consider these
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 - Specify different retention settings for individual data types. Learn about [retention by data type](/azure/azure-monitor/logs/data-retention-configure#configure-table-level-retention). 
-- Extend retention of data with total retention so you have access to historical logs. The Microsoft Sentinel data lake, currently in preview, is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Use **Data management > Tables** to adjust the Analytics and Total retention period and learn more in [What is Microsoft Sentinel data lake?](datalake/sentinel-lake-overview.md). 
+- Extend retention of data with total retention so you have access to historical logs. The Microsoft Sentinel data lake is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Use **Data management > Tables** to adjust the Analytics and Total retention period and learn more in [What is Microsoft Sentinel data lake?](datalake/sentinel-lake-overview.md). 
 - Switch tables that contain secondary security data to **Lake tier**. This enables you to store high-volume, low-value logs at a low price, with querying capabilities built in. Use **Data management > Tables** to switch tables from **Analytics** to **Lake** tier.
 
 ## Other CEF ingestion costs
@@ -250,19 +239,21 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 
 | Microsoft Sentinel data connector     | Free data type                          |
 | ------------------------------------- | --------------------------------------- |
-| **Azure Activity Logs**               | AzureActivity                           |
+| **Azure Activity**               | AzureActivity                           |
 | **Health monitoring for Microsoft Sentinel** <sup>[1](#audithealthnote)</sup>   | SentinelHealth |
 | **Microsoft Entra ID Protection**     | SecurityAlert (IPC)                     |
-| **Office 365**                        | OfficeActivity (SharePoint)             |
+| **Microsoft 365**                        | OfficeActivity (SharePoint)             |
 |                                       | OfficeActivity (Exchange)               |
 |                                       | OfficeActivity (Teams)                  |
-| **Microsoft Defender for Cloud**      | SecurityAlert (Defender for Cloud)      |
-| **Microsoft Defender for IoT**        | SecurityAlert (Defender for IoT)        |
+| **Microsoft Defender for Cloud**      | SecurityAlert (Azure Security Center)      |
+| **Microsoft Defender for IoT**        | SecurityAlert (Azure Security Center for IoT)        |
 | **Microsoft Defender XDR**            | SecurityIncident                        |
 |                                       | SecurityAlert                           |
 | **Microsoft Defender for Endpoint**   | SecurityAlert (MDATP)                   |
 | **Microsoft Defender for Identity**   | SecurityAlert (AATP)                    |
-| **Microsoft Defender for Cloud Apps** | SecurityAlert (Defender for Cloud Apps) |
+| **Microsoft Defender for Cloud Apps** | SecurityAlert (MCAS) |
+| **Microsoft Defender for Office 365 (Preview)** | SecurityAlert (OATP) |
+
 
 <a id="audithealthnote">*<sup>1</sup>*</a> *For more information, see [Auditing and health monitoring for Microsoft Sentinel](health-audit.md).*
 

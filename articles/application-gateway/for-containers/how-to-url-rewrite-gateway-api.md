@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
+ms.date: 11/05/2024
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure URL rewriting for an Application Gateway for Containers, so that I can map incoming requests to appropriate backend services based on specified paths.
 ---

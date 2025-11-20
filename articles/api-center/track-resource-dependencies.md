@@ -28,7 +28,7 @@ Each dependency identifies a *source* resource and a related *target* resource t
 ## Prerequisites
 
 * An [Azure API center](overview.md) resource in your Azure subscription.
-* Register one or more APIs in your API center. For instructions, see [Register APIs in your API inventory](register-apis.md).
+* Register one or more APIs in your API center. For instructions, see [Register APIs in your API inventory](./tutorials/register-apis.md).
 
 ## Add a dependency
 
@@ -85,4 +85,4 @@ To delete a dependency:
 ## Related content
 
 * [Overview of Azure API center](overview.md)
-* [Register APIs in your API inventory](register-apis.md)
+* [Register APIs in your API inventory](./tutorials/register-apis.md)

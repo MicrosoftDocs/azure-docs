@@ -6,8 +6,10 @@ author: jianleishen
 ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 04/02/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from an SAP table using Azure Data Factory or Azure Synapse Analytics

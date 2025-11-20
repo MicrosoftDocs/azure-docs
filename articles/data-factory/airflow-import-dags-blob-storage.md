@@ -17,7 +17,7 @@ This article shows you step-by-step instructions on how to import directed acycl
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - **Azure Data Factory**: Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Workflow Orchestration Manager preview is supported](concepts-workflow-orchestration-manager.md#region-availability-public-preview).
 - **Azure Storage account**: If you don't have a storage account, see [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
 

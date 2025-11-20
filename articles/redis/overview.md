@@ -1,8 +1,9 @@
 ---
 title: What is Azure Managed Redis?
 description: Learn about Azure Managed Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
-ms.date: 05/18/2025
-ms.topic: how-to
+ms.date: 11/10/2025
+ms.topic: overview
+ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
@@ -17,7 +18,7 @@ For more information on how Azure Managed Redis is built, see [Azure Managed Red
 
 Azure Managed Redis can improve the performance and scalability of an application that heavily uses backend data stores. It's able to process large volumes of application requests by keeping frequently accessed data in the server memory, which can be written to and read from quickly.
 
-Redis brings a critical low-latency and high-throughput data storage solution to modern applications. Additionally, Redis is increasingly used for noncaching applications, including data ingestion, deduplication, messaging, leaderboards, [semantic caching](tutorial-semantic-cache.md), and as a [vector database](overview-vector-similarity.md).
+Redis brings a critical low-latency and high-throughput data storage solution to modern applications. Additionally, Redis is increasingly used for noncaching applications, including data ingestion, deduplication, messaging, and leaderboards
 
 Azure Managed Redis can be deployed standalone, or deployed along with other Azure app or database services, such as Azure Container Apps, Azure App Service, Azure Functions, Azure SQL, or Azure Cosmos DB.
 
@@ -30,8 +31,6 @@ Azure Managed Redis improves application performance by supporting common applic
 | Data cache | Databases are often too large to load directly into a cache. It's common to use the [cache-aside](/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache.|
 | Content cache | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Managed Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET.|
 | Session store | This pattern is commonly used with shopping carts and other user history data that a web application might associate with user cookies. Storing too much in a cookie can have a negative effect on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. When you use an in-memory cache, like Azure Managed Redis, to associate information with a user is faster than interacting with a full relational database. |
-| [Vector similarity search](overview-vector-similarity.md) | A common AI use-case is to generate vector embeddings using a large language model (LLM). These vector embeddings need to be stored in a vector database and then compared to determine similarity. Azure Managed Redis has built-in functionality to both store and compare vector embeddings at high throughputs.|
-| [Semantic caching](tutorial-semantic-cache.md) | Using LLMs often introduces a high amount of latency (due to generation time) and cost (due to per token pricing) to an application. Caching can help solve these problems by storing the past output of an LLM so that it can quickly be retrieved again. However, because LLMs use natural language, storage can be difficult for typical caches to handle. Semantic caches like Azure Managed Redis are capable of caching not just a specific query, but the semantic meaning of a query, allowing it to be used much more naturally with LLMs.|
 | [Deduplication](https://redis.io/solutions/deduplication/) | Often, you need to determine if an action already happened in a system, such as determining if a username is taken or if a customer was already sent an email. In Azure Managed Redis, bloom filters can rapidly determine duplicates, and prevent problems. |
 | Leaderboards | Redis offers simple and powerful support for developing leaderboards of all kinds using the [sorted set](https://redis.io/solutions/leaderboards/) data structure. Additionally, using [active geo-replication](how-to-active-geo-replication.md) can allow one leaderboard to be shared globally. |
 | Job and message queuing | Applications often add tasks to a queue when the operations associated with the request take time to execute. Longer running operations are queued to be processed in sequence, often by another server. This method of deferring work is called task queuing. Azure Managed Redis provides a distributed queue to enable this pattern in your application.|
@@ -46,58 +45,61 @@ Azure Managed Redis supports Redis version 7.4.x. For more information, see [How
 
 There are four tiers of Azure Managed Redis available, each with different performance characteristics and price levels.
 
-Three tiers are for in-memory data:
+### Tiers and SKUs at a glance
 
-[!INCLUDE [tier-preview](includes/tier-preview.md)]
-
+Here are three tiers store that store data in memory:
 - **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
 - **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources.
 - **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
 
-One tier stores data both in-memory and on-disk:
+    :::image type="content" source="media/overview/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/overview/sku-tiers-large.png":::
 
+Here's the tier that stores data both in-memory and on-disk:
 - **Flash Optimized (preview)** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
+
+    :::image type="content" source="media/overview/flash-tier.png" alt-text="An image of a table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
+
+
+You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. Data persistence is different from the Flash Optimized tier, which is designed to store data on-disk for typical operations.
+
+Storing some data on-disk using the Flash Optimized tier doesn't increase data resiliency. You can use data persistence on the Flash Optimized tier as well.
 
 >[!NOTE]
 > For more information on how the Flash Optimized tier is architected, see [Azure Managed Redis Architecture](architecture.md#flash-optimized-tier)
 >
 
->[!IMPORTANT]
-> You can also use the [data persistence (preview)](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. This is different than the Flash Optimized tier, which is designed to store data on-disk for typical operations.
-> Storing some data on-disk using the Flash Optimized tier doesn't increase data resiliency. You can use data persistence on the Flash Optimized tier as well.
->
+- For instructions on how to scale between tiers and SKUs, see [Scale an Azure Managed Redis instance](how-to-scale.md).
+- For pricing information, see the [Azure Managed Redis Pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 
-For instructions on how to scale between tiers and SKUs, see [Scale an Azure Managed Redis instance](how-to-scale.md).
-
-### Tiers and SKUs at a glance
-
-:::image type="content" source="media/how-to-scale/tier-diagram.png" alt-text="Table showing the different memory and vCPU configurations for each SKU and tier of Azure Managed Redis.":::
-
-For pricing information, see the [Azure Managed Redis Pricing](https://aka.ms/amrpricing)
+[!INCLUDE [tier-preview](includes/tier-preview.md)]
 
 ### Feature comparison
 
 The following table helps describe some of the features supported by tier:
 
-| Feature Description                                                                                   | Memory Optimized  | Balanced          | Compute Optimized | Flash Optimized   |
-|-------------------------------------------------------------------------------------------------------|:-----------------:|:-----------------:|:-----------------:|:-----------------:|
-| Size (GB)                                                                                             | 12 - 1920         | 0.5 - 960         | 3 - 720           | 250 - 4500        |
-| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)            | Yes               | Yes               | Yes               | Yes               |
-| Data encryption in transit                                                                            | Yes (Private endpoint)              | Yes (Private endpoint)               | Yes (Private endpoint)               | Yes (Private endpoint)               |
-| [Replication and failover](failover.md)                                                 | Yes               | Yes               | Yes               | Yes               |
-| [Network isolation](private-link.md)                                                    | Yes               | Yes               | Yes               | Yes               |
-| [Microsoft Entra ID based authentication](entra-for-authentication.md)                             | Yes               | Yes               | Yes               | Yes               |
-| [Scaling (preview)](how-to-scale.md)                                                              | Yes               | Yes               | Yes               | Yes               |
-| [Data persistence (preview)](how-to-persistence.md)                                       | Yes               | Yes               | Yes               | Yes               |
-| [Zone redundancy](high-availability.md)                                                 | Yes               | Yes               | Yes               | Yes               |
-| [Geo-replication](how-to-active-geo-replication.md)                                     | Yes (Active)      | Yes (Active)      | Yes (Active)      | No                |
-| Non-clustered instances                                                               | Yes             | Yes               | Yes                 | No                |
-| [Connection audit logs](monitor-diagnostic-settings.md)                                 | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) |
-| [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes               | Yes               | Yes               | Yes               |
-| [Search functionality (including vector search)](redis-modules.md)                      | Yes               | Yes               | Yes               | No                |
-| [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                    | Yes               | Yes               | Yes               | Yes               |
-| [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)             | Yes               | Yes               | Yes               | Yes               |
-| [Import/Export](how-to-import-export-data.md)                                           | Yes               | Yes               | Yes               | Yes               |
+| Feature Description                                                                        | Memory Optimized       | Balanced               | Compute Optimized      | Flash Optimized        |
+|--------------------------------------------------------------------------------------------|:----------------------:|:----------------------:|:----------------------:|:----------------------:|
+| Size (GB)                                                                                  | 12 - 1920              | 0.5 - 960              | 3 - 720                | 250 - 4500             |
+| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) | Yes                    | Yes                    | Yes                    | Yes                    |
+| Data encryption in transit                                                                 | Yes (Private endpoint) | Yes (Private endpoint) | Yes (Private endpoint) | Yes (Private endpoint) |
+| [Replication and failover](failover.md)                                                    | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Network isolation](private-link.md)                                                       | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Microsoft Entra ID based authentication](entra-for-authentication.md)                     | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Scaling](how-to-scale.md)                                                                 | Yes                    | Yes                    | Yes                    | Yes                    |
+| High availability                                                                          | \*Yes                  | \*Yes                  | \*Yes                  | \*Yes                  |
+| [Data persistence](how-to-persistence.md)                                                  | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Geo-replication](how-to-active-geo-replication.md)                                        | Yes (Active)           | Yes (Active)           | Yes (Active)           | No                     |
+| Non-clustered instances                                                                    | Yes                    | Yes                    | Yes                    | No                     |
+| [Connection audit logs](monitor-diagnostic-settings.md)                                    | Yes (Event-based)      | Yes (Event-based)      | Yes (Event-based)      | Yes (Event-based)      |
+| [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Search functionality (including vector search)](redis-modules.md)                         | Yes                    | Yes                    | Yes                    | No                     |
+| [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                   | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)            | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Import/Export](how-to-import-export-data.md)                                              | Yes                    | Yes                    | Yes                    | Yes                    |
+
+\* When **High availability** is enabled, Azure Managed Redis is zone redundant in regions with multiple Availability Zones. 
+
+When you use High availability (HA), an Azure Managed Redis instance is deployed with primary and replica shards across two nodes. In regions without Availability Zones, the primary and replica shards are deployed across two nodes in the same zone.
 
 > [!IMPORTANT]
 > The Balanced B0 and B1 SKU options don't support active geo-replication.
@@ -107,45 +109,68 @@ The following table helps describe some of the features supported by tier:
 > Scaling down support is limited in some situations. For more information, see [Limitations of scaling Azure Managed Redis](how-to-scale.md#limitations-of-scaling-azure-managed-redis).
 >
 
-### Other considerations when picking a tier
+### Network performance
 
-- **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that causes timeouts in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
-- **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
+If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that causes timeouts in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
 
-[!INCLUDE [tier-preview](includes/tier-preview.md)]
+### Maximum number of client connections
 
-|  Size (GB)  |    Memory Optimized   |    Balanced   |   Compute Optimized  |  Flash Optimized (preview)|
-|:-----------:|:---------------------:|:-------------:|:--------------------:|:--------------------:|
-|    0.5      |       -               |    15,000      |         -            |       -              |
-|     1       |       -               |    15,000      |         -            |       -              |
-|     3       |       -               |    15,000      |         30,000        |       -              |
-|     6       |       -               |    15,000      |         30,000        |       -              |
-|     12      |   15,000               |    30,000      |         75,000        |       -              |
-|     24      |   30,000               |    75,000      |         150,000       |       -              |
-|     60      |   75,000               |    150,000     |         200,000       |       -              |
-|     120     |   150,000              |    200,000     |         200,000       |       -              |
-|     180 *   |   200,000              |    200,000     |         200,000       |       -              |
-|     240 *   |   200,000              |    200,000     |         200,000       |       75,000          |
-|     360 *   |   200,000              |    200,000     |         200,000       |       -              |
-|     480 *   |   200,000              |    200,000     |         200,000       |       150,000         |
-|     720 *   |   200,000              |    200,000     |         200,000       |       200,000         |
-|     960 *   |   200,000              |    200,000     |         -             |       200,000         |
-|     1440 *  |   200,000              |        -       |         -             |       200,000         |
-|     1920 *  |   200,000              |        -       |         -             |       200,000         |
-|     4500 *  |       -                |        -       |         -             |       200,000         |
+Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
 
-  \* These tiers are in Public Preview.
+#### Memory Optimized, Balanced, and Compute Optimized SKUs
 
-- **High availability**: Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
+This table shows the max connections by tier and memory size in the Memory Optimized, Balanced, and Compute SKUs.
+
+| Size (GB) | Memory<br>Optimized | Balanced | Compute<br>Optimized |
+|:---------:|:-------------------:|:--------:|:--------------------:|
+| 0.5       | -                   | 15,000   | -                    |
+| 1         | -                   | 15,000   | -                    |
+| 3         | -                   | 15,000   | 30,000               |
+| 6         | -                   | 15,000   | 30,000               |
+| 12        | 15,000              | 30,000   | 75,000               |
+| 24        | 30,000              | 75,000   | 150,000              |
+| 60        | 75,000              | 150,000  | 200,000              |
+| 120       | 150,000             | 200,000  | 200,000              |
+| 175       | 200,000             | 200,000  | 200,000              |
+| 235       | 200,000             | 200,000  | 200,000              |
+| 360 *     | 200,000             | 200,000  | 200,000              |
+| 480 *     | 200,000             | 200,000  | 200,000              |
+| 720 *     | 200,000             | 200,000  | 200,000              |
+| 960 *     | 200,000             | 200,000  | -                    |
+| 1440 *    | 200,000             | -        | -                    |
+| 1920 *    | 200,000             | -        | -                    |
+| 4500 *    | -                   | -        | -                    |
+
+\* The sizes with an asterisk are in Public Preview.
+
+#### Flash Optimized SKU
+
+This table shows the max connections by tier and memory size in the Flash optimized (preview) SKU.
+
+| Size (GB) | Flash<br>Optimized<br>(preview) |
+|:---------:|:-------------------------------:|
+| 235 *     | 75,000                          |
+| 480 *     | 150,000                         |
+| 720 *     | 200,000                         |
+| 960 *     | 200,000                         |
+| 1440 *    | 200,000                         |
+| 1920 *    | 200,000                         |
+| 4500 *    | 200,000                         |
+
+\* The sizes with an asterisk are in Public Preview.
+
+### High availability
+
+Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. Disabling high availability lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
 
 ### Other pricing considerations
 
 > [!IMPORTANT]
-> Azure Managed Redis Enterprise requires an IP address for each cache instance. Currently, the IP address charge is absorbed by Azure Managed Redis and not passed on to customers. This can change in the future. For more information, see [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+> Azure Managed Redis Enterprise requires an IP address for each cache instance. Currently, the IP address charge is absorbed by Azure Managed Redis and not passed on to customers. Billing can change in the future. For more information, see [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 >
 
 > [!IMPORTANT]
-> Using active geo-replication produces data transfer between Azure regions. These bandwidth charges are currently absorbed by Azure Managed Redis and not passed on to customers. This might change in the future. For more information, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+> Using active geo-replication produces data transfer between Azure regions. These bandwidth charges are currently absorbed by Azure Managed Redis and not passed on to customers. Billing can change in the future. For more information, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 >
 
 ### Availability by region

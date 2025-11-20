@@ -38,7 +38,7 @@ In its simplest structure, a template has the following elements:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| $schema |Yes |Location of the JavaScript Object Notation (JSON) schema file that describes the version of the template language. The version number you use depends on the scope of the deployment and your JSON editor.<br><br>If you're using [Visual Studio Code with the Azure Resource Manager tools extension](quickstart-create-templates-use-visual-studio-code.md), use the latest version for resource group deployments:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Other editors (including Visual Studio) may not be able to process this schema. For those editors, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>For management group deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>For tenant deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Yes |Location of the JavaScript Object Notation (JSON) schema file that describes the version of the template language. The version number you use depends on the scope of the deployment and your JSON editor.<br><br>If you're using [Visual Studio Code](https://code.visualstudio.com/), use the latest version for resource group deployments:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Other editors (including Visual Studio) may not be able to process this schema. For those editors, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>For management group deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>For tenant deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | languageVersion |No |Language version of the template. To view the enhancements of languageVersion 2.0, see [languageVersion 2.0](#languageversion-20). |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](./template-cloud-consistency.md#track-versions-using-api-profiles). |
@@ -387,7 +387,7 @@ For inline comments, you can use either `//` or `/* ... */`. In Visual Studio Co
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2023-03-01",
+  "apiVersion": "2025-04-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "dependsOn": [ /* storage account and network interface must be deployed first */
@@ -395,10 +395,6 @@ For inline comments, you can use either `//` or `/* ... */`. In Visual Studio Co
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
-
-In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect an ARM template and change the language mode. If you see **Azure Resource Manager Template** at the bottom-right corner of Visual Studio Code, you can use the inline comments. The inline comments are no longer marked as invalid.
-
-:::image type="content" source="./media/template-syntax/resource-manager-template-editor-mode.png" alt-text="Screenshot of Visual Studio Code in Azure Resource Manager template mode.":::
 
 In Bicep, see [comments](../bicep/file.md#comments).
 
@@ -438,7 +434,7 @@ For `resources`, add a `comments` element or a `metadata` object. The following 
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-06-01",
     "name": "[format('{0}{1}', 'storage', uniqueString(resourceGroup().id))]",
     "comments": "Storage account used to store VM disks",
     "location": "[parameters('location')]",
@@ -486,7 +482,7 @@ You can break a string into multiple lines. For example, see the `location` prop
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2023-03-01",
+  "apiVersion": "2025-04-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')
@@ -507,8 +503,6 @@ In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
 
 > [!NOTE]
 > Using any `languageVersion` that ends in `-experimental` is not recommended in production environments because experimental functionality could be changed at any time.
-
-[!INCLUDE [VS Code ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
 
 To use languageVersion 2.0, add `"languageVersion": "2.0"` to your template:
 

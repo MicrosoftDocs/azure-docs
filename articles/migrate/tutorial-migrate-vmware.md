@@ -6,6 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy23
 # Customer intent: As an IT administrator migrating on-premises VMware VMs, I want to perform an agentless migration to Azure, so that I can seamlessly transition my workloads without the overhead of installing migration agents.
@@ -13,7 +14,7 @@ ms.custom: vmware-scenario-422, mvc, engagement-fy23
 
 # Migrate VMware VMs to Azure (agentless)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md) the methods.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure.
 
@@ -86,7 +87,7 @@ Enable replication as follows:
 
 6. In **Target settings**, select the subscription, target region, and Storage account.
    > [!Note]
-   > After starting first replication of a VM, the storage account cannot be changed. The default option selected in drop down will be used to create a new storage account. If the option is not selected, the storage account will be created in final step of enabling replication.
+   > After starting first replication of a VM, both target region and storage account cannot be changed. The default option selected in drop down will be used to create a new storage account. If the option is not selected, the storage account will be created in final step of enabling replication.
 7. In **Virtual Network**, select the Azure VNet/subnet, which the Azure VMs join after migration.
 8. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
@@ -195,7 +196,7 @@ Get-AzMigrateServerMigrationStatus   -ProjectName "<your-project-name>"   -Resou
 
 16. You run this command to get the following output: <br /><br />
 
-:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows azure migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
+:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows Azure Migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
 
 ## Run a test migration
 

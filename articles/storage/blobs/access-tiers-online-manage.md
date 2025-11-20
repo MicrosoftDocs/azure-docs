@@ -34,6 +34,8 @@ The default access tier setting for a general-purpose v2 storage account determi
 
 When you change the default access tier setting for an existing general-purpose v2 storage account, the change applies to all blobs in the account for which an access tier hasn't been explicitly set. Changing the default access tier may have a billing impact. For details, see [Default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting).
 
+For storage accounts that leverage the smart tier public preview, moving objects into smart tier is only possible through the default account access tier setting. Objects in smart tier can be moved individually to different tiers by explicitly setting a different tier for an object. Once moved to an explicit tier, objects cannot be tiered back to smart tier. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
+
 #### [Portal](#tab/azure-portal)
 
 To set the default access tier for a storage account at create time in the Azure portal, follow these steps:

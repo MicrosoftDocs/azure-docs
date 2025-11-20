@@ -11,7 +11,10 @@ ms.date: 02/11/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 # Customer intent: "As a .NET developer working with Azure Storage, I want to transfer data using the Data Movement library, so that I can efficiently manage uploads, downloads, and copies of blobs and files within Azure Storage."
 ---
 
@@ -28,7 +31,7 @@ If you're migrating code from the older **Microsoft.Azure.Storage.DataMovement**
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](storage-account-create.md)
 - Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 

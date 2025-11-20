@@ -7,6 +7,7 @@ ms.service: azure-health-data-services
 ms.topic: tutorial
 ms.date: 06/09/2025
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # Register a client application using CLI and REST API

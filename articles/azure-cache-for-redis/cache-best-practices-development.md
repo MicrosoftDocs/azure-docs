@@ -14,6 +14,8 @@ appliesto:
 
 # Development
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 ## Connection resilience and server load
 
 When developing client applications, be sure to consider the relevant best practices for [connection resilience](cache-best-practices-connection.md) and [managing server load](cache-best-practices-server-load.md).
@@ -52,7 +54,7 @@ Resolutions for large response sizes are varied but include:
 
 ## Key distribution
 
-If you're planning to use Redis clustering, first read [Redis Clustering Best Practices with Keys](https://redislabs.com/blog/redis-clustering-best-practices-with-keys/).
+If you're planning to use Redis clustering, first read [Redis Clustering Best Practices with Keys](https://redis.io/blog/redis-clustering-best-practices-with-keys/).
 
 ## Use pipelining
 

@@ -5,15 +5,17 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 03/25/2025
+ms.date: 09/10/2025
 ---
 
 # Conditional deployments in Bicep with the if expression
 
 To optionally deploy a resource or module in Bicep, use the `if` expression. An `if` expression includes a condition that resolves to true or false. When the `if` condition is true, the resource is deployed. When the value is false, the resource isn't created. You can only apply the value to the whole resource or module.
 
-> [!NOTE]
+> [!WARNING]
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
+
+Bicep diagnostic code [BCP318](./diagnostics/bcp318.md) occurs when you try to access a property on a conditional resource that may be null if the resource isn't deployed. To suppress the warning or prevent a runtime exception, use the [null-forgiving operator](./operator-null-forgiving.md) or [safe-dereference operator](./operator-safe-dereference.md). For more information, see [BCP318](./diagnostics/bcp318.md#solutions).
 
 ### Training resources
 
@@ -58,7 +60,7 @@ param location string = resourceGroup().location
 ])
 param newOrExisting string = 'new'
 
-resource saNew 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
+resource saNew 'Microsoft.Storage/storageAccounts@2025-06-01' = if (newOrExisting == 'new') {
   name: storageAccountName
   location: location
   sku: {
@@ -67,7 +69,7 @@ resource saNew 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExistin
   kind: 'StorageV2'
 }
 
-resource saExisting 'Microsoft.Storage/storageAccounts@2023-04-01' existing = if (newOrExisting == 'existing') {
+resource saExisting 'Microsoft.Storage/storageAccounts@2025-06-01' existing = if (newOrExisting == 'existing') {
   name: storageAccountName
 }
 
@@ -90,7 +92,7 @@ param vmName string
 param location string
 param logAnalytics string = ''
 
-resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2024-03-01' = if (!empty(logAnalytics)) {
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2025-04-01' = if (!empty(logAnalytics)) {
   name: '${vmName}/omsOnboarding'
   location: location
   properties: {

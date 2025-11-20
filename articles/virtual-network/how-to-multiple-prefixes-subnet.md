@@ -21,7 +21,7 @@ Currently, there isn't a capability to extend subnet space or cross subnet bound
 
 The following limitations still apply as of now:
 
-- The feature only supports virtual machines and virtual machine scale sets and doesn't support Bare Metal or VNet injection for Containers, especially PodSubnet IPAM mode in AKS clusters. Any delegated subnet can't use this feature (except for GatewaySubnets delegated to VPN Gateway and ExpressRoute Gateway services).
+- The feature only supports virtual machines and virtual machine scale sets and doesn't support Bare Metal or VNet injection for Containers, especially PodSubnet IPAM mode in AKS clusters. Any delegated subnet can't use this feature (except for GatewaySubnets delegated to ExpressRoute Gateway services).
 
 - This feature doesn't support multiple customer address (CA) configurations. When using multiple prefixes on a subnet, you're only able to use a single customer address (CA) configuration. A single IPv4 (Internet Protocol version 4) and single IPv6 (Internet Protocol Version 6) address per NIC (network interface card) is supported.
 
@@ -30,7 +30,7 @@ The following limitations still apply as of now:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!CAUTION]
 > Subnet properties **addressPrefixes** and **addressPrefix** aren't to be used interchangeably. For best results, use only **addressPrefixes** for both a single address prefix and for multiple address prefixes. If you're already using **addressPrefixes** in your workflows, continue to use this property.

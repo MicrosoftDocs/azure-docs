@@ -6,6 +6,7 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/30/2025
 ms.author: mibudz
+ms.custom: sfi-ropc-nochange
 ---
 
 # Recommendations to mitigate OWASP API Security Top 10 threats using API Management
@@ -101,8 +102,8 @@ More information about this threat: [API4:2023 Unrestricted Resource Consumptio
     - Configure alerts in Azure Monitor for excessive consumption of data by users.
 - For generative AI APIs:
     - Use [semantic caching](/azure/api-management/azure-openai-enable-semantic-caching) to reduce load on the backends.
-    - Use [token limiting](genai-gateway-capabilities.md#token-limit-policy) to control consumption and costs.
-    - Emit [token consumption metrics](genai-gateway-capabilities.md#emit-token-metric-policy) to monitor token utilization and configure alerts.
+    - Use [token limiting](genai-gateway-capabilities.md#scalability-and-performance) to control consumption and costs.
+    - Emit [token consumption metrics](genai-gateway-capabilities.md#observability-and-governance) to monitor token utilization and configure alerts.
 - Minimize the time it takes a backend service to respond. The longer the backend service takes to respond, the longer the connection is occupied in API Management, therefore reducing the number of requests that can be served in a given time frame.
     - Define `timeout` in the [forward-request](/azure/api-management/forward-request-policy) policy and strive for the shortest acceptable value.
     - Limit the number of parallel backend connections with the [limit-concurrency](/azure/api-management/limit-concurrency-policy) policy.
@@ -192,6 +193,7 @@ More information about this threat: [API8:2023 Security misconfiguration](https
 - Use Key Vault integration to manage all certificates. This centralizes certificate management and can help to ease operations management tasks such as certificate renewal or revocation. Use managed identity to authenticate to key vaults.
 - When using the [self-hosted-gateway](/azure/api-management/self-hosted-gateway-overview), ensure that there's a process in place to update the image to the latest version periodically.
 - Represent backend services as [backend entities](/azure/api-management/backends). Configure authorization credentials, certificate chain validation, and certificate name validation where applicable.
+- Ensure your backends are protected against path traversal (directory traversal) attacks. API Management may forward requests containing `..%2f` in the URL path to a backend. If the backend decodes it to `../`, it could be susceptible to a path traversal attack. You can also apply a policy in API Management to detect and block requests such as those containing `..%2f` in the path. 
 - Where possible, use credential manager or managed identity to authenticate against backend services.
 - When using the [developer portal](/azure/api-management/api-management-howto-developer-portal):
     - If you choose to [self-host](/azure/api-management/developer-portal-self-host) the developer portal, ensure there's a process in place to periodically update the self-hosted portal to the latest version. Updates for the default managed version are automatic.

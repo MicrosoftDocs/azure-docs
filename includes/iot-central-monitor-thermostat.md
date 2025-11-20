@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 10/16/2022
  ms.author: dobett
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 As an operator in your Azure IoT Central application, you can:

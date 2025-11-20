@@ -6,6 +6,7 @@ ms.author: cephalin
 ms.topic: how-to
 ms.date: 07/22/2025
 ms.service: azure-app-service
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a deployment engineer, I want to control outbound App Service traffic by using Azure Firewall so that I can reduce the risk of data exfiltration and malicious program implantation.   
   

@@ -8,7 +8,13 @@ ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 12/06/2024
 ms.author: mbender
-ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
+ms.custom:
+  - mvc
+  - subject-bicepqs
+  - mode-arm
+  - template-quickstart
+  - devx-track-bicep
+  - sfi-image-nochange
 #Customer intent: I want to create a load balancer by using a Bicep file so that I can load balance internet traffic to VMs.
 # Customer intent: "As a cloud architect, I want to deploy a public load balancer using a Bicep file, so that I can efficiently manage and distribute internet traffic to my virtual machines."
 ---
@@ -25,7 +31,7 @@ Using a Bicep file takes fewer steps comparing to other deployment methods.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

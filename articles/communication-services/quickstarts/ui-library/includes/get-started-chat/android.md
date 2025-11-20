@@ -12,7 +12,7 @@ Get the sample Android application at [Azure Samples Android SDK for chat](https
 
 ## Prerequisites
 
-- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An OS running [Android Studio](https://developer.android.com/studio).
 - A deployed [Azure Communication Services resource](../../../create-communication-resource.md). Note the endpoint URL.
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md) and user identifier.

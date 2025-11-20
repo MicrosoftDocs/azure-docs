@@ -6,6 +6,7 @@ ms.author: adamdor
 ms.date: 6/9/2025
 ms.topic: how-to
 ms.service: azure-operator-service-manager
+ms.custom: sfi-image-nochange
 ---
 
 # Create, assign, and use a User Assigned Managed Identity

@@ -7,7 +7,10 @@ ms.topic: tutorial
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: nijelsf
-ms.date: 06/15/2024
+ms.date: 10/14/2025
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---
 
@@ -22,7 +25,7 @@ In this tutorial, you'll do the following tasks:
 > * Create an Apache Hive ODBC data source linked to your cluster
 > * Query sample information from your cluster using PowerShell
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -31,6 +34,9 @@ Before you begin this tutorial, you must have the following items:
 * An Interactive Query cluster on HDInsight. To create one, see [Get started with Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Select **Interactive Query** as the cluster type.
 
 ## Install Microsoft Hive ODBC driver
+
+> [!Note]
+> [Microsoft Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886) is no longer supported with HDInsight and to be discontinued.
 
 Download and install the [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886).
 

@@ -3,7 +3,7 @@ title: VMware Solution software versions
 description: Supported software versions that are used for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 8/1/2025
+ms.date: 10/14/2025
 author: ju-shim
 ms.author: jushiman
 ms.custom: engagement-fy23
@@ -23,7 +23,7 @@ The following table lists the software versions that are used in new deployments
 | VMware vSAN on-disk format       |    [20](https://knowledge.broadcom.com/external/article?legacyId=2148493) | N/A |
 | VMware vSAN storage architecture |    [Gen 1: OSA, Gen2: ESA](https://blogs.vmware.com/cloud-foundation/2022/08/31/comparing-the-original-storage-architecture-to-the-vsan-8-express-storage-architecture/) | N/A |
 | VMware NSX                       |    [!INCLUDE [nsxt-version](nsxt-version.md)] | 22224317 |
-| VMware HCX                       |    [4.11](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-411-release-notes.html) | 24457395 |
+| VMware HCX                       |    [4.11.1](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-4111-release-notes.html) | 24846706 |
 | VMware Live Site Recovery        |    [9.0.2.1](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/release-notes/id-b55981c1-41e6-4ad3-b379-ce565212add3.html) | 24401761 |
 | VMware vSphere Replication       |    [9.0.2.1](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/9-0/release-notes/vsphere-replication-9021-release-notes.html) | 24383568 |
 

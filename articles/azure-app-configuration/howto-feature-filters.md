@@ -23,7 +23,7 @@ This article shows you how to set criteria for dynamically changing the state of
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure App Configuration store.
 
 ## What is a feature filter?

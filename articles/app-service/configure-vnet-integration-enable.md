@@ -5,11 +5,14 @@ keywords: vnet integration
 author: seligj95
 ms.author: jordanselig
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 01/30/2025
 ms.tool: azure-cli, azure-powershell
 #customer intent: As a deployment engineer, I want to integrate web apps in Azure App Service with our Azure virtual networks.
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Enable virtual network integration in Azure App Service

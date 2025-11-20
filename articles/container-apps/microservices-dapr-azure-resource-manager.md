@@ -5,7 +5,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 05/15/2025
+ms.date: 08/28/2025
 ms.author: cshoe
 ms.custom:
   - devx-track-bicep
@@ -39,7 +39,7 @@ This quickstart mirrors the applications you deploy in the open-source Dapr [Hel
 
 ::: zone-end
 
-- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub Account. If you don't already have one, sign up for [free](https://github.com/join).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
@@ -129,10 +129,10 @@ This command deploys:
 
 - The Container Apps environment and associated Log Analytics workspace for hosting the hello world Dapr solution.
 - An Application Insights instance for Dapr distributed tracing.
-- The `nodeapp` app server running on `targetPort: 3000` with Dapr enabled and configured using: 
-   - `"appId": "nodeapp"`
-   - `"appPort": 3000`
-   - A user-assigned identity with access to the Azure Blob storage via a Storage Data Contributor role assignment
+- The `nodeapp` app server running on `targetPort: 3000` with Dapr enabled and configured using:
+  - `"appId": "nodeapp"`
+  - `"appPort": 3000`
+  - A user-assigned identity with access to the Azure Blob storage via a Storage Data Contributor role assignment
 - A Dapr component of `"type": "state.azure.blobstorage"` scoped for use by the `nodeapp` for storing state.
 - The Dapr-enabled, headless `pythonapp` that invokes the `nodeapp` service using Dapr service invocation.
 - A Microsoft Entra ID role assignment for the Node.js app used by the Dapr component to establish a connection to Blob storage.

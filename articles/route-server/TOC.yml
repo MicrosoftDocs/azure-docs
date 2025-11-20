@@ -31,15 +31,17 @@
     href: hub-routing-preference.md
   - name: Next hop IP support
     href: next-hop-ip.md
-  - name: ExpressRoute and Azure VPN support
+  - name: Azure Route Server support for ExpressRoute and Azure VPN
     href: expressroute-vpn-support.md
+  - name: Azure Route Server Capacity
+    href: route-server-capacity.md
   - name: Dual-homed network
     href: about-dual-homed-network.md
   - name: Path selection
     href: path-selection.md
   - name: Multi-region design
     href: multiregion.md
-  - name: Default route injection in spoke VNets
+  - name: Route injection in spoke virtual networks
     href: route-injection-in-spokes.md
   - name: IP anycast
     href: anycast.md

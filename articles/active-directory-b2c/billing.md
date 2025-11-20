@@ -8,7 +8,11 @@ ms.topic: reference
 ms.date: 06/13/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
+  - sfi-ga-nochange
+  - sfi-ropc-nochange
 
 #Customer intent: As a business decision maker managing an Azure AD B2C tenant, I want to understand the billing model based on monthly active users (MAU), so that I can determine the cost and pricing structure for my Azure AD B2C tenant.
 
@@ -65,7 +69,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 
 ### Prerequisites
 
-* [Azure subscription](https://azure.microsoft.com/free/)
+* [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * [Azure AD B2C tenant](tutorial-create-tenant.md) that you want to link to a subscription
   * You must be a tenant administrator
   * The tenant must not already be linked to a subscription

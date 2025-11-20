@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 7/22/2025
+ms.date: 11/10/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to migrate services from Application Gateway Ingress Controller to Application Gateway for Containers, so that I can leverage improved performance, seamless scaling, and modern API compatibility without experiencing downtime during the transition.
 ---
@@ -39,13 +39,12 @@ In the example depicted, Application Gateway for Containers and Application Gate
 
 ## Feature dependencies and mappings
 
-Prior to migration, it is important to identify any dependencies on Application Gateway Ingress Controller that may not yet be available in Application Gateway for Containers. Workloads with dependency on these features should be prioritized later in your migration strategy until such capabilities are unblocked in Application Gateway for Containers.
+Prior to migration, it's important to identify any dependencies on Application Gateway Ingress Controller that may not yet be available in Application Gateway for Containers. Workloads with dependency on these features should be prioritized later in your migration strategy until such capabilities are unblocked in Application Gateway for Containers.
 
 Such dependencies include:
 
 - Private IP
 - Ports other than 80 and 443
-- Configurable request timeout values
 
 Here's a summarized list of AGIC annotations and whether Application Gateway for Containers has translated such capabilities to either Gateway or Ingress API.
 
@@ -61,10 +60,10 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 | [Connection draining](migrate-from-agic-to-agc.md#connection-draining) | appgw.ingress.kubernetes.io/connection-draining | Non-configurable | Non-configurable |
 | [Connection draining](migrate-from-agic-to-agc.md#connection-draining) | appgw.ingress.kubernetes.io/connection-draining-timeout | Non-configurable | Non-configurable |
 | [Session Affinity / Sticky Sessions](migrate-from-agic-to-agc.md#session-affinity) | appgw.ingress.kubernetes.io/cookie-based-affinity | [Session affinity in Gateway API](migrate-from-agic-to-agc.md#session-affinity-in-gateway-api) | [Session affinity in Ingress API](migrate-from-agic-to-agc.md#session-affinity-in-ingress-api) |
-| [Request timeout](migrate-from-agic-to-agc.md#request-timeout) | appgw.ingress.kubernetes.io/request-timeout | Non-configurable | Non-configurable |
+| [Request timeout](migrate-from-agic-to-agc.md#request-timeout) | appgw.ingress.kubernetes.io/request-timeout | [RoutePolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.RouteTimeouts) | [IngressBackendSettings](api-specification-kubernetes.md#alb.networking.azure.io/v1.IngressTimeouts) |
 | [Frontend port other than 80 and 443](migrate-from-agic-to-agc.md#frontend-port-override) | appgw.ingress.kubernetes.io/override-frontend-port | Not supported | Not supported |
 | [Private frontend](migrate-from-agic-to-agc.md#private-frontend) | appgw.ingress.kubernetes.io/use-private-ip | Not supported | Not supported |
-| [Web Application Firewall (WAF)](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | [Web Application Firewall (WAF) (Preview)](web-application-firewall.md) | Not supported |
+| [Web Application Firewall (WAF)](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | [Web Application Firewall (WAF)](web-application-firewall.md) | Not supported |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-hostname | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port |  [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-path | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
@@ -113,7 +112,7 @@ Once you've completed end-to-end testing, direct traffic to Application Gateway 
 >
 > - Prior to migration, identify the time to live (TTL) value of the DNS record currently serving traffic to the frontend of Application Gateway. Ensure the same amount of time and time configured in Application Gateway for connection draining to pass to ensure all clients have resolved the new DNS record to Application Gateway for Containers prior to retiring the Ingress / Gateway configuration to AGIC.
 > - Consider migration during a time of low-peak traffic to validate
-> - In the event migration does not behavior the way you anticipated, revert the DNS record to point back to the Application Gateway frontend and repeat the process.
+> - In the event the migration didn't behave the way you anticipated, revert the DNS record to point back to the Application Gateway frontend and repeat the process.
 
 ### Step 5: Deprecate Application Gateway Ingress Controller
 
@@ -121,7 +120,7 @@ Once all services have been migrated, you may deprecate Application Gateway Ingr
 
 #### Remove Ingress resources
 
-Remove each Ingress resource that is referencing the Application Gateway Ingress Controller with the `kubernetes.io/ingress.class: azure/application-gateway` annotation or defines an `ingressClassName` of `azure-application-gateway`.
+Remove each Ingress resource that's referencing the Application Gateway Ingress Controller with the `kubernetes.io/ingress.class: azure/application-gateway` annotation or defines an `ingressClassName` of `azure-application-gateway`.
 
 ```bash
 kubectl delete ingress your-ingress-name -n your-ingress-namespace
@@ -145,7 +144,7 @@ helm uninstall ingress-azure
 
 ### Clean-up Azure resources
 
-After the ingress controller is removed, you will need to delete the Application Gateway resource.
+After the ingress controller is removed, you'll need to delete the Application Gateway resource.
 
 >[!Note]
 >If the aks add-on was provisioned in the context of referencing a previously deployed Application Gateway in Azure, you will need to delete the Application Gateway resource manually.
@@ -224,7 +223,7 @@ AGIC annotation
 
 Application Gateway for Containers implementation
 
-Direct certificate upload and reference to a certificate in Azure Key Vault is not available.
+Direct certificate upload and reference to a certificate in Azure Key Vault isn't available.
 
 Secrets should be stored in [AKS Secret Store](/azure/aks/concepts-security#kubernetes-secrets) and referenced by name.
 

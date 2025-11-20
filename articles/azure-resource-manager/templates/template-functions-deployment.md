@@ -405,7 +405,7 @@ Typically, you use parameters to set resource values. The following example sets
 }, "resources": [
   {
     "type": "Microsoft.Web/Sites",
-    "apiVersion": "2016-08-01",
+    "apiVersion": "2025-03-01",
     "name": "[parameters('siteName')]",
     ...
   }

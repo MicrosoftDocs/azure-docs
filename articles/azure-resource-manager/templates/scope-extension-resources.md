@@ -196,7 +196,7 @@ The following example creates a storage account and applies a role to it.
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('storageName')]",
       "location": "[parameters('location')]",
       "sku": {

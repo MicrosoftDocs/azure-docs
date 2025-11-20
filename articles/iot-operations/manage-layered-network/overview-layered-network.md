@@ -39,5 +39,3 @@ A [layered networking guidance sample](https://github.com/Azure-Samples/explore-
 - Connect devices in isolated networks at scale to [Azure Arc](/azure/azure-arc/) for application lifecycle management and remote configuration.
 - Enforce security and governance across network levels with URL/IP allowlists and connection auditing.
 - Ensure compatibility with all Azure IoT Operations services.
-
-[!INCLUDE [retirement-notice](includes/retirement-notice.md)]

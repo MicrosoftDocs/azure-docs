@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 08/22/2025
 ms.author: danlep
 ai-usage: ai-assisted
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ---
@@ -97,7 +98,7 @@ ApiManagementGatewayLlmLog
     RequestContent = tostring(RequestArray.content),
     ResponseContent = tostring(ResponseArray.content)
 | summarize
-    Input = strcat_aray(make_list(RequestContent), " . "),
+    Input = strcat_array(make_list(RequestContent), " . "),
     Output = strcat_array(make_list(ResponseContent), " . ")
     by CorrelationId
 | where isnotempty(Input) and isnotempty(Output)

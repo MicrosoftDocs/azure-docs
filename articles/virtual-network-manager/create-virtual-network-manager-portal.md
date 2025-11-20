@@ -6,7 +6,11 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
 ms.date: 07/11/2025
-ms.custom: template-quickstart, mode-ui, engagement-fy23
+ms.custom:
+  - template-quickstart
+  - mode-ui
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal
@@ -19,7 +23,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - To modify network groups using Azure Policy to conditionally define membership, you must be [granted access through Azure Role-based Access Control (RBAC) role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin or legacy authorization isn't supported.
 
 [!INCLUDE [virtual-network-manager-create-instance](../../includes/virtual-network-manager-create-instance.md)]

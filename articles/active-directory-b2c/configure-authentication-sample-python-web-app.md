@@ -10,7 +10,10 @@ ms.topic: reference
 ms.date: 06/04/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: b2c-support, devx-track-python
+ms.custom:
+  - b2c-support
+  - devx-track-python
+  - sfi-image-nochange
 
 
 #Customer intent: As a Python web app developer, I want to configure Azure AD B2C authentication in a sample web app by using my own tenant, so that I can securely sign customer users.
@@ -36,7 +39,7 @@ The sign-in flow involves the following steps:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 - [Python 3.8+](https://www.python.org/downloads/)
 

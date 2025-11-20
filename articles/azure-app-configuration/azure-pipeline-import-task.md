@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 10/29/2024
+ms.date: 09/30/2025
 ms.author: malev
 ---
 
@@ -15,7 +15,7 @@ The Azure App Configuration Import task imports key-values from a configuration 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - App Configuration store - [create one for free](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store)
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - [Azure Pipelines agent version 2.144.0](https://github.com/microsoft/azure-pipelines-agent/releases/tag/v2.144.0) or later and [Node version 16](https://nodejs.org/en/blog/release/v16.16.0/) or later for running the task on self-hosted agents.

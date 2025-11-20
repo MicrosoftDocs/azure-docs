@@ -7,6 +7,9 @@ author: EdB-MSFT
 ms.topic: reference
 ms.date: 11/13/2023
 ms.author: edbaynash
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 
@@ -85,8 +88,10 @@ Each of the following elements of the `connectorUiConfig` section needed to conf
 | **graphQueriesTableName** | | Sets the name of the table the connector inserts data to. This name can be used in other queries by specifying `{{graphQueriesTableName}}` placeholder in `graphQueries` and `lastDataReceivedQuery` values.|
 | **dataTypes** | True | Nested JSON<br>[dataTypes](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. | 6 |
 | **connectivityCriteria** | True | Nested JSON<br>[connectivityCriteria](#connectivitycriteria) | An object that defines how to verify if the connector is connected. | 7 |
+| **availability** |  | Nested JSON<br>[availability](#availability) | An object that defines the availability status of the connector. |  |
 | **permissions** | True | Nested JSON<br>[permissions](#permissions) | The information displayed under the **Prerequisites** section of the UI, which lists the permissions required to enable or disable the connector. | 8 |
 | **instructionSteps** | True | Nested JSON<br>[instructions](#instructionsteps) | An array of widget parts that explain how to install the connector, and actionable controls displayed on the **Instructions** tab. | 9 |
+| **isConnectivityCriteriasMatchSome** |  | Boolean | A boolean indicating whether to use 'OR'(SOME) or 'AND' between ConnectivityCriteria items. |  |
 
 ### connectivityCriteria
 
@@ -113,6 +118,13 @@ Provide either one query for all of the data connector's data types, or a differ
 |**metricName**     |   String      |  A meaningful name for your graph. <br><br>Example: `Total data received`       |
 |**legend**     |     String    |   The string that appears in the legend to the right of the chart, including a variable reference.<br><br>Example: `{{graphQueriesTableName}}`      |
 |**baseQuery**     | String        |    The query that filters for relevant events, including a variable reference. <br><br>Example: `TableName_CL | where ProviderName == "myprovider"` or `{{graphQueriesTableName}}` |
+
+### availability
+
+| Field | Required | Type | Description |
+|---|---|---|---|
+| **status** |  | Integer | The availability status of the connector.<br>Available = 1<br>Feature Flag = 2<br>Coming Soon = 3<br>Internal = 4 |
+| **isPreview** |  | Boolean | A boolean indicating whether the connector is in preview mode. |
 
 ### permissions
 
@@ -200,11 +212,15 @@ Displays a group of instructions, with various parameters and the ability to nes
 | **Textbox** | [Textbox](#textbox) | This pairs with `ConnectionToggleButton`. There are 4 available types:<br><li>`password`<li>`text`<li>`number`<li>`email`</li> |
 | **ConnectionToggleButton** | [ConnectionToggleButton](#connectiontogglebutton) | Trigger the deployment of the DCR based on the connection information provided through placeholder parameters. The following parameters are supported:<br><li>`name` : mandatory<li>`disabled`<li>`isPrimary`<li>`connectLabel`<li>`disconnectLabel`</li> |
 | **CopyableLabel** | [CopyableLabel](#copyablelabel) | Shows a text field with a copy button at the end. When the button is selected, the field's value is copied.|
+| **Dropdown** | [Dropdown](#dropdown) | Displays a dropdown list of options for the user to select from. |
+| **Markdown** | [Markdown](#markdown) | Displays a section of text formatted with Markdown. |
+| **DataConnectorsGrid** | [DataConnectorsGrid](#dataconnectorsgrid) | Displays a grid of data connectors. |
+| **ContextPane** | [ContextPane](#contextpane) | Displays a contextual information pane. |
 | **InfoMessage** | [InfoMessage](#infomessage) | Defines an inline information message.
 | **InstructionStepsGroup** | [InstructionStepsGroup](#instructionstepsgroup) | Displays a group of instructions, optionally expanded or collapsible, in a separate instructions section.|
 | **InstallAgent** | [InstallAgent](#installagent) | Displays a link to other portions of Azure to accomplish various installation requirements. |
 
-#### OAuthForm
+##### OAuthForm
 
 This component requires that the `OAuth2` type is present in the [`auth` property of the data connector template](data-connector-connection-rules-reference.md#authentication-configuration).
 
@@ -221,7 +237,7 @@ This component requires that the `OAuth2` type is present in the [`auth` propert
 }
 ]
 ```
-#### Textbox
+##### Textbox
 
 Here are some examples of the `Textbox` type. These examples correspond to the parameters used in the example `auth` section in [Data connectors reference for the Codeless Connector Framework](data-connector-connection-rules-reference.md#authentication-configuration). For each of the 4 types, each has `label`, `placeholder`, and `name`.
 
@@ -249,7 +265,7 @@ Here are some examples of the `Textbox` type. These examples correspond to the p
 }
 ]
 ```
-#### ConnectionToggleButton
+##### ConnectionToggleButton
 
 ```json
 "instructions": [
@@ -263,7 +279,7 @@ Here are some examples of the `Textbox` type. These examples correspond to the p
 ]
 ```
 
-#### CopyableLabel
+##### CopyableLabel
 
  Example:
 
@@ -285,15 +301,146 @@ Here are some examples of the `Textbox` type. These examples correspond to the p
 }
 ```
 
-| Array Value  | Required | Type  |Description  |
-|---------------|------|-------------|
-|**fillWith**     | |  ENUM       | Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId` |
-|**label**     | True | String       |  Defines the text for the label above a text box.      |
-|**value**     | True | String       |  Defines the value to present in the text box, supports placeholders.       |
-|**rows**     | |  Rows      |  Defines the rows in the user interface area. By default, set to **1**.       |
-|**wideLabel**    | | Boolean     | Determines a wide label for long strings. By default, set to `false`.        |
+| Array Value  | Required | Type  | Description  |
+|---------------|----------|-------------|-------------|
+|**fillWith**   |          | ENUM        | Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId` |
+|**label**      | True     | String      | Defines the text for the label above a text box.      |
+|**value**      | True     | String      | Defines the value to present in the text box, supports placeholders.       |
+|**rows**       |          | Rows        | Defines the rows in the user interface area. By default, set to **1**.       |
+|**wideLabel**  |          | Boolean     | Determines a wide label for long strings. By default, set to `false`.        |
 
-#### InfoMessage
+##### Dropdown
+
+```json
+{
+  "parameters": {
+    "label": "Select an option",
+    "name": "dropdown",
+    "options": [
+      {
+        "key": "Option 1",
+        "text": "option1"
+      },
+      {
+        "key": "Option 2",
+        "text": "option2"
+      }
+    ],
+    "placeholder": "Select an option",
+    "isMultiSelect": false,
+    "required": true,
+    "defaultAllSelected": false
+  },
+  "type": "Dropdown"
+}
+```
+
+| Field  | Required | Type  | Description  |
+|---------------|------|-------------|-------------|
+|**label**     | True | String       |  Defines the text for the label above the dropdown.      |
+|**name**     | True | String       |  Defines the unique name for the dropdown. This is used in Polling config.      |
+|**options**     | True | Array       |  Defines the list of options for the dropdown.       |
+|**placeholder**     | | String       |  Defines the placeholder text for the dropdown.       |
+|**isMultiSelect**    | | Boolean     | Determines whether multiple options can be selected. By default, set to `false`.        |
+|**required**    | | Boolean     |  If `true`, the dropdown is required to be filled.      |
+|**defaultAllSelected**    | | Boolean     |  If `true`, all options are selected by default.      |
+
+##### Markdown
+
+```json
+{
+  "parameters": {
+    "content": "## This is a Markdown section\n\nYou can use **bold** text, _italic_ text, and even [links](https://www.example.com)."
+  },
+  "type": "Markdown"
+}
+```
+
+##### DataConnectorsGrid
+
+```json
+{
+  "type": "DataConnectorsGrid",
+  "parameters": {
+    "mapping": [
+      {
+        "columnName": "Column 1",
+        "columnValue": "Value 1"
+      },
+      {
+        "columnName": "Column 2",
+        "columnValue": "Value 2"
+      }
+    ],
+    "menuItems": [
+      "MyConnector"
+    ]
+  }
+}
+
+```
+
+| Field  | Required | Type  | Description  |
+|---------------|------|-------------|-------------|
+|**mapping**     | True | Array       |  Defines the mapping of columns in the grid.       |
+|**menuItems**   | | Array       |  Defines the menu items for the grid.       |  
+
+##### ContextPane
+
+```json
+{
+  "type": "ContextPane",
+  "parameters": {
+    "isPrimary": true,
+    "label": "Add Account",
+    "title": "Add Account",
+    "subtitle": "Add Account",
+    "contextPaneType": "DataConnectorsContextPane",
+    "instructionSteps": [
+      {
+        "instructions": [
+          {
+            "type": "Textbox",
+            "parameters": {
+              "label": "Snowflake Account Identifier",
+              "placeholder": "Enter Snowflake Account Identifier",
+              "type": "text",
+              "name": "accountId",
+              "validations": {
+                "required": true
+              }
+            }
+          },
+          {
+            "type": "Textbox",
+            "parameters": {
+              "label": "Snowflake PAT",
+              "placeholder": "Enter Snowflake PAT",
+              "type": "password",
+              "name": "apikey",
+              "validations": {
+                "required": true
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+| Field  | Required | Type  | Description  |
+|---------------|------|-------------|-------------|
+|**title**     | True | String       |  The title for the context pane.      |
+|**subtitle**     | True | String       |  The subtitle for the context pane.      |
+|**contextPaneType**     | True | String       |  The type of the context pane.      |
+|**instructionSteps**     | True | Array<br>[instructionSteps](#instructionsteps)  |  The instruction steps for the context pane.      |
+|**label**     |  | String       |  The label for the context pane.      |
+|**isPrimary**     |  | Boolean       |  Indicates whether this is the primary context pane.      |
+
+
+##### InfoMessage
 
 Here's an example of an inline information message:
 
@@ -309,7 +456,7 @@ In contrast, the following image shows an information message that's not inline:
 |**visible**     |   Boolean      |    Determines whether the message is displayed.     |
 |**inline**     |   Boolean      |   Determines how the information message is displayed. <br><br>- `true`: (Recommended) Shows the information message embedded in the instructions. <br>- `false`: Adds a blue background.     |
 
-#### InstructionStepsGroup
+##### InstructionStepsGroup
 
 Here's an example of an expandable instruction group:
 
@@ -325,7 +472,7 @@ Here's an example of an expandable instruction group:
 
 For a detailed example, see the configuration JSON for the [Windows DNS connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Windows%20Server%20DNS/Data%20Connectors/template_DNS.JSON).
 
-#### InstallAgent
+##### InstallAgent
 
 Some **InstallAgent** types appear as a button, others appear as a link. Here are examples of both:
 

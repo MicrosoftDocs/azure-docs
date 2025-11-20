@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/20/2025
+ms.date: 11/14/2025
 ms.author: danlep
 ms.custom:
   - build-2024
@@ -18,14 +18,20 @@ ms.custom:
 
 A *backend* (or *API backend*) in API Management is an HTTP service that implements your front-end API and its operations.
 
-When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend web service when importing:
+When you import certain APIs, API Management automatically configures the API backend. For example, API Management configures the backend web service when importing:
 * An [OpenAPI specification](import-api-from-oas.md).
 * A [SOAP API](import-soap-api.md).
-* Azure resources, such as an [Azure OpenAI API](azure-openai-api-from-specification.md), an HTTP-triggered [Azure Function App](import-function-app-as-api.md), or a [Logic App](import-logic-app-as-api.md).
 
-API Management also supports using other Azure resources as an API backend, such as:
+For other APIs, such as APIs from Azure services, you import an Azure resource without specifying the backend service explicitly. Examples include: 
+* An HTTP-triggered [Azure Function App](import-function-app-as-api.md) 
+* A [Logic App](import-logic-app-as-api.md).
+
+API Management also supports using other resources as an API backend, such as:
 * A [Service Fabric cluster](how-to-configure-service-fabric-backend.yml).
-* A custom service. 
+* AI services
+* A custom service
+
+For these backends, you can create a *backend entity* in API Management and reference it in your APIs.  
 
 ## Benefits of backends
 
@@ -34,23 +40,26 @@ API Management supports backend entities so you can manage the backend services 
 Use backends for one or more of the following:
 
 * Authorize the credentials of requests to the backend service
-* Take advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
+* Take advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication
 * Define circuit breaker rules to protect your backend from too many requests
 * Route or load-balance requests to multiple backends
 
-Configure and manage backend entities in the Azure portal, or using Azure APIs or tools.
+Configure and manage backend entities in the Azure portal, or by using Azure APIs or tools.
 
 ## Create a backend
 
-You can create a backend in the Azure portal, or using Azure APIs or tools.
+You can create a backend in the Azure portal, or by using Azure APIs or tools.
+
+> [!NOTE]
+> When you import certain APIs, such as APIs from Azure AI Foundry or other AI services, API Management automatically configures a backend entity.
 
 To create a backend in the portal:
 
-1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
+1. Sign in to the [portal](https://portal.azure.com) and go to your API Management instance.
 1. In the left menu, select **APIs** > **Backends** > **+ Create new backend**.
-1. On the **Backend** page, do the following:
+1. On the **Backend** page, complete the following steps:
     1. Enter a **Name** for the backend and optional **Description**.
-    1. Select a **Backend hosting type**, for example, **Azure resource** for an Azure resource such as a Function App or Logic App, **Custom URL** for a custom service, or a **Service Fabric** cluster. 
+    1. Select a **Backend hosting type**, such as **Azure resource** for an Azure resource like a Function App or Logic App, **Custom URL** for a custom service, or a **Service Fabric** cluster. 
     1. In **Runtime URL**, enter the URL of the backend service that API requests are forwarded to.
     1. Under **Advanced**, optionally disable certificate chain or certificate name validation for the backend.
     1. Under **Add this backend service to a backend pool**, optionally select or create a [load-balanced pool](#load-balanced-pool) for the backend.
@@ -58,25 +67,58 @@ To create a backend in the portal:
     1. Under **Authorization credentials**, optionally configure credentials to authorize access to the backend. Options include a request header, query parameter, [client certificate](api-management-howto-mutual-certificates-for-clients.md), or system-assigned or user-assigned [managed identity](#configure-managed-identity-for-authorization-credentials) configured in the API Management instance.
     1. Select **Create**.
     
-After creating a backend, you can update the backend settings at any time. For example, add a circuit breaker rule, change the runtime URL, or add authorization credentials.
+After creating a backend, you can update the backend settings at any time. For example, you can add a circuit breaker rule, change the runtime URL, or add authorization credentials.
 
-### Configure managed identity for authorization credentials
+## Configure managed identity for authorization credentials
 
-You can use a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) configured in the API Management instance to authorize access to the backend service. To configure a managed identity for authorization credentials, do the following:
+You can use a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) configured in the API Management instance to authorize access to the backend service. To configure a managed identity for authorization credentials, complete the following steps:
 
 1. In the **Authorization credentials** section of the backend configuration, select the **Managed identity** tab, and select **Enable**.
-1. In **Client identity**, select either **System assigned identity** or a user-assigned identity that is configured in your instance.
-1. In **Resource ID**, enter a target Azure service or the application ID of your own Microsoft Entra application representing the backend. Example: `https://cognitiveservices.azure.com` for Azure OpenAI service. 
+1. In **Client identity**, select either **System assigned identity** or a user-assigned identity that you configured in your instance.
+1. In **Resource ID**, enter a target Azure service or the application ID of your own Microsoft Entra application representing the backend. For example, enter `https://cognitiveservices.azure.com` for Azure OpenAI service. 
 
     For more examples, see the [authentication-managed-identity](authentication-managed-identity-policy.md) policy reference.
 1. Select **Create**.
 
 > [!NOTE]
-> Also assign the managed identity the appropriate permissions or an RBAC role to access the backend service. For example, if the backend is an Azure OpenAI service, you might assign the managed identity the `Cognitive Services User` role.
+> Also assign the managed identity the appropriate permissions or an RBAC role to access the backend service. For example, if the backend is an Azure OpenAI service, assign the managed identity the `Cognitive Services User` role.
+
+## Configure certificates for authorization credentials
+
+You can secure gateway access to the backend service by using mutual TLS authentication with client certificates or custom certificate authority (CA) certificates.
+
+### Configure client certificate 
+
+If the backend service is secured with a certificate issued by a well-known CA, you can add a client certificate in the backend entity:
+
+1. [Add the certificate](api-management-howto-mutual-certificates.md) to the API Management instance. You can reference a certificate that's managed in Azure Key Vault or upload a PFX file.
+1. In the **Authorization credentials** section of the backend configuration, select the **Client certificates** tab.
+1. In the dropdown, select the client certificate that you want to use.
+1. Select **Create**.
+
+### Configure CA certificate
+
+If the backend service uses a custom CA certificate, you can reference the custom CA certificate in the backend entity. You might need to do this step to establish trust for the backend server certificate - for example, with self-signed certificates, untrusted root certificates, or partial certificate chains.
+
+> [!NOTE]
+> Currently, you can only configure CA certificate details in a backend entity in the [v2 tiers](v2-service-tiers-overview.md).
+
+To add CA certificate details, follow these steps:
+
+1. In the **Authorization credentials** section of the backend configuration, select **CA Certificates**.
+1. Select **+ Add CA certificate details**.
+1. In the **Add CA certificate** pane, select one of the following options:
+    * **Certificate thumbprint** - Enter the thumbprint (a SHA-1, SHA-256, or SHA-512 hash) of a custom CA certificate.
+    * **Subject name and issuer thumbprint** - Enter the subject name that uniquely identifies the CA and the thumbprint of the CA.
+1. Select **Add**.
+1. Select **Create**.
+
+> [!NOTE]
+> When you configure details of a custom CA certificate in the backend entity, API Management always validates the certificate name and certificate chain, regardless of whether you enable or disable validation settings in the backend's `backendTlsProperties`.
 
 ## Reference backend using set-backend-service policy
 
-After creating a backend, you can reference the backend identifier (name) in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
+After creating a backend, you can reference the backend identifier (name) in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
 
 ```xml
 <policies>
@@ -112,6 +154,8 @@ For example, here is a policy to route traffic to another backend based on the g
 <policies/>
 ```
 
+> [!TIP]
+> API Management also automatically detects and uses backend entities when it receives API requests. At runtime, if there's a backend entity that matches the URL of a backend service that API Management is sending a request to, it uses the backend entity. You don't have to explicitly use `set-backend-service`.
 
 ## Circuit breaker
 
@@ -125,11 +169,11 @@ The backend circuit breaker is an implementation of the [circuit breaker pattern
 
 > [!NOTE]
 > * Currently, the backend circuit breaker isn't supported in the **Consumption** tier of API Management.
-> * Because of the distributed nature of the API Management architecture, circuit breaker tripping rules are approximate. Different instances of the gateway do not synchronize and will apply circuit breaker rules based on the information on the same instance.
-> * Currently, only one rule can be configured for a backend circuit breaker.
+> * Because of the distributed nature of the API Management architecture, circuit breaker tripping rules are approximate. Different instances of the gateway don't synchronize and apply circuit breaker rules based on the information on the same instance.
+> * Currently, you can configure only one rule for a backend circuit breaker.
 
 > [!CAUTION]
-> If you configure an Azure OpenAI service as a backend and the service receives too many requests, it returns a `429 Too Many Requests` response status code and  a `Retry-After` header with a value that can be large (for example, 1 day). With Azure OpenAI backends we recommend implementing circuit breaker rules to handle the `429` responses and accept the `Retry-After` duration.
+> If you configure an Azure OpenAI service as a backend and the service receives too many requests, it returns a `429 Too Many Requests` response status code and a `Retry-After` header with a value that can be large (for example, 1 day). With Azure OpenAI backends, implement circuit breaker rules to handle the `429` responses and accept the `Retry-After` duration.
 
 ### Example
 
@@ -226,17 +270,17 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 
 ## Load-balanced pool
 
-API Management supports backend *pools*, when you want to implement multiple backends for an API and load-balance requests across those backends. A pool is a collection of backends that are treated as a single entity for load balancing.
+API Management supports backend *pools* when you want to implement multiple backends for an API and load-balance requests across those backends. A pool is a collection of backends that are treated as a single entity for load balancing.
 
-Use a backend pool for scenarios such as the following:
+Use a backend pool for scenarios such as the following scenarios:
 
-* Spread the load to multiple backends, which may have individual backend circuit breakers.
-* Shift the load from one set of backends to another for upgrade (blue-green deployment).
+* Spread the load to multiple backends, which might have individual backend circuit breakers.
+* Shift the load from one set of backends to another set for upgrade (blue-green deployment).
 
 
 > [!NOTE]
 > * You can include up to 30 backends in a pool. 
-> * Because of the distributed nature of the API Management architecture, backend load balancing is approximate. Different instances of the gateway do not synchronize and will load balance based on the information on the same instance.
+> * Because of the distributed nature of the API Management architecture, backend load balancing is approximate. Different instances of the gateway don't synchronize and load balance based on the information on the same instance.
 
 
 ### Load balancing options
@@ -246,22 +290,22 @@ API Management supports the following load balancing options for backend pools:
 | Load balancing option      | Description |
 |------------------|-------------|
 | **Round-robin**  | Requests are distributed evenly across the backends in the pool by default. |
-| **Weighted**     | Weights are assigned to the backends in the pool, and requests are distributed based on the relative weight of each backend. Useful for scenarios such as blue-green deployments. |
-| **Priority-based** | Backends are organized into priority groups. Requests are sent to higher priority groups first; within a group, requests are distributed evenly or according to assigned weights. |    
+| **Weighted**     | Assign weights to the backends in the pool, and distribute requests based on the relative weight of each backend. Useful for scenarios such as blue-green deployments. |
+| **Priority-based** | Organize backends into priority groups. Send requests to higher priority groups first; within a group, distribute requests evenly or according to assigned weights. |    
 
 > [!NOTE]
-> Backends in lower priority groups will only be used when all backends in higher priority groups are unavailable because circuit breaker rules are tripped.
+> The API Management service uses backends in lower priority groups only when all backends in higher priority groups are unavailable because circuit breaker rules are tripped.
 
 ### Session awareness
 
-With any of the preceding load balancing options, optionally enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session are directed to the same backend in the pool. API Management sets a session ID cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
+With any of the preceding load balancing options, you can enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session go to the same backend in the pool. API Management sets a session ID cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
 
 > [!NOTE]
 > Session awareness in load-balanced pools is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
 
 #### Manage cookies for session awareness
 
-When using session awareness, the client must handle cookies appropriately. The client needs to store the `Set-Cookie` header value and send it with subsequent requests to maintain session state.
+When you use session awareness, the client must handle cookies appropriately. The client needs to store the `Set-Cookie` header value and send it with subsequent requests to maintain session state.
 
 You can use API Management policies to help set cookies for session awareness. For example, for the case of the Assistants API (a feature of [Azure OpenAI in Azure AI Foundry Models](/azure/ai-services/openai/concepts/models)), the client needs to keep the session ID, extract the thread ID from the body, and keep the pair and send the right cookie for each call. Moreover, the client needs to know when to send a cookie or when not to send a cookie header. These requirements can be handled appropriately by defining the following example policies:
 
@@ -308,7 +352,7 @@ Use the portal, API Management [REST API](/rest/api/apimanagement/backend), or a
 1. In the left menu, select **APIs** > **Backends** > your backend.
 1. In the **Backends** page, select the **Load balancer** tab.
 1. Select **+ Create new pool**.
-1. In the **Create new load-balanced pool** page, do the following:
+1. In the **Create new load-balanced pool** page, enter the following information:
     * **Name**: Enter a name for the pool such as *myBackendPool*.
     * **Description**: Optionally enter a description.
     * **Add backends to pool**: Select one or more backends to add to the pool.
@@ -395,11 +439,11 @@ This example includes an optional `sessionAffinity` pool configuration for sessi
 ## Limitations
 
 - For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog.
-- Currently, only one rule can be configured for a backend circuit breaker.  
+- Currently, you can configure only one rule for a backend circuit breaker.  
 
 ## Related content
 
 * Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
 * Quickstart [Create a Backend Pool in Azure API Management using Bicep for load balance OpenAI requests](https://github.com/Azure-Samples/apim-lbpool-openai-quickstart)
-* See [Azure API Management as an Event Grid source](/azure/event-grid/event-schema-api-management) for information about Event Grid events that are generated by the gateway when a circuit breaker is tripped or reset. Use these events to take action before backend issues escalate. 
+* See [Azure API Management as an Event Grid source](/azure/event-grid/event-schema-api-management) for information about Event Grid events that the gateway generates when a circuit breaker trips or resets. Use these events to take action before backend issues escalate. 

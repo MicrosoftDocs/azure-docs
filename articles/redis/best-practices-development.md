@@ -12,7 +12,7 @@ appliesto:
 
 # Development with Azure Managed Redis
 
-In this article, we discus how to develop code for Azure Managed Redis.
+In this article, we discuss how to develop code for Azure Managed Redis.
 
 ## Connection resilience and server load
 

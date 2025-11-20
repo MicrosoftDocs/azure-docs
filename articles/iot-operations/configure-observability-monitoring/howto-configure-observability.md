@@ -1,8 +1,8 @@
 ---
 title: Deploy observability resources
 description: Learn how to deploy Azure IoT Operations observability resources, configure Prometheus metrics, and set up Grafana dashboards to monitor your industrial IoT solution effectively.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.topic: how-to
 ms.custom:
   - ignite-2023

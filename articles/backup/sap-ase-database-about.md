@@ -2,7 +2,7 @@
 title: About the SAP ASE (Sybase) database backup on Azure VMs
 description: In this article, learn about backing up SAP ASE (Sybase) databases that are running on Azure virtual machines.
 ms.topic: overview
-ms.date: 05/13/2025
+ms.date: 11/03/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -73,6 +73,14 @@ You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up th
 3. After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive database data from Azure Backup.
 
 4. Restore the database into the VM from the Azure SAP ASE (Sybase) database backup to your intended point in time.
+
+## Back up an SAP ASE High Availability cluster 
+
+Azure Backup now supports SAP ASE databases in High Availability (HA) clusters. When a failover occurs, the service automatically manages backups, eliminating manual intervention. Even though the cluster includes multiple physical nodes (primary and secondary), Azure Backup considers them as one HA container.
+
+:::image type="content" source="./media/sap-ase-database-backup/sap-ase-high-availability-databases.png" alt-text="Screenshot shows the list of high availability databases." lightbox="./media/sap-ase-database-backup/sap-ase-high-availability-databases.png":::
+
+Learn how to configure backup for [SAP ASE (Sybase) databases in High Availability clusters](sap-ase-database-backup.md#configure-backup-for-an-sap-ase-high-availability-cluster).
 
 ## Backup pricing
 

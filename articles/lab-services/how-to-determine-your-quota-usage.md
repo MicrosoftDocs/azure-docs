@@ -5,6 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to 
 ms.date: 10/11/2022 
+ms.custom: sfi-image-nochange
 --- 
 
 # Determine usage and quota  

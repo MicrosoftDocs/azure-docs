@@ -388,7 +388,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[SHR Consulting Group LLC](https://www.shrgroupllc.com)|
 |[Shoshin Technologies Inc.](https://www.shoshintech.com)|
 |[Sieena, Inc.](https://siennatech.com/)|
-|[Simeon Networks](https://simeonnetworks.com)|
 |[SimpleHelix](https://simplehelix.com/)|
 |[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|

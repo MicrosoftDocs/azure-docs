@@ -13,6 +13,7 @@ ms.custom:
   - devx-track-arm-template
   - devx-track-bicep
   - build-2025
+  - sfi-image-nochange
 ---
 
 # How to integrate Azure API Management with Azure Application Insights
@@ -44,7 +45,7 @@ You can easily integrate Azure Application Insights with Azure API Management. A
     
         * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     
-    1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
+    1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or other Azure tools.
     
 ## Scenario overview
 

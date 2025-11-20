@@ -10,6 +10,7 @@ ms.author: rsarkar
 ms.date: 02/23/2022
 ms.topic: how-to
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---	
 
 # How to customize how workers are ranked for the best worker distribution mode

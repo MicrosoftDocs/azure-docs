@@ -89,7 +89,7 @@ To mount the file share permanently by adding the mount commands in '/etc/fstab'
 
 ```bash
 vi /etc/fstab
-sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs noresvport,vers=4,minorversion=1,nconnect=4,sec=sys,_netdev  0  0
+sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs noresvport,vers=4,minorversion=1,sec=sys,_netdev  0  0
 
 # Mount the file systems
 mount -a
@@ -119,6 +119,13 @@ op monitor interval=20s timeout=40s
 
 ```
 
+> [!Important]
+> To use `aznfs` as filesystem type in pacemaker cluster resource agent, maintain the required version of the `resource-agents` package based on the operating system release.
+>
+> - SLES 15 SP4: `resource-agents-4.10.0+git40.0f4de473-150400.3.34.2` or later
+> - SLES 15 SP5: `resource-agents-4.12.0+git30.7fd7c8fa-150500.3.15.3` or later
+> - SLES 15 SP6 and newer: `resource-agents-4.13.0+git6.ae50f94f-150600.4.9.2` or later
+
 #### [**RHEL**](#tab/RHEL)
 
 ```bash
@@ -128,6 +135,21 @@ fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op mo
 --group g-NW1_ASCS
 
 ```
+
+> [!Important]
+> To use `aznfs` as filesystem type in pacemaker cluster resource agent, maintain the required version of the `resource-agents` package based on the operating system release.
+>
+> For RHEL 8
+>
+> - RHEL 8.8 : `resource-agents-4.9.0-40.el8_8.10` or later
+> - RHEL 8.10: `resource-agents-4.9.0-54.el8_10.13` or later
+>
+> For RHEL 9
+>
+> - RHEL 9.0: `resource-agents-4.10.0-9.el9_0.13` or later
+> - RHEL 9.2: `resource-agents-4.10.0-34.el9_2.10` or later
+> - RHEL 9.4: `resource-agents-4.10.0-52.el9_4.8` or later
+> - RHEL 9.6: `resource-agents-4.10.0-71.el9_6.5` or later
 
 ---
 

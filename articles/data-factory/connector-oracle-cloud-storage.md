@@ -4,10 +4,12 @@ description: Learn about how to copy data from Oracle Cloud Storage to supported
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2023
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from Oracle Cloud Storage using Azure Data Factory or Synapse Analytics

@@ -6,6 +6,7 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
+ms.custom: sfi-image-nochange
 ---
 # Rotate login credentials for inputs and outputs of a Stream Analytics Job
 

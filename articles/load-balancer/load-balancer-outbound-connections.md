@@ -22,10 +22,10 @@ The following methods are Azure's most commonly used methods to enable outbound 
 | #  | Method                                                                                           | Type of port allocation | Production-grade?      | Rating |
 | -- | ------------------------------------------------------------------------------------------------ | ----------------------- | ---------------------- | ------ |
 | 1  | Associate a NAT gateway to the subnet                                                            | Dynamic, explicit       | Yes                    | Best   |
-| 1  | Assign a public IP to the virtual machine                                                        | Static, explicit        | Yes                    | OK     |
-| 1  | Use the frontend IP address(es) of a load balancer for outbound via outbound rules              | Static, explicit        | Yes, but not at scale  | OK     |
-| 1  | Use the frontend IP address(es) of a load balancer for outbound without outbound rules          | Static, Implicit        | No                     | Worst  |
-| 1  | [Default outbound access](../virtual-network/ip-services/default-outbound-access.md)            | Implicit                | No                     | Worst  |
+| 2  | Assign a public IP to the virtual machine                                                        | Static, explicit        | Yes                    | OK     |
+| 3  | Use the frontend IP address(es) of a load balancer for outbound via outbound rules              | Static, explicit        | Yes, but not at scale  | OK     |
+| 4  | Use the frontend IP address(es) of a load balancer for outbound without outbound rules          | Static, Implicit        | No                     | Worst  |
+| 5  | [Default outbound access](../virtual-network/ip-services/default-outbound-access.md)            | Implicit                | No                     | Worst  |
 
 :::image type="content" source="./media/load-balancer-outbound-connections/outbound-options.png" alt-text="Diagram of Azure outbound options.":::
 
@@ -174,7 +174,7 @@ In the example in the following table, a backend instance with private IP 10.0.0
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple    |
 | ---- | ------------ | ----------------------- | -------------------- |
 | 1    | 10.0.0.1:80  | 192.0.2.0:1             | 23.53.254.142:80     |
-| 1    | 10.0.0.1:80  | 192.0.2.0:1             | 26.108.254.155:80    |
+| 2    | 10.0.0.1:80  | 192.0.2.0:1             | 26.108.254.155:80    |
 
 ## Constraints
 

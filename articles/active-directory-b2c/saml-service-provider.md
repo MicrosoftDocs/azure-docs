@@ -12,8 +12,10 @@ ms.topic: how-to
 ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer integrating SAML applications with Azure AD B2C, I want to register a SAML application in Azure AD B2C, so that I can authenticate users using the SAML protocol and achieve single sign-on with SAML-based applications.

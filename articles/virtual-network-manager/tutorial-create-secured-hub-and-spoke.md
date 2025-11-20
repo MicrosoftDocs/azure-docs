@@ -6,7 +6,10 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: tutorial
 ms.date: 07/11/2025
-ms.custom: FY23 content-maintenance, engagement-FY24
+ms.custom:
+  - FY23 content-maintenance
+  - engagement-FY24
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create a secured hub-and-spoke network
@@ -26,7 +29,7 @@ In this tutorial, you learn to:
 
 ## Prerequisite
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Before you can complete steps in this tutorial, you must first [create an Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance. The instance needs to include the **Connectivity** and **Security admin** features. This tutorial uses an Azure Virtual Network Manager instance named **vnm-learn-eastus-001**.
 
 ## Create virtual networks

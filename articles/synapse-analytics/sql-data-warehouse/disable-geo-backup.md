@@ -8,6 +8,7 @@ ms.date: 07/23/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
+ms.custom: sfi-image-nochange
 ---
 
 # Disable geo-backups for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

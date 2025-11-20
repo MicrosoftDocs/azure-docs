@@ -2,10 +2,12 @@
 author: cephalin
 ms.service: azure-app-service
 ms.devlang: java
-ms.custom: linux-related-content
 ms.topic: quickstart
 ms.date: 02/21/2023
 ms.author: cephalin
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web app hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Linux using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
@@ -35,7 +37,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 To complete this quickstart you need:
 
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=visual-studio-code-tutorial-app-service-extension&mktingSource=visual-studio-code-tutorial-app-service-extension).
+1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 1. A GitHub account to fork a repository.
 
 ## 1 - Fork the sample repository

@@ -26,7 +26,7 @@ The `RedisStreamTrigger` reads new entries from a stream and surfaces those elem
 >
 
 > [!IMPORTANT]
-> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
+> Redis triggers aren't currently supported for functions running on a [Consumption plan](consumption-plan.md) or a [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan).
 >
 
 ::: zone pivot="programming-language-javascript"  

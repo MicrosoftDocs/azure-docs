@@ -2,11 +2,11 @@
 title: Troubleshoot outbound connectivity with Azure services
 titleSuffix: Azure NAT Gateway
 description: Get started learning how to troubleshoot issues with Azure NAT Gateway and Azure resources and services.
-author: asudbring
+author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: troubleshooting
-ms.date: 02/15/2024
-ms.author: allensu
+ms.date: 09/09/2025
+ms.author: alittleton
 # Customer intent: As a cloud administrator, I want to troubleshoot outbound connectivity issues with NAT gateway and Azure services, so that I can ensure seamless application integration and efficient network performance in my cloud environment.
 ---
 
@@ -21,6 +21,24 @@ This article provides guidance on how to troubleshoot connectivity issues when u
 * [Azure Firewall](#azure-firewall)
 
 * [Azure Databricks](#azure-databricks)
+
+> [!IMPORTANT]
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## Known limitations with StandardV2 NAT Gateway and VNet injection scenarios
+
+* StandardV2 NAT Gateway doesn't support and can't be attached to delegated subnets for the following services: 
+    * Azure SQL Managed Instance 
+    * Azure Container Instances 
+    * Azure Database for PostgreSQL - Flexible Server 
+    * Azure Database for MySQL - Flexible Server 
+    * Azure Database for MySQL  
+    * Azure Data Factory - Data Movement 
+    * Microsoft Power Platform services 
+    * Azure Stream Analytics 
+    * Azure Web Apps 
+    * Azure DNS Private Resolver 
 
 ## Azure App Services 
 
@@ -66,6 +84,10 @@ NAT gateway can be deployed with AKS clusters in order to allow for explicit out
 
 - **User-Assigned NAT gateway**: You deploy a NAT gateway to an existing virtual network for the AKS cluster. 
 
+Standard SKU NAT Gateway can be deployed as either a Managed NAT gateway or User-Assigned NAT gateway. 
+
+StandardV2 SKU NAT Gateway can only be deployed as a User-Assigned NAT gateway.  
+
 Learn more at [Managed NAT Gateway](/azure/aks/nat-gateway).
 
 ### Connecting from AKS cluster to the AKS API server over the internet
@@ -107,17 +129,24 @@ Update your idle timeout timer configuration on your User-Assigned NAT gateway w
 >[!Note] 
 >Increasing the TCP idle timeout timer to longer than 4 minutes can increase the risk of SNAT port exhaustion.
 
+### Zone-resilient configuration with NAT gateway and AKS node pool
+
+When running Azure Kubernetes Service (AKS) with multi-zone node pools, pair the cluster with a StandardV2 NAT Gateway for outbound connectivity. A multi-zone node pool distributes nodes across availability zones, providing resiliency at the compute layer, while the StandardV2 NAT Gateway is zone-redundant by default and ensures consistent outbound SNAT connectivity across all zones in the virtual network. This combination delivers end-to-end resiliency, helping workloads remain available and maintain reliable internet connectivity even if a single availability zone experiences an outage. 
+
 ## Azure Firewall 
 
 ### Source Network Address Translation (SNAT) exhaustion when connecting outbound with Azure Firewall
 
-Azure Firewall can provide outbound internet connectivity to virtual networks. Azure Firewall provides only 2,496 SNAT ports per public IP address. While Azure Firewall can be associated with up to 250 public IP addresses to handle egress traffic, you might require fewer public IP addresses for connecting outbound. The requirement for egressing with fewer public IP addresses is due to architectural requirements and allowlist limitations by destination endpoints.
+Azure Firewall can provide outbound internet connectivity to virtual networks. While Azure Firewall can be associated with up to 250 public IP addresses to handle egress traffic, you might require fewer public IP addresses for connecting outbound either because of architectural requirements or allowlist limitations by destination endpoints.
 
 One method by which to provide greater scalability for outbound traffic and also reduce the risk of SNAT port exhaustion is to use NAT gateway in the same subnet with Azure Firewall.
+
+For zone-redundant deployments, it is recommended to deploy a StandardV2 NAT gateway to the Firewall subnet.
+
 For more information on how to set up a NAT gateway in an Azure Firewall subnet, see [integrate NAT gateway with Azure Firewall](/azure/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall). For more information about how NAT gateway works with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../firewall/integrate-with-nat-gateway.md).
 
 > [!NOTE]
-> NAT gateway is not supported in a vWAN architecture. NAT gateway cannot be configured to an Azure Firewall subnet in a vWAN hub.
+> NAT gateway isn't supported in a vWAN architecture. NAT gateway cannot be configured to an Azure Firewall subnet in a vWAN hub.
 
 ## Azure Databricks
 

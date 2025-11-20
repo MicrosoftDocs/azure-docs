@@ -6,7 +6,7 @@ author: mbender-ms
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
 ms.topic: overview
-ms.date: 8/21/2025
+ms.date: 11/10/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand how Application Gateway for Containers functions, so that I can effectively implement it for load balancing and traffic management within my Kubernetes cluster."
 ---
@@ -78,7 +78,7 @@ Application Gateway for Containers supports the following features for traffic m
 - TLS policies
 - URL redirect
 - URL rewrite
-- Web Application Firewall (WAF) (Preview)
+- Web Application Firewall (WAF)
 - WebSocket support
 
 ### Deployment strategies

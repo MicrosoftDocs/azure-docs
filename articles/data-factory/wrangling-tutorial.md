@@ -6,6 +6,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Prepare data with data wrangling

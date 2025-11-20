@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.custom: sfi-ropc-nochange
 # Customer intent: As an HPC architect, I want to develop a comprehensive storage migration strategy, so that I can ensure optimal performance, scalability, and cost-efficiency while transitioning high-performance workloads to the cloud.
 ---
 

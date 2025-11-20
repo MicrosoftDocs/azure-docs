@@ -6,6 +6,7 @@ ms.author: jegeib
 ms.service: information-protection
 ms.topic: article
 ms.date: 02/16/2017
+#customer intent: As a software architect or developer, I want to understand how to use the Microsoft Threat Modeling Tool so that I can identify and mitigate potential security issues early in the design process.
 ---
 
 # Microsoft Threat Modeling Tool

@@ -3,7 +3,7 @@ title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution. Define properties in IoT Central and use properties programmatically.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/27/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -23,7 +23,7 @@ To learn about the IoT Pug and Play property conventions, see [IoT Plug and Play
 
 To learn more about the property data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
-To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices](../core/howto-control-devices-with-rest-api.md).
 
 To learn how to implement properties in a device without using the device SDKs, see [Communicate with an IoT hub using the MQTT protocol](../../iot/iot-mqtt-connect-to-iot-hub.md).
 
@@ -40,7 +40,7 @@ The following table shows the configuration settings for a property capability.
 | Field | Description |
 |---|---|
 | Display name | The display name for the property value used on dashboard tiles and device forms. |
-| Name | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value. |
+| Name | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric. The device code uses this **Name** value. |
 | Capability type | Property. |
 | Semantic type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The property data type, such as double, string, or vector. The semantic type determines the available choices. Schema isn't available for the event and state semantic types. |
@@ -68,13 +68,13 @@ When you select the complex **Schema**, such as **Object**, you need to define t
 
 By default, properties are read-only. Read-only properties let a device report property value updates to your Azure IoT Central application. Your Azure IoT Central application can't set the value of a read-only property.
 
-Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [device twins](../../iot-hub/tutorial-device-twins.md).
+Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [Tutorial: Configure your devices from a back-end service](../../iot-hub/tutorial-device-twins.md).
 
 A device sends property updates as a JSON payload. For more information, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 You can use the Azure IoT device SDK to send a property update to your Azure IoT Central application.
 
-For example implementations in multiple languages, see [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+For example implementations in multiple languages, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 The following view in Azure IoT Central application shows the device read-only properties:
 
@@ -106,8 +106,8 @@ You can update the writable properties in this view:
 
 ## Next steps
 
-Now that you've learned how to use properties in your Azure IoT Central application, see:
+Now that you know how to use properties in your Azure IoT Central application, see:
 
 * [IoT Plug and Play conventions](../../iot/concepts-convention.md)
 * [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md)
-* [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
+* [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

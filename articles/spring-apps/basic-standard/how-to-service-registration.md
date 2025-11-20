@@ -15,21 +15,15 @@ zone_pivot_groups: programming-languages-spring-apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This article shows you how to register your application using Spring Cloud Service Registry.
 
 Service registration and discovery are key requirements for maintaining a list of live app instances to call, and routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Azure Spring Apps provides two options for you to solve this problem:
 
-> [!NOTE]
-> To use service registry in the Standard consumption and dedicated plan, you must enable it first. For more information, see [Enable and disable Eureka Server in Azure Spring Apps](../consumption-dedicated/quickstart-standard-consumption-eureka-server.md).
-
 * Use Kubernetes Service Discovery approach to invoke calls among your apps.
 
   Azure Spring Apps creates a corresponding Kubernetes service for every app running in it using the app name as the Kubernetes service name. You can invoke calls from one app to another app by using the app name in an HTTP/HTTPS request such as `http(s)://{app name}/path`. This approach is also suitable for the Enterprise plan. For more information, see the [Kubernetes registry code sample](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/k8s-service-registry).
-
-  > [!NOTE]
-  > This approach isn't suitable for Standard consumption and dedicated (Preview).
 
 * Use Managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
 

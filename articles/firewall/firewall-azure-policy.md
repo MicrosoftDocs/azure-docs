@@ -17,7 +17,7 @@ Azure Policy can be used to govern Azure Firewall configurations by applying pol
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Policies available for Azure Firewall
 
@@ -47,6 +47,12 @@ The following policies are available for Azure Firewall:
 - **Enable TLS inspection on Azure Firewall Policy**
    
    This policy mandates that TLS inspection is enabled to detect, alert, and mitigate malicious activity in HTTPS traffic. 
+- **Enforce Explicit Proxy Configuration for Firewall Policies**
+   
+   This policy ensures that all Azure Firewall policies have explicit proxy configuration enabled. It checks for the presence of the `explicitProxy.enableExplicitProxy` field and flags resources as noncompliant if this setting is missing. This helps maintain consistent proxy configurations across all firewall deployments. For the complete policy definition, see [Enforce Explicit Proxy Configuration for Firewall Policies](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Policy%20-%20Azure%20Policy%20Definitions/Policy%20-%20Enforce%20Explicit%20Proxy%20Configuration%20for%20Firewall%20Policies).
+- **Enable PAC file configuration while using Explicit Proxy on Azure Firewall**
+   
+   This policy audits Azure Firewall policies to ensure that when explicit proxy is enabled, the PAC (Proxy Auto-Configuration) file is also properly configured. It validates that if `explicitProxy.enableExplicitProxy` is true, then `explicitProxy.enablePacFile` should also be enabled to provide proper proxy auto-configuration capabilities. For the complete policy definition, see [Enable PAC file configuration while using Explicit Proxy on Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Policy%20-%20Azure%20Policy%20Definitions/Policy%20-%20Enable%20PAC%20file%20configuration%20while%20using%20Explicit%20Proxy%20on%20Azure%20Firewall).
 - **Migrate from Azure Firewall Classic Rules to Firewall Policy**
    
    This policy recommends migrating from Firewall Classic Rules to Firewall Policy. 
@@ -109,9 +115,14 @@ Now you attempt to create a Firewall Policy with Threat Intelligence disabled.
 
 You should see an error that says your resource was disallowed by policy, confirming that your Azure Policy doesn't allow firewall policies that have Threat Intelligence disabled.
 
+## Additional Azure Policy definitions
+
+For more Azure Policy definitions specifically designed for Azure Firewall, including policies for explicit proxy configuration, see the [Azure Network Security GitHub repository](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Policy%20-%20Azure%20Policy%20Definitions). This repository contains community-contributed policy definitions that you can deploy in your environment.
+
 ## Related content
 
 - [What is Azure Policy?](../governance/policy/overview.md)
 - [Govern your Azure Firewall configuration with Azure Policies](https://techcommunity.microsoft.com/t5/azure-network-security-blog/govern-your-azure-firewall-configuration-with-azure-policies/ba-p/4189902)
+- [Azure Firewall Explicit proxy (preview)](explicit-proxy.md)
 
 

@@ -1,13 +1,17 @@
 ---
-title: Quickstart - Create Azure API Management instance - ARM template
+title: Quickstart - Create Azure API Management Instance - ARM Template
 description: Use this quickstart to create an Azure API Management instance in the Developer tier by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 author: dlepow
 ms.service: azure-api-management
 ms.topic: quickstart-arm
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
-ms.date: 03/25/2024
+ms.date: 10/17/2025
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
@@ -20,13 +24,13 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fazure-api-management-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 
@@ -52,7 +56,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
     - **Subscription**: select an Azure subscription.
     - **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
     - **Region**: select a location for the resource group. Example: **Central US**.
-    - **Publisher Email**: enter an email address to receive notifications.
+    - **Publisher Email**: enter an email address for receiving notifications.
     - **Publisher Name**: enter a name you choose for the API publisher.
     - **Sku**: accept the default value of **Developer**. Alternatively, choose another value.
     - **Sku Count**: accept the default value.
@@ -65,7 +69,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
     > [!TIP]
     >  It can take between 30 and 40 minutes to create and activate an API Management service in the Developer tier. Times vary by tier.
 
-1. After the instance has been created successfully, you get a notification:
+1. After the instance is successfully created, you get a notification:
 
     :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="Deployment notification":::
 
@@ -91,6 +95,7 @@ If you plan to continue working with subsequent tutorials, you might want to lea
 1. On the resource group page, select **Delete resource group**.
 
     :::image type="content" source="media/quickstart-arm-template/delete-resource-group.png" alt-text="Delete resource group":::
+
 1. Type the name of your resource group, and then select **Delete**.
 
 ## Next steps

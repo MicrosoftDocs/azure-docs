@@ -8,6 +8,7 @@ ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/08/2025
+ms.custom: sfi-image-nochange
 
 #customer intent: As a developer, I want to use the IBM CICS connector so I can integrate CICS programs with Standard workflows in Azure Logic Apps.
 ---
@@ -50,7 +51,7 @@ This operation also includes advanced parameters, which appear after you select 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Access to the mainframe that hosts the CICS system.
 

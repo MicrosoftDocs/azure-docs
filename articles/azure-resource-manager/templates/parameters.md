@@ -23,8 +23,6 @@ In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [lan
 - [prefixItems](#prefixitems)
 - [properties](#properties)
 
-[!INCLUDE [VS Code ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
-
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
 
@@ -458,7 +456,7 @@ To reference a parameter's value, use the [parameters](template-functions-deploy
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2021-06-01-preview",
+      "apiVersion": "2025-05-01",
       "name": "[parameters('vaultName')]",
       ...
     }
@@ -504,7 +502,7 @@ The following example shows a parameter that is an object. The default value sho
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('vNetSettings').name]",
       "location": "[parameters('vNetSettings').location]",
       "properties": {

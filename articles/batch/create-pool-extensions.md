@@ -3,13 +3,15 @@ title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 03/04/2025
+ms.date: 11/11/2025
 # Customer intent: "As a cloud engineer, I want to implement and manage extensions on Batch compute nodes so that I can ensure proper configuration and optimize post-provisioning operations for my applications."
 ---
 
 # Use extensions with Batch pools
 
-Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. You can select any of the extensions that are allowed by Azure Batch and install them on the compute nodes as they're provisioned. After that, the extension can perform its intended operation.
+Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
+You can select any of the allowable extensions and install them on the compute nodes as they're provisioned. After that,
+the extension can perform its intended operation.
 
 You can check the live status of the extensions you use and retrieve the information they return in order to pursue any detection, correction, or diagnostics capabilities.
 
@@ -20,7 +22,7 @@ You can check the live status of the extensions you use and retrieve the informa
 - Some extensions may need pool-level Managed Identity accessible in the context of a compute node in order to function properly. See [configuring managed identities in Batch pools](managed-identity-pools.md) if applicable for the extensions.
 
 > [!TIP]
-> Extensions cannot be added to an existing pool. Pools must be recreated to add, remove, or update extensions.
+> Extensions can't be added to an existing pool. Pools must be recreated to add, remove, or update extensions.
 
 ## Supported extensions
 
@@ -39,6 +41,7 @@ The following extensions can currently be installed when creating a Batch pool:
 - [Azure Monitor agent for Linux](/azure/azure-monitor/agents/azure-monitor-agent-manage)
 - [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
 - [Application Health extension](/azure/virtual-machines/extensions/health-extension)
+- [Guest Attestation extension](/azure/virtual-machines/boot-integrity-monitoring-overview)
 
 You can request support for other publishers and/or extension types by opening a support request.
 
@@ -59,19 +62,19 @@ Request Body for Linux node
   "name": "test1",
   "type": "Microsoft.Batch/batchAccounts/pools",
   "properties": {
-    "vmSize": "STANDARD_DS2_V2",
+    "vmSize": "STANDARD_D2S_V5",
     "taskSchedulingPolicy": {
       "nodeFillType": "Pack"
     },
     "deploymentConfiguration": {
       "virtualMachineConfiguration": {
         "imageReference": {
-          "publisher": "microsoftcblmariner",
-          "offer": "cbl-mariner",
-          "sku": "cbl-mariner-2",
+          "publisher": "Canonical",
+          "offer": "ubuntu-24_04-lts",
+          "sku": "server",
           "version": "latest"
         },
-        "nodeAgentSkuId": "batch.node.mariner 2.0",
+        "nodeAgentSkuId": "batch.node.ubuntu 24.04",
         "extensions": [
           {
             "name": "secretext",
@@ -122,7 +125,7 @@ Request Body for Windows node
     "name": "test1",
     "type": "Microsoft.Batch/batchAccounts/pools",
     "properties": {
-        "vmSize": "STANDARD_DS2_V2",
+        "vmSize": "STANDARD_D4S_V5",
         "taskSchedulingPolicy": {
             "nodeFillType": "Pack"
         },
@@ -131,7 +134,7 @@ Request Body for Windows node
                 "imageReference": {
                     "publisher": "microsoftwindowsserver",
                     "offer": "windowsserver",
-                    "sku": "2022-datacenter",
+                    "sku": "2025-datacenter",
                     "version": "latest"
                 },
                 "nodeAgentSkuId": "batch.node.windows amd64",
@@ -220,16 +223,16 @@ Response Body
 
 ## Troubleshooting Key Vault Extension
 
-If Key Vault extension is configured incorrectly, the compute node might be in a usable state. To troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false and redeploy your pool, then the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit following Key Vault extension doc link for more information.
+If Key Vault extension is configured incorrectly, the compute node might be in a usable state. To troubleshoot Key Vault extension failure, you can temporarily set `requireInitialSync` to `false` and redeploy your pool. Once the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit the following Key Vault extension doc links for more information.
 
 - [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
 - [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
 
 ## Considerations for Application Health extension
 
-The Batch Node Agent running on the node always starts an HTTP server that returns the health status of the agent. This HTTP server listens on local IP address 127.0.0.1 and port 29879. It always returns a 200 status but with the response body being either healthy or unhealthy. Any other response (or lack thereof) is considered an "unknown" status. This setup is in line with the guidelines running a HTTP server which provides a "Rich Health State" per the official "Application Health extension" documentation.
- 
-If you set up your own health server, please ensure that the HTTP server listens on an unique port. It is suggested that your health server should query the Batch Node Agent server and combine with your health signal to generate a composite health result. Otherwise you might end up with a "healthy" node that doesn't have a properly functioning Batch Agent.
+The Batch Node Agent running on the node always starts an HTTP server that returns the health status of the agent. This HTTP server listens on local IP address 127.0.0.1 and port 29879. It always returns a 200 status but with the response body being either healthy or unhealthy. Any other response (or lack thereof) is considered an "unknown" status. This setup is in line with the guidelines running an HTTP server that provides a "Rich Health State" per the official "Application Health extension" documentation.
+
+If you set up your own health server, ensure that the HTTP server listens on a unique port. Your health server should query the Batch Node Agent server and combine with your health signal to generate a composite health result. Otherwise you might end up with a "healthy" node that doesn't have a properly functioning Batch Agent.
 
 ## Next steps
 

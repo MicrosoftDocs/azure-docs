@@ -3,6 +3,7 @@ title: Accelerate OT alert workflows - Microsoft Defender for IoT
 description: Learn how to improve Microsoft Defender for IoT OT alert workflows on an OT network sensor.
 ms.date: 10/11/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Accelerate OT alert workflows

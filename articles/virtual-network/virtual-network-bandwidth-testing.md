@@ -17,7 +17,7 @@ This article describes how to use the free NTTTCP tool from Microsoft to test ne
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Two Windows or Linux virtual machines in Azure. [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal) or [create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal).
     - To test throughput, you need two VMs of the same size to function as *sender* and *receiver*. The two VMs should be in the same [proximity placement group](/azure/virtual-machines/co-location) or [availability set](/azure/virtual-machines/availability-set-overview), so you can use their internal IP addresses and exclude load balancers from the test.
     - Note the number of VM cores and the receiver VM IP address for the commands. Both the sender and receiver commands use the receiver's IP address.

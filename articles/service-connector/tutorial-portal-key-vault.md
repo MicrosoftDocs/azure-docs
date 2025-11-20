@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/22/2024
+ms.date: 09/29/2025
 #customer intent: As a web developer, I want store my app's secrets in Azure Key Vault so they can be managed and protected by Azure's security features.
 ---
 

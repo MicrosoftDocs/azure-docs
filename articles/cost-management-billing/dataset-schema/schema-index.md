@@ -1,13 +1,13 @@
 ---
 title: Cost Management dataset schema index
 description: Learn about the dataset schemas available in Cost Management.
-author: jojohpm
-ms.reviewer: jojoh
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 06/26/2025
-ms.author: jojoh
+ms.author: vikdesai
 ---
 
 # Cost Management dataset schema index
@@ -39,7 +39,7 @@ For for more information about each agreement type and what's included, see [Sup
 |Cost and usage details|Pay-as-you-go (MOSA)|[2019-11-01](cost-usage-details-pay-as-you-go.md)|
 |Cost and usage details (FOCUS)|EA and MCA|[1.2-preview](cost-usage-details-focus.md)|
 |Price sheet|EA|[2023-05-01](price-sheet-ea.md)|
-|Price sheet|MCA|[2023-05-01](price-sheet-mca.md)|
+|Price sheet|MCA|[2024-08-01](price-sheet-mca.md)|
 |Reservation details|EA|[2023-03-01](reservation-details-ea.md)|
 |Reservation details|MCA|[2023-03-01](reservation-details-mca.md)|
 |Reservation recommendations|EA|[2023-05-01](reservation-recommendations-ea.md)|

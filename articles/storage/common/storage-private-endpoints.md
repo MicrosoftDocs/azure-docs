@@ -11,7 +11,9 @@ ms.date: 07/08/2025
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure private endpoints for Azure Storage, so that I can securely connect clients on a virtual network to storage resources while controlling access and minimizing exposure to the public internet.
 ---
 

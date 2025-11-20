@@ -67,12 +67,12 @@ The following examples show Azure CLI configuration commands for various support
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
 az webapp config set --php-version 7.0 --resource-group <groupname> --name <appname>
-az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=~18 --resource-group <groupname> --name <appname>
-az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
+az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=~24 --resource-group <groupname> --name <appname>
+az webapp config set --python-version 3.14 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 > [!NOTE] 
-> The Node.js example uses the recommended *tilde syntax* to target the latest available version of the Node.js 18 runtime on Windows App Service.
+> The Node.js example uses the recommended *tilde syntax* to target the latest available version of the Node.js 24 runtime on Windows App Service.
 
 ## How can I query OS and runtime update status on my instances?
 

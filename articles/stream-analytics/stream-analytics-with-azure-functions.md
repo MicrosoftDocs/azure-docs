@@ -5,10 +5,14 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: azure-stream-analytics
 ms.topic: tutorial
-ms.custom: "mvc, devx-track-csharp"
 ms.date: 03/29/2024
+ms.custom:
+  - mvc
+  - devx-track-csharp
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
-#Customer intent: As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs.
+#Customer intent: As an IT admin or developer, I want to run Azure Functions with Stream Analytics jobs.
 ---
 
 # Tutorial: Run Azure Functions from Azure Stream Analytics jobs
@@ -32,13 +36,13 @@ In this tutorial, you learn how to:
 > * Run the Stream Analytics job
 > * Check Azure Cache for Redis for results
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
 Before you start, make sure you've completed the following steps:
 
-* If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/free/).
+* If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Download the **phone call event generator app**, [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) from the Microsoft Download Center or get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
 
 [!INCLUDE [event-generator-app](./includes/event-generator-app.md)]

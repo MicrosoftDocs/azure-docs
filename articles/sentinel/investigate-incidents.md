@@ -1,12 +1,13 @@
 ---
 title: Investigate Microsoft Sentinel incidents in depth in the Azure portal
 description: This article takes you through all the panels and options available on the incident details page in the Azure portal, helping you navigate and investigate your incidents more quickly, effectively, and efficiently, and reducing your mean time to resolve (MTTR).
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 12/22/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to understand how to investigate a Microsoft Sentinel incident in the Azure portal in depth in such a way that I reduce the mean time to resolve (MTTR) and ensure effective incident response.
 ---
 

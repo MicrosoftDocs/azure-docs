@@ -93,6 +93,8 @@
         href: signalr-concept-authorize-azure-active-directory.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md
+  - name: Disconnections and reconnections
+    href: signalr-concept-client-disconnections.md
   - name: Security
     items:
     - name: Security baseline

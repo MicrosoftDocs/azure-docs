@@ -5,9 +5,12 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.custom: references_regions, subject-rbac-steps
 ms.date: 08/12/2025
 ms.author: kesheth
+ms.custom:
+  - references_regions
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Configure export settings and set up a storage account
@@ -52,7 +55,7 @@ In this step, browse to your FHIR service in the Azure portal and select **Ident
 
 8. On the **Review + assign** tab, click **Review + assign** to assign the **Storage Blob Data Contributor** role to your FHIR service.
 
-For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.yml).
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](/azure/role-based-access-control/role-assignments-portal).
 
 Now you're ready to configure the FHIR service by setting the ADLS Gen2 account as the default storage account for export.
 

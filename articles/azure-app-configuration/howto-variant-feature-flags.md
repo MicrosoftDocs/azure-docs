@@ -8,16 +8,16 @@ ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/18/2024
+ms.date: 10/31/2025
 ---
 
 # Use variant feature flags
 
-Variant feature flags enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. These flags can be useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
+Variant feature flags are feature flags configured with multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. These flags can be useful for feature experimentation (also known as A/B testing).
 
 ## What is a variant feature flag?
 
-A variant feature flag is an enhanced feature flag that supports multiple states or variations. While it can still be toggled on or off, it also allows for different variants with configurations. A variant is defined with a *Name* and an optional *Configuration Value*. The name is an identifier to tell variants apart. The configuration value can range from simple JSON primitives to complex JSON objects. You can use variants to differentiate functionalities or user experiences and optionally configure these functionalities or user experiences with variant configuration values. Additionally, a variant feature flag includes allocation rules, which define the target audience for each variant.
+A variant feature flag is a feature flag that supports multiple states or variations. While it can still be toggled on or off, it also allows for different variants with configurations. A variant is defined with a *Name* and an optional *Configuration Value*. The name is an identifier to tell variants apart. The configuration value can range from simple JSON primitives to complex JSON objects. You can use variants to differentiate functionalities or user experiences and optionally configure these functionalities or user experiences with variant configuration values. Additionally, a variant feature flag includes allocation rules, which define the target audience for each variant.
 
 ### Variants
 
@@ -59,12 +59,12 @@ In this tutorial, you create a web app named _Quote of the Day_. When the app is
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An [App Configuration store](./quickstart-azure-app-configuration-create.md).
 
-## Create a variant feature flag
+## Create a feature flag
 
-1. Create a variant feature flag called *Greeting* with no label in your App Configuration store. It includes three variants: *None*, *Simple*, and *Long*, each corresponding to different greeting messages. Refer to the following table for their configuration values and allocation settings. For more information on how to add a variant feature flag, see [Create a variant feature flag](./manage-feature-flags.md#create-a-variant-feature-flag).
+1. Create a feature flag called *Greeting* with no label in your App Configuration store with three variants: *None*, *Simple*, and *Long*, each corresponding to different greeting messages. Refer to the following table for their configuration values and allocation settings. For more information on how to add a variant, see [Create a feature flag - Experiment](./manage-feature-flags.md?tabs=experiment#create-a-feature-flag).
 
     | Variant Name | Variant Configuration Value | Allocation| 
     |---|---|---|

@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.custom: b2c-docs-improvements
 ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to validate user inputs by using custom policies, so that I can ensure that the data entered by users is accurate and meets the required criteria.

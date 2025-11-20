@@ -7,7 +7,9 @@ ms.author: baanders
 ms.date: 03/07/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Create a data history connection for Azure Digital Twins

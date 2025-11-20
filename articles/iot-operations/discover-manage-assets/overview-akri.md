@@ -1,5 +1,5 @@
 ---
-title: Learn about Akri (preview)
+title: Learn about Akri services
 description: Understand how the Akri services enable you to dynamically configure and deploy Akri connectors to connect a broad variety of assets and devices to the Azure IoT Operations cluster, ingest telemetry from them, and use command and control.
 author: dominicbetts
 ms.author: dobett
@@ -7,92 +7,88 @@ ms.subservice: azure-akri
 ms.topic: overview
 ms.custom:
   - ignite-2023
-ms.date: 07/08/2025
+ms.date: 09/08/2025
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand how the Akri services enable me to discover devices and assets at the edge, and expose them as resources on a Kubernetes cluster.
 ---
 
-# What are Akri services (preview)?
+# What are Akri services
 
-The Azure IoT Operations southbound connectors use Akri services to:
+The Microsoft Akri framework lets you perform the following tasks in Azure IoT Operations:
 
-- Discover physical devices and devices connected to your cluster.
-- Enable connectivity to the physical assets and devices by using protocols such as ONVIF and REST/HTTP.
-- Configure namespace assets and devices as custom resources in your Kubernetes cluster.
-- Integrate with Azure Device Registry to project device and namespace assets to the cloud as Azure Resource Manager resources, reducing the amount of manual configuration required.
+- **Connect**: The Azure IoT Operations Akri connectors let you establish southbound connections to a wide variety of assets and devices in Azure IoT Operations, ingest telemetry from them, and use command and control. The connectors send data to the MQTT broker, which uses data flows for northbound connectivity to cloud services.
+- **Discover**: The Akri services let you discover devices on your network for easy onboarding to Azure IoT Operations.
+- **Monitor**: The Akri connectors use the Akri diagnostics service to collect and send observability data to the OTel service.
 
-The Akri services provide an extensible framework for all device connectivity protocols. The following types of southbound connector all use Akri services:
+The following diagram shows the architecture of the Akri services in Azure IoT Operations.
 
-- Built-in connectors such as the **connector for ONVIF**, **media connector**, and **connector for REST/HTTP (preview)**.
-- Partner-provided connectors.
-- Custom connectors.
+<!-- Art Library Source# ConceptArt-0-000-92 -->
+:::image type="content" source="media/overview-akri/akri-architecture.svg" alt-text="Diagram that shows the Akri services in Azure IoT Operations." lightbox="media/overview-akri/akri-architecture.png" border="false":::
 
-The [Azure IoT Operations SDK (preview)](https://github.com/azure/iot-operations-sdks) includes examples to help you get started building custom connectors. The SDK samples show you how to:
+The following steps explain how the Akri services work together to configure devices and assets, and connect them to your physical assets and devices:
 
-- Use the Akri services to deploy connectors and manage their lifecycle.
-- Interface with other Azure IoT Operations components such as the MQTT broker.
+1. An IT admin creates a connector template in the Azure portal with configurations for a connector like the media connector.
+1. The connector template syncs to the edge. The Akri operator detects the new connector template.
+1. An OT user creates a device and inbound endpoint in the operations experience portal. The Akri operator detects the device and inbound endpoint and deploys a matching connector instance. The Akri operator uses the configuration  details in the connector template to configure the connector instance to connect to the physical device or asset.
+1. Data starts flowing from the physical device or asset through the connector instance to destinations set in the assets associated with the inbound endpoint.
+1. If the OT user enables asset discovery on the device, the connector creates the necessary custom resources (CRs) for any discovered assets. For example, the connector for ONVIF discovers media profiles in an ONVIF-compliant camera and creates the necessary CRs for each profile. The OT user can then easily onboard the discovered assets through the operations experience portal.
+1. The Akri operator handles any updates to configurations or secrets. The Akri operator also automatically deploys more connector instances to scale up as more devices are added.
 
-The Akri services are a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open-source Cloud Native Computing Foundation (CNCF) project.
+## Connectors
 
-## Leaf device integration challenges
+Akri services enable the connectors that let you connect to different devices and assets. Microsoft provides these connectors:
 
-In Azure IoT Operations, your Kubernetes cluster runs on your edge infrastructure, which introduces challenges when you want to integrate non-Kubernetes IoT leaf devices. For example:
+- **Connector for OPC UA**: Connects to OPC UA servers, ingests telemetry data, and lets you use command-and-control scenarios.
+- **Media connector**: Connects to media devices and ingests stream data like video and image snapshots.
+- **Connector for ONVIF**: Connects to ONVIF-compliant cameras, ingests event data like motion detection alerts, and lets you use command and control scenarios like pan-tilt-zoom control.
+- **Connector for HTTP/REST**: Connects to HTTP/REST endpoints and ingests telemetry data.
+- **Connector for SSE**: Connects to SSE endpoints and ingests event data.
 
-- They use hardware that's too small, too old, or too locked-down to run Kubernetes.
-- They use various protocols and different topologies.
-- They have intermittent downtime and availability.
-- They require different methods of authentication and secret storage.
+## Akri operator
 
-## Core capabilities
+The Akri operator manages the lifecycle of the Akri connector. It lets you deploy connectors dynamically when the cluster detects certain types of devices and allocates the corresponding assets to the inbound connector.
 
-To address the challenges of integrating non-Kubernetes IoT leaf devices, the Akri services have several core capabilities:
+The Akri operator uses *connector templates* to deploy and configure connectors. The IT admin adds the connector templates to the Azure IoT Operations environment from the Azure portal. Templates define how to deploy and configure connectors. For example, the connector template for the media connector lets the IT admin specify how the connector syncs captured media streams to Azure Storage.
 
-### Connector deployment and lifecycle management
+After the IT admin adds a connector template, such as the one for the media connector, the Akri operator watches for assets and devices in the cluster that match the criteria in the template. When it finds a match, it deploys and configures the connector dynamically. Dynamic configuration includes:
 
-Akri services include the _Akri operator_. The operator lets you deploy connectors dynamically when certain types of devices are found on the cluster and the corresponding namespace assets are allocated to the connector. The Akri operator provides automatic access to Azure IoT Operations resources such as device endpoints and namespace assets.
+- An identity for the connector instance.
+- Custom configurations, such as Azure Storage account details.
+- Connection details for the MQTT broker.
+- Connections for the OpenTelemetry (OTel) monitoring endpoint.
+- Volume mounts for secrets.
 
-### Asset discovery
+The Akri operator also handles any updates the IT admin makes to secrets or connector configurations.
 
-Akri services include the _Azure Device Registry service component_, which works with the connectors that have discovery capabilities. These connectors enable the metadata and definitions such as datasets and events to be onboarded through known device endpoints. The Azure Device Registry service component creates the discovered namespace assets as custom resources that an OT user can view in the operations experience web UI. The OT user can then onboard the discovered assets as namespace assets that are automatically added to the Azure Device Registry.
+## Akri Azure Device Registry service
 
-### Physical device discovery
+The Akri Azure Device Registry service works with connectors so they can interact with device and asset custom resources in the Azure IoT Operations environment. The Azure Device Registry Service:
 
-Akri services deployments can include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP address, and network scanning discovery handlers. This capability isn't supported in the current release.
+- Enables secure access to assets and devices from other Azure IoT Operations components.
+- Works with the connectors to support discovery of devices and assets.
 
-### Compatibility with Kubernetes
+For example, the Akri Azure Device Registry service helps an OT user to onboard media devices from the media profiles the connector for ONVIF discovers in an ONVIF compliant camera.
 
-The Akri services use standard Kubernetes primitives that let you apply your existing expertise and knowledge:
+## Akri SDKs
 
-- Small devices connected to an Akri-configured cluster can appear as Kubernetes custom resources, just like memory or CPUs. These device and asset configurations and properties remain in the cluster so that if a node fails, other nodes can pick up any lost work.
+Akri SDKs (preview) let you build custom connectors that integrate with Akri services. The SDKs provide a framework that simplifies connector development, so you can focus on the specific logic for your southbound connector. The SDKs manage all interactions with other Azure IoT Operations services for you.
 
-- Security and authentication use standard Kubernetes secrets and TLS practices, which makes it easy to secure your device connections regardless of the connectivity protocol.
+To learn about the languages the SDKs support and the available libraries, see [Overview of the Azure IoT Operations SDKs (preview)](../develop-edge-apps/overview-iot-operations-sdks.md).
 
-### Feature support
+## Open-source Akri
 
-The Akri services support the following features:
+Akri services are a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open-source project from the Cloud Native Computing Foundation (CNCF).
 
-| Akri services features   | Supported |
-|--------------------------|:---------:|
-| Installation through the Azure IoT Operations Arc extension |   Yes     |
-| Onboard devices as custom resources to an edge cluster       |   Yes     |
-| View the Akri services metrics and logs through Azure Monitor |   Yes     |
-| The Akri services discover and create assets that can be ingested into the Azure Device Registry  |   Yes     |
-| Akri services configuration by using the operations experience web UI |   Yes     |
-| Deployment and management features for integrating non-Microsoft or custom protocol connectors |   Yes     |
-| Deployment and management features for integrating non-Microsoft or custom protocol discovery handlers |   No     |
+> [!NOTE]
+> Currently, Akri services in Azure IoT Operations has an API that differs from the CNCF Akri project.
 
-## Related content
+Akri services build on the capabilities of the open-source Akri project and provide additional features and support for enterprise scenarios.
 
-To learn more about OPC UA automatic asset discovery with Akri services, see [Discover OPC UA data sources using the Akri services](howto-autodetect-opc-ua-assets-use-akri.md)
+## Next steps
 
-To learn more about using Akri with ONVIF, Media, or REST/HTTP, see:
-
-- [Understand the connector for media](./overview-media-connector.md)
-- [Understand the connector for ONVIF](./overview-onvif-connector.md)
-- [Understand the connector for REST/HTTP](overview-http-connector.md)
-
-To learn more about the open-source CNCF Akri, see the following resources:
-
-- [Documentation](https://docs.akri.sh/)
-- [OPC UA Sample on AKS Edge Essentials](/azure/aks/hybrid/aks-edge-how-to-akri-opc-ua)
-- [ONVIF Sample on AKS Microsoft Edge Essentials](/azure/aks/hybrid/aks-edge-how-to-akri-onvif)
+- [Configure the connector for ONVIF](howto-use-onvif-connector.md)
+- [Configure the media connector](howto-use-media-connector.md)
+- [Configure the connector for OPC UA](howto-configure-opc-ua.md)
+- [Configure the connector for HTTP/REST](howto-use-http-connector.md)
+- [Configure the connector for SSE](howto-use-sse-connector.md)
+- [Configure the connector for MQTT (preview)](howto-use-mqtt-connector.md)

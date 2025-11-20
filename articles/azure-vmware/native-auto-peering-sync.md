@@ -37,6 +37,7 @@ Ensures that virtual machines hosted in Azure VMware Solution can securely and c
 ## Prerequisite
 
 - Ensure the "Microsoft.BareMetal" resource provider is registered.
+- When updating an Automated Peering Sync setting, the user needs Role Based Access Control Administrator access on the remote virtual network.
 
 ## Deployment steps 
 
@@ -55,7 +56,7 @@ Azure VMware Solution will:
 
 This preview currently supports:  
 
-- Peering with Azure virtual networks that are in the same tenant, including those in different subscriptions or regions from the Azure VMware Solution private cloud.  
+- Peering with Azure virtual networks that are in the same tenant and same subscription as the Azure VMware Solution private cloud.  
 
 > [!NOTE]  
 > Auto peering synchronization is triggered when changes are detected in the Azure VMware Solution virtual network, not when changes occur in the remote Azure virtual network. As a result, if configuration changes are made only on the remote virtual network, they will not automatically trigger a sync.  

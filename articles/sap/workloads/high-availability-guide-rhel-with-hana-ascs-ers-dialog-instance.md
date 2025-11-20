@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 06/19/2024
 ms.author: ampatel
+ms.custom: sfi-image-nochange
 # Customer intent: As a system administrator, I want to deploy SAP ASCS/SCS and ERS with SAP HANA in a high-availability configuration on RHEL, so that I can optimize resource usage and ensure uninterrupted service for my SAP environment.
 ---
 

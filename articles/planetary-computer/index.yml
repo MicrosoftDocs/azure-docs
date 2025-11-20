@@ -142,6 +142,8 @@ landingContent:
             url: application-authentication.md
           - text: Connect to ArcGIS Pro
             url: create-connection-arc-gis-pro.md
+          - text: Connect to QGIS
+            url: configure-qgis.md
       - linkListType: quickstart
         links:
           - text: Azure Batch and Microsoft Planetary Computer Pro

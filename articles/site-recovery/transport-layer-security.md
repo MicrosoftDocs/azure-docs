@@ -4,8 +4,8 @@ description: Learn how to enable Azure Site Recovery to use the encryption proto
 ms.topic: faq
 ms.service: azure-site-recovery
 ms.date: 12/15/2023
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: "As an IT administrator, I want to enable TLS 1.2 for Azure Site Recovery, so that I can ensure secure data transfer and protect against potential security vulnerabilities."
 ---
 

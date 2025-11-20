@@ -1,11 +1,12 @@
 ---
 title: Support for Hyper-V assessment in Azure Migrate and Modernize
 description: 'Learn about support for Hyper-V assessment with Azure Migrate: Discovery and assessment.'
-author: Vikram1988
-ms.author: vibansa
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.manager: abhemraj
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 04/04/2025
 ms.custom: engagement-fy25
 # Customer intent: "As a cloud architect, I want to assess on-premises Hyper-V servers for migration to Azure, so that I can effectively plan and execute the migration process while minimizing downtime and ensuring compatibility."
@@ -88,7 +89,7 @@ Supported servers | Supported only for servers running SQL Server in your VMware
 Windows servers | Windows Server 2008 and later are supported.
 Linux servers | Currently not supported.
 Authentication mechanism | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
-SQL Server access | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
+SQL Server access | To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 SQL Server versions | SQL Server 2008 and later are supported.
 SQL Server editions | Enterprise, Standard, Developer, and Express editions are supported.
 Supported SQL configuration | Discovery of standalone, highly available, and disaster-protected SQL deployments is supported. Discovery of high-availability and disaster recovery SQL deployments powered by Always On failover cluster instances and Always On availability groups is also supported.
@@ -307,7 +308,7 @@ Required privileges | Local admin. | **Read (r)** and **Execute (x)** permission
 Support | Details
 --- | ---
 Supported servers | You can enable agentless dependency analysis on up to 1,000 servers (across multiple Hyper-V hosts/clusters) discovered per appliance.
-Operating systems | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os) enabled.
+Operating systems | All Windows and Linux versions with [Hyper-V integration services](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) enabled.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
 Windows server access |  A user account (local or domain) with administrator permissions on servers
 Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> 

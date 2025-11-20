@@ -18,6 +18,8 @@ items:
     href: ./apache-kafka-confluent-cloud/index.yml
   - name: Datadog
     href: ./datadog/index.yml
+  - name: Dell PowerScale Preview
+    href: ./dell/index.yml
   - name: Dynatrace
     href: ./dynatrace/index.yml
   - name: Elastic

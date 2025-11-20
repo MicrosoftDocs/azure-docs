@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 10/15/2025
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
@@ -212,11 +212,12 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Electronic design automation (EDA)
 
-* [Azure Modeling and Simulation Workbench](../modeling-simulation-workbench/index.yml)
+* [Validating Scalable EDA Storage Performance - Azure NetApp Files and SPECstorage Solution 2020](https://techcommunity.microsoft.com/blog/azurearchitectureblog/validating-scalable-eda-storage-performance-azure-netapp-files-and-specstorage-s/4459517)
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 * [Benchmark EDA workloads on Azure Intel Emerald Rapids (EMR) VMs](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/benchmark-eda-workloads-on-azure-intel-emerald-rapids-emr-vms/4334619)
+* [Accelerating HPC and EDA with Powerful Azure NetApp Files Enhancements](https://techcommunity.microsoft.com/blog/azurearchitectureblog/accelerating-hpc-and-eda-with-powerful-azure-netapp-files-enhancements/4469739)
 
 ### Analytics
 

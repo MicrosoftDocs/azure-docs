@@ -6,6 +6,7 @@ ms.date: 08/21/2025
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
 # Customer intent: "As a data analyst, I want to create interactive visual reports using workbooks, so that I can effectively analyze data and share insights within my team."
 ---
 

@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 09/10/2024
 ms.author: v-jasmineme
 author: jasminemehndir
+ms.custom: sfi-image-nochange
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Automation

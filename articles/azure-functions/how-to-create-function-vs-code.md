@@ -2,7 +2,8 @@
 title: Create and deploy function code to Azure using Visual Studio Code
 description: Learn how to create a function, then publish the local code project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 08/01/2025
+ms.date: 09/25/2025
+ms.update-cycle: 180-days
 ms.custom: 
   - mode-api
   - vscode-azure-extension-update-complete
@@ -10,6 +11,7 @@ ms.custom:
 ms.collection: 
   - ce-skilling-ai-copilot
 zone_pivot_groups: programming-languages-set-functions
+#customer intent: As a developer, I want to learn how to create, test, and deploy Azure Functions using Visual Studio Code so that I can build and publish serverless apps efficiently.
 ---
 
 # Quickstart: Create and deploy function code to Azure using Visual Studio Code
@@ -22,7 +24,38 @@ Make sure to select your preferred development language at the top of the articl
 
 ## Prerequisites
 
-[!INCLUDE [functions-requirements-visual-studio-code](../../includes/functions-requirements-visual-studio-code.md)]
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
+::: zone pivot="programming-language-csharp"  
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
+
++ [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21(Linux).
+
++ [Apache Maven](https://maven.apache.org), version 3.0 or above.
+
++ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)       
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
++ [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.
+::: zone-end 
+::: zone pivot="programming-language-powershell"  
++ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
+
++ [.NET 6.0 runtime](https://dotnet.microsoft.com/download/dotnet)     
+
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
+::: zone-end
+::: zone pivot="programming-language-python" 
++ Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
+
++ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
+::: zone-end  
 
 [!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
 
@@ -136,7 +169,20 @@ After you verify that the function runs correctly on your local computer, you ca
 ## Use AI to normalize and validate input
 
 This is an example prompt for Copilot Chat that updates the existing function code to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them as JSON in the response: 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp"  
+```copilot-prompt
+Modify the function to accept name, email, and age from the JSON body of the
+request. If any of these parameters are missing from the query string, read
+them from the JSON body. Return all three parameters in the JSON response, 
+applying these rules:
+Title-case the name
+Lowercase the email
+Convert age to an integer if possible, otherwise return "not provided"
+Use sensible defaults if any parameter is missing
+Make sure that any added packages are compatible with the version of the packages already in the project
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ```copilot-prompt
 Modify the function to accept name, email, and age from the JSON body of the
 request. If any of these parameters are missing from the query string, read
@@ -169,9 +215,11 @@ You can customize your prompt to add specifics as needed, then run the app again
 ```
 
 > [!TIP]  
-> GitHub Copilot is powered by AI, so surprises and mistakes are possible. If you encounter any errors during execution, paste the error message in the chat window, select **Agent** mode, and ask Copilot to help resolve the error. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs). 
+> GitHub Copilot is powered by AI, so surprises and mistakes are possible. Should you encounter any errors during execution, paste the error message in the chat window, select **Agent** mode, and ask Copilot to help resolve the error. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+>
+> When running in **Agent** mode, the results of this customization depend on the specific tools available to your agent.
  
-When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
+When you are satisfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 

@@ -5,7 +5,7 @@ description: An overview on how to migrate from Change Tracking and inventory us
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: how-to
-ms.date: 01/03/2025
+ms.date: 11/17/2025
 ms.author: v-jasmineme
 author: jasminemehndir
 ms.custom:

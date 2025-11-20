@@ -8,6 +8,7 @@ ms.date: 07/21/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 # Customer intent: "As a storage administrator, I want to optimize the performance of SSD SMB Azure file shares using techniques like SMB Multichannel and metadata caching, so that I can enhance throughput and efficiency for demanding workloads."
 ---
 
@@ -148,7 +149,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 - On a single NIC with larger average I/O size (greater than 16 KiB), there were significant improvements in both reads and writes.
 - For smaller I/O sizes, there was a slight impact of approximately 10% on performance with SMB Multichannel enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
-- Performance is still bound by [single file limits](storage-files-scale-targets.md#file-scale-targets).
+- Performance is still bound by [single file limits](storage-files-scale-targets.md).
 
 ## Metadata caching for SSD file shares
 
@@ -190,7 +191,7 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 > [!IMPORTANT]
 > - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
-> - Allow 2-6 hours for accounts to be onboarded once registration is complete.
+> - Once AFEC is registered , please contact azfilespreview@microsoft.com for further instructions.
 
 ### Performance improvements with metadata caching
 

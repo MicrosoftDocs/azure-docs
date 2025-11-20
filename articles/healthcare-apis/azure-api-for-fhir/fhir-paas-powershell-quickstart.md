@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/27/2023
+ms.date: 11/20/2025
 ms.author: kesheth
 ms.custom: devx-track-azurepowershell
 ---
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 In this quickstart, you learn how to deploy Azure API for FHIR using PowerShell.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE[cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 

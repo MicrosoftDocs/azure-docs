@@ -4,7 +4,11 @@ description: This article provides a walkthrough for creating JavaScript applica
 ms.topic: quickstart
 ms.date: 06/16/2025
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api, passwordless-js
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - passwordless-js
+  - sfi-ropc-nochange
 #customer intent: As a JavaScript developer, I want to learn how to send events to an event hub and receive events from the event hub using C#. 
 ---
 
@@ -16,7 +20,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 
 ## Prerequisites
 
-- Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an Azure account, sign up for a [free trial](https://azure.microsoft.com/free/).
+- Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an Azure account, sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Node.js LTS. Download the latest [long-term support (LTS) version](https://nodejs.org).
 - Visual Studio Code (recommended) or any other integrated development environment (IDE).
 - Create an Event Hubs namespace and an event hub. Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs Get the management credentials that your application needs to communicate with the event hub. For more information, see [Create an event hub using Azure portal](event-hubs-create.md).

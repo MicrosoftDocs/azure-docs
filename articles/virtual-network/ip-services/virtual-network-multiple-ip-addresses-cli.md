@@ -9,7 +9,12 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, linux-related-content
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurecli
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a cloud engineer, I want to assign multiple IP addresses to a virtual machine using the CLI, so that I can host multiple services and enhance network functionality on a single VM.
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
@@ -35,7 +40,7 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

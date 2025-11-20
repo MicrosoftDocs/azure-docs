@@ -2,13 +2,14 @@
 title: Identify anomalies and unexpected changes in cost
 titleSuffix: Microsoft Cost Management
 description: Learn how to identify anomalies and unexpected changes in cost.
-author: shasulin
-ms.reviewer: shasulin
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 06/26/2025
-ms.author: shasulin
+ms.author: vikdesai
+ms.custom: sfi-image-nochange
 ---
 
 # Identify anomalies and unexpected changes in cost
@@ -77,6 +78,9 @@ An anomaly alert email is sent only once - at the time of detection.
 1. Enter all the required information, then select **Create**.  
     :::image type="content" source="./media/analyze-unexpected-charges/subscribe-emails.png" alt-text="Screenshot showing the Create alert rule page where you enter notification information for an alert." lightbox="./media/analyze-unexpected-charges/subscribe-emails.png" :::
   You can view and manage the anomaly alert rule by navigating to **Alert rules** in the left navigation menu.
+
+The alert will not appear in the UI if the viewId is set to null, as the system only displays alerts with a viewId that includes the identifier ms:DailyAnomalyByResourceGroup. To make the alert visible, there needs to be a PUT request sent with the correct viewId:
+/scope/providers/Microsoft.CostManagement/views/ms:DailyAnomalyByResourceGroup.
 
 Here's an example email generated for an anomaly alert.
 

@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Process Event normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Process Event normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel Process Event normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -11,19 +11,13 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) Process Event normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Process Event normalization schema reference
 
 The Process Event normalization schema is used to describe the operating system activity of running and terminating a process. Such events are reported by operating systems and security systems, such as EDR (End Point Detection and Response) systems.
 
 A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. While processes themselves do not run, they do manage threads that run and execute code.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Process Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 
@@ -147,13 +141,13 @@ The process event schema references the following entities, which are central to
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
-| **ActorUserIdType**| Conditional  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
-| **ActorScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
-| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The Actor username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other username formats are available, store them in the fields `ActorUsername<UsernameType>`.<br><br>Example: `AlbertE`   |
-| <a name="actorusernametype"></a>**ActorUsernameType**              | Conditional    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For the supported format for different ID types, refer to [the User entity](normalization-entity-user.md). <br><br>Example: `S-1-12` |
+| **ActorUserIdType**| Conditional  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-entity-user.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
+| **ActorScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The Actor username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-entity-user.md). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other username formats are available, store them in the fields `ActorUsername<UsernameType>`.<br><br>Example: `AlbertE`   |
+| <a name="actorusernametype"></a>**ActorUsernameType**              | Conditional    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
-| **ActorUserType** | Optional | UserType | The type of Actor. For a list of allowed values and further information refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [ActorOriginalUserType](#actororiginalusertype) field. |
+| **ActorUserType** | Optional | UserType | The type of Actor. For a list of allowed values and further information refer to [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [ActorOriginalUserType](#actororiginalusertype) field. |
 | <a name="actororiginalusertype"></a>**ActorOriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 ### Acting process fields
@@ -209,12 +203,12 @@ The process event schema references the following entities, which are central to
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="targetusername"></a>**TargetUsername** | Mandatory for process create events. | String     | The target username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [TargetUsernameType](#targetusernametype) field. If other username formats are available, store them in the fields `TargetUsername<UsernameType>`.<br><br>Example: `AlbertE`     |
-| <a name="targetusernametype"></a>**TargetUsernameType**  | Conditional  | Enumerated | Specifies the type of the user name stored in the [TargetUsername](#targetusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
-|<a name="targetuserid"></a> **TargetUserId**   | Recommended | String     | A machine-readable, alphanumeric, unique representation of the target user. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12`  |
-| **TargetUserIdType**               | Conditional | String     | The type of the ID stored in the [TargetUserId](#targetuserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
+| <a name="targetusername"></a>**TargetUsername** | Mandatory for process create events. | String     | The target username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-entity-user.md). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [TargetUsernameType](#targetusernametype) field. If other username formats are available, store them in the fields `TargetUsername<UsernameType>`.<br><br>Example: `AlbertE`     |
+| <a name="targetusernametype"></a>**TargetUsernameType**  | Conditional  | Enumerated | Specifies the type of the user name stored in the [TargetUsername](#targetusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
+|<a name="targetuserid"></a> **TargetUserId**   | Recommended | String     | A machine-readable, alphanumeric, unique representation of the target user. For the supported format for different ID types, refer to [the User entity](normalization-entity-user.md). <br><br>Example: `S-1-12`  |
+| **TargetUserIdType**               | Conditional | String     | The type of the ID stored in the [TargetUserId](#targetuserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-entity-user.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
 | **TargetUserSessionId**            | Optional     | String     |The unique ID of the target user's login session. <br><br>Example: `999`          <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.     |
-| **TargetUserType** | Optional | UserType | The type of Actor. For a list of allowed values and further information refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [TargetOriginalUserType](#targetoriginalusertype) field. |
+| **TargetUserType** | Optional | UserType | The type of Actor. For a list of allowed values and further information refer to [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [TargetOriginalUserType](#targetoriginalusertype) field. |
 | <a name="targetoriginalusertype"></a>**TargetOriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 

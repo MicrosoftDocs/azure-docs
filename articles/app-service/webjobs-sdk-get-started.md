@@ -3,13 +3,15 @@ title: Tutorial for event-driven background processing with the WebJobs SDK
 description: Learn how to enable your web apps to run background tasks. Use this tutorial to get started with the WebJobs SDK.
 author: ggailey777
 ms.devlang: csharp
-ms.custom: devx-track-csharp
 ms.date: 01/17/2025
 ms.author: glenga
 ms.topic: tutorial
 
 #Customer intent: As an App Services developer, I want use the Azure portal to add scheduled tasks to my web app in Azure.
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 ---
 
 # Tutorial: Get started with the Azure WebJobs SDK for event-driven background processing
@@ -32,7 +34,7 @@ In this tutorial, you will learn how to:
 
 * Visual Studio 2022 with the **Azure development** workload. [Install Visual Studio 2022](/visualstudio/install/).
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a console app
 In this section, you start by creating a project in Visual Studio 2022. Next, you'll add tools for Azure development, code publishing, and functions that listen for triggers and call functions. Last, you'll set up console logging that disables a legacy monitoring tool and enables a console provider with default filtering. 

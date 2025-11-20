@@ -7,7 +7,10 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/24/2025
 ms.author: allensu
-ms.custom: fasttrack-edit, linux-related-content
+ms.custom:
+  - fasttrack-edit
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a cloud network administrator, I want to implement effective name resolution for resources within Azure virtual networks so that I can facilitate seamless communication between virtual machines and services across both Azure and hybrid environments.
 ---
 

@@ -4,8 +4,16 @@ description: Learn how to code and test Azure Functions from the command prompt 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 02/23/2025
-ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - 80e4ff38-5174-43
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+  - sfi-ropc-nochange
+#customer intent: As an Azure Functions developer, I want to run and test Functions locally using Core Tools so that I can validate behavior before deploying to Azure.
 ---
 
 # Develop Azure Functions locally using Core Tools

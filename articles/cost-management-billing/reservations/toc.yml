@@ -36,8 +36,6 @@
       href: /azure/cosmos-db/postgresql/resources-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for PostgreSQL
       href: /azure/postgresql/single-server/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure AI Foundry 
-      href: azure-ai-foundry.md
     - name: Azure SQL Edge
       href: discount-sql-edge.md
     - name: Database for MySQL
@@ -112,14 +110,16 @@
       href: /azure/storage/files/files-reserve-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure NetApp Files
       href: /azure/azure-netapp-files/reservations?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure OpenAI
-      href: azure-openai.md#buy-a-microsoft-azure-openai-service-reservation
+    - name: Microsoft Foundry
+      href: microsoft-foundry.md
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure SQL Edge
       href: prepay-sql-edge.md
+    - name: Copilot Credit Pre-Purchase
+      href: copilot-credit-p3.md
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md
     - name: Data Explorer
@@ -130,6 +130,8 @@
       href: /azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: /azure/virtual-machines/disks-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Microsoft Agent Pre-Purchase
+      href: agent-pre-purchase.md
     - name: Microsoft Fabric
       href: fabric-capacity.md
     - name: Microsoft Sentinel - Pre-Purchase

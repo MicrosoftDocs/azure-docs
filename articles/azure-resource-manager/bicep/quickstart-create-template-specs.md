@@ -15,7 +15,7 @@ When you create a template spec, the Bicep file is transpiled into JavaScript Ob
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell [version 6.3.0 or later](/powershell/azure/install-azure-powershell) or Azure CLI [version 2.27.0 or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
@@ -44,7 +44,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -165,7 +165,7 @@ You can create a template spec with a Bicep file but the `mainTemplate` must be 
           'resources': [
             {
               'type': 'Microsoft.Storage/storageAccounts'
-              'apiVersion': '2023-04-01'
+              'apiVersion': '2025-06-01'
               'name': '[variables(\'storageAccountName\')]'
               'location': '[parameters(\'location\')]'
               'sku': {
@@ -385,7 +385,7 @@ param storageNamePrefix string = 'storage'
 
 var storageAccountName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -526,7 +526,7 @@ Rather than create a new template spec for the revised template, add a new versi
           'resources': [
             {
               'type': 'Microsoft.Storage/storageAccounts'
-              'apiVersion': '2023-04-01'
+              'apiVersion': '2025-06-01'
               'name': '[variables(\'storageAccountName\')]'
               'location': '[parameters(\'location\')]'
               'sku': {

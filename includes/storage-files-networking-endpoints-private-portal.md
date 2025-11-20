@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 12/17/2024
  ms.author: kendownie
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 Navigate to the storage account for which you would like to create a private endpoint. From the service menu, under **Security + networking**, select **Networking**, **Private endpoint connections**, and then **+ Private endpoint** to create a new private endpoint.
 

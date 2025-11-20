@@ -34,7 +34,7 @@ This quickstart shows you how to deploy a standard internal load balancer and tw
 > * Create an Azure Bastion using [azurerm_bastion_host](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host)
 
 ## Prerequisites
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 

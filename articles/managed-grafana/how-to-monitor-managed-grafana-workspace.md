@@ -5,8 +5,10 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.custom: engagement-fy23
 ms.date: 10/23/2024
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 #customer intent: I want to use diagnostic settings to monitor my Azure Managed Grafana workspace.
 ---
 

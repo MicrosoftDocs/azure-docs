@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) DNS normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel DNS normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -11,17 +11,11 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) DNS normalization schema reference
 
 The DNS information model is used to describe events reported by a DNS server or a DNS security system, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
 For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The DNS normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Schema overview
 
@@ -186,14 +180,14 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="srcuserid"></a>**SrcUserId**   | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the source user. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
-| **SrcUserScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
-| **SrcUserScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
-| <a name="srcuseridtype"></a>**SrcUserIdType** | Conditional  | UserIdType |  The type of the ID stored in the [SrcUserId](#srcuserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
-| <a name="srcusername"></a>**SrcUsername** | Optional    | Username     | The source username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE`     |
-| <a name="srcusernametype"></a>**SrcUsernameType**  | Conditional    | UsernameType |   Specifies the type of the user name stored in the [SrcUsername](#srcusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
+| <a name="srcuserid"></a>**SrcUserId**   | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the source user. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-entity-user.md).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
+| **SrcUserScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. or more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **SrcUserScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-entity-user.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
+| <a name="srcuseridtype"></a>**SrcUserIdType** | Conditional  | UserIdType |  The type of the ID stored in the [SrcUserId](#srcuserid) field. For more information and list of allowed values, see [UserIdType](normalization-entity-user.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
+| <a name="srcusername"></a>**SrcUsername** | Optional    | Username     | The source username, including domain information when available. For more information, see [The User entity](normalization-entity-user.md).<br><br>Example: `AlbertE`     |
+| <a name="srcusernametype"></a>**SrcUsernameType**  | Conditional    | UsernameType |   Specifies the type of the user name stored in the [SrcUsername](#srcusername) field. For more information, and list of allowed values, see [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
 | <a name="user"></a>**User** | Alias | | Alias to [SrcUsername](#srcusername) |
-| **SrcUserType**  | Optional | UserType | The type of the source user. For more information, and  list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>For example: `Guest` |
+| **SrcUserType**  | Optional | UserType | The type of the source user. For more information, and  list of allowed values, see [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>For example: `Guest` |
 | **SrcUserSessionId** | Optional     | String     |   The unique ID of the sign-in session of the Actor.  <br><br>Example: `102pTUgC3p8RIqHvzxLCHnFlg`  |
 | <a name="eventoriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original source user type, if provided by the source. |
 

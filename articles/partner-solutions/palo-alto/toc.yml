@@ -21,5 +21,6 @@ items:
     - name: Get support
       href: https://support.paloaltonetworks.com/Support/Index
     - name: Troubleshoot
-      href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
+      href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
+    
 

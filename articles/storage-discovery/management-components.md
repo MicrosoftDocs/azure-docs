@@ -2,62 +2,93 @@
 title: Planning for Storage Discovery deployment | Microsoft Docs
 titleSuffix: Azure Storage Discovery
 description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into your storage estate at entire organization level and aiding business decisions.
-author: fauhse
+author: pthippeswamy
 ms.service: azure-storage-discovery
 ms.topic: overview
-ms.date: 08/01/2025
-ms.author: fauhse
+ms.date: 10/09/2025
+ms.author: pthippeswamy
 ms.custom: references_regions
 ---
 
-# Azure Storage Discovery preview concepts
+# Azure Storage Discovery concepts
 
-The concepts and terminology used throughout this documentation are defined below.
+This article discusses the key concepts of the Azure Storage Discovery service.
 
-## Key concepts
+## Azure Storage Discovery workspace 
 
-### Azure Storage Discovery workspace 
-The Azure Storage Discovery workspace (ASDW) is the resource used to deploy and manage Storage Discovery in your subscription. It defines the scope of analysis - such as subscriptions or resource groups and once created, it enables visibility into capacity, transactions, and configuration trends across storage accounts within the selected "scope".
+You deploy the Storage Discovery service by creating a Discovery workspace resource in one of your resource groups.
+As part of creating this resource, you also specify what portions of your Azure Storage estate you want to cover.
 
-### Workspace Root
-Azure Resource Manager (ARM) resource identifiers that define the root-level boundaries of an Azure Storage Discovery Workspace (ASDW). These roots specify the top-level Azure resources - such as subscriptions and/or resource groups - over which the discovery workspace will operate.
+You can then access your workspace in the Azure portal to find insights in prebuilt reports.
+You also need a workspace when asking the Azure Copilot about insights from Storage Discovery.
+
+## Workspace Root
+
+The workspace root designates the storage resources to get insights for. A workspace root can contain a combination of subscriptions and resource groups. You may mix and match these resource types. The identity under which you deploy the workspace [must have permissions](deployment-planning.md#permissions-to-your-storage-resources) to all resources you list at the time of deployment.
 
 Example:
 
 ```json
 "workspaceRoots": [
   "/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d",
-  "/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/resourceGroups/myResourceGroup"
+  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup"
 ]
 ```
 
-This configuration means the workspace will monitor storage accounts under the specified subscription and resource group.
+This configuration covers storage accounts under the specified subscription and resource group.
 
+## Scope 
+
+You can create several scopes in a workspace. A scope allows you to filter the storage resources the workspace covers and obtain different reports for each of these scopes. Filtering is based on ARM resource tags on your storage resources. A scope contains `tag key name` : `value` combinations or `tag key names` only. When your storage resources have matching ARM resource tags, they're included in this scope.
+
+Here's an example of the `JSON` structure defining a single scope in a Discovery workspace.
+Storage resources are included in this scope when they have both ARM resource tags:
+
+- The tag key `Department` or `department` with case-matching value `Marketing`.
+- The tag key `App` or `app`, regardless of its value.
+
+```json
+    "scopes": [ 
+        { 
+        
+            "displayName": "Marketing App Resources", 
+        
+            "resourceTypes": [ 
+        
+                "Microsoft.Storage/storageAccounts" 
+        
+            ], 
+        
+            "tags": { 
+        
+                "Department": "Marketing" 
+        
+            }, 
+        
+            "tagsKeyOnly": [ 
+        
+                "App" 
+        
+            ] 
+        
+        } 
+```
 > [!NOTE]
-> - Users need Reader access on subscriptions or resource groups to add them to workspace roots during Discovery workspace deployment.
-
-
-### Scope 
-A Scope in Azure Storage Discovery represents a logical grouping of storage accounts based on user-defined criteria, such as resource tags. Scopes are configured within the boundaries of a workspace and serve as filters to organize and segment data for reporting and insights. By defining scopes, users can tailor their workspace to align with specific business units, workloads, or any segment of their Azure Storage environment they wish to monitor. This enables more targeted visibility and actionable insights across distinct areas of the storage estate. Users have flexibility to define:
-
-- A scope without any ARM tags will include all storage accounts within the defined scope
-- A scope with tags enables users to selectively choose specific storage accounts based on Azure tags assigned to the storage accounts.
-
-Deploying Azure Storage Discovery workspace in one of your Azure subscriptions is the first step in starting aggregation of storage account metrics.
+> In Azure, tag names (keys) are case-insensitive for operations. Tag values are case-sensitive.
 
 ## Select a subscription and region for Azure Storage Discovery workspace deployment
 
-Azure Storage Discovery workspace can be deployed in a subscription of your choice and in one of the supported regions.  
+An Azure Storage Discovery workspace can be deployed in one of the supported Azure regions.
+
 [!INCLUDE [control-plane-regions](includes/control-plane-regions.md)]
 
-Once a discovery workspace is created in a specific region, it can aggregate metrics from storage accounts located across a broader set of supported regions, irrespective of the region in which the discovery workspace itself resides.
-[!INCLUDE [data-plane-regions](includes/data-plane-regions.md)]
+A workspace can cover all storage resources from the same Entra tenant, regardless of their public cloud locations.
 
 ## Permissions
 
 To deploy a Discovery Workspace, user must have following access:
 
-| Scenario | Minimal RBAC role assignments needed |
+| Scenario | Minimal Role Based Access Control (RBAC) role assignments needed |
 |---|---| 
 | To deploy Discovery workspace | Contributor access on the subscription or the resource group| 
 | To include the subscription or resource groups in a Discovery workspace as part of *workspaceRoots* | Microsoft.Storage/storageAccounts/read access on the subscription or resource group | 
@@ -65,6 +96,12 @@ To deploy a Discovery Workspace, user must have following access:
 
 ## Azure Storage Discovery pricing plans
 
-Storage Discovery is available in two different SKUs or pricing plans.
+You can choose between different pricing plans for your Discovery workspace.
 
 [!INCLUDE [pricing-plan-differentiation](includes/pricing-plan-differentiation.md)]
+
+## Next steps
+
+- [Learn more about Storage Discovery pricing](pricing.md)
+- [Plan a Storage Discovery deployment](deployment-planning.md)
+- [Create a Storage Discovery workspace](create-workspace.md)

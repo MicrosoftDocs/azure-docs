@@ -8,6 +8,7 @@ ms.date: 04/27/2021
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+ms.custom: sfi-image-nochange
 # Customer intent: "As a data administrator, I want to migrate my on-premises file data to Azure using DobiMigrate, so that I can ensure efficient storage management and leverage cloud-based recovery solutions."
 ---
 
@@ -80,25 +81,21 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
    
    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-1.png" alt-text="Shows storage account settings in the portal.":::
 
-3. Next, we recommend the default settings from the **Advanced** screen. If you are migrating to Azure Files, we recommend enabling **Large file shares** if available.
-
-   :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-2.png" alt-text="Shows Advanced settings tab in the portal.":::
-
-4. Keep the default networking options for now and move on to  **Data protection**. You can choose to enable soft delete, which allows you to recover an accidentally deleted data within the defined retention period. Soft delete offers protection against accidental or malicious deletion.
+3. Keep the default networking options for now and move on to  **Data protection**. You can choose to enable soft delete, which allows you to recover an accidentally deleted data within the defined retention period. Soft delete offers protection against accidental or malicious deletion.
 
    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-3.png" alt-text="Shows the Data Protection settings in the portal.":::
 
-5. Add tags for organization if you use tagging and **Create** your account.
+4. Add tags for organization if you use tagging and **Create** your account.
  
-6. Two quick steps are all that are now required before you can add the account to your DobiMigrate environment. Navigate to the account you created in the Azure portal and select File shares under the File service menu. Add a File share and choose a meaningful name. Then, navigate to the Access keys item under Settings and copy the Storage account name and one of the two access keys.
+5. Two quick steps are all that are now required before you can add the account to your DobiMigrate environment. Navigate to the account you created in the Azure portal and select File shares under the File service menu. Add a File share and choose a meaningful name. Then, navigate to the Access keys item under Settings and copy the Storage account name and one of the two access keys.
 
    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-access-key.png" alt-text="Shows access key settings in the portal.":::
 
-7. Navigate to the properties of the Azure File share and take the URL address, it will be required to add the Azure connection into the DobiMigrate:
+6. Navigate to the properties of the Azure File share and take the URL address, it will be required to add the Azure connection into the DobiMigrate:
 
    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-files-endpoint.png" alt-text="Find Azure files endpoint.":::
 
-8. (_Optional_) You can add extra layers of security to your deployment.
+7. (_Optional_) You can add extra layers of security to your deployment.
  
    1. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](../../../common/authorization-resource-provider.md#built-in-roles-for-management-operations).
  
@@ -112,15 +109,15 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
 
    4.  Configure extra [security best practices](../../../blobs/security-recommendations.md).
 
-9.  In DobiMigrate, navigate to Configuration -> File Servers. Click **Add** to add Microsoft Azure Files as a file server type:
+8.  In DobiMigrate, navigate to Configuration -> File Servers. Click **Add** to add Microsoft Azure Files as a file server type:
 
     :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-server-type.png" alt-text="Add Microsoft Azure Files as server type.":::
 
-10. Specify the Name, Azure Files connection details, and the storage account credentials:
+9. Specify the Name, Azure Files connection details, and the storage account credentials:
  
     :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-connection-details.png" alt-text="Configure Azure Files connection details.":::
 
-11. Assign the proxies to the Azure Files connection and click **Test connection**; to confirm that the proxies can communicate with Azure Files:
+10. Assign the proxies to the Azure Files connection and click **Test connection**; to confirm that the proxies can communicate with Azure Files:
  
     :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-test-connection.png" alt-text="Test connection details.":::
 
@@ -128,11 +125,11 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
 
     :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-test-results.png" alt-text="Show results of test connections.":::
 
-12. Under **SMB Migration Shares**, you see all the Azure File shares that are provisioned under this storage account. Set **Mapping** to **Manual** for the shares that are in your migration scope, for example:
+11. Under **SMB Migration Shares**, you see all the Azure File shares that are provisioned under this storage account. Set **Mapping** to **Manual** for the shares that are in your migration scope, for example:
  
     :::image type="content" source="./media/dobimigrate-quick-start-guide/dobiprotect-azure-files-shares.png" alt-text="Show available shares.":::
 
-13. Click **Finish** to complete the Azure Files configuration. You can then start a new migration task.
+12. Click **Finish** to complete the Azure Files configuration. You can then start a new migration task.
 
 ### Start a new migration
 

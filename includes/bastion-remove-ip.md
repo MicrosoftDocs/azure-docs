@@ -4,6 +4,7 @@ ms.author: cherylmc
 ms.date: 01/21/2025
 ms.service: azure-bastion
 ms.topic: include
+ms.custom: sfi-image-nochange
 
 ---
 

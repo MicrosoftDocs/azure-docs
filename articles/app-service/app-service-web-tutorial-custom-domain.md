@@ -6,10 +6,12 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.topic: how-to
 ms.date: 02/14/2025
-ms.custom: mvc
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Set up an existing custom domain in Azure App Service

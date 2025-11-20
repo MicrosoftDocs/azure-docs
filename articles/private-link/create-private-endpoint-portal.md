@@ -7,7 +7,10 @@ ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 03/25/2025
 ms.author: abell
-ms.custom: mode-ui, template-quickstart
+ms.custom:
+  - mode-ui
+  - template-quickstart
+  - sfi-image-nochange
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 # Customer intent: As a network engineer new to Azure, I want to create a private endpoint for an Azure web app, so that I can establish a secure connection to the app while ensuring data privacy and security across my network.
 ---
@@ -24,7 +27,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure App Services web app with a Basic, Standard, PremiumV2, PremiumV3, IsolatedV2, Functions Premium (sometimes referred to as the Elastic Premium plan) app service plan, deployed in your Azure subscription.  
 

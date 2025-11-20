@@ -6,10 +6,11 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/25/2025
+ms.date: 11/10/2025
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)
@@ -49,7 +50,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## Open the sample with Codespaces

@@ -8,8 +8,7 @@ ms.custom: playwright-testing-preview
 
 # Try Microsoft Playwright Testing Preview for free
 
-> [!NOTE]
-> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Microsoft Playwright Testing Preview is a fully managed service for end-to-end testing built on top of Playwright. With the free trial, you can try Microsoft Playwright Testing for free for 30 days, 100 test minutes, and 1,000 test results. In this article, you learn about the limits of the free trial, how to get started, and how to track your free trial usage.
 
@@ -18,7 +17,7 @@ Microsoft Playwright Testing Preview is a fully managed service for end-to-end t
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or one of the [classic administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
 
 ## Limits to free trial

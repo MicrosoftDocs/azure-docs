@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/21/2025
+ms.date: 11/14/2025
 ms.author: anfdocs
 # Customer intent: As a data administrator, I want to create and manage snapshots in Azure NetApp Files, so that I can ensure efficient data protection, quick recovery options, and scalable storage management for my organization's critical data.
 ---
@@ -152,7 +152,7 @@ See [Revert a volume using snapshot revert](snapshots-revert-volume.md) about ho
 
 ### Restoring files or directories from online snapshots using a client
 
-The [snapshot path visibility](snapshots-edit-hide-path.md) option controls whether the snapshot path of a volume is visible. Hiding the snapshot path adds an extra layer of protection to your snapshots, hiding snapshot paths from accidental discovery. During [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume creation, you can specify whether the snapshot path should be hidden. You can edit [snapshot path visibility](snapshots-edit-hide-path.md) as needed. 
+The [snapshot path visibility]() option controls whether the snapshot path of a volume is visible. Hiding the snapshot path adds an extra layer of protection to your snapshots, hiding snapshot paths from accidental discovery. During [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume creation, you can specify whether the snapshot path should be hidden. You can edit [snapshot path visibility](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option) as needed. 
 
 The following diagram shows file or directory access to a snapshot using a client: 
 

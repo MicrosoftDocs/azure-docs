@@ -32,6 +32,8 @@ The requirements are:
 
 - Establish a CNAME record for subdomains that maps directly to the container app's generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal. Examples of CNAME values are traffic managers, Cloudflare, and similar services.
 
+- If any [Certification Authority Authorization (CAA) domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) exists on the root domain, you must explicitly allow DigiCert as a certificate issuer by creating a CAA domain record with the value `0 issue digicert.com`. Without this setting, the certificate issuance and **renewal** will fail.
+
 > [!NOTE]
 > To ensure the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.
 

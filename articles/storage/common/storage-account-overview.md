@@ -10,7 +10,7 @@ ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 03/04/2025
 ms.author: akashdubey
-# Customer intent: "As a cloud architect, I want to understand the different types of storage accounts and their features, so that I can choose the right account type based on my application's performance, redundancy, and cost requirements."
+#customer intent: As a cloud architect, I want to understand the different types of storage accounts and their features, so that I can choose the right account type based on my application's performance, redundancy, and cost requirements.
 ---
 
 # Storage account overview
@@ -218,12 +218,21 @@ The [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/sto
 
 The following table describes the legacy storage account types. These account types aren’t recommended by Microsoft, but may be used in certain scenarios:
 
-| Type of legacy storage account | Supported storage services | Redundancy options | Deployment model | Usage |
-|--|--|--|--|--|
-| Standard general-purpose v1 | Blob Storage, Queue Storage, Table Storage, and Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic<sup>1</sup> | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using it for these scenarios:<br /><ul><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don’t require large capacity. In this case, a general-purpose v1 account may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than February 14, 2014, or a client library with a version lower than 4.x, and you can’t upgrade your application.</li><li>You're selecting a storage account to use as a cache for Azure Site Recovery. Because Site Recovery is transaction-intensive, a general-purpose v1 account may be more cost-effective. For more information, see [Support matrix for Azure VM disaster recovery between Azure regions](../../site-recovery/azure-to-azure-support-matrix.md#cache-storage).</li></ul> |
-| Blob Storage | Blob Storage (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
+## Retired storage account types
 
-<sup>1</sup> If your storage account is using the classic deployment model, we recommend that you [migrate](../common/classic-account-migration-process.md) to the Azure Resource Manager deployment model. Azure Storage accounts that use the classic deployment model were retired on August 31, 2024. For more information, see [Update on classic storage account retirement](https://techcommunity.microsoft.com/blog/azurestorageblog/update-on-classic-storage-account-retirement-and-upcoming-changes-for-classic-st/4282217).
+The following account types are retired or scheduled for retirement. They aren’t recommended for new deployments. If you still have these accounts, plan to migrate to a supported account type.
+
+> [!IMPORTANT]
+> Azure Storage accounts that use the **classic deployment model (ASM)** were **retired on August 31, 2024**. Migrate to the Azure Resource Manager deployment model.  
+> For migration guidance, see [classic account migration overview](./classic-account-migration-overview.md). For more information see [Update on classic storage account retirement](https://techcommunity.microsoft.com/blog/azurestorageblog/update-on-classic-storage-account-retirement-and-upcoming-changes-for-classic-st/4282217).
+
+| Retired account type | Supported services | Redundancy options | Deployment model | Guidance |
+| --- | --- | --- | --- | --- |
+| **Standard general-purpose v1** | Blob, Queue, Table, Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic¹ | Upgrade existing General Purpose v1 accounts to General-Purpose v2 to access modern features and cost-optimization capabilities. Before upgrading, model capacity and operations costs—see [General Purpose v1 account migration](./general-purpose-version-1-account-migration-overview.md). For the in-place upgrade, see [storage account upgrade](./storage-account-upgrade.md). |
+| **Blob Storage** | Block blobs and append blobs | LRS/GRS/RA-GRS | Resource Manager | Upgrade existing Legacy Blob Storage accounts to GPv2 to use access tiers and lifecycle management. See [Legacy Blob Storage account migration overview](./legacy-blob-storage-account-migration-overview.md) and [access tiers overview](../blobs/access-tiers-overview.md). |
+| **Classic (ASM) storage accounts** | Blob, Queue, Table, Azure Files | LRS/GRS/RA-GRS | classic | Retired. Migrate to the Resource Manager deployment model. See [classic account migration overview](./classic-account-migration-overview.md). |
+
+¹ “Classic” denotes the Azure Service Management (ASM) deployment model.
 
 ## Scalability targets for standard storage accounts
 

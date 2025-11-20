@@ -24,11 +24,11 @@ After you create the function app, you can deploy your Azure Functions project c
 
 ### Azure account
 
-Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from an [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/function-app-create-dynamic/).
+The Bicep file used in this quickstart is from an [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep":::
 

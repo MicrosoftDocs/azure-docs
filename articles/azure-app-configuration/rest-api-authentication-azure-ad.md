@@ -45,10 +45,11 @@ For Azure App Configuration in the global Azure cloud, use the following audienc
 
 For Azure App Configuration in the national clouds, use the applicable audience specified in the table below:
 
-| **National cloud**                   | **Audience**                 |
-| ------------------------------------ | ---------------------------- |
-| Azure Government                     | `https://appconfig.azure.us` |
-| Microsoft Azure operated by 21Vianet | `https://appconfig.azure.cn` |
+| **National cloud**                   | **Audience**                        |
+| ------------------------------------ | ----------------------------------- |
+| Azure Government                     | `https://appconfig.azure.us`        |
+| Microsoft Azure operated by 21Vianet | `https://appconfig.azure.cn`        |
+| Bleu                                 | `https://appconfig.sovcloud-api.fr` |
 
 <a name='azure-ad-authority'></a>
 

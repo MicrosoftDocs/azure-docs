@@ -101,7 +101,7 @@ To learn about exporting templates, see [Single and multi-resource export to tem
 
 ## Manage access to resource groups
 
-Use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to manage access to resources in Azure. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+Use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to manage access to resources in Azure. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Next steps
 

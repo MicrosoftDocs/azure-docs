@@ -17,7 +17,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../../create-email-communication-resource.md).
 - An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../../connect-email-communication-resource.md).
 - The latest [Azure PowerShell](/powershell/azure/install-azps-windows).

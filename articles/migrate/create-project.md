@@ -18,8 +18,6 @@ This article shows you how to create a project. A project is used to store disco
 
 ::: moniker range="migrate-classic"
 
-Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, the classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. If you're using classic projects, delete those projects and follow the steps to create a new project. You can't upgrade classic projects or components to Azure Migrate. View [FAQ](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) before you start the creation process.
-
 A project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project, you can track discovered assets, create assessments, and orchestrate migrations to Azure.  
 ::: moniker-end
 
@@ -28,9 +26,9 @@ A project is used to store discovery, assessment, and migration metadata collect
 Ensure you have the correct permissions to create a project using the following steps:
 
 1. In the Azure portal, open the relevant subscription, and select **Access control (IAM)**.
-2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Contributor* or *Owner* permissions. 
-
-## Create a project for the first time
+2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Azure Migrate Owner* or a role with higher permissions. [Learn more](prepare-azure-accounts.md). 
+ > [!Note]
+ > Starting November 2025, only users assigned the **Azure Migrate Owner** or a higher privileged role will be able to create Azure Migrate projects. Users without these role assignments will no longer have the required permissions to create new projects.
 
 ::: moniker range="migrate"
 

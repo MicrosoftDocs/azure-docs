@@ -2,13 +2,13 @@
 title: "Quickstart: Assign an Azure role using Bicep - Azure RBAC"
 description: Learn how to grant access to Azure resources for a user at resource group scope using Bicep and Azure role-based access control (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 12/01/2023
-ms.author: jfields
+ms.author: rolyon
 #Customer intent: As a new user, I want to see how to grant access to resources using Bicep so that I can start automating role assignment processes.
 ---
 
@@ -22,7 +22,7 @@ ms.author: jfields
 
 To assign Azure roles and remove role assignments, you must have:
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator).
 - To assign a role, you must specify three elements: security principal, role definition, and scope. For this quickstart, the security principal is you or another user in your directory, the role definition is [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor), and the scope is a resource group that you specify.
 
@@ -82,7 +82,7 @@ Get-AzRoleAssignment -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove).
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group.
 

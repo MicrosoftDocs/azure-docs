@@ -618,7 +618,7 @@ Don't set `telemetryClient.Context.Operation.Id`. This global setting causes inc
 
 The following articles show how to run an in-process C# class library function locally for testing purposes:
 
-- [Visual Studio](functions-develop-vs.md#testing-functions)
+- [Visual Studio](functions-develop-vs.md#test-functions)
 - [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp#debugging-functions-locally)
 - [Command line](functions-run-local.md?tabs=v4%2Ccsharp%2Cazurecli%2Cbash#start)
 

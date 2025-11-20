@@ -1,13 +1,13 @@
 ---
 title: Transfer an Azure subscription to a different Microsoft Entra directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Microsoft Entra directory.
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 02/12/2025
-ms.author: jfields
+ms.author: rolyon
 ---
 
 # Transfer an Azure subscription to a different Microsoft Entra directory
@@ -152,7 +152,7 @@ To complete these steps, you will need:
 
 1. Use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) to list all the role assignments (including inherited role assignments).
 
-    To make it easier to review the list, you can export the output as JSON, TSV, or a table. For more information, see [List role assignments using Azure RBAC and Azure CLI](role-assignments-list-cli.yml).
+    To make it easier to review the list, you can export the output as JSON, TSV, or a table. For more information, see [List role assignments using Azure RBAC and Azure CLI](/azure/role-based-access-control/role-assignments-list-cli).
 
     ```azurecli
     az role assignment list --all --include-inherited --output json > roleassignments.json

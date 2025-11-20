@@ -10,8 +10,7 @@ zone_pivot_groups: microsoft-playwright-testing
 
 # Quickstart: Troubleshoot tests with Microsoft Playwright Testing Preview
 
-> [!NOTE]
-> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this quickstart, you learn how to troubleshoot your Playwright tests easily using reports and artifacts published on Microsoft Playwright Testing Preview. Additionally, this guide demonstrates how to utilize the reporting feature, regardless of whether you're running tests on the cloud-hosted browsers provided by the service.
 
@@ -38,7 +37,7 @@ These two features of the service can be used independently or together, and eac
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or one of the [classic administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
 * A Playwright project. If you don't have project, create one by using the [Playwright getting started documentation](https://playwright.dev/docs/intro) or use our [Microsoft Playwright Testing sample project](https://github.com/microsoft/playwright-testing-service/tree/main/samples/get-started).
 * Azure CLI. If you don't have Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).

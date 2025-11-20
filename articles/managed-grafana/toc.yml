@@ -3,38 +3,30 @@ items:
   href: index.yml
 - name: Overview
   items:
-    - name: About Azure Managed Grafana
-      href: overview.md
-    - name: Service limits
-      href: known-limitations.md
+  - name: About Azure Managed Grafana
+    href: overview.md
+  - name: Service limits
+    href: known-limitations.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Create a workspace - Portal
     href: quickstart-managed-grafana-portal.md
   - name: Create a workspace - Azure CLI
     href: quickstart-managed-grafana-cli.md
-- name: Tutorial
   expanded: true
+- name: Tutorial
   items:
   - name: Connect to self-hosted Prometheus through managed private endpoint
     href: tutorial-mpe-oss-prometheus.md
-  - name: Call Grafana APIs programmatically
-    href: how-to-api-calls.md
-- name: Concepts
   expanded: true
+- name: Concepts
   items:
-  - name: Service reliability
-    href: high-availability.md
-  - name: Encryption
-    href: encryption.md
   - name: Grafana settings
     href: grafana-settings.md
-- name: How-to guides
   expanded: true
+- name: How-to guides
   items:
   - name: Access and sharing
-    expanded: false
     items:
     - name: Configure Grafana resource authentication and permissions
       href: how-to-authentication-permissions.md
@@ -44,8 +36,8 @@ items:
       href: how-to-manage-access-permissions-users-identities.md
     - name: Use Grafana Team Sync
       href: how-to-sync-teams-with-entra-groups.md
-  - name: Data sources
     expanded: false
+  - name: Data sources
     items:
     - name: Configure data sources
       href: how-to-data-source-plugins-managed-identity.md
@@ -59,8 +51,8 @@ items:
       href: how-to-grafana-enterprise.md
     - name: Manage plugins
       href: how-to-manage-plugins.md
-  - name: Dashboards
     expanded: false
+  - name: Dashboards
     items:
     - name: Create a dashboard
       href: how-to-create-dashboard.md
@@ -68,15 +60,23 @@ items:
       href: how-to-share-dashboard.md
     - name: Use reporting and image rendering
       href: how-to-use-reporting-and-image-rendering.md
-  - name: Alerts and notifications
+    - name: Create dashboards for GenAI applications
+      items:
+      - name: Azure AI Foundry dashboard
+        href: azure-ai-foundry-dashboard.md
+      - name: Agent Framework dashboard
+        href: agent-framework-dashboard.md
+      - name: Agent Framework Workflow dashboard
+        href: agent-framework-workflow-dashboard.md
     expanded: false
+  - name: Alerts and notifications
     items:
     - name: Use Azure Monitor alerts with Grafana
       href: how-to-use-azure-monitor-alerts.md
     - name: Configure SMTP settings
       href: how-to-smtp-settings.md
-  - name: Networking
     expanded: false
+  - name: Networking
     items:
     - name: Set up private access
       href: how-to-set-up-private-access.md
@@ -84,32 +84,45 @@ items:
       href: how-to-deterministic-ip.md
     - name: Connect to a data source privately
       href: how-to-connect-to-data-source-privately.md
-  - name: Availability
     expanded: false
+  - name: Availability
     items:
     - name: Enable zone redundancy
       href: how-to-enable-zone-redundancy.md
-  - name: Administration and automation
     expanded: false
+  - name: Administration and automation
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
     - name: Monitor using metrics
-      href: how-to-monitor-managed-grafana-metrics.md      
+      href: how-to-monitor-managed-grafana-metrics.md
     - name: Monitor using diagnostic settings
       href: how-to-monitor-managed-grafana-workspace.md
+    expanded: false
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
   - name: Configure Grafana settings
     href: grafana-settings.md
   - name: Upgrade to Grafana 11
-    href: how-to-upgrade-grafana-11.md   
-  - name: Troubleshoot issues  
+    href: how-to-upgrade-grafana-11.md
+  - name: Migrate from Essential service tier
+    href: how-to-migrate-essential-service-tier.md
+  - name: Troubleshoot issues
     items:
     - name: Troubleshoot common issues
       href: troubleshoot-managed-grafana.md
     - name: Troubleshoot connecting managed private endpoint to a private link service
       href: troubleshoot-mpe-connection.md
+  expanded: true
+- name: Security
+  items:
+  - name: Secure Azure Managed Grafana
+    href: secure-azure-managed-grafana.md
+  - name: Service reliability
+    href: high-availability.md
+  - name: Encryption
+    href: encryption.md
+  
 - name: Reference
   items:
   - name: Azure CLI
@@ -136,4 +149,3 @@ items:
     href: find-help-open-support-ticket.md
   - name: VS Code extension for Grafana
     href: https://marketplace.visualstudio.com/items?itemName=Grafana.grafana-vscode
-    

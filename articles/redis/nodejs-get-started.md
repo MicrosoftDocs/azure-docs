@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Use Azure Managed Redis with TypeScript in a Node.js app"
 description: In this quickstart, you learn how to create a Node.js app that uses Azure Managed Redis.
-ms.date: 08/27/2025
+ms.date: 09/02/2025
 ms.topic: quickstart
 ms.custom:
   - mode-api
@@ -18,7 +18,7 @@ In this quickstart, you learn how to use an Azure Managed Redis cache from a Nod
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Install [Node.js LTS](https://nodejs.org/)
 - Install [TypeScript](https://www.typescriptlang.org/)
 - Add the packages used in this quickstart to your project:
@@ -33,7 +33,7 @@ In this quickstart, you learn how to use an Azure Managed Redis cache from a Nod
   az login
   ```
 
-The Quickstart sample code in this article is available on [GitHub](https://github.com/azure-samples/azure-cache-redis-samples/quickstart/nodejs).
+The Quickstart sample code in this article is available on [GitHub](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs).
 
 ## Create an Azure Managed Redis instance
 

@@ -7,7 +7,9 @@ ms.service: azure-application-gateway
 ms.date: 07/16/2025
 ms.author: mbender
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an IT administrator, I want to configure an application gateway with URL path-based redirection using PowerShell, so that I can efficiently route web traffic to specific server pools based on URL patterns and enhance the user experience.
 ---
 
@@ -39,7 +41,7 @@ If you prefer, you can complete this procedure using [Azure CLI](tutorial-url-re
 
 Before you begin this tutorial, ensure you have:
 
-- An active Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have one.
+- An active Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 - Azure PowerShell module version 5.4.1 or later installed locally, or access to Azure Cloud Shell
 - Contributor or Owner permissions on the target Azure subscription
 - A basic understanding of Application Gateway concepts and PowerShell scripting

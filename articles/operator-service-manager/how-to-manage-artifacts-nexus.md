@@ -1,12 +1,13 @@
 ---
 title: How to push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store.
 description: Learn how to push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 03/18/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
 ms.custom:
+  - sfi-image-nochange
 ---
 # Push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store
 

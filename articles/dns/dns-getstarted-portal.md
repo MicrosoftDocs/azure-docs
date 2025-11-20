@@ -8,7 +8,9 @@ ms.author: allensu
 ms.date: 06/07/2024
 ms.topic: quickstart
 ms.service: azure-dns
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my public zone.
 # Customer intent: As a system administrator, I want to create a public DNS zone and associated records using the Azure portal, so that I can efficiently manage domain name resolutions for my web services.
 ---
@@ -26,13 +28,13 @@ In this quickstart, you create a test domain, and then create an address record 
 
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 For all portal steps, sign in to the [Azure portal](https://portal.azure.com).
 
 ## Prerequisites
 
-An Azure account with an active subscription is required. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription is required. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to the Azure portal
 

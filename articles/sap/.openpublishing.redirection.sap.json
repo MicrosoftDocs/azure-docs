@@ -3,17 +3,192 @@
     {
       "source_path_from_root": "/articles/sap/automation/bash/prepare-region.md",
       "redirect_url": "/azure/sap/automation/bash/deploy-controlplane",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sap/workloads/cal-s4h.md",
-      "redirect_url": "/azure/sap/sap-on-azure-overview",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/sap/large-instances/hana-overview-architecture.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-architecture.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-available-skus.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-network-architecture.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-onboarding-requirements.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-installation.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-overview-infrastructure-connectivity.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/large-instance-high-availability-rhel.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-overview-high-availability-disaster-recovery.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-failover-procedure.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-concept-preparation.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/large-instance-os-backup.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-backup-restore.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-storage-architecture.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/os-upgrade-hana-large-instance.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-large-instance-enable-kdump.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-connect-vnet-express-route.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-supported-scenario.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/prepay-hana-large-instances-reserved-capacity.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/what-is-azure-large-instances.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-li-portal.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-example-installation.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-connect-azure-vm-large-instances.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-sizing.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-setup-smt.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/os-compatibility-matrix-hana-large-instance.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/troubleshooting-monitoring.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-operations-model.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-data-tiering-extension-nodes.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-certification.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-additional-network-requirements.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-know-terms.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/ha-setup-with-fencing-device.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/hana-monitor-troubleshoot.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/large-instances/os-backup-hli-type-ii-skus.md",
+      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/sap/automation/bash/remove-region.md",
       "redirect_url": "/azure/sap/automation/bash/remove-controlplane",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sap/workloads/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
@@ -93,6 +268,11 @@
     {
       "source_path_from_root": "/articles/center-sap-solutions/get-sap-installation-media.md",
       "redirect_url": "/azure/sap/center-sap-solutions/get-sap-installation-media",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/azure/sap/workloads/workloads/cal-ides-erp6-erp7-sp3-sql.md",
+      "redirect_url": "/azure/sap/workloads/get-started",
       "redirect_document_id": true
     },
     {

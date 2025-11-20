@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 09/23/2024
+ms.date: 09/24/2024
 ms.custom: ai-usage
 zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 ---
@@ -17,33 +17,74 @@ zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 
 This article guides you through the steps to configure an Azure Front Door Premium to connect privately to your Azure Application Gateway using Azure Private Link.
 
-::: zone pivot="front-door-portal"
-
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door](create-front-door-portal.md).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure portal](../application-gateway/quick-create-portal.md)
+::: zone pivot="front-door-portal"
+
+- An Azure Front Door Premium profile and an endpoint. For more information, see [Create an Azure Front Door](create-front-door-portal.md).
+
+- An Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure portal](../application-gateway/quick-create-portal.md)
+
+- Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+
+::: zone-end
+
+::: zone pivot="front-door-ps"
+
+- An Azure Front Door Premium profile and an endpoint. For more information, see [Create an Azure Front Door](create-front-door-powershell.md).
+
+- An Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure PowerShell](../application-gateway/quick-create-powershell.md)
+
+- Azure Cloud Shell or Azure PowerShell.
+
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+
+::: zone-end
+
+::: zone pivot="front-door-cli"
+
+- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door](create-front-door-cli.md).
+
+- An Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure CLI](../application-gateway/quick-create-cli.md).
+
+- Azure Cloud Shell or Azure CLI.
+
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+
+::: zone-end
+
+> [!NOTE]
+> While configuring via Azure portal, the region chosen in Azure Front Door origin configuration must be the same region where the Application Gateway is located in.
+> If you want the Azure Front Door origin region and the Application Gateway region to be different, use CLI/PowerShell. This will be needed in cases where the Application Gateway is located in a region where Azure Front Door doesn't support Private Link.
+
+::: zone pivot="front-door-portal"
 
 ## Enable private connectivity to Azure Application Gateway
 
 1. Follow the instructions in [Configure Azure Application Gateway Private Link](../application-gateway/private-link-configure.md), but don't complete the final step of creating a private endpoint.
-1. Go to your Application Gateway's Overview tab, note down the Resource group name and Subscription ID
-1. From the Overview tab, navigate to the Application Gateway's virtual network
-:::image type="content" source="media/private-link/application-gateway-overview-vnet.png" alt-text="Screenshot of the overview tab of application gateway.":::
-1. Under Settings, select 'Connected devices'
-1. Note down the name of the device with type as 'Private link service'. 
-:::image type="content" source="media/private-link/connected-devices.png" alt-text="Screenshot of the Connected Devices tab within the Application gateway virtual network.":::
-1. Construct the resource ID of the private link service using the values from previous steps. The format is "subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/privateLinkServices/{Private-link-service-name}. This resource ID will be used while configuring the Front Door origin.
+
+1. Go to your Application Gateway's **Overview** tab, note down the Resource group name, Application Gateway name and Subscription ID.
+
+1. Under **Settings**, select **Private Link**. Note down the name of the private link service seen under the **Name** column in **Private link configurations** tab
+
+1. Construct the resource ID of the private link service using the values from previous steps. The format is `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/privateLinkServices/_e41f87a2_{applicationGatewayName}_{privateLinkResource.Name}`. This resource ID is used while configuring the Front Door origin.
 
 ## Create an origin group and add the application gateway as an origin
 
 1. In your Azure Front Door Premium profile, go to *Settings* and select **Origin groups**.
 
-1. Click on **Add**
+1. Select on **Add**
+
 1. Enter a name for the origin group
+
 1. Select **+ Add an origin** 
+
 1. Use the following table to configure the settings for the origin:
 
     | Setting | Value |
@@ -59,12 +100,13 @@ This article guides you through the steps to configure an Azure Front Door Premi
     | Private link | Enable private link service |
     | Select a private link | By ID or alias |
     | ID/alias | Enter the private link service resource ID obtained while configuring the Application Gateway. |
-    | Region | Select the region that matches or is closest to your origin. |
+    | Region | Select the region where Application Gateway is located. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
    :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin settings for configuring Application Gateway as a private origin.":::    
 
 1. Select **Add** to save your origin settings
+
 1. Select **Add** to save the origin group settings.
 
 ## Approve the private endpoint
@@ -81,20 +123,6 @@ This article guides you through the steps to configure an Azure Front Door Premi
 ::: zone-end
 
 ::: zone pivot="front-door-ps"
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- Azure PowerShell installed locally or Azure Cloud Shell.
-
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
-
-- Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door - PowerShell](create-front-door-powershell.md).
-
-- Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure PowerShell](../application-gateway/quick-create-powershell.md)
 
 ## Enable private connectivity to Azure Application Gateway
 
@@ -201,14 +229,6 @@ Your Azure Front Door profile is now fully functional after completing the final
 ::: zone-end
 
 ::: zone pivot="front-door-cli"
-
-[!INCLUDE[azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- A functioning Azure Front Door Premium profile and endpoint. See [Create a Front Door - CLI](create-front-door-cli.md).
-
-- A functioning Azure Application Gateway. See [Direct web traffic with Azure Application Gateway - Azure CLI](../application-gateway/quick-create-cli.md).
 
 ## Enable private connectivity to Azure Application Gateway
 
@@ -319,6 +339,9 @@ The following are common mistakes when configuring an Azure Application Gateway 
 
 ::: zone-end
 
-## Next steps
+4. The combined length of the Application Gateway name and Private Link configuration name must not exceed 70 characters to avoid deployment failures.
 
-Learn about [Private Link service with storage account](../storage/common/storage-private-endpoints.md).
+## Next step
+
+> [!div class="nextstepaction"]
+> [Private Link service with storage account](../storage/common/storage-private-endpoints.md)

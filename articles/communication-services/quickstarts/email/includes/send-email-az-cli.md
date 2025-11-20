@@ -8,7 +8,9 @@ ms.author: mayssamm
 ms.date: 02/03/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: include files
+ms.custom:
+  - include files
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Azure CLI communication extension to send Email messages.
@@ -17,7 +19,7 @@ Completing this article incurs a small cost of a few USD cents or less in your A
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Email Communication Services resource created and ready with a provisioned domain. [Create an Email Communication Resource](../create-email-communication-resource.md).
 - An active Azure Communication Services resource connected to an Email Domain and its connection string. [Connect a verified email domain to send email](../connect-email-communication-resource.md).
 - The latest [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).

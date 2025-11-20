@@ -4,10 +4,12 @@ description: This article shows you how to create and manage Active Directory co
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/30/2025
+ms.date: 10/01/2025
 ms.author: anfdocs
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an Azure NetApp Files administrator, I want to create and manage Active Directory connections, so that I can enable proper authentication and access control for my SMB and NFS volumes.
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -33,6 +35,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
 * The AD connection admin account supports Kerberos AES-128 and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files computer account creation (for example, AD domain join operations).
 
 * To enable AES encryption, you should first enable AES-128, AES-256, RC4, and DES encryption types on Active Directory (AD) then enable AES on the control plane. You must enable encryption in Active Directory first. 
+
+> [!IMPORTANT]
+> AES-256 encryption is required if you plan to use Windows Server 2025 domain controllers in your Active Directory environment.
 
 * To enable AES encryption support for the admin account in the AD connection, run the following Active Directory PowerShell commands:
 
@@ -243,7 +248,6 @@ For more information about the relationship between NetApp accounts and subscrip
         > Using the Security privilege users feature relies on the [SMB Continuous Availability Shares feature](azure-netapp-files-create-volumes-smb.md#continuous-availability). SMB Continuous Availability is **not** supported on custom applications. It's only supported for workloads using Citrix App Layering, [FSLogix user profile containers](/azure/virtual-desktop/create-fslogix-profile-container), and Microsoft SQL Server (not Linux SQL Server).
 
         > [!IMPORTANT]
-        > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.  
         >This feature is optional and supported only with SQL server. The AD DS domain account used for installing SQL server must already exist before you add it to the **Security privilege users** option. When you add the SQL Server installer account to **Security privilege users** option, the Azure NetApp Files service might validate the account by contacting an AD DS domain controller. This action might fail if Azure NetApp Files can't contact the AD DS domain controller.
         
         For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right).

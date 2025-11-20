@@ -1,9 +1,10 @@
 ---
 title: Set up user roles for Azure Communications Gateway
 description: Learn how to configure the user roles required to deploy, manage, and monitor your Azure Communications Gateway.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/16/2024
+ms.date: 10/16/2025
+ms.custom: sfi-ga-nochange
 ---
 
 # Set up user roles for Azure Communications Gateway
@@ -51,7 +52,7 @@ You need to use the Azure portal to configure user roles.
 
 ### Assign a user role
 
-1. Follow the steps in [Assign a user role using the Azure portal](../role-based-access-control/role-assignments-portal.yml) to assign the permissions you determined in [Understand the user roles required for Azure Communications Gateway](#understand-the-user-roles-required-for-azure-communications-gateway).
+1. Follow the steps in [Assign a user role using the Azure portal](/azure/role-based-access-control/role-assignments-portal) to assign the permissions you determined in [Understand the user roles required for Azure Communications Gateway](#understand-the-user-roles-required-for-azure-communications-gateway).
 1. If you're managing access to the Number Management Portal, also follow [Assign users and groups to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal?pivots=portal) to assign suitable roles for each user in the AzureCommunicationsGateway enterprise application.
 
     <!-- Must be kept in sync with step 1 and with manage-enterprise-operator-connect.md  -->
@@ -65,4 +66,4 @@ You need to use the Azure portal to configure user roles.
 
 ## Next steps
 
-- Learn how to remove access to the Azure Communications Gateway subscription by [removing Azure role assignments](../role-based-access-control/role-assignments-remove.yml).
+- Learn how to remove access to the Azure Communications Gateway subscription by [removing Azure role assignments](/azure/role-based-access-control/role-assignments-remove).

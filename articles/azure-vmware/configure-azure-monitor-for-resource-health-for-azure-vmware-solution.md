@@ -27,10 +27,10 @@ To create or edit a Resource Health alert rule, you need:
 
 1. In the Azure portal, navigate to your AVS private cloud resource.  
 1. From the left menu, select **Help** → **Resource Health**.
-   :::image type="content" source="media/resource-health/resource-health-left-nav.png" alt-text="Screenshot showing where to find Resource Health for the AVS private cloud.":::
+   :::image type="content" source="media/resource-health/resource-health-left-nav.png" alt-text="Screenshot showing where to find Resource Health for the AVS private cloud." lightbox="media/resource-health/resource-health-left-nav.png":::
 
 1. Click **Add resource health alert**.
-   :::image type="content" source="media/resource-health/resource-health-create-alert.png" alt-text="Screenshot showing add resource health alert button.":::
+   :::image type="content" source="media/resource-health/resource-health-create-alert.png" alt-text="Screenshot showing add resource health alert button." lightbox="media/resource-health/resource-health-create-alert.png":::
 
 ### Define the alert condition
 
@@ -43,7 +43,7 @@ To create or edit a Resource Health alert rule, you need:
     | **Previous resource status** | (Optional) Select the previous resource status. Values are **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
     | **Reason type**              | Select the causes of the resource health events. Values are **Platform Initiated**, **Unknown**, and **User Initiated**. |
 
-    :::image type="content" source="media/resource-health/resource-health-condition.png" alt-text="Screenshot showing condition tabs while creating alerts using Resource Health for the AVS private cloud.":::
+    :::image type="content" source="media/resource-health/resource-health-condition.png" alt-text="Screenshot showing condition tabs while creating alerts using Resource Health for the AVS private cloud." lightbox="media/resource-health/resource-health-condition.png":::
 
 ### Configure actions
 
@@ -54,7 +54,7 @@ To create or edit a Resource Health alert rule, you need:
 
    - Provide an **Action group name** and **Display name**  
 
-   :::image type="content" source="media/resource-health/resource-health-new-action-group.png" alt-text="Screenshot showing new action group creation wizard with basics tab.":::
+   :::image type="content" source="media/resource-health/resource-health-new-action-group.png" alt-text="Screenshot showing new action group creation wizard with basics tab." lightbox="media/resource-health/resource-health-new-action-group.png":::
 
    - Under **Notification type**, select channels (Email, SMS, Push, Voice) and add stakeholder contacts
    :::image type="content" source="media/resource-health/resource-health-action-group-notifications.png" alt-text="Screenshot showing new action group creation wizard with notifications tab." lightbox="media/resource-health/resource-health-action-group-notifications.png":::
@@ -68,11 +68,11 @@ To create or edit a Resource Health alert rule, you need:
    - Subscription and resource group for the rule
    - Ensure **Enable alert rule upon creation** is checked
 
-   :::image type="content" source="media/resource-health/resource-health-action-group-details.png" alt-text="Screenshot showing new action group creation wizard with details tab.":::
+   :::image type="content" source="media/resource-health/resource-health-action-group-details.png" alt-text="Screenshot showing new action group creation wizard with details tab." lightbox="media/resource-health/resource-health-action-group-details.png":::
 
 1. Click **Review + create**, then **Create**.
 
-   :::image type="content" source="media/resource-health/resource-health-alert-review-create.png" alt-text="Screenshot showing new alert rule creation wizard with review-create tab.":::
+   :::image type="content" source="media/resource-health/resource-health-alert-review-create.png" alt-text="Screenshot showing new alert rule creation wizard with review-create tab." lightbox="media/resource-health/resource-health-alert-review-create.png":::
 
 ## Manage alert rules
 

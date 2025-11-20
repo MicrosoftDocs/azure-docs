@@ -1,8 +1,8 @@
 ---
 title: Map data by using data flows
 description: Learn about the data flow mapping language for transforming data in Azure IoT Operations.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.subservice: azure-data-flows
 ms.topic: concept-article
 ms.date: 11/11/2024

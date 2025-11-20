@@ -7,7 +7,11 @@ ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 03/17/2025
 ms.author: duau
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-arm-template
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure SNAT private IP address ranges in Azure Firewall, so that I can control how outbound traffic is translated to public IP addresses and optimize security for my network setup."
 ---
 

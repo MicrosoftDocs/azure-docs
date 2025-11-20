@@ -1,9 +1,7 @@
 ### YamlMime:Hub
-
 title: Azure documentation
 summary: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
 brand: azure
-
 metadata:
   title: Azure documentation
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
@@ -12,7 +10,7 @@ metadata:
   ms.topic: hub-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 05/29/2025
+  ms.date: 09/05/2025
   adobe-target: true
   featureFlags:
   - clicktale
@@ -35,7 +33,6 @@ highlightedContent:
     - title: Achieve organizational goals with the Cloud Adoption Framework
       itemType: overview
       url: /azure/cloud-adoption-framework/
-
 productDirectory:
   title: Browse Azure products
   items:
@@ -47,14 +44,14 @@ productDirectory:
         - ai-machine-learning
       url: /azure/ai-services/openai/
     # Card
-    - title: Azure AI Foundry
+    - title: Microsoft Foundry
       summary: Build market-ready applications for your organization with AI
       imageSrc: ./media/index/ai-studio.svg
       azureCategories:
         - featured
         - ai-machine-learning
         - mobile
-      url: /azure/ai-studio/
+      url: /azure/ai-foundry/
     # Card
     - title: Speech
       summary: Speech to text, text to speech, translation, and speaker recognition
@@ -263,11 +260,12 @@ productDirectory:
         - management-and-governance
       url: /purview/index
     # Card
-    - title: Data Factory
+    - title: Azure Data Factory
       summary: Hybrid data integration at enterprise scale, made easy
       imageSrc: ./media/index/data-factory.svg
       azureCategories:
         - analytics
+        - databases
       url: data-factory/index.yml
     # Card
     - title: Data Lake Analytics
@@ -290,14 +288,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/index.yml
-    # Card
-    - title: Log Analytics
-      summary: Full observability into your applications, infrastructure, and network
-      imageSrc: ./media/index/log-analytics.svg
-      azureCategories:
-        - analytics
-        - management-and-governance
-      url: /azure/azure-monitor/
     # Card
     - title: Power BI Embedded
       summary: Embed fully interactive, stunning data visualizations in your applications
@@ -375,7 +365,7 @@ productDirectory:
         - containers
       url: /azure/aks/
     # Card
-    - title: Azure Kubernetes Fleet Manager (Fleet)
+    - title: Azure Kubernetes Fleet Manager
       summary: Enable multi-cluster and at-scale scenarios for Azure Kubernetes Service clusters
       imageSrc: ./media/index/kubernetes-fleet-manager.svg
       azureCategories:
@@ -472,7 +462,7 @@ productDirectory:
         - compute
       url: /azure/virtual-machine-scale-sets/
     # Card
-    - title: Service Fabric
+    - title: Azure Service Fabric
       summary: Develop microservices and orchestrate containers on Windows or Linux
       imageSrc: ./media/index/service-fabric-clusters.svg
       azureCategories:
@@ -501,7 +491,7 @@ productDirectory:
       imageSrc: ./media/index/openshift.svg
       azureCategories:
         - containers
-      url: /azure/virtual-machines/linux/openshift-get-started
+      url: /azure/openshift/
     # Card
     - title: Azure Container Registry
       summary: Store and manage container images across all types of Azure deployments
@@ -599,14 +589,6 @@ productDirectory:
         - databases
       url: /azure/azure-sql/managed-instance/index
     # Card
-    - title: Azure SQL Edge
-      summary: Small-footprint, edge-optimized data engine with built-in AI
-      imageSrc: ./media/index/sql-database-edge.svg
-      azureCategories:
-        - databases
-        - iot
-      url: azure-sql-edge/index.yml
-    # Card
     - title: Table Storage
       summary: NoSQL key-value store using semi-structured datasets
       imageSrc: ./media/index/storage-accounts.svg
@@ -625,13 +607,6 @@ productDirectory:
         - web
       url: azure-app-configuration/index.yml
     # Card
-    - title: Azure Data Studio
-      summary: A lightweight editor that can run serverless SQL pool queries and view and save results as text, JSON, or Excel.
-      imageSrc: ./media/index/azure-data-studio.svg
-      azureCategories:
-        - developer-tools
-      url: /azure-data-studio/
-    # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
       imageSrc: ./media/index/devops.svg
@@ -648,13 +623,6 @@ productDirectory:
         - developer-tools
         - devops
       url: devtest-labs/index.yml
-    # Card
-    - title: Azure Lab Services
-      summary: Set up labs for classrooms, trials, development and testing, and other scenarios
-      imageSrc: ./media/index/lab-services.svg
-      azureCategories:
-        - developer-tools
-      url: lab-services/index.yml
     # Card
     - title: Azure Pipelines
       summary: Continuously build, test, and deploy to any platform and cloud
@@ -690,11 +658,12 @@ productDirectory:
       imageSrc: ./media/index/boards.svg
       azureCategories:
         - devops
+        - developer-tools
       url: /azure/devops/boards/
     # Card
     - title: Azure Deployment Environments
       summary: Quickly spin up app infrastructure environments with project-based templates 
-      imageSrc: ./media/index/deployment-environments.svg
+      imageSrc: ./media/index/azure.svg
       azureCategories:
         - devops
       url: deployment-environments/index.yml
@@ -744,14 +713,6 @@ productDirectory:
         - devops
         - management-and-governance
       url: managed-grafana/index.yml
-    # Card
-    - title: GitHub Actions for Azure
-      summary: Build, test, and deploy any app from GitHub to Azure
-      imageSrc: ./media/index/github-actions-icon.svg
-      azureCategories:
-        - devops
-        - developer-tools
-      url: /azure/developer/github/github-actions
     # Card
     - title: Microsoft Dev Box
       summary: Streamline development with secure, ready-to-code workstations in the cloud 
@@ -1100,20 +1061,13 @@ productDirectory:
         - media
       url: /azure/media-services/latest/
     # Card
-    - title: Data Box
+    - title: Azure Data Box
       summary: Appliances and solutions for data transfer to Azure
       imageSrc: ./media/index/data-box.svg
       azureCategories:
         - migration
         - storage
       url: databox/index.yml
-    # Card
-    - title: Azure Remote Rendering
-      summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
-      imageSrc: ./media/index/remote-rendering.svg
-      azureCategories:
-        - mixed-reality
-      url: remote-rendering/index.yml
     # Card
     - title: Visual Studio App Center
       summary: Continuously build, test, release, and monitor your mobile and desktop apps
@@ -1278,27 +1232,6 @@ productDirectory:
         - storage
       url: storage/blobs/access-tiers-overview.md
     # Card
-    - title: Avere vFXT for Azure
-      summary: Run high-performance, file-based workloads in the cloud
-      imageSrc: ./media/index/avere.svg
-      azureCategories:
-        - storage
-      url: avere-vfxt/index.yml
-    # Card
-    - title: Azure FXT Edge Filer
-      summary: Hybrid storage optimization solution for HPC environments
-      imageSrc: ./media/index/fxt-edge-filer.svg
-      azureCategories:
-        - storage
-      url: fxt-edge-filer/index.yml
-    # Card
-    - title: Azure HPC Cache
-      summary: File caching for high-performance computing (HPC)
-      imageSrc: ./media/index/hpc-cache.svg
-      azureCategories:
-        - storage
-      url: hpc-cache/index.yml
-    # Card
     - title: Azure NetApp Files
       summary: Enterprise-grade Azure file shares, powered by NetApp
       imageSrc: ./media/index/netapp-files.svg
@@ -1306,14 +1239,14 @@ productDirectory:
         - storage
       url: azure-netapp-files/index.yml
     # Card
-    - title: Blob Storage
+    - title: Azure Blob Storage
       summary: REST-based object storage for unstructured data
       imageSrc: ./media/index/storage-accounts.svg
       azureCategories:
         - storage
       url: storage/blobs/index.yml
     # Card
-    - title: Disk Storage
+    - title: Azure Disk Storage
       summary: High-performance, highly durable block storage for Azure Virtual Machines
       imageSrc: ./media/index/disk-storage.svg
       azureCategories:
@@ -1354,13 +1287,13 @@ productDirectory:
       azureCategories:
         - storage
       url: vs-azure-tools-storage-manage-with-storage-explorer.md
-    # Card
-    - title: StorSimple
-      summary: Lower costs with an enterprise hybrid cloud storage solution
-      imageSrc: ./media/index/storsimple-device-managers.svg
+          # Card
+    - title: Azure Storage Actions
+      summary: Simplify storage data management at massive scale
+      imageSrc: ./media/index/storage-actions.svg
       azureCategories:
         - storage
-      url: storsimple/index.yml
+      url: storage-actions/storage-tasks/index.yml 
     # Card
     - title: Azure SignalR Service
       summary: Add real-time web functionality easily
@@ -1389,7 +1322,7 @@ productDirectory:
       imageSrc: ./media/index/operator-nexus.svg
       azureCategories:
        - hybrid
-      url: operator-nexus/index.yml
+      url: /azure/operator-nexus/
     # Card
     - title: Azure Container Storage
       summary: Manage persistent volumes for stateful container applications
@@ -1408,7 +1341,7 @@ productDirectory:
    # Card
     - title: Azure confidential ledger
       summary: Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence
-      imageSrc: ./media/index/azure.svg
+      imageSrc: ./media/index/confidential-ledger.svg
       azureCategories:
        - storage
        - databases
@@ -1417,7 +1350,7 @@ productDirectory:
    # Card
     - title: Azure Lab Services
       summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
-      imageSrc: ./media/index/azure.svg
+      imageSrc: ./media/index/lab-services.svg
       azureCategories:
        - azure-virtual-desktop
       url: /azure/lab-services/
@@ -1443,14 +1376,13 @@ productDirectory:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
     # Card
-    - title: Microsoft Copilot in Azure
+    - title: Azure Copilot
       summary: Simplify operations and management from cloud to edge with an AI companion
       imageSrc: ./media/index/azure-copilot.svg
       azureCategories:
        - featured 
        - management-and-governance
       url: /azure/copilot
-      
 tools:
   title: Languages and tools
   items:
@@ -1502,10 +1434,6 @@ tools:
     - title: Terraform
       imageSrc: /media/logos/logo_terraform.svg
       url: /azure/developer/terraform/
-    # Card
-
-
-
 additionalContent:
   sections:
     - title: Azure clouds
@@ -1528,3 +1456,83 @@ additionalContent:
         - title: Azure Native ISV Services
           summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
           url: ./partner-solutions/index.yml
+# Azure experiment content, don't edit/remove below
+hero:
+  componentType: hero-product
+  title: Azure Hub
+  summary:
+    'Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.'
+  size: small
+  heroImage:
+    lightImageSrc: '/media/hubs/azure/hero-light.jpg'
+    darkImageSrc: '/media/hubs/azure/hero-dark.jpg'
+  links:
+    - componentType: link
+      text: Portal
+      url: https://portal.azure.com
+    - componentType: link
+      text: Free account
+      url: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn-exp1
+      color: primary
+getStarted:
+  title: Get started with Azure
+  blocks:
+    - componentType: icon-card
+      title: What's new
+      summary: Latest releases and documentation updates for Azure OpenAI
+      url: /azure/ai-foundry/openai/whats-new
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/whats-new.svg'
+    - componentType: icon-card
+      title: Overview
+      summary: Learn how to navigate and find resources in the Azure portal
+      url: /azure/azure-portal/azure-portal-overview
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/overview.svg'
+    - componentType: icon-card
+      title: For developers
+      summary: Introduction for developers new to Azure
+      url: /azure/developer/intro/azure-developer-overview
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/for-developers.svg'
+    - componentType: icon-card
+      title: Troubleshooting
+      summary: Troubleshoot common issues in Azure
+      url: /troubleshoot/azure/
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/troubleshooting.svg'
+recommendedContent:
+  title: Recommended resources
+  blocks:
+    - componentType: icon-card
+      title: Azure architectures
+      summary: Find architecture diagrams and real world examples of cloud solutions
+      url: /azure/architecture/browse/
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/azure-architectures.svg'
+    - componentType: icon-card
+      title: All Azure training
+      summary: Grow your skills to build and manage applications in the cloud
+      url: /training/browse/?products=azure
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/all-azure-training.svg'
+    - componentType: icon-card
+      title: Migrate to Azure
+      summary: Discover essential steps, best practices, and technical resources 
+      url: /azure/migration/migrate-to-azure
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/azure-concepts.svg'
+    - componentType: icon-card
+      title: Your career path
+      summary: Receive training based on your career path
+      url: /training/career-paths/
+      icon:
+        componentType: image
+        src: '/media/hubs/azure/your-career-path.svg'

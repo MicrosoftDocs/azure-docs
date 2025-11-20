@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: pri-mittal
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 10/28/2025
 ms.author: primittal
 ---
 

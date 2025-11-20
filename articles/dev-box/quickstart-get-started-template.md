@@ -19,12 +19,14 @@ ms.date: 05/08/2025
 
 # Configure Microsoft Dev Box using the Get Started template
 
+[!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
+
 This article explains how to use the *Get Started* template to set up Microsoft Dev Box in your Azure subscription. The Get Started template is a preconfigured template that lets you quickly set up a dev box environment with a dev center, project, dev box pool, dev box definition, and related resources.
 
 ## Prerequisites
 | Requirement | Details |
 |-------------|---------|
-| **Azure subscription** | If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/). |
+| **Azure subscription** | If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | **Role** | Owner or Contributor role on an Azure subscription or resource group. |
 | **Microsoft Entra ID** | Your organization must use Microsoft Entra ID for identity and access management. |
 | **Microsoft Intune** | Your organization must use Microsoft Intune for device management. |

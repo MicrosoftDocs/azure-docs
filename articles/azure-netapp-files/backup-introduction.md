@@ -17,54 +17,7 @@ Azure NetApp Files backup expands the data protection capabilities of Azure NetA
 
 ## Supported regions 
 
-Azure NetApp Files backup is supported for the following regions:   
-
-* Australia Central
-* Australia Central 2
-* Australia East
-* Australia Southeast
-* Brazil South
-* Brazil Southeast 
-* Canada Central
-* Canada East
-* Central India
-* Central US
-* East Asia
-* East US
-* East US 2
-* France Central
-* Germany North
-* Germany West Central
-* Israel Central
-* Italy North 
-* Japan East
-* Japan West
-* Korea Central
-* Korea South
-* North Central US
-* North Europe
-* Norway East
-* Norway West
-* Qatar Central
-* South Africa North
-* South Central US
-* South India
-* Southeast Asia
-* Spain Central
-* Sweden Central
-* Switzerland North
-* Switzerland West 
-* UAE Central
-* UAE North
-* UK South
-* UK West
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia
-* West Europe
-* West US
-* West US 2
-* West US 3
+Azure NetApp Files backup is available in all Azure NetApp Files-enabled regions.
 
 ## Backup vault 
 

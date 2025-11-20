@@ -5,9 +5,12 @@ description: Learn how to create custom activities by using .NET, and then use t
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: synapse, devx-track-dotnet
 ms.date: 03/27/2025
 ms.subservice: orchestration
+ms.custom:
+  - synapse
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline

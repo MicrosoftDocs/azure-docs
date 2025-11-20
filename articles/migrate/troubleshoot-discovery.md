@@ -6,8 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 08/21/2024
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: "As an IT administrator, I want to troubleshoot server discovery and software inventory issues, so that I can ensure accurate data collection and reporting in the migration project."
 ---
 

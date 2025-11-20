@@ -32,7 +32,7 @@ Every workspace comes with a preconfigured serverless SQL pool for you to use ca
 
 You can use this script to explore your data without having to reserve SQL capacity.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Access the tutorial data
 

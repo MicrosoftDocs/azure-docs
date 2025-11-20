@@ -6,18 +6,23 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 10/28/2025
 ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
 
 # Self-service exchanges and cancel/refunds for Azure Reservations
 
-Azure Reservations provide flexibility to help meet your evolving needs. Reservation products are interchangeable with each other if they're the same type of reservation. For example, you can exchange multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. You can also exchange multiple SQL database reservation types including SQL Managed Instances and Elastic Pool with each other. However, you can't exchange dissimilar reservations. For example, you can't exchange an Azure Cosmos DB reservation for SQL Database.
+Azure Reservations help you save money by committing to one- or three-year plans for Azure services. We understand that your business needs can change, so Azure Reservations are designed with flexibility in mind.
+You can exchange reservations within the same product family to better align with your evolving workloads. For example:
 
-You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region.
+- If you have compute reservations, you can exchange between Azure Virtual Machines, Azure Dedicated Host, and Azure VMware Solution.
+- If you have SQL-related reservations, you can exchange between SQL Managed Instance, SQL Database, and Elastic Pool.
 
+These exchanges can be done in bulk and are especially helpful when you're scaling up, moving to a different region, different term, or changing deployment strategies. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region or exchange 1 year to 3 year or vice-versa given you adhere to exchange policy.
 If you have a reservation with multiple quantities, you can choose to exchange fewer quantities than you originally reserved. For example, if you purchase 10 quantity, you can choose to only exchange 5 of that reservation quantity and so on.
+However, you cannot exchange between different product families. For instance, a reservation for Azure Cosmos DB cannot be exchanged for a SQL Database reservation, because they belong to different service categories.
+This flexibility ensures you can adapt your reservations as your cloud strategy evolves—while still benefiting from cost savings.
 
 ## Reservation exchange policy changes
 
@@ -136,7 +141,9 @@ When a reservation is exchanged or canceled, the refund is calculated based on t
 - Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - An exchange is processed as a refund and a repurchase – different transactions are created for the cancellation and the new reservation purchase. The prorated reservation amount is refunded for the reservations that's traded-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 - You can exchange or refund reservations even if the enterprise agreement used to purchase the reservation is expired and was renewed as a new agreement.
-- The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's 100 USD per month and exchanged after the 18th payment, the new reservation's lifetime commitment should be 1,800 USD or more (paid monthly or upfront).
+- When exchanging an Azure Reservation, the new reservation’s total lifetime commitment must be equal to or greater than the remaining commitment of the original reservation. This ensures that the financial value of your commitment is maintained.
+    - For example, if you have a three-year reservation that costs $100 per month, and you’ve already made 18 monthly payments, your remaining commitment is $1,800. To exchange this reservation, the new reservation must have a total value of at least $1,800, whether you choose to pay monthly or upfront.
+    - In another scenario, if you purchased a one-year reservation for $2,400 upfront, and you decide to exchange it after six months, the remaining commitment is $1,200. To complete the exchange, the new reservation must have a total value of $1,200 or more.
 - The new reservation purchased as part of exchange has a new term starting from the time of exchange.
 - There's no penalty or annual limits for exchanges.
 - As noted previously, through a grace period, you have the ability to exchange Azure compute reservations (Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations) **until further notice**.

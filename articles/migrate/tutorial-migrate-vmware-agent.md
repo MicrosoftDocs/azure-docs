@@ -6,6 +6,7 @@ ms.author: dhananjayanr
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, MVC, engagement-fy25
 # Customer intent: As a system administrator, I want to migrate VMware vSphere VMs to Azure using agent-based migration, so that I can leverage cloud capabilities while ensuring minimal downtime and maintaining operational continuity during the transition.
@@ -13,7 +14,7 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy25
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration (Recommended). [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration (Recommended). [Compare](server-migrate-overview.md) the methods.
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -139,11 +140,11 @@ Make sure VMware vSphere VMs comply with requirements for migration to Azure.
 
 Now, the selection experience type is both classic and simplified. We recommend using the [simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) for initiating replication of any new agent-based VMware or physical servers.
 
-## Classic experience (To be deprecated soon)
+## Classic experience (Retiring)
 
 > [!NOTE]
-> Starting **October 30, 2025**, replication initialization will no longer be supported in the classic experience.
-> For agent-based migration of VMware servers and migration of physical servers, use the simplified experience for all new replications. The classic experience is scheduled for deprecation in **March 2026**. [Learn more](simplified-experience-for-azure-migrate.md).
+> Classic experience is scheduled for retirement on **30 September 2026**. Final recovery point for replications will be on **31 May 2026**. Support for migrations will continue until the retirement date. 
+> Switch sooner to gain the richer benefits of [simplified experience](simplified-experience-for-azure-migrate.md). [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the Simplified Experience.
 
 This procedure describes how to set up the appliance with a downloaded Open Virtualization Application (OVA) template. If you can't use this method, you can set up the appliance [using a script](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance).
 

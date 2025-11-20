@@ -2,11 +2,12 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: overview
-ms.date: 06/26/2025
-ms.custom:
+ms.date: 09/09/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom:
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to implement private endpoints for Azure Backup so that I can enhance the security of my backup operations and ensure that all data traffic remains within my virtual network.
 ---
 
@@ -45,6 +46,10 @@ While private endpoints are enabled for the vault, they're used for backup and r
 
 >[!NOTE]
 >Private endpoints are supported with only DPM server 2022, MABS v4, and later.
+
+## Unsupported scenario
+
+For the backup and restore operations, a private endpoint enabled Recovery Services vault is not compatible with a private endpoint enabled Azure Key Vault to store Customer Managed Keys (CMK) on Recovery Services vault.
 
 ## Difference in network connections due to private endpoints
 

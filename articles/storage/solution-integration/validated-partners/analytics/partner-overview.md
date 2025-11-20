@@ -16,6 +16,9 @@ ms.subservice: storage-partner-integration
 
 This article highlights Microsoft partner companies that are integrated with Azure Data Lake Storage. These partner solutions cover workloads like modern data warehouse workloads, advanced analytics, and real-time analytics. These partners take advantage of the [hierarchical namespace](../../../blobs/data-lake-storage-namespace.md) in Azure Storage to optimize their solution and run it efficiently in Azure.
 
+> [!NOTE]
+> While Azure Storage works closely with our partners, support for any partner solution is provided by the partner, not Azure Support. You will need to open a case with the partner's support organization and then, if necessary, open a case with Azure Support to troubleshoot Azure infrastructure events that may be connected to the issue.
+
 ## Verified partners
 
 | Partner | Description | Website/product link |

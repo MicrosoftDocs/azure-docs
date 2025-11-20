@@ -1,9 +1,10 @@
 ---
 title: Check for Azure Communications Gateway upgrades and maintenance
 description: Learn how to use Azure Service Health to check for upgrades and maintenance notifications for Azure Communications Gateway.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 04/10/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As a customer managing Azure Communications Gateway, I want to learn about upcoming changes so that I can plan for service impact.
 ---

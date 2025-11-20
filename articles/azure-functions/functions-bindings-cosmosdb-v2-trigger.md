@@ -5,8 +5,14 @@ ms.topic: reference
 ms.date: 01/19/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Azure Cosmos DB trigger for Azure Functions 2.x and higher
@@ -218,7 +224,7 @@ This function is invoked when there are inserts or updates in the specified data
 
 ---
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Azure Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Azure Cosmos DB. This annotation can be used with native Java types, plain-old Java objects (POJOs), or nullable values using `Optional<T>`.
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
@@ -291,7 +297,7 @@ import azure.functions as func
 app = func.FunctionApp()
 
 @app.function_name(name="CosmosDBTrigger")
-@app.cosmos_db_trigger(name="documents", 
+@app.cosmos_db_trigger(arg_name="documents", 
                        connection="CONNECTION_SETTING",
                        database_name="DB_NAME", 
                        container_name="CONTAINER_NAME", 
@@ -357,8 +363,8 @@ For Python v2 functions defined using a decorator, the following properties on t
 | Property    | Description |
 |-------------|-----------------------------|
 |`arg_name` | The variable name used in function code that represents the list of documents with changes. |
-|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the Azure Cosmos DB collection being monitored. |
+|`database_name`  | The name of the Azure Cosmos DB database with the container being monitored. |
+|`container_name`  | The name of the Azure Cosmos DB container being monitored. |
 |`connection` | The connection string of the Azure Cosmos DB being monitored. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
@@ -382,16 +388,16 @@ Use the `@CosmosDBTrigger` annotation on parameters that read data from Azure Co
 |**leaseConnectionStringSetting** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `Connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
 |**leaseDatabaseName** | (Optional) The name of the database that holds the container used to store leases. When not set, the value of the `databaseName` setting is used. |
 |**leaseContainerName** | (Optional) The name of the container used to store leases. When not set, the value `leases` is used. |
-|**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/nosql/troubleshoot-forbidden#non-data-operations-are-not-allowed) and your Function won't start.|
+|**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/nosql/troubleshoot-forbidden#non-data-operations-are-not-allowed) and your function app isn't allowed to start.|
 |**leasesContainerThroughput** | (Optional) Defines the number of Request Units to assign when the leases container is created. This setting is only used when `CreateLeaseContainerIfNotExists` is set to `true`. This parameter is automatically set when the binding is created using the portal. |
 |**leaseContainerPrefix** | (Optional) When set, the value is added as a prefix to the leases created in the Lease container for this function. Using a prefix allows two separate Azure Functions to share the same Lease container by using different prefixes. |
 |**feedPollDelay**| (Optional) The time (in milliseconds) for the delay between polling a partition for new changes on the feed, after all current changes are drained. Default is 5,000 milliseconds, or 5 seconds.|
 |**leaseAcquireInterval**| (Optional) When set, it defines, in milliseconds, the interval to kick off a task to compute if partitions are distributed evenly among known host instances. Default is 13000 (13 seconds). |
-|**leaseExpirationInterval**| (Optional) When set, it defines, in milliseconds, the interval for which the lease is taken on a lease representing a partition. If the lease isn't renewed within this interval, it will expire and ownership of the partition moves to another instance. Default is 60000 (60 seconds).|
-|**leaseRenewInterval**| (Optional) When set, it defines, in milliseconds, the renew interval for all leases for partitions currently held by an instance. Default is 17000 (17 seconds). |
+|**leaseExpirationInterval**| (Optional) When set, it defines, in milliseconds, the interval for which the lease is taken on a lease representing a partition. If the lease isn't renewed within this interval, it expires and ownership of the partition moves to another instance. Default is 60000 (60 seconds).|
+|**leaseRenewInterval**| (Optional) When set, it defines, in milliseconds, the renewal interval for all leases for partitions currently held by an instance. Default is 17000 (17 seconds). |
 |**maxItemsPerInvocation**| (Optional) When set, this property sets the maximum number of items received per Function call. If operations in the monitored container are performed through stored procedures, [transaction scope](/azure/cosmos-db/nosql/stored-procedures-triggers-udfs#transactions) is preserved when reading items from the change feed. As a result, the number of items received could be higher than the specified value so that the items changed by the same transaction are returned as part of one atomic batch. |
 |**startFromBeginning**| (Optional) This option tells the Trigger to read changes from the beginning of the container's change history instead of starting at the current time. Reading from the beginning only works the first time the trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this option to `true` when there are leases already created has no effect. |
-|**preferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
+|**preferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, `East US,South Central US,North Europe`. |
 
 # [Functions 2.x+](#tab/functionsv2)
 
@@ -476,7 +482,7 @@ The trigger requires a second collection that it uses to store _leases_ over the
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 >[!IMPORTANT]
-> If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `leaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#configuration).
+> If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `leaseCollectionPrefix` for each function. Otherwise, only one of the functions is triggered. For information about the prefix, see the [Configuration section](#configuration).
 ::: zone-end
 
 The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.

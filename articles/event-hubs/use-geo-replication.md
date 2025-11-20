@@ -8,7 +8,7 @@ ms.date: 06/10/2024
 --- 
 # How to use Geo-replication
  
-This tutorial shows you how to use the Geo-replication with Event Hubs. To learn more about this feature, read the Geo-replication article. In this article you learn how to:
+This tutorial shows you how to use the Geo-replication with Event Hubs. To learn more about this feature, see [Geo-replication](./geo-replication.md). In this article you learn how to:
 
 -	Enable Geo-replication on a new namespace.
 -	Enable Geo-replication on an existing namespace.

@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 8/26/2025
+ms.date: 08/26/2025
 ms.author: mbender
 # Customer intent: "As a Kubernetes administrator, I want to configure and deploy Application Gateway for Containers with different CNI plugins, so that I can manage networking efficiently and ensure seamless connectivity between pods in my Azure Kubernetes Service cluster."
 ---

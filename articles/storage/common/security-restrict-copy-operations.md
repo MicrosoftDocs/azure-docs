@@ -9,7 +9,10 @@ ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.reviewer: santoshc 
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a storage administrator, I want to restrict the source of copy operations by configuring the permitted scope in storage accounts, so that I can enhance security by preventing unwanted data from untrusted tenants or networks.
 ---
 

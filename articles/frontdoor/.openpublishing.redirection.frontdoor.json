@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/frontdoor/signed-request.md",
+            "redirect_url": "/azure/frontdoor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-signed-request.md",
+            "redirect_url": "/azure/frontdoor",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link-web-app-cli.md",
             "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
             "redirect_document_id": false

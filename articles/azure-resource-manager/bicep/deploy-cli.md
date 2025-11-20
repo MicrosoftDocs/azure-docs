@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-arm-template
   - devx-track-bicep
   - build-2025
-ms.date: 03/25/2025
+ms.date: 10/30/2025
 ---
 
 # Deploy Bicep files with the Azure CLI

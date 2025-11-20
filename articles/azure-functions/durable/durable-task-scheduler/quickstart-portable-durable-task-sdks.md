@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler (preview)"
+title: "Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler"
 description: Learn how to configure an existing app for the Durable Task Scheduler using the Durable Task SDKs.
 ms.topic: how-to
 ms.date: 05/06/2025
@@ -8,7 +8,7 @@ ms.custom:
   - build-2025
 ---
 
-# Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler (preview)
+# Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler
 
 The Durable Task SDKs provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that use [the fan-out/fan-in application pattern](../durable-functions-overview.md#fan-in-out) to perform parallel processing. 
 

@@ -35,7 +35,7 @@ Assign the role to the [user | group | service-principal | managed-identity] at 
 | Azure Spring Apps Service Registry Reader      | Allow read access to Azure Spring Apps Service Registry.                    |
 | Azure Spring Apps Service Registry Contributor | Allow read, write, and delete access to Azure Spring Apps Service Registry. |
 
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Access Config Server and Service Registry Endpoints
 

@@ -140,7 +140,6 @@ The following table lists popular alert rules for Data Factory. This is just a r
 Notifications provide proactive alerting during or after execution of a pipeline.
 
 - [Send an email with an Azure Data Factory pipeline](how-to-send-email.md) shows how to configure email notifications from pipeline alerts.
-- [Send notifications to a Microsoft Teams channel from an Azure Data Factory pipeline](how-to-send-notifications-to-teams.md) shows how to configure notifications from pipeline alerts into Microsoft Teams. 
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

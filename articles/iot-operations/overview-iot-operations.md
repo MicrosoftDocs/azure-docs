@@ -7,22 +7,22 @@ ms.topic: overview
 ms.custom:
   - ignite-2023
   - references_regions
-ms.date: 08/12/2025
+ms.date: 09/24/2025
 ---
 
 # What is Azure IoT Operations?
 
-_Azure IoT Operations_ is a unified data plane for the edge, offering modular and scalable data services on Azure Arc-enabled Kubernetes clusters like AKS Edge Essentials. This article explores its features, benefits, and use cases.
+_Azure IoT Operations_ is a unified data plane for the edge, offering modular and scalable data services on [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) clusters. This article explores its features, benefits, and use cases.
 
 Azure IoT Operations:
 
 * Is built from the ground up using Kubernetes-native applications.
-* Is part of the Microsoft [adaptive cloud approach](/azure/adaptive-cloud/) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
+* Is part of the Microsoft [adaptive cloud approach](https://azure.microsoft.com/solutions/adaptive-cloud) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
 * Includes an industrial grade, edge-native MQTT broker that powers event-driven architectures.
 * Is highly extensible, scalable, resilient, and secure.
 * Can operate offline for a maximum of 72 hours. Degradation might occur during this period. However, Azure IoT Operations resumes full functionality when it reconnects.
 * Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).
-* Enables secure management of devices in [layered networks](manage-layered-network/overview-layered-network.md) using open, industry-recognized software, and Kubernetes-based configuration.
+* Enables secure management of devices in layered networks using open, industry-recognized software, and Kubernetes-based configuration.
 * Can integrate customer workloads into the platform to create a unified solution.
 * Natively integrates with [Azure Event Hubs](../event-hubs/azure-event-hubs-apache-kafka-overview.md), [Azure Event Grid's MQTT broker](../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
 
@@ -69,7 +69,7 @@ Azure IoT Operations architecture has two core elements:
 
 Azure IoT Operations connects to various industrial devices and assets. Use the operations experience or the Azure CLI to [manage the devices and assets](discover-manage-assets/overview-manage-assets.md) you want to connect to.
 
-Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service lets you manage assets on the edge from the Azure portal or the Azure CLI. The Azure Device Registry uses _namespaces (preview)_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service lets you manage assets on the edge from the Azure portal or the Azure CLI. The Azure Device Registry uses _namespaces_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
 
 The Azure Device Registry includes a schema registry for assets. Data flows use these schemas to deserialize and serialize messages.
 

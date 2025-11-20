@@ -6,6 +6,7 @@ author: eamono
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
+ms.custom: sfi-image-nochange
 # Customer intent: As solution architect, I want to be able to connect my function app in Azure to on-premises resources so I can remotely manage those resources by using PowerShell functions.
 ---
 

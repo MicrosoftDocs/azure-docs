@@ -4,6 +4,7 @@
  ms.topic: include
  ms.date: 06/19/2024
  ms.author: cherylmc
+ ms.custom: sfi-image-nochange
 
  # this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---

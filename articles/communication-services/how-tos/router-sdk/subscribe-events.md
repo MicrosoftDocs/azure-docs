@@ -19,7 +19,7 @@ For more details on Event Grid, see the [Event Grid documentation][event-grid-ov
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 

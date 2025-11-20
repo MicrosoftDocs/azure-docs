@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 If this is the first time you are using Storage Explorer, you need to perform the following steps.

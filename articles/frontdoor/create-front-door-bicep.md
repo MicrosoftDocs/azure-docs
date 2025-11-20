@@ -21,7 +21,7 @@ This quickstart guides you through using Bicep to create an Azure Front Door wit
 
 ## Prerequisites
 
-* An active Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have one.
+* An active Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 * The IP address or FQDN of a website or web application.
 
 ## Review the Bicep file

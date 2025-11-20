@@ -3,7 +3,7 @@ title: Tag resources, resource groups, and subscriptions with Azure PowerShell
 description: Shows how to use Azure PowerShell to apply tags to Azure resources.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 09/26/2024
+ms.date: 09/15/2025
 ---
 
 # Apply tags with Azure PowerShell

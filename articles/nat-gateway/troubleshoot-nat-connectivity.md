@@ -2,12 +2,12 @@
 title: Troubleshoot Azure NAT Gateway connectivity
 titleSuffix: Azure NAT Gateway
 description: Learn how to troubleshoot connectivity issues and possible causes and solutions for Azure NAT Gateway.
-author: asudbring
+author: alittleton
 ms.service: azure-nat-gateway
 ms.custom:
 ms.topic: troubleshooting
-ms.date: 02/20/2024
-ms.author: allensu
+ms.date: 09/08/2025
+ms.author: alittleton
 #Customer intent: For customers to troubleshoot and resolve common outbound connectivity issues with your NAT gateway. This article also provides best practices on how to design applications to use outbound connections efficiently.
 # Customer intent: As a network engineer, I want to troubleshoot connectivity issues with the NAT gateway, so that I can ensure reliable outbound connections for my applications and improve overall network performance.
 ---
@@ -15,6 +15,10 @@ ms.author: allensu
 # Troubleshoot Azure NAT Gateway connectivity
 
 This article provides guidance on how to troubleshoot and resolve common outbound connectivity issues with your NAT gateway. This article also provides best practices on how to design applications to use outbound connections efficiently.
+
+> [!IMPORTANT]
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Datapath availability drop on NAT gateway with connection failures
 
@@ -121,6 +125,7 @@ You observe no outbound connectivity on your NAT gateway.
 
 * Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational until a public IP and subnet are attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
 
+
 * Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to a Network Virtual Appliance (NVA), ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 
 * Check if there are any NSG rules configured for the network interface on your virtual machine that blocks internet access.
@@ -129,9 +134,11 @@ You observe no outbound connectivity on your NAT gateway.
 
 * Check your DNS settings if DNS isn't resolving properly.
 
-### Possible solutions for loss of outbound connectivity
+### Possible solutions for loss of outbound connectivity due to misconfiguration on NAT gateway
 
 * Attach a public IP address or prefix to NAT gateway. Also make sure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
+
+* If using an IPv6 public IP address, check that the virtual network or subnet associated with the StandardV2 NAT Gateway is dual stack. If it’s not dual stack, either add an IPv6 address space to the virtual network or add an IPv4 public IP address to the NAT gateway. 
 
 * Carefully consider your traffic routing requirements before making any changes to traffic routes for your virtual network. User Defined Routes (UDRs) that send 0.0.0.0/0 traffic to a virtual appliance or virtual network gateway override NAT gateway. See [custom routes](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) to learn more about how custom routes affect the routing of network traffic. 
 
@@ -183,11 +190,11 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * Attach a public IP address or prefix to NAT gateway. Ensure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
 
-* Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs or default outbound access by:
+* Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs, or default outbound access by:
 
   * Ensure you establish a new connection and that existing connections aren't being reused in the OS or that the browser is caching the connections. For example, when using curl in PowerShell, make sure to specify the -DisableKeepalive parameter to force a new connection. If you're using a browser, connections can also be pooled.
 
-  * Reboot the virtual machine (perform a STOP / START) in a subnet configured to NAT gateway. If a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all new connections begin using the NAT gateway resource's IP address or addresses. Keep in mind that if the VM has any active connections at the time that you reboot, those connections will be dropped.
+  * Reboot the virtual machine (perform a STOP / START) in a subnet configured to NAT gateway. If a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all new connections begin using the NAT gateway resource's IP address or addresses. Keep in mind that if the VM has any active connections at the time that you reboot, those connections are dropped.
 
   * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 
@@ -274,7 +281,7 @@ To prevent possible passive FTP connection failures, do the following steps:
 2. Make sure that the passive port range from your NAT gateway is allowed to pass any firewalls at the destination endpoint.
 
 >[!NOTE]
->Reducing the amount of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.
+>Reducing the number of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.
 >It is not recommended to change the FTP server settings to accept control and data plane traffic from different source IP addresses.
 
 ## Outbound connections on port 25 are blocked

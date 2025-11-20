@@ -4,7 +4,7 @@ description: Understand the data redundancy options available for Azure file sha
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/18/2025
+ms.date: 09/10/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my organization's needs."
@@ -156,6 +156,9 @@ The following items might impact your ability to fail over to the secondary regi
 - Copy operations in progress are aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
 
 To fail over a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
+
+> [!WARNING]
+> When using Azure Files with geo-redundant storage, directory queries might experience higher latency after failover. This can occur during synchronization between primary and secondary storage, especially for directories with many files or shares with multiple snapshots. If you have numerous files under the cache directory, you might observe some performance degradation until synchronization completes. In some cases, the performance impact might persist even after synchronization.
 
 ### Geo-redundancy for SSD file shares
 

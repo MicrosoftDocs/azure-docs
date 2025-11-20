@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 11/20/2025
 ---
 
 # Enable Diagnostic Logging in Azure API for FHIR

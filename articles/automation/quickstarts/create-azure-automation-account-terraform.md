@@ -31,7 +31,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Options for your new Automation account are organized into tabs in the **Create an Automation Account** page of the Azure portal.
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Options for your new Automation account are organized into tabs in the **Create an Automation Account** page of the Azure portal.
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 

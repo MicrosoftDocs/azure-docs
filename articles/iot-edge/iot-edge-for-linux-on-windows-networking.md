@@ -4,10 +4,12 @@ description: Overview of Azure IoT Edge for Linux on Windows networking between 
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
-ms.custom: linux-related-content
 services: iot-edge
 ms.topic: concept-article
 ms.date: 01/21/2025
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # IoT Edge for Linux on Windows networking

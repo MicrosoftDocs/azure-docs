@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Backup
-description: Learn about reliability in Azure Backup
+description: Learn how to ensure reliability in Azure Backup by using availability zones and redundant storage options like LRS, GRS, and ZRS for data protection and recovery.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -14,7 +14,7 @@ ms.date: 06/10/2025
 
 # Reliability in Azure Backup
 
-This article describes reliability support in [Azure Backup](../backup/backup-overview.md), and covers [availability zones](#availability-zone-support) and [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Azure Backup](../backup/backup-overview.md). It covers redundant storage, [availability zones](#availability-zone-support), and [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 Azure Backup is a secure and reliable built-in data protection mechanism in Azure, providing data protection for various on-premises and cloud workloads. Azure Backup can seamlessly scale its protection across multiple workloads and provides native integration with Azure workloads (VMs, SAP HANA, SQL in Azure VMs, Azure Files, AKS etc.) without requiring you to manage automation or infrastructure to deploy agents, write new scripts, or provision storage.
 
@@ -27,9 +27,9 @@ Azure Backup supports the following data redundant storage options:
 - **Zone-redundant storage (ZRS):**  To replicate your backup data in availability zones, you can use ZRS. ZRS guarantees data residency and resiliency in the same region. [Azure Blob Storage - zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
->The redundancy options are applicable to how backup data is stored and not on the Azure Backup Service itself. 
+>These storage redundancy options apply to where backup copies are replicated, not to the Azure Backup service itself. Backup protection and storage redundancy are complementary - backups protect against data loss, while redundancy protects against infrastructure failures. 
 
-## Vault storage
+## Vault storage overview
 
 Azure Backup stores backed-up data in [Recovery Services vaults](/azure/backup/backup-azure-recovery-services-vault-overview) and [Backup vaults](/azure/backup/backup-vault-overview). A vault is an online-storage entity in Azure that's used to hold data, such as backup copies, recovery points, and backup policies. 
 

@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 08/14/2025
+ms.date: 11/10/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ---
@@ -76,6 +76,7 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 * The value of `remaining-quota-tokens-variable-name` or `remaining-quota-tokens-header-name` is an estimate for informational purposes but could be larger than expected based on actual token consumption. The value is more accurate as the quota is approached.
 * For models that accept image input, image tokens are generally counted by the backend language model and included in limit and quota calculations. However, when streaming is used or `estimate-prompt-tokens` is set to `true`, the policy currently over-counts each image as a maximum count of 1200 tokens.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
+* [!INCLUDE [api-management-rate-limit-implementation-v2](../../includes/api-management-rate-limit-implementation-v2.md)]
 * [!INCLUDE [api-management-token-limit-gateway-counts](../../includes/api-management-token-limit-gateway-counts.md)]
 
 ## Examples

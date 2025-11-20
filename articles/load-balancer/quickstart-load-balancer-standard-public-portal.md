@@ -7,7 +7,12 @@ ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 06/28/2024 
 ms.author: mbender
-ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
+ms.custom:
+  - mvc
+  - mode-ui
+  - template-quickstart
+  - engagement-fy23
+  - sfi-image-nochange
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 # Customer intent: As a cloud engineer, I want to create a public load balancer to distribute internet traffic across multiple virtual machines, so that I can ensure high availability and efficient resource utilization for my applications.
 ---
@@ -20,7 +25,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a publi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to Azure
 

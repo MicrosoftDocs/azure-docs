@@ -1,14 +1,14 @@
 ---
 title: Add or edit Azure role assignment conditions using Azure PowerShell - Azure ABAC
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using Azure PowerShell and Azure role-based access control (Azure RBAC).
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 04/15/2024
-ms.author: jfields
+ms.author: rolyon
 ---
 
 # Add or edit Azure role assignment conditions using Azure PowerShell
@@ -195,13 +195,13 @@ If strings include special characters, such as square brackets ([ ]), you'll nee
 
 ## List a condition
 
-To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). For more information, see [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.yml).
+To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). For more information, see [List Azure role assignments using Azure PowerShell](/azure/role-based-access-control/role-assignments-list-powershell).
 
 ## Delete a condition
 
 To delete a role assignment condition, edit the role assignment condition and set both the `Condition` and `ConditionVersion` properties to either an empty string (`""`) or `$null`.
 
-Alternatively, if you want to delete both the role assignment and the condition, you can use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
+Alternatively, if you want to delete both the role assignment and the condition, you can use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command. For more information, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove).
 
 ## Next steps
 

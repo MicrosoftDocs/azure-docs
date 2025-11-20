@@ -28,7 +28,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites 
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Owner or Contributor role on an Azure subscription or resource group.
 - Microsoft Entra AD. Your organization must use Microsoft Entra AD for identity and access management.
 - Microsoft Intune subscription. Your organization must use Microsoft Intune for device management.

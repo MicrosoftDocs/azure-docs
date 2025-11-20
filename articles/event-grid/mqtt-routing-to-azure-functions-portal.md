@@ -13,7 +13,7 @@ ms.subservice: mqtt
 
 In this tutorial, you route MQTT messages received by an Azure Event Grid namespace to an Azure function by using an Event Grid custom topic.
 
-If you don't have an Azure subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet).
+If you don't have an Azure subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create an Azure function using Event Grid trigger
 

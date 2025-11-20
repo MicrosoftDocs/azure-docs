@@ -8,6 +8,7 @@ author: ramandhillon84
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a cloud administrator, I want to assign private IP address prefixes to virtual machines, so that I can efficiently manage network configurations for varying workloads in my environment.
 ---
@@ -30,7 +31,7 @@ There's a limit to how many IP configurations can be assigned to a NIC. For more
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing Azure virtual machine. For more information about creating a virtual machine, see [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
 

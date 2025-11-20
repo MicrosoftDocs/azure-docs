@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 4/4/2025
+ms.date: 04/04/2025
 ms.author: mbender
 # Customer intent: "As a Kubernetes administrator, I want to upgrade the Application Gateway Ingress Controller using Helm, so that I can ensure my ingress solution is running the latest features and improvements."
 ---

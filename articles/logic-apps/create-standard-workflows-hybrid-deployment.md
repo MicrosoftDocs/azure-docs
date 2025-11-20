@@ -7,9 +7,10 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/09/2025
-# Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
 ms.custom:
   - build-2025
+  - sfi-image-nochange
+# Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
 ---
 
 # Create Standard logic app workflows for hybrid deployment on your own infrastructure
@@ -35,7 +36,7 @@ The following section describes the limitations for the hybrid deployment option
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The following on-premises resources, which must all exist within the same network for the required connectivity:
 

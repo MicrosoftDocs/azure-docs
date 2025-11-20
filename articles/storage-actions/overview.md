@@ -94,9 +94,15 @@ Azure Storage Actions is generally available in the following public cloud regio
 
 - Canada Central
 
+- Canada East
+
 - Central India
 
 - Central US
+
+- East Asia
+
+- East US
 
 - East US 2
 
@@ -116,9 +122,13 @@ Azure Storage Actions is generally available in the following public cloud regio
 
 - Jio India Central
 
+- Jio India West
+
 - Korea Central
 
 - Korea South
+
+- Mexico Central
 
 - North Central US
 
@@ -135,6 +145,8 @@ Azure Storage Actions is generally available in the following public cloud regio
 - South Central US
 
 - South India
+
+- South East Asia
 
 - Spain Central
 
@@ -157,6 +169,8 @@ Azure Storage Actions is generally available in the following public cloud regio
 - West Central US
 
 - West Europe
+
+- West India
 
 - West US
 

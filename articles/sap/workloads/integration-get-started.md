@@ -4,7 +4,7 @@ description: Learn about the various integration points in the Microsoft ecosyst
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
-ms.date: 06/22/2025
+ms.date: 09/29/2025
 author: MartinPankraz
 ms.author: mapankra
 
@@ -36,7 +36,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Microsoft Copilot](#microsoft-copilot) | Learn how to integrate your SAP workloads with Microsoft Copilots. |
 | [SAP RISE managed workloads](rise-integration-services.md) | Learn how to integrate your SAP RISE managed workloads with Azure services. |
 | [Microsoft Entra ID (formerly Azure Active Directory)](#microsoft-entra-id-formerly-azure-ad) | Ensure end-to-end SAP user lifecycle, authentication, and authorization with Microsoft Entra ID. Identity governance, Single sign-on (SSO) and phish-resistant multifactor authentication (MFA) are the foundation for a secure and seamless user experience. |
-| [Threat Monitoring and Response Automation with Microsoft Security Services for SAP](#microsoft-security-for-sap) | Learn how to best secure your SAP workload with Microsoft Defender XDR, Defender for Cloud, the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution, and immutable vault for Azure Backup. Prevent incidents from happening, detect, and respond to threats in real-time. |
+| [Threat Monitoring and Response Automation with Microsoft Security Services for SAP](#microsoft-security-for-sap) | Learn how to best secure your SAP workload with Microsoft Defender XDR, Defender for Cloud, the [SAP certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution, and immutable vault for Azure Backup. Prevent incidents from happening, detect, and respond to threats in real-time. |
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available out-of-the-box SAP solutions enabling your business users to achieve more with less. |
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
 | [Microsoft Universal Print](#microsoft-universal-print) | Learn about the available cloud native printing capabilities for SAP. |
@@ -223,7 +223,7 @@ Protect your data, apps, and infrastructure against rapidly evolving cyber threa
 
 Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to secure your cloud-infrastructure surrounding the SAP system including automated responses.
 
-Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel for SAP](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system and [SAP Business Technology Platform (BTP)](../../sentinel/sap/sap-btp-solution-overview.md) instance from within using signals from the SAP Audit Log among others.
+Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel for SAP](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system and [SAP Business Technology Platform (BTP)](../../sentinel/sap/sap-btp-solution-overview.md) instance from within using signals from the SAP Audit Log among others.
 
 Unify all your security solutions for Microsoft 365, cloud-infrastructure, and SAP in a [single experience](/unified-secops-platform/overview-unified-security) in the Defender portal. Profit from the correlation of signals across the Microsoft ecosystem and connected third parties to detect and respond to threats in real-time.
 
@@ -239,7 +239,7 @@ Discover partner offerings for SAP security on the [Azure Marketplace](https://a
 
 Microsoft Sentinel integrates directly with Microsoft Defender XDR and the Microsoft Defender portal. SAP solutions are available in the Defender portal as part of [Microsoft's unified security operations platform](/unified-secops-platform/), and with [Microsoft Sentinel in the Defender portal](/azure/sentinel/microsoft-sentinel-defender-portal).
 
-For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
+For more information about [SAP certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
 - [Microsoft Sentinel solution for SAP applications](/azure/sentinel/sap/solution-overview)
 - [Microsoft Sentinel solution for SAP BTP](/azure/sentinel/sap/sap-btp-solution-overview)
@@ -320,24 +320,23 @@ For more information about Azure integration with SAP Business Technology Platfo
 - [Monitor multiple SAP Cloud Integration tenants with Azure Monitor](https://blogs.sap.com/2020/11/11/broadcast-cpi-errors-to-azure-monitor-via-scp-alert-notifications/)
 - [Route Multi-Region Traffic to SAP BTP Services Intelligently with Azure Traffic Manager](https://discovery-center.cloud.sap/missiondetail/3603/)
 - [Distributed Resiliency of SAP CAP applications using SAP HANA Cloud with Azure Traffic Manager](https://blogs.sap.com/2022/11/12/distributed-resiliency-of-sap-cap-applications-using-sap-hana-cloud-multi-zone-replication-with-azure-traffic-manager/)
-- [Federate your data from Azure Data Explorer to SAP Datasphere](https://discovery-center.cloud.sap/missiondetail/3433/3473/)
+- [Integration with Azure data sources](https://architecture.learning.sap.com/docs/ref-arch/a07a316077/2)
 - [Integrate globally available SAP BTP apps with Azure Cosmos DB via OData](https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/)
-- [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://open.sap.com/courses/btpma1)
+- [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://learning.sap.com/expert-lectures-former-opensap)
 
 ## Customer resources
 
 These resources include Customer Engagement Initiatives (CEI), public BETAs, and Customer Influence programs:
 
 - [SAP Joule integration with Microsoft Copilot private preview](https://aka.ms/CopilotJoule)
-- [SAP Event Mesh integration with Microsoft Azure Event Grid - Aug 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
-- [SAP Private Link service CEI - Jul 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
+- [SAP Customer Influence](https://pages.community.sap.com/topics/influence-adopt)
 
 ## Free developer accounts
 
 You can use the following free developer accounts to explore integration scenarios for Azure and SAP.
 
-- [Free trial of Azure](https://azure.microsoft.com/free/)
-- [Free trial of Azure for students](https://azure.microsoft.com/free/students/)
+- [Free trial of Azure](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- [Free trial of Azure for students](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Free account on SAP BTP trial](https://developers.sap.com/tutorials/hcp-create-trial-account.html). Select Singapore for Azure.
 - [GitHub account](https://github.com/), which you can use to host your projects.
 - [Microsoft 365 developer program account](https://developer.microsoft.com/microsoft-365/dev-program)

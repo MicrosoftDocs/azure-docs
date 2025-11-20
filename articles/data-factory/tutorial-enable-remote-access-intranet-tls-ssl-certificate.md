@@ -6,6 +6,7 @@ ms.author: lle
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Enable remote access from intranet with TLS/SSL certificate (Advanced)

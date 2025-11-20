@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Create the application gateway
 > * Test the application gateway
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 For more information about availability zone support in Application Gateway v2, see [Reliability for Application Gateway v2](../reliability/reliability-application-gateway-v2.md).
 

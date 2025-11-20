@@ -7,7 +7,10 @@ ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/28/2023
-ms.custom: template-how-to, linux-related-content
+ms.custom:
+  - template-how-to
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a DevOps engineer, I want to deploy the Azure CNI plugin for a standalone Linux Docker host, so that I can enable container networking and ensure proper IP address allocation for my containers.
 ---
 
@@ -17,7 +20,7 @@ The Azure CNI plugin enables per container/pod networking for stand-alone docker
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 

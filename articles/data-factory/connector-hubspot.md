@@ -4,10 +4,12 @@ description: Learn how to copy data from HubSpot to supported sink data stores b
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/19/2025
+ms.date: 11/05/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 # Copy data from HubSpot using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -15,7 +17,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from HubSpot. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The HubSpot connector version 2.0 (Preview) provides improved native HubSpot support. If you are using HubSpot connector version 1.0 in your solution, please [upgrade the HubSpot connector](#upgrade-the-hubspot-connector-from-version-10-to-version-20) before **October 22, 2025**. Refer to this [section](#hubspot-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
+> The HubSpot connector version 2.0 provides improved native HubSpot support. If you are using HubSpot connector version 1.0 in your solution, please [upgrade the HubSpot connector](#upgrade-the-hubspot-connector-from-version-10-to-version-20) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **November 22, 2025** if not upgraded. Refer to this [section](#hubspot-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -67,14 +69,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The HubSpot connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-hubspot-connector-from-version-10-to-version-20) to upgrade your HubSpot connector version from version 1.0. For the property details, see the corresponding sections.
+The HubSpot connector now supports version 2.0. Refer to this [section](#upgrade-the-hubspot-connector-from-version-10-to-version-20) to upgrade your HubSpot connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (Preview)](#version-20)
+- [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
-### <a name="version-20"></a> Version 2.0 (Preview)
+### <a name="version-20"></a> Version 2.0
 
-The HubSpot linked service supports the following properties when apply version 2.0 (Preview):
+The HubSpot linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -165,7 +167,7 @@ To copy data from HubSpot, set the type property of the dataset to **HubspotObje
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **HubspotObject** | Yes |
-| tableName | Name of the table. For version 2.0 (Preview), the name of the table is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Payments`. | 	Yes for version 2.0 (Preview).<br>No for version 1.0 (if "query" in activity source is specified) |
+| tableName | Name of the table. For version 2.0, the name of the table is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Discounts`. | 	Yes for version 2.0.<br>No for version 1.0 (if "query" in activity source is specified) |
 
 **Example**
 
@@ -184,6 +186,48 @@ To copy data from HubSpot, set the type property of the dataset to **HubspotObje
 }
 ```
 
+The connector version 2.0 supports the following HubSpot tables:
+
+- Marketing.Campaigns
+- Marketing.Emails.Marketing_Emails
+- Marketing.Subscriptions
+- Conversations.Inbox___Messages
+- CMS.Authors
+- CMS.Blog_Settings
+- CMS.Content_Audit
+- CMS.Domains
+- CMS.Hubdb
+- CMS.Pages
+- CMS.Posts
+- CMS.Site_Search
+- CMS.Tags
+- CMS.Url_Redirects
+- CRM.Commerce.Carts
+- CRM.Commerce.Discounts
+- CRM.Commerce.Fees
+- CRM.Commerce.Invoices
+- CRM.Commerce.Orders
+- CRM.Commerce.Quotes
+- CRM.Commerce.Subscriptions
+- CRM.Commerce.Taxes
+- CRM.Engagements.Calls
+- CRM.Engagements.Communications
+- CRM.Engagements.Emails
+- CRM.Engagements.Meetings
+- CRM.Engagements.Notes
+- CRM.Engagements.Postal_Mail
+- CRM.Engagements.Tasks
+- CRM.Objects.Companies
+- CRM.Objects.Contacts
+- CRM.Objects.Deals
+- CRM.Objects.Feedback_Submissions
+- CRM.Objects.Goal_Targets
+- CRM.Objects.Leads
+- CRM.Objects.Line_Items
+- CRM.Objects.Products
+- CRM.Objects.Tickets
+- CRM.Owners
+
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by HubSpot source.
@@ -198,7 +242,7 @@ To copy data from HubSpot, set the source type in the copy activity to **Hubspot
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM Companies where Company_Id = xxx"`. | No (if "tableName" in dataset is specified)|
 
 > [!NOTE]
-> `query` is not supported in version 2.0 (Preview).
+> `query` is not supported in version 2.0.
 
 **Example:**
 
@@ -231,11 +275,12 @@ To copy data from HubSpot, set the source type in the copy activity to **Hubspot
     }
 ]
 ```
+
 ## Data type mapping for HubSpot
 
 When you copy data from HubSpot, the following mappings apply from HubSpot's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| HubSpot data type    | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+| HubSpot data type    | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |---------------------|-------------------------------------------------------|---------------------------------------------|
 | bool                | Boolean                                               | Boolean                                     |
 | boolean             | Boolean                                               | Boolean                                     |
@@ -260,16 +305,17 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support announced | / |  
-| Version 2.0 (Preview)| Public Preview |• The `tableName` value is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Payments`. <br><br>• date is read as DateTime data type. <br><br>• object is read as String data type.<br><br>•`useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. |
+| Version 1.0 | End of support | / |  
+| Version 2.0 | General availability |• The `tableName` value is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Discounts`. <br><br>• date is read as DateTime data type. <br><br>• object is read as String data type.<br><br>•`useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>• Support specific HubSpot tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
 
-### <a name="upgrade-the-hubspot-connector-from-version-10-to-version-20"></a> Upgrade the HubSpot connector from version 1.0 to version 2.0 (Preview)
+### <a name="upgrade-the-hubspot-connector-from-version-10-to-version-20"></a> Upgrade the HubSpot connector from version 1.0 to version 2.0
 
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0 (Preview)](#version-20).
+1. In **Edit linked service** page, select version 2.0 and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
 
-2. The data type mapping for the HubSpot linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for HubSpot](#data-type-mapping-for-hubspot).
+2. The data type mapping for the HubSpot linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for HubSpot](#data-type-mapping-for-hubspot).
 
-3. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
+3. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0.
+4. Note that version 2.0 supports specific HubSpot tables. For the supported table list, go to [Dataset properties](#dataset-properties).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

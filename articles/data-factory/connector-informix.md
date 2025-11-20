@@ -4,10 +4,13 @@ description: Learn how to copy data from and to IBM Informix using a copy activi
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2023
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from and to IBM Informix using Azure Data Factory or Synapse Analytics

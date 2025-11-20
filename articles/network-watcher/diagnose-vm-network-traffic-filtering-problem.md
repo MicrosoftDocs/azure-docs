@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 10/14/2024
+ms.date: 09/23/2025
+ms.custom: sfi-image-nochange
 
-#Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 # Customer intent: As a network administrator, I want to diagnose network traffic filter issues for a virtual machine using IP flow verification, so that I can identify security rules that are blocking traffic and resolve any communication problems effectively.
 ---
 
@@ -18,7 +18,7 @@ In this quickstart, you deploy a virtual machine and use Network Watcher [IP flo
 
 :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

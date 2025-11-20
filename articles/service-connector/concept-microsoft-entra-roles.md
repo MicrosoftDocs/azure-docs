@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: concept-article
-ms.date: 07/23/2025
+ms.date: 09/30/2025
 ---
 # Microsoft Entra roles assigned by Service Connector
 
@@ -40,7 +40,7 @@ By default, when you select an authentication type from this list, Service Conne
 |                         | Service Bus Data Sender               | Allows for send access to Azure Service Bus resources.                                                                | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
 | Azure SignalR           | SignalR Service Owner                 | Full access to Azure SignalR Service REST APIs.                                                                       | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
 | Azure WebPubSub         | SignalR/Web PubSub Contributor        | Create, Read, Update, and Delete SignalR service resources.                                                           | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
-| Azure OpenAI Service    | Cognitive Services OpenAI Contributor | Full access including the ability to fine-tune, deploy, and generate text.                                            | a001fd3d-188f-4b5d-821b-7da978bf7442 |
+| Azure OpenAI    | Cognitive Services OpenAI Contributor | Full access including the ability to fine-tune, deploy, and generate text.                                            | a001fd3d-188f-4b5d-821b-7da978bf7442 |
 | Azure Cognitive Service | Cognitive Services User               | Lets you read and list keys of Cognitive Services.                                                                    | a97b65f3-24c7-4388-baec-2e87135dc908 |
 
 For more information about these roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).

@@ -16,7 +16,7 @@ This article describes how to set up and configure an Airflow environment in Wor
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - **Azure Data Factory**: Create or select an existing Data Factory instance in the region where the Workflow Orchestration Manager preview is supported.
 
 ## Create the environment

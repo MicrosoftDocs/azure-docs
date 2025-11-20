@@ -17,6 +17,8 @@ Azure IoT Operations uses TLS to encrypt communication between all components. T
 
 - To manage certificates for external communications, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
+- To create secrets in Azure Key Vault, you need **Secrets officer** permissions at the resource level. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+
 ## Manage certificates for internal communications
 
 All communications within Azure IoT Operations are encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend [using your own CA issuer](#bring-your-own-issuer) and an enterprise PKI solution.
@@ -139,11 +141,14 @@ To set up Azure IoT Operations with your own issuer for internal communications,
       az iot ops init --subscription <SUBSCRIPTION_ID> --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP> --user-trust
       ```
 
-   2. Add the `--trust-settings` parameter with the necessary information while deploying Azure IoT Operations. For example:
+   1. Add the `--trust-settings` parameter with the necessary information while deploying Azure IoT Operations. For example:
 
       ```bash
       az iot ops create --subscription <SUBSCRIPTION_ID> -g <RESOURCE_GROUP> --cluster <CLUSTER_NAME> --custom-location <CUSTOM_LOCATION> -n <INSTANCE_NAME> --sr-resource-id <SCHEMAREGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
       ```
+
+    > [!NOTE]
+    > The custom location name has a maximum length of 63 characters.
 
 ## Manage certificates for external communications
 
@@ -171,6 +176,7 @@ To manage certificates for external communications, follow these steps:
 
         - View the certificate details once uploaded, to ensure you have the correct certificate before adding to Azure Key Vault and synchronizing to the cluster.
         - Use an intuitive name so that you can recognize which secret represents your secret in the future.
+        - Select the appropriate certificate store for the connector that uses the certificate. For example, **OPC UA trust list**.
 
         :::image type="content" source="media/howto-manage-certificates/upload-certificate.png" lightbox="media/howto-manage-certificates/upload-certificate.png" alt-text="Screenshot that shows the Upload certificate option when adding a new certificate to the devices page.":::
 

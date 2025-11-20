@@ -12,7 +12,7 @@ ms.date: 08/29/2025
 This article is an introduction to developing Azure Functions by using C# script (*.csx*).
 
 > [!IMPORTANT]
-> C# script is supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a compiled C# class library project. To learn how to migrate a C# script project to a C# class library (isolated worker) project, see [Convert a C# script app to a C# project](#convert-a-c-script-app-to-a-c-project).
+> C# script apps run in the host process and are supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a [compiled C# class library project that uses the isolated process model](./dotnet-isolated-process-guide.md). To learn how to migrate a C# script project to a C# class library (isolated worker) project, see [Convert a C# script app to a C# project](#convert-a-c-script-app-to-a-c-project).
 
 Azure Functions lets you develop functions using C# in one of the following ways:
 
@@ -31,6 +31,8 @@ Data flows into your C# function via method arguments. Argument names are specif
 The *.csx* format allows you to write less "boilerplate" and focus on writing just a C# function. Instead of wrapping everything in a namespace and class, just define a `Run` method. Include any assembly references and namespaces at the beginning of the file as usual.
 
 A function app's *.csx* files are compiled when an instance is initialized. This compilation step means things like cold start may take longer for C# script functions compared to C# class libraries. This compilation step is also why C# script functions are editable in the Azure portal, while C# class libraries aren't.
+
+C# script code always runs in the same process as the Functions host. 
 
 ## Folder structure
 

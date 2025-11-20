@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot the Microsoft Sentinel solution for SAP applications data connector agent
 description: Learn how to troubleshoot specific issues that might occur in your Microsoft Sentinel solution for SAP applications data connector agent deployment.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: troubleshooting
-ms.date: 05/26/2025
+ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -23,7 +23,9 @@ This article includes troubleshooting steps to help you ensure accurate and time
 
 When working with the agentless data connector, most troubleshooting is done directly in the SAP Integration Suite, where the message log displays errors indicating the nature of the issue encountered.
 
-Start by examining the message processing logs. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/monitor-message-processing-monitor). The error messages there can help you diagnose issues with missing permissions, connectivity errors, and other misconfigurations. 
+[!INCLUDE [data-connector-agent-deprecation](../includes/data-connector-agent-deprecation.md)]
+
+Start by examining the message processing logs. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/monitor-message-processing-monitor). The error messages there can help you diagnose issues with missing permissions, connectivity errors, and other misconfigurations.
 
 If you don't see a related error to your issue, turn on trace logging for more in-depth troubleshooting. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/setting-log-levels).
 
@@ -39,11 +41,11 @@ Some legacy SAP systems may be missing required functionality for the **RFC_READ
 
 For more information, see [Configure SAP Cloud Connector settings](preparing-sap.md#configure-sap-cloud-connector-settings).
 
-## "Deploy required azure resources" error when setting up the data connector
+## "Deploy required Azure resources" error when setting up the data connector
 
-When you set up the Microsoft Sentinel for SAP - agentless data connector, under the **Initial connector configuration > Step 1: Trigger automatic deployment of required Azure resources / SOC Engineer**, after you select **Deploy required resources**, you might see the "Deploy required azure resources" error or similar (errors may vary). This error might indicate that you're missing the required permissions for the Entra ID app registration.
+When you set up the Microsoft Sentinel for SAP - agentless data connector, under the **Initial connector configuration > Step 1: Trigger automatic deployment of required Azure resources / SOC Engineer**, after you select **Deploy required resources**, you might see the "Deploy required Azure resources" error or similar (errors may vary). This error might indicate that you're missing the required permissions for the Entra ID app registration.
 
-If you don't have the **Entra ID Application Developer** role or higher, you need to work with a colleague that has this permission to finish setting up the Azure resources. For more information, follow the procedure in the [data connector agent connection](deploy-data-connector-agent-container.md#connect-your-agentless-data-connector-limited-preview) step.
+If you don't have the **Entra ID Application Developer** role or higher, you need to work with a colleague that has this permission to finish setting up the Azure resources. For more information, follow the procedure in the [data connector agent connection](deploy-data-connector-agent-container.md#connect-your-agentless-data-connector) step.
 
 ## Missing "Last address routed"
 
@@ -55,6 +57,19 @@ If you see an error that you have incomplete SAP user master data or no data in 
 
 1. Confirm that the **SIAG_ROLE_GET_AUTH** SAP function module exists in the SAP source system.
 1. Follow the guidance in SAP note 3088309 for the relevant solution.  
+
+## Status code 500 on SAP system connect on Sentinel
+
+If you see an error with status code 500 during the connect process from Sentinel to SAP Cloud Integration, contact your SAP colleague monitoring the integration flow "Data Collector" on SAP Cloud Integration. By nature the error message details are only available on SAP's [Message Processing Log](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/message-processing-log).
+
+## Long message processing times or message volume anomalies on SAP Cloud Integration
+
+If you see sudden spikes in message volumes and processing times on SAP Cloud Integration, consider filtering responsible sources on the NetWeaver side. There are two options available.
+
+1. Use transaction [SM19 and SAP's best practices](https://community.sap.com/t5/application-development-and-automation-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) to apply filter settings on Users and message classes causing the spike
+1. Use the [filter capabilities](deploy-data-connector-agent-container.md?tabs=managed-identity&pivots=connection-agentless#customize-data-connector-behavior-optional) of the Sentinel package on SAP Cloud Integration to apply filtering on log read. The parameter max-rows are pre-populated to protect the integration flow from message flooding by design.
+
+Note that log filters on NetWeaver impact what is written to the audit log on the source while a filter on SAP Cloud Integration only chooses not to read the problematic entries.
 
 :::zone-end
 

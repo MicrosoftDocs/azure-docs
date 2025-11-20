@@ -18,7 +18,7 @@ This article describes how to grant consent to a server to receive calls directe
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create a free account](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Communication Services resource, see [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -59,19 +59,6 @@ Example response:
 ```http
 HTTP/1.1 201 Created
 Content-type: application/json
-```
-
-Not allowed response:
-
-If you receive a 403 Error with the following response, send the Azure Subscription GUID to your Azure Communication Services Product Manager (PM) to add you to the preview list.
-
-```rest
-{
-   "error": {
-   "code": "SubscriptionNotAllowed",
-   "message": "API is not allowed to be accessed with your subscription."
-}
-}
 ```
 
 ## Provide Client Consent 

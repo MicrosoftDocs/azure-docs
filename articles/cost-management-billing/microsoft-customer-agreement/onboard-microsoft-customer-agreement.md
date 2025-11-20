@@ -5,9 +5,10 @@ author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 08/14/2025
+ms.date: 10/08/2025
 ms.author: kenday
 ms.reviewer: clionabolger
+ms.custom: sfi-ga-nochange
 ---
 
 # Onboard to the Microsoft Customer Agreement (MCA)
@@ -211,7 +212,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
 ### Changes after migration
 
 - **MCA remit-to information differs** - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
-- **Custom or shared views under Cost Management** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- **Cost Management views** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
 - **Budgets** - You need to recreate them.
 - **Azure usage file enhancement** - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
     - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
@@ -226,19 +227,24 @@ This section of the onboarding guide describes the steps you follow to migrate f
 - **Cost Management** using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - **Historical data** – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
     - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.
-- **Reservations** - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.
+- **Reservations** - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.**Reservations cancellations triggered by this migration do not count toward the cancellation threshold of USD 50,000 within a rolling 12-month window**. For the cancellation policy, please refer to [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md)
+- Reserved Instance (RI) charges may appear under the primary invoice section. To ensure accurate billing, customers should verify the placement of RI charges immediately. If adjustments are needed, submit a transfer request to update the invoice section.
 - **Savings Plans** - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
 - **API changes** - API endpoints differ between EA and MCA. Existing EA API calls don't work with MCA. You need to use Microsoft Cost Management APIs instead if using consumption APIs. For more information, see:
     - [Migrate EA to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md)
     - [Azure Billing REST API](/rest/api/billing/)
 - **EA API keys** - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
-- **Management groups** – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+- **Management groups** – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs, automation scripts and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+    - **Cost Views**: Rebuild dashboards and reports using the Billing Profile ID or Invoice Sections ID instead of Management Group scope.
+    - **APIs**: Update endpoints to align with MCA's billing structure.
+    - **Automation**: Modify scripts that rely on Management Group-level scoping.
 - **Export jobs** from Enterprise Agreement (EA) do not automatically migrate to Microsoft Customer Agreement (MCA). You must manually recreate export jobs under the MCA billing scope.
     - Reconfigure the Export API using Azure Commerce Toolbox or PowerShell scripts to recreate export jobs with MCA-compatible APIs.
     - Confirm that your MCA billing scope aligns with the MCA framework. For more details, refer to [Understand and work with scopes](../costs/understand-work-scopes.md).
     - To learn more about Exports data types and supported scopes, refer to the Understand export data types section in [this article](../costs/tutorial-improved-exports.md).
 - **Tax exemption certificates** - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- **Emissions Impact Dashboard** - You must update Billing Account ID as a Billing Account Administrator with a role as Billing Account Reader/Contributor/Owner. Learn more about it here: [Connect to the Emissions Impact Dashboard for Azure - Power BI](/power-bi/connect-data/service-connect-to-emissions-impact-dashboard)
 
 Here are some points to consider after migration.
 

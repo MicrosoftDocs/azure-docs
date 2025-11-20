@@ -330,7 +330,7 @@
         - name: Dell PowerEdge R660
           href: appliance-catalog/dell-poweredge-r660.md
       - name: Large enterprises
-        items:  
+        items:
         - name: Dell PowerEdge R360
           href: appliance-catalog/dell-poweredge-r360-e1800.md
       - name: Production line
@@ -344,7 +344,7 @@
         - name: DELL XE4 SFF
           href: appliance-catalog/dell-xe4-sff.md
         - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
-          href: appliance-catalog/ys-techsystems-ys-fit2.md        
+          href: appliance-catalog/ys-techsystems-ys-fit2.md
       - name: Virtual appliances
         items:
         - name: OT sensor (VMware ESXi)
@@ -422,5 +422,3 @@
     href: whats-new-archive.md
   - name: OT monitoring software versions archive
     href: release-notes-ot-monitoring-sensor-archive.md
-  - name: Custom columns sample script
-    href: custom-columns-sample-script.md

@@ -21,7 +21,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The logic app resource and workflow where you want to set up mock outputs. This article uses a **Recurrence** trigger and **HTTP** action as an example workflow.
 

@@ -40,6 +40,8 @@ It's important to understand which geospatial data formats are supported in Plan
 ### Other file formats and metadata files
 Beyond this list of supported data types, you may ingest STAC items that point to other data types as assets. For example, it's common for STAC items to list other metadata files as assets in json, xml, csv, and other formats. When ingesting STAC items that include these other file types as assets the Planetary Computer Pro stores these files, but doesn't attempt to convert them to cloud optimized formats. After ingest, you'll be able to access these nonsupported asset types using the Planetary Computer Pro's STAC API, but you won't be able to visualize them within Planetary Computer Pro's Explorer.
 
+Cloud-optimized assets such as cloud-optimized GeoTIFF (COG) and Cloud-optimized point cloud (COPC) can also be streamed into [QGIS](./configure-qgis.md) through a direct STAC connection.
+
 ## Related Content
 
 - Learn more about STAC collections and items: [STAC Overview](./stac-overview.md)

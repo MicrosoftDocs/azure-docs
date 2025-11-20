@@ -4,7 +4,9 @@ description: Learn to create pipelines that automate infrastructure, continuous 
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, kewear, archidda, azla
-ms.date: 06/09/2025
+ms.date: 09/11/2025
+ms.update-cycle: 365-days
+
 # Customer intent: As an integration developer, I want to create pipelines that automate infrastructure, CI, and CD provisioning for business process stages mapped to Standard workflow operations in different deployment environments without rebuilding and remapping.
 ---
 
@@ -26,7 +28,7 @@ This guide shows how to complete the following tasks:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Visual Studio Code installed with the Azure Logic Apps (Standard) extension and the required prerequisites.
 

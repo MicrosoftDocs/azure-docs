@@ -3,9 +3,9 @@ title:  Tutorial to run an Azure VM disaster recovery drill with Azure Site Reco
 description: In this tutorial, run an Azure VM disaster recovery drill to another region using Site Recovery.
 services: site-recovery
 ms.topic: tutorial
-ms.date: 03/29/2024
+ms.date: 09/08/2025
 ms.custom: mvc
-ms.author: jsuri
+ms.author: v-gajeronika
 #Customer intent: As an Azure admin, I want to run a drill to check that VM disaster recovery is working.
 # Customer intent: "As an Azure administrator, I want to conduct a disaster recovery drill for virtual machines, so that I can ensure the failover process works correctly and verify the preparedness of our disaster recovery strategy."
 ---
@@ -69,6 +69,9 @@ Before you start this tutorial, you must enable disaster recovery for one or mor
 
 
 5. After the failover finishes, the Azure VM created in the target region appears in the Azure portal **Virtual Machines**. Make sure that the VM is running, sized appropriately, and connected to the network you selected.
+
+>[!NOTE]
+>You may also get alternative virtual machine SKU recommendation during test failover. [Learn more](alternative-vm-size-failover-flow.md).
 
 ## Clean up resources
 

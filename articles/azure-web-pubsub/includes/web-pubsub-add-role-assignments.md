@@ -10,7 +10,7 @@ ms.custom: include file
 ---
 
 This section shows how to assign a `Web PubSub Service Owner` role to a service principal or managed identity for a Web PubSub resource.
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!NOTE]
 > A role can be assigned to any scope, including management group, subscription, resource group, or single resource. To learn more about scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
@@ -51,7 +51,7 @@ For detailed steps, see [Assign Azure roles using the Azure portal](../../role-b
 
 To learn more about how to assign and manage Azure roles, see these articles:
 
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Assign Azure roles using the REST API](../../role-based-access-control/role-assignments-rest.md)
 - [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Assign Azure roles using the Azure CLI](../../role-based-access-control/role-assignments-cli.md)

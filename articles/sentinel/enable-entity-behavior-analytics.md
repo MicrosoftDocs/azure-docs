@@ -1,14 +1,15 @@
 ---
 title: Enable entity behavior analytics to detect advanced threats
 description: Enable User and Entity Behavior Analytics in Microsoft Sentinel, and configure data sources
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel so that I can detect and analyze anomalous activities more effectively.
@@ -19,14 +20,14 @@ ms.collection: usx-security
 
 In the previous deployment step, you enabled the Microsoft Sentinel security content you need to protect your systems. In this article, you learn how to enable and use the UEBA feature to streamline the analysis process. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
-As Microsoft Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Microsoft Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Learn more about [UEBA](identify-threats-with-entity-behavior-analytics.md).
+As Microsoft Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using various techniques and machine learning capabilities, Microsoft Sentinel can then identify anomalous activity and help you determine whether an asset is compromised. Learn more about [UEBA](identify-threats-with-entity-behavior-analytics.md).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
-To enable or disable this feature (these prerequisites are not required to use the feature):
+To enable or disable this feature (these prerequisites aren't required to use the feature):
 
 - Your user must be assigned to the Microsoft Entra ID **Security Administrator** role in your tenant or the equivalent permissions.
 
@@ -37,8 +38,8 @@ To enable or disable this feature (these prerequisites are not required to use t
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
 > [!NOTE]
-> - No special license is required to add UEBA functionality to Microsoft Sentinel, and there's no additional cost for using it.
-> - However, since UEBA generates new data and stores it in new tables that UEBA creates in your Log Analytics workspace, **additional data storage charges** will apply. 
+> - No special license is required to add UEBA functionality to Microsoft Sentinel, and there's no extra cost for using it.
+> - However, since UEBA generates new data and stores it in new tables that UEBA creates in your Log Analytics workspace, **additional data storage charges** apply. 
 
 ## How to enable User and Entity Behavior Analytics
 
@@ -62,37 +63,57 @@ To enable or disable this feature (these prerequisites are not required to use t
 
     To get to the **Entity behavior configuration** page:
 
-    1. From the Microsoft Defender portal navigation menu, select **Settings**.
-    1. In the **Settings** page, select **Microsoft Sentinel**.
-    1. From the next menu, select **Entity behavior analytics**. 
-    1. Then, select **Set UEBA** which will open a new browser tab with the **Entity behavior configuration** page in the **Azure portal**.
+    1. From the Microsoft Defender portal navigation menu, select **Settings** > **Microsoft Sentinel** > **SIEM workspaces**.
+    1. Select the workspace you want to configure.
+    1. From the workspace configuration page, select **Entity behavior analytics** > **Configure UEBA**. 
 
     ---
 
-1. On the **Entity behavior configuration** page, switch the toggle to **On**.
+1. On the **Entity behavior configuration** page, toggle on **Turn on UEBA feature**.
 
-    :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings.":::
+    :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings." lightbox="media/enable-entity-behavior-analytics/ueba-configuration.png":::
 
-1. Mark the check boxes next to the Active Directory source types from which you want to synchronize user entities with Microsoft Sentinel.
+1. Select the directory services from which you want to synchronize user entities with Microsoft Sentinel.
 
     - **Active Directory** on-premises (Preview)
     - **Microsoft Entra ID**
 
-    To sync user entities from on-premises Active Directory, your Azure tenant must be onboarded to Microsoft Defender for Identity (either standalone or as part of Microsoft Defender XDR) and you must have the MDI sensor installed on your Active Directory domain controller. See [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites) for more information.
+    To sync user entities from on-premises Active Directory, you must onboard your Azure tenant to Microsoft Defender for Identity (either standalone or as part of Microsoft Defender XDR) and you must have the MDI sensor installed on your Active Directory domain controller. For more information, see [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites).
 
-1. Mark the check boxes next to the data sources on which you want to enable UEBA.
+1. Select **Connect all data sources** to connect all eligible data sources, or select specific data sources from the list.
+
+    You can only enable these data sources from the Defender and the Azure portals:
+    - Signin Logs
+    - Audit Logs
+    - Azure Activity    
+    - Security Events
+
+    You can enable these data sources from the Defender portal only (preview):
+    
+    - AAD Managed Identity Signin logs (Microsoft Entra ID)
+    - AAD Service Principal Signin logs (Microsoft Entra ID)
+    - AWS CloudTrail
+    - Device Logon Events
+    - Okta CL
+    - GCP Audit Logs
+
+    For more information about UEBA data sources and anomalies, see [Microsoft Sentinel UEBA reference](./ueba-reference.md) and [UEBA anomalies](./anomalies-reference.md#ueba-anomalies).
 
     > [!NOTE]
-    >
-    > Below the list of existing data sources, you will see a list of UEBA-supported data sources that you have not yet connected. 
-    >
-    > Once you have enabled UEBA, you will have the option, when connecting new data sources, to enable them for UEBA directly from the data connector pane if they are UEBA-capable.
+    > After enabling UEBA, you can enable supported data sources for UEBA directly from the data connector pane, or from the Defender portal Settings page, as described in this article.
 
-1. Select **Apply**. If you accessed this page through the **Entity behavior** page, you will be returned there.
+1. Select **Connect**. 
+
+1. Enable anomaly detection in your Sentinel workspace:
+
+    1. From the Microsoft Defender portal navigation menu, select **Settings** > **Microsoft Sentinel** > **SIEM workspaces**.
+    1. Select the workspace you want to configure.
+    1. From the workspace configuration page, select **Anomalies** and toggle on **Detect Anomalies**. 
+
 
 ## Next steps
 
 In this article, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. For more information about UEBA:
 
 > [!div class="nextstepaction"]
->>[Investigate entities with entity pages](entity-pages.md)
+>>[Identify threats with UEBA](./identify-threats-with-entity-behavior-analytics.md)

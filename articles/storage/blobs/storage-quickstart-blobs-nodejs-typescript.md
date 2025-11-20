@@ -7,7 +7,14 @@ ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: typescript
-ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-extended-azdevcli, devx-track-ts
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - passwordless-js
+  - devx-track-extended-azdevcli
+  - devx-track-ts
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a developer learning to manage Azure Blob Storage with TypeScript, I want to install and utilize the Blob Storage client library so that I can create containers, upload and download blobs, and effectively manage my data in the cloud.
 ---
 
@@ -22,7 +29,7 @@ In this article, you follow steps to install the package and try out example cod
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [Create a storage account](../common/storage-account-create.md)
 - [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - [TypeScript](https://www.typescriptlang.org/download)

@@ -1,12 +1,12 @@
 ---
-title: Azure Resource Graph GET/LIST API Guidance (Preview)
+title: Azure Resource Graph GET/LIST API Guidance 
 description: Learn to use the GET/LIST API to avoid requests being throttled in Azure Resource Graph.
 ms.date: 05/14/2025
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
 
-# Azure Resources Graph (ARG) GET/LIST API (Preview)
+# Azure Resources Graph (ARG) GET/LIST API  
 
 The ARG GET/LIST API is designed to significantly reduce READ throttling by offloading GET and LIST requests to an alternate ARG platform. This action is achieved through intelligent control plane routing, which directs requests to the alternate platform when a specific parameter is present. If the parameter is absent, requests are seamlessly routed back to the original Resource Provider, ensuring flexibility.
 
@@ -17,7 +17,7 @@ ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, 
 - The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
 
 > [!NOTE]
-> Keep in mind that the Azure Resource Manager quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that Azure Resource Manager follows for Azure Public cloud.  
+> All requests to Azure Resource Graph (ARG) — including GET/LIST API calls — are subject to Azure Resource Manager (ARM) quotas and throttling policies. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that Azure Resource Manager follows for Azure Public cloud. Since every request is routed through ARM before reaching ARG, any throttling applied by ARM will take precedence. If you believe the current ARM limits are insufficient for your scenario, please email a brief summary of your use case to the Azure Resource Graph team <azureresourcegraphsupport@microsoft.com>. This will help the team better understand your requirements and provide appropriate guidance.
 
 > [!VIDEO https://www.youtube.com/embed/h6ieZqCO_90]
 
@@ -25,9 +25,7 @@ ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, 
 
 To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#arg-getlist-api), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which routes the request to this ARG backend for response.
 
-While the `useResourceGraph` flag will function as expected, we recommend sharing a brief summary of your scenario via email to [Azure Resource Graph team](mailto:azureresourcegraphsupport@microsoft.com). This will help the Azure Resource Graph (ARG) team better understand your use case and provide appropriate guidance. 
-
- This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
+This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
 Refer to some known limitations [here](#known-limitations) and [frequently asked questions](#frequently-asked-questions).
 

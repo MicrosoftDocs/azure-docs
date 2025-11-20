@@ -3,7 +3,7 @@ title: Azure Datacenter DNS records used by Azure Automation | Microsoft Docs
 description: This article provides the DNS records required by Azure Automation features when restricting communication to a specific Azure region hosting that Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: overview
 ms.service: azure-automation
 ms.author: v-jasmineme

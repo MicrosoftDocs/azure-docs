@@ -34,7 +34,7 @@ In this article, you take the following steps:
 ## Prerequisites
 
 - Knowledge of Azure Event Grid and Azure Event Hubs, especially the Capture feature. If you aren't familiar with Azure Event Grid, see [Introduction to Azure Event Grid](overview.md). To learn about the Capture feature of Azure Event Hubs, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](../event-hubs/event-hubs-capture-overview.md).
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Visual Studio](https://www.visualstudio.com/vs/) with workloads for .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
 - The [EventHubsCaptureEventGridDemo sample project](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). The sample includes:
 

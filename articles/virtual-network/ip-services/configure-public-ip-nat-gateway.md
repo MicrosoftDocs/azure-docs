@@ -8,7 +8,10 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure a NAT gateway to manage outbound IP connections from my virtual network, so that I can optimize SNAT connections and ensure efficient Internet access for my deployed resources.
 ---
 
@@ -27,7 +30,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP address using the Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
 - A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](./create-public-ip-prefix-portal.md).

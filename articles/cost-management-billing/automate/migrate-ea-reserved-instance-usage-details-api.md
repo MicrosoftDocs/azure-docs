@@ -2,13 +2,13 @@
 title: Migrate from the EA Reserved Instance Usage Details API
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Usage Details API.
-author: maddieminn
-ms.author: maminn
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 07/01/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: maminn
+ms.reviewer: vikdesai
 ---
 
 # Migrate from EA Reserved Instance Usage Details API

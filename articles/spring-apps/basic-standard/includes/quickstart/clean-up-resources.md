@@ -56,7 +56,7 @@ Use the following steps to delete the resource group by using Visual Studio Code
 
 ::: zone-end
 
-::: zone pivot="sc-consumption-plan,sc-standard"
+::: zone pivot="sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 

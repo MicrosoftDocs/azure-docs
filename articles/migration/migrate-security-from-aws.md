@@ -4,7 +4,8 @@ description: Learn about replatforming security services from AWS to Microsoft C
 ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.date: 07/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
+ms.service: azure 
 ms.collection:
  - migration
  - aws-to-azure

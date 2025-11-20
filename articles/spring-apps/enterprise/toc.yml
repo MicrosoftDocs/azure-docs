@@ -119,8 +119,6 @@ items:
       href: quickstart-automate-deployments-github-actions-enterprise.md
   - name: Run microservice apps
     href: ../basic-standard/quickstart-sample-app-introduction.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
-  - name: Authenticate client with Spring Cloud Gateway
-    href: tutorial-authenticate-client-with-gateway.md
 - name: Concepts
   items:
   - name: App and deployment

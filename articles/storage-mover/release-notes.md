@@ -19,8 +19,10 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                                     | Version number | Release date       | Status                                        |
 |-----------------------------------------------|----------------|--------------------|-----------------------------------------------|
-| Enhanced Network checks and OS update         | 3.4.846        | Jul 30, 2025       | Current                                       |
+| Support for data transfers from NFS source to Azure Files NFS target and OS update  | 4.0.902        | October 22, 2025   | Current. Release is available for VM image only and existing agents cannot update to this.  |
+| Enhanced Network checks and OS update         | 3.4.846        | Jul 30, 2025       | Latest update for existing agents           |
 | Enhanced Network checks and support for data transfers from SMB source to Azure Blob target | 3.3.760        | April 8, 2025      | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.|
+| Refresh release                               | 3.3.708        | January 28, 2025   | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Performance and security improvements         | 3.1.593        | June 16, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Agent registration and private networking improvements | 3.0.500| April 2, 2024     | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
@@ -51,7 +53,19 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent can't update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
-> 
+
+
+## 2025 October 22
+Refresh release notes for:
+
+- Service version: Sep 30, 2025
+- Agent version: 4.0.902
+
+### What's new
+- Ability to migrate data from NFS source to Azure Files NFS target
+- Upgraded Mover VM Linux version to 6.8.0-1031-azure
+
+
 ## 2025 Jul 30
 
 Refresh release notes for: 

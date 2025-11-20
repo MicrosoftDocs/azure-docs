@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 07/22/2025
+ms.date: 09/30/2025
 ms.author: danlep
 ---
 
@@ -77,11 +77,11 @@ The following tables compare features available in the following API Management 
 | [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ | ✔️ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium | Premium v2 | ❌ | ✔️<sup>1,2</sup> | ✔️ |
-| [Inbound private endpoints](private-endpoint.md)  |  ✔️ | Standard v2 | ❌ | ❌ | ❌ |
+| [Inbound private endpoints](private-endpoint.md)  |  ✔️ | Standard v2, Premium v2 | ❌ | ❌ | ❌ |
 | [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  v2, Premium v2  |  ❌ | ❌ | ✔️ |
-| [Availability zones](zone-redundancy.md)  |  Premium | ❌  | ❌ | ✔️<sup>1</sup> | ❌ |
+| [Availability zones](zone-redundancy.md)  |  Premium | Premium v2  | ❌ | ✔️<sup>1</sup> | ❌ |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ❌ | ❌ | ✔️<sup>3</sup> |  ❌ |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️<sup>6</sup> | ❌ | ✔️<sup>3</sup> |  ❌ |
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ❌ | ✔️ | ❌ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
 | **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ | ❌ |
@@ -92,7 +92,8 @@ The following tables compare features available in the following API Management 
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
 <sup>3</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
 <sup>4</sup> Client protocol needs to be enabled.<br/>
-<sup>5</sup> Configure using the [forward-request](forward-request-policy.md) policy.
+<sup>5</sup> Configure using the [forward-request](forward-request-policy.md) policy.<br/>
+<sup>6</sup> Configure CA certificate details for backend certificate authentication in [backend](backends.md) settings.
 
 ### Backend APIs
 
@@ -111,10 +112,12 @@ The following tables compare features available in the following API Management 
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ✔️ |
 | [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [Azure OpenAI and LLM](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Azure OpenAI in AI Foundry models and LLMs](azure-ai-foundry-api.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Pass-through MCP server](expose-existing-mcp-server.md) | ✔️  | ✔️ | ❌ | ✔️ | ❌ |
+| [Export REST API as MCP server](export-rest-mcp-server.md)  | ✔️ | ✔️ | ❌ | ✔️ | ❌ |
+| A2A agent  | ❌ | ✔️ | ❌ | ❌ | ❌ |
 | [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
 | [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Pass-through MCP server](expose-existing-mcp-server.md) (preview) |  Basic, Standard, Premium | ✔️ | ❌ | ❌ | ❌ |
 
 ### Policies
 
@@ -123,6 +126,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Feature support  | Classic  |  V2  | Consumption | Self-hosted<sup>1</sup>  | Workspace |
 | --- | --- | ----- | ----- | ---------- | ----- |
 | [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ |❌ | ✔️ | ❌ |
+| [Service Bus integration](send-service-bus-message-policy.md) (preview) |  ✔️ | ❌ | ❌ | ❌ | ❌ |
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) |  ✔️ |  ✔️ |✔️ | ✔️ | ❌ |
@@ -195,7 +199,7 @@ Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the
 
 ## Related content
 
-Lear more about:
+Learn more about:
 
 -   [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Capacity metric](api-management-capacity.md) for scaling decisions

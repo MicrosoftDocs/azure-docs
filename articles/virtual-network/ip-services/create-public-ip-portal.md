@@ -8,7 +8,10 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 04/16/2024
-ms.custom: template-quickstart, mode-ui
+ms.custom:
+  - template-quickstart
+  - mode-ui
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a public IP address of either Standard or Basic SKU using the portal, so that I can establish public connections to my Azure resources for various workloads.
 ---
 
@@ -20,7 +23,7 @@ In this quickstart, you learn how to create Azure public IP addresses, which you
 
 ## Prerequisites
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to Azure
 
@@ -38,9 +41,9 @@ Follow these steps to create a public IPv4 address with a Standard SKU named myS
 
 1. In the portal, search for and select **Public IP addresses**.
 
-1. On the **Public IP addresses** page, select **Create**.
+2. On the **Public IP addresses** page, select **Create**.
 
-1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
+3. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
     | **Setting**                        | **Value**                          |
     |--------------------------------|--------------------------------|
@@ -53,7 +56,7 @@ Follow these steps to create a public IPv4 address with a Standard SKU named myS
     | Name                           | Enter *myStandardPublicIP*.        |
     | IP Version                     | Select **IPv4**.                   |
     | SKU                            | Select **Standard**.               |
-    | Availability zone              | Select **No Zone**.                |
+    | Availability zone              | Select **Zone-Redundant**.                |
     | Tier                           | Select **Regional**.               |
     | IP address assignment          | Only option is **Static**.         |
     | Routing preference             | Select **Microsoft network**.      |
@@ -63,10 +66,51 @@ Follow these steps to create a public IPv4 address with a Standard SKU named myS
 
    :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Standard SKU.":::
 
-1. Select **Review + create**. After validation succeeds, select **Create**.
+4. Select **Review + create**. After validation succeeds, select **Create**.
 
 > [!NOTE]
 > In regions with [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
+
+You can associate the public IP address you created with a Windows or Linux [virtual machine](/azure/virtual-machines/overview). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+
+# [**Standardv2 SKU**](#tab/option-1-create-public-ip-standardv2)
+
+Standard v2 SKU public IP is required for use of the Standard v2 NAT Gateway with zone-redundancy. For more information about SKUs, see [Public IP addresses](public-ip-addresses.md#sku).
+
+## Create a Standardv2 SKU public IP address
+
+Follow these steps to create a public IPv4 address with a Standard v2 SKU named myStandardv2PublicIP.  To create an IPv6 address instead, choose **IPv6** for the **IP Version**:
+
+1. In the portal, search for and select **Public IP addresses**.
+
+2. On the **Public IP addresses** page, select **Create**.
+
+3. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
+
+    | **Setting**                        | **Value**                          |
+    |--------------------------------|--------------------------------|
+    | **Project details**               |                                    |
+    | Subscription                   | Keep the default or select a different subscription. |
+    | Resource group                 | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+    | **Instance details**              |                                    |
+    | Region                         | Select **(US) West US 2**.         |
+    | **Configuration details**         |                                    |
+    | Name                           | Enter *myStandardv2PublicIP*.        |
+    | IP Version                     | Select **IPv4**.                   |
+    | SKU                            | Select **Standard V2**.               |
+    | Tier                           | Only option is **Regional**.               |
+    | IP address assignment          | Only option is **Static**.         |
+    | Routing preference             | Only option is **Microsoft network**.      |
+    | Idle timeout (minutes)         | Keep the default of **4**.         |
+    | DNS name label                 | Leave the value blank.             |
+    | Domain name label scope (preview) | Leave the default **None**.             |
+
+   :::image type="content" source="./media/create-public-ip-portal/create-standard-ip-v2.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Standardv2 SKU.":::
+
+4. Select **Review + create**. After validation succeeds, select **Create**.
+
+> [!NOTE]
+> In regions with [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select **Zone-redundant** (default) or a specific zone. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
 
 You can associate the public IP address you created with a Windows or Linux [virtual machine](/azure/virtual-machines/overview). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
@@ -81,9 +125,9 @@ Follow these steps to create a public IPv4 address with a Basic SKU named myBasi
 
 1. In the portal, search for and select **Public IP addresses**.
 
-1. On the **Public IP addresses** page, select **Create**.
+2. On the **Public IP addresses** page, select **Create**.
 
-1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
+3. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
     | **Setting** | **Value** |
     |-------------|-----------|
@@ -102,7 +146,7 @@ Follow these steps to create a public IPv4 address with a Basic SKU named myBasi
 
    :::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Basic SKU.":::
 
-2. Select **Review + create**. After validation succeeds, select **Create**.
+4. Select **Review + create**. After validation succeeds, select **Create**.
 
 # [**Routing preference**](#tab/option-1-create-public-ip-routing-preference)
 
@@ -126,9 +170,9 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
 
 1. In the portal, search for and select **Public IP addresses**.
 
-1. On the **Public IP addresses** page, select **Create**.
+2. On the **Public IP addresses** page, select **Create**.
 
-1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
+3. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
     | **Setting**                   | **Value**                          |
     |-------------------------------|------------------------------------|
@@ -149,10 +193,10 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
     | DNS name label                | Leave the value blank.             |
     | Domain name label scope (preview) | Leave the default **None**            |
 
-1. Select **Review + create**. After validation succeeds, select **Create**.
+4. Select **Review + create**. After validation succeeds, select **Create**.
 
 > [!NOTE]
-> In regions with [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
+> In regions with [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select a specific zone or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
 
 You can associate the public IP address you created with a Windows or Linux [virtual machine](/azure/virtual-machines/overview). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
@@ -166,9 +210,9 @@ Follow these steps to create a public IPv4 address with a Standard SKU and a glo
 
 1. In the portal, search for and select **Public IP addresses**.
 
-1. On the **Public IP addresses** page, select **Create**.
+2. On the **Public IP addresses** page, select **Create**.
 
-1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
+3. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
    | **Setting**                   | **Value**                          |
    |-------------------------------|------------------------------------|

@@ -1,8 +1,8 @@
 ---
 title: Threat detection in Microsoft Sentinel | Microsoft Docs
 description: Understand how threat detection works in Microsoft Sentinel. Learn about different types of analytics rules and templates, and the generation of alerts and incidents.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 10/16/2024
@@ -17,6 +17,9 @@ ms.collection: usx-security
 ---
 
 # Threat detection in Microsoft Sentinel
+
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
 
 After [setting up Microsoft Sentinel to collect data from all over your organization](connect-data-sources.md), you need to constantly dig through all that data to detect security threats to your environment. To accomplish this task, Microsoft Sentinel provides threat detection rules that run regularly, querying the collected data and analyzing it to discover threats. These rules come in a few different flavors and are collectively known as **analytics rules**.
 

@@ -93,7 +93,7 @@ There are some important considerations when defining your resource group:
 
 * The resources in a resource group can be located in different regions than the resource group, but we recommend that you use the same location. See [What location should I use for my resource group?](#which-location-should-i-use-for-my-resource-group).
 
-* A resource group can be used to scope access control for administrative actions. You can use Azure [policies](../../governance/policy/overview.md), [roles](../../role-based-access-control/role-assignments-portal.yml), or [resource locks](lock-resources.md) to manage a resource group.
+* A resource group can be used to scope access control for administrative actions. You can use Azure [policies](../../governance/policy/overview.md), [roles](/azure/role-based-access-control/role-assignments-portal), or [resource locks](lock-resources.md) to manage a resource group.
 
 * You can [apply tags](tag-resources.md) to a resource group. The resources in the resource group don't inherit those tags.
 

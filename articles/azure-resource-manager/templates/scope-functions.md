@@ -74,7 +74,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "defaultScopeTemplate",
       "resourceGroup": "inlineGroup",
       "properties": {
@@ -95,7 +95,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "innerScopeTemplate",
       "resourceGroup": "inlineGroup",
       "properties": {
@@ -119,7 +119,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "linkedTemplate",
       "resourceGroup": "linkedGroup",
       "properties": {

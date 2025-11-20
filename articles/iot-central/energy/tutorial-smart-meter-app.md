@@ -7,6 +7,7 @@ ms.date: 10/14/2024
 ms.topic: tutorial
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Deploy and walk through an application template for monitoring smart meters
@@ -55,7 +56,7 @@ For example, a partner might configure data export to continuously send data to 
 
 ## Prerequisites
 
-To complete this tutorial, you need an active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete this tutorial, you need an active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create an application for monitoring smart meters
 

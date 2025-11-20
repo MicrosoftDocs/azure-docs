@@ -7,6 +7,7 @@ ms.author: baanders
 ms.date: 08/26/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
+ms.custom: sfi-image-nochange
 ---
 
 # Build 3D scenes with 3D Scenes Studio (preview) for Azure Digital Twins

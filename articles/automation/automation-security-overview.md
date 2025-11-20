@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: overview 
 ms.custom:
 ms.service: azure-automation
@@ -39,7 +39,6 @@ Managed identities are the recommended way to authenticate in your runbooks, and
 
 Here are some of the benefits of using managed identities:
 
-- Using a managed identity instead of the Automation Run As account simplifies management. 
 - Managed identities can be used without any additional cost.
 
 - You can access resources using your Automation account's managed identity from a runbook without creating certificates, connections, etc.
@@ -85,24 +84,13 @@ To update the Automation account, you need to be a member of one of the followin
 To learn more about the Azure Resource Manager and Classic deployment models, see [Resource Manager and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 >[!NOTE]
->Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
-
-> [!VIDEO https://learn-video.azurefd.net/vod/player?id=5584e967-5b9f-474b-91cd-4e4342b19812]
-
-## Role-based access control
-
-Role-based access control is available with Azure Resource Manager to grant permitted actions to a Microsoft Entra user account and Run As account, and authenticate the service principal. Read [Role-based access control in Azure Automation article](automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.
-
-If you have strict security controls for permission assignment in resource groups, you need to assign the Run As account membership to the **Contributor** role in the resource group.
-
-> [!NOTE]
-> We recommend you don't use the **Log Analytics Contributor** role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account.
+>Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 ## Runbook authentication with Hybrid Runbook Worker
 
 Runbooks running on a Hybrid Runbook Worker in your datacenter or against computing services in other cloud environments like AWS, can't use the same method that is typically used for runbooks authenticating to Azure resources. This is because those resources are running outside of Azure and therefore, requires their own security credentials defined in Automation to authenticate to resources that they access locally. For more information about runbook authentication with runbook workers, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 
-For runbooks that use Hybrid Runbook Workers on Azure VMs, you can use [runbook authentication with managed identities](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) instead of Run As accounts to authenticate to your Azure resources.
+For runbooks that use Hybrid Runbook Workers on Azure VMs, you can use [runbook authentication with managed identities](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) to authenticate to your Azure resources.
 
 ## Next steps
 

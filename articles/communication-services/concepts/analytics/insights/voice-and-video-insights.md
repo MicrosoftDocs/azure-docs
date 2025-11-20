@@ -14,7 +14,7 @@ ms.subservice: data
 
 # Voice and Video Insights
 
-This document introduces the Voice and Video section of your Insights dashboard and how to use Copilot in Azure to monitor and improve your call quality.
+This document introduces the Voice and Video section of your Insights dashboard and how to use Azure Copilot to monitor and improve your call quality.
 
 ## Overview
 In each Communications Resource, we provide an Insights feature that 
@@ -23,15 +23,15 @@ section of the dashboard gives high level summaries of your call usage,
 reliability, and quality for that calling resource. 
 
 This dashboard 
-is integrated with [Copilot in Azure](/azure/copilot/overview), allowing you to chat with Copilot to quickly understand the data you’re looking at and learn actions to improve your users' calling experiences.
+is integrated with [Azure Copilot](/azure/copilot/overview), allowing you to chat with Azure Copilot to quickly understand the data you’re looking at and learn actions to improve your users' calling experiences.
 
 
 There are two main tools you can use to monitor your calls and improve call quality. 
 1. Voice and Video Insights dashboards
 1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
 
-We recommend using Copilot in the **Voice and Video Insights** dashboards to start 
-any quality investigations, and using Copilot in [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) as needed to explore individual calls when you need granular detail.
+We recommend using Azure Copilot in the **Voice and Video Insights** dashboards to start 
+any quality investigations, and using Azure Copilot in [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) as needed to explore individual calls when you need granular detail.
 
 **Voice and Video Insights** consists of four main sections. 
 - **[Volume](#volume):** Provides general usage numbers.
@@ -42,7 +42,7 @@ any quality investigations, and using Copilot in [Call Diagnostics](../../voice-
 
 ## Enable Voice and Video Insights
 
-You need to start storing call logs and enable [Copilot in Azure](/azure/copilot/overview) to start using the Voice and Video Insights dashboards.
+You need to start storing call logs and enable [Azure Copilot](/azure/copilot/overview) to start using the Voice and Video Insights dashboards.
 
 
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ This tab focuses on the composition and volume of your calls over time. You can 
 
 :::image type="content" source="..\media\workbooks\voice-and-video-volume-2.png" alt-text="Screenshot of voice and video Volume tab."  lightbox="..\media\workbooks\voice-and-video-volume-2.png":::
 
-You can use [Copilot in Azure](/azure/copilot/overview) to get detailed explanations of key concepts at the bottom of this section.
+You can use [Azure Copilot](/azure/copilot/overview) to get detailed explanations of key concepts at the bottom of this section.
 
 :::image type="content" source="..\media\workbooks\voice-and-video-volume-copilot.png" alt-text="Screenshot of Copilot responses in the voice and video Volume tab."  lightbox="..\media\workbooks\voice-and-video-volume-copilot.png":::
 
@@ -88,7 +88,7 @@ The **Reliability** tab summarizes the performance of key calling SDK APIs to he
 
 ## User Facing Diagnostics (UFD)
 
-The User Facing Diagnostic (UFD) tab opens with a summary of the top UFD events and highlights the recovery rate of each UFD for you to focus on. Like the Reliability tab, you see an overview of all the UFDs first, once you select an individual UFD you see further drill-down insights. You can use [Copilot in Azure](/azure/copilot/overview) to learn how to leverage UFDs in your calling application and mitigate their impact to your users.
+The User Facing Diagnostic (UFD) tab opens with a summary of the top UFD events and highlights the recovery rate of each UFD for you to focus on. Like the Reliability tab, you see an overview of all the UFDs first, once you select an individual UFD you see further drill-down insights. You can use [Azure Copilot](/azure/copilot/overview) to learn how to leverage UFDs in your calling application and mitigate their impact to your users.
 
 We recommend prioritizing improvements on a UFD that has a low recovery rate and a high volume, which can indicate the best opportunity to improve your user's call experiences. For example, the calling SDK might recover from some in call events and the user might not perceive an issue. By focusing on the poorest performing areas you can help identify root causes. 
 
@@ -150,7 +150,7 @@ For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks]
 ## Frequently asked questions
 
 ### How do I set up Voice and Video Insights?
-Since the Voice and Video insights dashboard is integrated with [Copilot in Azure](/azure/copilot/overview) and powered by [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview), you need to store call logs for it to visualize anything. Also you must enable [Copilot in Azure](/azure/copilot/overview). The following sections explain these two requirements.
+Since the Voice and Video insights dashboard is integrated with [Azure Copilot](/azure/copilot/overview) and powered by [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview), you need to store call logs for it to visualize anything. Also you must enable [Azure Copilot](/azure/copilot/overview). The following sections explain these two requirements.
 
 #### Collect Call Logs
 
@@ -164,10 +164,10 @@ Your data volume, retention, and usage in Log Analytics within Azure Monitor is 
 
 If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID. When you view Voice and Video Insights, it shows you details for the resourceID you're viewing. 
 
-#### Enable Copilot in Azure
-Your organization manages access to [Copilot in Azure](/azure/copilot/overview). After your organization has access to Copilot in Azure, the Voice and Video Insights sections will display multiple Copilot icons you can interact with.
+#### Enable Azure Copilot
+Your organization manages access to [Azure Copilot](/azure/copilot/manage-access). After your organization has access to Azure Copilot, the Voice and Video Insights sections will display multiple Copilot icons you can interact with.
 
-Interact with Copilot in Azure for quality improvement guidance and explanations of common terms. Giving Copilot in Azure detailed information helps it identify fixes. If you want, you can use the visuals without Copilot in a limited capacity. 
+Interact with Azure Copilot for quality improvement guidance and explanations of common terms. Giving Azure Copilot detailed information helps it identify fixes. If you want, you can use the visuals without Azure Copilot in a limited capacity.
 
 ### Can I use the legacy version of Voice and Video Insights?
 Yes, the legacy Voice and Video Insights version from January 2025 is available. To open it select Workbooks on the left sidebar of your Azure Communication Services resource, then select **Insights (legacy)** in the workbook gallery view.

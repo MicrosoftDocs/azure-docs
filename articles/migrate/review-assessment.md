@@ -5,8 +5,9 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
+ms.reviewer: v-uhabiba
 ms.date: 04/17/2025
-monikerRange: migrate
+monikerRange:
 # Customer intent: "As a cloud architect, I want to review the assessment of on-premises VMs for Azure migration, so that I can ensure readiness, optimize sizing, and estimate costs effectively before proceeding with migration."
 ---
 
@@ -74,9 +75,13 @@ If you don't want to use the performance data, reset the sizing criteria to as-i
 
 For storage sizing in an Azure VM assessment, Azure Migrate tries to map each disk that is attached to the server to an Azure disk. Sizing works as follows: 
 
-1. The assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. For import-based assessments, you can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU. 
+1. The assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. For import-based assessments, you can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
+   
+2. The disk size for the target disks are identified based on the actual utilization of storage allocated to the server on-premises. In case the machine has only one disk, the assessment provides two probable disk targets. One target disk  is of the size of allocated disk and the other is of the size calculated based on actual utilization. In case there are multiple disks attached to the server on-premises and the utilization is not available for each disk the recommended disk is identified by using total utilization at VM level and considering normal distribution across all the disks. For ease of migration three probables are provided sized at allocated size, at 50% of allocated size and at 25% of allocated size and you can choose the correct disk based on exact utilization. Migration using Azure Migrate server migration tool supports migration only to disks that of size equal to or greater than on-premises disks 
+> [!Note]
+> Migration using Azure Migrate server migration tool supports migration only to disks that are of size equal to or greater than on-premises disks. To migrate to the disk of recommended size that is smaller than the allocated disk, migration has to be done in two steps. First migrate to the disk equal to allocated size disk (target disk always available in the list of probables). Create a disk of recommended size, use _azcopy_ or _robocopy_ to move the data. Deallocate the disk and connect the new disk to Azure VM. 
 
-2. Disks are selected as follows: 
+3. Disks are selected as follows: 
    - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure. 
    - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings. 
    - If there are multiple eligible disks, assessment selects the disk with the lowest cost. 
@@ -89,7 +94,7 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
     - Provisioned IOPS is calculated using the following logic: 
       - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS.
       - Else, provisioned IOPS is calculated using IOPS to be provisioned = (source disk throughput) *1024/256 
-      - Provisioned throughput range is dependent on provisioned IOPS. [Learn more](assessment-report.md#confidence-ratings-performance-based)
+      - Provisioned throughput range is dependent on provisioned IOPS. [Learn more](assessment-report.md#coverage)
       
 ### Network sizing 
 
@@ -109,6 +114,10 @@ After it calculates storage and network requirements, the assessment considers C
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended. 
 
 After sizing recommendations are completed, an Azure VM assessment in Azure Migrate calculates compute and storage costs for migration. 
+
+To right-size on-premises servers for B-Series VM targets, a minimum of seven days of performance data is required to establish the workload pattern. B-Series VMs are ideal for workloads that remain idle most of the time but occasionally require high CPU performance, such as development/test environments, small web servers, and batch jobs. These VMs use a CPU credit system that allows you to pay for baseline performance and burst when needed. When the workload runs below the base CPU level, credits accumulate and are stored up to a maximum limit; these credits are then consumed during spikes to enable higher performance. The assessment service analyzes seven days of performance data to ensure that the credits required during bursts are always less than the accumulated credits. If the on-premises VM passes this check, it is considered suitable for a B-Series target without risking performance degradation.
+Example:
+If a VM has a baseline CPU of 20% and runs at 10% for most of the day, it earns credits for the unused 10%. Over seven days, these credits accumulate and can be used during short spikes where CPU usage jumps to 80% for 15 minutes. If the accumulated credits are sufficient to cover these bursts, the VM qualifies for a B-Series recommendation.
 
 ## Compute cost 
 

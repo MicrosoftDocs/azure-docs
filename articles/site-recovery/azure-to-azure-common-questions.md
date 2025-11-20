@@ -1,11 +1,12 @@
 ---
 title: Common questions about Azure virtual machine disaster recovery with Azure Site Recovery
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.date: 07/25/2025
 ms.topic: faq
 ms.service: azure-site-recovery
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a cloud administrator, I want to understand the disaster recovery options for Azure virtual machines using replication, so that I can implement effective strategies for failover and data protection across regions.
 ---
@@ -148,7 +149,7 @@ When you replicate a new VM and specify a new Automation Account name, the vault
 
 Azure Site Recovery uses this new Automation Account to manage the site recovery extension on all replicated VMs.
 
-### Premium SSD v2 disks (preview)
+### Premium SSD v2 disks
 
 #### If the source disk IOPS is changed after enable replication, will it reflect during failover?
 
@@ -485,7 +486,7 @@ Azure Site Recovery creates [replica](./azure-to-azure-architecture.md#target-re
     > You can change the network access of the disk only if you have canceled the export. If you do not cancel the export, network access change for the disk is disabled.
         
 
-After completing the failover or test failover, the recovery virtual machine created in the target location also have the disks with public access enabled. These disks won't have SAS taken by Azure Site Recovery. To change the network access for these disks, go to the **Networking** tab of the disk and change the disk network access as needed according to step 5. 
+After completing the failover or test failover, the recovery virtual machine created in the target location also has the disks with public access enabled. These disks won't have SAS taken by Azure Site Recovery. To change the network access for these disks, go to the **Networking** tab of the disk and change the disk network access as needed according to step 5. 
 
 During reprotection and failback as well, Azure Site Recovery creates disks with public access enabled. You can change the network access of those disks as well as discussed in the steps above based on your requirements.
 

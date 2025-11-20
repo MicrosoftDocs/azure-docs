@@ -8,9 +8,15 @@ ms.date: 09/13/2024
 ms.topic: quickstart
 ms.service: azure-blob-storage
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 zone_pivot_groups: azure-blob-storage-quickstart-options
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - passwordless-python
+  - ai-video-demo
+  - devx-track-extended-azdevcli
+  - sfi-ropc-nochange
 # Customer intent: As a developer, I want to quickly set up and manage Azure Blob Storage using Python, so that I can efficiently store and manipulate unstructured data in my applications.
 ---
 
@@ -59,7 +65,7 @@ The steps in the video are also described in the following sections.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
 - [Python](https://www.python.org/downloads/) 3.8+
 
@@ -67,7 +73,7 @@ The steps in the video are also described in the following sections.
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Python](https://www.python.org/downloads/) 3.8+
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 

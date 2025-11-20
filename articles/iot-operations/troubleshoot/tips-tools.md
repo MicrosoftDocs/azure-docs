@@ -203,7 +203,7 @@ To view custom resource types other that pods in the cluster:
 
 1. Press **Ctrl-a** to display the list of custom resource types.
 
-1. Select the custom resource type, such as **assetendpointprofiles** and press **Enter**.
+1. Select the custom resource type, such as **devices** and press **Enter**.
 
     > [!TIP]
     > To search for a custom resource type by name, type **/** and then start typing the name of the type you're looking for.

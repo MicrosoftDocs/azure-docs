@@ -4,13 +4,14 @@ description: Learn how to build a multi-region app on Azure App Service that can
 keywords: azure app service, web app, multiregion, multi-region, multiple regions
 author: seligj95
 ms.topic: tutorial
+ms.date: 2/8/2023
+ms.author: jordanselig
+ms.service: azure-app-service
 ms.custom:
   - devx-track-azurecli
   - devx-track-bicep
   - build-2025
-ms.date: 2/8/2023
-ms.author: jordanselig
-ms.service: azure-app-service
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Create a highly available multi-region app in Azure App Service
@@ -71,7 +72,7 @@ az appservice plan create --name <app-service-plan-west-us> --resource-group myr
 
 ### Create web apps
 
-Once the App Service plans are created, run the following commands to create the web apps. Replace the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with two globally unique names (valid characters are `a-z`, `0-9`, and `-`) and be sure to pay attention to the `--plan` parameter so that you place one app in each plan (and therefore in each region). Replace the `<runtime>` parameter with the language version of your app. Run `az webapp list-runtimes` for the list of available runtimes. If you plan on using the sample Node.js app given in this tutorial in the following sections, use `NODE:18-lts` as your runtime.
+Once the App Service plans are created, run the following commands to create the web apps. Replace the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with two globally unique names (valid characters are `a-z`, `0-9`, and `-`) and be sure to pay attention to the `--plan` parameter so that you place one app in each plan (and therefore in each region). Replace the `<runtime>` parameter with the language version of your app. Run `az webapp list-runtimes` for the list of available runtimes. If you plan on using the sample Node.js app given in this tutorial in the following sections, use `NODE:24-lts` as your runtime.
 
 ```azurecli-interactive
 az webapp create --name <web-app-east-us> --resource-group myresourcegroup --plan <app-service-plan-east-us> --runtime <runtime>
@@ -291,7 +292,7 @@ You already created the baseline infrastructure for this scenario. Now, you crea
 
 For the remaining steps in this tutorial, you should have an app ready to deploy to your App Services. If you need a sample app, you can use the [Node.js Hello World sample app](https://github.com/Azure-Samples/nodejs-docs-hello-world). Fork that repository so you have your own copy.
 
-Be sure to set the App Service stack settings for your apps. Stack settings refer to the language or runtime used for your app. This setting can be configured using the Azure CLI with the `az webapp config set` command or in the portal with the following steps. If you use the Node.js sample, set the stack settings to **Node 18 LTS**.
+Be sure to set the App Service stack settings for your apps. Stack settings refer to the language or runtime used for your app. This setting can be configured using the Azure CLI with the `az webapp config set` command or in the portal with the following steps. If you use the Node.js sample, set the stack settings to **Node 24 LTS**.
 
 1. Going to your app and selecting **Configuration** in the left-hand table of contents.
 1. Select the **General settings** tab.
@@ -408,7 +409,7 @@ Now that you have a service principal that can access your App Service apps, edi
     
     env:
       AZURE_WEBAPP_NAME: <web-app-name>   # set this to your application's name
-      NODE_VERSION: '18.x'                # set this to the node version to use
+      NODE_VERSION: '24.x'                # set this to the node version to use
       AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
       AZURE_WEBAPP_SLOT_NAME: stage       # set this to your application's slot name
     

@@ -11,7 +11,7 @@ ms.author: ofshezaf
 
 --- 
 
-# Develop Advanced Security Information Model (ASIM) parsers (Public preview)
+# Develop Advanced Security Information Model (ASIM) parsers
 
 Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers, in turn, use *source-specific parsers* to handle the specific details of each source. 
 
@@ -28,10 +28,6 @@ Microsoft Sentinel provides built-in, source-specific parsers for many data sour
   - The events might be collected, modified, and forwarded by an intermediary system.
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
-
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 
 ## Custom ASIM parser development process
 

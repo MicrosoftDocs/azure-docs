@@ -163,8 +163,12 @@
     href: ../common/last-sync-time-get.md?toc=/azure/storage/file-sync/toc.json
 - name: Performance, scale, and cost
   items:
-  - name: Scale and performance targets
+  - name: Azure Files scale and performance targets
     href: ../files/storage-files-scale-targets.md?toc=/azure/storage/file-sync/toc.json
+  - name: Azure File Sync scale and performance targets
+    href: file-sync-scale-targets.md
+  - name: Azure File Sync throttling
+    href: file-sync-throttling.md
   - name: Understanding billing
     href: ../files/understanding-billing.md?toc=/azure/storage/file-sync/toc.json
   - name: Optimize costs with storage reservations

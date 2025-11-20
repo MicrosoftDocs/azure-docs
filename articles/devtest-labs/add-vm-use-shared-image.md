@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 02/28/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a customer, I want to know how to add a VM using an image from the attached shared image gallery in Azure DevTest Labs.
 ---

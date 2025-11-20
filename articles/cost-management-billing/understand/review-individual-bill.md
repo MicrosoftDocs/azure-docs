@@ -6,8 +6,9 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 05/27/2025
+ms.date: 11/11/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Review your individual Azure subscription bill

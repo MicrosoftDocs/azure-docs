@@ -2,7 +2,7 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 12/06/2024
+ms.date: 11/12/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -268,7 +268,7 @@ These symptoms may arise for one or more of the following reasons:
 - The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
 - One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
 
-In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](./backup-azure-sql-automation.md#enable-backup) for instructions on how to perform this task in PowerShell.
+In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](./backup-azure-sql-automation.md#enable-backup-for-sql-databases) for instructions on how to perform this task in PowerShell.
 
 ## Size limit for files
 

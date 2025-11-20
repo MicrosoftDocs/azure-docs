@@ -41,7 +41,7 @@ The following steps describe the process to configure your container app to use 
 ### Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A private Azure Container Registry containing an image you want to pull.
 - Your Azure Container Registry must allow ARM audience tokens for authentication in order to use managed identity to pull images.
     Use the following command to check if ARM tokens are allowed to access your ACR:
@@ -160,7 +160,7 @@ The method to configure a system-assigned managed identity in the Azure portal i
 ### Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A private Azure Container Registry containing an image you want to pull. See [Create a private Azure Container Registry](/azure/container-registry/container-registry-get-started-portal#create-a-container-registry).
 
 ### Create a container app
@@ -244,7 +244,7 @@ This article describes how to configure your container app to use managed identi
 
 | Prerequisite | Description |
 |--------------|-------------|
-| Azure account | An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/). |
+| Azure account | An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
 | Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
 |Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli) or [Quickstart: Create a private container registry using Azure PowerShell](/azure/container-registry/container-registry-get-started-powershell)|
@@ -621,7 +621,7 @@ This article describes how to use a Bicep file to configure your container app t
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 - If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`.
 - A private Azure Container Registry containing an image you want to pull. To create a container registry and push an image to it, see [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli) or [Quickstart: Create a private container registry using Azure PowerShell](/azure/container-registry/container-registry-get-started-powershell)

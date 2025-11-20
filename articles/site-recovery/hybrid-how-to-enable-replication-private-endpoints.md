@@ -1,12 +1,15 @@
 ---
 title: Enable replication for on-premises machines with private endpoints 
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 05/11/2025
-ms.custom: subject-rbac-steps, engagement-fy23
+ms.custom:
+  - subject-rbac-steps
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a system administrator, I want to configure private endpoints for on-premises machine replication to Azure, so that I can enhance security and control data traffic during disaster recovery operations.
 ---
 # Replicate on-premises machines by using private endpoints
@@ -204,7 +207,7 @@ following role permissions, depending on the type of storage account.
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-The following steps describe how to add a role assignment to your storage account. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+The following steps describe how to add a role assignment to your storage account. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. Go to the storage account.
 

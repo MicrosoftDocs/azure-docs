@@ -1,7 +1,7 @@
 ---
-title: Cached lookup functions in the mapping data flow
+title: Cached Lookup Functions in the Mapping Data Flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about cached lookup functions in mapping data flow.
+description: Learn about cached lookup functions in mapping data flows.
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 01/05/2024
 ---
 
-# Cached lookup functions in mapping data flow
+# Cached lookup functions in mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The following articles provide details about cached lookup functions supported by Azure Data Factory and Azure Synapse Analytics in mapping data flows.
+This article provides details about cached lookup functions supported by Azure Data Factory and Azure Synapse Analytics in mapping data flows.
 
 ## Cached lookup function list
 
-The following functions are only available when using a cached lookup when you've included a cached sink.
+The following functions are available only if you use a cached lookup when you include a cache sink.
 
 | Cached lookup function | Task |
 |----|----|
-| [lookup](data-flow-expressions-usage.md#lookup) | Looks up the first row from the cached sink using the specified keys that match the keys from the cached sink.|
-| [mlookup](data-flow-expressions-usage.md#mlookup) | Looks up the all matching rows from the cached sink using the specified keys that match the keys from the cached sink.|
-| [output](data-flow-expressions-usage.md#output) | Returns the first row of the results of the cache sink|
-| [outputs](data-flow-expressions-usage.md#outputs) | Returns the entire output row set of the results of the cache sink|
+| [lookup](data-flow-expressions-usage.md#lookup) | Looks up the first row from the cache sink by using the specified keys that match the keys from the cached sink.|
+| [mlookup](data-flow-expressions-usage.md#mlookup) | Looks up all the matching rows from the cache sink by using the specified keys that match the keys from the cached sink.|
+| [output](data-flow-expressions-usage.md#output) | Returns the first row of the results of the cache sink.|
+| [outputs](data-flow-expressions-usage.md#outputs) | Returns the entire output row set of the results of the cache sink.|
 |||
 
 ## Related content
@@ -40,5 +40,5 @@ The following functions are only available when using a cached lookup when you'v
 - List of all [map functions](data-flow-map-functions.md).
 - List of all [metafunctions](data-flow-metafunctions.md).
 - List of all [window functions](data-flow-window-functions.md).
-- [Usage details of all data transformation expressions](data-flow-expressions-usage.md).
-- [Learn how to use Expression Builder](concepts-data-flow-expression-builder.md).
+- Usage details of all [data transformation expressions](data-flow-expressions-usage.md).
+- Learn how to use [Expression Builder](concepts-data-flow-expression-builder.md).

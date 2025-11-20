@@ -2,7 +2,7 @@
 title: Create Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 10/30/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -152,7 +152,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = '${uniqueString(resourceGroup().id)}storage'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {

@@ -5,7 +5,9 @@ author: spelluru
 ms.author: spelluru
 ms.date: 12/19/2024
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Allow access to Azure Service Bus namespaces via private endpoints
