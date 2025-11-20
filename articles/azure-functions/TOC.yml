@@ -698,40 +698,38 @@
         href: functions-bindings-cache-output.md
     - name: Azure Cosmos DB
       items:
-      - name: API for NoSQL
-        items:
-        - name: Overview
-          displayName: Azure Cosmos DB for NoSQL
-          href: functions-bindings-cosmosdb-v2.md
-        - name: Trigger
-          displayName: Azure Cosmos DB for NoSQL
-          href: functions-bindings-cosmosdb-v2-trigger.md
-        - name: Input
-          displayName: Azure Cosmos DB for NoSQL
-          href: functions-bindings-cosmosdb-v2-input.md
-        - name: Output
-          displayName: Azure Cosmos DB for NoSQL
-          href: functions-bindings-cosmosdb-v2-output.md
-        - name: Functions 1.x (legacy)
-          displayName: Azure Cosmos DB
-          href: functions-bindings-cosmosdb.md
-        - name: Migrate version 3.x to 4.x
-          displayName: Azure Cosmos DB for NoSQL
-          href: migrate-cosmos-db-version-3-version-4.md
-      - name: API for MongoDB (vCore)
-        items:
-        - name: Overview
-          displayName: Azure Cosmos DB for MongoDB (vCore)
-          href: functions-bindings-mongodb-vcore.md
-        - name: Trigger
-          displayName: Azure Cosmos DB for MongoDB (vCore)
-          href: functions-bindings-mongodb-vcore-trigger.md
-        - name: Input
-          displayName: Azure Cosmos DB for MongoDB (vCore)
-          href: functions-bindings-mongodb-vcore-input.md
-        - name: Output
-          displayName: Azure Cosmos DB for MongoDB (vCore)
-          href: functions-bindings-mongodb-vcore-output.md
+      - name: Overview
+        displayName: nosql, cosmosdb
+        href: functions-bindings-cosmosdb-v2.md
+      - name: Trigger
+        displayName: nosql, cosmosdb
+        href: functions-bindings-cosmosdb-v2-trigger.md
+      - name: Input
+        displayName: nosql, cosmosdb
+        href: functions-bindings-cosmosdb-v2-input.md
+      - name: Output
+        displayName: nosql, cosmosdb
+        href: functions-bindings-cosmosdb-v2-output.md
+      - name: Functions 1.x (legacy)
+        displayName: nosql, cosmosdb
+        href: functions-bindings-cosmosdb.md
+      - name: Migrate version 3.x to 4.x
+        displayName: nosql, cosmosdb
+        href: migrate-cosmos-db-version-3-version-4.md
+    - name: Azure DocumentDB
+      items:
+      - name: Overview
+        displayName: mongodb, vcore, cosmos db, cosmosdb
+        href: functions-bindings-documentdb.md
+      - name: Trigger
+        displayName: mongodb, vcore, cosmos db, cosmosdb
+        href: functions-bindings-documentdb-trigger.md
+      - name: Input
+        displayName: mongodb, vcore, cosmos db, cosmosdb
+        href: functions-bindings-documentdb-input.md
+      - name: Output
+        displayName: mongodb, vcore, cosmos db, cosmosdb
+        href: functions-bindings-documentdb-output.md
     - name: Azure Data Explorer
       items:
       - name: Overview

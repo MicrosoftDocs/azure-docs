@@ -58,7 +58,7 @@ azd up
 
 A sample Python application using FastAPI framework is provided to help you follow along with this tutorial. To deploy it without running it locally, skip this part.
 
-To run the application locally, make sure you have [Python 3.8 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, clone the sample repository's `starter-no-infra` branch and change to the repository root.
+To run the application locally, make sure you have [Python 3.14 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, clone the sample repository's `starter-no-infra` branch and change to the repository root.
 
 ```bash
 git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-fastapi-postgresql-sample-app
@@ -130,7 +130,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-python-postgres-tutorial**.
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-python-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack* &rarr; **Python 3.12**.
+        1. *Runtime stack* &rarr; **Python 3.14**.
         1. *Database* &rarr;  **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
         1. Select **Review + create**.

@@ -55,18 +55,6 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
-The MCP extension specifically requires bundle version 4.29.0 or later. You can ensure you get this version by specifying it as the minimum version in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.29.0, 5.0.0)"
-  }
-}
-```
-
 ::: zone-end
 
 ## host.json settings
@@ -104,7 +92,7 @@ You can use the `extensions.mcp` section in `host.json` to define MCP server inf
 | **messageOptions** | Options object for the message endpoint in the SSE transport. |
 | **messageOptions.UseAbsoluteUriForEndpoint** | Defaults to `false`. Only applicable to the server-sent events (SSE) transport; this setting doesn't affect the Streamable HTTP transport. If set to `false`, the message endpoint is provided as a relative URI during initial connections over the SSE transport. If set to `true`, the message endpoint is returned as an absolute URI. Using a relative URI isn't recommended unless you have a specific reason to do so.|
 | **system** | Options object for system-level configuration. |
-| **system.webhookAuthorizationLevel** | Defines the authorization level required for the webhook endpoint. Defaults to "System". Allowed values are "System" and "Anonymous". When you set the value to "Anonymous", an access key is no longer required for requests. Regardless of if a key is required or not, you can use [built-in MCP server authorization][authorization] as an identity-based access control layer.<br/>This setting is only available when running on Functions host version 4.1045.0 or later.|
+| **system.webhookAuthorizationLevel** | Defines the authorization level required for the webhook endpoint. Defaults to "System". Allowed values are "System" and "Anonymous". When you set the value to "Anonymous", an access key is no longer required for requests. Regardless of if a key is required or not, you can use [built-in MCP server authorization][authorization] as an identity-based access control layer.|
 
 ## Connect to your MCP server
 

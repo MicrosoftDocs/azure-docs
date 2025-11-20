@@ -1,8 +1,8 @@
 ---
 title: Configure local storage data flow endpoint in Azure IoT Operations
 description: Learn how to configure a local storage data flow endpoint in Azure IoT Operations.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

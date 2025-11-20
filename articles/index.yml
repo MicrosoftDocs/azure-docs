@@ -491,7 +491,7 @@ productDirectory:
       imageSrc: ./media/index/openshift.svg
       azureCategories:
         - containers
-      url: /azure/virtual-machines/linux/openshift-get-started
+      url: /azure/openshift/
     # Card
     - title: Azure Container Registry
       summary: Store and manage container images across all types of Azure deployments

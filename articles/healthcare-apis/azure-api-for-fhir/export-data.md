@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 9/27/2023
+ms.date: 11/20/2025
 ms.author: kesheth
 ms.custom: sfi-image-nochange
 ---

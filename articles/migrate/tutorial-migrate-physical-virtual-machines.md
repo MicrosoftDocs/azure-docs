@@ -119,9 +119,10 @@ The first step of migration is to set up the replication appliance. To set up th
 ## Classic experience (Retiring)
 
 > [!NOTE]
-> Classic experience is scheduled for retirement on **30 September 2026**. Your existing replications and migrations will be supported till the retirement date.
-> Please use [simplified experience](simplified-experience-for-azure-migrate.md) for all new migrations. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the simplified experience.
-> 
+> Classic experience is scheduled for retirement on **30 September 2026**. Final recovery point for replications will be on **31 May 2026**. Support for migrations will continue until the retirement date. 
+> Switch sooner to gain the richer benefits of [simplified experience](simplified-experience-for-azure-migrate.md). [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the Simplified Experience.
+
+
 ### Download the replication appliance installer
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.

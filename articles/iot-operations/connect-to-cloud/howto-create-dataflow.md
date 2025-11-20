@@ -1,8 +1,8 @@
 ---
 title: Create a data flow using Azure IoT Operations
 description: Create a data flow to connect data sources and destinations using Azure IoT Operations.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

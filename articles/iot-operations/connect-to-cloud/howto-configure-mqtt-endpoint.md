@@ -1,8 +1,8 @@
 ---
 title: Configure MQTT data flow endpoints in Azure IoT Operations
 description: Learn how to configure data flow endpoints for MQTT sources and destinations.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

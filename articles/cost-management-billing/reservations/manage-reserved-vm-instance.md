@@ -90,15 +90,7 @@ We don’t allow changing the billing subscription after a reservation is purcha
 
 ## Check billing subscription for an Azure Reservation
 
-To check the billing subscription for an Azure reservation:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services** > **Reservations**.
-3. Select the reservation.
-4. Select **Renewal**.
-5. Select **Replace this reservation with a new reservation purchase**
-
-This will show you the billing subscription of current reservation along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new reservation which will be purchased automatically upon expiry of current reservation.
+To check the billing subscription for an Azure reservation, please confirm which Azure subscription is being charged for [an Azure reservation purchase cost](/azure/cost-management-billing/reservations/view-purchase-refunds).
 
 
 ## Change billing frequency for an Azure Reservation

@@ -97,7 +97,7 @@ Use the [zone configuration table](#azure-services-by-zone-configuration-approac
 
 ### Step 3: Test for latency
 
-When you make workloads zone resilient, consider latency between availability zones. Occasionally, some legacy systems can't tolerate the small amount of extra latency that cross-zone traffic introduces, especially when you enable synchronous replication within the data tier. If you suspect that cross-zone latency might affect your workload, run tests before and after you enable zone resiliency.
+When you make workloads zone resilient, consider latency between availability zones. Occasionally, some legacy systems can't tolerate the small amount of extra latency that cross-zone traffic introduces, especially when you enable synchronous replication within the data tier. If you suspect that cross-zone latency might affect your workload, run tests before and after you enable zone resiliency. For more information about how cross-zone latency might affect your application and approaches to mitigate cross-zone latency problems, see [Zonal resources and zone resiliency](./availability-zones-zonal-resource-resiliency.md).
 
 ## Zone configuration approaches for Azure services
 

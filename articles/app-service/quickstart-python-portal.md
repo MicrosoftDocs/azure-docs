@@ -61,7 +61,7 @@ An App Service web app is the web server to which you deploy your code.
     | Resource Group | Select **Create New** below the drop-down. In the popup, enter "AppService-PythonQuickstart" and select "**OK**. |
     | Name | Enter a name that's unique across all of Azure, typically using a combination of your personal or company names, such as *contoso-testapp-123*. |
     | Publish | Select **Code**. |
-    | Runtime stack | Select **Python 3.8**. |
+    | Runtime stack | Select **Python 3.14**. |
     | Operating System | Select **Linux** (Python is supported only on Linux). |
     | Region | Select a region near you. |
     | Linux Plan | Select an exiting App Service Plan or use **Create new** to create a new one. We recommend using the **Basic B1** plan. |
@@ -96,7 +96,7 @@ Having issues? [Let us know](https://aka.ms/FlaskPortalQuickstartHelp).
 
     ![Deployment Center GitHub source configuration](media/quickstart-python-portal/deployment-center-configure-github-source.png)
 
-1. At the top of the page, select **Save** to apply the settings.:
+1. At the top of the page, select **Save** to apply the settings.
 
     ![Save the GitHub source configuration on Deployment Center](media/quickstart-python-portal/deployment-center-configure-save.png)
 

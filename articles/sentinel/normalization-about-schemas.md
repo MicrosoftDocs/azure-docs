@@ -57,15 +57,15 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**Date/Time**     |  Depending on the ingestion method capability, use any of the following physical representations in descending priority: <br><br>- Log Analytics built-in datetime type <br>- An integer field using Log Analytics datetime numerical representation. <br>- A string field using Log Analytics datetime numerical representation <br>- A string field storing a supported [Log Analytics date/time format](/kusto/query/scalar-data-types/datetime?view=microsoft-sentinel&preserve-view=true).       |  [Log Analytics date and time representation](/kusto/query/scalar-data-types/datetime?view=microsoft-sentinel&preserve-view=true) is similar but different than Unix time representation. For more information, see the [conversion guidelines](/kusto/query/datetime-timespan-arithmetic?view=microsoft-sentinel&preserve-view=true). <br><br>**Note**: When applicable, the time should be time zone adjusted. |
 |**MAC address**    |  String       | Colon-Hexadecimal notation.        |
 |**IP address**     |String         |    Microsoft Sentinel schemas don't have separate IPv4 and IPv6 addresses. Any IP address field might include either an IPv4 address or an IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation.<br>- **IPv6** in 8-hextets notation, allowing for the short form.<br><br>For example:<br>- **IPv4**: `192.168.10.10` <br>- **IPv6**: `FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`<br>- **IPv6 short form**: `1080::8:800:200C:417A`     |
-|**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `learn.microsoft.com`. For more information, see [The Device entity](#the-device-entity). |
-|<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](#the-device-entity).|
-| **DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. For a list of values and more information, see [The Device entity](#the-device-entity). |
-| **DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. For a list of allowed values and further information refer to [DvcIdType](#dvcidtype). |
-|<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other`. For more information, see [The Device entity](#the-device-entity). |
-|<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](#the-user-entity). |
-|<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. For more information and list of supported values, see [The User entity](#the-user-entity). |
-|<a name="useridtype"></a>**UserIdType** | Enumerated | The type of the ID stored in user ID fields. <br><br>Supported values are `SID`, `UIS`, `AADID`, `OktaId`, `AWSId`, and `PUID`. For more information, see [The User entity](#the-user-entity).  |
-|<a name="usertype"></a>**UserType** | Enumerated | The type of a user. For more information and list of allowed values, see [The User entity](#the-user-entity).  |
+|**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `learn.microsoft.com`. For more information, see [The Device entity](normalization-entity-device.md). |
+|<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](normalization-entity-device.md).|
+| **DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. For a list of values and more information, see [The Device entity](normalization-entity-device.md). |
+| **DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. For a list of allowed values and further information refer to [DvcIdType](normalization-entity-device.md#dvcidtype). |
+|<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other`. For more information, see [The Device entity](normalization-entity-device.md). |
+|<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](normalization-entity-user.md). |
+|<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. For more information and list of supported values, see [The User entity](normalization-entity-user.md). |
+|<a name="useridtype"></a>**UserIdType** | Enumerated | The type of the ID stored in user ID fields. <br><br>Supported values are `SID`, `UIS`, `AADID`, `OktaId`, `AWSId`, and `PUID`. For more information, see [The User entity](normalization-entity-user.md).  |
+|<a name="usertype"></a>**UserType** | Enumerated | The type of a user. For more information and list of allowed values, see [The User entity](normalization-entity-user.md).  |
 |<a name="apptype"></a>**AppType** | Enumerated | The type of an application. Supported values include: `Process`<br>, `Service`,  `Resource`, `URL`, `SaaS application`, `CSP`, and `Other`. |
 |**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> - Alpha-2 codes, such as `US` for the United States. <br> - Alpha-3 codes, such as `USA` for the United States. <br>- Short name.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
 |**Region**     | String        |   The country/region subdivision name, using ISO 3166-2.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
@@ -86,154 +86,13 @@ To enable entity functionality, entity representation has the following guidelin
 
 |Guideline  |Description  |
 |---------|---------|
-|**Descriptors and aliasing**     | Since a single event often includes more than one entity of the same type, such as source and destination hosts, *descriptors* are used as a prefix to identify all of the fields that are associated with a specific entity. <br><br>To maintain normalization, ASIM uses a small set of standard descriptors, picking the most appropriate ones for the specific role of the entities. <br><br>If a single entity of a type is relevant for an event, there's no need to use a descriptor. Also, a set of fields without a descriptor aliases the most used entity for each type.  |
+|**Prefixes and aliasing**     | Since a single event often includes more than one entity of the same type, such as source and destination hosts, *prefixes* are used to identify the entity a field is associated. <br><br>To maintain normalization, ASIM uses a small set of standard prefixes, picking the most appropriate ones for the specific role of the entities. <br><br>If a single entity of a type is relevant for an event, there's no need to use a prefix. Also, a set of fields without a prefix aliases the most used entity for each type.  |
 |**Identifiers and types**     | A normalized schema allows for several identifiers for each entity, which we expect to coexist in events. If the source event has other entity identifiers that can't be mapped to the normalized schema, keep them in the source form or use the **AdditionalFields** dynamic field. <br><br>To maintain the type information for the identifiers, store the type, when applicable, in a field with the same name and a suffix of **Type**. For example, **UserIdType**.         |
 |**Attributes**     |   Entities often have other attributes that don't serve as an identifier and can also be qualified with a descriptor. For example, if the source user has domain information, the normalized field is **SrcUserDomain**.      |
 
-
-Each schema explicitly defines the central entities and entity fields. The following guidelines enable you to understand the central schema fields, and how to extend schemas in a normalized manner by using other entities or entity fields that aren't explicitly defined in the schema.
-
-### The User entity
-
-Users are central to activities reported by events. The fields listed in this section are used to describe the users involved in the action. Prefixes are used to designate the role of the user in the activity. The prefixes `Src` and `Dst` are used to designate the user role in network related events, in which a source system and a destination system communicate. The prefixes 'Actor' and 'Target' are used for system oriented events such as process events.
-
-#### The user ID and scope
-
-| Field | Class | Type | Description |
-|-------|-------|------|-------------|
-| <a name="userid"></a>**UserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the  user.  |
-| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, a Microsoft Entra tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
-| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, a Microsoft Entra tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
-| <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
-| **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId**, **UserPuid** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
-| **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
-
-The allowed values for a user ID type are:
-
-| Type | Description | Example |
-| ---- | ------- | ------------- |
-| **SID** | A Windows user ID. | `S-1-5-21-1377283216-344919071-3415362939-500` |
-| **UID** | A Linux user ID. | `4578` |
-| **AADID**| A Microsoft Entra user ID.| `00aa00aa-bb11-cc22-dd33-44ee44ee44ee` |
-| **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
-| **AWSId** | An AWS user ID. | `72643944673` |
-| **PUID** | A Microsoft 365 user ID. | `10032001582F435C` |
-| **SalesforceId** | A Salesforce user ID. | `00530000009M943` |
-
-#### The user name
-
-| Field | Class | Type | Description |
-|-------|-------|------|-------------|
-| <a name="username"></a>**Username** | Optional | String | The source username, including domain information when available. Use the simple form only if domain information isn't available. Store the Username type in the [UsernameType](#usernametype) field. |
-| <a name="usernametype"></a>**UsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [Username](#username) field.  |
-| **UserUPN**, **WindowsUsername**, **DNUsername**, **SimpleUsername** |  Optional | String | Fields used to store additional usernames, if the original event includes multiple usernames. Select the username most associated with the event as the primary username stored in [Username](#username). |
-
-The allowed values for a username type are:
-
-| Type | Description | Example |
-| ---- | ------- | ------------- |
-| **UPN** | A UPN or Email address username designator. | `johndow@contoso.com`  |
-| **Windows** | A Windows username including a domain. | `Contoso\johndow` |
-| **DN**| An LDAP distinguished name designator.| `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM` |
-| **Simple** | A simple user name without a domain designator. |  `johndow` |
-| **AWSId** | An AWS user ID. | `72643944673` |
-
-
-#### Additional user fields
-
-| Field | Class | Type | Description |
-|-------|-------|------|-------------|
-| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include:<br> - `Regular`<br> - `Machine`<br> - `Admin`<br> - `System`<br> - `Application`<br> - `Service Principal`<br> - `Service`<br> - `Anonymous`<br> - `Other`.<br><br> The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
-| <a name="originalusertype"></a>**OriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
-
-
-### The device entity
-
-Devices, or hosts, are the common terms used for the systems that take part in the event. The `Dvc` prefix is used to designate the primary device on which the event occurs. Some events, such as network sessions, have source and destination devices, designated by the prefix `Src` and `Dst`. In such a case, the `Dvc` prefix is used for the device reporting the event, which might be the source, destination, or a monitoring device.
-
-### The device aliases
-
-| Field               | Class       | Type       |  Description        |
-|---------------------|-------------|------------|--------------------|
-| <a name="dvc"></a>**Dvc**, <a name="src"></a>**Src**, <a name="dst"></a>**Dst** | Mandatory  | String  | The `Dvc`, 'Src', or 'Dst' fields are used as a unique identifier of the device. It is set to the best available identified for the device. These fields can alias the [FQDN](#fqdn), [DvcId](#dvcid), [Hostname](#hostname), or [IpAddr](#ipaddr) fields. For cloud sources, for which there is no apparent device, use the same value as the [Event Product](normalization-common-fields.md#eventproduct) field.            |
-
-
-#### The device name
-
-Reported device names may include a hostname only, or a fully qualified domain name (FQDN), which includes a hostname and a domain name. The FQDN might be expressed using several formats. The following fields enable supporting the different variants in which the device name might be provided.
-
-| Field               | Class       | Type       |  Description        |
-|---------------------|-------------|------------|--------------------|
-| <a name ="hostname"></a>**Hostname**  | Recommended | Hostname | The short hostname of the device.  |
-| <a name="domain"></a>**Domain** | Recommended | String | The domain of the device on which the event occurred, without the hostname. |
-| <a name="domaintype"></a>**DomainType** | Recommended | Enumerated | The type of [Domain](#domain). Supported values include `FQDN` and `Windows`. This field is required if the [Domain](#domain) field is used. |
-| <a name="fqdn"></a>**FQDN** | Optional | String | The FQDN of the device including both [Hostname](#hostname) and [Domain](#domain) . This field supports both traditional FQDN format and Windows domain\hostname format. The  [DomainType](#domaintype) field reflects the format used. |
-
-For example:
-
-| Field | Value for input `appserver.contoso.com` | value for input `appserver` |
-| ----- | --------------------------------------- | --------------------------- | 
-| **Hostname** | `appserver` | `appserver` |
-| **Domain** | `contoso.con` | \<empty\> |
-| **DomainType** | `FQDN` | \<empty\> |
-| **FQDN** | `appserver.contoso.com` | \<empty\> | 
-
-
-When the value provided by the source is an FQDN, or when the value may be either and FQDN or a short hostname, the parser should calculate the 4 values. Use the ASIM helper functions `_ASIM_ResolveFQDN`, `_ASIM_ResolveSrcFQDN`, `_ASIM_ResolveDstFQDN`, and `_ASIM_ResolveDvcFQDN` to easily set all four fields based on a single input value. For more information, see [ASIM helper functions](normalization-functions.md).
-
-
-#### The device ID and Scope
-
-
-| Field               | Class       | Type       |  Description        |
-|---------------------|-------------|------------|--------------------|
-| <a name ="dvcid"></a>**DvcId**               | Optional    | String     | The unique ID of the device . For example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| <a name="scopeid"></a>**ScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **Scope** map to a subscription ID on Azure and to an account ID on AWS. | 
-| <a name="scope"></a>**Scope** | Optional | String | The cloud platform scope the device belongs to. **Scope** map to a subscription on Azure and to an account on AWS. | 
-| <a name="dvcidtype"></a>**DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid). Typically this field will also identify the type of [Scope](#scope) and [ScopeId](#scopeid). This field is required if the [DvcId](#dvcid) field is used. |
-| **DvcAzureResourceId**, **DvcMDEid**, **DvcMD4IoTid**, **DvcVMConnectionId**, **DvcVectraId**, **DvcAwsVpcId** |  Optional | String | Fields used to store additional device IDs, if the original event includes multiple device IDs. Select the device ID most associated with the event as the primary ID stored in [DvcId](#dvcid). |
-
-Note that fields named should prepend a role prefix such as `Src` or `Dst`, but should not prepend a second `Dvc` prefix if used in that role.
-
-The allowed values for a device ID type are:
-
-| Type | Description | 
-| ---- | ------- |
-| **MDEid** | The system ID assigned by Microsoft Defender for Endpoint. | 
-| **AzureResourceId** | The Azure resource ID. | 
-| **MD4IoTid**| The Microsoft Defender for IoT resource ID.|
-| **VMConnectionId** | The Azure Monitor VM Insights solution resource ID. |
-| **AwsVpcId** | An AWS VPC ID. | 
-| **VectraId** | A Vectra AI assigned resource ID.|
-| **Other** | An ID type not listed above.| 
-
-For example, the Azure Monitor [VM Insights solution](/azure/azure-monitor/vm/vminsights-log-query) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
-
-| Field | Map to  |
-| ----- | ----- | 
-| **DvcId** | The `Machine` field in the `VMConnection` table. |
-| **DvcIdType** | The value `VMConnectionId` |
-| **DvcAzureResourceId** | The `_ResourceId` field in the `VMConnection` table. |
-
-
-#### Additional device fields
-
-
-| Field               | Class       | Type       |  Description        |
-|---------------------|-------------|------------|--------------------|
-| <a name ="ipaddr"></a>**IpAddr**           | Recommended | IP address | The IP address of the device. <br><br>Example: `45.21.42.12`    |
-| <a name = "dvcdescription"></a>**DvcDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
-| <a name="macaddr"></a>**MacAddr**          | Optional    | MAC        |   The MAC address of the device on which the event occurred or which reported the event.  <br><br>Example: `00:1B:44:11:3A:B7`       |
-| <a name="zone"></a>**Zone** | Optional | String | The network on which the event occurred or which reported the event, depending on the schema. The zone is defined by the reporting device.<br><br>Example: `Dmz` |
-| <a name="dvcos"></a>**DvcOs**               | Optional    | String     |         The operating system running on the device on which the event occurred or which reported the event.    <br><br>Example: `Windows`    |
-| <a name="dvcosversion"></a>**DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the event occurred or which reported the event. <br><br>Example: `10` |
-| <a name="dvcaction"></a>**DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
-| <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
-| <a name="interface"></a>**Interface** | Optional | String | The network interface on which data was captured. This field is  typically relevant to network related activity which is captured by an intermediate or tap device. | 
-
-
-Note that fields named in the list with the Dvc prefix should prepend a role prefix such as `Src` or `Dst`, but should not prepend a second `Dvc` prefix if used in that role. 
-
+For more information about specific entity types refer to:
+- [User Entity](normalization-entity-user.md)
+- [Device Entity](normalization-entity-device.md)
 
 ### Sample entity mapping
 

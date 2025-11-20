@@ -312,6 +312,8 @@ items:
     href: availability-zones-overview.md
   - name: Services with availability zone support
     href: availability-zones-service-support.md
+  - name: Single zone (zonal) resources
+    href: availability-zones-zonal-resource-resiliency.md
   - name: Enable zone resiliency
     items:
     - name: Overview

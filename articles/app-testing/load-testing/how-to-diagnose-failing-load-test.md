@@ -100,7 +100,7 @@ Use the following steps to help diagnose a test not finishing:
 1. [Download and analyze the test logs](#download-apache-jmeter-or-locust-worker-logs-for-your-load-test) to identify issues in the JMeter test script.
 1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
 
-You can also view AI-based error insights for your test run after a test run completes. The insights generated contain the cause of error and more actionable recommendations. This feature is tunred on by default and can be turned off in the error blade settings. Refer to [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
+You can also view AI-based error insights for your test run after a test run completes. The insights generated contain the cause of error and more actionable recommendations. This feature is turned on by default and can be turned off in the error blade settings. Refer to [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
 
 > [!NOTE]
 > By agreeing to use AI-based error insights, you agree that the log files for your test run will be used by AI to generate recommendations. 

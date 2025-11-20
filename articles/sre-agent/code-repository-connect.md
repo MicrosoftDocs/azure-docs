@@ -28,13 +28,16 @@ The following source code hosting providers are supported with Azure SRE Agent.
 
 ::: zone pivot="azure-devops"
 
+> [!NOTE]
+> The [Code Search extension](https://marketplace.visualstudio.com/items?itemName=ms.vss-code-search) must be installed on your Azure DevOps organization for repository files to be searchable. It can take an hour for your repository files to be searchable after you install this extension.
+
 Before you can connect an Azure DevOps Repo to a resource, you first need to associate the agent managed identity with the repository.
 
 1. Open your instance of SRE Agent in the Azure portal.
 
 1. Select **Settings** and copy the name of the managed identity listed in the settings window.
 
-1. In a new tab, open your Azure DevOps repository.
+1. Open your Azure DevOps repository.
 
 1. Select the **Invite** button in the upper left so you can add the agent's managed identity to the repo.
 
@@ -59,6 +62,9 @@ Before you can connect an Azure DevOps Repo to a resource, you first need to ass
 ::: zone-end
 
 ::: zone pivot="github"
+
+> [!NOTE]
+> You must have a [GitHub Copilot plan](https://docs.github.com/en/copilot/get-started/plans) other than the Free plan. A GitHub Pro free trial plan will work for testing purposes, but the plan converts to a paid plan after the free trial ends. Additionally, you must enable the Copilot Coding Agent for the repository, in the [GitHub organization settings](https://github.com/settings/copilot/coding_agent).
 
 1. Open your instance of SRE Agent in the Azure portal.
 

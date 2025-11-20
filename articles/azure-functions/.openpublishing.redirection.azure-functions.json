@@ -266,11 +266,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/functions-bindings-documentdb.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/functions/functions-bindings-documentdb.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-documentdb",
             "redirect_document_id": false
@@ -664,6 +659,26 @@
             "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node.md",
             "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-javascript",
             "redirect_document_id": false
-        } 
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-mongodb-vcore-input.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-documentdb-input",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-mongodb-vcore-output.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-documentdb-output",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-mongodb-vcore-trigger.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-documentdb-trigger",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-mongodb-vcore.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-documentdb",
+            "redirect_document_id": true
+        }
     ]
 }

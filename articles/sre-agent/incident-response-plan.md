@@ -34,6 +34,9 @@ When you enable incident management, by default all incidents are processed usin
 
 While this configuration represents the defaults, you can customize everything from the incident management system to the filters and autonomy level. Supported incident management platforms include PagerDuty and ServiceNow.
 
+> [!NOTE]
+> Azure Monitor as an incident management system for Azure SRE Agent is currently experimental and is not fully functional yet.
+
 ## Customize a response plan
 
 You can create custom instructions through selecting management services, applying filters, setting autonomy level, and customizing the prompt context used to process incidents.

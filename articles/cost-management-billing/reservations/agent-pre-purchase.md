@@ -12,9 +12,9 @@ ms.author: primittal
 
 # Optimize Microsoft Foundry and Copilot Credit costs with Microsoft Agent pre-purchase plan 
 
-Save on your Copilot Credit and Microsoft Foundry costs when you buy a pre-purchase plan. Pre-purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, for example if Microsoft Copilot Studio generates a retail cost of $100 based on Copilot Credit and Microsoft Foundry usage, then 100 Agent CUs (ACUs) are consumed.
+Save on your Copilot Credit and Microsoft Foundry costs when you buy a pre-purchase plan. Pre-purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, for example if Microsoft Copilot Studio or Microsoft Foundry generates a retail cost of $100 based on Copilot Credit and Microsoft Foundry usage, then 100 Agent CUs (ACUs) are consumed.
 
-Your Microsoft Agent pre-purchase plan automatically uses your ACUs to pay for eligible Copilot and AI Foundry usage during its one-year term or until Agent CUs run out. Your pre-purchase plan Agent CUs start paying for your Copilot and AI Foundry usage without having to redeploy or reassign the plan. By default, plans are configured to renew at the end of the one-year term.
+Your Microsoft Agent pre-purchase plan automatically uses your ACUs to pay for eligible Copilot and AI Foundry usage during its one-year term or until Agent CUs run out. Your pre-purchase plan Agent CUs start paying for your Copilot Credit and Microsoft Foundry usage without having to redeploy or reassign the plan. By default, plans are configured to renew at the end of the one-year term.
 
 ## Prerequisites
 

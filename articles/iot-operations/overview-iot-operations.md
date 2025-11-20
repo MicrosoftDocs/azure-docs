@@ -12,7 +12,7 @@ ms.date: 09/24/2025
 
 # What is Azure IoT Operations?
 
-_Azure IoT Operations_ is a unified data plane for the edge, offering modular and scalable data services on Azure Arc-enabled Kubernetes clusters like AKS Edge Essentials. This article explores its features, benefits, and use cases.
+_Azure IoT Operations_ is a unified data plane for the edge, offering modular and scalable data services on [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) clusters. This article explores its features, benefits, and use cases.
 
 Azure IoT Operations:
 

@@ -120,7 +120,7 @@ If you want to sync Defender XDR data to Microsoft Sentinel in the Azure portal,
 
 - First, install the **Microsoft Defender XDR** solution for Microsoft Sentinel from the **Content hub**. Then, enable the **Microsoft Defender XDR** data connector to collect incidents and alerts. For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
-- After you enable alert and incident collection in the Defender XDR data connector, Defender XDR incidents appear in the Microsoft Sentinel incidents queue shortly after they're generated in Defender XDR. It can take up to 10 minutes from the time an incident is generated in Defender XDR to the time it appears in Microsoft Sentinel. In these incidents, the **Alert product name** field contains **Microsoft Defender XDR** or one of the component Defender services' names.
+- After you enable alert and incident collection in the Defender XDR data connector, Defender XDR incidents appear in the Microsoft Sentinel incidents queue shortly after they're generated in Defender XDR. It can take up to five minutes from the time an incident is generated in Defender XDR to the time it appears in Microsoft Sentinel. In these incidents, the **Alert product name** field contains **Microsoft Defender XDR** or one of the component Defender services' names.
 
 ### Ingestion costs
  

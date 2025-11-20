@@ -239,7 +239,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 When your MCP server is called by an agent powered by large language models (LLM), be aware of [prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) attacks. Consider the following security best practices:
 
-- **Authentication and Authorization**: Protect your MCP endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Authentication and Authorization**: Secure your MCP server with Microsoft Entra authentication to ensure only authorized users or agents can access your tools. See [Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication](configure-authentication-mcp-server-vscode.md) for a step-by-step guide.
 - **Input Validation and Sanitization**: Always validate incoming data to prevent invalid or malicious input. For Python apps, use libraries such as [Pydantic](https://pypi.org/project/pydantic/) to enforce data validation rules with dedicated input models (such as RestaurantCreate and ReviewCreate). Refer to their documentation for best practices and implementation details.
 - **HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
 - **Least Privilege Principle**: Expose only the necessary tools and data required for your use case. Avoid exposing sensitive operations unless necessary.

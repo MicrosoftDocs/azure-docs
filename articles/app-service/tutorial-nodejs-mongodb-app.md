@@ -151,7 +151,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Resource Group*: Select **Create new** and use a name of **msdocs-expressjs-mongodb-tutorial**.
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-expressjs-mongodb-XYZ**, where *XYZ* is any three random characters. 
-        1. *Runtime stack*: **Node 20 LTS**.
+        1. *Runtime stack*: **Node 24 LTS**.
         1. *Engine*: **Cosmos DB API for MongoDB**. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.

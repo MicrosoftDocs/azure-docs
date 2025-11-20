@@ -1,8 +1,8 @@
 ---
 title: Data persistence for the Azure IoT Operations MQTT broker
 description: Learn how to configure the data persistence feature for the Azure IoT Operations MQTT broker for data durability.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker

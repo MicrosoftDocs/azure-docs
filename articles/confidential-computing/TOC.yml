@@ -37,7 +37,7 @@
 - name: How do I get it? # HOW?
   expanded: true
   items:
-  - name: Confidential virtual machines
+  - name: Confidential virtual machines (VMs)
     items:
     - name: About Azure confidential VMs
       href: confidential-vm-overview.md
@@ -53,13 +53,13 @@
       href: gpu-options.md
     - name: Microsoft Defender for Cloud integration
       href: guest-attestation-defender-for-cloud.md
-    - name: Virtual TPMs in Azure confidential VMs
+    - name: Virtual Trusted Platform Modules (TPMs) in Azure confidential VMs
       href: virtual-tpms-in-azure-confidential-vm.md
     - name: Key rotation for Azure confidential VMs
       href: key-rotation-offline.md
     - name: Use sample app with guest attestation
       href: guest-attestation-example.md
-    - name: Leverage virtual TPMs in Azure confidential VMs
+    - name: Use virtual TPMs in Azure confidential VMs
       href: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
     - name: Create a custom image for a confidential VM
       href: how-to-create-custom-image-confidential-vm.md
@@ -69,17 +69,17 @@
       href: virtual-machine-metablob-disk.md
     - name: Quickly create confidential VMs
       items:
-      - name: Create CVM through the Azure portal
+      - name: Create a Confidential VM through the Azure portal
         href: quick-create-portal.md
-      - name: Create CVM through Azure CLI
+      - name: Create a Confidential VM through Azure CLI
         href: quick-create-confidential-vm-azure-cli.md
-      - name: Create CVM through ARM template
+      - name: Create a Confidential VM through ARM template
         href: quick-create-confidential-vm-arm.md
-      - name: Create CVM through the Azure Marketplace
+      - name: Create a Confidential VM through Azure Marketplace
         href: quick-create-marketplace.md
-      - name: Create Hardened VMSS via Azure CLI
+      - name: Create a Hardened Virtual Machine Scale Set (VMSS) via Azure CLI
         href: vmss-deployment-from-hardened-linux-image.md
-      - name: Sample scripts to create CVMs
+      - name: Sample scripts to create ConfidentialVMs
         href: https://github.com/Azure-Samples/confidential-computing
     - name: Image hardening techniques for deployment
       items:
@@ -109,7 +109,7 @@
         href: attestation.md
       - name: Open-source projects for development
         href: enclave-development-oss.md
-      - name: Deploying Intel SGX virtual machines
+      - name: Deploying Intel Software Guard Extensions (SGX) VMs
         href: virtual-machine-solutions-sgx.md
       - name: Application enclave VM FAQ
         href: faq-application-enclaves.yml 
@@ -180,6 +180,8 @@
     items:
     - name: Overview
       href: partner-pages/partner-pages-index.md
+    - name: Acompany
+      href: partner-pages/acompany.md
     - name: Anjuna
       href: partner-pages/anjuna.md
     - name: BeeKeeperAI

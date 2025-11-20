@@ -738,7 +738,7 @@
               href: connect-aws-s3-waf.md
         - name: Troubleshoot AWS S3 connector issues
           href: aws-s3-troubleshoot.md
-        - name: Cisco FTD firewall
+        - name: Cisco firewalls
           href: cisco-ftd-firewall.md
         - name: Google Cloud Platform connectors
           href: connect-google-cloud-platform.md
@@ -944,6 +944,12 @@
           href: normalization-functions.md
         - name: ASIM known issues
           href: normalization-known-issues.md
+        - name: ASIM entities
+          items:
+            - name: ASIM user entity
+              href: normalization-entity-user.md
+            - name: ASIM device entity
+              href: normalization-entity-device.md
         - name: ASIM schemas
           items:
             - name: ASIM alert event schema

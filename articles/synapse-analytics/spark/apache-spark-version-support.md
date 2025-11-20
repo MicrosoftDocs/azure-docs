@@ -73,20 +73,20 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 
 ## Migration between Apache Spark versions - support
 
-This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads to [the latest GA version, such as 3.4](./apache-spark-34-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It's important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
+This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads to  [the latest GA version, such as 3.5](./apache-spark-35-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It's important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
 
 ### Step 1: Evaluate and plan
-- **Assess Compatibility:** Start with reviewing Apache Spark migration guides to identify any potential incompatibilities, deprecated features, and new APIs between your current Spark version and the target version (for example, 3.4).
+- **Assess Compatibility:** Start with reviewing Apache Spark migration guides to identify any potential incompatibilities, deprecated features, and new APIs between your current Spark version and the target version (for example, 3.5).
 - **Analyze Codebase:** Carefully examine your Spark code to identify the use of deprecated or modified APIs. Pay particular attention to SQL queries and User Defined Functions (UDFs), which may be affected by the upgrade.
 
 ### Step 2: Create a new Spark pool for testing
-- **Create a New Pool:** In Azure Synapse, go to the Spark pools section and set up a new Spark pool. Select the target Spark version (for example, 3.4) and configure it according to your performance requirements.
-- **Configure Spark Pool Configuration:** Ensure that all libraries and dependencies in your new Spark pool are updated or replaced to be compatible with Spark 3.4.
+- **Create a New Pool:** In Azure Synapse, go to the Spark pools section and set up a new Spark pool. Select the target Spark version (for example, 3.5) and configure it according to your performance requirements.
+- **Configure Spark Pool Configuration:** Ensure that all libraries and dependencies in your new Spark pool are updated or replaced to be compatible with Spark 3.5.
 
 ### Step 3: Migrate and test your code
-- **Migrate Code:** Update your code to be compliant with the new or revised APIs in Apache Spark 3.4. This involves addressing deprecated functions and adopting new features as detailed in the official Apache Spark documentation.
+- **Migrate Code:** Update your code to be compliant with the new or revised APIs in Apache Spark 3.5. This involves addressing deprecated functions and adopting new features as detailed in the official Apache Spark documentation.
 - **Test in Development Environment:** Test your updated code within a development environment in Azure Synapse, not locally. This step is essential for identifying and fixing any issues before moving to production.
-- **Deploy and Monitor:** After thorough testing and validation in the development environment, deploy your application to the new Spark 3.4 pool. It's critical to monitor the application for any unexpected behaviors. Utilize the monitoring tools available in Azure Synapse to keep track of your Spark applications' performance.
+- **Deploy and Monitor:** After thorough testing and validation in the development environment, deploy your application to the new Spark 3.5 pool. It's critical to monitor the application for any unexpected behaviors. Utilize the monitoring tools available in Azure Synapse to keep track of your Spark applications' performance.
 
 **Question:** What steps should be taken migrating to 3.X?
 
@@ -96,9 +96,9 @@ This guide provides a structured approach for users looking to upgrade their Azu
 
 **Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps:
 1. Recreate your Spark Pool from the ground up.
-1. Downgrade the current Spark Pool, remove any packages attached, and then upgrade again to [the latest GA version, such as 3.4](./apache-spark-34-runtime.md)
+1. Downgrade the current Spark Pool, remove any packages attached, and then upgrade again to [the latest GA version, such as 3.5](./apache-spark-35-runtime.md)
 
-**Question:** Why can't I upgrade to 3.4 without recreating a new Spark pool?
+**Question:** Why can't I upgrade to 3.5 without recreating a new Spark pool?
 
 **Answer:** This isn't allowed from UX, customer can use Azure PowerShell to update Spark version. Use "ForceApplySetting", so that any existing clusters (with old version) are decommissioned. 
 
@@ -117,7 +117,7 @@ Get-AzSynapseWorkspace |
                 Write-Host "Updating Spark pool: $($_.Name)"
                 Write-Host "Current Spark version: $($_.SparkVersion)"
         
-                Update-AzSynapseSparkPool -WorkspaceName $_workspace_name -Name $_.Name -SparkVersion 3.4 -ForceApplySetting
+                Update-AzSynapseSparkPool -WorkspaceName $_workspace_name -Name $_.Name -SparkVersion 3.5 -ForceApplySetting
               }
         }
     }

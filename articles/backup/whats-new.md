@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 11/10/2025
+ms.date: 11/20/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -64,7 +64,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Threat detection in Azure Backup with Microsoft Defender for Cloud integration (preview)
 
-Azure Backup now integrates with Microsoft Defender for Cloud to deliver advanced threat detection for Azure Virtual Machine backups. This feature proactively identifies compromised restore points, validates snapshot health using Defender scans, and helps you recover faster by locating clean restore points during a ransomware attack. The feature works seamlessly with [Microsoft Defender for Servers Plan 1 and Plan 2](/azure/defender-for-cloud/defender-for-servers-overview). You can manage threat detection for Azure VM backups using Vault properties or [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md).
+Azure Backup now integrates with Microsoft Defender for Cloud to deliver advanced threat detection for Azure Virtual Machine backups. This feature proactively identifies compromised restore points, validates snapshot health using Defender scans, and helps you recover faster by locating clean restore points during a ransomware attack. The feature works seamlessly with [Microsoft Defender for Servers Plan 1 and Plan 2](/azure/defender-for-cloud/defender-for-servers-overview). You can manage threat detection for Azure VM backups using Vault properties or [Resiliency](../resiliency/resiliency-overview.md).
 
 For more information, see [About Threat Detection for Azure VM Backups (preview)](threat-detection-overview.md).
 

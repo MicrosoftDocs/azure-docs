@@ -28,6 +28,7 @@ The agent reviews logs, health probes, and other data to assess the incident. Du
 
 > [!NOTE]
 > Depending on the service you integrate for incident management, incidents can take a few minutes to appear for processing by SRE Agent.
+> Azure Monitor as an incident management system for Azure SRE Agent is currently experimental and is not fully functional yet.
 
 ## Platform integration
 

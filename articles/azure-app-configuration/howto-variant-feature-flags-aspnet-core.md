@@ -221,7 +221,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         <div class="quote-content">
             <h3 class="greeting-content">@(Model.GreetingMessage)</h3>
             <br />
-            <p class="quote">“@(Model.Quote?.Message ?? "< Quote not found >")”</p>
+            <p class="quote">"@(Model.Quote?.Message ?? "< Quote not found >")"</p>
             <p>- <b>@(Model.Quote?.Author ?? "Unknown")</b></p>
         </div>
     

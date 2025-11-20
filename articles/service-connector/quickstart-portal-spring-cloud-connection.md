@@ -120,7 +120,7 @@ Run the `az spring connection create` command to connect an application deployed
 - Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<azure-spring-apps-resource>`, `<app>`, `<target-subscription>`, `<target_resource_group>`, and `<account>`.
 
   ```azurecli-interactive
-     az containerapp connection create storage-blob \                         
+     az spring connection create storage-blob \                         
      --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.AppPlatform/Spring/<azure-spring-apps-resource>/apps/<app> \
      --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
      --system-identity
@@ -145,7 +145,7 @@ Run the `az spring connection create` command to connect an application deployed
 - Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<azure-spring-apps-resource>`, `<app>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, `<secret-name>`, and `<secret>`.
 
   ```azurecli-interactive
-  az containerapp connection create storage-blob \                         
+  az spring connection create storage-blob \                         
      --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.AppPlatform/Spring/<azure-spring-apps-resource>/apps/<app> \
      --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
       --secret name=<secret-name> secret=<secret>

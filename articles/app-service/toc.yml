@@ -429,6 +429,12 @@ items:
       href: configure-authentication-file-based.md
     - name: Authenticate AI Foundry tool calls
       href: configure-authentication-ai-foundry-openapi-tool.md
+    - name: Authentication for MCP servers
+      items:
+        - name: Overview
+          href: configure-authentication-mcp.md
+        - name: Secure calls from Visual Studio Code
+          href: configure-authentication-mcp-server-vscode.md
 - name: Security and networking
   items:
     - name: Security overview

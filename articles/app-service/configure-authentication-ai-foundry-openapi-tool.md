@@ -7,6 +7,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Secure OpenAPI endpoints for Azure AI Foundry Agent Service

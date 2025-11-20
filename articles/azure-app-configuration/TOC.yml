@@ -246,6 +246,8 @@
     items:
     - name: Overview
       href: howto-telemetry.md
+    - name: ASP.NET Core
+      href: how-to-telemetry-aspnet-core.md
     - name: Python
       href: howto-telemetry-python.md
     - name: JavaScript

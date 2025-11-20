@@ -156,12 +156,12 @@ This section defines fields related to the identification and classification of 
 | **UserIdType** | Conditional | Enumerated | The type of the user ID, such as `GUID`, `SID`, or `Email`.<br><br>Supported values are:<br>- `GUID`<br>- `SID`<br>- `Email`<br>- `Username`<br>- `Phone`<br>- `Other` |
 | **Username** | Recommended | string | Name of the user associated with the alert, including domain information when available.<br><br>e.g. `Contoso\JSmith` or `john.smith@contoso.com` |
 | **User** | Alias | string | Alias or friendly name for `Username` field. |
-| **UsernameType** | Conditional | UsernameType | Specifies the type of the user name stored in the `Username` field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Windows` |
-| **UserType** | Optional | UserType | The type of the Actor. For more information, and list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br> e.g. `Guest`|
+| **UsernameType** | Conditional | UsernameType | Specifies the type of the user name stored in the `Username` field. For more information, and list of allowed values, see [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Windows` |
+| **UserType** | Optional | UserType | The type of the Actor. For more information, and list of allowed values, see [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br> e.g. `Guest`|
 | **OriginalUserType** | Optional | string | The user type as reported by the reporting device. |
 | **UserSessionId** | Optional | string | The unique ID of the user's session associated with the alert.<br><br>e.g. `a1bc2de3-fh4i-j5kl-6mn7-op8qr9st0u` |
 | **UserScopeId** | Optional | string | The scope ID, such as Microsoft Entra Directory ID, in which UserId and Username are defined.<br><br>e.g. `a1bc2de3-fh4i-j5kl-6mn7-op8qrs` |
-| **UserScope** | Optional | string | The scope, such as Microsoft Entra tenant, in which UserId and Username are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Contoso Directory` |
+| **UserScope** | Optional | string | The scope, such as Microsoft Entra tenant, in which UserId and Username are defined. or more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Contoso Directory` |
 
 ### Process Fields
 

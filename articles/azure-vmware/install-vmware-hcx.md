@@ -39,11 +39,9 @@ This article also teaches you how to do the following tasks:
 1. Select **Get started** for **HCX Workload Mobility**.
 
      :::image type="content" source="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png" alt-text="Screenshot showing the Get started button for VMware HCX Workload Mobility." lightbox="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png":::
-1.	If you're installing HCX add-on on Azure VMware Solution in an Azure virtual network, then follow this step:
-   
-      1. Specify a unique /24 CIDR address block for HCX uplink and management. This IP block is utilized for HCX service mesh appliances management and uplink interfaces.
 
-      :::image type="content" source="media/native-connectivity/native-hcx-install.png" alt-text="Screenshot showing how to install HCX add-on on an Azure VMware Solution in an Azure virtual network." lightbox="media/native-connectivity/native-hcx-install.png":::
+1.	If you're installing HCX add-on on Azure VMware Solution in an Azure virtual network, then click **Enable and deploy**.   
+      
 
 1. Select the **I agree with terms and conditions** checkbox and then select **Install**.
 

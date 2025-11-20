@@ -1,8 +1,8 @@
 ---
 title: Test connectivity to MQTT broker with MQTT clients
 description: Learn how to use common and standard MQTT tools to test connectivity to an MQTT broker in a nonproduction environment.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:

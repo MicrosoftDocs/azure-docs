@@ -56,6 +56,10 @@ Transform your traditional CRUD web applications for the AI era by adding agenti
 
 ### [.NET](#tab/dotnet)
 - [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)](tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md)
+- Blog series: Build long-running AI agents with Microsoft Agent Framework
+  - [Part 1: Build long-running AI agents on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/build-long-running-ai-agents-on-azure-app-service-with-microsoft-agent-framework/4463159)
+  - [Part 2: Build long-running AI agents on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/part-2-build-long-running-ai-agents-on-azure-app-service-with-microsoft-agent-fr/4465825)
+  - [Part 3: Client-side multi-agent orchestration on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/part-3-client-side-multi-agent-orchestration-on-azure-app-service-with-microsoft/4466728)
 
 ### [Java](#tab/java)
 - [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel (Spring Boot)](tutorial-ai-agent-web-app-semantic-kernel-java.md)
@@ -123,6 +127,14 @@ Deploy a web app with a local small language model (SLM) as a sidecar container 
 ### [Python](#tab/python)
 - [Run a chatbot with a local SLM (FastAPI)](tutorial-ai-slm-fastapi.md)
 -----
+
+## Authenticate tool calls to App Service
+
+Secure your AI-powered applications with Microsoft Entra authentication and authorization. These guides show you how to protect your OpenAPI tools and MCP servers in Azure App Service so only authorized users and agents can access them.
+
+- [Authenticate AI Foundry tool calls](configure-authentication-ai-foundry-openapi-tool.md) - Secure your App Service app when used as an OpenAPI tool in Azure AI Foundry Agent Service with Microsoft Entra authentication
+- [Secure a Model Context Protocol server in Azure App Service](configure-authentication-mcp.md) - Overview of authentication methods for MCP servers
+- [Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication](configure-authentication-mcp-server-vscode.md) - Step-by-step guide to secure your MCP server for GitHub Copilot Chat in VS Code
 
 ## More resources
 

@@ -2,7 +2,7 @@
 title: Tutorial - Configure Threat Detection and manage health of Azure VM Backups
 description: Learn how to enable threat detection for Azure VM backups using Azure Backup. The feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 ms.service: azure-backup
-ms.date: 11/10/2025
+ms.date: 11/20/2025
 ms.topic: tutorial
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -32,23 +32,23 @@ Before you enable and manage threat detection for Azure VM backups, ensure the f
 
 You can configure source-scan at-scale at the vault level, which allows Azure Backup to perform Malware scans using Microsoft Defender at the source virtual machine. This capability allows Azure Backup to assess the health of recovery points when snapshots are taken.
 
-You can enable threat detection for Azure VM backups with one of the methods - Azure Business Continuity Center or Vault properties. After the threat detection scan is configured on the vaults, the vault applies scan status to all new restore points created for VM backups.
+You can enable threat detection for Azure VM backups with one of the methods - Resiliency or Vault properties. After the threat detection scan is configured on the vaults, the vault applies scan status to all new restore points created for VM backups.
 
 
 >[!Important]
 >- With the required Microsoft Defender for Cloud (MDC) plans, you can enable source-scan integration. Once enabled, this security feature can't be turned off.
 >- You can configure Source scan only when the selected subscription has the required Microsoft Defender for Servers plan.
 
-### Option 1: Configure threat detection using Azure Business Continuity Center
+### Option 1: Configure threat detection using Resiliency
 
 
-To enable threat detection for Azure VM backups using Azure Business Continuity Center, follow these steps:
+To enable threat detection for Azure VM backups using Resiliency, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency**.
 
 1. On the **overview** pane,  select the **Threat detection (Preview)** tile.
 
-   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/threat-detection-tile.png" alt-text="Screenshot shows the Threat detection tile in Azure Business Continuity Center." lightbox="./media/threat-detection-configure-monitor-tutorial/threat-detection-tile.png":::
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/threat-detection-tile.png" alt-text="Screenshot shows the Threat detection tile in Resiliency." lightbox="./media/threat-detection-configure-monitor-tutorial/threat-detection-tile.png":::
 
 1. On the **Threat detection (Preview)** pane, select **+ Configure scan** to start configuring source-scan integration.
 
@@ -79,9 +79,9 @@ To enable threat detection for Azure VM backups from the Recovery Services Vault
 
 ## Monitor the health of Azure VM recovery points
 
-To monitor the health of Azure VM recovery points using Azure Business Continuity Center, follow these steps:
+To monitor the health of Azure VM recovery points using Resiliency, follow these steps:
 
-1. Go to **Business Continuity Center**, and select the **Threat detection (Preview)** tile and view the summary of the recovery point health.
+1. Go to **Resiliency**, and select the **Threat detection (Preview)** tile and view the summary of the recovery point health.
 
 1. On the **Threat detection (Preview)** pane, select the protected item  with **Scan summary** status as **Suspicious RPs found**
 

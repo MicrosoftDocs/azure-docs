@@ -147,7 +147,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Resource Group*: Select **Create new** and use a name of **msdocs-django-postgres-tutorial**.
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-python-postgres-XYZ**.
-        1. *Runtime stack*: **Python 3.12**.
+        1. *Runtime stack*: **Python 3.14**.
         1. *Database*: **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
         1. *Add Azure Cache for Redis*: **Yes**.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.

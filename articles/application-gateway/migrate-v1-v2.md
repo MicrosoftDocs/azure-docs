@@ -57,6 +57,8 @@ This is the new experience that offers an improved migration experience by:
 > [!NOTE]
 > If the existing V1 Application Gateway is configured with a private-only frontend, you must [register the EnableApplicationGatewayNetworkIsolation feature in the subscription](../application-gateway/application-gateway-private-deployment.md#onboard-to-the-feature) for Private Deployment before running the migration script. This step is required to avoid deployment failures.
 
+> Private Application Gateway deployments must have subnet delegation configured to Microsoft.Network/applicationGateways. Use the following [steps to set up subnet delegation](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal).
+
 You can **download** the Enhanced cloning script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWClone).
  
 **Parameters for the script:**

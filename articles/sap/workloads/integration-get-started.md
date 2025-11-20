@@ -322,7 +322,7 @@ For more information about Azure integration with SAP Business Technology Platfo
 - [Distributed Resiliency of SAP CAP applications using SAP HANA Cloud with Azure Traffic Manager](https://blogs.sap.com/2022/11/12/distributed-resiliency-of-sap-cap-applications-using-sap-hana-cloud-multi-zone-replication-with-azure-traffic-manager/)
 - [Integration with Azure data sources](https://architecture.learning.sap.com/docs/ref-arch/a07a316077/2)
 - [Integrate globally available SAP BTP apps with Azure Cosmos DB via OData](https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/)
-- [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://open.sap.com/courses/btpma1)
+- [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://learning.sap.com/expert-lectures-former-opensap)
 
 ## Customer resources
 
