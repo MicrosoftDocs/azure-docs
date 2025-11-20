@@ -2,7 +2,7 @@
 title: Control Azure Functions outbound IP with an Azure virtual network NAT gateway
 description: A step-by-step tutorial that shows you how to configure NAT for a function connected to an Azure virtual network
 ms.topic: tutorial
-ms.author: kyburns
+ms.author: glenga
 ms.date: 11/11/2025
 ms.custom: sfi-image-nochange
 

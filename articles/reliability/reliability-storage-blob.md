@@ -177,8 +177,7 @@ Blob Storage provides multiple data protection mechanisms that complement redund
 
 For cross-region backup requirements, consider using **Azure Backup for blobs**, which provides centralized backup management and can store backup data in regions different from the source data. This service provides operational and vaulted backup options that have configurable retention policies and restore capabilities. For more information, see [Backup for blobs overview](/azure/backup/blob-backup-overview).
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
-
+[!INCLUDE [Backups include ](includes/reliability-backups-include.md)] 
 ## Service-level agreement
 
 [!INCLUDE [Storage - Service-level agreement](includes/storage/reliability-storage-sla-include.md)]

@@ -242,9 +242,9 @@ When you re-enable the replica, Traffic Manager resumes routing traffic to the r
 
 ## Backups
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md).
-
 Container Registry supports exporting container images and artifacts from your registry to external storage or alternative registries. Use Container Registry import and export capabilities or standard Docker commands to create copies of critical container images for disaster recovery scenarios.
+
+[!INCLUDE [Backups include ](includes/reliability-backups-include.md)]
 
 ## Service-level agreement
 

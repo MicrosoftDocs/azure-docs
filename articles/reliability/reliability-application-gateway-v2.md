@@ -249,7 +249,7 @@ For configuration management and disaster recovery, you should take the followin
 
 - Implement automated deployment pipelines for consistent gateway provisioning.
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
+[!INCLUDE [Backups include ](includes/reliability-backups-include.md)]
 
 ## Resilience to service maintenance
 

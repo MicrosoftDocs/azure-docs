@@ -177,7 +177,7 @@ For more information, see the following articles:
 - [What is Azure Kubernetes Service backup?](/azure/backup/azure-kubernetes-service-backup-overview)
 - [Back up AKS by using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
+[!INCLUDE [Backups include ](includes/reliability-backups-include.md)]
 
 Strive to use stateless clusters that minimize the need for backup. Store data in external storage systems and databases instead of within your cluster.
 

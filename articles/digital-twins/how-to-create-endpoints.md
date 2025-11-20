@@ -350,4 +350,4 @@ Here's an example of a dead-letter message for a [twin create notification](conc
 
 ## Next steps
 
-After you create an endpoint, define an [event route](concepts-route-events.md) to send data to the endpoint. Event routes allow you to set up event flow throughout the system and to downstream services. A single route can allow multiple notifications and event types. Create an event route to your endpoint with the instrutions in see [Create routes and filters](how-to-create-routes.md).
+After you create an endpoint, define an [event route](concepts-route-events.md) to send data to the endpoint. Event routes allow you to set up event flow throughout the system and to downstream services. A single route can allow multiple notifications and event types. Create an event route to your endpoint with the instructions in see [Create routes and filters](how-to-create-routes.md).

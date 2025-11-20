@@ -1124,7 +1124,7 @@ Denied get example:
 <7>2025-02-10T16:41:31.322Z aio-broker-frontend-0 [mq@311 tid="8" module="authz"] - cached new authorization result ...: Denied("no rule matched")
 ```
 
-## Related content
+## Next steps
 
 - [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)

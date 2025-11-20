@@ -5,8 +5,6 @@ author: sethmanheim
 ms.author: sethm
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
 ms.date: 11/06/2024
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
@@ -576,7 +574,7 @@ spec:
 
 ---
 
-## Related content
+## Next steps
 
 - [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
 - [Configure authentication](howto-configure-authentication.md)

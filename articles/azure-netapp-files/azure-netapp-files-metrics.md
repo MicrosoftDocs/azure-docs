@@ -185,10 +185,6 @@ Subscription quota metrics display subscription-level quotas relative to the imp
 
     Total number of short-term clone volumes per subscription
 
-- *Ransomware protection volumes per subscription*
-
-    Total number of advanced ransomware protection-enabled volumes per subscription
-
 - *Total TIBs per subscription* 
 
     Total regional capacity per subscription 

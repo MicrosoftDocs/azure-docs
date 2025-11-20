@@ -278,11 +278,11 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 
 ## Backups
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md).
-
 The IoT Hub service enables bulk export operations, which allow you to export the entire identity registry of an IoT hub. This data is transferred to an Azure Storage blob container by using a shared access signature. This method enables you to create reliable backups of your device information in a blob container that you control. For more information, see [Import and export IoT Hub device identities in bulk](../iot-hub/iot-hub-bulk-identity-mgmt.md).
 
 You can also export an existing IoT hub's Azure Resource Manager template (ARM template) to create a backup of the IoT hub's configuration. For more information, see [Manually migrate an IoT hub by using an ARM template](../iot-hub/migrate-hub-arm.md).
+
+[!INCLUDE [Backups include ](includes/reliability-backups-include.md)]
 
 ## Service-level agreement
 

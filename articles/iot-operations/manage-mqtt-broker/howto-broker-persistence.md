@@ -345,4 +345,6 @@ az iot ops broker persist update --resource-group myResourceGroup --instance myA
 
 ---
 
+## Next steps
+
 To learn more about Azure CLI support for advanced MQTT broker configuration, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).

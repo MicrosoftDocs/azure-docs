@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Start here to learn how to monitor Azure Batch.
-ms.date: 07/19/2024
+ms.date: 11/20/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
 ms.service: azure-batch
@@ -71,16 +71,6 @@ For the Batch service, you can collect the following logs:
 The following screenshot shows an example diagnostic setting that sends **allLogs** and **AllMetrics** to a Log Analytics workspace.
 
 :::image type="content" source="./media/batch-diagnostics/configure-diagnostic-setting.png" alt-text="Screenshot of the Diagnostic setting page that shows an example." lightbox="./media/batch-diagnostics/configure-diagnostic-setting-lightbox.png":::
-
-When you create an Azure Batch pool, you can install any of the following monitoring-related extensions on the compute nodes to collect and analyze data:
-
-- [Azure Monitor agent for Linux](/azure/azure-monitor/agents/azure-monitor-agent-manage)
-- [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
-- [Azure Diagnostics extension for Windows VMs](/azure/virtual-machines/windows/extensions-diagnostics)
-- [Azure Monitor Logs analytics and monitoring extension for Linux](/azure/virtual-machines/extensions/oms-linux)
-- [Azure Monitor Logs analytics and monitoring extension for Windows](/azure/virtual-machines/extensions/oms-windows)
-
-For a comparison of the different extensions and agents and the data they collect, see [Compare agents](/azure/azure-monitor/agents/agents-overview#compare-to-legacy-agents).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 

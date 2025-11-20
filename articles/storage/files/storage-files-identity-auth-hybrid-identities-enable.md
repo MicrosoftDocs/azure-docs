@@ -175,66 +175,11 @@ If you're connecting to a storage account via a private endpoint/private link us
 
 ## Enable cloud-only groups support (mandatory for cloud-only identities)
 
-Kerberos tickets can include a maximum of 1,010 Security Identifiers (SIDs) for groups. This is a Windows specification limit. With Entra Kerberos now supporting cloud-only identities (in addition to hybrid), tickets must include both on-premises group SIDs and cloud group SIDs. Large enterprises often have users in hundreds or thousands of groups, including nested and dynamic memberships. If the combined group SIDs exceed 1,010, the Kerberos ticket cannot be issued and authentication fails. This is especially problematic for SMB access scenarios like Azure Files, where NTFS ACL checks depend on complete group membership in the ticket.
+Kerberos tickets can include a maximum of 1,010 Security Identifiers (SIDs) for groups. Now that Microsoft Entra Kerberos supports Entra-only identities (preview), tickets must include both on-premises group SIDs and cloud group SIDs. If the combined group SIDs exceed 1,010, the Kerberos ticket can't be issued. 
 
-As a short-term solution,  apps using Entra Kerberos for cloud-only identities can add a Tag in their application manifest. When the Kerberos service sees this tag, it knows the request involves cloud-only identities. Sign-in and PRT issuance succeed; however, failures may happen at service ticket time when the user accesses a Kerberos protected resource and exceeds the 1010 group SIDs limit.
+If you're using Microsoft Entra Kerberos to authenticate cloud-only identities, you'll need to update the Tags in your application manifest file, or authentication will fail. 
 
-### Typical end-user errors
-
-**Windows SMB / Azure Files**
-    - Mapping/mount attempts may fail with generic SMB errors (for example System error 86 or 1327 can appear in other policy conflicts like MFA). 
-    - Access may succeed for smaller-group users but intermittently fail for heavily grouped users in the same tenant due to user exceeding the 1010 group SIDs limit.
-
-**Sign in vs. resource access**
-    - Sign-in and PRT issuance succeed; failures happen at service ticket time (when the user accesses a Kerberos protected resource).
-
-**Entra Sign-in log entry**
-    - The error 140011 – KerberosUsersGroupNumberExceeded in the Entra sign-in log indicates that the Kerberos ticket issuance process failed because the user's effective group membership exceeded the maximum allowed number of Security Identifiers (SIDs) in a Kerberos ticket. Admin should reduce group memberships for affected users (especially nested/dynamic groups).
-
-### How to update Tags attribute in application manifest file?
-
-**Option 1: Update Tags in the Entra Admin Portal**
-
-1. Sign in to Microsoft Entra admin center or Cloud Application Administrator role.
-2. Navigate to:
-   - Entra ID → App registrations → Select your application.
-3. Under Manage, click Manifest.
-   - In the JSON editor, locate the tags property and add "kdc_enable_cloud_group_sids".
-4. Click Save to apply changes.
- 
-**Option 2: Update Tags Using Microsoft Graph API (Permissions: Application.ReadWrite.All)**
-
-#### Request body
-```http
-PATCH https://graph.microsoft.com/v1.0/applications/{applicationObjectId}
-Content-Type: application/json
-{
-   "tags": [
-           "kdc_enable_cloud_group_sids"
-    ]
-}
-```
- 
-**Option 3: Update Tags Using PowerShell cmdlets**
-
-1. Start PowerShell with administrator privileges.
-2. Install and import the Microsoft Graph PowerShell SDK.
-
-   ```powershell
-   Install-Module Microsoft.Graph -Scope CurrentUser
-   Import-Module Microsoft.Graph.Authentication
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-   ```
-3. Connect to the tenant and accept all.
-
-   ```powershell
-   Connect-MGGraph -Scopes "Application.ReadWrite.All" -TenantId <tenantId>
-   ```
-4. List certificateUserIds attribute of a given user.
-
-   ```powershell
-   Update-MgApplication -ApplicationId "<AppObjectId>" -Tags @("kdc_enable_cloud_group_sids")
-   ```
+Follow [these instructions](/entra/identity/authentication/kerberos#group-sid-limit-in-entra-kerberos-preview) to update the tag in your application manifest.
 
 ## Disable multifactor authentication on the storage account
 

@@ -105,8 +105,8 @@ items:
       href: ../connectors/compare-built-in-azure-connectors.md
     - name: Estimate storage costs
       href: estimate-storage-costs.md
-    - name: Set up SQL storage
-      href: set-up-sql-db-storage-single-tenant-standard-workflows.md
+    - name: Set up SQL database storage
+      href: set-up-sql-database-storage-standard.md
     - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create Standard workflows from templates - Portal

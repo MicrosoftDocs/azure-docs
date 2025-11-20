@@ -16,7 +16,7 @@ In this article, you learn about actions, the available SKU options, and their p
 
 ## What is an action?
 
-An action is one of the fundamental billing units, representing a function invocation triggered by the Durable Task Scheduler. Each time one of the following functions runs, an action from the scheduler told it to.
+An action is a message dispatched by the Durable Task Scheduler to your application, triggering the execution of an orchestrator, activity, or entity functions. Functions triggered by an action include:
 
 - Starting an orchestration or suborchestration  
 - Starting an activity 
@@ -134,6 +134,7 @@ An e-commerce application experiences dynamic workload scaling during promotiona
 
 ## Next steps
 
+- [Understand pricing for Durable Task Scheduler.](https://azure.microsoft.com/pricing/details/function)
 - View [throughput performance benchmarks](./durable-task-scheduler-work-item-throughput.md)
 - [Choose your orchestration framework](./choose-orchestration-framework.md)
 - Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md).

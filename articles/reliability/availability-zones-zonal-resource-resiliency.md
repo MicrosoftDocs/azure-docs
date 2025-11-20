@@ -1,5 +1,5 @@
 ---
-title: Zonal resources and reliability
+title: Zonal Resources and Zone Resiliency
 description: Learn about zonal deployment scenarios and how to make them resilient to availability zone outages.
 ms.service: azure
 ms.subservice: azure-reliability

@@ -8,10 +8,9 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.date: 04/09/2025
 ms.custom:
-  - ignite-2023
   - sfi-image-nochange
 
-#CustomerIntent: As an operator, I want to understand options to secure MQTT communications for my Azure IoT Operations solution.
+# CustomerIntent: As an operator, I want to understand options to secure MQTT communications for my Azure IoT Operations solution.
 ---
 
 # Secure MQTT broker communication by using BrokerListener
@@ -998,7 +997,7 @@ mqtts-endpoint         LoadBalancer   10.X.X.X        172.X.X.X     8885:30674/T
 
 From here, follow the same steps as previously shown to create a server certificate with this external IP in `--san` and create the Kubernetes secret in the same way. After the secret is created, it's automatically imported to the listener.
 
-## Related content
+## Next steps
 
 - [Configure MQTT broker authorization](howto-configure-authorization.md)
 - [Configure MQTT broker authentication](howto-configure-authentication.md)
