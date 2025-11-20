@@ -82,6 +82,7 @@ If you have Virtual Machine Scale Sets in the backend, it's recommended to alloc
 
 > [!NOTE]
 > When multiple frontend IPs are configured using outbound rules, outbound connections can come from any of the frontend IPs configured to the backend instance. We don't recommend building any dependencies on which frontend IP can be selected for connections.
+> Where a VM is added to more than one backend pool with different outbound rules and front end configurations, the pool it was added to first is used for outbound connections. This behaviour can mean that VMs in the same two backend pools can have different outbound IPs depending on the order they were added to the pools.
 
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
