@@ -7,6 +7,7 @@ ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 ms.date: 02/05/2025
 zone_pivot_groups: app-service-getting-started-stacks
+ms.service: azure-app-service
 ---
 
 # Getting started with Azure App Service
@@ -41,6 +42,7 @@ stacks, App Service supports all recent Java long-term support (LTS) versions. T
 several key scenarios for which you should consider adopting App Service for your Java 
 applications.
 
+
 ### Java SE on App Service
 Java SE on App Service allows you to effortlessly deploy your applications to fully 
 managed Java Virtual Machine (JVM) instances. You should consider this stack if you 
@@ -58,6 +60,10 @@ as WebLogic or WebSphere that can be easily migrated to Tomcat. You can deploy
 your web application archive (WAR) file and let App Service do the rest.
 
 ### JBoss EAP on App Service
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
 You can effortlessly run any JBoss EAP version currently supported by Red Hat on this 
 App Service stack. JBoss EAP is fully compatible with the Java Enterprise Edition (EE) 
 and Jakarta EE standards. The stack can optionally support any application that requires 
@@ -135,4 +141,4 @@ Use the following resources to get started with PHP.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn about App Service](./overview.md)
+> [Deploy an ASP.NET web app](./quickstart-dotnetcore.md)

@@ -20,7 +20,7 @@ This tutorial covers:
 > - Steps for getting a Spark table dataset that contains time series data.
 > - Use of a wizard experience in Azure Synapse to enrich data by using Anomaly Detector.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

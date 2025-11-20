@@ -5,13 +5,17 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 05/12/2025
+ms.date: 08/28/2025
 ms.author: anfdocs
 # Customer intent: "As a data administrator, I want to assess the data protection and disaster recovery options available in Azure NetApp Files, so that I can choose the most effective solutions to ensure data integrity and availability for my organization's needs."
 ---
 # Understand data protection and disaster recovery options in Azure NetApp Files
 
-Learn about the different data protection and disaster recovery features in Azure NetApp Files to understand what solutions best serve your needs.  
+Learn about the different data protection and disaster recovery features in Azure NetApp Files and understand what solutions best serve your needs.  
+
+## On-disk data protection
+
+Azure NetApp Files Flexible, Standard, Premium and Ultra service levels are built on a [fault-tolerant bare-metal fleet powered by ONTAP](azure-netapp-files-introduction.md#simplicity-and-availability), delivering enterprise-grade resilience, and uses RAID-DP (Double Parity RAID) to safeguard data against disk failures. This mechanism distributes parity across multiple disks, enabling seamless data recovery even if two disks fail simultaneously. RAID-DP has a long-standing presence in the enterprise storage industry and is recognized for its proven reliability and fault tolerance.
 
 ## Snapshots 
 
@@ -42,7 +46,7 @@ To learn more, see [How snapshots can be vaulted for long-term retention and cos
 
 Using snapshot technology, you can replicate your Azure NetApp Files across designated Azure regions to protect your data from unforeseeable regional failures. Cross-region replication minimizes data transfer costs, replicating only changed blocks across regions while also enabling a lower restore point objective.   
 
-Cross-region replication can be used in conjunction with cross-zone replication. For more information, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md).
+Cross-region replication can be used with cross-zone replication. For more information, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md).
 
 ### Benefits 
 
@@ -50,22 +54,22 @@ Cross-region replication can be used in conjunction with cross-zone replication.
 - Data availability and redundancy for remote data processing and user access 
 - Efficient storage-based data replication without load on compute infrastructure 
 
-To learn more, see [How volumes and snapshots are replicated cross-region for DR](snapshots-introduction.md#how-volumes-and-snapshots-are-replicated-for-disaster-recovery-and-business-continuity). To get started with cross-region replication, see [Create cross-region replication for Azure NetApp Files](cross-region-replication-create-peering.md). 
+To learn more, see [How volumes and snapshots are replicated cross-region for disaster recovery](snapshots-introduction.md#how-volumes-and-snapshots-are-replicated-for-disaster-recovery-and-business-continuity). To get started with cross-region replication, see [Create cross-region replication for Azure NetApp Files](cross-region-replication-create-peering.md). 
 
 ## Cross-zone replication 
 
-Cross-zone replication leverages [availability zones](use-availability-zones.md) and the same replication engine as cross-region replication. This technology creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.  
+Cross-zone replication leverages [availability zones](replication.md#availability-zones) and the same replication engine as cross-region replication. This technology creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.  
 
-Cross-zone replication can be used in conjunction with cross-region replication. For more information, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md).
+Cross-zone replication can be used with cross-region replication. For more information, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md).
 
 ### Benefits 
 
 - Data availability and redundancy across zones within regions 
 - Bring data into same zone as compute for lowest latency-envelope 
 - Efficient storage-based data replication without load on compute infrastructure  
-- Lower TCO due to absence of data transfer fees
+- Lower total cost of ownership (TCO) due to absence of data transfer fees
 
-To learn more, see [Understand cross-zone replication](cross-zone-replication-introduction.md). To get started with cross-zone replication, see [Create cross-zone replication relationships for Azure NetApp Files](create-cross-zone-replication.md). 
+To learn more, see [Understand cross-zone replication](replication.md#cross-zone-replication). To get started with cross-zone replication, see [Create cross-zone replication relationships for Azure NetApp Files](create-cross-zone-replication.md). 
 
 ## Choose a data protection solution
 
@@ -91,10 +95,9 @@ Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume 
 
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)
 * [Understand Azure NetApp Files backup](backup-introduction.md)
-* [Understand cross-region replication](cross-region-replication-introduction.md)
-* [Understand cross-zone replication](cross-zone-replication-introduction.md)
+* [Understand Azure NetApp Files replication](replication.md)
+* [Reliability in Azure NetApp Flies](../reliability/reliability-netapp-files.md)
 * [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md)
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
 * [Restore a snapshot to a new volume](snapshots-restore-new-volume.md)
 * [Restore a volume using snapshot revert](snapshots-revert-volume.md)
-* [Understand cross-zone-region replication](cross-zone-region-replication.md)

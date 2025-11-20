@@ -1,13 +1,13 @@
 --- 
-title: Overview of Azure Migrate assessment report 
+title: Overview of Azure Migrate Assessment Report 
 description: Learn about assessment report, Azure readiness, and recommendations. 
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate 
 ms.topic: concept-article 
-ms.date: 04/17/2025
+ms.date: 09/17/2025
 ms.custom: engagement-fy24 
-monikerRange: migrate
+monikerRange:
 # Customer intent: As a cloud architect, I want to generate an Azure Migrate assessment report, so that I can evaluate workload readiness, receive sizing recommendations, and estimate migration costs effectively for a successful cloud transition.
 --- 
 
@@ -55,61 +55,51 @@ This value is multiplied by the comfort factor(taken as an input in assessment s
 
 After right-sizing target candidates are selected, and if more than one suitable candidate is available the recommended target is selected based on selected migration strategy. By default **Minimizing the cost** is the selected strategy. In the case of Azure VM and AVS assessment that is the only strategy. Once the targets are finalized a monthly cost is calculated by aggregating the cost of all resources, licenses and ancillary services like security. Based on the selected input from assessment settings the prices and offer details are fetched to arrive at the final cost. Learn more [about how pricing](cost-estimation.md) works in Azure Migrate assessments. 
 
-### Confidence ratings (performance-based) 
+### Performance coverage (performance-based)
 
-Each performance-based Azure VM assessment in Azure Migrate is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides. 
+Each performance-based Azure VM assessment in Azure Migrate is associated with a performance coverage. The coverage ranges from 0-100%. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
 
-- The confidence rating is assigned to an assessment. The rating is based on the availability of data points that are needed to compute the assessment. 
+- The performance coverage is assigned to an assessment. The coverage is based on the availability of data points that are needed to compute the assessment.
 
-- For performance-based sizing, the assessment needs: 
+- For performance-based sizing, the assessment needs:
 
-  - The utilization data for CPU and RAM. 
+  - The utilization data for CPU and RAM.
 
-  - The disk IOPS and throughput data for every disk attached to the server. 
+  - The disk IOPS and throughput data for every disk attached to the server.
 
-  - The network I/O to handle performance-based sizing for each network adapter attached to a server. 
+  - The network I/O to handle performance-based sizing for each network adapter attached to a server.
 
-If any of these utilization numbers isn't available, the size recommendations might be unreliable. 
+If any of these utilization numbers isn't available, the size recommendations might be unreliable.
 
 >[!Note]
->Confidence ratings aren't assigned for servers assessed using an imported CSV file. Ratings also aren't applicable for as-is on-premises assessment. 
+>Performance coverage isn't assigned for servers assessed using an imported CSV file. Coverage also isn't applicable for as-is on-premises assessment.
 
-### Ratings 
+### Coverage
 
-The table below shows the confidence ratings for assessment, which depend on the percentage of available data points: 
+### Low performance coverage
 
-**Availability of data points** | **Confidence rating** 
---- | --- 
-0-20% | One star 
-21-40% | Two stars 
-41-60% | Three stars 
-61-80% | Four stars 
-81-100% | Five stars 
+Here are a few reasons why an assessment could get a low performance coverage:
 
-### Low confidence ratings 
+- You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
 
-Here are a few reasons why an assessment could get a low confidence rating: 
+- Assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high performance coverage, ensure that:
 
-- You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected. 
-
-- Assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
-
-  - Servers are powered on for the duration of the assessment 
+  - Servers are powered on for the duration of the assessment
 
   - Outbound connections on ports 443 are allowed 
 
   - For Hyper-V servers, dynamic memory is enabled 
 
-**Recalculate** the assessment to reflect the latest changes in confidence rating. 
+**Recalculate** the assessment to reflect the latest changes in performance coverage. 
 
-- Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. 
+- Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the performance coverage would be low. 
 
 >[!Note]
->If the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing. 
+>If the performance coverage of any assessment is less than 80%, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing. 
 
 ## Next steps 
 
 - [Review](./best-practices-assessment.md) best practices for creating assessments. 
 - Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
 - Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md). 
-- Learn about setting up [dependency visualization](./concepts-dependency-visualization.md). 
+- Learn about setting up [dependency visualization](./concepts-dependency-visualization.md).

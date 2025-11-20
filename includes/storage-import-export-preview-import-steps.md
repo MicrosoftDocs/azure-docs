@@ -8,7 +8,9 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 11/17/2021
 ms.author: shaas
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 
 Do the following steps to order an import job in Azure Import/Export job via the portal.

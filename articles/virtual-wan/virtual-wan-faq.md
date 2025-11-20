@@ -3,12 +3,13 @@ title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.custom:
-  - devx-track-azurepowershell
-  - build-2025
 ms.topic: faq
 ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
+  - sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
 
@@ -60,6 +61,11 @@ Virtual WAN is a collection of hubs and services made available inside the hub. 
 Currently, Azure Firewall can be deployed to support Availability Zones using Azure Firewall Manager Portal, [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones), or CLI. There's currently no way to configure an existing Firewall to be deployed across availability zones. You need to delete and redeploy your Azure Firewall.
 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself has an issue, all hubs in that virtual WAN continue to function. However, the user can't create new hubs until the virtual WAN region is available.
+
+### How do I delete or clean up my Virtual WAN resources?
+When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
+
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ### Is it possible to share the Firewall in a protected hub with other hubs?
 
@@ -169,6 +175,24 @@ Yes, [Microsoft-registered app](/azure/virtual-wan/point-to-site-entra-gateway) 
 ### What are Virtual WAN gateway scale units?
 
 A scale unit is a unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps. 1 scale unit of ExpressRoute = 2 Gbps. Example: 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps.
+
+You can manually scale up or down the gateway scale unit based on your need. See [About Virtual WAN gateway settings](gateway-settings.md) to learn more about gateway settings.
+
+To learn more about support limits for gateway scale units, see:
+* [In Virtual WAN, what are the estimated performances by ExpressRoute gateway SKU?](virtual-wan-faq.md#in-virtual-wan-what-are-the-estimated-performances-by-expressroute-gateway-sku) for ExpressRoute Gateways
+* [What is the recommended algorithm and Packets per second per site-to-site instance in Virtual WAN hub? How many tunnels is support per instance? What is the max throughput supported in a single tunnel?](virtual-wan-faq.md#packets) for Site-to-Site VPN Gateways
+* [For User VPN (point-to-site)- how many clients are supported?](virtual-wan-faq.md#p2s-concurrent) for User VPN (point-to-site) Gateways
+
+### What is the impact of changing the gateway scale units for a Virtual WAN ExpressRoute gateway?
+When changing gateway scale units, be aware of the following considerations:
+
+* **Traffic capacity**: Ensure that the provisioned scale units can support your [traffic requirements](virtual-wan-faq.md#in-virtual-wan-what-are-the-estimated-performances-by-expressroute-gateway-sku).
+
+* **TCP reconnections**: You may experience TCP reconnects during the scale unit change which may cause minor disruptions.
+
+* **Private Endpoints impact**: Scale unit changes may affect connectivity for Private Endpoints. Review your deployment and follow the best practices outlined in [Use Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan).
+
+For more information about gateway scale units and capacity planning, see [About Virtual WAN gateway settings](gateway-settings.md).
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
@@ -335,7 +359,9 @@ Yes. An internet connection and physical device that supports IPsec, preferably 
 
 A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It's enabled by default when a virtual network connection is added to connect a VNet to a virtual hub.
 
-The default route doesn't originate in the Virtual WAN hub. The default route is propagated if it's already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled. A default route doesn't propagate between hubs (inter-hub).
+The default route doesn't originate in the Virtual WAN hub. The default route is propagated if it's already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled. 
+
+A default route doesn't propagate between hubs (inter-hub).
 
 ### Is it possible to create multiple virtual WAN hubs in the same region?
 
@@ -347,7 +373,11 @@ For information, see the  [Virtual hub routing preference](about-virtual-hub-rou
 
 ### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
 
-Transit between ER-to-ER is always via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, there's no need for the traffic to come all the way from the edge routers to the virtual hub DC.
+Transit between ER-to-ER is available via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, there's no need for the traffic to come all the way from the edge routers to the virtual hub DC.
+
+Routing Intent can also be used with private traffic routing policies to enable ExpressRoute transit connectivity via a security appliance deployed in the virtual hub.
+
+For further information, see [About Virtual WAN Global Reach](virtual-wan-global-transit-network-architecture.md#expressroute-global-reach-and-virtual-wan).
 
 ### Is there a concept of weight in Azure Virtual WAN ExpressRoute circuits or VPN connections
 
@@ -381,11 +411,15 @@ For new deployments, this connectivity is blocked by default. To allow this conn
 * The ExpressRoute gateway, which has lower bandwidth limits than the hub router
 * and the Microsoft Enterprise Edge routers/MSEE, which is an extra hop in the datapath.
 
-In the diagram below, both toggles need to be enabled to allow connectivity between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3): **Allow traffic from remote Virtual WAN networks** for the virtual network gateway and **Allow traffic from non Virtual WAN networks** for the virtual hub's ExpressRoute gateway. If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/configure-route-server.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
+In the diagram below, both toggles need to be enabled to allow connectivity between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3): **Allow traffic from remote Virtual WAN networks** for the virtual network gateway and **Allow traffic from non Virtual WAN networks** for the virtual hub's ExpressRoute gateway. If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/configure-route-server.md#configure-route-exchange-with-virtual-network-gateways) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
 
 Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 won't be impacted, VNet 2 to VNet 3 won't be impacted, etc.). 
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
+
+### When I update an ExpressRoute connection, will this impact connectivity for my other ExpressRoute connections? 
+
+When you perform a create, update, or delete operation on an ExpressRoute connection, your other ExpressRoute connections will appear to be in an "updating" state in Portal. However, connectivity via these ExpressRoute connections will not be impacted. 
 
 ### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
 
@@ -499,15 +533,20 @@ You can find more information on how to change the VNet address space in [Create
 
 ### What is the maximum number of spoke Virtual Network addresses supported for hubs configured with Routing Intent?
 
-The maximum number of address spaces across all Virtual Networks directly connected to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to remote (other Virtual WAN hubs in the same Virtual WAN) hubs are not counted towards this limit.
+The maximum number of address spaces across all Virtual Networks directly connected to a single Virtual WAN hub is 600. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to remote (other Virtual WAN hubs in the same Virtual WAN) hubs are not counted towards this limit.
 
-This limit is adjustable. For more information on the limit, the procedure to request a limit increase and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#address-limits).
+For more information on the limit and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#address-limits).
+
+### Can I use Azure Bastion with Virtual WAN?
+Yes but there are limitations. See the [Azure Bastion FAQ](../bastion/bastion-faq.md#vwan) for more details.
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 
 ### Which services are included in the Maintenance Configuration scope of Network Gateways? 
 
-For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways, point-to-site VPN gateways and ExpressRoute gateways.
+For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways, point-to-site VPN gateways and ExpressRoute gateways. 
+
+This feature is also supported for [Azure Firewalls in Virtual WAN secure hubs](../firewall/customer-controlled-maintenance.md).
 
 ### Which maintenance is supported or not supported by customer-controlled maintenance?
 

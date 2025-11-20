@@ -18,7 +18,7 @@ By integrating bidirectional audio streaming with services like Azure OpenAI and
 
 With bidirectional streaming, businesses can now elevate their voice solutions to low-latency, human-like, interactive conversational AI agents. Our bidirectional streaming APIs enable developers to stream audio from an ongoing call on Azure Communication Services to their web servers in real-time, and stream audio back into the call. While the initial focus of these features is to help businesses create conversational AI agents, other use cases include Natural Language Processing for conversation analysis or providing real-time insights and suggestions to agents while they are in active interaction with end users. 
 
-This public preview supports the ability for developers to access real-time audio streams over a WebSocket from Azure Communication Services and stream audio back into the call.
+This API supports the ability for developers to access real-time audio streams over a WebSocket from Azure Communication Services and stream audio back into the call.
 
 ### Real-time call assistance
 

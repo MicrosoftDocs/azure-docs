@@ -4,12 +4,12 @@ description: An overview of WordPress on App Service. You can focus on creating 
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 author: msangapu-msft
 ai-usage: ai-assisted
+ms.service: azure-app-service
 ms.topic: overview
 ms.date: 04/17/2025
 ms.update-cycle: 180-days
 # ms.devlang: wordpress
 ms.author: msangapu
-ms.subservice: wordpress
 ms.custom: mvc, linux-related-content
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a new Azure customer, I want to learn more about WordPress on App Service so that I can build an effective WP site.
@@ -31,7 +31,7 @@ ms.collection: ce-skilling-ai-copilot
 
 - **Azure App Service** – A scalable platform-as-a-service (PaaS) optimized for running WordPress.
 - **Azure Database for MySQL** – A managed database service for WordPress backend storage.
-- **Azure CDN** – Improves website load times and performance by caching content globally.
+- **Azure Front Door** – Enhances website speed and performance by caching content across global servers and intelligently routing user traffic.
 - **Azure Blob Storage** – Offloads media files to reduce server load and enhance scalability.
 
 This solution is designed for **both small and large-scale deployments**, making it an ideal choice for personal blogs, corporate websites, and high-traffic e-commerce platforms. With **automated updates, built-in security, and global availability**, WordPress on Azure App Service simplifies infrastructure management while ensuring high availability and performance.
@@ -53,7 +53,7 @@ For a full list of WordPress hosting options, see [WordPress on Azure Marketplac
 Azure App Service makes deploying WordPress sites straightforward for both beginners and experienced developers:
 
 - **Automatic updates:** Technologies like Linux, PHP, and NGINX to keep your site secure and up to date.
-- **Pre-configured setup:** Get a preconfigured setup optimized for performance and security using powerful Azure services like Azure App Service, Azure Database for MySQL, Azure CDN, and Azure Blob Storage.
+- **Pre-configured setup:** Get a preconfigured setup optimized for performance and security using powerful Azure services like Azure App Service, Azure Database for MySQL, Azure Front Door, and Azure Blob Storage.
 - **Flexible file transfers:** Easily transfer files via FTP for custom content uploads.
 - **Custom server configurations:** Adjust NGINX settings using startup scripts.
 - **Staging slots:** Test changes safely in isolated environments before deploying them to production.
@@ -74,7 +74,7 @@ Azure App Service provides a robust and scalable environment for hosting WordPre
 ### Performance and scalability
 
 - **Autoscaling** – Automatically adjust compute resources based on traffic demands.  
-- **Azure CDN** – Reduce latency by caching content closer to users.  
+- **Azure Front Door** – Reduce latency by caching content across global servers.  
 - **Blob Storage integration** – Offload static assets to optimize performance.  
 - **Load testing** – Simulate real-world traffic and fine-tune application responsiveness.  
 

@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.custom: devx-track-bicep
 ms.date: 05/01/2025
 zone_pivot_groups: app-service-bicep
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create an App Service app by using Bicep
@@ -32,7 +33,7 @@ This quickstart uses the following template. It deploys an App Service plan and 
 ```bicep
 param webAppName string = uniqueString(resourceGroup().id) // Generate a unique string for the web app name
 param sku string = 'F1' // Tier of the App Service plan
-param linuxFxVersion string = 'node|20-lts' // Runtime stack of the web app
+param linuxFxVersion string = 'node|24-lts' // Runtime stack of the web app
 param location string = resourceGroup().location // Location for all resources
 param repositoryUrl string = 'https://github.com/Azure-Samples/nodejs-docs-hello-world'
 param branch string = 'main'
@@ -86,7 +87,7 @@ The template contains the following parameters that are predefined for your conv
 | `webAppName` | string  | `webApp-<uniqueString>` | App name. For more information, see [String functions for ARM templates](../azure-resource-manager/templates/template-functions-string.md#uniquestring). |
 | `location`   | string  | `resourceGroup().location` | App region. For more information, see [Resource functions for ARM templates](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup). |
 | `sku`        | string  | `F1`                         | Instance size.  |
-| `linuxFxVersion`   | string  | `NODE`&#124;`20-LTS`       | Programming language stack and version. |
+| `linuxFxVersion`   | string  | `NODE`&#124;`24-LTS`       | Programming language stack and version. |
 | `repositoryUrl`    | string  | `https://github.com/Azure-Samples/nodejs-docs-hello-world`    | External Git repo (optional). |
 | `branch`    | string  | `master`    | Default branch for the code sample. |
 
@@ -113,9 +114,9 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 |-------------|------------------------------------------------------|
 | .NET    | `linuxFxVersion="DOTNETCORE&#124;3.0"`                 |
 | PHP     | `linuxFxVersion="PHP&#124;7.4"`                        |
-| Node.js | `linuxFxVersion="NODE&#124;10.15"`                     |
+| Node.js | `linuxFxVersion="NODE&#124;24"`                     |
 | Java    | `linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0"` |
-| Python  | `linuxFxVersion="PYTHON&#124;3.8"`                     |
+| Python  | `linuxFxVersion="PYTHON&#124;3.14"`                     |
 
 ---
 

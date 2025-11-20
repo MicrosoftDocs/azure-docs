@@ -1,56 +1,56 @@
 ---
 title: Prerequisites for Azure Update Manager
-description: This article explains the prerequisites for Azure Update Manager, VM extensions and network planning.
+description: This article explains the prerequisites for Azure Update Manager, VM extensions, and network planning.
 ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: habibaum
 ms.author: v-uhabiba
-ms.date: 09/24/2024
+ms.date: 08/21/2025
 ms.topic: overview
-# Customer intent: "As a system administrator, I want to understand the prerequisites for Azure Update Manager, so that I can effectively prepare my Linux and Arc-enabled servers for update management."
+# Customer intent: "As a system administrator, I want to understand the prerequisites for Azure Update Manager so that I can effectively prepare my Linux and Azure Arc-enabled servers for update management."
 ---
 
 # Prerequisites for Azure Update Manager
 
-This article summarizes the prerequisites, the extensions for Azure VM extensions and Azure Arc-enabled servers and details on how to prepare your network to support Update Manager.
+This article summarizes the prerequisites for Azure Update Manager, the extensions for Azure virtual machines (VMs) and Azure Arc-enabled servers, and how to prepare your network to support Update Manager.
 
-## Prerequisites
+## Linux machines
 
-Azure Update Manager is an out of the box, zero onboarding service. Before you start using this service, consider the following list: 
+Before you start using this service on Linux machines, you must install Python version 2.7 or later.
 
-**Linux Machines** - Python (version 2.7 or later) must be installed on Linux machines.
+## Azure Arc-enabled servers
 
-### Arc-enabled servers
-Arc-enabled servers must be connected to Azure Arc to use Azure Update Manager. For more information, see [how to enable Arc on non-Azure machines](https://aka.ms/onboard-to-arc-aum-migration).
+To use Update Manager for Azure Arc-enabled servers, you must connect those servers to Azure Arc. For more information, see the [overview of Azure Arc-enabled servers](/azure/azure-arc/servers/overview).
 
-### Support matrix
-Refer [support matrix](support-matrix.md) to find out about updates and the update sources, VM images and Azure regions that are supported for Azure Update Manager.
+## Support matrix
 
-### Roles and permissions
+To learn about updates and the update sources, VM images, and Azure regions that are supported for Update Manager, refer to the [support matrix](support-matrix.md).
 
-To manage machines from Azure Update Manager, see [roles and permissions](roles-permissions.md).
+## Roles and permissions
 
-### VM extensions
+To manage machines from Update Manager, see [Roles and permissions in Azure Update Manager](roles-permissions.md).
 
-Azure VM extensions and Azure Arc-enabled VM extensions are required to run on the Azure and Arc-enabled machine respectively for Azure Update Manager to work. But separate installation is not required as the extensions are automatically pushed on the VM the first time you trigger any Update Manager operation on the VM. For more information, see the [VM extensions](workflow-update-manager.md#update-manager-vm-extensions) that are pushed on the machines
+## VM extensions
 
-### Network planning
+For Update Manager to work, Azure VM extensions and Azure Arc-enabled VM extensions are required to run on the Azure machine and Azure Arc-enabled machine (respectively). But separate installation isn't required, because the extensions are automatically pushed on the VM the first time you trigger any Update Manager operation on the VM. For more information, see [Update Manager VM extensions](workflow-update-manager.md#update-manager-vm-extensions).
 
-To prepare your network to support Update Manager, you might need to configure some infrastructure components. For more information, see the [network requirements for Arc-enabled servers](/azure/azure-arc/servers/network-requirements).
+## Network planning
 
-For Windows machines, you must allow traffic to any endpoints required by the Windows Update agent. You can find an updated list of required endpoints in [issues related to HTTP Proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting?toc=%2Fwindows%2Fdeployment%2Ftoc.json&bc=%2Fwindows%2Fdeployment%2Fbreadcrumb%2Ftoc.json#issues-related-to-httpproxy). If you have a local [WSUS](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+To prepare your network to support Update Manager, you might need to configure some infrastructure components. For more information, see the [network requirements for Azure Arc-enabled servers](/azure/azure-arc/servers/network-requirements).
 
-For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers)for required endpoints. For other Linux distributions, see your provider documentation.
+For Windows machines, you must allow traffic to any endpoints that the Windows Update agent requires. You can find an updated list of required endpoints in [Issues related to HTTP/proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-### Configure Windows Update client
+For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
-Azure Update Manager relies on the [Windows Update client](/windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. For more information, see [configure Windows Update client](configure-wu-agent.md).
+## Windows Update client configuration
 
-## Next steps
+Update Manager relies on the [Windows Update client](/windows/deployment/update/windows-update-overview) to download and install Windows updates. The Windows Update client uses specific settings when it connects to WSUS or Windows Update. For more information, see [Configure Windows Update settings for Azure Update Manager](configure-wu-agent.md).
 
-- [View updates for a single machine](view-updates.md).
-- [Deploy updates now (on-demand) for a single machine](deploy-updates.md).
-- [Enable periodic assessment at scale using policy](https://aka.ms/aum-policy-support).
-- [Schedule recurring updates](scheduled-patching.md)
-- [Manage update settings via the portal](manage-update-settings.md).
-- [Manage multiple machines by using Update Manager](manage-multiple-machines.md).
+## Related content
+
+- [Check update compliance with Azure Update Manager](view-updates.md)
+- [Deploy updates now and track results with Azure Update Manager](deploy-updates.md)
+- [Automate assessment at scale by using Azure Policy](https://aka.ms/aum-policy-support)
+- [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md)
+- [Manage update configuration settings](manage-update-settings.md)
+- [Manage multiple machines with Azure Update Manager](manage-multiple-machines.md)

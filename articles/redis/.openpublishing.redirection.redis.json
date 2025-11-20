@@ -60,6 +60,21 @@
             "source_path_from_root": "/articles/redis/web-app-bicep-with-redis-cache-provision.md",
             "redirect_url": "/azure/redis/redis-cache-bicep-provision",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/java-redisson-get-started.md",
+            "redirect_url": "/azure/redis/java-get-started",
+            "redirect_document_id": false
+        },
+                {
+            "source_path_from_root": "/articles/redis/tutorial-vector-similarity.md",
+            "redirect_url": "/azure/redis/overview-vector-similarity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/tutorial-semantic-cache.md",
+            "redirect_url": "/azure/redis/overview-vector-similarity",
+            "redirect_document_id": false
         }
     ]
 }

@@ -1,18 +1,21 @@
 ---
-title: Use Azure Container Storage with Azure managed disks
-description: Configure Azure Container Storage for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage (version 1.x.x) with Azure managed disks
+description: Configure Azure Container Storage (version 1.x.x) for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.custom: references_regions
-# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage with Azure managed disks, so that I can efficiently manage persistent storage for my container workloads."
+# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage (version 1.x.x) with Azure managed disks, so that I can efficiently manage persistent storage for my container workloads."
 ---
 
-# Use Azure Container Storage with Azure managed disks
+# Use Azure Container Storage (version 1.x.x) with Azure managed disks
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure managed disks as back-end storage for your Kubernetes workloads. At the end, you have a pod that's using Azure managed disks as its storage.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Azure managed disks as back-end storage for your Kubernetes workloads. At the end, you have a pod that's using Azure managed disks as its storage.
+
+> [!IMPORTANT]
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available, but it currently only supports local NVMe for backing storage.
 
 ## Prerequisites
 
@@ -372,7 +375,7 @@ To check which persistent volume a persistent volume claim is bound to, run `kub
 You can expand storage pools backed by Azure Disks to scale up quickly and without downtime. Shrinking storage pools isn't currently supported. Storage pool expansion isn't supported for Ultra Disks or Premium SSD v2.
 
 > [!NOTE]
-> Expanding a storage pool can increase your costs for Azure Container Storage and Azure Disks. See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage) and [Understand Azure Container Storage billing](container-storage-billing.md).
+> Expanding a storage pool can increase your costs for Azure Container Storage and Azure Disks. See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage) and [Understand Azure Container Storage billing](container-storage-billing-version-1.md).
 
 Currently, storage pool expansion has the following limitation when using `Premium_LRS`, `Standard_LRS`, `StandardSSD_LRS`, `Premium_ZRS`, and `StandardSSD_ZRS` SKUs:
 
@@ -391,8 +394,8 @@ Follow these instructions to expand an existing storage pool for Azure Disks.
          storage: 2Ti
    ```
 
-  > [!NOTE]
-  > If you have two disks in a storage pool with a capacity of 1 TiB each, and you edit the YAML manifest file to read `storage: 4Ti`, both disks are expanded to 2 TiB when the YAML is applied, giving you a new total capacity of 4 TiB.
+   > [!NOTE]
+   > If you have two disks in a storage pool with a capacity of 1 TiB each, and you edit the YAML manifest file to read `storage: 4Ti`, both disks are expanded to 2 TiB when the YAML is applied, giving you a new total capacity of 4 TiB.
 
 1. Apply the YAML manifest file to expand the storage pool.
    
@@ -420,4 +423,4 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 ## See also
 
-- [What is Azure Container Storage?](container-storage-introduction.md)
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)

@@ -1,15 +1,15 @@
 ---
 title: Create scheduled analytics rules from templates in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to view and create scheduled analytics rules from templates in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 07/02/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security engineer, I want to create scheduled analytics rules from templates so that I can efficiently monitor and detect anomalies in my data.
 

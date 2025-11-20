@@ -13,59 +13,67 @@ ms.author: jacobjaygbay
 
 # Region availability for Oracle Database@Azure
 
-Learn what Azure regions and corresponding Oracle Cloud Infrastructure (OCI) regions support Oracle Database@Azure in standard business regions across the globe. 
+Learn what Azure regions and corresponding Oracle Cloud Infrastructure (OCI) regions support Oracle Database@Azure in standard business regions across the globe.
 
 The list below mentions the Azure and corresponding OCI regions with the regional availability for Oracle Database@Azure:
+
 - Dual – Minimum two Azure zones are available in this region
 - Single – One Azure zone available with a corresponding paired DR region
 - DR - Disaster recovery only region
 
 ## Asia Pacific (APAC)
 
-| Azure region   | OCI region   | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Regional Availability |
-| -------------- | ----------------------- | ----------------------------- | -------------------------------- | -------- |---------|---------|---------|
-| Australia East | Australia East (Sydney) | ✓         | ✓      | ✓ | |Preview available |  Dual   |
-| Australia Southeast | Australia Southeast (Melbourne) | ✓        | | | |  |   Dual   |
-| Central India | India West (Mumbai) | ✓  | | | |  |   Single   |
-| Japan East | Japan East (Tokyo) | ✓         | ✓  | ✓ | |Preview available |   Dual   |
-| Japan West | Japan Central (Osaka) | ✓  | | | |  |   Single   |
-| Southeast Asia |Singapore (Singapore) | ✓         | ✓      | ✓ | | |  Single   |
+| Azure region   | OCI region   | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
+| -------------- | ----------------------- | ----------------------------- | -------------------------------- | -------- |---------|---------|---------|-----|
+| Australia East | Australia East (Sydney) | ✓         | ✓      | ✓ | ✓ | Preview available | |  Dual   |
+| Australia Southeast | Australia Southeast (Melbourne) | ✓        | ✓ | | |  | |   Dual   |
+| Central India | India West (Mumbai) | ✓  | ✓ | | | | |   Single   |
+| Japan East | Japan East (Tokyo) | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ |   Dual   |
+| Japan West | Japan Central (Osaka) | ✓  | ✓ | | | | |   Single   |
+| South India | 	India South (Chennai) | ✓  |  | | | | |   Single   |
+| Southeast Asia |Singapore (Singapore) | ✓  | ✓   | ✓ | ✓ | ✓ | ✓ |  Dual   |
 
 
 
 ## Brazil
 
-| Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure| Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Regional Availability |
-|----------------|--------------------------|-------------------|-------------------| -------- |----|----|----|
-| Brazil South | Brazil Southeast (Vinhedo)   | ✓   |   ✓  |✓ |✓ |  | Dual  |
-
+| Azure region | OCI region                 | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
+| ------------ | -------------------------- | ----------------------------- | -------------------------------- | ------------------------------------------------- | --------------------------------------------------------- | ------ | --------------------- |-------|
+| Brazil South | Brazil Southeast (Vinhedo) | ✓    | ✓      | ✓   | ✓     | ✓  |    | Dual   |
 
 ## Europe, Middle East, Africa (EMEA)
 
-|Azure region |OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure| Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Regional Availability |
-|------------|--|--------------------------|------------------------------| ------| ---- | ---- |----|
-| France Central       |France central (Paris) | ✓   | ✓ | ✓ | | |  Dual |
-| Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓| ✓| Preview available | Dual |
-| Italy North          | Italy North (Milan)   | ✓   | ✓   |✓ |✓ | Preview available | Dual |
-| Sweden Central | 	Sweden Central (Stockholm) | ✓  | | | |  |   Dual    |
-| North Europe | Ireland East (Dublin) | ✓  | | | |  |   Single   |
-| UK South             | UK South (London)   | ✓   | ✓   | ✓ | ✓| Preview available | Dual|
-| UK West | UK West (Cardiff)   | ✓   | ✓  | | ✓| |  Single |
+|Azure region |OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure| Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
+|------------|--|--------------------------|------------------------------| ------| ---- | ---- |----|-------|
+| France Central       |France central (Paris) | ✓   | ✓ | ✓ | ✓ | | |  Dual |
+| France South | France South (Marseille) |  ✓  | | | | | |   Single   |
+| Germany North |Germany Central (Frankfurt) | ✓  | ✓ | | | | |   Single    |
+| Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓ | ✓ | ✓ | ✓ | Dual |
+| Italy North | Italy North (Milan)   | ✓   | ✓   | ✓ |  ✓ | ✓ |  | Dual |
+| North Europe | Ireland (Dublin) | ✓  | ✓ |   | | | |   Dual   |
+| Spain Central | 	Spain Central (Madrid) | ✓  | ✓ | | | | |   Dual    |
+| Sweden Central | 	Sweden Central (Stockholm) | ✓  | ✓ | | | | |   Dual    |
+| Switzerland North | Switzerland North (Zurich) | ✓  |  | | | | |   Single    |
+| UAE Central | UAE Central (Abu Dhabi) | ✓  | ✓ | | | | |   Single    |
+| UAE North | UAE North (Dubai) | ✓  | | ✓ | | | |   Dual    |
+| UK South| UK South (London)   | ✓   | ✓   | ✓ | ✓ | ✓ | ✓ | Dual |
+| UK West | UK West (Newport)	   | ✓   | ✓  | | ✓ | ✓ |  | Single |
 
 
 ## North America (NA)
 
-| Azure region   | OCI region     | Oracle Exadata Database@Azure  | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure| Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Regional Availability|
-| -------------- | -------------------|------------------------|------------------ | ---- |-----|-----|----|
-| Central US | US Midwest (Chicago)  | ✓  |   ✓  | ✓ | | | Dual |
-| East US        | US East (Ashburn)          | ✓   | ✓ | ✓ | ✓| Preview available | Dual  |
-| East US 2 | US East (Ashburn) | ✓  | ✓  | | | | Dual |
-| South Central US |Dallas| ✓  | |  | |  | Dual |
-| West US | US West (San Jose)  | ✓  | ✓  | ✓| | Preview available | Single |
-| West US 2 |	US West (Quincy)| ✓  | |  | |  | Single |
-| West US 3 |	US West (Phoenix)| ✓  | |  | |  | Single |
-| Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ | | ✓ | | Dual  |
-
+| Azure region     | OCI region                 | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB     | Golden Gate  | Regional Availability |
+| ---------------- | -------------------------- | ----------------------------- | -------------------------------- | ------------------------------------------------- | --------------------------------------------------------- | ----------------- | --------------------- |---------|
+| Canada Central   | Canada Southeast (Toronto) | ✓      | ✓   |  ✓  | ✓   | ✓ |  |  Dual |
+| Canada East | Canada Southeast (Montreal) | ✓  | | | | | |   Single    |
+| Central US       | US Midwest (Chicago)       | ✓       | ✓      | ✓    |  ✓   |    |      | Dual    |
+| East US          | US East (Ashburn)          | ✓     | ✓      | ✓      | ✓     | ✓ | ✓ | Dual|
+| East US 2        | US East (Ashburn)          | ✓    | ✓         | ✓       |  ✓   |   |  | Dual     |
+| North Central US | US Midwest (Chicago)   | ✓    |       |      |     |  |  | Single   |
+| South Central US | US South (Dallas)   | ✓     |  ✓        |           |    |   |   | Dual |
+| West US          | US West (San Jose)    | ✓    | ✓      | ✓     |     | ✓ |  | Single   |
+| West US 2        | US West (Quincy)  | ✓    |   ✓  |  ✓   |     |  |  | Dual |
+| West US 3        | US West (Phoenix)   | ✓   |   |  ✓ |    |  |  | Dual   |
 
 
 > [!NOTE]

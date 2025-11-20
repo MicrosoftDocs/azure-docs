@@ -106,9 +106,6 @@ items:
     - name: App Service Environments
       tocHref: /azure/app-service/environment/
       topicHref: /azure/app-service/environment/
-    - name: Web Apps
-      tocHref: /azure/app-service/
-      topicHref: /azure/app-service/
     - name: Mobile Apps
       tocHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
       topicHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
@@ -171,9 +168,6 @@ items:
     - name: Application Insights
       tocHref: /azure/azure-monitor/azure-monitor-app-hub
       topicHref: /azure/azure-monitor/azure-monitor-app-hub
-  - name: Azure Remote Rendering
-    tocHref: /azure/remote-rendering/
-    topicHref: /azure/remote-rendering/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
@@ -935,8 +929,8 @@ items:
     tocHref: /azure/service-connector/
     topicHref: /azure/service-connector/
   - name: Load Testing
-    tocHref: /azure/load-testing/
-    topicHref: /azure/load-testing/overview-what-is-azure-load-testing
+    tocHref: /azure/app-testing/load-testing/
+    topicHref: /azure/app-testing/load-testing/overview-what-is-azure-load-testing
   - name: Playwright Testing
     tocHref: /azure/playwright-testing/
     topicHref: /azure/playwright-testing/index
@@ -950,9 +944,6 @@ items:
     - name: Basic/Standard plan
       tocHref: /azure/spring-apps/basic-standard/
       topicHref: /azure/spring-apps/basic-standard/index
-    - name: Standard consumption and dedicated plan
-      tocHref: /azure/spring-apps/consumption-dedicated/
-      topicHref: /azure/spring-apps/consumption-dedicated/index
   - name: Dev Box
     tocHref: /azure/dev-box/
     topicHref: /azure/dev-box/index

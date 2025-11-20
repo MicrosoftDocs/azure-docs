@@ -3,9 +3,9 @@ title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Rec
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 12/19/2024
-author: jyothisuri
-ms.author: jsuri
+ms.date: 08/19/2025
+author: Jeronika-MS
+ms.author: v-gajeronika
 # Customer intent: As a IT admin managing on-premises Hyper-V VMs, I want to implement disaster recovery to Azure, so that I can ensure business continuity and data protection in case of on-premises failures.
 ---
 

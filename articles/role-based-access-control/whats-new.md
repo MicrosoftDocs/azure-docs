@@ -1,12 +1,12 @@
 ---
 title: What's new in Azure RBAC documentation
 description: Learn about the new features and documentation improvements in Azure role-based access control (RBAC).
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 05/25/2025
-ms.author: jfields
+ms.date: 10/07/2025
+ms.author: rolyon
 
 ---
 
@@ -18,6 +18,14 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| November 2025 | Roles | Added [Storage File Data SMB Take Ownership](./built-in-roles/storage.md#storage-file-data-smb-take-ownership) role. |
+| November 2025 | Roles | Added [Storage File Data SMB Admin](./built-in-roles/storage.md#storage-file-data-smb-admin) role. |
+| October 2025 | Roles | Added [Log Analytics Data Reader](./built-in-roles/monitor.md#log-analytics-data-reader) role. |
+| October 2025 | Roles | Updated Azure permissions for Integration [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) list. |
+| September 2025 | Roles | Added [Arc Gateway Manager](./built-in-roles/hybrid-multicloud.md#arc-gateway-manager) role.<br/>Added Azure Kubernetes Service Namespace roles.<br/>[Azure Kubernetes Service Namespace Contributor](./built-in-roles/containers.md#azure-kubernetes-service-namespace-contributor)<br/>[Azure Kubernetes Service Namespace User](./built-in-roles/containers.md#azure-kubernetes-service-namespace-user)<br>Added Azure Container Instances Contributor role.<br/>[Azure Container Instances Contributor Role](./built-in-roles/containers.md#azure-container-instances-contributor-role) |
+| August 2025 | Roles | Added Azure Batch roles.<br/>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor)<br/>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader)<br/>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor)<br/>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) |
+| July 2025 | Roles | Added DevOps Infrastructure Contributor role.<br/>[DevOps Infrastructure Contributor Role](./built-in-roles/devops.md#devops-infrastructure-contributor) |
+| June 2025 | Roles | Added Azure Kubernetes Fleet Manager role.<br/>[Azure Kubernetes Fleet Manager Hub Agent Role](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-hub-agent-role)<br/>Added Container Apps roles.<br/>[Container Apps ConnectedEnvironments Contributor](./built-in-roles/containers.md#container-apps-connectedenvironments-contributor)<br/>[Container Apps ConnectedEnvironments Reader](./built-in-roles/containers.md#container-apps-connectedenvironments-reader)<br/>[Container Apps Contributor](./built-in-roles/containers.md#container-apps-contributor)<br/>[Container Apps Jobs Contributor](./built-in-roles/containers.md#container-apps-jobs-contributor)<br>[Container Apps Jobs Operator](./built-in-roles/containers.md#container-apps-jobs-operator)<br/>[Container Apps Jobs Reader](./built-in-roles/containers.md#container-apps-jobs-reader)<br/>[Container Apps ManagedEnvironments Contributor](./built-in-roles/containers.md#container-apps-managedenvironments-contributor)<br/>[Container Apps ManagedEnvironments Reader](./built-in-roles/containers.md#container-apps-managedenvironments-reader)<br/>[Container Apps Operator](./built-in-roles/containers.md#container-apps-operator)<br/>[Container Apps SessionPools Contributor](./built-in-roles/containers.md#container-apps-sessionpools-contributor)<br/>[Container Apps SessionPools Reader](./built-in-roles/containers.md#container-apps-sessionpools-reader) |
 | May 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | May 2025 | Roles | Updated role name from Managed Applications Reader to [Managed Application Publisher Operator](./built-in-roles/management-and-governance.md#managed-application-publisher-operator). |
 | April 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
@@ -38,7 +46,7 @@ This article provides information about new features and documentation improveme
 | January 2025 | Roles | Added Azure Chaos Studio roles. See [Chaos Studio Experiment Contributor](built-in-roles/devops.md#chaos-studio-experiment-contributor), [Chaos Studio Operator](built-in-roles/devops.md#chaos-studio-operator), and [Chaos Studio Reader](built-in-roles/devops.md#chaos-studio-reader). |
 | January 2025 | Roles | Added Azure Container Registry roles.<br/>[Container Registry Configuration Reader and Data Access Configuration Reader](built-in-roles/containers.md#container-registry-configuration-reader-and-data-access-configuration-reader)<br/>[Container Registry Contributor and Data Access Configuration Administrator](built-in-roles/containers.md#container-registry-contributor-and-data-access-configuration-administrator)<br/>[Container Registry Data Importer and Data Reader](built-in-roles/containers.md#container-registry-data-importer-and-data-reader)<br/>[Container Registry Repository Catalog Lister](built-in-roles/containers.md#container-registry-repository-catalog-lister)<br/>[Container Registry Repository Contributor](built-in-roles/containers.md#container-registry-repository-contributor)<br/>[Container Registry Repository Reader](built-in-roles/containers.md#container-registry-repository-reader)<br/>[Container Registry Repository Writer](built-in-roles/containers.md#container-registry-repository-writer)<br/>[Container Registry Tasks Contributor](built-in-roles/containers.md#container-registry-tasks-contributor)<br/>[Container Registry Transfer Pipeline Contributor](built-in-roles/containers.md#container-registry-transfer-pipeline-contributor) |
 | January 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
-| January 2025 | REST API | Updated how to list a role definition with a specified role name. See [List role definitions](role-definitions-list.yml#rest-api). |
+| January 2025 | REST API | Updated how to list a role definition with a specified role name. See [List role definitions](/azure/role-based-access-control/role-definitions-list#rest-api). |
 
 ## 2024
 
@@ -49,7 +57,7 @@ This article provides information about new features and documentation improveme
 | December 2024 | Roles | Added [Compute Gallery Image Reader](built-in-roles/compute.md#compute-gallery-image-reader) role. |
 | December 2024 | Roles | Added [Azure Stack HCI Connected InfraVMs](built-in-roles/hybrid-multicloud.md#azure-stack-hci-connected-infravms) role. |
 | December 2024 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
-| November 2024 | Role assignments | General availability of the integration of Azure RBAC and Microsoft Entra Privileged Identity Management (PIM) to create eligible and time-bound role assignments. See [Eligible and time-bound role assignments in Azure RBAC](pim-integration.md), [Assign Azure roles using the Azure portal](role-assignments-portal.yml#step-6-select-assignment-type), and [Activate eligible Azure role assignments](role-assignments-eligible-activate.md). |
+| November 2024 | Role assignments | General availability of the integration of Azure RBAC and Microsoft Entra Privileged Identity Management (PIM) to create eligible and time-bound role assignments. See [Eligible and time-bound role assignments in Azure RBAC](pim-integration.md), [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type), and [Activate eligible Azure role assignments](role-assignments-eligible-activate.md). |
 | November 2024 | Roles | Added [Azure Managed Grafana Workspace Contributor](built-in-roles/monitor.md#azure-managed-grafana-workspace-contributor) role. |
 | October 2024 | Roles | Added Azure Service Fabric roles. See [Service Fabric Cluster Contributor](built-in-roles/containers.md#service-fabric-cluster-contributor) and [Service Fabric Managed Cluster Contributor](built-in-roles/containers.md#service-fabric-managed-cluster-contributor). |
 | October 2024 | Roles | Updated [Cognitive Services Data Reader](built-in-roles/ai-machine-learning.md#cognitive-services-data-reader) role. |
@@ -61,7 +69,7 @@ This article provides information about new features and documentation improveme
 | August 2024 | Role assignments | Updates to scope for the integration of Azure RBAC and Microsoft Entra Privileged Identity Management (PIM). See [Eligible and time-bound role assignments in Azure RBAC](pim-integration.md). |
 | July 2024 | Roles | Added Azure Compute Gallery roles. See [Compute Gallery Artifacts Publisher](built-in-roles/compute.md#compute-gallery-artifacts-publisher) and [Compute Gallery Sharing Admin](built-in-roles/compute.md#compute-gallery-sharing-admin). |
 | June 2024 | Roles | Added Azure AI roles. See [Azure AI Developer](built-in-roles/ai-machine-learning.md#azure-ai-developer), [Azure AI Enterprise Network Connection Approver](built-in-roles/ai-machine-learning.md#azure-ai-enterprise-network-connection-approver), and [Azure AI Inference Deployment Operator](built-in-roles/ai-machine-learning.md#azure-ai-inference-deployment-operator). |
-| June 2024 | Role assignments | Preview of the integration of Azure RBAC and Microsoft Entra Privileged Identity Management (PIM) to create eligible and time-bound role assignments. See [Eligible and time-bound role assignments in Azure RBAC](pim-integration.md), [Assign Azure roles using the Azure portal](role-assignments-portal.yml#step-6-select-assignment-type), and [Activate eligible Azure role assignments](role-assignments-eligible-activate.md). |
+| June 2024 | Role assignments | Preview of the integration of Azure RBAC and Microsoft Entra Privileged Identity Management (PIM) to create eligible and time-bound role assignments. See [Eligible and time-bound role assignments in Azure RBAC](pim-integration.md), [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type), and [Activate eligible Azure role assignments](role-assignments-eligible-activate.md). |
 
 ## Related content
 

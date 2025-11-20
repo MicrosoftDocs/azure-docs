@@ -9,6 +9,6 @@
  ms.custom: include file
 ---
 
-- **Secondary region access**: With GRS and GZRS configurations, the secondary region isn't accessible for reads until a failover occurs.
+- **Secondary region access:** With geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) configurations, the secondary region isn't accessible for reads until a failover occurs.
 
-    RA-GRS and RA-GZRS configurations provide read access to the secondary region during normal operations, but because of the asynchronous replication latency, might return slightly outdated data.
+    read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS) configurations provide read access to the secondary region during normal operations, but because of the asynchronous replication latency, they might return slightly outdated data.

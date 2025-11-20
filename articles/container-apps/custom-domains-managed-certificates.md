@@ -13,7 +13,7 @@ zone_pivot_groups: azure-cli-or-portal
 
 # Custom domain names and free managed certificates in Azure Container Apps
 
-Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain when your container app is publicly accessible.
+Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain when your container app is publicly accessible from the [digicert IP addresses](https://knowledge.digicert.com/alerts/ip-address-domain-validation).
 
 If you want to set up a custom domain using your own certificate, see [Custom domain names and certificates in Azure Container Apps](custom-domains-certificates.md).
 
@@ -26,11 +26,13 @@ Azure Container Apps provides a free managed certificate for your custom domain.
 
 The requirements are:
 
-- Enable HTTP ingress and ensure your container app is publicly accessible.
+- Enable HTTP ingress and ensure your container app is publicly accessible from the [digicert IP addresses](https://knowledge.digicert.com/alerts/ip-address-domain-validation).
 
 - Must have an A record for apex domains that points to your Container Apps environment's IP address.
 
 - Establish a CNAME record for subdomains that maps directly to the container app's generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal. Examples of CNAME values are traffic managers, Cloudflare, and similar services.
+
+- If any [Certification Authority Authorization (CAA) domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) exists on the root domain, you must explicitly allow DigiCert as a certificate issuer by creating a CAA domain record with the value `0 issue digicert.com`. Without this setting, the certificate issuance and **renewal** will fail.
 
 > [!NOTE]
 > To ensure the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.

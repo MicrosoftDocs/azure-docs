@@ -54,7 +54,7 @@ Query [multiple workspaces](/azure/azure-monitor/logs/cross-workspace-query) to 
 
    Then, write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 
-Cross-workspace queries for  Log Analytics data remain subject to [Log Analytics limitations](/azure/azure-monitor/logs/cross-workspace-query#limitations).
+Cross-workspace queries for Log Analytics data remain subject to [Log Analytics considerations](/azure/azure-monitor/logs/cross-workspace-query#considerations).
 
 ### Include cross-workspace queries in scheduled analytics rules<a name="scheduled-alerts"></a>
 

@@ -23,7 +23,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Communication Services resource. For more information, see [Create a new Azure Communication Services resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
 - A new web service application that uses the Call Automation SDK.
 - An Azure AI multiservice resource and a custom domain.

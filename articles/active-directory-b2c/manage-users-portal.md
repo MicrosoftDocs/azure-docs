@@ -11,7 +11,9 @@ ms.topic: how-to
 ms.date: 05/26/2023
 ms.author: godonnell
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 #Customer Intent: As an Azure AD B2C administrator, I want to manually create and delete consumer users in the Azure portal, so that I can manage user accounts for my applications.
 

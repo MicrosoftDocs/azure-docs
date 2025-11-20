@@ -69,7 +69,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 You can now enable Customer Lockbox for Microsoft Azure from the [Administration module](https://aka.ms/customerlockbox/administration).  
 
 > [!NOTE]
-> To enable Customer Lockbox for Microsoft Azure, the user account needs to have the [Global Administrator role assigned](../../active-directory/roles/manage-roles-portal.md).
+> To enable Customer Lockbox for Microsoft Azure, the user account needs to have the [Global Administrator role assigned](/entra/identity/role-based-access-control/manage-roles-portal).
 
 ## Workflow
 
@@ -91,7 +91,7 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
     - For Subscription scoped requests (requests to access specific resources contained within a subscription), users with the Owner role or the Azure Customer Lockbox Approver for Subscription role on the associated subscription.
     - For Tenant scope requests (requests to access the Microsoft Entra tenant), users with the Global Administrator role on the Tenant.
     > [!NOTE]
-    > Role assignments must be in place before Customer Lockbox for Microsoft Azure starts to process a request. Any role assignments made after Customer Lockbox for Microsoft Azure starts to process a given request will not be recognized.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Microsoft Entra roles in PIM](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) / [Activate Azure resource roles in PIM](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md#activate-a-role) for more information on activating PIM eligible roles.
+    > Role assignments must be in place before Customer Lockbox for Microsoft Azure starts to process a request. Any role assignments made after Customer Lockbox for Microsoft Azure starts to process a given request will not be recognized.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Microsoft Entra roles in PIM](/entra/id-governance/privileged-identity-management/pim-how-to-activate-role) / [Activate Azure resource roles in PIM](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles#activate-a-role) for more information on activating PIM eligible roles.
     >
     > **Role assignments scoped to management groups are not supported in Customer Lockbox for Microsoft Azure at this time.**
 1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles)/Azure Customer Lockbox Approver for Subscription receive an email from Microsoft to notify them about the pending access request.  You can also use the [Azure Lockbox alternate email notifications](customer-lockbox-alternative-email.md) feature to configure an alternate email address to receive lockbox notifications in scenarios where Azure account is not email enabled or if a service principal is defined as the lockbox approver.

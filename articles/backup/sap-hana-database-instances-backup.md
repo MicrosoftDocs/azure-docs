@@ -2,7 +2,7 @@
 title: Back up SAP HANA database instances on Azure VMs
 description: In this article, you'll learn how to back up SAP HANA database instances that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 06/05/2025
+ms.date: 11/13/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -127,9 +127,9 @@ To create a policy for the SAP HANA database instance backup, follow these steps
 
 
 
-   You need to manually assign the permissions for the Azure Backup service to delete the snapshots as per the policy. Other [permissions are assigned in the Azure portal](#configure-snapshot-backup).
+   You need to manually assign the permissions for the Azure Backup service to delete the snapshots as per the policy. Other [permissions are assigned in the Azure portal](#configure-snapshot-backup-for-sap-hana-database-instance).
    
-   To assign the Disk Snapshot Contributor role to the Backup Management Service manually in the snapshot resource group, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+   To assign the Disk Snapshot Contributor role to the Backup Management Service manually in the snapshot resource group, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 
 1. Select **Create**.
 
@@ -149,3 +149,4 @@ Learn how to:
 - [Restore SAP HANA database instance snapshots on Azure VMs using Azure portal](sap-hana-database-instances-restore.md).
 - [Manage SAP HANA databases on Azure VMs using Azure portal](sap-hana-database-manage.md).
 - [Manage SAP HANA databases that are backed up by Azure Backup using Azure CLI](tutorial-sap-hana-manage-cli.md).
+- [Troubleshoot SAP HANA snapshot backup jobs on Azure Backup](sap-hana-database-instance-troubleshoot.md).

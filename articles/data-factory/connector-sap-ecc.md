@@ -6,8 +6,10 @@ author: jianleishen
 ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 09/26/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from SAP ECC using Azure Data Factory or Synapse Analytics

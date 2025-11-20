@@ -1,8 +1,8 @@
 ---
 title: dTPM access for Azure IoT Edge for Linux on Windows
 description: Learn about how to configure access the dTPM on your  Azure IoT Edge for Linux on Windows virtual machine.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/05/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge

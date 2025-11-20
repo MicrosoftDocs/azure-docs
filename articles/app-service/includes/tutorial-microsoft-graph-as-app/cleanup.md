@@ -1,11 +1,11 @@
 ---
-author: rwike77
-manager: CelesteDG
+author: cephalin
 ms.date: 01/21/2022
-ms.author: ryanwi
+ms.author: cephalin
 ms.reviewer: stsoneff
 ms.topic: include
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
+ms.service: azure-app-service
 ---
 
 ## Next steps

@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 01/29/2025
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -137,4 +138,3 @@ Azure Container Apps supports deployment with a private DNS zone. For more infor
 Azure Container Apps provides both [Public network access](../../container-apps/networking.md#public-network-access) and [Private endpoint](../../container-apps/private-endpoints-with-dns.md) features to expose applications to the internet or to secure them within a private network. Similarly, Azure Spring Apps supports these features as described in the following articles:
 
 - [Access an app in Azure Spring Apps in a virtual network](../basic-standard/access-app-virtual-network.md)
-- [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](../consumption-dedicated/quickstart-access-standard-consumption-within-virtual-network.md)

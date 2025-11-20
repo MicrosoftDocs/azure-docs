@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 # Develop a C# IoT Edge module to move files on Azure Stack Edge Pro

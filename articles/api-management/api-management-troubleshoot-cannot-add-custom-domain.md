@@ -9,6 +9,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: tehnoonr
+ms.custom: sfi-image-nochange
 ---
 
 # Failed to update API Management service hostnames

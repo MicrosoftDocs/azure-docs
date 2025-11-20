@@ -9,7 +9,9 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 02/09/2023
 ms.topic: include
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 
@@ -18,7 +20,7 @@ Event Grid provides out of the box support for Azure Functions, making it easy t
 ## Setting up our local environment
 
 1. Using [Visual Studio Code](https://code.visualstudio.com/), install the [Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-2. With the extension, create an Azure Function following these [instructions](../../../../azure-functions/create-first-function-vs-code-node.md).
+2. With the extension, create an Azure Function following these [instructions](../../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-javascript).
 
    Configure the function with the following instructions:
    - Language: TypeScript
@@ -129,7 +131,7 @@ To run the function locally, press `F5` in Visual Studio Code. We use [ngrok](ht
 
 ## Deploy to Azure
 
-To deploy the Azure Function to Azure, you need to follow these [instructions](../../../../azure-functions/create-first-function-vs-code-node.md#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run the following command:
+To deploy the Azure Function to Azure, you need to follow these [instructions](../../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-javascript#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run the following command:
 
 ```bash
 az eventgrid event-subscription update --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type azurefunction --endpoint "<<AZ FUNCTION URL>> " --source-resource-id "<<RESOURCE_ID>>"

@@ -22,14 +22,9 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 
 > [!IMPORTANT]
 >  It’s important to distinguish between **TLS 1.2 support** and **TLS 1.2 enforcement**. TLS 1.2 is supported on all IoT Hubs, meaning that IoT Hubs can handle connections using the TLS 1.2 protocol. On the other hand, TLS 1.2 enforcement ensures that IoT Hub **only** accepts connections using TLS 1.2 or higher. When TLS 1.2 enforcement is enabled, the service also enforces the use of [strong cipher suites](#cipher-suites).
+> > Currently, TLS 1.2 enforcement is supported only in public cloud regions.
 > 
-> Currently, TLS 1.2 enforcement is supported only in select regions: 
-> 
-> - All public cloud regions
-> - US Gov Arizona 
-> - US Gov Virginia (TLS 1.0/1.1 support isn't available in this region. TLS 1.2 enforcement must be enabled or IoT Hub creation fails). 
->
-> To find out the version of TLS your IoT Hub devices are running, refer to [TLS 1.0 and 1.1 end of support guide](#checking-tls-versions-for-iot-hub-devices).
+> To find out the version of TLS your IoT Hub devices are running, refer to [TLS 1.0 and 1.1 end of support guide](#checking-tls-versions-and-cipher-suites-for-iot-hub-devices).
 
 ## Mutual TLS support
 
@@ -58,7 +53,7 @@ Root CA migrations are rare. You should always prepare your IoT solution for the
 
 Starting **August 31, 2025**, IoT Hub enforces the use of recommended strong cipher suites for all existing and new IoT Hubs. Non-recommended (weak) cipher suites aren't supported past this date.  
 
-To comply with Azure security policy for a secure connection, IoT Hub only supports the following RSA and ECDSA cipher suites that require minimum TLS 1.2 enforcement:
+To comply with Azure security policy for a secure connection, IoT Hub only supports the following RSA and ECDSA cipher suites:
 
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -69,7 +64,10 @@ To comply with Azure security policy for a secure connection, IoT Hub only suppo
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
-The following non-recommended cipher suites are allowed until August 31, 2025: 
+> [!NOTE]
+> ECDSA cipher suites are only available in public cloud regions.
+
+The following non-recommended cipher suites are allowed on hubs **without minTlsVersion:1.2** until August 31, 2025: 
 
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
@@ -83,6 +81,9 @@ The following non-recommended cipher suites are allowed until August 31, 202
 * TLS_RSA_WITH_AES_256_CBC_SHA
 
 A client can suggest a list of higher cipher suites to use during `ClientHello`. However, IoT Hub might not support some of them, for example, `ECDHE-ECDSA-AES256-GCM-SHA384`. In this case, IoT Hub tries to follow the preference of the client but eventually negotiate down the cipher suite with `ServerHello`.
+
+> [!NOTE]
+> When using an ECDSA or ECDHE cipher, the client must provide the `supported_groups` extension in the `ClientHello` with a valid group. When connecting with a client certificate, the client must include the curve used in that client certificate in its `supported_groups` extension.
 
 ## Update IoT Hub to TLS 1.2 support
 
@@ -101,17 +102,14 @@ To update IoT Hub to support TLS 1.2 and/or enforce strong cipher suites in Azur
     :::image type="content" source="media/iot-hub-tls-support/iot-hub-tls-support-2.png" alt-text="Screenshot showing how to turn on TLS 1.2 support." lightbox="media/iot-hub-tls-support/iot-hub-tls-support-2.png":::
 
 > [!NOTE]
-> You can update your IoT Hub to TLS 1.2 in ALL public regions. However, if you update an IoT Hub in one of the selected regions (East US, South Central US, West US 2, US Gov Arizona, and US Gov Virginia), it will enforce stronger cipher suites.
+> You can update your IoT Hub to TLS 1.2 in all public cloud regions.
 
 ## Enforce IoT Hub to use TLS 1.2 and strong cipher suites
 
 To ensure your IoT devices are TLS 1.2 and [strong cipher suites](#cipher-suites) compliance, you can enforce compliance using minimum TLS enforcement feature in Azure IoT Hub.
 
-Currently this feature is only available in the following regions and during IoT Hub creation:
-
-* Public cloud regions:
-* US Gov Arizona
-* US Gov Virginia (TLS 1.0/1.1 support isn't available in this region - TLS 1.2 enforcement must be enabled or IoT hub creation fails)
+> [!NOTE]
+> Currently this feature is only available in public cloud regions.
 
 To enable TLS 1.2 and strong cipher suites enforcement in Azure portal:
 
@@ -154,13 +152,16 @@ The created IoT hub resource using this configuration refuses device and service
 > [!NOTE] 
 > Upon failover, the `minTlsVersion` property of your IoT Hub remains effective in the geo-paired region post-failover.
 
-## Checking TLS versions for IoT Hub devices
+## Checking TLS versions and cipher suites for IoT Hub devices
 
-Azure IoT Hub provides the capability to check the TLS version and other device connection metrics to help monitor the security of IoT devices. You can either use IoT Hub metrics or diagnostic logs to track TLS version usage and other related properties like [Cipher Suites](#cipher-suites).
+Azure IoT Hub provides the capability to check the TLS version, cipher suites, and other device connection metrics to help monitor the security of IoT devices. You can either use IoT Hub metrics or diagnostic logs to track TLS version usage and other related properties like [Cipher Suites](#cipher-suites).
 
-### Checking TLS versions using IoT Hub metrics
+> [!NOTE]
+> Currently this feature is only available in public cloud regions. 
 
-If you want to validate that device traffic to IoT Hub is utilizing TLSv1.2, you can check IoT Hub’s metrics. This allows you to filter by TLS version or Cipher Suite and check the number of successful connections. 
+### Checking TLS versions and cipher suites using IoT Hub metrics
+
+If you want to validate that device traffic to IoT Hub is utilizing TLSv1.2 and strong cipher suites, you can check IoT Hub’s metrics. This allows you to filter by TLS version or cipher suite and check the number of successful connections. 
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 1. In the left-side menu under **Monitoring**,  select **Metrics**.
@@ -168,18 +169,15 @@ If you want to validate that device traffic to IoT Hub is utilizing TLSv1.2, you
 
     :::image type="content" source="./media/iot-hub-tls-support/tls-versions-support-metrics.png" alt-text="Screenshot showing how to add the Successful Connects metric.":::
 
-1. Filter by TLS Version or Cipher Suite by selecting the **Add filter** button and choosing the appropriate property, TLS Version or Cipher Suite, operator, for example "=", and value, for example, TLSv1.2.
+1. Filter by TLS Version or cipher suite by selecting the **Add filter** button and choosing the appropriate property, TLS Version or cipher suite, operator, for example "=", and value, for example, TLSv1.2.
 
     :::image type="content" source="./media/iot-hub-tls-support/tls-versions-support-metrics-filter.png" alt-text="Screenshot showing how to filter by TLS Version or Cipher Suite.":::
 
 1. After applying the filter, you see the sum of devices with successful IoT Hub connections based on the filtered property and value(s).  
 
-> [!NOTE]
-> TLS version query isn't available for devices using HTTPS connections.
+### Checking TLS versions and cipher suites using IoT Hub diagnostic logs
 
-### Checking TLS versions using IoT Hub diagnostic logs
-
-Azure IoT Hub can provide diagnostic logs for several categories that can be analyzed using Azure Monitor Logs. In the connections log you can find the TLS version for your IoT Hub devices. 
+Azure IoT Hub can provide diagnostic logs for several categories that can be analyzed using Azure Monitor Logs. In the connections log you can find the TLS version and cipher suite for your IoT Hub devices. 
 
 To view these logs, follow these steps: 
 
@@ -235,6 +233,9 @@ To use IoT Hub's ECC server certificate:
    * `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
 4. Connect your client to the IoT hub.
 
+> [!NOTE]
+> Currently this feature is only available in public cloud regions.
+
 ## TLS maximum fragment length negotiation 
 
 IoT Hub also supports TLS maximum fragment length negotiation, which is sometimes known as TLS frame size negotiation. This feature is in public preview. 
@@ -246,6 +247,9 @@ Official SDK support for this public preview feature isn't yet available. To get
 1. Create an IoT Hub.
 1. When using OpenSSL, call [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) to specify the fragment size.
 1. Connect your client to the IoT Hub.
+
+> [!NOTE]
+> Currently this feature is only available in public cloud regions.
 
 ## Certificate pinning
 

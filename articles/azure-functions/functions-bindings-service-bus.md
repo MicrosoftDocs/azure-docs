@@ -90,29 +90,7 @@ Functions version 1.x doesn't support the isolated worker process.
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Install bundle
-
-The Service Bus binding is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-# [Bundle v3.x](#tab/extensionv3)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
-
-You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
-To learn more, see [Update your extensions].
-
-# [Bundle v2.x](#tab/extensionv2)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
-
-# [Functions 1.x](#tab/functions1)
-
-Functions 1.x apps automatically have a reference to the extension.
-
----
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 
@@ -293,7 +271,7 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
 |**transportType**| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
 |**webProxy**| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
 |**autoCompleteMessages**|`true`|Determines whether or not to automatically complete messages after successful execution of the function.|
-|**maxAutoLockRenewalDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
+|**maxAutoLockRenewalDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time and doesn't apply to functions receiving a batch of messages. For batches, the maximum duration is set [in Service Bus at the queue or subscription level](/azure/service-bus-messaging/message-transfers-locks-settlement#renew-locks).|
 |**maxConcurrentCalls**|`16`| By default, the Functions runtime processes multiple messages concurrently. This setting limits the maximum number of concurrent calls to the callback that can be initiated per-scaled-instance. When your hosting plan has more than one core per instance, the maximum number of calls is effectively multiplied by the number of cores. For example, in a plan that runs on hardware with two cores, the default setting of `16` means that the maximum number of concurrent calls per instance is really `32` (or `2 * 16`). This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `false`. This setting only applies for functions that receive a single message at a time as opposed to in a batch. |
 |**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `true`. This setting only applies for functions that receive a single message at a time.|
 |**maxMessageBatchSize**|`1000`|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|

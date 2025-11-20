@@ -16,8 +16,6 @@ ms.date: 11/05/2024
 
 When you create tasks for Microsoft Dev Box customizations, you can define specific actions for your dev boxes to help ensure a consistent and efficient development environment. Creating new tasks in a catalog allows you to define reusable components tailored to your development teams and add guardrails around the configurations that are possible. This article guides you through creating a catalog for customization tasks, adding tasks, and attaching the catalog to a dev center or project.
 
-[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
-
 ## Prerequisites
 
 To complete the steps in this article, you must have:
@@ -73,7 +71,7 @@ To configure your key vault secrets for use in your YAML configurations:
 
 1. Grant the Key Vault Secrets User role for the key vault secret to each user or user group that should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, your own user account, and any user or group that needs the secret during the customization of a dev box.
 
-For more information on using key vault secrets in a customization file, see [Clone a private repository by using a customization file](how-to-write-customization-file.md#clone-a-private-repository-by-using-a-customization-file).
+For more information on using key vault secrets in a customization file, see [Clone a private repository by using a customization file](how-to-customizations-connect-resource-repository.md#use-key-vault-secrets-in-customization-files).
 
 ## Attach a catalog
 

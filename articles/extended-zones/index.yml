@@ -10,7 +10,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-extended-zones
   ms.topic: landing-page
-  ms.date: 08/02/2024
+  ms.date: 09/23/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -32,10 +32,34 @@ landingContent:
         links:
           - text: Deploy a virtual machine in an Extended Zone using the Azure portal
             url: deploy-vm-portal.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy a virtual machine in an Extended Zone using Azure CLI
+            url: deploy-vm-cli.md
       - linkListType: tutorial
         links:
           - text: Back up an Azure Extended Zone virtual machine
             url: backup-virtual-machine.md
+
+  # Card 
+  - title: Arc-enabled PaaS workloads in Extended Zones
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create an Arc-enabled AKS cluster in an Extended Zone
+            url: arc-enabled-workloads-arc-enabled-aks-cluster.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy Arc-enabled workloads in an Extended Zone - ContainerApps
+            url: arc-enabled-workloads-container-apps.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy Arc-enabled workloads in an Extended Zone - Managed SQL Instance
+            url: arc-enabled-workloads-managed-sql.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy Arc-enabled workloads in an Extended Zone - PostgreSQL
+            url: arc-enabled-workloads-postgre-sql.md
 
   # Card
   - title: Reference

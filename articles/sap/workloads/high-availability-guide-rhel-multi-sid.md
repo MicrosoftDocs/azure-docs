@@ -6,10 +6,12 @@ author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/29/2025
 ms.author: radeltch
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to deploy a highly available SAP NetWeaver multi-SID cluster on Azure VMs using Red Hat Enterprise Linux, so that I can ensure continuous service and support scalability for our SAP applications."
 ---
 

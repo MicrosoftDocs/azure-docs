@@ -31,6 +31,8 @@ Here's a video that explains how savings plan recommendations are generated.
 
 To account for scenarios where there were significant reductions in your usage, including recently decommissioned services, we run more simulations using only the last three days of usage. The lower recommendation (between the 3- and 30-day recommendations) is provided to you - even in situations where the 30-day recommendation might appear to provide greater savings. We do this ensure that stale date doesn't cause us to  inadvertently recommend overcommitment.
 
+Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 7 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
+
 Keep the following points in mind:
 
 - Recommendations are refreshed several times a day.

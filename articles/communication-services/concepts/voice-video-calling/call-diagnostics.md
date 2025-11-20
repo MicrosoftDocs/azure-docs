@@ -75,16 +75,16 @@ You can view detailed call logs for each participant within a call. Call informa
 
 :::image type="content" source="./media/call-diagnostics-call-timeline-2.png" alt-text="Screenshot of the Call Diagnostics Timeline tab that shows detailed events in a timeline view for a selected call."  lightbox="./media/call-diagnostics-call-timeline-2.png":::
 
-## Copilot in Azure for Call Diagnostics
+## Azure Copilot for Call Diagnostics
 
-AI can help app developers across every step of the development lifecycle: designing, building, and operating. Developers can use [Microsoft Copilot in Azure](/azure/copilot/overview) within Call Diagnostics to understand and resolve various calling problems. For example, developers can ask Copilot in Azure these questions:
+AI can help app developers across every step of the development lifecycle: designing, building, and operating. Developers can use [Azure Copilot](/azure/copilot/overview) within Call Diagnostics to understand and resolve various calling problems. For example, developers can ask Azure Copilot these questions:
 
 - How to run network diagnostics in Azure Communication Services VoIP calls.
 - How to optimize your calls for poor network conditions.
 - How to determine common causes of poor media streams in Azure Communication Services calls.
 - How to fix subcode 41048 if the video on a call didn't work.
 
-:::image type="content" source="./media/call-diagnostics-all-calls-copilot.png" alt-text="Screenshot of a Call Diagnostics search that shows recent calls for an Azure Communications Services resource and a response from Copilot in Azure."  lightbox="./media/call-diagnostics-all-calls-copilot.png":::
+:::image type="content" source="./media/call-diagnostics-all-calls-copilot.png" alt-text="Screenshot of a Call Diagnostics search that shows recent calls for an Azure Communications Services resource and a response from Azure Copilot."  lightbox="./media/call-diagnostics-all-calls-copilot.png":::
 
 ## Frequently asked questions
 
@@ -114,11 +114,11 @@ Resources for common call problems:
 
 - If call participants have video problems (for example, their video looks fuzzy or cuts in and out), see [Overview of video issues](../../resources/troubleshooting/voice-video-calling/video-issues/overview.md).
 
-### How do I enable Copilot in Azure in Call Diagnostics
+### How do I enable Azure Copilot for Call Diagnostics
 
-Your organization manages access to [Microsoft Copilot in Azure](/azure/copilot/overview). After your organization has access to Copilot in Azure, the Call Diagnostics interface includes the **Diagnose with Copilot** option in the search area, on the **Overview** tab, and on the **Issues** tab.
+Your organization manages access to [Azure Copilot](/azure/copilot/manage-access). After your organization has access to Azure Copilot, the Call Diagnostics interface includes the **Diagnose with Copilot** option in the search area, on the **Overview** tab, and on the **Issues** tab.
 
-Use Copilot in Azure for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Copilot in Azure detailed information from Call Diagnostics helps Copilot enhance analysis, identify problems, and identify fixes. Copilot in Azure currently lacks programmatic access to your call details.
+Use Azure Copilot for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Azure Copilot detailed information from Call Diagnostics helps Azure Copilot enhance analysis, identify problems, and identify fixes. Azure Copilot currently lacks programmatic access to your call details.
 
 ### How can I use `DiagnosticOptions` to view tagged calls in Call Diagnostics
 

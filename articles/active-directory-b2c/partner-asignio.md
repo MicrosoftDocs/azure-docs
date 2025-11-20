@@ -40,7 +40,7 @@ Learn more:
 
 * An Azure subscription. 
 
-* If you don't have on, get an [Azure free account](https://azure.microsoft.com/free/)
+* If you don't have on, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - An Azure AD B2C tenant linked to the Azure subscription
 - See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md) 

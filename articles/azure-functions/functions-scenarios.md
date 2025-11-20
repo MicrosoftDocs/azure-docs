@@ -16,17 +16,17 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Azure Functions scenarios
 
-We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing event streams or messages, Azure Functions can be used to implement them.
+Often, you build systems that react to a series of critical events. Whether you're building a web API, responding to database changes, or processing event streams or messages, you can use Azure Functions to implement these systems.
 
-In many cases, a function [integrates with an array of cloud services](functions-triggers-bindings.md) to provide feature-rich implementations. The following are a common (but by no means exhaustive) set of scenarios for Azure Functions.
+In many cases, a function [integrates with an array of cloud services](functions-triggers-bindings.md) to provide feature-rich implementations. The following list shows common (but by no means exhaustive) scenarios for Azure Functions.
 
 Select your development language at the top of the article.
 
 ## Process file uploads
 
-There are several ways to use functions to process files into or out of a blob storage container. To learn more about options for triggering on a blob container, see [Working with blobs](./storage-considerations.md#working-with-blobs) in the best practices documentation.
+You can use functions in several ways to process files into or out of a blob storage container. To learn more about options for triggering on a blob container, see [Working with blobs](./storage-considerations.md#working-with-blobs) in the best practices documentation.
 
-For example, in a retail solution, a partner system can submit product catalog information as files into blob storage. You can use a blob triggered function to validate, transform, and process the files into the main system as they're uploaded. 
+For example, in a retail solution, a partner system can submit product catalog information as files into blob storage. You can use a blob triggered function to validate, transform, and process the files into the main system as you upload them. 
 
 :::image type="content" source="media/functions-scenarios/process-file-uploads.png" alt-text="Diagram of a file upload process using Azure Functions." lightbox="media/functions-scenarios/process-file-uploads-expanded.png":::
 
@@ -34,11 +34,11 @@ The following tutorials use a Blob trigger (Event Grid based) to process files i
 
 ::: zone pivot="programming-language-csharp" 
 
-For example, using the blob trigger with an event subscription on blob containers:
+For example, use the blob trigger with an event subscription on blob containers:
     
 ```csharp
 [FunctionName("ProcessCatalogData")]
-public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = BlobTriggerSource.EventGrid, Connection = "<NAMED_STORAGE_CONNECTION>")]Stream myCatalogData, string name, ILogger log)
+public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = BlobTriggerSource.EventGrid, Connection = "<NAMED_STORAGE_CONNECTION>")] Stream myCatalogData, string name, ILogger log)
 {
     log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myCatalogData.Length} Bytes");
 
@@ -56,34 +56,46 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 }
 ```
 
-+ [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md)
-+ [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-csharp)
++ [Quickstart: Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md)
++ [Sample: Blob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventgrid-blob)
++ [Tutorial (events): Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md)
++ [Tutorial (polling): Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-python)
++ [Quickstart: Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md)
++ [Sample: Blob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob)
++ [Tutorial: Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-python)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger-javascript.md)
-+ [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-javascript)
++ [Quickstart: Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md)
++ [Sample: Blob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-eventgrid-blob)
++ [Tutorial (events): Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-javascript)
++ [Tutorial (polling): Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger-javascript.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-powershell)
++ [Quickstart: Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md)
++ [Sample: Blob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventgrid-blob)
++ [Tutorial: Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-powershell)
 ::: zone-end
 
-::: zone pivot="programming-language-typescript" 
-+ [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-typescript)
+::: zone pivot="programming-language-typescript"
++ [Quickstart: Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md)
++ [Sample: lob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-eventgrid-blob)
++ [Tutorial: Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-typescript)
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
-+ [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-java)
++ [Quickstart: Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md)
++ [Sample: Blob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventgrid-blob)
++ [Tutorial: Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-java)
 ::: zone-end
 
 ## Real-time stream and event processing
 
-So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](/azure/cosmos-db/introduction) for use in an analytics dashboard.
+Cloud applications, IoT devices, and networking devices generate and collect a large amount of telemetry. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](/azure/cosmos-db/introduction) for use in an analytics dashboard.
 
 Your functions can also use low-latency event triggers, like Event Grid, and real-time outputs like SignalR to process data in near-real-time.  
 
@@ -91,7 +103,7 @@ Your functions can also use low-latency event triggers, like Event Grid, and rea
 
 ::: zone pivot="programming-language-csharp" 
 
-For example, using the event hubs trigger to read from an event hub and the output binding to write to an event hub after debatching and transforming the events:
+For example, you can use the event hubs trigger to read from an event hub and the output binding to write to an event hub after debatching and transforming the events:
     
 ```csharp
 [FunctionName("ProcessorFunction")]
@@ -144,59 +156,104 @@ public static async Task Run(
 
 ## Machine learning and AI
 
-Besides data processing, Azure Functions can be used to infer on models. The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets easily integrate features and behaviors of the [Azure OpenAI service](/azure/ai-services/openai/overview) into your function code executions.
+Azure Functions provides serverless compute resources that integrate with AI and Azure services to streamline building cloud-hosted intelligent applications. You can use the Functions programming model to create and host remote Model Content Protocol (MCP) servers and implement various AI tools. For more information, see [Tools and MCP servers](functions-create-ai-enabled-apps.md#tools-and-mcp-servers).
 
-Functions can connect to an OpenAI resources to enable text and chat completions, use assistants, and leverage embeddings and semantic search.   
+The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets you integrate AI features and behaviors of the [Azure OpenAI service](/azure/ai-services/openai/overview), such as retrieval-augmented generation (RAG), into your function code executions. For more information, see [Retrieval-augmented generation](functions-create-ai-enabled-apps.md#retrieval-augmented-generation).
 
 A function might also call a TensorFlow model or Azure AI services to process and classify a stream of images.
 
 :::image type="content" source="media/functions-scenarios/machine-learning-and-ai.png" alt-text="Diagram of a machine learning and AI process using Azure Functions." lightbox="media/functions-scenarios/machine-learning-and-ai-expanded.png":::
 
-::: zone pivot="programming-language-csharp"  
-+ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-csharp)
-+ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo) 
-+ Sample: [Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
-+ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/csharp-ooproc)
-+ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/csharp-ooproc)
-+ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/csharp-ooproc/Embeddings)
-+ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/csharp-ooproc)
+::: zone pivot="programming-language-csharp" 
+### [Tools and MCP servers](#tab/mcp-tools)   
+
++ [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
++ [Quickstart: Host servers built with MCP SDKs on Azure Functions](scenario-host-mcp-server-sdks.md)
++ [Sample: Getting Started with Remote MCP Servers using Azure Functions](https://github.com/Azure-Samples/remote-mcp-functions-dotnet)
++ [Sample: Host remote MCP servers built with official MCP SDKs on Azure Functions](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet)
+
+### [Azure OpenAI service](#tab/open-ai)
+
++ [Tutorial: Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-csharp)
++ [Sample: Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo) 
++ [Sample: Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
++ [Sample: Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/csharp-ooproc)
++ [Sample: Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/csharp-ooproc)
++ [Sample: Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/csharp-ooproc/Embeddings)
++ [Sample: Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/csharp-ooproc)
+
+--- 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-+ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-java)
-+ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/java)
-+ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/java)
-+ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/java)
-+ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/java)
+### [Tools and MCP servers](#tab/mcp-tools)   
+
++ [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
++ [Sample: Getting Started with Remote MCP Servers using Azure Functions](https://github.com/Azure-Samples/remote-mcp-functions-java)
+
+### [Azure OpenAI service](#tab/open-ai)
+
++ [Tutorial: Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-java)
++ [Sample: Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/java)
++ [Sample: Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/java)
++ [Sample: Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/java)
++ [Sample: Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/java)
+
+---
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-+ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-javascript)
-+ Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
-+ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
-+ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
++ [Tutorial: Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-javascript)
++ [Training: Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
++ [Sample: Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
++ [Sample: Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
-+ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-typescript)
-+ Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
-+ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
-+ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
+### [Tools and MCP servers](#tab/mcp-tools)   
+
++ [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
++ [Quickstart: Host servers built with MCP SDKs on Azure Functions](scenario-host-mcp-server-sdks.md)
++ [Sample: Getting Started with Remote MCP Servers using Azure Functions](https://github.com/Azure-Samples/remote-mcp-functions-typescript)
++ [Sample: Host remote MCP servers built with official MCP SDKs on Azure Functions](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
+
+### [Azure OpenAI service](#tab/open-ai)
+
++ [Tutorial: Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-typescript)
++ [Training: Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
++ [Sample: Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
++ [Sample: Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
+
+---
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-+ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-python)
-+ Tutorial: [Apply machine learning models in Azure Functions with Python and TensorFlow](./functions-machine-learning-tensorflow.md)
-+ Tutorial: [Deploy a pretrained image classification model to Azure Functions with PyTorch](./machine-learning-pytorch.md)
-+ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/python)
-+ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/python)
-+ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/python)
-+ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/python)
-+ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-python-ai-openai-chatgpt)
-+ Sample: [LangChain with Azure OpenAI and ChatGPT](https://github.com/Azure-Samples/function-python-ai-langchain)
+### [Tools and MCP servers](#tab/mcp-tools-2)   
+
++ [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
++ [Quickstart: Host servers built with MCP SDKs on Azure Functions](scenario-host-mcp-server-sdks.md)
+
+### [Azure OpenAI service](#tab/open-ai-2)
+
++ [Tutorial: Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-python)
++ [Sample: Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/python)
++ [Sample: Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/python)
++ [Sample: Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/python)
++ [Sample: Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/python)
++ [Sample: Chat using ChatGPT](https://github.com/Azure-Samples/function-python-ai-openai-chatgpt)
++ [Sample: LangChain with Azure OpenAI and ChatGPT](https://github.com/Azure-Samples/function-python-ai-langchain)
+
+### [Data models](#tab/data-models)
+
++ [Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow](./functions-machine-learning-tensorflow.md)
++ [Tutorial: Deploy a pretrained image classification model to Azure Functions with PyTorch](./machine-learning-pytorch.md)
+
+---
+
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-powershell)
-+ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/powershell)
-+ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/powershell)
-+ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/powershell)
-+ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/powershell)
++ [Tutorial: Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-powershell)
++ [Sample: Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/powershell)
++ [Sample: Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/powershell)
++ [Sample: Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/powershell)
++ [Sample: Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/powershell)
 ::: zone-end
 
 For more information, see [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md). 
@@ -205,12 +262,13 @@ For more information, see [Use AI tools and models in Azure Functions](functions
 
 Functions enables you to run your code based on a [cron schedule](./functions-bindings-timer.md#usage) that you define. 
 
-Check out how to [Create a function in the Azure portal that runs on a schedule](./functions-create-scheduled-function.md).
+See [Create a function in the Azure portal that runs on a schedule](./functions-create-scheduled-function.md).
 
-A financial services customer database, for example, might be analyzed for duplicate entries every 15 minutes to avoid multiple communications going out to the same customer. 
+For example, you might analyze a financial services customer database for duplicate entries every 15 minutes to avoid multiple communications going out to the same customer. 
 
 :::image type="content" source="media/functions-scenarios/scheduled-task.png" alt-text="Diagram of a scheduled task where a function cleans a database every 15 minutes deduplicating entries based on business logic." lightbox="media/functions-scenarios/scheduled-task-expanded.png":::
 
+For examples, see these code snippets:
 ::: zone pivot="programming-language-csharp" 
 
 ```csharp
@@ -226,35 +284,34 @@ public static void Run([TimerTrigger("0 */15 * * * *")]TimerInfo myTimer, ILogge
     // Perform the database deduplication
 }
 ```
-
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-csharp)
++ [Quickstart: Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-csharp)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-python)
++ [Quickstart: Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-python)
 ::: zone-end
-
+<!-- replace when these langs are fully supported by the quickstart
 ::: zone pivot="programming-language-javascript" 
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-javascript)
++ Quickstart: [Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-powershell)
++ Quickstart: [Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-powershell)
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
 + [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-java)
-::: zone-end
+::: zone-end-->
 
 ## Build a scalable web API
 
 An HTTP triggered function defines an HTTP endpoint. These endpoints run function code that can connect to other services directly or by using binding extensions. You can compose the endpoints into a web-based API. 
 
-You can also use an HTTP triggered function endpoint as a webhook integration, such as GitHub webhooks. In this way, you can create functions that process data from GitHub events. To learn more, see [Monitor GitHub events by using a webhook with Azure Functions](/training/modules/monitor-github-events-with-a-function-triggered-by-a-webhook/).
+You can also use an HTTP triggered function endpoint as a webhook integration, such as GitHub webhooks. In this way, you can create functions that process data from GitHub events. For more information, see [Monitor GitHub events by using a webhook with Azure Functions](/training/modules/monitor-github-events-with-a-function-triggered-by-a-webhook/).
 
 :::image type="content" source="media/functions-scenarios/scalable-web-api.png" alt-text="Diagram of processing an HTTP request using Azure Functions." lightbox="media/functions-scenarios/scalable-web-api-expanded.png":::
 
-For examples, see the following:
+For examples, see these code snippets:
 ::: zone pivot="programming-language-csharp" 
 
 ```csharp
@@ -287,92 +344,94 @@ public static async Task<IActionResult> Run(
     return new OkResult();
 }
 ```
-+ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-csharp)
-+ Article: [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md) 
-+ Training: [Expose multiple function apps as a consistent API by using Azure API Management](/training/modules/build-serverless-api-with-functions-api-management/)
-+ Sample: [Implement the geode pattern by deploying the API to geodes in distributed Azure regions.](https://github.com/mspnp/geode-pattern-accelerator)
-+ Sample: [Web application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
++ [Quickstart: Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-csharp)
++ [Article: Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md) 
++ [Training: Expose multiple function apps as a consistent API by using Azure API Management](/training/modules/build-serverless-api-with-functions-api-management/)
++ [Sample: Web application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-python)
++ [Quickstart: Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-python)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-javascript)
++ [Quickstart: Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-powershell)
++ [Quickstart: Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-powershell)
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript" 
-+ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-typescript)
++ [Quickstart: Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-typescript)
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-+ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-java)
++ [Quickstart: Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-java)
 ::: zone-end  
 
 ## Build a serverless workflow
 
-Functions is often the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations using the Durable Functions extension. For more information, see [Durable Functions overview](./durable/durable-functions-overview.md).
+Functions often serve as the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations by using the Durable Functions extension. For more information, see [Durable Functions overview](./durable/durable-functions-overview.md).
 
 :::image type="content" source="media/functions-scenarios/build-a-serverless-workflow.png" alt-text="A combination diagram of a series of specific serverless workflows using Azure Functions." lightbox="media/functions-scenarios/build-a-serverless-workflow-expanded.png":::
 
 ::: zone pivot="programming-language-csharp" 
-+ Tutorial: [Create a function to integrate with Azure Logic Apps](./functions-twitter-email.md)
-+ Quickstart: [Create your first durable function in Azure using C#](./durable/durable-functions-isolated-create-first-csharp.md)
-+ Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
++ [Tutorial: Create a function to integrate with Azure Logic Apps](./functions-twitter-email.md)
++ [Quickstart: Create your first durable function in Azure using C#](./durable/durable-functions-isolated-create-first-csharp.md)
++ [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ Quickstart: [Create your first durable function in Azure using JavaScript](./durable/quickstart-js-vscode.md)
-+ Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
++ [Quickstart: Create your first durable function in Azure using JavaScript](./durable/quickstart-js-vscode.md)
++ [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript" 
-+ Quickstart: [Create your first durable function in Azure using JavaScript](./durable/quickstart-ts-vscode.md)
-+ Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
++ [Quickstart: Create your first durable function in Azure using JavaScript](./durable/quickstart-ts-vscode.md)
++ [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ Quickstart: [Create your first durable function in Azure using Python](./durable/quickstart-python-vscode.md)
-+ Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
++ [Quickstart: Create your first durable function in Azure using Python](./durable/quickstart-python-vscode.md)
++ [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
-+ Quickstart: [Create your first durable function in Azure using Java](./durable/quickstart-java.md)
++ [Quickstart: Create your first durable function in Azure using Java](./durable/quickstart-java.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ Quickstart: [Create your first durable function in Azure using PowerShell](./durable/quickstart-powershell-vscode.md)
++ [Quickstart: Create your first durable function in Azure using PowerShell](./durable/quickstart-powershell-vscode.md)
 ::: zone-end
 
 ## Respond to database changes
 
-There are processes where you might need to log, audit, or perform some other operation when stored data changes. Functions triggers provide a good way to get notified of data changes to initial such an operation.
+Some processes need to log, audit, or perform other operations when stored data changes. Functions triggers provide a good way to get notified of data changes to initial such an operation.
 
 :::image type="content" source="media/functions-scenarios/respond-to-database-changes.png" alt-text="Diagram of a function being used to respond to database changes." lightbox="media/functions-scenarios/respond-to-database-changes-expanded.png":::
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python" 
+::: zone pivot="programming-language-csharp,programming-language-typescript,programming-language-python" 
 Consider these examples:
-::: zone-end
 
++ [Quickstart: Respond to database changes in Azure Cosmos DB using Azure Functions](scenario-database-changes-azure-cosmosdb.md)
+
++ [Quickstart: Respond to database changes in Azure SQL Database using Azure Functions](scenario-database-changes-azure-sqldb.md)
+::: zone-end  
 ::: zone pivot="programming-language-csharp" 
-+ Article: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
-+ Article: [Connect Azure Functions to Azure SQL Database using Visual Studio Code](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
-+ Article: [Use Azure Functions to clean-up an Azure SQL Database](./functions-scenario-database-table-cleanup.md)
-::: zone-end
++ [Sample: Azure Functions with Azure Cosmos DB (trigger)](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb)
 
-::: zone pivot="programming-language-javascript" 
-+ Article: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
-+ Article: [Connect Azure Functions to Azure SQL Database using Visual Studio Code](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-javascript)
-::: zone-end
++ [Sample: Azure Functions with Azure SQL Database (trigger)](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql)  
+::: zone-end  
+::: zone pivot="programming-language-typescript" 
++ [Sample: Azure Functions with Azure Cosmos DB Trigger](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb)
 
++ [Sample: Azure Functions with Azure SQL Database (trigger)](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-sql)  
+::: zone-end
 ::: zone pivot="programming-language-python" 
-+ Article: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python)
-+ Article: [Connect Azure Functions to Azure SQL Database using Visual Studio Code](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python)
++ [Sample: Azure Functions with Azure Cosmos DB Trigger](https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb)
+
++ [Sample: Azure Functions with Azure SQL Database (trigger)](https://github.com/Azure-Samples/functions-quickstart-python-azd-sql)  
 ::: zone-end
 
 ## Create reliable message systems 
@@ -386,33 +445,33 @@ For example, you can use triggers on Azure Storage queues as a way to chain toge
 These articles show how to write output to a storage queue:
 
 ::: zone pivot="programming-language-csharp" 
-+ Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
-+ Article: [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
++ [Article: Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
++ [Article: Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
-+ Article: [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
-+ Training: [Chain Azure Functions together using input and output bindings](/training/modules/chain-azure-functions-data-using-bindings/)
++ [Article: Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
++ [Article: Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
++ [Training: Chain Azure Functions together using input and output bindings](/training/modules/chain-azure-functions-data-using-bindings/)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
-+ Article: [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
++ [Article: Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
++ [Article: Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
-+ Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java)
-+ Article: [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
++ [Article: Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java)
++ [Article: Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell)
-+ Article: [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
-+ Training: [Chain Azure Functions together using input and output bindings](/training/modules/chain-azure-functions-data-using-bindings/)
++ [Article: Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell)
++ [Article: Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
++ [Training: Chain Azure Functions together using input and output bindings](/training/modules/chain-azure-functions-data-using-bindings/)
 ::: zone-end
 
-And these articles show how to trigger from an Azure Service Bus queue or topic.
+These articles show how to trigger from an Azure Service Bus queue or topic.
 
 ::: zone pivot="programming-language-csharp" 
 + [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-csharp)

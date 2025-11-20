@@ -24,7 +24,7 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 ## Prerequisites
 
-+ An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
++ An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 + **[Azure CLI](/cli/azure/install-azure-cli)**: used to create and manage resources in Azure. When using the Azure CLI on your local computer, make sure to use version 2.60.0, or a later version. You can also use [Azure Cloud Shell](../cloud-shell/overview.md), which has the correct Azure CLI version.  
 
@@ -32,33 +32,13 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 + While not required to create a Flex Consumption plan app, you need a code project to be able to deploy to and validate a new function app. Complete the first part of one of these quickstart articles, where you create a code project with an HTTP triggered function:
 
-    ::: zone pivot="programming-language-csharp"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)   
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-csharp.md) 
-    ::: zone-end   
-    ::: zone pivot="programming-language-javascript"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-javascript)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-node.md) 
-    ::: zone-end  
+    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md)   
+    + [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md) 
+ 
     ::: zone pivot="programming-language-java" 
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-java)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-java.md)
-    
-     To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-using-maven)   
+    To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-using-maven)   
     ::: zone-end   
-    ::: zone pivot="programming-language-typescript"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-typescript)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-typescript.md) 
-    ::: zone-end   
-    ::: zone pivot="programming-language-python"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-python)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-python.md) 
-    ::: zone-end   
-    ::: zone pivot="programming-language-powershell"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-powershell)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-powershell.md) 
-    ::: zone-end   
-
+ 
     Return to this article after you create and run the local project, but before you're asked to create Azure resources. You create the function app and other Azure resources in the next section.
 
 ## Create a Flex Consumption app
@@ -134,16 +114,9 @@ To support your function code, you need to create three resources:
 
     Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app only incurs costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
 
-
 ### [Azure portal](#tab/azure-portal)
 
-[!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
-
-6. Select **Review + create** to review the app configuration you chose, and then select **Create** to provision and deploy the function app.
-
-7. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
-
-8. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+[!INCLUDE [functions-create-flex-consumption-app-portal-full](../../includes/functions-create-flex-consumption-app-portal-full.md)]
 
 ### [Visual Studio Code](#tab/vs-code)
 
@@ -297,7 +270,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 1. Create a Java code project by completing the first part of one of these quickstart articles:
         
     + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-java)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-java.md) 
+    + [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java) 
 
 1. In your Java code project, open the pom.xml file and make these changes to create your function app in the Flex Consumption plan: 
 
@@ -311,7 +284,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
 1. (Optional) Customize the Flex Consumption plan in your Maven deployment by also including these elements in the `<plugin>.<configuration>` section:             .
 
-    + `<instanceSize>` - sets the [instance memory](./flex-consumption-plan.md#instance-memory) size for the function app. The default value is `2048`.  
+    + `<instanceSize>` - sets the [instance memory](./flex-consumption-plan.md#instance-sizes) size for the function app. The default value is `2048`.  
     + `<maximumInstances>` - sets the highest value for the maximum instances count of the function app.  
     + `<alwaysReadyInstances>` - sets the [always ready instance counts](flex-consumption-plan.md#always-ready-instances) with child elements for HTTP trigger groups (`<http>`), Durable Functions groups (`<durable>`), and other specific triggers (`<my_function>`). When you set any instance count greater than zero, you're charged for these instances whether your functions execute or not. For more information, see [Billing](flex-consumption-plan.md#billing).  
 
@@ -363,7 +336,7 @@ Use these steps to create your function app with virtual network integration and
 
 [!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
 
-6. In the **Networking** tab, set **Enable public access** to **Off** and **Enable network injection** to **On**.
+6. In the **Networking** tab, set **Enable public access** to **Off** and **Enable network injection** to **On**. 
 
 7. For **Virtual network**, select or create a virtual network that is in the same region as your app.
 
@@ -457,7 +430,7 @@ To configure deployment settings when you create your function app in the Flex C
 Use the [`az functionapp create`] command and supply these extra options that customize deployment storage:  
 
 | Parameter | Description |
-|--|--|--|
+|--|--|
 | `--deployment-storage-name` | The name of the deployment storage account. | 
 | `--deployment-storage-container-name` | The name of the container in the account to contain your app's deployment package. | 
 | `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Accepted values include `StorageAccountConnectionString`, `UserAssignedIdentity`, and `SystemAssignedIdentity`. |
@@ -514,7 +487,7 @@ You can't currently configure deployment storage for your app in Azure using Vis
 
 ## Configure instance memory
 
-The instance memory size used by your Flex Consumption plan can be explicitly set when you create your app. For more information about supported sizes, see [Instance memory](flex-consumption-plan.md#instance-memory).  
+The instance memory size used by your Flex Consumption plan can be explicitly set when you create your app. For more information about supported sizes, see [Instance sizes](flex-consumption-plan.md#instance-sizes).  
 
 To set an instance memory size that's different from the default when creating your app:
 
@@ -654,6 +627,27 @@ You can't currently set HTTP concurrency limits using Visual Studio Code.
 
 ---
 
+## Set site update strategy
+
+The Flex Consumption plan uniquely supports two different site update strategies that control how your function app handles code deployments and configuration changes. By default, Flex Consumption plan apps use the `Recreate` strategy, which terminates currently executing functions during deployments. To enable zero-downtime deployments, you can configure the `RollingUpdate` strategy instead. For more information, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md).
+
+> [!NOTE]
+> Site update strategy configuration is currently in public preview and is only available through Bicep or ARM templates. You cannot configure this setting using the Azure CLI, Azure portal, or Visual Studio Code.
+
+### [Azure CLI](#tab/azure-cli)
+
+Site update strategy configuration isn't currently supported in the Azure CLI. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+
+### [Azure portal](#tab/azure-portal)
+
+Site update strategy configuration isn't currently supported in the Azure portal. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+
+### [Visual Studio Code](#tab/vs-code)
+
+Site update strategy configuration isn't currently supported in Visual Studio Code. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+
+---
+
 ## View currently supported regions
 
 To view the list of regions that currently support Flex Consumption plans: 
@@ -751,15 +745,29 @@ When your app is connected to Application Insights, you can better analyze your 
  
    + Use "Performance" to analyze response times and dependencies
    + Use "Failures" to identify any errors occurring after migration
-   + Create custom queries in "Logs" to analyze function behavior:
+   + Create custom queries in "Logs" to analyze function behavior. For example:
 
-     ```kusto
-     // Compare success rates by instance
-     requests
-     | where timestamp > ago(7d)
-     | summarize successCount=countif(success == true), failureCount=countif(success == false) by bin(timestamp, 1h), cloud_RoleName
-     | render timechart
-     ```
+Use this query to compare success rates by instance:
+
+```kusto
+requests
+| where timestamp > ago(7d)
+| summarize successCount=countif(success == true), failureCount=countif(success == false) by bin(timestamp, 1h), cloud_RoleName
+| render timechart
+```
+
+Use this query to analyze the number of instances that were actively processing your function:
+
+```kusto
+let _startTime = ago(20m); //Adjust start time as needed
+let _endTime = now(); //Adjust end time as needed
+let bins = 1s; //Adjust bin as needed - this will give per second results
+requests 
+| where operation_Name == 'EventHubsTrigger' //Replace with the name of the function in the function app that you are analyzing
+| where timestamp between(_startTime .. _endTime)
+| make-series dcount(cloud_RoleInstance) default=0 on timestamp from _startTime to _endTime step bins
+| render columnchart
+```
 
 ### View costs
 
@@ -777,7 +785,7 @@ To view the current costs:
 
 ## Fine-tune your app
 
-The Flex Consumption plan provides several settings that you can tune to refine the performance of your app. Actual performance and costs can vary based on your app-specific workload patterns and configuration. For example, higher [memory instance sizes](./flex-consumption-plan.md#instance-memory) can improve performance for memory-intensive operations but at a higher cost per active period. 
+The Flex Consumption plan provides several settings that you can tune to refine the performance of your app. Actual performance and costs can vary based on your app-specific workload patterns and configuration. For example, higher [memory instance sizes](./flex-consumption-plan.md#instance-sizes) can improve performance for memory-intensive operations but at a higher cost per active period. 
 
 Here are some adjustments you can make to fine-tune performance versus cost:
  

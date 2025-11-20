@@ -3,7 +3,7 @@ title: Intelligent app with Azure OpenAI (Spring Boot)
 description: Learn how to build and deploy a Java web app to Azure App Service that connects to Azure OpenAI using managed identity.
 author: cephalin
 ms.author: cephalin
-ms.date: 05/19/2025
+ms.date: 11/18/2025
 ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.custom:
@@ -11,6 +11,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Spring Boot)
@@ -33,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
 
 ## 1. Create an Azure OpenAI resource
@@ -51,9 +52,9 @@ In this tutorial, you learn how to:
 
     You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select **Open in browser** to launch the app in a new browser tab. When you see the white label error page, the Spring Boot app is working.
 
-2. Back in the Codespace terminal, stop the app with Ctrl+C.
+1. Back in the Codespace terminal, stop the app with Ctrl+C.
 
-3. Open *pom.xml* and add the following dependencies:
+1. Open *pom.xml* and add the following dependencies:
 
     ```xml
     <dependency>
@@ -78,7 +79,7 @@ In this tutorial, you learn how to:
     </dependency>
     ```
 
-4. In the same directory as Application.java (*src/main/java/com/example/restservice*) add a Java file called *ChatController.java* and copy the following content into it:
+1. In the same directory as Application.java (*src/main/java/com/example/restservice*) add a Java file called *ChatController.java* and copy the following content into it:
 
     ```java
     package com.example.restservice;
@@ -168,7 +169,7 @@ In this tutorial, you learn how to:
     > [!TIP]
     > To minimize the files in this tutorial, the code combines the Spring `@Configuration` and `@Controller` classes in one file. In production, you would normally separate configuration and business logic for maintainability.
 
-5. Under *src/main/resources*, create a *templates* directory, and add a *chat.html* with the following content for the chat interface:
+1. Under *src/main/resources*, create a *templates* directory, and add a *chat.html* with the following content for the chat interface:
 
     ```html
     <!DOCTYPE html>
@@ -193,7 +194,7 @@ In this tutorial, you learn how to:
     </html>
     ```
 
-5. In the terminal, retrieve your OpenAI endpoint:
+1. In the terminal, retrieve your OpenAI endpoint:
 
     ```bash
     az cognitiveservices account show \
@@ -203,15 +204,15 @@ In this tutorial, you learn how to:
       --output tsv
     ```
 
-6. Run the app again by adding `AZURE_OPENAI_ENDPOINT` with its value from the CLI output:
+1. Run the app again by adding `AZURE_OPENAI_ENDPOINT` with its value from the CLI output:
 
    ```bash
    AZURE_OPENAI_ENDPOINT=<output-from-previous-cli-command> mvn spring-boot:run
    ```
 
-7. Select **Open in browser** to launch the app in a new browser tab. 
+1. Select **Open in browser** to launch the app in a new browser tab. 
 
-8. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
+1. Type a message in the textbox and select **Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
 
 The application uses [DefaultAzureCredential](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview), which automatically uses your Azure CLI signed in user for token authentication. Later in this tutorial, you'll deploy your web app to Azure App Service and configure it to securely connect to your Azure OpenAI resource using managed identity. The same `DefaultAzureCredential` in your code can detect the managed identity and use it for authentication. No extra code is needed.
 
@@ -225,7 +226,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     mvn clean package
     ```
 
-2. First, deploy your app to Azure App Service using the Azure CLI command `az webapp up`. This command creates a new web app and deploys your code to it:
+1. First, deploy your app to Azure App Service using the Azure CLI command `az webapp up`. This command creates a new web app and deploys your code to it:
 
     ```bash
     az webapp up \
@@ -241,7 +242,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
 
    This command might take a few minutes to complete. It creates a new web app in the same resource group as your OpenAI resource.
 
-3. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
+1. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
 
     ```bash
     az webapp connection create cognitiveservices \
@@ -258,13 +259,13 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     - Adding the Cognitive Services OpenAI Contributor role to the managed identity for the Azure OpenAI resource.
     - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
 
-4. Open the deployed web app in the browser. 
+1. Open the deployed web app in the browser. 
 
     ```azurecli
     az webapp browse
     ```    
 
-5. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
+1. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
 
     :::image type="content" source="media/tutorial-ai-openai-chatbot-java/chat-in-browser.png" alt-text="Screenshot showing a chatbot running in Azure App Service.":::
 

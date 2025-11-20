@@ -4,10 +4,11 @@ description: This article covers the steps used to enable marketplace private of
 author: echung
 ms.reviewer: echung
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
 ms.date: 01/22/2025
-ms.author: echung
+ms.author: nicholak
+ms.custom: sfi-ga-nochange
 ---
 
 # Enable marketplace purchases in Azure
@@ -93,7 +94,7 @@ To set permission for a subscription:
 1. Enter the email address of the user to whom you want to give access.
 1. Select **Save** to assign the role.
 
-For more information about assigning roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
+For more information about assigning roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
 
 
 ## Set user permission to accept private offers

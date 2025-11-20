@@ -22,7 +22,7 @@ The following chart compares the four main strategies to achieve a zero-downtime
 
 | Strategy |  When to use | Pros | Cons |
 | -------- | ------------ | ---- | ---- |
-| [Orchestration versioning](#orchestration-versioning) | Applications with [breaking changes](durable-functions-versioning.md), especially those that need to support concurrent execution of different orchestration versions. | Enables zero-downtime deployments with breaking changes.<br/>Built-in feature requiring minimal configuration. | Currently limited to .NET isolated.<br/>Requires careful orchestrator code modifications for version compatibility. |
+| [Orchestration versioning](#orchestration-versioning) | Applications with [breaking changes](durable-functions-versioning.md), especially those that need to support concurrent execution of different orchestration versions. | Enables zero-downtime deployments with breaking changes.<br/>Built-in feature requiring minimal configuration. | Requires careful orchestrator code modifications for version compatibility. |
 | [Name-based versioning](#name-based-versioning) |  Applications that don't experience frequent [breaking changes.](durable-functions-versioning.md) | Simple to implement. |  Increased function app size in memory and number of functions.<br/>Code duplication. |
 | [Status check with slot](#status-check-with-slot) | A system that doesn't have long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations. | Simple code base.<br/>Doesn't require additional function app management. | Requires additional storage account or task hub management.<br/>Requires periods of time when no orchestrations are running. |
 | [Application routing](#application-routing) | A system that doesn't have periods of time when orchestrations aren't running, such as those time periods with orchestrations that last more than 24 hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max out the number of function apps allowed by your subscription. The default is 100. |
@@ -71,7 +71,7 @@ Use the following procedure to set up this scenario.
 
 1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](./durable-functions-orchestrations.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting. Again, managed identity-based connections are the most secure.
 
-1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify `connectionStringName` (Durable 2.x) or `azureStorageConnectionStringName` (Durable 1.x) as the name of the app setting you created in step 3.
+1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#durable-functions-settings-in-hostjson), specify `connectionStringName` (Durable 2.x) or `azureStorageConnectionStringName` (Durable 1.x) as the name of the app setting you created in step 3.
 
 The following diagram shows the described configuration of deployment slots and storage accounts. In this potential predeployment scenario, version 2 of a function app is running in the production slot, while version 1 remains in the staging slot.
 

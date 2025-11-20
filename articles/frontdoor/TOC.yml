@@ -177,6 +177,10 @@
         href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
       - name: Custom domain
         href: migrate-cdn-to-front-door.md
+    - name: AFD/CDN Classic migration FAQ
+      href: migration-faq.md
+    - name: Post migration Dev-Ops experience
+      href: post-migration-dev-ops-experience.md
   - name: Upgrades
     items:
     - name: Upgrade from Standard to Premium tier - Portal
@@ -320,7 +324,7 @@
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
       - name: Add a root or apex domain
-        href: standard-premium/how-to-add-security-headers.md
+        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
       - name: Set up a Rules Engine (classic)
         href: front-door-tutorial-rules-engine.md
     - name: CDN (classic) from Microsoft
@@ -405,7 +409,7 @@
       items:
       - name: HTTP/2 support
         href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/toc.json
-      - name: Retrieve POP IP's
+      - name: Retrieve POP IPs
         href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/toc.json
       - name: China content delivery
         href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/toc.json

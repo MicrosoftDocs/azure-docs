@@ -1,8 +1,8 @@
 ---
 title: Azure Functions Consumption plan hosting
 description: Learn about how Azure Functions Consumption plan hosting lets you run your code in an environment that scales dynamically.
-ms.date: 05/06/2025
-ms.topic: conceptual
+ms.date: 09/23/2025
+ms.topic: concept-article
 ms.custom:
   - build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
@@ -10,16 +10,14 @@ ms.custom:
 
 # Azure Functions Consumption plan hosting
 
-When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. The Consumption plan, along with the [Flex Consumption plan](./flex-consumption-plan.md), is a fully *serverless* hosting option for Azure Functions.
+When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. 
 
-## Benefits
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 The Consumption plan scales automatically, even during periods of high load. When running functions in a Consumption plan, you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
-For a comparison of the Consumption plan against the other plan and hosting types, see [function scale and hosting options](functions-scale.md).
-
 > [!TIP]  
-> If you want the benefits of dynamic scale and execution-only billing, but also need to integrate your app with virtual networks, you should instead consider hosting your app in the [Flex Consumption plan](./flex-consumption-plan.md).
+> [!INCLUDE [functions-flex-consumption-recommended-serverless](../../includes/functions-flex-consumption-recommended-serverless.md)]
 
 ## Billing
 
@@ -39,7 +37,7 @@ Use the following links to learn how to create a serverless function app in a Co
 - [Azure portal](./functions-get-started.md)
 - [Azure Resource Manager template](functions-create-first-function-resource-manager.md)
 
-You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](./how-to-create-function-vs-code.md#create-the-function-app-in-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## Multiple apps in the same plan
 

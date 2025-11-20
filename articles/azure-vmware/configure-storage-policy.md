@@ -3,7 +3,7 @@ title: Configure a Storage Policy
 description:  Learn how to configure a storage policy for your Azure VMware Solution virtual machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/08/2025
+ms.date: 10/20/2025
 ms.custom:
   - engagement-fy23
   - build-2025
@@ -53,8 +53,8 @@ Make sure that the minimum level of hosts is met, according to the following tab
 | RAID-1 (mirroring) <br />Default setting  | 1  | 3  |
 | RAID-5 (ESA optimized)  | 1  | 3  |
 | RAID-1 (mirroring)  | 2  | 5  |
-| RAID-6 (ESA optimized)  | 2  | 5  |
-| RAID-1 (mirroring)  | 3  | 7  |
+| RAID-6 (ESA optimized)  | 2  | 6|
+|6 RAID-1 (mirroring)  | 3  | 7  |
 
 ## List storage policies
 
@@ -119,6 +119,55 @@ Run the `Set-LocationStoragePolicy` cmdlet to modify vSAN-based storage policies
    | **Timeout**  |  The period after which a cmdlet exits if it's taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
+
+## List storage policies for Unassociated objects 
+
+Unassociated objects in vCenter are vSAN storage objects that are not linked to any active VM or namespace, often resulting from VM deletions or API operations, and may accumulate over time, potentially causing cluster health or capacity issues if not managed. 
+
+Run the `Get-UnassociatedVsanObjectsWithPolicy` cmdlet to list the unassociated vSAN-based Objects with specified storage policy.
+
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Management** > **Get-UnassociatedVsanObjectsWithPolicy**. 
+
+> [!NOTE]
+> Use the latest version of the **Microsoft.AVS.Management** package. 
+
+   :::image type="content" source="media/run-command/run-command-unassociated-storage-policy.png" alt-text="Screenshot that shows how to access the unassociated storage policy run command." lightbox="media/run-command/run-command-unassociated-storage-policy.png":::
+
+2. Provide the required values or change the default values according to the following table. Then select **Run**.
+
+| Field | Value |
+   | --- | --- |
+   | **Policy Name** | Storage Policy Name to filter unassociated objects. Please make sure that the policy name is an exact match. For example, *RAID-1 FTT-1* |
+   | **Cluster Name** | Name of the Cluster to scan for the unassociated objects. For example, Cluster-1 |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
+   | **Specify name for execution**  | Alphanumeric name. For example, *Get-UnassociatedVsanObjectsWithPolicy-Exec1*.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it's taking too long to finish.  |
+
+   :::image type="content" source="media/run-command/run-command-get-unassociated-storage-policy.png" alt-text="Screenshot that shows how to list unassociated storage policies." lightbox="media/run-command/run-command-get-unassociated-storage-policy.png":::
+
+   3. Check **Notifications** to see the progress.
+
+## Set a storage policy for Unassociated vSAN objects 
+ 
+Run the `Update-StoragePolicyOfUnassociatedVsanObjects` cmdlet to modify current vSAN-based storage policy to a target storage policy on a cluster. For example, if you have unassociated objects with RAID-5 FTT-1  in Cluster-1, you can set the target policy name as RAID-1 FTT-1.
+
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Management** > **Update-StoragePolicyOfUnassociatedVsanObjects**. 
+
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
+
+| Field | Value |
+   | --- | --- |
+   | **CurrentPolicyName** | Name of the storage policy that the unassociated objects currently have. For example, *RAID-5 FTT-1* |
+   | **TargetPolicyName** | Name of the storage policy that you want to set for the unassociated objects. For example, *RAID-1 FTT-1* |
+   | **Cluster Name** | Name of the Cluster where you want the unassociated objects updated. For example, *Cluster-1* |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
+   | **Specify name for execution**  | Alphanumeric name. For example, *Update-StoragePolicyOfUnassociatedVsanObjects-Exec1*.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it's taking too long to finish.  |
+
+   :::image type="content" source="media/run-command/run-command-update-unassociated-storage-policy.png" alt-text="Screenshot that shows how to update unassociated storage policies." lightbox="media/run-command/run-command-update-unassociated-storage-policy.png":::
+
+
+   3. Check **Notifications** to see the progress.
 
 ## Specify a storage policy for a cluster
 

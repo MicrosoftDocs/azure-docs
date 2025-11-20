@@ -1,12 +1,15 @@
 ---
 title: Set up VMware disaster recovery to Azure in a multi-tenancy environment using Site Recovery and the Cloud Solution Provider (CSP) program | Microsoft Docs
 description: Describes how to set up VMware disaster recovery in a multitenant environment with Azure Site Recovery.
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 09/11/2024
-ms.custom: subject-rbac-steps, engagement-fy23
+ms.custom:
+  - subject-rbac-steps
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a cloud service partner, I want to set up and manage VMware disaster recovery for multiple tenants using Azure, so that I can provide efficient disaster recovery solutions tailored to my customers' needs while optimizing resource usage.
 ---
 
@@ -73,7 +76,7 @@ You can add a new user to the tenant subscription through the CSP portal as foll
 
 1. After you've created a new user, go back to the Azure portal. 
 
-The following steps describe how to assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+The following steps describe how to assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. In the **Subscription** page, select the relevant subscription.
 

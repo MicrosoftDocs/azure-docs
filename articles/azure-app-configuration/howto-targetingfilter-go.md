@@ -19,11 +19,11 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
 - Go 1.21 or later. For information on installing Go, see the [Go downloads page](https://golang.org/dl/).
-- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0-beta.1 or later.
+- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0 or later.
 
 ## Create a web application with a feature flag
 
@@ -52,274 +52,119 @@ In this section, you create a web application that allows users to sign in and u
     go get github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig
     ```
 
-1. Create a templates directory for your HTML templates:
+1. Create a templates directory for your HTML templates and add the required HTML files:
 
-    ```console
+    ```bash
     mkdir templates
     ```
 
-1. Create an HTML template for the home page. Add the following content to `templates/index.html`:
+    Add the following HTML template files from the [GitHub repo](https://github.com/microsoft/FeatureManagement-Go/tree/main/example/quickstart/gin-targeting-quickstart/templates) and place them in the `templates` directory:
+    
+    - [`index.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-targeting-quickstart/templates/index.html) - The home page template
+    - [`beta.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-targeting-quickstart/templates/beta.html) - The beta page template
+    - [`login.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-targeting-quickstart/templates/login.html) - The login page template
 
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{.title}}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">TestFeatureFlags</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                        {{if .betaEnabled}}
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/beta">Beta</a>
-                        </li>
-                        {{end}}
-                    </ul>
-                    <ul class="navbar-nav">
-                        {{if .user}}
-                        <li class="nav-item">
-                            <span class="navbar-text me-3">Welcome, {{.user}}!</span>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/logout">Logout</a>
-                        </li>
-                        {{else}}
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/login">Login</a>
-                        </li>
-                        {{end}}
-                    </ul>
-                </div>
-            </div>
-        </nav>    <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h1>Welcome</h1>
-            </div>
-        </div>
+1. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    ```
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-1. Create an HTML template for the beta page. Add the following content to `templates/beta.html`:
+    ```golang
+    package main
 
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{.title}}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>    <!-- Navigation -->    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">TestFeatureFlags</a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/beta">Beta</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>    <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h1>This is the beta website.</h1>
-                </div>
-            </div>
-        </div>
+    import (
+        "context"
+        "log"
+        "os"
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    ```
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
 
-1. Create an HTML template for the login page. Add the following content to `templates/login.html`:
+    func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+        // Get the endpoint from environment variable
+        endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
+        if endpoint == "" {
+            log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
+        }
 
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{.title}}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">TestFeatureFlags</a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        // Create a credential using DefaultAzureCredential
+        credential, err := azidentity.NewDefaultAzureCredential(nil)
+        if err != nil {
+            log.Fatalf("Failed to create credential: %v", err)
+        }
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="text-center">Login</h3>
-                        </div>
-                        <div class="card-body">
-                            {{if .error}}
-                            <div class="alert alert-danger" role="alert">
-                                {{.error}}
-                            </div>
-                            {{end}}
-                            
-                            <form method="post" action="/login">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" id="username" name="username" required 
-                                        placeholder="Enter you email">
-                                </div>
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        // Set up authentication options with endpoint and credential
+        authOptions := azureappconfiguration.AuthenticationOptions{
+            Endpoint:   endpoint,
+            Credential: credential,
+        }
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    ```
-
-## Connect to App Configuration
-
-Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
-
-### [Microsoft Entra ID (recommended)](#tab/entra-id)
-
-```golang
-package main
-
-import (
-    "context"
-    "log"
-    "os"
-
-    "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-)
-
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
-    // Get the endpoint from environment variable
-    endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
-    if endpoint == "" {
-        log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
-    }
-
-    // Create a credential using DefaultAzureCredential
-    credential, err := azidentity.NewDefaultAzureCredential(nil)
-    if err != nil {
-        log.Fatalf("Failed to create credential: %v", err)
-    }
-
-    // Set up authentication options with endpoint and credential
-    authOptions := azureappconfiguration.AuthenticationOptions{
-        Endpoint:   endpoint,
-        Credential: credential,
-    }
-
-    // Set up options to enable feature flags
-    options := &azureappconfiguration.Options{
-        FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
-            Enabled: true,
-            RefreshOptions: azureappconfiguration.RefreshOptions{
+        // Set up options to enable feature flags
+        options := &azureappconfiguration.Options{
+            FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
                 Enabled: true,
+                RefreshOptions: azureappconfiguration.RefreshOptions{
+                    Enabled: true,
+                },
             },
-        },
+        }
+
+        // Load configuration from Azure App Configuration
+        appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+        if err != nil {
+            log.Fatalf("Failed to load configuration: %v", err)
+        }
+
+        return appConfig, nil
     }
+    ```
 
-    // Load configuration from Azure App Configuration
-    appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-    if err != nil {
-        log.Fatalf("Failed to load configuration: %v", err)
-    }
+    ### [Connection string](#tab/connection-string)
 
-    return appConfig, nil
-}
-```
+    ```golang
+    package main
 
-### [Connection string](#tab/connection-string)
+    import (
+        "context"
+        "log"
+        "os"
 
-```golang
-package main
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+    )
 
-import (
-    "context"
-    "log"
-    "os"
+    func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+        // Get the connection string from environment variable
+        connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
+        if connectionString == "" {
+            log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
+        }
 
-    "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-)
+        // Set up authentication options with connection string
+        authOptions := azureappconfiguration.AuthenticationOptions{
+            ConnectionString: connectionString,
+        }
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
-    // Get the connection string from environment variable
-    connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
-    if connectionString == "" {
-        log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
-    }
-
-    // Set up authentication options with connection string
-    authOptions := azureappconfiguration.AuthenticationOptions{
-        ConnectionString: connectionString,
-    }
-
-    // Set up options to enable feature flags
-    options := &azureappconfiguration.Options{
-        FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
-            Enabled: true,
-            RefreshOptions: azureappconfiguration.RefreshOptions{
+        // Set up options to enable feature flags
+        options := &azureappconfiguration.Options{
+            FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
                 Enabled: true,
+                RefreshOptions: azureappconfiguration.RefreshOptions{
+                    Enabled: true,
+                },
             },
-        },
+        }
+
+        // Load configuration from Azure App Configuration
+        appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+        if err != nil {
+            log.Fatalf("Failed to load configuration: %v", err)
+        }
+
+        return appConfig, nil
     }
+    ```
 
-    // Load configuration from Azure App Configuration
-    appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-    if err != nil {
-        log.Fatalf("Failed to load configuration: %v", err)
-    }
-
-    return appConfig, nil
-}
-```
-
----
+    ---
 
 ## Use targeting with feature flags 
 

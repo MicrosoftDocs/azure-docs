@@ -7,6 +7,7 @@ ms.subservice: authoring
 ms.date: 04/23/2025
 ms.author: whhender
 ms.reviewer: xupzhou
+ms.custom: sfi-image-nochange
 
 #customer intent: As a new data factory customer, I want to create a data factory instance so I can test its functions for my organization, or get started using it.
 
@@ -22,7 +23,7 @@ If you're new to Azure Data Factory, see the [introduction to the service](intro
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Make sure that you have the required Azure roles to create a data factory. For more information, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
 
 ## Create a data factory in Azure Data Factory Studio

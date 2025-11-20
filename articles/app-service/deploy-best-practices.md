@@ -10,6 +10,7 @@ ms.custom: UpdateFrequency3
 author: cephalin
 ms.author: cephalin
 #customer intent: As a build developer, I want to understand the components of deploying to Azure App Service to design the best build solution for the technologies we use in our project.
+ms.service: azure-app-service
 ---
 
 # Deployment best practices

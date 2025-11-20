@@ -15,7 +15,7 @@ In this quickstart, you use the Azure portal to create an Event Grid namespace w
 
 ## Prerequisites
 
-- Create an [Azure free account](https://azure.microsoft.com/free/) If you don't have an Azure subscription. 
+- Create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) If you don't have an Azure subscription. 
 - Read through [Event Grid overview](overview.md) before starting this tutorial, if you're new to Azure Event Grid.
 - Ensure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.

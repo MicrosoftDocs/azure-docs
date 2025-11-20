@@ -1381,6 +1381,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-mount-file-share.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-windows",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/storage/files/storage-files-deployment-guide.md",
             "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
             "redirect_document_id": false
@@ -2161,6 +2166,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-authorize-azure-active-directory.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-authorize-user-identity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-migrate-on-premises-data.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/storage/storage-use-data-movement-library.md",
             "redirect_url": "/azure/storage/common/storage-use-data-movement-library",
             "redirect_document_id": true
@@ -2613,6 +2628,11 @@
         {
             "source_path_from_root": "/articles/storage/blobs/storage-retry-policy-typescript.md",
             "redirect_url": "/azure/storage/blobs/storage-blobs-tune-upload-download-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/blob-upload-function-trigger-javascript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-javascript-get-started",
             "redirect_document_id": false
         },
         {

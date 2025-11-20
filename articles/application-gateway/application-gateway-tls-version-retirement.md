@@ -5,7 +5,7 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/31/2025
+ms.date: 10/15/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -35,14 +35,11 @@ The predefined policies 20150501 and 20170401 that support TLS v1.0 and 1.1 will
 
 ### Custom policies for V2 SKUs
 
-Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions affects only the "Custom" policy. The newer "CustomV2" policy comes with TLS v1.3. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites won't be supported.
+Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions affects only the "Custom" policy. The newer "CustomV2" policy comes with TLS v1.3 and also v1.2. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites won't be supported.
 
 | Unsupported cipher suites |
 | ---------- |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
 | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 |
-| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 |
 | TLS_DHE_RSA_WITH_AES_256_CBC_SHA |
 | TLS_DHE_RSA_WITH_AES_128_CBC_SHA |
 | TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 |
@@ -51,6 +48,7 @@ Azure Application Gateway V2 SKU offers two types of custom policies: Custom and
 | TLS_DHE_DSS_WITH_AES_128_CBC_SHA |
 | TLS_RSA_WITH_3DES_EDE_CBC_SHA |
 | TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
+
 
 ### Predefined policies for V1 SKUs
 
@@ -113,14 +111,16 @@ Once support for TLS versions 1.0 and 1.1 is discontinued, clients may encounter
 A default TLS policy for Application Gateway is a packaged set of supported TLS versions and cipher suites. This allows customers to begin using secured traffic by only configuring HTTPS or TLS listeners and backend settings, without any extra configuration for TLS version or ciphers. Application Gateway uses one of its predefined policies as the default.
 
 ### How will the default TLS policies be impacted after legacy TLS versions 1.0 and 1.1 retirement?
-Until September 2025, V2 SKUs utilize two [default TLS policies](application-gateway-ssl-policy-overview.md#default-tls-policy) based on the API version specified during resource deployment. Deployments using API version **2023-02-01 or later** apply `AppGwSslPolicy20220101` by default, while earlier API versions use `AppGwSslPolicy20150501`. With the deprecation of TLS 1.0 and 1.1, the older `AppGwSslPolicy20150501` policy, will be discontinued. So, `AppGwSslPolicy20220101` will become the default policy for all V2 gateways.
+Until September 2025, V2 SKUs utilize two [default TLS policies](application-gateway-ssl-policy-overview.md#default-tls-policy) based on the API version specified during resource deployment. Deployments using API version **2023-02-01 or later** apply `AppGwSslPolicy20220101` by default, while earlier API versions use `AppGwSslPolicy20150501`. 
+
+With the deprecation of TLS 1.0 and 1.1, the older `AppGwSslPolicy20150501` policy, will be discontinued. So, `AppGwSslPolicy20220101` will become the default policy for all V2 gateways. Once this change in default policy is implemented, a subsequent PUT operation will complete the configuration update. 
 
 The default policy for the V1 SKU will remain unchanged since `AppGwSslPolicy20220101` won't be introduced for this retiring SKU.
 
 > [!NOTE]
-> A default TLS policy is applied only when the "Default" option is selected in the Portal or when no TLS policy is specified within the resource configuration by means such as REST, PowerShell, or AzCLI.
+> * A default TLS policy is applied only when the "Default" option is selected in the Portal or when no TLS policy is specified within the resource configuration by means such as REST, PowerShell, or AzCLI. Accordingly, using a default policy in configuration isn't same as explicitly selecting `AppGwSslPolicy20150501` policy, even if `AppGwSslPolicy20150501` is the default policy for your API version.
 > 
-> Accordingly, using a default policy in configuration isn't same as explicitly selecting `AppGwSslPolicy20150501` policy, even if `AppGwSslPolicy20150501` is the default policy for your API version.
+> * The changes will be applied gradually across all Azure regions.
 
 ### Which TLS policies in Application Gateway are getting deprecated?
 The predefined policies `AppGwSslPolicy20150501` and `AppGwSslPolicy20170401` that support TLS versions 1.0 and 1.1 will be removed from the Azure Resource Manager configuration. Similarly, the Custom policy will stop supporting TLS versions 1.0 and 1.1 along with their associated cipher suites. This applies to both V1 and V2 SKUs.
@@ -134,7 +134,7 @@ If you have chosen any deprecating TLS policy in the configuration of your gatew
 A nonfunctional TLS configuration, such a SSLProfile not linked to any listener, won't have any impact on the control plane of the gateway.
 
 ### How is the release for this change planned?
-Given the scale of our fleet, after 30 August 2025, the deprecation of TLS versions will be implemented separately for the Data and Control Planes (in that order). Any region-specific details won't be available; therefore, we strongly advise you to take all necessary actions before this retirement date.
+Given the scale of our fleet, after 30 August 2025, the deprecation of TLS versions will be implemented separately for the Control and Data planes. Any region-specific details won't be available; therefore, we strongly advise you to take all necessary actions at the earliest.
 
 ### Is there any potential impact if I haven’t selected any TLS policy and my gateway uses only HTTP/TCP configurations?
 If your gateway doesn't use any TLS configuration—either through SSLPolicy, SSLProfile, HTTPS, or TLS Listeners—there will be no impact after August 2025.

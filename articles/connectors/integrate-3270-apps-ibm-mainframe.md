@@ -8,6 +8,7 @@ ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 11/02/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Integrate 3270 screen-driven apps on IBM mainframes with Azure using Azure Logic Apps and IBM 3270 connector
@@ -62,7 +63,7 @@ This operation also includes advanced parameters, which appear after you select 
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to the TN3270 server that hosts your 3270 screen-driven app
 

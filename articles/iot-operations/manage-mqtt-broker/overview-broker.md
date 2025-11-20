@@ -2,8 +2,8 @@
 title: Publish and Subscribe MQTT Messages Using Azure MQTT Broker
 description: Use MQTT broker to publish and subscribe to messages. Destinations include other MQTT brokers, data flows, and Azure cloud services.
 #customer intent: As a solution architect, I want to learn about the architecture of the Azure MQTT Broker so that I can design fault-tolerant and scalable IoT solutions.  
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
 ms.custom:

@@ -7,7 +7,10 @@ ms.author: allensu
 ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.custom: template-how-to, devx-track-arm-template
+ms.custom:
+  - template-how-to
+  - devx-track-arm-template
+  - sfi-image-nochange
 # Customer intent: As a cloud engineer, I want to configure a Multivalue routing method with nested endpoints using an ARM template, so that I can efficiently manage traffic distribution in my Azure environment.
 ---
 
@@ -23,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - Two existing Azure Traffic Manager profiles. For more information on creating an Azure Traffic Manager profile, see [Quickstart: Create a Traffic Manager profile using an ARM template](quickstart-create-traffic-manager-profile-template.md).
 

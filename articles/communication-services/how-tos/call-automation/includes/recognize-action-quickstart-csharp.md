@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Prerequisites
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/).
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
@@ -127,6 +127,7 @@ var recognizeOptions = new CallMediaRecognizeChoiceOptions(targetParticipant, ch
     InitialSilenceTimeout = TimeSpan.FromSeconds(30),
     Prompt = playSource,
     OperationContext = "AppointmentReminderMenu",
+    SpeechLanguages = new List<string> { "en-US", "hi-IN", "fr-FR" },
     //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
     SpeechModelEndpointId = "YourCustomSpeechModelEndpointId"
 };
@@ -165,6 +166,7 @@ var recognizeOptions = new CallMediaRecognizeSpeechOrDtmfOptions(targetParticipa
     InitialSilenceTimeout = TimeSpan.FromSeconds(30), 
     InterruptPrompt = true, 
     OperationContext = "OpenQuestionSpeechOrDtmf",
+    SpeechLanguages = new List<string> { "en-US", "hi-IN", "fr-FR" },
     //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
     SpeechModelEndpointId = "YourCustomSpeechModelEndpointId" 
 }; 
@@ -175,39 +177,114 @@ var recognizeResult = await callAutomationClient.GetCallConnection(callConnectio
 > [!Note]
 > If parameters aren't set, the defaults are applied where possible.
 
+### Real-time language identification (Preview)
+
+With the additional of real-time language identification, developers can automatically detect spoken languages to enable natural, human-like communications and eliminate manual language selection by the end users. 
+
+``` csharp
+string textToPlay = "Hi, how can I help you today?";
+var playSource = new TextSource(textToPlay, "en-US-ElizabethNeural");
+var recognizeOptions = new CallMediaRecognizeSpeechOptions(targetParticipant: new PhoneNumberIdentifier(targetParticipant))
+{
+    Prompt = playSource,
+    InterruptCallMediaOperation = false,
+    InterruptPrompt = false,
+    InitialSilenceTimeout = TimeSpan.FromSeconds(10),
+    OperationContext = "OpenQuestionSpeech",
+    // Enable Language Identification
+    SpeechLanguages = new List<string> { "en-US", "hi-IN", "fr-FR" },
+    // Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    SpeechModelEndpointId = "YourCustomSpeechModelEndpointId"
+};
+var recognizeResult = await callAutomationClient.GetCallConnection(callConnectionId)
+    .GetCallMedia()
+    .StartRecognizingAsync(recognizeOptions);
+```
+
+>[!Note]
+> **Language support limits**
+>
+> When using the `Recognize` API with Speech as the input type:
+> - You can specify **up to 10 languages** using `setSpeechLanguages(...)`.
+> - Be aware that using more languages may **increase the time** it takes to receive the `RecognizeCompleted` event due to additional processing.
+>
+> When using the `Recognize` API with **choices**:
+> - Only **up to 4 languages** are supported.
+> - Specifying more than 4 languages in choices mode may result in errors or degraded performance.
+
+### Sentiment Analysis (Preview)
+The Recognize API supports sentiment analysis when using speech input. Track the emotional tone of conversations in real time to support customer and agent interactions, and enable supervisors to intervene when necessary. It can also be useful for routing, personalization or analytics. 
+
+``` csharp
+string textToPlay = "Hi, how can I help you today?";
+var playSource = new TextSource(textToPlay, "en-US-ElizabethNeural");
+var recognizeOptions = new CallMediaRecognizeSpeechOptions(targetParticipant: new PhoneNumberIdentifier(targetParticipant))
+{
+    Prompt = playSource,
+    InterruptCallMediaOperation = false,
+    InterruptPrompt = false,
+    InitialSilenceTimeout = TimeSpan.FromSeconds(10),
+    OperationContext = "OpenQuestionSpeech",
+    // Enable Sentiment Analysis
+    IsSentimentAnalysisEnabled = true
+};
+var recognizeResult = await callAutomationClient.GetCallConnection(callConnectionId)
+    .GetCallMedia()
+    .StartRecognizingAsync(recognizeOptions);
+```
+
+
 ## Receiving recognize event updates
 
 Developers can subscribe to `RecognizeCompleted` and `RecognizeFailed` events on the registered webhook callback. Use this callback with business logic in your application to determine next steps when one of the events occurs. 
 
 ### Example of how you can deserialize the *RecognizeCompleted* event:
 ``` csharp
-if (acsEvent is RecognizeCompleted recognizeCompleted) 
-{ 
-    switch (recognizeCompleted.RecognizeResult) 
-    { 
-        case DtmfResult dtmfResult: 
-            //Take action for Recognition through DTMF 
-            var tones = dtmfResult.Tones; 
-            logger.LogInformation("Recognize completed successfully, tones={tones}", tones); 
-            break; 
-        case ChoiceResult choiceResult: 
-            // Take action for Recognition through Choices 
-            var labelDetected = choiceResult.Label; 
-            var phraseDetected = choiceResult.RecognizedPhrase; 
-            // If choice is detected by phrase, choiceResult.RecognizedPhrase will have the phrase detected, 
-            // If choice is detected using dtmf tone, phrase will be null 
+if (parsedEvent is RecognizeCompleted recognizeCompleted)
+{
+    logger.LogInformation($"Received call event: {recognizeCompleted.GetType()}");
+
+    callConnectionId = recognizeCompleted.CallConnectionId;
+
+    switch (recognizeCompleted.RecognizeResult)
+    {
+        case DtmfResult dtmfResult:
+            var tones = dtmfResult.Tones;
+            logger.LogInformation("Recognize completed successfully, tones={tones}", tones);
+            break;
+
+        case ChoiceResult choiceResult:
+            var labelDetected = choiceResult.Label;
+            var phraseDetected = choiceResult.RecognizedPhrase;
+            var sentimentAnalysis = choiceResult.SentimentAnalysisResult;
+
             logger.LogInformation("Recognize completed successfully, labelDetected={labelDetected}, phraseDetected={phraseDetected}", labelDetected, phraseDetected);
-            break; 
-        case SpeechResult speechResult: 
-            // Take action for Recognition through Choices 
-            var text = speechResult.Speech; 
-            logger.LogInformation("Recognize completed successfully, text={text}", text); 
-            break; 
-        default: 
-            logger.LogInformation("Recognize completed successfully, recognizeResult={recognizeResult}", recognizeCompleted.RecognizeResult); 
-            break; 
-    } 
-} 
+            logger.LogInformation("Language Identified: {language}", choiceResult.LanguageIdentified);
+
+            if (sentimentAnalysis != null)
+            {
+                logger.LogInformation("Sentiment: {sentiment}", sentimentAnalysis.Sentiment);
+            }
+            break;
+
+        case SpeechResult speechResult:
+            var text = speechResult.Speech;
+            var speechSentiment = speechResult.SentimentAnalysisResult;
+
+            logger.LogInformation("Recognize completed successfully, text={text}", text);
+            logger.LogInformation("Language Identified: {language}", speechResult.LanguageIdentified);
+
+            if (speechSentiment != null)
+            {
+                logger.LogInformation("Sentiment: {sentiment}", speechSentiment.Sentiment);
+            }
+            break;
+
+        default:
+            logger.LogInformation("Recognize completed successfully, recognizeResult={recognizeResult}", recognizeCompleted.RecognizeResult);
+            break;
+    }
+}
 ```
 
 ### Example of how you can deserialize the *RecognizeFailed* event:

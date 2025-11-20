@@ -21,10 +21,10 @@ The feature management support extends the dynamic configuration feature in App 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Go 1.21 or later. For information on installing Go, see the [Go downloads page](https://golang.org/dl/).
-- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0-beta.1 or later.
+- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0 or later.
 
 ## Create a feature flag
 
@@ -55,98 +55,55 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     go get github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig
     ```
 
-1. Create a templates directory for your HTML templates.
+1. Create a templates directory for your HTML templates and add the required HTML files:
 
     ```bash
     mkdir templates
     ```
 
-1. Create an HTML template for the home page. Add the following content to `templates/index.html`:
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{.title}}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">TestAppConfig</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                        {{if .betaEnabled}}
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/beta">Beta</a>
-                        </li>
-                        {{end}}
-                    </ul>
-                </div>
-            </div>
-        </nav>    <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h1>Hello from Azure App Configuration</h1>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    ```
-
-1. Create an HTML template for the beta page. Add the following content to `templates/beta.html`:
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{.title}}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Navigation -->    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">TestAppConfig</a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/beta">Beta</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>    <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h1>This is the beta website.</h1>
-                </div>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    ```
+    Add the following HTML template files from the [GitHub repo](https://github.com/microsoft/FeatureManagement-Go/tree/main/example/quickstart/gin-feature-flag-quickstart/templates) and place them in the `templates` directory:
+    
+    - [`index.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-feature-flag-quickstart/templates/index.html) - The home page template
+    - [`beta.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-feature-flag-quickstart/templates/beta.html) - The beta page template
 
 ## Use a feature flag
 
-1. Update the `options` to enable feature flags in [previous step](./quickstart-go-console-app.md#connect-to-app-configuration).
+1. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
     ```golang
+    package main
+
+    import (
+        "context"
+        "log"
+        "os"
+
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+
+    func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+        // Get the endpoint from environment variable
+        endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
+        if endpoint == "" {
+            log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
+        }
+
+        // Create a credential using DefaultAzureCredential
+        credential, err := azidentity.NewDefaultAzureCredential(nil)
+        if err != nil {
+            log.Fatalf("Failed to create credential: %v", err)
+        }
+
+        // Set up authentication options with endpoint and credential
+        authOptions := azureappconfiguration.AuthenticationOptions{
+            Endpoint:   endpoint,
+            Credential: credential,
+        }
+
+        // Configure feature flag options
         options := &azureappconfiguration.Options{
             FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
                 Enabled: true,
@@ -155,13 +112,69 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
                 },
             },
         }
+
+        // Load configuration from Azure App Configuration
+        appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+        if err != nil {
+            log.Fatalf("Failed to load configuration: %v", err)
+        }
+
+        return appConfig, nil
+    }
     ```
+
+    ### [Connection string](#tab/connection-string)
+
+    ```golang
+    package main
+
+    import (
+        "context"
+        "log"
+        "os"
+
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+    )
+
+    func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+        // Get the connection string from environment variable
+        connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
+        if connectionString == "" {
+            log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
+        }
+
+        // Set up authentication options with connection string
+        authOptions := azureappconfiguration.AuthenticationOptions{
+            ConnectionString: connectionString,
+        }
+
+        // Configure feature flag options
+        options := &azureappconfiguration.Options{
+            FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
+                Enabled: true,
+                RefreshOptions: azureappconfiguration.RefreshOptions{
+                    Enabled: true,
+                },
+            },
+        }
+
+        // Load configuration from Azure App Configuration
+        appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+        if err != nil {
+            log.Fatalf("Failed to load configuration: %v", err)
+        }
+
+        return appConfig, nil
+    }
+    ```
+
+    ---
 
     > [!TIP]
     > When no selector is specified in `FeatureFlagOptions`, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh interval of feature flags is 30 seconds. You can customize this behavior via the `RefreshOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh interval time to 5 minutes. Note that this refresh interval time is separate from that for regular key-values.
     >
     > ```golang
-    > FeatureFlagOptions{
+    > azureappconfiguration.FeatureFlagOptions{
     >     Enabled: true,
     >     Selectors: []azureappconfiguration.Selector{
     >         {

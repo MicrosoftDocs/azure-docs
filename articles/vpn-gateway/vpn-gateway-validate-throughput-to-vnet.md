@@ -5,11 +5,13 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: azure-vpn-gateway
-ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 06/24/2025
 ms.author: radwiv
 ms.reviewer: chadmat;genli
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As a network engineer, I want to validate VPN throughput from on-premises resources to an Azure virtual machine, so that I can ensure optimal connectivity and diagnose potential performance issues."
 ---
 

@@ -7,6 +7,7 @@ ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to customize my sign-in and sign-out options to provide links to different providers and to enhance the user experience in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Customize sign-ins and sign-outs in Azure App Service authentication

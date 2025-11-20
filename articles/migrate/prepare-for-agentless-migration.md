@@ -4,6 +4,7 @@ description: Learn how to prepare on-premises machines for agentless migration w
 author: vijain
 ms.author: vijain
 ms.topic: concept-article
+ms.reviewer: v-uhabiba
 ms.service: azure-migrate
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
@@ -37,6 +38,7 @@ Azure Migrate automatically handles these configuration changes for the followin
 - Oracle Linux 9, 8, 7.7-CI, 7.7, 6
 - Alma Linux 8.x, 9.x
 - Rocky Linux 8.x, 9.x
+
 You can also use this article to manually prepare the VMs for migration to Azure for operating systems versions not listed above. At a high level, these changes include:
 
 - Validate the presence of the required drivers

@@ -9,12 +9,6 @@
     href: overview-v2.md
   - name: Application Gateway for Containers
     href: ./for-containers/overview.md
-  - name: Architecture best practices for Azure Application Gateway v2
-    href: /azure/well-architected/service-guides/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
-  - name: What is load balancing and content delivery?
-    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview
-  - name: Choose a load balancing solution
-    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/load-balancer/toc.json
   - name: Create Application Gateway - Portal
     href: quick-create-portal.md
   - name: Create Application Gateway - PowerShell
@@ -29,10 +23,10 @@
     href: quick-create-template.md
   - name: Create Application Gateway - Terraform
     href: quick-create-terraform.md
-  - name: FAQ
-    href: application-gateway-faq.yml
 - name: Design
   items:
+  - name: Architecture best practices for Azure Application Gateway v2
+    href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
   - name: Basics
     items:
     - name: Application Gateway features
@@ -53,7 +47,7 @@
       href: configuration-listeners.md
     - name: Request routing rules
       href: configuration-request-routing-rules.md
-    - name: Backend settings
+    - name: HTTP settings
       href: configuration-http-settings.md
   - name: Routing
     items:
@@ -66,23 +60,27 @@
     - name: Rewrite HTTP headers and URL
       href: rewrite-http-headers-url.md
   - name: TCP/TLS proxy
-    href: tcp-tls-proxy-overview.md
+    items:
+    - name: Overview
+      href: tcp-tls-proxy-overview.md
+    - name: Client IP preservation
+      href: proxy-protocol-header.md 
   - name: Support for working remotely
     href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: High traffic support
     href: high-traffic-support.md
+  - name: Autoscaling v2 SKU
+    href: application-gateway-autoscaling-zone-redundant.md
   - name: WebSocket support
     href: application-gateway-websocket.md
-  - name: DNS resolution details
-    href: application-gateway-dns-resolution.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Understanding pricing
     href: understanding-pricing.md
+  - name: FAQ
+    href: application-gateway-faq.yml
 - name: Security
   items:
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: Private Deployment
     href: application-gateway-private-deployment.md
   - name: Private Link
@@ -95,22 +93,18 @@
     href: application-gateway-ssl-policy-overview.md
   - name: Mutual authentication
     href: mutual-authentication-overview.md
+  - name: JSON Web Token (JWT) Configuration
+    href: json-web-token-overview.md
   - name: Using Key Vault
     href: key-vault-certs.md
   - name: SSL certificate management
     href: ssl-certificate-management.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: TLS 1.0 and 1.1 retirement
     href: application-gateway-tls-version-retirement.md
   - name: Network security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-- name: Reliability
-  items:
-  - name: Reliability for Application Gateway v2
-    href: ../reliability/reliability-application-gateway-v2.md?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
-  - name: Autoscaling and zone redundancy v2 SKU
-    href: application-gateway-autoscaling-zone-redundant.md
-  - name: Tutorial- Autoscaling and zone redundancy
-    href: tutorial-autoscale-ps.md
 - name: Deploy
   items:
   - name: Host multiple sites
@@ -119,6 +113,8 @@
     href: create-url-route-portal.md
   - name: Redirect web traffic
     href: tutorial-url-redirect-cli.md
+  - name: Autoscaling and zone redundant
+    href: tutorial-autoscale-ps.md
   - name: Deploy Application Gateway with DDoS protection
     href: tutorial-protect-application-gateway.md
   - name: Configure TCP/TLS proxy
@@ -161,6 +157,8 @@
         href: mutual-authentication-portal.md
       - name: Mutual authentication - PowerShell
         href: mutual-authentication-powershell.md
+      - name: Mutual authentication - Template
+        href: mutual-authentication-arm-template.md
     - name: Manage certificates
       items:             
       - name: Certificates for the backend
@@ -294,11 +292,11 @@
   - name: Relocate
     items:
     - name: Relocate to another region
-      href: ../azure-resource-manager/management/relocation/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
+      href: ../operational-excellence/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
+    - name: Migrate to availability zone support
+      href: ../reliability/migrate-app-gateway-v2.md?toc=/azure/application-gateway/toc.json
   - name: Proxy buffer configuration
     href: proxy-buffers.md
-  - name: Using Server-sent events
-    href: use-server-sent-events.md    
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate to v2 SKU
@@ -311,6 +309,8 @@
       href: retirement-faq.md
   - name: Configure alerts
     href: configure-alerts-with-templates.md
+  - name: Classic to Resource Manager
+    href: classic-to-resource-manager.md
   - name: Configure Private Link
     href: private-link-configure.md
 - name: Health monitoring

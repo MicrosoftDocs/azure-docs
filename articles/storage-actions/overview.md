@@ -62,7 +62,7 @@ See these articles to learn how to assign a storage task:
 - [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
 
 > [!NOTE]
-> Storage task assignment can't target general-purpose v1 accounts because those accounts don't support the latest features. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
+> Storage task assignment can't target general-purpose v1 and legacy Blob Storage accounts because those accounts don't support the latest features. If you have a general-purpose v1 or legacy Blob Storage account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
 
 ## Events
 
@@ -94,9 +94,15 @@ Azure Storage Actions is generally available in the following public cloud regio
 
 - Canada Central
 
+- Canada East
+
 - Central India
 
 - Central US
+
+- East Asia
+
+- East US
 
 - East US 2
 
@@ -116,9 +122,13 @@ Azure Storage Actions is generally available in the following public cloud regio
 
 - Jio India Central
 
+- Jio India West
+
 - Korea Central
 
 - Korea South
+
+- Mexico Central
 
 - North Central US
 
@@ -135,6 +145,8 @@ Azure Storage Actions is generally available in the following public cloud regio
 - South Central US
 
 - South India
+
+- South East Asia
 
 - Spain Central
 
@@ -157,6 +169,8 @@ Azure Storage Actions is generally available in the following public cloud regio
 - West Central US
 
 - West Europe
+
+- West India
 
 - West US
 

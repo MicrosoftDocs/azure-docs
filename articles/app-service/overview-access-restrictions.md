@@ -3,10 +3,11 @@ title: App Service Access restrictions
 description: This article provides an overview of the access restriction features in App Service.
 author: seligj95
 ms.topic: overview
-ms.date: 02/13/2024
+ms.date: 09/02/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom: UpdateFrequency3
+ms.service: azure-app-service
 ---
 
 # Azure App Service access restrictions
@@ -59,14 +60,14 @@ The IP-based access restrictions feature helps when you want to restrict the IP 
 To learn how to enable this feature, see [Configuring access restrictions](./app-service-ip-restrictions.md).
 
 > [!NOTE]
-> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multi-tenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
+> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multitenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
 
 ### Access restriction rules based on service endpoints 
 
 Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks.
 
 > [!NOTE]
-> Access restriction rules based on service endpoints are not supported on apps that have private endpoint configured or apps that use IP-based SSL ([App-assigned address](./networking-features.md#app-assigned-address)).
+> Access restriction rules based on service endpoints aren't supported on apps that have private endpoint configured or apps that use IP-based SSL ([App-assigned address](./networking-features.md#app-assigned-address)).
 
 To learn more about configuring service endpoints with your app, see [Azure Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -86,7 +87,7 @@ To learn how to enable this feature, see [Configuring access restrictions](./app
 
 Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use multi-source rules if you have more than 512 IP ranges. You can also use multi-source rules if you want to create logical rules where multiple IP ranges are combined with a single http header filter.
 
-Multi-source rules are defined the same way you define single-source rules, but with each range separated with comma.
+Multi-source rules are defined in the same way you define single-source rules, but with each range separated with comma.
 
 You can't create these rules in the portal, but you can modify an existing service tag or IP-based rule and add more sources to the rule.
 
@@ -135,7 +136,7 @@ Alternatively, [Azure Private Link](../frontdoor/private-link.md) enables you to
 
 ## Next steps
 > [!NOTE]
-> Access restriction rules that block public access to your site can also block services such as log streaming. If you require these, you will need to allow your App Service's IP address in your restrictions.
+> Access restriction rules that block public access to your site can also block services such as log streaming. If you require these types of rules, you need to allow your App Service's IP address in your restrictions.
 
 > [!div class="nextstepaction"]
 > [How to restrict access](app-service-ip-restrictions.md)

@@ -4,7 +4,7 @@ description: Learn best practices while using Azure App Configuration. Topics co
 services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/10/2025
 ms.author: zhenlwa
 ms.custom:
@@ -79,8 +79,10 @@ configBuilder.AddAzureAppConfiguration(options =>
 
 ```javascript
 const appConfig = await load(endpoint, credential, {
+    // Load all keys that start with `TestApp:` and have no label
     selectors: [{ keyFilter: "TestApp:*" }],
     refreshOptions: {
+        // Trigger full configuration refresh when any selected key changes
         enabled: true
     }
 });
@@ -90,12 +92,14 @@ const appConfig = await load(endpoint, credential, {
 
 ```golang
 options := &azureappconfiguration.Options{
+    // Load all keys that start with `TestApp` and have no label
     Selectors: []azureappconfiguration.Selector{
         {
-            KeyFilter: "TestApp.*",
+            KeyFilter: "TestApp*",
         },
     },
     RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
+        // Trigger full configuration refresh when any selected key changes
         Enabled:  true,
     },
 }
@@ -115,9 +119,11 @@ spec:
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
+    # Load all keys that start with `TestApp` and have no label
     selectors:
       - keyFilter: TestApp*
     refresh:
+      # Trigger full configuration refresh when any selected key changes
       enabled: true
 ```
 
@@ -147,8 +153,10 @@ configBuilder.AddAzureAppConfiguration(options =>
 
 ```javascript
 const appConfig = await load(endpoint, credential, {
+    // Load all keys that start with `TestApp:` and have no label
     selectors: [{ keyFilter: "TestApp:*" }],
     refreshOptions: {
+        // Trigger full configuration refresh only if the `SentinelKey` changes
         enabled: true,
         watchedSettings: [{ key: "SentinelKey" }]
     }
@@ -159,16 +167,20 @@ const appConfig = await load(endpoint, credential, {
 
 ```golang
 options := &azureappconfiguration.Options{
+    // Load all keys that start with `TestApp` and have no label
     Selectors: []azureappconfiguration.Selector{
         {
             KeyFilter: "TestApp*",
         },
     },
     RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
+        // Trigger full configuration refresh only if the `SentinelKey` changes
         Enabled:  true,
-        WatchedSettings: []WatchedSetting{
-				    {Key: "SentinelKey"},
-			},
+        WatchedSettings: []azureappconfiguration.WatchedSetting{
+            {
+                Key: "SentinelKey",
+            },
+        },
     },
 }
 
@@ -187,9 +199,11 @@ spec:
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
+    # Load all keys that start with `TestApp` and have no label
     selectors:
       - keyFilter: TestApp*
     refresh:
+      # Trigger full configuration refresh only if the `SentinelKey` changes
       enabled: true
       monitoring:
         keyValues:
@@ -274,7 +288,9 @@ Applications often rely on configuration to start, making Azure App Configuratio
 
 When you use App Configuration in client applications, ensure that you consider two major factors. First, if you're using the connection string in a client application, you risk exposing the access key of your App Configuration store to the public. Second, the typical scale of a client application might cause excessive requests to your App Configuration store, which can result in overage charges or throttling. For more information about throttling, see the [FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).
 
-To address these concerns, we recommend that you use a proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the App Configuration provider libraries, so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Quickstarts and Tutorials. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
+To address these concerns, we recommend that you use a proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the [App Configuration provider libraries](./configuration-provider-overview.md), so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Get started. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
+
+It is important to consider that, when surfacing configuration to client applications, configuration values will be visible to end users. Care should be taken to avoid unintended exposure of sensitive data. For example, user and group names in feature flag targeting settings may be considered EUII (End User Identifiable Information). To mitigate this risk, consider using a separate App Configuration store resource dedicated to client application configuration, or segment configuration using filtering mechanisms such as key prefixes, labels, or tags and filter in the proxy server accordingly.
 
 ## Multitenant applications in App Configuration
 

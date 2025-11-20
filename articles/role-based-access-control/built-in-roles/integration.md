@@ -4,9 +4,9 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
-ms.author: jfields
+ms.author: rolyon
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -979,7 +979,6 @@ Allows read-only access to Azure API Center service.
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
-
 ## Azure Relay Listener
 
 Allows for listen access to Azure Relay resources.

@@ -5,10 +5,13 @@ description: This article explains how to seamlessly migrate from Standard/HighP
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.custom: ignite-2023, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/22/2025
 ms.author: duau
+ms.custom:
+  - ignite-2023
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal
@@ -19,9 +22,6 @@ When creating an ExpressRoute virtual network gateway, you must select a [gatewa
 
 - Review the [gateway migration](gateway-migration.md) article before starting.
 - Ensure you have an existing [ExpressRoute virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md) in your Azure subscription.
-
-> [!TIP]
-> You can now deploy two ExpressRoute gateways within the same virtual network. To do this, create a second ExpressRoute gateway with its admin state set to **disabled**. Once the second gateway is deployed, initiate the *Prepare* step in the migration tool. This step establishes the connection without redeploying the gateway, as it's already in place. Finally, run the *Migrate* step, which will change the new gateway's admin state to **_enabled_**, completing the migration process. This method minimizes the migration or maintenance window, significantly reducing downtime when transitioning from a non-zonal to a zone-redundant gateway.
 
 ## Steps to migrate to a new gateway in Azure portal
 
@@ -35,15 +35,15 @@ Follow these steps to migrate to a new gateway using the Azure portal:
 
     :::image type="content" source="media/gateway-migration/validate-step.png" alt-text="Screenshot of the validate step for migrating a virtual network gateway." lightbox="media/gateway-migration/validate-step.png":::
 
-1. After successful validation, move to the **Prepare** stage. At this point, a new virtual network gateway will be created, and its Public IP address will be provisioned and managed by Microsoft. In the **Virtual Network Gateway Details** section, enter the following information:
+1. After successful validation, move to the **Prepare** stage. At this point, a new virtual network gateway will be created, and its Public IP address will be provisioned and [managed by Microsoft](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). In the **Virtual Network Gateway Details** section, enter the following information:
 1. 
-    :::image type="content" source="media/gateway-migration/gateway-prepare-update.png" alt-text="Screenshot of the Prepare stage for migrating a virtual network gateway." lightbox="media/gateway-migration/gateway-prepare-stage.png":::
+    :::image type="content" source="media/gateway-migration/gateway-prepare-update.png" alt-text="Screenshot of the Prepare stage for migrating a virtual network gateway." lightbox="media/gateway-migration/gateway-prepare-update.png":::
 
     | Setting | value |
     |--|--|
     | **Gateway name** | Enter a name for the new gateway. |
     | **Gateway SKU** | Select the SKU for the new gateway. |
-    | **Public IP address** | Select **Add new**, provide a name for the new public IP, choose an availability zone, and select **OK**. |
+
 
     > [!NOTE]
     > During this process, your existing virtual network gateway is locked, preventing the creation or modification of connections.

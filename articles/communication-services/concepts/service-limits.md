@@ -186,6 +186,11 @@ For more information, see:
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Grant limited access to Azure Storage resources by using shared access signatures](/azure/storage/common/storage-sas-overview)
 
+### Send email to more than 50 recipients
+
+If you want to send emails to more than 50 recipients, make a [support request](../support.md).
+However, sending emails via SMTP to more than 50 recipients is not supported. 
+
 ### Action to take
 
 To increase your email quota, follow the instructions in [Quota increase for email domains](./email/email-quota-increase.md).
@@ -214,9 +219,11 @@ Azure Communication Services supports chat.
 | Operation | Scope | Limit per 10 seconds | Limit per minute |
 | --- | --- | --- | --- |
 | Create chat thread | Per user | 10 | - |
+| Create chat thread | Per resource | - | 3000 |
 | Delete chat thread | Per user | 10 | - |
 | Update chat thread | Per chat thread | 5 | - |
 | Add participants or remove participants | Per chat thread | 10 | 30 |
+| Add participants | Per resource | - | 3000 |
 | Get chat thread or list chat threads | Per user | 50 | - |
 | Get chat message | Per user, per chat thread | 50 | - |
 | Get chat message | Per chat thread | 250 | - |
@@ -237,8 +244,6 @@ Azure Communication Services supports chat.
 ### Chat storage
 
 Azure Communication Services stores chat messages according to the retention policy that you set when you create a chat thread.
-
-[!INCLUDE [public-preview-notice.md](../includes/public-preview-include-document.md)]
 
 You can choose between indefinite message retention or automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread). Alternatively, you can choose not to set a retention policy on a chat thread.
 
@@ -316,7 +321,11 @@ When you send or receive a high volume of requests, you might receive a ```Throt
 
 | Operation | Scope | Time frame (seconds) | Limit (number of requests) | Timeout in seconds |
 | --- | --- | --- | --- | --- |
-| General requests | Per resource | 10 | 1,000 | 10 |
+| General requests | Per resource | 10 | 3,000 | 5 |
+| Get Jobs (Route-Level Throttling) | Per resource | 10 | 332 | 5 |
+| Get Queue Statistics (Route-Level Throttling) | Per resource | 10 | 166 | 5 |
+| Get In-Queue Position (Route-Level Throttling) | Per resource | 10 | 166 | 5 |
+| Get Workers (Route-Level Throttling) | Per resource | 10 | 332 | 5 |
 
 ### Action to take
 

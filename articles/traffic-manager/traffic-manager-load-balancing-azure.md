@@ -8,7 +8,9 @@ ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 04/30/2024
 ms.author: allensu
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 # Customer intent: "As a system architect, I want to implement a load-balancing solution using multiple Azure services, so that I can ensure high availability, reduced latency, and scalable traffic management for our web applications."
 ---
 

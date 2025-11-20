@@ -4,8 +4,9 @@ description: Learn how to run the CLI for Azure Migrate application and code ass
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.service: azure
-ms.custom: devx-track-java, devx-track-extended-java
+ms.service: azure-java
+ms.subservice: java-fundamentals
+ms.custom: devx-track-java
 ms.topic: overview
 ms.date: 06/27/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
@@ -41,8 +42,12 @@ The following sections provide a detailed description of the available `appcat a
 | Source & target technologies |                             |                                                                                                                                                                                                                              |
 |                              | `--list-sources`            | Displays the available migration source technologies.                                                                                                                                                                        |
 |                              | `--list-targets`            | Displays the available migration target technologies.                                                                                                                                                                        |
+|                              | `--list-capabilities`       | Displays the available migration capabilities                                                                         |
+|                              | `--list-os`                 | Displays the available migration target operating systems.                                                             |
 |                              | `--source`, `-s`            | Specifies the source technologies for analysis. Use a comma-separated list for multiple values - for example, `--source <source1>,<source2>,...`. Use the `--list-sources` argument to list all available sources.           |
 |                              | `--target`, `-t`            | Specifies the target technologies for analysis. Use a comma-separated list for multiple values - for example, `--target <target1>,<target2>,...`. Use the `--list-targets` argument to list all available targets.           |
+|                              | `--capability`, `-c`        | Specifies capability technologies for analysis. Use a comma-separated list for multiple values - for example, `--capability <capability1>,<capability2>,...`. Use the `--list-capabilities` argument to list all available capabilities. |
+|                              | `--os`                      | Specifies operating systems for analysis. Use a comma-separated list for multiple values - for example, `--os <os1>,<os2>,...`. Use the `--list-os` argument to list all available operating systems. |
 | Analysis options             |                             |                                                                                                                                                                                                                              |
 |                              | `--analyze-known-libraries` | Enables analysis of known open-source libraries - specified in AppCAT's `maven.default.index` - during source code analysis. The default value is `false`.                                                                   |
 |                              | `--custom-maven-settings`   | Specifies the path to a custom Maven settings file.                                                                                                                                                                          |
@@ -98,7 +103,7 @@ The `--list-sources` parameter shows the following source technologies:
 | EAP          | Best practices for migrating Java applications that use JBoss EAP technology.   | `eap`        |
 | EAP 7        | Best practices for migrating Java applications that use JBoss EAP 7 technology. | `eap7`       |
 
-##### Support targets
+##### Supported targets
 
 The `--list-targets` parameter shows the following target technologies:
 
@@ -107,15 +112,30 @@ The `--list-targets` parameter shows the following target technologies:
 | Azure App Service         | Best practices for deploying an app to Azure App Service.              | `azure-appservice`     |
 | Azure Kubernetes Service  | Best practices for deploying an app to Azure Kubernetes Service.       | `azure-aks`            |
 | Azure Container Apps      | Best practices for deploying an app to Azure Container Apps.           | `azure-container-apps` |
-| Cloud Readiness           | General best practices for making an application Cloud (Azure) ready.  | `cloud-readiness`      |
-| Linux                     | General best practices for making an application Linux ready.          | `linux`                |
-| OpenJDK 11                | General best practices for running a Java 8 application with Java 11.  | `openjdk11`            |
-| OpenJDK 17                | General best practices for running a Java 11 application with Java 17. | `openjdk17`            |
-| OpenJDK 21                | General best practices for running a Java 17 application with Java 21. | `openjdk21`            |
+
+##### Supported operating systems
+
+The `--list-os` parameter shows the following operating systems:
+
+| OS name | Description                                                   | OS       |
+|---------|---------------------------------------------------------------|----------|
+| Linux   | Best practices for migrating applications to the Linux platform. | `linux`  |
+| Windows | Best practices for migrating applications to the Windows platform. | `windows` |
+
+##### Supported capabilities
+
+The `--list-capabilities` parameter shows the following capabilities:
+
+| Capability name | Description                                               | Capability        |
+|-----------------|-----------------------------------------------------------|-------------------|
+| Containerization | Best practices for containerizing applications.          | `containerization` |
+| OpenJDK 11      | Best practices for migrating to OpenJDK 11.             | `openjdk11`       |
+| OpenJDK 17      | Best practices for migrating to OpenJDK 17.             | `openjdk17`       |
+| OpenJDK 21      | Best practices for migrating to OpenJDK 21.             | `openjdk21`       |
 
 ##### Configure ignore files
 
-In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to exclude specified folders or paths when running the `appcat analyze` command.
+In the AppCAT CLI install path, you can configure the **.appcat-ignore** file to exclude specified folders or paths when running the `appcat analyze` command.
 
 #### Global parameters
 
@@ -178,6 +198,24 @@ In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to e
       --target=<target-name>
   ```
 
+- Analyze a source code directory with specific source to combine target technologies, capabilities, and operating system:
+
+  ```bash
+  appcat analyze \
+      --input <path-to-source> \
+      --output <path-to-output> \
+      --source springboot \
+      --target azure-aks,azure-appservice,azure-container-apps
+      --capability containerization
+      --os windows
+  ```
+
+  The `--target`, `--capabilities`, and `-os` parameters are combined with an `AND` condition, meaning that the rules must simultaneously match the following criteria:
+
+  - An Azure service such as `azure-aks`, `azure-appservice`, or `azure-container-apps`.
+  - The capability to detect containerization issues.
+  - The Windows OS platform.
+
 - Analyze a source code directory and keep the detected context lines with custom line numbers:
 
   ```bash
@@ -187,9 +225,29 @@ In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to e
       --context-lines-number <line-number>
   ```
 
-The following screenshot shows an example of using `--context-lines-number 3`:
+  The following screenshot shows an example of using `--context-lines-number 3`:
 
-:::image type="content" source="media/java/appcat-7-cli-command-with-context-line-number.png" alt-text="Screenshot of the appcat report issue code snippet difference with context-lines-number parameter." lightbox="media/java/appcat-7-cli-command-with-context-line-number.png":::
+  :::image type="content" source="media/java/appcat-7-cli-command-with-context-line-number.png" alt-text="Screenshot of the appcat report issue code snippet difference with context-lines-number parameter." lightbox="media/java/appcat-7-cli-command-with-context-line-number.png":::
+
+- Restrict report content without code snippets:
+
+  ```bash
+  appcat analyze \
+      --input <path-to-source> \
+      --output <path-to-output> \
+      --code-snips-number -1
+  ```
+
+  When `--code-snips-number -1` is set, code snippets aren't exported to the report. This behavior helps prevent sensitive data from being included.
+
+  :::image type="content" source="media/java/appcat-7-cli-command-with-code-snips-number.png" alt-text="Screenshot of the AppCAT report showing the difference with and without code snippets." lightbox="media/java/appcat-7-cli-command-with-code-snips-number.png":::
+
+  You can also check the `metadata.privacyMode` property in `report.json`.
+
+  `PrivacyMode` values:
+
+  - Unrestricted – the report includes code snippets.
+  - Restricted – the report doesn't include code snippets.
 
 ### appcat transform
 

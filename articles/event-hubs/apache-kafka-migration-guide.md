@@ -4,6 +4,7 @@ description: This article explains how to migrate clients from Apache Kafka to A
 ms.topic: article
 ms.subservice: kafka
 ms.date: 03/06/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Migrate to Azure Event Hubs for Apache Kafka Ecosystems
@@ -12,7 +13,7 @@ Azure Event Hubs exposes an Apache Kafka endpoint, which enables you to connect 
 ## Pre-migration 
 
 ### Create an Azure account
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Create an Event Hubs namespace
  To create an Event Hubs namespace and an event hub, Follow step-by-step instructions in the [Create an event hub](event-hubs-create.md) article. 

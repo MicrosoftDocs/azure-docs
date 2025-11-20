@@ -1,8 +1,8 @@
 ---
 title: Convert data by using data flow conversions
 description: Learn about data flow conversions for transforming data in Azure IoT Operations.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.subservice: azure-data-flows
 ms.topic: concept-article
 ms.date: 11/11/2024

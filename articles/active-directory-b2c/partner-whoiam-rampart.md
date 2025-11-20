@@ -10,6 +10,7 @@ ms.date: 07/31/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer integrating WhoIAM Rampart with Azure AD B2C. I need to configure and integrate Rampart with Azure AD B2C using custom policies. My goal is to enable an integrated helpdesk and invitation-gated user registration experience for my application.
 
@@ -25,7 +26,7 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
 
 * An Azure subscription
 
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
 * An Azure DevOps Server instance

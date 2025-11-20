@@ -1,12 +1,12 @@
 ---
 title: Configure OpenTelemetry data flow endpoints in Azure IoT Operations (preview)
 description: Learn how to configure data flow endpoints for OpenTelemetry destinations to send metrics and logs to observability platforms.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/24/2025
+ms.date: 09/24/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for OpenTelemetry destinations in Azure IoT Operations so that I can send metrics and logs to observability platforms like Grafana and Azure Monitor.
@@ -152,7 +152,39 @@ The following log levels are supported:
 
 ## Create OpenTelemetry endpoint
 
-You can create an OpenTelemetry dataflow endpoint using Bicep or Kubernetes.
+You can create an OpenTelemetry dataflow endpoint using the operations experience, Bicep, or Kubernetes.
+
+# [Operations experience](#tab/portal)
+
+1. To create an OpenTelemetry dataflow in the [operations experience](https://iotoperations.azure.com/), go to the **Dataflow endpoints**.
+1. From the data flow endpoints page, identify **Open Telemetry** and select **+ New**.
+
+    :::image type="content" source="media/howto-connect-opentelemetry/create-new-open-telemetry.png" alt-text="Screenshot of the operations experience interface showing the option to create a new OpenTelemetry endpoint":::
+
+1. In the **Create new data flow endpoint: Open Telemetry** pane, select the **Basic** configuration tab and provide the following information:
+
+    - **Name**: A unique name for the endpoint.
+    - **Host**: The OpenTelemetry collector endpoint in the format`<host>:<port>`, for example, `otel-collector.monitoring.svc.cluster.local:4317`.
+    - **Authentication method**: Choose one of the following authentication methods:
+        - **Kubernetes service account token**: Uses Kubernetes service account tokens to authenticate with the OpenTelemetry collector. Provide the audience value for your OpenTelemetry collector configuration. See [Service Account Token (SAT)](#service-account-token-sat) for more details.
+        - **Anonymous**: Use when the OpenTelemetry collector doesn't require authentication.
+        - **X509 certificate**: Uses client certificates for mutual TLS authentication. Provide the name of a Kubernetes secret containing your client certificate. See [X.509 certificate](#x509-certificate) for more details.
+
+    :::image type="content" source="media/howto-connect-opentelemetry/create-new-open-telemetry-basic.png" alt-text="Screenshot of the operations experience interface showing the basic tab in create a new OpenTelemetry endpoint.":::
+
+1. Select the **Advanced** configuration tab and provide the following information:
+
+    - **Batching latency (in seconds)**: Maximum time to wait before sending a batch. Default is 5 seconds.
+    - **Message count**: Maximum number of messages in a batch. Default is 100000 messages.
+    - **TLS mode**: Choose one of the following TLS modes:
+        - **Enabled**: Enables TLS for secure communication with the OpenTelemetry collector. Provide the name of a Kubernetes ConfigMap containing your trusted CA certificate.
+        - **Disabled**: Disables TLS.
+    - **Trusted CA certificate config map name**: The name of a Kubernetes ConfigMap containing your trusted CA certificate.
+
+    :::image type="content" source="media/howto-connect-opentelemetry/create-open-telemetry-advance.png" alt-text="Screenshot of the operations experience interface showing the advanced tab in create a new OpenTelemetry endpoint.":::
+
+1. Select **Apply** to create the OpenTelemetry endpoint.
+
 
 # [Bicep](#tab/bicep)
 
@@ -265,6 +297,17 @@ Service account token (SAT) authentication uses Kubernetes service account token
 
 Replace `<OTEL_AUDIENCE>` with the audience value for your OpenTelemetry collector configuration. This value must match the expected audience on the collector.
 
+# [Operations experience](#tab/portal)
+
+1. In the **Create new data flow endpoint: Open Telemetry** pane, under the **Basic** configuration tab, select **Kubernetes service account token** as the authentication method.
+1. Provide the **Service audience** value for your OpenTelemetry collector configuration.
+
+    :::image type="content" source="media/howto-connect-opentelemetry/service-account-token.png" alt-text="Screenshot of the operations experience interface showing the authentication method selection in create a new OpenTelemetry endpoint.":::
+
+> [!IMPORTANT] 
+> You can only choose the authentication method when creating a new OpenTelemetry data flow endpoint. You can't change the authentication method after the OpenTelemetry data flow endpoint is created.
+> If you want to change the authentication method of an existing data flow, delete the original data flow and create a new one with the new authentication method.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -290,6 +333,18 @@ authentication:
 #### X.509 certificate
 
 X.509 certificate authentication uses client certificates for mutual TLS authentication.
+
+# [Operations experience](#tab/portal)
+
+1. In the **Create new data flow endpoint: Open Telemetry** pane, under the **Basic** configuration tab, select **X509 certificate** as the authentication method.
+1. Provide the following information from Azure Key Vault:
+    
+    - **Synced secret name**: The name of a Kubernetes secret containing your client certificate.
+    - **X509 client certificate**: The client certificate.
+    - **X509 client key**: The private key for the client certificate.
+    - **X509 intermediate certificates**: The intermediate certificates for the client certificate chain.
+
+    :::image type="content" source="media/howto-connect-opentelemetry/x-509-certificate.png" alt-text="Screenshot of the operations experience interface showing the X509 authentication method selection in create a new OpenTelemetry endpoint.":::
 
 # [Bicep](#tab/bicep)
 
@@ -326,6 +381,10 @@ kubectl create secret tls <X509_SECRET_NAME> \
 
 Anonymous authentication is used when the OpenTelemetry collector doesn't require authentication.
 
+# [Operations experience](#tab/portal)
+
+In the **Create new data flow endpoint: Open Telemetry** pane, under the **Basic** configuration tab, select **Anonymous** as the authentication method. No additional settings are required.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -351,6 +410,11 @@ Configure Transport Layer Security (TLS) settings for secure communication with 
 
 #### Enabled TLS with trusted CA
 
+# [Operations experience](#tab/portal)
+
+1. In the **Create new data flow endpoint: Open Telemetry** pane, under the **Advanced** configuration tab, select **Enabled** as the TLS mode.
+1. In **Trusted CA certificate config map name** provide the name of a Kubernetes ConfigMap containing your trusted CA certificate.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -371,6 +435,10 @@ tls:
 ---
 
 #### Disabled TLS
+
+# [Operations experience](#tab/portal)
+
+In the **Create new data flow endpoint: Open Telemetry** pane, under the **Advanced** configuration tab, select **Disabled** as the TLS mode.
 
 # [Bicep](#tab/bicep)
 
@@ -393,6 +461,13 @@ tls:
 
 Configure batching settings to optimize performance by grouping multiple messages before sending to the collector.
 
+# [Operations experience](#tab/portal)
+
+In the **Create new data flow endpoint: Open Telemetry** pane, under the **Advanced** configuration tab, provide the following batching settings:
+    
+  - **Batching latency (in seconds)**: Maximum time to wait before sending a batch. Default is 5 seconds.
+  - **Message count**: Maximum number of messages in a batch. Default is 100000 messages.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -402,6 +477,11 @@ batching: {
 }
 ```
 
+| Property | Description | Default |
+|----------|-------------|---------|
+| `latencySeconds` | Maximum time to wait before sending a batch. | 60 seconds |
+| `maxMessages` | Maximum number of messages in a batch. | 100000 messages |
+
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -410,12 +490,14 @@ batching:
   maxMessages: 100
 ```
 
----
-
 | Property | Description | Default |
 |----------|-------------|---------|
 | `latencySeconds` | Maximum time to wait before sending a batch. | 60 seconds |
 | `maxMessages` | Maximum number of messages in a batch. | 100000 messages |
+
+---
+
+
 
 ## Error handling and troubleshooting
 

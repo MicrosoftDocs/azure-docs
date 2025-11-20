@@ -42,6 +42,10 @@ The new routing choice *Internet routing* minimizes travel on the Microsoft glob
 > Even when using a public IP with routing preference **Internet**, all traffic that is bound for a destination within Azure continues to use the direct path within the Microsoft Wide Area Network.
 >
 
+> [!IMPORTANT]
+> A public IP routing preference can't be changed once created.
+>
+
 ## Supported services
 
 Public IP with routing preference choice **Microsoft Global Network** can be associated with any Azure services. However, a public IP with routing preference choice **Internet** can be associated with the following Azure resources:
@@ -74,7 +78,7 @@ The price difference between both options is reflected in the internet egress da
 
 ## Limitations
 
-* Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address isn't supported.
+* Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Standard v2 SKU and Basic SKU public IP addresses aren't supported.
 
 * Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses aren't supported.
 

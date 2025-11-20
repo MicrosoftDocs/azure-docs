@@ -15,8 +15,7 @@ ms.custom:
 Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They're ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and important facts.
 
 > [!IMPORTANT]
-> Azure Service Groups is currently in PREVIEW. 
-> For more information about participating in the preview, see [Azure Service Groups Preview](https://aka.ms/ServiceGroups/PreviewSignup).
+> Azure Service Groups is currently in public preview. 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
@@ -27,11 +26,11 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 
 ### Example Scenarios
-Customers can create many different views that support how they organize their resources.   
+Customers can create many different views that support how they organize their resources.  
 
-* Aggregating  Metrics
-   * Organizations with multiple applications and environments can use Service Groups to aggregate  metrics across different environments. Member resources or resource containers could be from various environments within different management groups or subscriptions, can be linked to a single Service Group providing a unified view of metrics.
-   * Since Service Groups don't inherit permissions to the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources.
+* Unified View of Resources
+   * Organizations with multiple applications and environments can use Service Groups to create a centralized view of resource information across different environments. Member resources or resource containers from various environments within different management groups or subscriptions can be linked to a single Service Group, providing a unified reference point for resource details.
+   * Since Service Groups don’t inherit permissions from their members, customers can apply least-privilege principles to assign permissions on the Service Groups that allow viewing of resource information. This capability enables scenarios where two users can access the same Service Group, but only one is allowed to see certain resources.
         
 * Creating Inventory
     * Customers can connect resources to the Service Groups to get a consolidated view of all the resources of a particular type or function in the entire environment.
@@ -51,7 +50,7 @@ Information about Service Groups
 * A Service Group is created within the Microsoft.Management Resource Provider.  
 * Service Groups allow self nesting to create up to 10 "levels" of grouping depth. Nesting can be managed via the 'parent' property within the Service Group resource. 
 * Role assignments on the Service Group can be inherited to the **child Service Groups only**. There's **no inheritance** through the memberships to the resources or resource containers.
-* There's a limit of 2000 service group members coming from within the same subscription. This means that within one subscription, resources, or resource groups, there can only be 2,000 memberships to Service Groups. 
+* There's a limit of 2000 service group members coming from within the same subscription. 
 * Within the Preview window, there's a limit of 10,000 Service Groups in a single tenant.   
 * Service Groups and Service Group Member IDs support up to 250 characters. They can be alphanumeric and special characters: - _ ( ). ~
 * Service Groups require a globally unique ID. Two Microsoft Entra tenants can't have a Service Group with identical IDs.
@@ -68,7 +67,7 @@ This table shows a summary of the differences between the groups.
 
 [!INCLUDE [scenario-comparison](../includes/scenario-comparison.md)]
 
-### Important facts about service groups
+## Important facts about service groups
 
 - A single tenant can support 10,000 service groups.
 - Service group tree can support up to 10 levels of depth.
@@ -77,7 +76,7 @@ This table shows a summary of the differences between the groups.
 - A single service group name/ID can be up to 250 characters.
 - There are no limits of number of members of service groups, but there's a limit of 2,000 relationships (including ServiceGroupMember) within a subscription
 
-### The Root Service Group 
+## The Root Service Group 
 
 Service Groups, similarly to Management Groups, has a one root Service Group, which is the top parent of all service groups in that tenant. Root Service Group's ID is same as its Tenant ID.
 
@@ -85,7 +84,7 @@ Service Groups creates the Root Service Group on the first request received with
 
 Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](../../role-based-access-control/elevate-access-global-admin.md)
 
-### Role Based Access Controls 
+## Role Based Access Controls 
 There are three built-in roles definitions to support Service Groups in the preview.  
 
 > [!NOTE]
@@ -97,8 +96,10 @@ There are three built-in roles definitions to support Service Groups in the prev
 - [Service Group Contributor](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-contributor): This built-in role should be given to users when they need to create or manage the lifecycle of a Service Group. This role allows for all actions except for Role Assignment capabilities.  
 
 
-- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can be assigned to other resources in order to view the connected relationships.  
+- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can be assigned to other resources in order to view the connected relationships.
 
+
+Anyone with valid permissions within the tenant is able to create a service group under the root. The user who creates the service group becomes the 'Service Group Administrator'. In order to edit the service group or create children service groups, a user must have 'Service Group Contributor' at that service group. To add members, users must have 'Service Group Contributor' on the service group and Microsoft.Relationship/write on the resource. 
 
 
 ## Related content

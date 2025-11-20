@@ -6,6 +6,9 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Enable Edge container registry on your Azure Stack Edge Pro GPU device
 

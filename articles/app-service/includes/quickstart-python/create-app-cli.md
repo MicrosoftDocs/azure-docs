@@ -3,6 +3,7 @@ author: charris-msft
 ms.author: charris
 ms.topic: include
 ms.date: 06/28/2022
+ms.service: azure-app-service
 ---
 Azure CLI commands can be run on a computer with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
@@ -17,7 +18,7 @@ az login
 Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
 
 ```azurecli
-az webapp up --runtime PYTHON:3.13 --sku B1 --logs
+az webapp up --runtime PYTHON:3.14 --sku B1 --logs
 ```
 
 * The `--runtime` parameter specifies what version of Python your app is running. This example uses Python 3.13. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.
@@ -47,7 +48,7 @@ You can launch the app at &lt;URL>
   "name": "&lt;app-name>",
   "os": "&lt;os-type>",
   "resourcegroup": "&lt;group-name>",
-  "runtime_version": "python|3.13",
+  "runtime_version": "python|3.14",
   "runtime_version_detected": "0.0",
   "sku": "FREE",
   "src_path": "&lt;your-folder-location>"

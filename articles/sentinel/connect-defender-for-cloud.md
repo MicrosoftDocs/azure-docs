@@ -1,14 +1,13 @@
 ---
 title: Ingest Microsoft Defender for Cloud subscription-based alerts to Microsoft Sentinel
 description: Learn how to connect security alerts from Microsoft Defender for Cloud and stream them into Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 11/19/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
-
 
 #Customer intent: As a security engineer, I want to integrate and synchronize alerts from cloud security tools into Microsoft Sentinel so that analysts can efficiently monitor, analyze, and respond to security incidents across my organization's hybrid and multicloud environments.
 

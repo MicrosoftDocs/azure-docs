@@ -6,6 +6,7 @@ ms.date: 07/02/2025
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Work with user identities in Azure App Service authentication

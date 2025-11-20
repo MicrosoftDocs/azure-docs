@@ -6,6 +6,7 @@ ms.topic: tutorial
 ms.date: 04/25/2025
 ms.subservice: data-movement
 ms.author: jianleishen
+ms.custom: sfi-image-nochange
 
 #customer intent: As a new Azure Data Factory user I want to create a data factory and quickly create my first pipeline to move data between resources, so I can apply it to my own needs.
 ---
@@ -32,7 +33,7 @@ In this tutorial, you perform the following steps:
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 * **Azure SQL Database**. You use the database as a *sink* data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one.
 

@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 05/07/2025
+ms.date: 08/11/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from ServiceNow V2 using Azure Data Factory or Synapse Analytics
@@ -17,7 +19,7 @@ ms.date: 05/07/2025
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The [ServiceNow V2 connector](connector-servicenow.md) provides improved native ServiceNow support. If you are using the [ServiceNow V1 connector](connector-servicenow-legacy.md) in your solution, please [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between V2 and V1.
+> The ServiceNow V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the ServiceNow connector](#upgrade-your-servicenow-linked-service) from V1 to V2.
 
 ## Supported capabilities
 
@@ -36,7 +38,9 @@ The service provides a built-in driver to enable connectivity. Therefore you don
 
 ## Prerequisite
 
-To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
+To use this connector, you need to have a role with at least read access to *sys_db_object*, *sys_db_view* and *sys_dictionary* tables in ServiceNow.
+
+To access views in ServiceNow, you need to have a role with at least read access to *sys_db_view_table* and *sys_db_view_table_field* tables.
 
 ## Getting started
 
@@ -261,6 +265,9 @@ Here is an example of the source JSON using the expression parameter:
 ]
 ```
 
+> [!NOTE]
+> The column `sys_tags` and its derived columns cannot be obtained due to ServiceNow API limitations.
+    
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).

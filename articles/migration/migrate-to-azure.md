@@ -4,8 +4,9 @@ description: Learn about migration resources that might help you transition work
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 03/24/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: migration
+ms.service: azure
 ---
 
 # Migrate workloads to Azure from other cloud platforms

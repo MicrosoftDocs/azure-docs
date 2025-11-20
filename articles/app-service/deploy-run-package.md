@@ -1,11 +1,14 @@
 ---
-title: Run your app from a ZIP package 
+title: Run Your App from a ZIP Package 
 description: Deploy your app's ZIP package with atomicity. Improve the predictability and reliability of your app's behavior during the ZIP deployment process.
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/30/2024
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 
+# Customer intent: As a developer, I want to deploy an app's ZIP package with atomicity so that I can improve the predictability and reliability of my app's behaviour during the ZIP deployment process. 
+ 
 ---
 
 # Run your app in Azure App Service directly from a ZIP package
@@ -90,7 +93,7 @@ There are two ways to deploy [WebJob](webjobs-create.md) files when you [enable 
 - This feature is not compatible with [local cache](overview-local-cache.md).
 - For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKAGE`=1).
 
-## More resources
+## Related content
 
 - [Continuous deployment for Azure App Service](deploy-continuous-deployment.md)
 - [Deploy code with a ZIP or WAR file](deploy-zip.md)

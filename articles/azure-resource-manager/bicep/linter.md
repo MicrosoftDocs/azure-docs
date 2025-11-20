@@ -32,6 +32,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='nested-deployment-template-scoping' />[nested-deployment-template-scoping](./linter-rule-nested-deployment-template-scoping.md) | error |
 | <a id='no-conflicting-metadata' />[no-conflicting-metadata](./linter-rule-no-conflicting-metadata.md) | warning |
 | <a id='no-deployments-resources' />[no-deployments-resources](./linter-rule-no-deployments-resources.md) | warning |
+| <a id='no-explicit-any' />[no-explicit-any](./linter-rule-no-explicit-any.md) | warning |
 | <a id='no-hardcoded-env-urls' />[no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md) | warning |
 | <a id='no-hardcoded-location' />[no-hardcoded-location](./linter-rule-no-hardcoded-location.md) | off |
 | <a id='no-loc-expr-outside-params' />[no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md) | off |
@@ -51,6 +52,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='simplify-json-null' />[simplify-json-null](./linter-rule-simplify-json-null.md) | warning |
 | <a id='use-parent-property' />[use-parent-property](./linter-rule-use-parent-property.md) | warning |
 | <a id='use-recent-api-versions' />[use-recent-api-versions](./linter-rule-use-recent-api-versions.md) | off |
+| <a id='use-recent-az-powershell-version' />[use-recent-az-powershell-version](./linter-rule-use-recent-az-powershell-version.md) | warning |
 | <a id='use-recent-module-versions' />[use-recent-module-versions](./linter-rule-use-recent-module-versions.md) | off |
 | <a id='use-resource-id-functions' />[use-resource-id-functions](./linter-rule-use-resource-id-functions.md) | off |
 | <a id='use-resource-symbol-reference' />[use-resource-symbol-reference](./linter-rule-use-resource-symbol-reference.md) | warning |

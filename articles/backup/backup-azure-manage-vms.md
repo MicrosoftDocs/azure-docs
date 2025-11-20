@@ -2,7 +2,7 @@
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 10/24/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -149,7 +149,7 @@ To stop protection and delete data of a VM:
     :::image type="content" source="./media/backup-azure-manage-vms/delete-backup-data.png" alt-text="Screenshot showing to delete backup data.":::
 
 > [!NOTE]
-> After completing the delete operation the backed up data will be retained for 14 days in the [soft deleted state](./soft-delete-virtual-machines.md). <br>In addition, you can also [enable or disable soft delete](./backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
+> After completing the delete operation the backed-up data will be retained for 14 days in the [soft deleted state](./soft-delete-virtual-machines.md). <br>In addition, you can also [enable or disable soft delete](./backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 
 ## Resume protection of a VM
 
@@ -191,8 +191,60 @@ To protect your data, Azure Backup includes the soft delete feature. With soft d
 ### Backup item where primary data source no longer exists
 
 * If Azure VMs configured for Azure Backup are deleted or moved (to another resource group or subscription) without stopping protection, then both scheduled backup jobs and on-demand backup jobs will fail with the error *UserErrorVmNotFoundV2*. The backup pre-check will appear as critical only for failed on-demand backup jobs (failed scheduled jobs doesn't appear).
-* These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the most recent recovery point) are cleaned according to the retention range set in the backup policy.
+* These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (the last hardened (vaulted) restore point and the latest restore point) are cleaned according to the retention range set in the backup policy.
 * To avoid any additional cost, we recommend deleting the backup items where the primary data source no longer exists. This is in a scenario where the backup item/data for the deleted resources is no longer required, since the most recent recovery point is retained forever and you're charged according to the applicable backup pricing.
+
+## Re-install the VMSnapshot backup extension for Azure VM protection
+
+VMSnapshot backup extension enables application-consistent snapshots during backup operations. You can uninstall and reinstall the `VMSnapshot` extension on a Windows VM. Since it’s a hidden extension, the process involves manually cleaning up registry entries and plugin folders, followed by restarting the Azure Guest Agent. After the registry is cleaned, the extension automatically reinstalls during the next backup job.
+
+To re-install the VMSnapshot extension on Windows operating system for the backup operation, follow these steps:
+
+1. Uninstall the `VMSnapshot` extension by running the following cmdlet:
+
+    ```azurepowershell-interactive
+    Remove-AzVMExtension -ResourceGroupName "<Azure VM's resource group name>" -<VMName "Azure VM name>" -Name "VMSnapshot"
+    ```
+
+   :::image type="content" source="./media/backup-azure-manage-vms/uninstall-backup-extension.png" alt-text="Screenshot shows the execution of the extension uninstall command." lightbox="./media/backup-azure-manage-vms/uninstall-backup-extension.png":::
+
+1. Sign in to the Azure VM, right-click the Windows **Start** icon to open the **Run** window, and then enter **services.msc** to open the **Services** window.
+1. On the Services window, stop the **Windows Azure Guest Agent** service.
+
+   :::image type="content" source="./media/backup-azure-manage-vms/stop-windows-azure-guest-agent-service.png" alt-text="Screenshot shows the Windows Azure guest agent service is stopped." lightbox="./media/backup-azure-manage-vms/stop-windows-azure-guest-agent-service.png":::
+
+1. Go to the folder `C:\Packages\Plugins`, and then rename the folder `Microsoft.Azure.RecoveryServices.VMSnapshot` to `Microsoft.Azure.RecoveryServices.VMSnapshot_old`.
+
+1. Right-click the Windows **Start** icon, select **Run**, and then enter **regedit** to open the **Registry Editor**.
+1. On the **Registry Editor** window, go to *HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsAzure* and export to an alternate location before modifying for the backup operation.
+
+   :::image type="content" source="./media/backup-azure-manage-vms/export-registry-key.png" alt-text="Screenshot shows the registry key for export.":::
+
+1. Go to *HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsAzure\HandlerState*, and delete `Microsoft.Azure.RecoveryServices.VMSnapshot_1.X.XX.X`.
+
+   >[!Note]
+   >The backup extension version  **1.X.XX.X** might change based on your environment.
+
+   :::image type="content" source="./media/backup-azure-manage-vms/delete-registry-key.png" alt-text="Screenshot shows the deletion of backup extension registry key values." lightbox="./media/backup-azure-manage-vms/delete-registry-key.png":::
+
+1. Open the **Command prompt** as **Administrator** and add the required registry entries by running the following commands:
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v IsProviderInstalled /t REG_SZ /d False /f
+    ```
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v IsCommonProviderInstalled /t REG_SZ /d False /f
+    ```
+
+   :::image type="content" source="./media/backup-azure-manage-vms/install-backup-agent.png" alt-text="Screenshot shows the installation of backup agent." lightbox="./media/backup-azure-manage-vms/install-backup-agent.png":::
+
+1. On the **Services** window, start **Windows Azure Guest Agent**.
+
+   :::image type="content" source="./media/backup-azure-manage-vms/start-windows-azure-guest-agent-service.png" alt-text="Screenshot shows the Windows Azure guest agent service is started." lightbox="./media/backup-azure-manage-vms/start-windows-azure-guest-agent-service.png":::
+
+1. Restart the Azure VM.
+1. Run an on-demand backup of Azure VM; this operation installs a new `VMSnapshot` extension.
 
 ## Next steps
 

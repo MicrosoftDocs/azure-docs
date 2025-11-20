@@ -1,35 +1,35 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Web Application Firewall on Application Gateway - frequently asked questions
-  description: This article provides answers to frequently asked questions about Web Application Firewall on Application Gateway
+  title: Azure Web Application Firewall on Application Gateway - Frequently Asked Questions
+  description: This article provides answers to frequently asked questions about Azure Web Application Firewall on Application Gateway.
   author: halkazwini
   ms.author: halkazwini
   ms.service: azure-web-application-firewall
   ms.topic: faq
-  ms.date: 08/25/2023
+  ms.date: 08/05/2025
 title: Frequently asked questions for Azure Web Application Firewall on Application Gateway
-summary: This article answers common questions about Azure Web Application Firewall (WAF)  on Application Gateway features and functionality. 
+summary: This article answers common questions about features and functionality for Azure Web Application Firewall on Azure Application Gateway. 
 
 
 sections:
   - name: Ignored
     questions:
       - question: |
-          What is Azure WAF?
+          What is Azure Web Application Firewall?
         answer: |
-          Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
+          Azure Web Application Firewall is a web application firewall (WAF) that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy that consists of a combination of custom and managed rules to control access to your web applications.
           
-          An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Door.
+          You can apply a WAF policy to web applications hosted on Azure Application Gateway or Azure Front Door.
           
       - question: |
-          What features does the WAF SKU support?
+          What features does the WAF product tier support?
         answer: |
-          The WAF SKU supports all the features available in the Standard SKU.
+          The WAF tier of Application Gateway supports all the features available in the Standard tier.
 
       - question: |
-          How do I monitor WAF?
+          How do I monitor the WAF?
         answer: |
-          Monitor WAF through diagnostic logging. For more information, see [Diagnostic logging and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
+          Monitor the WAF through diagnostic logging. For more information, see [Diagnostic logs for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
           
       - question: |
           Does detection mode block traffic?
@@ -39,63 +39,67 @@ sections:
       - question: |
           Can I customize WAF rules?
         answer: |
-          Yes. For more information, see [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md).
+          Yes. For more information, see [Customize WAF rules](application-gateway-customize-waf-rules-portal.md).
           
       - question: |
-          What rules are currently available for WAF?
+          What rules are currently available for the WAF?
         answer: |
-          WAF currently supports CRS [3.2](application-gateway-crs-rulegroups-rules.md#owasp32), [3.1](application-gateway-crs-rulegroups-rules.md#owasp31) and [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). These rules provide baseline security against most of the top 10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
+          The WAF currently supports Default Rule Set (DRS) [2.1](application-gateway-crs-rulegroups-rules.md#drs21), Core Rule Set (CRS) [3.2](application-gateway-crs-rulegroups-rules.md#owasp32), and [3.1](application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top 10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
           
-          * SQL injection protection
-          * Cross-site scripting protection
-          * Protection against common web attacks such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
+          * Protection against SQL injection
+          * Protection against cross-site scripting
+          * Protection against common web attacks such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
           * Protection against HTTP protocol violations
-          * Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
+          * Protection against HTTP protocol anomalies such as missing `Host`, `User-Agent`, and `Accept` headers
           * Prevention against bots, crawlers, and scanners
-          * Detection of common application misconfigurations (that is, Apache, IIS, and so on)
+          * Detection of common application misconfigurations (for example, Apache and IIS)
           
-          For more information, see [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
+          For more information, see the [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
 
-          CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version. CRS 2.2.9 can't be used along with CRS 3.2/DRS 2.1 and greater versions. 
+          CRS 2.2.9 and 3.0 are no longer supported for new WAF policies. We recommend that you [upgrade to the latest DRS version](/azure/web-application-firewall/ag/upgrade-ruleset-version). You can't use CRS 2.2.9 along with CRS 3.2/DRS 2.1 and later versions. 
           
       - question: |
-          What content types does WAF support?
+          What content types does the WAF support?
         answer: |
-          Application Gateway WAF supports the following content types for managed rules:
+          The Application Gateway WAF supports the following content types for managed rules:
           
-          * application/json
-          * application/xml
-          * application/x-www-form-urlencoded
-          * multipart/form-data
+          * `application/json`
+          * `application/xml`
+          * `application/x-www-form-urlencoded`
+          * `multipart/form-data`
           
           And for custom rules:
           
-          * application/x-www-form-urlencoded
-          * application/soap+xml, application/xml, text/xml
-          * application/json
-          * multipart/form-data
+          * `application/x-www-form-urlencoded`
+          * `application/soap+xml`, `application/xml`, `text/xml`
+          * `application/json`
+          * `multipart/form-data`
           
       - question: |
-          Does WAF support DDoS protection?
+          Does the WAF support DDoS protection?
         answer: |
-          Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
+          Yes. You can enable distributed denial-of-service (DDoS) protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also helps protect the application gateway's virtual IP (VIP).
           
-          ### Does WAF store customer data?
-          
-          No, WAF doesn't store customer data.
+      - question: |
+          Does the WAF store customer data?
+        answer: |
+          No, the WAF doesn't store customer data.
 
       - question: |
-          How does the Azure WAF work with WebSockets?
+          How does the WAF work with WebSocket?
         answer: |
-          Azure Application Gateway natively supports WebSocket. WebSocket on Azure WAF on Azure Application Gateway doesn't require any extra configuration to work. However, WAF doesn't inspect the WebSocket traffic. After the initial handshake between client and server, the data exchange between client and server can be of any format, for example binary or encrypted. So Azure WAF can't always parse the data, it just acts as a pass-through proxy for the data.
+          Azure Application Gateway natively supports WebSocket. WebSocket on the Application Gateway WAF doesn't require any extra configuration to work. However, the WAF doesn't inspect the WebSocket traffic. After the initial handshake between client and server, the data exchange between client and server can be of any format (for example, binary or encrypted). So the WAF can't always parse the data. It just acts as a pass-through proxy for the data.
 
           For more information, see [Overview of WebSocket support in Application Gateway](../../application-gateway/application-gateway-websocket.md).
 
-
+      - question: |
+          Does the WAF support air-gapped clouds?
+        answer: |
+          Yes, air-gapped clouds are supported. However, geo-filtering custom rules, bot protection rulesets and rate limiting custom rules are not supported on air-gapped clouds.
 
 additionalContent: |
 
-  ## Next steps
+  ## Related content
   
-  - Learn about [Azure Web Application Firewall](../overview.md).
-  - Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).
+  - [What is Azure Web Application Firewall?](../overview.md)
+  - [What is Azure Front Door?](../../frontdoor/front-door-overview.md)

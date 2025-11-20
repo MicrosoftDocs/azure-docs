@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure packet capture on my VPN gateway, so that I can effectively diagnose and troubleshoot connectivity issues by narrowing down traffic analysis to specific network segments.
 ---
 
@@ -28,10 +29,12 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 - You can't run multiple gateway-wide packet captures at the same time.
 - You can't run multiple packet captures on a single connection at the same time. You can run multiple packet captures on different connections at the same time.
 - A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet captures and per-connection packet captures.
-- The unit for MaxPacketBufferSize is bytes and MaxFileSize is megabytes
+- The unit for MaxPacketBufferSize is bytes.
+- The unit for MaxFileSize is megabytes.
 
 > [!NOTE]  
 > Set the **CaptureSingleDirectionTrafficOnly** option to **false** if you want to capture both inner and outer packets.
+> When analyzing pcap files containing packets that got truncated due to the **MaxPacketBufferSize** setting, this may result in unexpected warnings like "TCP Previous segment not captured" and "TCP ACKed unseen segment".
 
 **Example JSON**
 

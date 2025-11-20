@@ -1,12 +1,13 @@
 ---
 title: Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile
 description:  After deploying Azure Communications Gateway, you can configure it to connect to the Operator Connect and Teams Phone Mobile environments.
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ms.topic: integration
 ms.date: 03/22/2024
 ms.custom:
     - template-how-to-pattern
     - no-azure-ad-ps-ref
+    - sfi-ga-nochange
 ---
 
 # Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile

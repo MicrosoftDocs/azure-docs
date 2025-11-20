@@ -5,7 +5,7 @@ services: application-gateway
 author: jackstromberg
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 7/21/2025
+ms.date: 07/21/2025
 ms.author: jstrom
 ---
 

@@ -7,6 +7,7 @@ ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Bulk copy from files to database
@@ -34,7 +35,6 @@ The template defines the following two parameters:
 
 1. Open the Azure Data Factory Studio and select the **Author** tab with the pencil icon.
 1. Hover over the **Pipelines** section and select the ellipsis that appears to the right side.  Select **Pipeline from template** then.
-   :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-from-template.png" alt-text="Screenshot of the data factory user interface showing the Pipeline from template button.":::
 1. Select the **Bulk Copy from Files to Database** template, then select **Continue**. 
    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/bulk-copy-files-to-database-template.png" alt-text="Screenshot of the Bulk copy files to database template in the template browser.":::
 1. Create a **New** connection to the source Gen2 store as your source, and one to the database for your sink. Then select **Use this template**.

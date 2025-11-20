@@ -3,9 +3,10 @@ title: Set Up Least Privileged Accounts
 description: Learn how to configure the Azure Migrate appliance with least privileged access by setting up read-only VMware roles with guest operations and scoped permissions.
 author: molishv
 ms.author: molir
+ms.reviewer: v-uhabiba
 ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 07/04/2025
+ms.topic: concept-article
+ms.date: 09/04/2025
 ms.custom:
   - build-2025
 # Customer intent: As an IT administrator, I want to securely configure the Azure Migrate appliance with least privileged access by setting up read-only VMware roles with guest operations and scoped permissions to enable efficient workload discovery, software inventory, and agentless migration.
@@ -361,10 +362,16 @@ Ensure that the user who corresponds to the added MySQL credentials has the foll
 - Select permission on `information_schema` tables
 - Select permission on `mysql.users` tables
 
+For MySQL discovery, ensure the appliance's IP or domain is allowed by configuring the necessary firewall rules and MySQL user privileges. The bind-address in my.cnf should also be set to allow external connections if needed.
+
 Use the following commands to grant the necessary privileges to the MySQL user:
 
-```sql
-GRANT USAGE ON . TO 'newuser'@'localhost'; GRANT PROCESS ON . TO 'newuser'@'localhost'; GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'newuser'@'localhost'; FLUSH PRIVILEGES;`. .
+```Mysql
+GRANT USAGE ON *.* TO 'username'@'ip';
+GRANT PROCESS ON *.* TO 'username'@'ip';
+GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username'@'ip';
+GRANT SELECT ON information_schema.* TO 'username'@'ip';
+GRANT SELECT ON performance_schema.* TO 'username'@'ip';  
 
 ```
 

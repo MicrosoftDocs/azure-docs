@@ -5,7 +5,8 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---
@@ -14,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❎ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This article shows you how to provision a Basic or Standard plan Azure Spring Apps service instance.
 
@@ -22,7 +23,7 @@ Azure Spring Apps supports multiple plans. For more information, see [Quotas and
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - (Optional) [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 
 ## Provision an instance of Azure Spring Apps

@@ -5,9 +5,11 @@ ms.author: yexu
 author: dearandyxu
 ms.reviewer: douglasl, whhender
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell
@@ -57,7 +59,7 @@ Here are the important steps to create this solution:
     :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png" alt-text="Incrementally load data":::
 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 

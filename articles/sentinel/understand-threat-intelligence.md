@@ -4,13 +4,14 @@ titleSuffix: Microsoft Sentinel
 description: Understand threat intelligence and how it integrates with features in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: guywi-ms
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 08/18/2025
 ms.author: guywild
 ms.reviewer: alsheheb
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security analyst, I want to integrate threat intelligence into Microsoft Sentinel so that I can detect, investigate, and respond to potential security threats effectively.
 ---
@@ -222,7 +223,7 @@ View your threat intelligence from the management interface or using queries:
 
 ### Threat intelligence lifecycle
 
-Microsoft Sentinel stores threat intelligence data in your threat intelligence tables and automatically reingests all data every seven days to optimize query efficiency.
+Microsoft Sentinel stores threat intelligence data in your threat intelligence tables and automatically reingests all data every seven to 10 days to optimize query efficiency.
 
 When an indicator is created, updated, or deleted, Microsoft Sentinel creates a new entry in the tables. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `Id` property (the `IndicatorId` property in the legacy `ThreatIntelligenceIndicator`) and chooses the indicator with the newest `TimeGenerated[UTC]`.
 

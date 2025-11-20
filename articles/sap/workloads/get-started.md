@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 04/29/2025
+ms.date: 11/04/2025
 ms.author: juergent
 # Customer intent: "As an IT administrator, I want to deploy SAP workloads on Azure VMs, so that I can leverage Azure's scalability and automated management features for mission-critical applications."
 ---
@@ -56,6 +56,14 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- November 04, 2025: Updated [SAP HANA Azure virtual machine Premium SSD v2 storage configurations}(./hana-vm-premium-ssd-v2.md) with information about snapshot capabilities
+- November 04, 2025: Changed to a simplier matrix of storage recommendations for Ultra disk in [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md), added comment and link realted to Ultra disk snapshots
+- November 03, 2025: Deleted the document describing how to deploy SAP Business Suite on Windows and SQL Server in SAP Cloud Appliance Library (CAL) since offer was retired by SAP CAL
+- October 31, 2025: Added clarification around Premium SSD Performance Plus and added storage configuration for Dv6/Ev6 certified HANA VMs in [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
+- September 10, 2025: Added a new document on [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) and updated the Azure Files NFS related sections in the existing documents on how to configure and deploy the Encryption in Transit. 
+- August 4, 2025: Updated colocation constraint command for SAPHanaSR configuration in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
+- August 4, 2025: Updated order constraints between SAPHana, SAPHanaTopology resources and Filesystem resources in [High availability of SAP HANA scale-up with Azure NetApp Files on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md).
+- August 4, 2025: Updated SBD_DELAY_START, TimeoutSec value of SBD systemd service, and stonith-timeout value in [Set up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md), [Set up Pacemaker on Red Hat Enterprise Linux in Azure](./high-availability-guide-rhel-pacemaker.md).
 - July 16, 2025: Added fast_stop=no for RHEL pacemaker filesystem configuration in [High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), [Azure Virtual Machines HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md), [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID](./high-availability-guide-rhel-multi-sid.md), [High availability of SAP HANA scale-out system on Red Hat Enterprise Linux](./sap-hana-high-availability-scale-out-hsr-rhel.md), [High availability of SAP HANA scale-up with Azure NetApp Files on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), and [Deploy SAP dialog instances with SAP ASCS/SCS high-availability VMs on RHEL](./high-availability-guide-rhel-with-dialog-instance.md)
 - June 3, 2025: Added new HA agent SAPHanaSR-angi for [High availability for SAP HANA scale-out system with HSR on SUSE Linux Enterprise Server](./sap-hana-high-availability-scale-out-hsr-suse.md). SAPHanaSR-angi set as primary displayed tab in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md).
 - May 21, 2025: Change in [Set up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Set up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to expand the explanation how azure-events-az works.

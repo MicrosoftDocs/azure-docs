@@ -1,13 +1,14 @@
 ---
 title: No subscriptions found error - Azure portal sign in
 description: Provides the solution for a problem in which No subscriptions found error occurs during Azure portal sign in.
-author: presharm
-ms.reviewer: presharm
+author: Nicholak-MS
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/21/2025
-ms.author: macyso
+ms.date: 08/14/2025
+ms.author: nicholak
+ms.custom: sfi-image-nochange
 ---
 
 # No subscriptions found sign in error for Azure portal
@@ -31,7 +32,7 @@ To fix this issue:
 * Make sure that the correct Azure directory is selected by selecting your account at the top right. Then, either select **Switch directory**, or select the correct directory from the list.
 
   :::image type="content" border="true" source="./media/no-subscriptions-found/directory-switch.png" alt-text="Screenshot showing select the directory at the top right of the Azure portal.":::
-* If the right Azure directory is selected but you still receive the error message, [assign the Owner role to your account](../../role-based-access-control/role-assignments-portal.yml).
+* If the right Azure directory is selected but you still receive the error message, [assign the Owner role to your account](/azure/role-based-access-control/role-assignments-portal).
 
 ## Need help? Contact us.
 

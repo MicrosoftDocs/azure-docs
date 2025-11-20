@@ -18,12 +18,12 @@ ms.custom: mode-other, devx-track-js, has-azure-ad-ps-ref
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
-This quickstart demonstrates how to use the Communication Services Common SDK along with Azure Identity SDK in a console application to authenticate a Microsoft Entra ID user and obtain an Azure Communication Services access token. The resulting Azure Communication Services access token allows you to integrate calling and chat features using the Communication Services Calling and Chat SDKs.
+This quickstart demonstrates how to use the Communication Services Common SDK along with Azure Identity SDK in a console application to authenticate a Microsoft Entra ID user and obtain an Azure Communication Services access token. The resulting Azure Communication Services access token allows you to integrate calling features using the Communication Services Calling SDK. Messaging (Chat) via Microsoft Entra ID integration isn't supported in the public preview.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Azure Communication Services resource and endpoint URI. For more information, see [Create an Azure Communication Services resource](../create-communication-resource.md).
-- A Microsoft Entra ID instance.  For more information, see [Microsoft Entra ID overview](https://learn.microsoft.com/entra/fundamentals/whatis?source=docs).
+- A Microsoft Entra ID instance.  For more information, see [Microsoft Entra ID overview](/entra/fundamentals/whatis?source=docs).
 
 ## Introduction
 
@@ -39,7 +39,7 @@ The Administrator role has extended permissions in Microsoft Entra ID. Members o
 
 1. The Contoso Administrator creates a service principal for Communication Services Clients application in Contoso Microsoft Entra ID tenant. This step is required to allow the Contoso application to access Communication Services Clients application API permissions.
 1. The Contoso Administrator creates or selects an existing *application* in Microsoft Entra ID. The property *Supported account types* defines whether users from various tenants can authenticate to the application. The property *Redirect URI* redirects a successful authentication request to the Contoso *client application*.
-1. The Contoso Administrator adds required API permissions from Communication Services Clients application. For the all list of the permissions, see [Access tokens with Microsoft Entra ID](../../concepts/identity-model.md#access-tokens-with-microsoft-entra-id).
+1. The Contoso Administrator adds required API permissions from Communication Services Clients application. For the full list of the permissions, see [Access tokens with Microsoft Entra ID](../../concepts/identity-model.md#access-tokens-with-microsoft-entra-id). (In the public preview, only VoIP-related permissions are available; Chat permissions are not yet supported.)
 1. The Contoso Administrator creates or selects existing communication services. The Contoso Administrator grants Fabrikam Entra ID users access to Contoso Azure Communication Services resource. Azure Communication Services Common SDK will be used for  Microsoft Entra ID user authentication and in the background seamlessly obtain an Azure Communication Services access token for Microsoft Entra ID user.
 1. The Fabrikam Administrator grants admin consent for the required Communication Services Clients application API permissions to the Contoso application.
 
@@ -49,12 +49,11 @@ The Administrator role has extended permissions in Microsoft Entra ID. Members o
 To enable the Contoso application to access Azure Communication Services Clients application API permissions, the Contoso Administrator must create a service principal for Azure Communication Services Clients application in the Contoso Microsoft Entra ID tenant.
 The Contoso Administrator can create a service principal in Contoso tenant by one of the following methods:
 
-- Use the [Microsoft Graph REST API](https://learn.microsoft.com/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http#request) to run the following request:
+- Use the [Microsoft Graph REST API](/graph/api/serviceprincipal-post-serviceprincipals#request) to run the following request:
 
 ```http
 POST https://graph.microsoft.com/v1.0/servicePrincipals
 Content-Type: application/json
-
 {
   "appId": "2a04943b-b6a7-4f65-8786-2bb6131b59f6"
 }
@@ -62,7 +61,7 @@ Content-Type: application/json
 
   This request can also be executed in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer/). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in, and provide consent for `Application.ReadWrite.All` permission.
 
-- Use the [Azure CLI](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to run the following command:
+- Use the [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to run the following command:
 
 ```azurecli-interactive
 az ad sp create --id 2a04943b-b6a7-4f65-8786-2bb6131b59f6
@@ -83,13 +82,16 @@ For more detailed information, see [Register an application with the Microsoft i
 
 ### Step 3: Add Azure Communication Services Clients permissions in the application
 
-The application must declare Azure Communication Services Clients to have access to Azure Communication Services capabilities. Microsoft Entra ID user would be requesting a Microsoft Entra user token with these permissions. 
+The application must declare Azure Communication Services Clients to have access to Azure Communication Services capabilities. Microsoft Entra ID user would be requesting a Microsoft Entra user token with these permissions.
+
+> [!IMPORTANT]
+> Messaging (Chat) API permissions (`Chat`, `Chat.Join`, `Chat.Join.Limited`) are not available in the Microsoft Entra ID public preview. Only VoIP-related permissions (`VoIP`, `VoIP.Join`) can be granted and used via Entra ID integration during this preview period.
 
 1. Navigate to your Microsoft Entra app in the Azure portal and select **API permissions**
 1. Select **Add Permissions**
 1. In the **Add Permissions** menu, select **APIs my organization uses**
 1. Search for and select **Azure Communication Services Clients**
-1. Select the permissions **VoIP** and **Chat**, then select **Add permissions**
+1. Select the **VoIP** permission (and any other VoIP-related permission such as **VoIP.Join** if required), then select **Add permissions**
 1. Grant admin consent for all delegated permissions.
 
 [![Diagram that shows how to add Communication Services Clients permissions to the Microsoft Entra application created in previous step.](./media/entra-id/entra-id-add-permissions-inline.png)](./media/entra-id/entra-id-add-permissions.png#lightbox)
@@ -123,7 +125,7 @@ The following roles can provide consent on behalf of a company:
 - Application admin
 - Cloud application admin
 
-If you want to check roles in Azure portal, see [List Azure role assignments](../../../role-based-access-control/role-assignments-list-portal.yml).
+If you want to check roles in Azure portal, see [List Azure role assignments](../../../role-based-access-control/role-assignments-list-portal.md).
 
 To construct an Administrator consent URL, the Fabrikam Microsoft Entra Administrator does the following steps:
 
@@ -172,7 +174,6 @@ The developer's required actions are shown in following diagram:
 
 > [!NOTE]
 > The following sections describe how to create `AzureCommunicationTokenCredential`.
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/entra-id/support-entra-id-users-net.md)]
 ::: zone-end
@@ -192,7 +193,7 @@ The user represents the Fabrikam users of the Contoso application. The user expe
 1. The Contoso *client application* uses the Azure Identity SDK to authenticate the user against the Fabrikam Microsoft Entra tenant for the Contoso application with Communication Services Clients permissions. Authentication is redirected to the *client application*, as defined in the property *Redirect URI* in the Contoso application.
 1. The Communication Common SDK seamlessly obtains an Azure Communication Services access token for Fabrikam Entra ID user in the background.
 
-Developers can integrate the Communication Services Calling SDK or Chat SDK by providing `AzureCommunicationTokenCredential`.
+Developers can integrate the Communication Services Calling SDK by providing `AzureCommunicationTokenCredential`. (Chat SDK integration via Entra ID will be available when messaging support is added after the public preview.)
 
 ## Next steps
 
@@ -201,8 +202,7 @@ In this quickstart, you learned how to:
 > [!div class="checklist"]
 > * Create and configure an application in Microsoft Entra ID.
 > * Use Communication Services Common SDK and Azure Identity SDK to integrate Microsoft Entra ID users to Azure Communication Services.
-
 Learn about the following concepts:
 
 - [Support Microsoft Entra ID users in Azure Communication Services](../../concepts/identity-model.md#microsoft-entra-id-integrating-with-entra-id)
-- [Tenancy in Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/single-and-multi-tenant-apps)
+- [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps)

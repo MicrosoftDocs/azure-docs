@@ -159,7 +159,11 @@
         - name: Overview
           href: expressroute-about-virtual-network-gateways.md
         - name: About Scalable Gateway
-          href: scalable-gateway.md
+          items: 
+            - name: Overview
+              href: scalable-gateway.md
+            - name: Configure a scalable gateway
+              href: expressroute-howto-scalable-portal.md
         - name: Configure a virtual network gateway
           items:
             - name: Azure portal
@@ -182,26 +186,48 @@
                       href: expressroute-howto-gateway-migration-portal.md
                     - name: Azure PowerShell
                       href: expressroute-howto-gateway-migration-powershell.md
+                - name: Troubleshoot
+                  href: gateway-migration-error-messaging.md
     - name: Traffic collector
       items:
         - name: Overview
           href: traffic-collector.md
         - name: Configure Traffic Collector
           href: how-to-configure-traffic-collector.md
-- name: Resiliency
+- name: Reliability
   items:
-    - name: Design and architecture
+  - name: Design for resiliency
+    items:
+    - name: Overview
+      href: design-architecture-for-resiliency.md
+    - name: Design for high availability
+      href: designing-for-high-availability-with-expressroute.md
+    - name: Private Peering
       items:
-        - name: Overview
-          href: design-architecture-for-resiliency.md
-        - name: High Availability
-          href: designing-for-high-availability-with-expressroute.md
-        - name: Disaster recovery
-          items:
-            - name: Private peering
-              href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
-            - name: Using VPN as a backup
-              href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
+        - name: Design with private peering
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+        - name: Design VPN as private peering backup
+          href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
+  - name: ExpressRoute gateway
+    items:
+    - name: Reliability in ExpressRoute gateway
+      href: ../reliability/reliability-virtual-network-gateway.md?pivot=expressroute?toc=/azure/expressroute/toc.json
+    - name: Zone-redundant gateway
+      items:
+      - name: Deploy a zone-redundant gateway
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/expressroute/toc.json
+      - name: Migrate to zone-redundant gateway
+        items:
+          - name: Overview
+            href: gateway-migration.md
+          - name: Migrate
+            items:
+              - name: Azure portal
+                href: expressroute-howto-gateway-migration-portal.md
+              - name: Azure PowerShell
+                href: expressroute-howto-gateway-migration-powershell.md
+          - name: Troubleshoot
+            href: gateway-migration-error-messaging.md
     - name: Evaluate ExpressRoute circuit resiliency
       href: evaluate-circuit-resiliency.md
     - name: Resiliency Insights

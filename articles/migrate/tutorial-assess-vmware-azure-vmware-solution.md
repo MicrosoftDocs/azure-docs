@@ -158,26 +158,18 @@ The assessment summary shows the estimated compute and storage cost of running s
 2. Review monthly storage estimates. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
 3. You can drill down to see cost details for specific servers.
 
-### Review confidence rating
+### Review performance coverage
 
-Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
+Server Assessment assigns a performance coverage to performance-based assessments. 
 
-The confidence rating helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
+The performance coverage helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
 > [!NOTE]
-> Confidence ratings aren't assigned if you create an assessment based on a CSV file or an RVTools XLSX file.
+> Performance coverage is not calculated if you create an assessment based on a CSV file or an RVTools XLSX file.
 
-Confidence ratings are as follows.
 
-**Data point availability** | **Confidence rating**
---- | ---
-0%-20% | 1 star
-21%-40% | 2 stars
-41%-60% | 3 stars
-61%-80% | 4 stars
-81%-100% | 5 stars
 
-[Learn more](assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](assessment-report.md#coverage) about performance coverage.
 
 ## Next steps
 

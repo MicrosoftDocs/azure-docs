@@ -18,7 +18,7 @@ We can add an attachment by defining an attachment object and adding it to our m
 const filePath = "<path-to-your-file>";
 
 const message = {
-  sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+  senderAddress: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
   content: {
     subject: "Welcome to Azure Communication Service Email.",
     plainText: "<This email message is sent from Azure Communication Service Email using JavaScript SDK.>"

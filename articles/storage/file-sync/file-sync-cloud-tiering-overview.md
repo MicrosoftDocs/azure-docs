@@ -123,7 +123,7 @@ Calculate the threshold by taking the minimum of the following three numbers:
 
 The following table includes some examples of how the threshold is calculated and when the volume will be in low disk space mode.
 
-| Volume Size | 10% of Volume Size | Volume Free Space Policy | Threshold = Min(10% of Volume Size, Volume Free Space Policy, 20GB)  | Current Volume Free Space | Is Low Disk Space Mode? | Reason                                |
+| Volume Size | 10% of Volume Size | Volume Free Space Policy | Threshold = Min (10% of Volume Size, Volume Free Space Policy, 20 GiB)  | Current Volume Free Space | Is Low Disk Space Mode? | Reason                                |
 |-------------|--------------------|--------------------------|----------------------------------------------------------------------|---------------------------|-------------------|---------------------------------------|
 | 100 GiB       | 10 GiB               | 7% (7 GiB)                 | 7 GiB = Min (10 GiB, 7 GiB, 20 GiB)                                          | 9% (9 GiB)                  | No                | Current Volume Free Space (9 GiB) > Threshold (7 GiB) |
 | 100 GiB       | 10 GiB               | 7% (7 GiB)                 | 7 GiB = Min (10 GiB, 7 GiB, 20 GiB)                                          | 5% (5 GiB)                  | Yes               | Current Volume Free Space (5 GiB) < Threshold (7 GiB) |
@@ -145,9 +145,9 @@ Here are two ways to exit low disk mode on the server endpoint:
 
 ### How to check if a server is in Low Disk Space mode?
 - If a server endpoint is in low disk mode, it is displayed in the Azure portal in the **cloud tiering health** section of the **Errors + troubleshooting** tab of the server endpoint.
-- Event ID 19000 is logged to the Telemetry event log every minute for each server endpoint. Use this event to determine if the server endpoint is in low disk mode (IsLowDiskMode = true). The Telemetry event log is located in Event Viewer under Applications and Services\Microsoft\FileSync\Agent.
+- Event ID 19000 is logged to the Telemetry event log every minute for each server endpoint. Use this event to determine if the server endpoint is in low disk mode (IsLowDiskMode = true). The Telemetry event log is located in Event Viewer under `Applications and Services\Microsoft\FileSync\Agent`.
 
-## Next steps
+## See also
 
 - [Choose Azure File Sync cloud tiering policies](file-sync-choose-cloud-tiering-policies.md)
-- [Planning for an Azure File Sync deployment](file-sync-planning.md)
+- [Plan for an Azure File Sync deployment](file-sync-planning.md)

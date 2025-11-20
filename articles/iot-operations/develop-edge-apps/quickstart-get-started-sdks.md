@@ -17,7 +17,7 @@ Get started developing with the Azure IoT Operations SDKs. Follow these steps to
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * A [GitHub](https://github.com) account.
 
@@ -31,9 +31,6 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
 > The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). For production deployments, choose [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment). <br> If you want to use secure settings, we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-development).
 
 ### [Codespaces](#tab/codespaces)
-
-> [!CAUTION]
-> We're currently experiencing container corruption with Azure IoT Operations deployed in a codespace, so we don't recommend this path until we resolve the issue with the GitHub team.
 
 GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
 
@@ -125,7 +122,7 @@ Open a new bash terminal and do the following steps:
     
     | Parameter | Value |
     | --------- | ----- |
-    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-support.md#supported-regions). |
     | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
     | CLUSTER_NAME | A name for your Kubernetes cluster. |
     | STORAGE_ACCOUNT_NAME | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
@@ -207,7 +204,7 @@ To test the setup is working correctly, use `mosquitto_pub` to connect to the MQ
 
 ## Run a Sample
 
-This sample demonstrates a simple communication between a client and a server using [Telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/telemetry.md) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
+This sample demonstrates a simple communication between a client and a server using [Telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md#telemetry-sender) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md#command-invoker). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
 
 1. Install the [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 

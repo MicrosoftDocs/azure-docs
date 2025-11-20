@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: how-to
-ms.date: 08/12/2024
+ms.date: 09/12/2025
 ms.custom: template-how-to
 # Customer intent: As a network administrator, I want to create and configure a Azure NAT Gateway after moving resources to another region.
 ---
@@ -15,12 +15,16 @@ ms.custom: template-how-to
 
 In this article, you'll learn how to set up a NAT gateway after moving resources to a different region. You might want to move resources to a new Azure region that better suits your customers' location or meets your organization's needs and policies. 
 
+> [!IMPORTANT]
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+
 > [!NOTE]
 > NAT gateway instances can't directly be moved from one region to another. A workaround is to use Azure Resource Mover to move all the resources associated with the existing NAT gateway to the new region. You then create a new instance of NAT gateway in the new region and then associate the moved resources with the new instance. After the new NAT gateway is functional in the new region, you delete the old instance in the previous region.  
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - **Owner** access in the subscription in which resources you want to move are located. 
 
@@ -30,40 +34,39 @@ In this article, you'll learn how to set up a NAT gateway after moving resources
 
 After you move all the resources associated with the original NAT gateway instance to the new region and verify them, you can create a new NAT gateway instance. Then, you can associate the moved resources with the new NAT gateway.
 
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways**.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
-2. Select **+ Create**.
+1. Select **Create**.
 
-3. In **Create network address translation (NAT) gateway**, enter or select the following information in the **Basics** tab.
+1. Enter or select the following information in the **Basics** tab of **Create network address translation (NAT) gateway**.
 
     | Setting | Value |
     | ------- | ----- |
-    | **Project details** |   |
+    | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **test-rg** in **Name**. </br> Select **OK**. </br> Instead, you can select the existing resource group associated with the moved resources in the subscription. |
-    | **Instance details** |   |
-    | Name | Enter **nat-gateway**. |
-    | Region | Select the name of the new region. |
-    | Availability Zone | Select **No Zone**. Instead, you can select the zone of the moved resources if applicable. |
-    | Idle timeout (minutes) | Enter **10**. |
+    | Resource group | Select **test-rg** or your resource group or the existing resource group with the moved resources. |
+    | **Instance details** |  |
+    | NAT gateway name | Enter **nat-gateway**. |
+    | Region | Select your region. This example uses **East US 2**. |
+    | SKU | Select **Standard V2**. |
+    | TCP idle timeout (minutes) | Leave the default of **4**. |
 
-4. Select the **Outbound IP** tab, or select **Next: Outbound IP** at the bottom of the page.
+1. Select **Next**.
 
-5. In the **Outbound IP** tab, enter or select the following information.
+1. In the **Outbound IP** tab, select **+ Add public IP addresses or prefixes**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Public IP addresses | Select **Create a new public IP address**. </br> Enter **public-ip-nat** in **Name**. </br> Select **OK**. </br> Instead, you can select an existing public IP in your subscription if applicable. |
+1. In **Add public IP addresses or prefixes**, select **Public IP addresses**. Select an existing public IP address in your subscription or create a new public IP. In this example, it's **public-ip**.
 
-6. Select the **Subnet** tab, or select **Next: Subnet** at the bottom of the page.
+1. Select **Next**.
 
-7. Select the pull-down box under **Virtual network** in the **Subnet** tab. Select the **Virtual Network** that you **moved** using Azure Resource Mover.
+1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **vnet-1**.
 
-8. In **Subnet name**, select the **subnet** that you **moved** using Azure Resource Mover.
+1. Leave the checkbox for **Default to all subnets** unchecked.
 
-9. Select the **Review + create** tab, or select the **Review + create** button at the bottom of the page.
+1. In **Select specific subnets**, select your subnet. In this example, it's **subnet-1**.
 
-10. Select **Create**.
+1. Select **Review + create**, then select **Create**.
+
 
 ## Test NAT gateway in new region
 

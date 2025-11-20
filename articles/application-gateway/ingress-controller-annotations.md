@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 5/23/2025
+ms.date: 05/23/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to configure annotations for the Application Gateway Ingress Controller, so that I can customize features like backend protocols and health probes to optimize traffic management and ensure high availability of my containerized applications.
 ---

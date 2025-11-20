@@ -10,12 +10,15 @@ ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
 #customer intent: As an app developer, I want to understand which service plan is right for apps in my organization in Azure App Service.
+ms.service: azure-app-service
 ---
 # What are Azure App Service plans?
 
 An *Azure App Service plan* defines a set of compute resources for a web app to run. An app service always runs in an App Service plan. [Azure Functions](../azure-functions/dedicated-plan.md) also has the option of running in an App Service plan.
 
 When you create an App Service plan in a certain region, you create a set of compute resources for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
+
+[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
 Each App Service plan defines:
 
@@ -118,6 +121,24 @@ Isolate your app in a new App Service plan when:
 
 > [!NOTE]
 > An active slot is also classified as an active app because it's competing for resources in the same App Service plan.
+
+## Managed Instance on Azure App Service (preview)
+Managed Instance is a plan-scoped hosting option for Windows web apps that require operating system customization, optional private networking, and legacy Windows component support. It's designed for "lift and improve" migrations of infrastructure-dependent workloads that need COM components, registry access, MSI installers, or IIS customization while retaining App Service's managed platform features.
+
+Key features:
+
+- PowerShell configuration scripts for persistent OS and middleware setup
+- Plan-level virtual network integration with private DNS
+- Azure Key Vault-backed registry adapters for secure configuration
+- Storage mounts (Azure Files, UNC paths, local temporary storage)
+- Just-in-time RDP access via Azure Bastion for diagnostics
+- Plan-level managed identities for infrastructure authentication
+- Pre-installed .NET Framework (3.5, 4.8) and .NET 8 with support for custom runtimes
+- Best for: Legacy .NET Framework apps requiring Windows-specific dependencies, gradual modernization without complete rewrites, and plan-level network isolation for compliance.
+
+Current limitations (preview): Windows only, Pv4/Pmv4 SKUs, available in East Asia, West Central US, North Europe, and East US. Not available for Linux, containers, or in App Service Environment.
+
+[Learn more about Managed Instance](overview-managed-instance.md)
 
 ## Related content
 

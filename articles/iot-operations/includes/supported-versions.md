@@ -1,21 +1,28 @@
 ---
-title: include file
-description: include file with details of currently supported versions
+title: Include file
+description: Include file with details of currently supported versions
 author: dominicbetts
 ms.topic: include
-ms.date: 07/30/2025
+ms.date: 10/06/2025
 ms.author: dobett
 ---
 
-Microsoft always supports three generally available (GA) versions of Azure IoT Operations at any one time: the latest version, and the two previous minor versions.
+Microsoft supports three generally available (GA) versions of Azure IoT Operations at any time: the latest version, and the two previous minor versions. Additionally, preview versions are available for testing new features.
 
-Currently, there are only two minor versions available. [Azure support](https://azure.microsoft.com/support/plans) is currently available for the following versions:
+Currently, [Azure support](https://azure.microsoft.com/support/plans) is available for the following versions:
 
-- [1.2.x](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.36) (latest preview version)
-- [1.1.x](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59) (latest GA version)
-- [1.0.x](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.9) (previous minor GA version)
+| Version | Type | Current patch <br/>release (YYMM) | Current <br/>CLI version | Release notes |
+|---------|------|---------------|-------------|---------------|
+| 1.2.x   | GA | 1.2.112 (2510) | [2.0.1](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.0.1)   | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.112) |
+| 1.1.x   | GA | 1.1.59 (2506) | [1.7.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.7.0)     | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59) |
+| 1.0.x   | GA | 1.0.34 (2503)  | [1.3.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.3.0)       | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.34) |
+
+To learn about upgrades between versions, see [Upgrade to a new version](../deploy-iot-ops/howto-upgrade.md).
 
 > [!IMPORTANT]
-> Previous minor versions don't receive security patches. Always upgrade to the latest version to ensure you have the latest security updates and features.
+> Previous minor versions don't receive security patches. Upgrade to the latest version to get the latest security updates and features.
 
-To verify your current version, see the overview page for your Azure IoT Operations instance in the Azure portal or use the Azure IoT Operations CLI [az iot ops instance show](/cli/azure/iot/ops#az-iot-ops-show) command.
+> [!WARNING]
+> Don't use preview versions in production environments.
+
+To verify your current version, go to the overview page for your Azure IoT Operations instance in the Azure portal or use the Azure IoT Operations CLI [az iot ops instance show](/cli/azure/iot/ops#az-iot-ops-show) command.

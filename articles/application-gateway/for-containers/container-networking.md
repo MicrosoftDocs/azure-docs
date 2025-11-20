@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 3/24/2025
+ms.date: 08/26/2025
 ms.author: mbender
 # Customer intent: "As a Kubernetes administrator, I want to configure and deploy Application Gateway for Containers with different CNI plugins, so that I can manage networking efficiently and ensure seamless connectivity between pods in my Azure Kubernetes Service cluster."
 ---
@@ -30,7 +30,7 @@ When choosing a networking model, consider the use cases for each CNI plugin and
 | CNI plugin | Networking model | Use case highlights |
 |-------------|----------------------|-----------------------|
 | **Azure CNI Overlay** | Overlay | - Best for VNET IP conservation<br/>- Max node count supported by API Server + 250 pods per node<br/>- Simpler configuration<br/> - No direct external pod IP access |
-| **Azure CNI Pod Subnet** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support (Preview) |
+| **Azure CNI Pod Subnet** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support |
 | **Azure CNI Node Subnet** | Flat | - Direct external pod access<br/>- Simpler configuration <br/>- Limited scale <br/>- Inefficient use of VNet IPs |
 
 When provisioning Application Gateway for Containers into a cluster that has CNI Overlay or CNI enabled, Application Gateway for Containers automatically detects the intended network configuration. There are no changes needed in Gateway or Ingress API configuration to specify CNI Overlay or CNI.
@@ -43,13 +43,9 @@ A separate routing domain is created in the Azure Networking stack for the pod's
 
 Application Gateway for Containers supports Azure Network Policies, Calico, and Cilium Kubernetes network policies running within the cluster.
 
-> [!IMPORTANT]
-> Application Gateway for Containers with CNI Overlay is in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ### Limitations
 
-* ALB Controller: You must be running version 1.5.2 or greater to take advantage of CNI Overlay.
+* ALB Controller: You must be running version 1.7.9 or greater to take advantage of CNI Overlay.
 * Subnet Size: The Application Gateway for Containers subnet must be a /24 prefix; only one deployment is supported per subnet. A larger or smaller prefix isn't supported.
 * Regional VNet Peering: Application Gateway for Containers deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region A isn't supported.
 * Global VNet Peering: Application Gateway for Containers deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region B isn't supported.

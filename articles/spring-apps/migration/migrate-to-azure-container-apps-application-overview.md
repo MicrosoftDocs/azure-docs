@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 01/29/2025
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -57,7 +58,7 @@ Azure Container Apps also provides built-in environment variables. These variabl
 
 ## Secrets
 
-Azure Container Apps helps store sensitive configuration values, known as *secrets*, securely. These secrets are defined at the application level as name/value pairs and are accessible to all container app revisions.
+Azure Container Apps helps store sensitive configuration values, known as _secrets_, securely. These secrets are defined at the application level as name/value pairs and are accessible to all container app revisions.
 
 We recommend that you store secrets in Azure Key Vault instead of entering them directly. You can reference the value of each secret from Azure Key Vault using one of the following formats:
 
@@ -124,7 +125,7 @@ For more information about JVM options, see [Java HotSpot VM Options](https://ww
 
 Azure Spring Apps and Azure Container Apps both support container-scoped storage, which means that the data stored on the container is available only while the container is running. For Azure Spring Apps, the total storage for an app is 5 GiB. Azure Container Apps offer storage that ranges from 1 GiB to 8 GiB depending on the total number of vCPUs allocated. This storage includes all ephemeral storage assigned to each replica. For more information, see the [Ephemeral storage](../../container-apps/storage-mounts.md?tabs=smb&pivots=azure-portal#ephemeral-storage) section of [Use storage mounts in Azure Container Apps](../../container-apps/storage-mounts.md?tabs=smb&pivots=azure-portal).
 
-Azure Spring Apps and Azure Container Apps both support permanent storage through Azure Files. Azure Container Apps supports mounting file shares using SMB and NFS protocols. You need to create a storage definition in the managed environment, and then define a volume of AzureFile (SMB) or NfsAzureFile (NFS) in a revision. You can complete the entire configuration for AzureFile (SMB) in the Azure portal. For more information, see [Create an Azure Files volume mount in Azure Container Apps](../../container-apps/storage-mounts-azure-files.md). Support for mounting NFS shares is currently in preview. You can configure it using the Azure CLI or an ARM template. For more information, see [NFS Azure file shares](../../storage/files/files-nfs-protocol.md) and the [Create an NFS Azure file share](../../storage/files/storage-files-quick-create-use-linux.md#create-an-nfs-azure-file-share) section of [Tutorial: Create an NFS Azure file share and mount it on a Linux VM using the Azure portal](../../storage/files/storage-files-quick-create-use-linux.md).
+Azure Spring Apps and Azure Container Apps both support permanent storage through Azure Files. Azure Container Apps supports mounting file shares using SMB and NFS protocols. You need to create a storage definition in the managed environment, and then define a volume of AzureFile (SMB) or NfsAzureFile (NFS) in a revision. You can complete the entire configuration for AzureFile (SMB) in the Azure portal. For more information, see [Create an Azure Files volume mount in Azure Container Apps](../../container-apps/storage-mounts-azure-files.md). Support for mounting NFS shares is currently in preview. You can configure it using the Azure CLI or an ARM template. For more information, see [NFS Azure file shares](../../storage/files/files-nfs-protocol.md) and the [Create an NFS Azure file share](../../storage/files/create-classic-file-share.md) section of [Create an Azure classic file share](../../storage/files/create-classic-file-share.md).
 
 ## Managed identity
 
@@ -141,7 +142,7 @@ Azure Container Apps and Azure Spring Apps both support all three types of healt
 In Azure Spring Apps, probe settings are configured on the deployment resource. In contrast, for Azure Container Apps, probe settings are defined on the container app resource. The following settings are available:
 
 | Property                        | Description                                                                                      | Azure Spring Apps                                              | Azure Container Apps                                                                                     |
-|---------------------------------|--------------------------------------------------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| ------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `probeAction`                   | The action of the probe.                                                                         | Supports `HTTPGetAction`, `TCPSocketAction`, and `ExecAction`. | There are no properties for the action type. The user must use either `httpGet` or `tcpSocket` directly. |
 | `disableProbe`                  | Indicates whether the probe is disabled.                                                         | Boolean                                                        | Boolean                                                                                                  |
 | `initialDelaySeconds`           | The number of seconds after the app instance starts before probes are initiated.                 |                                                                | The value ranges from 1 to 60.                                                                           |

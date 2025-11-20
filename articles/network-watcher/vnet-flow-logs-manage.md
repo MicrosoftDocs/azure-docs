@@ -6,9 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 10/07/2025
 
-#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 # Customer intent: As an Azure administrator, I want to manage virtual network flow logs so that I can log, analyze, and optimize IP traffic in my virtual network.
 ---
 
@@ -22,7 +21,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
@@ -32,7 +31,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
@@ -48,7 +47,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
@@ -118,23 +117,29 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
     :::image type="content" source="./media/flow-logs.png" alt-text="Screenshot of Network Watcher flow logs in the Azure portal." lightbox="./media/flow-logs.png":::
 
-1. On the **Basics** tab of **Create a flow log**, enter or select the following values:
+1. On the **Basics** tab of **Create a flow log**, enter, or select the following values:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
-    | Subscription | Select the Azure subscription of your virtual network that you want to log. |
-    | Flow log type | Select **Virtual network** then select **+ Select target resource** (available options are: **Virtual network**, **Subnet**, and **Network interface**). <br> Select the resources that you want to flow log, then select **Confirm selection**. |
-    | Flow Log Name | Enter a name for the flow log or leave the default name. Azure portal uses ***{ResourceName}-{ResourceGroupName}-flowlog*** as a default name for the flow log. |
+    | Subscription | Select the Azure subscription that contains your virtual network. |
+    | Flow log type | Select **Virtual network**, then select **+ Select target resource**. Available options are: **Virtual network**, **Subnet**, and **Network interface**. <br> Select the resources you want to log, then select **Confirm selection**. |
+    | Flow Log Name | Enter a name for the flow log, or leave the default name. The Azure portal uses ***{ResourceName}-{ResourceGroupName}-flowlog*** as the default name. |
     | **Instance details** |   |
-    | Subscription | Select the Azure subscription of the storage account. |
-    | Storage accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
-    | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+    | Subscription | Select the Azure subscription that contains the storage account. |
+    | Storage accounts | Select the storage account where you want to save the flow logs. To create a new storage account, select **Create a new storage account**. |
+    | Retention (days) | Enter a retention period for the logs in days. This option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts. Enter *0* to retain flow log data indefinitely (until you manually delete it). For pricing information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+
+    > [!IMPORTANT]
+    > Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. For more information, see [How many retention policy rules can a storage account have?](frequently-asked-questions.yml#how-many-retention-policy-rules-can-a-storage-account-have-)
 
     :::image type="content" source="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png":::
 
-    > [!NOTE]
-    > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+    > [!IMPORTANT]
+    > If you configure virtual network flow logs at the NIC, subnet, and virtual network levels, the enablement preference follows this order: NIC > subnet > virtual network.
+
+    > [!CAUTION]
+    > Virtual network flow logs are ingested into a block blob at one-minute intervals by appending blocks. While ingestion is in progress, don't perform operations that modify the blob's block structure, such as editing, overwriting, or deleting the blob content. These operations can cause all subsequent flow log write operations to fail for that specific hour's blob.
 
 1. To enable traffic analytics, select **Next: Analytics** button, or select the **Analytics** tab. Enter or select the following values:
 
@@ -149,8 +154,6 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
     > [!NOTE]
     > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json)
-
-    [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 1. Select **Review + create**.
 
@@ -188,7 +191,6 @@ Use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwat
     # Create a VNet flow log.
     New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2 -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
     ```
-    [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 # [**Azure CLI**](#tab/cli)
 
@@ -223,9 +225,13 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
     # Create a VNet flow log (storage account and traffic analytics workspace are in different resource groups from the virtual network).
     az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --traffic-analytics true --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace' --interval 10
     ```
-    [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 ---
+
+ > [!IMPORTANT]
+ > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+
+ [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 ## Enable or disable traffic analytics
 

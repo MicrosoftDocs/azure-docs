@@ -8,6 +8,7 @@ ms.service: azure-peering-service
 ms.topic: how-to
 ms.date: 03/03/2025
 ms.author: halkazwini
+ms.custom: sfi-image-nochange
 
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
@@ -20,7 +21,7 @@ In this article, you learn how to access your Peering Service connection telemet
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Peering Service connection. To learn how to create a connection, see [Create, change, or delete a Peering Service connection](azure-portal.md).
 

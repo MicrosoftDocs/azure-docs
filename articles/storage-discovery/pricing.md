@@ -3,18 +3,16 @@ title: Understand Storage Discovery Pricing | Microsoft Docs
 titleSuffix: Azure Storage Discovery
 description: Storage Discovery pricing and features available with each pricing plan.
 author: fauhse
-ms.service: azure-storage-mover
+ms.service: azure-storage-discovery
 ms.topic: overview
-ms.date: 08/01/2025
-ms.author: shaas
+ms.date: 10/09/2025
+ms.author: fauhse
 ---
 
 # Azure Storage Discovery pricing
 
 Azure Storage Discovery offers free and paid pricing plans. This article describes the differences and explains what influences the bill when choosing a paid option. 
-
-> [!TIP]
-> Billing for Azure Storage Discovery starts October 1, 2025. Until then, all pricing plans are free of charge.
+See the Azure.com [pricing page](https://azure.microsoft.com/pricing/details/azure-storage-discovery) for detailed pricing.
 
 ## Pricing plans
 
@@ -76,7 +74,7 @@ For each Discovery workspace, you can select from free or paid options. The numb
             </td>            
             <td>
                 <ul>
-                    <li>Backfill<sup>1</sup>: 30 days</li>
+                    <li>Backfill<sup>1</sup>: 15 days</li>
                     <li>Retention<sup>2</sup>: 18 months</li>
                 </ul>
             </td>            
@@ -98,11 +96,6 @@ For example: Azure Blob Storage consists of storage accounts and each storage ac
 |--------------------------------|-------------------|-----------------------|
 | **Storage accounts analyzed**  | Free              | A fee per storage resource (for example: storage account) that is in a scope of your workspace. The more storage resources you analyze, the more the average resource cost decreases.|
 | **Total objects analyzed**     | Free              | A fee per data object (for example: blob object) that is contained in a storage resource. The more storage objects you analyze, the more the average object cost decreases. |
-
-<br>
-
-> [!NOTE]
-> The cost for these billing components in your market and currency will be published on Azure.com before billing begins on October 1, 2025.
 
 ### Other cost considerations
 

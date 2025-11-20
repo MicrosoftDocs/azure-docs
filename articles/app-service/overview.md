@@ -9,6 +9,8 @@ ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
+#customer intent: As a developer or IT decision maker, I want a clear overview of Azure App Service features and supported workloads so that I can evaluate its fit for hosting my web applications, APIs, and back ends with minimal infrastructure management.
 ---
 
 # App Service overview
@@ -23,7 +25,7 @@ Whether you're a student, a small business, a startup, or an enterprise, App Ser
 
 ### Students
 
-- **Free access**: In addition to the widely-available [free tier](https://azure.microsoft.com/pricing/details/app-service/), students can take advantage of the [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p) program.
+- **Free access**: In addition to the widely available [free tier](https://azure.microsoft.com/pricing/details/app-service/), students can take advantage of the [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p) program.
 - **IDE support**: Purpose-built deployment tools are available for Visual Studio, Visual Studio Code, IntelliJ, and Eclipse.
 - **Easy to use**: Run your apps without needing experience in infrastructure management.
 - **Learning Resources**: Plenty of tutorials and guides to help you get started.
@@ -49,6 +51,37 @@ Whether you're a student, a small business, a startup, or an enterprise, App Ser
 
 For information about which Azure compute services best fit your scenario, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
+## Managed Instance on App Service (preview)
+
+> [!NOTE]
+> Managed Instance (preview) adds customization with plan-scoped isolation for legacy or infrastructure-bound web apps requiring Component Object Model (COM), registry access, Windows/Microsoft Installers (MSI), drive mapping, or stricter network boundaries.
+
+Key points:
+- Startup PowerShell install scripts enable COM, registry, IIS, ACL updates, MSI execution.
+- Registry adapters: Plan-level registry key definitions with secret values stored in Azure Key Vault.
+- Drive letter access: Configure access to SMB/UNC paths for legacy components (map or reference as supported).
+- RDP (via Azure Bastion): Diagnostics only—script persistent configuration.
+- Supports: Windows workloads (.NET, Java), COM/registry/MSI, drive mapping, managed identity, VNet integration, MSMQ client, CI/CD, Entra ID auth.
+- Not supported: Linux, containers, ASE, remote debugging (preview), non-PV4/PMV4 SKUs.
+
+> [!IMPORTANT]
+> Validate telemetry (Application Insights/logging), certificate automation, and operational processes before production adoption. Persistent changes must be scripted using configuration (install) scripts; Changes made during RDP sessions are not persisted.
+
+### Quick decision guide snapshot
+
+Choose [Managed Instance](quickstart-managed-instance.md) if:
+- Legacy dependencies (COM, registry, MSI, drive mapping) exist.
+- Plan-level enforced network isolation needed for a focused set of apps.
+- Diagnostics RDP access desired.
+
+Choose a standard [App Service plan](getting-started.md) if:
+- You need Linux or container support.
+- You want broad runtime flexibility with automatic OS/runtime management and patching.
+
+Choose [ASE](./environment/ase-multi-tenant-comparison.md) if:
+- You require large-scale isolation for many apps rather than deep per-plan OS customization.
+
 ## Next Steps
 
 - [Getting started with Azure App Service](getting-started.md)
+- [Managed Instance quickstart](quickstart-managed-instance.md)

@@ -4,10 +4,13 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, using Data Factory or Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/11/2025
+ms.date: 09/08/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from and to Oracle by using Azure Data Factory or Azure Synapse Analytics
@@ -17,7 +20,7 @@ ms.author: jianleishen
 This article outlines how to use the copy activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [copy activity overview](copy-activity-overview.md).
 
 > [!IMPORTANT]
-> The Oracle connector version 2.0 provides improved native Oracle support. If you are using Oracle connector version 1.0 in your solution, please [upgrade the Oracle connector](#upgrade-the-oracle-connector) before **October 31, 2025**. Refer to this [section](#differences-between-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Oracle connector version 2.0 provides improved native Oracle support. If you are using Oracle connector version 1.0 in your solution, please [upgrade the Oracle connector](#upgrade-the-oracle-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **March 31, 2026**. Refer to this [section](#differences-between-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -39,6 +42,7 @@ Specifically, this Oracle connector supports:
     - Oracle Database 19c and higher
     - Oracle Database 18c and higher
     - Oracle Database 12c and higher
+    - Oracle Database 11g and higher
 - The following versions of an Oracle database for version 1.0:
     - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher
@@ -352,7 +356,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
-| oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. Note that the query should not end with a semicolon (;). <br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0, this property will only be allowed to be set when supportV1DataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
@@ -360,6 +364,8 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 | partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfRangePartitionColumnName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionLowerBound | The minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| numberPrecision | Specify the maximum number of significant decimal digits. Allowed values range from 1 to 256. Defaults to 256 if not specified. <br>This property is supported in Oracle version 2.0. It applies only to NUMBER types that do not have precision and scale explicitly defined in the Oracle database. It can be set when `supportV1DataTypes` isn't `true`. If you use self-hosted integration runtime, its version should be 5.56 or above. | No |
+| numberScale | Specify the number of digits after the decimal point. Allowed values range from 0 to 130 and must be less than or equal to the precision. Defaults to 130 if not specified. <br>This property is supported in Oracle version 2.0. It applies only to NUMBER types that do not have precision and scale explicitly defined in the Oracle database. It can be set when `supportV1DataTypes` isn't `true`. If you use self-hosted integration runtime, its version should be 5.56 or above. | No |
 
 **Example: copy data by using a basic query without partition**
 

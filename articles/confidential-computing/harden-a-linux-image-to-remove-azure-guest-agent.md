@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
 ms.date: 8/03/2023
-ms.author: vvenugopal
+ms.author: mattmcinnes
 ms.custom: devx-track-azurecli, linux-related-content
 # Customer intent: As a cloud administrator, I want to remove the Azure Linux Agent from a Linux image so that I can harden the image for confidential computing and restrict unnecessary functionalities.
 ---
@@ -22,7 +22,7 @@ It's crucial to comprehend what functionalities the VM loses before deciding to 
 This "how to" shows you steps to remove guest agent from the Linux image.
 ## Prerequisites
 
-- If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Ubuntu image - you can choose one from the [Azure Marketplace](/azure/virtual-machines/linux/cli-ps-findimage).
 
 ### Remove Azure Linux Agent and prepare a generalized Linux image

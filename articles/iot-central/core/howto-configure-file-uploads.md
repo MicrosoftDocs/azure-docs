@@ -7,6 +7,7 @@ ms.author: dobett
 ms.date: 05/23/2025
 ms.topic: how-to
 ms.service: azure-iot-central
+ms.custom: sfi-image-nochange
 
 # This topic applies to administrators and device developers.
 ---

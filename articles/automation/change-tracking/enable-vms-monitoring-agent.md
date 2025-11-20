@@ -9,6 +9,7 @@ ms.service: azure-automation
 ms.author: v-jasmineme
 author: jasminemehndir
 zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
+ms.custom: sfi-image-nochange
 ---
 
 # Enable Change Tracking and Inventory using Azure Monitoring Agent
@@ -20,7 +21,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A [virtual machine](/azure/virtual-machines/windows/quick-create-portal) configured in the specified region.
 
 ## Enable Change Tracking and Inventory

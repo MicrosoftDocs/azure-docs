@@ -27,7 +27,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisite
 
-Complete the previous tutorial: [Create a function app with identity-based connections][previous tutorial].
+- [.NET SDK](https://dotnet.microsoft.com/download)
+
+- [Azure CLI](/cli/azure/install-azure-cli)
+
+- [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
+
+- Complete the previous tutorial: [Create a function app with identity-based connections][previous tutorial].
 
 ## Create a Service Bus namespace and queue
 

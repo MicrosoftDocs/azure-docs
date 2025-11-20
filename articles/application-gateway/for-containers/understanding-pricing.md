@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 7/21/2025
+ms.date: 11/10/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to understand how Azure Application Gateway pricing works, so that I can accurately budget for my application infrastructure costs.
 ---
@@ -32,13 +32,7 @@ Application Gateway for Containers consists of four billable items:
 - Association resource 
 - Capacity units
 
-When Web Application Firewall is enabled two more billable items are added:
-
-- Web Application Firewall resource
-- Requests processed by WAF
-
->[!Note]
->The Web Application Firewall resource is only billed once per Application Gateway for Containers resource. For example, if you have five Web Application Firewall Policies assigned to five Application Gateway for Containers' security policies, only one Web Application Firewall resource will be metered.
+When you enable Web Application Firewall (WAF) on your Application Gateway for Containers resource, you're billed at the higher WAF rates for each meter and will incur higher capacity unit usage to run the WAF.
 
 #### Application Gateway for Containers hour
 
@@ -66,12 +60,12 @@ The parameter with the highest utilization is internally used for calculating ca
 
 Estimated costs are used for the East US 2 region. 
 
-| Meter | Price |
-| ----- | ----- |
-| Application Gateway for Container | $0.017 per application gateway for container-hour |
-| Frontend | $0.01 per frontend-hour |
-| Association | $0.12 per association-hour |
-| Capacity Unit | $0.008 per capacity unit-hour |
+| Meter | Price | Price with WAF |
+| ----- | ----- | ----- |
+| Application Gateway for Container | $0.017 per application gateway for container-hour | $0.031 per application gateway for container WAF-hour |
+| Frontend | $0.01 per frontend-hour | $0.018 per frontend WAF-hour |
+| Association | $0.12 per association-hour | $0.216 per association WAF-hour |
+| Capacity Unit | $0.008 per capacity unit-hour | $0.014 per capacity unit WAF-hour |
 
 For the latest pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
@@ -179,51 +173,6 @@ Pricing calculation:
 * 1 Association x $0.12 x 730 hours = $87.60
 * 3 Capacity Units x $0.008 x 730 hours = $17.52
 * Total = $124.83
-
-### Example 6 - Web Application Firewall
-
-This example assumes Application Gateway for Containers has load raising the number of capacity units and has a Web Application Firewall (WAF) policy reference to an Application Gateway for Containers' security policy. The WAF policy is configured with both DRS 2.1 and bot manager rulesets. This WAF policy also has four custom rules enabled which do not incur any additional charges
-
-*	1 Application Gateway for Containers resource
-*	1 frontend resource
-*	1 association resource
-*	1 security policy resources (non-billable)
-*	8 capacity units
-*	1 WAF policy running a default ruleset and a bot manager ruleset
-*	4 WAF custom rules
-*	10 million requests processed by WAF
-
-Pricing calculation:
-
-*	1 Application Gateway for Containers x $0.017 x 730 hours = $12.41
-*	1 Frontend x $0.01 x 730 hours = $7.30
-*	1 Association x $0.12 x 730 hours = $87.60
-*	8 Capacity Units x $0.008 x 730 hours = $46.72
-*	WAF enablement x $0.068 x 730 hours = $49.64
-*	10 one million requests (10) x $0.75 x 2 WAF rulesets (DRS 2.1 and Bot Manager) = $15
-*	Total = $218.67
-
-### Example 7 - Web Application Firewall - Multiple Policies
-
-This example assumes Application Gateway for Containers has load raising the number of capacity units and has three Web Application Firewall (WAF) policy reference to three corresponding Application Gateway for Containers' security policies. One policy is configured with both DRS 2.1, bot manager rulesets and 3 custom rules, the other two policies only have DRS 2.1 ruleset and no custom rules.
-
-*	1 Application Gateway for Containers resource
-*	1 frontend resource
-*	1 association resource
-*	3 security policy resources (non-billable)
-*	8 Capacity Units
-*	1 WAF policy running a default ruleset, a bot manager ruleset and three custom rules
-*	10 million requests processed by WAF
-
-Pricing calculation:
-
-*	1 Application Gateway for Containers x $0.017 x 730 hours = $12.41
-*	1 Frontend x $0.01 x 730 hours = $7.30
-*	1 Association x $0.12 x 730 hours = $87.60
-*	8 Capacity Units x $0.008 x 730 hours = $46.72
-*	WAF enablement x $0.068 x 730 hours = $49.64
-*	10 million requests (10) x $0.75 x 2 WAF rulesets (DRS 2.1 and Bot Manager) = $15
-*	Total = $218.67
 
 ## Next steps
 

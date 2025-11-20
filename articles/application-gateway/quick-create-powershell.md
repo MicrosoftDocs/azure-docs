@@ -27,7 +27,7 @@ You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure PowerShell version 1.0.0 or later](/powershell/azure/install-azure-powershell) (if you run Azure PowerShell locally).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
@@ -170,6 +170,9 @@ New-AzApplicationGateway `
 
 > [!TIP]
 > You can modify values of the `Name` and `Tier` parameters to use a different SKU. For example: `Basic`.
+
+> [!NOTE]
+> In regions that support availability zones, if you don't specify zones during creation via CLI, PowerShell, ARM/Bicep, or the REST API—Azure Application Gateway automatically enables zone redundancy, distributing instances across multiple availability zones for enhanced resiliency
 
 ### Backend servers
 

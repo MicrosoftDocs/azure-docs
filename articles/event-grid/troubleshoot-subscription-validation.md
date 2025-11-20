@@ -11,8 +11,8 @@ During event subscription creation, if you're seeing an error message such as `T
 
 - Do an HTTP POST to your webhook url with a [sample SubscriptionValidationEvent](end-point-validation-event-grid-events-schema.md#validation-details) request body using curl or similar tool.
 - If your webhook is implementing synchronous validation handshake mechanism, verify that the ValidationCode is returned as part of the response.
-- If your webhook is implementing asynchronous validation handshake mechanism, verify that you're the HTTP POST is returning 200 OK.
-- If your webhook is returning `403 (Forbidden)` in the response, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it is, then your need to disable these firewall rules and do an HTTP POST again:
+- If your webhook is implementing asynchronous validation handshake mechanism, verify that your POST endpoint is returning 200 OK.
+- If your webhook is returning `403 (Forbidden)` in the response, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it is, then you need to disable these firewall rules and do an HTTP POST again:
     - 920300 (Request missing an accept header)
     - 942430 (Restricted SQL character anomaly detection (args): # of special characters exceeded (12))
     - 920230 (Multiple URL encoding detected)

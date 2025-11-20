@@ -1,13 +1,16 @@
 ---
 title: Configure Azure Event Hubs and Kafka data flow endpoints in Azure IoT Operations
 description: Learn how to configure data flow endpoints for Kafka in Azure IoT Operations.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 06/17/2025
 ai-usage: ai-assisted
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
 ---

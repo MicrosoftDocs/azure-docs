@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Seed a historical cost dataset with the Exports API
 description: This tutorial helps your seed a historical cost dataset to visualize cost trends over time.
-author: jojohpm
-ms.author: jojoh
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/26/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
 
 # Tutorial: Seed a historical cost dataset with the Exports API

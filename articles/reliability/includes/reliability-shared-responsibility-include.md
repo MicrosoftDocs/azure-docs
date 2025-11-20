@@ -9,4 +9,5 @@
  ms.custom: include file
 ---
 
-Reliability is a shared responsibility between you and Microsoft. You can use this guide to determine which reliability options fulfill your specific business objectives and uptime goals. 
+When you use Azure, [reliability is a shared responsibility](/azure/reliability/concept-shared-responsibility). Microsoft provides a range of capabilities to support resiliency and recovery. You're responsible for understanding how those capabilities work within all of the services you use, and selecting the capabilities you need to meet your business objectives and uptime goals.
+

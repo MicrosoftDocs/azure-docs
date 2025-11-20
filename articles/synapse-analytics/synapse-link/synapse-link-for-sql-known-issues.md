@@ -1,13 +1,14 @@
 ---
 title: Limitations and known issues with Azure Synapse Link for SQL
 description: Learn about limitations and known issues with Azure Synapse Link for SQL.
-author: jonburchel
-ms.author: jburchel
-ms.reviewer: jburchel, chuckheinzelman, imotiwala
-ms.date: 05/07/2025
+author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: wiassaf, yexu
+ms.date: 10/31/2025
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: troubleshooting
+ms.update-cycle: 1825-days
 ms.custom:
   - build-2025
 ---
@@ -15,6 +16,13 @@ ms.custom:
 # Limitations and known issues with Azure Synapse Link for SQL
 
 This article lists the [limitations](#limitations) and [known issues](#known-issues) with Azure Synapse Link for SQL.
+
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Cosmos DB, Oracle, Snowflake, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
 
 ## Limitations
 

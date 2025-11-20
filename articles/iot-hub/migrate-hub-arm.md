@@ -6,9 +6,11 @@ author: SoniaLopezBravo
 
 ms.author: sonialopez
 ms.service: azure-iot-hub
-ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 12/09/2024
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # How to manually migrate an Azure IoT hub using an Azure Resource Manager template

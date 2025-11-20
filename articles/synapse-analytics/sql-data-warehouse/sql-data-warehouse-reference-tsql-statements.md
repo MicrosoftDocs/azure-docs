@@ -9,6 +9,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - azure-synapse
+  - sfi-ropc-nochange
 ---
 
 # T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics 

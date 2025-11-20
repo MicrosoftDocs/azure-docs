@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/16/2025
+ms.date: 08/19/2025
 ms.author: jianleishen
 ---
 
@@ -16,7 +16,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Hive connector version 2.0 provides improved native Hive support. If you are using the Hive connector version 1.0 in your solution, please [upgrade your Hive connector](#upgrade-the-hive-connector) before **September 30, 2025**. Refer to this [section](#differences-between-hive-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Hive connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Hive connector](#differences-between-hive-version-20-and-version-10) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -92,11 +92,11 @@ The Hive linked service supports the following properties when apply version 2.0
 | host | IP address or host name of the Hive server.  | Yes |
 | port | The TCP port that the Hive server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Hive server. <br/>Allowed value is: **HiveServer2** | No |
-| thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed value are: **Binary**, **SASL**, **HTTP** | No |
+| thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed values are: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | The authentication method used to access the Hive server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. Kerberos authentication is not supported now. | Yes |
 | username | The user name that you use to access Hive Server.  | No |
 | password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| httpPath | The partial URL corresponding to the Hive server.  | No |
+| httpPath | The partial URL corresponding to the Hive server. <br/>For WindowsAzureHDInsightService authentication type, the default value is `/hive2`. | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is true.  | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. Always use System Trust Store. The default value is true. | No |
 | storageReference | A reference to the linked service of the storage account used for staging data in mapping data flow. This is required only when using the Hive linked service in mapping data flow. | No |
@@ -317,7 +317,7 @@ When you copy data from and to Hive, the following interim data type mappings ar
 | BOOLEAN |Boolean | Boolean |
 | FLOAT | Single | Single |
 | DOUBLE  | Double | Double |
-| DECIMAL | Decimal | Decimal |
+| DECIMAL | Decimal | Decimal <br>String (precision > 28) |
 | STRING | String | String |
 | VARCHAR | String | String |
 | CHAR | String | String |
@@ -339,8 +339,8 @@ The following table shows the release stage and change logs for different versio
 
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
-| Version 1.0 | End of support announced | / |
-| Version 2.0 | GA version available | • The self-hosted integration runtime version should be 5.54 or above. <br><br>• The default value of `enableSSL` is true. `enableServerCertificateValidation` is supported. <br>`trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• TINYINT is read as SByte data type. <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported. <br><br>• HiveServer1 and HiveThriftServer are not supported for `ServerType`.  <br><br>• Username authentication type is not supported. SASL transport protocol only supports UsernameAndPassword authentication type. Binary transport protocol only supports Anonymous authentication type. <br><br>• `serviceDiscoveryMode`, `zooKeeperNameSpace` and `useNativeQuery` are not supported. |
+| Version 1.0 | Removed | Not applicable. |
+| Version 2.0 | GA version available | • The self-hosted integration runtime version should be 5.54 or above.  <br><br>• `enableServerCertificateValidation` is supported. <br><br>• The default value of `enableSSL` is true. <br><br>• For WindowsAzureHDInsightService authentication type, the default value of `httpPath` is `/hive2`. <br><br>• DECIMAL is read as Decimal data type. <br><br>• TINYINT is read as SByte data type. <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported. <br><br>• HiveServer1 and HiveThriftServer are not supported for `ServerType`.  <br><br>• Username authentication type is not supported. SASL transport protocol only supports UsernameAndPassword authentication type. Binary transport protocol only supports Anonymous authentication type. <br><br>• `serviceDiscoveryMode`, `zooKeeperNameSpace` and `useNativeQuery` are not supported. |
 
 ### <a name="upgrade-the-hive-connector"></a> Upgrade the Hive connector from version 1.0 to version 2.0
 

@@ -9,7 +9,10 @@ ms.service: azure-api-management
 ms.topic: troubleshooting
 ms.date: 05/22/2025
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # API Management developer portal - frequently asked questions

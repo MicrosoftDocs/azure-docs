@@ -3,9 +3,9 @@ title: Get started with the Azure Storage management library for .NET
 titleSuffix: Azure Storage
 description: Get started developing a .NET application to manage a storage account by using the Azure Storage management library for .NET.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 02/12/2025
@@ -22,7 +22,7 @@ This article shows you how to connect to Azure Storage resources using the Azure
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Set up your project
@@ -129,4 +129,5 @@ The following guide shows you how to manage resources and perform specific actio
 | Guide | Description |
 | --- | --- |
 | [Manage a storage account](storage-srp-manage-account-dotnet.md) | Learn how to create and manage a storage account, manage storage account keys, and configure client options to create a custom retry policy. |
+
 

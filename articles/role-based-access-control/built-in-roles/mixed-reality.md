@@ -4,9 +4,9 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
-ms.author: jfields
+ms.author: rolyon
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -19,8 +19,6 @@ This article lists the Azure built-in roles in the Mixed reality category.
 ## Remote Rendering Administrator
 
 Provides user with conversion, manage session, rendering and diagnostics capabilities for Azure Remote Rendering
-
-[Learn more](/azure/remote-rendering/how-tos/authentication)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -74,8 +72,6 @@ Provides user with conversion, manage session, rendering and diagnostics capabil
 ## Remote Rendering Client
 
 Provides user with manage session, rendering and diagnostics capabilities for Azure Remote Rendering.
-
-[Learn more](/azure/remote-rendering/how-tos/authentication)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

@@ -3,11 +3,13 @@ title: Integrate web app with OpenAPI in Azure AI Foundry Agent Service (Java)
 description: Empower your existing Java web apps by integrating their capabilities into Azure AI Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
-ms.date: 07/16/2025
+ms.date: 10/28/2025
 ms.topic: tutorial
 ms.custom:
   - devx-track-java
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
+ms.service: azure-app-service
 ---
 
 # Add an App Service app as a tool in Azure AI Foundry Agent Service (Spring Boot)
@@ -22,7 +24,7 @@ If your web application already has useful features, like shopping, hotel bookin
 > * Add OpenAPI functionality to your web app.
 > * Make sure OpenAPI schema compatible with Azure AI Foundry Agent Service.
 > * Register your app as an OpenAPI tool in Azure AI Foundry Agent Service.
-> * Test your agent in the the agents playground.
+> * Test your agent in the agents playground.
 
 ## Prerequisites
 
@@ -131,6 +133,9 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 1. In the **Define schema** page, paste the schema that you copied earlier. Review and save the action.
 
+> [!TIP]
+> In this tutorial, the OpenAPI tool is configured to call your app anonymously without authentication. For production scenarios, you should secure the tool with managed identity authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Azure AI Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md).
+
 ## Test the agent
 
 1. If the agents playground isn't already opened in the foundry portal, select the agent and select **Try in playground**.
@@ -149,7 +154,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 When exposing APIs via OpenAPI in Azure App Service, follow these security best practices:
 
-- **Authentication and Authorization**: Protect your OpenAPI endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Authentication and Authorization**: Protect your OpenAPI endpoints with Microsoft Entra authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Azure AI Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md). You can also protect your endpoints behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
 - **Validate and sanitize input data:** The example code in this tutorial omits input validation and sanitization for simplicity and clarity. In production scenarios, always implement proper validation and sanitization to protect your application. For Spring, see [Spring: Validating Form Input](https://spring.io/guides/gs/validating-form-input).
 - **Use HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
 - **Limit CORS:** Restrict Cross-Origin Resource Sharing (CORS) to trusted domains only. For more information, see [Enable CORS](app-service-web-tutorial-rest-api.md#enable-cors).

@@ -7,10 +7,16 @@ ms.author: cephalin
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 07/03/2025
-ms.custom: devx-track-azurecli, engagement-fy23, AppServiceIdentity, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
 #customer intent: As an app developer, I want to authenticate and authorize uses seamlessly for front-end and back-end apps in the Azure App Service.
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurecli
+  - engagement-fy23
+  - AppServiceIdentity
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
@@ -82,7 +88,7 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Create and deploy the front-end web app with the [az webapp up](/cli/azure/webapp#az-webapp-up) command. The web app name has to be globally unique. Replace `<front-end-app-name>` with a unique name. 
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --os-type Windows --location "West Europe" --runtime "NODE:20LTS"
+   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --os-type Windows --location "West Europe" --runtime "NODE:24LTS"
    ```
 
 1. Change into the `backend` web app directory.
@@ -94,7 +100,7 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique string of letters and numbers.
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --os-type Windows --location "West Europe" --runtime "NODE:20LTS"
+    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --os-type Windows --location "West Europe" --runtime "NODE:24LTS"
     ```
 
 ::: zone-end
@@ -110,7 +116,7 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Create and deploy the front-end web app with the [az webapp up](/cli/azure/webapp#az-webapp-up) command. The web app name has to be globally unique. Replace `<front-end-app-name>` with a unique string of letters and numbers. 
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:20-lts"
+   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:24-lts"
     ```
 
 1. Change into the `backend` web app directory.
@@ -122,7 +128,7 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique string of letters and numbers. 
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --sku FREE --location "West Europe" --runtime "NODE:16-lts"
+   az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --sku FREE --location "West Europe" --runtime "NODE:24-lts"
    ```
 
 ::: zone-end
@@ -201,9 +207,13 @@ If you stop here, you have a self-contained app that the App Service authenticat
 
 You enabled authentication and authorization to both of your apps. To complete the authentication, you need to do three things:
 
-- Grant the front-end app access to the back-end app
+- Expose the backend app as an API by defining a scope
+- Grant the frontend app access to the backend app
 - Configure App Service to return a usable token
 - Use the token in your code
+
+> [!NOTE]
+> Before you can grant the frontend app access to the backend, you must expose the backend API by setting an Application ID URI and defining at least one scope. This allows the backend to be selectable under "My APIs" when assigning API permissions.
 
 > [!TIP]
 > If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store might not regenerate from the new settings. To make sure your tokens regenerate, you need to sign out and sign back in to your app. One approach is to use your browser in private mode. Close and reopen the browser in private mode after changing the settings in your apps.

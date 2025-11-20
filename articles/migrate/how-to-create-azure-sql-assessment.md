@@ -6,7 +6,9 @@ ms.author: v-uhabiba
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 03/26/2025
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
 # Customer intent: As a database administrator, I want to assess my on-premises SQL instances for migration to Azure SQL, so that I can understand cloud readiness, optimize configurations, and estimate costs for a smooth transition to the cloud.
 ---
 
@@ -191,19 +193,11 @@ The assessment summary shows the estimated monthly compute and storage costs for
 1. You can drill down at an instance level to see Azure SQL configuration and cost estimates at an instance level.  
 1. You can also drill down to the database list to review the Azure SQL configuration and cost estimates per database when an Azure SQL Database configuration is recommended.
 
-### Review confidence rating
+### Review performance coverage
 Azure Migrate assigns a confidence rating to all Azure SQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed SQL instances and databases. Rating is from one star (lowest) to five stars (highest).
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. Confidence ratings are as follows:
 
-**Data point availability** | **Confidence rating**
---- | ---
-0%-20% | 1 star
-21%-40% | 2 stars
-41%-60% | 3 stars
-61%-80% | 4 stars
-81%-100% | 5 stars
-
-[Learn more](assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](assessment-report.md#coverage) about performance coverage. 
 
 ## Next steps
 

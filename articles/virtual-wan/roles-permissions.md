@@ -126,7 +126,7 @@ Therefore, to create a Virtual Network connection to the Virtual WAN hub, you mu
 * Create a Virtual Network peering with the spoke Virtual Network (Microsoft.Network/virtualNetworks/peer/action)
 * Read the route table(s) that the Virtual Network connections are referencing (Microsoft.Network/virtualhubs/hubRouteTables/read)
 
-If you want to associate an inbound or out-bound route map is associated with the Virtual Network connection, you need an additional permission:
+To associate an inbound or outbound route map with a Virtual Network connection, you must have an additional permission:
 
 * Read the route map(s) that is applied to the Virtual Network connection (Microsoft.Network/virtualHubs/routeMaps/read).
 
@@ -182,7 +182,7 @@ NVAs (Network Virtual Appliances) in Virtual WAN are typically deployed through 
 
 |Resource | Required Azure permissions due to resource references |
 |---|---|
-| networkVirtualAppliances  | Microsoft.Network/virtualHubs/read   <br? Microsoft.Network/publicIPAddresses/join|
+| networkVirtualAppliances  | Microsoft.Network/virtualHubs/read   <br> Microsoft.Network/publicIPAddresses/join|
 | networkVirtualAppliances/networkVirtualApplianceConnections  | Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/virtualHubs/hubRouteTables/read | 
 
 
@@ -219,4 +219,4 @@ To view roles and permissions for other services, see the following links:
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
 
-- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+- [Azure Role Based Access Control](/azure/role-based-access-control/role-assignments-list-portal)

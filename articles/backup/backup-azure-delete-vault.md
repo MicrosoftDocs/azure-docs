@@ -2,11 +2,13 @@
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: how-to
-ms.date: 06/23/2025
+ms.date: 11/18/2025
 ms.service: azure-backup
-ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to successfully delete a Recovery Services vault, so that I can ensure the removal of unnecessary resources and maintain an organized backup infrastructure.
 ---
 # Delete an Azure Backup Recovery Services vault
@@ -95,7 +97,7 @@ To delete a vault, follow these steps:
 
 - <a id="portal-remove-private-endpoints">**Step 7:**</a> Remove Private Endpoints
 
-  Ensure there are no Private endpoints created for the vault. Go to Vault dashboard menu > **Private endpoint Connections** under 'Settings' > if the vault has any Private endpoint connections created or attempted to be created, ensure they are removed before proceeding with vault delete.
+  Ensure there are no Private endpoints created for the vault. Go to Vault dashboard menu > **Settings** > **Networking**, and then select **Private access**. If the vault has any Private endpoint connections created or attempted to be created, ensure they are removed before proceeding with vault delete.
 
 - **Step 8:** Delete vault
 

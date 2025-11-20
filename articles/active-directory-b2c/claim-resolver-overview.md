@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-ropc-nochange
 
 
 #Customer intent: As a developer using Azure AD B2C custom policies, I want to understand how to use claim resolvers in my technical profiles, so that I can provide context information about authorization requests and populate claims with dynamic values.

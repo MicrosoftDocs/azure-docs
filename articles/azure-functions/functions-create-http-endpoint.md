@@ -29,7 +29,7 @@ Choose your preferred programming language at the top of the article.
 >
 > You should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
 >+ [Visual Studio](functions-create-your-first-function-visual-studio.md)
->+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
+>+ [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp)
 + [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
@@ -43,18 +43,18 @@ Choose your preferred programming language at the top of the article.
 + [Maven](how-to-create-function-azure-cli.md?pivots=programming-language-java)
 >+ [Quarkus](functions-create-first-quarkus.md)
 >+ [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json)
->+ [Visual Studio Code](create-first-function-vs-code-java.md) 
+>+ [Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java) 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 >[!NOTE]
 >Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
->+ [Visual Studio Code](./create-first-function-vs-code-node.md)
+>+ [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-javascript)
 + [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript)
 ::: zone-end
 ::: zone pivot="programming-language-python"
 >[!NOTE]
 >Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
->+ [Visual Studio Code](./create-first-function-vs-code-python.md)
+>+ [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-python)
 + [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python)
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
@@ -62,13 +62,13 @@ Choose your preferred programming language at the top of the article.
 >Editing your TypeScript function code in the Azure portal isn't currently supported. For more information, see [Development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal). 
 > 
 > You should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
->+ [Visual Studio Code](./create-first-function-vs-code-typescript.md)
+>+ [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-typescript)
 + [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-typescript)
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 >[!NOTE]
 >Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
->+ [Visual Studio Code](./create-first-function-vs-code-powershell.md)
+>+ [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-powershell)
 + [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell)
 ::: zone-end 
 

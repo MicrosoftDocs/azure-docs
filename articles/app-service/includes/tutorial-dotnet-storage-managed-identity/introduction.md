@@ -1,15 +1,16 @@
 ---
-services: storage, app-service-web
-author: rwike77
-manager: CelesteDG
+author: cephalin
+ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 02/16/2022
-ms.author: ryanwi
-ms.reviewer: stsoneff
 ms.devlang: azurecli
-ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
-ms.subservice: web-apps
+ms.custom:
+  - azureday1
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 Learn how to access Azure services, _such as Azure Storage_, from a web app (not a signed-in user) running on Azure App Service by using managed identities. This tutorial demonstrates connecting to Azure Storage as an example. 
 
@@ -176,7 +177,7 @@ You need to grant your web app access to the storage account before you can crea
 
 In the [Azure portal](https://portal.azure.com), go into your storage account to grant your web app access. Select **Access control (IAM)** in the left pane, and then select **Role assignments**. You'll see a list of who has access to the storage account. Now you want to add a role assignment to a robot, the app service that needs access to the storage account. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-Assign the **Storage Blob Data Contributor** role to the **App Service** at subscription scope.  For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml).
+Assign the **Storage Blob Data Contributor** role to the **App Service** at subscription scope.  For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 Your web app now has access to your storage account.
 

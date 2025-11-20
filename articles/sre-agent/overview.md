@@ -1,145 +1,129 @@
 ---
-title: Azure SRE Agent overview (preview)
+title: Overview of Azure SRE Agent Preview
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
-ms.topic: conceptual
-ms.date: 07/30/2025
+ms.topic: overview
+ms.date: 11/06/2025
 ms.author: cshoe
-ms.service: azure
+ms.service: azure-sre-agent
 ---
 
-# Azure SRE Agent overview (preview)
+# Overview of Azure SRE Agent Preview
 
-Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. Azure SRE Agent brings these principles to your Azure hosted applications by providing an AI-powered tool that helps sustain production cloud environments. SRE Agent helps you respond to incidents quickly and effectively, alleviating the toil of manually managing production environments. The agent uses the reasoning capabilities of large language models (LLMs) to identify the logs and metrics necessary for rapid root cause analysis and issue mitigation. Azure SRE Agent brings you better service uptime and reduced operational costs.
+Azure SRE Agent automates operational work and reduces toil, so developers and operators can focus on high-value tasks.
 
-Agents have access to every resource inside the resource groups associated to the agent. Therefore, agents:
+Typical operational tasks often include managing multiple Azure resources along with on-premises and SaaS systems. These tasks are often repetitive or require orchestrating together multiple tools to provide the insights you need. SRE Agent gives you an AI-driven platform to connect systems together and automate the workflow end-to-end.
 
-- Continuously evaluate resource activity, and monitor active resources
+## What is SRE Agent?
 
-- Send proactive notifications about unhealthy or unstable apps
+SRE Agent is a service that brings automation and intelligence to site reliability engineering practices. It helps you reduce manual effort, improve system uptime, and deliver consistent operational outcomes. As the agent integrates with both Azure services and external systems, it executes operational tasks with minimal human intervention.
 
-Azure SRE Agent also integrates with [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview) and [PagerDuty](https://www.pagerduty.com/) to support advanced notification solutions.
+## Primary use cases
 
-> [!NOTE]
-> The SRE Agent feature is in public preview. To sign up for the wait list, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
+- **Automate incidents**: Connect to incident management platforms to automate triage, mitigation, and resolution, reducing mean time to recovery (MTTR) and improving service availability.
 
-By using an SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- **Automate scheduled workflows**: Set up proactive alerting and actions to automate routine and repetitive tasks that run on a defined schedule.
 
-## Key features
+To see SRE Agent in action, watch the following video.
 
-Azure SRE Agent offers several key features that enhance the reliability and performance of your Azure resources:
+<br>
 
-- **Welcome thread**: When you first create your agent, a new thread is created which provides initial analysis of your services. The environment analysis creates a snapshot of all the resources managed by the agent. Additionally, the agent generates a list of applications found in the managed resource groups.
+> [!VIDEO https://www.youtube.com/embed/DRWppVNOTqQ?si=FJ9dNk5uY1kUET-R]
 
-- **Daily threads**: Each day, the agent creates a resource report that summarizes the state and status of the services in your managed resource groups.
+## How does SRE Agent work?
 
-- **Tooling**: Querying and operations support via Azure CLI and Kubectl.  
+SRE Agent combines fine-tuned Azure expertise with full customization capabilities. Out of the box, SRE Agent understands and manages Azure resources for specific services, providing intelligent defaults for common operational tasks. At the same time, it offers flexibility to incorporate domain-specific knowledge, custom runbooks, and integrations with tools and data sources such as observability and monitoring platforms. This extensibility ensures that SRE Agent can adapt to your environment and operational requirements.
 
-- **Data sources**: Access to Azure Resource Manager APIs and Azure Monitor metrics data sources.
+## Integrations
 
-- **Incident management**: Diagnose incidents by chatting with the agent directly or by connecting an incident management platform to the agent. Automatically respond to Azure Monitor alerts or PagerDuty incidents with initial analysis.
+Azure SRE Agent integrates with your operational ecosystem in the following ways:
 
-- **Proactive monitoring**: Continuous 24x7 resource monitoring with real-time alerts for potential issues.
+- **Monitoring and observability:**
+  - Azure Monitor (metrics, logs, alerts, workbooks)
+  - Application Insights
+  - Log Analytics
+  - Grafana
 
-- **Automated mitigation:** Automatic detection and mitigation of common issues, reducing downtime and improving resource health. While agents attempt to work on your behalf, all automation requires your approval.
+- **Incident management:**
+  - Azure Monitor Alerts
+  - PagerDuty
+  - ServiceNow
 
-- **Infrastructure best practices:** Identify and remediate resources not following security best practices and help updates.
+- **Source control and CI/CD:**
+  - GitHub (repositories, issues)
+  - Azure DevOps (repos, work items)
 
-- **Accelerates root cause analysis:** Diagnose root causes of app issues by analyzing metrics and logs and suggest mitigations.
+- **Data sources:**
+  - Azure Data Explorer (Kusto) clusters
+  - Model Context Protocol (MCP) servers
+  
+## Get started
 
-- **Resource visualization**: Comprehensive views of your resource dependencies and health status.
+Get started working with Azure SRE Agent by scheduling a task, handling an incident, or building a subagent.
 
-    :::image type="content" source="media/overview/resources.png" alt-text="Screenshot of an SRE Agent knowledge graph." lightbox="media/overview/resources.png":::
+# [Schedule a task](#tab/task)
 
-- **Mitigation support**: SRE Agent can fix application configuration and dependent services. For code issues, the agent provides stack traces and can create GitHub issue to help resolve issues. The following items describe service-specific features of the agent:
+Create a scheduled task to run on a schedule you define.
 
-  - *Azure App Service*: Roll back deployment, scale resources up/down, application restarts.  
+1. Select the **Schedule tasks** tab.
 
-  - *Azure Container Apps*: Roll back deployment, scale resources up/down, and application restarts.  
+1. Enter task details.
 
-  - *Azure Kubernetes Service*: Restart pods/deployments, roll back deployments to previous revisions, scale resources up/down, and patch resource definitions.
+1. Define the schedule to run your task.
 
-## Reports
+1. Craft custom agent instructions for the task.
 
-An SRE Agent works to proactively monitor and maintain your Azure services. Each day your agent creates daily resource reports that provide insights into the health and status of your applications.
+1. Select **Create scheduled task**.
 
-Reports include:
+# [Handle an incident](#tab/incident)
 
-- **Incident summary:** Generates information about incidents raised by the SRE Agent on the previous day. Categories include: active, mitigated, or resolved.
+1. Enable integrations:  
 
-- **Application group performance and health:** Key metrics for each application group to assess system stability and performance. Metrics include: availability, CPU usage, and memory usage.
+    - Incident management tools: Link to ServiceNow, link to PagerDuty, or use Azure Monitor alerts.
+  
+    - Create a new incident response plan with custom instructions detailing how to handle incidents.
 
-- **Action summary:** Summaries of important details and insights relevant to the health and maintenance of your Azure resources.
+    - Ticketing systems: Azure Boards.
 
-## Scenarios
+    - Source code repositories: Connect to GitHub or Azure DevOps.  
 
-| Scenario | Possible cause | Agent mitigation |
-|---|---|---|
-| Application down | ▪ **Application code issues**: Bugs or errors in the application code can lead to crashes or unresponsiveness.<br><br>▪ **Bad deployment**: Incorrect configurations or failed deployments can cause the application to go down.<br><br>▪ **High CPU/memory/thread issues**: Resource exhaustion due to high CPU, memory, or thread usage can affect application performance. | The SRE Agent can detect these issues and provide actionable insights or fixes. For example, it can identify a decrease in web app availability that coincides with a recent slot swap and recommend swapping back slots as the first step of mitigation. |
-| Container image pull failures | ▪ **Image availability**: The requested image might not be available or could be missing.<br><br>▪ **Network connectivity**: Network issues can disrupt the connection to the container app.<br><br>▪ **Registry connectivity issues**: Problems with connecting to the container registry can prevent image pulls. | The SRE Agent can detect container image pull failures and provide detailed diagnostics. It can recommend solutions such as rolling back to the last known healthy revision and updating the image reference. |
+1. Send a test incident to validate enrichment, RCA, and automation flow.
 
-An agent can provide detailed information about different aspects of your apps and resources. The following examples demonstrate the types of questions you could pose to your agent:
+1. Review incident context, RCA timeline, and proposed mitigations.
 
-- What can you assist me with?
-- Why isn't my application working?
-- What services is my resource connected to?
-- Can you provide best practices for my resource?
-- What's the CPU and memory utilization of my app?
+# [Build a Subagent](#tab/subagent)
 
-Further, here are some prompts you can use to help you interact with your agent:
+Build [custom operational subagents](subagent-builder-overview.md), tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
 
-- Which apps have Dapr enabled?
-- List replicas for my container app
-- Which apps have diagnostic logging turned on?
-- Give me an individual heatmap for each storage account.
-- Which revision of my container app is currently active?
-- What are some best practices that my app should follow?
-- What is the ingress configuration for my container app?
-- Are there any staging slots configured for this web app?
-- What container images are used by each of my Container Apps?
-- List all resource groups that you’re managing across all subscriptions.
-- Draw heatmap of storage latencies over the last 14 days for storage accounts.
-- Show me a visualization of response times for Container Apps for last week.
-- List [Container Apps/Web Apps/etc.] that you’re managing across all subscriptions.
-- Visualize split of Container Apps vs Web Apps vs AKS clusters managed across all subscriptions as a pie chart.
+- Create purpose-built subagents for specific operational areas (database, network, security)
 
-## Supported services
+- Connect your observability tools and knowledge sources through Model Context Protocol (MCP) servers
 
-While Azure SRE Agent can help you manage and report on all Azure services, the agent features specialized tools for managing the following services:
+- Build custom tools that query Kusto, or integrate with internal and external systems through MCP servers
 
-- Azure API Management
-- Azure App Service
-- Azure Cache for Redis
-- Azure Container Apps
-- Azure Cosmos DB
-- Azure Database for PostgreSQL
-- Azure Functions
-- Azure Kubernetes Service
-- Azure SQL
-- Azure Storage
-- Azure Virtual Machines
+- Define agent handoff workflows for complex multi-domain incidents
 
-To get the latest list of services with custom agent tooling, you can submit the following prompt to the agent:
+- Test your subagent's performance by using the playground feature inside agent builder
 
-```text
-Which Azure services do you have specialized tooling available for?
-```
+- Refine the subagent workflow until your operational needs are met
 
-### Identifying resource groups
-
-As you create an agent, the resource group picker indicates groups that have instances of services with specialized tooling. From the resource group picker you'll see a checkmark (:::image type="icon" source="media/blue-check.png" border="false":::) next to the group name indicating the group includes services with specialized support.
+---
 
 ## Considerations
 
-Keep in mind the following considerations as you use Azure SRE Agent:
+Keep the following considerations in mind as you use Azure SRE Agent:
 
-* English is the only supported language in the chat interface
-* During preview, you can deploy the agent to the Sweden Central region, but the agent can monitor and remediate issues for services in any region.
-* For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
+- English is the only supported language in the chat interface.
+- For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
+- Availability varies by region and tenant configuration.  
 
-## Preview access
+When you create an agent, the following resources are also automatically created for you:
 
-Access to an SRE Agent is only available as in preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
+- Azure Application Insights
+- Log Analytics workspace
+- Managed Identity
+
+## Next step
 
 > [!div class="nextstepaction"]
 > [Use an agent](./usage.md)

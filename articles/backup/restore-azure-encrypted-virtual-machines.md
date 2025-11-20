@@ -2,7 +2,7 @@
 title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 06/23/2025
+ms.date: 08/20/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to restore encrypted Azure virtual machines using the Azure Backup service, so that I can ensure data recovery while maintaining security compliance."
@@ -13,6 +13,8 @@ This article describes how to restore Windows or Linux Azure virtual machines (V
 
 > [!Note]
 > This article is applicable to virtual machines encrypted with Azure Disk encryption. For more information on ADE and how it differs from other disk encryption types in Azure, see [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview).
+
+You can also restore Key Vault key and secret for encrypted VMs using Azure Backup. [Learn more](backup-azure-restore-key-secret.md).
 
 ## Before you start
 

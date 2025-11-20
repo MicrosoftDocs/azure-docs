@@ -11,13 +11,14 @@ ms.topic: quickstart
 ms.custom:
   - devx-track-azurepowershell
   - mode-api
+  - sfi-image-nochange
 ---
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
 You can scale compute for Azure Synapse Analytics [dedicated SQL pools](sql-data-warehouse-overview-what-is.md) in an Azure Synapse Workspace using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!NOTE]  
 > This article applies to dedicated SQL pools (formerly SQL DW) or in Azure Synapse connected workspaces. This content does not apply to dedicated SQL pools created in Azure Synapse workspaces. There are different PowerShell cmdlets to use for each, for example, use `Set-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Update-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For similar instructions for dedicated SQL pools in Azure Synapse Analytics workspaces, see [Quickstart: Scale compute for dedicated SQL pools in Azure Synapse workspaces with Azure PowerShell](quickstart-scale-compute-workspace-powershell.md).

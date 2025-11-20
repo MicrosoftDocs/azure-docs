@@ -3,12 +3,12 @@ title: Call REST API operations with Shared Key authorization
 titleSuffix: Learn how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Use the Azure Storage REST API to make a request to Blob storage using Shared Key authorization.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/01/2019
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: ozge
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -26,7 +26,7 @@ The sample application lists the blob containers for a storage account. To try o
 
 - Install [Visual Studio](https://www.visualstudio.com/vs) and include the **Azure development** workload. This example was built using Visual Studio 2019. If you use a different version, the guidance might vary slightly.
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - A general-purpose storage account. If you don't yet have a storage account, see [Create a storage account](storage-account-create.md).
 
@@ -574,3 +574,4 @@ In this article, you learned how to make a request to the blob storage REST API.
 - [File Service REST API](/rest/api/storageservices/file-service-rest-api)
 - [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api)
 - [Table Service REST API](/rest/api/storageservices/table-service-rest-api)
+

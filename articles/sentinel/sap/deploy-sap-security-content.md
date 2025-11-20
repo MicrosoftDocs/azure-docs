@@ -1,15 +1,16 @@
 ---
 title: Install a Microsoft Sentinel solution for SAP applications
 description: Learn how to install a Microsoft Sentinel solution for SAP applications from the content hub to your Log Analytics workspace enabled for Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 zone_pivot_groups: sentinel-sap-connection
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security administrator, I want to deploy and configure security monitoring for SAP applications using Microsoft Sentinel so that I can enhance the security posture and threat detection capabilities of my SAP environment.
@@ -22,6 +23,8 @@ The Microsoft Sentinel solutions for SAP applications include an SAP data connec
 
 :::zone pivot="connection-agent"
 
+[!INCLUDE [data-connector-agent-deprecation](../includes/data-connector-agent-deprecation.md)]
+
 :::image type="content" source="media/deployment-steps/install-solution.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Install solution content step." border="false":::
 
 :::zone-end
@@ -32,13 +35,9 @@ The Microsoft Sentinel solutions for SAP applications include an SAP data connec
 
 :::zone-end
 
-
 Content in this article is relevant for your **security** team.
 
 :::zone pivot="connection-agentless"
-
-> [!IMPORTANT]
-> Microsoft Sentinel's agentless data connector for SAP is currently in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::zone-end
 
@@ -56,9 +55,9 @@ Make sure that you also review the [prerequisites for deploying Microsoft Sentin
 ## Install the solution
 
 Installing the **Microsoft Sentinel Solution for SAP** makes both the data connector agent and the agentless data connector available to you from the Microsoft Sentinel **Configuration > Data connectors** page. The solution also deploys security content, such as the **SAP -Audit Controls** workbook and SAP-related analytics rules.
- 
-1. [Install the solution via the Azure marketplace](https://portal.azure.com/#create/sentinel4sap.sentinel4sap-previewsentinel4sap) after receiving a notification of onboarding. 
- 
+
+1. In the Microsoft Sentinel **Content hub**, search for **SAP** to install the **SAP applications** solution.
+
 1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
@@ -85,9 +84,9 @@ For more information, see [Discover and manage Microsoft Sentinel out-of-the-box
 ## Install the solution
 
 Installing the **Microsoft Sentinel Solution for SAP** makes both the data connector agent and the agentless data connector available to you from the Microsoft Sentinel **Configuration > Data connectors** page. The solution also deploys security content, such as the **SAP -Audit Controls** workbook and SAP-related analytics rules.
- 
-1. In the Microsoft Sentinel **Content hub**, search for **SAP** to install the **SAP applications** solution. 
- 
+
+1. In the Microsoft Sentinel **Content hub**, search for **SAP** to install the **SAP applications** solution.
+
 1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::

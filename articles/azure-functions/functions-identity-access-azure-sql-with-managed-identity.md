@@ -8,6 +8,7 @@ ms.date: 6/13/2022
 author: dzsquared
 ms.author: drskwier
 ms.reviewer: cachai
+ms.custom: sfi-ropc-nochange
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.
 ---
 

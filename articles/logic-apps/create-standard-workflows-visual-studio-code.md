@@ -1,13 +1,13 @@
 ---
-title: Create Standard workflows with Visual Studio Code
-description: Create Standard logic app workflows that run in single-tenant Azure Logic Apps with Visual Studio Code.
+title: Create Standard Workflows with Visual Studio Code
+description: Learn to create Standard logic app workflows that run in single-tenant Azure Logic Apps with Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 10/27/2025
 ms.custom: devx-track-dotnet
-# Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
+# Customer intent: As an integration developer working with Azure Logic Apps, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
 # Create Standard logic app workflows with Visual Studio Code
@@ -56,7 +56,7 @@ If you plan to locally create and run workflows using only [built-in operations]
 
 These requirements include the following items:
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to the internet so that you can download the required extension, connect from Visual Studio Code to your Azure account, test workflows that include managed connector operations, and deploy to Azure from Visual Studio Code.
 
@@ -656,12 +656,16 @@ To test your workflow, follow these steps to run a debugging session and find th
 
 1. In Visual Studio Code, return to your workflow's overview page. Under **Run history**, check the status for the workflow run.
 
-   > [!TIP]
-   >
+   > [!NOTE]
+   > 
    > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
    > A run doesn't happen for a trigger that's skipped due to unmet criteria or finding no data.
 
    :::image type="content" source="media/create-standard-workflows-visual-studio-code/post-trigger-call.png" alt-text="Screenshot that shows the workflow's overview page with run status and history.":::
+
+   > [!IMPORTANT]
+   >
+   > Under **Run history**, no workflow run history data appears if the logic app is stopped. Make sure the logic app is still running to view the workflow run history data.
 
    The following table shows the possible final statuses that each workflow run can have and show in Visual Studio Code:
 

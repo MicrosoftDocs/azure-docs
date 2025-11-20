@@ -7,6 +7,7 @@ ms.author: jordanselig
 ms.topic: concept-article
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 
 # App Service Environment v3 and App Service public multitenant comparison
@@ -47,7 +48,7 @@ However, App Service Environment v3 is a dedicated environment. Even though it c
 |Custom domain on private DNS (no domain verification required)|Yes, on an ILB App Service Environment.|No. The custom domain needs to resolve via public DNS.|
 |Inbound TLS|Yes. You can manage SSL certificates directly within the environment, including the ability to upload and bind custom SSL certificates.|Yes. You can bring your own certificate or use an Azure-provided certificate. |
 |Inbound TLS using certificates issued by private certificate authority (CA)|Supported.|Not supported.|
-|Outbound calls using client certificates issued by private CA|[Supported only from custom code in Windows code-based apps](overview-certificates.md#private-client-certificate). You can load your own root CA certificate into the trusted root store.|Not supported for source-code based deployments. Supported if you deploy by using either Windows containers or Linux containers. (You can install arbitrary dependencies, including private CA-issued client certificates, inside a custom container for both platform variants.)|
+|Outbound calls using client certificates issued by private CA|[Supported for both Windows and Linux apps](overview-certificates.md#root-certificates-for-private-client-scenarios). You can add root CA certificates environment-wide using the [Root Certificate API](overview-certificates.md#root-certificate-api) or per-app using the [private client certificate method](overview-certificates.md#private-client-certificate-per-app-configuration) (Windows code apps only).|Not supported for source-code based deployments. Supported if you deploy by using either Windows containers or Linux containers. (You can install arbitrary dependencies, including private CA-issued client certificates, inside a custom container for both platform variants.)|
 |App Service managed certificates|[Not supported](overview-certificates.md#limitations).|[Supported](../../app-service/configure-ssl-app-service-certificate.md).|
 |Certificates shared across apps|Yes.|No. You must upload the certificate to every app.|
 |Public certificate limit|1,000 public certificates per App Service plan.|1,000 public certificates per App Service plan.|

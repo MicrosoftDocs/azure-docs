@@ -1,25 +1,27 @@
 ---
-title: Manage availability zone volume placement for Azure NetApp Files  | Microsoft Docs
+title: Manage availability zone volume placement for Azure NetApp Files
 description: Describes how to create a volume with an availability zone by using Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 02/05/2025
+ms.date: 08/01/2025
 ms.author: anfdocs
+ms.custom:
+  - devx-track-terraform
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to configure availability zone volume placement in Azure NetApp Files, so that I can ensure high availability and optimize resource deployment across different geographical locations."
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 
-You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zone volume placement for high availability](use-availability-zones.md).
+You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zone volume placement for high availability](replication.md#availability-zones).
 
 ## Requirements and considerations 
 
 >[!IMPORTANT]
 >If you're using availability zones with custom roles or the built-in Contributor RBAC role, ensure you have the appropriate permissions set. Not having certain permissions can cause issues in the Azure portal. For configuration details, see [Configure custom RBAC roles](#configure-custom-rbac-roles).
 
-* This feature doesn't guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation will fail.
+* This feature doesn't guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation fails.
 
 * After a volume is created with an availability zone, the specified availability zone can’t be modified. Volumes can’t be moved between availability zones.
 
@@ -33,8 +35,8 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 * <a name="file-path-uniqueness"></a> For volumes in different availability zones, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). 
  
->[!IMPORTANT]
->It's not recommended that you use availability zones for Terraform-managed volumes. If you do, you must [add the zone property to your volume](#populate-availability-zone-for-terraform-managed-volumes).
+> [!IMPORTANT]
+> We don't recommend that you use availability zones for Terraform-managed volumes. If you do, you must [add the zone property to your volume](#populate-availability-zone-for-terraform-managed-volumes).
 
 ## Create a volume with an availability zone 
 
@@ -45,7 +47,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)      
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)    
 
-2.	In the **Create a Volume** page, under the **Basic** tab, select the **Availability Zone** pulldown to specify an availability zone where Azure NetApp Files resources are present.   
+2.	In the **Create a Volume** page, under the **Basic** tab, select the **Availability Zone** dropdown menu to specify an availability zone where Azure NetApp Files resources are present.   
 
     > [!IMPORTANT]
     > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
@@ -75,7 +77,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 ## Populate availability zone for Terraform-managed volumes
 
-The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you can't modify it after the volume has been created. Adding the `zone` property after the volume has been created can cause data loss or loss of the volume if the specified zone value does not match the availability zone. 
+The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you can't modify the property after you create the volume. Adding the `zone` property after you create the volume can cause data loss or loss of the volume if the specified zone value doesn't match the availability zone. 
 
 >[!IMPORTANT]
 >To prevent data loss on any Azure resource that includes volatile resources, you should use the [`prevent_destroy` lifecycle argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#prevent_destroy).
@@ -122,33 +124,34 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
     ```json
     {
     	"properties": {
-    	    "roleName": ""
-    	    "description": ""
-    	    "assignableScopes": ["/subscription/<subscriptionID>"],
-    	},
-    	"permissions": [
-        {
-            "actions": [
-                "Microsoft.NetApp/locations/*",
-                "Microsoft.NetApp/netAppAccounts/read",
-                "Microsoft.NetApp/netAppAccounts/renewCredentials/action",
-                "Microsoft.NetApp/netAppAccounts/capacityPools/read",
-                ],
-            "notActions": [],
-            "dataActions": [],
-            "notDataActions": []
-        }]
+    	    "roleName": "",
+    	    "description": "",
+    	    "assignableScopes": ["/subscription/<subscriptionID>"
+            ],
+            "permissions": [
+                {
+                "actions": [
+                    "Microsoft.NetApp/locations/*",
+                    "Microsoft.NetApp/netAppAccounts/read",
+                    "Microsoft.NetApp/netAppAccounts/renewCredentials/action",
+                    "Microsoft.NetApp/netAppAccounts/capacityPools/read"
+                    ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }]
+        }
     }
     ```
 
 1. Select **Review + update**.
-1. Sign out of your Azure account, then sign back in to confirm permissions effect has taken hold and the options are visible. 
+1. Sign out of your Azure account, and then log back in to confirm that the permissions are in effect and the options are visible.
 
 ## Next steps  
 
-* [Use availability zone volume placement for application high availability with Azure NetApp Files](use-availability-zones.md)
+* [Use availability zone volume placement for application high availability with Azure NetApp Files](replication.md#availability-zones)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    
-* [Understand cross-zone replication of Azure NetApp Files](cross-zone-replication-introduction.md)
+* [Understand cross-zone replication of Azure NetApp Files](replication.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)

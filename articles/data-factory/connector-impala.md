@@ -4,10 +4,12 @@ description: Learn how to copy data from Impala to supported sink data stores us
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/16/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 # Copy data from Impala using Azure Data Factory or Synapse Analytics
 
@@ -16,7 +18,7 @@ ms.author: jianleishen
 This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Impala. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The Impala connector version 2.0 provides improved native Impala support. If you are using the Impala connector version 1.0 in your solution, please [upgrade your Impala connector](#upgrade-the-impala-connector) before **September 30, 2025**. Refer to this [section](#differences-between-impala-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Impala connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Impala connector](#differences-between-impala-version-20-and-version-10) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -279,7 +281,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
-| Version 1.0 | End of support announced | / |
+| Version 1.0 | Removed | Not applicable. |
 | Version 2.0 | GA version available | • The self-hosted integration runtime version should be 5.55 or above.<br><br> • The default value of `enableSSL` is true. `enableServerCertificateValidation` is supported.<br>`trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• TINYINT is read as SByte data type.  <br><br>• SASLUsername authentication type is not supported. |
 
 ### <a name="upgrade-the-impala-connector"></a> Upgrade the Impala connector from version 1.0 to version 2.0

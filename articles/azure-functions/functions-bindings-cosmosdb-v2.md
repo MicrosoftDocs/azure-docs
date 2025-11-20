@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB bindings for Functions 2.x and higher
+title: Azure Cosmos DB bindings for Functions
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 ms.topic: reference
 ms.custom:
@@ -8,17 +8,13 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - build-2025
-ms.date: 11/29/2022
+ms.date: 08/26/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Cosmos DB trigger and bindings for Azure Functions 2.x and higher overview
+# Azure Cosmos DB trigger and bindings for Azure Functions overview
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [Version 1](functions-bindings-cosmosdb.md)
-> * [Version 2 and higher](functions-bindings-cosmosdb-v2.md)
-
-This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database) bindings in Azure Functions 2.x and higher. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
+This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 | Action | Type |
 |---------|---------|
@@ -26,14 +22,13 @@ This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-d
 | Read an Azure Cosmos DB document | [Input binding](./functions-bindings-cosmosdb-v2-input.md) |
 | Save changes to an Azure Cosmos DB document  |[Output binding](./functions-bindings-cosmosdb-v2-output.md) |
 
-> [!NOTE]
-> This reference is for [Azure Functions version 2.x and higher](functions-versions.md).  For information about how to use these bindings in Functions 1.x, see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb.md).
->
-> This binding was originally named DocumentDB. In Azure Functions version 2.x and higher, the trigger, bindings, and package are all named Azure Cosmos DB.
+> [!IMPORTANT]
+> This version of the Azure Cosmos DB binding extension supports [Azure Functions version 4.x](functions-versions.md). If your app still uses version 1.x of the Functions runtime, instead see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb.md).
+> In the Functions v1.x runtime, this binding was originally named `DocumentDB`. 
 
 ## Supported APIs
 
-[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+[!INCLUDE [Azure Cosmos DB supported APIs note](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 ## Install extension
@@ -97,44 +92,11 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Install bundle
-
-The Azure Cosmos DB bindings extension is part of an [extension bundle], which is specified in your *host.json* project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-::: zone-end  
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
+::: zone-end
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"   
-
-# [Bundle v4.x](#tab/extensionv4)
-
-This version of the bundle contains version 4.x of the Azure Cosmos DB bindings extension that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
-
-You can add this version of the extension from the preview extension bundle v4 by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.0.0, 5.0.0)"
-  }
-}
-```
-
-To learn more, see [Update your extensions].
-
-# [Bundle v2.x and v3.x](#tab/functionsv2)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x or 3.x.
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
----
-
-::: zone-end
-
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types
@@ -253,8 +215,8 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 
 |Property  |Default |Description |
 |----------|--------|------------|
-|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`.
+|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options: `Direct` connects directly to backend replicas over TCP and can provide lower latency, and `Gateway` routes requests through a front-end gateway over HTTPS. For more information, see [Azure Cosmos DB SDK connection modes](/azure/cosmos-db/nosql/sdk-connection-modes).|
+|**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`. |
 
 
 # [Functions 2.x+](#tab/functionsv2)
@@ -276,10 +238,9 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 
 |Property  |Default |Description |
 |----------|--------|------------|
-|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options: `Direct` connects directly to backend replicas over TCP and can provide lower latency, and `Gateway` routes requests through a front-end gateway over HTTPS. For more information, see [Azure Cosmos DB SDK connection modes](/azure/cosmos-db/nosql/sdk-connection-modes).|
 |**protocol**|`Https`|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](/azure/cosmos-db/performance-tips#networking). |
 |**leasePrefix**|n/a|Lease prefix to use across all functions in an app. |
-
 
 ---
 

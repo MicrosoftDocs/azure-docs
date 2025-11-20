@@ -1,12 +1,12 @@
 ---
-title: "Configure autoscaling for Durable Task SDK app hosted in Azure Container Apps (preview)"
+title: "Configure autoscaling for Durable Task SDK app hosted in Azure Container Apps"
 description: Learn how to implement autoscaling with the Durable Task Scheduler using the Durable Task .NET SDK in Azure Container Apps.
 ms.subservice: durable-task-scheduler
 ms.topic: how-to
 ms.date: 05/06/2025
 ---
 
-# Configure autoscaling for Durable Task SDK app hosted in Azure Container Apps (preview)
+# Configure autoscaling for Durable Task SDK app hosted in Azure Container Apps
 
 You can implement autoscaling in container apps that use the Durable Task Scheduler. Autoscaling maintains the reliability and scalability of long-running workflows by adapting to changing demands without manual intervention. 
 

@@ -17,9 +17,10 @@ Immutable vault can help you protect your backup data by blocking any operations
 ## Supported scenarios for WORM storage
 
 - Immutability feature in enabled and locked state is generally available in all Azure regions for Recovery Services vaults.
-- Use of WORM storage for immutable vaults in locked state is currently in GA for Recovery Services Vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central.
-- In regions where WORM storage isn't yet generally available, backups with Immutability enabled and locked will automatically transition to WORM-enabled storage once the feature becomes available. This transition requires no user action and involves no data movement.
-- Use of WORM storage for immutable vaults in locked state is applicable for the following workloads: Azure Virtual machines, SQL in Azure VM, SAP HANA in Azure VM, Azure Backup Server, Azure Backup Agent, DPM.
+- Use of WORM storage for immutable vaults in locked state is currently in GA for Recovery Services Vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central, Israel Central, India South, India West, Mexico Central, Norway West, Poland Central, Japan East.
+- Use of WORM storage for immutable vaults in locked state is currently in preview for Backup vaults in the following regions: South Africa West, Korea Central, India South, India West, Poland Central.
+- In regions where WORM storage isn't yet Generally Available, backups with Immutability enabled and locked will automatically transition to WORM-enabled storage once the feature becomes available. This transition requires no user action and involves no data movement.
+- Use of WORM storage for immutable vaults in locked state is applicable for the following workloads: Azure Virtual machines, SQL in Azure VM, SAP HANA in Azure VM, Azure Files, Azure Backup Server, Azure Backup Agent, Data Protection Manager (DPM), Azure Kubernetes, PostgreSQL - Flexible Server.
 
 ## Before you start
 

@@ -1,18 +1,18 @@
 ---
-title: Azure API Management support for monetization 
+title: Azure API Management Support for Monetization
 description: Learn how Azure API Management supports monetization strategies for your API products.
 author: dlepow
 ms.author: danlep
-ms.date: 02/10/2022
+ms.date: 09/29/2025
 ms.topic: concept-article
 ms.service: azure-api-management
 ---
 
-# How API Management supports monetization
+# How Azure API Management supports monetization
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-With [Azure API Management](./api-management-key-concepts.md) service platform, you can:
+With the [Azure API Management](./api-management-key-concepts.md) service platform, you can:
 * Publish APIs, to which your consumers subscribe.
 * De-risk implementation. 
 * Accelerate project timescales.
@@ -21,34 +21,34 @@ With [Azure API Management](./api-management-key-concepts.md) service platform, 
 In this document, we focus on API Management features that enable the implementation of your monetization strategy, like providing a frictionless experience to:
 * Discover your public APIs.
 * Enter payment details.
-* Activate your subscription.
+* Activate a subscription.
 * Consume the API.
 * Monitor usage.
 * Automatically pay for usage of the API.
 
-The diagram below introduces these key API Management features:
+The following diagram introduces these key API Management features:
 
-:::image type="content" source="media/monetization-support/architecture-overview.png" alt-text="Diagram of the key API Management monetization features":::
+:::image type="content" source="media/monetization-support/architecture-overview.png" alt-text="Diagram of the key API Management monetization features." lightbox="media/monetization-support/architecture-overview.png":::
 
 ## API discovery
 
-Launch your API and onboard API consumers using API Management's built-in developer portal. Emphasize good quality development content for the developer portal, enabling API consumers to explore and use your APIs seamlessly. Test the content and information provided for accessibility, thoroughness, and usability.
+Launch your API and onboard API consumers using API Management's built-in developer portal. Emphasize good quality development content for the developer portal, allowing API consumers to explore and use your APIs seamlessly. Test the content and information provided for accessibility, thoroughness, and usability.
 
-For details about how to add content and control the branding of the developer portal, see the [overview of the developer portal](./api-management-howto-developer-portal.md).
+To learn how to add content and control the branding of the developer portal, see [Overview of the developer portal](./api-management-howto-developer-portal.md).
 
 ## API packaging
 
-API Management manages how your APIs are packaged and presented using the concept of *products* and *policies*.
+API Management lets you manage how your APIs are packaged and presented using the concept of *products* and *policies*.
 
 ### Products
 
-APIs are published [via products](./api-management-howto-add-products.md). Products allow you to define:
+APIs are published through [products](./api-management-howto-add-products.md). Products allow you to define:
 * Which APIs a subscriber can access.
 * Specific throttling [policies](./api-management-howto-policies.md), like limiting a specific subscription to a quota of calls per month.
 
-When an API consumer subscribes to a product, they receive an API key, which with they make calls. Initially, the subscription is set to a `submitted` state. Activate the subscription to allow subscribers to use the APIs.
+When an API consumer subscribes to a product, they receive an API key that they can use to make calls. Initially, the subscription is set to a `submitted` state. Activate the subscription to allow subscribers to use the APIs.
 
-Configure the API Management products to package your underlying API to mirror your revenue model, with:
+You can configure the API Management products to package your underlying API to mirror your revenue model, with:
 * A one-to-one relationship between each tier in your revenue model.
 * A corresponding API Management product.
 
@@ -60,10 +60,10 @@ Apply API Management policies to control the quality of service for each product
 
 | Policy feature | Description |
 | ----- | ----- |
-| **Quota** | Defines the total number of calls the user can make to the API over a specified time period. For example, "100 calls per month". Once the user reaches the quota, the calls to the API will fail and the caller will receive a `403 Forbidden` response status code. |
-| **Rate limit** | Defines the number of calls over a sliding time window that can be made to the API. For example, "200 calls per minute". Designed to prevent spikes in API usage beyond the paid quality of service with the chosen product. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code. |
+| **Quota** | Defines the total number of calls the user can make to the API over a specified time period, for example, *100 calls per month*. Once the user reaches the quota, the calls to the API fail and the caller receives a `403 Forbidden` response status code. |
+| **Rate limit** | Defines the number of calls over a sliding time window that can be made to the API, for example, *200 calls per minute*. Designed to prevent spikes in API usage beyond the paid quality of service with the chosen product. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code. |
 
-For more details about policies, see the [Policies in Azure API Management](./api-management-howto-policies.md) documentation.
+For more details about policies, see [Policies in Azure API Management](./api-management-howto-policies.md).
 
 ## API consumption
 
@@ -71,13 +71,13 @@ Grant access for API consumers to your APIs via products using API subscriptions
 
 1. API consumers establish API subscriptions when signing up for a specific API Management product. 
 1. Integrate the subscription process with the payment provider using API Management delegation. 
-1. Once successfully providing payment details, users gain access to the API with a generated, unique security key for the subscription.
+1. After successfully providing payment details, users gain access to the API with a generated, unique security key for the subscription.
 
-For more information about subscriptions, see the [Subscriptions in Azure API Management](./api-management-subscriptions.md) documentation.
+For more information about subscriptions, see [Subscriptions in Azure API Management](./api-management-subscriptions.md).
 
 ## API usage monitoring
 
-Gain insights about your API usage and performance using API Management's built-in analytics. These analytics provide reports by:
+You can gain insights about your API usage and performance by using API Management's built-in analytics. These analytics provide reports by:
 * API
 * Geography
 * API operations
@@ -89,7 +89,7 @@ Gain insights about your API usage and performance using API Management's built-
 
 Review the analytics reports regularly to understand how your monetization strategy is being adopted by API consumers.
 
-For more information, see [Get API analytics in Azure API Management](./howto-use-analytics.md).
+For more information, see [Monitor API Management](./monitor-api-management.md).
 
 ## Security
 
@@ -97,28 +97,28 @@ Control the access level for each user to each product using API Management's pr
 
 ## Integration
 
-Create a seamless monetization experience through both front-end and back-end integration between API Management and your chosen payment provider.  Use API Management delegation for front-end integration and the REST API for back-end integration.
+Create a seamless monetization experience through both front-end and back-end integration between API Management and your chosen payment provider. Use API Management delegation for front-end integration and the REST API for back-end integration.
 
 ### Delegation
 
-In the example projects, you can use [API Management delegation](./api-management-howto-setup-delegation.md) to make custom integrations with the third-party payment providers. The demo uses delegation for both the sign-up/sign-in and product subscription experiences.
+In the example projects, you can use [API Management delegation](./api-management-howto-setup-delegation.md) to make custom integrations with the partner payment providers. The demo uses delegation for both the sign-up/sign-in and product subscription experiences.
 
 #### Sign-up/Sign-in workflow
 
-1. Developer clicks on the sign-in or sign-up link at the API Management developer portal.
-1. Browser redirects to the delegation endpoint (configured to a page in the custom billing portal app).
-1. Custom billing portal app presents a sign-in/sign-up UI.
-1. Upon successful sign-in/sign-up, user is authenticated and redirected back to the starting API Management developer portal page.
+1. The developer selects the sign-in or sign-up link at the API Management developer portal.
+1. The web browser redirects to the delegation endpoint (configured to a page in the custom billing portal app).
+1. The custom billing portal app presents a sign-in/sign-up UI.
+1. Upon successful sign-in/sign-up, the user is authenticated and redirected back to the starting API Management developer portal page.
 
 #### Product subscription workflow
 
-1. Developer selects a product in the API Management developer portal and clicks on the **Subscribe** button
-1. Browser redirects to the delegation endpoint (configured to a page in the custom billing portal app).
-1. Custom billing portal app:
+1. The developer selects a product in the API Management developer portal and chooses the **Subscribe** button.
+1. The web browser redirects to the delegation endpoint (configured to a page in the custom billing portal app).
+1. The custom billing portal app:
     * Presents a UI configured based on the payment provider (Stripe or Adyen).
-    * Takes user through the relevant checkout process.
+    * Takes the user through the relevant checkout process.
 1. The user is redirected back to the starting API Management product page. 
-    * The product will be active and the API keys will be available.
+    * The product is active and the API keys are available.
 
 ### REST API
 
@@ -129,11 +129,11 @@ The sample projects use the API to programmatically:
 - Retrieve API Management products and policies to enable synchronized configuration of similar concepts in payment providers, such as Stripe.
 - Poll API Management regularly to retrieve API usage metrics for each subscription and drive the billing process.
 
-For more information, see [the REST API Azure API Management](/rest/api/apimanagement/#rest-operation-groups) overview.
+For more information, see [Azure API Management REST API reference](/rest/api/apimanagement).
 
 ## DevOps
 
-Version control and automate deployment changes to API Management using Azure Resource Manager, including configuring features that implement your monetization strategy, like:
+Implement version control and automate deployment changes to API Management by using Azure Resource Manager, including configuring features that implement your monetization strategy, like:
 * Products
 * Policies
 * The developer portal
@@ -145,8 +145,8 @@ In example projects, the Azure Resource Manager scripts are augmented by a JSON 
 ## Initialization and deployment
 
 API Management can be deployed either through:
-* The Azure portal UI, or
-* An "infrastructure as code" approach using [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates). 
+* The Azure portal
+* An *infrastructure as code* approach using [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates)
 
 ## Videos
 
@@ -156,8 +156,7 @@ API Management can be deployed either through:
 ### Integrate API Management with Stripe payment gateway
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=0337c2ce-aa26-48e4-b752-bcce254966a6]
 
-
 ## Related content
 
-* [Learn more about API Management monetization strategies](monetization-overview.md).
-* Deploy a demo Adyen or Stripe integration via the associated [Git repo](https://github.com/microsoft/azure-api-management-monetization).
+* [Monetization with Azure API Management](monetization-overview.md)
+* [Git repo: Deploy a demo Adyen or Stripe integration](https://github.com/microsoft/azure-api-management-monetization)

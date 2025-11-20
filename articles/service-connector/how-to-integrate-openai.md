@@ -1,19 +1,20 @@
 ---
-title: Connect Azure OpenAI in Foundry Models to other Azure services
+title: Connect Azure OpenAI in Foundry Models to Other Azure Services
 titleSuffix: Service Connector
-description: In this document, learn how to integrate Azure OpenAI into your application with Service Connector
+description: Use these code samples to integrate Azure OpenAI into your application with Service Connector.
 author: wchigit
 ms.author: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 01/29/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
+#customer intent: As a cloud developer, I want to connect my compute services toAzure OpenAI in Foundry Models using Service Connector.
 ---
 
 # Connect to Azure OpenAI in Foundry Models using Service Connector
 
-This page provides information about supported authentication methods and clients, along with sample code for connecting Azure OpenAI in Foundry Models to other cloud services using Service Connector. This page also lists default environment variable names and values obtained when creating service connections.
+This page provides information about supported authentication methods and clients. It provides sample code you can use to connect compute services to Azure OpenAI in Foundry Models using Service Connector. This page also lists default environment variable names and values obtained when creating service connections.
 
 ## Supported compute services
 
@@ -27,7 +28,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 ## Supported authentication types and client types
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure OpenAI using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+This table shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure OpenAI using Service Connector. A "Yes" indicates that the combination is supported, while a "No" indicates that it isn't supported.
 
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
@@ -42,7 +43,7 @@ This table indicates that all combinations of client types and authentication me
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure OpenAI. For more information about naming conventions, refer to [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the following connection details to connect compute services to Azure OpenAI. For more information, see [Configuration naming convention](concept-service-connector-internals.md#configuration-naming-convention).
 
 ### System-assigned managed identity
 
@@ -51,7 +52,8 @@ Use the connection details below to connect compute services to Azure OpenAI. Fo
 | AZURE_OPENAI_BASE   | Azure OpenAI endpoint | `https://<Azure-OpenAI-name>.openai.azure.com/` |
 
 #### Sample code
-Refer to the steps and code below to connect to Azure OpenAI using a system-assigned managed identity.
+
+To connect to Azure OpenAI using a system-assigned managed identity, refer to the following steps and code.
 [!INCLUDE [code sample for app config](./includes/code-openai-microsoft-entra-id.md)]
 
 ### User-assigned managed identity
@@ -63,8 +65,8 @@ Refer to the steps and code below to connect to Azure OpenAI using a system-assi
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure OpenAI using a user-assigned managed identity.
-[!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
+To connect to Azure OpenAI using a user-assigned managed identity, refer to the following steps and code.
+[!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-microsoft-entra-id.md)]
 
 ### Connection string
 
@@ -76,8 +78,8 @@ Refer to the steps and code below to connect to Azure OpenAI using a user-assign
 
 #### Sample Code 
 
-Refer to the steps and code below to connect to Azure OpenAI using a connection string.
-[!INCLUDE [code sample for azure openai service](./includes/code-openai-secret.md)]
+To connect to Azure OpenAI using a connection string, refer to the following steps and code.
+[!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-secret.md)]
 
 
 ### Service principal
@@ -90,11 +92,12 @@ Refer to the steps and code below to connect to Azure OpenAI using a connection 
 | AZURE_OPENAI_TENANTID     | Your tenant ID             | `<tenant-ID>`                                |
 
 #### Sample code
-Refer to the steps and code below to connect to Azure OpenAI using a service principaL.
-[!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
+
+To connect to Azure OpenAI using a service principal, refer to the following steps and code.
+[!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-microsoft-entra-id.md)]
 
 ### Related content
 
-* [Connect to Azure OpenAI in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
-* [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
-* [Connect to Azure AI services](./how-to-integrate-ai-services.md)
+- [Connect to Azure OpenAI in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
+- [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
+- [Connect to Azure AI services](./how-to-integrate-ai-services.md)

@@ -2,7 +2,7 @@
 title: Analyze a firmware image with the firmware analysis service.
 description: Learn to analyze a compiled firmware image using firmware analysis.
 ms.topic: tutorial
-ms.date: 02/07/2025
+ms.date: 07/17/2025
 author: karengu0
 ms.author: karenguo
 ms.service: azure-iot-operations
@@ -13,19 +13,12 @@ ms.service: azure-iot-operations
 
 This tutorial describes how to use the **firmware analysis** page to upload a firmware image for security analysis and view analysis results.
 
-> [!NOTE]
-> The **firmware analysis** page is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## Prerequisites
 
-> [!NOTE]
-> The **firmware analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the Security Reader role or want to use **firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](./firmware-analysis-rbac.md).
->
-
-* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * If you have a subscription but don't have a resource group where you could upload your firmware images, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups).
-* If you already have a subscription and resource group, move on to the next section.
+* Make sure you have Security Admin, Contributor, or Owner role in your resource group. If you only have the Security Reader role or want to use **firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](./firmware-analysis-rbac.md).
+* If you already have a subscription and resource group, and have the proper permissions, move on to the next section.
 
 To use the **firmware analysis** page to analyze your firmware security, your firmware image must have the following prerequisites:
 
@@ -34,6 +27,20 @@ To use the **firmware analysis** page to analyze your firmware security, your fi
 - Your image must be an unencrypted, Linux-based firmware image.
 
 - Your image must be less than 1 GB in size.
+
+## Firmware analysis workspace limits
+
+Firmware analysis workspaces are currently available as a free tier. The free tier has the following capacity limitations. If you use more than the capacity, you will receive an indication in the Azure Portal that you are over the capacity but will not be prevented from going over the capacity limit.
+
+The following limits apply to [firmware analysis workspaces](firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy).
+
+| Resource | Free Tier Limit |
+| --- | --- |
+| Images scanned per month | 5 |
+| Images stored in workspace | 10 |
+| Free tier workspaces per subscription | 1 |
+
+In the future, a paid license tier may be introduced, and these limits will be enforced on new and existing free tier workspaces. This means that once you reach any of the limits, you will be required to create or upgrade to a paid tier workspace to scan or store more images. However, even when the limits are enforced, your existing free tier workspaces will continue to have the firmware images you already analyzed and stored. 
 
 ## Onboard your subscription to use firmware analysis
 > [!NOTE]
@@ -58,9 +65,8 @@ If this is your first interaction with **firmware analysis**, then you'll need t
 5. Select a resource group from the **Resource group** drop-down or create a new resource group.
 6. Enter your **Workspace name**.
 7. Select a region to use for storage in the **Location** drop-down.
+8. For the **Tier** field, we currently offer a free tier. In the future, a paid tier may be introduced with additional features and capabilities. For more information, see our [licensing terms and workspace limits](tutorial-analyze-firmware.md#firmware-analysis-workspace-limits)
 8. Select **Onboard** to create your workspace in your selected resource group and onboard your subscription to firmware analysis.
-
-    :::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed." lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
 
 ## Upload a firmware image for analysis
 

@@ -3,7 +3,7 @@ title: Eternal orchestrations in Durable Functions - Azure
 description: Learn how to implement eternal orchestrations by using the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 11/05/2025
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python, java
@@ -11,7 +11,7 @@ ms.devlang: csharp
 
 # Eternal orchestrations in Durable Functions (Azure Functions)
 
-*Eternal orchestrations* are orchestrator functions that never end. They are useful when you want to use [Durable Functions](durable-functions-overview.md) for aggregators and any scenario that requires an infinite loop.
+*Eternal orchestrations* are orchestrator functions that never end. They're useful when you want to use [Durable Functions](durable-functions-overview.md) for aggregators and any scenario that requires an infinite loop.
 
 ## Orchestration history
 
@@ -19,12 +19,20 @@ As explained in the [orchestration history](durable-functions-orchestrations.md#
 
 ## Resetting and restarting
 
-Instead of using infinite loops, orchestrator functions reset their state by calling the *continue-as-new* method of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). This method takes a JSON-serializable parameter, which becomes the new input for the next orchestrator function generation.
+Instead of using infinite loops, orchestrator functions reset their state by calling the `continue-as-new` method of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). This method takes a JSON-serializable parameter, which becomes the new input for the next orchestrator function generation.
 
-When *continue-as-new* is called, the orchestration instance restarts itself with the new input value. The same instance ID is kept, but the orchestrator function's history is reset.
+When you call `continue-as-new`, the orchestration instance restarts itself with the new input value. The same instance ID is kept, but the orchestrator function's history is reset.
 
-> [!NOTE]
-> The Durable Task Framework maintains the same instance ID but internally creates a new *execution ID* for the orchestrator function that gets reset by *continue-as-new*. This execution ID is not exposed externally, but it may be useful to know about when debugging orchestration execution.
+## Eternal orchestration considerations
+
+Keep these considerations in mind when using the `continue-as-new` method in an orchestration:
+
++ When an orchestrator function gets reset by using the `continue-as-new` method, the Durable Task Framework maintains the same instance ID but internally it creates and uses a new *execution ID* going forward. This execution ID isn't exposed externally, but it can be useful when debugging orchestration execution. 
+
++ When an unhandled exception occurs during execution, the orchestration enters a _failed_ state and execution terminates. In this state, a call to `continue-as-new` made from the `finally` block of a try-catch statement can't restart the orchestration. 
+
+> [!IMPORTANT]
+> If during execution the orchestration encounters an uncaught exception, then the orchestration enters a "failed" state and execution will complete. In particular, this means that a call to *continue-as-new*, even in a `finally` block, will *not* restart the orchestration in the case of an uncaught exception.
 
 ## Periodic work example
 
@@ -106,7 +114,7 @@ public void periodicCleanupLoop(
 
 ---
 
-The difference between this example and a timer-triggered function is that cleanup trigger times here are not based on a schedule. For example, a CRON schedule that executes a function every hour will execute it at 1:00, 2:00, 3:00 etc. and could potentially run into overlap issues. In this example, however, if the cleanup takes 30 minutes, then it will be scheduled at 1:00, 2:30, 4:00, etc. and there is no chance of overlap.
+The difference between this example and a timer-triggered function is that cleanup trigger times aren't based on a schedule. For example, a CRON schedule that executes a function every hour runs at 1:00, 2:00, 3:00, and so on, and could potentially run into overlap issues. In this example, however, if the cleanup takes 30 minutes, then it schedules at 1:00, 2:30, 4:00, and so on, and there's no chance of overlap.
 
 ## Starting an eternal orchestration
 
@@ -131,7 +139,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 ```
 
 > [!NOTE]
-> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, use the `OrchestrationClient` attribute instead of the `DurableClient` attribute, and use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 

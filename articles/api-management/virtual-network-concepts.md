@@ -5,10 +5,11 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 10/16/2024
+ms.date: 11/13/2025
 ms.author: danlep
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 # Use a virtual network to secure inbound or outbound traffic for Azure API Management
 
@@ -23,9 +24,9 @@ The following table compares virtual networking options. For more information, s
 |---------|---------|---------|---------|----|
 |**[Virtual network injection (classic tiers) - external](#virtual-network-injection-classic-tiers)**     | Developer, Premium       | Developer portal, gateway, management plane, and Git repository        | Inbound and outbound traffic can be allowed to internet, peered virtual networks, ExpressRoute, and S2S VPN connections.     | External access to private and on-premises backends |
 |**[Virtual network injection (classic tiers) - internal](#virtual-network-injection-classic-tiers)**     |  Developer, Premium      |  Developer portal, gateway, management plane, and Git repository       |  Inbound and outbound traffic can be allowed to peered virtual networks, ExpressRoute, and S2S VPN connections.       | Internal access to private and on-premises backends |
-|**[Virtual network injection (v2 tiers)](#virtual-network-injection-v2-tiers)**   |  Premium v2        |   Gateway only      |  Inbound and outbound traffic can be allowed to a delegated subnet of a virtual network, peered virtual networks, ExpressRoute, and S2S VPN connections.     | Internal access to private and on-premises backends |
+|**[Virtual network injection (Premium v2 tier)](#virtual-network-injection-premium-v2-tier)**   |  Premium v2        |   Gateway only      |  Inbound and outbound traffic can be allowed to a delegated subnet of a virtual network, peered virtual networks, ExpressRoute, and S2S VPN connections.     | Internal access to private and on-premises backends |
 |**[Virtual network integration (v2 tiers)](#virtual-network-integration-v2-tiers)**   | Standard v2, Premium v2        |   Gateway only      |  Outbound request traffic can reach APIs hosted in a delegated subnet of a single connected virtual network.     | External access to private and on-premises backends | 
-|**[Inbound private endpoint](#inbound-private-endpoint)**   | Developer, Basic, Standard, Standard v2, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported)      |    Only inbound traffic can be allowed from internet, peered virtual networks, ExpressRoute, and S2S VPN connections.     | Secure client connection to API Management gateway |
+|**[Inbound private endpoint](#inbound-private-endpoint)**   | Developer, Basic, Standard, Standard v2, Premium, Premium v2        |   Gateway only (managed gateway supported, self-hosted gateway not supported)      |    Only inbound traffic can be allowed from internet, peered virtual networks, ExpressRoute, and S2S VPN connections.     | Secure client connection to API Management gateway |
 
 
 ## Virtual network injection (classic tiers)
@@ -59,7 +60,7 @@ Using a virtual network, you can configure the developer portal, API gateway, an
     * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
     * Manage your APIs hosted in multiple geographic locations, using a single gateway endpoint.
 
-## Virtual network injection (v2 tiers)
+## Virtual network injection (Premium v2 tier)
 
 In the API Management Premium v2 tier, inject your instance into a delegated subnet of a virtual network to secure the gateway's inbound and outbound traffic. Currently, you can configure settings for virtual network injection at the time you create the instance.
 

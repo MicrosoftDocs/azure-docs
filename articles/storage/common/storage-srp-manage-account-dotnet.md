@@ -3,8 +3,8 @@ title: Manage storage account resources with the Azure Storage management librar
 titleSuffix: Azure Storage
 description: Learn how to manage storage account resources with the Azure Storage management library for .NET.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 11/19/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -19,7 +19,7 @@ This article shows you how to manage storage account resources by using the Azur
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Set up your environment
@@ -180,3 +180,4 @@ To learn more about resource management using the Azure management library for .
 The Azure SDK for .NET contains libraries that build on top of the Storage resource provider REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The management library methods for managing storage account resources use REST API operations described in the following article:
 
 - [Storage Accounts operation overview](/rest/api/storagerp/storage-accounts) (REST API)
+

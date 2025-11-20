@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Prerequisites
-- Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/free/).
+- Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Install Python from [Python.org](https://www.python.org/).
@@ -173,6 +173,66 @@ app.logger.info("Start recognizing")
 > [!Note]
 > If parameters aren't set, the defaults are applied where possible.
 
+### Real-time language identification (Preview)
+
+With the additional of real-time language identification, developers can automatically detect spoken languages to enable natural, human-like communications and eliminate manual language selection by the end users. 
+
+``` python
+text_to_play = "Hi, how can I help you today?"
+play_source = TextSource(text=text_to_play, voice_name="en-US-ElizabethNeural")
+
+connection_client = call_automation_client.get_call_connection(call_connection_id)
+
+recognize_result = await connection_client.start_recognizing_media(
+    input_type=RecognizeInputType.SPEECH,
+    target_participant=PhoneNumberIdentifier(caller_id),
+    end_silence_timeout=15,
+    play_prompt=play_source,
+    operation_context="OpenQuestionSpeech",
+
+    # Enable language identification
+    speech_language=["en-US", "es-ES", "hi-IN"],
+
+    # Only add the speech_recognition_model_endpoint_id if you have a custom speech model you would like to use
+    speech_recognition_model_endpoint_id="YourCustomSpeechModelEndpointId"
+)
+```
+
+>[!Note]
+> **Language support limits**
+>
+> When using the `Recognize` API with Speech as the input type:
+> - You can specify **up to 10 languages** using `setSpeechLanguages(...)`.
+> - Be aware that using more languages may **increase the time** it takes to receive the `RecognizeCompleted` event due to additional processing.
+>
+> When using the `Recognize` API with **choices**:
+> - Only **up to 4 languages** are supported.
+> - Specifying more than 4 languages in choices mode may result in errors or degraded performance.
+
+### Sentiment Analysis (Preview)
+The Recognize API supports sentiment analysis when using speech input. Track the emotional tone of conversations in real time to support customer and agent interactions, and enable supervisors to intervene when necessary. It can also be useful for routing, personalization or analytics. 
+
+``` python
+text_to_play = "Hi, how can I help you today?"
+play_source = TextSource(text=text_to_play, voice_name="en-US-ElizabethNeural")
+
+connection_client = call_automation_client.get_call_connection(call_connection_id)
+
+recognize_result = await connection_client.start_recognizing_media(
+    input_type=RecognizeInputType.SPEECH,
+    target_participant=PhoneNumberIdentifier(caller_id),
+    end_silence_timeout=15,
+    play_prompt=play_source,
+    operation_context="OpenQuestionSpeech",
+    
+    # Enable sentiment analysis
+    IsSentimentAnalysisEnabled = true,
+
+    # Only add the speech_recognition_model_endpoint_id if you have a custom speech model you would like to use
+    speech_recognition_model_endpoint_id="YourCustomSpeechModelEndpointId"
+)
+```
+
 ## Receiving recognize event updates
 
 Developers can subscribe to `RecognizeCompleted` and `RecognizeFailed` events on the registered webhook callback. Use this callback with business logic in your application to determine next steps when one of the events occurs. 
@@ -180,20 +240,39 @@ Developers can subscribe to `RecognizeCompleted` and `RecognizeFailed` events on
 ### Example of how you can deserialize the *RecognizeCompleted* event:
 
 ``` python
-if event.type == "Microsoft.Communication.RecognizeCompleted": 
-    app.logger.info("Recognize completed: data=%s", event.data) 
-    if event.data['recognitionType'] == "dtmf": 
-        tones = event.data['dtmfResult']['tones'] 
-        app.logger.info("Recognition completed, tones=%s, context=%s", tones, event.data.get('operationContext')) 
-    elif event.data['recognitionType'] == "choices": 
-        labelDetected = event.data['choiceResult']['label']; 
-        phraseDetected = event.data['choiceResult']['recognizedPhrase']; 
-        app.logger.info("Recognition completed, labelDetected=%s, phraseDetected=%s, context=%s", labelDetected, phraseDetected, event.data.get('operationContext')); 
-    elif event.data['recognitionType'] == "speech": 
-        text = event.data['speechResult']['speech']; 
-        app.logger.info("Recognition completed, text=%s, context=%s", text, event.data.get('operationContext')); 
-    else: 
-        app.logger.info("Recognition completed: data=%s", event.data); 
+if event.type == "Microsoft.Communication.RecognizeCompleted":
+    print(f"Received RecognizeCompleted event for connection id: {call_connection_id}")
+
+    recognition_type = event.data.get("recognitionType")
+
+    if recognition_type == "dtmf":
+        tones = event.data["dtmfResult"]["tones"]
+        context = event.data["operationContext"]
+        print(f"Recognition completed, tones={tones}, context={context}")
+
+    elif recognition_type == "choices":
+        choice_result = event.data["choiceResult"]
+        label_detected = choice_result["label"]
+        phrase_detected = choice_result["recognizedPhrase"]
+        language_identified = choice_result.get("languageIdentified")
+        sentiment = choice_result.get("sentimentAnalysisResult", {}).get("sentiment")
+
+        print(f"Recognition completed, labelDetected={label_detected}, phraseDetected={phrase_detected}, context={event.data['operationContext']}")
+        print(f"Language Identified: {language_identified}")
+        print(f"Sentiment: {sentiment}")
+
+    elif recognition_type == "speech":
+        speech_result = event.data["speechResult"]
+        text = speech_result["speech"]
+        language_identified = speech_result.get("languageIdentified")
+        sentiment = speech_result.get("sentimentAnalysisResult", {}).get("sentiment")
+
+        print(f"Recognition completed, text={text}, context={event.data['operationContext']}")
+        print(f"Language Identified: {language_identified}")
+        print(f"Sentiment: {sentiment}")
+
+    else:
+        print(f"Recognition completed: data={event.data}")
 ```
 
 ### Example of how you can deserialize the *RecognizeFailed* event:

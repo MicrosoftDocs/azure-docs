@@ -242,7 +242,7 @@ The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-prem
 
 The total cost can be calculated as following.
 </br>
-(number of instances x number of MUs configured on primary x hours x hourly rate) + (number of GBs replicated * Geo-Replication Data Transfer rate for the zone where the primary region was located at the time).
+(number of replicas x number of MUs configured on primary x hours x hourly rate) + (number of GBs replicated * Geo-Replication Data Transfer rate for the zone where the primary region was located at the time).
 
 For example, if you have a namespace with 2MU configured on the primary namespace, and you have 10GB of data transfer, the calculation would look as below.
 </br>

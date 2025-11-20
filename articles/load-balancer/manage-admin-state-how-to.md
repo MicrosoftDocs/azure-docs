@@ -6,7 +6,11 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 10/25/2024
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to manage the admin state for backend pool instances in a load balancer, so that I can control the health probe behavior and availability of my backend services."
 ---
 
@@ -21,7 +25,7 @@ You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin
 # [Azure portal](#tab/azureportal)
 
 - Access to the Azure portal.
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing resource group for all resources.
 - Two or more existing [Virtual Machines](/azure/virtual-machines/windows/quick-create-portal).
 - An existing [standard load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the virtual machines.
@@ -30,7 +34,7 @@ You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin
 # [Azure PowerShell](#tab/azurepowershell)
 
 - Access to the Azure portal.
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing resource group for all resources.
 - Existing [Virtual Machines](/azure/virtual-machines/windows/quick-create-powershell).
 - An existing [standard load balancer](quickstart-load-balancer-standard-internal-powershell.md) in the same subscription and virtual network as the virtual machine.
@@ -39,7 +43,7 @@ You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin
 # [Azure CLI](#tab/azurecli)
 
 - Access to the Azure portal.
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing resource group for all resources.
 - Existing [Virtual Machines](/azure/virtual-machines/windows/quick-create-cli).
 - An existing [standard load balancer](quickstart-load-balancer-standard-internal-cli.md) in the same subscription and virtual network as the virtual machine.

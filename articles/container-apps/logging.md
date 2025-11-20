@@ -5,11 +5,11 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/24/2024
+ms.date: 11/07/2025
 ms.author: cshoe
 ---
 
-# Application Logging in Azure Container Apps
+# Application logging in Azure Container Apps
 
 Azure Container Apps provides two types of application logging categories:
 
@@ -24,43 +24,43 @@ Console logs originate from the `stderr` and `stdout` messages from the containe
 
 
 > [!TIP]
-> Instrumenting your code with well-defined log messages can help you to understand how your code is performing and to debug issues. To learn more about best practices refer to [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
+> Instrumenting your code with well-defined log messages can help you understand how your code is performing and to debug issues. For more information about best practices, see [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
 
 ## System logs
 
 Azure Container Apps generates system logs to inform you about the status of service-level events. The log messages include the following information:
 
-- Successfully created dapr component
-- Successfully updated dapr component
-- Error creating dapr component
+- Successfully created Dapr component
+- Successfully updated Dapr component
+- Error creating Dapr component
 - Successfully mounted volume
 - Error mounting volume
-- Successfully bound Domain
+- Successfully bound domain
 - Auth enabled on app
 - Creating authentication config
 - Auth config created successfully
 - Setting a traffic weight
-- Creating a new revision:
+- Creating a new revision
 - Successfully provisioned revision
-- Deactivating Old revisions
+- Deactivating old revisions
 - Error provisioning revision
 
 System logs emit the following messages:
 
 | Source | Type | Message |
 |---------|------|---------|
-| Dapr | Info | Successfully created dapr component \<component-name\> with scope \<dapr-component-scope\> |
-| Dapr | Info | Successfully updated dapr component \<component-name\> with scope \<component-type\> |
-| Dapr | Error | Error creating dapr component \<component-name\> |
+| Dapr | Info | Successfully created Dapr component \<component-name\> with scope \<dapr-component-scope\> |
+| Dapr | Info | Successfully updated Dapr component \<component-name\> with scope \<component-type\> |
+| Dapr | Error | Error creating Dapr component \<component-name\> |
 | Volume Mounts | Info | Successfully mounted volume \<volume-name\> for revision \<revision-scope\> |
 | Volume Mounts | Error | Error mounting volume \<volume-name\> |
-| Domain Binding | Info | Successfully bound Domain \<domain\> to the container app \<container app name\> |
+| Domain Binding | Info | Successfully bound domain \<domain\> to the container app \<container app name\> |
 | Authentication | Info | Auth enabled on app. Creating authentication config |
 | Authentication | Info | Auth config created successfully |
 | Traffic weight | Info | Setting a traffic weight of \<percentage>% for revision \<revision-name\\> |
 | Revision Provisioning | Info | Creating a new revision: \<revision-name\> |
 | Revision Provisioning | Info | Successfully provisioned revision \<name\> |
-| Revision Provisioning | Info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
+| Revision Provisioning | Info| Deactivating old revisions since 'ActiveRevisionsMode=Single' |
 | Revision Provisioning | Error | Error provisioning revision \<revision-name>. ErrorCode: \<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]\> |
 
 ## Next steps

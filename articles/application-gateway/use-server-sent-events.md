@@ -1,22 +1,18 @@
 ---
-title: Using Server-sent events with Application Gateway (Preview)
+title: Using Server-sent events with Application Gateway
 description: This article provides guidance for using Server-sent events with your Azure Application Gateway.
 services: application-gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/15/2025
+ms.date: 09/15/2025
 ms.author: jaysoni
 # Customer intent: "As a cloud architect, I want to configure Server-sent events on Azure Application Gateway, so that I can enable real-time streaming of event data between backend servers and clients efficiently."
 ---
 
-# Using Server-sent events with Application Gateway (Preview)
+# Using Server-sent events with Application Gateway
 
 Azure Application Gateway offers support for Server-sent events (SSE). This document provides guidelines to ensure the seamless operation of this feature when used with Azure Application Gateway.
-
-> [!Note]
-> - The SSE support with Azure Application Gateway is currently in Preview phase.
-> - The response time recorded in [Access logs](monitor-application-gateway-reference.md#resource-logs) represents the total duration for which the connection was established. Multiple event streams may pass through during this connection period. 
 
 ## Configuring Application Gateway
 
@@ -44,6 +40,9 @@ This header allows the server to send responses in chunks without requiring a Co
 
 ### Cache-Control: no-cache 
 It's advisable to use this header to prevent intermediaries like CDNs from caching the SSE response.
+
+> [!Note]
+> - The response time recorded in [Access logs](monitor-application-gateway-reference.md#resource-logs) represents the total duration for which the connection was established. Multiple event streams may pass through during this connection period. 
 
 ## Next steps
 Learn about [Request and Response Proxy Buffers](proxy-buffers.md) in Application Gateway.

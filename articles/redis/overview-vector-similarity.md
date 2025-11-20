@@ -24,7 +24,7 @@ For tutorials and sample applications on how to use Enterprise tier or Azure Man
 
 ## Scope of Availability
 
-Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](redis-modules.md) and Azure Managed Redis.
+Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](redis-modules.md) and Azure Managed Redis.
 
 This table contains the information for vector search availability in different tiers.
 
@@ -87,7 +87,7 @@ Azure Cache for Redis can be used effectively as a vector database to store embe
 
 - [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
 - [LangChain](https://python.langchain.com/docs/integrations/vectorstores/redis)
-- [LlamaIndex](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/RedisIndexDemo.html)
+- [LlamaIndex](https://developers.llamaindex.ai/python/examples/vector_stores/redisindexdemo)
 
 These frameworks feature rich integrations with Redis. For example, the Redis LangChain integration [automatically generates an index schema for metadata](https://python.langchain.com/docs/integrations/vectorstores/redis#inspecting-the-created-index) passed in when using Redis as a vector store. This makes it much easier to filter results based on metadata.
 
@@ -98,7 +98,7 @@ Redis has a wide range of search capabilities through the [RediSearch module](re
 - Vector storage in hash or JSON data structures
 - Top K queries
 - [Vector range queries](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/#range-queries) (that is, find all items within a specific vector distance)
-- Hybrid search with [powerful query features](https://redis.io/docs/interact/search-and-query/) such as:
+- Hybrid search with [powerful query features](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/) such as:
   - Geospatial filtering
   - Numeric and text filters
   - Prefix and fuzzy matching
@@ -112,7 +112,7 @@ Additionally, Redis is often an economical choice because it's already so common
 There are multiple other solutions on Azure for vector storage and search. Other solutions include:
 
 - [Azure AI Search](/azure/search/vector-search-overview)
-- [Azure Cosmos DB](/azure/cosmos-db/mongodb/vcore/vector-search) using the MongoDB vCore API
+- [Azure Cosmos DB](/azure/documentdb/vector-search) using the MongoDB vCore API
 - [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgvector) using `pgvector`
 
 ## Related content

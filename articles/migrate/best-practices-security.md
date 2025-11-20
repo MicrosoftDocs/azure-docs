@@ -6,6 +6,7 @@ ms.author: molir
 ms.service: azure-migrate
 ms.topic: best-practice
 ms.date: 05/13/2025
+ms.reviewer: v-uhabiba
 ms.custom:
   - build-2025
 # Customer intent: As a cloud migration specialist, I want to implement security best practices for deploying the migration appliance, so that I can experience a secure and efficient migration process while protecting sensitive data.
@@ -64,7 +65,7 @@ Follow these recommendations to harden OS images:
   - Compare their current Group Policy objects (GPOs) with Microsoft-recommended GPO baselines or other baselines.
   - Edit their GPOs.
   - Store their GPOs in GPO backup file format.
-  - Apply GPOs via a domain controller, or inject them directly into testbed hosts to test their effects.
+  - Apply GPOs via a domain controller or inject them directly into testbed hosts to test their effects.
 
 ## Credentials
 

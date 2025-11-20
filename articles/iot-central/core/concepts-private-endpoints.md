@@ -7,6 +7,7 @@ ms.date: 10/22/2024
 ms.topic: conceptual
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 ---
 
 # Network security for IoT Central using private endpoints

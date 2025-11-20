@@ -5,8 +5,10 @@ author: sethmanheim
 ms.author: sethm
 ms.date: 02/02/2024
 ms.service: azure-notification-hubs
-ms.custom: devx-track-azurecli
 ms.topic: conceptual
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use Private Link (preview)

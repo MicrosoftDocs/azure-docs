@@ -3,12 +3,13 @@ title: Configure a PHP App
 description: Learn how to configure a PHP app in a prebuilt PHP container in Azure App Service. This article shows the most common configuration tasks.
 ms.devlang: php
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 09/14/2025
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 ms.author: msangapu
 author: msangapu-msft
 #customer intent: As an app developer who uses PHP, I want to understand how to configure my PHP web apps in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure a PHP app in Azure App Service
@@ -373,6 +374,8 @@ In the Azure portal, add an application setting to scan the `ini` directory that
 1. Select **+ Add**.
 1. For **Name** enter *PHP_INI_SCAN_DIR* and for **Value**, enter `:/home/site/wwwroot/ini`.
 1. Select **Apply**, then **Apply** again. Confirm your changes.
+
+> Make sure to include the colon (:) when appending custom paths to PHP_INI_SCAN_DIR. Omitting it will result in NGINX returning a 404 error.
 
 > [!NOTE]
 > If you recompiled a PHP extension, such as GD, follow the steps at [Recompiling PHP extensions](/archive/blogs/azureossds/azure-app-service-linux-adding-php-extensions#recompiling-php-extensions--).

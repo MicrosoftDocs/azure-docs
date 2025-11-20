@@ -1,10 +1,8 @@
 ---
 title: Azure RabbitMQ bindings for Azure Functions
 description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions.
-author: ggailey777
 ms.topic: reference
-ms.date: 11/13/2024
-ms.author: glenga
+ms.date: 08/20/2025
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -50,18 +48,35 @@ Add the extension to your project by installing this [NuGet package](https://www
 ---
 
 ::: zone-end  
-
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
-
-## Install bundle    
-
-The RabbitMQ extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
-
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
+## host.json settings
 
-## Next steps
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "rabbitMQ": {
+            "prefetchCount": 100,
+            "queueName": "queue",
+            "connectionString": "%<MyConnectionAppSetting>%",
+            "port": 10
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|`prefetchCount`|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
+|`queueName`|n/a| Name of the queue to receive messages from.|
+|`connectionString`|n/a|The app setting that contains the RabbitMQ message queue connection string. |
+|`port`|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
+
+## Related articles
 
 - [Run a function when a RabbitMQ message is created (Trigger)](./functions-bindings-rabbitmq-trigger.md)
 - [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-rabbitmq-output.md)
-
-[extension bundle]: ./extension-bundles.md

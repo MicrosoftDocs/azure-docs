@@ -3,13 +3,12 @@ title: Configure a lifecycle management policy
 titleSuffix: Azure Blob Storage
 description: Configure a lifecycle management policy to automatically move data between hot, cool, cold, and archive tiers during the data lifecycle.
 author: normesta
-
 ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.reviewer: yzheng
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, copilot-scenario-highlight
 ms.devlang: azurecli
 # Customer intent: "As a cloud storage administrator, I want to configure lifecycle management policies for blob storage, so that I can automatically transition or delete data based on access patterns to optimize storage costs and improve data management."
 ---
@@ -22,6 +21,9 @@ You can use lifecycle management policies to transition blobs to cost-efficient 
 
 > [!NOTE]
 > A lifecycle management policy must be read or written in full. Partial updates are not supported.
+
+> [!TIP]
+> You can use Azure Copilot to help author lifecycle management policies. For more information, see [Manage and migrate storage accounts using Azure Copilot](/azure/copilot/improve-storage-accounts#reduce-storage-costs).
 
 ## Create or manage a policy
 

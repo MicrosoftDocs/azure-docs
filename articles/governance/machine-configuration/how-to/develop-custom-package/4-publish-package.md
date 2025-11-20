@@ -3,7 +3,9 @@ title: How to publish custom machine configuration package artifacts
 description: Learn how to publish a machine configuration package file to Azure blob storage and get a SAS token for secure access.
 ms.date: 02/01/2024
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 # How to publish custom machine configuration package artifacts
 

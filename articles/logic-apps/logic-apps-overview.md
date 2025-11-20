@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: Create automated workflows that integrate cloud services, on-premises systems, apps, and data with little or no code. Run workflows in multitenant or single-tenant Azure Logic Apps, App Service Environment (ASE), or a partially connected environment.
+description: Create automated workflows that integrate cloud services, on-premises systems, apps, data, and AI with little or no code. Run workflows in multitenant or single-tenant Azure Logic Apps, App Service Environment (ASE), or a partially connected environment.
 services: azure-logic-apps
 ms.suite: integration
 author: ecfan
@@ -8,14 +8,15 @@ ms.reviewer: azla
 ms.topic: overview
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 01/29/2025
+ms.date: 09/11/2025
+#customer intent: As an integration developer, I want a high-level overview of Azure Logic Apps capabilities so that I can decide when to use Logic Apps for workflow automation.
 ---
 
 # What is Azure Logic Apps?
 
 Azure Logic Apps is a cloud platform where you can create and run automated workflows in, across, and outside the software ecosystems in your enterprise or organization. This platform greatly reduces or removes the need to write code when your workflows must connect and work with resources from different components, such as services, systems, apps, and data sources.
 
-Azure Logic Apps includes low-code-no-code tools for you to work with legacy, modern, and cutting-edge systems that exist in the cloud, on premises, or in hybrid environments. For example, you use a visual designer along with prebuilt operations to make building workflows as easy as possible. These prebuilt operations act as the building blocks in your workflows by giving you access to various resources and completing common tasks, such as getting data, sending data, and managing data. With Azure Logic Apps, you can build integration solutions that scale and support the business scenarios for your enterprise or organization's needs.
+Azure Logic Apps includes low-code-no-code tools for you to work with legacy, modern, and cutting-edge systems that exist in the cloud, on premises, or in hybrid environments. For example, you use a visual designer along with prebuilt operations to make building workflows as easy as possible. These prebuilt operations act as the building blocks in your workflows by giving you access to various resources and completing common tasks, such as getting data, sending data, and managing data. With Azure Logic Apps, you can build integration solutions that scale and support the business scenarios for your enterprise or organization's needs. You can also build intelligent autonomous and conversational workflows that incorporate AI capabilities by including AI agents and large language models (LLMs).
 
 The following examples describe only a sample of tasks, business processes, and workloads that you can automate with Azure Logic Apps:
 
@@ -113,11 +114,11 @@ Some patterns and processes are easy to describe but hard to implement in code. 
 
 ### Create and deploy to different environments
 
-Based on your scenario, solution requirements, and desired capabilities, choose whether to create a Consumption or Standard logic app workflow. Based on this choice, the workflow runs in either multitenant Azure Logic Apps, single-tenant Azure Logic Apps, or an App Service Environment (v3). With single-tenant Azure Logic Apps, your workflows can more easily access resources protected by Azure virtual networks. If you create single tenant-based workflows using Azure Arc enabled Logic Apps, you can also run workflows in containers. For more information, see [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md) and [What is Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)?
+Based on your scenario, solution requirements, and desired capabilities, choose whether to create a Consumption or Standard logic app workflow. Based on this choice, the workflow runs in either multitenant Azure Logic Apps, single-tenant Azure Logic Apps, or an App Service Environment (v3). With single-tenant Azure Logic Apps, your workflows can more easily access resources protected by Azure virtual networks. If you create single tenant-based workflows using the hybrid deployment hosting option, you can also run workflows on premises using infrastructure that you control. For more information, see [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
 The following table briefly summarizes differences between a Consumption and Standard logic app workflow. You'll also learn the differences between the multitenant environment, single-tenant environment, and App Service Environment v3 (ASEv3) for deploying, hosting, and running your logic app workflows.
 
-[!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
+[!INCLUDE [Logic app resource type and environment differences](includes/logic-apps-resource-environment-differences-table.md)]
 
 ### First-class support for enterprise integration and B2B scenarios
 
@@ -192,7 +193,7 @@ All these services help you connect and bring together disparate systems. Each s
 
 ## Get started
 
-Before you can start trying out Azure Logic Apps, you need an Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Before you can start trying out Azure Logic Apps, you need an Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 When you're ready, get started with one or more of the following how-to guides for Azure Logic Apps:
 

@@ -10,6 +10,8 @@ zone_pivot_groups: microsoft-playwright-testing
 
 # Use options available in service package with Microsoft Playwright Testing preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 ::: zone pivot="playwright-test-runner"
 
 This article shows you how to use the options available in the `playwright.service.config.ts` file that was generated for you. 

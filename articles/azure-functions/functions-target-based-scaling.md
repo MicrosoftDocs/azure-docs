@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.custom:
   - build-2024
+  - sfi-ropc-nochange
 ---
 
 # Target-based scaling
@@ -22,7 +23,7 @@ Target-based scaling replaces the previous Azure Functions incremental scaling m
 
 ![Illustration of the equation: desired instances = event source length / target executions per instance.](./media/functions-target-based-scaling/target-based-scaling-formula.png)
 
-In this equation, _event source length_ refers to the number of events that must be processed. The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
+In this equation, _event source length_ refers to the number of events that must be processed. The default _target executions per instance_ values come from the Software Development Kits (SDKs) used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
 
 ## Considerations
 
@@ -64,7 +65,7 @@ This table summarizes the `host.json` values that are used for the _target execu
 
 <sup>*</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this value was 10.
 
-For some binding extensions, _target executions per instance_ is set using a function attribute:
+For some binding extensions, the _target executions per instance_ configuration is set using a function attribute:
 
 | Extension         | Function trigger setting | Default Value | 
 | ----------------- | ------------------------ | ------------- |
@@ -75,7 +76,7 @@ To learn more, see the [example configurations for the supported extensions](#su
 
 ## Premium plan with runtime scale monitoring enabled
 
-When [runtime scale monitoring](functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers) is enabled, the extensions themselves handle dynamic scaling. This is because the [scale controller](event-driven-scaling.md#runtime-scaling) doesn't have access to services secured by a virtual network. After you enable runtime scale monitoring, you'll need to upgrade your extension packages to these minimum versions to unlock the extra target-based scaling functionality: 
+When [runtime scale monitoring](functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers) is enabled the extensions themselves handle dynamic scaling because the [scale controller](event-driven-scaling.md#runtime-scaling) doesn't have access to services secured by a virtual network. After you enable runtime scale monitoring, you'll need to upgrade your extension packages to these minimum versions to unlock the extra target-based scaling functionality: 
 
 | Extension Name | Minimum Version Needed | 
 | -------------- | ---------------------- |
@@ -87,7 +88,7 @@ When [runtime scale monitoring](functions-networking-options.md#elastic-premium-
 
 ## Dynamic concurrency support
 
-Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus, Storage queues, or Kafka, you can also enable [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
+Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus, Storage queues, or Kafka, you can also enable [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target execution per instance value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
 
 ## Supported extensions
 
@@ -104,7 +105,7 @@ The Service Bus extension support three execution models, determined by the `IsB
 | Batch processing                           | true      | false             | maxMessageBatchSize or maxMessageCount            |
 
 > [!NOTE]
-> **Scale efficiency:** For the Service Bus extension, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights scaling reverts to incremental scale because the queue or topic length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+> **Scale efficiency:** For the Service Bus extension, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights, scaling reverts to incremental scale because the queue or topic length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 
 
 #### Single dispatch processing
@@ -219,10 +220,38 @@ Modify the `host.json` setting `maxMessageCount` in `batchOptions`  to set _targ
 
 ### Event Hubs
 
-For Azure Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the event hub. By default, the `host.json` attributes used for _target executions per instance_ are `maxEventBatchSize` and `maxBatchSize`. However, if you choose to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides to set _target executions per instance_ without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
+For Azure Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the event hub within a list of valid instance counts. By default, the `host.json` attributes used for _target executions per instance_ are `maxEventBatchSize` and `maxBatchSize`. However, if you choose to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides to set _target executions per instance_ without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
+
+> [!WARNING]
+> Setting `batchCheckpointFrequency` above 1 for hosting plans supported by [target based scaling](#considerations) can cause incorrect scaling behavior. The platform calculates unprocessed events as "current position - checkpointed position", which may incorrectly indicate unprocessed messages when batches have been processed but not yet checkpointed, preventing proper scale-in when no messages remain.
+
+#### Scaling Behavior and Stability
+
+For Event Hubs, frequent scale-in and scale-out operations can trigger partition rebalancing, which leads to processing delays and increased latency. To mitigate this:
+* The platform uses a predefined list of valid worker counts to guide scaling decisions.
+* The platform ensures that scaling is stable and deliberate, avoiding disruptive changes to partition assignments.
+* If the desired worker count isn't in the valid list—for example, 17, the system automatically selects the next largest valid count, which in this case is 32.
+Additionally, to prevent rapid repeated scaling, scale-in requests are throttled for 3 minutes after the last scale-up. This delay helps reduce unnecessary rebalancing and contributes to maintaining throughput efficiency.
+
+#### Valid Instance Counts for Event Hubs
+For each Event Hubs partition count, we calculate a corresponding list of valid instance counts to ensure optimal distribution and efficient scaling. These counts are chosen to align well with partitioning and concurrency requirements:
+
+| Partition Count | Valid Instance Counts                   |
+| --------------- | --------------------------------------- |
+| 1               | [1]                                     |
+| 2               | [1, 2]                                  |
+| 4               | [1, 2, 4]                               |
+| 8               | [1, 2, 3, 4, 8]                         |
+| 10              | [1, 2, 3, 4, 5, 10]                     |
+| 16              | [1, 2, 3, 4, 5, 6, 8, 16]               |
+| 32              | [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 16, 32] |
+
+These predefined counts help ensure that instances are distributed as evenly as possible across partitions, minimizing idle or overloaded workers.
 
 > [!NOTE]
-> Since Event Hubs is a partitioned workload, the target instance count for Event Hubs is capped by the number of partitions in your event hub. 
+> Note: For Premium and Dedicated event hub tiers the partition count can exceed 32, allowing for larger valid instance count sets. These tiers support higher throughput and scalability, and the valid worker count list is extended accordingly to evenly distribute event hub partitions across instances. Also, since Event Hubs is a partitioned workload, the number of partitions in your event hub is the limit for the maximum target instance count. 
+
+#### Event Hubs settings
 
 The specific setting depends on the version of the Event Hubs extension.
 
@@ -393,7 +422,7 @@ Examples for the Node.js v4 programming model aren't yet available.
 ---
 
 > [!NOTE]
-> Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](/azure/cosmos-db/nosql/change-feed-processor#dynamic-scaling) and [lease ownership](/azure/cosmos-db/nosql/change-feed-processor#dynamic-scaling).
+> Since Azure Cosmos DB is a partitioned workload, the number of physical partitions in your container is the limit for the target instance count. To learn more about Azure Cosmos DB scaling, see [physical partitions](/azure/cosmos-db/nosql/change-feed-processor#dynamic-scaling) and [lease ownership](/azure/cosmos-db/nosql/change-feed-processor#dynamic-scaling).
 
 ### Apache Kafka
 
@@ -471,7 +500,7 @@ For Functions languages that use `function.json`, the `LagThreshold` parameter i
 }
 ```
 
-The Python v2 programming model isn't currently supported by the Kafka extension.
+The Kafka extension doesn't currently support the Python v2 programming model.
 
 #### [JavaScript/PowerShell/TypeScript](#tab/node+powershell)
 

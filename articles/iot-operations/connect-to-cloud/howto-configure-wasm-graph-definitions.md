@@ -1,12 +1,12 @@
 ---
-title: Configure WebAssembly Graph Definitions For Data Flow Graphs (Preview)
+title: Configure WebAssembly Graph Definitions For Data Flow Graphs (preview)
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/01/2025
+ms.date: 11/19/2025
 ai-usage: ai-assisted
 
 ---
@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 # Configure WebAssembly (WASM) graph definitions for data flow graphs (preview)
 
 > [!IMPORTANT]
-> WebAssembly (WASM) graph definitions for data flow graphs are in **preview**. This feature has limitations and is not for production workloads.
+> WebAssembly (WASM) graph definitions for data flow graphs are in PREVIEW. This feature has limitations and is not for production workloads.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
@@ -22,9 +22,12 @@ Graph definitions are central to WASM development because they define how your m
 
 This article focuses on creating and configuring the YAML graph definitions. For information about deploying and testing WASM data flow graphs, see [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
 
+> [!IMPORTANT]
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+
 ## Graph definition structure
 
-Graph definitions follow a formal [JSON schema](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/ConfigGraph.json) that validates structure and ensures compatibility. The configuration includes:
+Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-wasm-graph-config-1.0.0.json) that validates structure and ensures compatibility. The configuration includes:
 
 - Module requirements for API and host library version compatibility
 - Module configurations for runtime parameters and operator customization  
@@ -67,11 +70,14 @@ moduleRequirements:
     - name: "wasi-nn"
 ```
 
+> [!TIP]
+> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md).
+
 ## Example 1: Simple graph definition
 
-The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
+The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
 
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/graph-simple.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/rust/graph-simple.yaml":::
 
 For step-by-step deployment instructions and testing guidance for this example, see [Example 1: Basic deployment with one WASM module](howto-dataflow-graph-wasm.md#example-1-basic-deployment-with-one-wasm-module).
 
@@ -83,7 +89,7 @@ This graph creates a straightforward data processing pipeline:
 2. **Map operation**: Processes data with the temperature WASM module (`temperature:1.0.0`)
 3. **Sink operation**: Sends converted data to the data flow's destination endpoint
 
-The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
+The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/examples/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
 
 **Input format:**
 ```json
@@ -97,9 +103,9 @@ The [temperature module](https://github.com/Azure-Samples/explore-iot-operations
 
 ## Example 2: Complex graph definition
 
-The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-complex.yaml) demonstrates a sophisticated multi-sensor processing workflow that handles temperature, humidity, and image data with advanced analytics:
+The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/graph-complex.yaml) demonstrates a sophisticated multi-sensor processing workflow that handles temperature, humidity, and image data with advanced analytics:
 
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/graph-complex.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/rust/graph-complex.yaml":::
 
 For step-by-step deployment instructions and testing guidance for this example, see [Example 2: Deploy a complex graph](howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph).
 
@@ -263,7 +269,7 @@ moduleConfigurations:
 
 These parameters are passed to your WASM operator's `init` function at runtime, enabling dynamic configuration without rebuilding modules. For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](howto-develop-wasm-modules.md#module-configuration-parameters).
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 

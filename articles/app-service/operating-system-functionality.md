@@ -4,14 +4,18 @@ description: Learn what types of file, network, and registry access your Windows
 author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/21/2025
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
   - build-2025
-
+ms.service: azure-app-service
+ 
+# Customer intent: As a developer, I want to learn what types of file, network, and registry access my Windows app gets when it runs in Azure App Service.
+ 
 ---
+
 # Operating system functionality in Azure App Service
 
 This article describes the baseline operating system functionality that's available to all Windows apps running in [Azure App Service](./overview.md). This functionality includes file, network, and registry access, along with diagnostic logs and events.

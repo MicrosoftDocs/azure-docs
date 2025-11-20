@@ -17,7 +17,7 @@ ms.custom: subject-rbac-steps
 
 To grant people the permission to create labs, add them to the Lab Creator role.
 
-Follow these steps to [assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+Follow these steps to [assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!NOTE]
 > Azure Lab Services automatically assigns the Lab Creator role to the Azure account you use to create the lab account.

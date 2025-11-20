@@ -5,10 +5,12 @@ description: In this guide, learn how to connect an Azure Data Explorer datasour
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.custom: devx-track-azurecli
 zone_pivot_groups: azure-red-hat-openshift-service-principal
 ms.topic: how-to
-ms.date: 12/19/2024
+ms.date: 9/18/2025
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 # CustomerIntent: As an Azure Managed Grafana customer, I want to add and configure Azure Data Explorer so that I can use an Azure Data Explorer datasource in a Grafana dashboard.
 ---
 
@@ -66,8 +68,25 @@ Enter Azure Data Explorer configuration settings.
 
     1. Follow the steps in [Register an application with Microsoft Entra ID and create a service principal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal).
     1. Assign the Reader role to the application in the [next step of the guide](/entra/identity-platform/howto-create-service-principal-portal#assign-a-role-to-the-application).
-    1. Follow the three first steps of the [Retrieve application details](/azure/managed-grafana/how-to-api-calls#retrieve-application-details) guide to gather the Directory (tenant) ID, Application (client) ID and Client Secret ID required in the next step.
+    1. Retrieve the application details needed in the next step to configure the data source in Grafana:
+       1. Find your directory (tenant) ID:
+          1. In the Azure portal, enter *Microsoft Entra ID* in the **Search resources, services, and docs (G+ /)**.
+          1. Select **Microsoft Entra ID**.
+          1. Select **Properties** from the left menu.
+          1. Locate the field **Tenant ID** and save its value.
 
+       1. Find your client ID:
+          1. In the Azure portal, in Microsoft Entra ID, select **App registrations** from the left menu.
+          1. Select your app.
+          1. In **Overview**, find the **Application (client) ID** field and save its value.
+         
+       1. Create an application secret:
+          1. In the Azure portal, in Microsoft Entra ID, select **App registrations** from the left menu.
+          1. Select your app.
+          1. Select **Certificates & secrets** from the left menu.
+          1. Select **New client secret**.
+          1. Create a new client secret and save its value.
+  
     #### Configure the data source in Grafana
 
     1. In Grafana, under **Authentication Method**, select **App Registration**.
@@ -165,9 +184,6 @@ az grafana data-source create --name <azure-managed-grafana-workspace> --definit
 Authenticate with the current user method. This method leverages the current Grafana user's Microsoft Entra ID credentials in the configured data source.
 
 When you configure an Azure Data Explorer data source with the Current User authentication method, Grafana queries Azure Data Explorer using the user's credentials.
-
-> [!NOTE]
-> Rollout of the user-based authentication in Azure Managed Grafana is in progress and will be complete in all regions by the end of 2023.
 
 > [!CAUTION]
 > User-based authentication in Grafana data sources is experimental.

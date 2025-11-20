@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/15/2025
+ms.date: 11/11/2025
 ms.author: danlep
 
 #customer intent: As an API provider, I want to create and apply quota and rate limiting so that I can protect my APIs from abuse and/or create value for different API product tiers.
@@ -25,8 +25,19 @@ Rate limits and quotas are used for different purposes.
 
 Rate limits are usually used to protect against short and intense volume bursts. For example, if you know your backend service has a bottleneck at its database when call volumes are high, you can set a `rate-limit-by-key` policy to disallow high call volumes.
 
+For language model backends, you can set a `llm-token-limit` policy to limit the number of tokens processed per minute by your backend. This policy helps protect against sudden spikes in token usage that could lead to increased costs, deplete resources, or degrade performance.
+
 [!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
+#### Classic versus v2 tiers
+
+API Management implements rate limiting differently depending on whether your instance is in one of the classic or v2 service tiers:
+ 
+* **Classic tiers** use a sliding window algorithm.
+
+* **V2 tiers** use a token bucket algorithm that is more efficient and aligns with rate limiting in [Azure Resource Manager](/azure/azure-resource-manager/management/request-limits-and-throttling#regional-throttling-and-token-bucket-algorithm).
+
+While the overall behavior of rate limiting is similar across API Management tiers, the differences in implementation affect some usage details of rate limiting policies such as `rate-limit-by-key` and `llm-token-limit`. 
 
 ### Quotas
 

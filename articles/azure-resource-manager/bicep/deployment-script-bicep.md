@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 10/30/2025
 ---
 
 # Use deployment scripts in Bicep
@@ -110,7 +110,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '14.0'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -161,7 +161,7 @@ param storageAccountData {
 var storageBlobDataReaderRoleId = '2a2b9908-6ea1-4ae2-8e65-a410df84e7d1'
 
 @description('The storage account to read blobs from.')
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountData.name
 }
 
@@ -172,7 +172,7 @@ resource storageBlobDataReaderRoleDef 'Microsoft.Authorization/roleDefinitions@2
 }
 
 @description('The user identity for the deployment script.')
-resource scriptIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-07-31-preview' = {
+resource scriptIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2025-01-31-preview' = {
   name: 'script-identity'
   location: location
 }
@@ -253,7 +253,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '14.0'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -374,7 +374,7 @@ SubscriptionId      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ProvisioningState   : Succeeded
 Identity            :
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 10.0
+AzPowerShellVersion : 14.0
 StartTime           : 12/11/2023 9:45:50 PM
 EndTime             : 12/11/2023 9:46:59 PM
 ExpirationDate      : 12/11/2023 10:46:59 PM

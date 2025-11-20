@@ -38,7 +38,7 @@ sections:
       - question: |
           How do I get started with Azure Synapse?
         answer: |
-          You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html).
+          You can get started with an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html).
           
       - question: |
           What does Azure Synapse offer for data security?

@@ -259,7 +259,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
    {
       "condition": "[not(empty(parameters('logAnalytics')))]",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "apiVersion": "2022-11-01",
+      "apiVersion": "2025-04-01",
       "name": "[format('{0}/omsOnboarding', parameters('vmName'))]",
       "location": "[parameters('location')]",
       "properties": {

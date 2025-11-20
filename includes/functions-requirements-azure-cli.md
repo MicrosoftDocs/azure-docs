@@ -2,7 +2,7 @@
 ::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
 
-+ [Azurite storage emulator](../articles/storage/common/storage-use-azurite.md?tabs=npm#install-azurite) 
++ [Azurite storage emulator](../articles/storage/common/storage-install-azurite.md?tabs=npm#install-azurite) 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
@@ -19,5 +19,7 @@
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)  
 ::: zone-end
 ::: zone pivot="programming-language-python" 
-+ [Python 3.11](https://www.python.org/).
++ [Python 3.11](https://www.python.org/)
+
++ [Azurite storage emulator](../articles/storage/common/storage-use-azurite.md)
 ::: zone-end  

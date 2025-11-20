@@ -1,21 +1,17 @@
 ---
-title: Run PowerShell Scripts in Standard Workflows
-description: Learn how to run PowerShell scripts to perform custom integration tasks in Standard workflows using Inline Code operations in Azure Logic Apps.
+title: Add and Run PowerShell Scripts in Standard Workflows
+description: Learn to write and run PowerShell scripts to complete custom integration tasks with Standard workflows using Inline Code operations in Azure Logic Apps.
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, swghimire, shahparth, azla
+ms.reviewers: estfan, swghimire, shahparth, azla
 ms.topic: how-to
-ms.date: 06/25/2025
-# Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
+ms.date: 11/18/2025
+# Customer intent: As an integration developer working with Azure Logic Apps, I want to write and run PowerShell scripts to complete custom integration tasks with Standard workflows in Azure Logic Apps.
 ---
 
-# Add and run PowerShell scripts in Standard workflows for Azure Logic Apps (Preview)
+# Add and run PowerShell scripts with Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
-> This capability is in preview and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run PowerShell code from within your workflow. For this task, use the **Inline Code** action named **Execute PowerShell Code**. This action returns the results from your PowerShell code so that you can use this output in your workflow's subsequent actions.
 
@@ -35,21 +31,21 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* The logic app resource with the Standard workflow where you want to add your PowerShell script.
+* The Standard logic app resource with the workflow where you want to add your PowerShell script.
 
-  The workflow must already start with a trigger. You can use any trigger for your scenario, but as an example, this guide uses the **Request** trigger named **When a HTTP request is received** and also the **Response** action. The workflow runs when another application or workflow sends a request to the trigger's endpoint URL. The sample script returns the results from code execution as output that you can use in subsequent actions.
+  The workflow must already start with a trigger. You can use any trigger for your scenario, but as an example, this guide uses the **Request** trigger named **When an HTTP request is received** and also the **Response** action. The workflow runs when another application or workflow sends a request to the trigger's endpoint URL. The sample script returns the results from code execution as output that you can use in subsequent actions.
 
   If you don't have a logic app resource and workflow, create them now by following these steps:
 
-  * [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md)
+  * [Create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md)
 
 ## Considerations
 
 - The Azure portal saves your script as a PowerShell script file (.ps1) in the same folder as your *workflow.json* file, which stores the JSON definition for your workflow, and deploys the file to your logic app resource along with the workflow definition.
 
-  The .ps1 file format lets you write less "boilerplate" and focus just on writing PowerShell code. If you rename the action, the file is also renamed, but not vice versa. If you directly rename the file, the renamed version overwrites the previous version. If the action name and file names don't match, the action can't find the file and tries to create a new empty file.
+  The *.ps1* file format lets you write less "boilerplate" and focus just on writing PowerShell code. If you rename the action, the file is also renamed, but not vice versa. If you directly rename the file, the renamed version overwrites the previous version. If the action name and file names don't match, the action can't find the file and tries to create a new empty file.
 
 - The script is local to the workflow. To use the same script in other workflows, [view the script file in the **Kudu** console](#view-script-file), and then copy the script to reuse in other workflows.
 
@@ -60,13 +56,69 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 | Script run duration | 10 minutes | If you have scenarios that need longer durations, use the product feedback option to provide more information about your needs. |
 | Output size | 100 MB | Output size depends on the output size limit for actions, which is generally 100 MB. |
 
+## Update the PowerShell version
+
+You can change the PowerShell version in your logic app resource by editing the application settings. However, before you upgrade your app, review the following considerations:
+
+- A version upgrade might introduce breaking changes to your Standard logic app, which uses a runtime hosted as an extension on the Azure Functions runtime. Before you upgrade, review the following migration guide: [Upgrading your Azure Functions apps to run on PowerShell 7.4](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4).
+
+- Make sure that your logic app uses the latest runtime version for Azure Functions runtime in Azure, which is version 4.x. For more information, see [View the current runtime version](../azure-functions/set-runtime-version.md?tabs=azure-portal#view-the-current-runtime-version).
+
+> [!NOTE]
+>
+> By default, if you don't specify a PowerShell version, Azure Logic Apps uses the same default 
+> version as Azure Functions. Currently, PowerShell 7.4 is generally available. For more information 
+> about available versions, see the [Azure Functions PowerShell developer guide](../azure-functions/functions-reference-powershell.md#powershell-versions).
+
+Based on where you want to update the PowerShell version, follow the corresponding steps:
+
+### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource sidebar, under **Settings**, select **Environment variables**.
+
+1. On the **App settings** tab, select **+ Add**.
+
+1. On the **Add/Edit application setting** pane, add the following new app setting:
+
+   | Parameter | Value | Description |
+   | --------- | ------| ----------- |
+   | **Name** | **`LOGIC_APPS_POWERSHELL_VERSION`** | The app setting name. |
+   | **Value** | <*powershell-version*> | The PowerShell version, currently **7.4**. |
+
+1. When you're done, select **Apply**. When the restart warning appears, select **Continue**.
+
+   Your logic app restarts with the updated version.
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+1. In Visual Studio Code, open the workspace for your logic app project.
+
+1. In your logic app project, from the root folder, open the *local.settings.json* file.
+
+1. In the *local.settings.json* file, add the **LOGIC_APPS_POWERSHELL_VERSION** setting and value, for example:
+
+   ```json
+   {
+       "IsEncrypted": false,
+       "Values": {
+           "AzureWebJobsStorage": "<*storage-account*>",
+           <...>
+           "LOGIC_APPS_POWERSHELL_VERSION": "<powershell-version>" // For example, "7.4"
+       }
+   }
+   ```
+
+---
+
 ## Add the Execute PowerShell Code action
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
+1. On the resource sidebar, under **Workflows**, select **Workflows**, and then select your blank workflow.
 
-1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
+1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
 1. Add the **Inline Code Operations** action named **Execute PowerShell Code** to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=standard#add-action).
 
@@ -129,8 +181,7 @@ Push-WorkflowOutput -Output $populatedString
 
 > [!NOTE]
 >
-> In PowerShell, if you reference an object that has *JValue* type inside a complex object, and you 
-> add that object to a string, you get a format exception. To avoid this error, use `ToString()`.
+> In PowerShell, if you reference an object that has the *JValue* type inside a complex object, and you add that object to a string, you get a format exception. To avoid this error, use `ToString()`.
 
 ### Trigger and action response outputs
 
@@ -144,7 +195,7 @@ The following table lists the outputs that are generated when you call `Get-Acti
 | **StartTime** | DateTime | The start time for the trigger or action |
 | **EndTime** | DateTime | The end time for the trigger or action |
 | **ScheduledTime** | DateTime | The scheduled time to run the trigger or action or trigger |
-| **OriginHistoryName** | String | The origin history name for triggers with the `SplitOn` option enabled |
+| **OriginHistoryName** | String | The origin history name for triggers that use the `splitOn` property |
 | **SourceHistoryName** | String | The source history name for a resubmitted trigger |
 | **TrackingId** | String | The operation tracking ID |
 | **Code** | String | The status code for the result |
@@ -246,9 +297,9 @@ To use the managed identity from inside the **Execute PowerShell Code** action, 
 
 ## View the script file
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource that has the workflow you want.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the sidebar menu, under **Development Tools**, select **Advanced Tools**.
+1. On the resource sidebar, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu** console.
 
@@ -256,7 +307,7 @@ To use the managed identity from inside the **Execute PowerShell Code** action, 
 
 1. Go to your logic app's root location: **site/wwwroot**
 
-1. Go to your workflow's folder, which contains the .ps1 file, along this path: **site/wwwroot/{workflow-name}**
+1. Go to your workflow's folder, which contains the file with the *.ps1* extension along this path: **site/wwwroot/{workflow-name}**
 
 1. Next to the file name, select **Edit** to open and view the file.
 
@@ -264,9 +315,11 @@ To use the managed identity from inside the **Execute PowerShell Code** action, 
 
 ## View logs in Application Insights
 
-1. In the [Azure portal](https://portal.azure.com), on the logic app sidebar menu, under **Monitoring**, select **Application Insights** (not **Insights**), and then select the link to your Application Insights resource.
+1. In the [Azure portal](https://portal.azure.com), on the logic app sidebar, under **Monitoring**, select **Application Insights** (not **Insights**).
 
-1. On the **Application Insights** resource sidebar menu, under **Monitoring**, select **Logs**.
+1. Select the link to your Application Insights resource.
+
+1. On the **Application Insights** resource sidebar, under **Monitoring**, select **Logs**.
 
 1. Create a query to find any traces or errors from your workflow execution, for example:
 
@@ -291,7 +344,7 @@ A module organizes PowerShell code, making it easier to distribute. For example,
 
 To find publicly available modules, visit the [PowerShell gallery](https://www.powershellgallery.com). A Standard logic app resource can support up to 10 public modules. To use any public module, you must enable this capability by following these steps:
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource sidebar menu, under **Development Tools**, select **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on the logic app sidebar, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 
@@ -328,7 +381,7 @@ If you use dependency management, the following considerations apply:
 
 You can generate your own private PowerShell modules. To create your first PowerShell module, see [Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource sidebar menu, under **Development Tools**, select **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource sidebars, under Development Tools, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 
@@ -340,7 +393,7 @@ You can generate your own private PowerShell modules. To create your first Power
 
 1. In the **Modules** folder, create a subfolder with the same name as your private module.
 
-1. In your private module folder, add your private PowerShell module file with the .psm1 file name extension. You can also include an optional PowerShell manifest file with the .psd1 file name extension.
+1. In your private module folder, add your private PowerShell module file with the *.psm1* extension. You can also include an optional PowerShell manifest file with the *.psd1* extension.
 
 When you're done, your complete logic app file structure appears similar to the following example:
 

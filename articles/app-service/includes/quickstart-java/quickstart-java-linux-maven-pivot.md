@@ -20,6 +20,9 @@ ms.author: cephalin
 
 # [JBoss EAP](#tab/jbosseap)
 
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
 ![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/jboss-sample-in-app-service.png)
 
 ---
@@ -75,6 +78,9 @@ cd helloworld
 ```
 
 # [JBoss EAP](#tab/jbosseap)
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 Clone the Pet Store demo application.
 
@@ -174,6 +180,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 
 # [JBoss EAP](#tab/jbosseap)
 
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
 1. If prompted for **Create new run configuration**, select **Y**.
 1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter.
@@ -259,6 +268,9 @@ mvn package azure-webapp:deploy
 ```
 # [JBoss EAP](#tab/jbosseap)
 
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
 ```azurecli-interactive
 # Disable testing, as it requires Wildfly to be installed locally.
 mvn package azure-webapp:deploy -DskipTests
@@ -277,6 +289,9 @@ Once deployment is completed, your application is ready at `http://helloworld-15
 ![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 # [JBoss EAP](#tab/jbosseap)
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 ![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/jboss-sample-in-app-service.png)
 

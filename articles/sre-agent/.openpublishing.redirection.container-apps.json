@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/sre-agent/access-management.md",
+            "redirect_url": "/azure/sre-agent/user-access-roles",
+            "redirect_document_id": false
+        }
+    ]
+}

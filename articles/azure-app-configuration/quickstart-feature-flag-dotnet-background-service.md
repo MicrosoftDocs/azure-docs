@@ -6,11 +6,15 @@ services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.date: 12/17/2024
 ms.author: zhiyuanliang
+ms.custom:
+  - devx-track-csharp
+  - mode-other
+  - devx-track-dotnet
+  - sfi-image-nochange
 #Customer intent: As a .NET background service developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 # Quickstart: Add feature flags to a .NET background service

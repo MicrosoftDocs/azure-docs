@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/25/2025
+ms.date: 08/01/2025
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure PowerShell, so that I can control the network traffic to and from the resource.
 # Customer intent: As a network administrator, I want to create and manage a network security perimeter for an Azure Key Vault using PowerShell, so that I can enhance security by controlling the network traffic within a trusted boundary.
 ---
@@ -19,7 +19,7 @@ Get started with network security perimeter by creating a network security perim
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Install the Az.Tools.Installer module:
   

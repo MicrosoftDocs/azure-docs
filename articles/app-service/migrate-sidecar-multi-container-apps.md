@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/02/2025
 ms.author: cephalin
 author: cephalin
+ms.service: azure-app-service
 ---
 
 # Migrate Docker Compose apps to sidecars in Azure App Service

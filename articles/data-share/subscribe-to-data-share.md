@@ -25,7 +25,7 @@ Before you can accept a data share invitation, you must create some Azure resour
 
 Ensure that all prerequisites are complete before accepting a data share invitation. 
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 * Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you'll create a Data Share resource and the Azure subscription where your target Azure data stores are located.
 
@@ -109,7 +109,7 @@ Start by preparing your environment for the Azure CLI:
 Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 
 ```azurecli
-az datashare consumer consumer-invitation list-invitation
+az datashare consumer-invitation list-invitation
 ```
 
 Copy your invitation ID for use in the next section.

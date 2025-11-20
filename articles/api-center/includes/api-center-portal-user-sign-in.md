@@ -6,17 +6,17 @@ author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 03/04/2025
+ms.date: 08/05/2025
 ms.author: danlep
 ms.custom: Include file
 ---
 
-To enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
+To enable sign-in to the API Center portal to access APIs, assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
 
 > [!IMPORTANT]
-> By default, you and other administrators of the API center don't have access to APIs in the API Center portal. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  
+> By default, you and other administrators of the API center must sign-in to access APIs in the API Center portal. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  
 
-For detailed prerequisites and steps to assign a role to users and groups, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml). Brief steps follow:
+For detailed prerequisites and steps to assign a role to users and groups, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal). Brief steps follow:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, select **Access control (IAM)** > **+ Add role assignment**.

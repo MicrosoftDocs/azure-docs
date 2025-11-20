@@ -4,7 +4,7 @@ description: This article contains important reference material you need when yo
 ms.date: 09/24/2024
 ms.custom: horz-monitor
 ms.topic: reference
-ms.service: azure-communications-gateway
+ms.service: azure-application-gateway
 ---
 
 # Azure Communications Gateway monitoring data reference

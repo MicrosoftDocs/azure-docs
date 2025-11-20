@@ -9,7 +9,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/30/2024
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # How to secure APIs using client certificate authentication in API Management
@@ -28,6 +30,8 @@ For certificate validation, API Management can check against certificates manage
 
 * Reference a certificate managed in [Azure Key Vault](/azure/key-vault/general/overview) 
 * Add a certificate file directly in API Management
+
+[!INCLUDE [api-management-workspace-key-vault-availability](../../includes/api-management-workspace-key-vault-availability.md)]
 
 Using key vault certificates is recommended because it helps improve API Management security:
 

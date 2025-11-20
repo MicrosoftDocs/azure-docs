@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Prerequisites
-- Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/free/).
+- Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Have Node.js installed, you can install it from their [official website](https://nodejs.org).
@@ -175,6 +175,69 @@ await callAutomationClient.getCallConnection(callConnectionId)
 > [!Note]
 > If parameters aren't set, the defaults are applied where possible.
 
+### Real-time language identification (Preview)
+
+With the additional of real-time language identification, developers can automatically detect spoken languages to enable natural, human-like communications and eliminate manual language selection by the end users. 
+
+``` javascript
+const textToPlay = "Hi, how can I help you today?";
+const playSource: TextSource = {
+  text: textToPlay,
+  voiceName: "en-US-ElizabethNeural",
+  kind: "textSource"
+};
+const recognizeOptions: CallMediaRecognizeSpeechOptions = {
+  endSilenceTimeoutInSeconds: 30,
+  playPrompt: playSource,
+  operationContext: "speechContext",
+  kind: "callMediaRecognizeSpeechOptions",
+  // Enable Language Identification
+  speechLanguages: ["en-US", "hi-IN", "fr-FR"],
+  // Only add the speechRecognitionModelEndpointId if you have a custom speech model you would like to use
+  speechRecognitionModelEndpointId: "YourCustomSpeechEndpointId"
+};
+await callAutomationClient.getCallConnection(callConnectionId)
+  .getCallMedia()
+  .startRecognizing(targetParticipant, recognizeOptions);
+```
+
+>[!Note]
+> **Language support limits**
+>
+> When using the `Recognize` API with Speech as the input type:
+> - You can specify **up to 10 languages** using `setSpeechLanguages(...)`.
+> - Be aware that using more languages may **increase the time** it takes to receive the `RecognizeCompleted` event due to additional processing.
+>
+> When using the `Recognize` API with **choices**:
+> - Only **up to 4 languages** are supported.
+> - Specifying more than 4 languages in choices mode may result in errors or degraded performance.
+
+### Sentiment Analysis (Preview)
+The Recognize API supports sentiment analysis when using speech input. Track the emotional tone of conversations in real time to support customer and agent interactions, and enable supervisors to intervene when necessary. It can also be useful for routing, personalization or analytics. 
+
+``` javascript
+const textToPlay = "Hi, how can I help you today?";
+const playSource: TextSource = {
+  text: textToPlay,
+  voiceName: "en-US-ElizabethNeural",
+  kind: "textSource"
+};
+
+const recognizeOptions: CallMediaRecognizeSpeechOptions = {
+  endSilenceTimeoutInSeconds: 30,
+  playPrompt: playSource,
+  operationContext: "speechContext",
+  kind: "callMediaRecognizeSpeechOptions",
+
+  // Enable Sentiment Analysis
+  enableSentimentAnalysis: true
+};
+
+await callAutomationClient.getCallConnection(callConnectionId)
+  .getCallMedia()
+  .startRecognizing(targetParticipant, recognizeOptions);
+```
+
 ## Receiving recognize event updates
 
 Developers can subscribe to `RecognizeCompleted` and `RecognizeFailed` events on the registered webhook callback. Use this callback with business logic in your application to determine next steps when one of the events occurs. 
@@ -182,21 +245,38 @@ Developers can subscribe to `RecognizeCompleted` and `RecognizeFailed` events on
 ### Example of how you can deserialize the *RecognizeCompleted* event:
 
 ``` javascript
-if (event.type === "Microsoft.Communication.RecognizeCompleted") { 
-    if (eventData.recognitionType === "dtmf") { 
-        const tones = eventData.dtmfResult.tones; 
-        console.log("Recognition completed, tones=%s, context=%s", tones, eventData.operationContext); 
-    } else if (eventData.recognitionType === "choices") { 
-        const labelDetected = eventData.choiceResult.label; 
-        const phraseDetected = eventData.choiceResult.recognizedPhrase; 
-        console.log("Recognition completed, labelDetected=%s, phraseDetected=%s, context=%s", labelDetected, phraseDetected, eventData.operationContext); 
-    } else if (eventData.recognitionType === "speech") { 
-        const text = eventData.speechResult.speech; 
-        console.log("Recognition completed, text=%s, context=%s", text, eventData.operationContext); 
-    } else { 
-        console.log("Recognition completed: data=%s", JSON.stringify(eventData, null, 2)); 
-    } 
-} 
+if (event.type === "Microsoft.Communication.RecognizeCompleted") {
+  console.log("Received RecognizeCompleted event");
+
+  const callConnectionId = eventData.callConnectionId;
+
+  if (eventData.recognitionType === "choices") {
+    const labelDetected = eventData.choiceResult.label;
+    console.log(`Detected label: ${labelDetected}`);
+    console.log("Choice Result:", JSON.stringify(eventData.choiceResult, null, 2));
+    console.log(`Language Identified: ${eventData.choiceResult.languageIdentified}`);
+
+    if (eventData.choiceResult?.sentimentAnalysisResult !== undefined) {
+      console.log(`Sentiment: ${eventData.choiceResult.sentimentAnalysisResult.sentiment}`);
+    }
+  }
+
+  if (eventData.recognitionType === "dtmf") {
+    const tones = eventData.dtmfResult.tones;
+    console.log(`DTMF Tones: ${tones}`);
+    console.log(`Current Context: ${eventData.operationContext}`);
+  }
+
+  if (eventData.recognitionType === "speech") {
+    const text = eventData.speechResult.speech;
+    console.log(`Recognition completed, text: ${text}, context: ${eventData.operationContext}`);
+    console.log(`Language Identified: ${eventData.speechResult.languageIdentified}`);
+
+    if (eventData.speechResult?.sentimentAnalysisResult !== undefined) {
+      console.log(`Sentiment: ${eventData.speechResult.sentimentAnalysisResult.sentiment}`);
+    }
+  }
+}
 ```
 
 ### Example of how you can deserialize the *RecognizeFailed* event:

@@ -5,6 +5,9 @@ ms.topic: tutorial
 ms.subservice: kafka
 ms.date: 03/06/2025
 ms.devlang: java
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Process Apache Kafka for Event Hubs events using Stream analytics 
@@ -21,7 +24,7 @@ You don't need to change your protocol clients or run your own clusters when you
 
 To complete this quickstart, make sure you have the following prerequisites:
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)

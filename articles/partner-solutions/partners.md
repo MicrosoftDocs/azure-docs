@@ -1,52 +1,67 @@
 ---
-title: Extend Azure with Azure Native Integrations
+title: Azure Native Integrations Partner Solutions
 description: Explore Azure Native Integrations partner solutions for observability, data, networking, and storage.
+author: ProfessorKendrick
+ms.author: kkendrick
+ms.service: partner-services
+ms.topic: overview
+ms.date: 10/31/2025
+ai-usage: ai-assisted
 
-ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-  - build-2025
-ms.date: 04/21/2025
+#customer intent: As a customer, I want to discover Azure Native Integrations partner solutions so that I can extend Azure capabilities with trusted partner services.
+
 ---
 
-# Extend Azure with Azure Native Integrations
+# Azure Native Integrations partner solutions
 
-Partner organizations use Azure Native Integrations to offer solutions which are fully integrated with Azure to enhance your cloud infrastructure. Use a resource provider, resource types, and SDKs to manage the solution as you would with other solutions from Microsoft.
+Azure Native Integrations enable the use of trusted partner solutions as managed Azure resources. You deploy, manage, and support these integrations directly from the Azure portal, the Azure CLI, or SDKs.
 
-Subscribe to any Azure Native Integration through [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/).
+You can subscribe to Azure Native Integrations services through [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
-## AI
+## AI partners
 
-|Partner                                           |Description |
-|--------------------------------------------------|------------|
-|[Arize AI](arize-ai/overview.md)|A unified AI observability and evaluation platform for tracing, monitoring, and troubleshooting AI applications and agents|
-|[LambdaTest - HyperExecute](lambda-test/overview.md)|An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.|
+The following Azure Native Integrations partners provide advanced machine learning, automation, and testing capabilities to enhance your AI workloads.
 
+| Partner name                  | Solution description |
+|-------------------------------|-------------|
+| **Arize AI**                  | [Azure Native Arize AI Cloud Service](arize-ai/overview.md) is a platform for machine learning observability that helps teams monitor, troubleshoot, and improve their AI models. It provides tools for understanding model performance, detecting issues, and optimizing model behavior. |
+| **LambdaTest** | [LambdaTest - HyperExecute](lambda-test/overview.md) is a managed AI-powered platform for test execution and automation that enables teams to run tests at scale across various environments. It provides capabilities for parallel test execution, real-time analytics, and integration with continuous integration and continuous delivery (CI/CD) pipelines. |
 
-## Observability
+## Observability partners
 
-|Partner                                          |Description                                                                                                                                          |
-|-------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|[Datadog](datadog/overview.md)                   |Cloud-scale observability and security for your Azure, hybrid, or multicloud environment to troubleshoot quickly, increase uptime, and control costs.|
-|[Dynatrace](dynatrace/dynatrace-overview.md)     |Get deep cloud observability, advanced AIOps, and continuous runtime application security.                                                           |
-|[Elastic](elastic/overview.md)                   |Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.       |
-|[New Relic](new-relic/new-relic-overview.md)     |Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring, and more.    |
+The following Azure Native Integrations partners deliver observability and monitoring solutions to help you gain insights into your applications, infrastructure, and security posture.
 
-## Data and storage
+| Partner name   | Solution description |
+|----------------|-------------|
+| **Datadog**    | [Datadog](datadog/overview.md) delivers observability and security for cloud and hybrid workloads. It enables monitoring, troubleshooting, and securing applications and infrastructure. |
+| **Dynatrace**  | [Azure Native Dynatrace Service](dynatrace/overview.md) provides cloud observability, AI for IT operations (AIOps), and application security to help organizations optimize performance and ensure reliability. |
+| **Elastic**    | [Elastic in Azure](elastic/overview.md) offers search, monitoring, and security solutions for infrastructure and applications to support operational visibility and threat detection. |
+| **New Relic**  | [Azure Native New Relic Service](new-relic/overview.md) delivers observability for applications, infrastructure, and logs. It empowers teams to analyze and improve system performance. |
 
-|Partner                                                                                    |Description                                                                                                |
-|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| [Astro](astronomer/astronomer-overview.md)                  | Deploy a fully managed and seamless Apache Airflow on Astro on Azure.                                                                   | 
-|[Confluent](apache-kafka-confluent-cloud/overview.md)        | Deploy a fully managed, cloud-native Apache Kafka service.                                                                              |
-| [Informatica](informatica/informatica-overview.md)| A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance, and privacy and master data management.| 
-|  [Mongo DB Atlas](mongo-db/overview.md) | A fully managed document database with native vector search support for AI applications. |
-| [Neon Serverless Postgres](neon/overview.md)                |A serverless Postgres solution that leverages the principles of serverless computing to provide scalable and flexible database services. |
-| [Pure Storage Cloud (preview)](pure-storage/overview.md) |Pure Storage Cloud provides secure, efficient, and reliable block storage as a native managed service (STaaS). |
-|[Qumulo](qumulo/qumulo-overview.md)                          |  Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.                                                                                                                                                                         | 
+## Data and storage partners
 
-## Networking and security
+The following Azure Native Integrations partners provide data management, integration, and storage solutions for your cloud workloads.
 
-|Partner                                              |Description                                                                                                   |
-|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-|[NGINX](nginx/nginx-overview.md)                     | Deliver secure, high-performance applications by using familiar and trusted load-balancing solutions.        |
-|[Palo Alto Networks](palo-alto/palo-alto-overview.md)| Get a next generation firewall solution integrated with Azure that you can use to protect your organization. |
+| Partner name                  | Solution description |
+|-------------------------------|-------------|
+| **Astro**                     | [Apache Airflow on Astro](astronomer/overview.md) is a managed service for workflow orchestration. It helps enable scalable and reliable data pipelines. |
+| **Confluent Cloud**                 | [Apache Kafka & Apache Flink on Confluent Cloud](apache-kafka-confluent-cloud/overview.md) provides managed Apache Kafka for real-time data streaming. It supports event-driven architectures and data integration. |
+|**Dell PowerScale** Preview|[Dell PowerScale Preview](dell/overview.md) is an enterprise-class, high-performance software-defined file storage solution that brings PowerScale OneFS software to Azure.|
+| **Informatica**               | [Informatica Intelligent Data Management Cloud](informatica/overview.md) enables the management of an Informatica organization in Azure. Informatica delivers solutions that help organizations manage and secure their cloud data assets. |
+| **MongoDB**    | [MongoDB Atlas](mongo-db/overview.md) is a managed document database with vector search capabilities. It supports modern application development. |
+| **Neon**  | [Neon Serverless Postgres](neon/overview.md) offers a serverless Postgres database service that enables scalable and cost-effective relational data storage. |
+| **Pure Storage Cloud** | [Pure Storage Cloud](pure-storage/overview.md) provides managed block storage to help organizations manage their storage and compute resources. |
+| **Qumulo**                    | [Azure Native Qumulo](qumulo/overview.md) is a service that provisions a Qumulo file system that supports multiple protocols. It helps organizations efficiently manage unstructured data. |
+
+## Network and security partners
+
+The following Azure Native Integrations partners provide solutions for secure connectivity, application delivery, and protection of your cloud resources.
+
+| Partner name         | Solution description |
+|----------------------|-------------|
+| **F5**            | [NGINXaaS Cloud-Native Observability Platform](nginx/overview.md) provides load balancing and application delivery to help enhance performance, scalability, and security for web applications. |
+| **Palo Alto Networks** | [Cloud Next-Generation Firewall by Palo Alto Networks](palo-alto/overview.md) offers a cloud-integrated firewall and security solution to help protect workloads and data across cloud environments. |
+
+## Related content
+
+- [What are Azure Native Integrations?](overview.md)

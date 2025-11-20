@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 02/02/2024
+ms.date: 05/02/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: As a data security administrator, I want to learn about encryption methods for data at-rest and in-transit in cloud storage solutions, so that I can ensure compliance and protect sensitive information from unauthorized access during storage and transmission.
 ---
 # Understand data encryption in Azure NetApp Files 

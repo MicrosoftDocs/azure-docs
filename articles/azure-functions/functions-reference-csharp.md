@@ -1,24 +1,24 @@
 ---
-title: Azure Functions C# script developer reference
+title: Azure Functions legacy C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 12/29/2024
+ms.date: 08/29/2025
 ---
-# Azure Functions C# script (.csx) developer reference
+# Azure Functions legacy C# script (.csx) developer reference
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
 This article is an introduction to developing Azure Functions by using C# script (*.csx*).
 
 > [!IMPORTANT]
-> C# script is supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a compiled C# class library project. To learn how to migrate a C# script project to a C# class library (isolated worker) project, see [Convert a C# script app to a C# project](#convert-a-c-script-app-to-a-c-project).
+> C# script apps run in the host process and are supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a [compiled C# class library project that uses the isolated process model](./dotnet-isolated-process-guide.md). To learn how to migrate a C# script project to a C# class library (isolated worker) project, see [Convert a C# script app to a C# project](#convert-a-c-script-app-to-a-c-project).
 
 Azure Functions lets you develop functions using C# in one of the following ways:
 
 | Type | Execution process | Code extension | Development environment | Reference |
 | --- | ---- | --- | --- | --- | 
-| C# script | in-process | .csx | [Portal](functions-create-function-app-portal.md)<br/>[Core Tools](functions-run-local.md) | This article | 
+| C# script | in-process | .csx | [Portal](functions-create-function-app-portal.md)<br/>[Core Tools](functions-run-local.md) | [This article](#create-a-c-script-app) | 
 | C# class library (isolated worker) | isolated worker process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated worker process functions](dotnet-isolated-process-guide.md) | 
 | C# class library (in-process) | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)| [In-process C# class library functions](functions-dotnet-class-library.md) |  
 
@@ -31,6 +31,8 @@ Data flows into your C# function via method arguments. Argument names are specif
 The *.csx* format allows you to write less "boilerplate" and focus on writing just a C# function. Instead of wrapping everything in a namespace and class, just define a `Run` method. Include any assembly references and namespaces at the beginning of the file as usual.
 
 A function app's *.csx* files are compiled when an instance is initialized. This compilation step means things like cold start may take longer for C# script functions compared to C# class libraries. This compilation step is also why C# script functions are editable in the Azure portal, while C# class libraries aren't.
+
+C# script code always runs in the same process as the Functions host. 
 
 ## Folder structure
 
@@ -54,6 +56,36 @@ FunctionsProject
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.csx) and binding configuration file (function.json).
 
 The binding extensions required in [version 2.x and later versions](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./extension-bundles.md). When you develop functions in the Azure portal, this registration is done for you.
+
+## Create a C# script app
+
+There are currently two ways to create a C# script app:
+
+### [Core Tools](#tab/core-tools)
+
+Create a C# script project by passing the `--csx` option when running the [`func init`](functions-core-tools-reference.md#func-init) command. You must also set `--worker-runtime` to `dotnet`, as in this example:
+
+```command
+func init --worker-runtime dotnet --csx
+```
+
+When working with a C# script app, you must supply the `--csx` option for other Core Tools where it's supported.
+
+When deploying your C# script project to a function app in Azure, you can only deploy it to an app that uses the [in-process model for C#](functions-dotnet-class-library.md).  
+
+### [Azure portal](#tab/azure-portal)
+
+Create a C# script project by creating an app that uses a currently supported in-process .NET **version**, such as **8 (LTS), in-process model**. Don't select the Flex Consumption plan, which doesn't support the in-process model.
+
+On the main page for your new app in the portal, select **Create function** under **Create in Azure portal**. This creates a C# script project, which you can code and test directly in the portal. 
+
+---
+
+Keep these considerations in mind before creating a C# script app:
+
++ C# script is supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a [compiled C# class library project](dotnet-isolated-process-guide.md).
++ C# script is only supported when running [in-process with the Functions host](functions-dotnet-class-library.md), which is a [legacy execution mode for C#](https://aka.ms/azure-functions-retirements/in-process-model).
++  You can't host C# script apps in the [Flex Consumption plan](flex-consumption-plan.md), which is the recommended plan for dynamic scale apps. This is because the Flex Consumption plan only supports C# apps that use the [isolated worker model](dotnet-isolated-process-guide.md).
 
 ## Binding to arguments
 
@@ -658,7 +690,7 @@ These instructions show you how to convert C# script functions (which run in-pro
    ### [Visual Studio](#tab/vs)
    [Create your first C# function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md#create-a-function-app-project)
    ### [Visual Studio Code](#tab/vs-code) 
-   [Create your first C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md#create-an-azure-functions-project)
+   [Create your first C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp#create-an-azure-functions-project)
 
    ---
     

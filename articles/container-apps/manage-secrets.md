@@ -7,7 +7,11 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 02/28/2025
 ms.author: cshoe
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - build-2023
+  - sfi-ropc-nochange
 ---
 
 # Manage secrets in Azure Container Apps
@@ -126,7 +130,7 @@ To reference a secret from Key Vault, you must first enable managed identity in 
 
 To enable managed identity in your container app, see [Managed identities](managed-identity.md).
 
-To grant access to Key Vault secrets, [create an access policy](/azure/key-vault/general/assign-access-policy) in Key Vault for the managed identity you created. Enable the "Get" secret permission on this policy.
+To grant access to Key Vault secrets, grant the Azure RBAC role [Key Vault Secrets User](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-user) to the managed identity.
 
 # [Azure portal](#tab/azure-portal)
 

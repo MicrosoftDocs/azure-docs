@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/07/2025
+ms.date: 09/12/2025
 ms.service: azure
 ---
 
@@ -47,8 +47,41 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 * ZStandard compressed data
 * Zip archive
 
+## What SBOM components does firmware analysis detect?
+
+**Component** | **Component** | **Component** | **Component**
+---|---|---|---
+acpid       |   gtk         |   msmtp       |   redis       
+apache      |   harfbuzz    |   mstpd       |   rp_pppoe    
+avahi_daemon|   heimdal     |   ncurses     |   samba
+axios		|	hostapd		|	neon		|	sqlite
+backbonejs	|	inetutils_telnetd|	netatalk	|	ssmtp
+bash		|	iptables	|	netkit_telnetd	|	strongswan
+bftpd		|	jquery		|	netsnmp	    |		stunnel
+bluetoothd	|	libcurl		|	nettools	|	sudo
+busybox		|	libevent	|	nginx		|	tcpdump
+bzip2		|	libexpat	|	nss		    |	uclibc
+cairo		|	libgcrypt	|	openldap	|	underscorejs
+codesys		|	libidn		|	openssh		|	usbutils
+coreutils	|	libmicrohttpd	|	openssl	|		util_linux
+dhcpd		|	libpcap		|	openvpn		|	vim
+dnsmasq		|	libpng		|	openvswitch	|	vsftpd
+dropbear	|	libsoup		|	p7zip		|	vuejs
+e2fsprogs	|	libvorbis	|	pango		|	wget
+element		|	lighttpd	|	pcre		|	wolfssl
+extJS		|	lodash		|	pcre2		|	wpa_supplicant
+ffmpeg		|	logrotate	|	perl		|	xinetd
+fribidi		|	lua			|    php		|	      xl2tpd
+gdbserver	|	matrixssl	|	polarssl	|	zebra
+gdkpixbuf	|	mbedtls		|	pppd		|	zeptojs
+glibc		|	mcproxy		|	proftpd		|	zlib
+gmp			|   miniupnpd	|   python      |
+gnutls		|	mit_kerberos|	radvd
+gpg			|   mosquitto	|   readline
+
+
+
 ## Where are the firmware analysis Azure CLI/PowerShell docs?
 You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
  
 You can also find the Quickstart for our Azure CLI [here](./quickstart-upload-firmware-using-azure-command-line-interface.md) and the Quickstart for our Azure PowerShell [here](./quickstart-upload-firmware-using-powershell.md). To run a Python script using the SDK to upload and analyze firmware images, visit [Quickstart: Upload firmware using Python](./quickstart-upload-firmware-using-python.md).
- 

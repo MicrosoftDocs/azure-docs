@@ -93,7 +93,7 @@ There are some important considerations when defining your resource group:
 
 * The resources in a resource group can be located in different regions than the resource group, but we recommend that you use the same location. See [What location should I use for my resource group?](#which-location-should-i-use-for-my-resource-group).
 
-* A resource group can be used to scope access control for administrative actions. You can use Azure [policies](../../governance/policy/overview.md), [roles](../../role-based-access-control/role-assignments-portal.yml), or [resource locks](lock-resources.md) to manage a resource group.
+* A resource group can be used to scope access control for administrative actions. You can use Azure [policies](../../governance/policy/overview.md), [roles](/azure/role-based-access-control/role-assignments-portal), or [resource locks](lock-resources.md) to manage a resource group.
 
 * You can [apply tags](tag-resources.md) to a resource group. The resources in the resource group don't inherit those tags.
 
@@ -136,6 +136,11 @@ Resource Manager is designed for resiliency and continuous availability. Resourc
 * Are not taken down for maintenance activities.
 
 This resiliency applies to services that receive requests through Resource Manager. Azure Key Vault is one service that benefits from this consistency.
+
+
+Using the global endpoint `management.azure.com` is recommended for Azure Resource Manager routing because it enables DNS-based traffic distribution, automatic failover, and optimal routing to the closest or healthiest region, which improves latency and reliability for users worldwide.
+Global endpoints typically result in faster response times, as users are directed to the nearest available region, reducing network hops and delays.
+
 
 ## Resolve concurrent operations
 

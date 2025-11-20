@@ -2,11 +2,13 @@
 title: Troubleshoot Azure Files backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure Files.
 ms.service: azure-backup
-ms.date: 04/30/2025
+ms.date: 08/11/2025
 ms.topic: troubleshooting
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator managing Azure Files, I want to troubleshoot backup and restore issues, so that I can ensure reliable data protection and recovery for our file shares."
 ---
 
@@ -307,6 +309,13 @@ Recommended Actions: Ensure that the following configurations in the storage acc
  
 **Recommended action**: The next backup will be automatically triggered with increased vault storage.
 
+### UserErrorStorageKeyBasedAuthenticationNotPermitted
+
+**Error code**: `UserErrorStorageKeyBasedAuthenticationNotPermitted`
+
+**Error message**: Storage account does not support key based authentication required for Azure Backup integration.
+
+**Recommended action**: Enable storage key based authentication on storage account and the retry opertaion.
 
 ## Common policy modification errors
 

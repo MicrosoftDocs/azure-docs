@@ -109,7 +109,7 @@ Two functions - [getSecret](bicep-functions-resource.md#getsecret) and [list*](b
 The following example references an existing key vault, then uses `getSecret` to pass a secret to a module.
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -196,7 +196,7 @@ Output from the example:
 Typically, you use the property accessor with a resource deployed in the Bicep file. The following example creates a public IP address and uses property accessors to return a value from the deployed resource.
 
 ```bicep
-resource publicIp 'Microsoft.Network/publicIPAddresses@2023-11-01' = {
+resource publicIp 'Microsoft.Network/publicIPAddresses@2025-01-01' = {
   name: publicIpResourceName
   location: location
   properties: {

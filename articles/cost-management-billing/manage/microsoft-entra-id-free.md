@@ -6,10 +6,10 @@ ms.reviewer: zainzaigham
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 02/24/2025
+ms.date: 08/13/2025
 ms.author: zainzaigham
 ms.custom:
-  - build-2025
+- build-2025
 ---
 
 # Microsoft Entra ID Free
@@ -47,7 +47,7 @@ The Microsoft Entra ID Free subscription appears in your list of billing subscri
 Although the Microsoft Entra ID Free subscription is free, we require a credit card to verify your identity and to protect Microsoft Entra ID Free. Your credit card isn't charged for Microsoft Entra ID Free.
 
 >[!NOTE]
->A free Azure account has limits to the number of free services you can use. For more information, see [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). If you use Azure services beyond the free limits, you're charged for the services at pay-as-you-go rates.
+>A free Azure account has limits to the number of free services you can use. For more information, see [Azure free account FAQ](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). If you use Azure services beyond the free limits, you're charged for the services at pay-as-you-go rates.
 
 ### Cancellation not available
 

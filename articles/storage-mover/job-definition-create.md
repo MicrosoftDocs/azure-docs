@@ -6,6 +6,7 @@ ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 10/30/2023
+ms.custom: sfi-image-nochange
 ---
 
 <!-- 
@@ -143,6 +144,13 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 1. Review the settings for job name and description, and source and target storage endpoint settings. Use the **Previous** and **Next** options to navigate through the tabs and correct any mistakes, if needed. Finally, select **Create** to provision the job definition.
 
    :::image type="content" source="media/job-definition-create/review-sml.png" alt-text="Screen capture of the Review tab illustrating the location of the fields and settings." lightbox="media/job-definition-create/review-lrg.png":::
+
+1. Navigate to the Project explorer page within the Azure portal to view a list of available projects. Select a project and you will see a list of jobs. Select a job and select **Start job**.
+
+> [!NOTE]
+- Currently, only one job can be run on a given agent at a time. If there is already another job in running state, starting of another job will fail. Mover agent puts a marker file on target share or container when it starts a job (file name "").
+- User can have only one job running at given time for a target container or share. If you are running multiple agents, you cannot use it to run job against same target share or container. The job that runs later will get error "Failed to claim the target: Target is busy" (Error AZSM1027)
+
 
 ### [PowerShell](#tab/powershell)
 

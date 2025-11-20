@@ -5,8 +5,9 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 4/4/2025
+ms.date: 04/04/2025
 ms.author: mbender
+ms.custom: sfi-ropc-nochange
 # Customer intent: "As a Kubernetes administrator, I want to deploy the Application Gateway Ingress Controller with a new Application Gateway, so that I can manage ingress traffic efficiently for my applications running on Azure Kubernetes Service."
 ---
 
@@ -79,7 +80,7 @@ The following procedure adds these components to your subscription:
 - [Azure Application Gateway](./overview.md) v2
 - [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with two [subnets](../virtual-network/virtual-networks-overview.md)
 - [Public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
-- [Managed identity](../active-directory/managed-identities-azure-resources/overview.md), which [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md) will use.
+- [Managed identity](../active-directory/managed-identities-azure-resources/overview.md), which [Microsoft Entra Workload ID](https://github.com/Azure/aad-pod-identity/blob/master/README.md) will use.
 
 To deploy the components:
 
@@ -133,17 +134,17 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 <a name='install-azure-ad-pod-identity'></a>
 
-### Install Microsoft Entra Pod Identity
+### Install Microsoft Entra Workload ID
 
-[Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity) provides token-based access to [Azure Resource Manager](../azure-resource-manager/management/overview.md).
+[Microsoft Entra Workload ID](https://github.com/Azure/aad-pod-identity) provides token-based access to [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
-Microsoft Entra Pod Identity adds the following components to your Kubernetes cluster:
+Microsoft Entra Workload ID adds the following components to your Kubernetes cluster:
 
 - Kubernetes [custom resource definitions (CRDs)](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
 - [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
 - [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-To install Microsoft Entra Pod Identity to your cluster, use one of the following commands:
+To install Microsoft Entra Workload ID to your cluster, use one of the following commands:
 
 - Kubernetes RBAC-enabled AKS cluster:
 

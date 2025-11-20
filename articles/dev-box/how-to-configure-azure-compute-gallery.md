@@ -82,9 +82,12 @@ When you create a generalized VM to capture to an image, the following issues ca
 1. Enable the Read/Write cache on the OS disk.
     - To verify the cache is enabled, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
 
-1.  Enable nested virtualization in your base image:
+1. Enable nested virtualization in your base image:
     - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**.
     - Or run the following PowerShell command: `Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online`
+  
+1. Clean up component store to save disk space and avoid lengthy maintenance tasks that run during provisioning by using the following command: `DISM.exe /Online /Cleanup-Image /StartComponentCleanup`
+    - For more information, see [Clean Up the WinSxS folder](/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11&preserve-view=true)
  
 1. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. 
     - For more information, see [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
@@ -130,7 +133,7 @@ Use the following steps to manually assign the role.
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
    | Setting | Value |
    | --- | --- |
@@ -199,4 +202,4 @@ The gallery is detached from the dev center. The gallery and its images aren't d
 
 ## Related content
 
-- Learn more about [key concepts in Microsoft Dev Box](./concept-dev-box-concepts.md).
+- Learn more about [Microsoft Dev Box architecture and key concepts](./concept-dev-box-architecture.md).

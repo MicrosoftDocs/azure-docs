@@ -51,6 +51,14 @@ Dev Box customization tasks are wrappers for PowerShell scripts. You use them to
 
 When you create tasks, determine which ones need to run in a system context and which ones can run in a user context after sign-in.
 
+You can use both system and user tasks in your image definition file. The tasks section of the image definition file is divided into system tasks and user tasks sections, which share the same parameters based on the task definitions in your catalog.
+
+- **System tasks**: These tasks run as `LocalSystem` during the provisioning stage of the dev box. They're typically used for system-level configurations, like installing software or configuring system settings that require administrative privileges.
+- **User tasks**: These tasks run as the user after the user's first sign-in to the dev box. They're typically used for user-level configurations, like installing user-specific applications or configuring user settings under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of systemwide. Put WinGet tasks in the `userTasks` section for better results when they don't work under tasks.
+
+Standard users who set up user customizations can use only user tasks. They can't use system tasks.
+
+
 ## Differences between team customizations and user customizations
 
 Dev Box team customizations allow developer team leads and IT admins to preconfigure customization files for dev box pools. Customizations eliminate the need for developers to go through manual setup.
@@ -99,7 +107,7 @@ To set up Dev Box to support team customizations, follow these steps:
 1. Create your dev box from the configured pool by using the developer portal.
 
 To learn more about team customization and writing image definitions, see [Configure team customizations](how-to-configure-team-customizations.md).
-Then, to learn how to optimize your image definition into a custom image, see [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md).
+Then, to learn how to optimize your image definition into a custom image, see [Configure dev center imaging](how-to-configure-dev-center-imaging.md).
 
 # [User customizations](#tab/user-customizations)
 
@@ -134,5 +142,5 @@ To learn more about user customizations, see [Configure user customizations for 
 ## Related content
 
 - [Quickstart: Create a dev box by using team customizations](quickstart-team-customizations.md)
-- [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
+- [Configure dev center imaging](how-to-configure-dev-center-imaging.md)
 

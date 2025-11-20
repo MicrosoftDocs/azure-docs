@@ -5,8 +5,9 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
 ms.date: 02/24/2025
+ms.reviewer: v-uhabiba
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
-monikerRange: migrate-classic
+monikerRange:
 # Customer intent: As a database administrator, I want to assess my on-premises MySQL instances for migration to a cloud-based database service, so that I can identify readiness, costs, and potential risks associated with the migration process.
 ---
 
@@ -159,7 +160,7 @@ To view MySQL instances's readiness for migration to Azure Database for MySQL, a
 
 ## Review confidence ratings
 
-Azure Migrate assigns a confidence rating to all MySQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed MySQL instances. The rating ranges from one star (lowest) to five stars (highest) and helps estimate the reliability of size recommendations in the assessment. For more information, see [confidence ratings](assessments-overview-migrate-to-azure-db-mysql.md#confidence-ratings).
+Azure Migrate assigns a confidence rating to all MySQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed MySQL instances. The rating ranges from one star (lowest) to five stars (highest) and helps estimate the reliability of size recommendations in the assessment. For more information, see [confidence ratings](assessments-overview-migrate-to-azure-db-mysql.md#performance-coverage).
 
 ## Next steps
 

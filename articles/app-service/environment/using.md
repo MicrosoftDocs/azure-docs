@@ -2,9 +2,13 @@
 title: Use an App Service Environment
 description: Learn how to use your App Service Environment to host isolated applications.
 author: seligj95
-ms.topic: article
+ms.topic: overview
 ms.date: 06/26/2024
 ms.author: jordanselig
+ms.service: azure-app-service
+
+# Customer intent: As a developer, I want to get an overview of using App Service Environment to host isolated applications. 
+
 ---
 
 # Use an App Service Environment

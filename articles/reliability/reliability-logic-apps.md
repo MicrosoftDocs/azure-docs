@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Logic Apps
-description: Learn about reliability in Azure Logic Apps, including availability zones and multi-region deployments.
+description: Learn how Azure Logic Apps provides reliability, high availability, and disaster recovery through availability zones and multi-region deployment patterns.
 author: ecfan
 ms.author: estfan
 ms.topic: reliability-article
@@ -198,7 +198,7 @@ This section describes what to expect when Azure Logic Apps resources are config
 
 - **Active requests:** If an availability zone becomes unavailable, any in-progress workflow executions that run on a VM in the faulty availability zone are terminated. The Azure Logic Apps platform automatically resumes the workflow on another VM in a different availability zone. Due to this behavior, active workflows might experience some [transient faults](#transient-faults) or higher latency as new VMs are added to the remaining availability zones.
 
-### Failback
+### Zone recovery
 
 When the availability zone recovers, Azure Logic Apps automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
 

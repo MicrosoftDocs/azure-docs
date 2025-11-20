@@ -5,8 +5,9 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
-ms.date: 09/30/2024
+ms.date: 07/22/2025
 ms.author: mbender 
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I want to troubleshoot backend health issues in Application Gateway, so that I can ensure my backend servers are operational and effectively serving requests.
 ---
 
@@ -351,6 +352,14 @@ OR </br>
 **Cause:** This error occurs when Application Gateway can't verify the validity of the certificate.
 
 **Solution:** To resolve this issue, verify that the certificate on your server was created properly. For example, you can use [OpenSSL](https://www.openssl.org/docs/manmaster/man1/verify.html) to verify the certificate and its properties and then try reuploading the certificate to the Application Gateway HTTP settings.
+
+### Proxy protocol unsupported
+
+**Message:** Verify that the backend server is set up to accept the Proxy protocol header sent by the probes.
+
+**Cause:** This error occurs only with TLS protocol backend settings for which the Client IP preservation is enabled. In this mode, Application Gateway sends a Proxy Protocol header before initiating the TLS handshake with the backend for probes. If the backend server isn't configured to parse such header, the health probe fails and Application Gateway will mark it as unhealthy.
+
+**Solution:** Ensure the backend server is configured to parse the Proxy Protocol header on the appropriate port, in accordance with [Proxy protocol specifications](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt), when using it with Application Gateway.
 
 ## Backend health status: Unknown
 

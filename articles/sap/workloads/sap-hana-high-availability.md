@@ -6,9 +6,13 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 08/22/2024
+ms.date: 11/13/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a cloud architect, I want to implement high availability for SAP HANA on Azure VMs using SUSE Linux, so that I can ensure data continuity and minimize downtime during system failures.
 ---
 # High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
@@ -325,7 +329,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 SUSE provides two different software packages for the Pacemaker resource agent to manage SAP HANA. Software packages SAPHanaSR and SAPHanaSR-angi are using slightly different syntax and parameters and aren't compatible. See [SUSE release notes](https://www.suse.com/releasenotes/x86_64/SLE-SAP/15-SP6/index.html#bsc-1210005) and [documentation](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-perfopt-15/index.html) for details and differences between SAPHanaSR and SAPHanaSR-angi. This document covers both packages in separate tabs in the respective sections.
 
 > [!WARNING]
-> Don't replace the package SAPHanaSR by SAPHanaSR-angi in an already configured cluster. Upgrading from SAPHanaSR to SAPHanaSR-angi requires a specific procedure. See SUSE's blog post for more details: [How to upgrade to SAPHanaSR-angi](https://www.suse.com/c/how-to-upgrade-to-saphanasr-angi/). 
+> When upgrading from SAPHanaSR to SAPHanaSR-angi, please follow the recommended procedure to ensure a smooth transition. Don't replace the package directly in an already configured cluster, as this may lead to issues. For detailed guidance, see SUSE’s blog post: [How to upgrade to SAPHanaSR-angi](https://www.suse.com/c/how-to-upgrade-to-saphanasr-angi/). 
 
 1. **[A]** Install the SAP HANA high availability packages:
 
@@ -605,18 +609,15 @@ sudo crm configure primitive rsc_SAPHana_<HANA SID>_HDB<instance number> ocf:sus
   params SID="<HANA SID>" InstanceNumber="<instance number>" PREFER_SITE_TAKEOVER="true" \
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
-# Run the following command if the cluster nodes are running on SLES 12 SP05.
 sudo crm configure ms msl_SAPHana_<HANA SID>_HDB<instance number> rsc_SAPHana_<HANA SID>_HDB<instance number> \
   meta notify="true" clone-max="2" clone-node-max="1" \
   target-role="Started" interleave="true"
 
-# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
-sudo crm configure clone msl_SAPHana_<HANA SID>_HDB<instance number> rsc_SAPHana_<HANA SID>_HDB<instance number> \
-  meta notify="true" clone-max="2" clone-node-max="1" \
-  target-role="Started" interleave="true" promotable="true"
-
 sudo crm resource meta msl_SAPHana_<HANA SID>_HDB<instance number> set priority 100
 ```
+
+> [!NOTE]
+> The deprecation warning is not an error message. You can proceed on configuring the resource. For more details, see [crm command returns "Warning: support for ... is deprecated and will be removed in a future release"](https://www.suse.com/support/kb/doc/?id=000021958).
 
 ---
 
@@ -671,13 +672,8 @@ sudo crm configure primitive rsc_nc_<HANA SID>_HDB<instance number> azure-lb por
 
 sudo crm configure group g_ip_<HANA SID>_HDB<instance number> rsc_ip_<HANA SID>_HDB<instance number> rsc_nc_<HANA SID>_HDB<instance number>
 
-# Run the following command if the cluster nodes are running on SLES 12 SP05.
 sudo crm configure colocation col_saphana_ip_<HANA SID>_HDB<instance number> 4000: g_ip_<HANA SID>_HDB<instance number>:Started \
   msl_SAPHana_<HANA SID>_HDB<instance number>:Master
-  
-# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
-sudo crm configure colocation col_saphana_ip_<HANA SID>_HDB<instance number> 4000: g_ip_<HANA SID>_HDB<instance number>:Started \
-  msl_SAPHana_<HANA SID>_HDB<instance number>:Promoted
 
 sudo crm configure order ord_SAPHana_<HANA SID>_HDB<instance number> Optional: cln_SAPHanaTopology_<HANA SID>_HDB<instance number> \
   msl_SAPHana_<HANA SID>_HDB<instance number>
@@ -691,6 +687,9 @@ sudo crm configure property maintenance-mode=false
 sudo crm configure rsc_defaults resource-stickiness=1000
 sudo crm configure rsc_defaults migration-threshold=5000
 ```
+
+> [!NOTE]
+> The deprecation warning is not an error message. You can proceed on configuring the resource. For more details, see [crm command returns "Warning: support for ... is deprecated and will be removed in a future release"](https://www.suse.com/support/kb/doc/?id=000021958).
 
 ---
 
@@ -807,13 +806,8 @@ crm configure primitive rsc_secnc_<HANA SID>_HDB<instance number> azure-lb port=
 
 crm configure group g_secip_<HANA SID>_HDB<instance number> rsc_secip_<HANA SID>_HDB<instance number> rsc_secnc_<HANA SID>_HDB<instance number>
 
-# Run the following command if the cluster nodes are running on SLES 12 SP05.
 crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
  msl_SAPHana_<HANA SID>_HDB<instance number>:Slave
- 
-# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
-crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
- msl_SAPHana_<HANA SID>_HDB<instance number>:Unpromoted
 
 crm configure property maintenance-mode=false
 ```

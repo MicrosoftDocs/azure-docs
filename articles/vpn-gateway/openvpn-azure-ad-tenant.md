@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/25/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 #Note that Audience values are not sensitive data. 
 

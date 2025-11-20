@@ -2,16 +2,20 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: how-to
-ms.date: 04/28/2025
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.date: 08/05/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-arm-template
+  - sfi-ga-nochange
 ---
 
 # Tenant deployments with ARM templates
 
-As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Microsoft Entra tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
+As your organization matures, you might need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Microsoft Entra tenant. With tenant-level templates, you can declaratively apply policies and assign roles at a global level.
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [tenant deployments](../bicep/deploy-to-tenant.md).
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [tenant deployments](../bicep/deploy-to-tenant.md).
 
 ## Supported resources
 
@@ -45,11 +49,11 @@ For configuring the portal, use:
 
 * [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
-Built-in policy definitions are tenant-level resources, but you can't deploy custom policy definitions at the tenant. For an example of assigning a built-in policy definition to a resource, see [tenantResourceId example](./template-functions-resource.md#tenantresourceid-example).
+Built-in policy definitions are tenant-level resources, but you can't deploy custom policy definitions at the tenant. For an example of assigning a built-in policy definition to a resource, see a [`tenantResourceId` example](./template-functions-resource.md#tenantresourceid-example).
 
 ## Schema
 
-The schema you use for tenant deployments is different than the schema for resource group deployments.
+The schema you use for tenant deployments is different than the schema for resource-group deployments.
 
 For templates, use:
 
@@ -95,7 +99,7 @@ The commands for tenant deployments are different than the commands for resource
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+For the Azure CLI, use [`az deployment tenant create`](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -106,7 +110,7 @@ az deployment tenant create \
 
 # [PowerShell](#tab/azure-powershell)
 
-For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+For Azure PowerShell, use [`New-AzTenantDeployment`](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
@@ -117,7 +121,7 @@ New-AzTenantDeployment `
 
 ---
 
-For more detailed information about deployment commands and options for deploying ARM templates, see:
+For more information about deployment commands and options for deploying ARM templates, see:
 
 * [Deploy resources with ARM templates and Azure portal](deploy-portal.md)
 * [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
@@ -128,7 +132,7 @@ For more detailed information about deployment commands and options for deployin
 
 ## Deployment location and name
 
-For tenant level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Subscription](deploy-to-subscription.md) and [management group](deploy-to-management-group.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
+For tenant-level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Subscription](deploy-to-subscription.md) and [management group](deploy-to-management-group.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
 
 You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named _azuredeploy.json_ creates a default deployment name of **azuredeploy**.
 
@@ -138,46 +142,136 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 When deploying to a tenant, you can deploy resources to:
 
-* the tenant
-* management groups within the tenant
-* subscriptions
-* resource groups
+* The tenant
+* Management groups within the tenant
+* Subscriptions
+* Resource groups
 
 [!INCLUDE [Scope transitions](../../../includes/resource-manager-scope-transition.md)]
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+An [extension resource](scope-extension-resources.md) can be scoped to a target that's  different than the deployment target.
 
 The user deploying the template must have access to the specified scope.
 
-This section shows how to specify different scopes. You can combine these different scopes in a single template.
+This section shows how to specify different scopes. You can combine these different scopes in one template.
 
 ### Scope to tenant
 
-Resources defined within the resources section of the template are applied to the tenant.
+Resources defined within the **resources** section of the template are applied to the tenant:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    tenant-resources
+  ],
+  "outputs": {}
+}
+```
 
 ### Scope to management group
 
-To target a management group within the tenant, add a nested deployment and specify the `scope` property.
+To target a management group within the tenant, add a nested deployment and specify the `scope` property:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "mgName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedMG",
+      "scope": "[variables('mgId')]",
+      "location": "eastus",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          management-group-resources
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ### Scope to subscription
 
 You can also target subscriptions within the tenant. The user deploying the template must have access to the specified scope.
 
-To target a subscription within the tenant, use a nested deployment and the `subscriptionId` property.
+To target a subscription within the tenant, use a nested deployment and the `subscriptionId` property:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedSub",
+      "location": "westus2",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              subscription-resources
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ### Scope to resource group
 
 You can also target resource groups within the tenant. The user deploying the template must have access to the specified scope.
 
-To target a resource group within the tenant, use a nested deployment. Set the `subscriptionId` and `resourceGroup` properties. Don't set a location for the nested deployment because it's deployed in the location of the resource group.
+To target a resource group within the tenant, use a nested deployment. Set the `subscriptionId` and `resourceGroup` properties. Don't set a location for the nested deployment because it's deployed in the location of the resource group:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedRGDeploy",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "resourceGroup": "demoResourceGroup",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              resource-group-resources
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ## Create management group
 
@@ -185,7 +279,7 @@ The following template creates a management group.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
-If your account doesn't have permission to deploy to the tenant, you can still create management groups by deploying to another scope. For more information, see [Management group](deploy-to-management-group.md#management-group).
+If your account doesn't have permission to deploy to the tenant, you can still create management groups by deploying to another scope. For more information, see [management group](deploy-to-management-group.md#management-group).
 
 ## Assign role
 
@@ -195,5 +289,5 @@ The following template assigns a role at the tenant scope.
 
 ## Next steps
 
-* To learn about assigning roles, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
-* You can also deploy templates at [subscription level](deploy-to-subscription.md) or [management group level](deploy-to-management-group.md).
+- To learn about assigning roles, see how to [assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+- You can also deploy templates at the [subscription](deploy-to-subscription.md) or [management-group](deploy-to-management-group.md) level.

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 05/14/2025
+ms.date: 09/15/2025
 ---
 
 # Apply tags with Bicep

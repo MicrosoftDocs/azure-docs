@@ -2,7 +2,6 @@
 title: Configure disk encryption in Azure Managed Redis
 description: Learn about disk encryption when using Azure Managed Redis.
 ms.date: 05/18/2025
-ms.service: azure-managed-redis
 ms.topic: how-to
 ms.custom:
   - ignite-2024

@@ -1,7 +1,7 @@
 ---
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
-ms.date: 07/24/2025
+ms.date: 08/05/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
@@ -12,18 +12,18 @@ ms.devlang: azurecli
 This quickstart shows you how to package an Azure Resource Manager template (ARM template) into a [template spec](template-specs.md). Then, you deploy that template spec. Your template spec contains an ARM template that deploys a storage account.
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Quickstart: Create and deploy a template spec with Bicep](../bicep/quickstart-create-template-specs.md).
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [Quickstart: Create and deploy a template spec with Bicep](../bicep/quickstart-create-template-specs.md).
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!NOTE]
-> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
+> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with the Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Create template
 
-You create a template spec from an ARM template. Copy the following template and save as **C:\Templates\createStorageV1.json**.
+You create a template spec from an ARM template. Copy the following template, and save as **C:\Templates\createStorageV1.json**.
 
 ```json
 {
@@ -42,7 +42,7 @@ You create a template spec from an ARM template. Copy the following template and
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -59,7 +59,7 @@ You create a template spec from an ARM template. Copy the following template and
 
 ## Create template spec
 
-The template spec is a resource type named `Microsoft.Resources/templateSpecs`. To create a template spec, use PowerShell, Azure CLI, the portal, or an ARM template.
+The template spec is a resource type named `Microsoft.Resources/templateSpecs`. To create a template spec, use PowerShell, the Azure CLI, the Azure portal, or an ARM template.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -127,10 +127,10 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 > [!NOTE]
 > We recommend using PowerShell or CLI instead of an ARM template to create your template spec. These tools automatically convert linked templates into artifacts associated with the main template. If you use an ARM template, you'll need to manually add linked templates as artifacts, which can be more complex.
 
-1. When you use an ARM template to create the template spec, the template is embedded in the resource definition. Copy the following template and save it locally as **createTemplateSpec.json**.
+1. When you use an ARM template to create the template spec, the template is embedded in the resource definition. Copy the following template, and save it locally as _createTemplateSpec.json_:
 
     > [!NOTE]
-    > In the embedded template, all [template expressions](template-expressions.md) must be escaped with a second left bracket. Use `"[[` instead of `"[`. JSON arrays still use a single left bracket. See the **name** and **location** properties in the example below.
+    > In the embedded template, all [template expressions](template-expressions.md) must be escaped with a second left bracket. Use `"[[` instead of `"[`. JSON arrays still use a single left bracket. See the **name** and **location** properties in the example below:
 
     ```json
     {
@@ -168,7 +168,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
               "resources": [
                 {
                   "type": "Microsoft.Storage/storageAccounts",
-                  "apiVersion": "2025-01-01",
+                  "apiVersion": "2025-06-01",
                   "name": "[[parameters('storageAccountName')]",
                   "location": "[[parameters('location')]",
                   "sku": {
@@ -190,7 +190,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
     }
     ```
 
-1. Use Azure CLI or PowerShell to create a new resource group.
+1. Use the Azure CLI or PowerShell to create a new resource group.
 
     ```azurepowershell
     New-AzResourceGroup `
@@ -204,7 +204,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
       --location westus2
     ```
 
-1. Deploy your template with Azure CLI or PowerShell.
+1. Deploy your template with the Azure CLI or PowerShell.
 
     ```azurepowershell
     New-AzResourceGroupDeployment `
@@ -218,7 +218,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
       --template-file "C:\Templates\createTemplateSepc.json"
     ```
 
-1. Verify the deployment with Azure CLI or PowerShell.
+1. Verify the deployment with the Azure CLI or PowerShell.
 
     ```azurepowershell
     Get-AzTemplateSpec `
@@ -311,11 +311,11 @@ To deploy a template spec, use the same deployment commands as you would use to 
 
 1. Select the template spec you created. Use the search box to find the template spec if there are many.
 
-    :::image type="content" source="./media/quickstart-create-template-specs/select-template-spec.png" alt-text="Screenshot of Template specs list with one item selected.":::
+    :::image type="content" source="./media/quickstart-create-template-specs/select-template-spec.png" alt-text="Screenshot of a template specs list with one item selected.":::
 
 1. Select **Deploy**.
 
-    :::image type="content" source="./media/quickstart-create-template-specs/deploy-template-spec.png" alt-text="Screenshot of 'Deploy' button in the selected Template spec.":::
+    :::image type="content" source="./media/quickstart-create-template-specs/deploy-template-spec.png" alt-text="Screenshot of the **Deploy** button in the selected template spec.":::
 
 1. Provide the following values:
 
@@ -326,7 +326,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
 
 # [ARM Template](#tab/azure-resource-manager)
 
-1. Copy the following template and save it locally to a file named **C:\Templates\deployTemplateSpecV1.json**.
+1. Copy the following template, and save it locally as _deployTemplateSpecV1.json_:
 
     ```json
     {
@@ -352,7 +352,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
 
     In the template, **templateSpecRG** is the name of the resource group that contains the template spec, **storageSpec** is the name of the template spec, and **1.0** is the version of the template spec.
 
-1. Use Azure CLI or PowerShell to create a new resource group for the storage account.
+1. Use the Azure CLI or PowerShell to create a new resource group for the storage account.
 
     ```azurepowershell
     New-AzResourceGroup `
@@ -366,7 +366,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
       --location westus2
     ```
 
-1. Deploy your template with Azure CLI or PowerShell.
+1. Deploy your template with the Azure CLI or PowerShell.
 
     ```azurepowershell
     New-AzResourceGroupDeployment `
@@ -380,7 +380,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
       --template-file "C:\Templates\deployTemplateSpecV1.json"
     ```
 
-1. Verify the deployment with Azure CLI or PowerShell.
+1. Verify the deployment with the Azure CLI or PowerShell.
 
     ```azurepowershell
     Get-AzResource `
@@ -419,7 +419,7 @@ To make a change to the template in your template spec, revise the template. The
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -436,7 +436,7 @@ To make a change to the template in your template spec, revise the template. The
 
 ## Update template spec version
 
-Instead of creating a new template spec for the revised template, add a new version named `2.0` to the existing template spec. You can choose either version to deploy.
+Instead of creating a new template spec for the revised template, add a new version named `2.0` to the existing template spec. You can deploy either version.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -496,29 +496,29 @@ Instead of creating a new template spec for the revised template, add a new vers
 
 # [Portal](#tab/azure-portal)
 
-1. Open the template spec **storageSpec**, select **Create new version**.
+1. Open the template spec **storageSpec**, and select **Create new version**.
 
-   :::image type="content" source="./media/quickstart-create-template-specs/select-versions.png" alt-text="Screenshot of 'Create new version' button in Template spec details.":::
+   :::image type="content" source="./media/quickstart-create-template-specs/select-versions.png" alt-text="Screenshot of the **Create new version** button in template spec details.":::
 
 1. Select **1.0** as the base template, and then select **Create**.
 1. Name the new version `2.0` and optionally add notes. Select **Edit template**.
 
-   :::image type="content" source="./media/quickstart-create-template-specs/add-version-name.png" alt-text="Screenshot of naming the new version and selecting 'Edit template' button.":::
+   :::image type="content" source="./media/quickstart-create-template-specs/add-version-name.png" alt-text="Screenshot of naming the new version and selecting the **Edit template** button.":::
 
 1. Replace the contents of the template with the updated template. Select **Review + Save**.
 1. Select **Save changes**.
 
 1. To deploy the new version, select **Versions**.
 
-   :::image type="content" source="./media/quickstart-create-template-specs/see-versions.png" alt-text="Screenshot of 'Versions' tab in Template spec details.":::
+   :::image type="content" source="./media/quickstart-create-template-specs/see-versions.png" alt-text="Screenshot of the **Versions** tab in template spec details.":::
 
 1. Open the new version, and then select **Deploy**.
-1. Fill in the fields as you did when deploying the earlier version.
+1. Fill in the fields like you did when deploying the earlier version.
 1. Select **Review + create**, and then select **Create**.
 
 # [ARM Template](#tab/azure-resource-manager)
 
-1. Again, you must make some changes to your local template to make it work with template specs. Copy the following template and save it locally as **createTemplateSpec.json**.
+1. Again, you must make some changes to your local template to make it work with template specs. Copy the following template, and save it locally as _createTemplateSpec.json_:
 
     ```json
     {
@@ -556,7 +556,7 @@ Instead of creating a new template spec for the revised template, add a new vers
               "resources": [
                 {
                   "type": "Microsoft.Storage/storageAccounts",
-                  "apiVersion": "2025-01-01",
+                  "apiVersion": "2025-06-01",
                   "name": "[[parameters('storageAccountName')]",
                   "location": "[[parameters('location')]",
                   "sku": {
@@ -578,7 +578,7 @@ Instead of creating a new template spec for the revised template, add a new vers
     }
     ```
 
-1. To add the new version to your template spec, deploy your template with Azure CLI or PowerShell.
+1. To add the new version to your template spec, deploy your template with the Azure CLI or PowerShell.
 
     ```azurepowershell
     New-AzResourceGroupDeployment `
@@ -592,7 +592,7 @@ Instead of creating a new template spec for the revised template, add a new vers
       --template-file "C:\Templates\createTemplateSpec.json"
     ```
 
-1. verify the deployment with Azure CLI or PowerShell.
+1. verify the deployment with the Azure CLI or PowerShell.
 
     ```azurepowershell
     Get-AzTemplateSpec `
@@ -608,7 +608,7 @@ Instead of creating a new template spec for the revised template, add a new vers
 
     You should see the new version `2.0` in the list of versions.
 
-1. Copy the following template and save it locally to a file named **C:\Templates\deployTemplateSpecV2.json**.
+1. Copy the following template, and save it locally as _deployTemplateSpecV2.json_:
 
     ```json
     {
@@ -632,7 +632,7 @@ Instead of creating a new template spec for the revised template, add a new vers
     }
     ```
 
-1. Deploy your template with Azure CLI or PowerShell.
+1. Deploy your template with the Azure CLI or PowerShell.
 
     ```azurepowershell
     New-AzResourceGroupDeployment `
@@ -646,7 +646,7 @@ Instead of creating a new template spec for the revised template, add a new vers
       --template-file "C:\Templates\deployTemplateSpecV2.json"
     ```
 
-1. Verify the deployment with Azure CLI or PowerShell.
+1. Verify the deployment with the Azure CLI or PowerShell.
 
     ```azurepowershell
     Get-AzResource `
@@ -672,4 +672,4 @@ To clean up the resource you deployed in this quickstart, delete both resource g
 
 ## Next steps
 
-To learn about creating a template spec that includes linked templates, see [Create a template spec of a linked template](template-specs-create-linked.md).
+To learn about creating a template spec that includes linked templates, see how to [create a template spec of a linked template](template-specs-create-linked.md).

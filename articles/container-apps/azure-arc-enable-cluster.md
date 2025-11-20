@@ -31,7 +31,7 @@ This tutorial shows how to enable Azure Container Apps on an Azure Arc–enabled
 Before you begin, make sure you have the following prerequisites in place:
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 
@@ -325,6 +325,12 @@ A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) pr
     > [!NOTE]
     > To install the extension without Log Analytics integration, remove the last three `--configuration-settings` parameters from the command.
     >
+    > For clusters that use a custom load balancer instead of the standard AKS load balancer, once the load balancer is set up, specify the following parameter:
+    > 
+    > ```
+    > --configuration-settings "loadBalancerIp=<LOAD_BALANCER_INGRESS_IP>"
+    > ```
+    > Replace \<LOAD_BALANCER_INGRESS_IP> with the actual ingress IP address assigned to your load balancer.
 
     The following table describes the various `--configuration-settings` parameters when running the command:
 
@@ -336,6 +342,7 @@ A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) pr
     | `logProcessor.appLogs.destination` | Optional. Destination for application logs. Accepts `log-analytics` or `none`, choosing none disables platform logs. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
     | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |
+    | `loadBalancerIp` | The ingress IP of the load balancer. |
 
 1. Save the `id` property of the Container Apps extension for later.
 

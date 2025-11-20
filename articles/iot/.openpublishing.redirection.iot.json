@@ -149,6 +149,11 @@
       "source_path_from_root": "/articles/iot/set-up-environment.md",
       "redirect_url": "/azure/iot/concepts-developer-guide-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/concepts-iot-device-selection.md",
+      "redirect_url": "/azure/iot/concepts-iot-device-types",
+      "redirect_document_id": false
     }
   ]
 }

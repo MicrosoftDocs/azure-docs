@@ -226,6 +226,45 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 }
 ```
 
+## Differentiate between throttling requests for ARG and ARM
+
+When using the ARG GET / LIST API, you may encounter throttling errors in response to your requests. It’s important to identify the source of throttling, as it can occur at two levels:
+
+- ARG API throttling: limits applied by Azure Resource Graph.
+- ARM throttling: limits enforced by Azure Resource Manager.
+
+Knowing which layer is causing the throttling helps you apply the right mitigation strategy.
+
+The following is an example of an **ARG throttling** error:
+
+```txt
+{
+    "error": {
+        "code": "RateLimiting",
+        "message": "Please provide below info when asking for support: timestamp = 2025-10-16T18:06:54.4721412Z, correlationId = a90921ec-4649-431a-9c92-7a4394a15883.",
+        "details": [
+            {
+                "code": "RateLimiting",
+                "message": "Client application has been throttled and should not attempt to repeat the request until an amount of time has elapsed. Please see https://aka.ms/resourcegraph-throttling for help."
+            }
+        ]
+    }
+}
+```
+
+On the other hand, the following is an example of an **ARM throttling** error:
+
+> [!NOTE]
+> ARM limits are **hard limits** that cannot be increased.
+
+```txt
+<value>
+Number of 'read' requests for subscription '{1}' actor '{2}' exceeded. Please try again after '{3}' seconds after additional tokens are available. Refer to https://aka.ms/arm-throttling for additional information.
+</value>
+```
+
+If you receive an ARM throttling error, we recommend that you go through the [ARM recommendations](/azure/azure-resource-manager/management/request-limits-and-throttling#azure-resource-graph-throttling) to understand how ARM limits are enforced.
+
 ## ARG GET/LIST API  
 
 ARG is introducing an alternative approach to the existing Azure control plane GET and List API calls that improve scalability and performance, while addressing throttling issues for Azure customers. This API is currently supported only for resources in the `resources` table and `computeresources` table.  

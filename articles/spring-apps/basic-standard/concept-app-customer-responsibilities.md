@@ -8,14 +8,15 @@ ms.reviewer: zhiyongli
 ms.service: azure-spring-apps
 ms.custom: devx-track-java
 ms.topic: conceptual
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Version support for Java, Spring Boot, and more
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes the support policy for Java, Spring Boot, and Spring Cloud versions for all Azure Spring Apps plans, and versions of other SDKs and OS images for the Enterprise plan.
 
@@ -37,7 +38,7 @@ You can choose any version of Spring Boot or Spring Cloud that's compatible with
 
 For new versions, Azure Spring Apps supports the latest Spring Boot or Spring Cloud major version starting 30 days after its release. The latest minor version is supported as soon as it's released.
 
-For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially supported new versions, you can get the best experience with some of the managed components - for example, Config Server and Eureka Server for the Standard consumption and dedicated plan and the Standard plan, [Tanzu components](../enterprise/vmware-tanzu-components.md) for the Enterprise plan, and metric collection for all plans.
+For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially supported new versions, you can get the best experience with some of the managed components - for example, Config Server and Eureka Server for the Standard plan, [Tanzu components](../enterprise/vmware-tanzu-components.md) for the Enterprise plan, and metric collection for all plans.
 
 For more information, see the official support timeline of [Spring Boot](https://spring.io/projects/spring-boot#support) and [Spring Cloud](https://spring.io/projects/spring-cloud#overview). The Enterprise plan provides commercial support for Spring Boot, while the other plans provide OSS support.
 

@@ -42,8 +42,8 @@ The following table describes the access available to each privileged user, incl
 
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
-|**admin** | The OT sensor's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services <br><br>This user has no filesystem access. In legacy software versions, this user is named *support*. |
-|**cyberx**     |    The OT sensor's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>- Filesystem access      |
+|**admin** | The OT sensor's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services<br>- View the sensor Support page<br><br>This user has no filesystem access. In legacy software versions, this user is named *support*. |
+|**cyberx**     |    The OT sensor's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Change default passwords<br>- Troubleshoot<br>- Filesystem access<br>- View the sensor Support page      |
 |**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
 
 ## On-premises user roles
@@ -61,6 +61,8 @@ When first deploying an OT monitoring system, sign in to your sensors with one o
 See the tables below for the permissions available for each role on the [sensor](#role-based-permissions-for-ot-network-sensors).
 
 ## Role-based permissions for OT network sensors
+
+To view role-based permissions, see [Access per privileged user](#access-per-privileged-user).
 
 | Permission | Read Only | Security Analyst | Admin |
 |--|--|--|--|

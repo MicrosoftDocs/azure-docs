@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure AI Health Insights
 titleSuffix: Azure AI Health Insights
-description: This article describes Reliability in Azure AI Health Insights service.
+description: Learn how to deploy resilient AI-powered healthcare analytics in Azure AI Health Insights by using availability zones and multi-region disaster recovery strategies.
 services: azure-health-insights
 author: adishachar
 manager: urieinav
@@ -12,10 +12,9 @@ ms.author: adishachar
 ms.custom: subject-reliability
 ---
 
-
 # Reliability in Azure AI Health Insights
 
-This article describes reliability support in Azure AI Health Insights, and covers both regional reliability with availability zones and cross-region resiliency with disaster recovery . For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure AI Health Insights, and covers both regional reliability with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 When you create a Health Insights resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure region. It's rare, but not impossible, to encounter a network issue that hits an entire region. 
 If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. 

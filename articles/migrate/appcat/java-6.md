@@ -4,10 +4,11 @@ description: Learn how to use the Azure Migrate application and code assessment 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: antoniomanug
-ms.service: azure
-ms.custom: devx-track-java, devx-track-extended-java
+ms.service: azure-java
+ms.subservice: java-fundamentals
+ms.custom: devx-track-java
 ms.topic: overview
-ms.date: 07/12/2024
+ms.date: 10/23/2024
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 

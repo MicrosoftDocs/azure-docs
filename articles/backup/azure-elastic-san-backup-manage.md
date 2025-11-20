@@ -2,7 +2,7 @@
 title: Manage Azure Elastic SAN backups using the Azure portal (preview)
 description: Learn how to manage Elastic SAN  backups (preview) using the Azure portal.
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 11/18/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to manage Azure Elastic SAN backups through the portal, so that I can ensure data protection and recovery options are efficiently configured and maintained."
@@ -18,7 +18,7 @@ Learn about the [supported scenarios, limitations, and region availability for E
 
 To run an on-demand backup for Elastic SAN, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Protection Inventory** > **Protected items**.
+1. Go to **Resiliency**, and then select **Protection Inventory** > **Protected items**.
 1. On the **Protected items** pane, filter **Datasource type** by **Elastic SAN volumes (Preview)**, and then select the Elastic SAN instance you want to back up.
 1. On the selected **Elastic SAN instance** pane, under **Associated items**, select a protected item from the list. 
 
@@ -36,14 +36,14 @@ When a backup job completes, a Managed Disk incremental snapshot (restore point)
 
 To view Elastic SAN backup and restore jobs, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Monitoring + Reporting** > **Jobs**.
+1. Go to **Resiliency**, and then select **Monitoring + Reporting** > **Jobs**.
 1. On the **Jobs** pane, filter **Datasource type** by **Elastic SAN volumes (Preview)**.
 
 ## Change the backup policy for an Elastic SAN backup instance (preview)
 
 To change the backup policy for Elastic SAN backup instance, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Protection Inventory** > **Protected items**.
+1. Go to **Resiliency**, and then select **Protection Inventory** > **Protected items**.
 1. On the **Protected items** pane, filter **Datasource type** by **Elastic SAN volumes (Preview)**, and then select the Elastic SAN instance for which you want to change the backup policy.
 1. On the selected **Elastic SAN instance** pane, select **Change Policy**.
 1. On the **Change Policy** pane, under the **Backup policies** section, choose a new policy from the list, and then select **Apply**.
@@ -61,7 +61,7 @@ Azure Backup provides the following options to stop protection of Elastic SAN:
 
 To stop protection for Elastic SAN, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Protection Inventory** > **Protected items**.
+1. Go to **Resiliency**, and then select **Protection Inventory** > **Protected items**.
 1. On the **Protected items** pane, filter **Datasource type** by **Elastic SAN volumes (Preview)**, and then select the Elastic SAN instance for which you want to stop protection.
 1. On the selected **Elastic SAN instance** pane, select **Stop Backup**.
 

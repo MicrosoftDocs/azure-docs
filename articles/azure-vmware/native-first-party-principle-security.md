@@ -17,7 +17,10 @@ In this article, you learn how to re-enable the Azure VMware Solution service pr
 You must have the permissions to edit applications in your Microsoft Entra ID tenant, such as:  
 - Cloud Application Administrator  
 - Application Administrator  
-- Global Administrator  
+- Global Administrator
+
+> [!NOTE]
+> Roles must be assigned without conditions. Conditional role assignments are not supported for private cloud deployment.
 
 ## Enable first-party application service principal for Azure VMware Solution Gen 2 Private Clouds
 
@@ -56,8 +59,26 @@ There are two options to enable the service principal for Azure VMware Solution.
     az ad sp update --id "1a5e141d-70dd-4594-8442-9fc46fa48686" --set accountEnabled=true
     ```
     
+## Validate and enable required applications  
+
+Azure VMware Solution Gen 2 relies on **two first-party applications** in Microsoft Entra ID:  
+
+- **Avs Fleet Rp**
+- **AzS VIS Prod App** 
+
+Both apps must be enabled for proper operation of the Azure VMware Solution control plane.  
+
+If customers **delete either application ID** (for example, during a tenant cleanup), they can recover functionality by re-enabling the applications on the same page in Microsoft Entra ID. Make sure that **both the Avs Fleet Rp and AzS VIS Prod App** are set to **Enabled for users to sign-in**.  
+
+To help customers quickly identify issues, we added an **error check** that validates the presence of both apps. If either app is missing or disabled, the error message clearly indicates the required fix and provides a link back to this documentation for guidance.  
+
+> [!IMPORTANT]  
+> Always verify both applications are enabled before deploying or troubleshooting an Azure VMware Solution Gen 2
+
 ## Next steps
   
+- Review steps to [enable role assignments for your identifies if they are removed](native-role-assignment.md) 
+
 - Follow a tutorial for [Creating an Azure VMware Gen 2 private cloud](native-create-azure-vmware-virtual-network-private-cloud.md)
 
 - Learn more about [Azure VMware Solution Gen 2 private cloud design considerations](native-network-design-consideration.md)

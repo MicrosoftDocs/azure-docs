@@ -10,6 +10,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - synapse-analytics
+  - sfi-image-nochange
 ---
 
 # Tutorial: Load data to  Azure Synapse Analytics SQL pool
@@ -25,7 +26,7 @@ This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from
 > * Generate a year of data in the date dimension and sales fact tables
 > * Create statistics on the newly loaded data
 
-If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Before you begin
 

@@ -18,7 +18,7 @@ Use the Azure PowerShell module to create and manage Azure resources. You can cr
 
 ## Prerequisites
 
-To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 You will also need the Storage Blob Data Contributor role to read, write, and delete Azure Storage containers and blobs.
 

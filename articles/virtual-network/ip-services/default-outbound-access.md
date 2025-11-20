@@ -7,13 +7,13 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
-ms.date: 06/11/2025
+ms.date: 09/01/2025
 # Customer intent: "As an Azure network administrator, I want to transition from default outbound access to explicit outbound connectivity for virtual machines, so that I can ensure secure and reliable internet access while avoiding potential disruptions from IP address changes."
 ---
 
 # Default outbound access in Azure
 
-In Azure, when a virtual machine (VM) is deployed in a virtual network without an explicitly defined outbound connectivity method, it's automatically assigned an outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet and to other public endpoints within Microsoft. This access is referred to as default outbound access.
+In Azure, when you deploy a virtual machine (VM) in a virtual network without an explicitly defined outbound connectivity method, Azure automatically assigns it an outbound public IP address. This IP address enables outbound connectivity from the resources to the internet and to other public endpoints within Microsoft. This access is referred to as default outbound access.
 
 Examples of explicit outbound connectivity for virtual machines are:
 
@@ -26,27 +26,30 @@ Examples of explicit outbound connectivity for virtual machines are:
 
 ## How and when default outbound access is provided
 
-If a Virtual Machine (VM) is deployed without an explicit outbound connectivity method, Azure assigns it a default outbound public IP address. This IP, known as the default outbound access IP, is owned by Microsoft and may change without notice. It isn't recommended for production workloads.
+If a Virtual Machine (VM) is deployed without an explicit outbound connectivity method, Azure assigns it a default outbound public IP address. This IP, known as the default outbound access IP, is owned by Microsoft and can change without notice. It isn't recommended for production workloads.
 
-:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer-thumb.png"  alt-text="Diagram of decision tree for default outbound access." lightbox="./media/default-outbound-access/decision-tree-load-balancer.png":::
+:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer.png"  alt-text="Diagram of decision tree for default outbound access." lightbox="./media/default-outbound-access/decision-tree-load-balancer.png":::
 
->[!Important]
->After September 30, 2025, new virtual networks will default to using private subnets, meaning that an explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/).  We recommend that you use one of the explicit forms of connectivity discussed in the following section.
+> [!NOTE]
+> In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. This doesn't mean the default outbound IPs are used for egress unless those explicit methods are removed. To completely remove the default outbound IPs, the subnet must be made private, and the virtual machines must be stopped and deallocated.
+
+> [!IMPORTANT]
+> After March 31, 2026, new virtual networks will default to using private subnets, meaning that an explicit outbound method must be enabled in order to reach public endpoints on the internet and within Microsoft. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/). We recommend that you use one of the explicit forms of connectivity discussed in the following section. For other questions, see the "FAQs: Default Behavior Change to Private Subnets" section.
 
 ## Why is disabling default outbound access recommended?
 
-* Security: Default Internet access contradicts Zero Trust principles.
-
-* Clarity: Explicit connectivity is preferred over implicit access.
-
-* Stability: The default outbound IP isn't customer-owned and may change, leading to potential disruptions.
+**Security**: Default internet access contradicts Zero Trust principles.<br>
+**Clarity**: Explicit connectivity is preferred over implicit access.<br>
+**Stability**: The default outbound IP isn't customer-owned and can change, leading to potential disruptions.
 
 Some examples of configurations that don't work when using default outbound access:
-- Multiple NICs on a VM may yield inconsistent outbound IPs
-- Scaling VM Scale Sets can result in changing outbound IPs
-- Outbound IPs aren't consistent or contiguous across VMSS instances
+
+- Multiple NICs on a VM can yield inconsistent outbound IPs
+- Scaling Azure Virtual Machine Scale Sets can result in changing outbound IPs
+- Outbound IPs aren't consistent or contiguous across virtual machine scale set instances
 
 Additionally,
+
 * Default outbound access IPs don't support fragmented packets
 * Default outbound access IPs don't support ICMP pings
 
@@ -55,9 +58,9 @@ Additionally,
 ### Private subnets overview
 
 * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
-* VMs on a Private subnet can still access the Internet (or any public endpoints within Microsoft) using explicit outbound connectivity.
+* VMs on a Private subnet can still access the internet (or any public endpoints within Microsoft) using explicit outbound connectivity.
     > [!NOTE]
-    > Certain services don't function on a virtual machine in a Private Subnet without an explicit method of egress (examples are Windows Activation and Windows Updates).
+    > Certain services don't function on a virtual machine in a private subnet without an explicit method of egress (examples are Windows Activation and Windows Updates).
  
 ### How to configure private subnets
 
@@ -153,31 +156,60 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
     * A default route for the destination 0.0.0.0/0, with a next hop type of Virtual Appliance applies in the general case.
 
-    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an explicit outbound connectivity method is also configured for the source of the connection to these destinations, attempts to connection to these destinations fail, because default outbound access isn't available.
+    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an explicit outbound connectivity method is also configured for the source of the connection to these destinations, attempts to connect to these destinations fail, because default outbound access isn't available.
 
   * This limitation doesn't apply to the use of Service Endpoints, which use a different next hop type `VirtualNetworkServiceEndpoint`. See [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md).
+ 
+* Virtual machines are still able to access Azure Storage accounts in the same region in a private subnet without an explicit method of outbound. NSGs are recommended to control egress connectivity.
 
-* Private Subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
+* Private subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
 
->[!Important]
+> [!IMPORTANT]
 > When a load balancer backend pool is configured by IP address, it uses default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
  
 ### Add an explicit outbound method
- 
-* Associate a NAT gateway to the subnet of your virtual machine.  Note this is the recommended method for the majority of scenarios.
+
+* Associate a NAT gateway to the subnet of your virtual machine. Note this is the recommended method for most scenarios.
 * Associate a standard load balancer configured with outbound rules.
-* Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
+* Associate a Standard public IP to any of the virtual machine's network interfaces.
 * Add a Firewall or Network Virtual Appliance (NVA) to your virtual network and point traffic to it using a User Defined Route (UDR).
-
->[!NOTE]
-> There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound access is being utilized.  The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter.
-
->[!IMPORTANT]
-> A stop/deallocate of applicable virtual machines in a subnet is required for changes to be reflected and the action to clear. (This is also true in the reverse; in order for a machine to be given a default outbound IP after having the subnet-level parameter set to false, a stop/deallocate of the virtual machine is required.)
 
 #### Use flexible orchestration mode for Virtual Machine Scale Sets
  
 * Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them, so an explicit outbound method is required. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#what-has-changed-with-flexible-orchestration-mode)
+
+### FAQs: Clearing Default Outbound IP Alert
+
+#### Why do I see an alert showing I have a default outbound IP on my VM?
+
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. This is used to generate an Azure portal banner for VM/VMSS that flags this state.  There are also specific Azure Advisor reccomendations with this information for your subscriptions. If you want to view which of your virtual machines or virtual machine scale sets have a default outbound IP assigned to them, follow these steps:
+1. Type in 'Advisor' into the search bar in the Azure portal and select on this option when it comes up.
+2. Select 'Operational Excellence'
+3. Look for the reccomendations 'Add explicit outbound method to disable default outbound' and/or 'Add explicit outbound method to disable default outbound for Virtual Machine Scale Sets' (note these are two different items)
+4. If either of these exist, select the respective reccomendation name and you will see the network interface cards (NICs) of all the virtual machnes/virtual machine scale set instances that have default outbound enabled.
+
+#### How do I clear this alert?
+
+1. An explicit method of outbound must be utilized for the flagged VM/VMSS. See the section above for different options.
+2. The subnet should be made private to prevent new default outbound IPs from being created.
+3. Any applicable virtual machines in the subnet with the flag must be stopped and deallocated for the changes to be reflected in the NIC-level parameter and the flag to clear. (Note this is also true in the reverse; in order for a machine to be given a default outbound IP after having the subnet-level parameter set to false, a stop/deallocate of the virtual machine is required.)
+
+#### I already am using an explicit method of outbound, so why do I still see this alert?
+
+In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. This doesn't mean the default outbound IPs are used for egress unless those explicit methods are removed. To completely remove the default outbound IPs (and remove the alert), the subnet must be made private, and the virtual machines must be stopped and deallocated.
+
+### FAQs: Default Behavior Change to Private Subnets
+
+#### What does making private subnets default mean, and how will it be implemented?
+With the API version released after March 31, 2026, the defaultOutboundAccess property for subnets in new VNETs will be set to "false" by default. This change makes subnets private by default and prevents generation of default outbound IPs for virtual machines in those subnets.
+This behavior applies across all configuration methods--ARM templates, Azure portal, PowerShell, and CLI. Earlier versions of ARM templates (or tools like Terraform that can specify older versions) will continue to set defaultOutboundAccess as null, which implicitly allows outbound access.
+
+#### What happens to my existing VNETs and virtual machines? What about new virtual machines created in existing VNETs?
+No changes are made to existing VNETs. This means that both existing virtual machines and newly created virtual machines in these VNETs continue to generate default outbound IP addresses unless the subnets are manually modified to become private.
+
+#### What about new virtual network deployments? My infrastructure has a dependency on default outbound IPs and isn't ready to move to private subnets at this time.
+
+You can still configure subnets as nonprivate using any supported method (ARM templates, portal, CLI, PowerShell). This ensures compatibility for infrastructures that rely on default outbound IPs and aren't yet ready to transition to private subnets.
 
 ## Next steps
 

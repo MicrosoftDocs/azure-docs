@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - build-2025
 ms.topic: how-to
-ms.date: 05/20/2024
+ms.date: 05/20/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud administrator, I want to resize capacity pools and volumes in Azure storage, so that I can optimize resource allocation and prevent performance issues as storage demands change."
 ---
@@ -71,9 +71,9 @@ See [REST API for Azure NetApp Files](azure-netapp-files-develop-with-rest-api.m
 
 The REST API specification and example code for Azure NetApp Files are available through the [resource-manager GitHub directory](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager/Microsoft.NetApp/stable). See [this command](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/netapp/resource-manager/Microsoft.NetApp/stable/2023-11-01/examples/Volumes_Update.json) for a sample volume update.
 
-## Resize a cross-region replication destination volume 
+## Resize a replication destination volume 
 
-In a [cross-region replication](cross-region-replication-introduction.md) relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior is applicable when the volumes are in an active replication relationship, or when replication peering is broken with the [resync operation](cross-region-replication-manage-disaster-recovery.md#resync-replication). 
+In a [cross-region or cross-zone replication](replication.md) relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior is applicable when the volumes are in an active replication relationship, or when replication peering is broken with the [resync operation](cross-region-replication-manage-disaster-recovery.md#resync-replication). 
 
 The following table describes the destination volume resizing behavior based on the [Mirror state](cross-region-replication-display-health-status.md):
 
@@ -84,7 +84,7 @@ The following table describes the destination volume resizing behavior based on 
 | *Uninitialized* | When you resize the source volume and the Mirror state is still *uninitialized*, resizing the destination volume needs to be done manually. As such, it's recommended that you wait for the initialization to complete (that is, when the Mirror state becomes *mirrored*) to resize the source volume. | 
 
 > [!IMPORTANT]
-> Ensure that you have enough headroom in the capacity pools for both the source and the destination volumes of cross-region replication. When you resize the source volume, the destination volume is automatically resized. But if the capacity pool hosting the destination volume doesn’t have enough headroom, the resizing of both the source and the destination volumes will fail.
+> Ensure that you have enough headroom in the capacity pools for both the source and the destination volumes of replication. When you resize the source volume, the destination volume is automatically resized. But if the capacity pool hosting the destination volume doesn’t have enough headroom, the resizing of both the source and the destination volumes will fail.
 
 ## Next steps
 

@@ -6,6 +6,7 @@ ms.author: jecru
 ms.service: azure
 ms.topic: overview
 ms.date: 06/25/2025
+#customer intent: As a startup founder, I want to understand the Azure sign-up process, requirements, and available options so that I can successfully create an account and access available credits.
 ---
 
 # Get up to $5,000 in Azure credits to build and grow your startup

@@ -2,16 +2,25 @@
 title: Azure Synapse Link for SQL Server 2022
 description: Learn about Azure Synapse Link for SQL Server 2022, the link connection, landing zone, Self-hosted integration runtime, and monitoring the Azure Synapse Link for SQL.
 author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: wiassaf, yexu
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 11/16/2022
-ms.author: imotiwala
+ms.date: 10/31/2025
+ms.update-cycle: 1825-days
 ---
 
 # Azure Synapse Link for SQL Server 2022
 
 This article helps you to understand the functions of Azure Synapse Link for SQL Server 2022. You can use the Azure Synapse Link for SQL functionality to replicate your operational data into an Azure Synapse Analytics dedicated SQL pool from SQL Server 2022.
+
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Oracle, Snowflake, Cosmos DB, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
 
 ## Link connection
 

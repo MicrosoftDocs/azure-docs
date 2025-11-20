@@ -8,6 +8,7 @@ author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf 
 ms.date: 09/06/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Configure HDInsight clusters for Microsoft Entra integration with Enterprise Security Package

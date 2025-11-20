@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/traffic-analytics-faq.yml",
+            "redirect_url": "/azure/network-watcher/frequently-asked-questions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-tutorial.md",
+            "redirect_url": "/azure/network-watcher/vnet-flow-logs-tutorial",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-portal.md",
             "redirect_url": "/azure/network-watcher/nsg-flow-logs-manage",
             "redirect_document_id": true

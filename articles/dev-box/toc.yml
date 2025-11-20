@@ -9,6 +9,9 @@ items:
       - name: Roadmap for Microsoft Dev Box
         href: dev-box-roadmap.md
         displayName: roadmap, future, features, enhancements, coming soon, in development
+      - name: Windows 365 adds Microsoft Dev Box capabilities
+        href: dev-box-windows-365-announcement.md
+        displayName: Windows 365, announcement, news
   - name: Quickstarts
     items:
       - name: Get Started with the quick start template
@@ -21,15 +24,11 @@ items:
       - name: Spin up a new dev box
         href: quickstart-create-dev-box.md
         displayName: connect, access dev box
-      - name: Use Team Customizations
-        href: quickstart-team-customizations.md
   - name: Concepts
     items:
-      - name: Key concepts
-        href: concept-dev-box-concepts.md
-      - name: Architecture overview
+      - name: Architecture and key concepts
         href: concept-dev-box-architecture.md
-        displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
+        displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure,key concepts
       - name: Network requirements
         href: concept-dev-box-network-requirements.md
         displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags
@@ -78,13 +77,13 @@ items:
       - name: What are Dev Box customizations
         href: concept-what-are-dev-box-customizations.md
         displayName: customizations, image definition, team customization
+      - name: Quickstart:Use Team Customizations
+        href: quickstart-team-customizations.md
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
-      - name: Configure Dev Box imaging
-        href: how-to-configure-dev-box-imaging.md
-      - name: Create an image definition file with Copilot
-        href: how-to-use-copilot-generate-image-definition-file.md
+      - name: Configure dev center imaging
+        href: how-to-configure-dev-center-imaging.md
       - name: Configure user customizations
         href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual
@@ -116,10 +115,9 @@ items:
         href: how-to-configure-dev-box-serverless-gpu.md
   - name: Security
     items:
-      - name: Provide access to project admins
-        href: how-to-project-admin.md
-      - name: Provide access to dev box users
-        href: how-to-dev-box-user.md
+      - name: Manage project access
+        href: how-to-manage-dev-box-access.md
+        displayName: project access, RBAC, roles, permissions
       - name: Configure conditional access policies
         href: how-to-configure-intune-conditional-access-policies.md
       - name: Configure elevated privilege for dev boxes
@@ -180,6 +178,8 @@ items:
         href: how-to-get-help.md
   - name: Reference
     items:
+      - name: Microsoft Dev Center Landing Zone Accelerator
+        href: https://github.com/Azure/DevBoxAccelerator/tree/main
       - name: Install Azure CLI devcenter extension
         href: how-to-install-dev-box-cli.md
       - name: Azure CLI - az devcenter

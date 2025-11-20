@@ -1,11 +1,12 @@
 ---
-title: Azure Front Door - Best practices
-description: This page provides information about how to configure Azure Front Door based on Microsoft's best practices.
+title: Best Practices
+titleSuffix: Azure Front Door
+description: Learn best practices for configuring and using Azure Front Door, including TLS security, domain management, Web Application Firewall, health probes, and traffic routing optimization.
 author: johndowns
 ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 03/11/2024
+ms.date: 09/25/2025
 ---
 
 # Best practices for Front Door
@@ -113,6 +114,7 @@ Health probes can use either the GET or HEAD HTTP method. It's a good practice t
 
 For more information, see [Supported HTTP methods for health probes](health-probes.md#supported-http-methods-for-health-probes).
 
-## Next steps
+## Next step
 
-Learn how to [create an Front Door profile](create-front-door-portal.md).
+> [!div class="nextstepaction"]
+> [Create an Front Door profile](create-front-door-portal.md)

@@ -7,7 +7,7 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 3/21/2024
+ms.date: 11/20/2025
 ms.author: kesheth
 ---
 

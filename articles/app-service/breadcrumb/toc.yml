@@ -11,17 +11,4 @@ items:
     topicHref: /azure/app-service/index
   - name: App Service
     tocHref: /azure/developer/
-    topicHref: /azure/app-service/index 
-    items:
-    - name: Web Apps
-      tocHref: /entra/fundamentals/
-      topicHref: /azure/app-service/index
-    - name: Web Apps
-      tocHref: /azure/developer/
-      topicHref: /azure/app-service/index
-    - name: Web Apps
-      tocHref: /azure/architecture/
-      topicHref: /azure/app-service/index
-    - name: Web Apps
-      tocHref: /azure/api-management/
-      topicHref: /azure/app-service/index
+    topicHref: /azure/app-service/index

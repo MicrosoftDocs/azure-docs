@@ -2,7 +2,7 @@
 title: Authorize an application request by using Microsoft Entra ID
 description: This article provides information about authorizing requests to Azure Web PubSub resources with Microsoft Entra applications.
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 03/11/2025
 ms.service: azure-web-pubsub
 ms.topic: conceptual

@@ -23,7 +23,7 @@ Learn how volume quotas work and learn how to monitor and manage the capacity of
 
 * The capacity consumed by volume [snapshots](snapshots-introduction.md) counts towards the provisioned space in the volume. 
 
-* Volume quota doesn't apply to a [replication destination volume](cross-region-replication-introduction.md).
+* Volume quota doesn't apply to a [replication destination volume](replication.md).
 
 * See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) about the calculation of capacity consumption and overage in capacity consumption.
 

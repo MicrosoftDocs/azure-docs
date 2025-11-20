@@ -1,24 +1,22 @@
 ---
-title: Develop WebAssembly Modules and Graph Definitions for Data Flow Graphs (Preview)
+title: Develop WebAssembly Modules and Graph Definitions for Data Flow Graphs
 description: Learn how to develop WebAssembly modules and graph definitions in Rust and Python for custom data processing in Azure IoT Operations data flow graphs.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/01/2025
+ms.date: 10/30/2025
 ai-usage: ai-assisted
 
 ---
 
-# Develop WebAssembly (WASM) modules and graph definitions for data flow graphs (preview)
-
-> [!IMPORTANT]
-> WebAssembly (WASM) development for data flow graphs is in **preview**. This feature has limitations and isn't for production workloads.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
+# Develop WebAssembly (WASM) modules and graph definitions for data flow graphs
 
 This article shows you how to develop custom WebAssembly (WASM) modules and graph definitions for Azure IoT Operations data flow graphs. Create modules in Rust or Python to implement custom processing logic. Define graph configurations that specify how your modules connect into complete processing workflows.
+
+> [!IMPORTANT]
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
 ## Overview
 
@@ -238,35 +236,34 @@ Create a simple module that converts temperature from Celsius to Fahrenheit. Thi
 # [Rust](#tab/rust)
 
 ```rust
-// src/lib.rs
-use tinykube_wasm_sdk::logger::{self, Level};
-use tinykube_wasm_sdk::macros::map_operator;
 use serde_json::{json, Value};
 
-// Import the generated types from wit-bindgen
-use crate::tinykube_graph::processor::types::{DataModel, ModuleConfiguration, BufferOrBytes};
+use wasm_graph_sdk::logger::{self, Level};
+use wasm_graph_sdk::macros::map_operator;
 
-fn temperature_converter_init(_configuration: ModuleConfiguration) -> bool {
+fn fahrenheit_to_celsius_init(_configuration: ModuleConfiguration) -> bool {
     logger::log(Level::Info, "temperature-converter", "Init invoked");
     true
 }
 
-#[map_operator(init = "temperature_converter_init")]
-fn temperature_converter(input: DataModel) -> DataModel {
+#[map_operator(init = "fahrenheit_to_celsius_init")]
+fn fahrenheit_to_celsius(input: DataModel) -> Result<DataModel, Error> {
     let DataModel::Message(mut result) = input else {
-        return input;
+        return Err(Error {
+            message: "Unexpected input type".to_string(),
+        });
     };
 
     let payload = &result.payload.read();
     if let Ok(data_str) = std::str::from_utf8(payload) {
         if let Ok(mut data) = serde_json::from_str::<Value>(data_str) {
-            if let Some(temp) = data["value"]["temperature"].as_f64() {
+            if let Some(temp) = data["temperature"]["value"].as_f64() {
                 let fahrenheit = (temp * 9.0 / 5.0) + 32.0;
-                data["value"] = json!({
-                    "temperature_fahrenheit": fahrenheit,
+                data["temperature"] = json!({
+                    "value_fahrenheit": fahrenheit,
                     "original_celsius": temp
                 });
-                
+
                 if let Ok(output_str) = serde_json::to_string(&data) {
                     result.payload = BufferOrBytes::Bytes(output_str.into_bytes());
                 }
@@ -274,8 +271,9 @@ fn temperature_converter(input: DataModel) -> DataModel {
         }
     }
 
-    DataModel::Message(result)
+    Ok(DataModel::Message(result))
 }
+
 ```
 
 # [Python](#tab/python)
@@ -580,6 +578,10 @@ except Exception as e:
 ```
 
 ---
+
+### ONNX inference with WASM
+
+To embed and run small ONNX models inside your modules for in-band inference, see [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md). That article covers packaging models with modules, enabling the wasi-nn feature in graph definitions, and limitations.
 
 ### WebAssembly Interface Types (WIT)
 

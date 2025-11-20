@@ -19,11 +19,25 @@ This article explains the migration process from a Basic SKU public IP address t
 
 To migrate your gateway, you first need to validate whether your resource is capable of migration. Here are some common situations to be aware of:
 
+* Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least **three** available IP addresses in your current prefix.
+  
 * If your current gateway subnet is /28 or smaller, the migration tool may error out. You can use this to [add multiple prefixes for subnet](../virtual-network/how-to-multiple-prefixes-subnet.md) to /27 or larger before you can proceed with migration.
 
-* Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least *three* available IP addresses in your current prefix.
+* If you have ExpressRoute and VPN coexisting. We'd like to recommend customers to consider migrating the Basic IP resources to Standard IP on **VPN** first. 
+
+
 
 ## FAQ
+
+### How long does the end-to-end migration typically take?
+* The entire migration process usually takes up to 2 hours, depending on the size and configuration of your deployment.
+
+### How long does each migration step take?
+* Migration step durations can vary based on environment complexity. On average:
+
+Prepare: Typically up to 40 minutes, with a maximum of 1 hour.<br>
+Execute: Takes around 5–10 minutes. (This is the only step where brief downtime is expected.)<br>
+Commit: Typically up to 30 minutes, with a maximum of 1 hour.
 
 ### How will my gateway SKU be impacted after the Basic SKU public IP address migration?
 

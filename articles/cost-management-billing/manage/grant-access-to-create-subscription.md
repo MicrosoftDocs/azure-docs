@@ -1,18 +1,19 @@
 ---
 title: Grant access to create Azure Enterprise subscriptions
 description: Learn how to give a user or service principal the ability to programmatically create Azure Enterprise subscriptions.
-author: PreetiSGit
+author: SandeepReddyAcc
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: presharm
+ms.reviewer: anjai
 ms.topic: conceptual
 ms.date: 07/25/2025
-ms.author: presharm
+ms.author: v-salin
+ms.custom: NonCE
 ---
 
 # Grant access to create Azure Enterprise subscriptions (legacy)
 
-As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
+As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
 
 > [!NOTE]
 > - This API only works with the [legacy APIs for subscription creation](programmatically-create-subscription-preview.md). 

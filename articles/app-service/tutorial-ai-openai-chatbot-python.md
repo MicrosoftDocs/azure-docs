@@ -11,6 +11,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Flask)
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
 
 ## 1. Create an Azure OpenAI resource
@@ -47,7 +48,7 @@ In this tutorial, you learn how to:
     pip freeze > requirements.txt
     ```
 
-4. In the workspace root, create an *app.py* and copy the following code into it, for a simple chat completion call with Azure OpenAI.
+1. In the workspace root, create an *app.py* and copy the following code into it, for a simple chat completion call with Azure OpenAI.
 
     ```python
     import os
@@ -89,7 +90,7 @@ In this tutorial, you learn how to:
         app.run()
     ```
     
-5. Create a *templates* directory and an *index.html* file in it. Copy the following code into it for a simple chat interface:
+1. Create a *templates* directory and an *index.html* file in it. Copy the following code into it for a simple chat interface:
 
     ```html
     <!doctype html>
@@ -117,7 +118,7 @@ In this tutorial, you learn how to:
     </html>
     ```
     
-6. In the terminal, retrieve your OpenAI endpoint:
+1. In the terminal, retrieve your OpenAI endpoint:
 
     ```bash
     az cognitiveservices account show \
@@ -127,13 +128,13 @@ In this tutorial, you learn how to:
       --output tsv
     ```
 
-7. Run the app by adding `AZURE_OPENAI_ENDPOINT` with its value from the CLI output:
+1. Run the app by adding `AZURE_OPENAI_ENDPOINT` with its value from the CLI output:
 
    ```bash
    AZURE_OPENAI_ENDPOINT=<output-from-previous-cli-command> flask run
    ```
 
-8. Select **Open in browser** to launch the app in a new browser tab. Submit a question and see if you get a response message.
+1. Select **Open in browser** to launch the app in a new browser tab. Submit a question and see if you get a response message.
 
 ## 3. Deploy to Azure App Service and configure OpenAI connection
 
@@ -154,7 +155,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
 
    This command might take a few minutes to complete. It creates a new web app in the same resource group as your OpenAI resource.
 
-2. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
+1. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
 
     ```azurecli
     az webapp connection create cognitiveservices \
@@ -172,13 +173,13 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     - Adding the Cognitive Services OpenAI Contributor role to the managed identity for the Azure OpenAI resource.
     - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
 
-3. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
+1. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
 
     ```azurecli
     az webapp browse
     ```
 
-4. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
+1. Type a message in the textbox and select **Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
 
     :::image type="content" source="media/tutorial-ai-openai-chatbot-python/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 

@@ -1,9 +1,10 @@
 ---
-title: Assessment best practices in Azure Migrate Discovery and assessment tool
+title: Assessment Best Practices in Azure Migrate Discovery and Assessment Tool
 description: Tips for creating assessments with Azure Migrate Discovery and assessment tool.
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 08/11/2021
+ms.author: v-uhabiba
+ms.date: 09/19/2025
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator, I want to create and recalculate assessments using the Azure Migrate Discovery and assessment tool, so that I can effectively evaluate my on-premises workloads for migration to Azure and optimize resource utilization."
 ---
@@ -31,7 +32,7 @@ Sizing criteria options in Azure Migrate assessments:
 
 **Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data. | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD, premium-managed or ultra disks) is based on the IOPS (Input/output per second) and throughput of the on-premises disks.<br/><br/>**Azure SQL assessment**: The Azure SQL configuration is based on performance data of SQL instances and databases, which includes: CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations<br/><br/>**Azure VMware Solution (AVS) assessment**: If the data was imported using an RVTools file, AVS nodes recommendation is based on storage utilization data and provisioned CPU and RAM. If the data was imported using an Azure Migrate CSV file and CPU and RAM utilization data is provided, it's used. Else, the configured CPU, RAM, and storage is used. If the data was successfully imported using an Azure Migrate appliance, the CPU and RAM utilization data is used.
+**Performance-based** | Assessments that make recommendations based on collected performance data. | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD, premium-managed or ultra disks) is based on the IOPS (Input/output per second) and throughput of the on-premises disks.<br/><br/>**Azure SQL assessment**: The Azure SQL configuration is based on performance data of SQL instances and databases, which includes: CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations<br/><br/>**Azure VMware Solution (AVS) assessment**: If the data was imported using an RVTools file, AVS nodes recommendation is based on storage utilization data and provisioned CPU and RAM. If the data was imported using an Azure Migrate CSV file and CPU and RAM utilization data is provided, it's used. Else, the configured CPU, RAM, and storage are used. If the data was successfully imported using an Azure Migrate appliance, the CPU and RAM utilization data is used.
 **As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure App Service assessment**: Assessment recommendation is based on on-premises web apps configuration data.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on the on-premises VM size.
 
 > [!NOTE]
@@ -77,9 +78,9 @@ The storage engine used in AVS is vSAN. vSAN storage policies define storage req
 2 | RAID-6 (Erasure Coding) | 6 | A 100GB VM would consume 150GB.
 3 | RAID-1 (Mirroring) | 7 | A 100GB VM would consume 400GB.
 
-## Best practices for confidence ratings
+## Best practices for performance coverage
 
-When you run performance-based assessments, a confidence rating from 1-star (lowest) to 5-star (highest) is awarded to the assessment. To use confidence ratings effectively:
+When you run performance-based assessments, a performance coverage is assigned to the assessment. To use performance coverage effectively:
 
 - Azure VM and AVS assessments need:
     - The CPU and memory utilization data for each of the servers
@@ -91,15 +92,8 @@ When you run performance-based assessments, a confidence rating from 1-star (low
     - The read/write IOPS/throughput data of data and Log files
     - The latency of IO operations
 
-Depending on the percentage of data points available for the selected duration, the confidence rating for an assessment is provided as summarized in the following table.
+Depending on the percentage of data points available for the selected duration, the performance coverage for an assessment is provided as summarized in the following table.
 
-   **Data point availability** | **Confidence rating**
-   --- | ---
-   0%-20% | 1 Star
-   21%-40% | 2 Star
-   41%-60% | 3 Star
-   61%-80% | 4 Star
-   81%-100% | 5 Star
 
 ## Common assessment issues
 
@@ -147,8 +141,7 @@ If there are changes to on-premises web apps that are in a group that's been ass
   
     Run the assessment again (**Recalculate**) to reflect the changes.
 
-### Low confidence rating
-
+### Low performance coverage
 An assessment might not have all the data points for many reasons:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you're creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you can't wait for the duration, change the performance duration to a smaller period and "Recalculate" the assessment.

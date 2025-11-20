@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
+ms.date: 11/05/2024
 ms.author: mbender
 # Customer intent: As a cloud engineer, I want to implement end-to-end TLS for my applications using Application Gateway for Containers, so that I can ensure secure communication between clients and backend services.
 ---
@@ -54,6 +54,7 @@ metadata:
   annotations:
     alb.networking.azure.io/alb-name: alb-test
     alb.networking.azure.io/alb-namespace: alb-test-infra
+    alb.networking.azure.io/alb-ingress-extension: https-ingress
 spec:
   ingressClassName: azure-alb-external
   tls:
@@ -100,6 +101,7 @@ metadata:
   annotations:
     alb.networking.azure.io/alb-id: $RESOURCE_ID
     alb.networking.azure.io/alb-frontend: $FRONTEND_NAME
+    alb.networking.azure.io/alb-ingress-extension: https-ingress
 spec:
   ingressClassName: azure-alb-external
   tls:
@@ -137,6 +139,7 @@ metadata:
   annotations:
     alb.networking.azure.io/alb-frontend: FRONTEND_NAME
     alb.networking.azure.io/alb-id: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
+    alb.networking.azure.io/alb-ingress-extension: https-ingress
     kubectl.kubernetes.io/last-applied-configuration: |
       {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz"},"name"
 :"ingress-01","namespace":"test-infra"},"spec":{"ingressClassName":"azure-alb-external","rules":[{"host":"contoso.com","http":{"paths":[{"backend":{"service":{"name":"https-app","port":{"number":443}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["contoso.com"],"secretName":"contoso.com"}]}}

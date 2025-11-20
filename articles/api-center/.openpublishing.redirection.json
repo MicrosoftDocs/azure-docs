@@ -4,7 +4,21 @@
             "source_path_from_root": "/articles/api-center/use-vscode-extension.md",
             "redirect_url": "/azure/api-center/build-register-apis-vscode-extension",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/api-center/add-metadata-properties.md",
+            "redirect_url": "tutorials/add-metadata-properties",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/api-center/configure-environments-deployments.md",
+            "redirect_url": "tutorials/configure-environments-deployments",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/api-center/register-apis.md",
+            "redirect_url": "tutorials/register-apis",
+            "redirect_document_id": true
         }
-
     ]
 }

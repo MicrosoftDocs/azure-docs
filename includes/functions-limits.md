@@ -1,12 +1,13 @@
 ---
 author: ggailey777
 ms.service: azure-functions
-ms.custom:
-  - build-2024
-  - build-2025
 ms.topic: include
 ms.date: 03/06/2025
 ms.author: glenga
+ms.custom:
+  - build-2024
+  - build-2025
+  - sfi-ropc-nochange
 ---
 | Resource |[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/overview.md)| [Container Apps](../articles/container-apps/functions-overview.md)|[Consumption plan](../articles/azure-functions/consumption-plan.md)|
 | --- | --- | --- | --- | --- | --- | 
@@ -24,13 +25,13 @@ ms.author: glenga
 | [Deployment slots](/azure/azure-functions/functions-deployment-slots) per app<sup>12</sup> |  n/a | 3 | 1-20<sup>11</sup> | not supported |2 |
 | Storage (temporary)<sup>5</sup> |  0.8 GB | 21-140 GB |11-140 GB | n/a |0.5 GB |
 | Storage (persisted) |  0 GB<sup>7</sup> | 250 GB |10-1000 GB<sup>11</sup> | n/a |1 GB<sup>6,7</sup> |
-| Custom domains per app</a> | 500 | 500 | 500 | not supported |500<sup>7</sup> |
+| Custom domains per app</a> | 25<sup>8</sup> | 500 | 500 | not supported |500<sup>8</sup> |
 | Custom domain [TSL/SSL support](/azure/app-service/configure-ssl-bindings) | unbounded SNI SSL and one IP SSL connection included | unbounded SNI SSL and one IP SSL connection included |unbounded SNI SSL and one IP SSL connection included | not supported |unbounded SNI SSL connection included |
 
 Notes on service limits:
 
 1. By default, the time-out for the Functions 1.x runtime in an App Service plan is unbounded.  
-2. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/). A grace period of 10 minutes is given during platform updates.
+2. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/). A grace period of 10 minutes is given for HTTP triggered functions during platform updates but not for other triggers.
 3. These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
 4. The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
 5. The storage limit is the total content size in temporary storage across all apps in the same App Service plan. For Consumption plans on Linux, the storage is currently 1.5 GB.
@@ -42,7 +43,7 @@ Notes on service limits:
 11. See [App Service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) for details.  
 12. Including the production slot.  
 13. There's currently a limit of 5,000 function apps in a given subscription. 
-14. Flex Consumption plan instance sizes are currently defined as 512 MB, 2,048 MB, or 4,096 MB. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-memory).  
+14. Flex Consumption plan instance sizes are currently defined as 512 MB, 2,048 MB, or 4,096 MB. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-sizes).  
 15. For details, see [Scale](../articles/azure-functions/functions-scale.md#scale) in the Hosting comparison article.
 16. When the [minimum number of replicas](/azure/container-apps/scale-app#scale-definition) is set to zero, the default time-out depends on the specific triggers used in the app.
 17. When the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition) is set to one or more.

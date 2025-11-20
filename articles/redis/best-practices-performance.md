@@ -1,9 +1,9 @@
 ---
 title: Best practices for performance testing for Azure Managed Redis
 description: Learn how to test the performance of Azure Managed Redis.
-ms.date: 05/18/2025
-ms.service: azure-managed-redis
+ms.date: 11/10/2025
 ms.topic: conceptual
+ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
@@ -15,7 +15,7 @@ appliesto:
 
 Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 
-Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/management/optimization/benchmarks/)** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)**. This article focuses on memtier_benchmark, often called _memtier_.
+Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/)** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)** . This article focuses on memtier_benchmark, often called _memtier_.
 
 ## How to use the memtier_benchmark utility
 
@@ -39,7 +39,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 - If you're not getting the performance you need, try scaling up to a more advanced tier. The Balanced tier typically has twice as many vCPUs as the Memory Optimized tier, and the Compute Optimized tier typically has twice as many vCPUs as the Balanced tier. Because Azure Managed Redis is built on Redis Enterprise rather than community Redis, the core Redis process is able to utilize multiple vCPUs. As a result, instances with more vCPUs have significantly better throughput performance.
   
-- Scaling up to larger memory sizes also adds more vCPUs, increasing performance. However, scaling up to larger memory sizes is typically less effective than using a more performant tier. See [Tiers and SKUs at a glance](how-to-scale.md#tiers-and-skus-at-glance) for a detailed breakdown of the vCPUs available for each size and tier.
+- Scaling up to larger memory sizes also adds more vCPUs, increasing performance. However, scaling up to larger memory sizes is typically less effective than using a more performant tier. See [Tiers and SKUs at a glance](how-to-scale.md#tiers-and-skus-at-a-glance)for a detailed breakdown of the vCPUs available for each size and tier.
 
 - Benchmarking the Flash Optimized tier can be difficult because some keys are stored on DRAM whiles some are stored on a NVMe flash disk. The keys on DRAM benchmark almost as fast as other Azure Managed Redis instances, but the keys on the NVMe flash disk are slower. Since the Flash Optimized tier intelligently places the most-used keys into DRAM, ensure that your benchmark configuration matches the actual usage you expect.
 
@@ -61,7 +61,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 Prepare the cache instance with data required for the testing. Loading the instance with data ensures that the results more accurately reflect real-world conditions. The `{number-of-keys}` parameter should be determined by the size of your AMR instance and the size of each key. A good rule of thumb is to fill up the instance roughly 75% full, accounting for buffers. You can use this formula: `numberOfKeysToSet = (<TotalCacheSizeInBytes> * 0.75) / (1024 + 300)`. For example, if you're benchmarking on a Compute Optimized X3 instance, using 1,024-byte key sizes, as shown previously, that implies `{number-of-keys} = (3 * 1000000000 * 0.75) / (1024 + 300)`. The result equals approximately 1,699,396 keys.
 
 ```bash
-memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 -clients=50 -threads=6 --key-maximum=1699396 -n allkeys --key-pattern=P:P --ratio=1:0 -data-size=1024 --tls --cluster-mode
+memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 --clients=50 --threads=6 --key-maximum=1699396 -n allkeys --key-pattern=P:P --ratio=1:0 --data-size=1024 --tls --cluster-mode
 ```
 
 >[!NOTE]
@@ -71,7 +71,7 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 This command tests pipelined GET requests with 1k payload. Use this command to test how much read throughput to expect from your cache instance. This example assumes you're using TLS and the OSS cluster policy. The `--key-pattern=R:R` parameter ensures that keys are randomly accessed, increasing the realism of the benchmark. This test runs for five minutes.
 
 ```bash
-memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 -clients=50 -threads=6 -d 1024 --key-maximum=1699396 --key-pattern=R:R --ratio=0:1 --distinct-client-seed --test-time=300 --json-out-file=test_results.json --tls --tls-skip-verify --cluster-mode
+memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 --clients=50 --threads=6 -d 1024 --key-maximum=1699396 --key-pattern=R:R --ratio=0:1 --distinct-client-seed --test-time=300 --json-out-file=test_results.json --tls --tls-skip-verify --cluster-mode
 ```
 
 ## Example performance benchmark data
@@ -87,10 +87,10 @@ The table below shows optimal throughput that we observed while testing various 
 >Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect a particular generation cache hardware in a single region. You may see different results in practice, especially with network bandwidth.
 >
 
-Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughput. We recommend using OSS cluster policy in most cases, especially when you require high performance. For more information, see [Clustering](architecture.md#clustering).
+Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/) to support higher throughput. We recommend using OSS cluster policy in most cases, especially when you require high performance. For more information, see [Clustering](architecture.md#clustering).
 
 
-| Size in GB | Memory Optimized | Balanced| Compute Optimized| 
+| Size in GB | GET requests per second for Memory Optimized | GET requests per second for Balanced | GET requests per second for Compute Optimized | 
 |--|--|--|--|
 |0.5| - | 120,000| - |
 |1| - | 120,000| - | 

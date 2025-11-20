@@ -54,11 +54,11 @@ The ABFS driver supports two forms of authentication so that the Hadoop applicat
 
 All configuration for the ABFS driver is stored in the <code>core-site.xml</code> configuration file. On Hadoop distributions featuring [Ambari](https://ambari.apache.org/), the configuration may also be managed using the web portal or Ambari REST API.
 
-Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
+Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/).
 
 ### Hadoop documentation
 
-The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
+The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/)
 
 ## Next steps
 

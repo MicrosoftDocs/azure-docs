@@ -5,10 +5,12 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/29/2022
 ms.author: alkohli
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how reset or change the password on virtual machines (VMs) on my Azure Stack Edge Pro GPU device via the Azure portal.
 ---
 # Reset VM password for your Azure Stack Edge Pro GPU device via the Azure portal

@@ -5,10 +5,15 @@ description: Authenticate to Azure App Configuration using managed identities
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
-ms.topic: conceptual
-ms.date: 03/24/2025
+ms.topic: concept-article
+ms.date: 08/25/2025
 zone_pivot_groups: appconfig-provider
+ms.custom:
+  - devx-track-csharp
+  - fasttrack-edit
+  - subject-rbac-steps
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 # Use managed identities to access App Configuration
 
@@ -45,7 +50,7 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-dotnet"
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
 * [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 
@@ -53,7 +58,7 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-spring"
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
 * A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
@@ -78,7 +83,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 ## Grant access to App Configuration
 
-The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. In the [Azure portal](https://portal.azure.com), select your App Configuration store.
 
@@ -154,7 +159,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Overview** tab for the store in the Azure portal.
 
-1. Open `bootstrap.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
+1. Open `application.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>

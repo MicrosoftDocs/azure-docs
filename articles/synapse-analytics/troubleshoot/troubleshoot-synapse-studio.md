@@ -8,6 +8,7 @@ ms.date: 02/27/2025
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
 ms.topic: troubleshooting-known-issue
+ms.custom: sfi-image-nochange
 ---
 # Synapse Studio troubleshooting
 

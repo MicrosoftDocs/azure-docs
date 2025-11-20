@@ -2,7 +2,7 @@
 title: Deploy Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to deploy Bicep files.
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 10/30/2025
 ms.custom: devx-track-bicep
 ---
 

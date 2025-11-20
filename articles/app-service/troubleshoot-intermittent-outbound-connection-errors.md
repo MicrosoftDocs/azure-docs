@@ -7,6 +7,7 @@ ms.custom: security-recommendations,fasttrack-edit
 ms.author: msangapu
 author: msangapu-msft
 
+ms.service: azure-app-service
 ---
 
 # Troubleshoot intermittent outbound connection errors in Azure App Service

@@ -5,8 +5,14 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: include
-ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
 ms.date: 03/28/2025
+ms.custom:
+  - mvc
+  - mqtt
+  - devx-track-python
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 This quickstart uses two Python applications: 
@@ -16,7 +22,7 @@ This quickstart uses two Python applications:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device#azure-iot-device-features).
 

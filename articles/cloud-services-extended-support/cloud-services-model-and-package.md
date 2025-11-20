@@ -2,11 +2,12 @@
 title: What is the Azure Cloud Service (extended support) model and package
 description: Describes the cloud service (extended support) model (.csdef, .cscfg) and package (.cspkg) in Azure
 ms.topic: concept-article
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.custom: sfi-ropc-nochange
 # Customer intent: As a cloud developer or architect, I want to understand Azure's cloud service model and packaging requirements, so that I can configure, package, and deploy a cloud service in a scalable and manageable way.
 ---
 

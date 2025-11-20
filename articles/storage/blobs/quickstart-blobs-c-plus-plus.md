@@ -9,7 +9,10 @@ ms.date: 08/30/2023
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: cpp
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a C++ developer, I want to utilize the Azure Blob Storage client library so that I can efficiently manage unstructured data by creating containers, uploading and downloading blobs, and performing related operations in my applications.
 ---
 
@@ -21,7 +24,7 @@ Get started with the Azure Blob Storage client library for C++. Azure Blob Stora
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [C++ compiler](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)

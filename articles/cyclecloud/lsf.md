@@ -2,7 +2,7 @@
 title: IBM Spectrum LSF Integration
 description: LSF scheduler configuration in Azure CycleCloud.
 author: mvrequa
-ms.date: 06/10/2025
+ms.date: 09/05/2025
 ms.author: mirequa
 ---
 
@@ -13,8 +13,16 @@ for Resource Connector. IBM provides [documentation](https://www.ibm.com/support
 
 LSF is an IBM licensed product. To use LSF in CycleCloud, you need an entitlement file that IBM provides to their customers.
 > [!NOTE]
-> LSF is an IBM licensed product. To use LSF in CycleCloud, you need an entitlement file that IBM provides to its customers. Add the LSF binaries and entitlement file to the `blobs/` directory to use the fully automated cluster or the VM image builder in this project.
-To use the fully automated cluster or the VM image builder in this project, add the LSF binaries and entitlement file to the `blobs/` directory.
+> * LSF is an IBM licensed product. To use LSF in CycleCloud, you need an entitlement file that IBM provides to its customers. Add the LSF binaries and entitlement file to the `blobs/` directory to use the fully automated cluster or the VM image builder in this project.
+> * To use the fully automated cluster or the VM image builder in this project, add the LSF binaries and entitlement file to the `blobs/` directory.
+> * LSF depends upon the ``ed`` package which is not installed in recent releases of the Azure HPC Image by default. If your selected VM Image does not include ``ed``, then we suggest using [cloud-init](./how-to/cloud-init.md) to add the package. For example, on RedHat Enterprise Linux, AlmaLinux or CentOS you can add the following to your cluster template (or in the CycleCloud GUI via the Cluster Edit dialog):
+> 
+```ini
+[node defaults]
+CloudInit = '''#!/bin/bash
+yum install -y ed
+'''
+```
 
 ## Supported scenarios of the CycleCloud LSF cluster type
 

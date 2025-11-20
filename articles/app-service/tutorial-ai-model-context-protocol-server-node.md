@@ -3,11 +3,13 @@ title: Web app as MCP server in GitHub Copilot Chat agent mode (Node.js)
 description: Empower GitHub Copilot Chat with your existing Node.js web apps by integrating their capabilities as Model Context Protocol servers, enabling Copilot Chat to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
-ms.date: 07/22/2025
+ms.date: 11/10/2025
 ms.topic: tutorial
 ms.custom:
-  - devx-track-dotnet
+  - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
+ms.service: azure-app-service
 ---
 
 # Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Node.js)
@@ -19,7 +21,7 @@ In this tutorial, you'll learn how to expose an Express.js app's functionality t
 If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available for:
 
 - Any [application that supports MCP integration](https://modelcontextprotocol.io/clients), such as GitHub Copilot Chat agent mode in Visual Studio Code or in GitHub Codespaces. 
-- A custom agent that accesses remote tools by using an [MCP client](https://modelcontextprotocol.io/quickstart/client#javascript).
+- A custom agent that accesses remote tools by using an [MCP client](https://modelcontextprotocol.io/quickstart/client#node).
 
 By adding an MCP server to your web app, you enable an agent to understand and use your app's capabilities when it responds to user prompts. This means anything your app can do, the agent can do too.
 
@@ -259,7 +261,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 When your MCP server is called by an agent powered by large language models (LLM), be aware of [prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) attacks. Consider the following security best practices:
 
-- **Authentication and Authorization**: Protect your MCP endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Authentication and Authorization**: Secure your MCP server with Microsoft Entra authentication to ensure only authorized users or agents can access your tools. See [Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication](configure-authentication-mcp-server-vscode.md) for a step-by-step guide.
 - **Input Validation and Sanitization**: The example code in this tutorial uses [zod](https://www.npmjs.com/package/zod) for input validation, ensuring that incoming data matches the expected schema. For additional security, consider:
     - Validating and sanitizing all user input before processing, especially for fields used in database queries or output.
     - Escaping output in responses to prevent cross-site scripting (XSS) if your API is consumed by browsers.

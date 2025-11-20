@@ -3,10 +3,11 @@ title: How to use device commands in an Azure IoT Central solution
 description: How to use device commands in Azure IoT Central solution. Learn how to define and call device commands from IoT Central, and respond in a device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/27/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 
 # Device developer
 ---
@@ -28,7 +29,7 @@ To learn about the IoT Pug and Play command conventions, see [IoT Plug and Play 
 
 To learn more about the command data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
-To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices](../core/howto-control-devices-with-rest-api.md).
 
 To learn how to implement commands in a device without using the device SDKs, see [Communicate with an IoT hub using the MQTT protocol](../../iot/iot-mqtt-connect-to-iot-hub.md).
 
@@ -61,7 +62,7 @@ Optional fields, such as display name and description, let you add more details 
 
 To handle a standard command, a device sends a response value as soon as it receives the command from IoT Central. You can use the Azure IoT device SDK to handle standard commands invoked by your IoT Central application.
 
-For example implementations in multiple languages, see [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+For example implementations in multiple languages, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 The following screenshot shows how the successful command response displays in the IoT Central UI:
 
@@ -75,7 +76,7 @@ The following screenshot shows how the successful command response displays in t
 In a long-running command, a device doesn't immediately complete the command. Instead, the device acknowledges receipt of the command and then later confirms that the command completed. This approach lets a device complete a long-running operation without keeping the connection to IoT Central open.
 
 > [!NOTE]
-> Long-running commands are not part of the IoT Plug and Play conventions. IoT Central has its own convention to implement long-running commands.
+> Long-running commands aren't part of the IoT Plug and Play conventions. IoT Central has its own convention to implement long-running commands.
 
 This section shows you how a device can delay sending a confirmation that the command completed.
 
@@ -133,7 +134,7 @@ The following screenshot shows the IoT Central UI when it receives the property 
 This section shows you how a device handles an offline command. If a device is online, it can handle the offline command as soon it's received. If a device is offline, it handles the offline command when it next connects to IoT Central. Devices can't send a return value in response to an offline command.
 
 > [!NOTE]
-> Offline commands are not part of the IoT Plug and Play conventions. IoT Central has its own convention to implement offline commands.
+> Offline commands aren't part of the IoT Plug and Play conventions. IoT Central has its own convention to implement offline commands.
 
 > [!NOTE]
 > This article uses Node.js for simplicity.
@@ -176,4 +177,4 @@ You can call commands on a device that isn't assigned to a device template. To c
 
 ## Next steps
 
-Now that you've learned how to use commands in your Azure IoT Central application, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md) to learn more about command parameters and [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) to see complete code samples in different languages.
+Now that you know how to use commands in your Azure IoT Central application, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md) to learn more about command parameters and [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) to see complete code samples in different languages.

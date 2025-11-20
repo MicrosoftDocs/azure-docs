@@ -1,12 +1,13 @@
 ---
 title: Service Connector Region Support
-description: Service Connector region availability and region support list
+description: Find which Azure regions support Service Connector for App Service, Azure Functions, Container Apps, AKS, and Azure Spring Apps before creating service connections.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.topic: conceptual
-ms.date: 05/28/2024
+ms.date: 09/18/2025
+ms.topic: concept-article
 ms.custom: references_regions
+#customer intent: As a developer supporting Azure services, I want to know which regions are supported for Service Connector.
 ---
 
 # Service Connector region support
@@ -15,7 +16,7 @@ When you connect Cloud services together with Service Connector, the conceptual 
 
 ## Supported regions with regional endpoints
 
-If your compute service instance is located in one of the regions that Service Connector supports below, you can use Service Connector to create and manage service connections.
+If your compute service instance is located in one of the regions that Service Connector supports, you can use Service Connector to create and manage service connections.
 
 | Region               | App Service, Container Apps, <br>Azure Functions, Azure Spring Apps | AKS |
 |----------------------|:-----------------------------------------------------------------:|:-----:|
@@ -71,11 +72,11 @@ If your compute service instance is located in one of the regions that Service C
 
 ## Regions not supported
 
-In regions where Service Connector isn't supported, you will still find Service Connector in the Azure portal and the Service Connector commands will appear in the Azure CLI, but you won't be able to create or manage service connections. The product team is working actively to enable more regions.
+In regions where Service Connector isn't supported, you still find **Service Connector** in the Azure portal and the Service Connector commands appear in the Azure CLI. You can't create or manage service connections. The product team is working actively to enable more regions.
 
 ## Next steps
 
-Go to the articles below for more information about how Service Connector works, and learn about service availability.
+Learn about how Service Connector works and about service availability.
 
 > [!div class="nextstepaction"]
 > [Service internals](./concept-service-connector-internals.md)

@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/30/2025
 ms.custom: devx-track-azurepowershell
+
 # Customer intent: As a WAF administrator, I want to create and manage custom rules for the Web Application Firewall on the Application Gateway, so that I can enhance security by controlling traffic based on specific conditions and actions.
 ---
 
@@ -133,10 +134,10 @@ Describes the field of the matchVariable collection. For example, if the matchVa
 
 Must be one of the following operators:
 
-- IPMatch - only used when Match Variable is *RemoteAddr,* and only supports IPv4
-- Equal – input is the same as the MatchValue
-- Any – It shouldn't have a MatchValue. It's recommended for Match Variable with a valid Selector.
-- Contains
+- IPMatch - only used when Match Variable is *RemoteAddr,* and only supports IPv4.
+- Equal - input is the same as the MatchValue.
+- Any - It shouldn't have a MatchValue. It's recommended for Match Variable with a valid Selector.
+- Contains - MatchValue should be an explicit value only. Wildcard and regex are not supported.
 - LessThan
 - GreaterThan
 - LessThanOrEqual

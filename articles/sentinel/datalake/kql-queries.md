@@ -1,71 +1,73 @@
 ---  
-title:  Run KQL queries against the Microsoft Sentinel data lake (preview)
+title:  Run KQL queries against the Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Use the Defender portal's Data lake exploration KQL queries to query and interact with the Microsoft Sentinel data lake. Create, edit, and run KQL queries to explore your data lake resources
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.topic: how-to
 ms.subservice: sentinel-graph
-ms.date: 07/15/2025
+ms.date: 08/27/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
 ---  
  
-#  Run KQL queries against the Microsoft Sentinel data lake (preview)
+#  Run KQL queries against the Microsoft Sentinel data lake
  
-Data lake exploration in the Defender portal, provides a unified interface for analyzing your data lake, enabling you to run KQL (Kusto Query Language) queries, and create and manage jobs.
+Data lake exploration in the Defender portal provides a unified interface to analyze your data lake. It lets you run KQL (Kusto Query Language) queries, create jobs, and manage them.
 
-The **KQL queries** page under **Data lake exploration** allows you to edit and run KQL queries against data lake resources. You can create jobs to promote data from the data lake to the analytics tier. Jobs can be run on-demand or scheduled. The **Jobs** page provides an interface to manage jobs, enabling, disabling, editing, or deleting jobs. For more information, see [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md).
+The **KQL queries** page under **Data lake exploration** lets you edit and run KQL queries on data lake resources. Create jobs to promote data from the data lake to the analytics tier, or create aggregate tables in the data lake tier. Run jobs on demand or schedule them. The **Jobs** page lets you manage jobs; enable, disable, edit, or delete. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md).
 
 ## Prerequisites
 
-The following prerequisites are required to run KQL queries in the Microsoft Sentinel data lake.
+The following prerequisites are needed to run KQL queries in the Microsoft Sentinel data lake.
 
 ### Onboard to the data lake
 
-KQL queries can be run in the Microsoft Defender portal after the onboarding process is complete. For more information on onboarding, see [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md).
+You can run KQL queries in the Microsoft Defender portal after completing the onboarding process. For more information on onboarding, see [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md).
 
 ### Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run KQL queries against those workspaces in the data lake tier. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles let you access all workspaces in the data lake. Alternatively, you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions for Microsoft Sentinel workspaces can run KQL queries against those workspaces in the data lake tier. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
 
 
 ## Write KQL queries
 
-Writing queries for the data lake is similar to writing queries in the advanced hunting experience. You can use the same KQL syntax and functions including. KQL supports machine learning functions and advanced analytics. The query editor provides a powerful interface for writing and running KQL queries, with features such as IntelliSense and autocomplete to help you write your queries efficiently. For a detailed overview of KQL syntax and functions, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
+Writing queries for the data lake is similar to writing queries in the advanced hunting experience. You can use the same KQL syntax and functions. KQL supports advanced analytics and machine learning functions. The query editor offers an interface for running KQL queries with features like IntelliSense and autocomplete to help you write efficiently. For a detailed overview of KQL syntax and functions, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
 
 ## KQL queries in the Defender portal
 
-Select **New query** to create a new query tab. Your last query in each tab is saved. Switch between tabs to work on multiple queries simultaneously.   
+Select **New query** to create a new query tab. The last query in each tab is saved. Switch between tabs to work on multiple queries simultaneously.   
 
-:::image type="content" source="media/kql-queries/query-editor.png" alt-text="A screenshot showing the advanced hunting page in the Defender portal." lightbox="media/kql-queries/query-editor.png":::
+The **Query history** tab shows a list of your previously run queries, query processing time and completion state. You can open a previous query in a new tab by selecting it from the list. The query history is saved for 30 days. Select a query to edit or run it again.
 
-### Select a workspace
+:::image type="content" source="media/kql-queries/query-editor.png" alt-text="Screenshot of the Kql queries page in the Defender portal." lightbox="media/kql-queries/query-editor.png":::
 
-Queries are run against a single workspace. Choose your workspace in the upper right corner of the query editor using the **Selected workspace** dropdown. The workspace you select determines the data available for querying. The *default* workspace contains data from Microsoft Entra, Microsoft 365, and Microsoft Resource Graph.
+### Select workspaces
 
-> [!NOTE] 
-> The selected workspace applies to all query tabs in the query editor.  
+Queries can run against a single workspace or multiple workspaces.  Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. The selected workspaces apply to all query tabs in the query editor. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query a table from a specific workspace, for example `workspace("MyWorkspace").AuditLogs`. 
 
+If you select a single, empty workspace or a workspace in the process of onboarding, no tables are displayed in the schema browser.
 
-:::image type="content" source="media/kql-queries/select-a-workspace.png" lightbox="media/kql-queries/select-a-workspace.png" alt-text="A screenshot showing the workspace selection panel.":::
-
-
+:::image type="content" source="media/kql-queries/select-a-workspace.png" lightbox="media/kql-queries/select-a-workspace.png" alt-text="A screenshot showing the workspaces selection panel.":::
 
 ### Time range selection
-Use the time picker above the query editor to select the time range for your query. Using the **Custom time range** option, you can set a specific start and end time. Time ranges can be up to 12 years in duration. You can also specify a time range in the KQL query syntax.
+Use the time picker above the query editor to select the time range for your query. Using the **Custom time range** option, you can set a specific start and end time. Time ranges can be up to 12 years in duration.
 
-:::image type="content" source="media/kql-queries/time-range-selector.png" lightbox="media/kql-queries/time-range-selector.png" alt-text="A screenshot showing the timerange selector.":::
+:::image type="content" source="media/kql-queries/time-range-selector.png" lightbox="media/kql-queries/time-range-selector.png" alt-text="A screenshot showing the time range selector.":::
+
+You can also specify a time range in the KQL query syntax, for example:
++ `where TimeGenerated between (datetime(2020-01-01) .. datetime(2020-12-31))`
++ `where TimeGenerated between(ago(180d)..ago(90d))`
 
 
 > [!NOTE]
-> Queries are limited to 30,000 rows or 64 MB of data and timeout after 10 minutes. When selecting a broad time range, your query may exceed these limits.
+> Queries are limited to 500,000 rows or 64 MB of data and timeout after 8 minutes. When selecting a broad time range, your query may exceed these limits.
 
 ### View schema information
 
-The schema browser provides a list of available tables and their columns in the selected workspace. Use the schema browser to explore the data available in your data lake and discover tables and columns. Use the search box to quickly find specific tables.
+The schema browser provides a list of available tables and their columns for the selected workspaces, grouped by category. System tables appear in the **Assets** category. Custom tables have `_CL`, `_KQL_CL`, `_SPARK`,`_SPARK_CL` are grouped the **Custom logs** category. Use the schema browser to explore the data available in your data lake and discover tables and columns. Use the search box to quickly find specific tables.
 
 :::image type="content" source="media/kql-queries/schema-browser.png" lightbox="media/kql-queries/schema-browser.png" alt-text="A screenshot showing the schema browser panel in the KQL editor.":::
 
@@ -90,7 +92,7 @@ You can run KQL queries against the Microsoft Sentinel data lake using Azure Dat
 When querying tables in the data lake using ADX, you must use the `external_table()` function to access the data. For example:
 
 ```kql
-external_table("microsoft.entra.id.AADRiskyUsers")
+external_table("AADRiskyUsers")
 | take 100
 ```
 
@@ -98,7 +100,7 @@ external_table("microsoft.entra.id.AADRiskyUsers")
 
 + Queries are run against a single workspace. Make sure you select the correct workspace before running a query.
 + Executing KQL queries on the Microsoft Sentinel data lake incurs charges based on query billing meters. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](../billing.md#data-lake-tier).
-+ Review data ingestion and table retention policy. Before setting query time range, be aware of data retention on your data lake tables and whether data is available for selected time range. For more information, see [Manage data tiers and retention in Microsoft Defender portal (preview)](https://aka.ms/manage-data-defender-portal-overview).
++ Review data ingestion and table retention policy. Before setting query time range, be aware of data retention on your data lake tables and whether data is available for selected time range. For more information, see [Manage data tiers and retention in Microsoft Defender portal](https://aka.ms/manage-data-defender-portal-overview).
 + KQL queries against the data lake are lower performant than queries on analytics tier. It’s recommended to use KQL queries against the data lake only when exploring historical data or when tables are stored in data lake-only mode.
 
 + The following KQL control commands are currently supported: 
@@ -108,8 +110,15 @@ external_table("microsoft.entra.id.AADRiskyUsers")
     + `.show database`
 
 + Using out of the box or custom functions isn't supported in KQL queries against the data lake.
+
 + Calling external data via KQL query against the data lake isn't supported. 
-+ `Ingestion_time()` function isn't supported on tables in data lake.
+
++ All KQL operators and functions are supported except for the following:
+    + `adx()`
+    + `arg()`
+    + `externaldata()`
+    + `ingestion_time()`
+
 
 [!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]
 
@@ -118,8 +127,8 @@ For troubleshooting KQL queries, see [Troubleshoot KQL queries in the Microsoft 
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
-- [Onboarding to Microsoft Sentinel data lake (preview)](sentinel-lake-onboarding.md)
-- [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md)
-- [Manage jobs in the Microsoft Sentinel data lake (preview)](kql-manage-jobs.md)
-- [Troubleshoot KQL queries in the Microsoft Sentinel data lake (preview)](kql-troubleshoot.md).
+- [Microsoft Sentinel data lake overview](sentinel-lake-overview.md)
+- [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
+- [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
+- [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
+- [Troubleshoot KQL queries in the Microsoft Sentinel data lake](kql-troubleshoot.md).

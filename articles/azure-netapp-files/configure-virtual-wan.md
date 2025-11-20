@@ -9,6 +9,7 @@ ms.date: 11/25/2024
 ms.author: anfdocs
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure Azure NetApp Files within a Virtual WAN environment so that I can ensure secure and efficient access to file storage across multiple sites and branches."
 ---
 # Configure Virtual WAN for Azure NetApp Files
@@ -87,7 +88,7 @@ You can effect changes to a virtual hub's effective routes by adding routes expl
 ## Next steps
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
-* [Cross-region replication of Azure NetApp Files volumes](cross-region-replication-introduction.md)
+* [Cross-region replication of Azure NetApp Files volumes](replication.md)
 * [Disaster recovery design](../virtual-wan/disaster-recovery-design.md)
 * [Migrate to Azure Virtual WAN](../virtual-wan/migrate-from-hub-spoke-topology.md)
 * [Virtual WAN routing deep dive](../virtual-wan/routing-deep-dive.md)

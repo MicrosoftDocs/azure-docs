@@ -1,11 +1,12 @@
 ---
-title: An overview of workbooks
+title: An Overview of Workbooks
 description: This article provides information on how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports.
 ms.service: azure-update-manager
-ms.date: 09/06/2024
+ms.date: 08/21/2025
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
 # Customer intent: "As a data analyst, I want to create interactive visual reports using workbooks, so that I can effectively analyze data and share insights within my team."
 ---
 

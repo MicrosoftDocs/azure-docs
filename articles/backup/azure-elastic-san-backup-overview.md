@@ -25,7 +25,11 @@ Elastic SAN backup includes the following key features:
 
 - **Region availability**: The feature is currently [available in specific regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions) only. 
 - **Snapshot export**: Exports the selected Elastic SAN to an independent managed disk incremental snapshot (operational tier) at a given point in time.
-- **Storage and resiliency**: Managed Disk incremental snapshot is stored in Locally redundant storage (LRS) resiliency (in LRS-[supported regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions)), independent of the Elastic SAN lifecycle.
+- **Storage and resiliency**: Managed Disk incremental snapshot can be stored in Zonally redundant storage (ZRS) or Locally redundant storage (LRS) resiliency (in supported regions), independent of the Elastic SAN lifecycle.
+
+   > [!NOTE]
+   > ZRS snapshot storage applies only to new Backup instances created in regions that support ZRS, and only when no managed disk incremental snapshot is already exported from the volume snapshot. In these scenarios, snapshots are stored in ZRS by default. Existing Backup instances and regions that don't support ZRS continue to store snapshots as LRS.
+   
 - **Recovery points**: Supports up to **450** recovery points, which allows you customize **daily** or **weekly** schedules to align your backup strategy with business continuity and compliance needs.
 - **Backup tier**: Supports operational tier.
 

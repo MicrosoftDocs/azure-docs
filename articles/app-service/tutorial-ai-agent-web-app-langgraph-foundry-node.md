@@ -4,12 +4,13 @@ description: Learn how to quickly deploy a production-ready, agentic web applica
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
-ms.devlang: csharp
+ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 06/25/2025
+ms.date: 11/10/2025
 ms.custom:
   - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Tutorial: Build an agentic web app in Azure App Service with LangGraph or Azure AI Foundry Agent Service (Node.js)
@@ -49,7 +50,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/nodejs).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## Open the sample with Codespaces
@@ -72,6 +73,8 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 
 5. When you see **Your application running on port 3000 is available**, select **Open in Browser** and add a few tasks.
 
+    The agents aren't fully configured so they don't work yet. You'll configure them later.
+
 ## Review the agent code
 
 Both approaches use the same implementation pattern, where the agent is initialized on application start, and responds to user messages by POST requests.
@@ -81,7 +84,7 @@ Both approaches use the same implementation pattern, where the agent is initiali
 The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/LangGraphTaskAgent.ts*. The initialization code does the following: 
 
 - Configures the [AzureChatOpenAI](https://js.langchain.com/docs/integrations/llms/azure/) client using environment variables.
-- Creates the prebuilt ReAct agent a set of CRUD tools for task management (see [LangGraph: How to use the prebuilt ReAct agent](https://langchain-ai.github.io/langgraphjs/how-tos/create-react-agent)).
+- Creates the prebuilt ReAct agent with a set of CRUD tools for task management (see [LangGraph: How to use the prebuilt ReAct agent](https://langchain-ai.github.io/langgraphjs/how-tos/create-react-agent)).
 - Sets up memory management (see [LangGraph: How to add memory to the prebuilt ReAct agent](https://langchain-ai.github.io/langgraphjs/how-tos/react-memory/)).
 
 :::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/LangGraphTaskAgent.ts" range="23-143" highlight="13-21,24-37,106-117" :::
@@ -91,7 +94,7 @@ The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/LangGr
 The `FoundryTaskAgent` is initialized in the constructor of *src/agents/FoundryTaskAgent.ts*. The initialization code does the following:
 
 - Creates an `AgentsClient` using Azure credentials.
-- Fetches the agent from Azure AI Foundry by name.
+- Fetches the agent from Azure AI Foundry by the agent ID.
 - Creates a new thread for the session.
 
 :::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/FoundryTaskAgent.ts" range="34-66" highlight="15,18,22" :::

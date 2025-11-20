@@ -2,10 +2,12 @@
 author: cephalin
 ms.service: azure-app-service
 ms.devlang: java
-ms.custom: linux-related-content
 ms.topic: quickstart
 ms.date: 02/21/2023
 ms.author: cephalin
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web app hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Linux using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
@@ -24,6 +26,9 @@ This quickstart shows you how to make these changes within your browser, without
 
 # [JBoss EAP](#tab/jbosseap)
 
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
 ![Screenshot of the updated sample JBoss EAP app running in Azure, showing 'Yaps Petstore EE7'.](../../media/quickstart-java/jboss-eap-azure-app-service-in-browser.png)
 
 ---
@@ -32,7 +37,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 To complete this quickstart you need:
 
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=visual-studio-code-tutorial-app-service-extension&mktingSource=visual-studio-code-tutorial-app-service-extension).
+1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 1. A GitHub account to fork a repository.
 
 ## 1 - Fork the sample repository
@@ -69,6 +74,9 @@ To complete this quickstart you need:
 
 
 # [JBoss EAP](#tab/jbosseap)
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 1. In your browser, navigate to the repository containing [the sample code](https://github.com/agoncal/agoncal-application-petstore-ee7).
 
@@ -124,6 +132,9 @@ To complete this quickstart you need:
 
 # [JBoss EAP](#tab/jbosseap)
 
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
    - **Resource Group**: Create a resource group named _myResourceGroup_.
    - **Name**: Type a globally unique name for your web app. 
    - **Publish**: Select _Code_.
@@ -169,6 +180,9 @@ To complete this quickstart you need:
 
 # [JBoss EAP](#tab/jbosseap)
 
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
 - Organization: Select your organization.
 - Repository: Select _agoncal-application-petstore-ee7_.
 - Branch: Select _master_.
@@ -203,6 +217,9 @@ The Java Tomcat sample code is running in an Azure App Service Linux web app.
 **Congratulations!** You've deployed your first Java app to App Service using the Azure portal.
 
 # [JBoss EAP](#tab/jbosseap)
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 You will see the placeholder page with the message "Hey, Java developers!". The code isn't deploying successfully yet. We will update the GitHub Action workflow in the next step.
 
@@ -286,6 +303,9 @@ You will see the placeholder page with the message "Hey, Java developers!". The 
     ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'.](../../media/quickstart-java/hello-azure-in-browser.png)
 
 # [JBoss EAP](#tab/jbosseap)
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 1. Browse to your GitHub fork of agoncal-application-petstore-ee7.
 

@@ -24,7 +24,7 @@ As a Node.js developer, you might also be interested in one of the following art
 
 | Getting started                                                                                                                                                                                                                                                                                | Concepts                                                                                                                                                                          | Guided learning                                                                                                                                                                                                             |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul><li>[Node.js function using Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js function with terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript)</li><li>[Node.js function using the Azure portal](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/training/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js function using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript)</li><li>[Node.js function using the Azure portal](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/training/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 [!INCLUDE [Programming Model Considerations](../../includes/functions-nodejs-model-considerations.md)]
 
@@ -34,7 +34,7 @@ The following table shows each version of the Node.js programming model along wi
 
 | [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description                                                                                                   |
 |------------------------------------------------------------------------------------------------|---------------|------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| 4.x                                                                                            | GA            | 4.25+                                                | 20.x, 18.x                                                            | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
+| 4.x                                                                                            | GA            | 4.25+                                                | 22.x 20.x, 18.x                                                            | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
 | 3.x                                                                                            | GA            | 4.x                                                  | 20.x, 18.x, 16.x, 14.x                                                | Requires a specific file structure with your triggers and bindings declared in a "function.json" file         |
 | 2.x                                                                                            | n/a           | 3.x                                                  | 14.x, 12.x, 10.x                                                      | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x                                                                                            | n/a           | 2.x                                                  | 10.x, 8.x                                                             | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
@@ -1862,11 +1862,11 @@ Before upgrading your Node.js version, make sure your function app is running on
 Run the Azure CLI [`az functionapp config appsettings set`](/cli/azure/functionapp/config#az-functionapp-config-appsettings-set) command to update the Node.js version for your function app running on Windows:
 
 ```azurecli-interactive
-az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~20 \
+az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~22 \
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~20`.
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~22`.
 
 # [Azure portal](#tab/azure-portal/windows)
 
@@ -1879,11 +1879,11 @@ Use the following steps to change the Node.js version:
 Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
 
 ```azurecli-interactive
-az functionapp config set --linux-fx-version "node|20" --name "<FUNCTION_APP_NAME>" \
+az functionapp config set --linux-fx-version "node|22" --name "<FUNCTION_APP_NAME>" \
  --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
-This sets the base image of the Linux function app to Node.js version 20.
+This sets the base image of the Linux function app to Node.js version 22.
 
 # [Azure portal](#tab/azure-portal/linux)
 
@@ -2158,7 +2158,7 @@ export default { logHello };
 
 ## Local debugging
 
-We recommend that you use VS Code for local debugging, which starts your Node.js process in debug mode automatically and attaches to the process for you. For more information, see [run the function locally](./create-first-function-vs-code-node.md#run-the-function-locally).
+We recommend that you use VS Code for local debugging, which starts your Node.js process in debug mode automatically and attaches to the process for you. For more information, see [run the function locally](./how-to-create-function-vs-code.md?pivot=programming-language-javascript#run-the-function-locally).
 
 If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/learn/getting-started/debugging).
 

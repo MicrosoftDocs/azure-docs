@@ -5,6 +5,7 @@ ms.topic: reference
 ms.date: 03/02/2023
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
+zone_pivot_groups: programming-languages-set-functions
 ms.custom:
   - devx-track-csharp
   - devx-track-python
@@ -12,7 +13,7 @@ ms.custom:
   - devx-track-js
   - devx-track-ts
   - build-2025
-zone_pivot_groups: programming-languages-set-functions
+  - sfi-ropc-nochange
 ---
 
 # Azure Cosmos DB input binding for Azure Functions 2.x and higher

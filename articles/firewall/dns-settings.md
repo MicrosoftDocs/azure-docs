@@ -10,6 +10,7 @@ ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
   - build-2025
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure custom DNS servers and enable DNS proxy for Azure Firewall, so that I can ensure consistent DNS resolution and manage name queries effectively for my virtual network.
 ---
 
@@ -19,7 +20,7 @@ You can configure a custom DNS server and enable DNS proxy for Azure Firewall. C
 
 ## DNS servers
 
-A DNS server maintains and resolves domain names to IP addresses. By default, Azure Firewall uses Azure DNS for name resolution. The **DNS server** setting lets you configure your own DNS servers for Azure Firewall name resolution. You can configure a single server or multiple servers. If you configure multiple DNS servers, the server used is chosen randomly. You can configure a maximum of 15 DNS servers in **Custom DNS**. 
+A DNS server maintains and resolves domain names to IP addresses. By default, Azure Firewall uses Azure DNS for name resolution. The **DNS server** setting lets you configure your own DNS servers for Azure Firewall name resolution. You can configure a single server or multiple servers. If you configure multiple DNS servers, the server used is chosen randomly. You can configure a maximum of 15 DNS servers in **Custom DNS**.
 
 > [!NOTE]
 > For instances of Azure Firewall that are managed by using Azure Firewall Manager, the DNS settings are configured in the associated Azure Firewall policy.
@@ -40,13 +41,13 @@ The following example updates Azure Firewall with custom DNS servers by using th
 
 ```azurecli-interactive
 az network firewall update \
-    --name fwName \ 
+    --name fwName \
     --resource-group fwRG \
     --dns-servers 10.1.0.4 10.1.0.5
 ```
 
 > [!IMPORTANT]
-> The command `az network firewall` requires the Azure CLI extension `azure-firewall` to be installed. You can install it by using the command `az extension add --name azure-firewall`. 
+> The command `az network firewall` requires the Azure CLI extension `azure-firewall` to be installed. You can install it by using the command `az extension add --name azure-firewall`.
 
 #### [PowerShell](#tab/powershell)
 
@@ -73,7 +74,7 @@ If you enable FQDN filtering in network rules but don't configure client virtual
 
 When Azure Firewall is a DNS proxy, two caching function types are possible:
 
-- **Positive cache**: DNS resolution is successful. The firewall caches these responses according to the TTL (time to live) in the response up to a maximum of 1 hour. 
+- **Positive cache**: DNS resolution is successful. The firewall caches these responses according to the TTL (time to live) in the response up to a maximum of 1 hour.
 
 - **Negative cache**: DNS resolution results in no response or no resolution. The firewall caches these responses according to the TTL in the response, up to a max of 30 minutes.
 
@@ -91,7 +92,7 @@ DNS proxy configuration requires three steps:
 1. Enable the DNS proxy in Azure Firewall DNS settings.
 2. Optionally, configure your custom DNS server or use the provided default.
 3. Configure the Azure Firewall private IP address as a custom DNS address in your virtual network DNS server settings to direct DNS traffic to the Azure Firewall.
-   
+
 > [!NOTE]
 > If you use a custom DNS server, select an IP address from your virtual network that isn't part of the Azure Firewall subnet.
 
@@ -99,7 +100,7 @@ DNS proxy configuration requires three steps:
 
 To configure DNS proxy, you must configure your virtual network DNS servers setting to use the firewall private IP address. Then enable the DNS proxy in the Azure Firewall **DNS settings**.
 
-##### Configure virtual network DNS servers 
+##### Configure virtual network DNS servers
 
 1. Select the virtual network where the DNS traffic is routed through the Azure Firewall instance.
 2. Under **Settings**, select **DNS servers**.
@@ -123,10 +124,10 @@ You can use the Azure CLI to configure DNS proxy settings in Azure Firewall. You
 ##### Configure virtual network DNS servers
 
 The following example configures the virtual network to use Azure Firewall as the DNS server.
- 
+
 ```azurecli-interactive
 az network vnet update \
-    --name VNetName \ 
+    --name VNetName \
     --resource-group VNetRG \
     --dns-servers <firewall-private-IP>
 ```
@@ -137,7 +138,7 @@ The following example enables the DNS proxy feature in Azure Firewall.
 
 ```azurecli-interactive
 az network firewall update \
-    --name fwName \ 
+    --name fwName \
     --resource-group fwRG \
     --enable-dns-proxy true
 ```
@@ -178,13 +179,16 @@ If all DNS servers are unavailable, there's no fallback to another DNS server.
 
 ### Health checks
 
-DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. The health checks are a recursive DNS query to the root name server. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error, the firewall selects another DNS server in the list. 
+DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. The health checks are a recursive DNS query to the root name server. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error, the firewall selects another DNS server in the list.
 
 ## Azure Firewall with Azure Private DNS Zones
 
 Azure Firewall supports integration with Azure Private DNS zones, allowing it to resolve private domain names. When you associate a Private DNS zone with the virtual network where Azure Firewall is deployed, the firewall can resolve names defined in that zone.
 
-> [!IMPORTANT]  
+> [!NOTE]
+> This integration applies to name resolution performed **by Azure Firewall itself** (for example, when the firewall resolves FQDNs in network rules or application rules). DNS queries from downstream clients sent to Azure Firewall’s DNS Proxy are **not** resolved using Azure Private DNS zones unless the configured upstream DNS server also has access to those zones. The DNS Proxy simply forwards client queries to its configured upstream servers and does not merge results from Azure DNS.
+
+> [!IMPORTANT]
 > Avoid creating DNS records in Private DNS zones that override Microsoft-owned default domains. Overriding these domains can prevent Azure Firewall from resolving critical endpoints, which can disrupt management traffic and cause features such as logging, monitoring, and updates to fail.
 
 The following is a *nonexhaustive* list of Microsoft-owned domains that should **not** be overridden, as Azure Firewall management traffic might require access to them:

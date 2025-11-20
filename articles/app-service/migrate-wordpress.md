@@ -2,14 +2,17 @@
 title: Migrate WordPress to App Service on Linux
 description: Migrate WordPress to App Service on Linux.
 author: msangapu-msft
-
-ms.subservice: wordpress
-ms.topic: article
+ms.service: azure-app-service
+ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: msangapu
 ms.devlang: php
-ms.custom: linux-related-content
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As a developer, I want to migrate WordPress to App Service on Linux. 
 ---
+
 # Migrate WordPress on App Service on Linux
 
 This article describes two ways to migrate WordPress from App Service on Windows or external hosting providers to App Service on Linux. 
@@ -20,8 +23,8 @@ This article describes two ways to migrate WordPress from App Service on Windows
 
  You can migrate your site to WordPress on Azure App Service in two ways:
 
- 1. WordPress plugin: All-In-One WP Migration
- 2. Manual process of migration
+ - WordPress plugin: All-In-One WP Migration
+ - Manual process of migration
 
 ## Migrate WordPress with All-In-One WP Migration plugin
 
@@ -51,9 +54,9 @@ By default, the file upload size for WordPress on Linux App Services is limited 
 1. Open All-In-One WP Migration plugin
 1. Click on import option on the destination site, and upload the file downloaded in previous section
 1. Empty the caches in W3TC plugin (or any other caches) and validate the content of the site.
-    - Click on the **Performance** option given in the left sidebar of the admin panel to open the W3TC plugin.
-    - Then click on the **Dashboard** option shown below it.
-    - On the dashboard, you will see a button with the label **Empty All Caches**.
+    1. Click on the **Performance** option given in the left sidebar of the admin panel to open the W3TC plugin.
+    1. Then click on the **Dashboard** option shown below it.
+    1. On the dashboard, you will see a button with the label **Empty All Caches**.
 
 ## Manual migration process
 
@@ -93,7 +96,7 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
 6. If you migrate the database, import the SQL file downloaded from the source database into the database of your newly created WordPress site. You can do it via the PhpMyAdmin dashboard available at **\<sitename\>.azurewebsites.net/phpmyadmin**. If you're unable to one single large SQL file, separate the files into parts and try uploading again. Steps to import the database through phpmyadmin are described [here](https://docs.phpmyadmin.net/en/latest/import_export.html#import).
 
-7. Launch the Azure Portal and navigate to your **App Service -> Configuration** blade. Update the database name in the **Application Settings** of App Service and save it. This will restart your App and the new changes will get reflected.  [Learn more: WordPress Application Settings](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_application_settings.md)
+7. Launch the Azure portal and navigate to your **App Service -> Configuration** blade. Update the database name in the **Application Settings** of App Service and save it. This will restart your App and the new changes will get reflected.  [Learn more: WordPress Application Settings](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_application_settings.md)
 
     |    Application Setting Name    | Update Required?                         |
     |--------------------------------|------------------------------------------|
@@ -108,17 +111,16 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
 ### Install recommended plugins
 
-It's an optional step, after the site migration it is recommended to validate that you have the default recommended/equivalent plugins activated and configured accurate as before. If you're prohibited from not configuring them as per your organization governing policies, then you can uninstall the plugins.
+After the site migration it is recommended to validate that you have the default recommended/equivalent plugins activated and configured as before. If you're prohibited from not configuring them as per your organization governing policies, then you can uninstall the plugins.
 
-- The W3TC plugin should be activated and configured properly to use the local Redis cache server and Azure CDN/Blob Storage (if it was configured to use them originally). For more information on how to configure these, refer to the following documentations:
+- The W3TC plugin should be activated and configured properly to use the local Redis cache server and Azure Blob Storage (if it was configured to use them originally). For more information on how to configure these, refer to the following documentations:
 
   - [Local Redis Cache](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_local_redis_cache.md)
-  - [Azure CDN](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_azure_cdn.md)
   - [Azure Blob Storage](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_azure_blob_storage.md)
 
 - WP Smush plugin is activated and configured properly for image optimization. See [Image Compression](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_image_compression.md) for more information on configuration.
 
-### Recommended WordPress settings
+### Configure recommended WordPress settings
 
 The following WordPress settings are recommended. However, when the users migrate their custom sites, is it up to them to decide whether to use these settings or not.
 
@@ -143,5 +145,6 @@ When you migrate a live site and its DNS domain name to App Service, that DNS na
 
 If your site is configured with SSL certs, then follow [Add and manage TLS/SSL certificates](configure-ssl-certificate.md?tabs=apex%2Cportal) to configure SSL.
 
-Next steps:
-[At-scale assessment of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)
+## Related content
+
+- [At-scale assessment of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)

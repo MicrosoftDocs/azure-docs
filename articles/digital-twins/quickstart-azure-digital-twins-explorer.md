@@ -30,7 +30,7 @@ Here are the steps you use to explore the graph in this article:
 
 ## Prerequisites
 
-You need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+You need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) now.
 
 You also need to download the materials for the sample graph used in the quickstart. Use the following instructions to download the required files. Later, you follow more instructions to upload them to Azure Digital Twins.
 * Model files: Navigate to each following link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the Save As window to save the file somewhere on your machine.

@@ -115,9 +115,10 @@ For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/p
 
 ## Traffic analytics FAQ
 
-To get answers to the most frequently asked questions about traffic analytics, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
+To get answers to the most frequently asked questions about traffic analytics, see [Traffic analytics FAQ](/azure/network-watcher/frequently-asked-questions#traffic-analytics).
 
 ## Related content
 
-- To learn how to use traffic analytics, see [Usage scenarios](traffic-analytics-usage-scenarios.md).
-- To understand the schema and processing details of traffic analytics, see [Schema and data aggregation in Traffic Analytics](traffic-analytics-schema.md).
+- [Traffic analytics usage scenarios](traffic-analytics-usage-scenarios.md)
+- [Schema and data aggregation in Traffic Analytics](traffic-analytics-schema.md)
+- [Use queries in traffic analytics](traffic-analytics-queries.md)

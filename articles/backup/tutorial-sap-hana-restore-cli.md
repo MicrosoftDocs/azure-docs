@@ -2,7 +2,7 @@
 title: Tutorial - SAP HANA DB restore on Azure using CLI 
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 10/01/2024
+ms.date: 10/16/2025
 ms.custom: devx-track-azurecli,engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -32,7 +32,7 @@ This tutorial assumes you have an SAP HANA database running on Azure VM that's b
 
 For more information on the supported configurations and scenarios, see the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
-## View restore points for a backed-up database
+## View restore points for a backed-up SAP HANA database
 
 To view the list of all the recovery points for a database, use the [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet as follows:
 
@@ -89,7 +89,7 @@ arvind@Azure:~$
 >[!NOTE]
 >You can also view the start and end points of every unbroken log backup chain, using the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet.
 
-## Prerequisites to restore a database
+## Prerequisites to restore an SAP HANA database
 
 Ensure that the following prerequisites are met before restoring a database:
 
@@ -97,7 +97,7 @@ Ensure that the following prerequisites are met before restoring a database:
 * The target instance must be registered with the same vault as the source or another vault in the same region.
 * Azure Backup can't identify two different SAP HANA instances on the same VM. Therefore, restoring data from one instance to another on the same VM isn't possible.
 
-## Restore a database
+## Restore an SAP HANA database
 
 Azure Backup can restore SAP HANA databases that are running on Azure VMs as follows:
 
@@ -110,11 +110,11 @@ To restore a database, use the [az restore restore-azurewl](/cli/azure/backup/re
 > **OriginalWorkloadRestore** - Restore the data to the same SAP HANA instance as the original source. This option overwrites the original database. <br>
 > **AlternateWorkloadRestore** - Restore the database to an alternate location and keep the original source database.
 
-## Restore to alternate location
+## Restore an SAP HANA database to alternate location
 
 To restore a database to an alternate location, use **AlternateWorkloadRestore** as the restore mode. You must then choose the restore point, which could either be a previous point-in-time or any of the previous restore points.
 
-In this tutorial, you'll restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-database) for the database and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
+In this tutorial, you'll restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-sap-hana-database) for the database and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
 
 By using the above restore point name and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
@@ -263,7 +263,7 @@ Name                                  Resource
 
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
-## Restore to secondary region
+## Restore an SAP HANA database to secondary region
 
 To restore a database to the secondary region, specify a target vault and server located in the secondary region, in the restore configuration.
 
@@ -326,7 +326,7 @@ Name                                  Operation           Status      Item Name 
 >[!Note]
 >The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
-## Restore as files
+## Restore SAP HANA database as files
 
 To restore the backup data as files instead of a database, we'll use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can either be a previous point-in-time or any of the previous restore points. Once the files are dumped to a specified path, you can take these files to any SAP HANA machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
 

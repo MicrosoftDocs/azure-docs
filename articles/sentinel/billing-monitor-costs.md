@@ -18,7 +18,7 @@ appliesto:
 
 # Manage and monitor costs for Microsoft Sentinel
 
-After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. With the data lake, currently in preview, you can also view your usage directly in the Microsoft Defender portal.
+After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. With the data lake, you can also view your usage directly in the Microsoft Defender portal.
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to manage and monitor costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
@@ -142,29 +142,63 @@ You can create budgets with filters for specific resources or services in Azure 
 
 To help you control your Analytics tier budget, you can create a cost management playbook. The playbook sends you an alert if your Microsoft Sentinel workspace exceeds a budget, which you define, within a given timeframe.
 
-The Microsoft Sentinel GitHub community provides the [`Send-IngestionCostAlert`](https://github.com/iwafula025/Azure-Sentinel/tree/master/Playbooks/Send-IngestionCostAlert) cost management playbook on GitHub. This playbook is activated by a recurrence trigger, and gives you a high level of flexibility. You can control execution frequency, ingestion volume, and the message to trigger, based on your requirements.
+The Microsoft Sentinel GitHub community provides the [`Send-IngestionCostAlert`](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-IngestionCostAlert) cost management playbook on GitHub. This playbook is activated by a recurrence trigger, and gives you a high level of flexibility. You can control execution frequency, ingestion volume, and the message to trigger, based on your requirements.
 
-## Manage and monitor costs for the Data lake tier
+## Manage and monitor costs for the data lake tier
 
 Once onboarded, usage of data lake tier capabilities is billed using new Microsoft Sentinel data lake meters. For more information on the new meters, see [Data lake tier](billing.md#data-lake-tier).
 
-### Microsoft Sentinel Cost Management in the Microsoft Defender portal
+### Microsoft Sentinel cost management in the Microsoft Defender portal
 
-The new Cost Management experience, currently in preview, under **Microsoft Sentinel > Cost Management** in the [Microsoft Defender portal](https://security.microsoft.com), helps you manage and monitor costs associated with your use of the data lake tier.
+The new cost management experience, currently in preview and under **Microsoft Sentinel** > **Cost management** in the [Microsoft Defender portal](https://security.microsoft.com), helps you manage and monitor costs associated with your use of the data lake tier.
 
-On the overview page, you can find entry points to relevant cost tracking capabilities, and a direct link to usage reports and settings, to help you navigate to the cost management action most relevant to you.
+>[!IMPORTANT]
+>You must have both the Billing Administrator and Security Administrator roles to access the Sentinel cost management pages. 
 
-+ Usage reports - visualize your usage by capability over time. Can be found under **Currently billed capabilities**.
-+ Cost management - leads you to the **Cost Management + Billing** blade in the Azure portal to help track costs and create budgets. For more information on how to use Cost Management + Billing in the Azure portal, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-+ Cost forecast - leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
-+ Microsoft Sentinel settings - opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
+#### Usage
 
-#### Usage reports
+The **Usage** page provides you with entry points to relevant cost tracking capabilities and a direct link to usage reports and settings, so you can navigate to the cost management action most relevant to you.
 
-When clicking on one of the capabilities under **Usage reports**, a usage report displays a trend line of your billable usage for that capability.
-Data is shown for the last 90 days. You can use a filter to adjust the default single month time window. A card shows your total usage for the filtered time period. If enough historic data is available, the trend change compared to the previous period is displayed.
++ **Usage reports** - Visualizes your usage by capability over time. It can be found under **Currently billed capabilities**.
++ **Cost management** - Leads you to the **Cost Management + Billing** blade in the Azure portal to help track costs and create budgets. For more information on how to use Cost Management + Billing in the Azure portal, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ **Cost forecast** - Leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
++ **Microsoft Sentinel settings** - Opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
 
-:::image type="content" source="media/billing-monitor-costs/usage-report.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing a usage graph for data lake ingestion." lightbox="media/billing-monitor-costs/usage-report.png":::
+:::image type="content" source="media/billing-monitor-costs/usage-page.png" alt-text="Screenshot of the Usage page in the Microsoft Sentienl cost management experience in the Microsoft Defender portal." lightbox="media/billing-monitor-costs/usage-page.png":::
+
+When you select one of the capabilities under **Usage reports**, you can view any of the following reports:
+
+- **Cost driver report** - Displays the top 10 cost drivers for the capability and a detailed list breaking down usage by cost drivers. This report is available for data lake ingestion, data lake storage, and data processing. The only usage captured for these reports is billable usage.
+  
+    :::image type="content" source="media/billing-monitor-costs/cost-driver-report.png" alt-text="Screenshot of the cost driver report for data lake ingestion." lightbox="media/billing-monitor-costs/cost-driver-report.png":::
+
+- **General trend report** - Displays a trend line of your billable usage for that capability. This report is currently available for data lake query and advanced data insights, and will be made available for the other capabilities over time.
+
+  :::image type="content" source="media/billing-monitor-costs/general-trend-report.png" alt-text="Screenshot of the general trend report for advanced data insights." lightbox="media/billing-monitor-costs/general-trend-report.png":::
+
+You can use a filter to adjust the default single month time window. A card shows your total usage for the filtered time. If enough historical data is available, the trend change compared to the previous period is displayed.
+
+#### Notification
+
+The **Notification** page lets you configure notification thresholds for each capability so you can receive email notifications when your usage reaches that threshold. Setting these thresholds helps you keep track of your usage and prevent unexpected charges. Currently, the email notifications go to the billing administrator that configured them.
+
+To configure a notification threshold policy on a capability:
+
+1. Select **Configuration** beside the capability. 
+   
+      :::image type="content" source="media/billing-monitor-costs/threshold-configuration.png" alt-text="Screenshot of the Notification page in cost management in the Microsoft Defender portal with the Configuration button highlighted." lightbox="media/billing-monitor-costs/threshold-configuration.png":::
+
+2. On the **Create new policy** side panel that appears, enter a value for your total threshold. 
+   
+     :::image type="content" source="media/billing-monitor-costs/threshold-input.png" alt-text="Screenshot of the Create new policy side panel with the threshold text box highlighted." lightbox="media/billing-monitor-costs/threshold-input.png":::
+
+3. Enter an **Alert percentage** value to set the alert threshold for the total value you set previously then select **Next**.
+
+      :::image type="content" source="media/billing-monitor-costs/threshold-alert.png" alt-text="Screenshot of the Create new policy side panel with the alert threshold option highlighted." lightbox="media/billing-monitor-costs/threshold-alert.png":::
+
+4. Review your settings then select **Submit**.
+
+      :::image type="content" source="media/billing-monitor-costs/threshold-submit.png" alt-text="Screenshot of the Create new policy side panel showing the Review and Submit page." lightbox="media/billing-monitor-costs/threshold-submit.png":::
 
 ## Using Azure Prepayment with Microsoft Sentinel
 

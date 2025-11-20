@@ -7,7 +7,14 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 07/30/2024
-ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
+ms.custom:
+  - mqtt
+  - 'Role: Cloud Development'
+  - 'Role: IoT Device'
+  - 'Role: Technical Support'
+  - fasttrack-edit
+  - iot
+  - sfi-image-nochange
 
 #Customer intent: As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---

@@ -4,7 +4,9 @@ description: Create an Azure Lab Services lab plan with advanced networking.  Cr
 ms.service: azure-lab-services
 ms.topic: tutorial 
 ms.date: 08/28/2023
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 ---
 
 # Tutorial: Set up lab to lab communication with advanced networking

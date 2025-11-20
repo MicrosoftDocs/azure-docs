@@ -7,7 +7,12 @@ ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/29/2025
-ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - FY23 content-maintenance
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: "As a network administrator managing multiple Azure subscriptions, I want to create virtual network peering between those subscriptions, so that I can enable seamless communication between resources in different networks while optimizing bandwidth and latency."
 ---
 
@@ -33,7 +38,7 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 # [**Portal**](#tab/create-peering-portal)
 
-- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
@@ -49,7 +54,7 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
@@ -71,7 +76,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 

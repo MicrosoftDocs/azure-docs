@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article provides examples of how to incorporate STIX objects into queries to enhance threat hunting.
 author: guywi-ms
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 08/07/2025
 ms.author: guywild
 ms.reviewer: alsheheb
 appliesto:
@@ -24,8 +24,8 @@ For more information about threat intelligence in Microsoft Sentinel, see [Threa
 > Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicators` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
 > **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables.
 > We introduced important updates to the data republishing processes.
-> 1. Previously, data was divided and republished to Log Analytics over a **12-day period**. Now, **all data** is republished every **7 days** at the beginning of each week. You can identify this data in the `ThreatIntelIndicators` and `ThreatIntelObjects` tables by checking if `LastUpdateMethod` equals `LogARepublisher`.  
-> 2. The new tables now support more columns, including the `Data` column, which contains the full data object used in advanced hunting scenarios. If these columns don't align with your scenario, learn more about filtering out [columns](#transform-away-columns-sent-to-log-analytics) and [rows](#transform-away-rows-sent-to-log-analytics) before ingestion to Log Analytics. 
+> 1. Previously, data was divided and republished to Log Analytics over a **12-day period**. Now, **all data** is republished every **7-10 days**. You can identify this data in the `ThreatIntelIndicators` and `ThreatIntelObjects` tables by checking if `LastUpdateMethod` equals `LogARepublisher`.  
+> 2. The new tables now support more columns, including the `Data` column, which contains the full data object (except for attributes that already exist in other columns) used in advanced hunting scenarios. If these columns don't align with your scenario, learn more about filtering out [columns](#transform-away-columns-sent-to-log-analytics) and [rows](#transform-away-rows-sent-to-log-analytics) before ingestion to Log Analytics. 
 > 3. To optimize ingestion to Log Analytics, key-value pairs with no data are excluded. Additionally, some fields within the `Data` column—such as `description` and `pattern`—are truncated if they exceed 1,000 characters. 
 > For more information on the updated schema and how it might affect your usage, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelindicators) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 > 
@@ -106,9 +106,9 @@ SourceRelationships
 | project ActorName, PlusStixTypes, ObservableValue, importantfield, Tags, feedSource
  ```
 
-## Migrate existing queries to the new ThreatIntelObjects schema
+## Migrate existing queries to the new ThreatIntelIndicators schema
 
-This example shows how to migrate existing queries from the legacy `ThreatIntelligenceIndicator` table to the new `ThreatIntelObjects` schema. The query uses the `extend` operator to recreate legacy columns based on the `ObservableKey` and `ObservableValue` columns in the new table. 
+This example shows how to migrate existing queries from the legacy `ThreatIntelligenceIndicator` table to the new `ThreatIntelIndicators` schema. The query uses the `extend` operator to recreate legacy columns based on the `ObservableKey` and `ObservableValue` columns in the new table. 
 
 ```Kusto
 ThreatIntelIndicators

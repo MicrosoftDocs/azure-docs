@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: networking
- author: anavinahar
+ author: rdhillon
  ms.service: networking
  ms.topic: include
- ms.date: 12/05/2022
- ms.author: anavin
+ ms.date: 10/16/2025
+ ms.author: rdhillon
  ms.custom: include file
 
 ---
@@ -28,7 +28,7 @@ The following limits apply only for networking resources managed through **Azure
 | Private IP addresses per virtual network |65,536 |
 | Total Private Addresses for a group of Peered Virtual networks | 128,000 |
 | Private IP addresses per network interface |256 |
-| Private IP addresses per virtual machine |256 |
+| Private IP addresses per virtual machine |256 * N (N is number of NICs on VM) |
 | Public IP addresses per network interface |256 |
 | Public IP addresses per virtual machine |256 |
 | [Concurrent TCP or UDP flows per NIC of a virtual machine or role instance](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) |500,000 |
@@ -42,17 +42,18 @@ The following limits apply only for networking resources managed through **Azure
 | IP configurations per application security group |4,000 |
 | Application security groups that can be specified within all security rules of a network security group |100 |
 | User-defined route tables |200 |
-| User-defined routes per route table |400 |
+| User-defined routes per route table |600<sup>1</sup> |
 | Routes with service tag per route table | 25 |
 | Point-to-site root certificates per Azure VPN Gateway |20 |
 | Point-to-site revoked client certificates per Azure VPN Gateway |300 |
-| Virtual network TAPs |100 |
-| Network interface TAP configurations per virtual network TAP |100 |
+| Network interface TAP configurations per virtual network TAP |10 |
+
+<sup>1</sup>Support for user-defined route per subscription higher than 600 is available via [Azure Virtual Network Manager](../articles/virtual-network-manager/overview.md). 
 
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Basic Public IPv4, IPv6 addresses<sup>1,2</sup> | 10 | Contact support |
+| Basic Public IPv4, IPv6 addresses<sup>1,2,3</sup> | 10 | Contact support |
 | Standard Public IPv4, IPv6 addresses<sup>1</sup> | 10 | Contact support |
 | Global Tier Public IPv4, IPv6 addresses<sup>1</sup> | 10 | Contact support |
 | Routing Preference Internet Public IPv4, IPv6 addresses<sup>1</sup> | 10 | Contact support |
@@ -62,7 +63,7 @@ The following limits apply only for networking resources managed through **Azure
 
 <sup>1</sup>Default limits for Public IPv4/v6 addresses vary by offer category type, such as Free Trial, pay-as-you-go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000 and the default for pay-as-you-go is 20. The majority of offers start at 10.  There's also an overall maximum number of Public IP addresses per subscription.
 
-<sup>2</sup>Basic Public IP addresses are deprecated and will be retired as of September 30, 2025.  See [here](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) for additional details.
+<sup>2</sup>Basic Public IP addresses are retired as of September 30, 2025. See [here](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) for more details.
 
 <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 

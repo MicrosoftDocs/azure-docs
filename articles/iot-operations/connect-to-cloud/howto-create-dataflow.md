@@ -1,8 +1,8 @@
 ---
 title: Create a data flow using Azure IoT Operations
 description: Create a data flow to connect data sources and destinations using Azure IoT Operations.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -541,7 +541,7 @@ If the instance count in the [data flow profile](howto-configure-dataflow-profil
 You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Data flows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and data flows only has to operate over the topic name.
 
 > [!IMPORTANT]
-> Data flows requiring shared subscription when instance count is greater than one is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqttv5-current-limitations). To avoid missing messages, set the data flow profile instance count to one when using Event Grid MQTT broker as the source. That is when the data flow is the subscriber and receiving messages from the cloud.
+> Data flows requiring shared subscription when instance count is greater than one is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqtt-v5-current-limitations). To avoid missing messages, set the data flow profile instance count to one when using Event Grid MQTT broker as the source. That is when the data flow is the subscriber and receiving messages from the cloud.
 
 #### Kafka topics
 
@@ -654,7 +654,7 @@ sourceSettings:
 
 To learn more, see [Understand message schemas](concept-schema-registry.md).
 
-## Request disk persistence (preview)
+## Request disk persistence
 
 Request disk persistence lets data flows keep state across restarts. When you enable this feature, the graph recovers processing state if the connected broker restarts. This feature is useful for stateful processing scenarios where losing intermediate data is a problem. When you enable request disk persistence, the broker persists the MQTT data, like messages in the subscriber queue, to disk. This approach makes sure your data flow's data source doesn't lose data during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need persistence use this feature.
 
@@ -687,10 +687,10 @@ Add the `requestDiskPersistence` property to your data flow configuration file:
 
 # [Bicep](#tab/bicep)
 
-Add the `requestDiskPersistence` property to your data flow resource. The API version is `2025-07-01-preview` or later:
+Add the `requestDiskPersistence` property to your data flow resource. The API version is `2025-10-01` or later:
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2025-07-01-preview' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2025-10-01' = {
   parent: defaultDataflowProfile
   name: dataflowName
   extendedLocation: {
@@ -1369,7 +1369,8 @@ Similar to data sources, data destination is a concept that is used to keep the 
 | Azure Data Lake Storage | Container | The container in the storage account. Not the table. |
 | Microsoft Fabric OneLake | Table or Folder | Corresponds to the configured [path type for the endpoint](howto-configure-fabric-endpoint.md#onelake-path-type). |
 | Azure Data Explorer | Table | The table in the Azure Data Explorer database. |
-| Local Storage | Folder | The folder or directory name in the local storage persistent volume mount. When using [Azure Container Storage enabled by Azure Arc Cloud Ingest Edge Volumes](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration), this must match the `spec.path` parameter for the subvolume you created. |
+| Local Storage | Folder | The folder or directory name in the local storage persistent volume mount. When using [Azure Container Storage enabled by Azure Arc Cloud Ingest Edge Volumes](/azure/azure-arc/container-storage/release-notes), this must match the `spec.path` parameter for the subvolume you created. |
+| OpenTelemetry | Topic | The OpenTelemetry topic where the data is sent. Only static topics are supported. |
 
 To configure the data destination:
 

@@ -1,13 +1,13 @@
 ---
-title: Set autopurge retention policies for Azure Functions Durable Task Scheduler (preview)
+title: Set autopurge retention policies for Azure Functions Durable Task Scheduler
 description: Learn about how and why you'd want to configure autopurge retention policies for Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 05/06/2025
+ms.date: 10/02/2025
 ---
 
-# Set autopurge retention policies for Azure Functions Durable Task Scheduler (preview)
+# Set autopurge retention policies for Azure Functions Durable Task Scheduler
 
-To prevent reaching the memory limit of a [capacity unit (CU)](./durable-task-scheduler-dedicated-sku.md#dedicated-sku-concepts), it's best practice to periodically purge orchestration history data. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
+To prevent reaching the memory limit of a capacity unit (CU), it's best practice to periodically purge orchestration history data. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
 
 Autopurge operates asynchronously in the background, optimized to minimize system resource usage and prevent interference with other Durable Task operations. Although autopurge doesn't adhere to a strict schedule, its clean-up rate generally aligns with your orchestration scheduling rate.
 
@@ -37,6 +37,10 @@ These statuses include:
 ### Policy value
 
 Retention value can range from 0 (purge as soon as possible) to the maximum integer value, with the unit being **days**. 
+
+> **Default and Maximum Retention**  
+> By default, autopurge retention is set to **30 days**. This value ensures a balanced approach to data cleanup and resource efficiency.  
+> You can extend the retention period up to a **maximum of 90 days**, allowing flexibility for scenarios that require longer orchestration history retention.
 
 The retention period refers to the time period since the orchestration entered terminal state. For example, you set a retention value of 1 day. If the orchestration takes 10 days to finish, autopurge won't delete it until the following day. Autopurge isn't triggered until the orchestration finishes.
 

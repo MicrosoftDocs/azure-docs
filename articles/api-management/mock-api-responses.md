@@ -4,10 +4,14 @@ description: Use Azure API Management to set a policy on an API. The policy retu
 
 author: dlepow
 ms.service: azure-api-management
-ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
 ms.date: 03/24/2025
 ms.author: danlep
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - devdivchpfy22
+  - sfi-image-nochange
 
 
 #customer intent: As a developer, I want to set a policy on an API so that a mock response is returned.

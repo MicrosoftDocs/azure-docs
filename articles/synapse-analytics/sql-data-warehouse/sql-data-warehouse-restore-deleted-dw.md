@@ -10,6 +10,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Restore a deleted dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

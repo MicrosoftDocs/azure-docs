@@ -4,12 +4,15 @@ description: Learn how to connect privately to Azure App Service apps using a pr
 author: seligj95
 ms.author: jordanselig
 ms.topic: overview
-ms.date: 04/23/2025
-ms.custom: msangapu
+ms.date: 10/06/2025
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 
 #customer intent: As an app developer, I want to understand options that allow clients on our private networks to access apps in Azure App Service.
 
+ms.service: azure-app-service
+ms.custom:
+  - msangapu
+  - sfi-image-nochange
 ---
 
 # Use private endpoints for Azure App Service apps
@@ -23,7 +26,7 @@ When you use a private endpoint for your app, you can:
 - Avoid any data exfiltration from your virtual network.
 
 > [!IMPORTANT]
-> Private endpoints are available for Windows and Linux apps, containerized or not, hosted on the following App Service plans: Basic, Standard, PremiumV2, PremiumV3, IsolatedV2, Functions Premium (sometimes called the Elastic Premium plan).
+> Private endpoints are available for Windows and Linux apps, containerized or not, hosted on the following App Service plans: Basic, Standard, PremiumV2, PremiumV3, PremiumV4, IsolatedV2, Functions Premium (sometimes called the Elastic Premium plan).
 
 ## Conceptual overview
 

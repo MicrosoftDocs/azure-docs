@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure API Management
 description: Learn how to monitor Azure API Management using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 07/09/2025
+ms.date: 09/09/2025
 ms.custom:
   - horz-monitor
   - build-2025
@@ -45,7 +45,8 @@ Azure API Management provides analytics for your APIs so that you can analyze th
 - In the classic API Management service tiers, your API Management instance also includes *legacy built-in analytics* in the Azure portal, and analytics data can be accessed using the API Management REST API. Closely similar data is shown in the Azure Monitor-based dashboard and built-in analytics.
 
 > [!IMPORTANT]
-> The Azure Monitor-based dashboard is the recommended way to access analytics data. Built-in (classic) analytics isn't available in the v2 tiers.
+> * The Azure Monitor-based dashboard is the recommended way to access analytics data.
+> * Effective March 2027, the dashboard and reports associated with API Management built-in analytics in the classic tiers will be [retired](./breaking-changes/analytics-dashboard-retirement-march-2027.md). We recommend transitioning to the Azure Monitor-based dashboard that replaces it.
 
 With API analytics, analyze the usage and performance of the APIs in your API Management instance across several dimensions, including:
 

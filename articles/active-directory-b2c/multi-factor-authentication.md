@@ -6,10 +6,12 @@ manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/11/2025
-ms.custom: project-no-code
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - project-no-code
+  - sfi-image-nochange
 
 #Customer intent: As a developer, I want to learn how to enable multifactor authentication in consumer-facing applications secured by Azure Active Directory B2C.
 

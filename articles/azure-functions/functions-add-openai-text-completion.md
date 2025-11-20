@@ -28,29 +28,13 @@ During this tutorial, you learn how to accomplish these tasks:
 > * Add OpenAI bindings to your HTTP triggered function.
 
 ## 1. Check prerequisites
-:::zone pivot="programming-language-csharp"  
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-csharp.md).
-:::zone-end  
-:::zone pivot="programming-language-java"  
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-java.md).
-:::zone-end  
-:::zone pivot="programming-language-javascript"  
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-node.md).
-:::zone-end  
-:::zone pivot="programming-language-typescript"  
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-typescript.md).
-:::zone-end 
-:::zone pivot="programming-language-python" 
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-python.md).
-:::zone-end  
-:::zone pivot="programming-language-powershell" 
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-powershell.md).
-:::zone-end 
+
+* Complete the steps in [part 1 of Create a function in Azure using Visual Studio Code](how-to-create-function-vs-code.md).
 * Obtain access to Azure OpenAI in your Azure subscription. If you haven't already been granted access, complete [this form](https://aka.ms/oai/access) to request access.
 :::zone pivot="programming-language-csharp"  
 * Install [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
 :::zone-end
-* The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
+* The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
  
 ## 2. Create your Azure OpenAI resources
 
@@ -114,7 +98,7 @@ You now have everything you need to add Azure OpenAI-based text completion to yo
 
 ## 4. Update application settings
 
-1. In Visual Studio Code, open the local code project you created when you completed the [previous article](./create-first-function-vs-code-csharp.md).
+1. In Visual Studio Code, open the local code project you created when you completed the [previous article](./how-to-create-function-vs-code.md?pivot=programming-language-csharp).
 
 1. In the local.settings.json file in the project root folder, update the `AzureWebJobsStorage` setting to `UseDevelopmentStorage=true`. You can skip this step if the `AzureWebJobsStorage` setting in *local.settings.json* is set to the connection string for an existing Azure Storage account instead of `UseDevelopmentStorage=true`. 
 

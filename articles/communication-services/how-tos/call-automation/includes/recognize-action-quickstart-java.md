@@ -11,7 +11,7 @@ ms.author: kpunjabi
 ---
 
 ## Prerequisites
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/).
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
@@ -145,6 +145,8 @@ var recognizeOptions = new CallMediaRecognizeChoiceOptions(targetParticipant, ch
   .setInterruptPrompt(true)
   .setInitialSilenceTimeout(Duration.ofSeconds(30))
   .setPlayPrompt(playSource)
+  .setSpeechLanguages("en-US", "es-ES", "hi-IN")
+  .setSentimentAnalysisEnabled(true)
   .setOperationContext("AppointmentReminderMenu")
   //Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
   .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID"); 
@@ -195,6 +197,67 @@ var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnecti
 > [!Note]
 > If parameters aren't set, the defaults are applied where possible.
 
+
+### Real-time language identification (Preview)
+
+With the additional of real-time language identification, developers can automatically detect spoken languages to enable natural, human-like communications and eliminate manual language selection by the end users. 
+
+``` java
+String textToPlay = "Hi, how can I help you today?";
+var playSource = new TextSource()
+    .setText(textToPlay)
+    .setVoiceName("en-US-ElizabethNeural");
+
+var recognizeOptions = new CallMediaRecognizeSpeechOptions(participant, Duration.ofSeconds(15))
+    .setPlayPrompt(playSource)
+    .setInterruptPrompt(false)
+    .setInitialSilenceTimeout(Duration.ofSeconds(15))
+    .setSentimentAnalysisEnabled(true)
+    .setSpeechLanguages("en-US", "es-ES", "hi-IN")
+    .setOperationContext("OpenQuestionSpeech")
+    // Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID");
+
+var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
+    .getCallMediaAsync()
+    .startRecognizingWithResponse(recognizeOptions)
+    .block();
+```
+
+>[!Note]
+> **Language support limits**
+>
+> When using the `Recognize` API with Speech as the input type:
+> - You can specify **up to 10 languages** using `setSpeechLanguages(...)`.
+> - Be aware that using more languages may **increase the time** it takes to receive the `RecognizeCompleted` event due to additional processing.
+>
+> When using the `Recognize` API with **choices**:
+> - Only **up to 4 languages** are supported.
+> - Specifying more than 4 languages in choices mode may result in errors or degraded performance.
+
+### Sentiment Analysis (Preview)
+The Recognize API supports sentiment analysis when using speech input. Track the emotional tone of conversations in real time to support customer and agent interactions, and enable supervisors to intervene when necessary. It can also be useful for routing, personalization or analytics. 
+
+``` java
+String textToPlay = "Hi, how can I help you today?";
+var playSource = new TextSource()
+    .setText(textToPlay)
+    .setVoiceName("en-US-ElizabethNeural");
+
+var recognizeOptions = new CallMediaRecognizeSpeechOptions(participant, Duration.ofSeconds(15))
+    .setPlayPrompt(playSource)
+    .setInterruptPrompt(false)
+    .setInitialSilenceTimeout(Duration.ofSeconds(15))
+    .setSentimentAnalysisEnabled(true)
+    .setSpeechLanguages("en-US", "es-ES", "hi-IN")
+    .setOperationContext("SpeechContext");
+
+var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
+    .getCallMediaAsync()
+    .startRecognizingWithResponse(recognizeOptions)
+    .block();
+```
+
 ## Receiving recognize event updates
 
 Developers can subscribe to `RecognizeCompleted` and `RecognizeFailed` events on the registered webhook callback. Use this callback with business logic in your application to determine next steps when one of the events occurs. 
@@ -213,12 +276,22 @@ if (acsEvent instanceof RecognizeCompleted) {
     } else if (recognizeResult instanceof ChoiceResult) { 
         ChoiceResult collectChoiceResult = (ChoiceResult) recognizeResult; 
         String labelDetected = collectChoiceResult.getLabel(); 
-        String phraseDetected = collectChoiceResult.getRecognizedPhrase(); 
-        log.info("Recognition completed, labelDetected=" + labelDetected + ", phraseDetected=" + phraseDetected + ", context=" + event.getOperationContext()); 
+        String phraseDetected = collectChoiceResult.getRecognizedPhrase();
+        String languageIdentified = collectChoiceResult.getLanguageIdentified();
+        log.info("Recognition completed, labelDetected=" + labelDetected + ", phraseDetected=" + phraseDetected + ", context=" + event.getOperationContext());
+        log.info("Language Identified: " + languageIdentified);
+        if (choiceResult.getSentimentAnalysisResult() != null) {
+            log.info("Sentiment: " + choiceResult.getSentimentAnalysisResult().getSentiment());
+        }
     } else if (recognizeResult instanceof SpeechResult) { 
         SpeechResult speechResult = (SpeechResult) recognizeResult; 
-        String text = speechResult.getSpeech(); 
-        log.info("Recognition completed, text=" + text + ", context=" + event.getOperationContext()); 
+        String text = speechResult.getSpeech();
+        String languageIdentified = speechResult.getLanguageIdentified();
+        log.info("Recognition completed, text=" + text + ", context=" + event.getOperationContext());
+        log.info("Language Identified: " + languageIdentified);
+        if (speechResult.getSentimentAnalysisResult() != null) {
+            log.info("Sentiment: " + speechResult.getSentimentAnalysisResult().getSentiment());
+        }
     } else { 
         log.info("Recognition completed, result=" + recognizeResult + ", context=" + event.getOperationContext()); 
     } 

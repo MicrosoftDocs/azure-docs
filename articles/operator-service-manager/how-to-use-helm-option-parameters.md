@@ -1,8 +1,8 @@
 ---
 title: How to use Helm option parameters to prevent deletion on install failure in Azure Operator Service Manager
 description: Learn how to use Helm option parameters to prevent deletion on install failure in Azure Operator Service Manager
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 03/21/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager

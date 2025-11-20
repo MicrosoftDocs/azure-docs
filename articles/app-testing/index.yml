@@ -1,0 +1,178 @@
+### YamlMime:Landing
+
+title: Azure App Testing documentation
+summary: Improve your app performance at scale. Run end-to-end Playwright tests, or run automated load tests on the cloud using JMeter or Locust scripts with Azure App Testing.
+
+metadata:
+  title: Azure App Testing documentation
+  description: Improve your app performance at scale. Run end-to-end Playwright tests, or run automated load tests on the cloud using JMeter or Locust scripts with Azure App Testing.
+  ms.service: azure-app-testing
+  ms.topic: landing-page
+  ms.author: ninallam
+  author: ninallam
+  ms.date: 07/24/2025
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure App Testing
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure App Testing?
+            url: overview-what-is-azure-app-testing.md
+
+  # Card
+  - title: Azure Load Testing
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Load Testing?
+            url: load-testing/overview-what-is-azure-load-testing.md
+          - text: Key concepts
+            url: load-testing/concept-load-testing-concepts.md
+      - linkListType: quickstart
+        links:
+          - text: Create a URL-based load test
+            url: load-testing/quickstart-create-and-run-load-test.md
+          - text: Create a load test with a JMeter script
+            url: load-testing/how-to-create-and-run-load-test-with-JMeter-script.md
+          - text: Create a load test with a Locust script
+            url: load-testing/quickstart-create-run-load-test-with-locust.md
+          - text: Automate load tests with Azure Pipelines
+            url: load-testing/quickstart-add-load-test-cicd.md
+
+  # Card
+  - title: Playwright Workspaces
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Playwright Workspaces?
+            url: playwright-workspaces/overview-what-is-microsoft-playwright-workspaces.md
+          - text: Try Playwright Workspaces for free
+            url: playwright-workspaces/how-to-try-playwright-workspaces-free.md
+      - linkListType: quickstart
+        links:
+          - text: Run end-to-end tests at scale
+            url: playwright-workspaces/quickstart-run-end-to-end-tests.md
+          - text: Set up continuous end-to-end testing
+            url: playwright-workspaces/quickstart-automate-end-to-end-testing.md
+
+  # Card
+  - title: Load testing scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load test Azure App Service apps
+            url: load-testing/concept-load-test-app-service.md
+          - text: Scenarios for VNET deployment
+            url: load-testing/concept-azure-load-testing-vnet-injection.md
+      - linkListType: how-to-guide
+        links:
+          - text: Test App Service web apps
+            url: load-testing/how-to-create-load-test-app-service.md
+          - text: Test Azure Functions
+            url: load-testing/how-to-create-load-test-function-app.md
+          - text: Test private endpoints
+            url: load-testing/how-to-test-private-endpoint.md
+          - text: Test secure endpoints
+            url: load-testing/how-to-test-secured-endpoints.md
+
+  # Card
+  - title: Configure load tests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Add HTTP requests to URL-based tests
+            url: load-testing/how-to-add-requests-to-url-based-test.md
+          - text: Configure for high scale loads
+            url: load-testing/how-to-high-scale-load.md
+          - text: Parameterize load tests
+            url: load-testing/how-to-parameterize-load-tests.md
+          - text: Define test fail criteria
+            url: load-testing/how-to-define-test-criteria.md
+          - text: Read data from a CSV file
+            url: load-testing/how-to-read-csv-data.md
+          - text: Use JMeter plugins
+            url: load-testing/how-to-use-jmeter-plugins.md
+
+  # Card
+  - title: Configure end-to-end tests
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Determine optimal test suite configuration
+            url: playwright-workspaces/concept-determine-optimal-configuration.md
+      - linkListType: how-to-guide
+        links:
+          - text: Optimize regional latency
+            url: playwright-workspaces/how-to-optimize-regional-latency.md
+          - text: Run tests for local and private apps
+            url: playwright-workspaces/how-to-test-local-applications.md
+          - text: Configure visual comparisons
+            url: playwright-workspaces/how-to-configure-visual-comparisons.md
+          - text: Manage authentication
+            url: playwright-workspaces/how-to-manage-authentication.md
+
+  # Card
+  - title: Analyze load test results
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Compare load test runs
+            url: load-testing/how-to-compare-multiple-test-runs.md
+          - text: Analyze results using AI insights
+            url: load-testing/how-to-analyze-test-results-using-actionable-insights.md
+          - text: Configure server-side monitoring
+            url: load-testing/how-to-monitor-server-side-metrics.md
+          - text: Export test results
+            url: load-testing/how-to-export-test-results.md
+          - text: Diagnose failing load tests
+            url: load-testing/how-to-diagnose-failing-load-test.md
+      - linkListType: tutorial
+        links:
+          - text: Identify performance bottlenecks
+            url: load-testing/tutorial-identify-bottlenecks-azure-portal.md
+
+  # Card
+  - title: Automation & CI/CD
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Run load tests in CI/CD
+            url: load-testing/how-to-configure-load-test-cicd.md
+          - text: Set up continuous end-to-end testing
+            url: playwright-workspaces/quickstart-automate-end-to-end-testing.md
+          - text: Create and run load tests from Visual Studio Code
+            url: load-testing/quickstart-create-run-load-tests-from-visual-studio-code.md
+
+  # Card
+  - title: Security & access management
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage users and roles (Load Testing)
+            url: load-testing/how-to-assign-roles.md
+          - text: Use a managed identity
+            url: load-testing/how-to-use-a-managed-identity.md
+          - text: Manage workspace access (Playwright)
+            url: playwright-workspaces/how-to-manage-workspace-access.md
+          - text: Manage access tokens (Playwright)
+            url: playwright-workspaces/how-to-manage-access-tokens.md
+
+  # Card
+  - title: Manage resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create & manage load tests
+            url: load-testing/how-to-create-manage-test.md
+          - text: Manage Playwright workspaces
+            url: playwright-workspaces/how-to-manage-playwright-workspace.md
+          - text: Monitor Azure Load Testing
+            url: load-testing/monitor-load-testing.md
+          - text: Move resources between regions
+            url: load-testing/how-to-move-between-regions.md
+
+

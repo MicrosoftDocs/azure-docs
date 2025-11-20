@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 05/28/2025
+ms.date: 08/08/2025
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -22,18 +22,20 @@ To set up the app registration automatically, follow these steps:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left-hand menu, select **API Center portal** > **Settings**.
 1. On the **Identity provider** tab, select **Start set up**.
-1. Select **Save + publish**.
+1. On the **Quick setup** tab, select **Save + publish**.
+
+If you need to access the app registration later, you can find it in the portal under **App registrations**. The application is named with the following format: **\<api-center-name>-apic-aad**. 
 
 #### Set up the app registration manually
 
 If you want to create the app registration manually, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **Microsoft Entra ID** > **App registrations**.
+1. In the [Azure portal](https://portal.azure.com), navigate to **Microsoft Entra ID** > **Manage** > **App registrations**.
 1. Select **+ New registration**. 
 1. On the **Register an application** page, set the values as follows:
     
     1. Set **Name** to a meaningful name such as *api-center-portal*
-    1. Under **Supported account types**, select **Accounts in this organizational directory (Single tenant)**. 
+    1. Under **Supported account types**, select **Accounts in this organizational directory only (\<Directory name> - Single tenant)**. 
     1. In **Redirect URI**, select **Single-page application (SPA)** and set the URI. 
         Enter the URI of your API Center portal deployment, in the following form: `https://<service-name>.portal.<location>.azure-apicenter.ms`. Replace `<service name>` and `<location>` with the name of your API center and the location where it's deployed, Example: `https://myapicenter.portal.eastus.azure-apicenter.ms`.
     1. Select **Register**.

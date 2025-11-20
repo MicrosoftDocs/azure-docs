@@ -736,7 +736,7 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 3.5 runtime (Public Preview)
+        - name: Azure Synapse Apache Spark 3.5 runtime (GA)
           href: ./spark/apache-spark-35-runtime.md          
         - name: Azure Synapse Apache Spark 3.4 runtime (EOSA)
           href: ./spark/apache-spark-34-runtime.md
@@ -1406,8 +1406,6 @@ items:
         href: monitoring/how-to-monitor-pipeline-runs.md
       - name: Send email from a pipeline
         href: ../data-factory/how-to-send-email.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Send Microsoft Teams notifications from a pipeline
-        href: ../data-factory/how-to-send-notifications-to-teams.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Create integration runtime
       items:
       - name: Azure integration runtime

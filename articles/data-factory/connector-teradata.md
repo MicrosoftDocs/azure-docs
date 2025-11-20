@@ -4,10 +4,13 @@ description: The Teradata Connector in Azure Data Factory and Synapse Analytics 
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/06/2025
+ms.date: 08/05/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from Teradata Vantage using Azure Data Factory and Synapse Analytics
@@ -17,7 +20,7 @@ ms.author: jianleishen
 This article outlines how to use the copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Teradata Vantage. It builds on the [copy activity overview](copy-activity-overview.md).
 
 > [!IMPORTANT]
-> The Teradata connector version 2.0 provides improved native Teradata support. If you are using Teradata connector version 1.0 in your solution, please [upgrade the Teradata connector](#upgrade-the-teradata-connector) before **September 30, 2025**. Refer to this [section](#differences-between-teradata-connector-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Teradata connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Teradata connector](#upgrade-the-teradata-connector) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -34,7 +37,8 @@ For a list of data stores that are supported as sources/sinks by the copy activi
 
 Specifically, this Teradata connector supports:
 
-- Teradata **version 14.10, 15.0, 15.10, 16.0, 16.10, and 16.20**.
+- Teradata Vantage Versions **17.0, 17.10, 17.20 and 20.0** for version 2.0.
+- Teradata Vantage Versions **14.10, 15.0, 15.10, 16.0, 16.10, and 16.20** for version 1.0.
 - Copying data by using **Basic**, **Windows**, or **LDAP** authentication.
 - Parallel copying from a Teradata source. See the [Parallel copy from Teradata](#parallel-copy-from-teradata) section for details.
 
@@ -44,7 +48,8 @@ Specifically, this Teradata connector supports:
 
 ### For version 2.0
 
- You need to [install .NET Data Provider](https://downloads.teradata.com/download/connectivity/net-data-provider-teradata) with version 20.00.03.00 or above on your self-hosted integration runtime if you use it.
+ You need to [install .NET Data Provider](https://downloads.teradata.com/download/connectivity/net-data-provider-teradata) with version 20.00.03.00 or above on the machine running the self-hosted integration runtime with a version under 5.56.9318.1. Manual installation of the Teradata driver is not required when using self-hosted integration runtime version 5.56.9318.1 or above, as these versions provide a built-in driver.
+
 ### For version 1.0
 
 If you use Self-hosted Integration Runtime, note it provides a built-in Teradata driver starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).

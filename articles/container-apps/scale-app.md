@@ -63,6 +63,9 @@ Three categories of triggers determine how scaling occurs:
 
 If you define more than one scale rule, the container app begins to scale once the first condition of any rules is met.
 
+> [!NOTE]
+> If you're using [Functions on Container Apps](../container-apps/functions-overview.md) , scale rules are automatically configured based on the function triggers and bindings. As a result, the “Add scale rules” button in the Azure portal will be disabled for these apps. Manual scale rule configuration is not required or supported in this scenario.
+
 ## HTTP
 
 With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. Every 15 seconds, the number of concurrent requests is calculated as the number of requests in the past 15 seconds divided by 15. [Container Apps jobs](jobs.md) don't support HTTP scaling rules.
@@ -318,6 +321,9 @@ You can create a custom Container Apps scaling rule based on any [ScaledObject](
 |--|--|
 | Polling interval | 30 |
 | Cool down period | 300 |
+
+> [!NOTE]
+> Cool down period only takes effect when scaling in from the final replica to 0. The cool down period does not affect scaling as any other replicas are removed. 
 
 For [event-driven Container Apps jobs](jobs.md#event-driven-jobs), you can create a custom scaling rule based on any [ScaledJob](https://keda.sh/docs/latest/concepts/scaling-jobs/)-based KEDA scalers.
 
@@ -1109,7 +1115,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 | HTTP | 0 | 10 |
 
 > [!IMPORTANT]
-> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app scales to zero and have no way of starting back up.
+> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app scales to zero and has no way of starting back up.
 
 ## Scale behavior
 

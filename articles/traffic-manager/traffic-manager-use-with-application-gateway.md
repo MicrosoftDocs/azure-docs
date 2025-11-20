@@ -7,7 +7,9 @@ ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 07/17/2024
 ms.author: allensu
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to integrate Azure Traffic Manager with Azure Application Gateway so that I can enhance application performance, availability, and security while efficiently managing traffic across multiple regions."
 ---
 

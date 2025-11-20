@@ -2,7 +2,7 @@
 title: Monitor and operate backups and disaster recovery using Backup center
 description: This article explains how to monitor and operate backups and disaster recovery at-scale using Backup center.
 ms.topic: how-to
-ms.date: 12/24/2024
+ms.date: 08/22/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

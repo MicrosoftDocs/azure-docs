@@ -23,7 +23,7 @@ The App Configuration provider for Go simplifies the effort of applying key-valu
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Go 1.21 or later. [Install Go](https://golang.org/doc/install).
 
@@ -61,107 +61,107 @@ Add the following key-values to the App Configuration store. For more informatio
 
 4. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
-### [Microsoft Entra ID (recommended)](#tab/entra-id)
+	### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-```golang
-package main
+	```golang
+	package main
 
-import (
-	"context"
-	"log"
-	"os"
+	import (
+		"context"
+		"log"
+		"os"
 
-	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-)
+		"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+		"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	)
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
-	// Get the endpoint from environment variable
-	endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
-	if endpoint == "" {
-		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
-	}
+	func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+		// Get the endpoint from environment variable
+		endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
+		if endpoint == "" {
+			log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
+		}
 
-	// Create a credential using DefaultAzureCredential
-	credential, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		log.Fatalf("Failed to create credential: %v", err)
-	}
+		// Create a credential using DefaultAzureCredential
+		credential, err := azidentity.NewDefaultAzureCredential(nil)
+		if err != nil {
+			log.Fatalf("Failed to create credential: %v", err)
+		}
 
-	// Set up authentication options with endpoint and credential
-	authOptions := azureappconfiguration.AuthenticationOptions{
-		Endpoint:   endpoint,
-		Credential: credential,
-	}
+		// Set up authentication options with endpoint and credential
+		authOptions := azureappconfiguration.AuthenticationOptions{
+			Endpoint:   endpoint,
+			Credential: credential,
+		}
 
-	// Configure which keys to load and trimming options
-	options := &azureappconfiguration.Options{
-		Selectors: []azureappconfiguration.Selector{
-			{
-				KeyFilter:   "Config.*",
-				LabelFilter: "",
+		// Configure which keys to load and trimming options
+		options := &azureappconfiguration.Options{
+			Selectors: []azureappconfiguration.Selector{
+				{
+					KeyFilter:   "Config.*",
+					LabelFilter: "",
+				},
 			},
-		},
-		TrimKeyPrefixes: []string{"Config."},
+			TrimKeyPrefixes: []string{"Config."},
+		}
+
+		// Load configuration from Azure App Configuration
+		appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+		if err != nil {
+			log.Fatalf("Failed to load configuration: %v", err)
+		}
+
+		return appConfig, nil
 	}
+	```
 
-	// Load configuration from Azure App Configuration
-	appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-	if err != nil {
-		log.Fatalf("Failed to load configuration: %v", err)
-	}
+	### [Connection string](#tab/connection-string)
 
-	return appConfig, nil
-}
-```
+	```golang
+	package main
 
-### [Connection string](#tab/connection-string)
+	import (
+		"context"
+		"log"
+		"os"
 
-```golang
-package main
+		"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+	)
 
-import (
-	"context"
-	"log"
-	"os"
+	func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+		// Get the connection string from environment variable
+		connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
+		if connectionString == "" {
+			log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
+		}
 
-	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-)
+		// Set up authentication options with connection string
+		authOptions := azureappconfiguration.AuthenticationOptions{
+			ConnectionString: connectionString,
+		}
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
-	// Get the connection string from environment variable
-	connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
-	if connectionString == "" {
-		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
-	}
-
-	// Set up authentication options with connection string
-	authOptions := azureappconfiguration.AuthenticationOptions{
-		ConnectionString: connectionString,
-	}
-
-	// Configure which keys to load and trimming options
-	options := &azureappconfiguration.Options{
-		Selectors: []azureappconfiguration.Selector{
-			{
-				KeyFilter:   "Config.*",
-				LabelFilter: "",
+		// Configure which keys to load and trimming options
+		options := &azureappconfiguration.Options{
+			Selectors: []azureappconfiguration.Selector{
+				{
+					KeyFilter:   "Config.*",
+					LabelFilter: "",
+				},
 			},
-		},
-		TrimKeyPrefixes: []string{"Config."},
+			TrimKeyPrefixes: []string{"Config."},
+		}
+
+		// Load configuration from Azure App Configuration
+		appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+		if err != nil {
+			log.Fatalf("Failed to load configuration: %v", err)
+		}
+
+		return appConfig, nil
 	}
+	```
 
-	// Load configuration from Azure App Configuration
-	appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-	if err != nil {
-		log.Fatalf("Failed to load configuration: %v", err)
-	}
-
-	return appConfig, nil
-}
-```
-
----
+	---
 
 ## Unmarshal
 

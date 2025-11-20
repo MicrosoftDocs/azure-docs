@@ -8,7 +8,13 @@ ms.author: allensu
 ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: azure-dns
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - devx-track-azurepowershell
+  - subject-armqs
+  - mode-arm
+  - devx-track-azurecli
+  - devx-track-bicep
+  - sfi-image-nochange
 #Customer intent: As an administrator or developer, I want to learn how to create Azure DNS Private Resolver using Bicep so I can use Azure DNS Private Resolver as forwarder.
 # Customer intent: "As a network administrator, I want to create an Azure DNS Private Resolver using Bicep so that I can manage DNS resolutions for both Azure and on-premises domains efficiently."
 ---
@@ -25,7 +31,7 @@ The following figure summarizes the general setup used. Subnet address ranges us
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

@@ -2,7 +2,6 @@
 title: Import and Export data in Azure Managed Redis
 description: Learn how to import and export data to and from blob storage with your Azure Managed Redis instances
 ms.date: 05/18/2025
-ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
@@ -185,7 +184,8 @@ You can import and export data from a storage account in a different subscriptio
 
 ### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?
 
-In order for export to an Azure storage account to work successfully, the [shared access signature (SAS) token](/azure/storage/common/storage-sas-overview) must have the following permissions:
+To export to an Azure storage account to work successfully, the [shared access signature (SAS) token](/azure/storage/common/storage-sas-overview) must have the following permissions:
+
 - `read`
 - `add`
 - `create`
@@ -193,6 +193,15 @@ In order for export to an Azure storage account to work successfully, the [share
 - `delete`
 - `tag`
 - `move`
+
+### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow import?
+
+For successful import operations, the shared access signature (SAS) token for the storage container has the following permissions:
+
+- `read`
+- `add`
+- `create`
+- `list`
 
 ## Related content
 

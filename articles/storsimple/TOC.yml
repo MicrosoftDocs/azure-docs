@@ -1,8 +1,0 @@
-- name: StorSimple documentation
-  href: index.yml
-- name: StorSimple 8000 Series
-  items:
-  - name: Overview
-    items:
-    - name: What is the solution?
-      href: storsimple-overview.md

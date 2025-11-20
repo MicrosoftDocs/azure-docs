@@ -1,19 +1,24 @@
 ---
-title: 'Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service'
+title: 'Deploy a .NET Blazor App Connected to Azure SQL and Azure OpenAI on Azure App Service'
 description: Get started connecting Azure SQL to your OpenAI app
 author: jeffwmartinez
 ms.author: jefmarti
 ms.date: 04/17/2025
 ms.update-cycle: 180-days
-ms.topic: article
+ms.topic: tutorial
 ms.custom:
   - devx-track-dotnet
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
+
+# Customer intent: As a developer, I want to deploy a .NET Blazor app that's connected to Azure SQL and Azure OpenAI on Azure App Service. 
+
+
 ---
 
-# Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service
+# Tutorial: Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service
 
 When creating intelligent apps, you may want to ground the context of your app using your own SQL data. With the recent announcement of [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can ground the context using the Azure SQL data you already have with new [vector functions](/sql/t-sql/functions/vector-functions-transact-sql) that help manage vector data. 
 
@@ -149,7 +154,7 @@ To perform a hybrid vector search on your Azure SQL database, you first need to 
 
 With [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can create a stored procedure that will use a Vector data type to store generated embeddings for search queries. The stored procedure invokes an external REST API endpoint to get the embeddings. See the [documentation](/azure-data-studio/quickstart-sql-database) to use Azure Data Studio to connect to your database before running the query. 
 
-- Use the following to create a stored procedure with your preferred SQL query editor. You need to populate the @url parameter with your Azure OpenAI resource name and populate the rest endpoint with the API key from your text embedding model. You'll notice the model name as part of the @url, which will be populated with your search query.
+Use the following to create a stored procedure with your preferred SQL query editor. You need to populate the @url parameter with your Azure OpenAI resource name and populate the rest endpoint with the API key from your text embedding model. You'll notice the model name as part of the @url, which will be populated with your search query.
 
 ```sql
 CREATE PROCEDURE [dbo].[GET_EMBEDDINGS]

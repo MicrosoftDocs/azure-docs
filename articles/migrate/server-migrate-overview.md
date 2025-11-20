@@ -1,60 +1,77 @@
 ---
-title: Select a VMware migration option with the Migration and modernization tool
-description: Provides an overview of options for migrating VMware VMs to Azure with the Migration and modernization tool
+title: Agentless and Agent-based Migration Methods in Azure Migrate
+description: Learn agentless and agent-based migration methods for VMware, Hyper-V, and cloud platforms. Choose the right approach for seamless Azure migration.
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23
 # Customer intent: As an IT administrator, I want to select a VMware migration option using the Migration and modernization tool, so that I can effectively migrate my VMware VMs to Azure while considering the best method for my environment.
 ---
 
+# Agentless and Agent-based migration methods 
 
-# Select a VMware migration option
+This article provides migration methods across major fabrics and provides guidance for choosing between **Agentless** and **Agent-based** approaches.
 
-You can migrate VMware VMs to Azure using the Migration and modernization tool. This tool offers a couple of options for VMware VM migration:
+Comparing migration methods 
 
-- Migration using agentless replication. Migrate VMs without needing to install anything on them.
-- Migration with an agent for replication. Install an agent on the VM for replication.
-
-
-
-## Compare migration methods
-
-Use these selected comparisons to help you decide which method to use. You can also review full support requirements for [agentless](migrate-support-matrix-vmware-migration.md#agentless-migration) and [agent-based](migrate-support-matrix-vmware-migration.md#agent-based-migration) migration.
-
-**Setting** | **Agentless** | **Agent-based**
---- | --- | ---
-**Azure permissions** | You need permissions to create an Azure Migrate project, and to register Microsoft Entra apps created when you deploy the Azure Migrate appliance. | You need Contributor permissions on the Azure subscription. 
-**Replication** | You can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance. In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.| Replication capacity increases by scaling the replication appliance.
-**Appliance deployment** | The [Azure Migrate appliance](migrate-appliance.md) is deployed on-premises. | The [Azure Migrate Replication appliance](migrate-replication-appliance.md) is deployed on-premises.
-**Site Recovery compatibility** | Compatible. | You can't replicate with the Migration and modernization tool if you've set up replication for a machine using Site Recovery.
-**Target disk** | Managed disks | Managed disks
-**Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 63
-**Passthrough disks** | Not supported | Supported
-**UEFI boot** | Supported. | Supported. 
-**Connectivity** | Public internet <br/> ExpressRoute with Private peering <br/> ExpressRoute with Microsoft peering <br/> Site-to-site VPN |Public internet <br/> ExpressRoute with Private peering <br/> ExpressRoute with Microsoft peering <br/> Site-to-site VPN
-
-## Compare deployment steps
-
-After reviewing the limitations, understanding the steps involved in deploying each solution might help you decide which option to choose.
-
-**Task** | **Details** |**Agentless** | **Agent-based**
---- | --- | --- | ---
-**Deploy the Azure Migrate appliance** | A lightweight appliance that runs on a VMware VM.<br/><br/> The appliance is used to discover and assess machines, and to migrate machines using agentless migration. | Required.<br/><br/> If you've already set up the appliance for assessment,  you can use the same appliance for agentless migration. | Not required.<br/><br/> If you've set up an appliance for assessment, you can leave it in place, or remove it if you're done with assessment.
-**Use the Server Assessment tool** | Assess machines with the Azure Migrate: Server Assessment tool. | Assessment is optional. | Assessment is optional.
-**Use the Migration tool** | Add the Migration and modernization tool in the Azure Migrate project. | Required | Required
-**Prepare VMware for migration** | Configure settings on VMware servers and VMs. | Required | Required
-**Install the Mobility service on VMs** | Mobility service runs on each VM you want to replicate | Not required | Required
-**Deploy the replication appliance** | The [replication appliance](migrate-replication-appliance.md) is used for agent-based migration. It connects between the Mobility service running on VMs, and the Migration and modernization tool. | Not required | Required
-**Replicate VMs**. Enable VM replication. | Configure replication settings and select VMs to replicate | Required | Required
-**Run a test migration** | Run a test migration to make sure everything's working as expected. | Required | Required
-**Run a full migration** | Migrate the VMs. | Required | Required
+| **Fabric** |  **Recommended method**  | **Alternate method(s)**|
+| --- | --- | --- |
+| VMware vSphere  | Use **Agentless** replication with the Azure Migrate appliance. This method doesn’t require in-guest agents and is recommended for most VMware scenarios.    | Use **Agent-based** replication with the Replication appliance and the Mobility service agent (one agent per VM). Choose this method when agentless prerequisites or limits aren’t met.   | 
+| Hyper-V  | Use **Agentless** replication. Providers run on Hyper-V hosts or cluster nodes, so no installation is required inside individual VMs.   | Use **Agent-based** replication (treat the VM as a physical server) when host access isn’t available or agentless requirements can’t be met    | 
+| **Physical & other platforms** (AWS/GCP VMs, Xen, KVM, private clouds)  | Use **Agent-based** replication with the Replication appliance and the Mobility service agent (one agent per VM). This method is recommended for non-VMware and non-Hyper-V sources  |  | 
 
 
+## Criteria for selecting Agent-based migration
+
+Choose agent-based migration when one or more of the following conditions apply:
+
+- **Agentless prerequisites aren’t met**: For example, VMware snapshots or Changed Block Tracking (CBT) are unavailable, vCenter API access is restricted, or snapshots must be avoided. Agentless replication depends on vSphere snapshots and CBT.
+
+- **Guest operating system isn’t supported by agentless hydration**: This includes older or uncommon OS or kernel versions. Agent-based replication supports a broader range of operating systems.
+
+- **Disk or boot configurations require agent-based support**: Certain passthrough disk scenarios are supported only with agent-based replication.
+
+- **The source isn’t VMware or Hyper-V**: This includes physical servers, bare-metal servers, other hypervisors, or servers hosted on public cloud platforms such as AWS or GCP.
+
+## Migrating VMware vSphere servers 
+
+Migrating VMware vSphere servers refers to the process of moving virtual machines (VMs) hosted on VMware vSphere infrastructure to Microsoft Azure using the Azure Migrate: Migration and Modernization tool.
+
+### Available migration methods
+
+**Agentless (recommended)**: Use agentless replication with the Azure Migrate appliance to perform discovery, replication (using snapshots based on Changed Block Tracking), test migration, and final migration. This method doesn’t require installing agents inside guest operating systems. An automated hydration process prepares supported operating systems for successful boot in Azure. For more information, see [Migrate VMware vSphere servers](tutorial-migrate-vmware.md). 
+
+**Agent-based**: Use agent-based replication with the Replication appliance and the Mobility service agent (installed per virtual machine) to enable replication and migration.
+For more information, see [migrate VMware physical](tutorial-migrate-vmware.md)
+
+## Migrating Hyper-V servers 
+
+Migrating Hyper-V servers refers to the process of moving virtual machines (VMs) hosted on Hyper-V infrastructure to Microsoft Azure, typically using the Azure Migrate: Migration and Modernization tool. This process supports both agentless and agent-based migration methods depending on the environment and requirements.
+
+### Available migration methods
+
+**Agentless**: Install the Azure Site Recovery provider and Recovery Services agent directly on Hyper-V hosts or cluster nodes. No agents are required inside the virtual machines.
+
+**Agent-based**: Use this method when host-level protection or connectivity requirements aren’t met. Treat the virtual machines as physical machines and install the Mobility service agent inside each VM to enable replication and migration.
+
+Learn more about [Migrating Hyper-V servers](tutorial-migrate-hyper-v.md).
+ 
+## Migrating Physical and Cloud-based Servers (AWS, GCP, Xen, KVM)
+
+Migrating physical servers and non-traditional platforms (such as AWS, GCP, Xen, KVM, and private clouds) to Microsoft Azure involves treating these machines as physical servers and using agent-based replication via the Azure Migrate: Migration and Modernization tool.
+
+### Available migration methods
+
+**Agent-based**: Deploy the Replication appliance and install the Mobility service agent on each virtual machine to enable replication and migration. Use this method for VMware or Hyper-V workloads that don’t meet the requirements for agentless migration.
+
+Learn more about [Migrating Physical and Cloud-based Servers (AWS, GCP, Xen, KVM)](tutorial-migrate-physical-virtual-machines.md).
 
 ## Next steps
 
-[Migrate VMware VMs](tutorial-migrate-vmware.md) with agentless migration.
+- Learn more about [architecture overview for VMware Agentless migration](concepts-vmware-agentless-migration.md).
+- Learn more about [architecture overview for Hyper-V migration](hyper-v-migration-architecture.md).
+- Learn more about [architecture overview for Agent-based (physical or other) migration](../site-recovery/vmware-azure-architecture-modernized.md).

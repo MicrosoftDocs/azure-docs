@@ -5,13 +5,11 @@ author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 08/12/2025
 ms.author: kesheth
 ---
 
 # Configure settings for $convert-data by using the Azure portal
-
-[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
 
 This article illustrates how to configure settings for `$convert-data` using the Azure portal to convert health data into [FHIR&reg; R4](https://www.hl7.org/fhir/R4/index.html).
 
@@ -157,7 +155,7 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 7. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.yml).
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](/azure/role-based-access-control/role-assignments-portal).
 
 ### Step 5: Register the Azure Container Registry server in the FHIR service
 

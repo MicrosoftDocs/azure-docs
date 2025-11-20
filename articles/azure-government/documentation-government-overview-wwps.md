@@ -507,13 +507,13 @@ When deploying applications that are subject to regulatory compliance obligation
 
 **Azure Policy regulatory compliance built-in initiatives** map to compliance domains and controls in key standards, including:
 
-- [Australian Government ISM PROTECTED](../governance/policy/samples/australia-ism.md)
-- [Canada Federal PBMM](../governance/policy/samples/canada-federal-pbmm.md)
-- [ISO/IEC 27001](../governance/policy/samples/iso-27001.md)
-- [US Government FedRAMP High](../governance/policy/samples/fedramp-high.md)
+- [Australian Government ISM PROTECTED](/azure/governance/policy/samples/australia-ism)
+- [Canada Federal PBMM](/azure/governance/policy/samples/canada-federal-pbmm)
+- [ISO/IEC 27001](/azure/governance/policy/samples/iso-27001)
+- [US Government FedRAMP High](/azure/governance/policy/samples/fedramp-high)
 - And others
 
-For more regulatory compliance built-in initiatives, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
+For more regulatory compliance built-in initiatives, see [Azure Policy samples](/azure/governance/policy/samples/index#regulatory-compliance).
 
 Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility – customer, Microsoft, or shared. For Microsoft-responsible controls, we provide extra audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
 
@@ -559,7 +559,7 @@ This section addresses common customer questions related to Azure public, privat
 
 ### Transparency and audit
 
-- **Audit documentation:** Does Microsoft make all audit documentation readily available to customers to download and examine? **Answer:** Yes, Microsoft makes independent third-party audit reports and other related documentation available for download under a non-disclosure agreement from the Azure portal. You'll need an existing Azure subscription or [free trial subscription](https://azure.microsoft.com/free/) to access the Microsoft Defender for Cloud [audit reports blade](https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade). Extra compliance documentation is available from the Service Trust Portal (STP) [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3) section. You must log in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](/microsoft-365/compliance/get-started-with-service-trust-portal).
+- **Audit documentation:** Does Microsoft make all audit documentation readily available to customers to download and examine? **Answer:** Yes, Microsoft makes independent third-party audit reports and other related documentation available for download under a non-disclosure agreement from the Azure portal. You'll need an existing Azure subscription or [free trial subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) to access the Microsoft Defender for Cloud [audit reports blade](https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade). Extra compliance documentation is available from the Service Trust Portal (STP) [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3) section. You must log in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](/microsoft-365/compliance/get-started-with-service-trust-portal).
 - **Process auditability:** Does Microsoft make its processes, data flow, and documentation available to customers or regulators for audit? **Answer:** Microsoft offers a Regulator Right to Examine, which is a program Microsoft implemented to provide regulators with direct right to examine Azure, including the ability to conduct an on-site examination, to meet with Microsoft personnel and Microsoft external auditors, and to access any related information, records, reports, and documents.
 - **Service documentation:** Can Microsoft provide in-depth documentation covering service architecture, software and hardware components, and data protocols? **Answer:** Yes, Microsoft provides extensive and in-depth Azure online documentation covering all these topics. For example, you can review documentation on Azure [products](../index.yml), [global infrastructure](https://azure.microsoft.com/global-infrastructure/), and [API reference](/rest/api/azure/).
 
@@ -573,4 +573,4 @@ Learn more about:
 - [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
 - [Azure for government - worldwide government](https://azure.microsoft.com/industries/government/)
 - [Enabling data residency and data protection in Microsoft Azure regions](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)
-- [Azure Policy regulatory compliance samples](../governance/policy/samples/index.md)
+- [Azure Policy regulatory compliance samples](/azure/governance/policy/samples/index)

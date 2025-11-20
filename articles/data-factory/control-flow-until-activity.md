@@ -8,7 +8,10 @@ ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 03/20/2025
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom:
+  - devx-track-azurepowershell
+  - synapse
+  - sfi-ropc-nochange
 ---
 
 # Until activity in Azure Data Factory and Synapse Analytics

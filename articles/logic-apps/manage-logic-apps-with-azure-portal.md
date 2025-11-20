@@ -5,8 +5,10 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 03/17/2025
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Edit and manage logic app workflows in the Azure portal
@@ -17,7 +19,7 @@ This guide shows how to manage Consumption or Standard logic app workflows using
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An existing Consumption or Standard logic app workflow
 

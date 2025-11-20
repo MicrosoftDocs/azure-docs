@@ -11,11 +11,12 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Express.js)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Node.js application and deploying it to Azure App Service. You'll create an Express app with a view and a controller that sends chat completion requests to a model in Azure OpneAI.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Node.js application and deploying it to Azure App Service. You'll create an Express app with a view and a controller that sends chat completion requests to a model in Azure OpenAI.
 
 :::image type="content" source="media/tutorial-ai-openai-chatbot-nodejs/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
 
 ## 1. Create an Azure OpenAI resource
@@ -48,15 +49,15 @@ In this tutorial, you learn how to:
 
     You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select **Open in browser** to launch the app in a new browser tab.
 
-2. Back in the Codespace terminal, stop the app with Ctrl+C.
+1. Back in the Codespace terminal, stop the app with Ctrl+C.
 
-3. Install the NPM dependencies for working with Azure OpenAI:
+1. Install the NPM dependencies for working with Azure OpenAI:
 
     ```bash
     npm install openai @azure/openai @azure/identity
     ```
     
-4. Open *views/index.ejs* and replace it with the following code, for a simple chat interface.
+1. Open *views/index.ejs* and replace it with the following code, for a simple chat interface.
 
     ```html
     <!DOCTYPE html>
@@ -87,7 +88,7 @@ In this tutorial, you learn how to:
     </html>
     ```
     
-5. Open routes/index.js and replace its content with the following code, for a simple chat completion call with Azure OpenAI:
+1. Open routes/index.js and replace its content with the following code, for a simple chat completion call with Azure OpenAI:
 
     ```javascript
     var express = require('express');
@@ -135,7 +136,7 @@ In this tutorial, you learn how to:
     module.exports = router;
     ```
     
-6. In the terminal, retrieve your OpenAI endpoint:
+1. In the terminal, retrieve your OpenAI endpoint:
 
     ```bash
     az cognitiveservices account show \
@@ -145,13 +146,13 @@ In this tutorial, you learn how to:
       --output tsv
     ```
 
-7. Run the app again by adding `AZURE_OPENAI_ENDPOINT` with its value from the CLI output:
+1. Run the app again by adding `AZURE_OPENAI_ENDPOINT` with its value from the CLI output:
 
    ```bash
    AZURE_OPENAI_ENDPOINT=<output-from-previous-cli-command> npm start
    ```
 
-8. Select **Open in browser** to launch the app in a new browser tab. Submit a question and see if you get a response message.
+1. Select **Open in browser** to launch the app in a new browser tab. Submit a question and see if you get a response message.
 
 ## 3. Deploy to Azure App Service and configure OpenAI connection
 
@@ -172,7 +173,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
 
    This command might take a few minutes to complete. It creates a new web app in the same resource group as your OpenAI resource.
 
-2. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
+1. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
 
     ```azurecli
     az webapp connection create cognitiveservices \
@@ -190,13 +191,13 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     - Adding the Cognitive Services OpenAI Contributor role to the managed identity for the Azure OpenAI resource.
     - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
 
-3. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
+1. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
 
     ```azurecli
     az webapp browse
     ```    
 
-4. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
+1. Type a message in the textbox and select **Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
 
     :::image type="content" source="media/tutorial-ai-openai-chatbot-nodejs/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 

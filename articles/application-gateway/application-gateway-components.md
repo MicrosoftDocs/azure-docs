@@ -44,8 +44,8 @@ A port is where a listener listens for the client request. You can configure por
 
 | SKU | Supported port range | Exception(s) |
 | ---------- | ---------- | ---------- |
-| V2 | 1 to 64999 | 22, 53 |
-| V1 | 1 to 65502 | 3389 |
+| V2 | 1 to 64999 | Use of port 22 is not supported with for [Private Link-enabled gateways](private-link.md). Port 53 |
+| V1 | 1 to 65502 | Port 3389 |
 
 ### Protocols
 

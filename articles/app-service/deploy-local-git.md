@@ -7,6 +7,7 @@ ms.reviewer: dariac
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 # Deploy to Azure App Service by using local Git
 
@@ -52,7 +53,7 @@ You can create and configure a Git-enabled app, or configure local Git deploymen
 - To create a new web app configured for local Git deployment, run [az webapp create](/cli/azure/webapp#az-webapp-create) with the `--deployment-local-git` option. For example:
 
   ```azurecli
-  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myApp --runtime "NODE:20-lts" --deployment-local-git
+  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myApp --runtime "NODE:24-lts" --deployment-local-git
   ```
 
 - To configure local Git deployment for an already-existing app, run [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git). For example:
@@ -97,7 +98,7 @@ Use this Git clone URL to deploy your app in the next step.
 
 ### Create the web app
 
-In the [Azure portal](https://portal.azure.com), create an App Service app by following any of the portal-based instructions under **Create your first app** at [Getting started with Azure App Service](getting-started.md). For the sample repository, use the [Node.js](getting-started.md?pivots=stack-nodejs#nodejs) instructions and select **Node 20 LTS** for **Runtime stack** on the **Basics** tab.
+In the [Azure portal](https://portal.azure.com), create an App Service app by following any of the portal-based instructions under **Create your first app** at [Getting started with Azure App Service](getting-started.md). For the sample repository, use the [Node.js](getting-started.md?pivots=stack-nodejs#nodejs) instructions and select **Node 24 LTS** for **Runtime stack** on the **Basics** tab.
 
 At the bottom of the **Deployment** tab on the **Create Web App** page, set **Basic Authentication** to **Enabled**.
 

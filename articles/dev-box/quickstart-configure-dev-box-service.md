@@ -1,28 +1,29 @@
 ---
 title: 'Quickstart: Configure Microsoft Dev Box'
-description: Quickly set up Microsoft Dev Box resources for developers to self-service a cloud-based dev box. Create a dev center, dev box definition, and dev box pool.
+description: Quickly set up Microsoft Dev Box resources for developers to self-service a cloud-based dev box. Create a dev center, dev box project, and dev box pool.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/02/2025
+ms.update-cycle: 90-days
+ms.date: 09/23/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
 # Quickstart: Configure Microsoft Dev Box 
 
-In this quickstart, you set up all the resources in Microsoft Dev Box to enable development teams to self-service their dev boxes. Learn how to create and configure a dev center, specify a dev box definition, and create a dev box pool. After you complete this quickstart, developers can use the developer portal to create and connect to a dev box.
+In this quickstart, you set up all the resources in Microsoft Dev Box to enable development teams to self-service their dev boxes. Learn how to create and configure a dev center, select an image for your dev boxes, and create a dev box pool. After you complete this quickstart, developers can use the developer portal to create and connect to a dev box.
 
 A dev box is a daily cloud-based workstation for the developer. It's a virtual machine (VM) preconfigured with the tools and resources the developer needs for a project.
 
 Setting up Microsoft Dev Box has two phases. First, platform engineers set up the necessary Microsoft Dev Box resources in the Azure portal. After this phase, users create and manage their dev boxes in the developer portal. This quickstart shows how to finish the first phase.
 
-The following diagram shows the steps to set up Microsoft Dev Box in the Azure portal.
+The following diagram shows the steps to set up Microsoft Dev Box.
 
 :::image type="content" source="media/quickstart-configure-dev-box-service/dev-box-build-stages.png" alt-text="Diagram that shows the stages to set up Microsoft Dev Box in the Azure portal." lightbox="media/quickstart-configure-dev-box-service/dev-box-build-stages.png":::
 
-First, create a dev center and a project to organize dev box resources. Next, create a dev box definition to use when you create dev boxes. Then, create a dev box pool to define the network connection and dev box definition that dev boxes use. Users who have access to a project can create dev boxes from the pools associated with that project.
+First, create a dev center and a project to organize dev box resources. Next, create a dev box pool to define the network connection and marketplace image, custom image, or dev box definition that dev boxes use. Users who have access to a project can create dev boxes from the pools associated with that project.
 
 If you already set up Microsoft Dev Box and want to learn how to create and connect to dev boxes, see [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md).
 
@@ -32,7 +33,7 @@ To complete this quickstart, you need:
 
 | Requirement | Details |
 |-------------|---------|
-| **Azure account** | An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. |
+| **Azure account** | An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin. |
 | **Permissions** | Owner or Contributor role on an Azure subscription or resource group. |
 | **User licenses** | Each user needs a license for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Microsoft Entra ID P1. These licenses are included in:<br>- Microsoft 365 E3, Microsoft 365 E5<br>- Microsoft 365 A3, Microsoft 365 A5<br>- Microsoft 365 Business Premium<br>- Microsoft 365 F3*<br>- Microsoft 365 Education Student Use Benefit<br>**Microsoft 365 F3 doesn't include a Windows Enterprise license, but it does include limited Microsoft Entra ID and Intune capabilities* |
 | **Device management** | Microsoft Intune. Your organization must use Microsoft Intune for device management.  |
@@ -71,11 +72,23 @@ To create and set up a project in a dev box:
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev box project." lightbox="./media/quickstart-configure-dev-box-service/dev-box-project-create.png":::
 
-1. On the **Dev box management** tab, make sure **No** is selected.
+1. On the **Dev box settings** tab, enter the following values:
 
-   Select **Yes** to limit the number of dev boxes per developer, and enter the maximum number a developer can create. The default, **No**, lets developers create an unlimited number of dev boxes.
+   | Setting | Value |
+   |---|---|
+   | **User customizations** | Select to enable users to customize their dev boxes on creation. |
+   | **Dev box limits** | Ensure the checkbox is cleared to let developers create an unlimited number of dev boxes. </br>Select **Enable** to limit the number of dev boxes per developer, and enter the maximum number a developer can create. </br> To learn more about dev box limits, see [Tutorial: Control costs by setting dev box limits on a project](./tutorial-dev-box-limits.md). |
+  
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create-settings.png" alt-text="Screenshot that shows the Dev box settings tab on the pane for creating a dev box project." lightbox="./media/quickstart-configure-dev-box-service/dev-box-project-create-settings.png":::
 
-   To learn more about dev box limits, see [Tutorial: Control costs by setting dev box limits on a project](./tutorial-dev-box-limits.md).
+1. On the **Catalogs** tab, enter the following values:
+
+   | Setting | Value |
+   |---|---|
+   | **Deployment environment definitions** | Select to enable Dev Box to sync deployment environments definitions from a catalog attached to the project. |
+   | **Image definitions** |  Select to enable Dev Box to sync image definitions from a catalog attached to the project. |
+  
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create-catalogs.png" alt-text="Screenshot that shows the Catalogs tab on the pane for creating a dev box project." lightbox="./media/quickstart-configure-dev-box-service/dev-box-project-create-catalogs.png":::
 
 1. (Optional) On the **Tags** tab, enter a name/value pair to assign.
 
@@ -85,88 +98,29 @@ To create and set up a project in a dev box:
 
 1. Check the notifications to confirm the project is created. Select **Go to resource**.
 
-1. Check that the project appears on the **Projects** page.
- 
-When you create a project, you might see this informational message about catalogs: *The dev center that contains this project does not have a catalog assigned. Environments cannot be deployed in this project until a catalog containing at least one template has been assigned.*
-
-:::image type="content" source="media/quickstart-configure-dev-box-service/project-catalog-message.png" alt-text="Screenshot showing an information message." lightbox="media/quickstart-configure-dev-box-service/project-catalog-message.png":::
-
-Because you're not setting up Deployment Environments, you can safely ignore this message.
-
-## Create a dev box definition
-
-Create a dev box definition in your dev center. A dev box definition specifies the VM image and VM SKU (compute size and storage) used to create dev boxes. Depending on the development project or developer profile, you might need multiple dev box definitions. For example, some developers need a specific tool set, while others need a cloud workstation with more compute resources.
-
-Dev box definitions in a dev center are available to all projects associated with that dev center. Add at least one dev box definition to your dev center.
-
-To create and set up a dev box definition for your dev center:
-
-1. Open the dev center where you want to create the dev box definition.
-
-1. Select **Dev box definitions**.
-
-1. On the **Dev box definitions** page, select **Create**.
-
-1. On the **Create dev box definition** page, enter the following values:
-
-   | Setting | Value | Note |
-   |---|---|---|
-   | **Name** | Enter a descriptive name for your dev box definition. | |
-   | **Image** | Select the base operating system for the dev box. Select an image from Azure Marketplace or Azure Compute Gallery.</br> If you're creating a dev box definition for testing, consider using the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 24H2 \| Hibernate supported** image. | To use custom images when you create a dev box definition, use Azure Compute Gallery. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). |
-   | **Image version** | Select a specific, numbered version to make sure all dev boxes in the pool use the same image version. Select **Latest** to let new dev boxes use the latest image available.|Selecting the **Latest** image version lets the dev box pool use the most recent version of your chosen image from the gallery. This approach keeps new dev boxes up to date with the latest tools and code for your image. Existing dev boxes aren't changed when an image version is updated. |
-   | **Compute** | Select the compute combination for your dev box definition. | |
-   | **Storage** | Select the amount of storage for your dev box definition. | |
-   | **Enable hibernation**| Leave this checkbox unselected. | |
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/recommended-test-image.png" alt-text="Screenshot of the page for creating a dev box definition." lightbox="./media/quickstart-configure-dev-box-service/recommended-test-image.png":::
-
-1. Select **Create**.
 
 ## Create a dev box pool
 
-After you define a dev box definition in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the dev box definition and network connection. Developers who have access to the project in the dev center can create a dev box from a dev box pool.
+After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the image, location, and network connection. Developers who have access to the project can create a dev box from a dev box pool. You must associate at least one dev box pool with your project before users can create a dev box.
 
-Dev box pools set the location of the dev boxes through the specified network connection. Deploy dev boxes to a Microsoft-hosted network or to a network you manage. If you deploy dev boxes to a network you manage, first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in different geographical locations can create dev box pools for each location by specifying a nearby region.
+When creating a dev box pool, you choose an image source. You can select an image definition, custom image, marketplace image, or dev box definition. Image definitions, custom images, and marketplace images offer greater customization opportunities and greater flexibility by letting you independently select compute size and storage.
 
-> [!IMPORTANT]
-> Associate at least one dev box pool with your project before users can create a dev box.
+### Understand image and definition types
 
-To create a dev box pool associated with a project:
+Choose from four image options for your dev box pool. For greater customization, use image definitions, custom images, or marketplace images, which let you select compute size and storage separately. The table describes each option and when to use it.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+| Type | Description | When to use |
+|------|-------------|-------------|
+| **Image definition** | YAML-based customization files that define a base image and apply team-specific customizations. Can be built into reusable images. | For team-specific environments with automated software installation and configuration. Best for standardized team setups. |
+| **Custom image** | Your organization's custom images stored in Azure Compute Gallery. | For organization-specific configurations. Allows independent selection of compute size and storage. |
+| **Marketplace image** | Preconfigured images available from Azure Marketplace, such as Windows 11 Enterprise or Visual Studio images. | For standard configurations with common development tools. Offers flexibility to select compute size and storage independently. |
+| **Dev box definition** | Legacy option that bundles a base image with a fixed VM size and storage configuration. | For backward compatibility with existing configurations. Consider migrating to marketplace or custom images for more flexibility. |
 
-1. In the search box, enter **projects**. In the list of results, select **Projects**.
+- **Azure Compute Gallery** is a service for managing and sharing custom images across your organization. Learn more at [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
+- **Marketplace images** are preconfigured VM images available from the Azure Marketplace. They include common operating systems and development tools.
 
-1. Open the project where you want to create the dev box pool.
-  
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/select-project.png" alt-text="Screenshot that shows the list of existing projects." lightbox="./media/quickstart-configure-dev-box-service/select-project.png":::
 
-1. Select **Dev box pools**, then select **Create**.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-pool.png" alt-text="Screenshot of an empty list of dev box pools within a project, along with selections to start creating a pool." lightbox="./media/quickstart-configure-dev-box-service/create-pool.png":::
-
-1. On the **Create a dev box pool** pane, enter the following values:
-
-   | Setting | Value |
-   |---|---|
-   | **Name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
-   | **Dev box definition** | Select an existing dev box definition. The definition determines the base image and size for the dev boxes that are created in this pool. |
-   | **Network connection** | 1. Select **Deploy to a Microsoft hosted network**. </br>2. Select your desired deployment region for the dev boxes. Choose a region close to your expected dev box users for the optimal user experience. |
-   | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
-   | **Enable Auto-stop** | **Yes** is the default. Select **No** to disable an autostop schedule. You can configure an autostop schedule after the pool is created. |
-   | **Stop time** | Select a time to shut down all the dev boxes in the pool. All dev boxes in this pool shut down at this time every day. |
-   | **Time zone** | Select the time zone for the stop time. |
-   | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-pool-details.png" alt-text="Screenshot of the pane for creating a dev box pool." lightbox="./media/quickstart-configure-dev-box-service/create-pool-details.png":::
-
-1. Select **Create**.
-
-1. Check that the new dev box pool appears in the list. You might need to refresh the screen.
-
-The Azure portal deploys the dev box pool and runs health checks to make sure the image and network pass the validation criteria for dev boxes. The following screenshot shows four dev box pools, each with a different status.
-
-:::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-populated.png" alt-text="Screenshot that shows a list of dev box pools and status information." lightbox="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-populated.png":::
+[!INCLUDE [create-dev-box-pool](includes/create-dev-box-pool.md)]
 
 ## Provide access to a dev box project
 
@@ -191,7 +145,7 @@ To assign roles:
 
 1. In the command bar, select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
    | Setting | Value |
    |---|---|

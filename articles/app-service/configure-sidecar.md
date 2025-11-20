@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/14/2025
 ms.author: cephalin
 author: cephalin
+ms.service: azure-app-service
 ---
 
 # Configure sidecars in Azure App Service
@@ -25,11 +26,26 @@ For a custom container, you need to explicitly enable sidecar support. In the po
 
 :::image type="content" source="media/configure-sidecar/enable-sidecar.png" alt-text="A screenshot showing a custom container app's container settings with the Start Update button highlighted.":::
 
-With the Azure CLI, set `LinuxFxVersion` to `sitecontainers`. For example:
+With the Azure CLI, convert your web app to use the `sitecontainers` configuration. For example:
 
 ```azurecli
-az webapp config set --name <app-name> --resource-group <resource-group> --linux-fx-version sitecontainers
+az webapp sitecontainers convert --mode sitecontainers --name <YourWebAppName> --resource-group <YourResourceGroup>
 ```
+
+This updates the `LinuxFxVersion` to `sitecontainers` and enables support for the sidecar pattern.
+
+### Revert to classic custom container (Docker) mode
+
+If you need to switch back from the sidecar-enabled configuration to the classic Docker-based setup, run the following command:
+
+```azurecli
+az webapp sitecontainers convert \
+  --mode docker \
+  --name <app-name> \
+  --resource-group <resource-group>
+```
+
+This command removes all sidecar containers and resets your app to use the classic `DOCKER|<image>` style configuration. For full details, see the [Azure CLI documentation for `az webapp sitecontainers convert`](/cli/azure/webapp/sitecontainers).
 
 For more information, see [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
 

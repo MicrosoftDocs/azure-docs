@@ -2,7 +2,7 @@
 title: PowerShell Script - find Vault for Storage Account
 description: Learn how to use an Azure PowerShell script to find the Recovery Services vault where your storage account is registered.
 ms.topic: sample
-ms.date: 10/20/2024
+ms.date: 10/08/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
@@ -14,7 +14,7 @@ ms.author: v-mallicka
 
 This script helps you to find the Recovery Services vault where your storage account is registered.
 
-## Sample script
+ ## Sample script to find the Recovery Services vault
 
 ```powershell
 Param(
@@ -47,9 +47,11 @@ if(!$found)
 }
 ```
 
-## How to execute the script
+## Execute the script to find the Recovery Services vault
 
-1. Save the script above on your machine with a name of your choice. In this example, we saved it as *FindRegisteredStorageAccount.ps1*.
+To execute the script for finding the Recovery Services vault where your storage account is registered, follow these steps:
+
+1. Save the preceding script on your machine with a name of your choice. In this example, we saved it as *FindRegisteredStorageAccount.ps1*.
 2. Execute the script by providing the following parameters:
 
     * **-ResourceGroupName** - Resource Group of the storage account
@@ -62,9 +64,9 @@ The following example tries to find the Recovery Services vault where the *afsac
 .\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
-## Output
+## Output of the script
 
-The output will display the complete path of the Recovery Services vault where the storage account is registered. Here is a sample output:
+The output shows the complete path of the Recovery Services vault where the storage account is registered. Here's a sample output:
 
 ```output
 Found Storage account afsaccount registered in vault: /subscriptions/ aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123

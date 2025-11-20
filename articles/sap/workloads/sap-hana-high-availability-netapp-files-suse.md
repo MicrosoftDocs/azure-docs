@@ -4,12 +4,16 @@ description: Learn how to establish high availability of SAP HANA with Azure Net
 services: virtual-machines-windows,virtual-network,storage
 author: apmsft
 manager: juergent
-ms.custom: linux-related-content, devx-track-azurecli, devx-track-azurepowershell
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 06/18/2024
 ms.author: ampatel
+ms.custom:
+  - linux-related-content
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to configure high availability for SAP HANA on SUSE Linux using NFS shares from Azure NetApp Files, so that I can ensure system resiliency and minimize downtime in our enterprise applications."
 ---
 
@@ -464,7 +468,7 @@ Create a dummy file system cluster resource. It monitors and reports failures if
    sudo crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
        device="/hana/shared/HN1/check/" \
        directory="/hana/shared/check/" fstype=nfs  \
-       options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,noatime,_netdev,nfsvers=4.1,lock,sec=sys" \
+       options="bind,defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,_netdev,nfsvers=4.1,lock,sec=sys" \
        op monitor interval=120 timeout=120 on-fail=fence \
        op_params OCF_CHECK_LEVEL=20 \
        op start interval=0 timeout=120 \

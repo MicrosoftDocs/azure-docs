@@ -7,10 +7,12 @@ ms.custom:
   - build-2024
 ms.topic: how-to
 ms.date: 05/06/2024
-ms.author: vanshsingh
+ms.author: johnsta
 ---
 
 # Use Microsoft Playwright Testing Reporting preview with Playwright sharding
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to use the Microsoft Playwright Testing service's reporting feature with test runs that use [Playwright's sharding features](https://playwright.dev/docs/test-sharding). 
 
@@ -23,7 +25,7 @@ You can use Playwright Testing's reporting feature to get a consolidated report 
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Set up continuous end-to-end testing. Complete the [Quickstart: Set up continuous end-to-end testing with Microsoft Playwright Testing Preview](./quickstart-automate-end-to-end-testing.md) to set up continuous integration (CI) pipeline.
 

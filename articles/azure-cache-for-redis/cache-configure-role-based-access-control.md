@@ -12,7 +12,9 @@ appliesto:
 
 # Configure custom data access policies
 
-Managing access to your Azure Redis cache instance is critical to ensuring that the right users have access to the right set of data and commands. Redis version 6 introduced the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL), which lists the keys that specific users can access and the commands that they can execute. For example, you can prohibit specific users from using the [DEL](https://redis.io/commands/del/) command to delete keys in the cache.
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
+Managing access to your Azure Redis cache instance is critical to ensuring that the right users have access to the right set of data and commands. Redis version 6 introduced the [Access Control List](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) (ACL), which lists the keys that specific users can access and the commands that they can execute. For example, you can prohibit specific users from using the [DEL](https://redis.io/commands/del/) command to delete keys in the cache.
 
 Azure Cache for Redis integrates this ACL functionality with Microsoft Entra to allow you to configure and assign data access policies for your application's users, service principal, and managed identity. Azure Cache for Redis offers three built-in access policies that you can assign via role-based access control (RBAC): **Data Owner**, **Data Contributor**, and **Data Reader**.
 
@@ -33,13 +35,13 @@ If the built-in access policies don't satisfy your data protection and isolation
 
 ## Redis ACL permissions
 
-[Redis ACL](https://redis.io/docs/management/security/acl/) in Redis version 6.0 allows configuring access permissions for three areas: command categories, commands, and keys.
+[Redis ACL](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) in Redis version 6.0 allows configuring access permissions for three areas: command categories, commands, and keys.
 
 ### Command categories
 
 Redis created *command categories*, such as administrative commands and dangerous commands, to make setting permissions on a group of commands easier. In a permissions string, use `+@<category>` to allow a command category or `-@<category>` to disallow a command category.
 
-Redis supports the following useful command categories. For more information and a full list, see the **Command Categories** heading in the [Redis ACL documentation](https://redis.io/docs/management/security/acl/).
+Redis supports the following useful command categories. For more information and a full list, see the **Command Categories** heading in the [Redis ACL documentation](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/).
 
 |Category|Description|
 |--------|-----------|

@@ -4,10 +4,13 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about MySQL connector in Azure Data Factory and Synapse Analytics that lets you copy data from a MySQL database to a data store supported as a sink.
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/14/2025
+ms.date: 07/28/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from MySQL using Azure Data Factory or Synapse Analytics
@@ -20,7 +23,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory and Syn
 >To copy data from or to [Azure Database for MySQL](/azure/mysql/overview) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
 
 > [!IMPORTANT]
-> The MySQL connector version 2.0 provides improved native MySQL support. If you are using MySQL connector version 1.0 in your solution, please [upgrade your MySQL connector](#upgrade-the-mysql-driver-version) as version 1.0 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
+> The MySQL connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the MySQL connector](#upgrade-the-mysql-driver-version) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -277,47 +280,47 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 | MySQL data type | Interim service data type (for version 2.0)| Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
-| `bigint` |`Int64` |`Int64` |
-| `bigint unsigned` |`Decimal` |`Decimal` |
-| `bit(1)` |`UInt64` |`Boolean` |
-| `bit(M), M>1`|`UInt64`|`Byte[]`|
-| `blob` |`Byte[]` |`Byte[]` |
-| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by default ) |`Int16` |
-| `char` |`String` |`String` |
-| `date` |`Datetime` |`Datetime` |
-| `datetime` |`Datetime` |`Datetime` |
-| `decimal` |`Decimal` |`Decimal, String` |
-| `double` |`Double` |`Double` |
-| `double precision` |`Double` |`Double` |
-| `enum` |`String` |`String` |
-| `float` |`Single` |`Single` |
-| `int` |`Int32` |`Int32` |
-| `int unsigned` |`Int64`|`Int64`|
-| `integer` |`Int32` |`Int32` |
-| `integer unsigned` |`Int64` |`Int64` |
-| `JSON` |`String` |-|
-| `long varbinary` |`Byte[]` |`Byte[]` |
-| `long varchar` |`String` |`String` |
-| `longblob` |`Byte[]` |`Byte[]` |
-| `longtext` |`String` |`String` |
-| `mediumblob` |`Byte[]` |`Byte[]` |
-| `mediumint` |`Int32` |`Int32` |
-| `mediumint unsigned` |`Int64` |`Int64` |
-| `mediumtext` |`String` |`String` |
-| `numeric` |`Decimal` |`Decimal` |
-| `real` |`Double` |`Double` |
-| `set` |`String` |`String` |
-| `smallint` |`Int16` |`Int16` |
-| `smallint unsigned` |`Int32` |`Int32` |
-| `text` |`String` |`String` |
-| `time` |`TimeSpan` |`TimeSpan` |
-| `timestamp` |`Datetime` |`Datetime` |
-| `tinyblob` |`Byte[]` |`Byte[]` |
-| `tinyint` |`SByte` <br/> (`tinyint(1)` is mapped to `Boolean`) |`Int16` |
-| `tinyint unsigned` |`Int16` |`Int16` |
-| `tinytext` |`String` |`String` |
-| `varchar` |`String` |`String` |
-| `year` |`Int` |`Int` |
+| BIGINT | Int64 | Int64 |
+| BIGINT UNSIGNED | UInt64 | Decimal |
+| BIT(1) | UInt64 | Boolean |
+| BIT(M), M>1 | UInt64 | Byte[] |
+| BLOB |Byte[] |Byte[] |
+| BOOL |Boolean <br/>(If TreatTinyAsBoolean=false, it is mapped as SByte. TreatTinyAsBoolean is true by default) | Int16 |
+| CHAR | String  | String |
+| DATE | Datetime  | Datetime  |
+| DATETIME | Datetime  | Datetime  |
+| DECIMAL | Decimal | Decimal, String |
+| DOUBLE | Double  | Double  |
+| DOUBLE PRECISION | Double  | Double  |
+| ENUM | String  | String  |
+| FLOAT | Single  | Single  |
+| INT | Int32  | Int32  |
+| INT UNSIGNED | Int64 | Int64 |
+| INTEGER | Int32  | Int32  |
+| INTEGER UNSIGNED | UInt32 | Int64  |
+| JSON |String |Byte[]|
+| LONG VARBINARY | Byte[] | Byte[]  |
+| LONG VARCHAR | String | String  |
+| LONGBLOB |Byte[] |Byte[] |
+| LONGTEXT |String | String  |
+| MEDIUMBLOB |Byte[] | Byte[]  |
+| MEDIUMINT |Int32 | Int32  |
+| MEDIUMINT UNSIGNED |UInt32 |Int64 |
+| MEDIUMTEXT |String |String |
+| NUMERIC |Decimal |Decimal |
+| REAL |Double |Double |
+| SET |String |String |
+| SMALLINT |Int16 |Int16 |
+| SMALLINT UNSIGNED | UInt16 |Int32 |
+| TEXT |String |String |
+| TIME |TimeSpan |TimeSpan |
+| TIMESTAMP |Datetime |Datetime |
+| TINYBLOB |Byte[] |Byte[] |
+| TINYINT |SByte | Int16  |
+| TINYINT unsigned |Int16 | Int16 |
+| TINYTEXT | String | String |
+| VARCHAR | String | String |
+| YEAR | Int | Int |
 
 ## Lookup activity properties
 
@@ -351,10 +354,16 @@ The table below shows the data type mapping differences between MySQL using vers
 
 |MySQL data type |Interim service data type (using version 2.0) |Interim service data type (using version 1.0)|
 |:---|:---|:---|
-|bit(1)| UInt64|Boolean|
-|bit(M), M>1|UInt64|Byte[]|
-|bool|Boolean|Int16|
+|BIGINT UNSIGNED|UInt64|Decimal|
+|BIT(1)| UInt64|Boolean|
+|BIT(M), M>1|UInt64|Byte[]|
+|BOOL|Boolean|Int16|
+|DECIMAL | Decimal | Decimal, String |
+|INTEGER UNSIGNED |UInt32|Int64|
 |JSON|String|Byte[]|
+|MEDIUMINT UNSIGNED |UInt32|Int64|
+|SMALLINT UNSIGNED |UInt16|Int32|
+|TINYINT |SByte| Int16|
 
 ## Related content
 

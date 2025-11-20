@@ -1,14 +1,14 @@
 ---
 title: Add or edit Azure role assignment conditions using Azure CLI - Azure ABAC
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using Azure CLI and Azure role-based access control (Azure RBAC).
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/02/2024
-ms.author: jfields
+ms.author: rolyon
 ---
 
 # Add or edit Azure role assignment conditions using Azure CLI
@@ -104,13 +104,13 @@ The following shows an example of the output:
 
 ## List a condition
 
-To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.yml).
+To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](/azure/role-based-access-control/role-assignments-list-cli).
 
 ## Delete a condition
 
 To delete a role assignment condition, edit the role assignment condition and set both the `condition` and `condition-version` properties to either an empty string (`""`) or `null`.
 
-Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
+Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command. For more information, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove).
 
 ## Next steps
 

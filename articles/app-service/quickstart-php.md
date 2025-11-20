@@ -9,6 +9,7 @@ ms.date: 04/22/2025
 ms.devlang: php
 ms.custom: mode-other, devdivchpfy22, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
+ms.service: azure-app-service
 ---
 
 # Create a PHP web app in Azure App Service
@@ -26,7 +27,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Git](https://git-scm.com/)
 * [PHP](https://php.net/downloads.php)
 * [Azure CLI](/cli/azure/install-azure-cli) to run commands in any shell to create and configure Azure resources.

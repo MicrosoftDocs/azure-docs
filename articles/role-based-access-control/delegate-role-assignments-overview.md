@@ -1,13 +1,13 @@
 ---
 title: Delegate Azure access management to others - Azure ABAC
 description: Overview of how to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.date: 08/29/2024
-ms.author: jfields
+ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
 ---
 
@@ -32,7 +32,7 @@ Here are some reasons why you might want to delegate role assignment management 
 
 The [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) roles are built-in roles that allow users to create role assignments. Members of these roles can decide who can have write, read, and delete permissions for any resource in a subscription. To delegate role assignment management to another user, you can assign the Owner or User Access Administrator role to a user.
 
-The following diagram shows how Alice can delegate role assignment responsibilities to Dara. For specific steps, see [Assign a user as an administrator of an Azure subscription](role-assignments-portal-subscription-admin.yml).
+The following diagram shows how Alice can delegate role assignment responsibilities to Dara. For specific steps, see [Assign a user as an administrator of an Azure subscription](/azure/role-based-access-control/role-assignments-portal-subscription-admin).
 
 1. Alice assigns the User Access Administrator role to Dara.
 1. Dara can now assign any role to any user, group, or service principal at the same scope.

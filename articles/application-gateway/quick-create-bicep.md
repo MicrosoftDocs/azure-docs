@@ -25,7 +25,7 @@ In this quickstart, you use Bicep to create an Azure Application Gateway. Then y
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the Bicep file
 
@@ -37,6 +37,9 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 > [!TIP]
 > You can modify values of the `Name` and `Tier` parameters under `resource\applicationGateWay\properties\sku` to use a different SKU. For example: `Basic`.
+
+> [!NOTE]
+> In regions that support availability zones, if you don't specify zones during creation via CLI, PowerShell, ARM/Bicep, or the REST API—Azure Application Gateway automatically enables zone redundancy, distributing instances across multiple availability zones for enhanced resiliency
 
 Multiple Azure resources are defined in the Bicep file:
 

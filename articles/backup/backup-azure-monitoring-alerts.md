@@ -2,7 +2,7 @@
 title: Manage Azure Monitor based alerts for Azure Backup
 description: Learn about the new and improved alerting capabilities via Azure Monitor and the process to configure Azure Monitor.
 ms.topic: how-to
-ms.date: 11/30/2024
+ms.date: 07/03/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

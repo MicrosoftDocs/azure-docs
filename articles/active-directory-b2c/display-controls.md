@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C, I want to understand how to define and use display controls, so that I can create user interface elements with special functionality that interact with the back-end service and perform actions on the page.

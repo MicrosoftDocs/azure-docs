@@ -4,6 +4,7 @@ description: This article provides information on how to use Debezium with Azure
 ms.topic: how-to
 ms.subservice: kafka
 ms.date: 10/18/2021
+ms.custom: sfi-ropc-nochange
 ---
 
 # Integrate Apache Kafka Connect support on Azure Event Hubs with Debezium for Change Data Capture
@@ -27,7 +28,7 @@ In this tutorial, you take the following steps:
 ## Prerequisites
 To complete this walk through, you require:
 
-- Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Linux/macOS
 - Kafka release (version 1.1.1, Scala version 2.11), available from [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-apache-kafka-overview.md) introduction article

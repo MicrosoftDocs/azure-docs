@@ -28,9 +28,9 @@ Ensure that your hardware setup is sufficient for your scenario and that you beg
 
 Create an Arc-enabled K3s cluster that meets the system requirements.
 
-* Use a [supported environment for Azure IoT Operations](../overview-iot-operations.md#supported-environments).
+* Use a [supported environment for Azure IoT Operations](../overview-support.md#supported-environments).
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
-* If you expect intermittent connectivity for your cluster, ensure that you allocate enough disk space to the cluster cache data and messages while the [cluster is offline](../overview-iot-operations.md#offline-support).
+* If you expect intermittent connectivity for your cluster, ensure that you allocate enough disk space to the cluster cache data and messages while the cluster is offline. Azure IoT Operations can operate offline for a maximum of 72 hours.
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
 * [Turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 * *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage) to prepare for enabling fault tolerance during deployment.

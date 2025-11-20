@@ -1,19 +1,21 @@
 ---
-title: Script Sample - Disable Soft delete for File Share
+title: Script Sample - Disable Soft delete for File Share using ARM API
 description: Learn how to use a script to disable soft delete for file shares in a storage account.
 ms.topic: sample
-ms.date: 10/20/2024
+ms.date: 10/13/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to disable soft delete for file shares in a storage account using a script, so that I can manage storage costs and configuration based on my organization's data retention policies."
 ---
 
-# Disable soft delete for file shares in a storage account
+# Disable soft delete for file shares in a storage account using ARM API
 
-This document explains the process to disable soft delete for file shares in a storage account.
+This article describes how to disable soft delete for file shares in a storage account using Azure Resource Manager (ARM) API. You can also [disable soft delete for file shares using the Azure portal, PowerShell, and Azure CLI](/azure/storage/files/storage-files-prevent-file-share-deletion?tabs=azure-portal#disable-soft-delete).
 
-Follow these steps:
+## Disable soft delete for file shares using the ARM client
+
+To disable soft delete for file shares using the ARM client, follow these steps:
 
 1. Install armclient. To learn how to install it, visit [this link](https://github.com/projectkudu/ARMClient).
 
@@ -55,7 +57,7 @@ Follow these steps:
 
 5. Get the current soft delete properties of file shares in storage account.
 
-    The following GET operation fetches the soft delete properties for file shares in the *inquirytest* account:
+    The following GET operation fetches the soft delete properties for file shares in the `inquirytest` account:
 
     ```cmd
     armclient get /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01
@@ -81,7 +83,7 @@ Follow these steps:
 
 6. Disable Soft Delete for File shares in storage account.
 
-    The following PUT operation disables the soft delete properties for file shares in the *inquirytest* account:
+    The following PUT operation disables the soft delete properties for file shares in the `inquirytest` account:
 
     ```cmd
     armclient put /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01 .\rqbody-disableSoftDelete.json
@@ -104,7 +106,7 @@ Follow these steps:
 
 7. If you want to reenable soft delete, use the following sample.
 
-    The following PUT operation enables the soft delete properties for file shares in “inquirytest “account.
+    The following PUT operation enables the soft delete properties for file shares in `inquirytest` `account.
 
     ```cmd
     armclient put /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01 .\rqbody-EnableSoftDelete.json
@@ -123,3 +125,7 @@ Follow these steps:
     }
     }
     ```
+
+## Related content
+
+[Frequently asked questions for Azure Backup Soft Delete for Azure Files](../soft-delete-azure-file-share.md#frequently-asked-questions-azure-backup-soft-delete-for-azure-files)

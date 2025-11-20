@@ -1351,7 +1351,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | expressroutegateways | No | No | No |
 > | expressrouteserviceproviders | No | No | No |
 > | firewallpolicies | No | No | No |
-> | frontdoors | No | No | No |
+> | frontdoors (This row is for Front Door Classic tier only. For Front Door Standard/Premium, refer to [Microsoft.Cdn/profiles](#microsoftcdn))| No | No | No |
 > | ipallocations | **Yes** | **Yes** | No |
 > | ipgroups | No | No | No |
 > | loadbalancers | **Yes** - Basic SKU<br> **Yes** - Standard SKU | **Yes** - Basic SKU<br>No - Standard SKU | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move internal and external load balancers. |

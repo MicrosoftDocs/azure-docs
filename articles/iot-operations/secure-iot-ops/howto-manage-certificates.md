@@ -4,7 +4,7 @@ description: Azure IoT Operations uses TLS to encrypt communication. Learn how t
 author: asergaz
 ms.author: sergaz
 ms.topic: how-to
-ms.date: 07/20/2025
+ms.date: 08/26/2025
 
 #CustomerIntent: As an operator, I want to configure Azure IoT Operations components to use TLS so that I have secure communication between all components.
 ---
@@ -17,19 +17,21 @@ Azure IoT Operations uses TLS to encrypt communication between all components. T
 
 - To manage certificates for external communications, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
+- To create secrets in Azure Key Vault, you need **Secrets officer** permissions at the resource level. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+
 ## Manage certificates for internal communications
 
 All communications within Azure IoT Operations are encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend [using your own CA issuer](#bring-your-own-issuer) and an enterprise PKI solution.
 
 ### Default self-signed issuer and root CA certificate for TLS server certificates
 
-To help you get started, Azure IoT Operations is deployed with a default self-signed issuer and root CA certificate for TLS server certificates. You can use this issuer for development and testing. Azure IoT Operations uses [cert-manager](https://cert-manager.io/docs/) to manage TLS certificates, and [trust-manager](https://cert-manager.io/docs/trust/) to distribute trust bundles to components. 
+To help you get started, Azure IoT Operations is deployed with a default self-signed issuer and root CA certificate for TLS server certificates. You can use this issuer for development and testing. Azure IoT Operations uses [cert-manager](https://cert-manager.io/docs/) to manage TLS certificates, and [trust-manager](https://cert-manager.io/docs/trust/) to distribute trust bundles to components.
 
-* The CA certificate is self-signed and not trusted by any clients outside of Azure IoT Operations. The subject of the CA certificate is `CN=Azure IoT Operations Quickstart Root CA - Not for Production`. The CA certificate is automatically rotated by cert-manager.
+- The CA certificate is self-signed and not trusted by any clients outside of Azure IoT Operations. The subject of the CA certificate is `CN=Azure IoT Operations Quickstart Root CA - Not for Production`. The CA certificate is automatically rotated by cert-manager.
 
-* The root CA certificate is stored in a Kubernetes secret called `azure-iot-operations-aio-ca-certificate` under the `cert-manager` namespace.
+- The root CA certificate is stored in a Kubernetes secret called `azure-iot-operations-aio-ca-certificate` under the `cert-manager` namespace.
 
-* The public portion of the root CA certificate is stored in a ConfigMap called `azure-iot-operations-aio-ca-trust-bundle` under the `azure-iot-operations` namespace. You can retrieve the CA certificate from the ConfigMap and inspect it with kubectl and openssl. The ConfigMap is kept updated by trust-manager when the CA certificate is rotated by cert-manager. 
+- The public portion of the root CA certificate is stored in a ConfigMap called `azure-iot-operations-aio-ca-trust-bundle` under the `azure-iot-operations` namespace. You can retrieve the CA certificate from the ConfigMap and inspect it with kubectl and openssl. The ConfigMap is kept updated by trust-manager when the CA certificate is rotated by cert-manager.
 
     ```bash
     kubectl get configmap azure-iot-operations-aio-ca-trust-bundle -n azure-iot-operations -o "jsonpath={.data['ca\.crt']}" | openssl x509 -text -noout
@@ -63,7 +65,7 @@ To help you get started, Azure IoT Operations is deployed with a default self-si
     [Signature] 
     ```
 
-* By default, there's already an issuer configured in the `azure-iot-operations namespace` called `azure-iot-operations-aio-certificate-issuer`. It's used as the common issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate which is signed by the self-signed issuer to issue TLS server certificates for the default TLS listener on port 18883. You can inspect the issuer with the following command:
+- By default, there's already an issuer configured in the `azure-iot-operations namespace` called `azure-iot-operations-aio-certificate-issuer`. It's used as the common issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate which is signed by the self-signed issuer to issue TLS server certificates for the default TLS listener on port 18883. You can inspect the issuer with the following command:
 
     ```bash
     kubectl get clusterissuer azure-iot-operations-aio-certificate-issuer -o yaml
@@ -108,7 +110,7 @@ To set up Azure IoT Operations with your own issuer for internal communications,
       ```bash
       helm upgrade trust-manager jetstack/trust-manager --install --namespace cert-manager --set app.trust.namespace=cert-manager --wait
       ```
-   
+
       Trust-manager is used to distribute a trust bundle to components.
   
 1. Create the Azure IoT Operations namespace.
@@ -138,12 +140,15 @@ To set up Azure IoT Operations with your own issuer for internal communications,
       ```bash
       az iot ops init --subscription <SUBSCRIPTION_ID> --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP> --user-trust
       ```
-     
-   2.  Add the `--trust-settings` parameter with the necessary information while deploying Azure IoT Operations. For example:
+
+   1. Add the `--trust-settings` parameter with the necessary information while deploying Azure IoT Operations. For example:
 
       ```bash
       az iot ops create --subscription <SUBSCRIPTION_ID> -g <RESOURCE_GROUP> --cluster <CLUSTER_NAME> --custom-location <CUSTOM_LOCATION> -n <INSTANCE_NAME> --sr-resource-id <SCHEMAREGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
       ```
+
+    > [!NOTE]
+    > The custom location name has a maximum length of 63 characters.
 
 ## Manage certificates for external communications
 
@@ -156,7 +161,7 @@ When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/ov
 To manage certificates for external communications, follow these steps:
 
 1. Go to [Azure IoT Operations experience](https://iotoperations.azure.com), and choose your site and Azure IoT Operations instance.
-1. In the left navigation pane, select **Asset endpoints**.
+1. In the left navigation pane, select **Devices**.
 1. Click on **Manage certificates and secrets**.
 
     :::image type="content" source="media/howto-manage-certificates/manage-certificates.png" lightbox="media/howto-manage-certificates/manage-certificates.png" alt-text="Screenshot that shows the Manage certificates and secrets option in the left navigation pane.":::
@@ -167,29 +172,27 @@ To manage certificates for external communications, follow these steps:
 
 1. You can add a new certificate in two ways:
 
-    - **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the cluster using Secret Store extension. 
-    
+    - **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the cluster using Secret Store extension.
+
         - View the certificate details once uploaded, to ensure you have the correct certificate before adding to Azure Key Vault and synchronizing to the cluster.
         - Use an intuitive name so that you can recognize which secret represents your secret in the future.
-    
+        - Select the appropriate certificate store for the connector that uses the certificate. For example, **OPC UA trust list**.
+
         :::image type="content" source="media/howto-manage-certificates/upload-certificate.png" lightbox="media/howto-manage-certificates/upload-certificate.png" alt-text="Screenshot that shows the Upload certificate option when adding a new certificate to the devices page.":::
-    
+
         > [!NOTE]
         > Simply uploading the certificate won't add the secret to Azure Key Vault and synchronize to the cluster, you must select **Apply** for the changes to be applied.
-         
-    
+
     - **Add from Azure Key Vault**: Add an existing secret from the Azure Key vault to be synchronized to the cluster.
-    
+
         :::image type="content" source="media/howto-manage-certificates/add-from-key-vault.png" lightbox="media/howto-manage-certificates/add-from-key-vault.png" alt-text="Screenshot that shows the Add from Azure Key Vault option when adding a new certificate to the devices page.":::
-    
+
         > [!NOTE]
         > Make sure to select the secret that holds the certificate you would like to synchronize to the cluster. Selecting a secret which isn't the correct certificate causes the connection to fail.
-    
 
 1. Using the list view you can manage the synchronized certificates. You can view all the synchronized certificates, and which certificate store it's synchronized to:
 
     :::image type="content" source="media/howto-manage-certificates/list-certificates.png" lightbox="media/howto-manage-certificates/list-certificates.png" alt-text="Screenshot that shows the list of certificates in the devices page and how to filter by Trust List and Issuer List.":::
-
 
 To learn more about how trust certificates are managed for specific connectors, see the connector-specific certificate management documentation.
 

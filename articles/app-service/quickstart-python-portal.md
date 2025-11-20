@@ -6,8 +6,13 @@ author: msangapu-msft
 ms.topic: quickstart
 ms.date: 04/01/2021
 ms.devlang: python
-ms.custom: devx-track-python, mode-ui, linux-related-content
 ROBOTS: noindex
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-python
+  - mode-ui
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a Python app using Azure App Service on Linux (Azure portal)
@@ -16,7 +21,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](overvi
 
 ## Configure accounts
 
-- If you don't yet have an Azure account with an active subscription, [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- If you don't yet have an Azure account with an active subscription, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - If you don't have a GitHub account, visit [github.com](https://github.com) to create one. 
 
@@ -56,7 +61,7 @@ An App Service web app is the web server to which you deploy your code.
     | Resource Group | Select **Create New** below the drop-down. In the popup, enter "AppService-PythonQuickstart" and select "**OK**. |
     | Name | Enter a name that's unique across all of Azure, typically using a combination of your personal or company names, such as *contoso-testapp-123*. |
     | Publish | Select **Code**. |
-    | Runtime stack | Select **Python 3.8**. |
+    | Runtime stack | Select **Python 3.14**. |
     | Operating System | Select **Linux** (Python is supported only on Linux). |
     | Region | Select a region near you. |
     | Linux Plan | Select an exiting App Service Plan or use **Create new** to create a new one. We recommend using the **Basic B1** plan. |
@@ -91,7 +96,7 @@ Having issues? [Let us know](https://aka.ms/FlaskPortalQuickstartHelp).
 
     ![Deployment Center GitHub source configuration](media/quickstart-python-portal/deployment-center-configure-github-source.png)
 
-1. At the top of the page, select **Save** to apply the settings.:
+1. At the top of the page, select **Save** to apply the settings.
 
     ![Save the GitHub source configuration on Deployment Center](media/quickstart-python-portal/deployment-center-configure-save.png)
 

@@ -26,9 +26,9 @@ You can configure settings to authorize access to APIs in your [API center](over
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-* Register at least one API in your API center. For more information, see [Tutorial: Register APIs in your API inventory](register-apis.md).
+* Register at least one API in your API center. For more information, see [Tutorial: Register APIs in your API inventory](./tutorials/register-apis.md).
 
-* Configure an environment and a deployment for the API. For more information, see [Tutorial: Add environments and deployments for APIs](configure-environments-deployments.md).
+* Configure an environment and a deployment for the API. For more information, see [Tutorial: Add environments and deployments for APIs](./tutorials/configure-environments-deployments.md).
 
 * Set up the API Center portal. For more information, see [Set up API Center portal](set-up-api-center-portal.md).
 
@@ -174,7 +174,7 @@ You can manage access by specific users or groups in your organization to an API
 You can use the API Center portal to test an API that you configured for authentication and user access. 
 
 > [!TIP]
-> In addition to enabling specific users to test specific APIs in the API Center portal, you can configure [visibility settings](set-up-api-center-portal.md#api-visibility) for APIs. Visibility settings in the portal control the APIs that appear for all signed-in users.
+> In addition to enabling specific users to test specific APIs in the API Center portal, you can configure [visibility settings](customize-api-center-portal.md#api-visibility) for APIs. Visibility settings in the portal control the APIs that appear for all signed-in users.
 
 1. In the [portal](https://azure.microsoft.com), navigate to your API center.
 1. In the left menu, under **API Center Portal**, select **Portal settings**.

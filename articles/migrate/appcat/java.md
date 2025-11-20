@@ -4,7 +4,8 @@ description: Azure Migrate application and code assessment tool - Overview.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.service: azure
+ms.service: azure-java
+ms.subservice: java-fundamentals
 ms.custom: devx-track-java, build-2025
 ms.topic: overview
 ms.date: 06/27/2025

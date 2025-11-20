@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 05/08/2025
+ms.date: 10/03/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud architect, I want to utilize estimation and monitoring tools for Azure NetApp Files, so that I can optimize costs and performance while ensuring efficient management of my storage deployment."
 ---
@@ -29,10 +29,6 @@ Azure NetApp Files offers [multiple tools](https://azure.github.io/azure-netapp-
 * [**SAP on Azure NetApp Files Sizing Estimator**](https://azure.github.io/azure-netapp-files/sap-calc/)
 
     This comprehensive tool estimates the infrastructure costs of an SAP HANA on Azure NetApp Files landscape. The estimate includes primary storage, backup, and replication costs.
-
-* [**Azure NetApp Files storage with cool access cost savings estimator**](https://azure.github.io/azure-netapp-files/coolaccess-calc/)
-
-    Azure NetApp Files storage with cool access enables you to transparently move infrequently accessed data to less expensive storage. This cost savings estimator helps you understand how much money you can save by enabling storage with cool access.
 
 * [**Azure NetApp Files Region and Feature Map**](https://azure.github.io/azure-netapp-files/map/)
     

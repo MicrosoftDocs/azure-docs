@@ -172,8 +172,8 @@ You can provide security protection for your network traffic in and out of the p
 
 If **Match Internal Address** was specified, the destination is the internal or private IP address of the VM.
 
-For more information on the NSX gateway firewall, see the [NSX Gateway Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/administration-guide/security/gateway-firewall.html).
-The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX Distributed Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/administration-guide/security/distributed-firewall.html).
+For more information on the NSX gateway firewall, see the [NSX Gateway Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/nsxt-dc/3-2/administration-guide/security/gateway-firewall.html).
+The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX Distributed Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/nsxt-dc/3-2/administration-guide/security/distributed-firewall.html).
 
 ## Related content
 

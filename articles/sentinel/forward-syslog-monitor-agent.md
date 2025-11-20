@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 To complete the steps in this tutorial, you must have the following resources and roles:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure account with the following roles to deploy the agent and create the data collection rules.
 
   |Built-in role  |Scope  |Reason  |
@@ -47,6 +47,12 @@ To complete the steps in this tutorial, you must have the following resources an
    - [Supported Linux operating systems for Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview#linux).
    - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [add an on-premises Linux server to Azure Arc](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
 - A Linux-based device that generates event log data like a firewall network device.
+
+## Create the DCR and add resources
+
+To create the DCR and add resources, follow the steps in these articles:
+- [Create the data collection rule](/azure/azure-monitor/vm/data-collection#create-a-data-collection-rule)
+- [Add resources](/azure/azure-monitor/vm/data-collection#add-resources)
 
 [!INCLUDE [configure-syslog-ama](~/reusable-content/ce-skilling/azure/includes/azure-monitor/agents/configure-syslog-ama.md)]
 

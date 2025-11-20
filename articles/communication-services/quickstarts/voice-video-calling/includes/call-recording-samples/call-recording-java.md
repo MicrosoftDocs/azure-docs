@@ -3,7 +3,9 @@ author: dbasantes
 ms.service: azure-communication-services
 ms.date: 06/11/2023
 ms.topic: include
-ms.custom: public_preview
+ms.custom:
+  - public_preview
+  - sfi-ropc-nochange
 ---
 
 ## Sample Code

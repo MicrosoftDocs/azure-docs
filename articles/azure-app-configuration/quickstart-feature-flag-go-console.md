@@ -21,10 +21,10 @@ The feature management support extends the dynamic configuration feature in App 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Go 1.21 or later. For information on installing Go, see the [Go downloads page](https://golang.org/dl/).
-- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0-beta.1 or later.
+- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0 or later.
 
 ## Create a feature flag
 
@@ -54,24 +54,113 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     go get github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig
     ```
 
-1. Update the `options` to enable feature flags in [previous step](./quickstart-go-console-app.md#connect-to-app-configuration).
+1. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
     ```golang
-    	options := &azureappconfiguration.Options{
-    		FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
-    			Enabled: true,
-    			RefreshOptions: azureappconfiguration.RefreshOptions{
-    				Enabled: true,
-    			},
-    		},
-    	}
+    package main
+
+    import (
+        "context"
+        "log"
+        "os"
+
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+
+    func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+        // Get the endpoint from environment variable
+        endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
+        if endpoint == "" {
+            log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
+        }
+
+        // Create a credential using DefaultAzureCredential
+        credential, err := azidentity.NewDefaultAzureCredential(nil)
+        if err != nil {
+            log.Fatalf("Failed to create credential: %v", err)
+        }
+
+        // Set up authentication options with endpoint and credential
+        authOptions := azureappconfiguration.AuthenticationOptions{
+            Endpoint:   endpoint,
+            Credential: credential,
+        }
+
+        // Configure feature flag options
+        options := &azureappconfiguration.Options{
+            FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
+                Enabled: true,
+                RefreshOptions: azureappconfiguration.RefreshOptions{
+                    Enabled: true,
+                },
+            },
+        }
+
+        // Load configuration from Azure App Configuration
+        appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+        if err != nil {
+            log.Fatalf("Failed to load configuration: %v", err)
+        }
+
+        return appConfig, nil
+    }
     ```
+
+    ### [Connection string](#tab/connection-string)
+
+    ```golang
+    package main
+
+    import (
+        "context"
+        "log"
+        "os"
+
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+    )
+
+    func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+        // Get the connection string from environment variable
+        connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
+        if connectionString == "" {
+            log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
+        }
+
+        // Set up authentication options with connection string
+        authOptions := azureappconfiguration.AuthenticationOptions{
+            ConnectionString: connectionString,
+        }
+
+        // Configure feature flag options
+        options := &azureappconfiguration.Options{
+            FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
+                Enabled: true,
+                RefreshOptions: azureappconfiguration.RefreshOptions{
+                    Enabled: true,
+                },
+            },
+        }
+
+        // Load configuration from Azure App Configuration
+        appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+        if err != nil {
+            log.Fatalf("Failed to load configuration: %v", err)
+        }
+
+        return appConfig, nil
+    }
+    ```
+
+    ---
 
     > [!TIP]
     > When no selector is specified in `FeatureFlagOptions`, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh interval of feature flags is 30 seconds. You can customize this behavior via the `RefreshOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh interval time to 5 minutes. Note that this refresh interval time is separate from that for regular key-values.
     >
     > ```golang
-    > FeatureFlagOptions{
+    > azureappconfiguration.FeatureFlagOptions{
     >     Enabled: true,
     >     Selectors: []azureappconfiguration.Selector{
     >         {

@@ -6,6 +6,7 @@ ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
 ms.author: jianleishen
+ms.custom: sfi-ropc-nochange
 ---
 
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
@@ -26,7 +27,7 @@ You take the following steps in this tutorial:
 
 This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory; refer to samples under **Quickstarts**.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

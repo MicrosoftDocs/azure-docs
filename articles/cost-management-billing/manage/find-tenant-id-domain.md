@@ -9,6 +9,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/27/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Locate tenant ID and primary domain

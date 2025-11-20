@@ -8,7 +8,11 @@ ms.author: allensu
 ms.date: 11/05/2024
 ms.topic: quickstart
 ms.service: azure-dns
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
 # Customer intent: As an administrator or developer, I want to create a DNS zone and record using an ARM template, so that I can efficiently manage name resolution for my applications in Azure.
 ---
@@ -25,7 +29,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 

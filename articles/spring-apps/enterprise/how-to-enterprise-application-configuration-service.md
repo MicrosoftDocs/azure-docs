@@ -7,8 +7,14 @@ ms.author: karler
 ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 03/27/2024
-ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - engagement-fy23
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use Application Configuration Service for Tanzu
@@ -22,7 +28,7 @@ ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23, devx-trac
 
 This article shows you how to use Application Configuration Service for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
-[Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.3/acs/GUID-overview.html) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
+[Application Configuration Service for VMware Tanzu](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/application-configuration-service-for-tanzu/2-4/app-config-service/overview.html) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 
 With Application Configuration Service, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in the Basic and Standard plans, see the [Use Application Configuration Service for external configuration](../basic-standard/how-to-migrate-standard-tier-to-enterprise-tier.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](../basic-standard/how-to-migrate-standard-tier-to-enterprise-tier.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
