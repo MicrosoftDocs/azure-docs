@@ -150,6 +150,18 @@ Once the commands have been executed, you can navigate to your Application Gatew
 
 Under **Choose a certificate** select the certificate named in the previous steps.  Once selected, select  *Add* (if creating) or *Save* (if editing) to apply the referenced Key Vault certificate to the listener.
 
+## Key vault integration with application gateway network isolation
+If the registration **EnableApplicationGatewayNetworkIsolation** is enabled on subscription level, it is possible to configure am application gateway with **only** private IP and outbound access is blocked completely
+
+> [!NOTE]
+> **Mandatory Private Connectivity for Key Vaults**
+>
+> In these secure/isolated scenarios, Application Gateway *must* be configured to reach Key Vault via a dedicated private path. You must use one of the following methods:
+>
+> 1.  **Azure Private Endpoint:** Configure a Private Endpoint for Key Vault. Ensure the associated Private DNS Zone (`privatelink.vaultcore.azure.net`) is linked to the Virtual Network containing Application Gateway for name resolution.
+> 2.  **Service Endpoint:** Enable the **Microsoft.KeyVault** Service Endpoint on the Application Gateway subnet, and configure the Key Vault Firewall to allow traffic from that subnet. 
+
+
 ## Investigating and resolving Key Vault errors
 
 > [!NOTE]
