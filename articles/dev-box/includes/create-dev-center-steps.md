@@ -1,51 +1,42 @@
 ---
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/19/2025
+ms.date: 11/19/2025
 ms.topic: include
 ms.service: dev-box
 ---
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
-
-   :::image type="content" source="../media/create-dev-center-steps/discover-dev-centers.png" alt-text="Screenshot that shows the Azure portal with the search box and the result for dev centers." lightbox="../media/create-dev-center-steps/discover-dev-centers.png":::
-
+1. In the [Azure portal](https://portal.azure.com), search for and then select **Dev centers**.
 1. On the **Dev centers** page, select **Create**.
 
-   :::image type="content" source="../media/create-dev-center-steps/create-dev-center.png" alt-text="Screenshot that shows the Azure portal with the Create button on the page for dev centers." lightbox="../media/create-dev-center-steps/create-dev-center.png":::
+   :::image type="content" source="../media/create-dev-center-steps/create-dev-center.png" alt-text="Screenshot that shows the Azure portal with the Create button on the page for dev centers.":::
 
-1. On the **Create a dev center** pane, on the **Basics** tab, enter the following values:
+1. On the **Basics** tab of the **Create a dev center** screen, complete the following information:
 
-   | Setting | Value |
-   |---|---|
-   | **Subscription** | Select the subscription in which you want to create the dev center. |
-   | **Resource Group** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
-   | **Name** | Enter a name for your dev center. |
-   | **Location** | Select the location or region where you want the dev center to be created.</br> For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom). |
-   |  **Attach the environment definition quick start catalog (recommended)** | Select to attach the quick start catalog to the dev center. Dev Box attaches a quick start catalog that contains predefined environment configurations. You can also create your own catalogs and attach them to the dev center. |
+   - **Subscription**: Select the subscription where you want to create the dev center.
+   - **Resource group**: Select an existing resource group, or select **Create new** and enter a name for the new resource group.
+   - **Name**: Enter a name for the dev center.
+   - **Location**: Select the Azure region to create the dev center in. For a list of the currently supported Azure locations with capacity, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box).
+   - **Attach the environment definition quick start catalog (recommended)**: Select to attach a quick start catalog of predefined environment configurations to the dev center. You can also create and attach your own catalogs.
 
-   :::image type="content" source="../media/create-dev-center-steps/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="../media/create-dev-center-steps/create-dev-center-basics.png":::
+1. Select **Review + Create**, or optionally select **Next: Settings** to configure more settings.
 
-1. On the **Settings** tab, enter the following values:
+   :::image type="content" source="../media/create-dev-center-steps/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center.":::
 
-   | Setting | Value | Description |
-   |---|---|---|
-   | **Project level catalogs** | Select to enable Project Admins to attach catalogs to projects. | Project-level catalogs enable you to provide customizations for each development team. |
-   | **Microsoft hosted network in projects** | Select to enable Project Admins to specify that dev boxes created from a pool deploy to a Microsoft-hosted network.  | [Microsoft-hosted networks](/windows-365/enterprise/deployment-options#microsoft-hosted-network) are isolated networks managed by Microsoft. Using a Microsoft hosted network can reduce administrative overhead.   |
-   | **Azure Monitor Agent** | Select to enable all dev boxes in the dev center to install the Azure Monitor Agent. | The [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) collects monitoring data from the dev box and sends it to Azure Monitor. |
+1. On the **Settings** tab of the **Create a dev center** screen, the following options are already enabled by default. Change this configuration if desired.
 
-   :::image type="content" source="../media/create-dev-center-steps/create-dev-center-settings.png" alt-text="Screenshot that shows the Settings tab on the pane for creating a dev center." lightbox="../media/create-dev-center-steps/create-dev-center-settings.png":::
+   - **Project level catalogs**. Resources from catalogs attached to a dev center are available to all projects within it. This option allows project admins to also attach project-level catalogs to provide customizations for different development teams.
+   - **Microsoft hosted network in projects**. Lets project admins specify using [Microsoft-hosted networks](/windows-365/enterprise/deployment-options#microsoft-hosted-network) to host dev boxes in their projects. Microsoft-hosted networks offer network isolation, easy customization, and low administrative overhead. Projects in organizations that require customized networking should use [network connection resources](../how-to-configure-network-connections.md) instead.
+   - **Azure Monitor Agent**. Configures all dev boxes in the dev center to automatically install the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview). The agent collects monitoring data from the dev box and sends it to Azure Monitor.
 
-1. (Optional) On the **Tags** tab, enter a name/value pair that you want to assign.
+1. Select **Review + Create** or optionally select **Next: Tags** to assign tags.
 
-1. Select **Review + Create**.
+1. On the **Tags** tab, enter any name-value tags that you want to assign to resources in the dev center, and then select **Review + Create**.
 
-1. On the **Review** tab, select **Create**.
+1. Select **Create**.
 
-1. Track the progress of the dev center creation from any page in the Azure portal by opening the **Notifications** pane.
+1. Track the progress of the dev center creation in the **Notifications** pane.
 
-   :::image type="content" source="../media/create-dev-center-steps/notifications-pane.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal." lightbox="../media/create-dev-center-steps/notifications-pane.png":::
+   :::image type="content" source="../media/create-dev-center-steps/notifications-pane.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal.":::
 
-1. When the deployment completes, select **Go to resource**. Confirm that the dev center page appears.
+1. When the deployment completes, select **Go to resource** and confirm that the dev center page appears.

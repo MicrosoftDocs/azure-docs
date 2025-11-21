@@ -92,9 +92,11 @@ Mitigation options:
 
      * More details in the next section with an example of HCX migration use case.
 
-3. Edge Scale-OUT:  If customer has large number of Hosts in the SDDC and workloads, NSX Edge Scale-OUT (from two Edges to four Edges) could be an option to add additional NSX Edge data path resources.
+3. Edge Scale-OUT: If you have a large number of Hosts in the SDDC and workloads, NSX Edge Scale-OUT (from two Edges to four Edges) could be an option to add additional NSX Edge data path resources.
 
-     * However, NSX Edge Scale-OUT is effective only with a change in the NSX default Tier-1 Gateway topology to distribute the traffic optimally across all four Edge VMs. More details in the next section with an example of HCX migration use case.
+   * Edge Scale-OUT is currently not supported on Azure VMware Solution Stretched Cluster private cloud.
+
+   * NSX Edge Scale-OUT is effective only with a change in the NSX default Tier-1 Gateway topology to distribute the traffic optimally across all four Edge VMs. More details in the next section with an example of HCX migration use case.
 
 ### Default and configuration recommendations to the NSX Edge data path performance
 

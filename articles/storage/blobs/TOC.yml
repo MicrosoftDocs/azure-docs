@@ -549,14 +549,15 @@ items:
         href: ../common/last-sync-time-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Failover considerations for storage accounts with private endpoints
         href: ../common/storage-failover-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-
   - name: Performance and scale
     items:
-    - name: Performance and scalability checklist
+    - name: Performance checklist
       href: storage-performance-checklist.md
+    - name: Optimize data partitions
+      href: storage-performance-blob-partitions.md
     - name: Latency in Blob storage
       href: storage-blobs-latency.md
-    - name: Scalability and performance targets
+    - name: Performance and scale targets
       items:
       - name: Blob storage
         href: scalability-targets.md
@@ -1053,6 +1054,8 @@ items:
         href: storage-blob-event-quickstart.md
     - name: Data Movement library (.NET)
       href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Performance checklist for developers
+      href: storage-performance-checklist-developers.md
   - name: Troubleshooting
     href: /troubleshoot/azure/azure-storage/welcome-azure-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Samples

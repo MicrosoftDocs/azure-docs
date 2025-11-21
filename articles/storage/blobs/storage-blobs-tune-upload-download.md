@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 11/19/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 # Customer intent: As a .NET developer, I want to optimize data transfer performance using the Azure Storage client library, so that I can enhance speed, reduce memory usage, and ensure reliable uploads and downloads for my applications.
@@ -44,9 +44,18 @@ If you're unsure of what value is best for your situation, a safe option is to s
 > When using a `BlobClient` object, uploading a blob smaller than the `InitialTransferSize` will be performed using [Put Blob](/rest/api/storageservices/put-blob), rather than [Put Block](/rest/api/storageservices/put-block).
 
 ### MaximumConcurrency
+
 [MaximumConcurrency](/dotnet/api/azure.storage.storagetransferoptions.maximumconcurrency) is the maximum number of workers that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations ignore this value and work in sequence.
 
-The effectiveness of this value is subject to connection pool limits in .NET, which may restrict performance by default in certain scenarios. To learn more about connection pool limits in .NET, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
+The effectiveness of this value is subject to connection pool limits in .NET, which may restrict performance by default in certain scenarios. You can use the following code to increase the default connection limit (which is usually two in a client environment or ten in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application. Set the connection limit before opening any connections.
+
+```csharp
+ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
+```
+
+To learn more about connection pool limits in .NET Framework, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
+
+For more information, see the [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads) method.
 
 ### MaximumTransferSize
 
@@ -82,6 +91,14 @@ await blobClient.UploadAsync(stream, options);
 ```
 
 In this example, we set the number of parallel transfer workers to 2, using the `MaximumConcurrency` property. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. The initial HTTP range request attempts to upload up to 8 MiB of data, as defined by the `InitialTransferSize` property. Note that `InitialTransferSize` only applies for uploads when [using a seekable stream](#initialtransfersize-on-upload). If the blob size is smaller than 8 MiB, only a single request is necessary to complete the operation. If the blob size is larger than 8 MiB, all subsequent transfer requests have a maximum size of 4 MiB, which we set with the `MaximumTransferSize` property.
+
+## Increasing the minimum number of threads
+
+If you're using synchronous calls together with asynchronous tasks, you may want to increase the number of threads in the thread pool:
+
+```csharp
+ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
+```
 
 ## Performance considerations for uploads
 

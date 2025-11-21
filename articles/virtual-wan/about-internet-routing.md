@@ -303,13 +303,13 @@ The following example JSON shows a sample default route table configuration with
 ```
 
 
-## Ensure connections learn the default route (0.0.0.0/0)
+## Configure connections learn the default route (0.0.0.0/0)
 
 For connections that need Internet access via Virtual WAN, ensure the **Enable internet security** or **propagate default route** is set to **true**. This configuration instructs Virtual WAN to advertise the default route to that connection.
 
-### Forced tunnel 
+### Special note for forced tunnel hubs 
 
-For hubs that are configured in forced tunnel mode, ensure the **Enable internet security** or **propagate default route** is set to **false** on the on-premises ExpressRoute or VPN and Virtual Network connection that is advertising the 0.0.0.0/0 route to Virtual WAN. This ensures 
+For hubs that are configured in forced tunnel mode, ensure the **Enable internet security** or **propagate default route** is set to **false** on the on-premises ExpressRoute or VPN and Virtual Network connection that is advertising the 0.0.0.0/0 route to Virtual WAN. This ensures Virtual WAN properly learns the 0.0.0.0/0 route from on-premises and also prevents any unexpected routing loops.
 
 
 ## Security solution configurations
