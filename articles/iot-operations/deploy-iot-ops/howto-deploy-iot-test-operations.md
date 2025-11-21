@@ -78,7 +78,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to [configure cardinality and memory profile settings](../manage-mqtt-broker/howto-configure-availability-scale.md). To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
-   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-configuration.png":::
+   :::image type="content" source="./media/howto-deploy-iot-test-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-test-operations/deploy-configuration.png":::
 
 1. Select **Next: Dependency management**.
 
@@ -123,7 +123,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
 1. On the **Dependency management** tab, select the **Test settings** deployment option. This option uses default settings that are recommended for testing purposes.
 
-   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-test.png" alt-text="A screenshot that shows selecting test settings on the third tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-dependency-management-test.png":::
+   :::image type="content" source="./media/howto-deploy-iot-test-operations/deploy-dependency-management-test.png" alt-text="A screenshot that shows selecting test settings on the third tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-test-operations/deploy-dependency-management-test.png":::
 
 1. Select **Next: Automation**.
 

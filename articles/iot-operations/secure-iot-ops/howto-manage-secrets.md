@@ -1,10 +1,10 @@
 ---
 title: Manage secrets 
 description: Create, update, and manage secrets that are required to give your Arc-enabled Kubernetes cluster access to Azure resources.
-author: asergaz
-ms.author: sergaz
+author: dominicbetts
+ms.author: dobett
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 11/21/2025
 ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an IT professional, I want to manage secrets in Azure IoT Operations, by leveraging Key Vault and Azure Secrete Store to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
@@ -12,16 +12,15 @@ ms.custom: sfi-image-nochange
 
 # Manage secrets for your Azure IoT Operations deployment
 
-Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
-
-> [!IMPORTANT]
-> Follow best practices to secure the Azure Key Vault you use with Azure IoT Operations. Ensuring the security of your Key Vault is crucial to protect your secrets. For detailed guidance on how to secure your Azure Key Vault, see [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices).
+Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Edge resources like connectors and dataflows can then use these secrets for authentication when connecting to external systems.
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings and now want to use secrets, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings and now want to use secrets, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-* Creating secrets in the key vault requires **Secrets officer** permissions at the resource level. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+## Configure Azure Key Vault permissions
+
+[!INCLUDE [key-vault-permissions](../includes/key-vault-permissions.md)]
 
 ## Add and use secrets
 

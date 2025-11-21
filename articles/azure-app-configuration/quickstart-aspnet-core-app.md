@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, engagement-fy23
 ms.topic: quickstart
-ms.date: 12/10/2024
+ms.date: 11/21/2025
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---

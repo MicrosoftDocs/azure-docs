@@ -9,7 +9,7 @@ ms.devlang: golang
 ms.custom: devx-track-go, mode-other
 ms.topic: quickstart
 ms.tgt_pltfrm: Go
-ms.date: 10/13/2025
+ms.date: 11/21/2025
 ms.update-cycle: 180-days
 ms.author: linglingye
 ms.collection: ce-skilling-ai-copilot

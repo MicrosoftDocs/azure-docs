@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 10/21/2025
+ms.date: 11/21/2025
 ---
 
 # Known issues for Azure IoT Operations
@@ -55,7 +55,7 @@ The connector doesn't receive a notification when device credentials stored in A
 
 Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
 
-### In the connector templates, the only supported authentication type is "artifact pull secrets"
+### For Akri connectors, the only supported authentication type for registry endpoints is `artifact pull secrets`
 
 ---
 
@@ -67,7 +67,27 @@ Log signature: N/A
 
 ---
 
-When deploying connectors using the provided connector templates, the only supported authentication type is "artifact pull secrets". Other authentication types, such as managed identities, aren't currently supported in the connector templates.
+When you specify the registry endpoint reference in a connector template, there are multiple supported authentication methods. Akri connectors only support `artifact pull secrets` authentication.
+
+### Akri connectors don't work with registry endpoint resources
+
+---
+
+Issue ID: 7710
+
+---
+
+Log signature:
+
+```output
+[aio_akri_logs@311 tid="7"] - failed to generate StatefulSet payload for instance rest-connector-template-...
+[aio_akri_logs@311 tid="7"] - reconciliation error for Connector resource... 
+[aio_akri_logs@311 tid="7"] - reconciliation of Connector resource failed...
+```
+
+If you create a `RegistryEndpoint` resource using bicep and reference it in the `ConnectorTemplate` resource then when the Akri operator tries the reconcile the `ConnectorTemplate` it fails with the error shown previously.
+
+Workaround: Don't use `RegistryEndpoint` resources with Akri connectors. Instead, specify the registry information in the `ContainerRegistry` settings in the `ConnectorTemplate` resource.
 
 ## Connector for OPC UA issues
 

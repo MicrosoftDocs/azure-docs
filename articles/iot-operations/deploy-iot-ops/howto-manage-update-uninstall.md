@@ -69,7 +69,7 @@ You can view your Azure IoT Operations instance in the Azure portal.
 
 1. On the **Overview** page of your instance, you can see the properties of your instance. For example, you can see the status of the **connectors**, which can be enabled or disabled. To change the status of the connectors, click on **Edit**. 
 
-    :::image type="content" source="media/howto-deploy-iot-operations/view-enable-connectors.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster and how to enable connectors."lightbox="media/howto-deploy-iot-operations/view-enable-connectors.png":::
+    :::image type="content" source="./media/howto-manage-update-uninstall/view-enable-connectors.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster and how to enable connectors." lightbox="./media/howto-manage-update-uninstall/view-enable-connectors.png":::
 
     This action opens a configuration panel where you can enable or disable the [connector for ONVIF](../discover-manage-assets/howto-use-onvif-connector.md).
 
@@ -119,23 +119,23 @@ To view items in the Azure Device Registry in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**. The **Overview** page summarizes the number of assets, schema registries and namespaces in your subscription:
 
-    :::image type="content" source="media/howto-manage-update-uninstall/azure-device-registry-overview.png" alt-text="Screenshot of Azure Device Registry overview page in the Azure portal." lightbox="media/howto-manage-update-uninstall/azure-device-registry-overview.png":::
+    :::image type="content" source="./media/howto-manage-update-uninstall/azure-device-registry-overview.png" alt-text="Screenshot of Azure Device Registry overview page in the Azure portal." lightbox="./media/howto-manage-update-uninstall/azure-device-registry-overview.png":::
 
 1. Use the **Assets** page to view the assets in Azure Device Registry. By default, the **Assets** page shows the assets in all namespaces in your subscription. Use the filters to view a subset of the assets, such as the assets in a specific namespace or resource group:
 
-    :::image type="content" source="media/howto-manage-update-uninstall/azure-device-registry-assets.png" alt-text="Screenshot of Azure Device Registry assets page in the Azure portal." lightbox="media/howto-manage-update-uninstall/azure-device-registry-assets.png":::
+    :::image type="content" source="./media/howto-manage-update-uninstall/azure-device-registry-assets.png" alt-text="Screenshot of Azure Device Registry assets page in the Azure portal." lightbox="./media/howto-manage-update-uninstall/azure-device-registry-assets.png":::
 
 1. Use the **Schema registries** page to view the schema registries in Azure Device Registry. By default, the **Schema registries** page shows the schema registries in all namespaces in your subscription. Use the filters to view a subset of the schema registries, such as the schema registries in a specific namespace or resource group:
 
-    :::image type="content" source="media/howto-manage-update-uninstall/azure-device-registry-schema-registries.png" alt-text="Screenshot of Azure Device Registry schema registries page in the Azure portal." lightbox="media/howto-manage-update-uninstall/azure-device-registry-schema-registries.png":::
+    :::image type="content" source="./media/howto-manage-update-uninstall/azure-device-registry-schema-registries.png" alt-text="Screenshot of Azure Device Registry schema registries page in the Azure portal." lightbox="./media/howto-manage-update-uninstall/azure-device-registry-schema-registries.png":::
 
 1. Use the **Namespaces** page to view the namespaces in Azure Device Registry. By default, the **Namespaces** page shows the namespaces in your subscription. Use the filters to view a subset of the namespaces, such as the namespaces in a specific resource group. From this page, you can create new namespaces, or view the details of existing namespaces:
 
-    :::image type="content" source="media/howto-manage-update-uninstall/azure-device-registry-namespaces.png" alt-text="Screenshot of Azure Device Registry namespaces page in the Azure portal." lightbox="media/howto-manage-update-uninstall/azure-device-registry-namespaces.png":::
+    :::image type="content" source="./media/howto-manage-update-uninstall/azure-device-registry-namespaces.png" alt-text="Screenshot of Azure Device Registry namespaces page in the Azure portal." lightbox="./media/howto-manage-update-uninstall/azure-device-registry-namespaces.png":::
 
 You can also view the details of an existing namespace in the resource group that includes your Azure IoT Operations instance. For example, the following screenshot shows the **adr-namespace** resource associated with the **aio-131235032** Azure IoT Operations instance:
 
-:::image type="content" source="media/howto-manage-update-uninstall/portal-resources.png" alt-text="Screenshot of Azure portal showing resources in the resource group." lightbox="media/howto-manage-update-uninstall/portal-resources.png":::
+:::image type="content" source="./media/howto-manage-update-uninstall/portal-resources.png" alt-text="Screenshot of Azure portal showing resources in the resource group." lightbox="./media/howto-manage-update-uninstall/portal-resources.png":::
 
 The previous screenshot also shows the other resources in Azure Device Registry such as the **IoT Schema Registry**, **IoT Namespace Assets**, and **Devices** in the context of the resource group that contains your Azure IoT Operations instance.
 
@@ -249,7 +249,7 @@ The Azure IoT Operations CLI and Azure portal offer different options for uninst
 
 1. Review the list of resources that are and aren't deleted as part of this operation, then type the name of your instance and select **Delete** to confirm.
 
-   :::image type="content" source="./media/howto-deploy-iot-operations/delete-instance.png" alt-text="A screenshot that shows deleting an Azure IoT Operations instance in the Azure portal.":::
+   :::image type="content" source="./media/howto-manage-update-uninstall/delete-instance.png" alt-text="A screenshot that shows deleting an Azure IoT Operations instance in the Azure portal.":::
 
 > [!NOTE]
 > Deleting the Azure IoT Operations instance in the Azure portal doesn't remove the dependencies that were created when you deployed Azure IoT Operations. To remove these dependencies, use the `az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --include-deps` command described in the Azure CLI procedure.

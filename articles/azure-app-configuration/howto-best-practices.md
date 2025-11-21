@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 03/10/2025
+ms.date: 11/21/2025
 ms.author: zhenlwa
 ms.custom:
   - build-2025
@@ -306,6 +306,7 @@ Configuration as code is a practice of managing configuration files under your s
 
 This model allows you to include validation and testing steps before committing data to App Configuration. If you use multiple App Configuration stores, you can also push the configuration data to them incrementally or all at once.
 
-## Next steps
+## Next step
 
-* [Keys and values](./concept-key-value.md) 
+> [!div class="nextstepaction"]
+> [Keys and values](./concept-key-value.md) 

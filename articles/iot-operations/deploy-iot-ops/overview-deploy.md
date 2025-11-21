@@ -3,8 +3,7 @@ title: Deployment overview
 description: Learn about the components that are included in an Azure IoT Operations deployment and the different deployment options to consider for your scenario.
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.topic: conceptual
-ms.custom:
+ms.topic: concept-article
 ms.date: 11/10/2025
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
@@ -88,7 +87,7 @@ If you use the Azure CLI to assign roles, use the [az role assignment create](/c
 
 If you use the Azure portal to assign privileged admin roles to a user or principal, you're prompted to restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
 
-:::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
+:::image type="content" source="./media/overview-deploy/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
 
 ## Organize instances by using sites
 
@@ -140,7 +139,9 @@ The following diagram shows an example deployment that illustrates how to mainta
 * Operational workloads and data remain _on-premises at the edge_ under your complete control to ensure data residency and data sovereignty.
 * Data storage and processing resources are deployed in the _Canada Central_ region to meet specific regional data residency requirements.
 
-:::image type="content" source="./media/overview-deploy/data-residency.png" alt-text="Diagram that shows an example deployment of Azure IoT Operations with data residency considerations." lightbox="./media/overview-deploy/data-residency.png":::
+<!-- Art Library Source# ConceptArt-0-000-131 -->
+
+:::image type="content" source="./media/overview-deploy/data-residency.svg" alt-text="Diagram that shows an example deployment of Azure IoT Operations with data residency considerations." lightbox="./media/overview-deploy/data-residency.png":::
 
 ## Next steps
 

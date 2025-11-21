@@ -64,6 +64,8 @@ The following table gives the list of alerts that are currently monitored and su
 |30    |NSX Alarm - Customer Internet Protocol Security (IPSec) tunnel is down                                                                  |Customer intervention required|
 |31    |NSX Alarm - LDAP issue                                                                                                                  |Customer intervention required|
 |32    |NSX Alarm - Edge VM CPU usage very high                                                                                                 |Customer intervention required|
+|33    |NSX Segment Assignment Failed - Overlapping with already existing segments                                                              |Customer intervention required|
+|34    |Cross-resource and cross-subscription group reference not supported by default                                                          |Customer intervention required|
 
 
 ## Next Steps

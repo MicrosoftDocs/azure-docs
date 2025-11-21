@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 12/10/2024
+ms.date: 11/21/2025
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---

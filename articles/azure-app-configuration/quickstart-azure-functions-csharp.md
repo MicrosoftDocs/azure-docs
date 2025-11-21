@@ -6,7 +6,7 @@ author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 03/09/2025
+ms.date: 11/21/2025
 ms.author: zhenlwa
 ms.custom: "devx-track-csharp, azure-functions"
 ms.tgt_pltfrm: Azure Functions

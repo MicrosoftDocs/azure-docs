@@ -7,14 +7,14 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 01/28/2025
+ms.date: 11/21/2025
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
 zone_pivot_groups: aks-authtype
 ---
 
 # Tutorial: Connect an AKS app to Azure SQL Database
 
-In this tutorial, you learn how to connect an application deployed to AKS, to an Azure SQL Database, using service connector. You complete the following tasks:
+In this tutorial, you learn how to connect an application deployed to AKS, to an Azure SQL Database, using Service Connector. You complete the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure SQL Database resource
@@ -96,7 +96,7 @@ Create a service connection to the SQL database using the [`az aks connection cr
        az aks connection create sql
        ```
  
-   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>`.
+   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<identity_name>`.
     
        ```azurecli-interactive
        az aks connection create sql \
@@ -146,7 +146,7 @@ Create a service connection to the SQL database using the [`az aks connection cr
        az aks connection create sql
        ```
  
-   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>`.
+   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, <identity_name>, and `<secret>`.
     
        ```azurecli-interactive
        az aks connection create sql \

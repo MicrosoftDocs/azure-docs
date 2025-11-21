@@ -1,23 +1,22 @@
 ---
-title: Create a job with Azure Container Apps
-description: Learn to create an on-demand or scheduled job in Azure Container Apps
+title: Create a Job in Azure Container Apps
+description: Find out how to create and run an on-demand or scheduled job in Azure Container Apps. Also go through steps for checking the history and output logs of a job.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 08/09/2024
+ms.date: 11/17/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-job-types
+# customer intent: As a developer, I want to find out how to create jobs in Azure Container Apps so that I can start containerized tasks on demand.
 ---
 
-# Create a job with Azure Container Apps
+# Quickstart: Create a job in Azure Container Apps
 
-Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually, schedule their execution, or trigger their execution based on events.
+In this quickstart, you create an Azure Container Apps [job](jobs.md). In Container Apps, jobs are used to start containerized tasks that run for a finite duration and then exit. Jobs are best suited for tasks such as data processing, machine learning, resource cleanup, or any scenario that requires on-demand processing.
 
-Jobs are best suited to for tasks such as data processing, machine learning, resource cleanup, or any scenario that requires on-demand processing.
-
-In this quickstart, you create a manual or scheduled job. To learn how to create an event-driven job, see [Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
+You can trigger a job manually, schedule its run, or trigger its run based on events. This quickstart shows you how to create a manual or scheduled job. To find out how to create an event-driven job, see [Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
 
 [!INCLUDE [container-apps-create-cli-steps-jobs.md](../../includes/container-apps-create-cli-steps-jobs.md)]
 
@@ -25,9 +24,9 @@ In this quickstart, you create a manual or scheduled job. To learn how to create
 
 ## Create and run a manual job
 
-To use manual jobs, you first create a job with trigger type `Manual` and then start an execution. You can start multiple executions of the same job and multiple job executions can run concurrently.
+To use manual jobs, you first create a job with a trigger type of `Manual` and then start its run. You can start multiple runs of the same job, and multiple job executions can run concurrently.
 
-1. Create a job in the Container Apps environment using the following command.
+1. Create a job in the Container Apps environment by using the following command.
 
     ```azurecli
     az containerapp job create \
@@ -38,9 +37,9 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
         --cpu "0.25" --memory "0.5Gi"
     ```
 
-    Manual jobs don't execute automatically. You must start an execution of the job.
+    Manual jobs don't run automatically. You must start each job.
 
-1. Start an execution of the job using the following command.
+1. Start the job by using the following command.
 
     ```azurecli
     az containerapp job start \
@@ -48,7 +47,7 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
         --resource-group "$RESOURCE_GROUP"
     ```
 
-    The command returns details of the job execution, including its name.
+    The command returns detailed information about the job run, including its name.
 
 ::: zone-end
 
@@ -56,9 +55,9 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
 
 ## Create and run a scheduled job
 
-To use scheduled jobs, you create a job with trigger type `Schedule` and a cron expression that defines the schedule.
+To use scheduled jobs, you create a job with a trigger type of `Schedule` and a `cron` expression that defines the schedule.
 
-Create a job in the Container Apps environment that starts every minute using the following command.
+Use the following command to create a Container Apps job that starts every minute.
 
 ```azurecli
 az containerapp job create \
@@ -70,15 +69,15 @@ az containerapp job create \
     --cron-expression "*/1 * * * *"
 ```
 
-Job executions start automatically based on the schedule.
+The job runs start automatically based on the schedule.
 
-Container Apps jobs use cron expressions to define schedules. It supports the standard [cron](https://en.wikipedia.org/wiki/Cron) expression format with five fields for minute, hour, day of month, month, and day of week.
+Container Apps jobs use `cron` expressions to define schedules. Jobs support the standard [cron](https://en.wikipedia.org/wiki/Cron) expression format, which contains fields for the minute, hour, day of month, month, and day of week.
 
 ::: zone-end
 
-## List recent job execution history
+## List recent job run history
 
-Container Apps jobs maintain a history of recent executions. You can list the executions of a job.
+Container Apps jobs maintain a history of recent runs. You can list the runs of a job.
 
 ```azurecli
 az containerapp job execution list \
@@ -88,17 +87,17 @@ az containerapp job execution list \
     --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
 ```
 
-Executions of scheduled jobs appear in the list as they run.
+Jobs appear in the list as they run.
 
 ```console
 Status     Name            StartTime
 ---------  --------------  -------------------------
-Succeeded  my-job-jvsgub6  2023-05-08T21:21:45+00:00
+Succeeded  my-job-jvsgub6  2025-11-17T21:21:45+00:00
 ```
 
-## Query job execution logs
+## Query job run logs
 
-Job executions output logs to the logging provider that you configured for the Container Apps environment. By default, logs are stored in Azure Log Analytics.
+Job runs write output logs to the logging provider that you configure for the Container Apps environment. By default, logs are stored in Log Analytics.
 
 1. Save the Log Analytics workspace ID for the Container Apps environment to a variable.
 
@@ -110,44 +109,44 @@ Job executions output logs to the logging provider that you configured for the C
         --output tsv)
     ```
 
-1. Save the name of the most recent job execution to a variable.
+1. Save the name of the most recent job run to a variable.
 
     ```azurecli
-    JOB_EXECUTION_NAME=$(az containerapp job execution list \
+    JOB_RUN_NAME=$(az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --query "[0].name" \
         --output tsv)
     ```
 
-1. Run a query against Log Analytics for the job execution using the following command.
+1. Run a Log Analytics query for the job run by using the following command.
 
     ```azurecli
     az monitor log-analytics query \
         --workspace "$LOG_ANALYTICS_WORKSPACE_ID" \
-        --analytics-query "ContainerAppConsoleLogs_CL | where ContainerGroupName_s startswith '$JOB_EXECUTION_NAME' | order by _timestamp_d asc" \
+        --analytics-query "ContainerAppConsoleLogs_CL | where ContainerGroupName_s startswith '$JOB_RUN_NAME' | order by _timestamp_d asc" \
         --query "[].Log_s"
     ```
 
     > [!NOTE]
-    > Until the `ContainerAppConsoleLogs_CL` table is ready, the command returns no results or with an error: `BadArgumentError: The request had some invalid properties`. Wait a few minutes and run the command again.
+    > Until the **ContainerAppConsoleLogs_CL** table is ready, the command returns no results, or it returns the following error: "BadArgumentError: The request had some invalid properties." In either case, wait a few minutes and then run the command again.
 
-    The following output is an example of the logs printed by the job execution.
+    The following output is an example of the logs printed by the job run.
 
-    ```json
+    ```console
     [
-        "2023/04/24 18:38:28 This is a sample application that demonstrates how to use Azure Container Apps jobs",
-        "2023/04/24 18:38:28 Starting processing...",
-        "2023/04/24 18:38:33 Finished processing. Shutting down!"
+        "2025/11/17 18:38:28 This is a sample application that demonstrates how to use Azure Container Apps jobs",
+        "2025/11/17 18:38:28 Starting processing...",
+        "2025/11/17 18:38:33 Finished processing. Shutting down!"
     ]
     ```
 
 ## Clean up resources
 
-If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
+If you're not going to continue to use this job, run the following command to delete the resource group and all the resources from this quickstart.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they're also deleted.
 
 ```azurecli
 az group delete --name "$RESOURCE_GROUP"
@@ -156,7 +155,7 @@ az group delete --name "$RESOURCE_GROUP"
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps/issues).
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Container Apps jobs](jobs.md)
+> [Jobs in Azure Container Apps](jobs.md)

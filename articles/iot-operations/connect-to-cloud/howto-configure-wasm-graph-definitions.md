@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/19/2025
+ms.date: 11/21/2025
 ai-usage: ai-assisted
 
 ---
@@ -39,8 +39,8 @@ Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-
 
 ```yaml
 moduleRequirements:
-  apiVersion: "0.2.0"
-  hostlibVersion: "0.2.0"
+  apiVersion: "1.1.0"
+  hostlibVersion: "1.1.0"
 
 operations:
   - operationType: "source"
@@ -64,8 +64,8 @@ The `moduleRequirements` section ensures compatibility using semantic versioning
 
 ```yaml
 moduleRequirements:
-  apiVersion: "0.2.0"          # WASI API version for interface compatibility
-  hostlibVersion: "0.2.0"     # Host library version providing runtime support
+  apiVersion: "1.1.0"          # WASI API version for interface compatibility
+  hostlibVersion: "1.1.0"     # Host library version providing runtime support
   features:                    # Optional features required by modules
     - name: "wasi-nn"
 ```

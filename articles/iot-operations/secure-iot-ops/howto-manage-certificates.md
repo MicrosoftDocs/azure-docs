@@ -1,10 +1,10 @@
 ---
-title: Manage Certificates
+title: Manage certificates
 description: Azure IoT Operations uses TLS to encrypt communication. Learn how to manage certificates for internal and external communications, and how to bring your own certificate authority (CA) issuer for a production deployment.
-author: asergaz
-ms.author: sergaz
+author: dominicbetts
+ms.author: dobett
 ms.topic: how-to
-ms.date: 08/26/2025
+ms.date: 11/21/2025
 
 #CustomerIntent: As an operator, I want to configure Azure IoT Operations components to use TLS so that I have secure communication between all components.
 ---
@@ -15,9 +15,7 @@ Azure IoT Operations uses TLS to encrypt communication between all components. T
 
 ## Prerequisites
 
-- To manage certificates for external communications, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-- To create secrets in Azure Key Vault, you need **Secrets officer** permissions at the resource level. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+To manage certificates for external communications, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## Manage certificates for internal communications
 
@@ -152,7 +150,13 @@ To set up Azure IoT Operations with your own issuer for internal communications,
 
 ## Manage certificates for external communications
 
-The certificate management experience for external communications uses Azure Key vault as the managed vault solution on the cloud. Certificates are added to the key vault as secrets and synchronized to the edge as Kubernetes secrets via [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension).
+Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. You add your certificates to Azure Key Vault as secrets, and the extension synchronizes them to the edge as Kubernetes secrets.
+
+### Configure Azure Key Vault permissions
+
+[!INCLUDE [key-vault-permissions](../includes/key-vault-permissions.md)]
+
+### Add and use certificates
 
 Connectors use the certificate management experience to configure client application authentication to external servers. To learn more about how connectors use certificates to establish mutual trust with external servers, see the connector-specific certificate management documentation.
 

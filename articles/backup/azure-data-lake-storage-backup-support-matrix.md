@@ -26,7 +26,7 @@ Vaulted backups of Azure Data Lake Storage are available in the following region
 
 | Availability type | Region |
 | --- | --- |
-| **General availability** | East Asia, France South, US South Central, Switzerland North, Switzerland West, UAE North, UK West, West India. |
+| **General availability** | East Asia, France South, Southeast US, Switzerland North, Switzerland West, UAE North, UK West, West India. |
 | **Preview** | Australia East, Central India, Central US, East US, East US 2, Germany West Central, North Central US, North Europe, South India, Southeast Asia, West Central US, West US, West US 2, West US 3. |
 
 ## Supported storage accounts
@@ -62,6 +62,7 @@ Azure Data Lake Storage protection has the following supported and unsupported s
 - You can protect the storage account with the vault in another subscription but in the same region as storage account.
 - Archive tier for vault is currently not supported.
 - Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs. The system captures operations through Change Feed and uses directory snapshots to ensure consistent recovery.
+- Vaulted Backup doesn’t support cross-container data moves because backup policies are container-specific. If you move data between containers, the replication consistency breaks.
 - When expiry is set on blobs via SetBlobExpiry API or PutBlob/PutBlock options. Once expired, expired blobs remain in restore points, creating inconsistencies in future restore points. Recommendation is to not use blob expiry.
 - Storage accounts upgraded from FNS to HNS are not supported for backup.
 - SFTP-enabled & NFS accounts are not supported for backup. Backup jobs may stall if SFTP-uploaded blobs encountered.

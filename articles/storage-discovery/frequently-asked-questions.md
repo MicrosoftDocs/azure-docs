@@ -12,6 +12,11 @@ ms.date: 10/09/2025
 In this article, learn about frequently asked questions and answers for the Azure Storage Discovery service.
 
 <details>
+<summary> Can I use Storage Discovery in EUAP regions?</summary>
+Creating a Storage Discovery workspace in EUAP regions isn’t supported. However, if your workspace is created in a supported (non-EUAP) region, it will still show insights for storage accounts located in EUAP regions. To ensure full functionality and support, create your Storage Discovery workspace in a supported region outside EUAP.
+</details>
+
+<details>
 <summary> I can't find a subscription in the workspace root picker (resource tree) to add it to the workspace root.</summary>
 
 - Navigate to the [Azure portal](https://portal.azure.com).
@@ -46,9 +51,9 @@ Activity, Security, and Consumption reports show insights only for Standard pric
 </details>
 
 <details>
-<summary> I can't see insights for Blob Storage in the archive tier.</summary>
+<summary> I can't see insights for FNS accounts in the archive tier.</summary>
 
-Insights such as capacity and activity for storage accounts with the [default access tier](../storage/blobs/access-tiers-overview.md#default-account-access-tier-setting) set to [archive](../storage/blobs/access-tiers-overview.md#archive-access-tier) are currently not included in the Storage Discovery reports. An update is in progress to begin incorporating these insights. Once completed, insights for these storage accounts automatically appear in the reports and also are reflected in the monthly [Storage Discovery bill](pricing.md).
+Insights such as capacity and activity for FNS storage accounts with the [default access tier](../storage/blobs/access-tiers-overview.md#default-account-access-tier-setting) set to [archive](../storage/blobs/access-tiers-overview.md#archive-access-tier) are currently not included in the Storage Discovery reports. An update is in progress to begin incorporating these insights. Once completed, insights for these storage accounts automatically appear in the reports and also are reflected in the monthly [Storage Discovery bill](pricing.md).
 
 </details>
 
@@ -82,6 +87,7 @@ Discovery workspace has a default limit of five ARM tags per scopes in each work
 - Maximum number of tags a scope can filter on: 5
 
 If you need any of these limits increased, open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and provide which limit and to what count you need that limit increased. Also include the tenant ID and the subscription ID. Our team reviews your request and may contact you with any remaining questions. 
+To create Storage Discovery resources with higher limits, use alternative clients such as Azure CLI, PowerShell, SDK, or ARM templates. The Azure portal will continue to enforce default limits.
 
 </details>
 

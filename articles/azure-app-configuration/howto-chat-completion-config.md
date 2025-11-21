@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: MaryanneNjeri
 ms.author: mgichohi
 ms.topic: how-to
-ms.date: 04/20/2025
+ms.date: 11/21/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---

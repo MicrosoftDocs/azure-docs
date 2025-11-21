@@ -21,9 +21,9 @@ This article describes how to create an Azure VMware Solution assessment for on-
 
 - [Create](./create-manage-projects.md) an Azure Migrate project.
 - [Add](how-to-assess.md) the Azure Migrate: Discovery and assessment tool if you've already created a project.
-- Discover your on-premises inventory data using either of the following approach:
-    - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md).
-    - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md)
+- Discover your on-premises inventory data using any of the following approach:
+    - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md) OR
+    - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md) OR
     - Set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
 
 

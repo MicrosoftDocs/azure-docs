@@ -40,6 +40,9 @@ Registry endpoints support authentication through:
 
 You can create a registry endpoint using Bicep or Kubernetes.
 
+> [!IMPORTANT]
+> Currently, there's a known issue when using registry endpoint resources with Akri connectors. For more information, see [Akri connectors don't work with registry endpoint resources](../troubleshoot/known-issues.md#akri-connectors-dont-work-with-registry-endpoint-resources).
+
 <!-- 
 # [Operations experience](#tab/portal)
 

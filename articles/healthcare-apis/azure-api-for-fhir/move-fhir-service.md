@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/21/2025
 ms.author: kesheth
 ms.custom: sfi-image-nochange
 ---
@@ -57,5 +57,6 @@ In this article, you learned how to move the Azure API for FHIR instance. For mo
 
 >[!div class="nextstepaction"]
 >[Supported FHIR features](fhir-features-supported.md)
+
 
 [!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
