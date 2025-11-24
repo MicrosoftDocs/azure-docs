@@ -253,7 +253,7 @@ Get answers to frequently asked questions.
 
 **A.** Currently, there's no API support. You can configure your service only by using the Azure portal.
 
-**Q.** Setting the Prefix Limit: Recommended Max Prefix Limits for Voice service peering.
+**Setting the Prefix Limit: Recommended Max Prefix Limits for Microsoft Azure Peering Service.**
 
-**A.** Microsoft generally announces up to 300 voice-enabled service IP prefixes on the internet, and this number may increase over time. To maintain stability and prevent session drops, it is recommended to set your Max Prefix Count to 500. This provides a safe buffer above current announcements and allows for future growth.
+Microsoft currently announces up to 2000 IPv4 prefixes on the internet, and this number may increase over time. To maintain stability and prevent session drops, it is recommended to set your Max Prefix Count according to the peeringdb.com entry for ASN 8075.  This provides a safe buffer above current announcements and allows for future growth.
 

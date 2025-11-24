@@ -1,8 +1,8 @@
 ---
 title: Understand Azure Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
-ms.date: 02/01/2024
-ms.topic: conceptual
+ms.date: 11/24/2025
+ms.topic: article
 ---
 # Understanding Azure Machine Configuration
 
@@ -143,7 +143,7 @@ symbolic to represent new minor versions of Linux distributions.
 | Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
 | Canonical | Ubuntu Server              | 16.04 - 24.x     |
-| Credativ  | Debian                     | 10.x - 12.x      |
+| Credativ  | Debian                     | 10.x - 13.x      |
 | Microsoft | CBL-Mariner                | 1 - 2            |
 | Microsoft | Azure Linux                | 3                |
 | Microsoft | Windows Client             | Windows 10, 11   |

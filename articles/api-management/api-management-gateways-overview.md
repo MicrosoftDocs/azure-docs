@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 09/30/2025
+ms.date: 11/21/2025
 ms.author: danlep
 ---
 
@@ -115,7 +115,7 @@ The following tables compare features available in the following API Management 
 | [Azure OpenAI in AI Foundry models and LLMs](azure-ai-foundry-api.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Pass-through MCP server](expose-existing-mcp-server.md) | ✔️  | ✔️ | ❌ | ✔️ | ❌ |
 | [Export REST API as MCP server](export-rest-mcp-server.md)  | ✔️ | ✔️ | ❌ | ✔️ | ❌ |
-| A2A agent  | ❌ | ✔️ | ❌ | ❌ | ❌ |
+| [A2A agent](agent-to-agent-api.md)  | ❌ | ✔️ | ❌ | ❌ | ❌ |
 | [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
 | [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
@@ -185,6 +185,7 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 
 * **v2 tiers**
     * Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md), or upgrade the service tier.
+    * Optionally configure [Azure Monitor autoscale](api-management-howto-autoscale.md).
 
 * **Consumption tier**
     * API Management instances in the Consumption tier scale automatically based on the traffic.

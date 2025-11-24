@@ -6,20 +6,20 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 03/20/2025
+ms.date: 11/21/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 ---
 
 # Tutorial: Deploy self-hosted CI/CD runners and agents with Azure Container Apps jobs
 
-GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. You can run self-hosted runners and agents using event-driven Azure Container Apps [jobs](./jobs.md).
+GitHub Actions and Azure Pipelines let you run CI/CD workflows with self-hosted runners and agents. You can run self-hosted runners and agents by using event-driven Azure Container Apps [jobs](./jobs.md).
 
-Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that aren't available to a cloud-hosted runner. For example, a self-hosted runner in a Container Apps job allows your workflow to access resources inside the job's virtual network that isn't accessible to a cloud-hosted runner.
+Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that aren't available to a cloud-hosted runner. For example, a self-hosted runner in a Container Apps job allows your workflow to access resources inside the job's virtual network that a cloud-hosted runner can't access.
 
-Running self-hosted runners as event-driven jobs allows you to take advantage of the serverless nature of Azure Container Apps. Jobs execute automatically when a workflow is triggered and exit when the job completes.
+Running self-hosted runners as event-driven jobs lets you take advantage of the serverless nature of Azure Container Apps. Jobs execute automatically when a workflow is triggered and exit when the job completes.
 
-You only pay for the time that the job is running.
+You pay only for the time that the job is running.
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to run GitHub Actions runners as an [event-drive
 > Self-hosted runners are only recommended for *private* repositories. Using them with public repositories can allow dangerous code to execute on your self-hosted runner. For more information, see [Self-hosted runner security](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security).
 
 > [!NOTE]
-> Every personal access token (PAT) has an expiration date. You need to make sure PATs are regularly rotated before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+> Every personal access token (PAT) has an expiration date. Make sure to regularly rotate PATs before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 ::: zone-end
 
@@ -56,7 +56,7 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 > Self-hosted agents are only recommended for *private* projects. Using them with public projects can allow dangerous code to execute on your self-hosted agent. For more information, see [Self-hosted agent security](/azure/devops/pipelines/agents/linux-agent#permissions).
 
 > [!NOTE]
-> Every personal access token (PAT) has an expiration date. You need to make sure PATs are regularly rotated before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+> Every personal access token (PAT) has an expiration date. Make sure to regularly rotate PATs before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 ::: zone-end
 
@@ -133,7 +133,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
 > [!NOTE]
 > To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an Azure Container Apps environment](vnet-custom.md).
 
-1. Create a resource group using the following command.
+1. Create a resource group with the following command.
 
     # [Bash](#tab/bash)
     ```bash
@@ -151,7 +151,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
 
     ---
 
-1. Create the Container Apps environment using the following command.
+1. Create the Container Apps environment with the following command.
 
     # [Bash](#tab/bash)
     ```bash
@@ -176,9 +176,9 @@ The Azure Container Apps environment acts as a secure boundary around container 
 
 ## Create a GitHub repository for running a workflow
 
-To execute a workflow, you need to create a GitHub repository that contains the workflow definition.
+To run a workflow, you need to create a GitHub repository that contains the workflow definition.
 
-1. Navigate to [GitHub](https://github.com/new) and sign in.
+1. Go to [GitHub](https://github.com/new) and sign in.
 
 1. Create a new repository by entering the following values.
 
@@ -189,7 +189,7 @@ To execute a workflow, you need to create a GitHub repository that contains the 
     | Visibility | Select **Private**. |
     | Initialize this repository with | Select **Add a README file**. |
 
-    Leave the rest of the values as their default selection.
+    Use the default values for the other settings.
 
 1. Select **Create repository**.
 
@@ -203,10 +203,10 @@ The workflow runs on the `ubuntu-latest` GitHub-hosted runner and prints a messa
 
 ## Get a GitHub personal access token
 
-To run a self-hosted runner, you need to create a personal access token (PAT) in GitHub. Each time a runner starts, the PAT is used to generate a token to register the runner with GitHub. The PAT is also used by the GitHub Actions runner scale rule to monitor the repository's workflow queue and start runners as needed.
+To run a self-hosted runner, you need to create a personal access token (PAT) in GitHub. Each time a runner starts, the PAT generates a token to register the runner with GitHub. The GitHub Actions runner scale rule uses the PAT to monitor the repository's workflow queue and start runners as needed.
 
 > [!NOTE]
-> Personal Access Tokens (PATs) have an expiration date. Regularly rotate your tokens to ensure they remain valid (not expired) to maintain uninterrupted service.
+> Personal Access Tokens (PATs) expire. Regularly rotate your tokens to keep them valid and maintain uninterrupted service.
 
 1. In GitHub, select your profile picture in the upper-right corner and select **Settings**.
 
@@ -236,7 +236,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
 1. Copy the token value.
 
-1. Define variables that are used to configure the runner and scale rule later.
+1. Define variables that you use to configure the runner and scale rule later.
 
     # [Bash](#tab/bash)
     ```bash
@@ -270,7 +270,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 To create a self-hosted runner, you need to build a container image that executes the runner. In this section, you build the container image and push it to a container registry.
 
 > [!NOTE]
-> The image you build in this tutorial contains a basic self-hosted runner that's suitable for running as a Container Apps job. You can customize it to include additional tools or dependencies that your workflows require.
+> The image you build in this tutorial contains a basic self-hosted runner that's suitable for running as a Container Apps job. You can customize it to include other tools or dependencies that your workflows require.
 
 1. Define a name for your container image and registry.
 
@@ -312,7 +312,7 @@ To create a self-hosted runner, you need to build a container image that execute
 
     ---
 
-1. Your container registry must allow Azure Resource Manager (ARM) audience tokens for authentication in order to use managed identity to pull images.
+1. Your container registry must allow Azure Resource Manager (ARM) audience tokens for authentication to use managed identity to pull images.
 
     Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR).
 
@@ -336,7 +336,7 @@ To create a self-hosted runner, you need to build a container image that execute
     }
     ```
 
-    If the `status` is `disabled`, allow ARM tokens with the following command.
+    If the `status` is `disabled`, use the following command to allow ARM tokens.
 
     # [Bash](#tab/bash)
     ```azurecli
@@ -350,7 +350,7 @@ To create a self-hosted runner, you need to build a container image that execute
 
     ---
 
-1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/github-actions-runner). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
+1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/github-actions-runner). Run the following command to clone the repository and build the container image in the cloud by using the `az acr build` command.
 
     # [Bash](#tab/bash)
     ```bash
@@ -376,7 +376,7 @@ To create a self-hosted runner, you need to build a container image that execute
 
 ## Create a user-assigned managed identity
 
-To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
+To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry by using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
 
 1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
 
@@ -429,7 +429,7 @@ To avoid using administrative credentials, pull images from private repositories
 
 ## Deploy a self-hosted runner as a job
 
-You can now create a job that uses the container image. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. The job uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
+You can now create a job that uses the container image. In this section, you create a job that runs the self-hosted runner and authenticates with GitHub by using the PAT you generated earlier. The job uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
 
 1. Create a job in the Container Apps environment.
 
@@ -497,7 +497,7 @@ You can now create a job that uses the container image. In this section, you cre
     | --- | --- |
     | `--replica-timeout` | The maximum duration a replica can execute. |
     | `--replica-retry-limit` | The number of times to retry a failed replica. |
-    | `--replica-completion-count` | The number of replicas to complete successfully before a job execution is considered successful. |
+    | `--replica-completion-count` | The number of replicas that must complete successfully before a job execution is considered successful. |
     | `--parallelism` | The number of replicas to start per job execution. |
     | `--min-executions` | The minimum number of job executions to run per polling interval. |
     | `--max-executions` | The maximum number of job executions to run per polling interval. |
@@ -512,17 +512,17 @@ You can now create a job that uses the container image. In this section, you cre
     | `--mi-user-assigned` | The resource ID of the user-assigned managed identity to assign to the job. |
     | `--registry-identity` | The resource ID of a managed identity to authenticate with the registry server instead of using a username and password. If possible, an 'acrpull' role assignment is created for the identity automatically. |
 
-    The scale rule configuration defines the event source to monitor. Rules are evaluated on each polling interval to determine how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
+    The scale rule configuration defines the event source to monitor. Rules are evaluated on each polling interval to determine how many job executions to trigger. For more information, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
 ## Run a workflow and verify the job
 
-The job is configured to evaluate the scale rule every 30 seconds. During each evaluation, it checks the number of pending workflow runs that require a self-hosted runner and starts a new job execution for pending workflow, up to a configured maximum of 10 executions.
+The job is configured to evaluate the scale rule every 30 seconds. During each evaluation, it checks the number of pending workflow runs that require a self-hosted runner and starts a new job execution for each pending workflow, up to a configured maximum of 10 executions.
 
-To verify the job was configured correctly, you modify the workflow to use a self-hosted runner and trigger a workflow run. You can then view the job execution logs to see the workflow run.
+To verify the job configuration, modify the workflow to use a self-hosted runner and trigger a workflow run. You can then view the job execution logs to see the workflow run.
 
-1. In the GitHub repository, navigate to the workflow you generated earlier. It's a YAML file in the `.github/workflows` directory.
+1. In the GitHub repository, go to the workflow you generated earlier. It's a YAML file in the `.github/workflows` directory.
 
 1. Select **Edit in place**.
 
@@ -536,9 +536,9 @@ To verify the job was configured correctly, you modify the workflow to use a sel
 
 1. Select **Commit changes**.
 
-1. Navigate to the **Actions** tab.
+1. Go to the **Actions** tab.
 
-    A new workflow is now queued. Within 30 seconds, the job execution will start and the workflow will complete soon after.
+    A new workflow is now queued. Within 30 seconds, the job execution starts and the workflow completes soon after.
 
     Wait for the action to complete before going on the next step.
 
@@ -570,9 +570,9 @@ To verify the job was configured correctly, you modify the workflow to use a sel
 
 ## Create an Azure DevOps project and repository
 
-To execute a pipeline, you need an Azure DevOps project and repository.
+To run a pipeline, you need an Azure DevOps project and repository.
 
-1. Navigate to [Azure DevOps](https://aex.dev.azure.com/) and sign in to your account.
+1. Go to [Azure DevOps](https://aex.dev.azure.com/) and sign in to your account.
 
 1. Select an existing organization or create a new one.
 
@@ -589,7 +589,7 @@ To execute a pipeline, you need an Azure DevOps project and repository.
 
 1. Under *Initialize main branch with a README or .gitignore*, select **Add a README**.
 
-1. Leave the rest of the values as defaults and select **Initialize**.
+1. Keep the default values for the rest of the settings and select **Initialize**.
 
 ## Create a new agent pool
 
@@ -616,10 +616,10 @@ Create a new agent pool to run the self-hosted runner.
 
 ## Get an Azure DevOps personal access token
 
-To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It's also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
+To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. Use the PAT to authenticate the runner with Azure DevOps. The scale rule also uses the token to check the number of pending pipeline runs and trigger new job executions.
 
 > [!NOTE]
-> Personal Access Tokens (PATs) have an expiration date. Regularly rotate your tokens to ensure they remain valid (not expired) to maintain uninterrupted service.
+> Personal Access Tokens (PATs) expire. Regularly rotate your tokens to keep them valid and maintain uninterrupted service.
 
 1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner.
 
@@ -643,7 +643,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
     You can't retrieve the token after you leave the page.
 
-1. Define variables that are used to configure the Container Apps jobs later.
+1. Define variables that you use to configure the Container Apps jobs later.
 
     # [Bash](#tab/bash)
     ```bash
@@ -673,7 +673,10 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 To create a self-hosted agent, you need to build a container image that runs the agent. In this section, you build the container image and push it to a container registry.
 
 > [!NOTE]
-> The image you build in this tutorial contains a basic self-hosted agent that's suitable for running as a Container Apps job. You can customize it to include additional tools or dependencies that your pipelines require.
+> The image you build in this tutorial contains a basic self-hosted agent that's suitable for running as a Container Apps job. You can customize it to include other tools or dependencies that your pipelines require.
+
+> [!IMPORTANT]
+> If your pipelines build .NET Framework applications, you might need to include Mono in your container image. The sample Dockerfile includes .NET SDK but not Mono. Consider using a Windows-based container or adding Mono dependencies if needed.
 
 1. Back in your terminal, define a name for your container image and registry.
 
@@ -719,7 +722,7 @@ To create a self-hosted agent, you need to build a container image that runs the
 
     ---
 
-1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/azure-pipelines-agent). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
+1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/azure-pipelines-agent). Run the following command to clone the repository and build the container image in the cloud by using the `az acr build` command.
 
     # [Bash](#tab/bash)
     ```bash
@@ -747,7 +750,7 @@ To create a self-hosted agent, you need to build a container image that runs the
 
 Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. The placeholder agent ensures the agent pool is available. Pipelines that use the agent pool fail when there's no placeholder agent.
 
-You can run a manual job to register an offline placeholder agent. The job runs once and can be deleted. The placeholder agent doesn't consume any resources in Azure Container Apps or Azure DevOps.
+You can run a manual job to register an offline placeholder agent. The job runs once and you can delete it. The placeholder agent doesn't consume any resources in Azure Container Apps or Azure DevOps.
 
 1. Create a manual job in the Container Apps environment that creates the placeholder agent.
 
@@ -791,7 +794,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
     | --- | --- |
     | `--replica-timeout` | The maximum duration a replica can execute. |
     | `--replica-retry-limit` | The number of times to retry a failed replica. |
-    | `--replica-completion-count` | The number of replicas to complete successfully before a job execution is considered successful. |
+    | `--replica-completion-count` | The number of replicas that must complete successfully before a job execution is considered successful. |
     | `--parallelism` | The number of replicas to start per job execution. |
     | `--secrets` | The secrets to use for the job. |
     | `--env-vars` | The environment variables to use for the job. |
@@ -837,11 +840,11 @@ You can run a manual job to register an offline placeholder agent. The job runs 
 
 1. Verify the placeholder agent was created in Azure DevOps.
 
-    1. In Azure DevOps, navigate to your project. 
+    1. In Azure DevOps, go to your project. 
     1. Select **Project settings** > **Agent pools** > **container-apps** > **Agents**.
     1. Confirm that a placeholder agent named `placeholder-agent` is listed and its status is offline.
 
-1. The job isn't needed again. You can delete it.
+1. You don't need the job again. You can delete it.
     
     # [Bash](#tab/bash)
     ```bash
@@ -857,7 +860,10 @@ You can run a manual job to register an offline placeholder agent. The job runs 
 
 ## Create a self-hosted agent as an event-driven job
 
-Now that you have a placeholder agent, you can create a self-hosted agent. In this section, you create an event-driven job that runs a self-hosted agent when a pipeline is triggered.
+After you create a placeholder agent, you can create a self-hosted agent. In this section, you create an event-driven job that runs a self-hosted agent when a pipeline is triggered.
+
+> [!IMPORTANT]
+> Ensure that your Azure DevOps organization URL is correct and accessible. The KEDA azure-pipelines scaler requires proper authentication and network connectivity to monitor the pipeline queue.
 
 # [Bash](#tab/bash)
 ```bash
@@ -919,15 +925,15 @@ The following table describes the scale rule parameters used in the command.
 | `--scale-rule-metadata` | The metadata for the scale rule. |
 | `--scale-rule-auth` | The authentication for the scale rule. |
 
-The scale rule configuration defines the event source to monitor. Rules are evaluated on each polling interval to determine how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
+The scale rule configuration defines the event source to monitor. Rules are evaluated on each polling interval to determine how many job executions to trigger. For more information, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
 ## Run a pipeline and verify the job
 
-Once a self-hosted agent job is configured, you can run a pipeline and verify it's working correctly.
+After you configure a self-hosted agent job, run a pipeline to verify that it works correctly.
 
-1. In the left-hand navigation of your Azure DevOps project, navigate to **Pipelines**.
+1. In the left-hand navigation of your Azure DevOps project, go to **Pipelines**.
 
 1. Select **Create pipeline**.
 
@@ -972,15 +978,74 @@ Once a self-hosted agent job is configured, you can run a pipeline and verify it
 
 ::: zone-end
 
+## Troubleshooting
+
+If you encounter issues with your self-hosted agents, try the following troubleshooting steps.
+
+### Pipeline jobs remain queued and don't trigger Container Apps jobs
+
+If your pipelines stay in a queued state and don't trigger job executions, then try these steps:
+
+1. Verify the scale rule configuration. Check that the scale rule metadata matches your Azure DevOps setup.
+
+   ```bash
+   az containerapp job show \
+       --name "$JOB_NAME" \
+       --resource-group "$RESOURCE_GROUP" \
+       --query "properties.configuration.eventTriggerConfig.scale.rules[0]"
+   ```
+
+1. Ensure your personal access token has the correct permissions and isn't expired.
+
+1. The Container Apps environment must be able to reach your Azure DevOps organization URL, so verify network connectivity in your environment.
+
+1. Check the polling interval. The default polling interval is 30 seconds. You can increase it if needed, but this change might delay job execution.
+
+1. Check if there are any error messages in the job execution logs.
+
+   ```bash
+   az containerapp job execution list \
+       --name "$JOB_NAME" \
+       --resource-group "$RESOURCE_GROUP" \
+       --output table
+   ```
+
+### Missing dependencies in container image
+
+If you encounter errors like "Unable to locate executable file: 'mono'" when building .NET Framework applications:
+
+1. Use appropriate base images. Ensure that your container image includes all required dependencies for your build process.
+
+1. If you need to build .NET Framework applications on Linux, add Mono to your container image with the following command:
+
+   ```dockerfile
+   # Add to your Dockerfile
+   RUN apt-get update && apt-get install -y mono-complete
+   ```
+
+1. Consider Windows containers. For .NET Framework applications, consider using Windows-based container images instead of Linux.
+
+1. For versions, use .NET Core/5+. Modern .NET versions don't require Mono and work better with Linux containers.
+
+### Agent registration issues
+
+If agents fail to register with Azure DevOps:
+
+1. Check token permissions. Ensure the PAT has "Agent Pools (Read & manage)" permissions.
+
+1. Verify organization URL. Make sure the organization URL is correct and doesn't have trailing slashes.
+
+1. Check agent pool name. Confirm the agent pool name matches exactly between Azure DevOps and your job configuration.
+
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
 ## Clean up resources
 
-Once you're done, run the following command to delete the resource group that contains your Container Apps resources.
+When you're done, run the following command to delete the resource group that contains your Container Apps resources.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they're also deleted.
+> The following command deletes the specified resource group and all resources contained within it. If the resource group contains resources outside the scope of this tutorial, the command deletes those resources too.
 
 # [Bash](#tab/bash)
 ```bash

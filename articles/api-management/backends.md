@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/14/2025
+ms.date: 11/20/2025
 ms.author: danlep
 ms.custom:
   - build-2024
@@ -112,6 +112,8 @@ To add CA certificate details, follow these steps:
     * **Subject name and issuer thumbprint** - Enter the subject name that uniquely identifies the CA and the thumbprint of the CA.
 1. Select **Add**.
 1. Select **Create**.
+
+  :::image type="content" source="media/backends/ca-certificate.png" alt-text="Screenshot of configuring CA certificate details for a backend in the portal.":::
 
 > [!NOTE]
 > When you configure details of a custom CA certificate in the backend entity, API Management always validates the certificate name and certificate chain, regardless of whether you enable or disable validation settings in the backend's `backendTlsProperties`.

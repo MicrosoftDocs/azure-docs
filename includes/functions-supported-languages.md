@@ -81,10 +81,13 @@ The following table shows the language versions supported for Java function apps
 
 | Supported version | Support level | Supported until |
 | ---- | ---- |--- |
+| **Java 25** | Preview | Pending<sup>*</sup> |
 | **Java 21** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 17** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 11** | GA |See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 8** | GA | See the [Temurin support page](https://adoptium.net/support/). |
+
+<sup>*</sup>The end-of-support date for Java 25 is determined when general availability (GA) is declared.
 
 For more information on developing and running Java function apps, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
@@ -94,6 +97,7 @@ The following table shows the language versions supported for Node.js function a
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| [Node.js 24](https://endoflife.date/nodejs) | Preview | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 
@@ -117,7 +121,6 @@ The following table shows the language versions supported for Python function ap
 | Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
-| Python 3.9 | GA | October 2025 |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md).
 ::: zone-end

@@ -27,31 +27,31 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 
 | Feature                                                                                      | Consumption | Developer | Basic | Basic v2 |Standard | Standard v2 | Premium | Premium v2 |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | --------- | --------- | ----- | -------- | ------- | ------- | 
-| Microsoft Entra integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes      | Yes      | Yes     | Yes |
-| Virtual network injection support                                                               | No          | Yes       | No    | No       | No       | No       | Yes    | Yes |
-| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes      | Yes     | Yes  | Yes   |
-| Outbound virtual network integration support                                                             | No          | No       | No    | No       | No       | Yes       | No    | Yes |
-| Multi-region deployment                                                                      | No          | No        | No    | No       | No       | No       | Yes     | No |
-| Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     | Yes  |
-| Multiple custom domain names for gateway                                                                 | No          | Yes        | No    | No      | No       | No        | Yes     | No |
-| Developer portal<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
-| Built-in cache | No      | Yes                                            | Yes          | Yes       | Yes   | Yes      | Yes     | Yes |
-| [External cache](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      |Yes     | Yes
-| Autoscaling                                                    | No         | No       | Yes   | No      | Yes      | No      |Yes     | No |
-| API analytics                                     | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
-| [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | No       | No       | Yes     | No |
-| [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |  Yes |
-| [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
-| [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     | Yes      |Yes     | Yes |
-| [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
-| [Credential manager](credentials-overview.md)  | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |  Yes |
-| [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | No          | Yes      | No          | Yes     | No |
-| Azure Monitor metrics                                                               | Yes          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
-| Azure Monitor and Log Analytics request logs                                                              | No          | Yes       | Yes   | Yes      | Yes      | Yes      |Yes     | Yes |
-| Application Insights request logs                                                               | Yes          | Yes       | Yes   | Yes      | Yes      | Yes      |Yes     | Yes |
-| Static IP                                                                                    | No          | Yes       | Yes   | No          |Yes      | No          | Yes     | No |
-| Export API to Power Platform                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
-| Export API to Postman                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
+| Microsoft Entra integration<sup>1</sup>                                                             | ❌          | ✔️       | ❌    | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
+| Virtual network injection support                                                               | ❌          | ✔️       | ❌    | ❌       | ❌       | ❌       | ✔️    | ✔️ |
+| Private endpoint support for inbound connections                                                               | ❌          | ✔️       | ✔️    | ❌       | ✔️      | ✔️     | ✔️  | ✔️   |
+| Outbound virtual network integration support                                                             | ❌          | ❌       | ❌    | ❌       | ❌       | ✔️       | ❌    | ✔️ |
+| Multi-region deployment                                                                      | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ❌ |
+| Availability zones                                                                           | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ✔️  |
+| Multiple custom domain names for gateway                                                                 | ❌          | ✔️        | ❌    | ❌      | ❌       | ❌        | ✔️     | ❌ |
+| Developer portal<sup>2</sup>                                                                 | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
+| Built-in cache | ❌      | ✔️                                            | ✔️          | ✔️       | ✔️   | ✔️      | ✔️     | ✔️ |
+| [External cache](./api-management-howto-cache-external.md)                                                    | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      |✔️     | ✔️
+| Autoscaling                                                    | ❌         | ❌       | ✔️   | ✔️      | ✔️      | ✔️      |✔️     | ✔️ |
+| API analytics                                     | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
+| [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | ❌          | ✔️       | ❌    | ❌       | ❌       | ❌       | ✔️     | ❌ |
+| [Workspaces](workspaces-overview.md)                                                         | ❌          | ❌       | ❌    | ❌     | ❌     | ❌       | ✔️     |  ✔️ |
+| [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
+| [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | ✔️         | ✔️       | ✔️   | ✔️      | ✔️     | ✔️      |✔️     | ✔️ |
+| [Policies](api-management-howto-policies.md)<sup>4</sup> | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
+| [Credential manager](credentials-overview.md)  | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     |  ✔️ |
+| [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | ❌          | ✔️       | ✔️   | ❌          | ✔️      | ❌          | ✔️     | ❌ |
+| Azure Monitor metrics                                                               | ✔️          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
+| Azure Monitor and Log Analytics request logs                                                              | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      |✔️     | ✔️ |
+| Application Insights request logs                                                               | ✔️          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      |✔️     | ✔️ |
+| Static IP                                                                                    | ❌          | ✔️       | ✔️   | ❌          |✔️      | ❌          | ✔️     | ❌ |
+| Export API to Power Platform                                                         | ✔️          | ✔️       | ✔️    | ✔️       | ✔️       | ✔️       | ✔️     | ✔️ |
+| Export API to Postman                                                         | ✔️          | ✔️       | ✔️    | ✔️       | ✔️       | ✔️       | ✔️     | ✔️ |
 
 
 

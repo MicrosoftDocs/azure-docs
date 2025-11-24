@@ -257,4 +257,4 @@ Since the AZD template doesn't include the Azure AI Foundry resources, you need 
 
 - [Integrate AI into your Azure App Service applications](overview-ai-integration.md)
 - [What is Azure AI Foundry Agent Service?](/azure/ai-foundry/agents/overview)
-- [LangGraph.js - Quickstart](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
+- [LangGraph.js - Quickstart](https://docs.langchain.com/oss/javascript/langgraph/quickstart)
