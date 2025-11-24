@@ -421,7 +421,7 @@ The MCP tool trigger can bind to the following types:
 | [ToolInvocationContext] | An object representing the tool call, including the tool name and arguments for the call. |
 | JSON serializable types | Functions attempts to deserialize the tool arguments into a plain-old CLR object (POCO) type. This type is also used to [define tool properties](#tool-properties).<br/><br/>When binding to a JSON serializable type, you can optionally also include a parameter of type [ToolInvocationContext] to access the tool call information. |
 
-[ToolInvocationContext]: https://github.com/Azure/azure-functions-mcp-extension/blob/main/src/Microsoft.Azure.Functions.Worker.Extensions.Mcp/ToolInvocationContext.cs
+[ToolInvocationContext]: https://github.com/Azure/azure-functions-mcp-extension/blob/main/src/Microsoft.Azure.Functions.Worker.Extensions.Mcp/Abstractions/ToolInvocationContext.cs
 
 ::: zone-end
 

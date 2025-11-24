@@ -32,8 +32,8 @@ The following table describes the configuration settings of a storage task assig
 | Storage task name | Required | The storage task to which you would like to assign your storage account. This field appears only if you create the assignment in the context of a storage account.|  
 | Storage task assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and might contain only letters and numbers. |
 | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
-| Include blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
-| Exclude blob prefixes | Optional | A string prefix that is used to exclude blobs that are evaluated by the task.  |
+| Include blob prefixes | Required | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
+| Exclude blob prefixes | Optional | The string prefix that is used to exclude blobs that are evaluated by the task. Exclude blob prefixes must not be a superset beyond the scope of the include blob prefix. |
 | Run frequency | Required | Option to either run the task one time or multiple times. | 
 | Start from | Required | The date and time to begin running the task. Applicable only when scheduling a task to run multiple times. |
 | End by | Required | The date and time stop running the task. Applicable only when scheduling a task to run multiple times. |

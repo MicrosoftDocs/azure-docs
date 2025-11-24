@@ -18,9 +18,7 @@ This article provides detailed procedure on how to enable Azure Change Tracking 
 
 ## Prerequisite
 
-Before you enable Azure CTI, ensure you create a data collection rule (DCR) or use an existing one:
-
-[Create the data collection rule](create-data-collection-rule.md).
+Before you enable Azure CTI, ensure you [Create a data collection rule (DCR)](create-data-collection-rule.md) or use an existing one.
 
 ## Enable Azure Change Tracking and Inventory at scale
 

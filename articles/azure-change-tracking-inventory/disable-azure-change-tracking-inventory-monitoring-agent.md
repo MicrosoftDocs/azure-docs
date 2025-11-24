@@ -49,4 +49,4 @@ To uninstall change tracking extension, follow these steps:
 
 ## Next steps
 
-To learn how to migrate from CTI using Log Analytics version to the Azure Monitoring Agent version, see [Migrate from Change Tracking and Inventory using Log Analytics to Azure Monitoring Agent](../automation/change-tracking/guidance-migration-log-analytics-monitoring-agent.md).
+To learn how to migrate from CTI using Log Analytics version to the Azure Monitoring Agent version, see [Migration guidance for Azure CTI](../automation/troubleshoot/change-tracking.md).

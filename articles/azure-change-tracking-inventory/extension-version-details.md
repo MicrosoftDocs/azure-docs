@@ -86,7 +86,6 @@ The **SvcName** or **SoftwareName** are displayed as garbled string for Japanese
 For Windows, **SvcDescription** field is coming as base64 encoded string. As a workaround, use base64_decode_tostring() kql function.
 
 **OS-specific issues:**
-
 | OS | Notes |
 | --- | --- |
 | **Windows** | None |
@@ -100,7 +99,6 @@ For Windows, **SvcDescription** field is coming as base64 encoded string. As a w
 For Windows **SvcDescription** is coming as base64 encoded string. As a workaround, use base64_decode_tostring() kql function.
 
 **OS-specific issues:**
-
 | OS | Notes |
 | --- | --- |
 | **Windows** | The Fix Windows services data isn't getting uploaded for machines in some languages (Japanese, Chinese). |

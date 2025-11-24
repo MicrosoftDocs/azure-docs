@@ -142,7 +142,7 @@ The following table lists the .NET Framework types and members allowed in policy
 |`System.Security.Cryptography.SHA384Managed`|All|
 |`System.Security.Cryptography.SHA512`|All|
 |`System.Security.Cryptography.SHA512Managed`|All|
-|`System.Security.Cryptography.SymmetricAlgorithm`|All|
+|`System.Security.Cryptography.SymmetricAlgorithm`|All except parameterless `Create()`|
 |`System.Security.Cryptography.X509Certificates.PublicKey`|All|
 |`System.Security.Cryptography.X509Certificates.RSACertificateExtensions`|All|
 |`System.Security.Cryptography.X509Certificates.X500DistinguishedName`|`Name`|

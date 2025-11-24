@@ -21,7 +21,9 @@ This article shows how you can enable and use a custom Microsoft Sentinel Model 
 
 
 ## Prerequisites
-Before configuring a Microsoft Sentinel MCP connector in ChatGPT, you must have a Microsoft Entra application, which represents ChatGPT as a client. 
+Before configuring a Microsoft Sentinel MCP connector in ChatGPT, you must have the following:
+- A ChatGPT Pro subscription
+- A Microsoft Entra application, which represents ChatGPT as a client
 
 To add a Microsoft Entra application, follow these steps:
 1.	Open your tenant's [Microsoft Entra admin center](https://entra.microsoft.com/) then go to **App registrations** > **New registration**. 

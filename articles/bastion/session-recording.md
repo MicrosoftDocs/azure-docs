@@ -22,8 +22,9 @@ The following sections outline considerations, limitations, and prerequisites fo
 **Considerations and limitations**
 
 * The Premium SKU is required for this feature.
+* Entra ID support for RDP sessions in portal cannot be used concurrently with graphical session recording at this time.
 * Session recording isn't available via native client at this time.
-* Immutabale storage policies must not be present
+* Immutable storage policies must not be present
 * Session recording supports one container/storage account at a time.
 * Changing storage containers while a session is active may cause disruptions to the session.
 * Blob versioning on the recordings must not be present

@@ -51,13 +51,13 @@ Pricing is based on the tier that the data is ingested into. For more informatio
 
 #### Analytics tier
 
-There are two ways to pay for the analytics tier: **Pay-As-You-Go** and **Commitment Tiers**.
+There are two ways to pay for the analytics tier: **pay-as-you-go** and **commitment tiers**.
 
-- **Pay-As-You-Go** is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10<sup>9</sup> bytes).
+- **Pay-as-you-go** is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10<sup>9</sup> bytes).
 
-- Log Analytics and Microsoft Sentinel have **Commitment Tier** pricing, formerly called Capacity Reservations. These pricing tiers are combined into simplified pricing tiers that are more predictable and offer substantial savings compared to **Pay-As-You-Go** pricing.
+- Log Analytics and Microsoft Sentinel have **commitment tier** pricing, formerly called Capacity Reservations. These pricing tiers are combined into simplified pricing tiers that are more predictable and offer substantial savings compared to **pay-as-you-go** pricing.
 
-    **Commitment Tier** pricing starts at 100 GB per day. Any usage above the commitment level is billed at the Commitment tier rate you selected. For example, a Commitment tier of **100 GB per day** bills you for the committed 100-GB data volume, plus any extra GB/day at the discounted effective rate for that tier. The **Effective Per GB Price** is simply the **Microsoft Sentinel Price** divided by the **Tier** GB per day quantity. For more information, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+    **Commitment tier** pricing starts at 100 GB per day. Any usage above the commitment level is billed at the Commitment tier rate you selected. For example, a Commitment tier of **100 GB per day** bills you for the committed 100-GB data volume, plus any extra GB/day at the discounted effective rate for that tier. The **Effective Per GB Price** is simply the **Microsoft Sentinel Price** divided by the **Tier** GB per day quantity. For more information, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
     Increase your Commitment tier anytime to optimize costs as your data volume increases. Lowering the Commitment tier is only allowed every 31 days. To see your current Microsoft Sentinel pricing tier, select **Settings** in Microsoft Sentinel, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
@@ -119,7 +119,7 @@ If you're billed at the simplified Commitment tier rate, this table shows how Mi
 
 | Cost description | Service name | Meter |
 |--|--|--|
-| Microsoft Sentinel Commitment tier | `Sentinel` | **`n` GB Commitment Tier** |
+| Microsoft Sentinel Commitment tier | `Sentinel` | **`n` GB commitment tier** |
 | Microsoft Sentinel Commitment tier overage | `Sentinel` | **Analysis** |
 
 # [Commitment tiers](#tab/commitment-tiers/classic)

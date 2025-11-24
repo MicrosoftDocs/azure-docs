@@ -53,4 +53,4 @@ To create a DCR, follow these steps:
 ## Next steps
 
 - For detailed information on how to create the DCR, see [Create DCR](../azure-change-tracking-inventory/create-data-collection-rule.md).
-- To troubleshoot general problems with the feature, see [Troubleshoot Azure CTI issues](../automation/troubleshoot/change-tracking.md).
+- To know how to migrate from Change Tracking and inventory using Log Analytics to AMA, see [Migration guidance for Azure CTI](../automation/troubleshoot/change-tracking.md).

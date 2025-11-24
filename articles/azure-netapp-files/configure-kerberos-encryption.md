@@ -53,7 +53,7 @@ The following requirements apply to NFSv4.1 client encryption:
 
 2.	Under **Kerberos Realm**, enter the **AD Server Name** and the **KDC IP** address.
 
-    AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files uses DNS Server records to locate additional KDC servers as needed. 
+    AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files uses DNS Server records to locate additional KDC servers as needed. In the AD Server Name, provide the hostname of the machine without appending the domain.
 
     ![Kerberos Realm](./media/configure-kerberos-encryption/kerberos-realm.png)
  

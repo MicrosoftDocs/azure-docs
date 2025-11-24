@@ -78,9 +78,10 @@ Dynamic sessions are available in the following regions:
 | Region | Code interpreter | Custom container |
 |--------|------------------|------------------|
 | Australia East | ✔ | ✔ |
-| Brazil South | - | ✔ |
-| Canada Central | ✔ | - |
-| Canada East | - | ✔ |
+| Brazil South | ✔ | ✔ |
+| Canada Central | ✔ | ✔ |
+| Canada East | ✔ | ✔ |
+| Central US | ✔ | ✔ |
 | East Asia | ✔ | ✔ |
 | East US | ✔ | ✔ |
 | East US 2 | ✔ | ✔ |

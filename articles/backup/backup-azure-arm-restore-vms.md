@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 10/24/2025
+ms.date: 11/24/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -58,7 +58,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
 
 To select a restore point for a VM restore, follow these steps:
 
-1. Go to **Business Continuity Center** in the [Azure portal](https://portal.azure.com/) and select **Recover**.
+1. Go to **Resiliency** in the [Azure portal](https://portal.azure.com/) and select **Recover**.
 
     :::image type="content" source="./media/backup-azure-arm-restore-vms/select-recover.png" alt-text="Screenshot shows how to start VM restore." lightbox="./media/backup-azure-arm-restore-vms/select-recover.png":::
 
@@ -169,7 +169,7 @@ After the disk is restored, use the template that was generated as part of the r
 
 1. Go to the **Recovery Services vault**, and then select **Monitoring** > **Backup Jobs**.
 
-   Alternatively, you can go to **Business Continuity Center**, and then select **Monitoring + Reporting** > **Jobs**. 
+   Alternatively, you can go to **Resiliency**, and then select **Monitoring + Reporting** > **Jobs**. 
 
 1. On the **Backup Jobs** pane, select the relevant restore job.
 

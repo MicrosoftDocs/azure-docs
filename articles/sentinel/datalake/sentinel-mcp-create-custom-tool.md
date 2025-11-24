@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: Learn how to set up and use custom Microsoft Sentinel Model Context Protocol (MCP) tools using saved KQL queries in advanced hunting 
 author: poliveria
 ms.topic: get-started
-ms.date: 11/18/2025
+ms.date: 11/24/2025
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 
@@ -78,7 +78,7 @@ Use consistent naming, avoid ambiguous terms, and ensure descriptions help AI mo
 For more information on how to use your custom tool collection in your security agents, see the articles for the following AI-powered code editors and agent-building platforms:
 - [Microsoft Security Copilot](sentinel-mcp-use-tool-security-copilot.md#add-a-custom-tool-collection)
 - [Microsoft Copilot Studio](sentinel-mcp-use-tool-copilot-studio.md#add-a-custom-tool-collection)
-- [Azure AI Foundry](sentinel-mcp-use-tool-azure-ai-foundry.md#add-a-custom-tool-collection)
+- [Microsoft Foundry](sentinel-mcp-use-tool-azure-ai-foundry.md#add-a-custom-tool-collection)
 - [Visual Studio Code](sentinel-mcp-use-tool-visual-studio-code.md)
 
 

@@ -5,17 +5,17 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 11/14/2025
+ms.date: 11/21/2025
 ms.author: cshoe
 ---
 
 # Protect Azure Container Apps with Web Application Firewall on Application Gateway
 
-When you host your apps or microservices in Azure Container Apps, you might not always want to publish them directly to the internet. Instead, you might want to expose them through a reverse proxy.
+When you host your apps or microservices in Azure Container Apps, you might not want to publish them directly to the internet. Instead, you might want to expose them through a reverse proxy.
 
-A reverse proxy is a service that sits in front of one or more services, intercepting and directing incoming traffic to the appropriate destination.
+A reverse proxy is a service that sits in front of one or more services. It intercepts and directs incoming traffic to the right destination.
 
-Reverse proxies allow you to place services in front of your apps that support cross-cutting functionality including:
+With reverse proxies, you can place services in front of your apps that support cross-cutting functionality, including:
 
 - Routing
 - Caching
@@ -24,15 +24,15 @@ Reverse proxies allow you to place services in front of your apps that support c
 - Security layers
 - Request filtering
 
-This article demonstrates how to protect your container apps by using a [Web Application Firewall (WAF) on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) with an internal Container Apps environment.
+This article shows how to protect your container apps by using a [Web Application Firewall (WAF) on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) with an internal Container Apps environment.
 
 For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
 
 ## Prerequisites
 
-- **Internal environment with virtual network**: Have a container app that is on an internal environment and integrated with a virtual network. For more information on how to create a virtual network integrated app, see [provide a virtual network to an internal Azure Container Apps environment](./vnet-custom-internal.md).
+- **Internal environment with virtual network**: Have a container app that's on an internal environment and integrated with a virtual network. For more information on how to create a virtual network integrated app, see [provide a virtual network to an internal Azure Container Apps environment](./vnet-custom-internal.md).
 
-- **Security certificates**: If you must use TLS/SSL encryption to the application gateway, you need a valid public certificate to bind to your application gateway.
+- **Security certificates**: If you need to use TLS/SSL encryption to the application gateway, you need a valid public certificate to bind to your application gateway.
 
 ## Retrieve your container app's domain
 
@@ -44,7 +44,13 @@ Use the following steps to retrieve the values of the **default domain** and the
 
 1. On the *Overview* window for your container app environment resource, select **JSON View** in the upper right-hand corner of the page to view the JSON representation of the container apps environment.
 
-1. Copy the values for the **defaultDomain** and **staticIp** properties and paste them into a text editor. You create a private DNS zone by using these values for the default domain in the next section.
+1. In the JSON view, locate the `properties` section and find the following values:
+
+   - **Default domain**: Look for `properties.defaultDomain` or `properties.environmentFqdn`
+
+   - **Static IP**: Look for `properties.staticIp`
+
+1. Copy these values and paste them into a text editor. You use the default domain value when you create a private DNS zone in the next section.
 
 ## Create and configure an Azure Private DNS zone
 
@@ -56,7 +62,7 @@ To create and configure an Azure Private DNS zone, complete the following steps:
 
 1. Select **Private DNS Zone** from the search results.
 
-1. Select the **Create** button.
+1. Select **Create**.
 
 1. Enter the following values:
 
@@ -64,7 +70,7 @@ To create and configure an Azure Private DNS zone, complete the following steps:
     |---|---|
     | Subscription | Select your Azure subscription. |
     | Resource group | Select the resource group of your container app. |
-    | Name | Enter the **defaultDomain** property of the Container Apps Environment from the previous section. |
+    | Name | Enter the default domain property of the Container Apps Environment from the previous section (either `defaultDomain` or `environmentFqdn`). |
     | Resource group location | Leave as the default. You don't need a value because Private DNS Zones are global. |
 
 1. Select **Review + create**. After validation finishes, select **Create**.
@@ -81,7 +87,7 @@ To create and configure an Azure Private DNS zone, complete the following steps:
     | Type | Select **A-Address Record**. |
     | TTL | Keep the default values. |
     | TTL unit | Keep the default values. |
-    | IP address | Enter the **staticIp** property of the Container Apps Environment from the previous section. |
+    | IP address | Enter the static IP property of the Container Apps Environment from the previous section (`staticIp`). |
 
 1. Select **OK** to create the record set.
 
@@ -95,7 +101,7 @@ To create and configure an Azure Private DNS zone, complete the following steps:
     | Type | Select **A-Address Record**. |
     | TTL | Keep the default values. |
     | TTL unit | Keep the default values. |
-    | IP address | Enter the **staticIp** property of the Container Apps Environment from the previous section. |
+    | IP address | Enter the static IP property of the Container Apps Environment from the previous section (`staticIp`). |
 
 1. Select **OK** to create the record set.
 
@@ -335,7 +341,7 @@ To enable `X-Forwarded-Host` injection:
     Your backend app can now read the original request host by using the `X-Forwarded-Host` header.
 
 > [!NOTE]
-> When configuring header rewrite rules, make sure to use the correct variable syntax. Server variables must use the appropriate prefix (such as `http_req_` for request headers). For troubleshooting rewrite rule configuration errors, see [Rewrite HTTP headers and URL with Application Gateway](../application-gateway/rewrite-http-headers-url.md).
+> When configuring header rewrite rules, make sure to use the correct variable syntax. Server variables must use the appropriate prefix, such as `http_req_` for request headers. For troubleshooting rewrite rule configuration errors, see [Rewrite HTTP headers and URL with Application Gateway](../application-gateway/rewrite-http-headers-url.md).
 
 ## Verify the container app
 
@@ -343,7 +349,7 @@ To enable `X-Forwarded-Host` injection:
 
 1. Find the public IP address for the application gateway on its *Overview* page, or you can search for the address. To search, select *All resources* and enter **my-container-apps-agw-pip** in the search box. Then, select the IP in the search results.
 
-1. Navigate to the public IP address of the application gateway.
+1. Go to the public IP address of the application gateway.
 
 1. Your request is automatically routed to the container app, which  verifies the application gateway was successfully created.
 

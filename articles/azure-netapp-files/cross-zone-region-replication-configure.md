@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 11/24/2025
 ms.author: anfdocs 
 # Customer intent: As a cloud administrator, I want to configure cross-zone-region replication for Azure NetApp Files, so that I can ensure data accessibility and disaster recovery across multiple regions and availability zones.
 ---
@@ -16,9 +16,8 @@ Azure NetApp Files supports volume cross-zone and cross-region replication on th
 ## Requirements 
 
 - Cross-zone-region replication supports creating two replication relationships for a source volume: cross-zone replication, cross-region replication, or a combination.  
-- Cross-zone-region replication volumes must abide by the same requirements and considerations as individual [cross-region and cross-zone replication](replication-requirements.md) volumes.  
+- Cross-zone-region replication volumes must abide by the same requirements and considerations as individual [cross-region and cross-zone replication](replication-requirements.md#shared-requirements-for-cross-zone-and-cross-region-replication) volumes.  
 - You must break and delete the secondary relationship before you can perform a reverse resync operation with cross-zone-region replication. For more information, see [Resync volumes after disaster recovery](cross-region-replication-manage-disaster-recovery.md#resync-replication).
-- Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant.
 - Fan-out deployments are supported for two destination volumes: one source (read/write) volume and two destination volumes. 
 
 >[!NOTE]

@@ -48,6 +48,8 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Limitations
 
+* Custom IP Address Prefix(BYOIP) can't be attached to a Firewall deployed in VNET. 
+
 * By default, you can bring a maximum of five custom IP prefixes per region to Azure. This limit can be increased upon request. 
 
 * By default:

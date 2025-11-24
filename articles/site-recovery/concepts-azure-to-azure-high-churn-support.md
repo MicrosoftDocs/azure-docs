@@ -5,7 +5,7 @@ description: Describes how to protect your Azure Virtual Machines having high ch
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 11/07/2025
+ms.date: 11/24/2025
 ms.author: v-gajeronika
 ms.custom: references_regions 
 # Customer intent: As a cloud administrator, I want to enable High Churn support for Azure Virtual Machines, so that I can effectively protect high churning workloads and achieve better disaster recovery performance.
@@ -120,7 +120,7 @@ The following table summarizes Site Recovery limits:
 
 ## Enhanced Churn support up to 500 MB/s per VM (preview)
 
-- **Enhanced Churn Support**: With Azure Site Recovery, you can now protect workloads with churn (data change) rates up to 250 MB/s per disk and upto 500 MB/s per VM. This allows increased flexibility, makes it easier to run high throughput, demanding workloads while ensuring their protection. 
+- **Enhanced Churn Support**: With Azure Site Recovery, you can now protect workloads with churn (data change) rates up to 250 MB/s per disk and up to 500 MB/s per VM. This allows increased flexibility, makes it easier to run high throughput, demanding workloads while ensuring their protection. 
 
 - **Configuration**: Follows the [same process](/azure/site-recovery/concepts-azure-to-azure-high-churn-support#enable-high-churn-support) used to select the existing High Churn configuration. If your churn exceeds 100 MB/s, Azure Site Recovery can support it through this preview, provided it stays within 500 MB/s per VM. Premium Block Blob storage account is used for cache storage account. 
 
@@ -136,7 +136,7 @@ The following table summarizes Site Recovery limits:
 - **Networking and CPU** – Ensure there is enough networking and CPU on Azure VM for Site Recovery to be able to replicate data changes from the source.
 
 >[!NOTE]
->If you already have an Azure VM protected using Azure Site Recovery High Churn option before to this Preview, its churn limit will be 100 MB/s only even if it is meeting all support requirements. If you want to get churn support up to 500 MB/s (Preview), you need to disable Site Recovery and re-enable Site Recovery with **High Churn** option as documented [here](#enable-preview). 
+>If you already have an Azure VM protected using Azure Site Recovery High Churn option before this Preview, its churn limit will be 100 MB/s only even if it is meeting all support requirements. If you want to get churn support up to 500 MB/s (Preview), you need to disable Site Recovery and re-enable Site Recovery with **High Churn** option as documented [here](#enable-preview). 
 
 #### Updated limits by Source disk size and IO size 
 

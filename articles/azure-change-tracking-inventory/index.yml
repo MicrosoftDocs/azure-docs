@@ -21,7 +21,7 @@ landingContent:
             url: overview-monitoring-agent.md
           - text: Release notes
             url: extension-version-details.md
-          - text: Support matrix for Azure Change Tracking and Inventory
+          - text: Support matrix for Azure CTI
             url: change-tracking-inventory-support-matrix.md
 
   # Card  
@@ -47,5 +47,5 @@ landingContent:
             url: enable-change-tracking-at-scale-machines-blade.md
           - text: Enable CTI at scale using Azure policy
             url: enable-change-tracking-at-scale-policy.md
-          - text: Disable Change Tracking and Inventory
+          - text: Disable Azure Change Tracking and Inventory
             url: disable-azure-change-tracking-inventory-monitoring-agent.md

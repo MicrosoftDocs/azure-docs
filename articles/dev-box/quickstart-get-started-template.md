@@ -14,14 +14,14 @@ ms.custom:
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/08/2025
+ms.date: 11/21/2025
 ---
 
-# Configure Microsoft Dev Box using the Get Started template
+# Configure Microsoft Dev Box by using the Get Started template
 
 [!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
 
-This article explains how to use the *Get Started* template to set up Microsoft Dev Box in your Azure subscription. The Get Started template is a preconfigured template that lets you quickly set up a dev box environment with a dev center, project, dev box pool, dev box definition, and related resources.
+This article explains how to use the *Get Started* template to set up Microsoft Dev Box in your Azure subscription. The Get Started template is a preconfigured template that lets you quickly set up a dev box environment with a dev center, project, dev box pool, marketplace image, and related resources.
 
 ## Prerequisites
 | Requirement | Details |
@@ -37,28 +37,28 @@ This article explains how to use the *Get Started* template to set up Microsoft 
 1. In the Azure portal, go to **Microsoft Dev Box** and select **Get Started**.
    :::image type="content" source="media/quickstart-get-started-template/dev-box-get-started-page.png" alt-text="Screenshot of the Dev Box Get Started page in the Azure portal, showing options to configure a dev box environment.":::
 
-1. In the **Basics** tab, enter the following values, and then select **Review + create**. The values you enter here is to create the dev center, project, and dev box pool. The dev box definition is created using the default settings:
+1. In the **Basics** tab, enter the following values, then select **Review + create**. The values you enter here create the dev center, project, and dev box pool:
 
    | Setting | Value |
    |---|---|
    | **Subscription** | Select the Azure subscription you want to use for the dev box environment. |
    | **Resource group** | Select an existing resource group or create a new one. |
    | **Region** | Select the Azure region where you want to deploy the dev box environment.|
+   | **Location** | Select the location for all dev box resources. This value can be same as the Region. |
    | **Dev Center Name** | Enter a name for the dev center. The name must be unique within the resource group.|
    | **Project Name** | Enter a name for the project. The name must be unique within the dev center.|
    | **Pool Name** | Enter a name for the dev box pool. The name must be unique within the project.|
 
    :::image type="content" source="media/quickstart-get-started-template/dev-box-get-started-template-basics.png" alt-text="Screenshot of the Basics tab in the Get Started template, showing fields for subscription, resource group, and region selection.":::
 1. In the **Review + Create** tab, review the configuration summary, and select **Create** to deploy the dev box environment.
-   :::image type="content" source="media/quickstart-get-started-template/dev-box-get-started-review-create.png" alt-text="Screenshot of the Review + Create tab in the Get Started template, showing a summary of the configuration before deployment.":::
 1. Wait for the deployment to complete. Monitor the progress in the **Notifications** pane.
-1. After the deployment is complete, select **Go to Resource** to view the created resources.
+1. After the deployment completes, select **Go to Resource** to view the created resources.
 
 The following resources are created in your Azure subscription:
 - **Dev center**: The central hub for managing dev boxes and resources.
 - **Project**: A container for organizing dev boxes and resources within the dev center.
 - **Dev box pool**: A collection of dev boxes that share the same configuration and resources.
-- **Dev box definition**: A template that defines the configuration and resources for the dev boxes in the pool. The get started template uses the *Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 24H2* image.
+    - The get started template uses the *Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps* image from the Microsoft Azure Marketplace with 16 vCPUs, 64-GB RAM, and 512-GB storage.
 
 You can go to the [developer portal](https://aka.ms/devbox-portal) to create new dev boxes. The developer portal is a web-based interface that allows users to create, manage, and monitor their dev boxes. 
 

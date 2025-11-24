@@ -66,6 +66,7 @@ To configure replica-scoped storage, first define an `EmptyDir` volume in the re
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
+| Managed identity configuration | Make sure the managed identity associated with your Container Apps environment is assigned the [appropriate roles](/azure/storage/files/storage-files-identity-assign-share-level-permissions) for access to access Azure Files. |
 
 #### Configuration
 

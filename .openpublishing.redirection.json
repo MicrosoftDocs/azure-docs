@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/automation/change-tracking/enable-change-tracking-at-scale-machines-blade.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/enable-change-tracking-at-scale-machines-blade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/enable-change-tracking-at-scale-policy.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/enable-change-tracking-at-scale-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/extension-version-details.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/extension-version-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/overview-monitoring-agent.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/overview-monitoring-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/region-mappings-monitoring-agent.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/change-tracking-inventory-support-matrix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/enable-vms-monitoring-agent.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory?pivots=single-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/manage-change-tracking-monitoring-agent.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/tutorial-change-workspace-configure-data-collection-rule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/defender-for-iot/organizations/custom-columns-sample-script.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/custom-columns-sample-script",
       "redirect_document_id": false

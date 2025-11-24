@@ -1,7 +1,7 @@
 ---
 title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-ms.date: 11/21/2025
+ms.date: 11/24/2025
 ms.topic: reference
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -112,7 +112,7 @@ Windows 7| 1,700 GB
 >During Azure VM restore, you might experience performance issues in the following scenarios:
 > - The number of files to restore exceeds 8 million
 > - The total data size to restore is greater than 1 TB
-> - The backup set includes more than 20 chained incremental snapshots. >
+> - The backup set includes more than 20 chained incremental snapshots. 
 > 
 >The restore process can also interrupt due to operational issues such as high latency between the vault and the source machine, low download speed from Azure to the source machine, or limited bandwidth on your machine.
 

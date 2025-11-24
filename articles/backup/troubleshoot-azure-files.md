@@ -315,7 +315,7 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 
 **Error message**: Storage account does not support key based authentication required for Azure Backup integration.
 
-**Recommended action**: Enable storage key based authentication on storage account and the retry opertaion.
+**Recommended action**: Enable storage key based authentication on storage account and the retry operation.
 
 ## Common policy modification errors
 

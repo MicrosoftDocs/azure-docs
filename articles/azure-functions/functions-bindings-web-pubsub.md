@@ -75,7 +75,7 @@ By default, an application setting named `WebPubSubConnectionString` is used to 
 For details on how to configure and use Web PubSub and Azure Functions together, refer to [Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service](../azure-web-pubsub/tutorial-serverless-notification.md).
 ::: zone pivot="programming-language-csharp"
 > [!NOTE]
-> When running in the isolated worker model, the Azure Web PubSub binding doesn't currently support Microsoft Entra ID authetication using managed identities. In the isolated model, you must continue to use a connection string, which includes a shared secret key.
+> When running in the isolated worker model, the Azure Web PubSub binding doesn't currently support Microsoft Entra ID authentication using managed identities. In the isolated model, you must continue to use a connection string, which includes a shared secret key.
 ::: zone-end
 ## Next steps
 

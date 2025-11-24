@@ -23,7 +23,9 @@ You can also find the latest Bastion updates and subscribe to the RSS feed [here
 
 | Type |  Name | Description | Date added | Limitations |
 |---|---|---|---|---|
-|Feature | [Graphical session recording](session-recording.md) | Graphical session recording is now generally available in all regions that Bastion is available in. | November 2024 | Can't currently be used with native client.
+|Feature|[Microsoft Entra ID support for portal (RDP)](bastion-connect-vm-rdp-windows.md#microsoft-entra-id-authentication-preview)|Microsoft Entra ID support for RDP connections in portal is now in public preview in public cloud. |November 2025|Cannot be used concurrently with graphical session recording.|
+|Feature |[Connectivity to AKS private clusters](bastion-connect-to-aks-private-cluster.md)|Connect to your private AKS clusters using the tunneling command with Bastion|August 2025|N/A|
+|Feature | [Graphical session recording](session-recording.md) | Graphical session recording is now generally available in all regions that Bastion is available in. | November 2024 | Cannot be used concurrently with native client.
 | Feature | [Private Only Bastion](private-only-deployment.md)| Private Only Bastion is now generally available in all regions that Bastion is available in.| November 2024 | N/A|
 | SKU | [Bastion Premium SKU](bastion-overview.md#sku)| Bastion Premium SKU is now generally available in all regions that Bastion is available in. | June 2024 | N/A|
 | Feature | [Microsoft Entra ID support for portal (SSH)](bastion-connect-vm-ssh-linux.md#microsoft-entra-id-authentication)  |Microsoft Entra ID support for SSH connections in portal is now GA. | November 2024 | N/A|

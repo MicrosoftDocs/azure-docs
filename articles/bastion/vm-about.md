@@ -16,6 +16,8 @@ ms.author: abell
 The sections in this article show you various features and settings that are available when you connect to a VM using Azure Bastion.
 
 ## <a name="connect"></a>Connect to a VM
+> [!NOTE]
+> Entra ID authentication for RDP connections is now available in public preview! See [Microsoft Entra ID](bastion-connect-vm-rdp-windows.md#microsoft-entra-id-authentication-preview) for details.
 
 You can use various different methods to connect to a target VM. Some connection types require Bastion to be configured with the Standard SKU. Use the following articles to connect.
 

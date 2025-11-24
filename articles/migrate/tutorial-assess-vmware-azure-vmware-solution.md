@@ -54,16 +54,15 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1.  In **Servers, databases and web apps**, select **Azure Migrate: Discovery and assessment** > **Assess** > **Azure VMware Solution (AVS)**.
+1. In **Infrastructure**, select the list of all workloads you want to assess the cost for.
 
-1. In **Discovery source**:
+1. From the top menu, click on **Create assessment** drop-down, select **For Azure VMware Solution (AVS)**.
 
-    - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
-    - If you discovered servers using an imported RVTools XLSX or CSV file, select **Imported servers**. 
-    
-1. Select **Edit** to review the assessment properties.
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/create-azure-vmware-solution-assessment-v2.png" alt-text="Screenshot of page for selecting the assessment settings." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/create-azure-vmware-solution-assessment-v2.png" :::
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
+1. Provide **Assessment name** for the assessment. Click on **Add workloads** in case you need additional workloads for the assessment. Click on **Next** once the page is ready to proceed.
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-basics-tab-v2.png" alt-text="Screenshot of page for adding Basic details for the assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-basics-tab-v2.png" :::
 
 1. In **Assessment settings**, set the necessary values or retain the default values:
 
@@ -93,13 +92,13 @@ Run an assessment as follows:
 
 1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment. 
  
-1. In **Select or create a group** > select **Create New** and specify a group name. 
-    
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add servers to a group":::
- 
-1. Select the appliance and select the servers that you want to add to the group. Then select **Next**.
+1. Select **Save** if you made changes.
 
-1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-settings-v2.png" alt-text="Screenshot of assessment properties." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-settings-v2.png":::
+
+1. Select **Save** if you made changes and select **Review + Create assessment**.
+
+1. In **Review + create assessment**, review the assessment details, and select **Create** to run the assessment.
 
     > [!NOTE]
     > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.

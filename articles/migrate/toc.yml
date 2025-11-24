@@ -181,6 +181,14 @@ items:
           href: target-right-sizing.md
         - name: Review assessment report
           href: review-assessment.md
+      - name: AVS assessment
+        items:
+        - name: Create an AVS assessment
+          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Customize assessment settings
+          href: assessment-properties.md
+        - name: Review assessment report
+          href: review-azure-vmware-solution-assessment.md
       - name: Azure SQL assessment
         items:
         - name: Create an Azure SQL assessment
@@ -219,14 +227,6 @@ items:
 #         href: review-azure-vmware-solution-assessment.md
         - name: Enhance web app assessment by adding code scan report
           href: add-copilot-code-insights.md
-      - name: AVS assessment
-        items:
-        - name: Create an AVS assessment
-          href: tutorial-assess-vmware-azure-vmware-solution.md
-        - name: Customize assessment settings
-          href: assessment-properties.md
-        - name: Review assessment report
-          href: review-azure-vmware-solution-assessment.md
 #      - name: SAP assessment
 #       items:
 #       - name: Create a SAP assessment

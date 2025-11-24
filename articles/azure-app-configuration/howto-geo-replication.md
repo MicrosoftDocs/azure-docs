@@ -375,6 +375,11 @@ appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
 
 ---
 
+## Use geo-replication with Azure Front Door
+
+Replica discovery and load balancing cannot be enabled when using Azure Front Door. To use geo-replication with Azure Front Door, add replicas to your Azure Front Door origin group. For more information, see [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin).
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
