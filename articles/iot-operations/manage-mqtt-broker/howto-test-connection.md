@@ -574,7 +574,7 @@ spec:
 
 ---
 
-## Next steps
+## Related content
 
 - [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
 - [Configure authentication](howto-configure-authentication.md)

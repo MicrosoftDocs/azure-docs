@@ -606,7 +606,7 @@
             href: datalake/sentinel-mcp-use-tool-security-copilot.md
           - name: Use Sentinel MCP tools in Copilot Studio
             href: datalake/sentinel-mcp-use-tool-copilot-studio.md
-          - name: Use Sentinel MCP tools in Azure AI Foundry
+          - name: Use Sentinel MCP tools in Microsoft Foundry
             href: datalake/sentinel-mcp-use-tool-azure-ai-foundry.md
           - name: Use Sentinel MCP tools in Visual Studio Code
             href: datalake/sentinel-mcp-use-tool-visual-studio-code.md

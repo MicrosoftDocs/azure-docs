@@ -36,7 +36,7 @@ The following limits are specific to Sentinel data lake MCP tools:
 | Query window for tools | 800 characters |
 
 ### Sentinel entity analyzer tool
-Each tenant can use the [entity analyzer](sentinel-mcp-data-exploration-tool.md#entity-analyzer) MCP tool up to 100 times a day. 
+Each tenant can use the [entity analyzer](sentinel-mcp-data-exploration-tool.md#entity-analyzer-preview) MCP tool up to 100 times a day. 
 
 
 ## Language and region availability

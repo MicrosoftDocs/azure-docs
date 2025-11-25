@@ -13,7 +13,7 @@ items:
   - name: What's new
     href: whats-new.md
   - name: Compare available plans
-    href: ../basic-standard/plan-comparison.md
+    href: ../basic-standard/plan-comparison.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
   - name: Manage costs
     href: ../basic-standard/cost-management.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
   - name: Compare Java application hosting options on Azure

@@ -1,5 +1,5 @@
 items:
-  - name: Azure Redis Documentation
+  - name: Azure Managed Redis Documentation
     href: index.yml
   - name: Get started
     items:

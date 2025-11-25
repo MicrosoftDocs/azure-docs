@@ -997,7 +997,7 @@ mqtts-endpoint         LoadBalancer   10.X.X.X        172.X.X.X     8885:30674/T
 
 From here, follow the same steps as previously shown to create a server certificate with this external IP in `--san` and create the Kubernetes secret in the same way. After the secret is created, it's automatically imported to the listener.
 
-## Next steps
+## Related content
 
 - [Configure MQTT broker authorization](howto-configure-authorization.md)
 - [Configure MQTT broker authentication](howto-configure-authentication.md)

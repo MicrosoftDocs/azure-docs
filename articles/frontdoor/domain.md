@@ -97,7 +97,7 @@ Azure Front Door can automatically manage TLS certificates for subdomains and ap
 The process of generating, issuing, and installing a managed TLS certificate can take from several minutes to an hour to complete, and occasionally it can take longer.
 
 > [!NOTE]
-> Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint or points indirectly to a Traffic Manager endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
+> Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
 
 #### Domain types
 
@@ -194,7 +194,6 @@ However, Azure Front Door won't automatically rotate certificates in the followi
 If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expire, the domain validation state becomes *Pending Revalidation*. The *Pending Revalidation* state indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
 
 > [!NOTE]
-> An exception to the above is that Azure Front Door (Standard and Premium) managed certificates are automatically rotated even if the domain CNAME record points indirectly to a Traffic Manager endpoint.
 > DNS TXT records expire after seven days. If you previously added a domain validation TXT record to your DNS server, you need to replace it with a new TXT record. Ensure you use the new value, otherwise the domain validation process will fail.
 
 If your domain can't be validated, the domain validation state becomes *Rejected*. This state indicates that the certificate authority has rejected the request for reissuing a managed certificate.

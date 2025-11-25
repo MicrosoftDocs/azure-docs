@@ -55,7 +55,7 @@ When you connect a [compatible client](sentinel-mcp-get-started.md#add-microsoft
   
 -	**Analyze entities across your security data:** Security Operations Center (SOC) engineers, analysts, and even agents need an easy way to analyze and triage entities, such as URLs and users, using all of an organizations security data. However, today’s fragmented data sources make this process complex and time-consuming to automate. As one of the most common incident triage tasks, entity enrichment therefore often becomes a manual context-gathering effort, slowing down response times. With the entity analyzer tools in the data exploration collection, analysts and SOC engineers have a one-click action that can retrieve, reason over, and clearly present comprehensive verdicts and analyses on entities using the security data in the data lake, making it easy to automate entity enrichment for you and the agents you build.
 
-    [Get started with analyzing entities automatically during investigations](sentinel-mcp-data-exploration-tool.md#entity-analyzer)
+    [Get started with analyzing entities automatically during investigations](sentinel-mcp-data-exploration-tool.md#entity-analyzer-preview)
 
 - **Build Security Copilot agents through natural language:** SOC engineers often spend weeks manually automating playbooks due to fragmented data sources and rigid schema requirements. With our agent creation tools, engineers can describe their intent in natural language to quickly build agents with the right AI model instructions and tools that reason over their security data, creating automations that are customized to their organization's workflows and processes.  
 

@@ -181,9 +181,9 @@ items:
           href: target-right-sizing.md
         - name: Review assessment report
           href: review-assessment.md
-      - name: AVS assessment
+      - name: Azure VMware Solution (AVS) assessment
         items:
-        - name: Create an AVS assessment
+        - name: Create an Azure VMware Solution (AVS) assessment
           href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Customize assessment settings
           href: assessment-properties.md

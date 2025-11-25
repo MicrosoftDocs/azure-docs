@@ -136,7 +136,7 @@ Ordinarily, traffic is routed through your virtual network gateway. However, if 
 
 You configure the gateway SKU. Each SKU supports a different level of throughput, and a different number of VPN connections. For more information, see [About gateway SKUs](../vpn-gateway/about-gateway-skus.md).
 
-Depending on your high availability requirements, you can configure your gateway as *active-standby*, which means that one gateway VM processes traffic and the other is a standby gateway VM, or as *active-active*, which means that both gateway VMs process traffic. Active-active isn't always possible due to the asymmetric nature of connection flows. For more information, see [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](../vpn-gateway/vpn-gateway-highlyavailable.md).
+Depending on your high availability requirements, you can configure your gateway as *active-standby*, which means that one gateway VM processes traffic and the other is a standby gateway VM, or as *active-active*, which means that both gateway VMs process traffic at the same time. Active-active isn't always possible due to the asymmetric nature of connection flows. For more information, see [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](../vpn-gateway/vpn-gateway-highlyavailable.md).
 
 ::: zone-end
 

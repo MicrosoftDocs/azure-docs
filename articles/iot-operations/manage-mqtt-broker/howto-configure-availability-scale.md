@@ -338,6 +338,6 @@ affinity:
 
 These rules are the only anti-affinity rules set for the broker.
 
-## Next steps
+## Related content
 
 - [Configure listeners for the MQTT broker](./howto-configure-brokerlistener.md)

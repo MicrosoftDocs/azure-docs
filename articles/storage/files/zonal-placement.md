@@ -44,7 +44,7 @@ Zonal placement is supported for premium storage accounts with LRS redundancy in
 - Qatar Central
 - Poland Central
 - South Africa North
-- South US
+- South Central US
 - Spain Central
 - West US 2
 - West US 3

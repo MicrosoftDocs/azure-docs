@@ -140,5 +140,5 @@ After installation, configure `kubectl` to connect to your cluster and verify th
 
 ## Next step
 
-- [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk.md)
+- [Use Azure Container Storage with local NVMe](use-container-storage-with-local-disk.md)
 - [Overview of deploying a highly available PostgreSQL database on Azure Kubernetes Service (AKS)](/azure/aks/postgresql-ha-overview#storage-considerations)

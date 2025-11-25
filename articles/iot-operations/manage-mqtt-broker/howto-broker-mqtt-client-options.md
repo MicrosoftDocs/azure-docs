@@ -90,7 +90,7 @@ The `maxMessageExpirySeconds` setting defines a global upper limit for message e
 
 By default, `maxMessageExpirySeconds` is not set. In this case, retained messages do not expire unless an expiry interval is explicitly defined in the message.
 
-## Next steps
+## Related content
 
 - [Configure listeners for the MQTT broker](./howto-configure-brokerlistener.md)
 - [Test connectivity to the MQTT broker](./howto-test-connection.md)

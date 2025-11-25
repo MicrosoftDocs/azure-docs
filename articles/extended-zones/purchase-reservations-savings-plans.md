@@ -1,7 +1,7 @@
 ---
 title:  Purchase Reserved Instances and Savings Plans - Azure portal
 description: Learn how to purchase a Reserved Instance or a Savings Plan for your Azure Extended Zone resources using the Azure portal.
-author: svaldes
+author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to

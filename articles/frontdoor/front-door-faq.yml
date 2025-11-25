@@ -70,7 +70,7 @@ sections:
       - question: |
           What is the estimated time for deploying an Azure Front Door? Does my Front Door remain operational during the update process?
         answer: |
-          Configuration propagation times for all create, update, delete, WAF, and cache purge operations for Azure Front Door and CDN profiles might take up to 45 minutes for added safety. Ongoing platform enhancements are underway that will further reduce this time.
+          Configuration propagation times for a single create, update, delete, WAF, and cache purge operation for Azure Front Door and CDN profiles might take up to 45 minutes for added safety. Back-to-back changes can extend the total deployment time to approximately 90 minutes. Each configuration update, including rules set adjustments, routing changes, origin or domain updates, and WAF modifications etc., is treated as a global operation. If additional operations are submitted while the first is still propagating (within its ~45-minute window), they are queued and begin only after the preceding operation completes. In this scenario, the first operation completes within the initial 45 minutes, and subsequent changes are processed in the following window. Ongoing platform enhancements are underway that will further reduce this time.
           
           > [!NOTE]  
           > Custom TLS/SSL certificate updates might take longer, up to an hour, to be deployed globally.

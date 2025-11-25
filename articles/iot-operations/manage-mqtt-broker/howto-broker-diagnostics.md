@@ -87,6 +87,6 @@ az iot ops create ... --broker-config-file <FILE>.json
 
 Learn more in [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config) and [Broker examples](/rest/api/iotoperations/broker/create-or-update#examples).
 
-## Next steps
+## Related content
 
 - [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md)

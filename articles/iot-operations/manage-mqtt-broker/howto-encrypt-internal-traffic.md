@@ -67,6 +67,6 @@ Then, deploy IoT Operations by using the `az iot ops create` command with `--bro
 
 To learn more, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config) and [Broker examples](/rest/api/iotoperations/broker/create-or-update#examples).
 
-## Next steps
+## Related content
 
 - [Configure broker listeners](./howto-configure-brokerlistener.md)

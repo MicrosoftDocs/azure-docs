@@ -26,7 +26,7 @@ Vaulted backups of Azure Data Lake Storage are available in the following region
 
 | Availability type | Region |
 | --- | --- |
-| **General availability** | East Asia, France South, Southeast US, Switzerland North, Switzerland West, UAE North, UK West, West India. |
+| **General availability** | Central US, East Asia, France South, Germany West Central, Southeast US, Switzerland North, Switzerland West, UAE North, UK West, West India. |
 | **Preview** | Australia East, Central India, Central US, East US, East US 2, Germany West Central, North Central US, North Europe, South India, Southeast Asia, West Central US, West US, West US 2, West US 3. |
 
 ## Supported storage accounts
@@ -70,7 +70,7 @@ Azure Data Lake Storage protection has the following supported and unsupported s
   - Soft Delete: Objects can still be soft-deleted as expected.
   - Undelete: Restore from soft-deleted state is not supported while Vaulted Backup is active. Undelete will only work if Vaulted Backup is disabled first. Re-enabling Vaulted Backup after disabling will trigger a full backup.
 - Storage accounts upgraded from FNS to HNS are not supported for backup.
-- SFTP-enabled & NFS accounts are not supported for backup. Backup jobs may stall if SFTP-uploaded blobs encountered.
+- SFTP- and NFS-enabled accounts aren’t supported for Vaulted Backup. Backup jobs on these accounts fail or hang when processing blobs uploaded via SFTP.
 - $web container cannot be restored as $web on the target. Use the renameTo option and restore it with a different container name.
 - $root container can be restored as $root on the target only if $root does not already exist there. If it already exists, use the renameTo option and restore it with a different container name.
 

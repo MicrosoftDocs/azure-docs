@@ -112,13 +112,11 @@ To create a IPv4 public IP prefix, enter **IPv4** in the `--version` parameter. 
     --name myPublicIpPrefix-nozone \
     --resource-group QuickStartCreateIPPrefix-rg \
     --sku standard \
-    --location westus2 \
+    --location westus \
     --version IPv4
 ```
 
-The removal of the `--zone` parameter in the command is valid in all regions.  
-
-The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+The removal of the `--zone` parameter in the command is valid in all regions, but will lead to the creation of a zone-redundant IP prefix in regions with availabily zones. The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
@@ -198,13 +196,11 @@ To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter. 
     --name myPublicIpPrefix-nozone \
     --resource-group QuickStartCreateIPPrefix-rg \
     --sku standard \
-    --location westus2 \
+    --location westus \
     --version IPv6
 ```
 
-The removal of the `--zone` parameter in the command is valid in all regions.  
-
-The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+The removal of the `--zone` parameter in the command is valid in all regions, but will lead to the creation of a zone-redundant IP prefix in regions with availabily zones. The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 

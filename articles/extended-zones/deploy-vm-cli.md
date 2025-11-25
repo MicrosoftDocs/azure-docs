@@ -1,7 +1,7 @@
 ---
 title: "Deploy a virtual machine in an Extended Zone using Azure CLI"
 description: Learn how to deploy a virtual machine in an Azure Extended Zone using Azure CLI.
-author: svaldes
+author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: quickstart

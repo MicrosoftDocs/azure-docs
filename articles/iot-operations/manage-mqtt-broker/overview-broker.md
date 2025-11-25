@@ -242,6 +242,6 @@ kubectl get broker default -n azure-iot-operations -o yaml
 
 ---
 
-## Next steps
+## Related content
 
 - [Deploy IoT Operations to an Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md)

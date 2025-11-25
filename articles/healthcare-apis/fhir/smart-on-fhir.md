@@ -86,7 +86,7 @@ Scopes:
 
 - Parameter-constrained scopes:
   - SMART v2 expands on standard scopes by introducing parameter-constrained scopes, allowing clients to access only the subset of resources matching specific query parameters.  
-    - Example: `Condition.rs?category=http//terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis`  
+    - Example: `Condition.rs?category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis`  
     -   This scope grants read/search access only to Condition resources with that specific category. 
   - Note: Chained, `_include`, and `_revinclude` are only supported in the normal search query, they are not supported in the granular scope query string.  
 

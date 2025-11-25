@@ -1,7 +1,7 @@
 ---
 title: "Deploy Arc-enabled workloads in an Extended Zone: PostgreSQL"
 description: Learn how to deploy Arc-enabled PostgreSQL in an Extended Zone.
-author: svaldes
+author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
