@@ -171,7 +171,7 @@ On most systems, you can select the URL of the site to open it in your default b
 * [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 <!-- Links -->
-[1]: https://azure.microsoft.com/free
+[1]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [2]: https://nodejs.org/
 [3]: /cli/azure/install-azure-cli
 [4]: https://code.visualstudio.com

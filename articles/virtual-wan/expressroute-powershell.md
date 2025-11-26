@@ -91,7 +91,7 @@ Use one of the following examples to create an ExpressRoute gateway in a new or 
 $expressroutegatewayinhub = New-AzExpressRouteGateway -MaxScaleUnits <UInt32> -MinScaleUnits 2 -Name 'testExpressRoutegw' -ResourceGroupName 'testRG' -Tag @{"tag1"="value1"; "tag2"="value2"} -VirtualHubName "[hub Name]"
 ```
 
-## Create an Express Route circuit
+## Create an ExpressRoute circuit
 
 The next step is to get the private peering ID of the ExpressRoute circuit. You can either create a new circuit, or get the ID from an existing circuit. Use one of the following examples.
 

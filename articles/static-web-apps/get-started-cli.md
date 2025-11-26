@@ -23,7 +23,7 @@ In this quickstart, you deploy a web application to Azure Static Web apps using 
 
 - [GitHub](https://github.com) account.
 - [Azure](https://portal.azure.com) account.
-  - If you don't have an Azure subscription, you can [create a free trial account](https://azure.microsoft.com/free).
+  - If you don't have an Azure subscription, you can [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) installed (version 2.29.0 or higher).
 - [A Git setup](https://www.git-scm.com/downloads). 
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use Azure Managed Redis with TypeScript in a Node.js app"
+title: "Quickstart: Connect to Azure Managed Redis with TypeScript in a Node.js app"
 description: In this quickstart, you learn how to create a Node.js app that uses Azure Managed Redis.
 ms.date: 09/02/2025
 ms.topic: quickstart
@@ -12,7 +12,7 @@ ms.devlang: typescript
 ai-usage: ai-assisted
 ---
 
-# Quickstart: Use Azure Managed Redis with JavaScript
+# Quickstart: Connect to Azure Managed Redis in a Node.js app
 
 In this quickstart, you learn how to use an Azure Managed Redis cache from a Node.js application written in the TypeScript language and authenticate the Redis connection by using Microsoft Entra ID.
 
@@ -55,7 +55,7 @@ In the first part of the TypeScript code sample file, `index.ts`, configure your
 
 :::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="1-66":::
 
-Use the `createRedisClient()` function to create a node-redis client connection to the Redis cache..
+Use the `createRedisClient()` function to create a node-redis client connection to the Redis cache.
 
 ```typescript
 client = createRedisClient();
@@ -78,14 +78,14 @@ In this section, use `SET` and `GET` commands to start writing and reading data 
 
 Build and run the Node.js application.
 
-```console
+```dos
 tsc
 node index.js
 ```
 
 The result looks like this:
 
-```console
+```dos
 Ping result: PONG
 Set result: OK
 Get result: Hello! The cache is working from Node.js!

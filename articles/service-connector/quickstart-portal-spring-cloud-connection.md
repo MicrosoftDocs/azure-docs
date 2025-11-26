@@ -26,14 +26,14 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ## Prerequisites
 
 ::: zone pivot="azure-portal"
-- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.

@@ -1,0 +1,14 @@
+- name: Start/Stop VMs
+  items:
+  - name: Overview
+    href: overview.md
+  - name: Deploy Start/Stop VMs
+    href: deploy.md
+  - name: Manage Start/Stop VMs
+    href: manage.md
+  - name: Preactions in Start/Stop VMs
+    href: actions.md
+  - name: Remove Start/Stop VMs
+    href: remove.md
+  - name: Troubleshoot Start/Stop VMs
+    href: troubleshoot.md

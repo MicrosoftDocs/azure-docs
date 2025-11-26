@@ -23,14 +23,14 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ## Prerequisites
 
 ::: zone pivot="azure-portal"
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An [application deployed to Container Apps](../container-apps/quickstart-portal.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect your Container Apps to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An [application deployed to Container Apps](../container-apps/quickstart-portal.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect your Container Apps to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.

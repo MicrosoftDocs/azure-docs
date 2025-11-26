@@ -54,7 +54,7 @@ You can now directly clone your Consumption logic app to a Standard logic app in
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Standard logic app resource as the destination for cloning your Consumption logic app.
 

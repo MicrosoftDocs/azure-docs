@@ -19,7 +19,7 @@ In this guide, learn how to activate deterministic outbound IP support used by A
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A data source. For example, an [Azure Data Explorer database](/azure/data-explorer/create-cluster-database-portal).
 
 ## Enable deterministic outbound IPs

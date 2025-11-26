@@ -21,7 +21,7 @@ In Azure Spring Apps, you can deploy your applications within a managed virtual 
 
 ## Prerequisites
 
-- An active Azure subscription. If you don't have one, you can [create a free Azure account](https://azure.microsoft.com/free).
+- An active Azure subscription. If you don't have one, you can [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create an Azure Container Apps environment with a virtual network

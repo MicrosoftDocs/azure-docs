@@ -22,7 +22,7 @@ To learn more about the concept of geo-replication, see [Geo-replication in Azur
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free)
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
 ## Create and list a replica

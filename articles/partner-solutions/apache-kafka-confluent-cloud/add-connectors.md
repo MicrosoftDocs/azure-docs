@@ -18,7 +18,7 @@ Complete the steps in this article to connect an app deployed to Azure App Servi
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An existing Confluent organization. If you don't have one, see [Create a Confluent organization](./create.md).
 * An app deployed to [Azure App Service](/azure/app-service/quickstart-dotnetcore), [Azure Container Apps](/azure/container-apps/quickstart-portal), [Azure Spring Apps](/azure/spring-apps/enterprise/quickstart), or [Azure Kubernetes Service (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal).
 

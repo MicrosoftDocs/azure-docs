@@ -29,7 +29,7 @@ This tutorial shows how to create a secure PHP app in Azure App Service connects
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. You can also [get one for free](https://github.com/join).
 - Knowledge of [PHP with Laravel development](https://laravel.com/).
 - **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.

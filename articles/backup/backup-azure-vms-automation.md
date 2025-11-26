@@ -2,7 +2,7 @@
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 11/26/2025
 ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -32,7 +32,7 @@ The object hierarchy is summarized in the following diagram.
 
 Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices/) reference in the Azure library.
 
-## Set up and register
+## Set up Azure PowerShell for Azure VM backup
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -75,7 +75,7 @@ To begin:
 
     In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** cmdlet again.
 
-## Create a Recovery Services vault
+## Create a Recovery Services vault for Azure VM backup
 
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
@@ -256,7 +256,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 
 If you want to selectively back up a few disks and exclude others as mentioned in [these scenarios](selective-disk-backup-restore.md#scenarios), you can configure protection and backup only the relevant disks as documented [here](selective-disk-backup-restore.md#enable-backup-with-powershell).
 
-## Monitoring a backup job
+## Monitor an Azure VM backup job
 
 You can monitor long-running operations, such as backup jobs, without using the Azure portal. To get the status of an in-progress job, use the [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. This cmdlet gets the backup jobs for a specific vault, and that vault is specified in the vault context. The following example gets the status of an in-progress job as an array, and stores the status in the $joblist variable.
 

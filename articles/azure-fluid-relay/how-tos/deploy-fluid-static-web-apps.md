@@ -12,7 +12,7 @@ ms.service: azure-fluid
 
 This article demonstrates how to deploy Fluid apps using Azure Static Web Apps. The [FluidHelloWorld](https://github.com/microsoft/FluidHelloWorld/tree/main-azure) repository contains a Fluid application called **DiceRoller** that enables all connected clients to roll a die and view the result.  In this how-to, you deploy the DiceRoller application to Azure Static Web Apps using the Visual Studio Code extension.
 
-If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

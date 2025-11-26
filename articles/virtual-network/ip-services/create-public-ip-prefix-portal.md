@@ -23,7 +23,7 @@ When you create a public IP address resource, you can assign a static public IP 
 
 ## Prerequisites
 
-- If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
+- If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to Azure
 

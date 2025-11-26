@@ -36,7 +36,7 @@ In this quickstart, you learn how to:
 
 This quickstart walks you through creating a Linux virtual machine that's configured to be an IoT Edge device. Then, you deploy a module from the Azure portal to your device. This quickstart uses a simulated sensor module that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying additional modules that analyze the simulated data for business insights.
 
-If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

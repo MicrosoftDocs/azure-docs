@@ -37,7 +37,7 @@ The following table lists the supported storage account details:
 | ------------------------ | ------------------------------------------------------------ |
 | Account  Kind            | Only block blobs in a standard general-purpose v2 HNS-enabled storage account. <br><br>*Accounts using Network File Shares (NFS) 3.0, and Secure File Transfer Protocol (SFTP) protocols for blobs are currently not supported*.|
 | Redundancy              | Locally redundant storage (LRS), Zone-redundant storage (ZRS), Geo-redundant storage (GRS) enabled storage account. |
-| Tier              | Hot, Cool, and Cold tier blobs are supported.<br><br>*Archive tier blob backup isn't supported*. |
+| Tier              | Hot, Cool, and Cold tier blobs are supported.<br><br>*Backup for the Archive tier blob in Azure Data Lake storage account isn't supported*. |
 | Upgraded storage accounts              | Accounts upgraded from Azure Blob Storage to Azure Data Lake Storage aren't supported*. |
 
 ## Protection limits
@@ -49,31 +49,35 @@ The following table lists the protection limits:
 | Maximum number of containers in a storage account that can be protected | 100 |
 | Vault redundancy              | LRS/ZRS/GRS |
 
-### Supported and unsupported scenarios for Azure Data Lake Storage protection
+### Supported scenarios for Azure Data Lake Storage protection
 
-Azure Data Lake Storage protection has the following supported and unsupported scenarios:
+Azure Data Lake Storage protection has the following supported scenarios:
+
+- Backup vaults with System-Assigned Managed Identity (SAMI) works for backup, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
+- You can protect the storage account with the vault in another subscription but in the same region as storage account.
+- Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs.
+- `$web` container can't be restored as `$web` on the target. Use the **renameTo** option and restore it with a different container name.
+- `$root` container can be restored as `$root` on the target only if `$root` doesn't already exist there. If it already exists, use the **renameTo** option and restore it with a different container name. 
+
+### Unsupported scenarios and considerations for Azure Data Lake Storage protection
+
+Azure Data Lake Storage protection has the following unsupported scenarios:
 
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
-- Object Replication fails to register changes when a storage account or container is deleted and recreated with the same name between two consecutive backups, causing recovery points to retain older blobs and versions.
-- Blobs are excluded from recovery points if you rename any folder in their parent path when async copy in progress.
-- The backup operation isn't supported for blobs created using async copy. 
-- Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
-- You can protect the storage account with the vault in another subscription but in the same region as storage account.
-- Archive tier for vault is currently not supported.
-- Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs. The system captures operations through Change Feed and uses directory snapshots to ensure consistent recovery.
+- Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups.
+- When an Azure Data Lake Storage account or container in it is deleted and recreated with the same name between two consecutive backups, then recovery points retain older blobs and versions.
+- Archive tier for the backup data in a vault is currently not supported.
+- Storage accounts upgraded from FNS to HNS are not supported for backup.
+- SFTP- and NFS-enabled accounts aren’t supported for Vaulted Backup. Backup jobs on these accounts fail or hang when processing blobs uploaded via SFTP.
 - Vaulted Backup doesn’t support cross-container data moves because backup policies are container-specific. If you move data between containers, the replication consistency breaks.
-- When blob expiry is configured—either during creation using PutBlob or PutBlockList, or later via the SetBlobExpiry API — the following behaviors apply for storage accounts with Vaulted Backup enabled:
+- When blob in Data Lake Storage accounts have expiry configured—either during creation using PutBlob or PutBlockList, or later via the SetBlobExpiry API — the following behaviors apply for Azure Data Lake storage account with Vaulted Backup enabled:
   - Existing Blobs with Expiry Date: These blobs will continue to exhibit the current behavior: once expired, they remain in existing restore points, which can lead to inconsistencies in future restore points.
   - Future Expiry Settings: Any attempt to set expiry using SetBlobExpiry will fail for storage accounts configured with Vaulted Backup. This restriction ensures restore point integrity going forward.
 - When Vaulted Backup is enabled:
-  - Soft Delete: Objects can still be soft-deleted as expected.
-  - Undelete: Restore from soft-deleted state is not supported while Vaulted Backup is active. Undelete will only work if Vaulted Backup is disabled first. Re-enabling Vaulted Backup after disabling will trigger a full backup.
-- Storage accounts upgraded from FNS to HNS are not supported for backup.
-- SFTP- and NFS-enabled accounts aren’t supported for Vaulted Backup. Backup jobs on these accounts fail or hang when processing blobs uploaded via SFTP.
-- $web container cannot be restored as $web on the target. Use the renameTo option and restore it with a different container name.
-- $root container can be restored as $root on the target only if $root does not already exist there. If it already exists, use the renameTo option and restore it with a different container name.
-
+  - Soft Delete: Blobs in Azure Data Lake storage account can still be soft-deleted as expected.
+  - Undelete: Restore for blobs in Azure Data Lake storage account from soft-deleted state is not supported while Vaulted Backup is active. Undelete will only work if Vaulted Backup is disabled first. Re-enabling Vaulted Backup after disabling will trigger a full backup.
+  
 ## Backup limits
 
 The following table lists the Backup limits:

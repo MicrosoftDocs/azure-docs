@@ -52,7 +52,7 @@ For more information on these choices, see [Planning for an Azure Files deployme
 
 Azure classic file shares are deployed into _storage accounts_, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares.
 
-Storage accounts have two properties, kind and SKU, which dictate the billing model, media tier, and redundancy of the file shares deployed in the storage account. For Azure Files, there are three main combinations of kind and SKU to consider:
+Storage accounts have two properties, **kind** and **SKU**, which dictate the billing model, media tier, and redundancy of the file shares deployed in the storage account. For Azure Files, there are three main combinations of kind and SKU to consider:
 
 | Media tier  | Billing model                                                     | Storage account kind | Storage account SKUs                                                                                                                               |
 | ----------- | ----------------------------------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,7 +60,7 @@ Storage accounts have two properties, kind and SKU, which dictate the billing mo
 | SSD         | [Provisioned v1](./understanding-billing.md#provisioned-v1-model) | FileStorage          | <ul><li>Premium_LRS</li><li>Premium_ZRS</li></ul>                                                                                                  |
 | HDD         | [Pay-as-you-go](./understanding-billing.md#pay-as-you-go-model)   | StorageV2            | <ul><li>Standard_LRS</li><li>Standard_ZRS</li><li>Standard_GRS</li><li>Standard_GZRS</li></ul>                                                     |
 
-We recommended the provisioned v2 billing model for all new file share deployments. The provisioned v1 and pay-as-you-go billing models remain fully supported for new and existing deployments. Provisioned v2 file shares are currently available in most regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
+We recommended using the provisioned v2 billing model for all new file share deployments. The provisioned v1 and pay-as-you-go billing models remain fully supported for new and existing deployments. Provisioned v2 file shares are currently available in most regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
 
 # [Portal](#tab/azure-portal)
 
@@ -391,7 +391,7 @@ az storage share-rm create --resource-group $resourceGroupName --name $shareName
 When you create a classic file share using the provisioned v1 billing model, you specify how much storage your share needs, and IOPS and throughput capacity are computed for you based on how much storage provisioned. Depending on your individual file share requirements, you might find that you require more IOPS or throughput than our recommendations. In this case, you need to provision more storage to get the required IOPS or throughput. To learn more, see [Understanding the provisioned v1 billing model](./understanding-billing.md#provisioned-v1-model).
 
 > [!NOTE]
-> Before you start create a provisioned v1 classic file share, please make sure the storage account you intend to use is "FileStorage" storage account kind. Go to overview tab essentials section of the storage account to check its account kind.  
+> Before you create a provisioned v1 classic file share, make sure the storage account you intend to use is of the "FileStorage" storage account kind. To check the account kind, navigate to the storage account and look under **Essentials**.
 
 # [Portal](#tab/azure-portal)
 
@@ -474,7 +474,7 @@ az storage share-rm create \
 HDD pay-as-you-go file shares have a property called access tier. All three access tiers are stored on the exact same storage hardware. The main difference for these three access tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. To learn more about the differences between tiers, see [differences in access tiers](./understanding-billing.md#differences-in-access-tiers).
 
 > [!NOTE]
-> Before you start create a pay-as-you-go classic file share, please make sure the storage account you intend to use is "StorageV2 (general purpose v2)" storage account kind. Go to overview tab essentials section of the storage account to check its account kind.  
+> Before you create a pay-as-you-go classic file share, make sure the storage account you intend to use is of the "StorageV2 (general purpose v2)" storage account kind. To check the account kind, navigate to the storage account and look under **Essentials**.
 
 # [Portal](#tab/azure-portal)
 
@@ -547,7 +547,7 @@ az storage share-rm create \
 If you're using an SMB file share, networking configuration isn't required. However, we still recommend you take it into consideration. If you're using an NFS file share, networking configuration is required.
 
 > [!IMPORTANT]
-> The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you grant access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through port 2049.
+> The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you grant access to specific virtual networks, make sure that any network security groups associated with those virtual networks don't contain security rules that block incoming communication through port 2049.
 
 ### Set up a private endpoint or service endpoint
 

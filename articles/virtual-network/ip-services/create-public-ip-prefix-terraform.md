@@ -61,7 +61,7 @@ For more information on available prefix sizes, see [Prefix sizes](public-ip-add
 
 ## IPv4
 
-# [Zone redundant IPv4 prefix](#tab/ipv4-zone-redundant)
+# [Zone-Redundant IPv4 prefix](#tab/ipv4-zone-redundant)
 
 To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. To create a zone redundant IPv4 prefix, specify **["1", "2", "3"]** as the `zone` value.
 
@@ -88,7 +88,7 @@ To create an IPv4 public IP prefix with routing preference set to Internet, add 
 
 ## IPv6
 
-# [Zone redundant IPv6 prefix](#tab/ipv6-zone-redundant)
+# [Zone-Redundant IPv6 prefix](#tab/ipv6-zone-redundant)
 
 To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. To create a zone redundant IPv6 prefix, specify **["1", "2", "3"]** as the `zone` value.
 

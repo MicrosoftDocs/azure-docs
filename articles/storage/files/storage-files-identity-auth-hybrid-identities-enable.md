@@ -4,9 +4,8 @@ description: Learn how to enable identity-based Kerberos authentication over Ser
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/19/2025
+ms.date: 11/26/2025
 ms.author: kendownie
-recommendations: false
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access file shares with their Microsoft Entra credentials.
 ---
 
@@ -49,9 +48,10 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 - With Microsoft Entra Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
 
-- Cloud-only identities support (preview) is only available using a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities).
-
 - Azure Files SMB support for external identities is currently limited to FSLogix scenarios running on Azure Virtual Desktop (AVD). This applies to external users invited to a Microsoft Entra ID tenant in the public cloud, with the exception of cross-cloud users (those invited into the tenant from Azure Government or Azure operated by 21Vianet). Government cloud scenarios aren't supported. Non-AVD scenarios aren't supported for business-to-business guest users or users from other Microsoft Entra tenants.
+
+> [!IMPORTANT]
+> Cloud-only identities support (preview) is only available using a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities).
 
 ### Operating system and domain prerequisites
 

@@ -42,14 +42,14 @@ The module twin for the IoT Edge agent is called `$edgeAgent`. It coordinates co
 | systemModules.edgeAgent.type | Has to be *docker*. | Yes |
 | systemModules.edgeAgent.startupOrder | Specifies an integer for the module's position in the startup order. *0* is first, and *max integer* (4294967295) is last. If no value is provided, the default is *max integer*.  | No |
 | systemModules.edgeAgent.settings.image | Specifies the URI of the IoT Edge agent image. The IoT Edge agent can't update itself. | Yes |
-| systemModules.edgeAgent.settings.createOptions | Specifies a stringified JSON with options for creating the IoT Edge agent container. Learn more about [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate). | No |
+| systemModules.edgeAgent.settings.createOptions | Specifies a stringified JSON with options for creating the IoT Edge agent container. Learn more about [Docker create options](https://docs.docker.com/reference/cli/docker/container/create/). | No |
 | systemModules.edgeAgent.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
 | systemModules.edgeHub.type | Has to be *docker*. | Yes |
 | systemModules.edgeHub.status | Has to be *running*. | Yes |
 | systemModules.edgeHub.restartPolicy | Has to be *always*. | Yes |
 | systemModules.edgeHub.startupOrder | An integer value for which spot a module has in the startup order. A *0* is first and *max integer* (4294967295) is last. If a value isn't provided, the default is *max integer*.  | No |
 | systemModules.edgeHub.settings.image | The URI of the image of the IoT Edge hub. | Yes |
-| systemModules.edgeHub.settings.createOptions | A stringified JSON containing the options for the creation of the IoT Edge hub container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
+| systemModules.edgeHub.settings.createOptions | A stringified JSON containing the options for the creation of the IoT Edge hub container. [Docker create options](https://docs.docker.com/reference/cli/docker/container/create/) | No |
 | systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
 | modules.{moduleId}.version | A user-defined string representing the version of this module. | Yes |
 | modules.{moduleId}.type | Has to be *docker*. | Yes |
@@ -59,7 +59,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent`. It coordinates co
 | modules.{moduleId}.imagePullPolicy | {*on-create* \| *never*} | No |
 | modules.{moduleId}.env | A list of environment variables to pass to the module. Takes the format `"<name>": {"value": "<value>"}`. | No |
 | modules.{moduleId}.settings.image | The URI to the module image. | Yes |
-| modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
+| modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options](https://docs.docker.com/reference/cli/docker/container/create/) | No |
 | modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
 | version | The current iteration that has version, commit, and build. | No |
 

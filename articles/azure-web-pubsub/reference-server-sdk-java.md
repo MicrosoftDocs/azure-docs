@@ -151,7 +151,7 @@ better performance compared to the default SSL implementation within the JDK. Fo
 
 <!-- LINKS -->
 
-[azure_subscription]: https://azure.microsoft.com/free
+[azure_subscription]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [jdk_link]: /java/azure/jdk
 [source_code]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub/azure-messaging-webpubsub/src
 [product_documentation]: ./index.yml

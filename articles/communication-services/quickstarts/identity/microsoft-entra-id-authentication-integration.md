@@ -21,7 +21,7 @@ ms.custom: mode-other, devx-track-js, has-azure-ad-ps-ref
 This quickstart demonstrates how to use the Communication Services Common SDK along with Azure Identity SDK in a console application to authenticate a Microsoft Entra ID user and obtain an Azure Communication Services access token. The resulting Azure Communication Services access token allows you to integrate calling features using the Communication Services Calling SDK. Messaging (Chat) via Microsoft Entra ID integration isn't supported in the public preview.
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Azure Communication Services resource and endpoint URI. For more information, see [Create an Azure Communication Services resource](../create-communication-resource.md).
 - A Microsoft Entra ID instance.  For more information, see [Microsoft Entra ID overview](/entra/fundamentals/whatis?source=docs).
 

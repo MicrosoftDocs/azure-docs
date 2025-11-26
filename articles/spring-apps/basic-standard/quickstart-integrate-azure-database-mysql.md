@@ -26,7 +26,7 @@ Pet Clinic, as deployed in the default configuration [Quickstart: Build and depl
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create an Azure Database for MySQL instance
 

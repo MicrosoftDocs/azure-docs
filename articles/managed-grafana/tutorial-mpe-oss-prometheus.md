@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure you have the following:
 
-- An [Azure account](https://azure.microsoft.com/free)
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - The [Azure CLI](/cli/azure/install-azure-cli).
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)

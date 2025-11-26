@@ -20,7 +20,7 @@ This article outlines the changes to be aware when using confidential virtual ma
 
 Before you begin, ensure you have the following:
 
-* An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free)
+* An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * A confidential virtual machine with managed disks.
 * The appropriate version of the tools you are using:
     * Azure REST API version 2025-01-02 or later.

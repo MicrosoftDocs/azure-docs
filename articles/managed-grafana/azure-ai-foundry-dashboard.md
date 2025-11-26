@@ -29,7 +29,7 @@ The Azure AI Foundry dashboard provides real-time insights into your AI workload
 
 Before you begin, ensure you have:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 - An Azure AI Foundry resource, with the Azure Monitor data source configured to read metrics from your Azure AI Foundry resource.
 

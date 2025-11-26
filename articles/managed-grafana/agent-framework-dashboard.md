@@ -34,7 +34,7 @@ The Agent Framework dashboard provides real-time insights into individual AI age
 
 Before you begin, ensure you have:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 - An Azure Application Insights resource collecting telemetry from your Agent Framework application.
 - Your Agent Framework application instrumented to send telemetry to Application Insights using OpenTelemetry. For instrumentation details, see:

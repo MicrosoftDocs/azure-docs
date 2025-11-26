@@ -15,7 +15,7 @@ To process data, Azure Managed Grafana needs permission to access data sources. 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 - Owner or User Access Administrator permissions on the Azure Managed Grafana resource
 

@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 11/17/2025
+ms.date: 11/26/2025
 ms.author: mbender
 # Customer intent: As a network architect, I want to implement TCP/TLS proxy capabilities on an application gateway, so that I can efficiently manage both HTTP and non-HTTP workloads while ensuring secure connections to backend servers.
 ---
@@ -63,7 +63,6 @@ Process flow:
 - A WAF v2 SKU gateway allows the creation of TLS or TCP listeners and backends to support HTTP and non-HTTP traffic through the same resource. However, it does not inspect traffic on TLS and TCP listeners for exploits and vulnerabilities. 
 - The default [draining timeout](configuration-http-settings.md#connection-draining) value for backend servers is 30 seconds. At present, a user-defined draining value is not supported.
 - A configuration update (PUT) on Application Gateway ends the active connections after the default draining timeout period.
-- Client IP preservation is currently not supported.
 - Application Gateway Ingress Controller (AGIC) is not supported and works only with L7 proxy through HTTP(S) listeners.
 
 ## Next steps

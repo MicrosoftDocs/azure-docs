@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 |Product|Requirements|
 |-|-|
-|Azure|- An [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=azurefreeaccount). <br>- Owner permissions on the Azure subscription. <br> - [Azure CLI](/cli/azure/install-azure-cli) installed.|
+|Azure|- An [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). <br>- Owner permissions on the Azure subscription. <br> - [Azure CLI](/cli/azure/install-azure-cli) installed.|
 |Git|- A [GitHub account](https://github.com/).<br>- [Git](https://github.com/git-guides/install-git) installed.|
 
 ## 1. Create and configure a dev center

@@ -17,7 +17,7 @@ In this article, you'll learn how to connect an instance of Apache Kafka & Apach
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An [Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) resource.
 * A [Confluent organization](./create.md) created in Azure Native Integrations.
 * The Owner or Contributor role for the Azure subscription. You might need to ask your subscription administrator to assign you one of these roles.  

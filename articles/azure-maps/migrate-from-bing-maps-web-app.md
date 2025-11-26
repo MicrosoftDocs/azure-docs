@@ -1709,7 +1709,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Create a data source]: create-data-source-web-sdk.md
 [Display an infobox]: #display-an-infobox
 [Drawing tools module code samples]: https://samples.azuremaps.com#drawing-tools-module
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Gridded Data Source module]: https://github.com/Azure-Samples/azure-maps-gridded-data-source
 [Heat map layer class]: /javascript/api/azure-maps-control/atlas.layer.heatmaplayer
 [Heat map layer options]: /javascript/api/azure-maps-control/atlas.heatmaplayeroptions

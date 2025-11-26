@@ -18,7 +18,7 @@ Azure Firewall includes a built-in packet capture capability that allows you to 
 
 You need:
 
-- An Azure subscription. To create one, see [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. To create one, see [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure Firewall. To create one, see [Deploy and configure Azure Firewall and policy](tutorial-firewall-deploy-portal-policy.md).
 - A Firewall Management NIC (network interface card) enabled on your Azure Firewall. This feature is enabled by default on Azure Firewall instances deployed in secured Virtual WAN hubs and on firewalls using the Basic SKU. For Standard or Premium firewalls deployed in a virtual network, manually enable the Firewall Management NIC. For instructions, see [Azure Firewall Management NIC](forced-tunneling.md).
 

@@ -26,11 +26,11 @@ In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Azure Cloud Shell or Azure PowerShell.
 

@@ -23,7 +23,7 @@ SMTP settings can be enabled on an existing Azure Managed Grafana workspace via 
 
 To follow the steps in this guide, you must have:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace in the Standard plan. If you don't have one yet, [create a new workspace](quickstart-managed-grafana-portal.md).
 - An SMTP server. If you don't have one yet, you might want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
 

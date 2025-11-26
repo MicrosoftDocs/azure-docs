@@ -97,6 +97,6 @@ You can also [enable console logging](https://github.com/Azure/azure-sdk-for-net
 
 [!INCLUDE [next step](includes/include-next-step.md)]
 
-[azure_sub]: https://azure.microsoft.com/free/dotnet/
+[azure_sub]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [samples_ref]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub/tests/Samples/
 [awps_sample]: https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp

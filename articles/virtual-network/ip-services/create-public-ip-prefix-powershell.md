@@ -56,7 +56,7 @@ Create a public IP prefix with [New-AzPublicIpPrefix](/powershell/module/az.netw
 
 ## IPv4
 
-# [**Zone redundant Standard IPv4 prefix**](#tab/ipv4-zone-redundant)
+# [**Zone-Redundant Standard IPv4 prefix**](#tab/ipv4-zone-redundant)
 
 To create a IPv4 Standard public IP prefix, enter **IPv4** in the `-IpAddressVersion` parameter. To create a zone redundant IPv4 prefix, enter **1,2,3** in the `-Zone` parameter.
 
@@ -73,7 +73,7 @@ $ipv4 =@{
 New-AzPublicIpPrefix @ipv4
 ```
 
-# [**Zone redundant Standardv2 IPv4 prefix**](#tab/ipv4-v2-zone-redundant)
+# [**Zone-Redundant Standardv2 IPv4 prefix**](#tab/ipv4-v2-zone-redundant)
 
 To create a IPv4 Standard v2 public IP prefix, enter **IPv4** in the `-IpAddressVersion` parameter. All Standardv2 IPv4 public IP prefixes must be zone-redundant, so enter **1,2,3** in the `-Zone` parameter.
 
@@ -152,7 +152,7 @@ New-AzPublicIpPrefix @ipv4
 
 ## IPv6
 
-# [**Zone redundant Standard IPv6 prefix**](#tab/ipv6-zone-redundant)
+# [**Zone-Redundant Standard IPv6 prefix**](#tab/ipv6-zone-redundant)
 
 To create a Standard IPv6 public IP prefix, enter **IPv6** in the `-IpAddressVersion` parameter. To create a zone redundant Standard IPv6 prefix, enter **1,2,3** in the `-Zone` parameter.
 
@@ -169,7 +169,7 @@ $ipv6 =@{
 New-AzPublicIpPrefix @ipv6
 ```
 
-# [**Zone redundant Standardv2 IPv6 prefix**](#tab/ipv6-v2-zone-redundant)
+# [**Zone-Redundant Standardv2 IPv6 prefix**](#tab/ipv6-v2-zone-redundant)
 
 To create a Standardv2 IPv6 public IP prefix, enter **IPv6** in the `-IpAddressVersion` parameter. All Standardv2 IPv6 public IP prefixes must be zone-redundant, so enter **1,2,3** in the `-Zone` parameter.
 

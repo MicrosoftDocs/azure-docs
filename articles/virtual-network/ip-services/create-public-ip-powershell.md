@@ -40,7 +40,7 @@ New-AzResourceGroup @rg
 ```
 ## Create public IP
 
-# [**Standard SKU**](#tab/create-public-ip-standard)
+# [**Zone-Redundant Standard SKU**](#tab/create-public-ip-standard)
 
 ### Create a standard zone-redundant IP address
 
@@ -71,7 +71,7 @@ New-AzPublicIpAddress @ip
 > For `Az.Network` modules older than 4.5.0, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
 >
 
-# [**Standardv2 SKU**](#tab/create-public-ip-standardv2)
+# [**Zone-Redundant Standardv2 SKU**](#tab/create-public-ip-standardv2)
 
 >[!NOTE]
 >Standard v2 SKU public IP is required for use of the Standard v2 NAT Gateway with zone-redundancy. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
@@ -98,7 +98,7 @@ New-AzPublicIpAddress @ip
 > For `Az.Network` modules older than 4.5.0, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
 >
 
-# [**Basic SKU**](#tab/create-public-ip-basic)
+# [**Zonal Standard SKU**](#tab/create-public-ip-zonal)
 
 In this section, you learn how to create a zonal public IP address.
 

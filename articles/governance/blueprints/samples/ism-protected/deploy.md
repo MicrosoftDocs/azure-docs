@@ -15,7 +15,7 @@ To deploy the Azure Blueprints ISM PROTECTED blueprint sample, the following ste
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 before you begin.
 
 ## Create blueprint from sample

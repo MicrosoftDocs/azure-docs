@@ -27,7 +27,7 @@ In this quickstart, you:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Complete [Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application](./quick-deploy-iot-central.md).
 
 ## Create a telemetry-based rule

@@ -16,7 +16,7 @@ Learn how to upgrade an Azure IoT Operations deployment to a newer version.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an account, you can create a [free account](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ## Understand upgrade support

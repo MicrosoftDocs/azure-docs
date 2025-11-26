@@ -28,7 +28,7 @@ In this tutorial, you learn to:
 - [Bitbucket](https://bitbucket.org) account
   - Ensure you have enabled [two-step verification](https://bitbucket.org/account/settings/two-step-verification/manage)
 - [Azure](https://portal.azure.com) account
-  - If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+  - If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a repository
 

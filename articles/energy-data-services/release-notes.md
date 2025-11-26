@@ -23,6 +23,11 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## November 2025
+### Reservoir DDMS Standard SKU Preview
+
+Reservoir DDMS is now available on the standard SKU as a preview. The standard SKU offering of the DDMS is intended for scale and performance testing on a standard SKU deployment of Azure Data Manager for Energy. It is recommended that customers create a new data partition for such testing since the feature is still under preview to maintain isolation from partitions containing production data. The feature is available on request only. For more details, see [How to enable reservoir DDMS](how-to-enable-reservoir-ddms.md).
+
 ## October 2025
 ### Reference Data Values Automatic Sync
 

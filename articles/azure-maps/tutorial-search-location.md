@@ -264,7 +264,7 @@ The next tutorial demonstrates how to display a route between two locations.
 > [Route to a destination]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Fuzzy Search service]: /rest/api/maps/search/get-search-fuzzy?view=rest-maps-1.0&preserve-view=true
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Route to a destination]: tutorial-route-location.md
