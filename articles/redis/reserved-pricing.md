@@ -7,6 +7,7 @@ ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
+  - references_regions
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -32,33 +33,33 @@ For details on how Enterprise Agreement (EA) customers and pay-as-you-go custome
 
 The following Azure Managed Redis tiers currently support reservations:
 
-| Region          | Memory Optimized | Balanced | Compute Optimized | Flash Optimized |
-| --------------- | ---------------- | -------- | ---------------- | --------------- |
-| AE North        | Yes              | Yes      | No               | No              |
-| AU Central      | Yes              | Yes      | No               | No              |
-| AU Southeast    | Yes              | Yes      | No               | No              |
-| BR Southeast    | Yes              | Yes      | No               | No              |
-| CA East         | Yes              | Yes      | No               | No              |
-| CH West         | Yes              | Yes      | No               | No              |
-| ES Central      | Yes              | Yes      | No               | No              |
-| FR Central      | Yes              | Yes      | No               | No              |
-| FR South        | Yes              | Yes      | No               | No              |
-| ID Central      | Yes              | Yes      | No               | No              |
-| IL Central      | Yes              | Yes      | No               | No              |
-| IL Northwest    | No               | Yes      | No               | No              |
-| IN Central      | Yes              | Yes      | No               | No              |
-| IN South        | Yes              | Yes      | No               | No              |
-| IN West         | Yes              | Yes      | No               | No              |
-| IT North        | Yes              | Yes      | No               | No              |
-| JA East         | Yes              | Yes      | No               | No              |
-| KR Central      | Yes              | Yes      | No               | No              |
-| KR South        | Yes              | Yes      | No               | No              |
-| NO East         | Yes              | Yes      | No               | No              |
-| PL Central      | Yes              | Yes      | No               | No              |
-| QA Central      | Yes              | Yes      | No               | No              |
-| UK West         | Yes              | Yes      | No               | No              |
-| US East         | Yes              | No       | No               | No              |
-| ZA North        | Yes              | Yes      | No               | No              |
+| Region Name         | Memory Optimized | Balanced | Compute Optimized | Flash Optimized |
+| ------------------- | ---------------- | -------- | ---------------- | --------------- |
+| UAE North           | Yes              | Yes      | Yes              | No              |
+| Australia Central   | Yes              | Yes      | Yes              | No              |
+| Australia Southeast | Yes              | Yes      | Yes              | No              |
+| Brazil Southeast    | Yes              | Yes      | Yes              | No              |
+| Canada East         | Yes              | Yes      | Yes              | No              |
+| Switzerland West    | Yes              | Yes      | Yes              | No              |
+| Spain Central       | Yes              | Yes      | Yes              | No              |
+| France Central      | Yes              | Yes      | Yes              | No              |
+| France South        | Yes              | Yes      | Yes              | No              |
+| Indonesia Central   | Yes              | Yes      | Yes              | No              |
+| Israel Central      | Yes              | Yes      | Yes              | No              |
+| Israel Northwest    | No               | Yes      | No               | No              |
+| India Central       | Yes              | Yes      | Yes              | No              |
+| India South         | Yes              | Yes      | Yes              | No              |
+| India West          | Yes              | Yes      | Yes              | No              |
+| Italy North         | Yes              | Yes      | Yes              | No              |
+| Japan East          | Yes              | Yes      | Yes              | No              |
+| Korea Central       | Yes              | Yes      | Yes              | No              |
+| Korea South         | Yes              | Yes      | Yes              | No              |
+| Norway East         | Yes              | Yes      | Yes              | No              |
+| Poland Central      | Yes              | Yes      | Yes              | No              |
+| Qatar Central       | Yes              | Yes      | Yes              | No              |
+| UK West             | Yes              | Yes      | Yes              | No              |
+| US East             | Yes              | No       | Yes              | No              |
+| South Africa North  | Yes              | Yes      | Yes              | No              |
 
 ## Buy Azure Managed Redis reservations
 

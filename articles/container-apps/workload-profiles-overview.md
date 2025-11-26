@@ -29,12 +29,12 @@ Each profile type determines how your apps scale, the level of resource isolatio
 
 - **Dedicated profiles** run on reserved compute resources in your own dedicated pool. You select the size and type of virtual machine, deploy multiple apps per profile, and pay per-profile instance. Dedicated profiles can be more cost-effective for steady workloads and support general purpose, memory-optimized, and GPU use cases.
 
-- **Flex profiles** (preview) blends the billing and setup simplicity of the *Consumption* profile with many of the performance characteristics of the Dedicated profiles. Flex profiles are billed like a Consumption profile plus the dedicated management fee, run in a single‑tenant compute pool, offer planned maintenance windows, and dedicated networking and access to larger replica sizes. Flex profiles require a subnet of at least `/25`.
+- **Flexible profile** (preview) blends the billing and setup simplicity of the *Consumption* profile with many of the performance characteristics of the Dedicated profiles. Flexible profiles are billed like a Consumption profile plus the dedicated management fee, run in a single‑tenant compute pool, offer planned maintenance windows, and dedicated networking and access to larger replica sizes. Flexible profiles require a subnet of at least `/25`.
 
-Each Container Apps environment includes a default Consumption profile. You can add Dedicated or Consumption GPU profiles and, when available, Flex profiles to meet your application's needs.
+Each Container Apps environment includes a default Consumption profile. You can add Dedicated or Consumption GPU profiles and, when available, Flexible profiles to meet your application's needs.
 
 > [!NOTE]
-> The Flex profile is currently only available in the following regions: Central US EUAP, East US2 EUAP, East Asia, and West Central US.
+> The Flexible profile is currently only available in the following regions: Central US EUAP, East US2 EUAP, East Asia, and West Central US.
 
 ## Workload profile form factors
 
@@ -76,11 +76,11 @@ All Consumption profiles support serverless scaling and are billed based on per�
 > [!NOTE]
 > GPU‑enabled Dedicated profiles allocate capacity on a per‑case basis. [You must submit a support ticket to request the required capacity](/azure/container-apps/quotas#gpu-quotas).
 
-### Flex profile details (preview)
+### Flexible profile details (preview)
 
 | Profile names | vCPU range | Memory range | Regions | Allocation |
 |--|--|--|--|--|
-| **Flex** | 0.25-4 | 0.5-16 GiB | Central US (EUAP), East US2 (EUAP), East Asia, West Central US | per replica |
+| **Flexible** | 0.25-4 | 0.5-16 GiB | Central US (EUAP), East US2 (EUAP), East Asia, West Central US | per replica |
 
 ## Resource consumption and scaling
 

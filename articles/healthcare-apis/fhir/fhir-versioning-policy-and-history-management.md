@@ -71,9 +71,9 @@ Changing the versioning policy, either at a system level or resource level, won'
 > The query parameter _summary=count and _count=0 can be added to _history endpoint to get a count of all versioned resources. This count includes soft deleted resources.
 
 ## Metadata-only updates and versioning
-If the versioning policy is set to either `versioned` or `version-update`, metadata-only updates (changes to FHIR resources that only affect the metadata) increment the resource version. If you are making metadata-only changes using PUT updates, you can use the query parameter `_meta-history` for PUT updates to configure how the resource versioning is saved.
-- `_meta-history=true` is set by default. By default, the current version is saved as a new historical version, and the resource version is incremented. The lastUpdated timestamp is updated to reflected the change.
-- `_meta-history=false` increments the resource version in-place. This means that the current version is not saved as a historical version, and the resource version is still incremented. The lastUpdated timestamp is also still updated to reflect the change. This configuration can be used to help reduce data storage when making metadata-only updates.
+If the versioning policy is set to either `versioned` or `version-update`, metadata-only updates (changes to FHIR resources that only affect the metadata) increment the resource version, create a new version, and save the old version as a historical record. If you are making metadata-only changes using PUT updates, you can use the query parameter _meta-history for PUT updates to configure whether or not the old version is saved as a historical record.
+- `_meta-history=true` is set by default. By default, the resource version is incremented, a new version is created, and the old version is saved as a historical record. The lastUpdated timestamp is updated to reflected the change.
+- `_meta-history=false` The `_meta-history` parameter can be configured to `false`. This means that the resource version is incremented, a new version is created, but the old version is not saved as a historical record. The lastUpdated timestamp is also still updated to reflect the change. This configuration can be used to help reduce data storage when making metadata-only updates.
 
 ## Next steps
 

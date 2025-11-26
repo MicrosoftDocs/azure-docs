@@ -221,8 +221,8 @@ You can use SQL to specify the row filter predicates and column projections in a
 ```powershell
 Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
     $tempfile = New-TemporaryFile
-    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
-    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
+    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders -RecordSeparator "`n" -ColumnSeparator "," -QuotationCharacter """" -EscapeCharacter "\"
+    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader -RecordSeparator "`n" -ColumnSeparator "," -QuotationCharacter """" -EscapeCharacter "\") -ResultFile $tempfile.FullName -QueryString $query -Force
     Get-Content $tempfile.FullName
 }
 

@@ -119,6 +119,11 @@ The workaround is to exclude the specific prefixes which are soft deleted.
 
 When rehydrating archived blobs, there's no option to choose a priority. The blobs are rehydrated with the standard priority. 
 
+## Delay in task assignment runs
+
+Task assignment runs can take around 20 minutes to change status to `In Progress` after being queued. Until then, no updates appear. This delay is expected and there is no workaround to shorten it.
+
+
 ## See Also
 
 - [Azure Storage Actions overview](../overview.md)

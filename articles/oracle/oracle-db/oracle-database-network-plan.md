@@ -87,6 +87,8 @@ The following table describes the network topologies that are supported by each 
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
 |Connectivity from an Oracle database cluster on Oracle Database@Azure nodes to Azure resources|Yes|Yes|
 |Azure Container Apps supported for advanced network features|No|Yes|
+|Connectivity from Azure NetApp Files with Basic network features (ANF and Oracle Database@Azure must be deployed in separate VNETs)|No|Yes|
+|Connectivity from Azure NetApp Files with Standard network features (ANF and Oracle Database@Azure must be deployed in separate VNETs)|Yes|Yes
 
 ## Constraints
 
@@ -147,7 +149,7 @@ When routing traffic to Oracle Database@Azure through a Network Virtual Applianc
 > 
 > For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall.
 
- 
+
 
 ## FAQ 
 ### What are advanced network features? 

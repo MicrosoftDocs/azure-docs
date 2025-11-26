@@ -50,7 +50,7 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 * **Standard v2** and **Premium v2** also support inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
 
-* **Premium v2** also supports simplified **virtual network injection** for complete isolation of inbound and outbound gateway traffic without requiring network security group rules, route tables, or service endpoints. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](inject-vnet-v2.md).
+* **Premium v2** also supports simplified **virtual network injection** for complete isolation of inbound and outbound gateway traffic without requiring route tables or service endpoints. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](inject-vnet-v2.md).
 
 ### Supported regions
 

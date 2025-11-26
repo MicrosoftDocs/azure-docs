@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/08/2025
+ms.date: 10/08/2025
 ms.author: danlep
 ---
 
@@ -29,8 +29,6 @@ The virtual network must be in the same region and Azure subscription as the API
 ### Dedicated subnet
 
 * The subnet used for virtual network integration or injection can only be used by a single workspace gateway. It can't be shared with another Azure resource.
-
-[!INCLUDE [api-management-virtual-network-address-prefix](../../includes/api-management-virtual-network-address-prefix.md)]
 
 ## Subnet size 
 

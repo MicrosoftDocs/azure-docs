@@ -131,8 +131,6 @@ items:
           href: functions-usage.md
         - name: Create your Azure functions on Azure Container Apps
           href: functions-container-apps.md
-        - name: Manage with Azure CLI
-          href: functions-cli.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads

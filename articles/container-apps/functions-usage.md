@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 08/28/2025
+ms.date: 11/26/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -204,6 +204,110 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 1. Append `/api/HttpExample` to the end of the URL.
 
     A message stating "HTTP trigger function processed a request" is returned in the browser.
+
+## Manage functions
+
+You can manage your deployed functions within Azure Container Apps using the Azure CLI. The following commands help you list, inspect, and interact with the functions running in your containerized environment.
+
+> [!NOTE]
+> When dealing with multirevision scenarios, add the `--revision <REVISION_NAME>` parameter to your command to target a specific revision.
+
+### List functions
+
+View all functions deployed in your container app:
+
+```azurecli
+# List all functions
+az containerapp function list \
+  --resource-group <RESOURCE_GROUP> \
+  --name <CONTAINER_APP_NAME>
+```
+
+### Show function details
+
+Get detailed information about a specific function:
+
+```azurecli
+az containerapp function show \
+  --resource-group <RESOURCE_GROUP> \
+  --name <CONTAINER_APP_NAME> \
+  --function-name <FUNCTIONS_APP_NAME>
+```
+
+## Monitor function invocations
+
+Monitoring your function app is essential for understanding its performance and diagnosing issues. The following commands show you how to retrieve function URLs, trigger invocations, and view detailed telemetry and invocation summaries by using the Azure CLI.
+
+1. To view invocation traces, get detailed traces of function invocations.
+
+    ```azurecli
+    az containerapp function invocations traces \
+      --name <CONTAINER_APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --function-name <FUNCTIONS_APP_NAME> \
+      --timespan 5h \
+      --limit 3
+    ```
+
+1. View an invocation summary to review successful and failed invocations.
+
+    ```azurecli
+    az containerapp function invocations summary \
+      --name <CONTAINER_APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --function-name <FUNCTIONS_APP_NAME> \
+      --timespan 5h
+    ```
+
+## Manage function keys
+
+Azure Functions uses [keys for authentication and authorization](/azure/azure-functions/function-keys-how-to). You can manage the following different types of keys:
+
+- **Host keys**: Access any function in the app
+- **Master keys**: Provide administrative access
+- **System keys**: Used by Azure services
+- **Function keys**: Access specific functions
+
+The following commands show you how to manage keys for the host. To run the same command for a specific Functions app, add the `--function-name <FUNCTIONS_APP_NAME>` parameter to your command.
+
+### List keys
+
+Use the following commands to list host-level and function-specific keys for your Azure Functions running in Container Apps.
+
+> [!NOTE]
+> Keep a minimum of one replica running for the following keys management commands to work.
+
+```azurecli
+az containerapp function keys list \
+  --resource-group <RESOURCE_GROUP> \
+  --name <CONTAINER_APP_NAME> \
+  --key-type hostKey
+```
+
+### Show a specific key
+
+Show the value of a specific host-level key for your function app with the following command:
+
+```azurecli
+az containerapp function keys show \
+  --resource-group <RESOURCE_GROUP> \
+  --name <CONTAINER_APP_NAME> \
+  --key-name <KEY_NAME> \
+  --key-type hostKey
+```
+
+### Set a key
+
+Set a specific host-level key for your function app with the following command:
+
+```azurecli
+az containerapp function keys set \
+  --resource-group <RESOURCE_GROUP> \
+  --name <CONTAINER_APP_NAME> \
+  --key-name <KEY_NAME> \
+  --key-value <KEY_VALUE> \
+  --key-type hostKey
+```
 
 :::zone-end
 

@@ -8,68 +8,64 @@ ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 07/12/2019
-ms.author: bentrin
+ms.author: hrushib
 ms.custom: H1Hack27Feb2017
 # Customer intent: As a system administrator, I want to implement a file-level backup and restore process for SAP HANA on large Azure instances, so that I can ensure data integrity and recovery in case of operating system corruption.
 ---
 # OS backup and restore for Type II SKUs of Revision 3 stamps
 
-This document describes the steps to perform an operating system file level backup and restore for the **Type II  SKUs** of the HANA Large Instances of Revision 3. 
+This document describes the steps to perform an operating system file level backup and restore for the **Type II  SKUs** of the HANA Large Instances of Revision 3.
 
 >[!Important]
-> **This article does not apply to Type II SKU deployments in Revision 4 HANA Large Instance stamps.** Boot LUNS of Type II HANA Large Instance units which are deployed in Revision 4 HANA Large Instance stamps can be backed up with storage snapshots as this is the case with Type I SKUs already in Revision 3 stamps
-
-
+> **This article does not apply to Type II SKU deployments in Revision 4 HANA Large Instance stamps.** Boot LUNS of Type II HANA Large Instance units, which are deployed in Revision 4 HANA Large Instance stamps can be backed up with storage snapshots as this is the case with Type I SKUs already in Revision 3 stamps
 >[!NOTE]
-> * The OS backup scripts uses xfsdump utility.  
+> * The OS backup scripts uses xfsdump utility.
 > * This document supports complete Root filesystem backup and **no incremental** backups.
-> * Ensure that while creating a backup, no files are being written to the same system.  Otherwise, files being written during the backup may not be included in the backup.
+> * Ensure that while creating a backup, no files are being written to the same system. Otherwise, files being written during the backup may not be included in the backup.
 > * ReaR backup is deprecated for Type II SKUs of the HANA Large Instances of Revision 3.
-> * We've tested this procedure inhouse against multiple OS corruption scenarios. However, since you, as customer, are solely responsible for the OS, we recommend you thoroughly test before relying on this documentation for your scenario.
-> * We've tested this process on SLES OS.
+> * We tested this procedure in-house against multiple OS corruption scenarios. However, since you, as customer, are solely responsible for the OS, we recommend you thoroughly test before relying on this documentation for your scenario.
+> * We tested this process on SLES OS.
 > * Major versions upgrades, such as SLES 12.x to SLES 15x, aren't supported.
-> * To complete an OS restore with this process, you'll need Microsoft assistance since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
-
+> * To complete an OS restore with this process, you need Microsoft assistance since the recovery requires console access. To help recovery, create a support ticket with Microsoft.
 
 ## How to take a manual backup?
 
 To perform a manual backup:
 
 1. Install the backup tool.
+
    ```
    zypper in xfsdump
    ```
 
-2. Create a complete backup. 
+2. Create a complete backup.
+
    ```
    xfsdump -l 0 -f /data1/xfs_dump /
    ```
 
    The following screen show shows the sample manual backup:
-   
+
     [![dump capture](media/HowToHLI/OSBackupTypeIISKUs/dump-capture.png)](media/HowToHLI/OSBackupTypeIISKUs/dump-capture.png#lightbox)
 
-
 3. Important: Save a copy of backup in NFS volumes as well, in the scenario where data1 partition also gets corrupted.
+
    ```
    cp /data1/xfs_dump /osbackup/
    ```
 
-4. For excluding regular directories and files from dump, please tag files with chattr.
+4. For excluding regular directories and files from dump, tag files with chattr.
    * chattr -R +d directory
    * chattr +d file
    * Run xfsdump with “-e” option
-   * Note, It is not possible to exclude nfs filesystems [ntfs]
-
-
-
+   * Note, It isn't possible to exclude nfs filesystems [ntfs]
 
 ## How to restore a backup?
 
 >[!NOTE]
 > * This step requires engaging the Microsoft operations team.
-> * To complete an OS restore with this process, Microsoft assistance is required since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
-> * We will be restoring the complete filesystem:
+> * To complete an OS restore with this process, Microsoft assistance is required since the recovery requires console access. To help recovery, create a support ticket with Microsoft.
+> * We'll restore the complete filesystem:
 
 1. Mount OS iso on the system.
 
@@ -93,21 +89,21 @@ To perform a manual backup:
    reboot
    ```
 
-If any post checks fail, please engage the OS vendor and Microsoft for console access.
+If any post checks fail, engage the OS vendor and Microsoft for console access.
 
 ## Post Restore check
 
 1. Ensure the system has complete attributes restored.
    * Network is up.
    * NFS volumes are mounted.
-2. Ensure RAID is configured; please replace with your RAID device.
+2. Ensure RAID is configured; replace with your RAID device.
    ```
    mdadm -D /dev/md126
    ```
    [![raid status](media/HowToHLI/OSBackupTypeIISKUs/raid-status.png)](media/HowToHLI/OSBackupTypeIISKUs/raid-status.png#lightbox)
 
 3. Ensure that RAID disks are synced and the configuration is in a clean state.
-   * RAID disks take sometime in syncing; sync may continue for a few minutes before it is 100% synced.
+   * RAID disks take sometime in syncing; sync may continue for a few minutes before it's 100% synced.
 
 4. Start HANA DB and verify HANA is operating as expected.
 
@@ -117,4 +113,4 @@ If any post checks fail, please engage the OS vendor and Microsoft for console a
    ```
    [![hana status](media/HowToHLI/OSBackupTypeIISKUs/hana-status.png)](media/HowToHLI/OSBackupTypeIISKUs/hana-status.png#lightbox)
 
-6. If any post checks fail, please engage OS vendor and Microsoft for console access.
+6. If any post checks fail, engage OS vendor and Microsoft for console access.
