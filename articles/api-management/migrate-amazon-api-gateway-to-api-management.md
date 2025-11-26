@@ -57,7 +57,7 @@ This architecture includes:
 Here's an example architecture of the workload migrated to Azure. In this scenario, Azure API Management is deployed in the Premium tier.
 
 :::image type="complex" source="media/migrate-amazon-api-gateway-to-api-management/example-migrated-api-management-architecture.png" alt-text="Diagram of an Azure API Management architecture where a user request flows through Microsoft Entra ID, Application Gateway, and API Management to Azure backends." lightbox="media/migrate-amazon-api-gateway-to-api-management/example-migrated-api-management-architecture.png":::
- The diagram illustrates an Azure API Management architecture within a virtual network. On the far left, a user sends a request with a JWT and authenticates through Microsoft Entra ID. The flow enters Azure Application Gateway with a web application firewall, which forwards traffic to API Management integrated with Microsoft Entra ID. API Management validates the JWT and interacts with several components: it uses a Redis cache for caching, stores certificates in Azure Key Vault, and monitors via Azure Monitor. Above API Management, a custom domain is linked to an Azure DNS zone, and Microsoft Entra ID is part of authentication. To the right, API Management connects to a function app, which includes a function key. The function app routes traffic through an internal load balancer to a Kubernetes cluster. Additionally, Azure AI Foundry is a connected service. Dashed arrows indicate relationships such as validation, monitoring, and certificate storage. Solid arrows represent the main request flow from the user through Azure Application Gateway and API Management to backend services.
+ The diagram illustrates an Azure API Management architecture within a virtual network. On the far left, a user sends a request with a JWT and authenticates through Microsoft Entra ID. The flow enters Azure Application Gateway with a web application firewall, which forwards traffic to API Management integrated with Microsoft Entra ID. API Management validates the JWT and interacts with several components: it uses a Redis cache for caching, stores certificates in Azure Key Vault, and monitors via Azure Monitor. Above API Management, a custom domain is linked to an Azure DNS zone, and Microsoft Entra ID is part of authentication. To the right, API Management connects to a function app, which includes a function key. The function app routes traffic through an internal load balancer to a Kubernetes cluster. Additionally, Microsoft Foundry is a connected service. Dashed arrows indicate relationships such as validation, monitoring, and certificate storage. Solid arrows represent the main request flow from the user through Azure Application Gateway and API Management to backend services.
 :::image-end:::
 
 This architecture includes:
@@ -68,7 +68,7 @@ This architecture includes:
 
 - An internal load balancer that routes traffic to Azure Kubernetes Service (AKS) for microservices-based backends.
 
-- Secure connections via private endpoints to Azure function apps and Azure AI Foundry backends.
+- Secure connections via private endpoints to Azure function apps and Microsoft Foundry backends.
 
 - Monitoring handled by Azure Monitor.
 

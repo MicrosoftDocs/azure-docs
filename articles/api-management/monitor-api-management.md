@@ -116,7 +116,7 @@ This section shows you how to enable Azure Monitor logs for auditing and trouble
 |API Management gateway     |  Requests processed by the API Management gateway, including HTTP methods, protocols, request and response bodies, headers, timings, error details, and cache involvement.       | Adjust settings for all APIs, or override them for individual APIs.<br/><br/>In API Management instances configured with [workspaces](workspaces-overview.md), gateway logs can be collected individually for each workspace and aggregated for centralized access by the platform team.  |
 |WebSocket connections     | Events for [WebSocket API](websocket-api.md) connections, starting from the handshake until the connection is terminated.       |
 |Developer portal usage     |  Requests that are received and processed by the API Management [developer portal](developer-portal-overview.md), including user authentication actions, views of API details, and API testing in the interactive test console.|
-| Generative AI gateway | Requests processed by the API Management gateway for large language model (LLM) REST APIs such as Azure AI Foundry APIs, including token usage, models, and optionally details of request prompts and response completions. | Enable logging of request messages and/or response messages for specific LLM APIs.
+| Generative AI gateway | Requests processed by the API Management gateway for large language model (LLM) REST APIs such as Microsoft Foundry APIs, including token usage, models, and optionally details of request prompts and response completions. | Enable logging of request messages and/or response messages for specific LLM APIs.
 
 For more information, see [API Management monitoring data reference](monitor-api-management-reference.md).
 

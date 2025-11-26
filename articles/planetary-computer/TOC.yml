@@ -73,8 +73,6 @@
     href: queryables-for-explorer-custom-search-filter.md
   - name: Supported color maps
     href: supported-colormaps.md
-  - name: Visualize assets
-    href: visualize-assets.md
 - name: Build and use applications
   items:
   - name: Build applications
@@ -97,7 +95,5 @@
     href: data-cube-overview.md
   - name: Get Started with data cubes
     href: data-cube-quickstart.md
-  - name: Visualize data cubes
-    href: visualize-assets.md
   - name: Get a collection SAS token
     href: get-collection-sas-token.md

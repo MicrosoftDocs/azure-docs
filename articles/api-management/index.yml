@@ -110,7 +110,7 @@ landingContent:
             url: mcp-server-overview.md
       -  linkListType: how-to-guide
          links:
-          - text: Import Azure AI Foundry API
+          - text: Import Microsoft Foundry API
             url: azure-ai-foundry-api.md
           - text: Import Azure OpenAI API
             url: azure-openai-api-from-specification.md

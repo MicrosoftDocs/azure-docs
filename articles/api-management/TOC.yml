@@ -248,7 +248,7 @@
     href: genai-gateway-capabilities.md
   - name: Manage LLM APIs
     items:
-    - name: Import Azure AI Foundry API
+    - name: Import Microsoft Foundry API
       href: azure-ai-foundry-api.md
     - name: Import Azure OpenAI API
       href: azure-openai-api-from-specification.md

@@ -5,7 +5,7 @@ author: tanyamarton
 ms.author: tanyamarton
 ms.service: planetary-computer-pro
 ms.topic: concept-article
-ms.date: 04/24/2025
+ms.date: 11/5/2025
 
 ms.custom:
   - build-2025

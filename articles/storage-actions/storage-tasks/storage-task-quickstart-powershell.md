@@ -133,8 +133,7 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    -StartOn $startTime.ToUniversalTime() `
    -Description "task assignment" `
    -Enabled:$true `
-   -TargetPrefix "mycontainer/" `
-   -TargetExcludePrefix ""
+   -TargetPrefix "mycontainer/"
    ```
 
 2. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task by using the `New-AzRoleAssignment` command.

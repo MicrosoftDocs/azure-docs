@@ -21,7 +21,7 @@ The *AI gateway* in Azure API Management is a set of capabilities that help you 
 
 Use the AI gateway to manage a wide range of AI endpoints, including:
 
-* [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Azure AI Foundry Models](/azure/ai-foundry/openai/overview) deployments
+* [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/overview) deployments
 * [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) deployments
 * Remote MCP servers and A2A agent APIs
 * OpenAI-compatible models and endpoints hosted by non-Microsoft providers
@@ -54,19 +54,19 @@ As AI adoption matures, especially in larger enterprises, the AI gateway helps a
 With the AI gateway, you can:
 
 * Quickly import and configure OpenAI-compatible or passthrough LLM endpoints as APIs
-* Manage models deployed in Azure AI Foundry or providers such as Amazon Bedrock
+* Manage models deployed in Microsoft Foundry or providers such as Amazon Bedrock
 * Govern chat completions, responses, and real-time APIs
 * Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers
 * Import and manage A2A agent APIs (preview)
 
-For example, to onboard a model deployed in AI Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
+For example, to onboard a model deployed in Microsoft Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
 
-:::image type="content" source="media/genai-gateway-capabilities/ai-foundry-import.png" alt-text="Screenshot of AI Foundry model import in the Azure portal." lightbox="media/genai-gateway-capabilities/ai-foundry-import-lightbox.png"::: 
+:::image type="content" source="media/genai-gateway-capabilities/ai-foundry-import.png" alt-text="Screenshot of Microsoft Foundry model import in the Azure portal." lightbox="media/genai-gateway-capabilities/ai-foundry-import-lightbox.png"::: 
 
 
 More information:
 
-* [Import an AI Foundry API](azure-ai-foundry-api.md)
+* [Import an Microsoft Foundry API](azure-ai-foundry-api.md)
 * [Import a language model API](openai-compatible-llm-api.md)
 * [Expose a REST API as an MCP server](export-rest-mcp-server.md)
 * [Expose and govern an existing MCP server](expose-existing-mcp-server.md)
@@ -74,7 +74,7 @@ More information:
 
 ## Scalability and performance
 
-One of the main resources in generative AI services is *tokens*. Azure AI Foundry and other providers assign quotas for your model deployments as tokens-per-minute (TPM). You distribute these tokens across your model consumers, such as different applications, developer teams, or departments within the company.
+One of the main resources in generative AI services is *tokens*. Microsoft Foundry and other providers assign quotas for your model deployments as tokens-per-minute (TPM). You distribute these tokens across your model consumers, such as different applications, developer teams, or departments within the company.
 
 If you have a single app connecting to an AI service backend, you can manage token consumption with a TPM limit that you set directly on the model deployment. However, when your application portfolio grows, you might have multiple apps calling single or multiple AI service endpoints. These endpoints can be pay-as-you-go or [Provisioned Throughput Units](/azure/ai-services/openai/concepts/provisioned-throughput) (PTU) instances. You need to make sure that one app doesn't use the whole TPM quota and block other apps from accessing the backends they need.
 
@@ -147,7 +147,7 @@ One challenge when building intelligent applications is ensuring that the applic
 
 ### Load balancer 
 
-The backend [load balancer](backends.md#backends-in-api-management) supports round-robin, weighted, priority-based, and session-aware load balancing. You can define a load distribution strategy that meets your specific requirements. For example, define priorities within the load balancer configuration to ensure optimal utilization of specific Azure AI Foundry endpoints, particularly those purchased as PTU instances. 
+The backend [load balancer](backends.md#backends-in-api-management) supports round-robin, weighted, priority-based, and session-aware load balancing. You can define a load distribution strategy that meets your specific requirements. For example, define priorities within the load balancer configuration to ensure optimal utilization of specific Microsoft Foundry endpoints, particularly those purchased as PTU instances. 
 
 :::image type="content" source="media/genai-gateway-capabilities/backend-load-balancing.png" alt-text="Diagram of using backend load balancing in API Management.":::
 

@@ -164,10 +164,6 @@ landingContent:
         links:
           - text: Get started with data cubes
             url: data-cube-quickstart.md
-      - linkListType: how-to-guide
-        links:
-          - text: Visualize data cubes
-            url: visualize-assets.md
       - linkListType: quickstart
         links:
           - text: Get a collection SAS token

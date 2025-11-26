@@ -37,6 +37,7 @@ Advanced network features enhance the virtual networking experience, offering im
 * Japan West
 * North Europe
 * South Central US
+* South India
 * Southeast Asia
 * Spain Central
 * Sweden Central

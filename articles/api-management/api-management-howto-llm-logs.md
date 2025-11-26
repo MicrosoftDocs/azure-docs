@@ -31,7 +31,7 @@ Learn more about:
 
 ## Prerequisites
 - An Azure API Management instance.
-- A managed LLM chat completions API integrated with Azure API Management. For example, [Import an Azure AI Foundry API](azure-ai-foundry-api.md).
+- A managed LLM chat completions API integrated with Azure API Management. For example, [Import a Microsoft Foundry API](azure-ai-foundry-api.md).
 - Access to an Azure Log Analytics workspace.
 - Appropriate permissions to configure diagnostic settings and access logs in API Management.
 
@@ -106,17 +106,17 @@ ApiManagementGatewayLlmLog
 
 :::image type="content" source="media/api-management-howto-llm-logs/llm-log-query-small.png" alt-text="Screenshot of query results for LLM logs in the portal." lightbox="media/api-management-howto-llm-logs/llm-log-query.png":::
 
-## Upload data to Azure AI Foundry for model evaluation
+## Upload data to Microsoft Foundry for model evaluation
 
-You can export LLM logging data as a dataset for [model evaluation](/azure/ai-foundry/concepts/observability) in Azure AI Foundry. With model evaluation, you can assess the performance of your generative AI models and applications against a test model or dataset using built-in or custom evaluation metrics. 
+You can export LLM logging data as a dataset for [model evaluation](/azure/ai-foundry/concepts/observability) in Microsoft Foundry. With model evaluation, you can assess the performance of your generative AI models and applications against a test model or dataset using built-in or custom evaluation metrics. 
 
 To use LLM logs as a dataset for model evaluation:
 
 1. Join LLM request and response messages into a single record for each interaction, as shown in the [previous section](#review-azure-monitor-logs-for-requests-and-responses). Include the fields you want to use for model evaluation.
-1. Export the dataset to CSV format, which is compatible with Azure AI Foundry.
-1. In the Azure AI Foundry portal, create a new evaluation to upload and evaluate the dataset.
+1. Export the dataset to CSV format, which is compatible with Microsoft Foundry.
+1. In the Microsoft Foundry portal, create a new evaluation to upload and evaluate the dataset.
 
-For details to create and run a model evaluation in Azure AI Foundry, see [Evaluate generative AI models and applications by using Azure AI Foundry](/azure/ai-foundry/how-to/evaluate-generative-ai-app).
+For details to create and run a model evaluation in Microsoft Foundry, see [Evaluate generative AI models and applications by using Microsoft Foundry](/azure/ai-foundry/how-to/evaluate-generative-ai-app).
 
 ## Related content
 

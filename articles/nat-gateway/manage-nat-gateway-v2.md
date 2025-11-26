@@ -31,9 +31,6 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - Add or remove a public IP address or public IP prefix.
 
-> [!NOTE]
-> Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to manage a V2 NAT gateway.
-
 ## Prerequisites
 
 # [**Azure portal**](#tab/manage-nat-portal)

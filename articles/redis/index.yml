@@ -8,6 +8,7 @@ metadata:
   description: Learn how to use Azure Managed Redis for secure data caches, storing embeddings vectors and as a semantic cache through Tutorials, API references, and more.
   ms.date: 11/24/2025
   ms.topic: landing-page
+  ai-usage: ai-assisted
   ms.custom:
     - ignite-2024
     - build-2025

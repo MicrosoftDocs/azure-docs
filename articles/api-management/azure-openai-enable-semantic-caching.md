@@ -19,11 +19,11 @@ ms.collection: ce-skilling-ai-copilot
 Enable semantic caching of responses to LLM API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't identical. For background, see [Tutorial: Use Azure Managed Redis as a semantic cache](../redis/tutorial-semantic-cache.md).
 
 > [!NOTE]
-> The configuration steps in this article show how to enable semantic caching for APIs added to API Management from Azure OpenAI in Azure AI Foundry models. You can apply similar steps to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/rest/api/aifoundry/modelinference/) or with OpenAI-compatible models served through third-party inference providers. 
+> The configuration steps in this article show how to enable semantic caching for APIs added to API Management from Azure OpenAI in Microsoft Foundry models. You can apply similar steps to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/rest/api/aifoundry/modelinference/) or with OpenAI-compatible models served through third-party inference providers. 
 
 ## Prerequisites
 
-* Add one or more Azure OpenAI in Azure AI Foundry model deployments as APIs to your API Management instance. For more information, see [Add an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md).
+* Add one or more Azure OpenAI in Microsoft Foundry model deployments as APIs to your API Management instance. For more information, see [Add an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md).
 * Create deployments for the following APIs:
 
     * Chat Completion API - Deployment used for API consumer calls 

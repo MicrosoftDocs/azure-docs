@@ -139,8 +139,7 @@ Use an ARM template to create a shell session pool with MCP server enabled.
    az deployment group create \
      --resource-group $RESOURCE_GROUP \
      --template-file deploy.json \
-     --name $SESSION_POOL_NAME \
-     --location $LOCATION
+     --parameters name=$SESSION_POOL_NAME location=$LOCATION
    ```
 
 ## Get the MCP server endpoint
@@ -222,4 +221,3 @@ az group delete --resource-group $RESOURCE_GROUP
 ## Next steps
 
 - [Container Apps dynamic sessions overview](/azure/container-apps/sessions)
-- [MCP JSON-RPC specification](https://spec.modelcontextprotocol.io/)

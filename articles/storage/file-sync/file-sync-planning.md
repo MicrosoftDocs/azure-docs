@@ -194,14 +194,24 @@ The following table shows the interoperability state of NTFS file system feature
 > Invoke-StorageSyncFileRecall -FilePath <path>
 > compact /U /S <filepath>
 > ```
+> Using NTFS compression on tiered files can cause significant performance impact. It is recommended not to use cloud tiering with compressed files.
+> 
+> You can uncompress files using the [compact](/windows-server/administration/windows-commands/compact) command.
 >
-> On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it.  
->
-> If the file needs to be tiered again afterward, run:
->
+> On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it.
 > ```powershell
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+> Invoke-StorageSyncFileRecall -FilePath <path>
+> compact /U /S <filepath>
+> ```
+>
+> If file recalls lead to low disk space issues, you should wait for background tiering to kick in and tier the file back before recalling more files or tier the file back
+> after uncompressing by running the cmdlet
+> ```powershell
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 > Invoke-StorageSyncCloudTiering -Path <path>
 > ```
+
 
 <a id="files-skipped"></a>Azure File Sync also skips certain temporary files and system folders:
 
