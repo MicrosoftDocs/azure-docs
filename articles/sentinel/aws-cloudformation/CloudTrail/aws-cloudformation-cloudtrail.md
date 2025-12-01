@@ -1,10 +1,23 @@
+---
+title: Deploy AWS CloudTrail log collection for Microsoft Sentinel with CloudFormation
+description: Use an AWS CloudFormation stack to configure AWS CloudTrail to send logs to an S3 bucket and onboard them to Microsoft Sentinel via the AWS S3 connector.
+author: KanenasCS
+ms.author: bagol
+ms.service: microsoft-sentinel
+ms.topic: how-to
+ms.collection: microsoft-sentinel
+ms.date: 12/01/2025
+---
+
+# Deploy AWS CloudTrail log collection for Microsoft Sentinel with CloudFormation
+
 ### 1. Microsoft Sentinel configuration
 
 1. Sign in to the **Azure portal**.
 2. Navigate to **Microsoft Sentinel** and then to **Content Hub**.
 3. Install the connector **Amazon Web Services S3**.
 
-![image1](images/cloudtrail-step-1.png)
+(images/cloudtrail-step-1.png)
 
 4. Navigate to **Data connectors** and open the **Amazon Web Services S3** connector page.
 
@@ -15,11 +28,11 @@
 1. Sign in to the **AWS Management Console**.
 2. In the search bar, search for **CloudFormation** and open the **CloudFormation** service.
 
-![image2](images/cloudtrail-step-2.png)
+(images/cloudtrail-step-2.png)
 
 3. Select **Create stack** → **With new resources (standard)**.
 
-![image3](images/cloudtrail-step-3.png)
+(images/cloudtrail-step-3.png)
 
 ---
 
@@ -29,7 +42,7 @@
 2. Under **Template source**, select **Upload a template file**, then choose and upload the provided template file.
 3. Click **Next**.
 
-![image5](images/cloudtrail-step-4.png)
+(images/cloudtrail-step-4.png)
 
 ---
 
@@ -48,11 +61,11 @@ Fill in the following parameters:
 - **SentinelWorkspaceId**: Enter the Workspace ID from the Azure Log Analytics workspace page:  
   - In the Azure portal, go to **Log Analytics workspace → Overview** and copy the **Workspace ID**.
 
-![image6](images/cloudtrail-step-5.png)
+(images/cloudtrail-step-5.png)
 
 After filling all required fields, click **Next**.
 
-![image7](images/cloudtrail-step-6.png)
+(images/cloudtrail-step-6.png)
 
 ---
 
@@ -61,7 +74,7 @@ After filling all required fields, click **Next**.
 1. Leave the default options unchanged.
 2. Acknowledge that AWS CloudFormation might create IAM resources with custom names by selecting the required checkbox.
 
-![image8](images/cloudtrail-step-7.png)
+(images/cloudtrail-step-7.png)
 
 3. Click **Next**.
 
@@ -71,7 +84,7 @@ After filling all required fields, click **Next**.
 
 1. Review all settings and confirm that all required fields are correctly populated.
 
-![image9](images/cloudtrail-step-8.png)
+(images/cloudtrail-step-8.png)
 
 2. Click **Submit** to create the stack.
 
@@ -80,7 +93,7 @@ Monitor the stack creation:
 1. In **CloudFormation → Stacks → Events**, monitor the progress status.
 2. When the status indicates completion, verify in the left panel that the stack has been successfully created.
 
-![image10](images/cloudtrail-step-9.png)
+(images/cloudtrail-step-9.png)
 
 ---
 
@@ -88,7 +101,7 @@ Monitor the stack creation:
 
 1. Go to the **CloudTrail** dashboard and create a trail (if one does not already exist).
 
-![image11](images/cloudtrail-step-14.png)
+(images/cloudtrail-step-14.png)
 
 2. Configure the trail:
 
@@ -99,7 +112,7 @@ Monitor the stack creation:
 
    Click **Next**.
 
-![image12](images/cloudtrail-step-15.png)
+(images/cloudtrail-step-15.png)
 
 3. **Choose log events** (minimum configuration):
 
@@ -108,8 +121,8 @@ Monitor the stack creation:
 
    Click **Next**.
 
-![image13](images/cloudtrail-step-16.png)
+(images/cloudtrail-step-16.png)
 
 4. Click **Create trail**.
 
-![image14](images/cloudtrail-step-17.png)
+(images/cloudtrail-step-17.png)

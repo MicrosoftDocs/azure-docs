@@ -1,13 +1,26 @@
+---
+title: Deploy AWS GuardDuty log collection for Microsoft Sentinel with CloudFormation
+description: Use an AWS CloudFormation stack to send encrypted AWS GuardDuty findings to S3 and ingest them into Microsoft Sentinel with the AWS S3 connector.
+author: KanenasCS
+ms.author: bagol
+ms.service: microsoft-sentinel
+ms.topic: how-to
+ms.collection: microsoft-sentinel
+ms.date: 12/01/2025
+---
+
+# Deploy AWS GuardDuty log collection for Microsoft Sentinel with CloudFormation
+
 ### 1. Create the CloudFormation stack
 
 1. Sign in to the **AWS Management Console**.
 2. In the search bar, search for **CloudFormation** and open the **CloudFormation** service.
 
-![image1](images/guardduty-step-1.png)
+(images/guardduty-step-1.png)
 
 3. Select **Create stack** → **With new resources (standard)**.
 
-![image2](images/guardduty-step-2.png)
+(images/guardduty-step-2.png)
 
 ---
 
@@ -17,7 +30,7 @@
 2. Under **Template source**, select **Upload a template file**, then choose and upload the provided template file.
 3. Click **Next**.
 
-![image3](images/guardduty-step-3.png)
+(images/guardduty-step-3.png)
 
 ---
 
@@ -36,11 +49,11 @@ Fill in the following parameters:
 - **SentinelWorkspaceId**: Enter the **Workspace ID** from the Azure Log Analytics workspace page:  
   - In the Azure portal, go to **Log Analytics workspace → Overview** and copy the **Workspace ID**.
 
-![image4](images/guardduty-step-4.png)
+(images/guardduty-step-4.png)
 
 After filling all required fields, click **Next**.
 
-![image5](images/guardduty-step-5.png)
+(images/guardduty-step-5.png)
 
 ---
 
@@ -49,7 +62,7 @@ After filling all required fields, click **Next**.
 1. Leave the default options unchanged.
 2. Acknowledge that AWS CloudFormation might create IAM resources with custom names by selecting the required checkbox.
 
-![image6](images/guardduty-step-6.png)
+(images/guardduty-step-6.png)
 
 3. Click **Next**.
 
@@ -59,7 +72,7 @@ After filling all required fields, click **Next**.
 
 1. Review all settings and confirm that all required fields are correctly populated.
 
-![image7](images/guardduty-step-7.png)
+(images/guardduty-step-7.png)
 
 2. Click **Submit** to create the stack.
 
@@ -68,7 +81,7 @@ Monitor the stack creation:
 1. In **CloudFormation → Stacks → Events**, monitor the progress status.
 2. When the status indicates completion, verify in the left panel that the stack has been successfully created.
 
-![image8](images/guardduty-step-8.png)
+(images/guardduty-step-8.png)
 
 ---
 
@@ -76,12 +89,12 @@ Monitor the stack creation:
 
 1. Go to the **GuardDuty** console and open **Settings**.
 
-![image9](images/guardduty-step-9.png)
+(images/guardduty-step-9.png)
 
 2. Under **Findings export options**, choose **Configure now** (or **Edit** if already configured).
 
-![image10](images/guardduty-step-10.png)
+(images/guardduty-step-10.png)
 
 3. Enter the **KMS key ARN** and **S3 bucket ARN**, then click **Save**.
 
-![image11](images/guardduty-step-11.png)
+(images/guardduty-step-11.png)

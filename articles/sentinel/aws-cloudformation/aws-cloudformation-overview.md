@@ -1,3 +1,16 @@
+---
+title: Automate AWS log collection for Microsoft Sentinel with AWS CloudFormation
+description: Use AWS CloudFormation templates to deploy the Amazon Web Services S3-based data connector for Microsoft Sentinel and automatically create the required AWS resources.
+author: KanenasCS
+ms.author: bagol
+ms.service: microsoft-sentinel
+ms.topic: how-to
+ms.collection: microsoft-sentinel
+ms.date: 12/01/2025
+---
+
+# Automate AWS log collection for Microsoft Sentinel with AWS CloudFormation
+
 # AWS S3 – Microsoft Sentinel Security Stacks
 
 ## Overview
