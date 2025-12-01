@@ -16,7 +16,7 @@ ms.date: 12/01/2025
 1. Sign in to the **AWS Management Console**.
 2. In the search bar, search for **CloudFormation** and open the **CloudFormation** service.
 
-![](images/flowlogs-step-1.png)
+![ClouFormation service](images/flowlogs-step-1.png)
 
 3. Select **Create stack** → **With new resources (standard)**.
 
@@ -30,7 +30,7 @@ ms.date: 12/01/2025
 2. Under **Template source**, select **Upload a template file**, then choose and upload the provided template file.
 3. Click **Next**.
 
-![](images/flowlogs-step-3.png)
+![Step 1](images/flowlogs-step-3.png)
 
 ---
 
@@ -49,12 +49,12 @@ Fill in the following parameters:
 - **SentinelWorkspaceId**: Enter the **External ID** from the Azure connector page:  
   - In the Azure portal, go to **Microsoft Sentinel → Data connectors → open the relevant connector → expand _Setup with PowerShell script_** and copy the **External ID**.
 
-![](images/flowlogs-step-4.png)  
-![](images/flowlogs-step-5.png)
+![Step 2](images/flowlogs-step-4.png)  
+![Step 2.1](images/flowlogs-step-5.png)
 
 After filling all required fields, click **Next**.
 
-![](images/flowlogs-step-6.png)
+![Step 2.2](images/flowlogs-step-6.png)
 
 ---
 
@@ -63,7 +63,7 @@ After filling all required fields, click **Next**.
 1. Leave the default options unchanged.
 2. Acknowledge that AWS CloudFormation might create IAM resources with custom names by selecting the required checkbox.
 
-![](images/flowlogs-step-7.png)
+![Step 3](images/flowlogs-step-7.png)
 
 3. Click **Next**.
 
@@ -73,8 +73,8 @@ After filling all required fields, click **Next**.
 
 1. Review all settings and confirm that all required fields are correctly populated.
 
-![](images/flowlogs-step-8.png)  
-![](images/flowlogs-step-9.png)
+![Step 4](images/flowlogs-step-8.png)  
+![Step 4.1](images/flowlogs-step-9.png)
 
 2. Click **Submit** to create the stack.
 
@@ -82,11 +82,11 @@ Monitor the stack creation:
 
 1. In **CloudFormation → Stacks → Events**, monitor the progress status.
 
-![](images/flowlogs-step-10.png)
+![In progress stack](images/flowlogs-step-10.png)
 
 2. When the status indicates completion, verify in the left panel that the stack has been successfully created.
 
-![](images/flowlogs-step-11.png)
+![Completed stack](images/flowlogs-step-11.png)
 
 ---
 
@@ -94,23 +94,23 @@ Monitor the stack creation:
 
 1. In the AWS Management Console, search for and open the **VPC (Virtual Private Cloud)** service.
 
-![](images/flowlogs-step-12.png)
+![VPC service](images/flowlogs-step-12.png)
 
 2. In the left pane, select **Your VPCs**.
 
-![](images/flowlogs-step-13.png)
+![VPC flow logs ](images/flowlogs-step-13.png)
 
 3. Select the VPC for which you want to enable Flow Logs and open its details.
 
-![](images/flowlogs-step-14.png)
+![Selected VPC](images/flowlogs-step-14.png)
 
 4. Navigate to the **Flow logs** tab.
 
-![](images/flowlogs-step-15.png)
+![Flow logs tab](images/flowlogs-step-15.png)
 
 5. Click **Create flow log**.
 
-![](images/flowlogs-step-16.png)
+![create flow log](images/flowlogs-step-16.png)
 
 6. Under **Flow log settings**, configure the following:
 
@@ -124,12 +124,12 @@ Monitor the stack creation:
    - **S3 bucket ARN**: Enter the ARN of the S3 bucket created or specified in the previous steps.  
      - To find it: open the **S3** service → select the bucket → **Properties** tab → copy the **ARN**.
 
-![](images/flowlogs-step-17.png)
+![setup flow logs](images/flowlogs-step-17.png)
 
    - **Partition logs by time**: Choose **Every 1 hour** or **Every 24 hours** (recommended: **Every 1 hour**).  
    - Leave all other settings at their default values.
 
-![](images/flowlogs-step-18.png)  
-![](images/flowlogs-step-19.png)
+![validate the settings](images/flowlogs-step-18.png)  
+![confirm the flow logs](images/flowlogs-step-19.png)
 
 7. Click **Create flow log**.
