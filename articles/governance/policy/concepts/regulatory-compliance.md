@@ -2,7 +2,7 @@
 title: Regulatory Compliance in initiative definitions
 description: Describes how to use an initiative definition to group policies by regulatory domain such as Access Control, Configuration Management, and others.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Regulatory Compliance in Azure Policy

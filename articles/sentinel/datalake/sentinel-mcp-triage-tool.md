@@ -32,7 +32,7 @@ To access the triage tool collection, you must have the following prerequisites:
 
 ## Add the triage collection
 
-To add the data exploration collection, you must first set up add Microsoft Sentinel's unified MCP server interface. Follow the step-by-step instructions for compatible [AI-powered code editors and agent-building platforms](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools).
+To add the data exploration collection, you must first set up add Microsoft Sentinel's unified MCP server interface. Follow the step-by-step instructions for compatible AI-powered code editors and agent-building platforms listed in the **Prerequisites** section.
 
 The triage collection is hosted at the following URL:
 
@@ -44,7 +44,7 @@ https://sentinel.microsoft.com/mcp/triage
 
 ### List security incidents (`ListIncidents`)
 
-This tool lists security incidents and filters them by date range, severity, status, assigned analyst, and investigation state. It can paginate up to 10,000 incidents per page.
+This tool lists security incidents and filters them by date range, severity, status, assigned analyst, and investigation state. 
 
 | Parameters | Required? | Description |
 |---|---|---|
@@ -72,7 +72,7 @@ This tool retrieves a security incident by ID, including its properties, correla
 
 ### List security alerts related to an incident (`ListAlerts`)
 
-This tool lists security alerts, sorts them, and filters them by date range, severity, and status. It can paginate up to 10,000 alerts per call.
+This tool lists security alerts, sorts them, and filters them by date range, severity, and status. 
 
 | Parameters | Required? | Description |
 |---|---|---|
@@ -83,7 +83,7 @@ This tool lists security alerts, sorts them, and filters them by date range, sev
 | `skip` |No | Skips a specified number of items from the start of the result set|
 | `top` |No | Limits the number of items returned in the response|
 
-### Get a security incident (`GetAlertByID`)
+### Get a security alert (`GetAlertByID`)
 
 This tool retrieves a security alert by ID. It returns the complete alert details, including severity, status, classification, and related evidence entities.
 

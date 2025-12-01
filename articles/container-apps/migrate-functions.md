@@ -6,7 +6,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 12/01/2025
 ms.author: cshoe
 ---
 
@@ -190,10 +190,10 @@ Before migrating:
 
 Improve reliability after migration:
 
-- Add alert rules: /azure/container-apps/monitor
-- Tune autoscale: /azure/container-apps/scale-apps
-- Enforce managed identity usage: /azure/container-apps/managed-identity
-- Centralize secrets: /azure/container-apps/manage-secrets
+- [Add alert rules](alerts.md)
+- [Tune autoscale](scale-app.md)
+- [Enforce managed identity usage](managed-identity.md)
+- [Centralize secrets](manage-secrets.md)
 
 ## Related content
 

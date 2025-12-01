@@ -4,7 +4,7 @@ description: Using a custom domain with Azure Static Web Apps
 services: static-web-apps
 author: v1212
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/24/2024
 ms.author: wujia
 ---

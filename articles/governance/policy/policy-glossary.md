@@ -1,7 +1,7 @@
 ---
 title: Azure Policy glossary
 description: The Azure Policy glossary provides definitions and descriptions of terms used by Azure Policy service.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2025
 ---
 
