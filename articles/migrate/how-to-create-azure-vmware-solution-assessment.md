@@ -111,7 +111,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 1. In **Review + create assessment**, review the assessment details, and select **Create** to run the assessment.
 
     > [!NOTE]
-    > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
+    > For discovering data using the Azure migrate appliance for creating assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high [performance coverage](/azure/migrate/concepts-assessment-calculation?view=migrate#coverage.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" alt-text="Screenshot showing an overview of an Azure VMware Solution assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" :::
 

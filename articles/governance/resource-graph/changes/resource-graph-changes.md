@@ -4,7 +4,8 @@ description: Learn to use the Azure Resource Graph Change Analysis tool to explo
 author: iancarter-msft
 ms.author: daphnema
 ms.date: 10/23/2025
-ms.topic: conceptual
+ms.topic: concept-article
+
 ---
 
 # Analyze changes to your Azure resources
