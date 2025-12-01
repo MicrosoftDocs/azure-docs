@@ -19,7 +19,7 @@ ms.custom: azureday1, devx-track-dotnet, AppServiceIdentity
 
 Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters.
 
-Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-identity-web/), the web app gets an access token for authentication with Microsoft Graph. In version 1.2.0 and later, the Microsoft.Identity.Web library integrates with and can run alongside the App Service authentication/authorization module. Microsoft.Identity.Web detects that the web app is hosted in App Service and gets the access token from the App Service authentication/authorization module. The access token is then passed along to authenticated requests with the Microsoft Graph API.
+Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-identity-web/), the web app gets an access token for authentication with Microsoft Graph. In version 1.2.0 and later, the Microsoft.Identity.Web library integrates with and can run alongside the App Service authentication/authorization module. Microsoft.Identity.Web detects that the web app is hosted in App Service and automatically retrieves the access token from the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header that App Service injects (see [Retrieve tokens in app code](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code)). You don't need to manually access this header in your code. The access token is then passed along to authenticated requests with the Microsoft Graph API.
 
 To see this code as part of a sample application, see the: 
 * [Sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).

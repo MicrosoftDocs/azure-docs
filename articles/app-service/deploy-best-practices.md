@@ -4,7 +4,7 @@ description: Learn about the key mechanisms of deploying to Azure App Service. F
 keywords: azure app service, web app, deploy, deployment, pipelines, build
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: best-practice
-ms.date: 01/17/2025
+ms.date: 11/29/2025
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
 author: cephalin
@@ -48,11 +48,11 @@ Whenever possible, when you deploy a new production build, use [deployment slots
 
 ### Continuously deploy code
 
-If your project has branches designated for testing, QA, and staging, each of those branches should be continuously deployed to a staging slot. This approach is known as the [Gitflow design](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). This design allows your stakeholders to easily assess and test the deployed branch.
+If your project has branches designated for testing, QA, and staging, each of those branches should be continuously deployed to a staging slot. This approach allows your stakeholders to easily assess and test the deployed branch. For information about branching strategies, see [Trunk Based Development](https://trunkbaseddevelopment.com/) or [comparing Git workflows](https://www.atlassian.com/git/tutorials/comparing-workflows).
 
 Continuous deployment should never be enabled for your production slot. Instead, your production branch (often main) should be deployed onto a nonproduction slot. When you're ready to release the base branch, swap it into the production slot. Swapping into production, instead of deploying to production, prevents downtime and allows you to roll back the changes by swapping again.
 
-:::image type="content" source="media/app-service-deploy-best-practices/slot_flow_code_diagam.png" alt-text="Diagram that shows the flow between the Dev, Staging, and Main branches and the slots they're deployed to.":::
+:::image type="content" source="media/app-service-deploy-best-practices/slot_flow_code_diagam.png" alt-text="Diagram showing one example of how branches can deploy to slots, with commits flowing from branches to their respective slots and the main slot swapping into production.":::
 
 ### Continuously deploy containers
 

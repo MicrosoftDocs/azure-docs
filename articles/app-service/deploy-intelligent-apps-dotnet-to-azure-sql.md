@@ -144,7 +144,7 @@ In order to prepare your Azure SQL database for vector search, you need to make 
 - `text-embedding-ada-002` is used to generate the embeddings
 - `gpt-3.5-turbo` is used for the language model
 
-These two models need to be deployed before continuing the next step. Visit the [documentation](/azure/ai-studio/how-to/deploy-models-openai) for deploying models with Azure OpenAI using Azure AI Foundry.
+These two models need to be deployed before continuing the next step. Visit the [documentation](/azure/ai-studio/how-to/deploy-models-openai) for deploying models with Azure OpenAI using Microsoft Foundry.
 
 ## 4. Vectorize your SQL database
 

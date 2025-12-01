@@ -22,7 +22,7 @@ If your web application already has useful features, like shopping, hotel bookin
 :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
 
 > [!NOTE]
-> Azure AI Foundry Agent Service currently doesn't have a Java SDK, so isn't included in the scope of this article.
+> Foundry Agent Service currently doesn't have a Java SDK, so isn't included in the scope of this article.
 
 In this tutorial, you learn how to:
 
@@ -114,9 +114,9 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     You now have an App Service app with a system-assigned managed identity.
 
-## Create and configure the Azure AI Foundry resource
+## Create and configure the Microsoft Foundry resource
 
-1. In the [Azure AI Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Azure AI Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a model deployment are created for you in the process.
+1. In the [Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Microsoft Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a model deployment are created for you in the process.
 
 1. From the left menu, select **Overview**.
 
@@ -138,13 +138,13 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     | Target resource                | Required role                       | Needed for              |
     |--------------------------------|-------------------------------------|-------------------------|
-    | Azure AI Foundry               | Cognitive Services OpenAI User      | The chat completion service in the semantic kernel. |
+    | Microsoft Foundry               | Cognitive Services OpenAI User      | The chat completion service in the semantic kernel. |
 
     For instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Configure connection variables in your sample application
 
-1. Open *src/main/resources/application.properties*. Using the values you copied earlier from the AI Foundry portal, configure the following variables: 
+1. Open *src/main/resources/application.properties*. Using the values you copied earlier from the Foundry portal, configure the following variables: 
 
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|
@@ -170,7 +170,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. When you see **Your application running on port 8080 is available**, select **Open in Browser**.
 
-1. Try out the chat interface. If you get a response, your application is connecting successfully to the Azure AI Foundry resource.
+1. Try out the chat interface. If you get a response, your application is connecting successfully to the Microsoft Foundry resource.
 
 1. Back in the GitHub codespace, deploy your app changes.
 
@@ -190,7 +190,7 @@ When you're done with the application, you can delete the App Service resources 
 azd down --purge
 ```
 
-Since the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
+Since the AZD template doesn't include the Microsoft Foundry resources, you need to delete them manually if you want.
 
 ## More resources
 

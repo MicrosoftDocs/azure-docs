@@ -26,7 +26,7 @@ ms.custom: mvc, engagement-fy25
   - **[Azure Migrate Execute Expert](prepare-azure-accounts.md#azure-migrate-execute-expert)**: Permissions for executing migrations and monitoring progress during the Execute phase.
 
   This enhanced security model follows Azure security best practices and enables organizations to implement granular access control for their migration teams.
-- Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get recommend migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).
+
 - Public preview: Azure Migrate now enables **Windows Server redeployment to Azure using Infrastructure as Code (IaC)**. Generate IaC templates for assessed workloads, deploy application landing zones, and integrate disk configurations for complete, repeatable migrations—reducing manual effort and improving consistency. [Learn more](server-redeploy.md).
 
 - Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get the recommended migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).

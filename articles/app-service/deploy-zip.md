@@ -318,15 +318,15 @@ curl -X POST \
 
 # [ARM template](#tab/arm)
 
-Add the following JSON to your ARM template. Replace the placeholder *\<app-name>*.
+Add the following JSON to your ARM template. Replace the placeholder *\<app-name>* with your app name (for example, `myapp`).
 
 ```json
 {
     "type": "Microsoft.Web/sites/extensions",
     "apiVersion": "2021-03-01",
-    "name": "onedeploy",
+    "name": "<app-name>/onedeploy",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/Sites', <app-name>')]"
+        "[resourceId('Microsoft.Web/sites', '<app-name>')]"
     ],
     "properties": {
         "packageUri": "<zip-package-uri>",
@@ -336,13 +336,16 @@ Add the following JSON to your ARM template. Replace the placeholder *\<app-name
 }
 ```
 
+> [!NOTE]
+> For child resources defined outside the parent resource, the `name` property must include the parent resource name. Use the format `{parent-name}/{child-name}` to match the resource type's segment structure. For more information, see [Set name and type for child resources](/azure/azure-resource-manager/templates/child-resource-name-type).
+
 Use the following reference to help you configure the properties:
 
 |Property | Description | Required |
 |-|-|-|
 | `packageUri` | The URI of the package or file. For more information, see [Microsoft.Web sites/extensions 'onedeploy'](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template). | Yes |
 | `type` | See the `type` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | Yes |
-| `path` | See the `target-path` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | No |
+| `path` | See the `path` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | No |
 
 -----
 
@@ -354,11 +357,11 @@ The following table shows the available query parameters, their allowed values, 
 
 | Key | Allowed values | Description | Required | Type  |
 |-|-|-|-|-|
-| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | This is the type of the artifact being deployed. It sets the default target path and informs the web app how the deployment should be handled. <br/><br/> `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `target-path` parameter is optional. <br/><br/> `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `target-path`. <br/><br/> `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `target-path` parameter is ignored. <br/><br/> `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `target-path` parameter is ignored. <br/><br/> `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `target-path`. <br/><br/> `type=static`: Deploy a static file, such as a script. By default, the file is deployed to `/home/site/wwwroot`. <br/><br/> `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `target-path`. | Yes | String |
+| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | This is the type of the artifact being deployed. It sets the default target path and informs the web app how the deployment should be handled. <br/><br/> `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `path` parameter is optional. <br/><br/> `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `path`. <br/><br/> `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `path` parameter is ignored. <br/><br/> `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `path` parameter is ignored. <br/><br/> `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `path`. <br/><br/> `type=static`: Deploy a static file, such as a script. By default, the file is deployed to `/home/site/wwwroot`. <br/><br/> `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `path`. | Yes | String |
 | `restart` | `true`\|`false` | By default, the API restarts the app following the deployment operation (`restart=true`). When you deploy multiple artifacts, you can prevent restarts on all but the final deployment by setting `restart=false`. | No | Boolean |
 | `clean` | `true`\|`false` | Specifies whether to clean (delete) the target deployment before deploying the artifact there. | No | Boolean |
 | `ignorestack` | `true`\|`false` | The publish API uses the `WEBSITE_STACK` environment variable to choose safe defaults depending on your site's language stack. Setting this parameter to `false` disables any language-specific defaults. | No | Boolean |
-| `target-path` | An absolute path | The absolute path to deploy the artifact to. For example, `/home/site/deployments/tools/driver.jar` or `/home/site/scripts/helper.sh`. | No | String |
+| `path` | An absolute path | The absolute path to deploy the artifact to. For example, `/home/site/deployments/tools/driver.jar` or `/home/site/scripts/helper.sh`. | No | String |
 
 ## Related content
 

@@ -217,6 +217,9 @@ Here's a [full example](https://github.com/Azure-Samples/onlinebookstore/blob/ma
 
 # [Node.js](#tab/nodejs)
 
+> [!IMPORTANT]
+> If you're deploying a Node.js app with TypeScript or other compiled languages using `azure/webapps-deploy@v3`, build your app first in GitHub Actions and then deploy the compiled output folder (such as `dist/` or `build/`). If instead you want to use App Service build automation, [set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting](../../configure-common.md#configure-app-settings) to `true`. 
+
 ```yaml
 name: JavaScript CI
 

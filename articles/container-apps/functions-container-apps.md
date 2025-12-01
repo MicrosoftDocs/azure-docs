@@ -168,9 +168,17 @@ At this point, your functions are running in a Container Apps environment, with 
 >[!TIP] 
 > When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version.
 
-(../azure-functions/updatefunctions-how-to-custom-container.md#update-an-image-in-the-registry)
 
-[!INCLUDE [functions-container-verify-azure](../../includes/functions-container-verify-azure.md)]
+## Verify your functions on Azure
+With the image deployed to your function app in Azure, you can now invoke the function through HTTP requests.Get detailed information about a specific function:
+
+```azurecli
+    az containerapp function show \
+    --resource-group AzureFunctionsContainers-rg \
+    --name <APP_NAME> \
+    --function-name HttpExample 
+```
+Replace <APP_NAME> with the name of your function app.Use the URL you just obtained to call the HttpExample function endpoint, appending the query string ?name=Functions.
 
 The request URL should look something like this:
 

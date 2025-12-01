@@ -21,7 +21,7 @@ This article describes how to create an Azure VMware Solution assessment for on-
 
 - [Create](./create-manage-projects.md) an Azure Migrate project.
 - [Add](how-to-assess.md) the Azure Migrate: Discovery and assessment tool if you've already created a project.
-- Discover your on-premises inventory data using any of the following approach:
+- Discover your on-premises inventory data using any of the following approaches:
     - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md) OR
     - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md) OR
     - Set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
@@ -77,7 +77,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 1. In **Advanced** settings, click on **Edit defaults** and ensure the **Target services** has "Azure VMware Solution (AVS)" and then click on **Edit defaults**:
 
-    - In **SDDC type**, specify "New SDDC" if you are creating a new SDDC. Use "AVS SDDC expansion" if you already have an AVS SDDC with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding an SDDC, it will not consider the available capacity in the AVS SDDC but will consider the capacity requirements for management appliances.
+    - In **SDDC type**, specify "New SDDC" if you are creating a new private cloud. Use "AVS SDDC expansion" if you already have an AVS private cloud with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding a private cloud, it will not consider the available capacity in the AVS private cloud but will consider the capacity requirements for management appliances.
     - The **Storage type** is defaulted to consider three supported storage solutions in AVS: **vSAN**, **Elastic SAN** and **Azure NetApp Files (ANF)** (Standard, Premium and Ultra tiers). Elastic SAN and ANF are external storage types in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & Elastic SAN as the storage datastores.
         - When performance metrics are provided (IOPS and throughput) in settings or via data discovered using the Azure migrate appliance or in the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks.
         - If the assessment is performed using data from an RVTools file or if the Azure Migrate appliance is unable to discover performance metrics like throughput and IOPS, **Elastic SAN** or **ANF - Standard** (the most cost-effective one among the two) is considered for assessment.
@@ -91,7 +91,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - In **IOPS per GiB**, select the expected average read and write speed per gibibyte of the external storage device. This, along with the disk capacity requirement, helps Azure Migrate determine the external storage capacity needs.
     - In **Throughput per GiB**, select the expected average amount of data transfer speed per gibibyte of the storage device. This, along with the disk capacity requirement would help Azure Migrate determine the external storage capacity requirements.
 1. In **Elastic SAN Settings**:
-    - The **Networking ingress/egress cost** is used to determine the networking cost of attaching the Elastic SAN datastore to the AVS SDDC. It's defaulted to **15%**.
+    - The **Networking ingress/egress cost** is used to determine the networking cost of attaching the Elastic SAN datastore to the AVS private cloud. It's defaulted to **15%**.
 1. In **CPU Settings**:
     - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
     - In **CPU headroom**, specify the CPU headroom you want to reserve for planned & unplanned management operations.
@@ -99,6 +99,8 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - The **Node type** is defaulted to use all the SKUs available in the given region. SKUs supported for assessment are AV36, AV36P, AV48, AV52 & AV64 (both Gen 1 & [Gen 2](/azure/azure-vmware/native-introduction)). Azure Migrate attempts to get the minimum number of nodes needed to host the VMs on the Azure VMware Solution private cloud. However, availability of the SKU will depend upon capacity availability.
     - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
     - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
+
+1. AVS node costs in the assessment will be indicative of the SKU cost where VCF subscriptions are purchased through Broadcom and ported to the private cloud on AVS.
 
 1. Select **Save** if you made changes.
 
@@ -109,8 +111,9 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 1. In **Review + create assessment**, review the assessment details, and select **Create** to run the assessment.
 
     > [!NOTE]
-    > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
+    > For discovering data using the Azure migrate appliance for creating assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high [performance coverage](/azure/migrate/concepts-assessment-calculation?view=migrate#coverage.
 
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" alt-text="Screenshot showing an overview of an Azure VMware Solution assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" :::
 
 
 ## Next steps

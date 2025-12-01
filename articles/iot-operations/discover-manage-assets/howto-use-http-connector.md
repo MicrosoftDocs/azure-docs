@@ -138,7 +138,7 @@ A dataset defines where the connector sends the data it collects from a collecti
 
 1. Select **Create dataset**.
 
-1. Enter the details for the dataset such as its name, data source, and destination. For HTTP/REST assets, the data source is the path on the REST endpoint. For HTTP/REST assets, the destination is either an MQTT topic or a [broker state store](../develop-edge-apps/overview-state-store.md) key. For example:
+1. Enter the details for the dataset such as its name, data source, sampling interval, and destination. For HTTP/REST assets, the data source is the path on the REST endpoint. For HTTP/REST assets, the destination is either an MQTT topic or a [broker state store](../develop-edge-apps/overview-state-store.md) key. For example:
 
     :::image type="content" source="media/howto-use-http-connector/create-dataset.png" alt-text="Screenshot that shows how to create a dataset in the operations experience." lightbox="media/howto-use-http-connector/create-dataset.png":::
 
@@ -149,24 +149,18 @@ A dataset defines where the connector sends the data it collects from a collecti
     > [!TIP]
     > Use the **Manage default settings** option to configure default dataset settings such as the sampling interval.
 
-1. On the **Data points** page, select **Add data point** to add a data point for the dataset. For example:
-
-    :::image type="content" source="media/howto-use-http-connector/add-data-point.png" alt-text="Screenshot that shows how to add a data point for HTTP source." lightbox="media/howto-use-http-connector/add-data-point.png":::
-
-    Add details for each data point to publish to the MQTT broker.
-
-    Select **Next** to continue.
-
 1. On the **Review** page, review the details of the asset and select **Create** to create the asset. After a few minutes, the asset is listed on the **Assets** page:
 
     :::image type="content" source="media/howto-use-http-connector/http-asset-created.png" alt-text="Screenshot that shows the list of assets." lightbox="media/howto-use-http-connector/http-asset-created.png":::
 
 # [Azure CLI](#tab/cli)
 
-Run the following command:
+Run the following commands:
 
 ```azurecli
-az iot ops ns asset rest create --name myrestasset --instance {your instance name} -g {your resource group name} --device rest-http-connector-cli --endpoint rest-http-connector-0 --dataset-dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600
+az iot ops ns asset rest create --name myrestasset --instance {your instance name} -g {your resource group name} --device rest-http-connector-cli --endpoint rest-http-connector-0
+
+az iot ops ns asset rest dataset add --asset myrestasset --instance {your instance name} -g {your resource group name} --name weatherdata --data-source "/api/weather" --dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600 --sampling-int 30000
 ```
 
 For more information, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).

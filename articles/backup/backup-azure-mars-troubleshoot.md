@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 06/20/2025
+ms.date: 12/01/2025
 ms.service: azure-backup
 ms.custom:
   - engagement-fy24
@@ -299,6 +299,18 @@ Azure Import/Export now uses Azure Data Box APIs for offline seeding on customer
 MARS agent versions lower than *2.0.9250.0* used the [old Azure Import/Export APIs](/rest/api/storageimportexport/), which will be discontinued after February 28, 2023 and the old MARS agents (version lower than 2.0.9250.0) can't do offline seeding using your own disks. So, we recommend you to use MARS agent 2.0.9250 or higher that uses the new Azure Data Box APIs for offline seeding on your own disks.
 
 If you've ongoing Import/Export jobs created from older MARS agents, you can still monitor them in the Azure portal, under Import/Export jobs.
+
+### Backup Failure due to cbengine crash 
+
+**Error code**: Cannot connect to CBEngine 
+
+**Error message**: The Microsoft Azure Recovery Services Agent cannot connect to the OBEngine service. 
+
+**Cause**: Backup fails when Microsoft Azure Recovery Services Agent cannot connect to the `OBEngine` service. This usually happens if the `OBEngine` service crashes, often due to an incompatible Azure File Sync Agent installed on the same machine.
+
+To confirm the cause, check for errors in the MABAgent, then open **Task Manager** > **Services** and verify the `OBEngine` service status. If it’s not running, the failure is due to the service crash.
+
+**Recommended action**: Disable the `StorageSync.sys` driver, and then perform the backup.  
 
 ## Next steps
 

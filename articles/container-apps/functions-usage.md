@@ -144,7 +144,9 @@ To sign in to Azure from the CLI, run the following command and follow the promp
     If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
 
     ```azurecli
-    az extension add --name containerapp --upgrade
+    az extension add --name containerapp --allow-preview true --upgrade
+
+    
     ```
 
     Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
@@ -164,6 +166,9 @@ To sign in to Azure from the CLI, run the following command and follow the promp
     CONTAINER_APP_NAME="my-aca-functions-app"
     ENVIRONMENT_NAME="my-aca-functions-environment"
     LOCATION="westus"
+    STORAGE_ACCOUNT_NAME="storage-account-name"
+    STORAGE_ACCOUNT_SKU="storage-account-sku"
+    APPLICATION_INSIGHTS_NAME="application-insights-name"
     ```
 
 1. Create a resource group.
@@ -184,6 +189,44 @@ To sign in to Azure from the CLI, run the following command and follow the promp
         --location $LOCATION \
         --output none
     ```
+1. Create the Storage Account
+
+    ```azurecli
+    az storage account create \
+      --name $STORAGE_ACCOUNT_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --sku $STORAGE_ACCOUNT_SKU
+    ```
+
+1. Acquire Storage Account Connection String
+
+    ```azurecli
+    $STORAGE_ACCOUNT_CONNECTION_STRING = az storage account show-connection-string \
+      --name $STORAGE_ACCOUNT_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --query connectionString \
+      --output tsv
+    ```
+
+1. Create Azure Applications Insights
+
+    ```azurecli
+    az monitor app-insights component create \
+    --app $APPLICATION_INSIGHTS_NAME \
+    --location $LOCATION \
+      --resource-group $RESOURCE_GROUP \
+      --application-type web
+    ```
+1. Acquire application Insights Connection string
+
+    ```azurecli
+    $APPLICATION_INSIGHTS_CONNECTION_STRING = az monitor app-insights component show \
+      --app $APPLICATION_INSIGHTS_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --query connectionString \
+      --output tsv
+    ```
 
 1. Create an Azure Functions container app.
 
@@ -200,7 +243,36 @@ To sign in to Azure from the CLI, run the following command and follow the promp
     ```
 
     This command returns the URL of your Functions app. Copy this URL and paste it into a web browser.
+   
+1. Create an Azure Functions container app with --revisions-mode multiple for multirevision scenario
 
+    ```azurecli
+    az containerapp create \
+      --name $CONTAINERAPP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --environment $CONTAINERAPPS_ENVIRONMENT \
+      --image mcr.microsoft.com/azure-functions/dotnet8-quickstart-demo:1.0 \
+      --target-port 80 \
+      --ingress external \
+      --kind functionapp \
+      --workload-profile-name $WORKLOAD_PROFILE_NAME \
+      --env-vars AzureWebJobsStorage="$STORAGE_ACCOUNT_CONNECTION_STRING" APPLICATIONINSIGHTS_CONNECTION_STRING="$APPLICATION_INSIGHTS_CONNECTION_STRING"
+    ```
+1.  For multirevision scenario, upgrade the containerapp and split traffic
+
+    ```azurecli
+    az containerapp update \
+      --resource-group $RESOURCE_GROUP \
+      --name $CONTAINERAPP_NAME \
+      --image mcr.microsoft.com/azure-functions/dotnet8-quickstart-demo:latest
+
+    az containerapp ingress traffic set -resource-group \
+      --name $CONTAINERAPP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --revision-weight {revision1_name}=50 \
+      --revision-weight {revision2_name}=50
+    ```
+    
 1. Append `/api/HttpExample` to the end of the URL.
 
     A message stating "HTTP trigger function processed a request" is returned in the browser.
@@ -219,8 +291,8 @@ View all functions deployed in your container app:
 ```azurecli
 # List all functions
 az containerapp function list \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME>
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME
 ```
 
 ### Show function details
@@ -229,21 +301,22 @@ Get detailed information about a specific function:
 
 ```azurecli
 az containerapp function show \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME \
   --function-name <FUNCTIONS_APP_NAME>
 ```
 
 ## Monitor function invocations
 
 Monitoring your function app is essential for understanding its performance and diagnosing issues. The following commands show you how to retrieve function URLs, trigger invocations, and view detailed telemetry and invocation summaries by using the Azure CLI.
+Ensure to invoke the function few times by `curl -X POST "fqdn/api/HttpExample"` before calling the traces
 
 1. To view invocation traces, get detailed traces of function invocations.
 
     ```azurecli
     az containerapp function invocations traces \
-      --name <CONTAINER_APP_NAME> \
-      --resource-group <RESOURCE_GROUP> \
+      --name $CONTAINERAPP_NAME \
+      --resource-group $RESOURCE_GROUP \
       --function-name <FUNCTIONS_APP_NAME> \
       --timespan 5h \
       --limit 3
@@ -253,8 +326,8 @@ Monitoring your function app is essential for understanding its performance and 
 
     ```azurecli
     az containerapp function invocations summary \
-      --name <CONTAINER_APP_NAME> \
-      --resource-group <RESOURCE_GROUP> \
+      --name $CONTAINERAPP_NAME \
+      --resource-group $RESOURCE_GROUP \
       --function-name <FUNCTIONS_APP_NAME> \
       --timespan 5h
     ```
@@ -279,8 +352,8 @@ Use the following commands to list host-level and function-specific keys for you
 
 ```azurecli
 az containerapp function keys list \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME \
   --key-type hostKey
 ```
 
@@ -290,8 +363,8 @@ Show the value of a specific host-level key for your function app with the follo
 
 ```azurecli
 az containerapp function keys show \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME \
   --key-name <KEY_NAME> \
   --key-type hostKey
 ```
@@ -302,8 +375,8 @@ Set a specific host-level key for your function app with the following command:
 
 ```azurecli
 az containerapp function keys set \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME \
   --key-name <KEY_NAME> \
   --key-value <KEY_VALUE> \
   --key-type hostKey

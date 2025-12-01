@@ -2,7 +2,7 @@
 title: Work with OAuth Tokens in Authentication and Authorization
 description: Learn how to retrieve, refresh, and extend session expiration for OAuth tokens when you use Azure App Service built-in authentication and authorization.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 11/28/2025
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin

@@ -66,7 +66,7 @@ items:
           href: deploy-intelligent-apps-dotnet-to-azure-sql.md
         - name: Add MCP server to app
           href: tutorial-ai-model-context-protocol-server-dotnet.md
-        - name: AI Foundry Agent calling web app
+        - name: Foundry agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-dotnet.md
         - name: Agentic web app (.NET)
           href: tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md
@@ -125,7 +125,7 @@ items:
           href: tutorial-ai-slm-spring-boot.md
         - name: Add MCP server to app
           href: tutorial-ai-model-context-protocol-server-java.md
-        - name: AI Foundry Agent calling web app
+        - name: Foundry agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-java.md
         - name: Agentic web app
           href: tutorial-ai-agent-web-app-semantic-kernel-java.md
@@ -155,7 +155,7 @@ items:
           href: tutorial-ai-slm-expressjs.md
         - name: Add MCP server to app
           href: tutorial-ai-model-context-protocol-server-node.md
-        - name: AI Foundry Agent calling web app
+        - name: Foundry agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-node.md
         - name: Agentic web app
           href: tutorial-ai-agent-web-app-langgraph-foundry-node.md
@@ -185,11 +185,11 @@ items:
           href: tutorial-ai-slm-fastapi.md
         - name: Add MCP server to app
           href: tutorial-ai-model-context-protocol-server-python.md
-        - name: AI Foundry Agent calling web app
+        - name: Foundry agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-python.md
         - name: Agentic web app
           href: tutorial-ai-agent-web-app-langgraph-foundry-python.md
-        - name: Web app from Azure AI Foundry
+        - name: Web app from Microsoft Foundry
           href: /azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
   - name: PHP
     items:
@@ -427,7 +427,7 @@ items:
       href: configure-authentication-api-version.md
     - name: Use file-based configuration
       href: configure-authentication-file-based.md
-    - name: Authenticate AI Foundry tool calls
+    - name: Authenticate Microsoft Foundry tool calls
       href: configure-authentication-ai-foundry-openapi-tool.md
     - name: Authentication for MCP servers
       items:

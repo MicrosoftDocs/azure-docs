@@ -1,8 +1,8 @@
 ---
 title: What are the Azure IoT Operations SDKs (preview)?
 description: Learn about Azure IoT Operations SDKs and how to use it to develop highly available edge applications.
-author: asergaz
-ms.author: sergaz
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.date: 05/27/2025
 

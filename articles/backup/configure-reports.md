@@ -2,7 +2,7 @@
 title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 11/26/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -123,7 +123,7 @@ The widgets in the Backup report are powered by Kusto queries, which run on the 
 
 - The earlier Power BI template app for reporting, which sourced data from an Azure storage account, is on a deprecation path. We recommend that you start sending vault diagnostic data to Log Analytics to view reports.
 
-- In addition, the [V1 schema](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you've written any custom queries or automations based on the V1 schema, you're advised to update these queries to use the currently supported V2 schema.
+- In addition, the [V1 schema](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema-for-azure-backup-diagnostic-data) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you've written any custom queries or automations based on the V1 schema, you're advised to update these queries to use the currently supported V2 schema.
 
 ## Next steps
 

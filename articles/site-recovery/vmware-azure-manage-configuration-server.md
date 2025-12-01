@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 11/17/2025
+ms.date: 12/01/2025
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -170,7 +170,7 @@ You run update rollups to update the configuration server. Updates can be applie
 - If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
 For detailed guidance on Azure Site Recovery components support statement refer [here](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
-Links to update rollups for upgrading to all versions of the configuration server are available [here](/articles/site-recovery/service-updates-how-to.md#updates-support).
+Links to update rollups for upgrading to all versions of the configuration server are available [here](/azure/site-recovery/service-updates-how-to#updates-support).
 
 > [!IMPORTANT]
 > With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.</br>

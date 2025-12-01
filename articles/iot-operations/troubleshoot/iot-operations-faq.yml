@@ -2,8 +2,8 @@
 metadata:
   title: Azure IoT Operations frequently asked questions
   description: This article provides a list of frequently asked questions (FAQ) for Azure IoT Operations and their answers. 
-  author: SoniaLopezBravo
-  ms.author: sonialopez
+  author: dominicbetts
+  ms.author: dobett
   ms.topic: faq
   ms.custom: references_regions
   ms.date: 01/16/2025

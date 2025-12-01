@@ -6,8 +6,6 @@ ms.date: 07/15/2025
 ---
 
 ## Service parameters and limits for tables, data management, and ingestion
-
-[!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
   
 The following table lists the service parameters and limits for the Microsoft Sentinel data lake service related to table management, data ingestion, and retention. These limits include, but aren't limited to, Azure Resource Graph data, Microsoft 365 data, and data mirroring.
 

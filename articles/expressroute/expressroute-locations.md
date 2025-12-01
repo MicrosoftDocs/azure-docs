@@ -366,7 +366,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **Rogers** | Cologix<br/>Equinix | Montreal<br/>Toronto |
-| **[Spectrum Enterprise](https://enterprise.spectrum.com/products/networking/connectivity/cloud-connect.html)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 
+| **[Spectrum Enterprise](https://enterprise.spectrum.com/services/networking/cloud-connectivity)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 
 | **[Tamares Telecom](https://www.exelera.net/)** | Equinix | London | 
 | **[Tata Teleservices](https://www.tatatelebusiness.com/data-services/ez-cloud-connect/)** | Tata Communications | Chennai<br/>Mumbai |
 | **[TDC Erhverv](https://tdc.dk/)** | Equinix | Amsterdam | 

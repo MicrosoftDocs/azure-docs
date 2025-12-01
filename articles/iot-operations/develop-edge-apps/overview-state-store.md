@@ -1,9 +1,9 @@
 ---
 title: Data persistence in the MQTT broker state store
 description: Understand how to develop applications that persist data between sessions using the state store.
-author: SoniaLopezBravo
+author: dominicbetts
 ms.subservice: azure-mqtt-broker
-ms.author: sonialopez
+ms.author: dobett
 ms.topic: concept-article
 ms.custom:
   - ignite-2023

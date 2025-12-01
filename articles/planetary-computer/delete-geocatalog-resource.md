@@ -23,7 +23,7 @@ Before you proceed with deleting your GeoCatalog resource, download a backup of 
 Before you continue with the deletion steps, make sure you're ready to delete the resource.
 
 > [!NOTE]
-> Due to the receovery from recent [Azure Front Door issues](https://azure.status.microsoft/status/history/?trackingId=YKYN-BWZ), users can expect deletions to take up to 2 hours.
+> Due to the recovery from recent [Azure Front Door issues](https://azure.status.microsoft/status/history/?trackingId=YKYN-BWZ), users can expect deletions to take up to 2 hours.
 
 ## Prerequisites
 

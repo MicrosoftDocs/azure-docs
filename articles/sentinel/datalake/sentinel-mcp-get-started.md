@@ -20,12 +20,21 @@ Sentinel's [collection](sentinel-mcp-tools-overview.md) of security tools works 
 - Retrieve data
 - Analyze entities
 - Create Security Copilot agents
+- Triage incidents
+- Hunt for threats
 
 ## Prerequisites
 
-To use Microsoft Sentinel MCP server and access its collection of tools, you need to be onboarded to [Microsoft Sentinel data lake](sentinel-lake-onboarding.md).
+To use Microsoft Sentinel MCP server and access its collection of tools, you need to be onboarded to at least one of the following products:
+- [Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
+- [Microsoft Sentinel in Microsoft Defender portal](/unified-secops/microsoft-sentinel-onboard)
+- [Microsoft Defender XDR or Microsoft Defender for Endpoint](/unified-secops/overview-deploy)
 
-You also need the **Security reader** role to list and invoke Sentinel's collection of MCP tools. 
+For more information about a tool collection's specific product prerequisites, see their respective articles. 
+
+
+You also need the **Security reader** role to list and invoke Sentinel's collection of MCP tools. The [triage tool collection](sentinel-mcp-triage-tool.md) lets you use any tool your existing permissions grant you.
+
 
 
 ## Add Microsoft Sentinel's collection of MCP tools

@@ -5,7 +5,7 @@ description: Learn how to configure JSON Web Token (JWT) validation in Azure App
 author: rnautiyal
 ms.author: rnautiyal
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/18/2025
 ---
 
@@ -39,27 +39,18 @@ By performing token validation at the edge, Application Gateway simplifies appli
 - **Network Requirements**
    - Outbound Connectivity from Application Gateway Subnet to login.microsoftonline.com over TCP port 443
 
+
 - **Microsoft Entra ID Requirements**
-   - Register your Web API in Microsoft Entra ID and note down:
-      - Tenant ID: Azure AD tenant GUID, or use common, organizations, or consumers for multitenant apps
-      - Client ID: The Application (Client) ID from your app registration (must be a GUID)
-      - Audiences (optional): Additional valid aud claim values (max 5) such as custom App ID URIs
+   - Register your Web API in Microsoft Entra ID
+   - Make a call to the Microsoft Entra ID to request access to a service. The Microsoft Entra ID responds with an access token.
 
-> [!NOTE]
-> Audiences (`aud`): The `aud` claim is the resource identifier (App ID URI, well‑known resource URI, or sometimes the app's Client ID GUID). The `aud` claim identifies the resource (API) the token is issued for — an App ID URI, a well‑known resource URI, or the application's Client ID GUID. The scope or resource you request points to a resource; Entra ID then sets `aud` to that resource's identifier.
-> Common mappings:
->
-> - `--scope "api://<ClientID>/.default"` → `aud` = your App ID URI (for example. `api://<ClientID>` or custom). If no App ID URI is set, `aud` falls back to the Client ID GUID.
-> - `--scope "https://api.contoso.com/.default"` → `aud = https://api.contoso.com`
-> - `--scope "https://management.azure.com/.default"` → `aud = https://management.azure.com`
-> - `--scope "https://graph.microsoft.com/.default"` → `aud = https://graph.microsoft.com`
-> Add entries to **Audiences** when the token's `aud` is a custom App ID URI (not equal to the bare Client ID GUID) or you intentionally accept multiple resource identifiers. The gateway succeeds validation if `aud` matches either:
-> (1) the configured Client ID (when `aud` is the GUID), or 
-> (2) any value in the Audiences list (including App ID URIs or well‑known resource URIs).
+- **Configure JWT validation in Application Gateway**
+   
+   
 
-## Configure JWT validation
+## JSON Web Token (JWT) validation setup
 
-In this section, you learn how to configure JWT validation in Azure Application Gateway in four steps:
+In this section, you learn how to configure JWT validation in Azure Application Gateway:
 
 ## Register an application in Microsoft Entra ID
 
@@ -83,7 +74,6 @@ In this section, you learn how to configure JWT validation in Azure Application 
 
 > [!NOTE]
 > Supported account types:
->
 > Single tenant (This directory only)
 >
 > Multitenant (Any Azure AD directory)
@@ -126,19 +116,16 @@ In this section, you learn how to configure JWT validation in Azure Application 
 
 1. Link this rule to your JWT validation configuration. Your JWT validation configuration is now attached to a secure HTTPS listener and routing rule.
 
-## Send Request to Application Gateway
 
-Use `curl` or any HTTP client to send requests with a valid JWT in the `Authorization` header.
+## Send a JWT Access Token with Every Request to the Secure Application
 
-```bash
-APPGW_URL="https://<appgw-frontend-ip-or-dns>:<port>/<path>"
-curl -i -H "Authorization: Bearer $TOKEN" "$APPGW_URL"
-```
+To securely access an application protected by Application Gateway, the client must first obtain a JWT access token from the Microsoft Entra ID token endpoint. The client then includes this token in the Authorization header (for example, Authorization: Bearer TOKEN) on every request it sends to the Application Gateway. Application Gateway validates the token before forwarding the request to the backend application, ensuring that only authenticated and authorized traffic reaches the secure application.
 
-> [!NOTE]
-> Tokens must be issued by Microsoft Entra ID. Check [Token](/azure/devops/cli/entra-tokens) for more details
+- Learn more about [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
-## Expected Outcomes
+
+
+## Expected Outcomes of requests
 
 | Scenario                         | HTTP Status | Identity Header | Notes                               |
 | -------------------------------- | ----------- | --------------- | ----------------------------------- |
@@ -149,7 +136,7 @@ curl -i -H "Authorization: Bearer $TOKEN" "$APPGW_URL"
 
 ## Backend Verification
 
-Check ``x-msft-entra-identity`` header to confirm authentication.
+Check ``x-msft-entra-identity`` header to confirm authentication. 
 
 ## Troubleshooting 401 and 403 responses
 
@@ -168,127 +155,7 @@ If requests return **401** or **403**, verify:
    - Acquire a new token for the correct audience.
    - Check Application Gateway access logs for detailed failure reason.
 
-## Additional concepts for reference
 
-## Audience vs. scope mapping
-
-Understanding how requested scopes map to the JWT `aud` claim helps determine whether you need to populate the optional **Audiences** list in the Application Gateway configuration.
-
-**Key points:**
-
-- `aud` represents the resource the token was issued for.
-- Resource identifiers can be:
-   - An App ID URI (for example, `api://<ClientID>` or a verified domain URI like `https://api.contoso.com`)
-   - A well-known Microsoft resource URI (for example, `https://management.azure.com`, `https://graph.microsoft.com`)
-   - The application's Client ID GUID (common when no App ID URI is set)
-
-## Common scope-to-`aud` mappings
-
-| az CLI scope argument                   | Typical resulting `aud`                                                                   |
-| --------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `api://<ClientID>/.default`             | `api://<ClientID>` (or custom App ID URI); falls back to GUID if no App ID URI configured |
-| `https://api.contoso.com/.default`      | `https://api.contoso.com`                                                                 |
-| `https://management.azure.com/.default` | `https://management.azure.com`                                                            |
-| `https://graph.microsoft.com/.default`  | `https://graph.microsoft.com`                                                             |
-
-## When to add values to the Audiences list
-
-- Tokens use a custom App ID URI (not just the GUID).
-- You accept multiple resource identifiers (for example, during migration from `api://<ClientID>` to `https://api.contoso.com`).
-- You need to allow both GUID and URI forms simultaneously.
-
-**Gateway validation logic:**
-
-- If no audiences are configured: token `aud` must equal the configured `ClientId` (GUID).
-- If audiences are configured: token `aud` must match either the `ClientId` or one of the configured audience strings.
-
-**Audiences checklist:**
-
-| Scenario                                  | Configure Audiences? | Example Entry             |
-| ----------------------------------------- | -------------------- | ------------------------- |
-| Only GUID `aud` tokens observed           | No                   | (leave empty)             |
-| Tokens show `api://<ClientID>`            | Yes                  | `api://<ClientID>`        |
-| Custom domain App ID URI                  | Yes                  | `https://api.contoso.com` |
-| Supporting old & new URI during migration | Yes                  | Both URIs (≤5 total)      |
-
-> [!NOTE]
-> Keep the list minimal—every extra accepted `aud` broadens what the gateway treats as valid.
-
-## Acquire an access token
-
-The method used to acquire the token determines the `oid` (object ID) in the ``x-msft-entra-identity`` header forwarded to your backend.
-
-#### Scenario 1: Client Credentials Flow
-
-**Use case:** Service-to-service authentication  
-**Identity header format:** `tenantId:<service-principal-oid>`
-
-```bash
-# Using client secret
-CLIENT_ID="<your-client-id>"
-CLIENT_SECRET="<your-client-secret>"
-TENANT_ID="<your-tenant-id>"
-SCOPE="api://<your-client-id>/.default"
-TOKEN=$(az account get-access-token \
-  --service-principal \
-  -u "$CLIENT_ID" \
-  -p "$CLIENT_SECRET" \
-  --tenant "$TENANT_ID" \
-  --scope "$SCOPE" \
-  --query accessToken -o tsv)
-echo "Access Token: $TOKEN"
-```
-
-**Using client certificate (PEM or PFX):**
-
-```bash
-# PEM format
-az account get-access-token \
-  --service-principal \
-  -u "$CLIENT_ID" \
-  -p /path/to/cert.pem \
-  --tenant "$TENANT_ID" \
-  --scope "$SCOPE"
-
-# PFX format
-export AZURE_CERT_PASSWORD="<pfx-password>"
-az account get-access-token \
-  --service-principal \
-  -u "$CLIENT_ID" \
-  -p /path/to/cert.pfx \
-  --tenant "$TENANT_ID" \
-  --scope "$SCOPE"
-```
-
-#### Scenario 2: Managed Identity
-
-**Use case:** Azure resource authenticates using managed identity  
-**Identity header format:** `tenantId:<managed-identity-oid>`
-
-```bash
-# System-assigned
-az login --identity
-TOKEN=$(az account get-access-token \
-  --scope https://management.azure.com/.default \
-  --query accessToken -o tsv)
-
-# User-assigned
-USER_ASSIGNED_CLIENT_ID="<client-id>"
-az login --identity --username "$USER_ASSIGNED_CLIENT_ID"
-TOKEN=$(az account get-access-token \
-  --scope https://management.azure.com/.default \
-  --query accessToken -o tsv)
-```
-
-## Inspect the token (Optional)
-
-Decode JWT payload:
-
-```bash
-echo "$TOKEN" | awk -F. '{print $2}' | base64 -d 2>/dev/null | jq
-```
-
-**Key claims to verify:** `aud`, `iss`, `tid`, `oid`, `exp`, `nbf`
 
 ## Next steps
 

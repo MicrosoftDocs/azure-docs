@@ -1,8 +1,8 @@
 ---
 title: Clone an IoT Operations instance
 description: Use the Azure CLI to clone your Azure IoT Operations instances.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: dominicbetts
+ms.author: dobett
 ms.topic: how-to
 ms.date: 10/02/2025
 

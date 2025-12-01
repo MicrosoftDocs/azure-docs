@@ -1,6 +1,6 @@
 ---
-title: Agentic app with LangGraph or Azure AI Foundry (Python)
-description: Learn how to quickly deploy a production-ready, agentic web application using Python with Azure App Service, LangGraph, and Azure AI Foundry Agent Service.
+title: Agentic app with LangGraph or Microsoft Foundry (Python)
+description: Learn how to quickly deploy a production-ready, agentic web application using Python with Azure App Service, LangGraph, and Foundry Agent Service.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
@@ -13,26 +13,26 @@ ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Tutorial: Build an agentic web app in Azure App Service with LangGraph or Azure AI Foundry Agent Service (Python)
+# Tutorial: Build an agentic web app in Azure App Service with LangGraph or Foundry Agent Service (Python)
 
-This tutorial demonstrates how to add agentic capability to an existing data-driven FastAPI CRUD application. It does this using two different approaches: LangGraph and Azure AI Foundry Agent Service.
+This tutorial demonstrates how to add agentic capability to an existing data-driven FastAPI CRUD application. It does this using two different approaches: LangGraph and Foundry Agent Service.
 
-If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for LangGraph) or as an OpenAPI endpoint (for AI Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
+If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for LangGraph) or as an OpenAPI endpoint (for Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
 
 ### [LangGraph](#tab/langgraph)
 
 
 :::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-python/langgraph-agent.png" alt-text="Screenshot of a chat completion session with a LangGraph agent.":::
 
-### [Azure AI Foundry Agent Service](#tab/aifoundry)
+### [Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-python/foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-python/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
 
 -----
 
-Both LangGraph and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. LangGraph is similar to Microsoft Semantic Kernel and is an SDK. The following table shows some of the considerations and trade-offs:
+Both LangGraph and Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. LangGraph is similar to Microsoft Semantic Kernel and is an SDK. The following table shows some of the considerations and trade-offs:
 
-| Consideration      | LangGraph or Semantic Kernel   | Azure AI Foundry Agent Service         |
+| Consideration      | LangGraph or Semantic Kernel   | Foundry Agent Service         |
 |--------------------|-------------------------------|----------------------------------------|
 | Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
 | Development        | Full code, maximum control     | Low code, rapid integration            |
@@ -44,8 +44,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Convert existing app functionality into a plugin for LangGraph.
 > * Add the plugin to a LangGraph agent and use it in a web app.
-> * Convert existing app functionaltiy into an OpenAPI endpoint for Azure AI Foundry Agent Service.
-> * Call an Azure AI Foundry agent in a web app.
+> * Convert existing app functionaltiy into an OpenAPI endpoint for Foundry Agent Service.
+> * Call a Microsoft Foundry agent in a web app.
 - Assign the required permissions for managed identity connectivity.
 
 ## Prerequisites
@@ -89,19 +89,19 @@ The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/LangGr
 
 :::code language="typescript" source="~/app-service-agentic-langgraph-foundry-python/src/agents/langgraph_task_agent.py" range="58-82" :::
 
-### [Azure AI Foundry Agent Service](#tab/aifoundry)
+### [Foundry Agent Service](#tab/aifoundry)
 
 The `FoundryTaskAgent` is initialized in the constructor of *src/agents/foundry_task_agent.py*. The initialization code does the following:
 
 - Creates an `AIProjectClient` using Azure credentials.
-- Fetches the agent from Azure AI Foundry by the agent ID.
+- Fetches the agent from Microsoft Foundry by the agent ID.
 - Creates a new thread for the session.
 
 :::code language="typescript" source="~/app-service-agentic-langgraph-foundry-python/src/agents/foundry_task_agent.py" range="39-48" :::
 
-This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Azure AI Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Azure AI Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
+This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
 
-The OpenAPI code is defined in *src/routes/api.py*. For example, the "GET /tasks" route defines a custom `operation_id` parameter, as required by the [OpenAPI spec tool in Azure AI Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `description` helps the agent determine how to call the API:
+The OpenAPI code is defined in *src/routes/api.py*. For example, the "GET /tasks" route defines a custom `operation_id` parameter, as required by the [OpenAPI spec tool in Microsoft Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `description` helps the agent determine how to call the API:
 
 :::code language="csharp" source="~/app-service-agentic-langgraph-foundry-python/src/routes/api.py" range="27-42" highlight="4-5" :::
 
@@ -150,13 +150,13 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     You now have an App Service app with a system-assigned managed identity.
 
-## Create and configure the Azure AI Foundry resource
+## Create and configure the Microsoft Foundry resource
 
-1. In the [Azure AI Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Azure AI Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a default agent are created for you in the process.
+1. In the [Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Microsoft Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a default agent are created for you in the process.
 
 1. From the left menu, select **Overview**.
 
-1. Select **Azure AI Foundry** and copy the URL in **Azure AI Foundry project endpoint**.
+1. Select **Microsoft Foundry** and copy the URL in **Microsoft Foundry project endpoint**.
 
 1. Select **Azure OpenAI** and copy the URL in **Azure OpenAI endpoint** for later.
 
@@ -170,9 +170,9 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. In the **Setup** pane, add an action with the OpenAPI spec tool. Use the OpenAPI schema that you get from the deployed web app and **anonymous** authentication. For detailed steps, see [How to use the OpenAPI spec tool](/azure/ai-foundry/agents/how-to/tools/openapi-spec-samples?pivots=portal).
 
-    Your application code is already configured to include the server's `url` and `operationId`, which are needed by the agent. For more information, see [How to use Azure AI Foundry Agent Service with OpenAPI Specified Tools: Prerequisites](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites).
+    Your application code is already configured to include the server's `url` and `operationId`, which are needed by the agent. For more information, see [How to use Foundry Agent Service with OpenAPI Specified Tools: Prerequisites](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites).
 
-1. Select **Try in playground** and test your AI Foundry agent with prompts like "*Show me all the tasks*."
+1. Select **Try in playground** and test your Foundry agent with prompts like "*Show me all the tasks*."
 
     If you get a valid response, the agent is making tool calls to the OpenAPI endpoint on your deployed web app.
 
@@ -186,21 +186,21 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     | Target resource                | Required role                       | Needed for              |
     |--------------------------------|-------------------------------------|-------------------------|
-    | Azure AI Foundry               | Cognitive Services OpenAI User      | The chat completion service in the LangGraph. |
-    | Azure AI Foundry Project       | Azure AI User                       | Reading and calling the AI Foundry agent. |
+    | Microsoft Foundry               | Cognitive Services OpenAI User      | The chat completion service in the LangGraph. |
+    | Microsoft Foundry Project       | Azure AI User                       | Reading and calling the Foundry agent. |
 
     For instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Configure connection variables in your sample application
 
-1. Open *.env*. Using the values you copied earlier from the AI Foundry portal, configure the following variables: 
+1. Open *.env*. Using the values you copied earlier from the Foundry portal, configure the following variables: 
 
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|
     | `AZURE_OPENAI_ENDPOINT`         | Azure OpenAI endpoint (copied from the Overview page). This is needed by the LangGraph agent. |
     | `AZURE_OPENAI_DEPLOYMENT_NAME`             | Model name in the deployment (copied from the Agents setup pane). This is needed by the LangGraph agent. |
-    | `AZURE_AI_FOUNDRY_PROJECT_ENDPOINT` | Azure AI Foundry project endpoint (copied from Overview page). This is needed for the Azure AI Foundry Agent Service. |
-    | `AZURE_AI_FOUNDRY_AGENT_ID`       | Agent ID (copied from the Agents setup pane). This is needed to invoke an existing Azure AI Foundry agent. |
+    | `AZURE_AI_FOUNDRY_PROJECT_ENDPOINT` | Microsoft Foundry project endpoint (copied from Overview page). This is needed for the Foundry Agent Service. |
+    | `AZURE_AI_FOUNDRY_AGENT_ID`       | Agent ID (copied from the Agents setup pane). This is needed to invoke an existing Microsoft Foundry agent. |
     
     > [!NOTE]
     > To keep the tutorial simple, you'll use these variables in *.env* instead of overwriting them with app settings in App Service.
@@ -222,7 +222,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. When you see **Your application running on port 3000 is available**, select **Open in Browser**.
 
-1. Select the **LangGraph Agent** link and the **Foundry Agent** link to try out the chat interface. If you get a response, your application is connecting successfully to the Azure AI Foundry resource.
+1. Select the **LangGraph Agent** link and the **Foundry Agent** link to try out the chat interface. If you get a response, your application is connecting successfully to the Microsoft Foundry resource.
 
 1. Back in the GitHub codespace, deploy your app changes.
 
@@ -237,9 +237,9 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 :::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-python/langgraph-agent.png" alt-text="Screenshot of a chat completion session with a LangGraph agent.":::
 
-### [Azure AI Foundry Agent Service](#tab/aifoundry)
+### [Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-python/foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-python/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
 
 -----
 
@@ -251,10 +251,10 @@ When you're done with the application, you can delete the App Service resources 
 azd down --purge
 ```
 
-Since the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
+Since the AZD template doesn't include the Microsoft Foundry resources, you need to delete them manually if you want.
 
 ## More resources
 
 - [Integrate AI into your Azure App Service applications](overview-ai-integration.md)
-- [What is Azure AI Foundry Agent Service?](/azure/ai-foundry/agents/overview)
+- [What is Foundry Agent Service?](/azure/ai-foundry/agents/overview)
 - [LangGraph - Quickstart](https://langchain-ai.github.io/langgraph/agents/agents/)

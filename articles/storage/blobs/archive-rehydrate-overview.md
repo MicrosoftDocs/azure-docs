@@ -108,7 +108,13 @@ Rehydration of an archived blob might take up to 15 hours, and it's inefficient 
 
 Azure Event Grid raises **Microsoft.Storage.BlobTierChanged** event on the completion of blob rehydration:
 
-- The **Microsoft.Storage.BlobTierChanged** event fires when a blob's tier is changed. In the context of blob rehydration, this event fires when the access tier of a destination blob is successfully changed from archive tier to an online tier (hot, cool, or cold tier). You can use Set Blob Tier operation to change the access tier of an archived blob or use Copy Blob operation to copy an archived blob to a new destination blob in an online tier.
+- The **`Microsoft.Storage.BlobTierChanged`** event fires when a blob's tier is changed. In the context of blob rehydration, this event fires when the access tier of a destination blob is successfully changed from archive tier to an online tier (hot, cool, or cold tier). You can use Set Blob Tier operation to change the access tier of an archived blob.
+
+When you use the **Copy Blob** operation to copy a blob from the **Archive tier** to a new destination blob in an **online tier** (hot, cool, or cold tier) for rehydration:
+
+1. A **`Microsoft.Storage.BlobCreated`** event is triggered as soon as the copy operation starts, with blob's tier as **Archive**.
+
+1. After the blob is successfully copied and rehydrated to the target online tier, a **`Microsoft.Storage.BlobTierChanged`** event is fired, indicating the tier change from **Archive** to the specified online tier.
 
 To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
 

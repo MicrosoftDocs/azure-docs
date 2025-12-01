@@ -47,16 +47,16 @@ For a full list of tables in this index, see [Azure Monitor Log Analytics log ta
 
 | Parameters | Required? | Description | 
 |----------|----------|----------|
-| query| Yes |This parameter takes in keywords to search for relevant tables in the connected workspaces. |
-| workspaceId| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
+| `query`| Yes |This parameter takes in keywords to search for relevant tables in the connected workspaces. |
+| `workspaceId`| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
 
 ### Execute KQL (Kusto Query Language) query on Microsoft Sentinel data lake (`query_lake`)
 This tool runs a single KQL query against a specified Microsoft Sentinel data lake workspace and returns the raw result set. It's designed for focused investigative or analytical retrieval and not bulk export. Use this tool to advance an investigation or analytical workflow and retrieve a security event, alert, asset, identity, device, or enrichment data. You can also use it alongside the `search_tables` tool to identify relevant table schemas and build valid KQL queries.
 
 | Parameters | Required? | Description | 
 |----------|----------|----------|
-| query| Yes |This parameter takes in a well-formed KQL query to retrieve data from a Microsoft Sentinel data lake workspace. |
-| workspaceId| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
+| `query`| Yes |This parameter takes in a well-formed KQL query to retrieve data from a Microsoft Sentinel data lake workspace. |
+| `workspaceId`| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
 
  
 ### List workspaces (`list_sentinel_workspaces`)
@@ -77,7 +77,7 @@ Entity analysis tools might require a few minutes to generate results, so there 
 |----------|----------|----------|
 | Microsoft Entra object ID or URL| Yes |This parameter takes in the user or URL you want to analyze. |
 | Lookback time| No |This parameter takes in the lookback time. Default is seven days. |
-| workspaceId| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
+| `workspaceId`| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
 
 These tools return an identifier value that you can provide to the retrieve analysis tool as input.
 
@@ -85,7 +85,7 @@ These tools return an identifier value that you can provide to the retrieve anal
 
 | Parameters | Required? | Description | 
 |----------|----------|----------|
-| analysisId| Yes |This parameter takes in the job identifier received from the start analysis tools. |
+| `analysisId`| Yes |This parameter takes in the job identifier received from the start analysis tools. |
 
 While this tool automatically polls for a few minutes until results are ready, its internal timeout might not be sufficient for long analysis operations. You might need to run it multiple times to get results.
 

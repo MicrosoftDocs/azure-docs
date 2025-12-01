@@ -145,6 +145,7 @@ Here's what's included in an Azure VMware Solution assessment:
 **Average IOPS/GiB** | Average IOPS required by the inventory per Gibibyte of storage. This helps determine the right tier of external storage to be considered for the assessment.
 **Average throughput/GiB** | Average throughput required by the inventory per Gibibyte of storage. This helps determine the right tier of external storage to be considered for the assessment.
 **Networking ingress/egress cost (%)** | Networking costs consists of data ingress and egress between the Elastic SAN datastore and the AVS SDDC and cost of private endpoints. Provide the estimate of the data ingress and egress that you expect as a percentage of the total Elastic SAN costs. Networking costs are considered to be 15% of the storage cost on an average. This will vary depending upon the amount of ingress and egress and can vary largely depending upon these factors.
+**SKU cost with BYOL** | AVS node costs in the assessment indicate cost of a node assuming you are porting your on-premises VCF licenses over to AVS.
 
 
 ## Azure VMware Solution suitability analysis

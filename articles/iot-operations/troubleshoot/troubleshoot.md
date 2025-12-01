@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure IoT Operations
 description: Troubleshoot your Azure IoT Operations deployment and configuration
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: dominicbetts
+ms.author: dobett
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023

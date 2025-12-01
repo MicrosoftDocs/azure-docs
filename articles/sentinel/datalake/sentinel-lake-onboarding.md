@@ -1,10 +1,10 @@
 ---
-title: Onboarding to Microsoft Sentinel data lake and graph (preview)
+title: Onboarding to Microsoft Sentinel data lake and graph
 titleSuffix: Microsoft Security  
 description: This article describes how to onboard to the Microsoft Sentinel data lake and graph
 author: EdB-MSFT
 ms.topic: how-to  
-ms.date: 09/30/2025
+ms.date: 11/13/2025
 ms.author: edbaynash
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
@@ -12,9 +12,9 @@ ms.subservice: sentinel-graph
 # Customer intent: As an administrator I want to onboard to the Microsoft Sentinel data lake so that I can benefit from the storage and analysis capabilities of the data lake.
 ---
   
-# Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph (preview)
+# Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph 
 
-The [Microsoft Sentinel data lake](sentinel-lake-overview.md)  is a tenant-wide repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. [Microsoft Sentinel graph (preview) ](sentinel-graph-overview.md) is a unified graph capability within Microsoft Sentinel platform powering graph-based experiences across security, compliance, identity, and the entire ecosystem. These solutions use advanced analytics, machine learning, graphs, and AI to help detect threats, investigate and respond to incidents, and improve overall security posture.
+The [Microsoft Sentinel data lake](sentinel-lake-overview.md)  is a tenant-wide repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. [Microsoft Sentinel graph](sentinel-graph-overview.md) is a unified graph capability within Microsoft Sentinel platform powering graph-based experiences across security, compliance, identity, and the entire ecosystem. These solutions use advanced analytics, machine learning, graphs, and AI to help detect threats, investigate and respond to incidents, and improve overall security posture.
 
 Microsoft Sentinel data lake and graph are available in the following solutions:
 +	[Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)
@@ -73,9 +73,7 @@ This article describes how customers using Microsoft Defender, Data Security Inv
 
 ## Prerequisites
 
-[!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
-
-To onboard to the Microsoft Sentinel data lake and graph (preview) in Microsoft Defender XDR, Data Security Investigations, and Insider Risk Management, you must meet the following prerequisites:
+To onboard to the Microsoft Sentinel data lake and graph in Microsoft Defender XDR, Data Security Investigations, and Insider Risk Management, you must meet the following prerequisites:
 
 + Microsoft Defender (`security.microsoft.com`) and Microsoft Sentinel must be configured. A Microsoft Defender XDR license isn't required to use Microsoft Sentinel data lake with Microsoft Sentinel in the Microsoft Defender portal.
 + An existing Azure [subscription](https://portal.azure.com/#view/Microsoft_Azure_Billing/CatalogBlade/appId/AddSubscriptionButton) and [resource group](https://portal.azure.com/#view/HubsExtension/ResourceGroupCreate.ReactView) to set up billing for the data lake. You must be the direct subscription owner - being the management-group-level subscription owner is not sufficient. You can use your existing Microsoft Sentinel SIEM Azure subscription and resource group or create a new one. To learn more about billing, see [Plan costs and understand Microsoft Sentinel pricing and billing](../billing.md).

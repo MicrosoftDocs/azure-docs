@@ -3,8 +3,8 @@ title: What is Microsoft Sentinel MCP server's tool collection?
 titleSuffix: Microsoft Security  
 description: Learn about the different MCP collection of tools in Microsoft Sentinel 
 author: poliveria
-ms.topic: conceptual
-ms.date: 11/18/2025
+ms.topic: article
+ms.date: 12/01/2025
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 
@@ -13,7 +13,13 @@ ms.service: microsoft-sentinel
 
 # Tool collection in Microsoft Sentinel MCP server
 
-Microsoft Sentinel’s Model Context Protocol (MCP) Server collections are logical groupings of related security-focused MCP tools that you can use in any [compatible client](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools) to search and retrieve data from tables and create agents.
+Microsoft Sentinel’s Model Context Protocol (MCP) Server collections are logical groupings of related security-focused MCP tools that you can use in any [compatible client](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools) to:
+- Search for relevant tables
+- Retrieve data
+- Analyze entities
+- Create Security Copilot agents
+- Triage incidents
+- Hunt for threats
 
 Our collections are scenario-focused and have security-optimized descriptions that help AI models pick the right tools and deliver those outcomes. For example, you can use the following sample prompts to get the appropriate tool:
 - Find the top three users that are at risk and explain why they're at risk.
@@ -31,6 +37,7 @@ The following table lists the available collections you can use:
 |----------|----------|----------|
 | [Data exploration](sentinel-mcp-data-exploration-tool.md) | Explore security data in Microsoft Sentinel data lake by searching for relevant tables, querying the lake, and analyzing entities | `https://sentinel.microsoft.com/mcp/data-exploration`|
 | [Security Copilot agent creation](sentinel-mcp-agent-creation-tool.md) | Create Microsoft Security Copilot agents for complex workflows |`https://sentinel.microsoft.com/mcp/security-copilot-agent-creation`|
+| [Triage](sentinel-mcp-triage-tool.md) | Triage incidents rapidly and hunt over your own data easily | `https://sentinel.microsoft.com/mcp/triage`|
 
 
 ## Create your own custom MCP tool

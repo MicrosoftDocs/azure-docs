@@ -2,7 +2,7 @@
 title: Azure Policy definitions manual effect
 description: Azure Policy definitions manual effect determines how compliance is managed and reported.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Azure Policy definitions manual effect

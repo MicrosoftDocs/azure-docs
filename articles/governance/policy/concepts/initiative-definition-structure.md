@@ -2,7 +2,7 @@
 title: Details of the initiative definition structure
 description: Describes how policy initiative definitions are used to group policy definitions for deployment to Azure resources in your organization.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: reference
 ---
 # Azure Policy initiative definition structure
 

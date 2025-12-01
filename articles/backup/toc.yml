@@ -750,6 +750,12 @@
         href: manage-telemetry.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
+    - name: Configure and manage private endpoint in Recovery Services vault for backup    
+      items:
+      - name: Configure private endpoint
+        href: private-endpoint-configure-vault-backup-server.md
+      - name: Re-register MABS using public access
+        href: register-public-access-vault-backup-server.md  
     - name: Protect workloads
       items:
       - name: Back up Hyper-V virtual machines

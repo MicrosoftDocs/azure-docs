@@ -2,7 +2,7 @@
 title: Design Azure Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Design Azure Policy as Code workflows
 

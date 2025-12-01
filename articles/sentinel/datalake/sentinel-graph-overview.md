@@ -1,11 +1,11 @@
 ---
-title: What is Microsoft Sentinel graph? (Preview)
+title: What is Microsoft Sentinel graph?
 ms.reviewer: Robert
 titleSuffix: Microsoft Security  
 description: Learn how Microsoft Sentinel graph enables multi-modal security analytics through graph-based representation of security data, providing deep insights into digital environments and attack paths.
 author: mberdugo
 ms.topic: overview
-ms.date: 09/28/2025
+ms.date: 11/13/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
@@ -14,13 +14,12 @@ ms.subservice: sentinel-graph
 ---
 
 
-# What is Microsoft Sentinel graph? (Preview)
+# What is Microsoft Sentinel graph?
 
 Microsoft Sentinel graph is a unified graph analytics capability within Microsoft Sentinel that powers graph-based experiences across security, compliance, identity, and the Microsoft Security ecosystem - empowering security teams to model, analyze, and visualize complex relationships across their digital estate.  
 
 Unlike traditional tabular data approaches, Sentinel graph enables defenders and AI agents to reason over interconnected assets, identities, activities, and threat intelligence, unlocking deeper insights and accelerating response to evolving cyber threats across pre-breach and post-breach. Graphs natively represent the real-world web of users, devices, cloud resources, data flows, activities, and attacker actions. By representing these relationships as nodes and edges, security teams can answer questions that are difficult or impossible with tables, such as what could happen if a specific user account is compromised? Or what is the blast radius of a compromised document?
 
-[!INCLUDE [sentinel-graph-preview](../includes/sentinel-graph-preview.md)]
 
 ## Enable defense at all stages
 

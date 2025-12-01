@@ -1,11 +1,11 @@
 ---
 title: Azure Device Registry availability support regions
 description: Azure regions that support availability zones for Azure Device Registry.
-author: SoniaLopezBravo
+author: dominicbetts
 ms.service: azure
 ms.topic: include
 ms.date: 11/05/2025
-ms.author: sonialopez
+ms.author: dobett
 ms.custom: include file, references_regions
 ---
 

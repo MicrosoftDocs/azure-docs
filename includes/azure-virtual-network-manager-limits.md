@@ -26,7 +26,7 @@
 | Group Membership | A virtual network can be part of up to two connected groups, expandable to 1000 upon request using [this form](https://forms.office.com/r/xXxYrQt0NQ). |
 | Overlapping IP Spaces | Communication to overlapped IP address is dropped |
 | **Limits for Security Admin Rules** | |
-| IP Prefixes | Max 1,000 IP prefixes combined per one Azure Virtual Network Manager resource |
+| IP Prefixes | Max 20,000 IP prefixes combined per one Azure Virtual Network Manager resource |
 | Admin Rules | Max 100 admin rules combined per one Azure Virtual Network Manager resource |
 | **Limits for User Defined Routes** | |
 | User Defined Routes per Route Table | Max 1,000 |

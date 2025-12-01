@@ -2,7 +2,7 @@
 title: Monitor the health of your backups using Azure Backup Metrics (preview)
 description: In this article, learn about the metrics available for Azure Backup to monitor your backup health
 ms.topic: overview
-ms.date: 12/04/2024
+ms.date: 11/27/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -61,7 +61,7 @@ The following table lists the dimensions that Backup Health Events and Restore H
 
 To view metrics in the Azure portal, follow the below steps:
 
-1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Business Continuity Center** > **Monitoring + Reporting** > **Metrics**.
+1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Resiliency** > **Monitoring + Reporting** > **Metrics**.
 
    Alternatively, you can go to the **Recovery Services vault** or **Azure Monitor**, and select **Metrics**.
 
@@ -85,7 +85,7 @@ To view metrics in the Azure portal, follow the below steps:
 
    This renders a chart which shows the count of health events for the vault(s). You can adjust the time range and aggregation granularity by using the filters at the top of the screen.
 
-   :::image type="content" source="./media/metrics-overview/metrics-chart-inline.png" alt-text="Screenshot showing the process to select a metric." lightbox="./media/metrics-overview/metrics-chart-expanded.png":::
+   :::image type="content" source="./media/metrics-overview/metrics-chart.png" alt-text="Screenshot showing the process to select a metric." lightbox="./media/metrics-overview/metrics-chart.png":::
 
 1. To filter metrics by different dimensions, click the **Add Filter** button and select the relevant dimension values. 
 
@@ -93,13 +93,13 @@ To view metrics in the Azure portal, follow the below steps:
    - To view health events for a particular datasource or backup instance within the vault, use the datasource ID/backup instance ID filters.
    - To view health events only for failed backups, use a filter on HealthStatus, by selecting the values corresponding to unhealthy or degraded health state.
 
-   :::image type="content" source="./media/metrics-overview/metrics-filters-inline.png" alt-text="Screenshot showing the process to filter metrics by different dimensions." lightbox="./media/metrics-overview/metrics-filters-expanded.png":::
+   :::image type="content" source="./media/metrics-overview/metrics-filters.png" alt-text="Screenshot showing the process to filter metrics by different dimensions." lightbox="./media/metrics-overview/metrics-filters.png":::
 
-## Manage Alerts
+## Manage alerts
 
 To view your fired metric alerts, follow these steps:
 
-1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Business Continuity Center** > **Monitoring + Reporting** > **Alerts**.
+1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Resiliency** > **Monitoring + Reporting** > **Alerts**.
 1. Filtering for **Signal Type** = **Metric** and **Alert Type** = **Configured**.
 1. Click an alert to view more details about the alert and change its state.
 
@@ -111,7 +111,7 @@ To view your fired metric alerts, follow these steps:
 
 #### Datasource alerts and Global alerts
 
-Based on the alert rules configuration, the fired alert appears on the **Alerts** blade in the **Business Continuity Center**.
+Based on the alert rules configuration, the fired alert appears on the **Alerts** blade in the **Resiliency**.
 
 [Learn how to view and filter alerts](../business-continuity-center/tutorial-monitor-alerts-metrics.md#monitor-alerts).
 
@@ -128,7 +128,7 @@ You can use the different programmatic clients, such as PowerShell, CLI, or REST
 
 **Alert Rule: Fire an alert if Backup Health Events < 1 in last 24 hours for**:
 
-Dimensions["HealthStatus"] != "Healthy"
+Dimensions["HealthStatus"]!= "Healthy"
 	 
 #### Fire an alert after every failed backup job
 

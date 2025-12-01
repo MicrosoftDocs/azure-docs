@@ -47,15 +47,15 @@ Build intelligent web apps that use Azure OpenAI for chat or retrieval augmented
 ### [Python](#tab/python)
 - [Build a chatbot with Azure OpenAI (Flask)](tutorial-ai-openai-chatbot-python.md)
 - [Build a RAG application with Azure OpenAI and Azure AI Search (Python)](tutorial-ai-openai-search-python.md)
-- [Azure AI Foundry tutorial: Deploy an enterprise chat web app](/azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json)
+- [Microsoft Foundry tutorial: Deploy an enterprise chat web app](/azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json)
 -----
 
 ## Build agentic web applications
 
-Transform your traditional CRUD web applications for the AI era by adding agentic capabilities with frameworks like Microsoft Semantic Kernel, LangGraph, or Azure AI Foundry Agent Service. Instead of users navigating forms, textboxes, and dropdowns, you can offer a conversational interface that lets users "talk to an agent" that intelligently performs the same operations your app provides. This approach enables your web app to reason, plan, and take actions on behalf of users.
+Transform your traditional CRUD web applications for the AI era by adding agentic capabilities with frameworks like Microsoft Semantic Kernel, LangGraph, or Foundry Agent Service. Instead of users navigating forms, textboxes, and dropdowns, you can offer a conversational interface that lets users "talk to an agent" that intelligently performs the same operations your app provides. This approach enables your web app to reason, plan, and take actions on behalf of users.
 
 ### [.NET](#tab/dotnet)
-- [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)](tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md)
+- [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Foundry Agent Service (.NET)](tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md)
 - Blog series: Build long-running AI agents with Microsoft Agent Framework
   - [Part 1: Build long-running AI agents on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/build-long-running-ai-agents-on-azure-app-service-with-microsoft-agent-framework/4463159)
   - [Part 2: Build long-running AI agents on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/part-2-build-long-running-ai-agents-on-azure-app-service-with-microsoft-agent-fr/4465825)
@@ -65,28 +65,28 @@ Transform your traditional CRUD web applications for the AI era by adding agenti
 - [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel (Spring Boot)](tutorial-ai-agent-web-app-semantic-kernel-java.md)
 
 ### [Node.js](#tab/nodejs)
-- [Tutorial: Build an agentic web app in Azure App Service with LangGraph or Azure AI Foundry Agent Service (Node.js)](tutorial-ai-agent-web-app-langgraph-foundry-node.md)
+- [Tutorial: Build an agentic web app in Azure App Service with LangGraph or Foundry Agent Service (Node.js)](tutorial-ai-agent-web-app-langgraph-foundry-node.md)
 
 ### [Python](#tab/python)
-- [Tutorial: Build an agentic web app in Azure App Service with LangGraph or Azure AI Foundry Agent Service (Python)](tutorial-ai-agent-web-app-langgraph-foundry-python.md)
+- [Tutorial: Build an agentic web app in Azure App Service with LangGraph or Foundry Agent Service (Python)](tutorial-ai-agent-web-app-langgraph-foundry-python.md)
 -----
 
-## App Service as OpenAPI tool in Azure AI Foundry Agent
+## App Service as OpenAPI tool in Microsoft Foundry agent
 
-Empower your existing web apps by exposing their capabilities to Azure AI Foundry Agent Service using OpenAPI. Many web apps already provide REST APIs, making them ideal candidates for integration into agents that can call REST APIs as tools. By connecting Azure AI Foundry Agent Service to these APIs, you can rapidly create powerful, feature-rich agents with little code.
+Empower your existing web apps by exposing their capabilities to Foundry Agent Service using OpenAPI. Many web apps already provide REST APIs, making them ideal candidates for integration into agents that can call REST APIs as tools. By connecting Foundry Agent Service to these APIs, you can rapidly create powerful, feature-rich agents with little code.
 
 ### [.NET](#tab/dotnet)
-- [Add an App Service app as a tool in Azure AI Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md)
-- [Invoke a web app from Azure AI Foundry Agent](invoke-openapi-web-app-from-azure-ai-agent-service.md)
+- [Add an App Service app as a tool in Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md)
+- [Invoke a web app from Microsoft Foundry agent](invoke-openapi-web-app-from-azure-ai-agent-service.md)
 
 ### [Java](#tab/java)
-- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Java)](tutorial-ai-integrate-azure-ai-agent-java.md)
+- [Add an App Service app as a tool in Foundry Agent Service (Java)](tutorial-ai-integrate-azure-ai-agent-java.md)
 
 ### [Node.js](#tab/nodejs)
-- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md)
+- [Add an App Service app as a tool in Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md)
 
 ### [Python](#tab/python)
-- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md)
+- [Add an App Service app as a tool in Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md)
 -----
 
 ## App Service as Model Context Protocol (MCP) servers
@@ -132,7 +132,7 @@ Deploy a web app with a local small language model (SLM) as a sidecar container 
 
 Secure your AI-powered applications with Microsoft Entra authentication and authorization. These guides show you how to protect your OpenAPI tools and MCP servers in Azure App Service so only authorized users and agents can access them.
 
-- [Authenticate AI Foundry tool calls](configure-authentication-ai-foundry-openapi-tool.md) - Secure your App Service app when used as an OpenAPI tool in Azure AI Foundry Agent Service with Microsoft Entra authentication
+- [Authenticate Microsoft Foundry tool calls](configure-authentication-ai-foundry-openapi-tool.md) - Secure your App Service app when used as an OpenAPI tool in Foundry Agent Service with Microsoft Entra authentication
 - [Secure a Model Context Protocol server in Azure App Service](configure-authentication-mcp.md) - Overview of authentication methods for MCP servers
 - [Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication](configure-authentication-mcp-server-vscode.md) - Step-by-step guide to secure your MCP server for GitHub Copilot Chat in VS Code
 

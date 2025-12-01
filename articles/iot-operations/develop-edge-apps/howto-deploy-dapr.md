@@ -1,8 +1,8 @@
 ---
 title: Deploy Dapr pluggable components
 description: Deploy Dapr and the MQTT broker pluggable components to a cluster.
-author: SoniaLopezBravo 
-ms.author: sonialopez 
+author: dominicbetts 
+ms.author: dobett 
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:

@@ -1,10 +1,10 @@
 ---
-title: Onboarding to Microsoft Sentinel data lake to Defender portal
+title: Onboarding to Microsoft Sentinel data lake from the Defender portal
 titleSuffix: Microsoft Security  
 description: This article describes how to onboard to the Microsoft Sentinel data lake for customers who are currently using Microsoft Defender.
 author: mberdugo
 ms.topic: how-to  
-ms.date: 08/20/2025
+ms.date: 11/13/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
@@ -14,7 +14,7 @@ ms.subservice: sentinel-graph
   
 # Onboard to Microsoft Sentinel data lake from the Defender portal
 
-Onboarding your tenant to the Microsoft Sentinel data lake occurs once and starts from the Microsoft Defender portal. The onboarding process creates a new Microsoft Sentinel data lake for your tenant in the subscription specified during the onboarding process. Graph enablement is included as part of onboarding. If you had onboarded to the data lake during public preview, you're automatically upgraded to the generally available data lake and the graph public preview.
+Onboarding your tenant to the Microsoft Sentinel data lake occurs once and starts from the Microsoft Defender portal. The onboarding process creates a new Microsoft Sentinel data lake for your tenant in the subscription specified during the onboarding process. Graph enablement is included as part of onboarding. If you had onboarded to the data lake during public preview, you're automatically upgraded to the generally available data lake and graph.
 
 > [!NOTE]
 > You'll always have one data lake that you can use with multiple Microsoft Security products. During onboarding, we check for and automatically use your existing data lake. When you ingest and store security data in your data lake, this data can be used with multiple Microsoft Security products.
@@ -79,7 +79,7 @@ The following are errors that you might encounter during the onboarding process.
 ## Related content
 
 + [Microsoft Sentinel data lake overview](sentinel-lake-overview.md)
-+ [What is Microsoft Sentinel graph? (preview)](sentinel-graph-overview.md)
++ [What is Microsoft Sentinel graph?](sentinel-graph-overview.md)
 + [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
 + [Microsoft Sentinel data lake billing](../billing.md)
 + [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)

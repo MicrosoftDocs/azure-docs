@@ -1,8 +1,8 @@
 ---
 title: Metrics for Layered Network Management (preview)
 description: Available observability metrics for Azure IoT Layered Network Management (preview) to monitor the health and performance of your solution.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.topic: reference
 ms.custom:
   - ignite-2023

@@ -1,8 +1,8 @@
 ---
 title: Production deployment guidelines
 description: Learn about the recommendations and guidelines for preparing Azure IoT Operations for a production deployment.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.date: 03/13/2025
 ms.service: azure-iot-operations

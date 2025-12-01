@@ -4,7 +4,7 @@ description: Troubleshoot errors when replicating Azure virtual machines for dis
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 09/19/2025
+ms.date: 11/27/2025
 ms.author: v-gajeronika
 ms.custom:
   - engagement-fy23
@@ -576,6 +576,20 @@ Perform the following steps to fix this issue.
 
     `./install -d /usr/local/ASR -r MS -q -v Azure`
 6. If the installer succeeds, retry the enable replication job.
+
+## ProtectionContainerNameLengthExceeded (error code 150257)
+
+```Output
+Protection container name <protectionContainerName> is not valid.
+```
+
+### Possible causes
+
+Protection container name exceeds the maximum permissible length of **protectionContainerNameMaxLength** characters.
+
+### Fix the problem
+
+Choose a different name and reattempt the operation.
 
 ## Troubleshoot and handle time changes on replicated servers
 This error occurs when the source machine's time moves forward and then moves back in short time, to correct the change. You may not notice the change as the time is corrected very quickly.

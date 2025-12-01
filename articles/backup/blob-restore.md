@@ -2,7 +2,7 @@
 title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: how-to
-ms.date: 09/26/2025
+ms.date: 11/27/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore Azure Blob data from both operational and vaulted backups, so that I can recover essential files and maintain business continuity in case of data loss.
@@ -37,11 +37,11 @@ For more information on the general availability of vaulted backups for Azure Bl
 
 ## Restore blobs
 
-To initiate a restore through the Azure Business Continuity Center, follow these steps:
+To initiate a restore through the Resiliency, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Recover**.
+1. Go to **Resiliency**, and then select **Recover**.
 
-    :::image type="content" source="./media/blob-restore/azure-business-continuity-center-recover-blob.png" alt-text="Screenshot shows how to start recovering Azure Blob from Azure Business Continuity Center." lightbox="./media/blob-restore/azure-business-continuity-center-recover-blob.png":::
+    :::image type="content" source="./media/blob-restore/recover-blob.png" alt-text="Screenshot shows how to start recovering Azure Blob from Resiliency." lightbox="./media/blob-restore/recover-blob.png":::
 
 1. On the **Recover** pane, under **Resources managed by**, select **Azure Blobs (Azure Storage)** as  the **Datasource type**, which you want to recover, and then select **Backup** as a solution through which you want to recover the item. Click **Select** to select the item on which you want to perform the recovery action.
 
@@ -90,7 +90,7 @@ To initiate a restore through the Azure Business Continuity Center, follow these
 
 1. Once you finish specifying what blobs to restore, continue to the **Review + restore** tab, and select **Restore** to initiate the restore.
 
-1. **Track restore**: Use the **Backup Jobs** view to track the details and status of restores. To do this, go to **Business Continuity Center** > **Jobs**. The status will show **In progress** while the restore is being performed.
+1. **Track restore**: Use the **Backup Jobs** view to track the details and status of restores. To do this, go to **Resiliency** > **Jobs**. The status will show **In progress** while the restore is being performed.
 
     :::image type="content" source="./media/blob-restore/backup-jobs.png" alt-text="Screenshot shows how to track restore operations." lightbox="./media/blob-restore/backup-jobs.png":::
 

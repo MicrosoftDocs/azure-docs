@@ -2,7 +2,7 @@
 title: Reacting to Azure Policy state change events
 description: Use Azure Event Grid to subscribe to Azure Policy events, which allow applications to react to state changes without the need for complicated code.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Reacting to Azure Policy state change events

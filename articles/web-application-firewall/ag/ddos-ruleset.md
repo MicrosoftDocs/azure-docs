@@ -48,7 +48,7 @@ When an IP address exceeds a threshold, a rule hit for the HTTP DDoS ruleset is 
 ## Monitoring the HTTP DDoS ruleset
 
 - When an IP address breaches a threshold, a log entry is recorded with a *Block* action for the HTTP DDoS ruleset, and the WAF Managed Rule Match metric is incremented by one. Each subsequent blocked request from an IP in the Penalty Box is logged and increments the WAF Managed Rule Match metric.
-- Two new metrics have also been introduced for Azure monitor, Penalty box size and Penalry box blocks.  These metrics track the number of IPs currently in the penalty box as well as the number of blocks that occur due to IPs in the penalty box.
+- Two new metrics have also been introduced for Azure monitor, Penalty box size and Penalty box blocks.  These metrics track the number of IPs currently in the penalty box as well as the number of blocks that occur due to IPs in the penalty box.
 
 ## Accessing the preview
 

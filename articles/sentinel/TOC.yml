@@ -620,6 +620,8 @@
             href: datalake/sentinel-mcp-data-exploration-tool.md
           - name: Agent creation
             href: datalake/sentinel-mcp-agent-creation-tool.md
+          - name: Triage
+            href: datalake/sentinel-mcp-triage-tool.md
           - name: Create your own custom tool
             href: datalake/sentinel-mcp-create-custom-tool.md
         - name: Troubleshooting
