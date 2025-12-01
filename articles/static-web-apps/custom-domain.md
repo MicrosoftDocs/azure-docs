@@ -65,6 +65,21 @@ You may want to migrate a custom domain currently serving a production website t
 
 1. Once your domain is validated, you can migrate your traffic to your static web app by updating your `CNAME`, `ALIAS`, or `A` record to point to your [default host name](./apex-domain-external.md)
 
+## Migrating domains between instances
+
+Azure Static Web Apps only permit binding a unique domain to a single resource within a slice. Attempting to bind a domain already bound to another resource without first disassociating from the original resource will result in failure.
+
+The slice your resource is placed in can be determined by inspecting the default URL assigned to it:
+
+`<random-prefix>.<slice>.azurestaticapps.net`
+
+For example, a Static Web App site with the default URL of `orange-pond-0a04b7203.2.azurestaticapps.net` has been placed in slice number 2. 
+
+If the static app you're migrating the domain from and to are both in the same slice you must either:
+
+* Remove the domain from one instance, then add it to your new instance. This will result in some downtime.
+* Delete and redeploy the new instance until the resulting resource is placed into a slice different from the source instance.
+
 ## Next steps
 
 Use the following links for steps on how to set up your domain based on your provider.
