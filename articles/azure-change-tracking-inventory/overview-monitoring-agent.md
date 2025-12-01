@@ -12,7 +12,7 @@ author: jasminemehndir
 
 # About Azure Change Tracking and Inventory
 
-This article provides an overview of Azure Change Tracking and Inventory (CTI) using Azure Monitoring Agent (AMA). This article also includes the key features and benefits of the service.
+This article provides an overview of Azure Change Tracking and Inventory (CTI) using **Azure Monitor Agent** (AMA).
 
 ## What is Change Tracking and Inventory
 
