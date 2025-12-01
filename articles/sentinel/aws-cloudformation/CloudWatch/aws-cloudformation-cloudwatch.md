@@ -4,7 +4,7 @@
 2. Navigate to **Microsoft Sentinel** and then to **Content Hub**.
 3. Install the connector **Amazon Web Services S3**.
 
-![image1](images/Picture1.png)
+![image1](images/cloudwatch-step-1.png)
 
 4. Navigate to **Data connectors** and open the **Amazon Web Services S3** connector page.
 
@@ -15,11 +15,11 @@
 1. Sign in to the **AWS Management Console**.
 2. In the search bar, search for **CloudFormation** and open the **CloudFormation** service.
 
-![image2](images/Picture2.png)
+![image2](images/cloudwatch-step-2.png)
 
 3. Select **Create stack** → **With new resources (standard)**.
 
-![image3](images/Picture3.png)
+![image3](images/cloudwatch-step-3.png)
 
 ---
 
@@ -29,7 +29,7 @@
 2. Under **Template source**, select **Upload a template file**, then choose and upload the provided template file.
 3. Click **Next**.
 
-![image4](images/Picture4.png)
+![image4](images/cloudwatch-step-4.png)
 
 ---
 
@@ -47,11 +47,11 @@ Fill in the following parameters:
 - **SentinelWorkspaceId**: Enter the **Workspace ID** from the Azure Log Analytics workspace page:  
   - In the Azure portal, go to **Log Analytics workspace → Overview** and copy the **Workspace ID**.
 
-![image5](images/Picture5.png)
+![image5](images/cloudwatch-step-5.png)
 
 After filling all required fields, click **Next**.
 
-![image6](images/Picture6.png)
+![image6](images/cloudwatch-step-6.png)
 
 ##### 2.2.2 Template 3
 
@@ -64,7 +64,7 @@ Fill in the following parameters:
 - **LamdaScheduleMinutes**: How often (in minutes) to run the exporter Lambda (leave the default **15** minutes).  
 - **LambdaWindowMinutes**: How many minutes of logs to export each run (rolling window) (leave the default **15** minutes).
 
-![image7](images/Picture7.png)
+![image7](images/cloudwatch-step-7.png)
 
 ---
 
@@ -73,7 +73,7 @@ Fill in the following parameters:
 1. Leave the default options unchanged.
 2. Acknowledge that AWS CloudFormation might create IAM resources with custom names by selecting the required checkbox.
 
-![image8](images/Picture8.png)
+![image8](images/cloudwatch-step-8.png)
 
 3. Click **Next**.
 
@@ -83,7 +83,7 @@ Fill in the following parameters:
 
 1. Review all settings and confirm that all required fields are correctly populated.
 
-![image9](images/Picture9.png)
+![image9](images/cloudwatch-step-9.png)
 
 2. Click **Submit** to create the stack.
 
@@ -91,8 +91,8 @@ Monitor the stack creation:
 
 1. In **CloudFormation → Stacks → Events**, monitor the progress status.
 
-![image10](images/Picture10.png)
+![image10](images/cloudwatch-step-10.png)
 
 2. When the status indicates completion, verify in the left panel that the stack has been successfully created.
 
-![image11](images/Picture11.png)
+![image11](images/cloudwatch-step-11.png)
