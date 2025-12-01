@@ -1,0 +1,161 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Microsoft Sentinel integration for AWS VPC Flow Logs (manual activation).
+  Creates OIDC role, S3 bucket, SQS queue, and S3?SQS notifications.
+
+Parameters:
+  AwsRoleName:
+    Type: String
+    AllowedPattern: OIDC_[-_a-zA-Z0-9]+
+    Default: OIDC_MicrosoftSentinelRole
+    Description: Role name for Sentinel OIDC
+
+  BucketName:
+    Type: String
+    AllowedPattern: '^[a-z0-9][a-z0-9-.]{1,61}[a-z0-9]$'
+    Default: azure-sentinel-vpc-logs-omicron-8134
+    Description: S3 bucket to store VPC Flow Logs
+
+  SentinelSQSQueueName:
+    Type: String
+    Default: MicrosoftSentinelRnDFlowLogsSqs
+    Description: Exact SQS queue name (no suffix will be added)
+
+  SentinelWorkspaceId:
+    Type: String
+    Description: Microsoft Sentinel Workspace ID (External ID)
+
+  CreateNewBucket:
+    Type: String
+    AllowedValues: ["true", "false"]
+    Default: "true"
+    Description: Set to false if you do NOT want CloudFormation to create the bucket
+
+  FlowLogsPrefix:
+    Type: String
+    Default: ""
+    Description: >
+      Optional S3 prefix for Flow Logs (must end with '/').
+      If empty, AWSLogs/${AWS::AccountId}/vpcflowlogs/ will be used.
+
+Conditions:
+  CreateNewBucketCondition: !Equals [ !Ref CreateNewBucket, "true" ]
+  UseCustomPrefix: !Not [ !Equals [ !Ref FlowLogsPrefix, "" ] ]
+
+Resources:
+
+  SentinelWebIdentityBasedRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref AwsRoleName
+      AssumeRolePolicyDocument: !Sub >
+        {"Version":"2012-10-17","Statement":[{"Effect":"Allow",
+        "Principal":{"Federated":"arn:aws:iam::${AWS::AccountId}:oidc-provider/sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/"},
+        "Action":"sts:AssumeRoleWithWebIdentity",
+        "Condition":{"StringEquals":{
+        "sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/:aud":"api://1462b192-27f7-4cb9-8523-0f4ecb54b47e",
+        "sts:RoleSessionName":"MicrosoftSentinel_${SentinelWorkspaceId}"}}}]}
+      # No inline policies ? you?ll grant access via S3/SQS policies
+
+  SentinelSQSQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Ref SentinelSQSQueueName
+
+  SentinelSQSQueuePolicyForS3:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues:
+        - !Ref SentinelSQSQueue
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AllowS3Send
+            Effect: Allow
+            Principal:
+              Service: s3.amazonaws.com
+            Action: SQS:SendMessage
+            Resource: !GetAtt SentinelSQSQueue.Arn
+            Condition:
+              ArnLike:
+                aws:SourceArn: !Sub arn:${AWS::Partition}:s3:::${BucketName}
+          - Sid: AllowSentinel
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelWebIdentityBasedRole.Arn
+            Action:
+              - sqs:ReceiveMessage
+              - sqs:DeleteMessage
+              - sqs:ChangeMessageVisibility
+              - sqs:GetQueueUrl
+            Resource: !GetAtt SentinelSQSQueue.Arn
+
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Condition: CreateNewBucketCondition
+    DependsOn:
+      - SentinelSQSQueuePolicyForS3
+    Properties:
+      BucketName: !Ref BucketName
+      NotificationConfiguration:
+        QueueConfigurations:
+          - Event: s3:ObjectCreated:*
+            Queue: !GetAtt SentinelSQSQueue.Arn
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: suffix
+                    Value: ".gz"
+
+  SampleBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Condition: CreateNewBucketCondition
+    Properties:
+      Bucket: !Ref BucketName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Id: AWSLogDeliveryAndSentinelAccess
+        Statement:
+          - Sid: AWSLogDeliveryWrite
+            Effect: Allow
+            Principal:
+              Service: delivery.logs.amazonaws.com
+            Action: s3:PutObject
+            Resource: !Sub arn:${AWS::Partition}:s3:::${BucketName}/AWSLogs/${AWS::AccountId}/*
+            Condition:
+              StringEquals:
+                s3:x-amz-acl: bucket-owner-full-control
+                aws:SourceAccount: !Ref AWS::AccountId
+              ArnLike:
+                aws:SourceArn: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:*
+          - Sid: AWSLogDeliveryAclCheck
+            Effect: Allow
+            Principal:
+              Service: delivery.logs.amazonaws.com
+            Action: s3:GetBucketAcl
+            Resource: !Sub arn:${AWS::Partition}:s3:::${BucketName}
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+              ArnLike:
+                aws:SourceArn: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:*
+          - Sid: AllowSentinelRead
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelWebIdentityBasedRole.Arn
+            Action:
+              - s3:GetObject
+              - s3:ListBucket
+            Resource:
+              - !Sub arn:${AWS::Partition}:s3:::${BucketName}
+              - !Sub arn:${AWS::Partition}:s3:::${BucketName}/*
+
+Outputs:
+  SentinelRoleArn:
+    Value: !GetAtt SentinelWebIdentityBasedRole.Arn
+  SentinelSQSQueueURL:
+    Value: !Ref SentinelSQSQueue
+  SentinelSQSQueueArn:
+    Value: !GetAtt SentinelSQSQueue.Arn
+  LogBucketName:
+    Value: !Ref BucketName

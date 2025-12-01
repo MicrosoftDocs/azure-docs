@@ -1,0 +1,19 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "This Stack creates an Open ID Connect (OIDC) web identity provider and an AWS assumed role.",
+  "Resources": {
+    "OIDCIdentityProvider": {
+      "Type": "AWS::IAM::OIDCProvider",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "ClientIdList": [
+          "api://1462b192-27f7-4cb9-8523-0f4ecb54b47e"
+        ],
+        "ThumbprintList": [
+          "626D44E704D1CEABE3BF0D53397464AC8080142C"
+        ],
+        "Url": "https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/"
+      }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  Step 1 - Microsoft Sentinel CloudWatch integration:
+  OIDC IAM role, S3 bucket (+ policy + notification), and SQS queue (+ policy).
+
+Parameters:
+  CloudWatchBucketName:
+    Type: String
+    Description: Name of the S3 bucket where CloudWatch export .gz files for Sentinel will be stored.
+
+  CloudWatchSQSQueueName:
+    Type: String
+    Description: Name of the SQS queue used by the Sentinel CloudWatch connector.
+
+  SentinelRoleName:
+    Type: String
+    Description: Name of the IAM role to be used by Microsoft Sentinel (OIDC role).
+
+  SentinelWorkspaceId:
+    Type: String
+    Description: Microsoft Sentinel Workspace ID (also shown as External ID in the connector).
+
+Resources:
+
+  #######################################
+  # OIDC IAM Role for Sentinel
+  #######################################
+
+  SentinelCloudWatchRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref SentinelRoleName
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Sub "arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/"
+            Action: "sts:AssumeRoleWithWebIdentity"
+            Condition:
+              StringEquals:
+                "sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/:aud": "api://1462b192-27f7-4cb9-8523-0f4ecb54b47e"
+                "sts:RoleSessionName": !Sub "MicrosoftSentinel_${SentinelWorkspaceId}"
+      # Attach AWS managed CloudWatchReadOnlyAccess
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess
+
+  #######################################
+  # SQS queue + policy
+  #######################################
+
+  SentinelCloudWatchQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Ref CloudWatchSQSQueueName
+
+  SentinelCloudWatchQueuePolicy:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Id: SentinelCloudWatchSQSPolicy
+        Statement:
+          # Allow S3 bucket to send messages (matches your example)
+          - Sid: AllowS3ToSendMessages
+            Effect: Allow
+            Principal:
+              Service: "s3.amazonaws.com"
+            Action: "SQS:SendMessage"
+            Resource: !GetAtt SentinelCloudWatchQueue.Arn
+            Condition:
+              ArnLike:
+                aws:SourceArn: !Sub "arn:${AWS::Partition}:s3:::${CloudWatchBucketName}"
+          # Allow Sentinel role to read from queue (matches your example)
+          - Sid: AllowSentinelRoleToAccessQueue
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelCloudWatchRole.Arn
+            Action:
+              - "SQS:ReceiveMessage"
+              - "SQS:DeleteMessage"
+              - "SQS:ChangeMessageVisibility"
+              - "SQS:GetQueueAttributes"
+            Resource: !GetAtt SentinelCloudWatchQueue.Arn
+      Queues:
+        - !Ref SentinelCloudWatchQueue
+
+  #######################################
+  # S3 bucket + bucket policy + notification
+  #######################################
+
+  CloudWatchExportBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref CloudWatchBucketName
+      NotificationConfiguration:
+        QueueConfigurations:
+          - Event: "s3:ObjectCreated:*"
+            Queue: !GetAtt SentinelCloudWatchQueue.Arn
+            # Like your console config: filter only on suffix ".gz"
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: suffix
+                    Value: ".gz"
+    DependsOn:
+      - SentinelCloudWatchQueuePolicy
+
+  CloudWatchExportBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref CloudWatchExportBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Id: AWSLogDeliveryAndSentinelAccess
+        Statement:
+          # Same as your bucket policy example, parameterised
+          - Sid: AllowSentinelCloudWatchRoleList
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelCloudWatchRole.Arn
+            Action: "s3:ListBucket"
+            Resource: !Sub "arn:${AWS::Partition}:s3:::${CloudWatchBucketName}"
+          - Sid: AllowSentinelCloudWatchRoleReadObjects
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelCloudWatchRole.Arn
+            Action: "s3:GetObject"
+            Resource: !Sub "arn:${AWS::Partition}:s3:::${CloudWatchBucketName}/*"
+
+Outputs:
+  CloudWatchBucketNameOut:
+    Description: S3 bucket used for Sentinel CloudWatch logs
+    Value: !Ref CloudWatchBucketName
+
+  CloudWatchQueueUrl:
+    Description: SQS queue URL used by Sentinel CloudWatch connector
+    Value: !Ref SentinelCloudWatchQueue
+
+  CloudWatchQueueArn:
+    Description: ARN of the SQS queue
+    Value: !GetAtt SentinelCloudWatchQueue.Arn
+
+  SentinelRoleArn:
+    Description: ARN of the IAM role that Sentinel must assume
+    Value: !GetAtt SentinelCloudWatchRole.Arn
