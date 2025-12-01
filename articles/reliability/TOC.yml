@@ -16,6 +16,8 @@ items:
       href: reliability-ai-search.md
     - name: Azure Bot Service 
       href: reliability-bot.md
+    - name: Azure Databricks
+      href: reliability-databricks.md
     - name: Azure Machine Learning Service
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json   
   - name: Analytics
@@ -28,6 +30,8 @@ items:
       href: reliability-data-factory.md
     - name: Azure Data Share
       href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Databricks
+      href: reliability-databricks.md
     - name: Azure Event Hubs
       href: /azure/event-hubs/event-hubs-business-continuity-outages-disasters?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure HDInsight

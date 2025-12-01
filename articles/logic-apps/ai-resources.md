@@ -23,7 +23,7 @@ This guide provides building blocks, examples, and other resources that show how
 
 Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agents* with *large language models* (LLMs). An agent uses an iterative looped process to solve complex, multistep problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction.
 
-For example, an LLM can perfom the following tasks:
+For example, an LLM can perform the following tasks:
 
 - Analyze, interpret, and reason about information such as instructions, prompts, and inputs.
 - Make decisions based on results and available data.

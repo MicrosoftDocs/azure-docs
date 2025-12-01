@@ -68,6 +68,7 @@ The following table provides links to reliability guidance for Azure services. E
 |Azure Database for MySQL|| [High availability concepts in Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/concepts-high-availability) |
 |Azure Database for MySQL Flexible Server||[High availability concepts in Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/concepts-high-availability) </p>[Point-in-time restore in Azure Database for MySQL](/azure/mysql/flexible-server/how-to-restore-server-portal#geo-restores-to-latest-restore-point) |
 |Azure Database for PostgreSQL| [Reliability in Azure Database for PostgreSQL](reliability-azure-database-postgresql.md)||
+|Azure Databricks | [Reliability in Azure Databricks](reliability-databricks.md)||
 |Azure DDoS Protection| [Reliability in DDoS Protection](reliability-ddos.md)||
 |Azure Deployment Environments| [Reliability in Deployment Environments](reliability-deployment-environments.md)||
 |Azure Device Registry |[Reliability in Device Registry](reliability-device-registry.md)||

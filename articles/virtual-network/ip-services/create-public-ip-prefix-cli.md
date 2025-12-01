@@ -116,7 +116,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the `--version` parameter. 
     --version IPv4
 ```
 
-The removal of the `--zone` parameter in the command is valid in all regions, but will lead to the creation of a zone-redundant IP prefix in regions with availabily zones. The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+The removal of the `--zone` parameter in the command is valid in all regions, but will lead to the creation of a zone-redundant IP prefix in regions with availability zones. The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 

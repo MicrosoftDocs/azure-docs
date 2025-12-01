@@ -1,6 +1,101 @@
 {
   "redirections": [
     {
+      "source_path": "articles/synapse-analytics/data-explorer/data-explorer-compare.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/data-explorer-compare",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/data-explorer-create-pool-portal.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/data-explorer-create-pool-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/data-explorer-create-pool-studio.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/data-explorer-create-pool-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/data-explorer-monitor-pools.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/data-explorer-monitor-pools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/data-explorer-overview.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/data-explorer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-one-click.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-one-click",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-overview.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-pipeline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-properties.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-properties",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-streaming.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-streaming",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-supported-formats.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-supported-formats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-grid-overview.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-grid-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-grid-portal.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-grid-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-csharp.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-one-click.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-one-click",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-python.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md",
+      "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/change-tracking/enable-change-tracking-at-scale-machines-blade.md",
       "redirect_url": "/azure/azure-change-tracking-inventory/enable-change-tracking-at-scale-machines-blade",
       "redirect_document_id": false
