@@ -171,13 +171,15 @@ Certificates for `*.trafficmanager.net` domains are not supported. If your app r
 ## Frequently asked questions (FAQ)
 
 **Why is public access now required?**  
-Due to MPIC compliance, App Service is migrating to Http Token validation for all ASMC creation and renewal requests. DigiCert must verify domain ownership by reaching a specific endpoint on your app. A successful validation with Http token is only possible if the app is publicly accessible. 
+Previously, public access was required so DigiCert could reach the validation file at `https://<hostname>/.well-known/pki-validation/fileauth.txt` during certificate issuance and renewal.
+
+[November 2025 update](#november-2025-update): Public access is no longer required for ASMC issuance. App Service now intercepts DigiCert’s validation requests at the front-end layer and presents the token without exposing your app. This behavior is the default for both initial certificate creation and renewals. Prerequisites such as correct DNS configuration still apply.
+
+**What if I allowlist DigiCert IP addresses?**  
+You no longer need to allowlist DigiCert IP addresses. The [November 2025 update](#november-2025-update) ensures DigiCert’s requests never reach your app’s workers. The front-end handles validation securely, so IP allowlisting is unnecessary.
 
 **Can I still use CNAME records?**  
 Yes, you can still use CNAME records for domain name system (DNS) routing and for verifying domain ownership.
-
-**What if I allowlist DigiCert IP addresses?**  
-Allowlisting DigiCert’s domain validation IPs may work as a temporary workaround. However, Microsoft cannot guarantee that these IPs won’t change. DigiCert may update them without notice, and Microsoft does not maintain documentation for these IPs. Customers are responsible for monitoring and maintaining this configuration.
 
 **Are certificates for \*.azurewebsites.net impacted?**  
 No, these changes do not apply to the *.azurewebsites.net certificates. ASMC is only issued to customer’s custom domain and not the default hostname.

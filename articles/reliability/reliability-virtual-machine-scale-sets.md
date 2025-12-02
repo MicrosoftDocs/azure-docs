@@ -257,7 +257,7 @@ To use best-effort zone balance, set `zoneBalance` to *false*. The `zoneBalance`
 
 ### Migrate to availability zone support
 
-To learn how to redeploy a regional scale set to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
+To learn how to redeploy a regional scale set to availability zone support, see [Update scale set to add availability zones](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#update-scale-set-to-add-availability-zones).
 
 
 ## Additional guidance

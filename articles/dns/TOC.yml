@@ -48,52 +48,18 @@
           href: dns-private-resolver-get-started-terraform.md
         - name: Create a private resolver - ARM Template
           href: dns-private-resolver-get-started-template.md
+    - name: DNS security policy
+      items:
+        - name: What is DNS security policy?
+          href: dns-security-policy.md
+        - name: How-to secure and view DNS traffic
+          href: dns-traffic-log-how-to.md
     - name: Traffic Manager
       items:
         - name: What is Azure Traffic Manager?
           href: /azure/traffic-manager/traffic-manager-overview
     - name: What is network foundations?
       href: /azure/networking/foundations/network-foundations-overview
-- name: Design
-  items:
-    - name: Public DNS
-      items:
-        - name: Zones and records
-          href: dns-zones-records.md
-        - name: Alias records
-          href: dns-alias.md
-        - name: Delegation with Azure DNS
-          href: dns-domain-delegation.md
-        - name: Reverse DNS
-          href: dns-reverse-dns-overview.md
-        - name: FAQ
-          href: dns-faq.yml
-    - name: Private DNS
-      items:
-        - name: What is an Azure Private DNS zone?
-          href: private-dns-privatednszone.md
-        - name: Private DNS records
-          href: dns-private-records.md
-        - name: Virtual network links
-          href: private-dns-virtual-network-links.md
-        - name: Autoregistration
-          href: private-dns-autoregistration.md
-        - name: Private DNS scenarios
-          href: private-dns-scenarios.md
-        - name: DNS resolution in virtual networks
-          href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
-        - name: Private DNS resiliency
-          href: private-dns-resiliency.md
-        - name: FAQ
-          href: dns-faq-private.yml
-    - name: Private Resolver
-      items:
-        - name: Endpoints and rulesets
-          href: private-resolver-endpoints-rulesets.md
-        - name: Private resolver architecture
-          href: private-resolver-architecture.md
-        - name: Resiliency in Azure DNS Private Resolver
-          href: private-resolver-reliability.md
 - name: Deploy
   items:
     - name: Public DNS
@@ -142,14 +108,52 @@
           href: tutorial-dns-private-resolver-failover.md
         - name: Resolve Azure and on-premises domains
           href: private-resolver-hybrid-dns.md
+- name: Design
+  items:
+    - name: Public DNS
+      items:
+        - name: Zones and records
+          href: dns-zones-records.md
+        - name: Alias records
+          href: dns-alias.md
+        - name: Delegation with Azure DNS
+          href: dns-domain-delegation.md
+        - name: Reverse DNS
+          href: dns-reverse-dns-overview.md
+        - name: FAQ
+          href: dns-faq.yml
+    - name: Private DNS
+      items:
+        - name: What is an Azure Private DNS zone?
+          href: private-dns-privatednszone.md
+        - name: Private DNS records
+          href: dns-private-records.md
+        - name: Virtual network links
+          href: private-dns-virtual-network-links.md
+        - name: Autoregistration
+          href: private-dns-autoregistration.md
+        - name: Private DNS scenarios
+          href: private-dns-scenarios.md
+        - name: DNS resolution in virtual networks
+          href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
+        - name: Private DNS resiliency
+          href: private-dns-resiliency.md
+        - name: FAQ
+          href: dns-faq-private.yml
+    - name: Private Resolver
+      items:
+        - name: Endpoints and rulesets
+          href: private-resolver-endpoints-rulesets.md
+        - name: Private resolver architecture
+          href: private-resolver-architecture.md
+        - name: Resiliency in Azure DNS Private Resolver
+          href: private-resolver-reliability.md
 - name: Security
   items:
     - name: Secure DNS
       href: secure-dns.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
-    - name: DNS security policy
-      href: dns-security-policy.md
     - name: DNSSEC overview
       href: dnssec.md
     - name: Protect public DNS zones and records
@@ -162,8 +166,6 @@
   items:
     - name: Monitor and manage DNS traffic
       items:
-        - name: Secure and view DNS traffic
-          href: dns-traffic-log-how-to.md
         - name: Monitor Azure DNS
           href: monitor-dns.md
         - name: Azure DNS Monitoring data reference

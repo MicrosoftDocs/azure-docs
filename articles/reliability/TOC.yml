@@ -376,8 +376,10 @@ items:
         href: reliability-sql-database.md
       - name: Azure SQL Managed Instance
         href: reliability-sql-managed-instance.md#configure-availability-zone-support
-      - name: Azure Virtual Machines and Virtual Machine Scale Sets
-        href: migrate-vm.md
+      - name: Azure Virtual Machine Scale Sets
+        href: reliability-virtual-machine-scale-sets.md#migrate-to-availability-zone-support
+      - name: Azure Virtual Machines
+        href: reliability-virtual-machines.md#configure-availability-zone-support
 - name: Reliability concepts
   items:
   - name: Business continuity, high availability, and disaster recovery

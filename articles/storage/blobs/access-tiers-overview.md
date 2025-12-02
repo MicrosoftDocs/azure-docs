@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 06/13/2025
+ms.date: 12/02/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 # Customer intent: As a cloud storage manager, I want to select the appropriate access tier for my blob data, so that I can optimize storage costs based on the frequency of access and retention requirements.
@@ -192,7 +192,7 @@ Changing the account access tier results in tier change charges for all blobs th
 Keep in mind the following billing impacts when changing a blob's tier:
 
 - When a blob is uploaded or moved between tiers, it's charged at the corresponding rate immediately upon upload or tier change.
-- When a blob is moved to a cooler tier, the operation is billed as a write operation to the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply.
+- When a blob is moved to a cooler tier, the operation is billed as a write operation (per 10,000) to the destination tier. An additional data write (per GB) charge applies when moving blobs to a cooler tier within a legacy Blob Storage account.
 - When a blob is moved to a warmer tier, the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. Early deletion charges for any blob moved out of the cool, cold or archive tier may apply as well.
 - While a blob is being rehydrated from the archive tier, that blob's data is billed as archived data until the data is restored and the blob's tier changes to hot, cool, or cold.
 

@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Dell PowerScale?
     href: overview.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:
@@ -20,3 +22,4 @@ items:
       href: https://www.dell.com/support/home/
     - name: Troubleshoot
       href: /troubleshoot/azure/partner-solutions
+    

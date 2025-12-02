@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 10/22/2025
+ms.date: 12/02/2025
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -320,7 +320,7 @@ The following methods are available through the JSON-RPC interface:
 
     On success, `"success": true` is returned, with contents holding the formatted Bicep source. On failure, `"success": false` with `diagnostics` describing the failure.
 
- * **bicep/version**
+* **bicep/version**
 
   Returns the version of the Bicep CLI.
   

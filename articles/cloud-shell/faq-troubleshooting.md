@@ -1,6 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.date: 11/04/2024
+ms.date: 12/02/2025
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -191,7 +191,6 @@ command that requires elevated permissions.
 
 ### Terminal output - Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled" ...}
 
-
 - **Details**: In rare cases, Azure might flag out-of-the-ordinary resource consumption based in
   from Cloud Shell as fraudulent activity. When this occurs, Azure disables Cloud Shell at the
   tenant level and you see the following error message:
@@ -209,6 +208,14 @@ command that requires elevated permissions.
 
   1. Tenant ID
   2. The business justification and a description of how you use Cloud Shell.
+
+### Terminal Output - Audience `<service-audience-url>` is not a supported MSI token audience
+
+- **Details**: Cloud Shell was unable to fetch the necessary token for the Azure service that the
+  command required. This happens when Cloud Shell doesn't support the token audience requested by
+  the command.
+- **Resolution**: Run the following command in Cloud Shell to sign in interactively and acquire the
+  necessary credentials before retrying your original command: `az login --use-device-code`
 
 ## Managing Cloud Shell
 
