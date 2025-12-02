@@ -30,10 +30,9 @@ This article provides an overview of Azure Migrate assessments. An Azure Migrate
 | **Workloads**  | **Details**  |
 |----------|-------|
 | Servers | Assess your servers hosted on-premises or public clouds to migrate to Azure virtual machines. |
+| Azure VMware Solution (AVS) | Assess your on-premises servers hosted on VMware to Azure VMware Solution (AVS). [Learn more.](/azure/azure-vmware/introduction) |
 | SQL servers and databases | Assess your SQL servers to migrate to Azure SQL Database, Azure SQL Managed Instance, or SQL server on Azure VM. |
 | Webapps | Assess your web apps to migrate to Azure App Service, Azure Spring Apps, or Azure Kubernetes Service. |
- Azure VMware Solution (AVS) | Assess your on-premises servers hosted on VMware to Azure VMware Solution (AVS). Learn more. |
-
 
 ## Prerequisites for assessments
 
@@ -55,7 +54,7 @@ The recommended discovery source is Azure Migrate appliance as it provides an in
 
 After you populate the inventory, you can gather relevant workloads to assess into a group and run an assessment for the group with appropriate assessment type.
 
-## Data collected by appliance collect
+## Data collected by appliance
 
 If you're using the Azure Migrate appliance for assessment, see metadata and performance data collected as an input for the assessment.
 
@@ -63,9 +62,9 @@ If you're using the Azure Migrate appliance for assessment, see metadata and per
 
 Every assessment calculates the following three attributes:
 
-**Identifying Azure readiness**: Assess whether workloads are suitable for migration to Azure.
-**Calculate right-sizing recommendations**: Estimate compute, storage, and network sizing and recommend customers right-sized Azure target services to migrate.
-**Calculate monthly costs**: Calculate the estimated monthly resource cost for running the migrated workloads in Azure after migration.
+1. **Identifying Azure readiness**: Assess whether workloads are suitable for migration to Azure.
+1. **Calculate right-sizing recommendations**: Estimate compute, storage, and network sizing and recommend customers right-sized Azure target services to migrate.
+1. **Calculate monthly costs**: Calculate the estimated monthly resource cost for running the migrated workloads in Azure after migration.
 
 Calculations are in the preceding order. A workload moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.
 
@@ -83,7 +82,7 @@ Apart from configuration and performance data, Azure Migrate assessment also con
 | Azure Hybrid Benefit | Specifies whether you have software assurance and are eligible for Azure Hybrid Benefit to use your existing OS and SQL licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing and SQL license cost isn't considered in SQL target costing. |
 | Security |Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value Yes, with Microsoft Defender for Cloud, it assesses security readiness and costs for your Azure VM with Microsoft Defender for Cloud.|
 
-Review the best practices for creating an assessment with Azure Migrate.
+Review the [best practices for creating an assessment](./best-practices-assessment.md) with Azure Migrate.
 
 ## Next steps
 

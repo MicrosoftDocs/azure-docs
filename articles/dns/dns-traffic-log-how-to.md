@@ -185,13 +185,31 @@ If the traffic rule is edited and set to **Block** contoso.com queries, the quer
 This change results in a failed query:
 
 ```
-C:\>dig db.sec.contoso.com
 
-; <<>> DiG 9.9.2-P1 <<>> db.sec.contoso.com
+C:\>dig @168.63.129.16 db.sec.contoso.com 
+; <<>> DiG 9.18.33-1~deb12u2-Debian <<>> db.sec.contoso.com
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 24053
-;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 26872
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
+ 
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1224
+; COOKIE: 336258f5985121ba (echoed)
+;; QUESTION SECTION:
+; db.sec.contoso.com. IN  A
+ 
+;; ANSWER SECTION:
+db.sec.contoso.com. 1006632960 IN CNAME blockpolicy.azuredns.invalid.
+ 
+;; AUTHORITY SECTION:
+blockpolicy.azuredns.invalid. 60 IN     SOA     ns1.azure-dns.com. support.azure.com. 1000 3600 600 1800 60
+ 
+;; Query time: 0 msec
+;; SERVER: 168.63.129.16#53(168.63.129.16) (UDP)
+;; WHEN: Mon Sep 08 11:06:59 UTC 2025
+;; MSG SIZE  rcvd: 183
+
 ```
 
 The failed query is recorded in log analytics:

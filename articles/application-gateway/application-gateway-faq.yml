@@ -137,7 +137,7 @@ sections:
           Yes. The Application Gateway v1 SKU continues to be supported. We strongly recommend moving to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 SKU deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
           
       - question: Does Application Gateway v2 support proxying requests with NTLM or Kerberos authentication?
-        answer: Yes. Application Gateway v2 now supports proxying requests with NTLM or Kerberos authentication.For more information, see [Dedicated backend connection](configuration-http-settings.md#dedicated-backend-connection).
+        answer: Yes. Application Gateway v2 now supports proxying requests with NTLM or Kerberos authentication. For more information, see [Dedicated backend connection](configuration-http-settings.md#dedicated-backend-connection).
         
       - question: Why are some header values not present when requests are forwarded to my application?
         answer: Request header names can contain alphanumeric characters and hyphens. Request header names that contain other characters are discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27).
@@ -287,9 +287,9 @@ sections:
 
       - question: Does Application Gateway support FIPS?
         answer: |
-          Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
-
-          **Note:** As part of the FedRAMP compliance, US Government mandates that systems operate in a [FIPS-approved mode](/azure/compliance/offerings/offering-fips-140-2) after August 2024. 
+          Application Gateway SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via Portal (for V2), PowerShell, Azure Resource Manager template, or REST API.
+          
+          **Steps to enable FIPS Mode in V2 SKU**: See [Enable FIPS mode for Azure Application Gateway V2 SKU](fips.md).          
           
           **Steps to enable FIPS Mode in V1 SKU**:
           
@@ -430,7 +430,7 @@ sections:
         answer: |
           Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
           
-      - question: How do I configure HTTPS listeners for .com and .net sites? 
+      - question: How do I configure HTTPS listeners for .com and .NET sites? 
         answer: |
           For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](./multiple-site-overview.md).
           

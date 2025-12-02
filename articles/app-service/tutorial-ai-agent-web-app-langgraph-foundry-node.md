@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Convert existing app functionality into a plugin for LangGraph.
 > * Add the plugin to a LangGraph agent and use it in a web app.
-> * Convert existing app functionaltiy into an OpenAPI endpoint for Foundry Agent Service.
+> * Convert existing app functionality into an OpenAPI endpoint for Foundry Agent Service.
 > * Call a Microsoft Foundry agent in a web app.
 - Assign the required permissions for managed identity connectivity.
 

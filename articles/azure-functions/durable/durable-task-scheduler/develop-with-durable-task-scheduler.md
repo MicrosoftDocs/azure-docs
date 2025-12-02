@@ -210,7 +210,12 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 
     :::image type="content" source="media/create-durable-task-scheduler/top-level-create-form.png" alt-text="Screenshot of the create page for the Durable Task Scheduler.":::
 
-1. Fill out the fields in the **Basics** tab. Click **Review + create**. Once the validation passes, click **Create**. 
+1. Fill out the fields in the **Basics** tab. Click **Review + create**. 
+
+   > [!NOTE]
+   > The Consumption SKU is currently in preview. [Learn more about the SKU and orchestration framework combinations recommended for production use.](./choose-orchestration-framework.md#orchestration-framework-options)
+
+1. Once the validation passes, click **Create**. 
 
     Deployment may take around 15 to 20 minutes. 
 

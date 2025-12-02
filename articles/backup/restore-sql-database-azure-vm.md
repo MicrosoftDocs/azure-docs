@@ -2,7 +2,7 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 12/02/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -51,18 +51,22 @@ To restore, you need the following permissions:
 
 Restore as follows:
 
-1. In the Azure portal, go to **Backup center** and click **Restore**.
+1. In the Azure portal, go to **Resiliency** and then select **Recover**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/backup-center-restore-inline.png" alt-text="Screenshot showing the start the restore process." lightbox="./media/backup-azure-sql-database/backup-center-restore-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/start-recover.png" alt-text="Screenshot shows how to start the SQL database recovery." lightbox="./media/backup-azure-sql-database/start-recover.png":::
 
-1. Select **SQL in Azure VM** as the datasource type, select a database to restore, and click **Continue**.
+1. On the **Recover** pane, select **Datasource type** as **SQL in Azure VM**, and then under **Protected item**, click **Select**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-restore.png" alt-text="Screenshot showing to select the datasource type.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-restore.png" alt-text="Screenshot shows how to select the datasource type for recovery." lightbox="./media/backup-azure-sql-database/sql-restore.png":::
 
-1. In **Restore Configuration**, specify where (or how) to restore the data:
+1. On the **Select Protected item** pane, select a protected SQL database from the list, and then click **Select**.
+
+1. On the **Recover** pane, select **Continue**.
+
+1. On the **Restore** pane, under **Where and how to restore**, select any of the following locations to restore the database:
    
    - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
-   - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
+   - **Original location**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
 
         > [!IMPORTANT]
         > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
@@ -71,24 +75,26 @@ Restore as follows:
 
 ### Restore to an alternate location
 
-1. In the **Restore Configuration** menu, under **Where to Restore**, select **Alternate Location**.
+1. On the **Restore** pane, under **Where to Restore**, select **Alternate Location**.
 1. Select the SQL Server name and instance to which you want to restore the database.
-1. In the **Restored DB Name** box, enter the name of the target database.
+1. Under **Restored DB Name**, enter the name of the target database.
 1. If applicable, select **Overwrite if the DB with the same name already exists on selected SQL instance**.
-1. Select **Restore Point**, and select whether to [restore to a specific point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point).
+1. Under **Restore Point**, click **Select**.
+1. On the **Select restore point** pane, select whether to [restore to point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point), and then select **OK**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="Screenshot showing to select Restore Point.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="Screenshot shows how to select Restore Point." lightbox="./media/backup-azure-sql-database/sql-alternate-location-recovery.png":::
 
-   :::image type="content" source="./media/backup-azure-sql-database/restore-points-sql-inline.png" alt-text="Screenshot showing restore to point in time." lightbox="./media/backup-azure-sql-database/restore-points-sql-expanded.png":::
+    
+1. On the **Restore** pane, under **Advanced Configuration**, select **Configure**.
 
-1. On the **Advanced Configuration** menu:
+1. On the **Advanced Configuration** pane, do the required configuration, and then select **OK**
 
     - If you want to keep the database nonoperational after the restore, enable **Restore with NORECOVERY**.
     - If you want to change the restore location on the destination server, enter new target paths.
 
-        ![Enter target paths](./media/backup-azure-sql-database/target-paths.png)
+        :::image type="content" source="./media/backup-azure-sql-database/target-paths.png" alt-text="Screenshot shows how to enter target paths." lightbox="./media/backup-azure-sql-database/target-paths.png":::
 
-1. Select **OK** to trigger the restore. Track the restore progress in the **Notifications** area, or track it under the **Backup Jobs** view in the vault.
+1. On the **Restore** pane, select **OK** to trigger the restore. Track the restore progress in the **Notifications** area, or track it under the **Backup Jobs** view in the vault.
 
     > [!NOTE]
     > The point-in-time restore is available only for log backups for databases that are in full and bulk-logged recovery mode.
@@ -259,7 +265,7 @@ The secondary region restore user experience will be similar to the primary regi
 ![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 >[!NOTE]
->- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
+>- After the restore is triggered and in the data transfer phase, the restore job can't be canceled.
 >- The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _Backup reader_ is the minimum permission required in the subscription.
 >- The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
@@ -267,10 +273,12 @@ Learn about the [minimum role requirements for cross-region restore](backup-rbac
 
 ### Monitoring secondary region restore jobs
 
-1. In the Azure portal, go to **Backup center** > **Backup Jobs**.
-1. Filter operation for **CrossRegionRestore** to view the jobs in the secondary region.
+To view the secondary region restore jobs, follow these steps:
 
-   :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs-inline.png" alt-text="Screenshot showing the filtered Backup jobs." lightbox="./media/backup-azure-sql-database/backup-center-jobs-expanded.png":::
+1. In the Azure portal, go to **Resiliency** > **Monitoring + Reporting** > **Jobs**.
+1. On the **Jobs** pane, select **Datasource type** as **SQL in Azure VM**.
+
+   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-jobs.png" alt-text="Screenshot shows the filtered Backup jobs." lightbox="./media/backup-azure-sql-database/sql-backup-jobs.png":::
 
 
 

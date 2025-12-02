@@ -1,7 +1,7 @@
 ---
 title: Azure subscription and service limits, quotas, and constraints
 description: Understand common Azure subscription and service limits, quotas, and constraints. This article includes information about how to increase limits along with maximum values.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/23/2025
 ms.custom: ignite-2024
 #customer intent: As a subscription owner or cloud operator, I want an authoritative list of subscription and service limits and guidance for requesting increases so that I can plan capacity and avoid service interruptions.
@@ -142,20 +142,6 @@ See [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capac
 ## Azure Chaos Studio limits
 
 See [Azure Chaos Studio service limits](/azure/chaos-studio/chaos-studio-service-limits) for Azure Chaos Studio limits.
-
-## Azure Communications Gateway limits
-
-Some of the following default limits and quotas can be increased. To request a change, create an [Azure portal support request](../../communications-gateway/request-changes.md), and describe the limit that you need to change.
-
-[!INCLUDE [communications-gateway-general-restrictions](../../communications-gateway/includes/communications-gateway-general-restrictions.md)]
-
-Azure Communications Gateway also has limits on SIP signaling.
-
-[!INCLUDE [communications-gateway-sip-size-restrictions](../../communications-gateway/includes/communications-gateway-sip-size-restrictions.md)]
-
-[!INCLUDE [communications-gateway-sip-behavior-restrictions](../../communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
-
-[!INCLUDE [limits on the Provisioning API](../../communications-gateway/includes/communications-gateway-provisioning-api-restrictions.md)]
 
 ## Azure Container Apps limits
 
