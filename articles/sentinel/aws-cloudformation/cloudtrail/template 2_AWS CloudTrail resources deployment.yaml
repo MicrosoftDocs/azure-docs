@@ -1,0 +1,184 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Microsoft Sentinel integration for AWS CloudTrail logs.
+  Creates an OIDC IAM role, S3 bucket (optional), SQS queue and attaches S3/SQS
+  policies so Sentinel can read CloudTrail logs from S3 through SQS.
+
+Parameters:
+  AwsRoleName:
+    Type: String
+    AllowedPattern: OIDC_[-_a-zA-Z0-9]+
+    Default: OIDC_MicrosoftSentinelS3CloudTrailRole
+    Description: Name of the OIDC role for Microsoft Sentinel.
+
+  SentinelWorkspaceId:
+    Type: String
+    Description: Microsoft Sentinel Workspace ID (used in RoleSessionName condition).
+
+  LogBucketName:
+    Type: String
+    Description: >
+      Name of the S3 bucket where CloudTrail will write logs and from which
+      Microsoft Sentinel will read.
+
+  SentinelSQSQueueName:
+    Type: String
+    Description: >
+      Name of the SQS queue that will receive S3 event notifications for
+      CloudTrail log objects.
+
+  CloudTrailTrailName:
+    Type: String
+    Default: "management-events"
+    Description: >
+      Name of the existing CloudTrail trail that delivers logs to the S3 bucket.
+
+  LogFileSuffix:
+    Type: String
+    Default: ".gz"
+    Description: >
+      S3 object key suffix for CloudTrail log files used in the notification
+      filter (for example ".gz").
+
+  CreateNewBucket:
+    Type: String
+    AllowedValues: ["true", "false"]
+    Default: "true"
+    Description: >
+      Set to "true" to let this stack create and configure the S3 bucket.
+      Set to "false" if the bucket already exists and you will configure
+      bucket policy and event notifications manually.
+
+Conditions:
+  CreateNewBucketCondition: !Equals [ !Ref CreateNewBucket, "true" ]
+
+Resources:
+
+  # IAM role assumed by Microsoft Sentinel via OIDC, with AWSCloudTrail_ReadOnlyAccess attached
+  SentinelWebIdentityBasedRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref AwsRoleName
+      AssumeRolePolicyDocument: !Sub >
+        {"Version":"2012-10-17","Statement":[{"Effect":"Allow",
+        "Principal":{"Federated":"arn:aws:iam::${AWS::AccountId}:oidc-provider/sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/"},
+        "Action":"sts:AssumeRoleWithWebIdentity",
+        "Condition":{"StringEquals":{
+        "sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/:aud":"api://1462b192-27f7-4cb9-8523-0f4ecb54b47e",
+        "sts:RoleSessionName":"MicrosoftSentinel_${SentinelWorkspaceId}"}}}]}
+      ManagedPolicyArns:
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/AWSCloudTrail_ReadOnlyAccess
+
+  # SQS queue that will receive notifications for new CloudTrail log objects
+  SentinelSQSQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Ref SentinelSQSQueueName
+
+  # SQS queue policy allowing S3 to send messages and Sentinel role to read them
+  SentinelSQSQueuePolicy:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues:
+        - !Ref SentinelSQSQueue
+      PolicyDocument:
+        Version: "2012-10-17"
+        Id: "SentinelSQSPolicy"
+        Statement:
+          - Sid: "AllowS3ToSendMessages"
+            Effect: Allow
+            Principal: "*"
+            Action: "SQS:SendMessage"
+            Resource: !GetAtt SentinelSQSQueue.Arn
+            Condition:
+              ArnLike:
+                aws:SourceArn: !Sub "arn:${AWS::Partition}:s3:::${LogBucketName}"
+
+          - Sid: "AllowSentinelRoleToAccessQueue"
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelWebIdentityBasedRole.Arn
+            Action:
+              - "SQS:ReceiveMessage"
+              - "SQS:DeleteMessage"
+              - "SQS:GetQueueAttributes"
+              - "SQS:GetQueueUrl"
+              - "SQS:ChangeMessageVisibility"
+            Resource: !GetAtt SentinelSQSQueue.Arn
+
+  # S3 bucket to store CloudTrail logs (created only when CreateNewBucketCondition is true)
+  CloudTrailLogBucket:
+    Type: AWS::S3::Bucket
+    Condition: CreateNewBucketCondition
+    DependsOn:
+      - SentinelSQSQueuePolicy
+    Properties:
+      BucketName: !Ref LogBucketName
+      NotificationConfiguration:
+        QueueConfigurations:
+          - Event: s3:ObjectCreated:*
+            Queue: !GetAtt SentinelSQSQueue.Arn
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: suffix
+                    Value: !Ref LogFileSuffix
+
+  # S3 bucket policy for CloudTrail delivery and Sentinel read access
+  # (only created when the bucket is created by this stack)
+  CloudTrailAndSentinelBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Condition: CreateNewBucketCondition
+    Properties:
+      Bucket: !Ref CloudTrailLogBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: "AWSCloudTrailAclCheck20150319-871196ad-f7d8-4b62-b73b-37787bb24763"
+            Effect: Allow
+            Principal:
+              Service: cloudtrail.amazonaws.com
+            Action: "s3:GetBucketAcl"
+            Resource: !Sub "arn:${AWS::Partition}:s3:::${LogBucketName}"
+            Condition:
+              StringEquals:
+                "AWS:SourceArn": !Sub "arn:${AWS::Partition}:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${CloudTrailTrailName}"
+
+          - Sid: "AWSCloudTrailWrite20150319-a5ca8e2f-ecf6-4ef1-8c54-d3caa01f7654"
+            Effect: Allow
+            Principal:
+              Service: cloudtrail.amazonaws.com
+            Action: "s3:PutObject"
+            Resource: !Sub "arn:${AWS::Partition}:s3:::${LogBucketName}/AWSLogs/${AWS::AccountId}/*"
+            Condition:
+              StringEquals:
+                "s3:x-amz-acl": "bucket-owner-full-control"
+                "AWS:SourceArn": !Sub "arn:${AWS::Partition}:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${CloudTrailTrailName}"
+
+          - Sid: "AllowSentinelRead"
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelWebIdentityBasedRole.Arn
+            Action:
+              - "s3:GetObject"
+              - "s3:ListBucket"
+            Resource:
+              - !Sub "arn:${AWS::Partition}:s3:::${LogBucketName}"
+              - !Sub "arn:${AWS::Partition}:s3:::${LogBucketName}/*"
+
+Outputs:
+  SentinelRoleArn:
+    Description: ARN of the IAM role that Microsoft Sentinel should use.
+    Value: !GetAtt SentinelWebIdentityBasedRole.Arn
+
+  LogBucketNameOutput:
+    Description: Name of the S3 bucket used for CloudTrail logs.
+    Value: !Ref LogBucketName
+
+  SentinelSQSQueueURL:
+    Description: URL of the SQS queue to configure in the Microsoft Sentinel CloudTrail connector.
+    Value: !Ref SentinelSQSQueue
+
+  SentinelSQSQueueArn:
+    Description: ARN of the SQS queue (for verification / troubleshooting).
+    Value: !GetAtt SentinelSQSQueue.Arn
