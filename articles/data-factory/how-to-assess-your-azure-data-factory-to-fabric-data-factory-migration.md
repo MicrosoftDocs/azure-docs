@@ -51,7 +51,7 @@ When your assessment shows acceptable readiness:
 1. Use [PowerShell upgrade tool](/fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric) for early migration.
 1. Refer to planning guides for best practices.
 
-[!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=2333b246-4581-44d0-b080-cb1dcb9f6e60]
+> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=2333b246-4581-44d0-b080-cb1dcb9f6e60]
 
 ## FAQ
 **Does the assessment change my factory?**
