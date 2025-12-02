@@ -1,0 +1,290 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  Step 2 - Microsoft Sentinel CloudWatch integration:
+  Lambda exporter (CloudWatch -> S3) and EventBridge schedule.
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Description: Short environment name used in resource names (e.g. Omicron).
+
+  CloudWatchBucketName:
+    Type: String
+    Description: Name of the S3 bucket where CloudWatch export .gz files for Sentinel are stored.
+
+  LambdaRoleName:
+    Type: String
+    Description: Name of the IAM role used by the CloudWatch exporter Lambda.
+
+  ExporterLambdaName:
+    Type: String
+    Description: Name of the CloudWatch export Lambda function.
+
+  LambdaWindowMinutes:
+    Type: Number
+    Default: 15
+    Description: How many minutes of logs to export each run (rolling window).
+
+  LambdaScheduleMinutes:
+    Type: Number
+    Default: 15
+    Description: How often (in minutes) to run the exporter Lambda.
+
+Resources:
+
+  #######################################
+  # Lambda execution role
+  #######################################
+
+  CloudWatchExporterLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref LambdaRoleName
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Policies:
+        - PolicyName: CloudWatchExporterPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: CloudWatchRead
+                Effect: Allow
+                Action:
+                  - "logs:DescribeLogGroups"
+                  - "logs:DescribeLogStreams"
+                  - "logs:GetLogEvents"
+                  - "logs:FilterLogEvents"
+                Resource: "*"
+              - Sid: WriteToSentinelBucket
+                Effect: Allow
+                Action:
+                  - "s3:PutObject"
+                  - "s3:AbortMultipartUpload"
+                Resource: !Sub "arn:${AWS::Partition}:s3:::${CloudWatchBucketName}/AWSLogs/${AWS::AccountId}/CloudWatch/*"
+              - Sid: BasicLambdaLogging
+                Effect: Allow
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                Resource: "*"
+
+  #######################################
+  # Lambda function (CloudWatch exporter)
+  #######################################
+
+  CloudWatchExporterLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Ref ExporterLambdaName
+      Runtime: python3.12
+      Handler: index.lambda_handler
+      Role: !GetAtt CloudWatchExporterLambdaRole.Arn
+      Timeout: 120
+      MemorySize: 256
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref CloudWatchBucketName
+          BUCKET_PREFIX: !Sub "AWSLogs/${AWS::AccountId}/CloudWatch/"
+          WINDOW_MINUTES: !Ref LambdaWindowMinutes
+      Code:
+        ZipFile: |
+          import boto3
+          import json
+          import os
+          from datetime import datetime, timedelta
+          import gzip
+          import io
+          import uuid
+
+          # AWS clients
+          logs_client = boto3.client("logs")
+          s3_client = boto3.client("s3")
+
+          # Environment variables (configure these in the Lambda console)
+          BUCKET_NAME = os.environ["BUCKET_NAME"]        # e.g. azure-sentinel-cloudwatch-omicron-8134
+          BUCKET_PREFIX = os.environ["BUCKET_PREFIX"]    # e.g. AWSLogs/718905963082/CloudWatch/
+          WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "15"))  # default: last 15 minutes
+
+
+          def _ms_to_iso8601(ms: int | None) -> str | None:
+              """
+              Convert milliseconds since epoch to ISO8601 Zulu string, or None if ms is None.
+              Example: 2025-11-27T10:15:30.123Z
+              """
+              if ms is None:
+                  return None
+              dt = datetime.utcfromtimestamp(ms / 1000.0)
+              return dt.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+
+
+          def lambda_handler(event, context):
+              # Rolling time window: last WINDOW_MINUTES minutes in UTC
+              end_dt = datetime.utcnow()
+              start_dt = end_dt - timedelta(minutes=WINDOW_MINUTES)
+
+              start_ms = int(start_dt.timestamp() * 1000)
+              end_ms = int(end_dt.timestamp() * 1000)
+
+              print(
+                  f"Exporting CloudWatch logs from {start_dt} to {end_dt} UTC "
+                  f"({start_ms}?{end_ms} ms)"
+              )
+
+              exported_objects = 0
+
+              try:
+                  # List all log groups
+                  lg_paginator = logs_client.get_paginator("describe_log_groups")
+
+                  for lg_page in lg_paginator.paginate():
+                      for lg in lg_page.get("logGroups", []):
+                          log_group = lg["logGroupName"]
+                          print(f"Processing log group: {log_group}")
+
+                          # List log streams in this group
+                          ls_paginator = logs_client.get_paginator("describe_log_streams")
+
+                          for ls_page in ls_paginator.paginate(
+                              logGroupName=log_group,
+                              orderBy="LastEventTime",
+                              descending=True,
+                          ):
+                              for ls in ls_page.get("logStreams", []):
+                                  log_stream = ls["logStreamName"]
+
+                                  # Pull all events for this stream in the time window
+                                  next_token = None
+                                  all_events = []
+
+                                  while True:
+                                      kwargs = {
+                                          "logGroupName": log_group,
+                                          "logStreamName": log_stream,
+                                          "startTime": start_ms,
+                                          "endTime": end_ms,
+                                          "startFromHead": True,
+                                      }
+                                      if next_token:
+                                          kwargs["nextToken"] = next_token
+
+                                      resp = logs_client.get_log_events(**kwargs)
+                                      events = resp.get("events", [])
+                                      all_events.extend(events)
+
+                                      new_token = resp.get("nextForwardToken")
+                                      if not new_token or new_token == next_token:
+                                          break
+                                      next_token = new_token
+
+                                  if not all_events:
+                                      # No events in this stream for the window
+                                      continue
+
+                                  # Build gzipped NDJSON payload (one JSON object per line)
+                                  buf = io.BytesIO()
+                                  with gzip.GzipFile(fileobj=buf, mode="w") as gz:
+                                      for e in all_events:
+                                          ts_ms = e.get("timestamp")
+                                          ing_ms = e.get("ingestionTime")
+
+                                          record = {
+                                              "timestamp": _ms_to_iso8601(ts_ms),
+                                              "ingestionTime": _ms_to_iso8601(ing_ms),
+                                              "message": e.get("message"),
+                                              "logGroup": log_group,
+                                              "logStream": log_stream,
+                                          }
+                                          gz.write((json.dumps(record) + "\n").encode("utf-8"))
+
+                                  # Derive a safe filename from the log stream
+                                  file_name = log_stream
+                                  closing_bracket_index = file_name.find("]")
+                                  if closing_bracket_index != -1:
+                                      output_name = file_name[closing_bracket_index + 1 :]
+                                  else:
+                                      output_name = str(uuid.uuid4()).replace("-", "")
+
+                                  # Clean log group name for folder use
+                                  safe_group = log_group.strip("/").replace("/", "_")
+
+                                  # Final S3 key
+                                  key = (
+                                      f"{BUCKET_PREFIX}"
+                                      f"{safe_group}/"
+                                      f"{output_name}_{start_ms}_{end_ms}.json.gz"
+                                  )
+
+                                  print(
+                                      f"Uploading {len(all_events)} events to "
+                                      f"s3://{BUCKET_NAME}/{key}"
+                                  )
+
+                                  s3_client.put_object(
+                                      Bucket=BUCKET_NAME,
+                                      Key=key,
+                                      Body=buf.getvalue(),
+                                      ContentType="application/json",
+                                      ContentEncoding="gzip",
+                                  )
+
+                                  exported_objects += 1
+
+              except Exception as e:
+                  print(f"ERROR exporting logs: {e}")
+                  raise
+
+              print(f"Exported {exported_objects} S3 objects")
+              return {
+                  "statusCode": 200,
+                  "body": json.dumps({"exported_objects": exported_objects})
+              }
+
+  #######################################
+  # EventBridge role + schedule
+  #######################################
+
+  EventInvokeLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${EnvironmentName}-CloudWatchExporterEventsRole"
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "events.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Policies:
+        - PolicyName: AllowEventsToInvokeLambda
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: "lambda:InvokeFunction"
+                Resource: !GetAtt CloudWatchExporterLambda.Arn
+
+  CloudWatchExporterSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: !Sub "${EnvironmentName}-CloudWatchExporter-Rate"
+      ScheduleExpression: !Sub "rate(${LambdaScheduleMinutes} minutes)"
+      State: ENABLED
+      Targets:
+        - Id: CloudWatchExporterLambdaTarget
+          Arn: !GetAtt CloudWatchExporterLambda.Arn
+          RoleArn: !GetAtt EventInvokeLambdaRole.Arn
+
+Outputs:
+  ExporterLambdaArn:
+    Description: ARN of the CloudWatch exporter Lambda
+    Value: !GetAtt CloudWatchExporterLambda.Arn
+
+  LambdaRoleArn:
+    Description: ARN of the Lambda execution role
+    Value: !GetAtt CloudWatchExporterLambdaRole.Arn
