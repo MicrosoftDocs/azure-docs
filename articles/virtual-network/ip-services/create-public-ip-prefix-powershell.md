@@ -126,7 +126,7 @@ $ipv4 =@{
 New-AzPublicIpPrefix @ipv4
 ```
 
-The removal of the `-Zone` parameter in the command is valid in all regions, but will lead to the creation of a zone-redundant IP prefix in regions with availabily zones. The removal of the `-Zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+The removal of the `-Zone` parameter in the command is valid in all regions, but will lead to the creation of a zone-redundant IP prefix in regions with availability zones. The removal of the `-Zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 # [**Routing Preference Internet Standard IPv4 prefix**](#tab/ipv4-routing-pref)
 

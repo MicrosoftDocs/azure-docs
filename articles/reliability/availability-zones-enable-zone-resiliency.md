@@ -4,7 +4,7 @@ description: Learn how to enable zone resilience for Azure workloads. Understand
 author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/29/2025
 ms.author: anaharris
 ms.custom: subject-reliability
@@ -150,6 +150,7 @@ The following table summarizes the availability zone support for many Azure serv
 | [Azure Data Lake Storage](reliability-storage-blob.md#resilience-to-availability-zone-failures) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement | Moderate cost increase |
 | [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment | Requires primary and high availability (HA) instance |
 | [Azure Database for PostgreSQL - Flexible Server](./reliability-postgresql-flexible-server.md#availability-zone-redeployment-and-migration) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement | Requires primary and HA instance |
+| [Azure Databricks](./reliability-databricks.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement | No cost impact for same number of VMs; moderate cost increase for storage |
 | [Azure Disk Storage (managed disks)](migrate-vm.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Enablement | Moderate cost increase |
 | [Azure Elastic SAN](reliability-elastic-san.md#availability-zone-migration) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment | Moderate cost increase |
 | [Azure Event Hubs: Dedicated tier](./reliability-event-hubs.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone resilient | Minimum capacity units (CUs) required |

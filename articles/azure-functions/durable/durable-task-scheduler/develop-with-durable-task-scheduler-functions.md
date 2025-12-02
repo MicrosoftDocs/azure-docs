@@ -19,7 +19,7 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
 ## Create a scheduler and task hub
 You can create a scheduler and a task hub as part of the Function app creation on Azure portal. This creation approach automatically configures identity-based authentication for the app to access the task hub. 
 
-While you can use any of the Functions hosting options, this guide uses the **App Service** plan.
+While you can use any of the Functions hosting options, this example uses the **Flex Consumption** hosting option.
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
 

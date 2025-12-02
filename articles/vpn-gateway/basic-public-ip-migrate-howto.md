@@ -149,7 +149,7 @@ Point-to-Site VPN Gateways that were originally deployed using legacy cloudapp.N
 
 VPN Gateways with legacy cloudapp.NET DNS configurations cannot be migrated using the current migration tools. These gateways require a specialized migration approach that is currently under development. 
 
-A guided migration experience for legacy DNS gateways is planned for release, with the timeline to be announced by the end of September 2025. Until this specialized migration becomes available, these gateways will continue to function normally but cannot be upgraded to Standard SKU public IP addresses.
+A guided migration experience for legacy DNS gateways is planned for release, with the timeline to be announced by the end of January 2026. Until this specialized migration becomes available, these gateways will continue to function normally but cannot be upgraded to Standard SKU public IP addresses.
 
 ### Important considerations
 

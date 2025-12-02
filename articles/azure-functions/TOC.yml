@@ -136,8 +136,6 @@
       href: functions-identity-based-connections-tutorial-2.md
     - name: Access Azure SQL with managed identity
       href: functions-identity-access-azure-sql-with-managed-identity.md
-    - name: Access MCP server with agent identity
-      href: ../app-service/overview-agent-identity.md?toc=/azure/azure-functions/toc.json
   - name: Low-latency Blob trigger using Event Grid
     displayName: storage, ngrok, local
     href: functions-event-grid-blob-trigger.md
@@ -558,6 +556,8 @@
       href: ../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json
     - name: Use a managed identity
       href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
+    - name: Use an agent identity
+      href: ../app-service/overview-agent-identity.md?toc=/azure/azure-functions/toc.json
     - name: Reference secrets from Key Vault
       href: ../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json
     - name: Encrypt site data

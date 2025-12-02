@@ -210,9 +210,9 @@ You can view the complete project template in the [Azure Functions .NET MCP SDK 
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 The MCP server code is defined in the `weather.py` file. The server uses the official Python MCP SDK to define weather-related tools:
-
+<!--
 :::code language="python" source="~/functions-host-mcp-sdk-python/weather.py" :::
-
+-->
 You can view the complete project template in the [Azure Functions Python MCP SDK hosting](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python) GitHub repository.
 ::: zone-end   
 ::: zone pivot="programming-language-typescript"

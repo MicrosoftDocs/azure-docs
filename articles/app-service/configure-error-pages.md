@@ -19,7 +19,7 @@ In this tutorial, we're adding a custom 403 error page to our web app hosted on 
 - an html file under 10 kb in size
 
 ## Upload an error page
-For this example, we're uploading and testing a 403 error page to present to the user. Name your html file to match the error code (for example, `403.html`). Once you have your html file prepared, you can upload it to your web app. In the configuration blade, you should see an **Error pages (preview)** tab. Click on this tab to view the error page options. If the options are greyed out, you need to upgrade to at least a Premium SKU to use this feature.
+For this example, we're uploading and testing a 403 error page to present to the user. Name your html file to match the error code (for example, `403.html`). Once you have your html file prepared, you can upload it to your web app. In the configuration blade, you should see an **Error pages** tab. Click on this tab to view the error page options. If the options are greyed out, you need to upgrade to at least a Premium SKU to use this feature.
 
 Select the error code that you'd like to upload an error page for and click **Edit**. On the next screen, click the folder icon to select your html file. The file must be in html format and within the 10 kb size limit. Find your .html file and click on the **Upload** button at the bottom of the screen. Notice the Status in the table updates from Not Configured to Configured. Then click **Save** to complete the upload. 
 

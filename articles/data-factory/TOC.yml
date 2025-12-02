@@ -310,6 +310,10 @@ items:
     href: /azure/reliability/reliability-data-factory?toc=/azure/data-factory/toc.json
 - name: How-to guides
   items:
+  - name: Migration
+    items:
+    - name: Pipeline assessment tool
+      href: how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md
   - name: Create a data factory in UI
     href: quickstart-create-data-factory.md
   - name: Create Data Factory Programmatically
