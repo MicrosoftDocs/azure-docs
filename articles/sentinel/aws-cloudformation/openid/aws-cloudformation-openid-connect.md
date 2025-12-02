@@ -18,7 +18,7 @@ ms.date: 12/01/2025
 ![CloudFormation service](images/openid-step-1.png)
 
 3. Select **Create stack** → **With new resources (standard)**.
-![](images/openid-step-2.png)
+![Create stack](images/openid-step-2.png)
 
 ---
 
