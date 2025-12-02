@@ -9,9 +9,7 @@ ms.collection: microsoft-sentinel
 ms.date: 12/01/2025
 ---
 
-# Automate AWS log collection for Microsoft Sentinel with AWS CloudFormation
-
-# AWS S3 – Microsoft Sentinel Security Stacks
+# Automate AWS log collection for Microsoft Sentinel  Amazon Web Services S3 connector with AWS CloudFormation
 
 ## Overview
 
