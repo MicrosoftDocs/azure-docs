@@ -1,0 +1,243 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: |
+  Microsoft Sentinel integration for AWS GuardDuty findings. Creates an OIDC IAM role, KMS key + alias, S3 bucket, SQS queue and attaches S3/SQS policies so Sentinel can read GuardDuty findings from S3 through SQS.
+
+Parameters:
+  AwsRoleName:
+    Type: String
+    AllowedPattern: OIDC_[-_a-zA-Z0-9]+
+    Default: OIDC_MicrosoftSentinelS3GuardDutyRole
+    Description: Name of the OIDC role for Microsoft Sentinel.
+
+  SentinelWorkspaceId:
+    Type: String
+    Description: Microsoft Sentinel Workspace ID (used in RoleSessionName condition).
+
+  GuardDutyBucketName:
+    Type: String
+    Description: |
+      Name of the S3 bucket where GuardDuty will write findings and from which Microsoft Sentinel will read.
+
+  SentinelSQSQueueName:
+    Type: String
+    Description: |
+      Name of the SQS queue that will receive S3 event notifications for GuardDuty finding objects.
+
+  LogFileSuffix:
+    Type: String
+    Default: .gz
+    Description: |
+      S3 object key suffix for GuardDuty exported findings used in the notification filter (for example ".gz" or ".json.gz").
+
+  GuardDutyKmsAliasName:
+    Type: String
+    Default: guardduty
+    Description: |
+      Alias name (without the 'alias/' prefix) for the new KMS key that will encrypt GuardDuty findings, for example "guardduty".
+
+  CreateNewBucket:
+    Type: String
+    AllowedValues:
+      - 'true'
+      - 'false'
+    Default: 'true'
+    Description: |
+      Set to "true" to let this stack create and configure the S3 bucket. Set to "false" if the bucket already exists and you will configure bucket policy, encryption and event notifications manually.
+
+Conditions:
+  CreateNewBucketCondition: !Equals
+    - !Ref CreateNewBucket
+    - 'true'
+
+Resources:
+
+  # IAM role assumed by Microsoft Sentinel via OIDC,
+  # with AmazonGuardDutyReadOnlyAccess attached
+  SentinelWebIdentityBasedRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref AwsRoleName
+      AssumeRolePolicyDocument: !Sub |
+        {"Version":"2012-10-17","Statement":[{"Effect":"Allow", "Principal":{"Federated":"arn:aws:iam::${AWS::AccountId}:oidc-provider/sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/"}, "Action":"sts:AssumeRoleWithWebIdentity", "Condition":{"StringEquals":{ "sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/:aud":"api://1462b192-27f7-4cb9-8523-0f4ecb54b47e", "sts:RoleSessionName":"MicrosoftSentinel_${SentinelWorkspaceId}"}}}]}
+      ManagedPolicyArns:
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/AmazonGuardDutyReadOnlyAccess
+
+  # KMS key used to encrypt GuardDuty findings in S3
+  GuardDutyKmsKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: KMS key for encrypting GuardDuty findings exported to S3 for
+        Microsoft Sentinel.
+      Enabled: true
+      KeyUsage: ENCRYPT_DECRYPT
+      KeySpec: SYMMETRIC_DEFAULT
+      MultiRegion: false
+      KeyPolicy:
+        Version: '2012-10-17'
+        Id: key-default-1
+        Statement:
+          # Root account full permissions
+          - Sid: Enable IAM User Permissions
+            Effect: Allow
+            Principal:
+              AWS: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:root
+            Action: kms:*
+            Resource: '*'
+          # GuardDuty Encrypt / GenerateDataKey / DescribeKey
+          - Sid: AllowGuardDutyEncryptAndGenerateDataKey
+            Effect: Allow
+            Principal:
+              Service: guardduty.amazonaws.com
+            Action:
+              - kms:Encrypt
+              - kms:GenerateDataKey*
+              - kms:DescribeKey
+            Resource: '*'
+          # Sentinel role Decrypt / DescribeKey
+          - Sid: AllowSentinelGuardDutyRoleDecrypt
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelWebIdentityBasedRole.Arn
+            Action:
+              - kms:Decrypt
+              - kms:DescribeKey
+            Resource: '*'
+
+  # Alias for the GuardDuty KMS key
+  GuardDutyKmsAlias:
+    Type: AWS::KMS::Alias
+    Properties:
+      AliasName: !Sub alias/${GuardDutyKmsAliasName}
+      TargetKeyId: !Ref GuardDutyKmsKey
+
+  # SQS queue that will receive notifications for new GuardDuty S3 objects
+  SentinelSQSQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Ref SentinelSQSQueueName
+
+  # SQS queue policy allowing S3 to send messages and Sentinel role to read them
+  SentinelSQSQueuePolicy:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues:
+        - !Ref SentinelSQSQueue
+      PolicyDocument:
+        Version: '2012-10-17'
+        Id: SentinelSQSPolicy
+        Statement:
+          - Sid: AllowS3ToSendMessages
+            Effect: Allow
+            Principal: '*'
+            Action: SQS:SendMessage
+            Resource: !GetAtt SentinelSQSQueue.Arn
+            Condition:
+              ArnLike:
+                aws:SourceArn: !Sub arn:${AWS::Partition}:s3:::${GuardDutyBucketName}
+
+          - Sid: AllowSentinelRoleToAccessQueue
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelWebIdentityBasedRole.Arn
+            Action:
+              - SQS:ReceiveMessage
+              - SQS:DeleteMessage
+              - SQS:GetQueueAttributes
+              - SQS:GetQueueUrl
+              - SQS:ChangeMessageVisibility
+            Resource: !GetAtt SentinelSQSQueue.Arn
+
+  # S3 bucket to store GuardDuty findings (created only when CreateNewBucketCondition is true)
+  GuardDutyBucket:
+    Type: AWS::S3::Bucket
+    Condition: CreateNewBucketCondition
+    DependsOn:
+      - SentinelSQSQueuePolicy
+      - GuardDutyKmsKey
+    Properties:
+      BucketName: !Ref GuardDutyBucketName
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+              KMSMasterKeyID: !Ref GuardDutyKmsKey
+      NotificationConfiguration:
+        QueueConfigurations:
+          - Event: s3:ObjectCreated:*
+            Queue: !GetAtt SentinelSQSQueue.Arn
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: suffix
+                    Value: !Ref LogFileSuffix
+
+  # S3 bucket policy for GuardDuty delivery and Sentinel read access
+  # (only created when the bucket is created by this stack)
+  GuardDutyBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Condition: CreateNewBucketCondition
+    Properties:
+      Bucket: !Ref GuardDutyBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowGuardDutyBucketLocation
+            Effect: Allow
+            Principal:
+              Service: guardduty.amazonaws.com
+            Action: s3:GetBucketLocation
+            Resource: !Sub arn:${AWS::Partition}:s3:::${GuardDutyBucketName}
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+
+          - Sid: AllowGuardDutyWrite
+            Effect: Allow
+            Principal:
+              Service: guardduty.amazonaws.com
+            Action: s3:PutObject
+            Resource: !Sub arn:${AWS::Partition}:s3:::${GuardDutyBucketName}/*
+            Condition:
+              StringEquals:
+                s3:x-amz-acl: bucket-owner-full-control
+                aws:SourceAccount: !Ref AWS::AccountId
+
+          - Sid: AllowSentinelListGuardDuty
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelWebIdentityBasedRole.Arn
+            Action: s3:ListBucket
+            Resource: !Sub arn:${AWS::Partition}:s3:::${GuardDutyBucketName}
+
+          - Sid: AllowSentinelReadGuardDuty
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt SentinelWebIdentityBasedRole.Arn
+            Action: s3:GetObject
+            Resource: !Sub arn:${AWS::Partition}:s3:::${GuardDutyBucketName}/*
+
+Outputs:
+  SentinelRoleArn:
+    Description: ARN of the IAM role that Microsoft Sentinel should use.
+    Value: !GetAtt SentinelWebIdentityBasedRole.Arn
+
+  GuardDutyBucketNameOutput:
+    Description: Name of the S3 bucket used for GuardDuty findings.
+    Value: !Ref GuardDutyBucketName
+
+  GuardDutyKmsKeyArn:
+    Description: ARN of the KMS key used to encrypt GuardDuty findings.
+    Value: !GetAtt GuardDutyKmsKey.Arn
+
+  GuardDutyKmsAliasNameOutput:
+    Description: Alias of the KMS key used to encrypt GuardDuty findings.
+    Value: !Sub alias/${GuardDutyKmsAliasName}
+
+  SentinelSQSQueueURL:
+    Description: URL of the SQS queue to configure in the Microsoft Sentinel
+      GuardDuty connector.
+    Value: !Ref SentinelSQSQueue
+
+  SentinelSQSQueueArn:
+    Description: ARN of the SQS queue (for verification / troubleshooting).
+    Value: !GetAtt SentinelSQSQueue.Arn
