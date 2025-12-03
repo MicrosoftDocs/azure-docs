@@ -16,6 +16,8 @@
     href: manage-service-groups.md
   - name: Manage membership at scale
     href: manage-membership.md
+- name: Monitoring
+  href: monitoring.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries

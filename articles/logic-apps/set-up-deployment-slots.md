@@ -3,10 +3,10 @@ title: Set Up Deployment Slots for Zero Downtime
 description: Learn to set up deployment slots to enable zero downtime for Standard workflows in Azure Logic Apps. 
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, wsilveira, azla
+ms.reviewers: estfan, wsilveira, azla
 ms.topic: how-to
 ms.custom: sfi-image-nochange
-ms.date: 10/10/2025
+ms.date: 12/02/2025
 #Customer intent: As an integration developer working with Azure Logic Apps, I want to set up deployment slots on my Standard logic app resource so I can deploy with zero downtime.
 ---
 
@@ -40,16 +40,28 @@ With deployment slots, you can achieve continuous delivery and improve the quali
   - Product verification testing before slot swapping
   - A/B testing
 
-- If your storage is private, complete the following steps:
+- Private storage account
+
+  If your storage account is private, complete the following steps:
   
   1. After you create the slot, go to the deployment slot. On the slot menu, under **Settings**, select **Environment variables**.
   1. On the **App settings** tab, find the file share value for the app setting named **WEBSITE_CONTENTSHARE**.
   1. Go to the storage account and manually create a file share that uses the same name.
   1. On each slot, add an app setting named **WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS**, and set the value to **0**.
 
+- Terraform with Standard logic app and secured storage account
+  
+  If your Standard logic app uses an Azure storage account secured by a firewall where access is allowed only through private endpoints for Azure Blob, Azure File, Azure Table, and Azure Queue, use a Bicep or ARM template to set up your deployment slots and configure the following app settings:
+
+  | App setting | Task |
+  |-------------|------|
+  | **WEBSITE_CONTENTSHARE** | Set this value to the file share name, but make sure that you create the file share folder before you deploy. |
+  | **AzureFunctionsWebHost_hostid** | Set this value to a unique host ID value. |
+  | **WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS** | Set this value to `0` for all environments. |
+
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - To work in Visual Studio Code with the Azure Logic Apps (Standard) extension, you need to meet the prerequisites described in [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites). You also need a Standard logic app project that you want to publish to Azure.
 
@@ -134,7 +146,7 @@ Unavailable at this time. Follow the steps for Visual Studio Code or Azure CLI t
    1. Enter and select the name for your Standard logic app.
    1. Select the name for your deployment slot.
 
-1. In the message box that appears, confirm that you want to deploy the current code in your project to the selected slot , and select **Deploy**. This action overwrites any existing content in the selected slot.
+1. In the message box that appears, confirm that you want to deploy the current code in your project to the selected slot, and select **Deploy**. This action overwrites any existing content in the selected slot.
 
 1. After deployment completes, you can update any settings, if necessary, by selecting **Upload settings** in the message box that appears.
 

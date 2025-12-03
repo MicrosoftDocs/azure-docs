@@ -4,29 +4,34 @@ description: See a list of reliability guides for Azure products and services. L
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 08/08/2025
+ms.date: 12/01/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
 ---
 
-# Reliability guides for Azure services
+
+# Reliability guides by service
 
 This article provides links to reliability guidance for many Azure services. Most reliability guides contain the following information:
 
-- The *reliability architecture overview* provides a synopsis about how a service supports reliability. It includes information about which components Microsoft manages and which components you manage, built-in redundancy features, and how to provision and manage multiple resources, if applicable.
 
-- *Transient fault handling* describes how a service handles day-to-day transient faults that can occur in the cloud. It also describes how to handle these faults in an application, including information about retry policies, timeouts, and other best practices.
+- *Production deployment recommendations* provides guidance on how to deploy the service to meet your reliability requirements in production environments.
 
-- *Availability zones* describe zonal and zone-redundant deployment options, traffic routing and data replication between zones, zone-outage scenarios, failback processes, and how to configure resources for availability zone support.
+- *Resilience to transient faults* describes how the service handles day-to-day transient faults that can occur in the cloud. It also describes how to handle these faults in your application, including information about retry policies, timeouts, and other best practices.
 
-- *Multi-region support* describes how to configure multi-region or geo-disaster support, traffic routing and data replication between regions, region-down scenarios, failover and failback support, and alternative multi-region support.
+- *Reliability architecture overview* is a synopsis of how the service supports reliability. It includes information about which components Microsoft manages and which components you manage, built-in redundancy features, and how to provision and manage multiple resources, if applicable.
 
-Some guides also contain information about the following capabilities:
+- *Resilience to availability zone failures* describes how the service supports availability zones, requirements you need to meet to use availability zones, how traffic is routed and data is replicated between zones, what happens when a zone experiences an outage, zone recovery, and how to configure your resources for availability zone support.
 
-- *Backup support* explains who controls backups, where they're stored and replicated, how to recover them, and whether they can be accessed only within a region or across regions.
+- *Resilience to region-wide failures* outlines whether the service provides multi-region capabilities, requirements to use those capabilities, how traffic is routed and data is replicated between regions, the region-down experience, failover and failback support, and how to deploy custom multi-region solutions.
+
+- *Resilience to service maintenance* describes how the service handles planned maintenance events, including how to minimize downtime and data loss during these events. It also shows you how to configure the service to improve resilience during maintenance times.
 
 - *Service-level agreements (SLAs)*, which define and describe the expected uptime, and how the expected uptime changes based on the configuration that you use.
+
+- *Backup and recovery* for supported services, including who controls and manages backups, where they're stored and replicated to, how they can be recovered, and whether they're accessible only within a region or across regions.
+
 
 ## Reliability guides by service
 

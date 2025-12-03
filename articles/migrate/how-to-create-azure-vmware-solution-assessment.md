@@ -20,7 +20,6 @@ This article describes how to create an Azure VMware Solution assessment for on-
 ## Before you start
 
 - [Create](./create-manage-projects.md) an Azure Migrate project.
-- [Add](how-to-assess.md) the Azure Migrate: Discovery and assessment tool if you've already created a project.
 - Discover your on-premises inventory data using any of the following approaches:
     - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md) OR
     - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md) OR
@@ -80,7 +79,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - In **SDDC type**, specify "New SDDC" if you are creating a new private cloud. Use "AVS SDDC expansion" if you already have an AVS private cloud with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding a private cloud, it will not consider the available capacity in the AVS private cloud but will consider the capacity requirements for management appliances.
     - The **Storage type** is defaulted to consider three supported storage solutions in AVS: **vSAN**, **Elastic SAN** and **Azure NetApp Files (ANF)** (Standard, Premium and Ultra tiers). Elastic SAN and ANF are external storage types in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & Elastic SAN as the storage datastores.
         - When performance metrics are provided (IOPS and throughput) in settings or via data discovered using the Azure migrate appliance or in the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks.
-        - If the assessment is performed using data from an RVTools file or if the Azure Migrate appliance is unable to discover performance metrics like throughput and IOPS, **Elastic SAN** or **ANF - Standard** (the most cost-effective one among the two) is considered for assessment.
+        - If the assessment is performed using data from an RVTools file or if the Azure Migrate appliance is unable to discover performance metrics like throughput and IOPS, the most cost-effective storage solution and tier among **Elastic SAN** and **ANF - Standard** is considered for assessment.
 
 1. In **Storage Settings**:
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination. **FTT 1, RAID 1 & FTT 2, RAID 6** are selected by default. The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
@@ -111,7 +110,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 1. In **Review + create assessment**, review the assessment details, and select **Create** to run the assessment.
 
     > [!NOTE]
-    > For discovering data using the Azure migrate appliance for creating assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high [performance coverage](/azure/migrate/concepts-assessment-calculation?view=migrate#coverage.
+    > For discovering data using the Azure migrate appliance for creating assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high [performance coverage](/azure/migrate/concepts-assessment-calculation?view=migrate#coverage).
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" alt-text="Screenshot showing an overview of an Azure VMware Solution assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" :::
 

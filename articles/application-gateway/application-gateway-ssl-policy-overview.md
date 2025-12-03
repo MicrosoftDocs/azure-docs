@@ -136,7 +136,7 @@ Application Gateway supports the following cipher suites from which you can choo
 
 ## Limitations
 
-- The connections to backend servers are always with preferred TLS v1.3 and upto TLS v1.0. The TLS version and cipher suites cannot be customized for the backend TLS connections.
+- The connections to backend servers prefer TLS 1.3 when available, with fallback support for TLS 1.2. The TLS version and cipher suites for backend connections cannot be customized.
 - As of now, the TLS 1.3 implementation is not enabled with &#34;Zero Round Trip Time (0-RTT)&#34; feature.
 - TLS session (ID or Tickets) resumption is not supported.
 - Application Gateway v2 doesn't support the following DHE ciphers. These won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.

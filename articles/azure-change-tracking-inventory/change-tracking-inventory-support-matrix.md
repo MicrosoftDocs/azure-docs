@@ -2,7 +2,7 @@
 title: Azure Change Tracking and Inventory Support matrix
 description: Get a summary of support settings and limitations for enabling Azure CTI and tracking changes.
 services: automation
-ms.date: 11/06/2025
+ms.date: 12/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -12,7 +12,7 @@ author: jasminemehndir
 
 # Support matrix and regions for Azure Change Tracking and Inventory
 
-Azure Change Tracking and Inventory (CTI) monitors changes and provide inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Azure CTI and track changes. It also provides information about the supported regions and mappings for Azure CTI using Azure Monitoring Agent.
+Azure Change Tracking and Inventory (CTI) monitors changes and provide inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Azure CTI and track changes. It also provides information about the supported regions and mappings for Azure CTI using Azure Monitor Agent.
 
 ## Support matrix
 
@@ -115,7 +115,7 @@ The default collection frequency for Windows services is 30 minutes. To configur
 
 ## Current limitations
 
-Azure CTI using Azure Monitoring Agent doesn't support or has the following limitations:
+Azure CTI using Azure Monitor Agent doesn't support or has the following limitations:
 
 - Recursion for Windows registry tracking
 - Currently, only the HKEY_LOCAL_MACHINE is supported. You will encounter this limitation whenever you manually add the registry key.
@@ -149,7 +149,7 @@ A key capability of Azure CTI is alerting on changes to the configuration state 
 |ConfigurationChange <br>&#124; where RegistryKey == @"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Useful for tracking changes to crucial antivirus keys.|
 |ConfigurationChange <br>&#124; where RegistryKey contains @"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Useful for tracking changes to firewall settings.|
 
-## Supported regions and mappings for Change Tracking and Inventory with Azure Monitoring Agent
+## Supported regions and mappings for Change Tracking and Inventory with Azure Monitor Agent
 
 The following table lists the supported regions and mappings:
 

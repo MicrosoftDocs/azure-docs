@@ -20,7 +20,7 @@ This article describes how to back up and restore Active Directory domain contro
 
 Before you start protection of Active Directory, check the following best practices:
 
-- Make sure at least one domain controller is backed up. If you back up more than one domain controller, make sure all the ones holding the [FSMO (Flexible Single Master Operation) roles](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) are backed up.
+- Make sure at least one domain controller is backed up.
 
 - Back up Active Directory frequently. The backup age mustn't be older than the tombstone lifetime (TSL) because objects older than the TSL is *tombstoned* and no longer considered valid.
   - The default TSL, for domains built on Windows Server 2003 SP2 and later, is 180 days.

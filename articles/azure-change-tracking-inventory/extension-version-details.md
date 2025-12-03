@@ -3,7 +3,7 @@ title: Azure Change Tracking extension version details and known issues
 description: This article describes the Change Tracking extension version details and the known issues.
 #customer intent: As a customer, I want to learn about the fixed vulnerabilities in recent extension updates so that I can maintain a secure environment.
 services: automation
-ms.date: 11/06/2025
+ms.date: 12/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -79,7 +79,7 @@ After you migrate from FIM based on AMA to ChangeTracking based on AMA, the memo
 
 #### Issue fixed
 
-The **SvcName** or **SoftwareName** are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
+The **SvcName** or **SoftwareName** are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitor Agent.
 
 #### Known issues
 
@@ -95,7 +95,7 @@ For Windows, **SvcDescription** field is coming as base64 encoded string. As a w
 
 #### Issues fixed
 
-**SvcName** or **SoftwareName** are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
+**SvcName** or **SoftwareName** are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitor Agent.
 For Windows **SvcDescription** is coming as base64 encoded string. As a workaround, use base64_decode_tostring() kql function.
 
 **OS-specific issues:**

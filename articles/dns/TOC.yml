@@ -48,12 +48,66 @@
           href: dns-private-resolver-get-started-terraform.md
         - name: Create a private resolver - ARM Template
           href: dns-private-resolver-get-started-template.md
+    - name: DNS security policy
+      items:
+        - name: What is DNS security policy?
+          href: dns-security-policy.md
+        - name: How-to secure and view DNS traffic
+          href: dns-traffic-log-how-to.md
     - name: Traffic Manager
       items:
         - name: What is Azure Traffic Manager?
           href: /azure/traffic-manager/traffic-manager-overview
     - name: What is network foundations?
       href: /azure/networking/foundations/network-foundations-overview
+- name: Deploy
+  items:
+    - name: Public DNS
+      items:
+        - name: Host your domain in Azure DNS
+          href: dns-delegate-domain-azure-dns.md
+        - name: Create child DNS zones
+          href: tutorial-public-dns-zones-child.md
+        - name: Create custom DNS records for a web app
+          href: dns-web-sites-custom-domain.md
+        - name: Create alias records for zone records
+          href: tutorial-alias-rr.md
+        - name: Create alias records for public IP addresses
+          href: tutorial-alias-pip.md
+        - name: Create alias records for Traffic Manager
+          href: tutorial-alias-tm.md
+        - name: Alias records for load balanced web apps
+          href: dns-alias-appservice.md
+        - name: Integrate with other Azure services
+          href: dns-for-azure-services.md
+        - name: Automate DNS operations with the .NET SDK
+          href: /dotnet/api/overview/azure/resourcemanager.dns-readme?toc=/azure/dns/TOC.json
+        - name: Custom domains for Azure resources
+          href: dns-custom-domain.md
+        - name: Deploy DNSSEC
+          items:
+            - name: Sign a DNS zone
+              href: dnssec-how-to.md
+            - name: Unsign a DNS zone
+              href: dnssec-unsign.md
+    - name: Private DNS
+      items:
+        - name: Import and export a DNS zone file
+          items:
+            - name: Azure portal
+              href: private-dns-import-export-portal.md
+            - name: Azure CLI
+              href: private-dns-import-export.md
+        - name: Create and manage reverse DNS zones
+          href: private-reverse-dns.md
+        - name: Fallback to internet resolution
+          href: private-dns-fallback.md
+    - name: Private Resolver
+      items:
+        - name: Set up DNS failover using private resolvers
+          href: tutorial-dns-private-resolver-failover.md
+        - name: Resolve Azure and on-premises domains
+          href: private-resolver-hybrid-dns.md
 - name: Design
   items:
     - name: Public DNS
@@ -94,62 +148,12 @@
           href: private-resolver-architecture.md
         - name: Resiliency in Azure DNS Private Resolver
           href: private-resolver-reliability.md
-- name: Deploy
-  items:
-    - name: Public DNS
-      items:
-        - name: Host your domain in Azure DNS
-          href: dns-delegate-domain-azure-dns.md
-        - name: Create child DNS zones
-          href: tutorial-public-dns-zones-child.md
-        - name: Create custom DNS records for a web app
-          href: dns-web-sites-custom-domain.md
-        - name: Create alias records for zone records
-          href: tutorial-alias-rr.md
-        - name: Create alias records for public IP addresses
-          href: tutorial-alias-pip.md
-        - name: Create alias records for Traffic Manager
-          href: tutorial-alias-tm.md
-        - name: Alias records for load balanced web apps
-          href: dns-alias-appservice.md
-        - name: Integrate with other Azure services
-          href: dns-for-azure-services.md
-        - name: Automate DNS operations with the .NET SDK
-          href: dns-sdk.md
-        - name: Custom domains for Azure resources
-          href: dns-custom-domain.md
-        - name: Deploy DNSSEC
-          items:
-            - name: Sign a DNS zone
-              href: dnssec-how-to.md
-            - name: Unsign a DNS zone
-              href: dnssec-unsign.md
-    - name: Private DNS
-      items:
-        - name: Import and export a DNS zone file
-          items:
-            - name: Azure portal
-              href: private-dns-import-export-portal.md
-            - name: Azure CLI
-              href: private-dns-import-export.md
-        - name: Create and manage reverse DNS zones
-          href: private-reverse-dns.md
-        - name: Fallback to internet resolution
-          href: private-dns-fallback.md
-    - name: Private Resolver
-      items:
-        - name: Set up DNS failover using private resolvers
-          href: tutorial-dns-private-resolver-failover.md
-        - name: Resolve Azure and on-premises domains
-          href: private-resolver-hybrid-dns.md
 - name: Security
   items:
     - name: Secure DNS
       href: secure-dns.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
-    - name: DNS security policy
-      href: dns-security-policy.md
     - name: DNSSEC overview
       href: dnssec.md
     - name: Protect public DNS zones and records
@@ -162,8 +166,6 @@
   items:
     - name: Monitor and manage DNS traffic
       items:
-        - name: Secure and view DNS traffic
-          href: dns-traffic-log-how-to.md
         - name: Monitor Azure DNS
           href: monitor-dns.md
         - name: Azure DNS Monitoring data reference

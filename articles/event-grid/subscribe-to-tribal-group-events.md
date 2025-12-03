@@ -32,7 +32,7 @@ Following are the prerequisites that your system needs to meet before attempting
 
 ## Enable events to flow to your partner topic
 
-Follow instructions from [How to set up event streams to Azure Event Grid](https://help.tribaledge.com/emea/edge/Connectors/PowerAutomate/how-to-setup-azure-events.htm) to set up Tribal Group event streams that are sent to your partner topic. Once you configure your event stream and it's active, you should have a partner topic created. 
+Follow instructions from [How to set up event streams to Azure Event Grid](https://help.tribaledge.com/apac/edge/AppSystemAdmin/Tasks/how-to-setup-azure-events.htm) to set up Tribal Group event streams that are sent to your partner topic. Once you configure your event stream and it's active, you should have a partner topic created. 
 
 
 [!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]

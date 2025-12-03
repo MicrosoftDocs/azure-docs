@@ -219,7 +219,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description |
 | --------- | --------- | 
-| SNAT is recommended always. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. |
+| SNAT is recommended. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored when going through an NVA. This limitation can be removed using [disableSnatOnPL tag](/azure/private-link/private-link-disable-snat) in your NVA. |
 | Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | 
 
 ### Application security group

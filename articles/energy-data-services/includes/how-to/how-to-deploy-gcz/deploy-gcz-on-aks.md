@@ -316,7 +316,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
 1. Deploy the GCZ HELM chart:
 
    ```bash
-   helm upgrade -i $CHART . -n $NAMESPACE -f osdu_gcz_custom_values.yaml --set-file global.provider.configLoaderJs="../../../../gcz-provider/gcz-provider-core/config/configLoader.js"
+   helm upgrade -i "$RELEASE_CHART_NAME" . -n "$NAMESPACE" -f osdu_gcz_custom_values.yaml \
+  --set-file global.provider.configLoaderJs="../../../../gcz-provider/gcz-provider-core/config/configLoader.js"
    ```
 
 1. Verify the deployment:
