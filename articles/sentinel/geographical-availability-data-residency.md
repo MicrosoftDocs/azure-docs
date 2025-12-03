@@ -66,8 +66,10 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 |**Africa** | **South Africa**| • South Africa North |
 
 > [!NOTE]
-> In the light of strong customer demand in public preview, at GA we are expanding Microsoft Sentinel data lake availability to additional regions. These new regions will roll out progressively over the coming weeks. 
+> In the light of strong customer demand in public preview, at GA we are expanding Microsoft Sentinel data lake availability to additional regions. These new regions will roll out progressively over the coming weeks.
 
+> [!IMPORTANT]
+> Microsoft Sentinel data lake must be deployed in the same Azure region as the associated primary Sentinel workspace.
 
 ## Data retention
 
