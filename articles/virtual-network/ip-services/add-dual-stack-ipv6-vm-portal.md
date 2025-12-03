@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 07/24/2024
+ms.date: 11/20/2025
 ms.custom: template-how-to, powershell, cli
 # Customer intent: As a cloud infrastructure administrator, I want to configure an existing virtual machine with both IPv4 and IPv6 addresses, so that I can enable dual-stack networking and enhance compatibility with modern applications and services.
 ---
@@ -72,25 +72,25 @@ In this section, you add an IPv6 address space and subnet to your existing virtu
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **myVNet** in **Virtual networks**.
+1. Select **myVNet** in **Virtual networks**.
 
-4. Select **Address space** in **Settings**.
+1. Select **Address space** in **Settings**.
 
-5. Select the box **Add additional address range**. Enter **2404:f800:8000:122::/63**.
+1. Select the box **Add additional address range**. Enter **2404:f800:8000:122::/63**.
 
-6. Select **Save**.
+1. Select **Save**.
 
-7. Select **Subnets** in **Settings**.
+1. Select **Subnets** in **Settings**.
 
-8. In **Subnets**, select your subnet name from the list. In this example, the subnet name is **default**. 
+1. In **Subnets**, select your subnet name from the list. In this example, the subnet name is **default**. 
 
-9. In the subnet configuration, select the box **Add IPv6 address space**.
+1. In the subnet configuration, select the box **Add IPv6 address space**.
 
-10. In **IPv6 address space**, enter **2404:f800:8000:122::/64**.
+1. In **IPv6 address space**, enter **2404:f800:8000:122::/64**.
 
-11. Select **Save**.
+1. Select **Save**.
 
 # [Azure CLI](#tab/azurecli/)
 
@@ -172,9 +172,9 @@ In this section, you create a IPv6 public IP address for the virtual machine.
 
 1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
-2. Select **+ Create**.
+1. Select **+ Create**.
 
-3. Enter or select the following information in **Create public IP address**.
+1. Enter or select the following information in **Create public IP address**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -188,7 +188,7 @@ In this section, you create a IPv6 public IP address for the virtual machine.
     | Location | Select your location. In this example, the location is **East US 2**. |
     | Availability zone | Select **Zone-redundant**. |
 
-4. Select **Create**.
+1. Select **Create**.
 
 # [Azure CLI](#tab/azurecli/)
 
@@ -230,21 +230,15 @@ New-AzPublicIpAddress @ip6
 
 # [Azure portal](#tab/azureportal)
 
-In this section, you will configure your virtual machine’s network interface to include both a private and a public IPv6 address.
+In this section, you'll configure your virtual machine's network interface to include both a private and a public IPv6 address.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-
-2. Select **myVM** or your existing virtual machine name.
-
-3. Select **Networking** in **Settings**.
-
-4. Select your network interface name next to **Network Interface:**. In this example, the network interface is named **myvm404**.
-
-5. Select **IP configurations** in **Settings** of the network interface.
-
-6. In **IP configurations**, select **+ Add**.
-
-7. Enter or select the following information in **Add IP configuration**.
+1. Select **myVM** or your existing virtual machine name.
+1. Select **Networking** in **Settings**.
+1. Select your network interface name next to **Network Interface:**. In this example, the network interface is named **myvm404**.
+1. Select **IP configurations** in **Settings** of the network interface.
+1. In **IP configurations**, select **+ Add**.
+1. Enter or select the following information in **Add IP configuration**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -255,7 +249,7 @@ In this section, you will configure your virtual machine’s network interface t
     | Public IP address | Select **Associate**. |
     | Public IP address | Select **myPublic-IPv6**. |
 
-9. Select **OK**.
+1. Select **OK**.
 
 # [Azure CLI](#tab/azurecli/)
 

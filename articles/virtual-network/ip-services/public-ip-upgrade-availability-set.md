@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: This article shows you how to upgrade all public IP address attached to a VM in an Availability Set to a standard public IP address
 author: mbender-ms
 ms.author: mbratschun
-ms.date: 12/02/2025
+ms.date: 11/20/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to

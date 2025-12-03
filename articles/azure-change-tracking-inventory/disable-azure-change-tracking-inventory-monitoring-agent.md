@@ -1,17 +1,17 @@
 ---
-title: Disable Change Tracking and Inventory in Azure using Azure Monitoring Agent
-description: Learn how to disable Change Tracking and Inventory using Azure Monitoring Agent (AMA) from your Azure virtual machines.
+title: Disable Change Tracking and Inventory in Azure using Azure Monitor Agent
+description: Learn how to disable Change Tracking and Inventory using Azure Monitor Agent (AMA) from your Azure virtual machines.
 #customer intent: As a customer, I want to disassociate a Data Collection Rule (DCR) from a virtual machine so that I can disable its association with Change Tracking.
 services: automation
 ms.custom: linux-related-content
-ms.date: 11/06/2025
+ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
 ---
 
-# Disable Change Tracking and Inventory with Azure Monitoring Agent
+# Disable Change Tracking and Inventory with Azure Monitor Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
@@ -19,7 +19,7 @@ This article describes how to disable change tracking and inventory with AMA.
 
 ## Disable Change Tracking from a VM
 
-To disable change tracking with Azure Monitoring Agent from a virtual machine, you must first disassociate the DCR and then uninstall Azure CTI. Follow these steps:
+To disable change tracking with Azure Monitor Agent from a virtual machine, you must first disassociate the DCR and then uninstall Azure CTI. Follow these steps:
 
 ### Disassociate Data Collection Rule (DCR) from a VM
 
@@ -49,4 +49,4 @@ To uninstall change tracking extension, follow these steps:
 
 ## Next steps
 
-To learn how to migrate from CTI using Log Analytics version to the Azure Monitoring Agent version, see [Migration guidance for Azure CTI](../automation/troubleshoot/change-tracking.md).
+To learn how to migrate from CTI using Log Analytics version to the Azure Monitor Agent version, see [Migration guidance for Azure CTI](../automation/troubleshoot/change-tracking.md).

@@ -15,7 +15,7 @@ Azure Files provides fully managed, scalable SMB file shares that are an excelle
 
 ## What is VDI?
 
-Virtual desktop infrastructure (VDI) centralizes desktop environments on servers, enabling secure remote access and simplified management across devices. [Azure Virtual Desktop](/azure/virtual-desktop/overview) (AVD) is Microsoft’s cloud-based VDI solution, offering scalable, multi-session Windows 10 and 11 desktops with seamless integration into Microsoft 365 and Microsoft Entra ID, ideal for remote work and secure resource access. Other VDI offerings include Citrix/VMWare Horizon on Azure infrastructure.
+Virtual desktop infrastructure (VDI) centralizes desktop environments on servers, enabling secure remote access and simplified management across devices. [Azure Virtual Desktop](/azure/virtual-desktop/overview) is Microsoft’s cloud-based VDI solution, offering scalable, multi-session Windows 10 and 11 desktops with seamless integration into Microsoft 365 and Microsoft Entra ID, ideal for remote work and secure resource access. Other VDI offerings include Citrix/VMWare Horizon on Azure infrastructure.
 
 ## Why Azure Files for VDI?
 

@@ -217,10 +217,6 @@ Get answers to frequently asked questions.
 
 **A.** Yes. A private ASN can't be in the AS path. For registered prefixes smaller than \/24, the AS path must be less than 4.
 
-**Q.** I need to set the prefix limit. How many routes will Microsoft announce?
-
-**A.** Microsoft announces roughly 280 prefixes on the internet. The number might increase by 10% to 15%. A limit of 400 to 500 is safe to set as the value for **Max prefix count**.
-
 **Q.** Will Microsoft readvertise peer prefixes to the internet?
 
 **A.** No.

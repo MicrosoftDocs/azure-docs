@@ -3,7 +3,7 @@ title: "Create a Confluent Cloud Resource - Azure PowerShell"
 description: Learn how to begin using Apache Kafka & Apache Flink on Confluent Cloud by creating an instance via Azure PowerShell.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 1/31/2024
+ms.date: 09/17/2025
 
 #customer intent: As a developer, I want to learn how to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using Azure PowerShell so that I can create my own resources.
 ---
@@ -17,7 +17,7 @@ In this quickstart, you use Azure Marketplace and Azure PowerShell to create a r
 - An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and Confluent. Before you get started, [verify that you have the required access](../../role-based-access-control/check-access.md).
 
-## Find offer
+## Find the offer
 
 Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud application:
 
@@ -25,23 +25,20 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 
 1. Search for and then select **Marketplace**.
 
-1. On the **Marketplace** page, choose from two billing options:
+1. On the **Marketplace** page, search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service** offer.
 
-   - **Pay-as-you-go monthly plan**: Your Confluent Cloud consumption charges appear on your Azure monthly bill. This plan is publicly available.
-   - **Commitment plan**: You sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud. This plan is available to customers who are approved for a private offer.
+1. Select the **Apache Kafka & Apache Flink on Confluent Cloud** tile. 
 
-   For **pay-as-you-go** customers, search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud** offer.
+   :::image type="content" source="media/search-pay-as-you-go.png" alt-text="Screenshot that shows a search for an Azure Marketplace offer." lightbox="media/search-pay-as-you-go.png":::
 
-   :::image type="content" source="media/search-pay-as-you-go.png" alt-text="Screenshot that shows a search for an Azure Marketplace offer.":::
+1. On the **Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service** page, select your subscription. 
 
-   For **commitment** customers, select the **View private plans** link. The commitment requires you to sign up for a minimum spend amount. Use this option only when you know you need to use the service for an extended time.
+1. Under **Plan**, choose a billing plan. There are several billing options:
 
-   :::image type="content" source="media/view-private-offers.png" alt-text="Screenshot that shows the view private plans link.":::
+   - **Pay-as-you-go free trial**.   
+   - **Commitment plans**. You sign up for a minimum spend amount. Annual, monthly, multi-year, and one-time commitment plans are available. You can read about the plans on the **Plans + Pricing** tab.
 
-   Search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud** private plan.
-
-   :::image type="content" source="media/select-from-private-offers.png" alt-text="Screenshot that shows the option to select a private plan.":::
-
+1. Select **Subscribe**. The **Create a Confluent organization** page opens. Rather than using this form, you'll create the organization in the next section by using the Azure CLI. 
 ## Create a resource
 
 Start by preparing your environment for Azure PowerShell:
@@ -50,10 +47,10 @@ Start by preparing your environment for Azure PowerShell:
 
 > [!IMPORTANT]
 > Currently, the `Az.Confluent` PowerShell module is in preview. During the preview, you must install the module separately by using the `Install-Module` cmdlet:
-
-```azurepowershell
-Install-Module -Name Az.Confluent -Scope CurrentUser -Repository PSGallery -Force
-```
+>
+> ```azurepowershell
+> Install-Module -Name Az.Confluent -Scope CurrentUser -Repository PSGallery -Force
+> ```
 
 After you sign in, use the [`New-AzConfluentOrganization`](/powershell/module/az.confluent/new-azconfluentorganization) cmdlet to create the new organization resource:
 

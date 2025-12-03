@@ -17,11 +17,11 @@ ms.custom: template-reference, engagement-fy23
 >On September 30, 2025, Basic Load Balancer was retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer as soon as possible. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
 
 ## <a name="skus"></a> SKU comparison
-Azure Load Balancer has three stock-keeping units (SKUs) - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
+Azure Load Balancer has three stock-keeping units (SKUs) - Basic(Retired), Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
 
-To compare and understand the differences between Basic and Standard SKU, see the following table. 
+To compare and understand the differences between Basic(Retired) and Standard SKU, see the following table. 
 
-| | Standard Load Balancer | Basic Load Balancer |
+| | Standard Load Balancer | Basic Load Balancer (retired) |
 | --- | --- | --- |
 | **Scenario** |  Equipped for load-balancing network layer traffic when high performance and ultra-low latency is needed. Routes traffic within and across regions, and to availability zones for high resiliency. | Equipped for small-scale applications that don't need high availability or redundancy. Not compatible with availability zones. |
 | **Backend type** | IP based, NIC based | NIC based |

@@ -2,7 +2,7 @@
 title: Quickstart - Enable Azure Change Tracking and Inventory for single and multiple machines from the portal
 description: In this quickstart, learn how to enable Azure Change Tracking and Inventory for single and multiple machines from the portal.
 services: automation
-ms.date: 11/06/2025
+ms.date: 12/03/2025
 ms.topic: quickstart
 #Customer intent: As a customer, I want to enable Azure Change Tracking and Inventory so that I can further use the CTI services.
 ms.service: azure-change-tracking-inventory
@@ -98,7 +98,7 @@ To enable Azure CTI for multiple Azure VMs using portal, follow these steps:
    > [!NOTE]
    > You can enable CTI on up to 250 virtual machines at a time.
 
-1. On the **Enable Change Tracking** pane, select the banner at the top of the pane, **Click here to try new change tracking and inventory with Azure Monitoring Agent (AMA) experience**.
+1. On the **Enable Change Tracking** pane, select the banner at the top of the pane, **Click here to try new change tracking and inventory with Azure Monitor Agent (AMA) experience**.
 
    :::image type="content" source="media/create-data-collection-rule/enable-change-tracking-multiple-virtual-machines-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple Virtual Machines from the portal." lightbox="media/create-data-collection-rule/enable-change-tracking-multiple-virtual-machines-expanded.png":::
 

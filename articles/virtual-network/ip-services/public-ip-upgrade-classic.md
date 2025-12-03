@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: In this article, learn how to upgrade a classic deployment model reserved IP to an Azure Resource Manager public IP address.
 author: mbender-ms
 ms.author: mbender
-ms.date: 01/08/2025
+ms.date: 11/20/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to

@@ -3,7 +3,7 @@ title: Quickstart - Cross region restore for PostgreSQL database with PowerShell
 description: In this Quickstart, learn how to restore PostgreSQL database across region with the Azure PowerShell module.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/03/2024
+ms.date: 12/03/2025
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -91,7 +91,7 @@ To validate the probabilities of success for the restore operation, run the foll
 $validate = Test-AzDataProtectionBackupInstanceRestore -ResourceGroupName $ResourceGroupName -Name $instance[0].Name -VaultName $VaultName -RestoreRequest $OssRestoreReq -SubscriptionId $SubscriptionId -RestoreToSecondaryRegion #-Debug
 ```
 
-## Trigger the restore operation
+## Trigger the restore operation for PostgreSQL database
 
 To trigger the restore operation, run the following cmdlet:
 
@@ -99,7 +99,7 @@ To trigger the restore operation, run the following cmdlet:
 $restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -ResourceGroupName $ResourceGroupName -VaultName $vaultName -SubscriptionId $SubscriptionId -Parameter $OssRestoreReq -RestoreToSecondaryRegion  # -Debug
 ```
 
-## Track the restore job
+## Track the restore job for PostgreSQL database
 
 To monitor the restore job progress, choose one of the methods:
 

@@ -108,8 +108,6 @@ items:
         href: ../azure-cache-for-redis/cache-how-to-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cosmos DB for NoSQL
       href: reliability-cosmos-db-nosql.md
-    - name: Azure Cosmos DB for MongoDB vCore
-      href: reliability-cosmos-mongodb.md
     - name: Azure Cosmos DB for PostgreSQL
       items: 
       - name: Availability zones
@@ -126,6 +124,8 @@ items:
         href: /azure/mysql/flexible-server/how-to-restore-server-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore-to-latest-restore-point
     - name: Azure Database for PostgreSQL
       href: reliability-azure-database-postgresql.md
+    - name: Azure DocumentDB
+      href: reliability-documentdb.md
     - name: Azure SQL Database
       href: reliability-sql-database.md
     - name: Azure SQL Managed Instance

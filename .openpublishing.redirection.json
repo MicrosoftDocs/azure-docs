@@ -6356,6 +6356,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/reliability/reliability-cosmos-mongodb.md",
+      "redirect_url": "/azure/reliability/reliability-documentdb",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/communications-gateway/connectivity.md",
       "redirect_url": "/previous-versions/azure/communications-gateway/connectivity",
       "redirect_document_id": false

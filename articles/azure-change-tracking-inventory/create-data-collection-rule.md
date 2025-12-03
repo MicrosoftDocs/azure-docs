@@ -3,7 +3,7 @@ title: Create Data Collection Rule for Azure Change Tracking and Inventory
 description: Learn how to create a data collection rule (DCR) for Azure Change Tracking and Inventory.
 #customer intent: As a customer, I want to create a Data Collection Rule (DCR) for Azure Change Tracking and Inventory so that I can collect and manage data effectively.
 services: automation
-ms.date: 11/06/2025
+ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -13,7 +13,7 @@ ms.custom: sfi-image-nochange
 
 # Create data collection rule for Azure Change Tracking and Inventory
 
-When you enable Change Tracking in the Azure portal using the Azure Monitoring Agent (AMA), the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
+When you enable Change Tracking in the Azure portal using the Azure Monitor Agent (AMA), the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
 
 This article explains how to explicitly create a Data Collection Rule for Azure Change Tracking and Inventory (CTI).
 
@@ -48,7 +48,7 @@ To create a DCR, follow these steps:
    :::image type="content" source="media/create-data-collection-rule/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::
 
 > [!NOTE]
-> After creating the Data Collection Rule using the Azure Monitoring Agent's change tracking schema, ensure that you don't add any Data Sources to this rule. This can cause Azure CTI to fail. You must only add new Resources in this section.
+> After creating the Data Collection Rule using the Azure Monitor Agent's change tracking schema, ensure that you don't add any Data Sources to this rule. This can cause Azure CTI to fail. You must only add new Resources in this section.
 
 ## Next steps
 

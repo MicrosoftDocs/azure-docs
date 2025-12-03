@@ -228,7 +228,7 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 
 ## Differentiate between throttling requests for ARG and ARM
 
-When using the ARG GET / LIST API, you may encounter throttling errors in response to your requests. It’s important to identify the source of throttling, as it can occur at two levels:
+When using ARG, you may encounter throttling errors in response to your requests. It’s important to identify the source of throttling, as it can occur at two levels:
 
 - ARG API throttling: limits applied by Azure Resource Graph.
 - ARM throttling: limits enforced by Azure Resource Manager.
@@ -271,15 +271,21 @@ ARG is introducing an alternative approach to the existing Azure control plane G
 
 The ARG GET/LIST API is meant to address scenarios where you need a lookup of a single resource by ID, or you’re listing resources under the same type and within a certain scope (subscription, resource group, or parent resource). 
 
-You should consider the ARG GET/LIST API if your service falls into one (or many) of the following categories: 
+You should consider using the ARG GET/LIST API if your service fits into one or more of the following categories: 
 
-- Your service is issuing a large volume of GET calls to retrieve data for a resource targeted to a single subscription or a single RG and do not require batches of records from multiple subscriptions through complex filtering or joins. 
-- Your service issues a large volume of GET requests, and is at risk of: 
-    - Facing throttling. 
-    - Competing for throttling quota with other customers. 
-    - Your service may be or is prone to issuing a large burst of concurrent GET requests within a short period of time. 
-- Your service requires high availability and faster performance for GET requests, for single resource management or enumeration of a list of resources within a certain scope. 
-- You require full instanceView of VMs and VMSS VMs in Uniform as well as Flex orchestration mode. 
+- **High Volume of GET Calls Within a Single Scope:** 
+    Your service issues a large number of GET requests targeting resources within a single subscription or resource group, without the need for cross-subscription queries, complex filters, or joins. 
+
+- **Risk of Throttling or Quota Competition:** 
+Your service produces a high volume of requests and may encounter issues such as: 
+    - Experience throttling during sudden traffic spikes. 
+    - Quota competition, where other workloads in the same subscription consume shared quota limits, causing your service to be throttled. 
+    - Bursty traffic patterns, where large volume of GET requests are issued within a short time window, increasing the chance of throttling. 
+
+- **Need for High Availability and Faster Performance:**
+    Your service depends on consistent; low-latency GET operations for either single-resource lookups or listing resources within a specific scope. 
+
+- You require full `instanceView` of VMs and VMSS VMs in Uniform as well as Flex orchestration mode. 
 
   > [!NOTE]
   > ARG GET/LIST API doesn't support VM and VMSS VM Health Status and extension running status in the instanceView. To learn more about the ARG GET/LIST API limits, see the [known limitations](./azure-resource-graph-get-list-api.md#known-limitations).

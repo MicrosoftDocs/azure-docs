@@ -133,6 +133,22 @@ For this specific example, use the following requests to retrieve the list of st
 HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.storage/storageAccounts?api-version=2024-01-01&useResourceGraph=true 
 ```
 
+## Building Resilient Resource Queries with ARG and  Resource Provider Approach 
+
+In scenarios where data quality and reliability are critical, a hybrid querying strategy is highly recommended. This approach combines Azure Resource Graph (ARG) calls with a fallback to the Resource Provider (RP) API, which serves as the source of truth for each resource. By introducing intelligent logic that automatically triggers a fallback when data freshness issues, indexing delays, or latency problems arise, you can significantly improve the resilience of your solution. This ensures that users experience minimal disruption and continue to receive accurate, up-to-date resource information. 
+
+### A common scenario: polling immediately after resource creation 
+
+Many users poll resources immediately after creation—sometimes within 1–2 seconds—as part of a write workflow, as an example - until resource provisioningState reaches a final state, or until certain properties appear in the response. Since ARG indexing may not have completed yet, callers may receive 404 Not Found even though the resource exists. In these cases, a hybrid strategy helps avoid false negatives. 
+
+Two Workarounds to handle the brief window before ARG indexing completes, you can: 
+
+1. Retry using the useResourceGraph=true flag a few times until the call returns 200 OK. 
+
+2. Retry without the useResourceGraph=true flag to fall back directly to the Resource Provider API. 
+
+Both strategies help ensure that users always retrieve the most accurate state of the resource—without being impacted by short-lived data freshness gaps. 
+
 ## Known Limitations  
 
 - **VMSS VM health status** isn't currently supported. If you require this data, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
@@ -254,3 +270,11 @@ internal class ArgGetListHttpPipelinePolicy : HttpPipelineSynchronousPolicy
 - What should I do if I encounter issues while using the useResourceGraph parameter when calling Azure Resource Graph?
 
     If you experience any issues while using the `useResourceGraph` parameter with ARG, create a support ticket under the Azure Resource Graph service in the [Azure portal](https://ms.portal.azure.com/#home) under **Help + Support.**
+
+- How do you differentiate between ARM and ARG throttling?
+
+    Please refer to [differentiating between throttling request for ARG and ARM](/azure/governance/resource-graph/concepts/guidance-for-throttled-requests).
+
+- What should I do if ARG GET/LIST API is down?
+    
+    Treat it as a backend Resource Provider down scenario with a 500 Internal Server Error. ARM does not auto-retry, so first retry with `useResourceGraph=true`. If it still fails, retry without the flag and the call will go directly to the Resource Provider.
