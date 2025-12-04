@@ -57,7 +57,7 @@ Jobs for Hybrid Runbook Workers run under the local **System** account.
 
 **PowerShell 7.4**
 
-To run PowerShell 7.4 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5).
+To run PowerShell 7.4 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 
 After PowerShell 7.4 installation is complete, create an environment variable with Variable name as powershell_7_4_path and Variable value as path of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
