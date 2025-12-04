@@ -616,7 +616,9 @@ items:
       - name: TriggerMock class
         href: testing-framework/trigger-mock-class-definition.md
       - name: UnitTestExecutor class
-        href: testing-framework/unit-test-executor-class-definition.md    
+        href: testing-framework/unit-test-executor-class-definition.md
+      - name: DataMapTestExecutor class
+        href: testing-framework/data-map-test-executor-class-definition.md       
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

@@ -138,6 +138,27 @@ The `Selector` struct supports the following fields:
 > [!NOTE]
 > When multiple selectors include overlapping keys, later selectors take precedence over earlier ones.
 
+#### Tag filters
+
+The `TagFilters` parameter selects key-values with specific tags. A key-value is only loaded if it has all of the tags and corresponding values specified in the filters.
+
+```golang
+options := &azureappconfiguration.Options{
+	Selectors: []azureappconfiguration.Selector{
+		{
+			// Load configuration values with prefix "App:" and specific tags
+			KeyFilter:   "App:*",
+			TagFilters: []string{"env=prod"},
+		},
+	},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+> [!NOTE]
+> The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in a tag filter.
+
 ### Trim prefix from keys
 
 When loading configuration values with specific prefixes, you can use the `TrimKeyPrefixes` option to remove those prefixes from the keys in your configuration. This creates cleaner configuration keys in your application while maintaining organization in your App Configuration store.

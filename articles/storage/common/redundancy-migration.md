@@ -466,12 +466,6 @@ Limitations apply to some replication change scenarios depending on:
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you're converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-> [!IMPORTANT]
-> [Customer-initiated conversion](#customer-initiated-conversion) is available in all public regions that support ZRS with the following exceptions:> - (Asia Pacific) Indonesia Central
-> - (Europe) Spain Central
-> - (North America) Mexico Central
-> - (South America) Chile Central
-
 ### Feature conflicts
 
 Some storage account features aren't compatible with other features or operations. For example, the ability to fail over to the secondary region is the key feature of geo-redundancy, but other features aren't compatible with failover. For more information about features and services not supported with failover, see [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services). The conversion of an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.

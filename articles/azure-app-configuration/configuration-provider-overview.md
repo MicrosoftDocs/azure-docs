@@ -47,7 +47,7 @@ This is an overview of each feature and its current status for different framewo
 - **N/A (Not Available)**: It is not planned to offer the feature for the specified framework or language.
 
 Feature | .NET | Spring | Kubernetes | Python | JavaScript | Go |
-------- | ---- | ------ | ---------- | ------ | ----------
+------- | ---- | ------ | ---------- | ------ | ---------- | -- |
 Connection String Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | GA 
 Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | GA 
 Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sentinel-key) | GA | GA | GA | [GA](./reference-javascript-provider.md#refresh-on-sentinel-key) | GA
@@ -71,7 +71,7 @@ Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | 
 Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | GA
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
 Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | N/A 
-Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | GA | [GA](./reference-javascript-provider.md#tag-filters) | WIP 
+Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | GA | GA | [GA](./reference-javascript-provider.md#tag-filters) | GA 
 Snapshot Reference | [GA](./reference-dotnet-provider.md#snapshot-reference) | WIP | WIP | WIP | WIP | WIP
 
 ## Support policy

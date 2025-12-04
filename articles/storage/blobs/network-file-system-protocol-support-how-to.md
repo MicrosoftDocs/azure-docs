@@ -84,19 +84,20 @@ The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
 
    If the package is installed, then the message `AZNFS mounthelper is installed!` appears.
 
-2. If the package is not yet installed, then use the following command to install it. 
+1. If the package is not yet installed, then use the following command to install it. 
 
-   ```
+      ```
    wget -O - -q https://github.com/Azure/AZNFS-mount/releases/latest/download/aznfs_install.sh | bash
    ```
 
    > [!NOTE]
    > AZNFS is supported on following Linux distributions:
-   > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS)
-   > - RedHat7, RedHat8, RedHat9
-   > - Rocky8, Rocky9
-   > - SUSE (SLES 15)
+   > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
+- RedHat7, RedHat8, RedHat9
+- Rocky8, Rocky9
+- SUSE (SLES 15)
 
+   
 > [!TIP] 
 > AZNFS 3.0 is now in public preview. This release delivers higher throughput, supports larger files, enhances metadata performance, and eliminates user group restrictions. To learn about improvements and view instructions to try AZNFS 3.0, see the [AZNFS wiki](https://github.com/Azure/AZNFS-mount/wiki).
 

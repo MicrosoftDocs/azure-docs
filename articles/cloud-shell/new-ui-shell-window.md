@@ -1,7 +1,6 @@
 ---
 description: Overview of how to use the new user interface for Azure Cloud Shell.
-ms.contributor: jahelmic
-ms.date: 01/28/2025
+ms.date: 12/03/2025
 ms.topic: how-to
 tags: azure-resource-manager
 title: How to use the new user interface for Azure Cloud Shell
@@ -66,6 +65,10 @@ share** button opens the Azure portal view of your Cloud Shell file share.
 > [!NOTE]
 > File and path names are case sensitive in Cloud Shell. Double check your casing in your file
 > path.
+
+You can also drag files from your local computer into the Cloud Shell window to upload them. The
+files are uploaded into the `/home/user` directory. You can select multiple files to upload at once.
+This feature only supports uploading files, not folders.
 
 ## New session button
 
@@ -135,15 +138,25 @@ When you select the **Close** button, the Cloud Shell session is terminated.
 
 ## Copy and paste
 
-- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy is supported but use
+- Windows: Use <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>Ctrl</kbd>+<kbd>v</kbd> or
   <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
-  - The Firefox browser might not support clipboard permissions properly.
+  - Firefox might not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
-- Linux: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to paste.
+- Linux: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>Ctrl</kbd>+<kbd>v</kbd> to paste.
 
 > [!NOTE]
-> If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>c</kbd>, Cloud Shell sends the `Ctrl-C`
-> character to the shell. Sending `Ctrl-C` can terminate the currently running command.
+> If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>C</kbd>, Cloud Shell sends the `Ctrl-c`
+> character to the shell. The shell can interpret `Ctrl-c` as a **Break** signal and terminate the
+> currently running command.
+
+When using the Bash shell, pasted text is automatically highlighted due to bracketed paste mode. To
+disable highlighting, run the following command:
+
+```bash
+bind 'set enable-bracketed-paste off'
+```
+
+This setting only persists if you have a mounted storage account.
 
 ## Resize Cloud Shell window
 

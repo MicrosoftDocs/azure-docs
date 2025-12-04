@@ -1,6 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.date: 12/02/2025
+ms.date: 12/03/2025
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -25,17 +25,25 @@ Cloud Shell supports the latest versions of following browsers:
 The keys used for copy and paste vary by operating system and browser. The following list contains
 the most common key combinations:
 
-- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> or
+- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>v</kbd> or
   <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
   - Firefox might not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
-- Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to
-  paste.
+- Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>v</kbd> to paste.
 
 > [!NOTE]
 > If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>C</kbd>, Cloud Shell sends the `Ctrl-c`
 > character to the shell. The shell can interpret `Ctrl-c` as a **Break** signal and terminate the
 > currently running command.
+
+When using the Bash shell, pasted text is automatically highlighted due to bracketed paste mode. To
+disable highlighting, run the following command:
+
+```bash
+bind 'set enable-bracketed-paste off'
+```
+
+This setting only persists if you have a mounted storage account.
 
 ## Frequently asked questions
 

@@ -4,7 +4,7 @@ description: Learn how to ensure reliability and availability in Azure Database 
 author: gaurikasar
 ms.author: gkasar
 ms.reviewer: maghan, gbowerman
-ms.date: 10/21/2025
+ms.date: 12/03/2025
 ms.service: azure-database-postgresql
 ms.topic: concept-article
 ms.custom:
@@ -50,9 +50,9 @@ You can configure high availability (HA) in two ways: zone-redundant HA, which p
 
 To simplify configuration and ensure zonal resiliency, the portal provides a Zonal Resiliency option with two radio buttons: Enabled and Disabled. Selecting Enabled attempts to create the standby server in a different availability zone (zone-redundant HA mode). If the region doesn't support zone-redundant HA, you can select the fallback checkbox (highlighted in the following image) to enable same-zone HA instead.
 
-:::image type="content" source="media/reliability-azure-database-postgresql/multi-availability-zones.png" alt-text="Screenshot of the zonal resiliency experience in the portal." lightbox="./media/reliability-azure-database-postgresql/same-zone-high-availability-architecture.png":::
+:::image type="content" source="media/reliability-azure-database-postgresql/multi-availability-zones.png" alt-text="Screenshot of the zonal resiliency experience in the portal." lightbox="./media/reliability-azure-database-postgresql/multi-availability-zones.png":::
 
-When you select the fallback checkbox, the system creates the standby server in the same zone and later triggers an automatic migration workflow during a maintenance window to move it to a different zone once capacity becomes available. If you don't select the checkbox and zonal capacity is unavailable, HA enablement fails. This design enforces zone-redundant HA as the default while providing a controlled fallback for same-zone HA, ensuring workloads eventually achieve full zone resiliency without manual intervention.
+When you select the fallback checkbox, the system creates the standby server in the same zone. If zonal capacity later becomes available, Azure will notify you so you can choose to migrate to a zone-redundant HA configuration using [PITR or read replicas](/azure/postgresql/flexible-server/how-to-configure-high-availability).  If you don't select the checkbox and zonal capacity is unavailable, HA enablement fails. This design enforces zone-redundant HA as the default while providing a controlled fallback for same-zone HA, ensuring workloads eventually achieve full zone resiliency without manual intervention.
 
 ### High availability features
 

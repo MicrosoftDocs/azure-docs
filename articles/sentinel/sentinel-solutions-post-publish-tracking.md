@@ -11,7 +11,7 @@ ms.date: 09/18/2025
 #CustomerIntent: As a ISV partner, I want to track the status of my solution so that I can correct any issues and ensure that my solution is available to customers in Azure Marketplace and in Sentinel Content hub.
 ---
 
-# Sentinel SIEM solution lifecyle post publish
+# Sentinel SIEM solution lifecycle post publish
 
 This document explains what happens once your offer is successfully published. Within partner center, your solution would be referred to as an offer (the terms solution and offer are used interchangeably in the context of this document). Once you publish the offer, the offer goes through a series of validation checks before it becomes live in Azure Marketplace and in the Sentinel content hub. 
 

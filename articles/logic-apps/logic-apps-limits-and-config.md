@@ -599,7 +599,7 @@ Before you set up your firewall with IP addresses, review these considerations:
   | Service tag | Description |
   |-------------|-------------|
   | **LogicAppsManagement** | Inbound IP address prefixes for the Azure Logic Apps service. |
-  | **LogicApps** | Outbound IP address prefixes for the Azure Logic Apps service. |
+  | **LogicApps** | Outbound IP address prefixes for the multitenant Azure Logic Apps service. |
   | **AzureConnectors** | IP address prefixes required for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, such as Azure Blob Storage or Azure Event Hubs. This tag and its IP addresses also apply to any customer connector operations in your workflows. |
 
 * For Standard logic app workflows in single-tenant Azure Logic Apps, you must allow access for any trigger or action connections in your workflows. To allow traffic, use [service tags](/azure/virtual-network/service-tags-overview) and the same level of restrictions or policies as Azure App Service. You must also find and use the fully qualified domain names (FQDNs) for your connections. For more information, see the corresponding sections in the following documentation:

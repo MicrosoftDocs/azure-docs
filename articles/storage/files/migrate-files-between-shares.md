@@ -1,5 +1,5 @@
 ---
-title: Migrate files between SMB Azure file shares
+title: Migrate Files Between SMB Azure file shares
 description: Learn how to migrate files from one SMB Azure file share to another using Robocopy, a common migration tool.
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -10,7 +10,8 @@ author: khdownie
 ---
 
 # Migrate files from one SMB Azure file share to another
-This article describes how to migrate files between SMB file shares hosted in Azure Files. You can use this method to migrate between HDD and SSD file shares, file shares using a different billing model, or file shares in different regions.
+
+This article describes how to migrate files between SMB Azure file shares using Robocopy, a common migration tool. You can use this method to migrate between HDD and SSD file shares, file shares using a different billing model, or file shares in different Azure regions.
 
 > [!WARNING]
 > If you're using Azure File Sync, the migration process is different than described in this article. Instead, see [Migrate files from one Azure file share to another when using Azure File Sync](../file-sync/file-sync-share-to-share-migration.md).
@@ -30,6 +31,7 @@ This article describes how to migrate files between SMB file shares hosted in Az
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Migrate using Robocopy
+
 Follow these steps to migrate using Robocopy, a command-line file copy utility included with Windows.
 
 1. Deploy a Windows virtual machine (VM) in Azure in the same region as your source file share. Keeping the data and networking in Azure is faster and avoids outbound data transfer charges. For optimal performance, we recommend a multi-core VM type with at least 56 GiB of memory, for example **Standard_DS5_v2**.
@@ -42,7 +44,7 @@ Follow these steps to migrate using Robocopy, a command-line file copy utility i
    robocopy s:\ t:\ /MIR /COPYALL /MT:16 /R:2 /W:1 /B /IT /DCOPY:DAT
    ```
    
-   You can run the command while your source is still online, but IOPS and throughput used for the robocopy job counts against your file share limits.
+   You can run the command while your source is still online, but IOPS and throughput used for the Robocopy job counts against your file share limits.
 
 4. After the initial run completes, run the same robocopy command again to copy over all the changes that happened since the initial run. Any data unchanged since the last copy job is skipped.
 
@@ -50,5 +52,6 @@ Follow these steps to migrate using Robocopy, a command-line file copy utility i
 
 ## See also
 
+- [Transfer data with AzCopy and file storage](/azure/storage/common/storage-use-azcopy-files)
 - [Migrate to Azure file shares using RoboCopy](storage-files-migration-robocopy.md)
 - [Migrate files from one Azure file share to another when using Azure File Sync](../file-sync/file-sync-share-to-share-migration.md)
