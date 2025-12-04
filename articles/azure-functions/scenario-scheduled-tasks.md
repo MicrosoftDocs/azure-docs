@@ -1,7 +1,7 @@
 ---
 title: Run scheduled tasks using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a scheduled task project to a Flex Consumption plan on Azure."
-ms.date: 11/14/2025
+ms.date: 12/01/2025
 ms.topic: quickstart
 ai-usage: ai-assisted
 zone_pivot_groups: programming-languages-set-functions
@@ -17,7 +17,7 @@ The project source uses `azd` to create the function app and related resources a
 By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means you can complete this article and only incur a small cost of a few USD cents or less in your Azure account.
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
 > [!IMPORTANT]  
-> This article is currently only supported in C#, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
+> While [running scheduled tasks](./functions-bindings-timer.md) is supported for all languages, this quickstart scenario currently only has examples for C#, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Prerequisites

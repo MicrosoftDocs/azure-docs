@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
-ms.date: 09/01/2025
+ms.date: 12/03/2025
 # Customer intent: "As an Azure network administrator, I want to transition from default outbound access to explicit outbound connectivity for virtual machines, so that I can ensure secure and reliable internet access while avoiding potential disruptions from IP address changes."
 ---
 
@@ -46,7 +46,7 @@ Some examples of configurations that don't work when using default outbound acce
 
 - Multiple NICs on a VM can yield inconsistent outbound IPs
 - Scaling Azure Virtual Machine Scale Sets can result in changing outbound IPs
-- Outbound IPs aren't consistent or contiguous across virtual machine scale set instances
+- Outbound IPs aren't consistent or contiguous across Virtual Machine Scale Set instances
 
 Additionally,
 
@@ -152,11 +152,11 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
 * In configurations using User Defined Routes (UDRs), any configured routes with [next hop type `Internet`](../virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) break in a Private subnet.
 
-  * A common example is the use of a UDR to steer traffic to an upstream network virtual appliance/firewall, with exceptions for certain Azure Service Tags to bypass inspection.
+  * A common example is the use of a UDR to steer traffic to an upstream network virtual appliance/firewall, with exceptions for certain Azure Service Tags to bypass inspection. This is done by configuring routes to these Service Tags with next hop type `Internet`. In this scenario you configure the following:
 
     * A default route for the destination 0.0.0.0/0, with a next hop type of Virtual Appliance applies in the general case.
 
-    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an explicit outbound connectivity method is also configured for the source of the connection to these destinations, attempts to connect to these destinations fail, because default outbound access isn't available.
+    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an explicit outbound connectivity method is also configured for the source of the connection to these destinations, attempts to connect to these destinations fail, because default outbound access isn't available by default in a Private subnet.
 
   * This limitation doesn't apply to the use of Service Endpoints, which use a different next hop type `VirtualNetworkServiceEndpoint`. See [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md).
  
@@ -182,15 +182,15 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
 #### Why do I see an alert showing I have a default outbound IP on my VM?
 
-There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. This is used to generate an Azure portal banner for VM/VMSS that flags this state.  There are also specific Azure Advisor reccomendations with this information for your subscriptions. If you want to view which of your virtual machines or virtual machine scale sets have a default outbound IP assigned to them, follow these steps:
-1. Type in 'Advisor' into the search bar in the Azure portal and select on this option when it comes up.
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/Virtual Machine Scale Set instance. This is used to generate an Azure portal banner for VM/Virtual Machine Scale Set that flags this state.  There are also specific Azure Advisor recommendations with this information for your subscriptions. If you want to view which of your virtual machines or Virtual Machine Scale Sets have a default outbound IP assigned to them, follow these steps:
+1. Type 'Advisor' into the search bar in the Azure portal and then select this option when it comes up.
 2. Select 'Operational Excellence'
-3. Look for the reccomendations 'Add explicit outbound method to disable default outbound' and/or 'Add explicit outbound method to disable default outbound for Virtual Machine Scale Sets' (note these are two different items)
-4. If either of these exist, select the respective reccomendation name and you will see the network interface cards (NICs) of all the virtual machnes/virtual machine scale set instances that have default outbound enabled.
+3. Look for the recommendations 'Add explicit outbound method to disable default outbound' and/or 'Add explicit outbound method to disable default outbound for Virtual Machine Scale Sets' (note these are two different items)
+4. If either of these exist, select the respective recommendation name and you will see the network interface cards (NICs) of all the virtual machnes/Virtual Machine Scale Set instances that have default outbound enabled.
 
 #### How do I clear this alert?
 
-1. An explicit method of outbound must be utilized for the flagged VM/VMSS. See the section above for different options.
+1. An explicit method of outbound must be utilized for the flagged VM/Virtual Machine Scale Set. See the section above for different options.
 2. The subnet should be made private to prevent new default outbound IPs from being created.
 3. Any applicable virtual machines in the subnet with the flag must be stopped and deallocated for the changes to be reflected in the NIC-level parameter and the flag to clear. (Note this is also true in the reverse; in order for a machine to be given a default outbound IP after having the subnet-level parameter set to false, a stop/deallocate of the virtual machine is required.)
 

@@ -19,6 +19,7 @@
     href: functions-scale.md
 - name: Quickstarts
   displayName: quickstart, get started
+  expanded: true
   items:
   - name: Scenarios
     expanded: true
@@ -52,12 +53,13 @@
   - name: Developer tools
     items:
     - name: Azure Developer CLI
-      displayName: Flex Consumption plan
+      displayName: azd
       href: create-first-function-azure-developer-cli.md
-    - name: Command line
-      displayName: quickstart, get started
+    - name: Command line (Core Tools)
+      displayName: quickstart, get started, go, rust
       href: how-to-create-function-azure-cli.md
     - name: Visual Studio Code
+      displayName: quickstart, get started, go, rust
       href: how-to-create-function-vs-code.md
     - name: Visual Studio
       href: functions-create-your-first-function-visual-studio.md
@@ -84,8 +86,6 @@
     - name: Terraform
       displayName: Terraform, quickstart, get started
       href: functions-create-first-function-terraform.md
-    - name: Custom handlers (Go/Rust)
-      href: create-first-function-vs-code-other.md
   - name: Connect to services  
     items:
     - name: Storage

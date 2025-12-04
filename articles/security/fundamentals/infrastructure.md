@@ -3,7 +3,6 @@ title: Azure infrastructure security | Microsoft Docs
 description: Learn how Microsoft works to secure the Azure datacenters. The datacenters are managed, monitored, and administered by Microsoft operations staff.
 services: security
 author: msmbaldwin
-manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security

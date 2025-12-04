@@ -65,6 +65,9 @@ If you require physical isolation down to the hardware level, you can deploy you
   
 Only I1v2, I2v2, and I3v2 SKU sizes are available in an App Service Environment deployed on dedicated hosts. Extra charges apply for dedicated host deployments.
 
+> [!NOTE]
+> Dedicated host deployments are available only in limited regions, and expansion to additional regions isn't planned.
+
 Most customers don't require isolation down to the hardware level, so consider the limitations of dedicated host deployments before you use this feature. To determine whether a dedicated host deployment is right for you, review your security and compliance requirements before deployment.
 
 ## Virtual network support

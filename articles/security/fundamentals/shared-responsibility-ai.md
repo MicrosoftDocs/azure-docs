@@ -3,7 +3,6 @@ title: AI shared responsibility model - Microsoft Azure
 description: "Understand the shared responsibility model and which tasks are handled by the AI platform or application provider, and which tasks are handled by you."
 services: security
 author: richarddiver-ms
-manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article

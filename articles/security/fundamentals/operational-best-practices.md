@@ -5,7 +5,6 @@ titleSuffix: Azure security
 description: This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 services: security
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -240,7 +239,7 @@ Azure has two DDoS [service offerings](../../ddos-protection/ddos-protection-ove
 Enable Azure Policy to monitor and enforce your organization's written policy. This will ensure compliance with your company or regulatory security requirements by centrally managing security policies across your hybrid cloud workloads. Learn how to [create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md). See [Azure Policy definition structure](../../governance/policy/concepts/definition-structure.md) for an overview of the elements of a policy.
 
 **Best practice**: Use Azure Policy to enforce Microsoft Cloud Security Benchmark v2 (preview) recommendations across your environment.  
-**Detail**: The [Microsoft Cloud Security Benchmark v2 (preview)](https://learn.microsoft.com/security/benchmark/azure/overview) provides comprehensive security best practices with expanded Azure Policy coverage (420+ policy-based measurements). Assign Microsoft Cloud Security Benchmark v2 (preview) policies to your subscriptions and management groups to continuously audit and enforce secure configurations. The benchmark includes new controls for AI security, confidential computing, and enhanced threat detection. Use the [Defender for Cloud regulatory compliance dashboard](https://learn.microsoft.com/azure/defender-for-cloud/update-regulatory-compliance-packages) to track compliance and identify security gaps requiring remediation.
+**Detail**: The [Microsoft Cloud Security Benchmark v2 (preview)](/security/benchmark/azure/overview) provides comprehensive security best practices with expanded Azure Policy coverage (420+ policy-based measurements). Assign Microsoft Cloud Security Benchmark v2 (preview) policies to your subscriptions and management groups to continuously audit and enforce secure configurations. The benchmark includes new controls for AI security, confidential computing, and enhanced threat detection. Use the [Defender for Cloud regulatory compliance dashboard](/azure/defender-for-cloud/regulatory-compliance-dashboard) to track compliance and identify security gaps requiring remediation.
 
 Here are some security best practices to follow after you adopt Azure Policy:
 

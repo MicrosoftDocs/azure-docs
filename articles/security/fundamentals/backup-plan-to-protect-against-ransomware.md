@@ -6,8 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-manager: rkarlin
-ms.date: 10/16/2024
+ms.date: 12/03/2025
 ---
 
 # Backup and restore plan to protect against ransomware

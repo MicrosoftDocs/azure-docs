@@ -229,7 +229,7 @@ To ensure consistent and predictable deployments, we recommend the following for
   * Using latest can cause unexpected behavior because the actual image behind latest can change without notice.
   * In a cluster registry setup, if the tag value changes but the tag name stays the same, the cluster registry will not re-download the updated image.
   * This can lead to running outdated or inconsistent images.
-* Instead, alway Use immutable tags like `:1.4.2` 
+* Instead, always use immutable tags like `:1.4.2` 
 *	Ensure every build produces a unique tag, do not overwrite existing tags.
 
 These practices help prevent deployment issues and improve traceability, rollback safety, and security compliance.

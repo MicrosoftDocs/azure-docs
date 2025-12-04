@@ -23,7 +23,7 @@ In this section, you create a function app in the Flex Consumption plan along wi
 
     In the **Azure: Activity Log** panel, the Azure extension shows the status of individual resources as they're created in Azure.
 
-    ![Screenshot that shows the log of Azure resource creation.](media/functions-publish-project-vscode/resource-activity-log.png)
+    ![Screenshot that shows the log of Azure resource creation.](media/functions-create-azure-resources-vs-code/resource-activity-log.png)
 
 1. When the function app is created, the following related resources are created in your Azure subscription. The resources are named based on the name you entered for your function app.
 

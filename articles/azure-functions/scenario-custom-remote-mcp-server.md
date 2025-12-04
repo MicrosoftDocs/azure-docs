@@ -1,7 +1,7 @@
 ---
 title: Build a custom remote MCP server using Azure Functions
 description: "Learn how to create and deploy a custom Model Context Protocol (MCP) server using Azure Functions. This quickstart uses the Azure Developer CLI to deploy an MCP server project that enables AI clients to access custom tools hosted on Azures Flex Consumption plan."
-ms.date: 11/04/2025
+ms.date: 12/01/2025
 ms.topic: quickstart
 ai-usage: ai-assisted
 ms.collection: 
@@ -23,7 +23,7 @@ Because the new app runs on the Flex Consumption plan, which follows a _pay-for-
 
 ::: zone pivot="programming-language-javascript,programming-language-powershell"  
 > [!IMPORTANT]  
-> This article is currently only supported in C#, Java, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
+> While [creating custom MCP servers](./functions-bindings-mcp.md) is supported for all Functions languages, this quickstart scenario currently only has examples for C#, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 This article supports version 4 of the Node.js programming model for Azure Functions.

@@ -1,7 +1,7 @@
 ---
 title: Respond to database changes in Azure Cosmos DB using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure. The project features an Azure Cosmos DB trigger function that runs in response to changes in an Azure Cosmos DB database."
-ms.date: 10/06/2025
+ms.date: 12/01/2025
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an Azure Cosmos DB triggered function project securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
@@ -19,7 +19,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
 > [!IMPORTANT]  
-> This article is currently only supported in C#, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
+> While responding to [changes in an Azure Cosmos DB No SQL database](./functions-bindings-cosmosdb-v2-trigger.md) is supported for all languages, this quickstart scenario currently only has examples for C#, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 [!INCLUDE [functions-scenario-quickstarts-prerequisites](../../includes/functions-scenario-quickstarts-prerequisites.md)]

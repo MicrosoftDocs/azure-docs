@@ -232,9 +232,7 @@
   - name: Initiate storage account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
   - name: SSD file shares redundancy support
-    href: redundancy-premium-file-shares.md
-  - name: Zonal placement
-    href: zonal-placement.md    
+    href: redundancy-premium-file-shares.md   
 - name: Performance, scale, and cost
   items:
   - name: Understanding performance
@@ -253,6 +251,8 @@
     href: file-estimate-cost.md
   - name: Optimize costs with storage reservations
     href: files-reserve-capacity.md
+  - name: Zonal placement
+    href: zonal-placement.md
 - name: Monitor metrics and logs
   items:
   - name: Monitor Azure Files

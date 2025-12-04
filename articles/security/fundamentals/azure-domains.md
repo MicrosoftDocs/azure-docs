@@ -5,7 +5,6 @@ description: Reference list of Azure domains (not comprehensive)
 services: security
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
 
 ms.service: security
 ms.subservice: security-fundamentals

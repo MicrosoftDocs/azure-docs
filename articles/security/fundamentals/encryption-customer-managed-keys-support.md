@@ -3,7 +3,7 @@ title: Services that support customer managed keys (CMKs) in Azure Key Vault and
 description: Services that support customer managed keys (CMKs) in Azure Key Vault and Azure Managed HSM
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 10/25/2024
+ms.date: 12/03/2025
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article

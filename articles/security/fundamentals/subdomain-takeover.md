@@ -4,7 +4,6 @@ title: Prevent subdomain takeovers with Azure DNS alias records and Azure App Se
 description: Learn how to avoid the common high-severity threat of subdomain takeover
 services: security
 author: msmbaldwin
-manager: rkarlin
 
 ms.service: security
 ms.subservice: security-fundamentals

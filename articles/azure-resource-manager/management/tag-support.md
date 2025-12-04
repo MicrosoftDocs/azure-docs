@@ -499,16 +499,16 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | DataControllers | Yes | Yes |
+> | DataControllers | Yes | No |
 > | DataControllers / ActiveDirectoryConnectors | No | No |
-> | PostgresInstances | Yes | Yes |
-> | SqlManagedInstances | Yes | Yes |
+> | PostgresInstances | Yes | No |
+> | SqlManagedInstances | Yes | No |
 > | SqlManagedInstances / FailoverGroups | No | No |
-> | SqlServerEsuLicenses | Yes | Yes |
-> | SqlServerInstances | Yes | Yes |
-> | SqlServerInstances / AvailabilityGroups | Yes | Yes |
-> | SqlServerInstances / Databases | Yes | Yes |
-> | SqlServerLicenses | Yes | Yes |
+> | SqlServerEsuLicenses | Yes | No |
+> | SqlServerInstances | Yes | No |
+> | SqlServerInstances / AvailabilityGroups | Yes | No |
+> | SqlServerInstances / Databases | Yes | No |
+> | SqlServerLicenses | Yes | No |
 
 ## Microsoft.AzureDataTransfer
 

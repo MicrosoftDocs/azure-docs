@@ -2,12 +2,11 @@
 title: Security best practices and patterns - Microsoft Azure | Microsoft Docs
 description: This article links you to security best practices and patterns for different Azure resources.
 author: msmbaldwin
-manager: rkarlin
 ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: conceptual
-ms.date: 09/27/2024
+ms.topic: article
+ms.date: 12/03/2025
 ms.author: mbaldwin
 
 ---
@@ -48,11 +47,11 @@ The [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure/introd
 > - **Expanded Azure Policy Coverage**: Increased from 220+ to 420+ policy-based control measurements for comprehensive security posture monitoring
 > - **Enhanced Implementation Guidance**: More granular technical implementation examples with risk and threat-based control guides
 > 
-> MCSB v2 includes new guidance for confidential computing workloads and can be enforced and monitored through Azure Policy. For more information, see [Overview of Microsoft cloud security benchmark v2 (preview)](https://learn.microsoft.com/security/benchmark/azure/overview).
+> MCSB v2 includes new guidance for confidential computing workloads and can be enforced and monitored through Azure Policy. For more information, see [Overview of Microsoft cloud security benchmark v2 (preview)](/security/benchmark/azure/overview).
 
 **Implementation recommendations**:
-- **Monitor compliance**: Use the [Microsoft Defender for Cloud regulatory compliance dashboard](https://learn.microsoft.com/azure/defender-for-cloud/update-regulatory-compliance-packages) to track Microsoft Cloud Security Benchmark compliance and identify security gaps
-- **Enforce baselines**: Implement [Azure Policy](https://learn.microsoft.com/azure/governance/policy/tutorials/create-and-manage) to audit and enforce secure configuration baselines based on Microsoft Cloud Security Benchmark v2 (preview) recommendations
+- **Monitor compliance**: Use the [Microsoft Defender for Cloud regulatory compliance dashboard](/azure/defender-for-cloud/update-regulatory-compliance-packages) to track Microsoft Cloud Security Benchmark compliance and identify security gaps
+- **Enforce baselines**: Implement [Azure Policy](/azure/governance/policy/tutorials/create-and-manage) to audit and enforce secure configuration baselines based on Microsoft Cloud Security Benchmark v2 (preview) recommendations
 - **Assess AI workloads**: Review the new Artificial Intelligence Security controls in Microsoft Cloud Security Benchmark v2 (preview) if deploying AI/ML workloads to ensure proper platform, application, and monitoring security
 
 For a complete collection of high-impact security recommendations, see the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).

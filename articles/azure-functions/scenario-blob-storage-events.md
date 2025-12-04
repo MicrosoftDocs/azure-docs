@@ -1,7 +1,7 @@
 ---
 title: Respond to blob storage events using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure Functions. The project features a Blob Storage trigger that runs in response to blob storage events."
-ms.date: 11/17/2025
+ms.date: 12/02/2025
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an event-based Blob trigger function project securely to a new function app in the Flex Consumption plan in Azure Functions by using azd templates and the azd up command.
@@ -22,7 +22,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 [!INCLUDE [functions-scenario-quickstarts-prerequisites-full](../../includes/functions-scenario-quickstarts-prerequisites-full.md)]
 + [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
 
-+ [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or an equivalent REST tool used to securely execute HTTP requests. 
++ [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or an equivalent REST tool you use to securely execute HTTP requests. 
 
 ## Initialize the project
 
@@ -71,6 +71,122 @@ Use the `azd init` command from the command palette to create a local Azure Func
 ::: zone-end
 
 In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+
+## Add the local.settings.json file
+
+Functions needs the local.settings.json file to configure the host when running locally.
+
+1. Run this command to go to the `src` app folder:
+
+    ```console
+    cd src
+    ```
+
+::: zone pivot="programming-language-csharp"
+2. Create a file named _local.settings.json_ in the `src` folder that contains this JSON data:
+
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+            "PDFProcessorSTORAGE": "UseDevelopmentStorage=true"
+        }
+    }
+    ```
+::: zone-end
+::: zone pivot="programming-language-java"
+2. Create a file named _local.settings.json_ in the `src` folder that contains this JSON data:
+
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "java",
+            "PDFProcessorSTORAGE": "UseDevelopmentStorage=true"
+        }
+    }
+    ```
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+2. Create a file named _local.settings.json_ in the `src` folder that contains this JSON data:
+
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "node",
+            "PDFProcessorSTORAGE": "UseDevelopmentStorage=true"
+        }
+    }
+    ```
+::: zone-end
+::: zone pivot="programming-language-powershell"
+2. Create a file named _local.settings.json_ in the `src` folder that contains this JSON data:
+
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "powershell",
+            "FUNCTIONS_WORKER_RUNTIME_VERSION": "7.2",
+            "PDFProcessorSTORAGE": "UseDevelopmentStorage=true"
+        }
+    }
+    ```
+::: zone-end
+::: zone pivot="programming-language-python"
+2. Create a file named _local.settings.json_ in the `src` folder that contains this JSON data:
+
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "python",
+            "PDFProcessorSTORAGE": "UseDevelopmentStorage=true"
+        }
+    }
+    ```
+
+## Create and activate a virtual environment
+
+In the `src` folder, run these commands to create and activate a virtual environment named `.venv`:
+
+### [Linux/macOS](#tab/linux)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+If Python doesn't install the venv package on your Linux distribution, run the following command:
+
+```bash
+sudo apt-get install python3-venv
+```
+
+### [Windows (bash)](#tab/windows-bash)
+
+```bash
+py -m venv .venv
+source .venv/scripts/activate
+```
+
+### [Windows (Cmd)](#tab/windows-cmd)
+
+```shell
+py -m venv .venv
+.venv\scripts\activate
+```
+
+---
+
+::: zone-end
 
 ## Set up local storage emulator
 
@@ -209,7 +325,7 @@ Use the `azd up` command to create the function app in a Flex Consumption plan a
 
 1. When prompted, select the name of your new storage account (from `AZURE_STORAGE_ACCOUNT_NAME`). Select **Blob Containers** > **unprocessed-pdf**.
  
-1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azure Storage: Open in Explorer`. Select the same storage account > **Blob Containers** > **processed-pdf**, and then **Open in new window**. 
+1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azure Storage: Open in Explorer`. Select the same storage account > **Blob Containers** > **processed-pdf**, then **Open in new window**. 
 
 1. In the Explorer, verify that the PDF files you uploaded were processed by your function. The output is written to the `processed-pdf` container with a `processed-` prefix. 
 

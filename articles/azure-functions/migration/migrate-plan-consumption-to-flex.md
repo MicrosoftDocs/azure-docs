@@ -235,7 +235,7 @@ Flex Consumption plans don't yet support all [Functions language stacks](../supp
 | `python` | Python   | ✅ Yes                        |
 | `powershell`  | [PowerShell](../functions-reference-powershell.md)  | ✅ Yes |
 | `dotnet`  | [.NET (in-process model)](../functions-dotnet-class-library.md) | ❌ No  |
-| `custom`  | [Custom handlers](../functions-custom-handlers.md) | ❌ No  |
+| `custom`  | [Custom handlers](../functions-custom-handlers.md) | ✅ Yes   |
 
 :::zone pivot="platform-linux"
 
@@ -248,8 +248,6 @@ Flex Consumption plans don't yet support all [Functions language stacks](../supp
 If your function app uses an unsupported runtime stack:
 
 + For C# apps that run in-process with the runtime (`dotnet`), you must first migrate your app to .NET isolated. For more information, see [Migrate C# apps from the in-process model to the isolated worker model](../migrate-dotnet-to-isolated-model.md).
-
-+ Non-native language apps that rely on custom handlers can't currently be migrated to run in a Flex Consumption plan.
 
 ### Verify stack version compatibility
 

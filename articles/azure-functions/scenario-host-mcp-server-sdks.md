@@ -25,7 +25,7 @@ Because the new server runs in a Flex Consumption plan, which follows a _pay-for
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
 > [!IMPORTANT]  
-> This article is currently only supported in C#, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
+> While [hosting your MCP servers using Custom Handlers](./self-hosted-mcp-servers.md) is supported for all languages, this quickstart scenario currently only has examples for C#, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Prerequisites

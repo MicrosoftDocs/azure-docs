@@ -52,7 +52,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 | Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>Equinix<br>Megaport<sup>1</sup> |
 | Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Equinix<br>Megaport<sup>1</sup> |
 | Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>Megaport |
-| Taipei Metro | Chief Telecom<br>Chunghwa Telecom Co. Ltd | 2 | Taiwan North | &check; | |
+| Taipei Metro | Chief Telecom<br>Chunghwa Telecom Co. Ltd | 2 | Taiwan North | &check; | Chunghwa Telecom |
 | Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<br>Digital Realty |
 | Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; |  Equinix<sup>1</sup><br>Megaport<sup>1</sup> |
 
