@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 10/23/2025
+ms.date: 12/4/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -25,10 +25,13 @@ This article provides detailed descriptions and requirements for components of A
 
 - An Application Gateway for Containers frontend resource is an Azure child resource of the Application Gateway for Containers parent resource.
 - An Application Gateway for Containers frontend defines the entry point client traffic should be received by a given Application Gateway for Containers.
-  - A frontend can't be associated to more than one Application Gateway for Containers.
   - Each frontend provides a unique FQDN that can be referenced by a customer's CNAME record.
+  - A frontend can't be associated to more than one Application Gateway for Containers.
   - Private IP addresses are currently unsupported.
 - A single Application Gateway for Containers can support more than one frontends.
+
+>[!Tip]
+>A frontend represents a unique entry point for client traffic. Multiple hostnames (such as contoso.com and fabrikam.com) can resolve to the same frontend. If isolation is required, for example, to use the same hostname across different environments, create separate frontends. This allows each environment to reference the same hostname while maintaining distinct routing behavior.
 
 ### Application Gateway for Containers associations
 

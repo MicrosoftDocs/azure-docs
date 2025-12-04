@@ -98,7 +98,7 @@ The following list mentions fields that have specific guidelines for Alert event
 | **EventMessage** | Optional | string | Detailed information about the alert, including its context, cause, and potential impact. <br> e.g. `Potential use of the Rubeus tool for kerberoasting, a technique used to extract service account credentials from Kerberos tickets.` |
 | **IpAddr** | Alias | | Alias or friendly name for `DvcIpAddr` field. |
 | **Hostname** | Alias | | Alias or friendly name for `DvcHostname` field. |
-| **EventSchema** | Mandatory | string | The schema used for the event. The schema documented here is `AlertEvent`. |
+| **EventSchema** | Mandatory | Enumerated | The schema used for the event. The schema documented here is `AlertEvent`. |
 | **EventSchemaVersion** | Mandatory | string | The version of the schema. The version of the schema documented here is `0.1`. |
 
 ### All Common Fields

@@ -98,7 +98,7 @@ The migration script transfers the configuration from the old gateway to the new
 The commit script removes the old gateway and its connections after you verify that the new gateway is working correctly.
 
 > [!IMPORTANT]
-> Before you run this step, verify that your new virtual network gateway has a working ExpressRoute connection. The migration process can cause a brief interruption of up to 30 seconds.
+> Before you run this step, verify that your new virtual network gateway has a working ExpressRoute connection. The migration process can cause a brief interruption of up to 3 minutes.
 
 1. Run the **CommitMigration.ps1** script:
 

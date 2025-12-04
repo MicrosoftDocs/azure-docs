@@ -118,11 +118,11 @@ The following list mentions fields that have specific guidelines for Network Ses
 |---------------------|-------------|------------|--------------------|
 | **EventCount** | Mandatory | Integer | Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. For other sources, the value is typically set to `1`. |
 | <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the scenario reported by the record.<br><br> For Network Session records, the allowed values are:<br> - `EndpointNetworkSession`<br> - `NetworkSession` <br> - `L2NetworkSession`<br>- `IDS` <br> - `Flow`<br><br>For more information on event types, refer to the [schema overview](#schema-overview) |
-| <a name="eventsubtype"></a>**EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End`<br><br>This is field is not relevant for `Flow` events. |
+| <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End`<br><br>This is field is not relevant for `Flow` events. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | If the source device does not provide an event result, **EventResult** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventResult** should be `Failure`. Otherwise, **EventResult** should be `Success`. |
 | **EventResultDetails** | Recommended | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Supported values are:<br> - Failover <br> - Invalid TCP <br> - Invalid Tunnel<br> - Maximum Retry<br> - Reset<br> - Routing issue<br> - Simulation<br> - Terminated<br> - Timeout<br> - Transient error<br> - Unknown<br> - NA.<br><br>The original, source specific, value is stored in the [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) field. |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.6`.        |
+| **EventSchema** | Mandatory | Enumerated | The name of the schema documented here is `NetworkSession`. |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.7`.        |
 | <a name="dvcaction"></a>**DvcAction** | Recommended | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction) field.<br><br>Example: `drop` |
 | **EventSeverity** | Optional | Enumerated | If the source device does not provide an event severity, **EventSeverity** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventSeverity** should be `Low`. Otherwise, **EventSeverity** should be `Informational`. |
 | **DvcInterface** | | | The DvcInterface field should alias either the [DvcInboundInterface](#dvcinboundinterface) or the [DvcOutboundInterface](#dvcoutboundinterface) fields. |
@@ -190,16 +190,16 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **DstDeviceType** | Optional | Enumerated | The type of the destination device.  For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 | **DstZone** | Optional | String | The network zone of the destination, as defined by the reporting device.<br><br>Example: `Dmz` |
 | **DstInterfaceName** | Optional | String | The network interface used for the connection or session by the destination device.<br><br>Example: `Microsoft Hyper-V Network Adapter` |
-| **DstInterfaceGuid** | Optional | String | The GUID of the network interface used on the destination device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
-| **DstMacAddr** | Optional | String | The MAC address of the network interface used for the connection or session by the destination device.<br><br>Example: `06:10:9f:eb:8f:14` |
+| **DstInterfaceGuid** | Optional | GUID (String) | The GUID of the network interface used on the destination device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
+| **DstMacAddr** | Optional | MAC Address (String) | The MAC address of the network interface used for the connection or session by the destination device.<br><br>Example: `06:10:9f:eb:8f:14` |
 | <a name="dstvlanid"></a>**DstVlanId** | Optional | String | The VLAN ID related to the destination device.<br><br>Example: `130` |
-| **OuterVlanId** | Optional | Alias | Alias to [DstVlanId](#dstvlanid). <br><br>In many cases, the VLAN can't be determined as a source or a destination but is characterized as inner or outer. This alias to signifies that [DstVlanId](#dstvlanid) should be used when the VLAN is characterized as outer. |
-| <a name="dstsubscription"></a>**DstSubscriptionId** | Optional | String | The cloud platform subscription ID the destination device belongs to. **DstSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
+| **OuterVlanId** | Alias |  | Alias to [DstVlanId](#dstvlanid). <br><br>In many cases, the VLAN can't be determined as a source or a destination but is characterized as inner or outer. This alias to signifies that [DstVlanId](#dstvlanid) should be used when the VLAN is characterized as outer. |
 | **DstGeoCountry** | Optional | Country | The country/region associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
 | **DstGeoRegion** | Optional | Region | The region, or state, associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
 | **DstGeoCity** | Optional | City | The city associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
 | **DstGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
 | **DstGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
+| <a name = "dstdescription"></a>**DstDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 
 
 ### Destination user fields
@@ -222,7 +222,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="dstappname"></a>**DstAppName** | Optional | String | The name of the destination application.<br><br>Example: `Facebook` |
-| <a name="dstappid"></a>**DstAppId** | Optional | String | The ID of the destination application, as reported by the reporting device.If [DstAppType](#dstapptype) is `Process`, `DstAppId` and `DstProcessId` should have the same value.<br><br>Example: `124` |
+| <a name="dstappid"></a>**DstAppId** | Optional | String | The ID of the destination application, as reported by the reporting device. If [DstAppType](#dstapptype) is `Process`, `DstAppId` and `DstProcessId` should have the same value.<br><br>Example: `124` |
 | <a name="dstapptype"></a>**DstAppType** | Optional | AppType | The type of the destination application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [DstAppName](#dstappname) or [DstAppId](#dstappid) are used. |
 | <a name="dstprocessname"></a>**DstProcessName**              | Optional     | String     |   The file name of the process that terminated the network session. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
 | <a name="process"></a>**Process**        | Alias        |            | Alias to the [DstProcessName](#dstprocessname) <br><br>Example: `C:\Windows\System32\rundll32.exe`|
@@ -248,16 +248,18 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **SrcDeviceType** | Optional | DeviceType | The type of the source device. For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 | **SrcZone** | Optional | String | The network zone of the source, as defined by the reporting device.<br><br>Example: `Internet` |
 | **SrcInterfaceName** | Optional | String | The network interface used for the connection or session by the source device. <br><br>Example: `eth01` |
-| **SrcInterfaceGuid** | Optional | String | The GUID of the network interface used on the source device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
-| **SrcMacAddr** | Optional | String | The MAC address of the network interface from which the connection or session originated.<br><br>Example: `06:10:9f:eb:8f:14` |
+| **SrcInterfaceGuid** | Optional | GUID (String) | The GUID of the network interface used on the source device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
+| **SrcMacAddr** | Optional | MAC Address (String) | The MAC address of the network interface from which the connection or session originated.<br><br>Example: `06:10:9f:eb:8f:14` |
 | <a name="srcvlanid"></a>**SrcVlanId** | Optional | String | The VLAN ID related to the source device.<br><br>Example: `130` |
-| **InnerVlanId** | Optional | Alias | Alias to [SrcVlanId](#srcvlanid). <br><br>In many cases, the VLAN can't be determined as a source or a destination but is characterized as inner or outer. This alias to signifies that [SrcVlanId](#srcvlanid) should be used when the VLAN is characterized as inner.    |
+| **InnerVlanId** | Alias |  | Alias to [SrcVlanId](#srcvlanid). <br><br>In many cases, the VLAN can't be determined as a source or a destination but is characterized as inner or outer. This alias to signifies that [SrcVlanId](#srcvlanid) should be used when the VLAN is characterized as inner.    |
 | <a name="srcsubscription"></a>**SrcSubscriptionId** | Optional | String | The cloud platform subscription ID the source device belongs to. **SrcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **SrcGeoCountry** | Optional | Country | The country/region associated with the source IP address.<br><br>Example: `USA` |
 | **SrcGeoRegion** | Optional | Region | The region associated with the source IP address.<br><br>Example: `Vermont` |
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
+| <a name = "srcdescription"></a>**SrcDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
+
 
 
 ### Source user fields
@@ -359,7 +361,7 @@ The following are the changes in version 0.2.2 of the schema:
 - Defined `Hostname` and `IpAddr` as aliases for `RemoteHostname` and `LocalIpAddr` respectively when the event type is `EndpointNetworkSession`.
 - Defined `DvcInterface` as an alias to `DvcInboundInterface` or `DvcOutboundInterface`.
 - Changed the type of the following fields from Integer to Long: `SrcBytes`, `DstBytes`, `NetworkBytes`, `SrcPackets`, `DstPackets`, and `NetworkPackets`.
-- Added the fields `NetworkProtocolVersion`, `SrcSubscriptionId`, and `DstSubscriptionId`.
+- Added the field `NetworkProtocolVersion`.
 - Deprecated `DstUserDomain` and `SrcUserDomain`.
 
 The following are the changes in version 0.2.3 of the schema:
@@ -379,6 +381,10 @@ The following are the changes in version 0.2.5 of the schema:
 
 The following are the changes in version 0.2.6 of the schema: 
 - Added IDS as an event type
+
+The following are the changes in version 0.2.7 of the schema: 
+- Added the fields `DstDescription` and `SrcDescription`
+
 
 
 ## Next steps

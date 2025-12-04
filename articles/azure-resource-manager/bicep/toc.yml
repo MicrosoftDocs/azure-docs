@@ -705,6 +705,8 @@ items:
             href: diagnostics/bcp132.md
           - name: BCP135
             href: diagnostics/bcp135.md
+          - name: BCP138
+            href: diagnostics/bcp138.md
           - name: BCP139
             href: diagnostics/bcp139.md
           - name: BCP144
@@ -751,6 +753,8 @@ items:
             href: diagnostics/bcp333.md
           - name: BCP335
             href: diagnostics/bcp335.md
+          - name: BCP337
+            href: diagnostics/bcp337.md
           - name: BCP338
             href: diagnostics/bcp338.md
           - name: BCP401

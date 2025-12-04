@@ -3,7 +3,7 @@ title: Create a parameters file for bicep deployment
 description: Learn how to create Bicep parameters files instead of passing parameters as inline values in your script.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 06/30/2025
+ms.date: 12/03/2025
 ---
 
 # Create a parameters file for Bicep deployment
@@ -30,8 +30,13 @@ A parameters file uses the following format:
 ```bicep
 using '<path>/<file-name>.bicep' | using none
 
+type <user-defined-data-type-name> = <type-expression>
+
+var <variable-name> <data-type> = <variable-value>
+
 param <first-parameter-name> = <first-value>
 param <second-parameter-name> = <second-value>
+param <third-parameter-name> = <variable-name>
 ```
 
 You can apply the `using` statement by using a Bicep file, JSON Azure Resource Manager templates, Bicep modules, and template specifications. For example:
@@ -109,6 +114,25 @@ param environmentSettings = {
   test: testSettings
   prod: prodSettings
 }
+```
+
+You can define user-defined data types. For example:
+
+```bicep
+using './main.bicep'
+
+// Define a reusable type for tags with optional properties
+type TagValues = {
+  environment: 'dev' | 'test' | 'production'
+  project: string
+}
+
+var tagsExample TagValues = {
+  environment: 'dev'
+  project: 'bicep-sample'
+}
+
+param tags = tagsExample
 ```
 
 ### [JSON parameters file](#tab/JSON)

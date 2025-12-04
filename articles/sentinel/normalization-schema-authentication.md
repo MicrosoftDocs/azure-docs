@@ -21,7 +21,7 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 
 ## Parsers
 
-Deploy ASIM authentication parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). For more information about ASIM parsers, see the articles [ASIM parsers overview](normalization-parsers-overview.md)..
+Deploy ASIM authentication parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). For more information about ASIM parsers, see the articles [ASIM parsers overview](normalization-parsers-overview.md).
 
 ### Unifying parsers
 
@@ -107,10 +107,10 @@ The following list mentions fields that have specific guidelines for authenticat
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Authentication records, supported values include: <br>- `Logon` <br>- `Logoff`<br>- `Elevate`|
-| <a name ="eventresultdetails"></a>**EventResultDetails**         | Recommended   | String |  The details associated with the event result. This field is typically populated when the result is a failure.<br><br>Allowed values include: <br> - `No such user or password`. This value should be used also when the original event reports that there is no such user, without reference to a password.<br> - `No such user`<br> - `Incorrect password`<br> - `Incorrect key`<br>-	`Account expired`<br>-	`Password expired`<br>-	`User locked`<br>-	`User disabled`<br> - `Logon violates policy`. This value should be used when the original event reports, for example: MFA required, log on outside of working hours, conditional access restrictions, or too frequent attempts.<br>-	`Session expired`<br>-	`Other`<br><br>The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)|
-| **EventSubType**    | Optional    | String     |   The sign-in type. Allowed values include:<br> - `System`<br> - `Interactive`<br> - `RemoteInteractive`<br> - `Service`<br> - `RemoteService`<br> - `Remote` - Use when the type of remote sign-in is unknown.<br> - `AssumeRole` - Typically used when the event type is `Elevate`. <br><br>The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype). |
-| **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.3`         |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is **Authentication**. |
+| <a name ="eventresultdetails"></a>**EventResultDetails**         | Recommended   | Enumerated |  The details associated with the event result. This field is typically populated when the result is a failure.<br><br>Allowed values include: <br> - `No such user or password`. This value should be used also when the original event reports that there is no such user, without reference to a password.<br> - `No such user`<br> - `Incorrect password`<br> - `Incorrect key`<br>-	`Account expired`<br>-	`Password expired`<br>-	`User locked`<br>-	`User disabled`<br> - `Logon violates policy`. This value should be used when the original event reports, for example: MFA required, log on outside of working hours, conditional access restrictions, or too frequent attempts.<br>-	`Session expired`<br>-	`Other`<br><br>The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)|
+| **EventSubType**    | Optional    | Enumerated     |   The sign-in type. Allowed values include:<br> - `System`<br> - `Interactive`<br> - `RemoteInteractive`<br> - `Service`<br> - `RemoteService`<br> - `Remote` - Use when the type of remote sign-in is unknown.<br> - `AssumeRole` - Typically used when the event type is `Elevate`. <br><br>The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype). |
+| **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.4`         |
+| **EventSchema** | Mandatory | Enumerated | The name of the schema documented here is **Authentication**. |
 | **Dvc** fields| -      | -    | For authentication events, device fields refer to the system reporting the event. |
 
 #### All common fields
@@ -145,7 +145,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="actorusername"></a>**ActorUsername**  | Optional    | Username     | The Actor’s username, including domain information when available. For more information, see [The User entity](normalization-entity-user.md).<br><br>Example: `AlbertE`     |
 | **ActorUsernameType**              | Conditional    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, and list of allowed values, see [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
 | **ActorUserType** | Optional | UserType | The type of the Actor. For more information, and  list of allowed values, see [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>For example: `Guest` |
-| **ActorOriginalUserType** | Optional | UserType | The user type as reported by the reporting device. |
+| **ActorOriginalUserType** | Optional | String | The user type as reported by the reporting device. |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the sign-in session of the Actor.  <br><br>Example: `102pTUgC3p8RIqHvzxLCHnFlg`  |
 
 
@@ -156,6 +156,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **ActingAppId** | Optional | String | The ID of the application authorizing on behalf of the actor, including a process, browser, or service. <br><br>For example: `0x12ae8` |
 | **ActingAppName** | Optional | String | The name of the application authorizing on behalf of the actor, including a process, browser, or service. <br><br>For example: `C:\Windows\System32\svchost.exe` |
 | **ActingAppType** | Optional | AppType | The type of acting application. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md). |
+| <a name="actingoriginalapptype"></a>**ActingOriginalAppType** | Optional | String | The type of the acting application as reported by the reporting device. |
 | **HttpUserAgent** |	Optional	| String |	When authentication is performed over HTTP or HTTPS, this field's value is the user_agent HTTP header provided by the acting application when performing the authentication.<br><br>For example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
 
 
@@ -171,7 +172,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **TargetUsernameType**             |Conditional  | UsernameType | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information and list of allowed values, see [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).          |
 | **TargetUserType** | Optional | UserType | The type of the Target user. For more information, and  list of allowed values, see [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>For example: `Member` |
 | **TargetSessionId** | Optional | String | The sign-in session identifier of the TargetUser on the source device. |
-| **TargetOriginalUserType** | Optional | UserType | The user type as reported by the reporting device. |
+| **TargetOriginalUserType** | Optional | String | The user type as reported by the reporting device. |
 | **User**  | Alias  | Username | Alias to the [TargetUsername](#targetusername) or to the [TargetUserId](#targetuserid) if [TargetUsername](#targetusername) is not defined. <br><br>Example: `CONTOSO\dadmin`     |
 
 
@@ -185,12 +186,12 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="srcdvcscope"></a>**SrcDvcScope** | Optional | String | The cloud platform scope the device belongs to. **SrcDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **SrcDvcIdType** | Conditional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For a list of allowed values and further information refer to [DvcIdType](normalization-entity-device.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | DeviceType | The type of the source device. For a list of allowed values and further information refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
-| <a name="srchostname"></a> **SrcHostname** | Recommended | Hostname | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field. <br><br>Example: `DESKTOP-1282V4D` |
-|<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
+| <a name="srchostname"></a> **SrcHostname** | Optional | Hostname | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field. <br><br>Example: `DESKTOP-1282V4D` |
+|<a name="srcdomain"></a> **SrcDomain** | Optional | String | The domain of the source device.<br><br>Example: `Contoso` |
 | <a name="srcdomaintype"></a>**SrcDomainType** | Conditional | DomainType | The type of [SrcDomain](#srcdomain). For a list of allowed values and further information refer to [DomainType](normalization-entity-device.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [SrcDomain](#srcdomain) is used. |
 | **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
 | <a name = "srcdescription"></a>**SrcDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
-|<a name="srcipaddr"></a>**SrcIpAddr** |Optional | IP Address|The IP address of the source device. <br><br>Example: `2.2.2.2` |
+|<a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP Address|The IP address of the source device. <br><br>Example: `2.2.2.2` |
 | **SrcPortNumber** | Optional | Integer | The IP port from which the connection originated.<br><br>Example: `2335` |
 | **SrcDvcOs**|Optional |String |The OS of the source device. <br><br>Example: `Windows 10` |
 | **IpAddr** | Alias | | Alias to [SrcIpAddr](#srcipaddr) |
@@ -201,7 +202,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **SrcGeoLongitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
 | **SrcGeoLatitude**|Optional |Latitude |Example: `45.505918` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 | **SrcRiskLevel** | Optional | Integer | The risk level associated with the source. The value should be adjusted to a range of `0` to `100`, with `0` for benign and `100` for a high risk.<br><br>Example: `90` |
-| **SrcOriginalRiskLevel** | Optional | Integer | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
+| **SrcOriginalRiskLevel** | Optional | String | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
 
 ### Target application fields
 
@@ -209,7 +210,9 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |---------------|--------------|------------|-----------------|
 | <a name="targetappid"></a>**TargetAppId** |Optional | String| The ID of the application to which the authorization is required, often assigned by the reporting device. <br><br>Example: `89162` |
 |<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS application. <br><br>Example: `Saleforce` |
-| **TargetAppType**|Optional |AppType |The type of the application authorizing on behalf of the Actor. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).|
+| <a name="application"></a>**Application** | Alias | | Alias to [TargetAppName](#targetappname). |
+| **TargetAppType**| Conditional |AppType |The type of the application authorizing on behalf of the Actor. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).|
+| <a name="targetoriginalapptype"></a>**TargetOriginalAppType** | Optional | String | The type of the application authorizing on behalf of the Actor as reported by the reporting device. |
 | <a name="targeturl"></a>**TargetUrl** |Optional |URL |The URL associated with the target application. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
 |**LogonTarget**| Alias| |Alias to either [TargetAppName](#targetappname), [TargetUrl](#targeturl), or [TargetHostname](#targethostname), whichever field best describes the authentication target. |
 
@@ -238,7 +241,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **TargetGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the target IP address.<br><br>Example: `44.475833` |
 | **TargetGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the target IP address.<br><br>Example: `73.211944` |
 | **TargetRiskLevel** | Optional | Integer | The risk level associated with the target. The value should be adjusted to a range of `0` to `100`, with `0` for benign and `100` for a high risk.<br><br>Example: `90` |
-| **TargetOriginalRiskLevel** | Optional | Integer | The risk level associated with the target, as reported by the reporting device. <br><br>Example: `Suspicious` |
+| **TargetOriginalRiskLevel** | Optional | String | The risk level associated with the target, as reported by the reporting device. <br><br>Example: `Suspicious` |
 
 ### Inspection fields
 
@@ -277,6 +280,10 @@ These are the changes in version 0.1.3 of the schema:
 - Added the fields `SrcPortNumber`, `ActorOriginalUserType`,  `ActorScopeId`, `TargetOriginalUserType`,  `TargetUserScopeId`, `SrcDescription`, `SrcRiskLevel`, `SrcOriginalRiskLevel`, and `TargetDescription`.
 - Added inspection fields
 - Added target system geo-location fields.
+
+These are the changes in version 0.1.4 of the schema:
+- Added the fields `ActingOriginalAppType` and `TargetOriginalAppType`.
+- Added the alias `Application`.
 
 ## Next steps
 

@@ -132,7 +132,7 @@ The following list mentions fields that have specific guidelines for DNS events:
 | **EventSubType** | Optional | Enumerated | Either `request` or `response`. <br><br>For most sources, [only the responses are logged](#guidelines-for-collecting-dns-events), and therefore the value is often **response**.  |
 | <a name=eventresultdetails></a>**EventResultDetails** | Mandatory | Enumerated | For DNS events, this field provides the [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Notes**:<br>- IANA doesn't define the case for the values, so analytics must normalize the case.<br> - If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br>- If this record represents a request and not a response, set to **NA**. <br><br>Example: `NXDOMAIN` |
 | **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.7**. |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is **Dns**. |
+| **EventSchema** | Mandatory | Enumerated | The name of the schema documented here is **Dns**. |
 | **Dvc** fields| -      | -    | For DNS events, device fields refer to the system that reports the DNS event. |
 
 
@@ -162,7 +162,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
 | **SrcRiskLevel** | Optional | Integer | The risk level associated with the source. The value should be adjusted to a range of `0` to `100`, with `0` for benign and `100` for a high risk.<br><br>Example: `90` |
-| **SrcOriginalRiskLevel** | Optional | Integer | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
+| **SrcOriginalRiskLevel** | Optional | String | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
 | <a name="srchostname"></a>**SrcHostname** | Recommended | String | The source device hostname, excluding domain information.<br><br>Example: `DESKTOP-1282V4D` |
 | **Hostname** | Alias | | Alias to [SrcHostname](#srchostname) |
 |<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
@@ -199,7 +199,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="srcprocessname"></a>**SrcProcessName**              | Optional     | String     |   The file name of the process that initiated the DNS request. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
 | <a name="process"></a>**Process**        | Alias        |            | Alias to the [SrcProcessName](#srcprocessname) <br><br>Example: `C:\Windows\System32\rundll32.exe`|
 | **SrcProcessId**| Optional    | String        | The process ID (PID) of the process that initiated the DNS request.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
-| **SrcProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the DNS request.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
+| **SrcProcessGuid**  | Optional     | GUID (String)     |  A generated unique identifier (GUID) of the process that initiated the DNS request.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 
 ### Destination system fields
 
@@ -213,7 +213,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **DstGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
 | **DstGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
 | **DstRiskLevel** | Optional | Integer | The risk level associated with the destination. The value should be adjusted to a range of 0 to 100, which 0 being benign and 100 being a high risk.<br><br>Example: `90` |
-| **DstOriginalRiskLevel** | Optional | Integer | The risk level associated with the destination, as reported by the reporting device. <br><br>Example: `Malicious` |
+| **DstOriginalRiskLevel** | Optional | String | The risk level associated with the destination, as reported by the reporting device. <br><br>Example: `Malicious` |
 | **DstPortNumber** | Optional | Integer  | Destination Port number.<br><br>Example: `53` |
 | <a name="dsthostname"></a>**DstHostname** | Optional | String | The destination device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D`<br><br>**Note**: This value is mandatory if [DstIpAddr](#dstipaddr) is specified. |
 | <a name="dstdomain"></a>**DstDomain** | Optional | String | The domain of the destination device.<br><br>Example: `Contoso` |
@@ -237,11 +237,11 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name=responsename></a>**DnsResponseName** | Optional | String | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source-agnostic analytics. Therefore the information model doesn't require parsing and normalization, and Microsoft Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
 | <a name=responsecodename></a>**DnsResponseCodeName** |  Alias | | Alias to [EventResultDetails](#eventresultdetails) |
 | **DnsResponseCode** | Optional | Integer | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `3`|
-| <a name="transactionidhex"></a>**TransactionIdHex** | Recommended | String | The DNS query unique ID as assigned by the DNS client, in hexadecimal format. Note that this value is part of the DNS protocol and different from [DnsSessionId](#dnssessionid), the network layer session ID, typically assigned by the reporting device. |
+| <a name="transactionidhex"></a>**TransactionIdHex** | Recommended | Hexadecimal (String) | The DNS query unique ID as assigned by the DNS client, in hexadecimal format. Note that this value is part of the DNS protocol and different from [DnsSessionId](#dnssessionid), the network layer session ID, typically assigned by the reporting device. |
 | <a name="networkprotocol"></a>**NetworkProtocol** | Optional | Enumerated | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. <br><br>Example: `UDP`|
 | **NetworkProtocolVersion** | Optional | Enumerated | The version of [NetworkProtocol](#networkprotocol). When using it to distinguish between IP version, use the values `IPv4` and `IPv6`. |
 | **DnsQueryClass** | Optional | Integer | The [DNS class ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, and therefore this field is less valuable.|
-| **DnsQueryClassName** | Optional | String | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, and therefore this field is less valuable.<br><br>Example: `IN`|
+| **DnsQueryClassName** | Recommended | String | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, and therefore this field is less valuable.<br><br>Example: `IN`|
 | <a name=flags></a>**DnsFlags** | Optional | String | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing, and normalization aren't required. Microsoft Sentinel can use an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response). <br><br>Example: `["DR"]`|
 | <a name="dnsnetworkduration"></a>**DnsNetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of DNS request.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [DnsNetworkDuration](#dnsnetworkduration) |
@@ -270,7 +270,9 @@ The following fields are used to represent an inspection, which a DNS security d
 | **DomainCategory** | Alias | | Alias to [UrlCategory](#UrlCategory). |
 | <a name="networkrulename"></a>**NetworkRuleName** | Optional | String | The name or ID of the rule which identified the threat.<br><br> Example: `AnyAnyDrop` |
 | <a name="networkrulenumber"></a>**NetworkRuleNumber** | Optional | Integer | The number of the rule which identified the threat.<br><br>Example: `23` |
-| **Rule** | Alias | String | Either the value of [NetworkRuleName](#networkrulename) or the value of [NetworkRuleNumber](#networkrulenumber). If the value of [NetworkRuleNumber](#networkrulenumber) is used, the type should be converted to string. |
+| **Rule** | Alias | String | Either the value of [RuleName](#rulename) or the value of [RuleNumber](#rulenumber). If the value of [RuleNumber](#rulenumber) is used, the type should be converted to string. |
+| <a name="rulenumber"></a>**RuleNumber** | Optional | int | The number of the rule associated with the alert.<br><br>e.g. `123456` |
+| <a name="rulename"></a>**RuleName** | Optional | string | The name or ID of the rule associated with the alert.<br><br>e.g. `Server PSEXEC Execution via Remote Access` |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the network session.<br><br>Example: `Tr.124` |
 | **ThreatCategory** | Optional | String | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it can search for the IP address or domain in a threat intelligence database, and assign the domain or IP address with a Threat Category. |
 | **ThreatIpAddr** | Optional | IP Address | An IP address for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatIpAddr** represents. If a threat is identified in the [Domain](#domain) field, this field should be empty. |

@@ -112,6 +112,7 @@ No. A stretched cluster is created between two availability zones, while the thi
 - Currently not supported in a stretched cluster environment:
     - Recently released features like Public IP down to NSX Edge and external storage, like ANF datastores.
     - Disaster recovery addons like VMware SRM, Zerto, and JetStream.
+    - NSX Edge Scale-OUT to add additional NSX Edges is not supported at this time.
 - Open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for the following scenarios (be sure to select **Stretched Clusters** as a **Problem Type**):
     - Connect a private cloud to a stretched cluster private cloud.
     - Connect two stretched cluster private clouds in a single region.

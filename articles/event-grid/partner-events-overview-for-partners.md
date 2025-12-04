@@ -3,7 +3,7 @@ title: Partner Events overview for system owners who desire to become partners
 description: Learn how Azure Event Grid's Partner Events enables seamless event-driven solutions across platforms, helping partners publish and subscribe to events securely and at scale.
 #customer intent: As a SaaS provider, I want to learn how to publish events to Azure Event Grid so that my customers can subscribe to them.
 ms.topic: concept-article
-ms.date: 11/28/2025
+ms.date: 12/04/2025
 ---
 
 # Partner Events overview for partners - Azure Event Grid
@@ -119,7 +119,7 @@ You have two options:
 ### SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
   * [Python](https://pypi.org/project/azure-mgmt-eventgrid/)
-  * [Java](https://search.maven.org/search?q=azure-mgmt-eventgrid)
+  * [Java](https://central.sonatype.com/search?q=azure-mgmt-eventgrid)
   * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid/)
   * [JS](https://www.npmjs.com/package/@azure/arm-eventgrid)
   * [Go](https://github.com/Azure/azure-sdk-for-go)

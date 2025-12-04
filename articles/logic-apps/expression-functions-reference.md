@@ -3902,7 +3902,7 @@ slice('Hello World', 3, 3) // Returns ''.
 
 ### sort
 
-Sort items in a collection. You can sort the collection objects using any key that contains a simple type.
+Sort items in a collection. You can sort the collection objects using any key that contains a primitive data type supported by the Workflow Definition Language, such as **int**, **float**, **string**, or **bool**.
 
 ```
 sort([<collection>], <sortBy>?)

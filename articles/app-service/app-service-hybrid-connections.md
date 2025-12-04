@@ -396,7 +396,7 @@ In App Service, the *tcpping* command-line tool can be invoked from the Advanced
 If you have a command-line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
 
 > [!NOTE]
-> **Legacy Hybird Connection Manager availability:** The legacy version of the Hybrid Connection Manager is available if needed and can be [downloaded here](https://download.microsoft.com/download/0/e/4/0e48d57b-c563-4877-8acb-cb740c7c6a78/HybridConnectionManager.msi). This version is no longer being updated and only supports Windows clients. It's recommended that you use the latest version of the Hybrid Connection Manager for all new installations and upgrades to existing installations.
+> **Legacy Hybrid Connection Manager availability:** The legacy version of the Hybrid Connection Manager is available if needed and can be [downloaded here](https://download.microsoft.com/download/0/e/4/0e48d57b-c563-4877-8acb-cb740c7c6a78/HybridConnectionManager.msi). This version is no longer being updated and only supports Windows clients. It's recommended that you use the latest version of the Hybrid Connection Manager for all new installations and upgrades to existing installations.
 
 *For questions and support specific to App Service Hybrid Connections and App Service Hybrid Connection Manager, contact [hcmsupport@service.microsoft.com](mailto:hcmsupport@service.microsoft.com).*
 
