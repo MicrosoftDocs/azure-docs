@@ -60,7 +60,7 @@ CycleCloud integrates with Azure services such as [Azure Monitor](/azure/azure-m
 
 ## How do I use Azure CycleCloud?
 
-Azure CycleCloud is an installable web application that you can run on premise or in an Azure VM. Once installed, you can configure CycleCloud to use compute and data resources in your prepared Azure subscription. CycleCloud provides many official cluster templates for schedulers (PBSPro, LSF, Grid Engine, Slurm, HTCondor) and filesystems (NFS, BeeGFS). The CycleCloud community also provides cluster templates. You can use these cluster templates unmodified or customize them for your specific needs.
+Azure CycleCloud is an installable web application that you can run on premise or in an Azure VM. Once installed, you can configure CycleCloud to use compute and data resources in your prepared Azure subscription. CycleCloud provides many official cluster templates for schedulers (PBSPro, LSF, Grid Engine, Slurm, HTCondor) and filesystems. The CycleCloud community also provides cluster templates. You can use these cluster templates unmodified or customize them for your specific needs.
 
 When you create a cluster, it autoscales to handle the computational jobs that you send to the scheduler. CycleCloud administrative features govern access to the CycleCloud cluster for other users in your organization.
 
@@ -70,9 +70,9 @@ With tooling that includes templates and configuration scripts, you can quickly 
 
 ## What CycleCloud isn't
 
-CycleCloud doesn't include job scheduling functionality. In other words, CycleCloud isn't a scheduler. Instead, it's a platform that enables you to deploy your own scheduler into Azure. CycleCloud has built-in support for several commonly used schedulers, including PBSPro, Slurm, IBM LSF, Grid Engine, and HTCondor. However, CycleCloud users often implement their own scheduler on top of the provided autoscaling API.
+CycleCloud doesn't include job scheduling functionality. In other words, CycleCloud isn't a scheduler. Instead, it's a platform that enables you to deploy and manage HPC resources in Azure. CycleCloud has built-in support for several commonly used schedulers, including PBSPro, Slurm, IBM LSF, Grid Engine, and HTCondor. However, CycleCloud users can also implement their own scheduler on top of the provided autoscaling API.
 
-CycleCloud doesn't lock you into a specific cluster topology. It includes templates that help you quickly launch HPC systems on Azure, and you can customize these templates to fit your needs. The Azure HPC community provides opinionated templates that are optimized for different types of workloads and industries.
+CycleCloud doesn't lock you into a specific cluster topology. It includes templates that help you quickly launch HPC systems on Azure, and you can customize these templates to fit your needs. The Azure HPC community provides templates that are optimized for different schedulers and different types of workloads.
 
 ## What a CycleCloud deployed environment looks like
 
