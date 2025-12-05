@@ -42,6 +42,8 @@ sections:
           - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
   - name: Identity validation
     questions:
+      - question: What if I need to create another identity validation for the same organization with a different primary email address?
+        answer: For cases where identity validation exists with a primary email address and another identity valiadation request is required, contact support to continue onboarding.
       - question: What if my country/region is not listed in country/region drop down on the Identity Validation page?
         answer: | 
           - For Public Trust certificates, Trusted Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
@@ -104,7 +106,7 @@ sections:
           You can sign [all file types that SignTool supports](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools).
       - question: What is the Trusted Signing compliance level?
         answer: |
-          FIPS 140-2 Level 3 (mHSMs).
+          FIPS 140-2 Level 3.
       - question: How do I include the appropriate EKU for our certificates in the ELAM driver resources? 
         answer: |
           For information about the Early Launch Antimalware (ELAM) driver configuration for protecting antimalware user-mode services, see the following guidance:  

@@ -4,7 +4,7 @@ description: Learn how to control access to Azure Files by assigning share-level
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/07/2025
+ms.date: 12/05/2025
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
@@ -26,7 +26,7 @@ Most users should assign share-level permissions to specific Microsoft Entra use
 There are some scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) to allow reader, contributor, elevated contributor, privileged contributor, or privileged reader access to all authenticated identities:
 
 - You're using Microsoft Entra Kerberos to authenticate cloud-only identities (preview).
-- If you're unable to sync your on-premises AD DS to Microsoft Entra ID, you can use a default share-level permission. Assigning a default share-level permission allows you to work around the sync requirement because you don't need to specify the permission to identities in Microsoft Entra ID. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
+- If you're unable to sync your on-premises Active Directory Domain Services (AD DS) to Microsoft Entra ID, you can use a default share-level permission. Assigning a default share-level permission allows you to work around the sync requirement because you don't need to specify the permission to identities in Microsoft Entra ID. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
     - Identities that are tied to an AD but aren't syncing to Microsoft Entra ID can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer accounts.
 - The on-premises AD DS you're using is synched to a different Microsoft Entra ID than the Microsoft Entra ID the file share is deployed in.
     - This is typical when you're managing multitenant environments. Using a default share-level permission allows you to bypass the requirement for a Microsoft Entra ID [hybrid identity](../../active-directory/hybrid/whatis-hybrid-identity.md). You can still use Windows ACLs on your files and directories for granular permission enforcement.
@@ -166,15 +166,18 @@ az storage account update --name $storageAccountName --resource-group $resourceG
 
 You could also assign permissions to all authenticated Microsoft Entra users and specific Microsoft Entra users/groups. With this configuration, a specific user or group will have whichever is the higher-level permission from the default share-level permission and RBAC assignment. In other words, say you granted a user the **Storage File Data SMB Reader** role on the target file share. You also granted the default share-level permission **Storage File Data SMB Share Elevated Contributor** to all authenticated users. With this configuration, that particular user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher-level permissions always take precedence.
 
-## What happens when users do not appear as group members in the Entra portal
+## Understanding group-based access for non-synced users
 
-A user who is not synced to Microsoft Entra ID can still access an Azure file share if they are a member of an on premises Active Directory Domain Services group that is synced to Entra ID and has an Azure Files RBAC role assignment. The confusion comes from the Entra portal view, which does not show the user as a member of the group because the user is not synced.
+Users who aren't synced to Microsoft Entra ID can still access Azure file shares through group membership. If a user belongs to an on-premises AD DS group that's synced to Microsoft Entra ID and has an Azure RBAC role assignment, the user inherits the group's permissions, even though they don't appear as a group member in the Microsoft Entra portal.
 
-Only the group needs to be synced. The user does not. When a user signs in, the on premises domain controller gives the user a Kerberos ticket that lists every group the user belongs to. Azure Files reads the group security identifiers in that ticket. If one of those groups is synced to Entra ID, Azure Files translates the security identifier to an Entra object ID and applies any RBAC role assignment that exists for that group.
+How this works:
 
-This means the user can be authorized even though they do not appear in Entra ID and do not show up in the group membership list in the portal. Azure Files checks the group that appears in the Kerberos ticket, not the identity record in Entra ID.
+- Only the group needs to be synced to Microsoft Entra ID, not individual users.
+- When a user authenticates, the on-premises domain controller issues a Kerberos ticket containing all the user's group memberships.
+- Azure Files reads the group security identifiers (SIDs) from the Kerberos ticket.
+- If any of those groups are synced to Microsoft Entra ID, Azure Files applies the corresponding RBAC role assignments.
 
-In other words, authorization is based on the groups included in the Kerberos ticket rather than the membership shown in the Entra portal. This allows users who are not synced to receive access through synced Active Directory Domain Services groups.
+This means authorization is based on the groups listed in the Kerberos ticket, not on what appears in the Microsoft Entra portal. Non-synced users can access file shares through their synced AD DS group memberships without needing individual sync to Microsoft Entra ID.
 
 ## Next step
 

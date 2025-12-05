@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 01/21/2025
+ms.date: 12/05/2025
 ms.author: cshoe
 ---
 
@@ -27,3 +27,11 @@ Refer to the following samples to learn how to use Azure Container Apps in diffe
 | [Launch Your first Java Spring Batch app on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-batch-football) |A Java Spring Batch application showcasing an ephemeral statistics loading job, adapted from the Spring Batch Football Job sample, and deployable to Azure Container Apps. |
 | [Launch Your first Java AI application on Azure Container Apps](https://github.com/Azure-Samples/spring-petclinic-ai) |A Java AI application built with the Spring-AI Framework, demonstrating how to integrate with Azure OpenAI capabilities to enhance PetClinic application with an intelligent Chatbot, and deploy it to Azure Container Apps. |
 | [mTLS Server Application on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/azure-container-apps-mtls-certificate-filter) | A Java sample using different Java APIs to demonstrate how to extract X.509 certificates from incoming requests, including Servlet Jakarta API, Servlet Javax API, and Reactive API. Additionally, to provide a complete user experience of verifying the certificates in Azure Container Apps other than Spring Security, the samples also demonstrate loading a custom trust store to validate the certificates. |
+| [ChatGPT + Enterprise data with Azure OpenAI and Azure AI Search (JavaScript)](https://github.com/Azure-Samples/azure-search-openai-javascript) | Demonstrates Retrieval-Augmented Generation (RAG) using Azure OpenAI and Azure AI Search with a full frontend and backend, sample data, and `azd` deployment scripts for end-to-end testing. |
+| [Azure OpenAI RAG workshop (Node.js)](https://github.com/Azure-Samples/azure-openai-rag-workshop) | A monorepo showing how to build RAG chat experiences with LangChain.js, Fastify, and optional vector stores; includes step-by-step exercises and deployment guidance. |
+| [Node.js Microservices Workshop](https://github.com/Azure-Samples/nodejs-microservices) | Teaches microservices fundamentals using Node.js, Docker, and Azure Container Apps with example services built using Express, Fastify, and NestJS plus docker-compose and deployment scripts. |
+| [AI Travel Agents — Agentic Orchestration](https://github.com/Azure-Samples/azure-ai-travel-agents) | A modular reference app that demonstrates multi-agent orchestration (LangChain.js, LlamaIndex.TS, Microsoft Agent Framework) and MCP servers, packaged for deployment to Azure Container Apps. Uses Python, Node.js, Java, .NET. |
+| [Remote MCP with Azure Container Apps (Node.js/TypeScript)](https://github.com/Azure-Samples/mcp-container-ts) | Quickstart template for running a Model Context Protocol (MCP) HTTP server on Azure Container Apps; includes JWT-based auth, examples, and `azd` deployment instructions. |
+| [Serverless RAG with LlamaIndex + Azure Dynamic Sessions](https://github.com/Azure-Samples/llama-index-azure-code-interpreter) | Full-stack Next.js RAG application using LlamaIndex and Azure Dynamic Sessions (code interpreter tooling), deployable to Azure Container Apps with `azd` templates. Uses React. |
+| [LlamaIndex Quickstart (JavaScript)](https://github.com/Azure-Samples/llama-index-javascript) | Serverless quickstart that shows how to build a LlamaIndex-based chat app with Azure OpenAI and Azure Container Apps; includes ingestion for common file types and local `azd` deployment guidance. |
+| [LlamaIndex Vector Search (JavaScript)](https://github.com/Azure-Samples/llama-index-vector-search-javascript) | A LlamaIndex RAG chat sample that combines Azure OpenAI embeddings and Azure AI Search for vector retrieval, with sample data and deployment instructions for Azure Container Apps. |

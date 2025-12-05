@@ -6,7 +6,7 @@ manager: pmwongera
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 10/15/2025
+ms.date: 12/05/2025
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: sfi-image-nochange
@@ -58,10 +58,6 @@ What should I do if I lose access to a subscription?
     - Follow steps to [elevate access to manage all subscriptions in a tenant](elevate-access-global-admin.md).
     - Assign the Owner role at subscription scope for a user.
     - Remove elevated access.
-
-What should I do if I have a strong dependency on Co-Administrators or Service Administrator?
-
-- Email ACARDeprecation@microsoft.com and describe your scenario.
 
 ## List classic administrators
 

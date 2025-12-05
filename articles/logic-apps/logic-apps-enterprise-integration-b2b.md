@@ -1,389 +1,299 @@
 ---
-title: Exchange B2B messages using workflows
-description: Exchange messages between trading partners by creating workflows with Azure Logic Apps and the Enterprise Integration Pack.
+title: Automate B2B Messages Between Partners
+description: Learn to exchange business-to-business (B2B) messages between trading partners using workflows in Azure Logic Apps. Follow protocols like AS2, X12, EDIFACT, and RosettaNet.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 12/02/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to exchange messages between trading partners in B2B workflows.
 ---
 
-# Exchange B2B messages between partners using workflows in Azure Logic Apps
+# Automate B2B messages between trading partners using workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you have an integration account that defines trading partners and agreements, you can create an automated business-to-business (B2B) workflow that exchanges messages between trading partners by using Azure Logic Apps. Your workflow can use connectors that support industry-standard protocols, such as AS2, X12, EDIFACT, and RosettaNet. You can also include operations provided by other [connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors), such as Office 365 Outlook, SQL Server, and Salesforce.
+For business-to-business (B2B) integrations, you can automate communication between trading partners by building workflows with B2B artifacts and industry-standard protocols in Azure Logic Apps.
 
-This article shows how to create an example logic app workflow that can receive HTTP requests by using a **Request** trigger, decode message content by using the **AS2 Decode** and **Decode X12** actions, and return a response by using the **Response** action. The example uses the workflow designer in the Azure portal, but you can follow similar steps for the workflow designer in Visual Studio Code.
+For example, you can create an integration account to define artifacts such as trading partners, agreements, maps, and schemas. Workflows support protocols such as AS2, X12, EDIFACT, and RosettaNet. Create end-to-end integrations by combining these B2B capabilities with [1,400+ connectors available in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors), such as Office 365 Outlook, SQL Server, and Salesforce.
 
-If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps](logic-apps-enterprise-integration-overview.md).
+This guide shows how to create an example B2B workflow that can complete the following tasks:
+
+- Receive HTTPS requests with the **Request** trigger named **When an HTTP request is received**.
+- Decode incoming message content with the **AS2 (v2)** decode action and the **X12** decode action.
+- Return a response to the caller with the **Response** action.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+- The logic app resource and blank workflow where you want to build the B2B integration in this example.
 
-  * Is associated with the same Azure subscription as your logic app resource.
+  The **AS2 (v2)** and **X12** operations don't include any triggers. Your workflow can start with any trigger or use any action to receive messages.
 
-  * Exists in the same location or Azure region as your logic app resource.
+  The examples in this article use the **Request** trigger named **When an HTTP request is received**.
 
-  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use artifacts in your workflow.
+  For more information, see:
 
-  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), or [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+  - [Create a Consumption logic app workflow using the Azure portal](quickstart-create-example-consumption-workflow.md)
 
-  > [!NOTE]
-  > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
-  > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
+  - [Create a Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md)
 
-* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is AS2, X12, EDIFACT, or RosettaNet.
+- An [integration account resource](enterprise-integration/create-integration-account.md) to define and store artifacts for enterprise integration and B2B workflows.
 
-* An [AS2 agreement and X12 agreement](logic-apps-enterprise-integration-agreements.md) for the partners that you're using in this workflow. Each agreement requires a host partner and a guest partner.
+  - Both the integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-* A logic app resource with a blank workflow where you can add the [Request](../connectors/connectors-native-reqres.md) trigger and then the following actions:
+  - Defines at least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, such as AS2, X12, EDIFACT, or RosettaNet.
 
-  * [AS2 Decode](../logic-apps/logic-apps-enterprise-integration-as2.md)
+  - Defines an [AS2 agreement and X12 agreement](logic-apps-enterprise-integration-agreements.md) between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner.
 
-  * [Condition](../logic-apps/logic-apps-control-flow-conditional-statement.md), which sends a [Response](../connectors/connectors-native-reqres.md) based on whether the AS2 Decode action succeeds or fails
+    The content in the messages between the partners must match the agreement type. For information about agreement settings to use when receiving and sending messages, see:
+    
+    - [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md)
+    - [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md)
 
-  * [Decode X12 message](../logic-apps/logic-apps-enterprise-integration-x12.md)
+- Before you start working with the AS2 and X12 operations, you must [link your Consumption logic app](enterprise-integration/create-integration-account.md?tabs=consumption#link-account) or [link your Standard logic app](enterprise-integration/create-integration-account.md?tabs=standard#link-account) to the integration account so you can work with artifacts such as trading partners and agreements. You can link an integration account to multiple Consumption or Standard logic app resources to share the same artifacts.
+
+  When you add the AS2 and X12 operations, you might have to create a connection to the integration account:
+
+  | Logic app workflow | Connection required? |
+  |--------------------|----------------------|
+  | Consumption | - AS2 (v2) connector: No connection required <br><br>- X12 connector: Connection required |
+  | Standard | - AS2 (v2) connector: No connection required <br><br>- X12 built-in connector: No connection required |
 
 <a name="add-request-trigger"></a>
 
 ## Add the Request trigger
 
-To start the workflow in this example, add the Request trigger.
+To start the workflow in this example, add the [**Request** trigger](../connectors/connectors-native-reqres.md).
 
-### [Consumption](#tab/consumption)
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and blank workflow in the workflow designer.
+1. In the designer, open your workflow. Follow these [general steps](add-trigger-action-workflow.md#add-trigger) to add the **Request** built-in trigger named **When an HTTP request is received** to your workflow.
 
-1. Under the designer search box, select **All**, if not selected. In the search box, enter `when a http request`. Select the Request trigger named **When an HTTP request is received**.
+   The trigger information pane opens with the **Parameters** tab selected.
 
-   ![Screenshot showing Azure portal and multi-tenant designer with "when a http request" in search box and Request trigger selected.](./media/logic-apps-enterprise-integration-b2b/select-request-trigger-consumption.png)
+1. Leave the trigger's **Request Body JSON Schema** parameter empty because the trigger receives X12 messages in flat file format.
 
-1. In the trigger, leave the **Request body JSON Schema** box empty.
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger.png" alt-text="Screenshot shows Azure portal, workflow designer, and Request trigger parameters." lightbox="./media/logic-apps-enterprise-integration-b2b/request-trigger.png":::
 
-   The reason is that the trigger will receive an X12 message in flat file format.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
-   ![Screenshot showing multi-tenant designer and Request trigger properties.](./media/logic-apps-enterprise-integration-b2b/request-trigger-consumption.png)
+   This step generates the **HTTP URL**, which you later use to send a request that triggers the workflow.
 
-1. When you're done, on the designer toolbar, select **Save**.
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png" alt-text="Screenshot shows workflow designer, Request trigger parameters, and generated URL for Request trigger." lightbox="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png":::
 
-   This step generates the **HTTP POST URL** that you later use to send a request that triggers logic app workflow.
-
-   ![Screenshot showing multi-tenant designer and generated URL for Request trigger.](./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url-consumption.png)
-
-1. Copy and save the URL to use later.
-
-### [Standard](#tab/standard)
-
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and blank workflow in the workflow designer.
-
-1. On the designer, select **Choose an operation**. Under the search box, select **Built-in**, if not selected. In the search box, enter `when a http request`. Select the Request trigger named **When an HTTP request is received**.
-
-   ![Screenshot showing Azure portal and single-tenant designer with "when a http request" in search box and Request trigger selected.](./media/logic-apps-enterprise-integration-b2b/select-request-trigger-standard.png)
-
-1. In the trigger, leave the **Request body JSON Schema** box empty.
-
-   The reason is that the trigger will receive an X12 message in flat file format.
-
-   ![Screenshot showing single-tenant designer and Request trigger properties.](./media/logic-apps-enterprise-integration-b2b/request-trigger-standard.png)
-
-1. When you're done, on the designer toolbar, select **Save**.
-
-   This step generates the **HTTP POST URL** that you later use to send a request that triggers logic app workflow.
-
-   ![Screenshot showing single-tenant designer and generated URL for Request trigger.](./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url-standard.png)
-
-1. Copy and save the URL to use later.
-
----
+1. Copy and save the URL for later use.
 
 <a name="add-decode-as2-trigger"></a>
 
 ## Add the decode AS2 action
 
-Now add the B2B actions for this example, which uses the AS2 and X12 actions.
+Follow these steps to add the [**AS2 (v2)** decode action](logic-apps-enterprise-integration-as2.md).
 
-### [Consumption](#tab/consumption)
+1. Under the **Request** trigger, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the following **AS2 (v2)** action, based on your workflow type:
 
-1. Under the trigger, select **New step**.
+   | Workflow | Action name |
+   |----------|-------------|
+   | Consumption | **AS2 Decode** |
+   | Standard | **Decode AS2** |
 
-   > [!TIP]
-   > To hide the Request trigger details, select the trigger's title bar.
+1. In the action's **Message to decode** parameter, provide the message content to decode.
 
-   ![Screenshot showing multi-tenant designer and trigger with "New step" selected.](./media/logic-apps-enterprise-integration-b2b/add-action-under-trigger-consumption.png)
+   This example specifies the body content from the **Request** trigger output. You can provide this content either by selecting from the dynamic content list or entering an expression:
 
-1. Under the **Choose an operation** search box, select **All**, if not selected. In the search box, enter `as2`, and select **AS2 Decode**.
+   - To choose output from previous operations, follow these steps for the dynamic content list:
+   
+     1. Select inside the **Message to decode** box, then select the lightning icon to open the dynamic content list.
 
-   ![Screenshot showing multi-tenant designer with the "AS2 Decode" action selected.](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action-consumption.png)
+     1. Under **When an HTTP request is received**, select **Body**, for example:
 
-1. In the action's **Message to decode** property, enter the input that you want the AS2 action to decode, which is the `body` output from the Request trigger. You have multiple ways to specify this content as the action's input, either by selecting from the dynamic content list or as an expression:
+        :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body.png" alt-text="Screenshot shows workflow designer, Request trigger parameters, and dynamic content list with Body parameter selected." lightbox="./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body.png":::
 
-   * To select from a list that shows the available trigger outputs, click inside the **Message to decode** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body** property value, for example:
+        > [!NOTE]
+        >
+        > If **Body** doesn't appear in the dynamic content list, next to the **When an HTTP request is received** section label, select **See more**.
 
-     ![Screenshot showing multi-tenant designer with dynamic content list and "Body" property selected.](./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body-consumption.png)
+   - To enter an expression that references the content in the `body` property from the **Request** trigger output, follow these steps:
+   
+     1. Select inside the **Message to decode** box, then select the function icon to open the expression editor.
 
-     > [!TIP]
-     > If no trigger outputs appear, in the dynamic property list, under **When a HTTP request is received**, 
-     > select **See more**.
+     1. In the editor box, enter the following expression, and select **Add**:
 
-   * To enter an expression that references the trigger's `body` output, click inside the **Message to decode** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the following expression, and select **OK**:
+        `triggerOutputs()['body']`
 
-     `triggerOutputs()['body']`
+1. In the action's **Message headers** parameter, enter any headers that the AS2 action requires. You can find these values in the `headers` property from the **Request** trigger output by following these steps:
 
-     Or, in the **Message to decode** box, directly enter the following expression:
+   1. In the **Message headers** section, select **Switch Message headers to text mode**:
 
-     `@triggerBody()`
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/switch-text-mode.png" alt-text="Screenshot shows AS2 decode action with Switch Message headers to text mode selected." lightbox="./media/logic-apps-enterprise-integration-b2b/switch-text-mode.png":::
 
-     The expression resolves to the **Body** token.
-
-     ![Screenshot showing multi-tenant designer with resolved "Body" property output.](./media/logic-apps-enterprise-integration-b2b/resolved-body-property-consumption.png)
-
-1. In the action's **Message headers** property, enter any headers required for the AS2 action, which are in the `headers` output from the Request trigger.
-
-   1. To enter an expression that references the trigger's `headers` output, select **Switch Message headers to text mode**.
-
-      ![Screenshot showing multi-tenant designer with "Switch Message headers to text mode" selected.](./media/logic-apps-enterprise-integration-b2b/switch-text-mode-consumption.png)
-
-   1. Click inside the **Message headers** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the following expression, and select **OK**:
+   1. Select inside the **Message headers** box, then select the function icon to open the expression editor.
+   
+   1. In the editor box, enter the following expression, and select **Add**:
 
       `triggerOutputs()['Headers']`
 
-      In the **AS2 Decode** action, the expression now appears as a token:
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/header-expression.png" alt-text="Screenshot shows the Message headers box with an expression that references the headers in trigger output." lightbox="./media/logic-apps-enterprise-integration-b2b/header-expression.png":::
 
-      ![Screenshot showing multi-tenant designer and the "Message headers" box with the "@triggerOutputs()['Headers']" token.](./media/logic-apps-enterprise-integration-b2b/as2-header-expression-consumption.png)
-
-   1. To get the expression token to resolve into the **Headers** token, switch between the designer and code view. After this step, the **AS2 Decode** action looks like this example:
-
-      ![Screenshot showing multi-tenant designer and resolved headers output from trigger.](./media/logic-apps-enterprise-integration-b2b/resolved-as2-header-expression-consumption.png)
-
-### [Standard](#tab/standard)
-
-1. Under the trigger, select **Insert a new step** (plus sign), and then select **Add an action**.
-
-   ![Screenshot showing single-tenant designer and trigger with the plus sign selected.](./media/logic-apps-enterprise-integration-b2b/add-action-under-trigger-standard.png)
-
-1. Under the **Choose an operation** search box, select **Azure**, if not already selected. In the search box, enter `as2`, and select **Decode AS2 message**.
-
-   ![Screenshot showing single-tenant designer with the "Decode AS2 message" action selected.](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action-standard.png)
-
-1. When prompted to create a connection to your integration account, provide a name to use for your connection, select your integration account, and then select **Create**.
-
-1. In the action's **body** property, enter the input that you want the AS2 action to decode, which is the `body` output from the Request trigger. You have multiple ways to specify this content as action's input, either by selecting from the dynamic content list or as an expression:
-
-   * To select from a list that shows the available trigger outputs, click inside the **body** property box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body** property value, for example:
-
-     ![Screenshot showing single-tenant designer with dynamic content list and "Body" property selected.](./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body-standard.png)
-
-     > [!TIP]
-     > If no trigger outputs appear, in the dynamic property list, under **When a HTTP request is received**, 
-     > select **See more**.
-
-   * To enter an expression that references the trigger's `body` output, click inside the **body** property box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the following expression, and select **OK**:
-
-     `triggerOutputs()['body']`
-
-     Or, in the **body** property box, directly enter the following expression:
-
-     `@triggerBody()`
-
-     The expression resolves to the **Body** token.
-
-     ![Screenshot showing single-tenant designer with resolved "Body" property output.](./media/logic-apps-enterprise-integration-b2b/resolved-body-property-standard.png)
-
-1. In the **Headers** property box, enter any headers required for the AS2 action, which are in the `headers` output from the Request trigger.
-
-   1. To enter an expression that references the trigger's `headers` output, select **Switch Message headers to text mode**.
-
-      ![Screenshot showing single-tenant designer with "Switch Message headers to text mode" selected.](./media/logic-apps-enterprise-integration-b2b/switch-text-mode-standard.png)
-
-   1. Click inside the **Headers** property box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the following expression, and select **OK**:
-
-      `triggerOutputs()['Headers']`
-
-      In the **Decode AS2 message** action, the expression now appears as a token:
-
-      ![Screenshot showing single-tenant designer and the "Headers" property with the "@triggerOutputs()['Headers']" token.](./media/logic-apps-enterprise-integration-b2b/as2-header-expression-standard.png)
-
-   1. To get the expression token to resolve into the **Headers** token, switch between the designer and code view. After this step, the **AS2 Decode** action looks like this example:
-
-      ![Screenshot showing single-tenant designer and resolved headers output from trigger.](./media/logic-apps-enterprise-integration-b2b/resolved-as2-header-expression-standard.png)
-
----
+   1. To resolve the expression into the `Headers` token, on the designer toolbar, select **Code view**, then select **Designer**.
 
 <a name="add-response-action"></a>
 
-## Add the Response action as a message receipt
+## Confirm message receipt
 
-To notify the trading partner that the message was received, you can return a response that contains an AS2 Message Disposition Notification (MDN) by using the Condition and Response actions. By adding these actions immediately after the AS2 action, the logic app workflow can continue processing if the AS2 action succeeds. Otherwise, if the AS2 action fails, the logic app workflow stops processing.
+To confirm the message receipt, return a response that contains an AS2 Message Disposition Notification (MDN) to the sender by using the **Condition** and **Response** actions.
 
-### [Consumption](#tab/consumption)
+> [!IMPORTANT]
+>
+> Make sure these actions immediately follow the AS2 action so the workflow continues processing if the AS2 action succeeds. Otherwise, the workflow stops processing if the AS2 action fails.
 
-1. Under the **AS2 Decode** action, select **New step**.
+### Add a Condition action to choose action path
 
-1. Under the **Choose an operation** search box, select **Built-in**, if not already selected. In the search box, enter `condition`. Select the **Condition** action.
+These steps add the **Condition** action so you can specify one or multiple conditions to evaluate and choose the actions to take, based on whether the **AS2 (v2)** decode action succeeds.
 
-   ![Screenshot showing multi-tenant designer and the "Condition" action.](./media/logic-apps-enterprise-integration-b2b/add-condition-action-consumption.png)
+1. On the designer, under the **AS2 (v2)** decode action, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the **Condition** built-in action.
 
-   Now the condition shape appears, including the paths that determine whether the condition is met.
+   The **Condition** action appears with the **True** and **False** empty paths. You later add the actions to run in these paths, based on whether the condition evaluates to true or false.
 
-   ![Screenshot showing multi-tenant designer and the condition shape with empty paths.](./media/logic-apps-enterprise-integration-b2b/added-condition-action-consumption.png)
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/added-condition-action.png" alt-text="Screenshot shows the Condition action with empty paths.":::
 
-1. Now specify the condition to evaluate. In the **Choose a value** box, enter the following expression:
+1. Select the **Condition** title bar to expand the action so you can provide one or more conditions to evaluate.
 
-   `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
+1. In the left-side **Choose a value** box, enter the following expression, based on your workflow type:
 
-   In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`.
+   **Consumption**
 
-1. Save your logic app workflow. To get the expression to resolve as this token, switch between the designer and code view.
+   `@body('AS2_Decode')?['messageContent']?['isMdnExpected']`
 
-   ![Screenshot showing multi-tenant designer and the condition shape with an operation.](./media/logic-apps-enterprise-integration-b2b/evaluate-condition-expression-consumption.png)
+   **Standard**
 
-1. Now specify the responses to return based on whether the **AS2 Decode** action succeeds or not.
+   `@body('Decode_AS2')?['messageContent']?['isMdnExpected']`
 
-   1. For the case when the **AS2 Decode** action succeeds, in the **True** shape, select **Add an action**. Under the **Choose an operation** search box, enter `response`, and select **Response**.
+   > [!IMPORTANT]
+   >
+   > Make sure the AS2 decode action name and output names matches the names for your selected AS2 action.
 
-      ![Screenshot showing multi-tenant designer and the "Response" action.](./media/logic-apps-enterprise-integration-b2b/select-response-consumption.png)
+1. From the middle list, select the equal sign (**=**).
 
-   1. To access the AS2 MDN from the **AS2 Decode** action's output, specify the following expressions:
+1. In the right-side **Choose a value** box, enter the value `Expected`.
 
-      * In the **Response** action's **Headers** property, enter the following expression:
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/evaluate-condition-expression.png" alt-text="Screenshot shows the Condition action with the example condition to evaluate.":::
 
-        `@body('AS2_Decode')?['OutgoingMdn']?['OutboundHeaders']`
+1. Save your workflow.
 
-      * In the **Response** action's **Body** property, enter the following expression:
+### Set up action paths 
 
-        `@body('AS2_Decode')?['OutgoingMdn']?['Content']`
+These steps specify the actions to take and the responses to return based on whether the **AS2 (v2)** decode action succeeds.
 
-   1. To get the expressions to resolve as tokens, switch between the designer and code view:
+1. For when the **AS2 (v2)** decode action succeeds, follow these steps:
 
-      ![Screenshot showing multi-tenant designer and resolved expression to access AS2 MDN.](./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression-consumption.png)
+   1. In the **True** box, select the plus sign (**+**) > **Add an action**.
 
-   1. For the case when the **AS2 Decode** action fails, in the **False** shape, select **Add an action**. Under the **Choose an operation** search box, enter `response`, and select **Response**. Set up the **Response** action to return the status and error that you want.
+   1. In the **Add an action** search box, enter `response`. Under **Request**, select the **Response** built-in action.
 
-1. Save your logic app workflow.
+   1. To reference the AS2 MDN from the **AS2 (v2)** decode action output, specify the following expressions:
 
-### [Standard](#tab/standard)
+      - In the action's **Headers** parameter, for the key value, enter the following expression:
 
-1. Under the **Decode AS2 message** action, select **Insert a new step** (plus sign), and then select **Add an action**.
+        **Consumption**
 
-1. Under the **Choose an operation** search box, select **Built-in**, if not already selected. In the search box, enter `condition`. Select the **Condition** action.
+        `@body('AS2_Decode')?['outgoingMdnContent']?['outgoingMdnHeaders']`
 
-   ![Screenshot showing single-tenant designer with the "Condition" action selected.](./media/logic-apps-enterprise-integration-b2b/add-condition-action-standard.png)
+        **Standard**
 
-   Now the condition shape appears, including the paths that determine whether the condition is met.
+        `@body('Decode_AS2')?['outgoingMdnContent']?['outgoingMdnHeaders']`
 
-   ![Screenshot showing single-tenant designer and the "Condition" shape with empty paths.](./media/logic-apps-enterprise-integration-b2b/added-condition-action-standard.png)
+      - In the action's **Body** parameter, enter the following expression:
 
-1. Now specify the condition to evaluate. Select the **Condition** shape so that the details panel appears. In the **Choose a value** box, enter the following expression:
+        **Consumption**
 
-   `@body('Decode_AS2_message')?['AS2Message']?['MdnExpected']`
+        `@body('AS2_Decode')?['outgoingMdnContent']?['messageContent']`
 
-   In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`.
+        **Standard**
 
-1. Save your logic app workflow. To get the expression to resolve as this token, switch between the designer and code view.
+        `@body('Decode_AS2')?['outgoingMdnContent']?['messageContent']`
 
-   ![Screenshot showing single-tenant designer and the condition shape with an operation.](./media/logic-apps-enterprise-integration-b2b/evaluate-condition-expression-standard.png)
+      > [!IMPORTANT]
+      >
+      > Make sure the AS2 decode action name and output names matches the names for your selected AS2 action.
 
-1. Now specify the responses to return based on whether the **Decode AS2 message** action succeeds or not.
+      The following example shows how the **Response** action looks:
 
-   1. For the case when the **Decode AS2 message** action succeeds, in the **True** shape, select the plus sign, and then select **Add an action**. On the **Add an action** pane, in the **Choose an operation** search box, enter `response`, and select **Response**.
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression.png" alt-text="Screenshot shows Response action and resolved expressions that access the AS2 MDN.":::
 
-      ![Screenshot showing single-tenant designer and the "Response" action.](./media/logic-apps-enterprise-integration-b2b/select-response-standard.png)
+1. For when the **AS2 (v2)** decode action fails, follow these steps:
 
-   1. To access the AS2 MDN from the **AS2 Decode** action's output, specify the following expressions:
+   1. In the **False** box, select the plus sign (**+**) > **Add an action**.
 
-      * In the **Response** action's **Headers** property, enter the following expression:
+   1. In the **Add an action** search box, enter `response`. Under **Request**, select the **Response** built-in action.
 
-        `@body('Decode_AS2_message')?['OutgoingMdn']?['OutboundHeaders']`
+   1. Set up the **Response** action to return the status and error that you want.
 
-      * In the **Response** action's **Body** property, enter the following expression:
-
-        `@body('Decode_AS2_message')?['OutgoingMdn']?['Content']`
-
-   1. To get the expressions to resolve as tokens, switch between the designer and code view:
-
-      ![Screenshot showing single-tenant designer and resolved expression to access AS2 MDN.](./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression-standard.png)
-
-   1. For the case when the **Decode AS2 message** action fails, in the **False** shape, select the plus sign, and then select **Add an action**. On the **Add an action** pane, in the **Choose an operation** search box, enter `response`, and select **Response**. Set up the **Response** action to return the status and error that you want.
-
-1. Save your logic app workflow.
-
----
+1. Save your workflow.
 
 <a name="add-decode-x12-action"></a>
 
 ## Add the decode X12 message action
 
-Now add the **Decode X12 message** action.
+Follow these steps to decode X12 messages.
 
-### [Consumption](#tab/consumption)
+1. On the designer, under the **Response** action, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the following X12 decode action, based on your workflow type:
 
-1. Under the **Response** action, select **Add an action**.
+   | Workflow | Action name |
+   |----------|-------------|
+   | Consumption | **Decode X12 message** |
+   | Standard | **Decode X12** |
 
-1. Under **Choose an operation**, in the search box, enter `x12 decode`, and select **Decode X12 message**.
+   For more information, see [Exchange X12 messages in B2B workflows with Azure Logic Apps](logic-apps-enterprise-integration-x12.md).
 
-   ![Screenshot showing multi-tenant designer and the "Decode X12 message" action selected.](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action-consumption.png)
+1. If the action prompts you to create a connection, provide the following information, and select **Create new**.
 
-1. If the X12 action prompts you for connection information, provide the name for the connection, select the integration account you want to use, and then select **Create**.
+   - Connection name
+   - Integration account ID
+   - Integration account SAS URL
 
-   ![Screenshot showing multi-tenant designer and connection to integration account.](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection-consumption.png)
+   For more information, see [Decode X12 messages](logic-apps-enterprise-integration-x12.md#decode-x12-messages).
 
-1. Now specify the input for the X12 action. This example uses the output from the AS2 action, which is the message content but note that this content is in JSON object format and is base64 encoded. So, you have to convert this content to a string.
+1. On the action information pane, specify the content for the action to decode, based on your workflow type:
 
-   In the **X12 Flat file message to decode** box, enter the following expression to convert the AS2 output:
+   | Workflow | Action name | Parameter name |
+   |----------|-------------|----------------|
+   | Consumption | **Decode X12 message** | **X12 flat file message to decode** |
+   | Standard | **Decode X12** | **Message to decode** |
 
-   `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
+   This example uses the message content from the **AS2 (v2)** action output. However, this output uses JSON object format and is base64 encoded. You must convert the content to a string.
+   
+   To convert the content, enter the following expression in the message-to-decode box, based on your workflow type:
 
-1. Save your logic app workflow. To get the expression to resolve as this token, switch between the designer and code view.
+   **Consumption**
 
-    ![Screenshot showing multi-tenant designer and conversion from base64-encoded content to a string.](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content-consumption.png)
+   `@base64ToString(body('AS2_Decode')?['messageContent'])`
 
-1. Save your logic app workflow.
+   **Standard**
 
-   If you need additional steps for this logic app workflow, for example, to decode the message content and output that content in JSON object format, continue adding the necessary actions to your logic app workflow.
+   `@base64ToString(body('Decode_AS2')?['messageContent'])`
 
-### [Standard](#tab/standard)
+    > [!IMPORTANT]
+    >
+    > Make sure the AS2 decode action name and output names matches the names for your selected AS2 action.
 
-1. Under the **Response** action, select the plus sign, and then select **Add an action**. On the **Add an action** pane, under the **Choose an operation** search box, select **Azure**, if not already selected. In the search box, enter `x12 decode`, and select **Decode X12 message**.
+1. Save your workflow.
 
-   ![Screenshot showing single-tenant designer and the "Decode X12 message" action selected.](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action-standard.png)
+1. To resolve the expression into a token, switch between code view and designer view. On the designer toolbar, select **Code view**, then select **Designer**.
 
-1. If the X12 action prompts you for connection information, provide the name for the connection, select the integration account you want to use, and then select **Create**.
+You're now done setting up this example B2B workflow. In a real world app, you might want to store the decoded X12 content in a line-of-business (LOB) app or data store.
 
-   ![Screenshot showing single-tenant designer and connection to integration account.](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection-standard.png)
+For more information, see:
 
-1. Now specify the input for the X12 action. This example uses the output from the AS2 action, which is the message content but note that this content is in JSON object format and is base64-encoded. So, you have to convert this content to a string.
+- [Connect to SAP systems from Azure Logic Apps](logic-apps-using-sap-connector.md)
+- [Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
 
-   In the **X12 Flat file message to decode** box, enter the following expression to convert the AS2 output:
+To connect your own LOB apps and use these APIs in your workflow, add more actions or [write custom APIs](logic-apps-create-api-app.md).
 
-   `@base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])`
+## Related content
 
-1. Save your logic app workflow. To get the expression to resolve as this token, switch between the designer and code view.
-
-    ![Screenshot showing single-tenant designer and conversion from base64-encoded content to a string.](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content-standard.png)
-
-1. Save your logic app workflow again.
-
-   If you need additional steps for this logic app workflow, for example, to decode the message content and output that content in JSON object format, continue adding the necessary actions to your logic app workflow.
-
----
-
-You're now done setting up your B2B logic app workflow. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. For example, review the following documentation:
-
-* [Connect to SAP systems from Azure Logic Apps](logic-apps-using-sap-connector.md)
-
-* [Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
-
-To connect your own LOB apps and use these APIs in your logic app, you can add more actions or [write custom APIs](logic-apps-create-api-app.md).
-
-## Next steps
-
-* [Receive and respond to incoming HTTPS calls](../connectors/connectors-native-reqres.md)
-* [Exchange AS2 messages for B2B enterprise integration](../logic-apps/logic-apps-enterprise-integration-as2.md)
-* [Exchange X12 messages for B2B enterprise integration](../logic-apps/logic-apps-enterprise-integration-x12.md)
-* Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+- [Exchange AS2 messages for B2B enterprise integration](../logic-apps/logic-apps-enterprise-integration-as2.md)
+- [Exchange X12 messages for B2B enterprise integration](../logic-apps/logic-apps-enterprise-integration-x12.md)
