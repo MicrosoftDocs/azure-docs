@@ -16,7 +16,7 @@ Before you begin, it's a good idea to read the overview page for [Machine Config
 the details about [remediation options][02].
 
 1. Install PowerShell 7 and the [Guest Configuration module](https://www.powershellgallery.com/packages/GuestConfiguration) from the PowerShell Gallery. Please refer to the section on [setting up a Machine Configuration authoring environment][03].
-2. Ensure that the Machine Configuration preqrequisite policies are applied to any machines to which you would like to also apply your custom policies
+2. Ensure that the Machine Configuration prerequisite policies are applied to any machines to which you would like to also apply your custom policies
 
 > [!IMPORTANT]
 > The machine configuration extension is required for Azure virtual machines. To deploy the
