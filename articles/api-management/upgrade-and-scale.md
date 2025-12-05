@@ -54,7 +54,7 @@ You can choose between the following dedicated tiers: **Developer**, **Basic**, 
 * You can upgrade and downgrade to and from certain dedicated services tiers: 
     * You can upgrade and downgrade to and from classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**).
     
-    * You can upgrade and downgrade to and from the **Basic v2**, **Standard v2**, and **Premium v2** tiers. 
+    * You can upgrade and downgrade to and from the **Basic v2** and **Standard v2** tiers. 
 
     Downgrading can remove some features. For example, downgrading to **Standard** or **Basic** from the **Premium** tier can remove virtual networks or multi-region deployment.
 

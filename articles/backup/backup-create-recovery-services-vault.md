@@ -41,7 +41,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - If you need data availability without downtime in a region, guaranteeing data residency, choose [zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
->The storage replication settings for the vault aren't relevant for Azure file share backup, because the current solution is snapshot based and no data is transferred to the vault. Snapshots are stored in the same storage account as the backed-up file share.
+>The storage replication settings for the vault aren't relevant for Azure file share snapshot backup, because the snapshots are stored in the same storage account as the backed-up file share. The storage replication settings for the vault only applies for the Azure file share vaulted backup.
 
 ## Set Cross Region Restore
 

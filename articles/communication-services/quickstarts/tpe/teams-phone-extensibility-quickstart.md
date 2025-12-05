@@ -229,7 +229,7 @@ The following steps demonstrate how to receive and answer an incoming Teams call
 1. Complete client and server consent as defined in [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md).
 
 > [!NOTE]
-> For the Azure Communication Services resource, ensure the data location matches the Teams Tenant location to comply with data boundary regulations. You can retrieve programatically details about tenant organisation via [Get organization](/graph/api/organization-get)
+> For the Azure Communication Services resource, ensure the data location matches the Teams Tenant location to comply with data boundary regulations. You can retrieve programmatically details about tenant organisation via [Get organization](/graph/api/organization-get)
 >
 
 #### Setup and host your Azure dev tunnels

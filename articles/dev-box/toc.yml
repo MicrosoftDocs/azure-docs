@@ -113,6 +113,12 @@ items:
     items:
       - name: Configure Serverless GPU
         href: how-to-configure-dev-box-serverless-gpu.md
+      - name: What is Microsoft Dev Box MCP Server?
+        href: overview-what-is-dev-box-mcp-server.md
+        displayName: MCP, Model Context Protocol, AI, agent, overview, what is
+      - name: 'Tutorial: Get started with the Dev Box MCP Server'
+        href: tutorial-get-started-dev-box-mcp-server.md
+        displayName: MCP, tutorial, getting started, AI agent, step-by-step
   - name: Security
     items:
       - name: Manage project access
@@ -134,7 +140,7 @@ items:
         href: how-to-configure-dev-box-hibernation.md
       - name: Hibernate your Dev Box
         href: how-to-hibernate-your-dev-box.md
-      - name: Configure an auto-stop schedule
+      - name: Configure an autostop schedule
         href: how-to-configure-stop-schedule.md
       - name: Configure stop on disconnect
         href: how-to-configure-stop-on-disconnect.md

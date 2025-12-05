@@ -166,6 +166,16 @@ az storage account update --name $storageAccountName --resource-group $resourceG
 
 You could also assign permissions to all authenticated Microsoft Entra users and specific Microsoft Entra users/groups. With this configuration, a specific user or group will have whichever is the higher-level permission from the default share-level permission and RBAC assignment. In other words, say you granted a user the **Storage File Data SMB Reader** role on the target file share. You also granted the default share-level permission **Storage File Data SMB Share Elevated Contributor** to all authenticated users. With this configuration, that particular user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher-level permissions always take precedence.
 
+## What happens when users do not appear as group members in the Entra portal
+
+A user who is not synced to Microsoft Entra ID can still access an Azure file share if they are a member of an on premises Active Directory Domain Services group that is synced to Entra ID and has an Azure Files RBAC role assignment. The confusion comes from the Entra portal view, which does not show the user as a member of the group because the user is not synced.
+
+Only the group needs to be synced. The user does not. When a user signs in, the on premises domain controller gives the user a Kerberos ticket that lists every group the user belongs to. Azure Files reads the group security identifiers in that ticket. If one of those groups is synced to Entra ID, Azure Files translates the security identifier to an Entra object ID and applies any RBAC role assignment that exists for that group.
+
+This means the user can be authorized even though they do not appear in Entra ID and do not show up in the group membership list in the portal. Azure Files checks the group that appears in the Kerberos ticket, not the identity record in Entra ID.
+
+In other words, authorization is based on the groups included in the Kerberos ticket rather than the membership shown in the Entra portal. This allows users who are not synced to receive access through synced Active Directory Domain Services groups.
+
 ## Next step
 
 Now that you've assigned share-level permissions, you can [configure directory and file-level permissions](storage-files-identity-configure-file-level-permissions.md). Remember that share-level permissions can take up to three hours to take effect.

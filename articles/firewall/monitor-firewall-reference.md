@@ -189,7 +189,11 @@ Use the following steps to configure DNS proxy and enable DNS flow trace logs:
     2. Select **Diagnostic settings** under **Monitoring**.
     3. Choose an existing diagnostic setting or create a new one.
     4. Under the **Log** section, select **DNS Flow Trace Logs**.
-    5. Choose your desired destination (Log Analytics, Event Hub, or Storage Account).
+    5. Choose your desired destination (Log Analytics or Storage Account).
+    
+    > [!NOTE]
+    > DNS Flow Trace Logs are not supported with Event Hub as a destination.
+    
     6. Save the settings.
 
 3. **Test the configuration:**

@@ -79,7 +79,7 @@ The quickest way to experience the service is to explore one of our interactive 
 > [Play with a chat demo app](https://azure.github.io/azure-webpubsub/demos/chat)
 
 ### 2. Explore service features in the Azure portal  
-Next, get hands-on with key features of the service using [LiveTry](./quickstarts-livetry.md). This lets you experiment directly in the Azure portal—no code or local setup needed.
+Next, get hands-on with key features of the service using [playground](./quickstarts-livetry.md). This lets you experiment directly in the Azure portal—no code or local setup needed.
 
 ### 3. Build your own app locally
 Ready to see how the service fits into your project? Follow our [quickstart guide](./quickstarts-pubsub-among-clients.md) to spin up a local app and try out the core messaging patterns supported by Azure Web PubSub.

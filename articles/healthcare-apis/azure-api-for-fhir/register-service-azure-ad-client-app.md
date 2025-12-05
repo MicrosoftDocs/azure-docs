@@ -4,8 +4,8 @@ description: Learn how to register a service client application in Microsoft Ent
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 09/27/2023
+ms.topic: article
+ms.date: 12/05/2025
 ms.author: kesheth
 ms.custom: sfi-image-nochange
 ---

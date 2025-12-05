@@ -79,7 +79,7 @@
         href: quick-create-marketplace.md
       - name: Create a Hardened Virtual Machine Scale Set (VMSS) via Azure CLI
         href: vmss-deployment-from-hardened-linux-image.md
-      - name: Sample scripts to create ConfidentialVMs
+      - name: Sample scripts to create Confidential VMs
         href: https://github.com/Azure-Samples/confidential-computing
     - name: Image hardening techniques for deployment
       items:

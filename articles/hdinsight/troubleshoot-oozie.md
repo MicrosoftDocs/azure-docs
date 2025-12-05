@@ -123,7 +123,7 @@ Admin users are determined from the list of admin groups, specified in oozie.ser
 
 [!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]
 
-### Oozie WebUI disablement
+### Oozie WebUI disablement and command line options as alternative
 
 ### Issue
 

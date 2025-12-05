@@ -267,6 +267,8 @@ Run the script with the following command to get the latest version:
 
 * For enhanced cloning Public IP Retention script - `Install-Script -Name AzureAppGWIPMigrate -Force`
 
+* For enhanced cloning script - `Install-Script -Name AzureAppGWClone -Force`
+
 * For the legacy cloning script  - `Install-Script -Name AzureAppGWMigration -Force`
 
 This command also installs the required Az modules.
