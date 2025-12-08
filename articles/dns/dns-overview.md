@@ -23,6 +23,8 @@ Azure DNS supports both internet-facing DNS domains and private DNS zones, and p
 
 - **[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)** is a DNS-based traffic load balancer. This service allows you to distribute traffic to your public facing applications across the global Azure regions.
 
+- **[DNS Security Policy](dns-security-policy.md)** offers the ability to filter and log DNS queries at the virtual network level. It also includes a Threat Intelligence feed which allows early detection and prevention of security incidents on your Virtual Networks where known malicious domains sourced by [Microsoft’s Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution. 
+
 Azure DNS enables multiple scenarios, including:
 
 * [Host and resolve public domains](/azure/dns/dns-delegate-domain-azure-dns)
@@ -38,6 +40,7 @@ Azure DNS enables multiple scenarios, including:
 * [Load-balance your applications](/azure/traffic-manager/traffic-manager-how-it-works)
 * Increase application [availability](/azure/traffic-manager/traffic-manager-monitoring) and [performance](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
 * [Monitor your application traffic patterns](/azure/traffic-manager/traffic-manager-traffic-view-overview)
+* [Secure and view DNS traffic ](/azure/dns/dns-traffic-log-how-to)
 
 > [!NOTE]
 > Azure DNS is one of the services that make up the Network Foundations category in Azure. Other services in this category include [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) and [Azure Private Link](../private-link/private-link-overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Foundations](../networking/foundations/network-foundations-overview.md).

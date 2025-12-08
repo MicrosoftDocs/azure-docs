@@ -173,7 +173,7 @@ items:
     - name: Azure Logic Apps
       href: reliability-logic-apps.md
     - name: Azure Service Bus
-      href: ../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+      href: reliability-service-bus.md
   - name: Internet of Things
     items:
     - name: Azure Device Registry
@@ -371,7 +371,7 @@ items:
       - name: Azure Service Fabric
         href: migrate-service-fabric.md
       - name: Azure Service Bus
-        href: /azure/service-bus-messaging/service-bus-outages-disasters#availability-zones?toc=/azure/reliability
+        href: reliability-service-bus.md#configure-availability-zone-support
       - name: Azure SQL Database
         href: reliability-sql-database.md
       - name: Azure SQL Managed Instance

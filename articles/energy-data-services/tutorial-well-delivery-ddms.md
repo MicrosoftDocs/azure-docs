@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Work with well data records by using Well Delivery DDMS APIs"
 description: Learn how to work with well data records in your Azure Data Manager for Energy instance by using Well Delivery Domain Data Management Services (DDMS) APIs in Postman.
-author: dprakash-sivakumar
+author: prakashsivakumar-ps
 ms.author: prasivakumar
 ms.service: azure-data-manager-energy
 ms.topic: tutorial

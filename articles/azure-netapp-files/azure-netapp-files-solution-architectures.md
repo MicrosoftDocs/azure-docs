@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: concept-article
-ms.date: 10/15/2025
+ms.date: 12/07/2025
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
@@ -135,6 +135,7 @@ This section provides references to SAP on Azure solutions.
 * [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
 * [Azure NetApp Files Backup for SAP Solutions](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/anf-backup-for-sap-solutions/ba-p/3717977)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
+* [Running SAP Applications on the Microsoft Platform](https://techcommunity.microsoft.com/blog/sapapplications/designing-migrating-and-managing-a-151-node-sap-bw-scale-out-landscape-on-micros/3715003)
 
 ### SAP AnyDB
 
@@ -148,6 +149,7 @@ This section provides references to SAP on Azure solutions.
 * [Manual Recovery Guide for SAP DB2 on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-db2-on-azure-vms-from-azure-netapp/ba-p/3865379)
 * [SAP ASE 16.0 on Azure NetApp Files for SAP Workloads on SLES15](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/ba-p/3729496)
 * [SAP Netweaver 7.5 with MaxDB 7.9 on Azure using Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-netweaver-7-5-with-maxdb-7-9-on-azure-using-azure-netapp/ba-p/3905041)
+
 
 ### SAP IQ-NLS
 

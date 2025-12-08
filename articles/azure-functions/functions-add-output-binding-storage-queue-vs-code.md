@@ -96,7 +96,7 @@ To write to an Azure Storage queue:
     {
         methods: ['GET', 'POST'],
         extraOutputs: [sendToQueue], // add output binding to HTTP trigger
-        authLevel: 'anonymous',
+        authLevel: 'function',
         handler: () => {}
     }
     ```
@@ -117,7 +117,7 @@ To write to an Azure Storage queue:
     {
         methods: ['GET', 'POST'],
         extraOutputs: [sendToQueue], // add output binding to HTTP trigger
-        authLevel: 'anonymous',
+        authLevel: 'function',
         handler: () => {}
     }
     ```
@@ -233,7 +233,7 @@ Now, it's time to republish the updated function app to Azure.
 
 1. Choose the function app that you created in the first article. Because you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
 
-1. After the deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
+1. After the deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure. This command automatically retrieves the function access key and uses it when calling the HTTP trigger endpoint.
 
 1. Again [view the message in the storage queue](#examine-the-output-queue) to verify that the output binding generates a new message in the queue.
 

@@ -16,7 +16,7 @@ ms.subservice: azure-reliability
 This article provides links to reliability guidance for many Azure services. Most reliability guides contain the following information:
 
 
-- *Production deployment recommendations* provides guidance on how to deploy the service to meet your reliability requirements in production environments.
+- *Production deployment recommendations* provide guidance on how to deploy the service to meet your reliability requirements in production environments.
 
 - *Resilience to transient faults* describes how the service handles day-to-day transient faults that can occur in the cloud. It also describes how to handle these faults in your application, including information about retry policies, timeouts, and other best practices.
 
@@ -109,7 +109,7 @@ The following table provides links to reliability guidance for Azure services. E
 |Azure public IP addresses|| [Azure public IP addresses availability zone](../virtual-network/ip-services/public-ip-addresses.md#availability-zone) |
 |Azure Queue Storage|[Reliability in Queue Storage](reliability-storage-queue.md)||
 |Azure Route Server|| [Route Server frequently asked questions (FAQs)](../route-server/route-server-faq.md)|
-|Azure Service Bus|| [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md)|
+|Azure Service Bus|[Reliability in Service Bus](reliability-service-bus.md)||
 |Azure Service Fabric|| [Deploy a Service Fabric cluster across availability zones](/azure/service-fabric/service-fabric-cross-availability-zones) </p> [Disaster recovery in Service Fabric](/azure/service-fabric/service-fabric-disaster-recovery) |
 |Azure SignalR Service|| [Resiliency and disaster recovery in Azure SignalR Service](../azure-signalr/signalr-concept-disaster-recovery.md)|
 |Azure Site Recovery|| [Set up disaster recovery for Azure virtual machines](../site-recovery/azure-to-azure-tutorial-enable-replication.md)|

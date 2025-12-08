@@ -739,6 +739,8 @@ items:
             href: diagnostics/bcp290.md
           - name: BCP292
             href: diagnostics/bcp292.md
+          - name: BCP293
+            href: diagnostics/bcp293.md
           - name: BCP294
             href: diagnostics/bcp294.md
           - name: BCP302

@@ -34,7 +34,7 @@ To onboard to the Microsoft Sentinel data lake and graph in Microsoft Defender X
 + If your Microsoft 365 data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest your Microsoft 365 data into the region where your data lake resides.
 
 > [!NOTE]
-> Before onboarding, check the availability of Microsoft Data Lake and Graph in your region by referring to [Geographical availability and data residency in Microsoft Sentinel](../geographical-availability-data-residency.md#regions-supported-for-microsoft-sentinel-data-lake).
+> Before onboarding, check the availability of Microsoft Data Lake and Graph in your region by referring to [Geographical availability and data residency in Microsoft Sentinel](../geographical-availability-data-residency.md#supported-regions).
 
 
 ### Other prerequisites for Microsoft Purview

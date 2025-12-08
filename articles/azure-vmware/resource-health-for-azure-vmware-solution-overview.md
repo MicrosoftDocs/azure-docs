@@ -1,7 +1,7 @@
 ---
 title: Resource Health for Azure VMware Solution
 description: Learn about Azure Resource Health for your Azure VMware Solution private cloud.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-vmware
 ms.date: 08/05/2025
 ---
@@ -53,20 +53,22 @@ The following table gives the list of alerts that are currently monitored and su
 |19    |NSX Alarm - BGP between CLF and NSX T0 is down                                                                                           |System remediated|
 |20    |NSX Alarm - All BGP peer are down between CLF and NSX T0                                                                                 |System remediated|
 |21    |vSAN non-compliant disk utilization                                                                                                      |Customer intervention required|
-|22    |Virtual Machine is configured to use an external device that prevents maintenance operations                                             |Customer intervention required|
-|23    |Virtual Machine configured with DRS Override set to "Disabled" mode (EPC_DRSOVERRIDERULE)                                                |Customer intervention required|
-|24    |CD-ROM is mounted on the Virtual Machine and its ISO image isn't accessible and blocks maintenance operations. For more information, refer to [AVS SDDC maintenance best practices](azure-vmware-solution-private-cloud-maintenance-best-practices.md#maintenance-operations-best-practices) (EPC_CDROM_EMULATEMODE)                                                                                                              |Customer intervention required|
-|25    |Virtual Machine is configured with Small Computer System Interface (SCSI) bus sharing in "virtual mode" and blocks maintenance operations (EPC_SCSIDEVICE_SHARINGMODE). For more information, refer to [AVS SDDC maintenance best practices](azure-vmware-solution-private-cloud-maintenance-best-practices.md#maintenance-operations-best-practices)                                                                            |Customer intervention required|
-|26    |External datastore mounted becomes inaccessible and will block maintenance operations (EPC_DATASTORE_INACCESSIBLE)                      |Customer intervention required|
-|27    |Connected network adapter becomes inaccessible and blocks any maintenance operations (EPC_NWADAPTER_STALE)                              |Customer intervention required|
-|28    |Virtual Machine’s serial port is connected to a device that can't be accessed on the destination host (EPC_SERIAL_PORT)                 |Customer intervention required|
-|29    |NSX–T alarms for license expiration                                                                                                     |Customer intervention required|
-|30    |NSX Alarm - Customer Internet Protocol Security (IPSec) tunnel is down                                                                  |Customer intervention required|
-|31    |NSX Alarm - LDAP issue                                                                                                                  |Customer intervention required|
-|32    |NSX Alarm - Edge VM CPU usage very high                                                                                                 |Customer intervention required|
-|33    |NSX Segment Assignment Failed - Overlapping with already existing segments                                                              |Customer intervention required|
-|34    |Cross-resource and cross-subscription group reference not supported by default                                                          |Customer intervention required|
-|35    |HCX Alarm - Network Profile MTU Size Smaller than Recommended                                                                           |Customer intervention required|
+|22    |Cluster has 14 or more hosts ([AVS supports a maximum of 16 hosts in a cluster](/azure/azure-vmware/architecture-private-clouds#clusters); consider adding a new cluster for additional hosts)       |Customer intervention required|
+|23    |Private cloud has 90 or more hosts ([AVS supports a maximum of 96 hosts in a private cloud](/azure/azure-vmware/architecture-private-clouds#clusters); consider a new private cloud for additional hosts) |Customer intervention required|
+|24    |Virtual Machine is configured to use an external device that prevents maintenance operations                                             |Customer intervention required|
+|25    |Virtual Machine configured with DRS Override set to "Disabled" mode (EPC_DRSOVERRIDERULE)                                                |Customer intervention required|
+|26    |CD-ROM is mounted on the Virtual Machine and its ISO image isn't accessible and blocks maintenance operations. For more information, refer to [AVS SDDC maintenance best practices](azure-vmware-solution-private-cloud-maintenance-best-practices.md#maintenance-operations-best-practices) (EPC_CDROM_EMULATEMODE)                                                                                                                                                                 |Customer intervention required|
+|27    |Virtual Machine is configured with Small Computer System Interface (SCSI) bus sharing in "virtual mode" and blocks maintenance operations (EPC_SCSIDEVICE_SHARINGMODE). For more information, refer to [AVS SDDC maintenance best practices](azure-vmware-solution-private-cloud-maintenance-best-practices.md#maintenance-operations-best-practices)                                                                            |Customer intervention required|
+|28    |External datastore mounted becomes inaccessible and will block maintenance operations (EPC_DATASTORE_INACCESSIBLE)                      |Customer intervention required|
+|29    |Connected network adapter becomes inaccessible and blocks any maintenance operations (EPC_NWADAPTER_STALE)                              |Customer intervention required|
+|30    |Virtual Machine’s serial port is connected to a device that can't be accessed on the destination host (EPC_SERIAL_PORT)                 |Customer intervention required|
+|31    |NSX–T alarms for license expiration                                                                                                     |Customer intervention required|
+|32    |NSX Alarm - Customer Internet Protocol Security (IPSec) tunnel is down                                                                  |Customer intervention required|
+|33    |NSX Alarm - LDAP issue                                                                                                                  |Customer intervention required|
+|34    |NSX Alarm - Edge VM CPU usage very high                                                                                                 |Customer intervention required|
+|35    |NSX Segment Assignment Failed - Overlapping with already existing segments                                                              |Customer intervention required|
+|36    |Cross-resource and cross-subscription group reference not supported by default                                                          |Customer intervention required|
+|37    |HCX Alarm - Network Profile MTU Size Smaller than Recommended                                                                           |Customer intervention required|
 
 ## Next Steps
 
