@@ -428,7 +428,7 @@ In a folder named *hello*, the *function.json* file configures the HTTP-triggere
   "bindings": [
     {
       "type": "httpTrigger",
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "direction": "in",
       "name": "req",
       "methods": ["get", "post"]

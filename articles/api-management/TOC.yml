@@ -714,6 +714,8 @@
       href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
     - name: CAPTCHA endpoint update (September 2025)
       href: breaking-changes/captcha-endpoint-change-sep-2025.md
+    - name: Trusted service connectivity retirement (March 2026)
+      href: breaking-changes/trusted-service-connectivity-retirement-march-2026.md
     - name: Built-in analytics dashboard retirement (March 2027)
       href: breaking-changes/analytics-dashboard-retirement-march-2027.md
   - name: Regional availability

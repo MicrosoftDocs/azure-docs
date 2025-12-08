@@ -246,6 +246,21 @@ To re-install the VMSnapshot extension on Windows operating system for the backu
 1. Restart the Azure VM.
 1. Run an on-demand backup of Azure VM; this operation installs a new `VMSnapshot` extension.
 
+## Reinstall the VMSnapshot backup extension for Linux Azure VM protection
+
+1. Login to Azure VM and move to the directory using the following cmdlet:
+
+    ``cd /var/lib/waagent``
+
+    ``ls -l | grep Recovery``
+    
+
+"Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.XXXX.X" directory should be displayed. ("XXXX.X" depends on user's environment)
+
+2. Delete  "Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.XXXX.X" directory so that  VmSnapshotLinux extension is uninstalled.
+3. If you want to reinstall the extension, trigger Azure VM Backup so that extension reinstalls on the VM.
+
+
 ## Next steps
 
 * Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).

@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 06/13/2025
+ms.date: 12/08/2025
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
@@ -163,6 +163,9 @@ Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windo
 
 SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS client in certain file-sharing scenarios to perform client-side caching of read-ahead, write-behind, and lock information. A client can then work with a file (read or write it) without regularly reminding the server that it needs access to the file. This improves performance by reducing network traffic. SMB/CIFS oplocks are enabled on Azure NetApp Files SMB and dual-protocol volumes.
 
+## Will the access time automatically update when reading files?
+
+No, access time will not be updated when reading files. This behavior ensures low-latency and high-performance access to your data.
 
 ## Next steps  
 

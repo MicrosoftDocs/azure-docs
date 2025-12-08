@@ -177,7 +177,7 @@ sections:
           When restoring a VM to a peered region that does not support Zone-Redundant Storage (ZRS), Azure Backup will automatically create the disk in the same performance tier (e.g., Standard or Premium) as the original disk, but with Locally Redundant Storage (LRS) instead of ZRS. This ensures that the restore operation completes successfully, even though the redundancy model changes.
       - question: Is 64 TB disk support for Azure Backup available in all regions?
         answer: |
-          Azure Backup supports individual disk sizes up to 64 TB and a combined total of 512 TB per VM. However, this capability is region dependent. While initially available in select regions, support has expanded to additional locations. Customers are advised to check the latest regional availability or consult Azure Support to confirm support in their target region.
+          Azure Backup supports individual disk sizes up to 64 TB and a combined total of 512 TB per VM. This support is available in all Azure regions where Azure Backup services are offered.
       - question: How does the MDCC backup works via Enhanced Policy with and without selecting the option "only Crash Consistency Snapshot"?
         answer: |
           The behavior of MDCC backup under Enhanced Policy depends on whether the **"Only Crash Consistency Snapshot"** checkbox is selected:
@@ -441,6 +441,10 @@ sections:
       - question: How do I manage key rotations? How to ensure which key is used during backup and if it’s present to be used with the restored VM?
         answer: |
           Azure Backup backs up the secrets and KEK data of the key version during backup, and restores the same. However, booting ADE VMs with older version keys are also possible.
+
+      - question: How often are Microsoft managed keys rotated for Azure Backup?
+        answer: |
+          Microsoft-managed keys are rotated as per compliance requirements. If you have specific key rotation requirements, we recommend that you move to customer-managed keys so that you can manage and audit the rotation manually. Learn more [about Azure Storage encryption] (..\storage\common\storage-service-encryption.md).
 
       - question: When Vault is configured with CRR, what happens to the secondary data if the primary region fails?
         answer: |

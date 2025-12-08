@@ -285,7 +285,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP290' />[BCP290](./diagnostics/bcp290.md) | Error | Expected a parameter or type declaration after the decorator. |
 | <a id='BCP291' />BCP291 | Error | Expected a parameter or output declaration after the decorator. |
 | <a id='BCP292' />[BCP292](./diagnostics/bcp292.md) | Error | Expected a parameter, output, or type declaration after the decorator. |
-| <a id='BCP293' />BCP293 | Error | All members of a union type declaration must be literal values. |
+| <a id='BCP293' />[BCP293](./diagnostics/bcp293.md) | Error | All members of a union type declaration must be literal values. |
 | <a id='BCP294' />[BCP294](./diagnostics/bcp294.md) | Error | Type unions must be reducible to a single ARM type (such as `string`, `int`, or `bool`).      |
 | <a id='BCP295' />BCP295 | Error | The `{decoratorName}` decorator may not be used on targets of a union or literal type. The allowed values for this parameter or type definition will be derived from the union or literal type automatically. |
 | <a id='BCP296' />BCP296 | Error | Property names on types must be compile-time constant values. |

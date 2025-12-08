@@ -68,7 +68,7 @@ Follow these steps:
 	  
      With the backup schedule set to **Hourly**, the default selection for the start time is **8 AM**. The schedule is **Every 4 hours**, and the duration is **24 hours**. Hourly backup has a minimum recovery point objective (RPO) of 4 hours and a maximum of 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours, respectively.
 
-   - **Instant Restore**: You can set the retention of a recovery snapshot from 1 to 30 days. The default value is set to 7.
+   - **Instant Restore**: You can set the retention of a recovery snapshot from 1 to 30 days. The default value is set to 7. Instant restore retention duration cannot exceed vault retention duration.
    - **Retention range**: Options for retention range are autoselected based on the backup frequency you choose. The default retention for daily, weekly, monthly, and yearly backup points are set to 180 days, 12 weeks, 60 months, and 10 years, respectively. You can customize these values as required.
    
    :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot that shows how to configure the Enhanced backup policy.":::

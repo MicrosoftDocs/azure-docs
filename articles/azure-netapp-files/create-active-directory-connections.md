@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/01/2025
+ms.date: 12/07/2025
 ms.author: anfdocs
 ms.custom:
   - devx-track-azurepowershell
@@ -64,6 +64,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the Windows client negotiates the highest level of encryption supported by your AD DS. For example, if both AES-128 and AES-256 are supported, and the client supports AES-256, then AES-256 will be used.
 
+* If you change the Kerberos Distribution Center (KDC) IP address or AD Server Name, you must wait for the Kerberos ticket lifetime to mount the volume on the same NFS Linux client. The Kerberos ticket lifetime can be configured on both the client and the KDC. By default, Microsoft Active Directory sets the Kerberos ticket lifetime to 600 minutes (10 hours). For more information, see [Maximum lifetime for service ticket](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/maximum-lifetime-for-service-ticket).
+    
 * If you have a requirement to enable and disable certain Kerberos encryption types for Active Directory computer accounts for domain-joined Windows hosts used with Azure NetApp Files, you must use the Group Policy  `Network Security: Configure Encryption types allowed for Kerberos`.
 
     Do not set the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes`. Doing this will break Kerberos authentication with Azure NetApp Files for the Windows host where this registry key was manually set.

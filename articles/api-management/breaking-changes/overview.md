@@ -6,14 +6,13 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/17/2025
+ms.date: 12/03/2025
 ms.author: danlep
 ---
 
 # Upcoming breaking changes
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
-
+[!INCLUDE [api-management-availability-all-tiers](../../../includes/api-management-availability-all-tiers.md)]
 The following table lists all the upcoming breaking changes and feature retirements for Azure API Management.
 
 | Change Title | Effective Date |
@@ -33,6 +32,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [Managed certificates suspension][managed-certificates-suspension-august-2025] | August 15, 2025 - March 15, 2026|
 | [ADAL-based Microsoft Entra ID identity provider retirement][msal2025] | September 30, 2025 |
 | [CAPTCHA endpoint update][captcha2025] | September 30, 2025 |
+| [Trusted service connectivity retirement][trustedservice2026] | March 15, 2026 |
 | [Built-in analytics dashboard retirement][analytics2027] | March 15, 2027 |
 
 <!-- Links -->
@@ -52,3 +52,4 @@ The following table lists all the upcoming breaking changes and feature retireme
 [workspaces2024]: ./workspaces-breaking-changes-june-2024.md
 [workspaces2025march]: ./workspaces-breaking-changes-march-2025.md
 [managed-certificates-suspension-august-2025]: ./managed-certificates-suspension-august-2025.md
+[trustedservice2026]: ./trusted-service-connectivity-retirement-march-2026.md

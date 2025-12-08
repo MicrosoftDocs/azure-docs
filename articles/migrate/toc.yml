@@ -185,8 +185,6 @@ items:
         items:
         - name: Create an Azure VMware Solution (AVS) assessment
           href: tutorial-assess-vmware-azure-vmware-solution.md
-        - name: Customize assessment settings
-          href: assessment-properties.md
         - name: Review assessment report
           href: review-azure-vmware-solution-assessment.md
       - name: Azure SQL assessment

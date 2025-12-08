@@ -143,7 +143,13 @@ The valid type expressions include:
 - Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#use-decorators) in Bicep, so only literals are permitted as members.
 
     ```bicep
-    type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
+    type oneOfSeveralObjects = {
+      foo: 'bar'
+    } | {
+      fizz: 'buzz'
+    } | {
+      snap: 'crackle'
+    }
     type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 

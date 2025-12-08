@@ -213,7 +213,7 @@ Yes, addresses and other location strings can be used in the Azure Maps Power BI
 
 **Why I am seeing "Tenant switch not enabled" error in Power BI Desktop even when I have this switch enabled?**
 
-Please upgrade your Power BI desktop app to atleast May 2025 version to resolve this issue.
+Please upgrade your Power BI desktop app to at least May 2025 version to resolve this issue.
 
 ## Next steps
 

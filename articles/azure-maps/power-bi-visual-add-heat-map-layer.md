@@ -60,7 +60,7 @@ The following table shows the primary settings that are available in the **Heat 
 | Transparency | Sets the Transparency of the heat map layer. Default: **1**<br>Value should be from 0% to 100%. |
 | Intensity | The intensity of each heat point. Intensity is a decimal value between 0 and 1, used to specify how "hot" a single data point should be. Default: **0.5** |
 | Use size as weight | A boolean value that determines if the size field value should be used as the weight of each data point. When `On`, the layer renders as a weighted heat map. Default: `Off` |
-| Gradient |A color picker for users to pick three colors for low (0%), center (50%) and high (100%) gradient colors. |
+| Gradient | Defines the color mapping for the heat map’s intensity. Choose three colors: Low (0%), Center (50%), and High (100%). Low (0%) represents the color used for areas with the lowest density or weight value. Center (50%) is the midpoint color for average values, blending toward this from both ends. High (100%) represents the color used for areas with the highest density or weight value. The color transitions smoothly between these three points. If “Use size as weight” is enabled, the weight field influences how data values map to the gradient. |
 | Min zoom |Minimum zoom level the layer is visible at. Valid values are 1 to 22. Default: **0** |
 |Max zoom |Maximum zoom level the layer is visible at.  Valid values are 1 to 22. Default: **22**|
 |Layer position |Specify the position of the layer relative to other map layers. Valid values include **Above labels**, **Below labels** and **Below roads** |
