@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 11/18/2025
+ms.date: 11/19/2025
 ---
 
 # Automatic connector upgrade
@@ -68,7 +68,7 @@ You can find more details from the table below on the connector list that is pla
 | Connector        | Scenario |
 |------------------|----------|
 | [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md) | Scenario that doesn't rely on capability below in Amazon RDS for Oracle (version 1.0):<br><br>• Use procedureRetResults, truststore, and truststorepassword as connection properties.<br>• Set the connection properties batchFailureReturnsError to 0 and enableBulkLoad to 0.<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.58 or above. |
-| [Amazon Redshift](connector-amazon-redshift.md) | Scenario that doesn't rely on below capability in Amazon Redshift (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br>• Use [UNLOAD](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime with version 5.56 or above.<br><br> For more information, go to [Install Amazon Redshift ODBC driver for the version 2.0](connector-amazon-redshift.md#install-amazon-redshift-odbc-driver-for-the-version-20).|
+| [Amazon Redshift](connector-amazon-redshift.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.60 or above.|
 | [Google BigQuery](connector-google-bigquery.md)  | Scenario that doesn't rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.58 or above. |
 | [Greenplum](connector-greenplum.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above. |
 | [Hive](connector-hive.md) | Scenario that doesn't rely on below capability in Hive (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• Username<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• HiveServer1<br>• Service discovery mode: True<br>• Use native query: True <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.59 or above.|

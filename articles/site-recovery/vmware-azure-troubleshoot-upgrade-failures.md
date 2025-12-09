@@ -3,9 +3,9 @@ title: Troubleshoot upgrade of the Microsoft Azure Site Recovery Provider
 description: Resolve common issues that occur when upgrading the Microsoft Azure Site Recovery provider.
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 12/01/2025
-ms.author: v-gajeronika
+ms.date: 12/09/2025
 author: Jeronika-MS
+ms.author: v-gajeronika 
 # Customer intent: "As an IT administrator troubleshooting upgrade issues, I want to identify and resolve common errors during the Site Recovery provider upgrade, so that I can ensure successful installation and maintain backup and disaster recovery capabilities."
 ---
 

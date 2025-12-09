@@ -2,7 +2,7 @@
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: reference
-ms.date: 08/26/2025
+ms.date: 12/09/2025
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -41,6 +41,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **Compression** | You can enable HANA Native compression via the Backup policy. [See the SAP HANA document](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86943e9f8d5343c59577755edff8296b.html). |       |
 | **Multi-streaming backup** | You can increase your streaming backup throughput from *420 MBps* to *1.5 GBps*. [Learn more](#support-for-multistreaming-data-backups). |      |
 | **File System types** | File Systems `ext3` and `xfs` are supported for SAP HANA database instance snapshots backup. | Other File Systems aren't supported. |
+| **Server-side secure stores** | SSFS (Secure Store in the File System) is supported. | Local Secure Store (LSS) is not supported. |
 
 ------
 
@@ -53,7 +54,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 - **Parameters to enable SAP HANA settings for multistreaming**: 
   - *parallel_data_backup_backint_channels*
   - *data_backup_buffer_size (optional)*
-
+Maximum number of channels that can be opened are 32 however maximum throughput that can be achieved is 1.5GBps.
   >[!Note]
   >By setting the above HANA parameters will lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization as overutilization might negatively impact the backup and other HANA operations.
 

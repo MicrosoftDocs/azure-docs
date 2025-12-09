@@ -113,7 +113,7 @@ When you try to update the policy, the operation fails with an error and you can
 
 ## Disable immutability
 
-You can disable immutability only for vaults that have immutability enabled, but not locked.
+You can disable immutability only for vaults that have immutability enabled, but not locked. To disable or enable immutability on a vault, you need to have _Backup Contributor_ permissions on the vault.
 
 **Choose a vault**
 

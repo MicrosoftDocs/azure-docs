@@ -93,12 +93,12 @@ The following table lists services that are on retirement path, frequently asked
 | Details | Front Door (classic) | CDN Standard from Microsoft (classic) |
 | --- | --- | --- |
 | Retirement date | March 31, 2027 | September 30, 2027 |
-| Date until new resources can be created | March 31, 2025 | August 15, 2025 **|
+| Date until new resources can be created | March 31, 2025 **| August 15, 2025 **|
 | Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) |
 | Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) |
 
 > [!NOTE]
-> ** Azure-managed certificates will no longer be supported on CDN Standard from Microsoft (classic) starting August 15, 2025. Existing managed certificates will remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> ** Azure-managed certificates will no longer be supported on Azure Front Door (classic) and CDN Standard from Microsoft (classic) starting August 15, 2025. Existing managed certificates will remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
 
 ## Related content
 

@@ -73,34 +73,9 @@ As described in the [prerequisites](#access-to-the-destination-ea) section, you 
 After the EA account owner is created the subscription account Administrator, who is also now an EA account owner, receives an email. It notifies the user that they're now an EA Account Owner. If the user doesn't have access to an email mailbox associated with the account specified, there's no need to worry. The email is only a notification. Information in the email isn't required to proceed. However, an email mailbox is advised for future notifications about the subscription.
 
 ### Complete the subscription transfer
-
-Now that the subscription account administrator is also an EA account owner, they can create subscriptions under the EA.
-
-> [!IMPORTANT]
-> Before proceeding you need to understand what happens when a new EA account owner signs in to the Azure portal for the first time. Read and understand the following information before you sign in as the subscription account administrator.
-
-The first time a new EA account owner signs in to the Azure portal, they see the following warning:
-
-```
-WARNING
-
-You are about to associate your account (email address) to the following enrollment:
-
-Enrollment Name: <EnrollmentName>
-Enrollment Number: <EnrollmentNumber>
-
-All Enrollment Administrators can gain access to all of your subscriptions if you proceed.
-Additionally, all Azure subscriptions for which you are the account owner will be converted to your Enterprise Agreement.
-This includes subscriptions which include a monthly credit (e.g. Visual Studio, Microsoft Cloud Partner Program, BizSpart, etc.) meaning you will lose the monthly credit by proceeding.
-All subscriptions based on a Visual Studio subscriber offer (monthly credit for Visual Studio subscribers or Pay-As-You-Go Dev/Test) will be converted to use the Enterprise Dev/Test usage rates and be billed against this enrollment from today onwards.
-If you wish to retain the monthly credits currently associated with any of your subscriptions, please cancel.
-Please see additional details.
-
-Cancel  Continue
-```
+To complete the subscription transfer, a new EA Account owner needs to [activate account](direct-ea-administration.md#to-confirm-account-ownership-1) on the Azure portal.
 
 The warning states the following:
-
 ***When a user is added as an account owner, any Azure subscriptions associated with the account owner that are based on either the MOSP (PAYG) Dev/Test offer or the monthly credit offers for Visual Studio subscribers will be converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as MOSP (PAYG), associated with the Account Owner will be converted to the standard EA subscription offer.***
 
 If the user understands the consequences of the warning, select **Continue** and the subscriptions associated with their account are transferred to the EA.

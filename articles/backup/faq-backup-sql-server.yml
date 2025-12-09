@@ -104,7 +104,10 @@ sections:
           Can I use Azure Site Recovery for SQL machine as well as Azure SQL database backup on the same machine?
         answer: |
           Yes. Azure Site Recovery will trigger a *copy-only full backup* while taking the *application consistent snapshot* on the VM not to truncate the logs. [Learn more](../site-recovery/site-recovery-sql.md#combining-bcdr-technologies-with-site-recovery).   
-
+      - question: |
+          What happens if I rename the SQL Server VM at the OS level? Will backups and restores still work?
+        answer: |
+          Renaming the VM at the OS level is supported. Azure Backup for SQL Server relies on the Azure Resource URI and SQL Server instance registration, not the OS hostname. Backups will continue to work as long as the Azure Backup Plugin can connect to the SQL Server instance. 
   - name: Manage
     questions:
       - question: |

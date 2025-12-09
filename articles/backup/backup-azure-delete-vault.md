@@ -2,7 +2,7 @@
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 12/09/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -82,7 +82,9 @@ To delete a vault, follow these steps:
       
 - <a id="portal-delete-backup-servers">**Step 5:**</a> Delete Backup Servers
 
-  1. Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. In Protected Servers, select the server to unregister. To delete the vault, you must unregister all the servers. Right-click each protected server and select **Unregister**.
+Before deleting the vault, ensure that all on-premises backup servers are unregistered from the vault. To unregister the servers, perform the following steps based on your on-premises scenario:
+
+  1. Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. In Protected Servers, select the backup management type from the list. To delete the vault, you must unregister all the servers. On the selected backup management pane, select the **more icon ( ... )** corresponding to each protected server and select **Unregister**.
   
   1. **MARS protected servers**: Go to the vault dashboard menu -> **Backup Infrastructure** -> **Protected Servers**. If you've MARS protected servers, then all servers listed here must be deleted along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete MARS protected servers.
   

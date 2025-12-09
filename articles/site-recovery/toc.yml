@@ -586,7 +586,13 @@
   - name: Troubleshoot Azure VMs
     items:
     - name: Azure VM replication errors
-      href: azure-to-azure-troubleshoot-errors.md
+      items:
+      - name: Protection errors
+        href: azure-to-azure-protection-errors.md
+      - name: Virtual Machine errors
+        href: azure-to-azure-virtual-machine-errors.md
+      - name: Other errors
+        href: azure-to-azure-troubleshoot-errors.md
     - name: Azure VM connectivity issues
       href: azure-to-azure-troubleshoot-network-connectivity.md
     - name: Azure VM disaster recovery replication errors
@@ -595,8 +601,12 @@
       href: site-recovery-extension-troubleshoot.md
   - name: Troubleshoot VMware VMs/physical servers
     items:
-    - name: VMware VM/physical server replication errors
-      href: vmware-azure-troubleshoot-replication.md
+    - name: VMware VM/physical server
+      items:
+      - name: Replication errors
+        href: vmware-azure-troubleshoot-replication.md
+      - name: Error ID 78144
+        href: vmware-azure-troubleshoot-replication-vss-installation-failure-behaviors.md
     - name: Configuration server errors
       href: vmware-azure-troubleshoot-configuration-server.md
     - name: Process server errors (Classic)

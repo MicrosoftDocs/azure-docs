@@ -37,7 +37,7 @@ Before you configure FastPath, ensure your environment meets the following requi
 
 You can use FastPath with the following circuit types:
 
-- **ExpressRoute Direct**: Supports all FastPath features including IPv6, virtual network peering, User-Defined Routes (UDR), and Private Link connectivity
+- **ExpressRoute Direct**: Supports FastPath with IPv4 connectivity for User-Defined Routes (UDR) and Private Link. Supports FastPath with both IPv4 and Ipv6 connectivity for VNET Peering
 - **ExpressRoute provider circuits**: Supports FastPath with IPv4 connectivity
 
 The following table shows feature availability for each circuit type:

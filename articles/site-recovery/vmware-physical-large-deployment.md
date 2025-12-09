@@ -3,7 +3,7 @@ title: Scale VMware/physical disaster recovery with Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 09/22/2025
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom: engagement-fy23
@@ -91,7 +91,7 @@ The limits indicate the number of failovers that are supported by Site Recovery 
 
 What does comply mean? To start an Azure VM, Azure requires some drivers to be in boot start state, and services like DHCP to be set to start automatically.
 - Machines that comply will already have these settings in place.
-- For machines running Windows, you can proactively check compliance, and make them compliant if needed. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- For machines running Windows, you can proactively check compliance, and make them compliant if needed. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-errors).
 - Linux machines are only brought into compliance at the time of failover.
 
 **Machine complies with Azure?** | **Azure VM limits (managed disk failover)**
@@ -138,7 +138,7 @@ If you need to add a new configuration server, follow these instructions:
 As you set up a configuration server, note that:
 
 - When you set up a configuration server, it's important to consider the subscription and vault within which it resides, since these shouldn't be changed after setup. If you do need to change the vault, you have to disassociate the configuration server from the vault, and reregister it. This stops replication of VMs in the vault.
-- If you want to set up a configuration server with multiple network adapters, you should do this during set up. You can't do this after the registering the configuration server in the vault.
+- If you want to set up a configuration server with multiple network adapters, you should do this during setup. You can't do this after the registering the configuration server in the vault.
 
 ## Set up a process server
 
@@ -209,7 +209,7 @@ To run a large-scale failover, we recommend the following:
     - Each recovery plan can trigger failover of up to 100 machines.
     - [Learn more](recovery-plan-overview.md) about recovery plans.
 2. Add Azure Automation runbook scripts to recovery plans, to automate any manual tasks on Azure. Typical tasks include configuring load balancers, updating DNS etc. [Learn more](site-recovery-runbook-automation.md)
-2. Before failover, prepare Windows machines so that they comply with the Azure environment. [Failover limits](#plan-azure-subscriptions-and-quotas) are higher for machines that comply. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) about runbooks.
+2. Before failover, prepare Windows machines so that they comply with the Azure environment. [Failover limits](#plan-azure-subscriptions-and-quotas) are higher for machines that comply. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-errors) about runbooks.
 4.	Trigger failover with the [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) PowerShell cmdlet, together with a recovery plan.
 
 

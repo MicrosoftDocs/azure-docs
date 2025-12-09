@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot connectivity for Azure to Azure disaster recovery with Azure Site Recovery
 description: Troubleshoot connectivity issues in Azure VM disaster recovery
-author: Jeronika-MS
-ms.author: v-gajeronika
 ms.topic: how-to
 ms.service: azure-site-recovery
-ms.date: 10/31/2025
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
 # Customer intent: As an IT administrator, I want to troubleshoot network connectivity issues for Azure-to-Azure disaster recovery, so that I can ensure seamless replication and recovery of virtual machines during failover events.
 ---
 

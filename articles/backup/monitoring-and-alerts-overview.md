@@ -2,7 +2,7 @@
 title: Monitoring and reporting solutions for Azure Backup
 description: Learn about different monitoring and reporting solutions provided by Azure Backup.
 ms.topic: overview
-ms.date: 05/29/2025
+ms.date: 12/09/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -72,6 +72,7 @@ The following table summarizes the different backup alerts currently available v
 
 ## Next steps
 
-- [Learn about Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md).
-- [Learn how to monitor alerts](../business-continuity-center/tutorial-monitor-alerts-metrics.md#monitor-alerts).
-- [Learn how to configure and view reports](../business-continuity-center/tutorial-reporting-for-data-insights.md).
+- [Learn about Resiliency](../resiliency/resiliency-overview.md).
+- [Learn how to monitor alerts](../resiliency/tutorial-monitor-alerts-metrics.md#monitor-alerts).
+- [Learn how to configure and view reports](../resiliency/tutorial-reporting-for-data-insights.md).
+- [Troubleshoot monitoring issues for Azure Backup](backup-azure-monitor-troubleshoot.md).

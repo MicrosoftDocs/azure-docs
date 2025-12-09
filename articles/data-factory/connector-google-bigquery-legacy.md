@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 04/14/2025
+ms.date: 12/01/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -240,6 +240,28 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
     }
 ]
 ```
+
+## Data type mapping for Google BigQuery V1
+
+When you copy data from Google BigQuery, the following mappings are used from Google BigQuery data types to interim data types within the service internally. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Google BigQuery data type | Service interim data type |
+|---------------------------|------------------------------|
+| JSON                      | String                      |
+| STRING                    | String                      |
+| BYTES                     | Byte array                  |
+| INTEGER                   | Int64                       |
+| FLOAT                     | Double                      |
+| NUMERIC                   | String                      |
+| BIGNUMERIC                | String                      |
+| BOOLEAN                   | Boolean                     |
+| TIMESTAMP                 | DateTime                    |
+| DATE                      | DateTime                    |
+| TIME                      | TimeSpan                    |
+| DATETIME                  | DateTime                    |
+| GEOGRAPHY                 | String                      |
+| RECORD/STRUCT             | String                      |
+| ARRAY                     | String                      |
 
 ## Lookup activity properties
 

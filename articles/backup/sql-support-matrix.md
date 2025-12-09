@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 10/07/2025
+ms.date: 12/09/2025
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -39,6 +39,10 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 | Log shipping | When you enable [log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-ver15&preserve-view=true) on the SQL server database that you are backing up, we recommend you to disable log backups in the backup policy. This is because, the log shipping (which automatically sends transaction logs from the primary to secondary database) will interfere with the log backups enabled through Azure Backup. <br><br>    Therefore, if you enable log shipping, ensure that your policy only has full and/or differential backups enabled. |
 | Retention period for on-demand backups  | For Full/ Differential/ Incremental backups, the out-of-box retention is 45 days. <br><br>  For Copy-only full backup, you can define a custom retention period.  |
 | Restore limit for SQL in Azure VM | 20 |
+| Number of databases that can be backed up concurrently | 20 per VM |
+| Number of databases that can be restored concurrently | 15 per VM |
+| Nummber of databases that can be restored as files concurrently | 15 per VM |
+| Number of restores allowed per database | 20 per day |
 
 _*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance) on backup throughput performance._
 

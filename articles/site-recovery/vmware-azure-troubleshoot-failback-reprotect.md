@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot failback in VMware VM disaster recovery with Azure Site Recovery 
 description: This article describes ways to troubleshoot failback and reprotection issues during VMware VM disaster recovery to Azure with Azure Site Recovery.
-author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 11/27/2018
-ms.author: v-gajeronika
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
 
 # Customer intent: As an IT administrator managing VMware VMs, I want to troubleshoot failback and reprotection issues during disaster recovery, so that I can ensure a seamless transition of virtual machines back to our on-premises infrastructure.
 ---
@@ -37,7 +37,7 @@ Failback essentially involves two main steps. For the first step, after failover
 
 This section details common reprotection errors and how to correct them.
 
-### Error code 95226
+# [Error code 95226](#tab/95226)
 
 **Reprotect failed as the Azure virtual machine was not able to reach the on-premises configuration server.**
 
@@ -51,7 +51,7 @@ To resolve this issue:
 * Check that the Azure VM network allows the Azure VM to communicate with the on-premises configuration server. You can either set up a site-to-site VPN to your on-premises datacenter or configure an Azure ExpressRoute connection with private peering on the virtual network of the Azure VM.
 * If the VM can communicate with the on-premises configuration server, sign in to the VM. Then check the InMage Scout application service. If you see that it's not running, start the service manually. Check that the service start type is set to **Automatic**.
 
-### Error code 78052
+# [Error code 78052](#tab/78052)
 
 **Protection couldn't be completed for the virtual machine.**
 
@@ -62,8 +62,7 @@ To resolve this issue:
 * Select a different master target server on a different host so that reprotection creates the machine on a different host, where the names don't collide.
 * You also can use VMotion to move the master target to a different host where the name collision won't happen. If the existing VM is a stray machine, rename it so that the new VM can be created on the same ESXi host.
 
-
-### Error code 78093
+# [Error code 78093](#tab/78093)
 
 **The VM is not running, not responding, or not accessible.**
 
@@ -74,12 +73,13 @@ To reprotect a failed-over VM, the Azure VM must be running so that Mobility Ser
 * Restart the VM so that it can start communicating back on-premises.
 * Restart the reprotect job after you start the Azure virtual machine.
 
-### Error code 8061
+# [Error code 8061](#tab/8061)
 
 **The datastore is not accessible from ESXi host.**
 
 Check the [master target prerequisites and supported data stores](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server) for failback.
 
+---
 
 ## Troubleshoot failback errors
 

@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 08/12/2025
+ms.date: 11/10/2025
 ai-usage: ai-assisted
 ms.custom:
   - synapse
@@ -104,6 +104,13 @@ These generic properties are supported for the Snowflake linked service:
 | role | The default security role used for the session after connecting. | No |
 | host | The host name of the Snowflake account. For example: `contoso.snowflakecomputing.com`. `.cn` is also supported.| No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No |
+
+You can set the following additional connection properties in the linked service depending on your case.
+
+| Property | Description | Required | Default value |
+|:--- |:--- |:--- |:--- |
+| UseUtcTimestamps | Specify it to `false` to return TIMESTAMP_LTZ type and TIMESTAMP_TZ type in the correct time zone, and TIMESTAMP_NTZ type without time zone information. Specify it to `true` to return all Snowflake timestamp types in UTC.  | No | `false` |
+| schema | Specifies the schema for the query session after connecting. | No | / |
 
 This Snowflake connector supports the following authentication types. See the corresponding sections for details.
 
@@ -271,6 +278,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | type                         | The type property of the Copy activity source must be set to **SnowflakeV2Source**. | Yes      |
 | query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`.<br>Executing stored procedure isn't supported. | No       |
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes       |
+| treatDecimalAsString | Specify to treat decimal type as string type in lookup and script activity. The default value is `false`.<br><br> This property is only supported in version 1.1.| No  |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
 | storageIntegration | Specify the name of your storage integration that you created in the Snowflake. For the prerequisite steps of using the storage integration, see [Configuring a Snowflake storage integration](https://docs.snowflake.com/en/user-guide/data-load-azure-config#option-1-configuring-a-snowflake-storage-integration). | No |
@@ -718,7 +726,7 @@ The following table shows the release stage and change logs for different versio
 | :----------- | :------- |:------- |
 | Snowflake V1 | Removed | Not applicable. |
 | Snowflake V2 (version 1.0) | GA version available | • Add support for Key pair authentication. <br><br>• Add support for `storageIntegration` in Copy activity. <br><br>• The `accountIdentifier`, `warehouse`, `database`, `schema` and `role` properties are used to establish a connection instead of `connectionstring` property.<br><br>• Add support for Decimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. If you want to covert it to numeric type in V2, you can use the pipeline parameter with [int function](control-flow-expression-language-functions.md#int) or [float function](control-flow-expression-language-functions.md#float). For example, `int(activity('lookup').output.firstRow.VALUE)`, `float(activity('lookup').output.firstRow.VALUE)`<br><br>• timestamp data type in Snowflake is read as DateTimeOffset data type in Lookup and Script activity. If you still need to use the Datetime value as a parameter in your pipeline after upgrading to V2, you can convert DateTimeOffset type to DateTime type by using [formatDateTime function](control-flow-expression-language-functions.md#formatdatetime) (recommended) or [concat function](control-flow-expression-language-functions.md#concat). For example: `formatDateTime(activity('lookup').output.firstRow.DATETIMETYPE)`, `concat(substring(activity('lookup').output.firstRow.DATETIMETYPE, 0, 19), 'Z')` <br><br>• NUMBER (p,0) is read as Decimal data type.<br><br>• TIMESTAMP_LTZ, TIMESTAMP_NTZ and TIMESTAMP_TZ is read as DateTimeOffset data type.<br><br>• Script parameters are not supported in Script activity. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md).<br><br>• Multiple SQL statements execution in Script activity is not supported. |  
-| Snowflake V2 (version 1.1) | GA version available | • Add support for script parameters.<br><br>• Add support for multiple statement execution in Script activity. |  
+| Snowflake V2 (version 1.1) | GA version available | • Add support for script parameters.<br><br>• Add support for multiple statement execution in Script activity. <br><br>• Add `treatDecimalAsString` property in Lookup and Script activity. <br><br>• Add additional connection property `UseUtcTimestamps`.|  
 
 ### <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector from V1 to V2
 

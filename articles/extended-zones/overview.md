@@ -1,11 +1,11 @@
 ---
 title: What are Azure Extended Zones?
 description: Learn about Azure Extended Zones and how they can help you run latency-sensitive and throughput-intensive applications close to end users.
-author: halkazwini
-ms.author: halkazwini
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: overview
-ms.date: 05/02/2025
+ms.date: 12/08/2025
 ---
 
 # What are Azure Extended Zones?
@@ -44,10 +44,11 @@ The following table lists key services that are available in Azure Extended Zone
 | Service category | Available Azure services and features |
 | ------------------ | ------------------- |
 | **Compute** | [Azure Kubernetes Service](/azure/aks/extended-zones?tabs=azure-resource-manager)* <br> [Azure Virtual Desktop](/azure/virtual-desktop/azure-extended-zones)* <br> [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) <br> [Virtual machines](/azure/virtual-machines/overview) (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series**)|
-| **Networking** | [DDoS](../ddos-protection/ddos-protection-overview.md) (Standard protection) <br> [ExpressRoute](../expressroute/expressroute-introduction.md) <br> [Private Link](../private-link/private-link-overview.md) <br> [Standard Load Balancer](../load-balancer/load-balancer-overview.md) <br> [Standard public IP](../virtual-network/ip-services/public-ip-addresses.md) <br> [Virtual Network](../virtual-network/virtual-networks-overview.md) <br> [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) |
-| **Storage** | [Managed disks](/azure/virtual-machines/managed-disks-overview) <br> - Premium SSD <br> - Standard SSD <br> [Premium Page Blobs](../storage/blobs/storage-blob-pageblob-overview.md) <br> [Premium Block Blobs](../storage/blobs/storage-blob-block-blob-premium.md) <br> [Premium Files](../storage/files/storage-files-introduction.md) <br> [Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) <br> [Hierarchical Namespace](../storage/blobs/data-lake-storage-namespace.md) <br>Data Lake Storage Gen2 Flat Namespace <br> [Change Feed](/azure/cosmos-db/change-feed) <br> Blob Features <br> - [SFTP](../storage/blobs/secure-file-transfer-protocol-support.md) <br> - [NFS](../storage/files/files-nfs-protocol.md) |
-| **BCDR** | [Azure Site Recovery](../site-recovery/site-recovery-overview.md)* <br> [Azure Backup](../backup/backup-overview.md) |
+| **Networking** | [DDoS](../ddos-protection/ddos-protection-overview.md) (Standard protection) <br> [ExpressRoute](../expressroute/expressroute-introduction.md) <br> [Private Link](../private-link/private-link-overview.md) <br> [Standard Load Balancer](../load-balancer/load-balancer-overview.md) <br> [Standard public IP](../virtual-network/ip-services/public-ip-addresses.md) <br> [Virtual Network](../virtual-network/virtual-networks-overview.md) <br> [Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md) <br> Azure Firewall (API version) |
+| **Storage** | [Managed disks](/azure/virtual-machines/managed-disks-overview) <br> - Premium SSD <br> - Standard SSD <br> [Premium Page Blobs](../storage/blobs/storage-blob-pageblob-overview.md) <br> [Premium Block Blobs](../storage/blobs/storage-blob-block-blob-premium.md) <br> [Premium Files](../storage/files/storage-files-introduction.md) <br> [Data Lake Storage Gen2 Hierarchical Namespace](../storage/blobs/data-lake-storage-namespace.md) <br>Data Lake Storage Gen2 Flat Namespace <br> [Change Feed](/azure/cosmos-db/change-feed) <br> Blob Features <br> - [SFTP](../storage/blobs/secure-file-transfer-protocol-support.md) <br> - [NFS](../storage/files/files-nfs-protocol.md) |
+| **BCDR** | [Azure Site Recovery](../site-recovery/site-recovery-overview.md)* (Extended Zone to parent region) <br> [Azure Backup](../backup/backup-overview.md) |
 | **Arc-enabled PaaS** | [ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)* <br> [PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)* <br> [ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)* |
+| **Billing** | [Savings Plans](/azure/extended-zones/purchase-reservations-savings-plans) <br> [Reserved Instances](/azure/extended-zones/purchase-reservations-savings-plans) (through recommendations flow) |
 
 \* While these services are GA in Azure Regions, they are currently in Preview in Azure Extended Zones.  
 \** [Learn more about Virtual Machine family series here](/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist). You can obtain a detailed VM list in the Azure Extended Zones environment. 

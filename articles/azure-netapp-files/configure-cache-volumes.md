@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/03/2025
+ms.date: 12/09/2025
 ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a cache volume in Azure NetApp Files, so that I can leverage scalable storage solutions and reduce cost.
@@ -36,7 +36,10 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to one or more cache volumes.
     * Ensure that the delegated subnet address space is sized appropriately to accommodate the Azure NetApp Files network interfaces. Review the [guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.
 * When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created cache volumes in the subscription to reduce the number of network interface cards (NICs)/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.
-* You can't use the same source cluster for multiple subscriptions for creating cache volumes in the same availability zone in the same region. 
+* You can't use the same source cluster for multiple subscriptions for creating cache volumes in the same availability zone in the same region.
+* When creating a cache volume, subnets need to be specified for the cache volume (cacheSubnetResourceId) and for cluster peering (peeringSubnetResourceId). 
+    * The same subnet can be specified for both cache volume and cluster peering (but the subnet must have the Microsoft.Netapp/volumes delegation).
+    * When different subnets are used, each subnet needs to be on a different VNET and each subnet must have the Microsoft.Netapp/volumes delegation.
 
 ### Write-back considerations 
 

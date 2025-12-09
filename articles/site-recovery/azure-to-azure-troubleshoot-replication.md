@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot replication of Azure VMs with Azure Site Recovery
 description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery.
-author: Jeronika-MS
-ms.author: v-gajeronika
 ms.topic: troubleshooting
-ms.date: 05/07/2025
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
 ms.service: azure-site-recovery
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud administrator, I want to troubleshoot replication issues with Azure Site Recovery for VMs, so that I can ensure reliable disaster recovery and maintain business continuity."
@@ -94,23 +94,23 @@ Following are some of the most common issues.
 
 ### Known issue in SQL server 2008/2008 R2
 
-**How to fix:** There's a known issue with SQL server 2008/2008 R2. Refer to the article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2).
+**Workaround:** There's a known issue with SQL server 2008/2008 R2. Refer to the article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2).
 
 ### Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs
 
-**How to fix:** Refer to the article [Non-component VSS backups such as Azure Site Recovery jobs fail on servers hosting SQL Server instances with AUTO_CLOSE DBs](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser).
+**Workaround:** Refer to the article [Non-component VSS backups such as Azure Site Recovery jobs fail on servers hosting SQL Server instances with AUTO_CLOSE DBs](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser).
 
 ### Known issue in SQL Server 2016 and 2017
 
-**How to fix**: Cumulative Update 16 for SQL Server 2017.
+**Workaround**: Cumulative Update 16 for SQL Server 2017.
 
 ### You're using Azure Storage Spaces Direct Configuration
 
-**How to fix**: Azure Site Recovery can't create application consistent recovery point for Storage Spaces Direct Configuration. [Configure the replication policy](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+**Workaround**: Azure Site Recovery can't create application consistent recovery point for Storage Spaces Direct Configuration. [Configure the replication policy](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 
 ### App-consistency not enabled on Linux servers
 
-**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.yml) are the steps to enable it.
+**Workaround** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.yml) are the steps to enable it.
 
 ### More causes because of VSS-related issues:
 
@@ -128,11 +128,11 @@ In the preceding example, **2147754994** is the error code that tells you about 
 
 #### VSS writer is not installed - Error 2147221164
 
-**How to fix**: To generate application consistency tag, Azure Site Recovery uses Volume Shadow Copy Service (VSS). Site Recovery installs a VSS Provider for its operation to take app consistency snapshots. Azure Site Recovery installs this VSS Provider as a service. If VSS Provider isn't installed, the application consistency snapshot creation fails. It shows the **error ID 0x80040154 Class not registered**. Refer to the article for [VSS writer installation troubleshooting](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
+**Workaround**: To generate application consistency tag, Azure Site Recovery uses Volume Shadow Copy Service (VSS). Site Recovery installs a VSS Provider for its operation to take app consistency snapshots. Azure Site Recovery installs this VSS Provider as a service. If VSS Provider isn't installed, the application consistency snapshot creation fails. It shows the **error ID 0x80040154 Class not registered**. Refer to the article for [VSS writer installation troubleshooting](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
 
 #### VSS writer is disabled - Error 2147943458
 
-**How to fix**: To generate the application consistency tag, Azure Site Recovery uses VSS. Site Recovery installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. If you don't have the VSS Provider service enabled, the application consistency snapshot creation fails. It shows the error: **The specified service is disabled and cannot be started (0x80070422)**.
+**Workaround**: To generate the application consistency tag, Azure Site Recovery uses VSS. Site Recovery installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. If you don't have the VSS Provider service enabled, the application consistency snapshot creation fails. It shows the error: **The specified service is disabled and cannot be started (0x80070422)**.
 
 If VSS is disabled:
 
@@ -144,7 +144,7 @@ If VSS is disabled:
 
 #### VSS PROVIDER NOT_REGISTERED - Error 2147754756
 
-**How to fix**: To generate the application consistency tag, Azure Site Recovery uses VSS. Check whether the Azure Site Recovery VSS Provider service is installed.
+**Workaround**: To generate the application consistency tag, Azure Site Recovery uses VSS. Check whether the Azure Site Recovery VSS Provider service is installed.
 
 Use the following commands to reinstall VSS Provider:
 
@@ -166,7 +166,7 @@ Restart the following services:
 
 #### Update TenantId and ClientId manually in source machine
 
-**How to fix**: To fix no Mobility Service heartbeat error due to expired tenant, follow these steps:
+**Workaround**: To fix no Mobility Service heartbeat error due to expired tenant, follow these steps:
     
 1. Execute the **GET Protected item** API and retrieve the values for `mobilityAgentTenantIdToUpdate` and `mobilityAgentClientIdToUpdate` from the output.
     

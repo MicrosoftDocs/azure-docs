@@ -1,8 +1,8 @@
 ---
 title: Request access to Azure Extended Zones
 description: Learn how to request and gain access to an Azure Extended Zone by using Azure PowerShell or Azure CLI.
-author: halkazwini
-ms.author: halkazwini
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 11/19/2024

@@ -4,8 +4,9 @@ description: An archive for features and updates in the Azure Site Recovery serv
 ms.topic: overview
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
+ms.date: 09/22/2025
 author: Jeronika-MS
-ms.date: 08/19/2025
+
 # Customer intent: "As a system administrator, I want to review the latest updates and feature enhancements for the disaster recovery service, so that I can optimize our organization's backup strategy and ensure compatibility with our systems."
 ---
 
@@ -146,7 +147,7 @@ This article contains information on older features and updates in the Azure Sit
 
 > [!NOTE]
 > Update rollup only provides updates for the public preview of VMware to Azure protections. No other fixes or improvements have been covered in this release.
-> To setup the preview experience, you will have to perform a fresh set up and use a new Recovery Services vault. Updating from existing architecture to new architecture is unsupported.
+> To set up the preview experience, you will have to perform a fresh setup and use a new Recovery Services vault. Updating from existing architecture to new architecture is unsupported.
 
 This public preview covers a complete overhaul of the current architecture for protecting VMware machines.
 - [Learn](/azure/site-recovery/vmware-azure-architecture-preview) about the new architecture and the changes introduced.
@@ -271,7 +272,7 @@ This public preview covers a complete overhaul of the current architecture for p
 **Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
 
 > [!NOTE]
-> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
+> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-protection-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### Update rollup 47
 

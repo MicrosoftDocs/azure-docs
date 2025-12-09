@@ -1,8 +1,8 @@
 ---
 title: "Deploy a virtual machine in an Extended Zone - ARM template"
 description: Learn how to deploy a virtual machine in an Azure Extended Zone using an Azure Resource Manager template (ARM template).
-author: halkazwini
-ms.author: halkazwini
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: quickstart-arm
 ms.date: 11/19/2024
