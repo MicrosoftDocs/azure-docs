@@ -3,7 +3,7 @@ title: Incident Management in Azure SRE Agent Preview
 description: Learn how the incident management capabilities in Azure SRE Agent help reduce manual intervention and accelerate resolution times for your Azure resources.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 11/04/2025
+ms.date: 12/09/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -44,14 +44,33 @@ To use a different management platform, first disconnect Azure Monitor as the ag
 
 # [PagerDuty](#tab/pagerduty)
 
-To set up PagerDuty:
+To set up PagerDuty you need an API key to handle communication with Azure SRE Agent. PagerDuty provides two types of API keys:
+
+* **General API key**: Used for development work and general API access. This key type cannot acknowledge incidents on behalf of the agent.
+
+* **User API key**: Associated with a specific user account and email address. This key type is required for SRE Agent to successfully acknowledge and manage incidents in PagerDuty.
+
+> [!IMPORTANT]
+> You must use a **User API key** for the SRE Agent integration. General API keys don't allow the agent to acknowledge incidents properly because they lack the user context (email address) required for incident acknowledgment.
+
+To create a User API key in PagerDuty:
+
+1. Sign in to your PagerDuty account.
+1. Go to **User Settings** > **API Access**.
+1. Select **Create API User Token**.
+1. Provide a description for the key (for example, "SRE Agent Integration").
+1. Copy the generated User API key and use it in the SRE Agent configuration.
+
+Once you have the API key correctly configured, you can setup PagerDuty in SRE Agent.
+
+1. Go to your SRE Agent in the Azure portal.
 
 1. Select the **Incident platform** tab and enter the following settings:
 
    | Setting | Value |
    |---|---|
    | **Incident platform** | Select **PagerDuty**. |
-   | **REST API access key** | Enter your PagerDuty REST API access key. |
+   | **REST API access key** | Enter your PagerDuty **API key**. |
    | **Quickstart handler** | Keep the checkbox selected. |
 
 1. Select **Save**. PagerDuty is now responsible for managing incidents for the agent.

@@ -249,7 +249,7 @@ fn init_model() -> Result<(), anyhow::Error> {
 
 ### Performance optimization
 
-To avoid recreating the ONNX graph and execution context for every message, initialize it once and reuse it. The [public sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/examples/snapshot/src/lib.rs) uses a static `LazyLock`:
+To avoid recreating the ONNX graph and execution context for every message, initialize it once and reuse it. The [public sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/operators/snapshot/src/lib.rs) uses a static `LazyLock`:
 
 ```rust
 use std::sync::LazyLock;

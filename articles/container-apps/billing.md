@@ -8,13 +8,13 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.topic: conceptual
-ms.date: 11/19/2024
+ms.date: 12/09/2025
 ms.author: cshoe
 ---
 
 # Billing in Azure Container Apps
 
-Billing in Azure Container Apps is based on your [plan type](plans.md) (Consumption or Dedicated), which is determined by your environment type you select.
+Billing in Azure Container Apps depends on your [plan type](plans.md) (Consumption or Dedicated). Your plan type depends on the environment type you select.
 
 | Plan type | Description |
 |--|--|
@@ -24,7 +24,7 @@ Billing in Azure Container Apps is based on your [plan type](plans.md) (Consumpt
 - Your plan selection determines billing calculations.
 - Different applications in an environment can use different plans.
 
-In addition, features such as private endpoints and planned maintenance are subject to a **Dedicated Plan Management** charge regardless of whether you are using the Consumption or Dedicated plans.
+In addition, features such as private endpoints and planned maintenance are subject to a **Dedicated Plan Management** charge regardless of whether you use the Consumption or Dedicated plans.
 
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
@@ -41,16 +41,16 @@ The following resources are free during each calendar month, per subscription:
 - The first 360,000 GiB-seconds
 - The first 2 million HTTP requests
 
-Free usage doesn't appear on your bill. You're only charged as your resource usage exceeds the monthly free grants amounts.
+Free usage doesn't appear on your bill. You're only charged when your resource usage exceeds the monthly free grants amounts.
 
 > [!NOTE]
-> If you use Container Apps with [your own virtual network](custom-virtual-networks.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
+> If you use Container Apps with [your own virtual network](custom-virtual-networks.md#managed-resources) or your apps utilize other Azure resources, additional charges might apply. The managed OpenTelemetry agent, when enabled, runs at no extra compute cost.
 
 ### Resource consumption charges
 
 Azure Container Apps runs replicas of your application based on the [scaling rules and replica count limits](scale-app.md) you configure for each revision. [Azure Container Apps jobs](jobs.md) run replicas when job executions are triggered. You're charged for the amount of resources allocated to each replica while it's running.
 
-There are 2 meters for resource consumption:
+Two meters track resource consumption:
 
 - **vCPU-seconds**: The number of vCPU cores allocated to your container app on a per-second basis.
 - **GiB-seconds**: The amount of memory allocated to your container app on a per-second basis.
@@ -116,6 +116,9 @@ Billing for apps and jobs running in the Dedicated plan is based on workload pro
 | If you have one or more dedicated workload profiles in your environment, you're charged a Dedicated plan management fee. You aren't billed any plan management charges unless you use a Dedicated workload profile in your environment. | As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. |
 
 Make sure to optimize the applications you deploy to a dedicated workload profile. Evaluate the needs of your applications so that they can use the most amount of resources available to the profile.
+
+> [!NOTE]
+> The managed OpenTelemetry agent, when enabled in a Dedicated plan environment, runs at no additional cost beyond the standard Dedicated plan charges.
 
 ## Dynamic sessions
 

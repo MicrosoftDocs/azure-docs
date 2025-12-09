@@ -159,7 +159,7 @@ source ~/.bashrc
 
 Python development uses componentize-py with WebAssembly Interface Types (WIT) for code generation. The WIT schemas define the interfaces between your Python code and the WASM runtime.
 
-**Get the WIT schemas**: The required schemas are available in the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/schema). Clone or download these schemas to your development environment:
+**Get the WIT schemas**: The required schemas are available in the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema). Clone or download these schemas to your development environment:
 
 ```bash
 # Clone the repository to access WIT schemas
@@ -391,7 +391,7 @@ docker run --rm -v "$(pwd):/workspace" ghcr.io/azure-samples/explore-iot-operati
 
 # [Python](#tab/python)
 
-The Python Docker builder is maintained in the Azure IoT Operations samples repository and includes all necessary dependencies and schemas. For detailed documentation, see [Python Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python#using-the-streamlined-docker-builder).
+The Python Docker builder is maintained in the Azure IoT Operations samples repository and includes all necessary dependencies and schemas. For detailed documentation, see [Python Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python#using-the-streamlined-docker-builder).
 
 ```bash
 # Build release version (optimized for production)
@@ -424,7 +424,7 @@ The examples demonstrate working implementations that show the complete structur
 
 # [Python](#tab/python)
 
-For comprehensive examples, see the [Python examples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/examples) in the samples repository. Complete implementations include:
+For comprehensive examples, see the [Python examples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/operators) in the samples repository. Complete implementations include:
 
 - **Map operators**: Data transformation and conversion logic
 - **Filter operators**: Conditional data processing and validation
@@ -533,7 +533,7 @@ metrics::record_to_histogram("processing_duration", duration_ms, Some(labels))?;
 
 # [Python](#tab/python)
 
-Python WASM development doesn't use a traditional SDK. Instead, you use generated bindings from WebAssembly Interface Types (WIT). The WIT schemas are available from the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/schema).
+Python WASM development doesn't use a traditional SDK. Instead, you use generated bindings from WebAssembly Interface Types (WIT). The WIT schemas are available from the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema).
 
 These bindings give you:
 
@@ -587,7 +587,7 @@ To embed and run small ONNX models inside your modules for in-band inference, se
 
 All operators implement standardized interfaces defined using [WebAssembly Interface Types (WIT)](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md). WIT provides language-agnostic interface definitions that ensure compatibility between WASM modules and the host runtime.
 
-The complete WIT schemas for Azure IoT Operations are available in the [samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/schema). These schemas define all the interfaces, types, and data structures you'll work with when developing WASM modules.
+The complete WIT schemas for Azure IoT Operations are available in the [samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema). These schemas define all the interfaces, types, and data structures you'll work with when developing WASM modules.
 
 ### Data model and interfaces
 

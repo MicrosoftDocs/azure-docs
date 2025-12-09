@@ -2038,4 +2038,4 @@ groups:
   - id: expressroute
     title: Azure ExpressRoute gateway
   - id: vpn
-    title: Azure VPN Gateway
+    title: Azure VPN gateway

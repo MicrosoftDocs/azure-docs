@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 07/07/2025
+ms.date: 12/09/2025
 ms.author: cshoe
 ms.topic: how-to
 ms.custom:
@@ -777,16 +777,29 @@ These variables are only necessary if you're using both the managed OpenTelemetr
 
 ## OpenTelemetry agent costs
 
-You're [billed](./billing.md) for the underlying compute of the agent.
+The managed OpenTelemetry agent runs at no additional compute cost to you. Microsoft provisions and manages the agent infrastructure within your Container Apps environment.
 
-See the destination service for their billing structure and terms. For example, if you send data to both Azure Monitor Application Insights and Datadog, you're responsible for the charges applied by both services.
+However, you're responsible for charges applied by the destination services where you send your telemetry data. See the destination service for their billing structure and terms. For example, if you send data to both Azure Monitor Application Insights and Datadog, you're responsible for the charges applied by both services.
+
+### Agent resource allocation
+
+The managed OpenTelemetry agent is provisioned with the following fixed resources:
+
+- **CPU**: 0.5 vCPU cores
+- **Memory**: 1.5 GB RAM  
+- **Replicas**: Single replica (not configurable)
+
+These resources are managed by Microsoft and don't appear in your billing or resource consumption metrics.
 
 ## Known limitations
 
 - System data, such as system logs or Container Apps standard metrics, isn't available to be sent to the OpenTelemetry agent.
 - The Application Insights endpoint doesn't accept metrics.
-- Configuration settings live at the environment level. You can send different data types to different destinations, but you can't split up your data by app. For example, in the same app you can send metrics to Datadog, and traces to App Insights.
+- Configuration settings live at the environment level. You can send different data types to different destinations, but you can't split up your data by app. For example, in the same app you can send metrics to Datadog, and traces to App Insights.
 - The managed agent only supports the gRPC transport protocol for telemetry data.
+- The managed OpenTelemetry agent runs as a single replica and can't be scaled or configured for high availability.
+- Agent status and health metrics aren't currently exposed in the Azure portal or through monitoring APIs.
+- Secrets (such as API keys) must be specified directly in templates - Azure Key Vault integration for agent configuration isn't currently supported.
 
 ## Frequently asked questions
 
@@ -797,6 +810,18 @@ See the destination service for their billing structure and terms. For example, 
 - **Why does the `list` command return null?**
 
     When you run `az containerapp env telemetry otlp list`, the response is `null` when the value is a sensitive token that needs protection.
+
+- **Am I charged for the OpenTelemetry agent's compute resources?**
+
+    No. Microsoft provisions and manages the agent infrastructure at no additional compute cost. You're only charged for destination services that receive your telemetry data.
+
+- **Can I scale the OpenTelemetry agent or run multiple replicas?**
+
+    No. The managed agent currently runs as a single replica with fixed resource allocation (0.5 CPU, 1.5GB RAM). High availability configurations aren't currently supported.
+
+- **How can I monitor the health and status of the OpenTelemetry agent?**
+
+    Agent status and health metrics aren't currently exposed. This capability is planned for a future release.
 
 ## Next steps
 
