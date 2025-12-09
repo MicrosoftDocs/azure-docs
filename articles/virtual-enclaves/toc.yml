@@ -136,7 +136,7 @@
     href: deploy-azure-sql-service-catalog.md
   - name: Deploy Azure Kubernetes Service from the service catalog
     href: deploy-azure-kubernetes-service-service-catalog.md
-  - name: Deploy Virtual Machine Virtual Machine from the service catalog
+  - name: Deploy Virtual Machine from the service catalog
     href: deploy-remoteapp-vm-service-catalog.md
   - name: Deploy Private DNS Zones from the service catalog
     href: deploy-private-dns-zones-service-catalog.md

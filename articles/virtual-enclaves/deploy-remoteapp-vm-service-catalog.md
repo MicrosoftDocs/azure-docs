@@ -44,7 +44,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
     - After creating the User Managed Identity, ensure it has access to the CMK key
         - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. Assigning a managed identity in this way is a least privilege best practice.
-4. (optional) An existing domain to join if the Admin VM is domain joined.
+4. (optional) An existing domain to join if the `Admin VM` is domain joined.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
@@ -63,7 +63,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 10. Select `Review + Create`, if all validations passed, select `Create`.
 
 ## Join a domain (optional)
-1. Should you choose to Domain Join your Virtual Machine, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
+1. Should you choose to Domain Join your Virtual Machine, you need to select which method you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
 2. For the `Active Directory` Domain join options, see the following examples
 
    > [!NOTE]
@@ -91,14 +91,14 @@ If you publish your application, all of the following fields on this tab must be
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-1. Go to the specified resource group, the workload resource group by default, to confirm the intended resources were created. Including: VM, OS Disk, NIC.
+1. Go to the specified resource group, the workload resource group by default, to confirm the intended resources were created. Including: Virtual Machine and OS Disk.
 2. If the RemoteApp was published: host pool, app group, and workspace.
 
-## Connect to the Application VM
+## Connect to the Application Virtual Machine
 Via the [Admin VM](./understand-admin-vm.md):
-The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
+The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox."
 1. Sign in to a desktop session on the [Admin VM](./understand-admin-vm.md) page for the enclave.
-2. From the start menu, type `RDP`, and open the RDP window
+2. From the start menu, type `RDP`, and open the RDP app
 3. Enter the Virtual Machine IP address as the destination IP address for the RDP connection.
 4. Enter Virtual Machine credentials and select `Accept/Yes` to warnings about a new connection.
 5. From the Virtual Machine desktop, validate any Virtual Machine settings set during the deployment or complete any custom configuration.
@@ -106,9 +106,9 @@ The Admin VM is used for administrator access the resources within the enclave b
 7. Assign a security group assignment to give users access to your RemoteApp(s).
 
 ## Install RemoteApp (Optional)
-Install an application on your RemoteApp VM using one of these methods or a method you're familiar with.
+Install an application on your Virtual Machine using one of these methods or a method you're familiar with.
 
-- [Install via RemoteApp VM](./application-deployment-using-remote-app-vm.md) (install or configure an application for RemoteApp publishing)
+- [Install via Virtual Machine](./application-deployment-using-remote-app-vm.md) (install or configure an application for RemoteApp publishing)
 - Prerequisites:
     1. A [container](/azure/storage/blobs/blob-containers-portal) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
         - **Private or Public Container**
@@ -133,19 +133,19 @@ Install an application on your RemoteApp VM using one of these methods or a meth
     3. For `Version`, if not selected by default, select the most recent version (for example, 1.0.1(latest)).
     4. Select `Next`
     5. Basics Tab:
-        - For `Virtual Machine name`, input the name of the VM.
-        - For  `Admin username` and `Admin password`, input the username and password you use to log into your VM. 
+        - For `Virtual Machine name`, input the name of the Virtual Machine.
+        - For  `Admin username` and `Admin password`, input the username and password you use to log into your Virtual Machine. 
     6. App Tab: 
         - For `App Folder URI` add the URI to the app folder from the container.
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
             - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm.md) of the container.
-            - For `App folder in private container` select "true". If it is a private container, this enables reader role access to the storage account via the VM.
+            - For `App folder in private container` select "true." If it's a private container, this enables reader role access to the storage account via the Virtual Machine.
 
         > [!NOTE] 
         > 
         > If in Microsoft Azure for U.S. Government, do the following steps: 
-        > For the `AzCopy File URI` add the URI to the azcopy.exe from the container.
+        > For the `AzCopy File URI`, add the URI to the azcopy.exe from the container.
 
     7. Select `Review + Create`, if all validations passed, select `Create`. Otherwise, start using the Virtual Machine. 
 
@@ -153,7 +153,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- Session host or VM [Sizing](/windows-server/remote/remote-desktop-services/virtual-machine-recs)
+- Session host or Virtual Machine [Sizing](/windows-server/remote/remote-desktop-services/virtual-machine-recs)
 - [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
