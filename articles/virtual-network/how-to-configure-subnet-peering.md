@@ -6,7 +6,7 @@ author: amit916new
 ms.author: amitmishra
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 12/03/2025
 
 #customer intent: As a network administrator, I want to configure subnet peering between two virtual networks in azure
 
