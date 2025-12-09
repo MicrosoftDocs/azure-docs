@@ -1,7 +1,7 @@
----
+﻿---
 title: Iterative loops in Bicep
 description: Learn how to use loops to iterate over collections in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -457,3 +457,4 @@ Note in the preceding ARM JSON template, `languageVersion` must be set to `1.10-
 ## Next steps
 
 To learn how to create Bicep files, see [Bicep file structure and syntax](./file.md).
+

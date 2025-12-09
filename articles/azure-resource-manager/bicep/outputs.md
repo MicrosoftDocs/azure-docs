@@ -1,7 +1,7 @@
----
+﻿---
 title: Outputs in Bicep
 description: Learn how to define output values in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 05/09/2025
 ---
@@ -298,3 +298,4 @@ az deployment group show \
 ## Next steps
 
 To learn about properties that are available for outputs, see [Bicep file structure and syntax](./file.md).
+

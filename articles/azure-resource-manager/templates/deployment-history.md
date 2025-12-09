@@ -1,8 +1,8 @@
----
+﻿---
 title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
-ms.topic: conceptual
+ms.topic: article
 ms.date: 04/28/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
@@ -504,3 +504,4 @@ To view deployment operations for other scopes, use:
 - For help resolve specific deployment errors, see [Troubleshoot common Azure deployment errors](common-deployment-errors.md).
 - To learn about how deployments are managed in the history, see [Automatic deletions from deployment history](deployment-history-deletions.md).
 - To preview changes a template will make before you deploy, see [ARM template deployment what-if operation](deploy-what-if.md).
+

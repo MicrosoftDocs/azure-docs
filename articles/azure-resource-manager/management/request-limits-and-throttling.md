@@ -1,7 +1,7 @@
----
+﻿---
 title: Understand how Azure Resource Manager throttles requests
 description: Learn how Azure Resource Manager throttles requests when subscription limits are reached and how to respond.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 05/28/2025
 ms.custom: devx-track-arm-template
 ---
@@ -125,7 +125,7 @@ Microsoft Compute implements throttling to provide an optimal experience for Vir
 
 [Azure Resource Graph](../../governance/resource-graph/overview.md) limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Resource Graph throttling headers](../../governance/resource-graph//concepts/azure-resource-graph-get-list-api.md).
 
-Azure Resource Graph also has a solution that enables an additional mechanism for getting resource data when you have reached resource provider throttling limits by seamlessly integrating with existing Azure Resource Manager control plane GET and LIST APIs—offering a powerful, scalable solution for resource data access. For more information, see [ARG GET/LIST API](../../governance/resource-graph//concepts/azure-resource-graph-get-list-api.md).
+Azure Resource Graph also has a solution that enables an additional mechanism for getting resource data when you have reached resource provider throttling limits by seamlessly integrating with existing Azure Resource Manager control plane GET and LIST APIs-offering a powerful, scalable solution for resource data access. For more information, see [ARG GET/LIST API](../../governance/resource-graph//concepts/azure-resource-graph-get-list-api.md).
 
 
 ### Other resource providers
@@ -262,3 +262,4 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 
 * For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 * To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](async-operations.md).
+

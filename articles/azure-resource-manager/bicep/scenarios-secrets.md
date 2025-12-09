@@ -1,7 +1,7 @@
----
+﻿---
 title: Use Bicep to manage secrets 
 description: Learn how to use Bicep and Azure Key Vault to manage secrets.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/30/2025
 ms.custom:
   - devx-track-bicep
@@ -213,3 +213,4 @@ The following best practices can help you to handle your secrets with caution wh
 - GitHub Actions:
   - [Using secrets in GitHub actions](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
   - [About secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning)
+

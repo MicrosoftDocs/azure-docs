@@ -1,7 +1,7 @@
----
+﻿---
 title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates (ARM templates).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 04/28/2025
 ---
@@ -259,3 +259,4 @@ To totally remove an element, you can use the [filter() function](./template-fun
 
 * For the full list of template functions, see [ARM template functions](template-functions.md).
 * For more information about template files, see [Understand the structure and syntax of ARM templates](./syntax.md).
+

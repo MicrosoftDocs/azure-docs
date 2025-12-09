@@ -1,7 +1,7 @@
----
+﻿---
 title: Status of asynchronous operations
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/22/2025
 ---
 
@@ -219,3 +219,4 @@ If the request is still running, you receive a status code 202. If the request i
 
 * For documentation about each REST operation, see [REST API documentation](/rest/api/azure/).
 * For information about deploying templates through the Resource Manager REST API, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../templates/deploy-rest.md).
+

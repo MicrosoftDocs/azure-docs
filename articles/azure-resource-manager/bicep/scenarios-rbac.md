@@ -1,7 +1,7 @@
----
+﻿---
 title: Use Bicep to create Azure role-based access control (Azure RBAC) resources
 description: Learn how to use Bicep to create role assignments and definitions.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 10/30/2025
 ---
@@ -177,3 +177,4 @@ Role definition resource names must be unique within the Microsoft Entra tenant,
   - [Create key vault, managed identity, and role assignment](/samples/azure/azure-quickstart-templates/key-vault-managed-identity-role-assignment)
 - Community blog posts
   - [Create role assignments for different scopes with Bicep](https://4bes.nl/2022/04/24/create-role-assignments-for-different-scopes-with-bicep/), by Barbara Forbes
+

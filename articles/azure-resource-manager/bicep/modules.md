@@ -1,7 +1,7 @@
----
+﻿---
 title: Bicep modules
 description: This article describes how to define a module in a Bicep file and how to use module scopes.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -551,7 +551,7 @@ With Bicep version 0.35.1 and later, the `@secure()` decorator can be applied to
 
 ## Module identity
 
-Starting with Bicep version 0.36.1, you can assign a user-assigned managed identity to a module. This makes the identity available within the module—for example, to access a Key Vault. However, this capability is intended for future use and is not yet supported by backend services.
+Starting with Bicep version 0.36.1, you can assign a user-assigned managed identity to a module. This makes the identity available within the module-for example, to access a Key Vault. However, this capability is intended for future use and is not yet supported by backend services.
 
 ```bicep
 param identityId string
@@ -575,3 +575,4 @@ module mod './module.bicep' = {
 
 - For a tutorial, see [Build your first Bicep file](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
 - To pass a sensitive value to a module, use the [`getSecret`](bicep-functions-resource.md#getsecret) function.
+

@@ -1,10 +1,10 @@
----
+﻿---
 title: Use deployment scripts in Azure Resource Manager templates 
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom:
   - devx-track-arm-template
   - build-2025
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/27/2025
 ---
 
@@ -47,7 +47,7 @@ If you would rather learn about deployment scripts through step-by-step guidance
 
 For deployment script API version 2020-10-01 or later, there are two principals involved in deployment script execution:
 
-- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
+- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute - a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
 
     ```json
     {
@@ -1043,3 +1043,4 @@ In this article, you learned how to use deployment scripts. To walk through a de
 
 > [!div class="nextstepaction"]
 > [Learn module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)
+

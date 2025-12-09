@@ -1,7 +1,7 @@
----
+﻿---
 title: Use extensions in Bicep
 description: This article describes how to use Bicep extensions.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -35,3 +35,4 @@ For examples, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md) 
 - To learn how to use the Bicep Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
 - To go through a Kubernetes extension tutorial, see [Quickstart: Deploy Azure applications to Azure Kubernetes Services by using the Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
 - To learn Microsoft Graph extension, see [Microsoft Graph extension](https://aka.ms/graphbicep).
+

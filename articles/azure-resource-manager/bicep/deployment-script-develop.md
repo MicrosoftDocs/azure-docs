@@ -1,8 +1,8 @@
----
+﻿---
 title: Develop a deployment script in Bicep
 description: Learn how to develop a deployment script within a Bicep file or store one externally as a separate file.
 ms.custom: devx-track-bicep
-ms.topic: conceptual
+ms.topic: article
 ms.date: 08/06/2025
 ---
 
@@ -465,7 +465,7 @@ output result object = deploymentScript.properties.outputs
 
 ## Work with outputs
 
-The approach to handling outputs varies based on the type of script you're using—the Azure CLI or Azure PowerShell.
+The approach to handling outputs varies based on the type of script you're using-the Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 
@@ -803,3 +803,4 @@ In this article, you learned how to create deployment script resources. To learn
 
 > [!div class="nextstepaction"]
 > [Use deployment scripts in Bicep](./deployment-script-bicep.md)
+

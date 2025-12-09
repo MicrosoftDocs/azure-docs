@@ -1,7 +1,7 @@
----
+﻿---
 title: Migrate blueprints to deployment stacks
 description: Learn how to migrate blueprints to deployment stacks.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 07/25/2025
 ---
@@ -70,3 +70,4 @@ module vnet 'templates/bicep/vnet.bicep' = if (rgName == 'myTestRg') {
   params: { location: rgLocation }
 }
 ```
+

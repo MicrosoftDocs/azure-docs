@@ -1,7 +1,7 @@
----
+﻿---
 title: Move regions for resources in Microsoft.Resources
 description: Show how to move resources that are in the Microsoft.Resources namespace to new regions.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/10/2025
 ---
 
@@ -89,3 +89,4 @@ If you have a [template spec](../templates/template-specs.md) in one region and 
 
 * To learn about moving resources to a new resource group or subscription, see [Move resources to a new resource group or subscription](move-resource-group-and-subscription.md).
 * To learn about moving resources to a new region, see [Move resources across regions](move-resources-overview.md#move-resources-across-regions).
+

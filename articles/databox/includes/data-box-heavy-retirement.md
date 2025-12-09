@@ -8,4 +8,4 @@ ms.author: shaas
 ---
 
 > [!NOTE]
-> The Azure Data Box Heavy device will be retired on May 31, 2025 in the US, EU, UK, Canada, and US Gov regions. After this date, new orders for this device will no longer be accepted. However, we'll continue to process and support all existing orders. The Azure Data Box service will transition to using the Next-gen Azure Data Box 120, Azure Data Box 525, Azure Data Box Disk, and Azure Import/Export service for all offline data transfer needs in these regions.
+> Azure Data Box Heavy has been retired and is no longer available to order. As we expand the availability of next-generation devices across more regions, the Azure Data Box 80 TB device will be retired in those areas. Post-retirement, new orders for the 80 TB device will no longer be accepted, though existing orders will remain supported.

@@ -1,7 +1,7 @@
----
+﻿---
 title: What is Bicep?
 description: Understand the Bicep language for deploying infrastructure to Azure. Gain an improved authoring experience over one with JSON to develop templates.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 04/30/2025
 ---
@@ -189,3 +189,4 @@ Bicep is an open-source project. That means you can contribute to Bicep's develo
 
 - To get started, see the [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - For answers to common questions, see [Frequently asked questions for Bicep](frequently-asked-questions.yml).
+

@@ -1,7 +1,7 @@
----
+﻿---
 title: Resource Manager and classic deployment
 description: Describes the differences between the Resource Manager deployment model and the classic (or Service Management) deployment model.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 01/23/2025
 ---
@@ -150,3 +150,4 @@ A comprehensive set of starter templates are available at [Azure Resource Manage
 ## Next steps
 
 * To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](../templates/deploy-powershell.md).
+

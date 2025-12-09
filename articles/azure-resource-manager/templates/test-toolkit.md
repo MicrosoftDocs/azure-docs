@@ -1,7 +1,7 @@
----
+﻿---
 title: ARM template test toolkit
 description: Describes how to run the Azure Resource Manager template (ARM template) test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template, linux-related-content
 ms.date: 07/23/2025
 ---
@@ -414,3 +414,4 @@ For Pipeline YAML definition:
 - For createUiDefinition tests, see [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md).
 - To learn about tests for all files, see [Test cases for all files](all-files-test-cases.md).
 - For a Learn module that covers using the test toolkit, see [Validate Azure resources by using the ARM Template Test Toolkit](/training/modules/arm-template-test/).
+

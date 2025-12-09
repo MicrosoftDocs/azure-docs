@@ -1,7 +1,7 @@
----
+﻿---
 title: User-defined types in Bicep
 description: This article describes how to define and use user-defined data types in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 07/01/2025
 ---
@@ -482,3 +482,4 @@ Unlike user-defined data types, resource-derived types are checked by Bicep when
 ## Related content
 
 For a list of the Bicep data types, see [Data types](./data-types.md).
+

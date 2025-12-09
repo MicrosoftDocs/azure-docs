@@ -1,7 +1,7 @@
----
+﻿---
 title: Child resources in Bicep
 description: Describes how to set the name and type for child resources in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 04/28/2025
 ---
@@ -177,3 +177,4 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01
 
 * To learn about creating Bicep files, see [Understand the structure and syntax of Bicep files](./file.md).
 * To learn about the format of the resource name when referencing the resource, see the [reference function](./bicep-functions-resource.md#reference).
+

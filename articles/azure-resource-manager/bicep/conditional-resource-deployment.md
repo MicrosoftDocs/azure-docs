@@ -1,7 +1,7 @@
----
+﻿---
 title: Conditional deployments in Bicep with the if expression
 description: Understand how to use the 'if' expression to conditionally deploy a resource in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -116,3 +116,4 @@ output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!
 
 * For recommendations about creating Bicep files, see [Best practices for Bicep](best-practices.md).
 * To create multiple instances of a resource, see [Iterative loops in Bicep](loops.md).
+

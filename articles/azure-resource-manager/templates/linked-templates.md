@@ -1,7 +1,7 @@
----
+﻿---
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically create URLs.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 08/05/2025
 ms.custom:
   - devx-track-azurepowershell
@@ -1134,3 +1134,4 @@ The following examples show common uses of linked templates.
 - To learn about the defining the deployment order for your resources, see how to [define the order for deploying resources in ARM templates](./resource-dependency.md).
 - To learn how to define one resource but create many instances of it, see [resource iteration in ARM templates](copy-resources.md).
 - For steps on setting up a template in a storage account and generating an SAS token, see how to [deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md) or [deploy resources with ARM templates and Azure CLI](deploy-cli.md).
+

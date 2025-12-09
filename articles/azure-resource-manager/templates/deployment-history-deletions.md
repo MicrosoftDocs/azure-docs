@@ -1,14 +1,14 @@
----
+﻿---
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 05/27/2025
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
 # Automatic deletions from deployment history
 
-When you deploy resources to Azure, the deployment details are recorded in the deployment history at the scope where the deployment occurs. Each scope—whether it's a [resource group](./deploy-to-resource-group.md), [subscription](./deploy-to-subscription.md), [management group](./deploy-to-management-group.md), [tenant](./deploy-to-tenant.md)—can store up to **800 deployments** in its history. Once this limit is reached, Azure **automatically deletes the oldest deployments** to make space for new ones. This automatic cleanup process was implemented on **August 6, 2020**.
+When you deploy resources to Azure, the deployment details are recorded in the deployment history at the scope where the deployment occurs. Each scope-whether it's a [resource group](./deploy-to-resource-group.md), [subscription](./deploy-to-subscription.md), [management group](./deploy-to-management-group.md), [tenant](./deploy-to-tenant.md)-can store up to **800 deployments** in its history. Once this limit is reached, Azure **automatically deletes the oldest deployments** to make space for new ones. This automatic cleanup process was implemented on **August 6, 2020**.
 
 > [!NOTE]
 > Deleting a deployment from the history doesn't affect any of the resources that were deployed.
@@ -132,3 +132,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 ## Next steps
 
 * To learn about viewing the deployment history, see [View deployment history with Azure Resource Manager](deployment-history.md).
+

@@ -1,7 +1,7 @@
----
+﻿---
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/22/2025
 ---
 
@@ -4257,3 +4257,4 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Next steps
 
 To learn how to apply tags to resources, see [Use tags to organize your Azure resources](tag-resources.md).
+

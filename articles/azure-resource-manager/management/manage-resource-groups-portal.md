@@ -1,7 +1,7 @@
----
+﻿---
 title: Use the Azure portal and Azure Resource Manager to Manage Resource Groups
 description: Learn how to use the Azure portal and Azure Resource Manager to manage your resource groups. Understand how to create, list, and delete resource groups.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/09/2025
 ms.custom: devx-track-arm-template
 ---
@@ -110,3 +110,4 @@ Use [Azure role-based access control (Azure RBAC)](../../role-based-access-contr
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the step-by-step [Azure Resource Manager documentation tutorials](../index.yml).
 - To view Azure Resource Manager template schemas, see [Define resources with Bicep, ARM templates, and Terraform AzAPI provider](/azure/templates/).
+

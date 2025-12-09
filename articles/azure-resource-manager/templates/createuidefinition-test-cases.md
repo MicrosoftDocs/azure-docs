@@ -1,7 +1,7 @@
----
+﻿---
 title: createUiDefinition.json test cases for Azure Resource Manager test toolkit
 description: Describes the createUiDefinition.json tests that are run by the Azure Resource Manager template test toolkit.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 07/23/2025
 ---
@@ -1206,3 +1206,4 @@ The _createUiDefinition.json_ file for this example:
 - To use the Create UI Definition Sandbox, see [Test your portal interface for Azure Managed Applications](../managed-applications/test-createuidefinition.md).
 - For more information about UI controls, see [CreateUiDefinition elements](../managed-applications/create-uidefinition-elements.md) and [CreateUiDefinition functions](../managed-applications/create-uidefinition-functions.md).
 - To learn more about ARM template tests, see [Test cases for ARM templates](template-test-cases.md).
+

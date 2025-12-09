@@ -1,7 +1,7 @@
----
+﻿---
 title: Move Azure resources to a new resource group or subscription
 description: Learn how to move resources to a new resource group or subscription, and understand the steps to ensure a successful move operation.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/29/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
@@ -491,3 +491,4 @@ No, you can't move a resource group to a new subscription. But, you can move all
 ## Next steps
 
 To verify which Azure resources support move operations, see [Move operation support for resources](move-support-resources.md).
+

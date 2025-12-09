@@ -1,7 +1,7 @@
----
+﻿---
 title: Configure your Bicep environment
 description: Learn how to configure your environment for Bicep file deployments.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/30/2025
 ms.custom: devx-track-bicep
 ---
@@ -152,3 +152,4 @@ See [Experimental Features](https://aka.ms/bicep/experimental-features) for more
 
 - Learn how to add [module settings](bicep-config-modules.md) and [linter settings](bicep-config-linter.md) in the Bicep config file.
 - Learn about the [Bicep linter](linter.md).
+

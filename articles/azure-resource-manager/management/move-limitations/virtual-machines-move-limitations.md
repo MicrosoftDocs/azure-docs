@@ -1,7 +1,7 @@
----
+﻿---
 title: Special cases to move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/15/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
@@ -217,3 +217,4 @@ If [soft delete](../../../backup/soft-delete-virtual-machines.md) is enabled for
 * For commands to move resources, see [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md).
 
 * For information about moving Recovery Service vaults for backup, see [Recovery Services limitations](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+

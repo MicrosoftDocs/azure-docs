@@ -1,7 +1,7 @@
----
+﻿---
 title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 10/30/2025
 ---
@@ -180,3 +180,4 @@ The following example shows how to apply a lock on a storage account that reside
 ## Next steps
 
 For a full list of extension resource types, see [Resource types that extend capabilities of other resources](../management/extension-resource-types.md).
+

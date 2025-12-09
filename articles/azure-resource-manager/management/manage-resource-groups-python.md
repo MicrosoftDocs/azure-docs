@@ -1,7 +1,7 @@
----
+﻿---
 title: Manage Resource Groups - Python
 description: Use Python to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template, devx-track-python
 ms.date: 02/10/2025
 content_well_notification: 
@@ -332,3 +332,4 @@ To assist with creating ARM templates, you can export a template from existing r
 
 * To learn about Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
 * For more information about authentication options, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview).
+

@@ -1,7 +1,7 @@
----
+﻿---
 title: Bicep Kubernetes extension
 description: Learn how to Bicep Kubernetes extension to deploy .NET applications to Azure Kubernetes Service clusters.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-bicep
   - devx-track-dotnet
@@ -85,3 +85,4 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 
 - To walk through a quickstart, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
 - To learn about how to use the Microsoft Graph extension, see [Bicep files for Microsoft Graph](https://aka.ms/graphbicep).
+

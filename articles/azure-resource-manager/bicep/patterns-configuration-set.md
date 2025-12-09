@@ -1,9 +1,9 @@
----
+﻿---
 title: Configuration set pattern
 description: Describes the configuration set pattern.
 author: johndowns
 ms.author: jodowns
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 04/28/2025
 ---
@@ -66,3 +66,4 @@ When you define the resources, use the configuration map to define the resource 
 ## Next steps
 
 [Learn about the shared variable file pattern.](patterns-shared-variable-file.md)
+

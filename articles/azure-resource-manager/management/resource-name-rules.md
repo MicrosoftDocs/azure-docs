@@ -1,7 +1,7 @@
----
+﻿---
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 08/04/2025
 ---
 
@@ -87,8 +87,8 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | configurationStores\* | global | 5-50 | Alphanumerics and hyphens<br><br>Can’t contain a sequence of more than two hyphens.<br><br>Can’t start with or end with a hyphen. |
-> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can’t exceed 60 characters.| Only alphanumerics are valid. |
+> | configurationStores\* | global | 5-50 | Alphanumerics and hyphens<br><br>Can't contain a sequence of more than two hyphens.<br><br>Can't start with or end with a hyphen. |
+> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can't exceed 60 characters.| Only alphanumerics are valid. |
 
 \* {storeName}-{replicaName} needs to be globally unique.
 
@@ -961,3 +961,4 @@ In the following tables, the term alphanumeric refers to:
 - For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 - Resources with public endpoints can't include reserved words or trademarks in their names. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+

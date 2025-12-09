@@ -1,7 +1,7 @@
----
+﻿---
 title: Imports in Bicep
 description: This article describes how to import shared functionality and namespaces in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -102,3 +102,4 @@ Both `az` and `sys` are Bicep built-in namespaces. They're imported by default. 
 - To learn about how to use the Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
 - To go through a Kubernetes extension tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension.](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
 - To learn about how to use the Microsoft Graph extension, see [Bicep files for Microsoft Graph](https://aka.ms/graphbicep).
+

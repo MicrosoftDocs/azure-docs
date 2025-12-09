@@ -1,7 +1,7 @@
----
+﻿---
 title: Lock your Azure resources to protect your infrastructure
 description: Learn how to lock all users and roles to protect your Azure resources from updates or deletions.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/06/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: AI-contribution
@@ -660,3 +660,4 @@ In the request, include a JSON object that specifies the lock properties.
 - To learn how to logically organize your resources, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
 - You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
 - For guidance on how to use the Azure portal to manage subscription policies, see [Manage Azure subscription policies](/azure/cost-management-billing/manage/manage-azure-subscription-policy).
+

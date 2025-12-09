@@ -1,7 +1,7 @@
----
+﻿---
 title: 'Bicep What-If: Preview Changes Before Deployment'
 description: Determine what changes will happen to your resources before deploying a Bicep file.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 08/19/2025
 ms.custom:
   - devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
@@ -59,7 +59,7 @@ The what-if operation in Bicep deployments may encounter "short-circuiting," a s
 
 ## Running the what-if operation
 
-Using a recent version of the Az PowerShell module (13.1.0 or later) or the Azure CLI (2.75.0 or later) will provide diagnostics when what-if cannot analyze part of the deployment. Earlier versions of these tools behave the same way, but they do not display the diagnostics. For example, if you use CLI version 2.74.0, the issue still occurs—it just happens silently.
+Using a recent version of the Az PowerShell module (13.1.0 or later) or the Azure CLI (2.75.0 or later) will provide diagnostics when what-if cannot analyze part of the deployment. Earlier versions of these tools behave the same way, but they do not display the diagnostics. For example, if you use CLI version 2.74.0, the issue still occurs-it just happens silently.
 
 ### What-if commands
 
@@ -558,3 +558,4 @@ Remove-AzResourceGroup -Name ExampleGroup
 - To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - If you notice incorrect results from the what-if operation, report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - For a Learn module that demonstrates using what-if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).
+

@@ -1,7 +1,7 @@
----
+﻿---
 title: Bicep file structure and syntax
 description: Understand how to use declarative syntax to understand the structure and properties of Bicep files.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 07/25/2025
 ---
@@ -462,3 +462,4 @@ For multiple-line declaration samples, see [arrays](./data-types.md#arrays) and 
 
 * For an introduction to Bicep, see [What is Bicep?](./overview.md).
 * For Bicep data types, see [Data types](./data-types.md).
+

@@ -3,7 +3,7 @@ title: Overview of Azure SRE Agent Preview
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 11/06/2025
+ms.date: 12/08/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -18,9 +18,25 @@ Typical operational tasks often include managing multiple Azure resources along 
 
 SRE Agent is a service that brings automation and intelligence to site reliability engineering practices. It helps you reduce manual effort, improve system uptime, and deliver consistent operational outcomes. As the agent integrates with both Azure services and external systems, it executes operational tasks with minimal human intervention.
 
+## Azure service management capabilities
+
+SRE Agent can manage all Azure services through the Azure CLI and REST APIs. This capability includes comprehensive support for:
+
+- **Compute services**: Virtual machines, App Service, Container Apps, Azure Kubernetes Service (AKS), Azure Functions, and more
+
+- **Storage services**: Blob storage, file shares, managed disks, and storage accounts
+
+- **Networking services**: Virtual networks, load balancers, application gateways, and network security groups
+
+- **Database services**: Azure SQL Database, Cosmos DB, PostgreSQL, MySQL, and Redis
+
+- **Monitoring and management**: Azure Monitor, Log Analytics, Application Insights, and Resource Manager
+
+You can automate any operation you perform with the Azure CLI through SRE Agent by using custom runbooks and [subagents](subagent-builder-overview.md).
+
 ## Primary use cases
 
-- **Automate incidents**: Connect to incident management platforms to automate triage, mitigation, and resolution, reducing mean time to recovery (MTTR) and improving service availability.
+- **Automate incidents**: Connect to incident management platforms to automate triage, mitigation, and resolution. This connection reduces mean time to recovery (MTTR) and improves service availability.
 
 - **Automate scheduled workflows**: Set up proactive alerting and actions to automate routine and repetitive tasks that run on a defined schedule.
 
@@ -32,7 +48,19 @@ To see SRE Agent in action, watch the following video.
 
 ## How does SRE Agent work?
 
-SRE Agent combines fine-tuned Azure expertise with full customization capabilities. Out of the box, SRE Agent understands and manages Azure resources for specific services, providing intelligent defaults for common operational tasks. At the same time, it offers flexibility to incorporate domain-specific knowledge, custom runbooks, and integrations with tools and data sources such as observability and monitoring platforms. This extensibility ensures that SRE Agent can adapt to your environment and operational requirements.
+SRE Agent combines fine-tuned Azure expertise with full customization capabilities. Out of the box, SRE Agent understands and manages Azure resources for specific services. It provides intelligent defaults for common operational tasks. At the same time, it offers flexibility to incorporate domain-specific knowledge, custom runbooks, and integrations with tools and data sources such as observability and monitoring platforms.
+
+The agent operates through multiple automation mechanisms, including:
+
+- **Built-in Azure knowledge**: Preconfigured understanding of Azure services with optimized operational patterns
+
+- **Custom runbooks**: Execute Azure CLI commands, and REST API calls for any Azure service
+
+- **Subagent extensibility**: Build specialized agents for specific services like VMs, databases, or networking components
+
+- **External integrations**: Connect to monitoring, incident management, and source control systems
+
+This extensibility ensures that SRE Agent can adapt to your environment and operational requirements across your entire Azure infrastructure.
 
 ## Integrations
 
@@ -95,11 +123,11 @@ Create a scheduled task to run on a schedule you define.
 
 Build [custom operational subagents](subagent-builder-overview.md), tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
 
-- Create purpose-built subagents for specific operational areas (database, network, security)
+- Create purpose-built subagents for specific operational areas (virtual machines, databases, networking, security)
 
 - Connect your observability tools and knowledge sources through Model Context Protocol (MCP) servers
 
-- Build custom tools that query Kusto, or integrate with internal and external systems through MCP servers
+- Build custom tools that execute Azure CLI commands, query Kusto, or integrate with internal and external systems through MCP servers
 
 - Define agent handoff workflows for complex multi-domain incidents
 

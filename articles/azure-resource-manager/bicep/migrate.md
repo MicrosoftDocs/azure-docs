@@ -1,7 +1,7 @@
----
+﻿---
 title: Migrate Azure resources and JSON ARM templates to use Bicep
 description: Learn the recommended workflow when migrating Azure resources and JSON ARM templates to use Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/30/2025
 ms.custom:
   - devx-track-bicep
@@ -103,3 +103,4 @@ The deploy phase consists of four steps, which you complete in sequence:
 ## Next steps
 
 To learn more about the Bicep decompiler, see [Decompile ARM template JSON to Bicep](decompile.md).
+

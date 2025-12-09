@@ -1,7 +1,7 @@
----
+﻿---
 title: Manage resources - Azure CLI
 description: Use Azure CLI and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/10/2025
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
@@ -133,3 +133,4 @@ Tagging helps you organize your resource group and resources logically. For info
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).
+
