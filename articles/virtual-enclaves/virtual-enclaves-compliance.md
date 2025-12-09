@@ -10,7 +10,7 @@ ms.date: 12/6/2025
 
 # Azure Virtual Enclaves Security Features and Compliance Mapping
 
-Azure Virtual Enclaves (AVE) provide an isolated, zero-trust environment designed for workloads requiring heightened security and compliance. AVE enhances security through **network isolation**, **policy guardrails**, **identity enforcement**, **continuous monitoring**, and **encryption**. These capabilities reduce the attack surface, enforce compliance controls, and provide telemetry for ongoing monitoring—critical for meeting NIST SP 800‑171 requirements.
+Azure Virtual Enclaves (AVE) provide an isolated, zero-trust environment designed for workloads requiring heightened security and compliance. AVE enhances security through **network isolation**, **policy guardrails**, **identity enforcement**, **continuous monitoring**, and **encryption**. These capabilities reduce the attack surface, enforce compliance controls, and provide telemetry for ongoing monitoring—critical for meeting common compliance control requirements.
 
 ## Feature: Network Isolation & Segmentation
 
