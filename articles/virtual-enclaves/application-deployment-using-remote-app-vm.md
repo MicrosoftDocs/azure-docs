@@ -138,7 +138,7 @@ Example Private Container Parameters:
 ![Screenshot showing the App tab parameters completed.](./media/remoteapp-tab-parameters.png)
 
 4. Select `Review and Create`, if validations pass, select `Create`.
-5. Once resources are deployed, check to see if app is installed on application Virtual Machine by connecting to the Application Virtual Machine. [Connect to the Application Virtual Machine](./deploy-remoteapp-vm-service-catalog.md#connect-to-the-application-vm)
+5. Once resources are deployed, check to see if app is installed on application Virtual Machine by connecting to the Application Virtual Machine. [Connect to the Application Virtual Machine](./deploy-remoteapp-vm-service-catalog.md#connect-to-the-application-virtual-machine)
 
 ## WinGet Installation
 
