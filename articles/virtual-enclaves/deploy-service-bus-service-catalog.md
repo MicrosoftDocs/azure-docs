@@ -11,7 +11,7 @@ ms.date: 9/30/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a service catalog template for a RemoteApplication into an existing workload from the Portal.
+- Deploy a service catalog template for a Service Bus into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -54,14 +54,14 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 ## Validate the deployment
 Go to the specified resource group to confirm the intended resources were created. Including: Service Bus
 
-### Connect to the Application VM
+### Connect
 Via the Admin VM:
-The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a jumpbox.
-1. Sign-in to the Admin VM you have deployed for your enclave or [create a new Admin VM](./understand-admin-vm.md)
+The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
+1. Sign-in to the Admin VM you have deployed for your enclave or [create a new Admin VM](./deploy-admin-vm-service-catalog.md)
 2. From the start menu, type `RDP`, and open the RDP window
-3. Enter the RemoteApp VM IP address as the destination IP address for the RDP connection.
-4. Enter RemoteApp M credentials and select `Accept/Yes` to warnings about a new connection.
-5. From the RemoteApp VM desktop, validate any VM settings set during the deployment. Otherwise, start using the RemoteApp VM (for example, install or configure an application for RemoteApp publishing).
+3. Enter the Virtual Machine IP address as the destination IP address for the RDP connection.
+4. Enter Virtual Machine credentials and select `Accept/Yes` to warnings about a new connection.
+5. From the Virtual Machine desktop, validate any VM settings set during the deployment. Otherwise, start using your new resources.
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
@@ -70,7 +70,7 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 - [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
-  - Purpose: `<publish abc app to users>`
-  - Service Catalog Name: `<RemoteApp>`
+  - Purpose: `<service comms>`
+  - Service Catalog Name: `<Service Bus>`
   - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)

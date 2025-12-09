@@ -93,10 +93,10 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 ![Screenshot showing workload overview page.](./media/workload-overview.png)
 
-2. For `Service`, select `RemoteApp VM`.
+2. For `Service`, select `Virtual Machine`.
 3. For `Version`, if not selected by default, select the most recent version (for example: 1.0.0(latest)).
 
-![Screenshot showing RemoteApp VM selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
+![Screenshot showing Virtual Machine selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
 4. Select `Next`
 5. Basics Tab:
@@ -114,7 +114,7 @@ The RemoteApp template supports scripting to automate the process of installing 
         - storageaccountexample.blob.core.windows.net/artifacts/vscode
     - For `Main Script` input the name (ex: main.ps1) of the script that installs the application.
 
-    ![Screenshow showing the App tab during a RemoteApp VM deployment.](./media/remoteapp-app-tab.png)
+    ![Screenshow showing the App tab during a Virtual Machine deployment.](./media/remoteapp-app-tab.png)
 
 ### Private Container:
 

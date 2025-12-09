@@ -93,6 +93,6 @@ In the [next tutorial](./5-create-enclave-endpoint-connections.md), you'll learn
   - Owner: `main POC`
   - Deployer: `yourName`
   - Purpose: `publish abc app to users`
-  - Service Catalog Name: `RemoteApp`
+  - Service Catalog Name: `Virtual Machine`
   - Service Catalog Version: `version you deployed`
 - Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)
