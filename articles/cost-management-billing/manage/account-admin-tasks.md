@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 09/29/2025
 ms.author: drjones
 ms.custom: sfi-image-nochange
+service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---
 
 # Payment method tasks in the Azure portal

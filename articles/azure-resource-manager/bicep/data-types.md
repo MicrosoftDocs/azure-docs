@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 10/23/2025
+ms.date: 12/10/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -30,6 +30,24 @@ Using `any` makes Bicep less predictable and can lead to runtime errors. When po
 A **array** in Bicep is an ordered collection of values—such as strings, integers, objects, or even other arrays—commonly used to group related items like resource names, configuration settings, or parameters. Arrays are helpful for organizing deployment data, passing lists to resources, and iterating over multiple values.
 
 Arrays in Bicep are immutable. Once declared, their contents can't be changed. To "modify" an array, create a new array using functions like [`concat`](./bicep-functions-array.md#concat), [`map`](./bicep-functions-lambda.md#map), or [`filter`](./bicep-functions-lambda.md#filter).
+
+```bicep
+param usLocations array = [
+  'eastus'
+  'westus2'
+]
+
+param euroLocations string[] = [
+  'northeurope'
+  'westeurope'
+]
+
+param numbers int[] = [
+  1
+  2
+  3
+]
+```
 
 You can declare arrays in Bicep using either single-line or multi-line syntax. Multi-line array declarations require [Bicep CLI version 0.7.X or later](https://github.com/Azure/bicep/releases/tag/v0.7.4).
 

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: anjai
+service.tree.id: 9aca7c0a-9d64-4346-a8f6-50141d9c9d5c
 ---
 
 # Azure EA VM reserved instances

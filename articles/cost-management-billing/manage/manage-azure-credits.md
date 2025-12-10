@@ -2,14 +2,14 @@
 title: Manage a Microsoft Azure credit resource under a subscription
 description: Learn how to manage your Azure credit resource, including moving it across resource groups or subscriptions.
 author: benshy
-ms.reviewer: 
+ms.reviewer: benshy
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/18/2025
 ms.author: benshy
 #customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a Azure credit so that I move the credit when needed.
-ms.custom:
+service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
 ---
 
 

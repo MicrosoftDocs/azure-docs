@@ -148,4 +148,5 @@ Select **Support + Troubleshooting** from the service menu, then choose the link
 ## Related content
 
 - [Get started with infrastructure monitoring](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring)
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)
 

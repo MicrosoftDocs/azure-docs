@@ -3,7 +3,7 @@ title: Create Azure Native Dynatrace Service resource
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 
 ms.topic: quickstart
-ms.date: 03/13/2025
+ms.date: 12/01/2025
 
 ---
 
@@ -62,13 +62,13 @@ There are required fields (identified with a red asterisk) that you need to fill
 
 ### Metrics and logs tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to Dynatrace. 
+If you wish, you can configure resources to send metrics/logs to Dynatrace. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 
 - Select **Enable metrics collection** to set up monitoring of platform metrics.
 - Select **Subscription activity logs** to send subscription-level logs to Dynatrace.
 - Select **Azure resource logs** to send Azure resource lots to Dynatrace. 
 
-Select the **Next** button at the bottom of the page.
+After you finish configuring metrics and logs, select **Next**.
 
 ### Single sign-on tab (optional)
 

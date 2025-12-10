@@ -11,6 +11,7 @@ ms.author: drjones
 ms.custom:
 - references_regions
 - build-2025
+service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---
 
 # Supported payment methods for Azure subscriptions

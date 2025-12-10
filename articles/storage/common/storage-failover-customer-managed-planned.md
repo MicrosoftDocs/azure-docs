@@ -30,8 +30,6 @@ This article describes what happens during a customer-managed planned failover a
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5lHyDgJffhs" title="Azure Storage Planned Failover - Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
-
 <!--[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]-->
 
 ## Redundancy management during planned failover and failback

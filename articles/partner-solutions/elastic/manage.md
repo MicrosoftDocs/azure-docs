@@ -469,4 +469,4 @@ You can also request support in the Azure portal from the [resource overview](#r
 ## Related content
 
 - [What is Azure private link?](../../private-link/private-link-overview.md)
-
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)

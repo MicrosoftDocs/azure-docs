@@ -102,8 +102,6 @@ Data loss isn't expected during the planned failover and failback process as lon
 
 To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the planned failover and failback processes. For details about how this process works, see [How customer-managed (planned) failover works](storage-failover-customer-managed-planned.md).
 
-[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
-
 <!--[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]-->
 
 ### Customer-managed (unplanned) failover

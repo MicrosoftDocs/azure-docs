@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/14/2025
 ms.author: drjones
+service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---
 
 # Open Banking (PSD2) and Strong Customer Authentication (SCA) for Azure customers

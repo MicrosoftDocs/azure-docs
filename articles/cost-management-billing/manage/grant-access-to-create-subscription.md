@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 07/25/2025
 ms.author: v-salin
 ms.custom: NonCE
+service.tree.id: 9aca7c0a-9d64-4346-a8f6-50141d9c9d5c
 ---
 
 # Grant access to create Azure Enterprise subscriptions (legacy)

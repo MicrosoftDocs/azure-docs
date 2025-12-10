@@ -58,7 +58,7 @@ This app-level setting also controls your plan's minimum instances. For example,
 
 #### [Portal](#tab/portal)
 
-You can configure the number of always ready instances in the Azure portal by selecting your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, always ready instances are specific to that app.
+You can configure the number of always ready instances in the Azure portal by selecting your **Function App**, going to the **App Service Plan** tab, and selecting the **Scale Out** options. In the function app edit window, always ready instances are specific to that app.
 
 :::image type="content" source="media/functions-premium-plan/scale-out.png" alt-text="Screenshot that shows the elastic scale settings in the portal.":::
 
