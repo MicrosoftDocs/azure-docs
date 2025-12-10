@@ -129,6 +129,9 @@ The VMware vDefend Firewall add-on can be enabled in two flavors on Azure VMware
 
 *NSX Gateway Firewall (GFW):* The total number of cores is determined by the NSX Edge vCPU being used in the Azure VMware Solution private cloud. The Gateway Firewall add-on core count is calculated as "(Number of Edges*Number of vCPU per edge * 4). 
 For instance, Azure VMware Solution Gen-1 private cloud with default two Large NSX Edges's, the Gateway Firewall add-on core count is calculated as (2 Edges * 8 vCPU * 4) = 64 Gateway Firewall cores. If a customer has NSX Edge Scaled-UP to XL (16 vCPU) or Scale-OUT to 4 Edges, the GFW cores change.  Azure VMware Solution Gen-2 includes three NSX Large Edges by default, or 4 if cluster-1 has 4 or more nodes.  So, count the GFW cores accordingly. 
+>[!NOTE]
+>NSX Distributed Firewall is considered enabled when a customer configures a non-default Distributed Firewall policy or Distributed Firewall IPFIX profile.
+>NSX Gateway Firewall is considered enabled when a customer configures a non-default Gateway Firewall policy.
 
 ## Updating new VCF BYOL on Azure VMware Solution private cloud
 You can update your VCF BYOL configuration on your Azure VMware Solution private cloud at any time without downtime or impact on your workloads. This includes updating your VCF key, adjusting the number of licensed cores (for example, when scaling or redistributing cores across private clouds), updating the VCF expiration date, or modifying your registered Firewall add-on. 
