@@ -625,9 +625,6 @@ In this tutorial, you learned how to configure Azure IoT Operations for bi-direc
 
 * To use an MQTT client to publish messages directly to the Event Grid MQTT broker, see [Publish MQTT messages to Event Grid MQTT broker](../../event-grid/mqtt-publish-and-subscribe-cli.md). Give the client a [publisher permission binding](../../event-grid/mqtt-access-control.md) to the topic space you created, and you can publish messages to any topic under the `sensor`, like `sensor/temperature` or `sensor/humidity`. All of these messages are bridged to the `tutorial/cloud` topic on the local Azure IoT Operations broker.
 * To set up routing rules for the Event Grid MQTT broker, see [Configure routing rules for Event Grid MQTT broker](../../event-grid/mqtt-routing.md). You can use routing rules to route messages to different topics based on the topic name, or to filter messages based on the message content.
-
-## Related content
-
 * About [BrokerListener resource](../manage-mqtt-broker/howto-configure-brokerlistener.md)
 * [Configure authorization for a BrokerListener](../manage-mqtt-broker/howto-configure-authorization.md)
 * [Configure authentication for a BrokerListener](../manage-mqtt-broker/howto-configure-authentication.md)

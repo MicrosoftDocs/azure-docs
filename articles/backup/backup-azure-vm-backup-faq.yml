@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 10/29/2025
+  ms.date: 12/09/2025
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom: build-2025
@@ -193,7 +193,16 @@ sections:
           The policy will not attempt application or filesystem consistency. Instead, it will directly initiate a crash-consistent MDCC backup without any retries for higher consistency levels.
           
           This option is useful when speed and simplicity are prioritized over consistency guarantees.
-
+      - question: When we migrate the policy from the Standard to enhanced, how does the retention period will apply on the restore points?
+        answer: |
+          Retention Period will apply as per the new enhanced policy for all the restore points.
+      - question: Why don’t I see the updated expiry time for my Recovery Points immediately after changing the backup policy?
+        answer: |
+          When you modify a backup policy (for example, changing the retention duration), the updated expiry time for Recovery Points (RPs) is not reflected instantly on the Azure portal. This is expected behavior.
+          
+          The expiry time is updated only after the system runs its daily cleanup process (also known as the expired Recovery Points pruning job). This job typically runs once every 24 hours. Therefore, it may take up to 24 hours for the new expiry time to appear on the portal for existing or newly created Recovery Points.
+          
+          If you don’t see the updated expiry time immediately, please wait for up to 24 hours before raising a support request.
   - name: Restore
     questions:
       - question: How do I decide whether to restore disks only or a full VM?

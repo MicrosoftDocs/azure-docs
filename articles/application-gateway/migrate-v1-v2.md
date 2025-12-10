@@ -306,7 +306,11 @@ After successfully migrating the configuration and thoroughly testing your new V
 We provide an Azure PowerShell script designed to **retain the Public IP address from V1**.
 * Swaps Public IP: This script reserves the Basic public IP from V1, converts it to Standard, and attaches it to the V2 gateway. This effectively redirects all incoming traffic to the V2 gateway.
 *	Expected Downtime: This IP swap operation typically results in a brief **downtime of approximately 1-5 minutes**. Plan accordingly.
-*	After a successful script run, the Public IP is moved from Application Gateway V1 to Application Gateway V2, with Application Gateway V1 receiving a new public IP. 
+*	After a successful script run, the Public IP is moved from Application Gateway V1 to Application Gateway V2, with Application Gateway V1 receiving a new public IP.
+
+> [!NOTE]
+> The IP migration script does not support Public IP address resources that have a DNS name beginning with a numeric character. This limitation exists because Public IP address resources do not allow DNS name labels that start with a number. This issue is more likely to occur for V1 gateways **created before May 2023**, when Public IP addresses were automatically assigned a default DNS name of the form **{GUID}.cloudapp.net**.
+> To proceed with migration, update the Public IP address resource to use a DNS name label that begins with a letter before running the script. [Learn about configuring Public IP DNS](../virtual-network/ip-services/public-ip-addresses.md#domain-name-label)
 
 You can **download** this Public IP retention script  from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWIPMigrate)
 

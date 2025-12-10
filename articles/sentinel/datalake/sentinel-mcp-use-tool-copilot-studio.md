@@ -112,7 +112,7 @@ Custom MCP tools let you build deterministic workflows by prescribing exactly wh
         ```
         https://login.microsoftonline.com/<tenant ID>/oauth2/v2.0/authorize
         ```
-    - **Token URL:** Use the following format and replace `<tenant ID>` with the **Directory (tenant) ID** value you saved previously:
+    - **Token URL template** and **Refresh URL:** Use the following format and replace `<tenant ID>` with the **Directory (tenant) ID** value you saved previously:
         ```
         https://login.microsoftonline.com/<tenant ID>/oauth2/v2.0/token
         ```

@@ -2,14 +2,14 @@
 title: Certification of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about certification of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-author: ju-shim
+author: jjaygbay1 
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 02/11/2022
-ms.author: jushiman
+ms.author: jacobjaygbay
 ms.custom: H1Hack27Feb2017
 # Customer intent: As an SAP administrator, I want to certify SAP HANA on Azure Large Instances, so that I can ensure it meets the necessary infrastructure and performance standards for deploying business-critical applications.
 ---

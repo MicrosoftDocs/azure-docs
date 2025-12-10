@@ -18,7 +18,7 @@ This article provides troubleshooting information to address any issues you come
 
 ## Common configuration issues
 
-### Could not find my storage account to configure backup for the Azure Files
+### Couldn't find my storage account to configure backup for the Azure Files
 
 - Wait until discovery is complete.
 - Check if any file share under the storage account is already protected with another Recovery Services vault.
@@ -28,7 +28,7 @@ This article provides troubleshooting information to address any issues you come
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure Files backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
 - Ensure that the storage account and recovery services vault are present in the same region.
-- Ensure that the combined length of the storage accounts name and the resource group name don't exceed 84 characters in the case of new Storage accounts and 77 characters in the case of classic storage accounts.
+- Ensure the combined length of the storage accounts name and the resource group name is no more than 84 characters for new storage accounts, and no more than 77 characters for classic storage accounts.
 - Check the firewall settings of storage account to ensure that the exception "_Allow Azure services on the trusted services list to access this storage account_" is granted. You can refer [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant exception.
 
 
@@ -40,10 +40,10 @@ If you have a partner subscription (CSP-enabled), ignore the error. If your subs
 
 Retry the registration. If the problem persists, contact support.
 
-### Could not list or find file shares in the selected storage account
+### Couldn't list or find file shares in the selected storage account
 
-- Ensure that the Storage Account exists in the Resource Group and hasn't been deleted or moved after the last validation or registration in the vault.
-- Ensure that the file share you're looking to protect hasn't been deleted.
+- Ensure that the Storage Account exists in the Resource Group and wasn't deleted or moved after the last validation or registration in the vault.
+- Ensure that the file share you're looking to protect wasn't deleted.
 - Ensure that the Storage Account is a supported storage account for file share backup. You can refer to the [Support matrix for Azure Files backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
 - Check if the file share is already protected in the same Recovery Services vault.
 - Check the Network Routing setting of storage account to ensure that routing preference is set as Microsoft network routing.
@@ -51,7 +51,7 @@ Retry the registration. If the problem persists, contact support.
 ### Backup file share configuration (or the protection policy configuration) is failing
 
 - Retry the configuration to see if the issue persists.
-- Ensure that the file share you want to protect hasn't been deleted.
+- Ensure that the file share you want to protect wasn't deleted.
 - If you're trying to protect multiple file shares at once, and some of the file shares are failing, try configuring backup for the failed file shares again.
 
 ### Unable to delete the Recovery Services vault after unprotecting a file share
@@ -66,13 +66,13 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 >[!NOTE]
 >Refer to [this document](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) to ensure you have sufficient permissions for performing backup or restore operations.
 
-### FileShareNotFound- Operation failed as the file share is not found
+### FileShareNotFound- Operation failed as the file share isn't found
 
 Error Code: FileShareNotFound
 
 Error Message: Operation failed as the file share isn't found
 
-Ensure that the file share you're trying to protect hasn't been deleted.
+Ensure that the file share you're trying to protect wasn't deleted.
 
 ### UserErrorFileShareEndpointUnreachable- Storage account not found or not supported
 
@@ -351,10 +351,10 @@ Error Code: UserErrorRestoreAFSInDeleteState
 
 Error Message: Listed restore points are not available as the associated file share containing the restore point snapshots has been deleted permanently.
 
-Check if the backed-up file share is deleted. If it was in soft deleted state, check if the soft delete retention period is over and it wasn't recovered back. In either of these cases, you'll lose all your snapshots permanently and won’t be able to recover the data.
+Check if the backed-up file share is deleted. If it was in soft deleted state, check if the soft delete retention period is over, and it wasn't recovered back. In either of these cases, you will lose all your snapshots permanently and will not be able to recover the data.
 
 >[!NOTE]
-> We recommend you don't delete the backed-up file share, or if it's in soft deleted state, undelete before the soft delete retention period ends, to avoid losing all your restore points.
+> We recommend you to not delete the backed-up file share, or if it's in soft deleted state, undelete before the soft delete retention period ends, to avoid losing all your restore points.
 
 ### UserErrorBackupAFSInSoftDeleteState - Backup failed as the Azure File Share is in soft-deleted state
 

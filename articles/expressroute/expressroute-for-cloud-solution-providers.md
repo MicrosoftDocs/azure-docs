@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 10/18/2024
+ms.date: 12/09/2025
 ms.author: duau
 ms.custom: sfi-image-nochange
 ---
@@ -60,7 +60,7 @@ The choices between these two options are based on your customer’s needs and y
 
 * **Azure role-based access control (Azure RBAC)** – Azure RBAC is based on Microsoft Entra ID.  For more information on Azure RBAC, see [here](/azure/role-based-access-control/role-assignments-portal).
 * **Networking** – Covers the various articles of networking in Microsoft Azure.
-* **Microsoft Entra ID** – Microsoft Entra ID provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Microsoft Entra ID, see [here](../active-directory/index.yml).  
+* **Microsoft Entra ID** – Microsoft Entra ID provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Microsoft Entra ID, see [What is Microsoft Entra ID?](../active-directory/fundamentals/whatis.md).  
 
 ## Network speeds
 ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.
@@ -72,7 +72,7 @@ ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows custom
 ExpressRoute supports the connection of multiple VNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
 
 ## Configuring ExpressRoute
-ExpressRoute can be configured to support three types of traffic ([routing domains](#expressroute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into private peering and Microsoft peering. You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
+ExpressRoute can be configured to support two types of traffic ([routing domains](#expressroute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into private peering and Microsoft peering. You can choose one or both types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
 
 ### Connect-through model
 In a connect-through configuration, you're responsible for all of the networking underpinnings to connect your customer's datacenter resources to the subscriptions hosted in Azure. Each of your customers that want to use Azure capabilities need their own ExpressRoute connection, which will be managed by  you. You use the same methods the customer would use to procure the ExpressRoute circuit. You follow the same steps outlined in the article [ExpressRoute workflows](expressroute-workflows.md) for circuit provisioning and circuit states. You'll then configure the Border Gateway Protocol (BGP) routes to control the traffic flowing between the on-premises network and Azure VNet.

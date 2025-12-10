@@ -171,7 +171,7 @@ For more information, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset
 
 To transform the incoming data by using a WASM module, complete the following steps:
 
-1. Develop a WASM module to perform the custom transformation. For more information, see [Develop WebAssembly (WASM) modules and graph definitions](../connect-to-cloud/howto-develop-wasm-modules.md).
+1. Develop a WASM module to perform the custom transformation. For more information, see [Develop WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-develop-wasm-modules.md).
 
 1. Configure your transformation graph. For more information, see [Configure WebAssembly (WASM) graph definitions](../connect-to-cloud/howto-configure-wasm-graph-definitions.md).
 
@@ -184,7 +184,7 @@ To transform the incoming data by using a WASM module, complete the following st
 
     :::image type="content" source="media/howto-use-http-connector/configure-transform.png" alt-text="Screenshot that shows how to add a WASM transform to a dataset." lightbox="media/howto-use-http-connector/configure-transform.png":::
 
-A data transformation in the HTTP/REST connector only requires a [single map operator](../connect-to-cloud/howto-develop-wasm-modules.md#create-a-simple-module), but WASM graphs are fully supported with the following restrictions:
+A data transformation in the HTTP/REST connector only requires a [single map operator](../develop-edge-apps/howto-develop-wasm-modules.md#create-a-simple-module), but WASM graphs are fully supported with the following restrictions:
 
 - The graph must have a single `source` node and a single `sink` node.
 - The graph must consume and emit the `DataModel::Message` datatype.

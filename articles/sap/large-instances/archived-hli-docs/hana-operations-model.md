@@ -2,14 +2,14 @@
 title: Operations model of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about the SAP HANA (Large Instances) operations model and your responsibilities.
 services: virtual-machines-linux
-author: ju-shim
+author: jjaygbay1 
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/17/2021
-ms.author: jushiman
+ms.author: jacobjaygbay
 ms.custom: H1Hack27Feb2017
 # Customer intent: "As a cloud architect managing SAP HANA deployments, I want to understand my operational responsibilities on Azure for Large Instances, so that I can effectively manage the OS, storage, networking, and application layers while ensuring compliance and performance."
 ---

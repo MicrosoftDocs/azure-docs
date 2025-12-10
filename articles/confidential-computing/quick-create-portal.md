@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Portal
 description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure Portal
-author: ju-shim
+author: cynthn
 ms.service: azure-virtual-machines
 ms.subservice: workloads
 ms.topic: quickstart
 ms.date: 11/1/2021
-ms.author: jushiman
+ms.author: cynthn
 ms.custom: mode-ui, linux-related-content
 # Customer intent: "As a cloud engineer, I want to create an Intel SGX virtual machine in the Azure portal, so that I can leverage confidential computing capabilities for secure application deployment."
 ---

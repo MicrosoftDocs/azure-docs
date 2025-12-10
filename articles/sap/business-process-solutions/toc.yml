@@ -5,3 +5,23 @@ items:
     href: data-models-business-process-solutions.md
   - name: Business Templates
     href: business-templates.md
+  - name: Get started
+    items:
+    - name: Deploy Business Process Solution item
+      href: deploy-workload-item.md
+    - name: Configure source system
+      items:
+      - name: Configure SAP source system with Azure Data Factory
+        href: configure-source-system-with-data-factory.md
+      - name: Configure SAP source system with Open Mirroring
+        href: configure-source-system-with-open-mirroring.md
+      - name: Configure Salesforce source system
+        href: configure-salesforce-source-system.md
+    - name: Configure dataset
+      href: configure-dataset.md
+    - name: Run extraction and data processing
+      href: run-extraction-data-processing.md
+    - name: Configure insights
+      href: configure-insights.md
+  - name: Attestation Document
+    href: attestation.md

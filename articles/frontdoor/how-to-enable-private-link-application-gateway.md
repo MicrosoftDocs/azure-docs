@@ -60,8 +60,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 ::: zone-end
 
 > [!NOTE]
-> While configuring via Azure portal, the region chosen in Azure Front Door origin configuration must be the same region where the Application Gateway is located in.
-> If you want the Azure Front Door origin region and the Application Gateway region to be different, use CLI/PowerShell. This will be needed in cases where the Application Gateway is located in a region where Azure Front Door doesn't support Private Link.
+> While configuring via Azure portal, the region chosen in Azure Front Door origin configuration must be the same region where the Application Gateway is located in. If you want the Azure Front Door origin region and the Application Gateway region to be different, use CLI/PowerShell. This will be needed in cases where the Application Gateway is located in a region where Azure Front Door doesn't support Private Link.
 
 ::: zone pivot="front-door-portal"
 
@@ -323,23 +322,22 @@ Your Azure Front Door profile is now fully functional after completing the final
 The following are common mistakes when configuring an Azure Application Gateway origin with Azure Private Link enabled:
 
 1. Configuring Azure Front Door origin before configuring Azure Private Link on the Azure Application Gateway.
-1. Configuring the origin with origin type as 'Application Gateway' instead of 'Custom'. When you choose the origin type as 'Application Gateway', the origin hostname is autopopulated with the IP address of the Application Gateway. This can lead to 'CertificateNameValidation' error. This issue can be avoided in public origins by disabling certificate subject name validation. But for private link enabled origins, certificate subject name validation is mandatory.
+2. Adding the Azure Application Gateway origin with Azure Private Link to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+3. The combined length of the Application Gateway name and Private Link configuration name must not exceed 70 characters to avoid deployment failures.
+4. Not associating the Application Gateway frontend IP with a listener.
 
-1. Adding the Azure Application Gateway origin with Azure Private Link to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+::: zone pivot="front-door-portal"
+5. Configuring the origin with origin type as 'Application Gateway' instead of 'Custom'. When you choose the origin type as 'Application Gateway', the origin hostname is autopopulated with the IP address of the Application Gateway. This can lead to 'CertificateNameValidation' error. This issue can be avoided in public origins by disabling certificate subject name validation. But for private link enabled origins, certificate subject name validation is mandatory.
+::: zone-end
 
 ::: zone pivot="front-door-ps"
-
-3. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `SharedPrivateLinkResourceGroupId`.
-
+5. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `SharedPrivateLinkResourceGroupId`.
 ::: zone-end
 
 ::: zone pivot="front-door-cli"
-
-3. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `private-link-sub-resource-type`.
-
+5. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `private-link-sub-resource-type`.
 ::: zone-end
 
-4. The combined length of the Application Gateway name and Private Link configuration name must not exceed 70 characters to avoid deployment failures.
 
 ## Next step
 

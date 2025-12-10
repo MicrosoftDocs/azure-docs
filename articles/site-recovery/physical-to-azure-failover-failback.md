@@ -1,10 +1,11 @@
 ---
-title: Set up failover and failback for physical servers with Site Recovery 
+title: Set up failover and failback for physical servers with Site Recovery
+ms.reviewer: v-gajeronika
 description: Learn how to fail over physical servers to Azure, and fail back to the on-premises site for disaster recovery with Azure Site Recovery
 services: site-recovery
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/08/2024
+ms.date: 12/08/2025
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: As a system administrator, I want to set up failover and failback for physical servers using cloud replication, so that I can ensure business continuity and disaster recovery in the event of an on-premises outage.
@@ -20,8 +21,6 @@ This tutorial describes how to fail over on-premises physical servers that are r
 - If you want to fail over multiple machines, [learn](recovery-plan-overview.md) how to gather machines together in a recovery plan.
 - Before you do a full failover, run a [disaster recovery drill](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected.
 - Follow [these instructions](site-recovery-failover.md#prepare-to-connect-after-failover) to prepare to connect to Azure VMs after failover.
-
-
 
 ## Run a failover
 
@@ -93,7 +92,6 @@ After failing over to Azure, you reprotect Azure VMs by replicating them to the 
     - A replica Azure VM that isn't protected (replicating to the on-premises site).
 10. [Review the types of failback](concepts-types-of-failback.md) you can use - original location recovery and alternate location recovery.
 
-
 ## Reprotect Azure VMs to an alternate location
 
 This procedure presumes that the on-premises VM isn't available.
@@ -105,7 +103,7 @@ This procedure presumes that the on-premises VM isn't available.
    on-premises.
        - Use this option if the on-premises VM has been deleted or doesn't exist, and you need to create
    new disks.
-       - This setting is ignored if the disks already exists, but you do need to specify a
+       - This setting is ignored if the disks already exist, but you do need to specify a
    value.
 5. Select the master target retention drive. The failback policy is automatically selected.
 6. Click **OK** to begin reprotection. A job begins to replicate the Azure VM to
@@ -114,7 +112,6 @@ This procedure presumes that the on-premises VM isn't available.
 > [!NOTE]
 > If you want to recover the Azure VM to an existing on-premises VM, mount the on-premises virtual
 > machine's datastore with read/write access, on the master target server's ESXi host.
-
 
 ## Fail back from Azure
 
@@ -129,7 +126,6 @@ Run the failover as follows:
 4. Right-click the machine, and click **Commit**. This triggers a job that removes the Azure VMs.
 5. Verify that Azure VMs have been shut down as expected.
 
-
 ## Reprotect on-premises machines to Azure
 
 Data should now be back on your on-premises site, but it isn't replicating to Azure. You can start replicating to Azure again as follows:
@@ -137,7 +133,6 @@ Data should now be back on your on-premises site, but it isn't replicating to Az
 1. In the vault > **Settings** >**Replicated Items**, select the failed back VMs that have failed
    back, and click **Re-Protect**.
 2. Select the process server that is used to send the replicated data to Azure, and click **OK**.
-
 
 ## Next steps
 

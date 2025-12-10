@@ -132,14 +132,14 @@ You can redeploy existing web applications to Azure as follows:
 1. **App Service resources**. Create a resource group, App Service plan, and App Service web app to host your application. You can create these resources easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or you can create and deploy resources as shown in the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app with names that are suitable for your application.
 
 1. **Environment variables**. If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described in [Access environment variables](#access-app-settings-as-environment-variables).
-    - Database connections, for example, are often managed via such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets-and-add-secret_key).
+    - Database connections, for example, are often managed via such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#secure-connection-secrets-and-add-secret_key).
     - See [Production settings for Django apps](#production-settings-for-django-apps) for specific settings for typical Django apps.
 
 1. **App startup**. Review the section [Container startup process](#container-startup-process) later in this article for information about how App Service attempts to run your app. App Service uses the Gunicorn web server by default. Gunicorn must be able to find your app object or *wsgi.py* folder. If you need to, you can [Customize the startup command](#customize-startup-command).
 
 1. **Continuous deployment**. Set up continuous deployment from GitHub Actions, Bitbucket, or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or set up continuous deployment from local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
 
-1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container by using SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#5-generate-database-schema).
+1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container by using SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#generate-database-schema).
     - When using continuous deployment, you can perform those actions by using post-build commands, as described earlier in the [Customize build automation](#customize-build-automation) section.
 
 With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.
@@ -457,7 +457,7 @@ When attempting to run database migrations with a Django app, you might see "sql
 
 Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
 
-If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md), check that you completed the steps in [Verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets-and-add-secret_key).
+If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md), check that you completed the steps in [Verify connection settings](tutorial-python-postgresql-app-django.md#secure-connection-secrets-and-add-secret_key).
 
 #### Other issues
 

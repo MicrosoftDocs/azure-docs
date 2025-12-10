@@ -57,9 +57,8 @@ Currently, Flex Consumption offers these instance size options:
 | 2048         | 1         |
 | 4096        | 2         |
 
-
 > [!NOTE]
-> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances might be granted slightly different core allocations to improve performance.
+> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances might be granted slightly different core allocations to improve performance. Each Flex Consumption instance also includes an additional 272 MB of memory allocated by the platform as a buffer for system and host processes. This additional memory doesn't affect billing, and instances are billed based on the configured instance memory size shown in the table above.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 

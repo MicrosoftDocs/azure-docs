@@ -39,7 +39,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 **Supported scenarios**:
 
-- Operational backup supports block blobs in standard general-purpose v2 storage accounts only. Storage accounts with hierarchical namespace enabled (that is, ADLS Gen2 accounts) aren't supported.   <br><br>   Also, any page blobs, append blobs, and premium blobs in your storage account won't be restored and only block blobs will be restored.
+- Operational backup supports block blobs in standard general-purpose v2 storage accounts only.  Also, any page blobs, append blobs, and premium blobs in your storage account won't be restored and only block blobs will be restored.
 
 - Blob backup is also supported when the storage account has private endpoints.
 

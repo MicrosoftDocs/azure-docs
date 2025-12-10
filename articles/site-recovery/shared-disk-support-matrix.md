@@ -1,8 +1,9 @@
 ---
 title: Support matrix for shared disks in Azure VM disaster recovery
-description: Summarizes support for Azure VMs disaster recovery using shared disk.
+ms.reviewer: v-gajeronika
+description: This article summarizes the scenarios that shared disk in Azure Site Recovery supports for each workload type.
 ms.topic: article
-ms.date: 04/03/2024
+ms.date: 12/08/2025
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -29,7 +30,6 @@ The following table lists the supported scenarios for shared disk in Azure Site 
 | Shared disk type | Standard and Premium SSD |
 | Disk partitioning type | Basic |
 
-
 ## Unsupported scenarios
 
 Following are the unsupported scenarios for shared disk in Azure Site Recovery:
@@ -38,8 +38,6 @@ Following are the unsupported scenarios for shared disk in Azure Site Recovery:
 - Protecting multiple clusters as a group
 - Protecting cluster + non-clustered virtual machines in a group
 - Non-clustered distributed appliances without using WSFC
-
-
 
 ## Disaster recovery support 
 

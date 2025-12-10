@@ -28,7 +28,7 @@ The general ledger data model provides a comprehensive foundation for financial 
 
 This model enables a wide range of analytics which includes balance sheet, profit and loss reporting, and trend analysis across fiscal periods. It supports multi-dimensional views of financial performance by linking organizational structures like company codes, business areas and segments with account hierarchies and transactional line items. Additionally, it facilitates compliance and audit readiness through transparent tracking of ledger entries, and financial postings across time and entities.
 
-:::image type="content" source="./media/data-models-business-process-solutions/general-ledger.png" alt-text="Diagram that shows General Ledger Insights dashboard." lightbox="./media/data-models-business-process-solutions/general-ledger.png":::
+:::image type="content" source="./media/data-models-business-process-solutions/general-ledger.png" alt-text="Screenshot showing the General Ledger Insights dashboard." lightbox="./media/data-models-business-process-solutions/general-ledger.png":::
 
 Supported source systems:
 
@@ -42,7 +42,7 @@ Related resources:
 
 The accounts payable data model provides visibility into all supplier-related obligations, helping organizations manage outgoing cash flows effectively. It consolidates the finance view of supplier invoices to monitor whether commitments are met on time. This model enables tracking of overdue payables, identifying bottlenecks in invoice processing, and assessing the impact of payment schedules on liquidity. Over time, these insights help surface potential payment risks and support accurate financial statements, while reinforcing compliance with contractual and regulatory requirements.
 
-:::image type="content" source="./media/data-models-business-process-solutions/account-payables.png" alt-text="Diagram that shows Accounts Payable Insights dashboard." lightbox="./media/data-models-business-process-solutions/account-payables.png":::
+:::image type="content" source="./media/data-models-business-process-solutions/account-payables.png" alt-text="Screenshot showing the Accounts Payable Insights dashboard." lightbox="./media/data-models-business-process-solutions/account-payables.png":::
 
 Supported source systems:
 
@@ -56,7 +56,7 @@ Related resources:
 
 The accounts receivable data model focuses on incoming cash flows from customers, offering a complete view of outstanding invoices, payment behavior, and credit exposure. By analyzing receivables data, finance teams can measure collection efficiency, monitor overdue items, and predict cash inflows to optimize working capital. Advanced analytics highlight trends in customer payment patterns, flag potential credit risks, and enable proactive actions to reduce days sales outstanding (DSO). This transparency improves forecasting accuracy and strengthens financial health across the organization.
 
-:::image type="content" source="./media/data-models-business-process-solutions/account-receivables.png" alt-text="Diagram that shows Accounts Receivable Insights dashboard." lightbox="./media/data-models-business-process-solutions/account-receivables.png":::
+:::image type="content" source="./media/data-models-business-process-solutions/account-receivables.png" alt-text="Screenshot showing the Accounts Receivable Insights dashboard." lightbox="./media/data-models-business-process-solutions/account-receivables.png":::
 
 Supported source systems:
 
@@ -74,7 +74,7 @@ Order to cash provides a complete perspective on the customer opportunity-to-cas
 
 The opportunity model provides a unified view of the sales pipeline and performance metrics. It consolidates opportunity data into a single reporting layer, enabling monitoring of pipeline health, deal progression, and revenue potential across the organization.
 
-:::image type="content" source="./media/data-models-business-process-solutions/opportunity-insights.png" alt-text="Diagram that shows Opportunity Insights dashboard." lightbox="./media/data-models-business-process-solutions/opportunity-insights.png":::
+:::image type="content" source="./media/data-models-business-process-solutions/opportunity-insights.png" alt-text="Screenshot showing the Opportunity Insights dashboard." lightbox="./media/data-models-business-process-solutions/opportunity-insights.png":::
 
 Supported source systems:
 
@@ -120,7 +120,7 @@ Related resources:
 
 The sales and billing insights data model combines sales order and billing document data to provide a comprehensive view of the sales process. It enables organizations to analyze the entire sales lifecycle, from initial order creation through to billing and revenue recognition. By integrating these two critical areas, businesses can gain deeper insights into customer behavior, sales performance, and financial outcomes.
 
-:::image type="content" source="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png" alt-text="Diagram that shows Sales and Billing Insights dashboard." lightbox="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png":::
+:::image type="content" source="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png" alt-text="Screenshot showing the Sales and Billing Insights dashboard." lightbox="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png":::
 
 Supported source systems:
 
@@ -192,7 +192,7 @@ Related resources:
 
 The accounts receivable data model focuses on incoming cash flows from customers, offering a complete view of outstanding invoices, payment behavior, and credit exposure. By analyzing receivables data, finance teams can measure collection efficiency, monitor overdue items, and predict cash inflows to optimize working capital. Advanced analytics highlight trends in customer payment patterns, flag potential credit risks, and enable proactive actions to reduce days sales outstanding (DSO). This transparency improves forecasting accuracy and strengthens financial health across the organization.
 
-:::image type="content" source="./media/data-models-business-process-solutions/account-receivables.png" alt-text="Diagram that shows Accounts Receivable Insights dashboard." lightbox="./media/data-models-business-process-solutions/account-receivables.png":::
+:::image type="content" source="./media/data-models-business-process-solutions/account-receivables.png" alt-text="Screenshot showing the Accounts Receivable Insights dashboard." lightbox="./media/data-models-business-process-solutions/account-receivables.png":::
 
 Supported source systems:
 

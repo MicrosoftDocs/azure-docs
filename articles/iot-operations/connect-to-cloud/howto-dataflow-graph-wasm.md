@@ -21,7 +21,7 @@ ai-usage: ai-assisted
 Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
 
 > [!TIP]
-> Want to run AI in-band? See [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md) to package and execute small ONNX models inside your WASM operators.
+> Want to run AI in-band? See [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md) to package and execute small ONNX models inside your WASM operators.
 
 > [!IMPORTANT]
 > Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
@@ -31,7 +31,7 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 - Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 - Use Azure Container Registry (ACR) to store WASM modules and graphs.
 - Install the OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
-- Develop custom WASM modules by following guidance in [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
+- Develop custom WASM modules by following guidance in [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howto-develop-wasm-modules.md).
 
 ## Overview
 
@@ -82,7 +82,7 @@ oras pull ghcr.io/azure-samples/explore-iot-operations/filter:1.0.0
 
 ## Push modules to your registry
 
-Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry.
+Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry. To ensure the graphs and modules are visible in the operations experience web UI, add the `--config` and `--artifact-type` flags as shown in the following example:
 
 ```bash
 # Log in to your ACR
@@ -873,6 +873,16 @@ The output should look like this
 
 Here, the output contains the temperature and humidity data, as well as the detected objects in the images.
 
+## Update a module in a running graph
+
+You can update a WASM module in a running graph without stopping the graph. This is useful when you want to update the logic of an operator without stopping the dataflow. For example, to update the temperature conversion module from version `1.0.0` to `2.0.0`, upload the new version as follows:
+
+```bash
+oras push <YOUR_ACR_NAME>.azurecr.io/temperature:2.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm temperature-2.0.0.wasm:application/wasm
+```
+
+The data flow graph automatically picks up the new version of the module without any additional configuration. The graph continues to run without interruption, and the new module version is used for subsequent data processing.
+
 ## Develop custom WASM modules
 
 To create custom data processing logic for your data flow graphs, develop WebAssembly modules in Rust or Python. Custom modules enable you to implement specialized business logic, data transformations, and analytics that aren't available in the built-in operators.
@@ -883,7 +893,7 @@ For comprehensive development guidance including:
 - Understanding the data model and interfaces
 - Building and testing your modules
 
-See [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
+See [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howto-develop-wasm-modules.md).
 
 For detailed information about creating and configuring the YAML graph definitions that define your data processing workflows, see [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md).
 
@@ -1306,7 +1316,7 @@ For detailed configuration information, see [Configure registry endpoints](howto
 ## Related content
 
 - [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md)
-- [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)
+- [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howto-develop-wasm-modules.md)
 - [Configure registry endpoints](howto-configure-registry-endpoint.md)
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
 - [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md)

@@ -4,8 +4,8 @@ titleSuffix: Azure
 description: Read the release notes for all updates of the Microsoft Threat Modeling Tool. See a download link and system requirements.
 services: security
 author: jegeib
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: azure-information-protection
+ms.subservice: azure-information-protection-policy
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: jegeib

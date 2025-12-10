@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/21/2025
+ms.date: 12/10/2025
 ai-usage: ai-assisted
 
 ---
@@ -38,9 +38,16 @@ Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-
 ## Basic graph structure
 
 ```yaml
+metadata:
+  $schema: "https://www.schemastore.org/aio-wasm-graph-config-1.0.0.json"
+  name: "Simple graph"
+  description: "A simple graph with a source, a map module, and a sink"
+  version: "1.0.0"
+  vendor: "Microsoft"
+
 moduleRequirements:
   apiVersion: "1.1.0"
-  hostlibVersion: "1.1.0"
+  runtimeVersion: "1.1.0"
 
 operations:
   - operationType: "source"
@@ -65,13 +72,13 @@ The `moduleRequirements` section ensures compatibility using semantic versioning
 ```yaml
 moduleRequirements:
   apiVersion: "1.1.0"          # WASI API version for interface compatibility
-  hostlibVersion: "1.1.0"     # Host library version providing runtime support
+  runtimeVersion: "1.1.0"     # Runtime version providing runtime support
   features:                    # Optional features required by modules
     - name: "wasi-nn"
 ```
 
 > [!TIP]
-> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md).
+> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md).
 
 ## Example 1: Simple graph definition
 
@@ -276,8 +283,5 @@ For a complete implementation example, see the [branch module](https://github.co
 - [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)
 - [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
 - [Configure data flow endpoints](howto-configure-dataflow-endpoint.md)
-
-## Related content
-
 - [Configure registry endpoints](howto-configure-registry-endpoint.md)
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)

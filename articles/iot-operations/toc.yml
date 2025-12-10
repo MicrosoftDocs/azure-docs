@@ -212,15 +212,9 @@ items:
               - name: Deploy data flow graphs
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WASM, WebAssembly, graph, transform, enrich, deploy, registry, test
-              - name: Develop WASM modules
-                href: connect-to-cloud/howto-develop-wasm-modules.md
-                displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
               - name: Configure graph definitions
                 href: connect-to-cloud/howto-configure-wasm-graph-definitions.md
                 displayName: data flow, WASM, WebAssembly, graph definitions, YAML, configuration, workflow
-              - name: AI inference with ONNX
-                href: connect-to-cloud/howto-wasm-onnx-inference.md
-                displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
           - name: Use message schemas
             href: connect-to-cloud/concept-schema-registry.md
             displayName: data flow, serialize, deserialize, schema registry
@@ -249,6 +243,18 @@ items:
           - name: Start developing with the SDKs
             href: develop-edge-apps/quickstart-get-started-sdks.md
             displayName: MQTT, client app, developer, C#, .Net, Go, Rust, quickstart, get started
+          - name: Build WASM modules with VS Code extension
+            href: develop-edge-apps/howto-build-wasm-modules-vscode.md
+            displayName: VS Code, extension, develop, dataflow, graph, connector
+          - name: Build WASM modules
+            href: connect-to-cloud/howto-develop-wasm-modules.md
+            displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
+          - name: AI inference with ONNX
+            href: connect-to-cloud/howto-wasm-onnx-inference.md
+            displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
+          - name: Build Akri connectors with VS Code extension
+            href: develop-edge-apps/howto-build-akri-connectors-vscode.md
+            displayName: VS Code, extension, develop
           - name: Concepts
             items:
               - name: Highly available edge apps
