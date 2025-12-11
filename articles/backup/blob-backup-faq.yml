@@ -1,0 +1,45 @@
+### YamlMime:FAQ
+metadata:
+    title: Frequently Asked Questions About Azure Blob Backup
+    description: 'Learn how to answer common questions about Azure Blob Backup.'
+    ms.topic: faq
+    ms.service: azure-backup
+    ms.date: 12/11/2025
+    author: AbhishekMallick-MS
+    ms.author: v-mallicka
+    ms.reviewer: v-mallicka
+    ms.custom: engagement-fy24
+
+title: Frequently asked questions about Azure Blob Backup
+summary: This article answers frequently asked questions about Azure Blob Backup. For more information on the Azure Blob backup region availability, supported scenarios, and limitations, see the [support matrix](blob-backup-support-matrix.md).
+
+sections:
+  - name: Backup
+    questions:
+      - question: |
+          Why does Azure Backup require to keep all versions for Blob backups?
+        answer: |
+          Azure Backup doesn’t manage blob versioning because it’s a storage account feature. When you enable vaulted backup, Azure Backup uses the Object Replication Service (ORS) to replicate blobs, including all versions, to the Backup Vault. The Backup Vault applies retention policies, such as 42 days, at the backup layer and not at the source storage account. Azure Backup doesn't change versioning settings in the storage account, as there might be independent compliance or operational requirements for retaining versions.
+
+      - question: |
+          Does Backup vault reconcile or delete older blob versions in the source account?
+        answer: |
+          No, the Backup vault doesn't delete or reconcile blob versions in the source storage account. The retention policy applies only to restore points stored in the vault. For blob version cleanup in the source account, manage it separately using Lifecycle Management (LCM) policies or manual configuration.
+
+      - question: |
+          Can I align blob versioning retention with my backup policy, such as 42 days?
+        answer: |
+          Yes, you can configure blob version retention in the storage account, but it works independently of the backup policy.  
+
+          - For operational backup, set version retention to backup retention plus seven days. For example, if backup retention is 30 days, set version retention to 37 days.
+
+          - For vaulted backup only, reduce version retention after the first successful backup. We recommend you to keep versions for at least seven days after backup completion, or longer for large accounts with frequent changes.
+
+          - If you use both operational and vaulted backup, apply the higher of the two retention requirements.
+
+additionalContent: |
+  ## Related content
+
+  - [Create a backup policy for Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
+  - [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
+  - [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

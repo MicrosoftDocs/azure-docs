@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in a Bicep file.
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 12/10/2025
 ms.custom:
   - devx-track-bicep
   - sfi-ga-nochange
@@ -247,5 +247,3 @@ Now that you understand tenant deployments, explore these related deployment sco
 - **[Resource group deployments](deploy-to-resource-group.md)** - Deploy resources to a specific resource group
 - **[Subscription deployments](deploy-to-subscription.md)** - Deploy resources at the subscription level
 - **[Management group deployments](deploy-to-management-group.md)** - Deploy resources to management groups
-
-For hands-on practice, try the training module: [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/training/modules/deploy-resources-scopes-bicep/).

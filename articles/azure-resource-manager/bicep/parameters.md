@@ -5,7 +5,7 @@ ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 07/25/2025
+ms.date: 12/10/2025
 ---
 
 # Parameters in Bicep
@@ -19,10 +19,6 @@ Each parameter must be set to one of the [data types](data-types.md).
 Bicep allows a maximum of 256 parameters. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
-
-### Training resources
-
-See the [Build reusable Bicep files by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
 
 ## Define parameters
 

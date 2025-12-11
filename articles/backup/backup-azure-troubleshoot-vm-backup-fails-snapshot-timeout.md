@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Backup failures caused by agent or extension issues
 description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 04/15/2025
+ms.date: 11/12/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ms.reviewer: sooryar
@@ -168,8 +168,8 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
   **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<extension version\>\iaasvmprovider.dll** <br>   To resolve this issue, check if the module is compatible with x86 (32-bit)/x64 (64-bit) version of _regsvr32.exe_, and then follow these steps:
 
   1. In the affected VM, go to **Control panel** -> **Program and features**.
-  1. Uninstall **Visual C++ Redistributable x64** for **Visual Studio 2013**.
-  1. Reinstall **Visual C++ Redistributable** for **Visual Studio 2013** in the VM. To install, follow these steps:
+  1. Uninstall **Visual C++ Redistributable (x64)** for **Visual Studio 2015**.
+  1. Reinstall **Visual C++ Redistributable (x64)** for **Visual Studio 2015** in the VM. To install, follow these steps:
      1. Go to the folder: **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<LatestVersion\>**
      1. Search and run the **vcredist2013_x64** file to install.
   1. Retry the backup operation.

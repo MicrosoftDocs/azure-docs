@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 12/10/2025
 ---
 
 # Use deployment scripts in Bicep
@@ -30,10 +30,6 @@ The deployment script resource is available only in the regions where Azure Cont
 > The deployment script service requires two extra resources to run and troubleshoot scripts: a storage account and a container instance. Generally, the service cleans up these resources after the deployment script finishes. You incur charges for these resources until they're removed.
 >
 > For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
-
-### Training resources
-
-If you prefer to learn about deployment scripts through step-by-step guidance, see the [Extend Bicep and ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts) Microsoft Learn module.
 
 ## Configure the minimum permissions
 
@@ -501,9 +497,7 @@ You can run deployment scripts in private networks with some additional configur
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To learn more, see the [Extend Bicep and ARM templates using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts) module from Microsoft Learn.
-
-To explore the topics in this article, see:
+In this article, you learned how to use deployment scripts. To explore the topics in this article, see:
 
 - [Develop a deployment script in Bicep](./deployment-script-develop.md)
 - [Access a private virtual network from a Bicep deployment script](./deployment-script-vnet.md)

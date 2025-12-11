@@ -29,8 +29,8 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | [File Activity](normalization-schema-file-event.md) | 0.2.2 | GA |
 | [Network Session](normalization-schema.md) | 0.2.7 | GA |
 | [Process Event](normalization-schema-process-event.md) | 0.1.4 | GA |
-| [Registry Event](normalization-schema-registry-event.md) | 0.1.2 | GA |
-| [User Management](normalization-schema-user-management.md) | 0.1 | GA |
+| [Registry Event](normalization-schema-registry-event.md) | 0.1.3 | GA |
+| [User Management](normalization-schema-user-management.md) | 0.1.2 | GA |
 | [Web Session](normalization-schema-web.md) | 0.2.7 | GA |
 
 ## Schema concepts

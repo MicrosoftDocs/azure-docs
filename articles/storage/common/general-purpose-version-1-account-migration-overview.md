@@ -54,6 +54,8 @@ The retirement takes effect globally across all Azure regions.
 >
 > Be aware that **transaction pricing differs** in GPv2. Workloads with frequent operations may incur **higher charges** unless cost-optimization strategies are applied.
 
+>[!NOTE]
+> Converting a storage account from GPv1 to GPv2 changes how Blob Storage is billed, but it does not impact pricing for Azure Files or Azure Disks. These services use their own pricing models, which aren’t tied to the storage account type.
 
 ### Estimate costs before upgrading
 >[!TIP]

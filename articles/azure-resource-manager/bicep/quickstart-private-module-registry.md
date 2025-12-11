@@ -1,7 +1,7 @@
 ---
 title: Publish modules to private module registry
 description: Publish Bicep modules to private module registry and use the modules.
-ms.date: 04/28/2025
+ms.date: 12/10/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to publish Bicep modules to private module registry.
@@ -204,4 +204,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> [Create Bicep files by using Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

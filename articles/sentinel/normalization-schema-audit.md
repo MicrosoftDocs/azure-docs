@@ -186,7 +186,7 @@ Fields that appear in the table are common to all ASIM schemas. Any of guideline
 | **ActingAppId** | Optional | String | The ID of the application that initiated the activity reported, including a process, browser, or service. <br><br>For example: `0x12ae8` |
 | **ActingAppName** | Optional | String | The name of the application that initiated the activity reported, including a service, a URL, or a SaaS application. <br><br>For example: `C:\Windows\System32\svchost.exe` |
 | **ActingAppType** | Optional | AppType | The type of acting application. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md). |
-| <a name="actingoriginalapptype"></a>**ActingOriginalAppType** | Optional | String | The type of the application that initiated the activity    as reported by the reporting device. |
+| <a name="actingoriginalapptype"></a>**ActingOriginalAppType** | Optional | String | The type of the application that initiated the activity as reported by the reporting device. |
 | **HttpUserAgent** |	Optional	| String |	When authentication is performed over HTTP or HTTPS, this field's value is the user_agent HTTP header provided by the acting application when performing the authentication.<br><br>For example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
 
 

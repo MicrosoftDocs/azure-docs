@@ -78,6 +78,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - Enabling backups isn't supported for the blob container that are configured with native replication using data factory.
 - The protection of  a container that is part of any object replication isn't supported, either as a source or destination. Attempting to back up such a container will result in backup failure.
 - Containers with **legal hold** enabled aren't supported.
+- If your storage account is large or contains huge number of versions, the first backup can take multiple days to complete. 
  
 
 ---

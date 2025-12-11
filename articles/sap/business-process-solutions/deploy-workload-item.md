@@ -69,10 +69,10 @@ To deploy Business process solutions, you need:
 
 ### Create Microsoft Fabric workspace
 
-Before proceeding with either manual or automated deployment of Enterprise Insights you need to create a Microsoft Fabric workspace. Follow the steps below to set up your workspace:
+Before proceeding with deployment of Business Process Solutions you need to create a Microsoft Fabric workspace. Use the following steps to set up your workspace:
 
 1. Open Microsoft Fabric: [Power BI](https://app.powerbi.com/).
-2. From the left menu choose **Workspaces** and choose **New workspace**.
+2. From the left menu, choose **Workspaces** and choose **New workspace**.
    :::image type="content" source="./media/deploy-workload-item/new-workspace.jpg" alt-text="Screenshot showing how to create a new Microsoft Fabric workspace." lightbox="./media/deploy-workload-item/new-workspace.jpg":::
 3. Provide the Name of the workspace. Open the Advanced settings and choose **Large Semantic Model Storage Format**. Confirm by clicking **Apply**.
    :::image type="content" source="./media/deploy-workload-item/workspace-details.jpg" alt-text="Screenshot showing the new workspace details configuration." lightbox="./media/deploy-workload-item/workspace-details.jpg":::

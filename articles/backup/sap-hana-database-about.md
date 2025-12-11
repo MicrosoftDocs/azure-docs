@@ -2,7 +2,7 @@
 title: About the SAP HANA database backup on Azure VMs
 description: In this article, you'll learn about backing up SAP HANA databases that are running on Azure virtual machines.
 ms.topic: overview
-ms.date: 08/19/2025
+ms.date: 12/11/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -86,6 +86,11 @@ Although there are multiple physical nodes (primary and secondary), the backup s
 As databases grow in size, the time it takes to restore them becomes a factor when you're dealing with streaming backups. Also, during backup, the time the database takes to generate Backint streams can grow in proportion to the churn, which can be factor as well.
 
 A database-consistent, snapshot-based approach helps to solve both issues, and it gives you the benefit of instant backup and instant restore. For HANA, Azure Backup is now providing a HANA-consistent, snapshot-based approach that's integrated with Backint, so that you can use Azure Backup as a single product for your entire HANA landscape, irrespective of database size.
+
+HANA Snapshot backup now comes with vault-support giving you the option to retain your snapshot backups for long term and enabling security features like immutability, soft-delete and multi-user authorisation.
+
+## Back up HANA Scale-out system (PREVIEW)
+Azure Backup, now supports backing up a "Scale-out" HANA system distributed across multiple servers. Reach out to AskAzureBackupTeam@microsoft.com to gain access to the preview.
 
 ### Pricing
 

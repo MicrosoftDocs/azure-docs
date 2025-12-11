@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to resource groups
 description: Learn how to deploy resources in a Bicep file and how to target more than one resource group.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 10/30/2025
+ms.date: 12/10/2025
 ---
 
 # Use Bicep to deploy resources to resource groups

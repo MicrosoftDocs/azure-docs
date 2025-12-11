@@ -55,6 +55,9 @@ No. **GPv1 standard ZRS** does not support **per-blob tiering** or **lifecycle m
 
 **GPv2** introduces **tier-based pricing** and **transaction meters**. While some operations may cost more, GPv2 offers **cost optimization** via **hot/cool/archive** tiers and lifecycle rules.
 
+### Does converting a storage account from GPv1 to GPv2 change pricing for files or disks?
+**No.** Converting a storage account from GPv1 to GPv2 only affects Blob Storage pricing. Azure files and Azure disks each have their own independent pricing models, so their costs do not change when the underlying storage account is upgraded.
+
 ### Can I upgrade from GPv1 standard ZRS to GPv2 later? Will anything break?
 
 Yes. You can upgrade **in place** via the Azure portal, CLI, or PowerShell. The upgrade is **non-disruptive** and keeps the **same endpoints**. Most workloads require **no code changes**.

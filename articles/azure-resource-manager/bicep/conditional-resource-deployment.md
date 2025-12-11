@@ -5,7 +5,7 @@ ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 09/10/2025
+ms.date: 12/10/2025
 ---
 
 # Conditional deployments in Bicep with the if expression
@@ -16,10 +16,6 @@ To optionally deploy a resource or module in Bicep, use the `if` expression. An 
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
 
 Bicep diagnostic code [BCP318](./diagnostics/bcp318.md) occurs when you try to access a property on a conditional resource that may be null if the resource isn't deployed. To suppress the warning or prevent a runtime exception, use the [null-forgiving operator](./operator-null-forgiving.md) or [safe-dereference operator](./operator-safe-dereference.md). For more information, see [BCP318](./diagnostics/bcp318.md#solutions).
-
-### Training resources
-
-If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep files by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
 ## Define condition for deployment
 

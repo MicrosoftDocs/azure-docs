@@ -48,8 +48,6 @@ items:
             displayName: continuous, ci, cd, CI/CD
   - name: Tutorials
     items:
-      - name: Learn modules for Bicep
-        href: learn-bicep.md
       - name: Learn Live - Bicep
         href: /events/learntv/learnlive-iac-and-bicep/
       - name: Learn Live - Bicep and GitHub Actions

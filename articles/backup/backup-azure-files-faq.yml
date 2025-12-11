@@ -112,7 +112,11 @@ sections:
           Will the retention policy delete a recovery point selected for restore  before the restore operation completes?
         answer: |
           No. Azure Backup takes a lease on the recovery point during restore, ensuring it isn't deleted before completion.
-
+          
+      - question: |
+          What are the permissions used by Azure Backup during backup and restore operation?
+        answer: |
+          Azure Backup uses key-based access for backup and restore operations. Ensure that you [enable keys access](../storage/common/shared-key-authorization-prevent.md?tabs=portal) on both source and target storage accounts, even if using identity-based access is configured.
 
   - name: Manage backup
     questions:

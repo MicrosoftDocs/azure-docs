@@ -1,10 +1,10 @@
 ### YamlMime:FAQ
 metadata:
   title: FAQ - Protect backups from Ransomware with Azure Backup
-  description: In this article, discover answers to protect backups from ransomware with Azure Backup.
+  description: Learn how to protect your Azure backups from ransomware attacks and security threats. Get answers to common questions about backup security, Multi-user authorization, soft delete, encryption, and ransomware recovery strategies.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 12/04/2024
+  ms.date: 12/11/2025
   author: AbhishekMallick-MS
   ms.author: v-mallicka
     
@@ -123,3 +123,12 @@ sections:
       - question: How can I extend the expiration of recovery points in case of impact?
         answer: If you need more time to investigate and recover in case of an impact, you can extend expiration to ensure the recovery points aren't cleaned up (as per policy). [Learn more](backup-architecture.md#additional-reference), so that they aren’t deleted by the retention policy.
 
+
+additionalContent: |
+
+  ## Next steps
+
+  - [About security features in Azure Backup](security-overview.md).
+  - [Security features to help protect cloud workloads that use Azure Backup](backup-azure-security-feature-cloud.md).
+  - [Security features to help protect hybrid backups that use Azure Backup](backup-azure-security-feature.md).
+  - [Azure Policy Regulatory Compliance controls for Azure Backup](security-controls-policy.md).

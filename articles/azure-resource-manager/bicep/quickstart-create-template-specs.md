@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a template spec with Bicep
 description: Learn how to use Bicep to create and deploy a template spec to a resource group in your Azure subscription. Then, use a template spec to deploy Azure resources.
-ms.date: 04/28/2025
+ms.date: 12/10/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create and share deployment templates so that other people in my organization can deploy Microsoft Azure resources.

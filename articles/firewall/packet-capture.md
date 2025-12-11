@@ -6,21 +6,20 @@ author: varunkalyana
 ms.author: varunkalyana
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 11/03/2025
+ms.date: 12/11/2025
 #customer intent: As a network administrator, I want to capture network traffic on Azure Firewall so that I can analyze traffic flows and troubleshoot connectivity issues.
 ---
 
 # Use packet capture to troubleshoot Azure Firewall
 
-Azure Firewall includes a built-in packet capture capability that allows you to capture network traffic flowing through the firewall. This article shows you how to use packet capture on Azure Firewall to capture, filter, and analyze network traffic for troubleshooting connectivity issues. You configure capture filters, capture network traffic, and analyze the results.
+Azure Firewall's packet capture feature lets you capture and analyze network traffic for troubleshooting. This article shows you how to configure filters, capture traffic, and analyze results.
 
 ## Prerequisites
 
-You need:
-
-- An Azure subscription. To create one, see [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Azure Firewall. To create one, see [Deploy and configure Azure Firewall and policy](tutorial-firewall-deploy-portal-policy.md).
-- A Firewall Management NIC (network interface card) enabled on your Azure Firewall. This feature is enabled by default on Azure Firewall instances deployed in secured Virtual WAN hubs and on firewalls using the Basic SKU. For Standard or Premium firewalls deployed in a virtual network, manually enable the Firewall Management NIC. For instructions, see [Azure Firewall Management NIC](forced-tunneling.md).
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure Firewall with Management NIC enabled. See [Deploy and configure Azure Firewall and policy](tutorial-firewall-deploy-portal-policy.md).
+  - Management NIC is enabled by default on Basic SKU and Virtual WAN deployments.
+  - For Standard or Premium SKU in a virtual network, see [Azure Firewall Management NIC](forced-tunneling.md) to enable it.
 
 ## Create a storage account
 

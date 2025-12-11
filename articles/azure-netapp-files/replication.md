@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/25/2025
+ms.date: 12/09/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -114,7 +114,12 @@ Regular Azure NetApp Files storage capacity charges for Month 2 apply to the des
 
 ## Cross-zone-region replication
 
-Azure NetApp Files supports using cross-zone and cross-region replication on the same source volume. With this extra layer of protection, you can protect your volumes by using a second protection volume in the following combinations:
+Azure NetApp Files supports using cross-zone and cross-region replication on the same source volume, enabling asynchronous replication of volumes across availability zones and regions, 
+
+>[!NOTE]
+>Cross zone-region replication uses the same pricing model as cross-region and cross-zone replication. 
+
+With cross-zone-region replication, you can protect your volumes by using a second protection volume in the following combinations:
 
 * Cross-region and​ cross-zone replication target volumes
 

@@ -63,6 +63,8 @@
         href: storage-files-identity-configure-file-level-permissions.md
   - name: Linux identity-based authentication (SMB)
     href: storage-files-identity-auth-linux-kerberos-enable.md
+  - name: Managed identities with Microsoft Entra ID
+    href: files-managed-identities.md
   - name: Authorize access to file data
     items:
     - name: Choose how to authorize access to file data

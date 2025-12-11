@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 08/13/2025
+ms.date: 11/12/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -346,12 +346,12 @@ Error code: ExtensionSnapshotFailedNoSecureNetwork <br/> Error message: The snap
 * Identify all versions of the .NET Framework present in your system. They're present under the hierarchy of registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**.
 * For each .NET Framework present in the registry key, add the following key: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>
 
-### ExtensionVCRedistInstallationFailure - The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012
+### ExtensionVCRedistInstallationFailure - The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2015
 
-Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012.
+Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2015.
 
 * Navigate to `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` and install vcredist2013_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.
-* Check the event log to verify if you're noticing access related issues. For example: *Product: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Error 1401.Could not create key: Software\Classes.  System error 5.  Verify that you have sufficient access to that key, or contact your support personnel.* <br><br> Ensure the administrator or user account has sufficient permissions to update the registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Provide sufficient permissions and restart the Windows Azure Guest Agent.<br><br> <li> If you have antivirus products in place, ensure they have the right exclusion rules to allow the installation.
+* Check the event log to verify if you're noticing access related issues. For example: *Product: Microsoft Visual C++ 2015 x64 Minimum Runtime - 12.0.21005 -- Error 1401.Could not create key: Software\Classes.  System error 5.  Verify that you have sufficient access to that key, or contact your support personnel.* <br><br> Ensure the administrator or user account has sufficient permissions to update the registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Provide sufficient permissions and restart the Windows Azure Guest Agent.<br><br> <li> If you have antivirus products in place, ensure they have the right exclusion rules to allow the installation.
 
 ### UserErrorRequestDisallowedByPolicy - An invalid policy is configured on the VM which is preventing Snapshot operation
 

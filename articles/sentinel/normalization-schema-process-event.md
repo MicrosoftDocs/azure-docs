@@ -91,7 +91,7 @@ The following list mentions fields that have specific guidelines for process act
 |---------------------|-------------|------------|--------------------|
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Process records, supported values include: <br>- `ProcessCreated` <br>- `ProcessTerminated` |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.4`         |
-| **EventSchema** | Optional | String | The name of the schema documented here is `ProcessEvent`. |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is `ProcessEvent`. |
 | **Dvc** fields|        |      | For process activity events, device fields refer to the system on which the process was executed. |
 
 
@@ -164,7 +164,7 @@ The process event schema references the following entities, which are central to
 | **ActingProcessIsHidden**          | Optional     | Boolean    |      An indication of whether the acting process is in hidden mode.  |
 | **ActingProcessInjectedAddress**   | Optional     | String     |      The memory address in which the responsible acting process is stored.           |
 | **ActingProcessId**| Mandatory    | String        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
-| **ActingProcessGuid**              | Optional     | string     |  A generated unique identifier (GUID) of the acting process. Enables identifying the process across systems.  <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
+| **ActingProcessGuid**              | Optional     | GUID (string)     |  A generated unique identifier (GUID) of the acting process. Enables identifying the process across systems.  <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ActingProcessIntegrityLevel**    | Optional     | String     |       Every process has an integrity level that is represented in its token. Integrity levels determine the process level of protection or access. <br><br> Windows defines the following integrity levels: **low**, **medium**, **high**, and **system**. Standard users receive a **medium** integrity level and elevated users receive a **high** integrity level. <br><br> For more information, see [Mandatory Integrity Control - Win32 apps](/windows/win32/secauthz/mandatory-integrity-control). |
 | **ActingProcessMD5**               | Optional     | String     |The MD5 hash of the acting process image file.  <br><br>Example:  `75a599802f1fa166cdadb360960b1dd0`|
 | **ActingProcessSHA1**              | Optional     | SHA1       | The SHA-1 hash of the acting process image file.             <br><br>  Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0`  |
@@ -220,7 +220,7 @@ The process event schema references the following entities, which are central to
 | **TargetProcessFileCompany**       | Optional     | String     |The name of the company that created the target process image file.   <br><br>   Example:  `Microsoft` |
 | **TargetProcessFileDescription**   | Optional     | String     | The description from the version information in the target process image file.   <br><br>Example:  `Notepad++ : a free (GPL) source code editor` |
 | **TargetProcessFileProduct**       | Optional     | String     |The product name from the version information in target process image file.  <br><br>  Example: `Notepad++`  |
-| **TargetProcessFileSize**          | Optional     | String     |    Size of the file that ran the process responsible for the event. |
+| **TargetProcessFileSize**          | Optional     | Long     |    Size of the file that ran the process responsible for the event. |
 | **TargetProcessFileVersion**       | Optional     | String     |The product version from the version information in the target process image file.   <br><br>  Example: `7.9.5.0` |
 | **TargetProcessFileInternalName**  |    Optional          | String  |   The product internal file name from the version information of the image file of the target process. |
 | **TargetProcessFileOriginalName** |       Optional       | String   |   The product original file name from the version information of the image file of the target process. |
@@ -231,12 +231,12 @@ The process event schema references the following entities, which are central to
 | **TargetProcessSHA256**            | Optional     | SHA256     | The SHA-256 hash of the target process image file.      <br><br>  Example: <br> `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
 | **TargetProcessSHA512**            | Optional     | SHA512     |   The SHA-512 hash of the target process image file.       |
 | **TargetProcessIMPHASH**           | Optional     | String     |    The Import Hash of all the library DLLs that are used by the target process.    |
-| **HashType** | Recommended | String | The type of hash stored in the HASH alias field, allowed values are `MD5`, `SHA`, `SHA256`, `SHA512` and `IMPHASH`. |  
+| **HashType** | Conditional | String | The type of hash stored in the HASH alias field, allowed values are `MD5`, `SHA`, `SHA256`, `SHA512` and `IMPHASH`. |  
 | <a name="targetprocesscommandline"></a> **TargetProcessCommandLine**       | Mandatory    | String     | The command line used to run the target process.   <br><br> Example:  `"choco.exe" -v`  |
 | <a name="targetprocesscurrentdirectory"></a> **TargetProcessCurrentDirectory**       | Optional    | String     | The current directory in which the target process is executed.  <br><br> Example:  `c:\windows\system32`  |
 | **TargetProcessCreationTime**      | Recommended    | DateTime   |    The product version from the version information of the target process image file.   |
 | **TargetProcessId**| Mandatory    | String     |  The process ID (PID) of the target process.     <br><br>Example: `48610176`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.         |
-| **TargetProcessGuid**              | Optional    | String     |A generated unique identifier (GUID) of the target process. Enables identifying the process across systems.   <br><br>  Example:  `EF3BD0BD-2B74-60C5-AF5C-010000001E00`  |
+| **TargetProcessGuid**              | Optional    | GUID (String)     |A generated unique identifier (GUID) of the target process. Enables identifying the process across systems.   <br><br>  Example:  `EF3BD0BD-2B74-60C5-AF5C-010000001E00`  |
 | **TargetProcessIntegrityLevel**    | Optional    | String     |   Every process has an integrity level that is represented in its token. Integrity levels determine the process level of protection or access. <br><br> Windows defines the following integrity levels: **low**, **medium**, **high**, and **system**. Standard users receive a **medium** integrity level and elevated users receive a **high** integrity level. <br><br> For more information, see [Mandatory Integrity Control - Win32 apps](/windows/win32/secauthz/mandatory-integrity-control). |
 | **TargetProcessTokenElevation**    | Optional    | String     |Token type indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the process that was created or terminated.   <br><br>    Example:  `None`     |
 | **TargetProcessStatusCode**    | Optional    | String     | The exit code returned by the target process when terminated. This field is valid only for process termination events. For consistency, the field type is string, even if value provided by the operating system is numeric.     |
@@ -255,7 +255,8 @@ The following fields are used to represent that inspection performed by a securi
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the file activity.<br><br>Example: `Trojan` |
 | **ThreatRiskLevel** | Optional | Integer | The risk level associated with the identified threat. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatOriginalRiskLevel](#threatoriginalrisklevel). |
 | <a name="threatoriginalrisklevel"></a>**ThreatOriginalRiskLevel** | Optional | String | The risk level as reported by the reporting device. |
-| <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcFilePath` or `DstFilePath`. |
+| <a name="threatfield"></a>**ThreatField** | Optional | String | The field for which a threat was identified. |
+| <a name="threatfield"></a>**ThreatField** | Optional | String | The field for which a threat was identified. |
 | **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
 | **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
 | **ThreatIsActive** | Optional | Boolean | True if the threat identified is considered an active threat. | 

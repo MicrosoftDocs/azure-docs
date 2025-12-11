@@ -2,7 +2,7 @@
 title: 'Bicep What-If: Preview Changes Before Deployment'
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: article
-ms.date: 08/19/2025
+ms.date: 12/10/2025
 ms.custom:
   - devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
   - ai-gen-docs-bap
@@ -557,5 +557,3 @@ Remove-AzResourceGroup -Name ExampleGroup
 
 - To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - If you notice incorrect results from the what-if operation, report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- For a Learn module that demonstrates using what-if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).
-
