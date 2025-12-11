@@ -30,7 +30,7 @@ To use the deployment pane:
         :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Screenshot of show deployment pane in command palette.":::
   
 1. Select **Pick Scope** to define the deployment scope. After authentication, you're able to select the subscription and the resource group of your desired deployment.
-1. If the deployment pane was opened for a .bicep file, fill out your desired parameters values, or select **Pick JSON Parameters File** to select a JSON parameter file.
+1. If the deployment pane was opened for a .bicep file, fill out your desired parameter values, or select **Pick JSON Parameters File** to select a JSON parameter file.
 1. Select your desired action - **Deploy**, **Validate**, or **What-if**.  
 
     - **Deploy**: deploys to Azure, and the result including the defined output are shown in the deployment pane.
@@ -47,7 +47,7 @@ To use the deployment pane:
       
     - **What-if**: executes a **What-If** analysis directly from the deployment pane. The pane displays the results, showing any planned changes. This performs the same function as the what-if command in Azure PowerShell and Azure CLI. For more information, see [Bicep deployment what-if operation](./deploy-what-if.md)
 
-You can keep the deployment pane open while you iterate on changes to your .bicep or .bicepparam files. If you save and re-run one of the above actions, the acations will run against your updated files.
+You can keep the deployment pane open while you iterate on changes to your .bicep or .bicepparam files. If you save and re-run one of the above actions, the actions will run against your updated files.
 
 ## Deploy Command
 
