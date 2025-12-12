@@ -77,10 +77,10 @@ The common pattern for ONNX inference in data flow graphs includes:
    - Map prediction indices to human-readable labels.
    - Format results for downstream consumption.
 
-In the [IoT samples for Rust WASM Operator](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/) you can find two samples that follow this pattern:
+In the [IoT samples for Rust WASM operators](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/) you can find two samples that follow this pattern:
 
--  [Data transformation "format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/format): decodes and resizes images to RGB24 224×224. 
-- [Image/Video processing "snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot): embeds a MobileNet v2 ONNX model, runs CPU inference, and computes softmax.
+-  [Data transformation "format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/format): decodes and resizes images to RGB24 224×224. 
+- [Image/Video processing "snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot): embeds a MobileNet v2 ONNX model, runs CPU inference, and computes softmax.
 
 ## Configure graph definition
 
@@ -199,7 +199,7 @@ Follow these steps to embed your model and associated resources:
 1. **Implement inference loop**: For each incoming message, preprocess inputs to match model requirements, set input tensors, execute inference, retrieve outputs, and apply postprocessing.
 1. **Handle errors gracefully**: Implement proper error handling for model loading failures, unsupported operators, and runtime inference errors.
 
-For a complete implementation pattern, see the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot).
+For a complete implementation pattern, see the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot).
 
 ### Recommended project structure
 
@@ -224,8 +224,8 @@ src/
 
 Use the following file layout from the "snapshot" sample as a reference:
 
-- [Labels directory](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot/src/fixture/labels) - Contains various label mapping files
-- [Models directory](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot/src/fixture/models) - Contains ONNX model files and metadata
+- [Labels directory](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot/src/fixture/labels) - Contains various label mapping files
+- [Models directory](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot/src/fixture/models) - Contains ONNX model files and metadata
 
 ### Minimal embedding example
 
@@ -273,7 +273,7 @@ fn run_inference(/* input tensors, etc. */) {
 
 Reuse the streamlined sample builders or build locally:
 
-- To use the streamlined Docker builder, see [Rust Docker builder sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust#using-the-streamlined-docker-builder)
+- To use the streamlined Docker builder, see [Rust Docker builder sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#rust-builds-docker-builder)
 - For a general WebAssembly deployment and registry steps, see [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
 
 Follow this deployment process:
@@ -285,7 +285,7 @@ Follow this deployment process:
 
 ## Example: MobileNet image classification
 
-The IoT public samples provide two samples wired into a graph for image classification:  the ["format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/format) provides image decode and resize functionality, and the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot) provides ONNX inference and softmax processing.
+The IoT public samples provide two samples wired into a graph for image classification:  the ["format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/format) provides image decode and resize functionality, and the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot) provides ONNX inference and softmax processing.
 
 
 To deploy this example, pull the artifacts from the public registry, push them to your registry, and deploy a data flow graph as shown in [Example 2: Deploy a complex graph](../connect-to-cloud/howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph). The complex graph uses these modules to process image snapshots and emit classification results.

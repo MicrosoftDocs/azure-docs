@@ -50,6 +50,12 @@ Azure Firewall Premium provides advanced capabilities, including signature-based
 
 For more information, see [Azure Firewall features by SKU](features-by-sku.md#azure-firewall-premium-features).
 
+## Threat intelligence-based filtering
+
+Threat intelligence-based filtering can be enabled for your firewall to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Microsoft Defender for Cloud.
+
+When threat intelligence-based filtering is enabled, the associated rules are processed before any of the NAT rules, network rules, or application rules.
+
 ## Feature comparison
 
 To compare all Azure Firewall SKU features, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).

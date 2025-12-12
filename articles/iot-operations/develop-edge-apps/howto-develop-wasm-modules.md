@@ -380,7 +380,7 @@ Build using containerized environments with all dependencies and schemas preconf
 
 # [Rust](#tab/rust)
 
-The Azure IoT Operations samples repository maintains the Rust Docker builder and includes all necessary dependencies. For detailed documentation, see [Rust Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm#rust-builds-docker-builder).
+The Azure IoT Operations samples repository maintains the Rust Docker builder and includes all necessary dependencies. For detailed documentation, see [Rust Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#rust-builds-docker-builder).
 
 ```bash
 # Build release version (optimized for production)
@@ -396,7 +396,7 @@ docker run --rm -v "$(pwd):/workspace" ghcr.io/azure-samples/explore-iot-operati
 
 # [Python](#tab/python)
 
-The Azure IoT Operations samples repository maintains the Python Docker builder and includes all necessary dependencies and schemas. For detailed documentation, see [Python Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python#using-the-streamlined-docker-builder).
+The Azure IoT Operations samples repository maintains the Python Docker builder and includes all necessary dependencies and schemas. For detailed documentation, see [Python Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm-python/README.md#using-the-streamlined-docker-builder).
 
 ```bash
 # Build release version (optimized for production)
