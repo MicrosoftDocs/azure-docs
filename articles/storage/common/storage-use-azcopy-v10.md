@@ -78,7 +78,7 @@ By using Microsoft Entra ID, you can provide credentials once instead of having 
 
 | Security principal | Guidance |
 |-----|-----|
-| User identity | [Authorize access for AzCopy with a user identity](storage-use-azcopy-authorize-managed-identity.md) |
+| User identity | [Authorize access for AzCopy with a user identity](storage-use-azcopy-authorize-user-identity.md) |
 | Managed identity | [Authorize access for AzCopy with a managed identity](storage-use-azcopy-authorize-managed-identity.md) |
 | Service principal | [Authorize access for AzCopy with a service principal](storage-use-azcopy-authorize-service-principal.md) |
 

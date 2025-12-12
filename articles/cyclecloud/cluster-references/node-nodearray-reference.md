@@ -22,7 +22,7 @@ The `[[node defaults]]` is a special abstract node that specifies the default se
   MachineType = Standard_D2s_v3
 
   [[nodearray grid]]
-  ImageName = cycle.image.centos6
+  ImageName = cycle.image.ubuntu22
   MachineType = Standard_H16
 ```
 
@@ -41,7 +41,7 @@ This example template creates a cluster with two nodes and a node array. The pro
     Credentials = $Credentials
     SubnetId = $SubnetId
     KeyPairLocation = ~/.ssh/cyclecloud.pem
-    ImageName = cycle.image.centos7
+    ImageName = cycle.image.ubuntu22
 
   [[node proxy]]
     IsReturnProxy = true
@@ -73,7 +73,7 @@ Attribute | Type | Definition
 ------ | ----- | ----------
 ComputerName | String | Computer name for the VM. If you specify this attribute, it overrides the system-generated name.
 ComputerNamePrefix | String | Prefix added to system-generated computer names.
-Zone | String (list) | Availability Zone for the VM or VMSS. Can be a list for VMSS. For example, `Zone = 1,3`.
+Zone | String (list) | Availability Zone for the VM or Virtual Machine Scale Sets. Can be a list for Virtual Machine Scale Set. For example, `Zone = 1,3`.
 KeyPairLocation | Integer | Location where CycleCloud finds an SSH keypair on the local filesystem.
 KeepAlive | Boolean | If true, CycleCloud prevents the termination of this node.
 Locker | String | Name of the locker to use for downloading project specs. See [Use Projects](~/articles/cyclecloud/how-to/projects.md).
@@ -85,7 +85,7 @@ Attribute | Type | Definition
 ComputerName | String | Computer name for the VM. If you specify a name, it overrides the system-generated name.
 ComputerNamePrefix | String | Prefix added to system-generated computer names.
 EphemeralOSDisk | Boolean | Use an ephemeral boot disk for the VM, if supported.
-Zone | String (list) | Availability Zone for the VM or VMSS. Can be a list for VMSS. For example, `Zone = 1,3`.
+Zone | String (list) | Availability Zone for the VM or Virtual Machine Scale Set. Can be a list for Virtual Machine Scale Set. For example, `Zone = 1,3`.
 ProximityPlacementGroupId | String | Full ID for the Proximity Placement Group to put this node in. Must start with `/subscriptions/`.
 PlacementGroupId | String | If set, this label places the node in a single placement group with all other nodes that have a matching value for `PlacementGroupId`. This configuration offers lower latency communication and is required to enable InfiniBand on VM sizes that support it. The scheduler usually sets this value as needed, so you don't need to specify it manually.
 KeyPairLocation | Integer | Where CycleCloud finds an SSH keypair on the local filesystem
@@ -124,7 +124,7 @@ CycleCloud supports several default Marketplace images for different OS flavors.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-ImageName | String | Cycle-supported image name. Use one of the following: `cycle.image.win2016`, `cycle.image.win2012`, `cycle.image.centos7`, `cycle.image.centos6`, `cycle.image.ubuntu16`, `cycle.image.ubuntu14`.
+ImageName | String | Cycle-supported [image name](../images.md). 
 
 #### Marketplace images
 
@@ -216,7 +216,7 @@ ReturnPath.BrokerPort | Integer | Broker where node can reach CycleCloud.
 
 ### Tags
 
-CycleCloud supports tagging VMs and VMSS.
+CycleCloud supports tagging VMs and Virtual Machine Scale Sets.
 
 Attribute | String | Definition
 ------ | ----- | ----------
@@ -234,16 +234,16 @@ MaxPrice | Float | The maximum price you want to pay for the VM. (Default: -1)
 ### Nodearray-specific attributes
 
 All of the attributes for a node are valid for a nodearray, but a node array is an elastic resource so additional attributes are available. 
-Nodearray is a driver for Azure VirtualMachine ScaleSets (VMSS) and can have many backing VMSSs.  
+Nodearray is a driver for Azure VirtualMachine ScaleSets and can have many backing Virtual Machine Scale Sets.  
 
 ::: moniker range="=cyclecloud-7"
 Attribute | String | Definition
 ------ | ----- | ----------
-Azure.AllocationMethod  | String | Set this attribute to `StandAlone` to manage single VMs or leave undefined to use VMSS.
-Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes (Default: false).
-Azure.SinglePlacementGroup | Boolean | Use the single placement group setting for the VMSS. (Default: false)
-Azure.Overprovision | Boolean | Use the Overprovision feature of VMSS. Cyclecloud dynamically sets this value depending on the scenario. This value is an override.
-Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single VMSS. Once this maximum is reached, CycleCloud adds extra VMSS to the cluster. (Default: \`40\`)
+Azure.AllocationMethod  | String | Set this attribute to `StandAlone` to manage single VMs or leave undefined to use Virtual Machine Scale Sets.
+Azure.SingleScaleset  | Boolean | Use a single Virtual Machine Scale Set for all nodes (Default: false).
+Azure.SinglePlacementGroup | Boolean | Use the single placement group setting for the Virtual Machine Scale Set. (Default: false)
+Azure.Overprovision | Boolean | Use the Overprovision feature of Virtual Machine Scale Sets. Cyclecloud dynamically sets this value depending on the scenario. This value is an override.
+Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single Virtual Machine Scale Set. Once this maximum is reached, CycleCloud adds extra Virtual Machine Scale Sets to the cluster. (Default: \`40\`)
 InitialCount | Integer | Number of nodes to start when the cluster starts.
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes, specify a value of 10. Use MaxCount and MaxCoreCount together. The lower effective constraint takes effect.
 InitialCoreCount | Integer | Number of cores to start when the cluster starts.
@@ -254,11 +254,11 @@ ShutdownPolicy | String | Indicates what to do with the VM when a node shuts dow
 ::: moniker range=">=cyclecloud-8"
 Attribute | String | Definition
 ------ | ----- | ----------
-Azure.AllocationMethod  | String | Set this value to `StandAlone` to manage single VMs or leave it undefined to use VMSS.
-Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes (Default: false).
-Azure.SinglePlacementGroup | Boolean | Use the single placement group setting for the VMSS. (Default: false)
-Azure.Overprovision | Boolean | Use the Overprovision feature of VMSS. CycleCloud dynamically sets this value depending on the scenario. This setting acts as an override.
-Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single VMSS. Once this maximum is reached, CycleCloud adds extra VMSS to the cluster. (Default: \`40\`)
+Azure.AllocationMethod  | String | Set this value to `StandAlone` to manage single VMs or leave it undefined to use Virtual Machine Scale Sets.
+Azure.SingleScaleset  | Boolean | Use a single Virtual Machine Scale Set for all nodes (Default: false).
+Azure.SinglePlacementGroup | Boolean | Use the single placement group setting for the Virtual Machine Scale Set. (Default: false)
+Azure.Overprovision | Boolean | Use the Overprovision feature of Virtual Machine Scale Sets. CycleCloud dynamically sets this value depending on the scenario. This setting acts as an override.
+Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single Virtual Machine Scale Set. Once this maximum is reached, CycleCloud adds extra Virtual Machine Scale Sets to the cluster. (Default: \`40\`)
 InitialCount | Integer | Number of nodes to start when the cluster starts.
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes, specify a value of 10. Use MaxCount and MaxCoreCount together. The lower effective constraint takes effect.
 InitialCoreCount | Integer | Number of cores to start when the cluster starts.
@@ -269,7 +269,7 @@ ThrottleCapacityTime | Relative Time | Backoff time after receiving `Insufficien
 ::: moniker-end
 
 > [!NOTE]
-> All VMSSs are assigned `FaultDomainCount = 1`.
+> All Virtual Machine Scale Sets are assigned `FaultDomainCount = 1`.
 
 ### Inheritance
 

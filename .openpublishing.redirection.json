@@ -6559,6 +6559,11 @@
       "source_path": "articles/dns/dns-sdk.md",
       "redirect_url": "https://learn.microsoft.com/dotnet/api/overview/azure/resourcemanager.dns-readme",
       "redirect_document_id": false
+    },
+    { 
+      "source_path": "articles/oracle/oracle-db/exadata-vm-clusters.md",
+      "redirect_url": "/azure/oracle/oracle-db/database-overview",
+      "redirect_document_id": false
     }
     
   ]

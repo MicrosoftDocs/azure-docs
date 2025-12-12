@@ -7,12 +7,14 @@ ms.reviewer: sidandrews, yexu
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 10/31/2025
+ms.date: 12/08/2025
 ms.update-cycle: 1825-days
 ms.custom: cosmos-db
 ---
 
 # Azure Synapse Link for Azure Cosmos DB supported features
+
+[!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
 
 This article describes the functionalities that are currently supported in Azure Synapse Link for Azure Cosmos DB.
 

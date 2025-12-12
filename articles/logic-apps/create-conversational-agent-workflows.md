@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 11/18/2025
+ms.date: 12/12/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks by using AI agent loops, large language models (LLMs), natural language, and chat capabilities in my integration solutions.
 ---
@@ -31,9 +31,9 @@ This guide shows how to create a Consumption or Standard logic app using the **C
 
 ## Prerequisites
 
-Based on whether you want to create a Consumption or Standard logic app, the following prerequisites apply:
-
 - An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+Based on whether you want to create a Consumption or Standard logic app, the following prerequisites apply:
 
 ### [Consumption (preview)](#tab/consumption)
 
