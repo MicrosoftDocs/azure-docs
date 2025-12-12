@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 10/07/2025
+ms.date: 12/11/2025
 ms.author: rolyon
 
 ---
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| December 2025 | Classic administrators | Updates about automatic assignment to Owner role. See [Azure classic subscription administrators](classic-administrators.md). |
 | December 2025 | Roles | Added [Storage File Data SMB MI Admin](./built-in-roles/storage.md#storage-file-data-smb-mi-admin) role. |
 | November 2025 | Roles | Added [Storage File Data SMB Take Ownership](./built-in-roles/storage.md#storage-file-data-smb-take-ownership) role. |
 | November 2025 | Roles | Added [Storage File Data SMB Admin](./built-in-roles/storage.md#storage-file-data-smb-admin) role. |

@@ -19,6 +19,11 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## December 2025
+### FHIR service
+
+**Enhancement to $expand operation**: Added support for "context" parameter for [$expand](../fhir/fhir-expand.md) operation for US Core 6 IG support.
+
 ## October 2025
 ### FHIR service
 

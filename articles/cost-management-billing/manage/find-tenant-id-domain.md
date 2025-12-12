@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 07/27/2025
 ms.author: jkinma
 ms.custom: sfi-image-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Locate tenant ID and primary domain

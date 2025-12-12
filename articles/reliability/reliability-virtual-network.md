@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Virtual Network
-description: Learn how to ensure reliability in Azure Virtual Network by using availability zones, zone redundancy, multi-region deployments, and high resiliency for networking.
+description: Learn about resiliency in Azure Virtual Network, including resilience to transient faults, availability zone failures, and region-wide failures. Understand backup options and SLA details.
 author: asudbring
 ms.author: allensu
 ms.topic: reliability-article
@@ -13,25 +13,20 @@ ms.date: 05/20/2025
 
 # Reliability in Azure Virtual Network
 
-This article describes reliability support in Azure Virtual Network, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+[Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is a logical representation of your network in the cloud. You can use a virtual network to define your own private IP address space and segment the network into subnets. Virtual networks serve as a trust boundary to host your compute resources such as Azure Virtual Machines and load balancers.
 
-[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+[!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
 
-A virtual network is a logical representation of your network in the cloud. You can use a virtual network to define your own private IP address space and segment the network into subnets. Virtual networks serve as a trust boundary to host your compute resources such as Azure Virtual Machines and load balancers. A virtual network enables direct private IP communication between the resources that it hosts. To enable hybrid cloud scenarios and securely extend your datacenter into Azure, you can link a virtual network to an on-premises network through Azure VPN Gateway or Azure ExpressRoute. 
+This article describes how to make Virtual Network resilient to a variety of potential outages and problems, including transient faults, availability zone outages, and region outages. It also describes how you can use backups to recover from other types of problems, and highlights some key information about the Virtual Network service level agreement (SLA).
+
+> [!IMPORTANT]
+> This guide focuses on Azure virtual networks, which are only one component in your network architecture.
+>
+> From a reliability perspective, it's important that you consider each component in your solution individually and how they operate together. Many core Azure networking services provide high resiliency by default. However, you might need to consider how other network appliances, VMs, and other components can support your reliability needs. For more information about how other services support reliability, see [Azure service reliability guides](./overview-reliability-guidance.md).
 
 ## Production deployment recommendations
 
-As you build your virtual network in Azure, it's important to improve the reliability of your solution by keeping in mind the following universal design principles:
-
-- **Avoid overlapping address spaces.** Ensure that your virtual network address space, defined as a Classless Inter-Domain Routing (CIDR) block, doesn't overlap with your organization's other network ranges.
-
-- **Reserve address space for future growth.** Your subnets shouldn't cover the entire address space of the virtual network. Plan ahead and reserve some address space for the future.
-
-- **Consolidate your networks.** To reduce management overhead, use a few large virtual networks instead of multiple small virtual networks.
-
-- **Secure your networks.** Secure your virtual networks by assigning network security groups (NSGs) to the subnets beneath them.
-
-For more information about how to design your Azure virtual network with reliability principles in mind, see [Architecture best practices for Virtual Network](/azure/well-architected/service-guides/virtual-network).
+The Azure Well-Architected Framework provides recommendations across reliability, performance, security, cost, and operations. To understand how these areas influence each other and contribute to a reliable Virtual Network solution, see [Architecture best practices for Azure Virtual Network in the Azure Well-Architected Framework](/azure/well-architected/service-guides/virtual-network).
 
 ## Reliability architecture overview
 
@@ -49,26 +44,23 @@ A virtual network is one of several core networking components in Azure. When yo
 
 - Private endpoints, which provide private connectivity to Azure services and to resources outside of your virtual network
 
+A virtual network enables direct private IP communication between the resources that it hosts. To enable hybrid cloud scenarios and securely extend your datacenter into Azure, you can link a virtual network to an on-premises network through Azure VPN Gateway or Azure ExpressRoute.
+
 You might also deploy *appliances*, such as ExpressRoute gateways, VPN gateways, and firewalls. Appliances provide services to support your networking requirements, such as connecting to on-premises environments or providing sophisticated controls on traffic flow.
 
 Finally, you deploy your own components, like VMs that run applications or databases, and other Azure services that provide virtual network integration.
 
-> [!IMPORTANT]
-> This guide focuses on Azure virtual networks, which are only one component in your network architecture.
->
-> From a reliability perspective, it's important that you consider each component in your solution individually and how they operate together. Many core Azure networking services provide high resiliency by default. However, you might need to consider how other network appliances, VMs, and other components can support your reliability needs. For more information about how services support reliability, see [Azure service reliability guides](./overview-reliability-guidance.md).
-
 For more information about networking in Azure, see [Networking architecture design](/azure/architecture/networking/).
 
-## Transient faults
+## Resilience to transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Resilience to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 Transient faults don't usually affect virtual networks. However, transient faults might affect resources deployed within a virtual network. Review the [reliability guide for each resource](./overview-reliability-guidance.md) that you use to understand their transient fault handling behaviors.
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Resilience to availability zone failures](includes/reliability-availability-zone-description-include.md)]
 
 A virtual network and its subnets span all availability zones within the region where it's deployed. You don't have to configure anything to enable this support.
 
@@ -86,9 +78,9 @@ There's no extra cost for zone redundancy for Azure virtual networks.
 
 Zone redundancy is configured automatically when a virtual network is deployed in a region that supports availability zones.
 
-### Zone-down experience
+### Behavior during a zone failure
 
-Azure virtual networks are designed to be resilient to zone failures. When a zone becomes unavailable, Virtual Network automatically reroutes virtual network requests to the remaining zones. This process is seamless and doesn't require any action from you.
+Virtual Network is designed to be resilient to zone failures. When a zone becomes unavailable, Virtual Network automatically reroutes virtual network requests to the remaining zones. This process is seamless and doesn't require any action from you.
 
 However, any resources within the virtual network need to be considered individually, because each resource might have a different set of behaviors during the loss of an availability zone. Review the [reliability guide for each resource](./overview-reliability-guidance.md) that you use to understand their availability zone support and behavior when a zone is unavailable.
 
@@ -98,15 +90,15 @@ When the zone recovers, Microsoft initiates a failback process to ensure that vi
 
 However, you should verify the failback behaviors of any resources that you deploy within the virtual network. For more information, see the [reliability guide for each resource](./overview-reliability-guidance.md).
 
-### Testing for zone failures
+### Test for zone failures
 
 The Virtual Network platform manages traffic routing, failover, and failback for virtual networks across availability zones. Because this feature is fully managed, you don't need to validate availability zone failure processes.
 
-## Multi-region support
+## Resilience to region-wide failures
 
 Virtual Network is a single-region service. If the region becomes unavailable, your virtual network is also unavailable.
 
-### Alternative multi-region approaches
+### Custom multi-region solutions for resiliency
 
 You can create virtual networks in multiple regions. You can also choose to connect those networks by *peering* them together.
 
@@ -124,11 +116,13 @@ Virtual networks don't require a lot of resources to run. You can invoke Azure A
 
 For more information about a multi-region networking architecture for web applications, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Azure Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
-## Backups
+## Backup and restore
 
-Azure virtual networks don't store any data that requires backup. However, you can use Bicep, Azure Resource Manager templates, or Terraform to take a snapshot of the configuration of a virtual network if you need to recreate it. For more information, see [Create an Azure virtual network](../virtual-network/quickstart-create-virtual-network.md).
+Virtual networks don't store any data that requires backup. However, you can use Bicep, Azure Resource Manager templates, or Terraform to take a snapshot of the configuration of a virtual network if you need to recreate it. For more information, see [Create an Azure virtual network](../virtual-network/quickstart-create-virtual-network.md).
 
 ## Service-level agreement
+
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
 Because of the nature of the service provided, there isn't a defined service-level agreement for Virtual Network.
 

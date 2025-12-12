@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 10/27/2025
+  ms.date: 12/12/2025
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom: engagement-fy24
@@ -113,7 +113,10 @@ sections:
           Why is Cross Region Restore not supported when Public Network access is set to Deny?
         answer: |
           Cross Region Restore (CRR) replicates data from the primary to the secondary region using Geo-redundant storage (GRS) with CRR enabled. When you deny public access and use a private endpoint, the system expects data sync to occur over a private network. However, the secondary region currently doesn’t support private endpoint configuration, which is essential for replication. Without a private connection in the secondary region, CRR can't perform the required replication.
-
+      - question: |
+          When GRS is enabled can we restore the VM on to the dedicated zone?
+        answer: |
+          No, we cannot restore on to the dedicated zone.
   - name: Azure Backup agent
     questions:
       - question: |

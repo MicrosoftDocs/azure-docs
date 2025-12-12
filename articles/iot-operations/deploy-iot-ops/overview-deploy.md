@@ -18,9 +18,9 @@ When you deploy Azure IoT Operations, you install a suite of services on an Azur
 [!INCLUDE [supported-environments-table](../includes/supported-environments-table.md)]
 
 > [!NOTE]
-> Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
+> Billing usage records are collected on any environment where you install Azure IoT Operations, regardless of support or availability levels.
 
-To install Azure IoT Operations, have the following hardware requirements available for Azure IoT Operations. If you're using a multi-node cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
+To install Azure IoT Operations, you need to have the following hardware requirements available. If you're using a multinode cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
 
 | Spec | Minimum | Recommended |
 |------|---------|-------------|
@@ -43,7 +43,7 @@ A deployment with only test settings has the following characteristics:
 * It's designed to enable the end-to-end quickstart sample for evaluation purposes, so it supports the OPC PLC simulator and connects to cloud resources by using system-assigned managed identity.
 * You can upgrade it to use secure settings.
 
-For a quickstart experience, you can use the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) scenario. This scenario uses a lightweight Kubernetes distribution (K3s) and runs in GitHub Codespaces, so you don't need to set up a cluster or install any tools locally.
+For a quickstart experience, use the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) scenario. This scenario uses a lightweight Kubernetes distribution (K3s) and runs in GitHub Codespaces, so you don't need to set up a cluster or install any tools locally.
 
 To deploy Azure IoT Operations with test settings, follow these articles:
 
@@ -91,7 +91,7 @@ If you use the Azure portal to assign privileged admin roles to a user or princi
 
 ## Organize instances by using sites
 
-Azure IoT Operations supports Azure Arc sites for organizing instances. A _site_ is a cluster resource in Azure like a resource group, but sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and scopes them to a subscription or resource group. Then, any Azure IoT Operations deployed to an Arc-enabled cluster is automatically collected in the site associated with its subscription or resource group
+Azure IoT Operations supports Azure Arc sites for organizing instances. A _site_ is a cluster resource in Azure like a resource group, but sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and scopes them to a subscription or resource group. Then, any Azure IoT Operations deployed to an Arc-enabled cluster is automatically collected in the site associated with its subscription or resource group.
 
 For more information, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview)
 
@@ -108,18 +108,20 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
 
   You need `graph.windows.net`, `*.azurecr.io`, `*.blob.core.windows.net`, and `*.vault.azure.net` from this endpoint list.
 
-* The following endpoints are required specifically for Azure IoT Operations:
-
-  |Endpoints (DNS) | Description |
-  |-|-|
-  | `<customer-specific>.blob.core.windows.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
-
 * To push data to the cloud, enable the following endpoints based on your choice of data platform.
 
   * Microsoft Fabric OneLake: [Add Fabric URLs to your allowlist](/fabric/security/fabric-allow-list-urls#onelake).
   * Event Hubs: [Troubleshoot connectivity issues - Azure Event Hubs](/azure/event-hubs/troubleshooting-guide).
   * Event Grid: [Troubleshoot connectivity issues - Azure Event Grid](/azure/event-grid/troubleshoot-network-connectivity).
   * Azure Data Lake Storage Gen 2: [Storage account standard endpoints](/azure/storage/common/storage-account-overview#standard-endpoints).
+
+* Azure IoT Operations uses a cloud-based schema registry that requires access to a customer-provided Azure Blob Storage container. For the schema registry to access the container, the container must expose a public endpoint or designate the Azure Device Registry schema registry (`Microsoft.DeviceRegistry/schemaRegistries`) as a [trusted Azure service](/azure/storage/common/storage-network-security-trusted-azure-services#trusted-access-based-on-a-managed-identity). This doesn't impact any customer firewall or proxy configurations at the edge. To learn more, see [Schema registry and storage](concept-production-guidelines.md#schema-registry-and-storage).
+
+  |Endpoints (DNS) | Description |
+  |-|-|
+  | `<customer-specific>.blob.core.windows.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+
+
 
 ## Data residency
 

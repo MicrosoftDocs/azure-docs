@@ -105,7 +105,9 @@ A lifecycle management policy will not delete the current version of a blob unti
 
 All run conditions are time-based. If the number of days that have transpired exceeds the number specified for the condition, then the associated action can execute. Policy conditions are assessed on each object only once during a policy run. In some cases, an object might meet the condition after it was already assessed by a run. Such objects are processed in subsequent runs.
 
-Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age. 
+Lifecycle policies evaluate a rule based on properties of that individual version only. They do not have the ability to examine properties of other versions of that blob to act upon the target blob. 
+
+Current versions use the last modified time or last access time of that version. Rules for previous versions use the creation time of that version when the blob was first written (not when the version became a previous version). Rules for blob snapshots use the time at which the snapshot was created.  
 
 The following table describes each action run condition.
 

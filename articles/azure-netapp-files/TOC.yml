@@ -489,6 +489,8 @@
         href: create-cross-zone-replication.md
     - name: Configure cross-zone-region replication 
       href: cross-zone-region-replication-configure.md
+    - name: Configure ransomware protection 
+      href: ransomware-configure.md
   - name: Relocate
     items:
     - name: Relocate volume to another region

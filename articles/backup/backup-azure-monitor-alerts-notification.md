@@ -22,6 +22,9 @@ To configure notifications for Azure Monitor alerts, create an [alert processing
 
 1. Send alerts to the notification channel of your choice using action groups as part of the alert processing rules. Learn [how to create action groups](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal).
 
+>[!Note]
+>To send notifications for an alert to multiple email addresses, you can select multiple **email** notifications during the action group configuration.
+
 ## Suppress notifications during a planned maintenance window
 
 For certain scenarios, you might want to suppress notifications for a particular window of time when backups are going to fail. This is especially important for database backups, where log backups could happen as frequently as every 15 minutes, and you don't want to receive a separate notification every 15 minutes for each failure occurrence. In such a scenario, you can create a second alert processing rule that exists alongside the main alert processing rule used for sending notifications. The second alert processing rule won't be linked to an action group, but is used to specify the time for notification types that should be suppressed.

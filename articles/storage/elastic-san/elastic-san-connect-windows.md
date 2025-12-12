@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN volume by using the Wi
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 11/10/2025
+ms.date: 12/02/2025
 ms.author: rogarana
 ms.custom: references_regions
 ---
@@ -12,37 +12,74 @@ ms.custom: references_regions
 
 This article explains how to connect a Windows client to an Azure Elastic SAN volume. For details on connecting from a Linux client, see [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md).
 
-There are two connection options:
+There are two ways to connect:
 
-- Elastic SAN VM extension– Use when deploying new VMs or Virtual Machine Scale Sets to automatically set up SAN connectivity for all instances. Ideal for large-scale, uniform environments, onboarding via the Azure portal, or when you want minimal manual steps.
-- Manual connect script – Use for existing VMs, advanced configurations, or when you need custom parameters (like specific session counts or unique volume mappings). Best for one-off setups or troubleshooting.
-
-Choose the option that best fits your deployment scenario. Both approaches require a deployed Elastic SAN resource and configured volume groups.
-
-## Connect during VM deployment using the Elastic SAN VM extension
-
-When you deploy a VM or a Virtual Machine Scale Set, you can use an Elastic SAN VM extension to greatly simplify the setup and configuration process for an Elastic SAN with that VM or the Virtual Machine Scale Set. When you apply the extension at the Virtual Machine Scale Set level, it ensures that all VMs in that scale set have uniform connectivity to your Elastic SAN. If you're going to create new infrastructure for an Elastic SAN, use the VM extension to configure the connections to your Elastic SAN.
-
+- Elastic SAN VM Extension: Ideal for new virtual machines (VMs) or Virtual Machine Scale Sets. The extension enables automated, consistent SAN connectivity at deployment time via the Azure portal, or when you want minimal manual steps. 
+- Manual Connect Script: Ideal for existing VMs, advanced customizations, or troubleshooting, where you need to run scripts directly. 
 
 ### Prerequisites
-
-- [Deploy an Elastic SAN](elastic-san-create.md)
+Before using the VM extension, ensure you have completed the following: 
+- [Deploy an Elastic SAN](elastic-san-create.md).
+- Create and configure at least one volume group and one volume within your Elastic SAN. 
 - Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
-  
-### How to Use the VM Extension
-#### During VM Creation
+- Obtain the Volume IQN:    
+  - The IQN (iSCSI Qualified Name) for each volume is required to establish the connection.  
+  - Currently, the Azure portal doesn't display the volume IQN directly. Take a note of it when you create the Elastic SAN. You can run `az elastic-san volume show --name <volume-name> --resource-group <rg-name> --elastic-san-name <esan-name>` or use the corresponding PowerShell cmdlet to fetch the IQN.  
+  - Document and save the IQN(s) and target portal name for all volumes you plan to connect.
+
+## Connect using the Elastic SAN VM extension  
+
+Use the Elastic SAN VM extension when you want to automate the connection process from the Azure portal. You can use the extension in two ways: 
+
+- **During VM creation**: Connect as part of provisioning. 
+- **After VM deployment**: Connect or disconnect from an existing VM or ARM deployment script to deploy for multiple VMs at scale 
+
+### What the VM extension configures
+
+When you configure the extension with a **Connect** command, it ensures that: 
+- The iSCSI service is enabled and running. 
+- Multipath I/O (MPIO) is installed and configured. 
+- The specified Elastic SAN volumes are connected using the volume IQNs, target portal addresses, and session count(s) that you provide. For multiple volumes, there should be a 1:1 mapping between each volume and its portal address, and each volume establishes exactly the number of sessions you specify. 
+
+When you configure the extension with a **Disconnect** command, it: 
+- Disconnects the specified volumes. 
+- Cleans up the corresponding entries from the persistent target database in line with the existing disconnection scripts. 
+
+> [!NOTE]
+> The extension only acts on the parameters you provide. For multiple volumes or IQNs, these should be entered as comma-separated values (e.g., volume1, volume2, volume3 and corresponding IQNs). You must also specify the session count (for connect). The extension doesn't infer or maintain a history of prior connections. 
+
+### Install and configure the VM extension during VM creation 
+
+Use this path when you’re creating a new VM and want it to deploy while already connected to an Elastic SAN: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Create a new VM, fill in all the required values, and navigate to the **Extensions tab** during VM deployment.
-1. Select the **Elastic SAN VM extension** from the Marketplace.
-1. Fill in the required parameters for the Elastic SAN's name, the volume group name, the number of sessions, and the connection mode.
-- After the VM is deployed, navigate to that VM's **Extensions + applications** and update any settings as needed.
+1. Fill in the required fields on **Basics**, **Disks**, and **Networking**. 
+1. Navigate to **Extensions + applications** during VM creation. 
+1. Select **Add** and search for the **Elastic SAN Extension for Windows** in the Marketplace tiles. 
+1. Select the extension to open its configuration panel.
+1. On the configuration page, provide the required connection parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal address(es)** and **Sessions per target**.
+1. Proceed to **Review+ create**.
+1. Select **Create** to finish VM creation.
 
-#### Post-deployment configuration
+Once the VM deploys successfully, the extension runs automatically and: 
+- Enables iSCSI and MPIO if needed. 
+- Initiates the requested connections to your Elastic SAN volumes using the IQNs and session count you provided. 
 
+If any validation or connection step fails (e.g., invalid resource name, unreachable volume group subnet, or session limit exceeded), the extension status in the portal reflects the failure including an error message, and guides you through troubleshooting.
 
+### Install and configure the VM extension on an existing VM
 
+Use this path when the VM is already deployed and you want to connect or disconnect Elastic SAN volumes from the portal. 
 
+1. In the Azure portal, navigate to your Windows VM. 
+1. Under Settings, select **Extensions + applications**.   
+1. Select **Add** and search for the **Elastic SAN Extension for Windows** or open the existing Elastic SAN extension instance if already installed. 
+1. Choose **Configure / Reconfigure**. 
+1. In the extension configuration panel, select either **Connect** or **Disconnect** and then provide the required parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal address(es)** and **Sessions per target** (for Connect only). 
+  1. Apply the configuration.
+
+> [!NOTE]
+> Reconfiguring the VM extension does not reboot the VM and does not automatically alter existing connections unless you explicitly request a disconnect. The extension simply executes the newly requested connect or disconnect operation. 
 
 
 ## Manually connect to Elastic SAN volumes
@@ -121,7 +158,7 @@ You need to use 32 sessions to each target volume to achieve its maximum IOPS an
 
 
 ```bash
-.\connect.ps1 ` 
+.\connect.ps1 `
 
   -ResourceGroupName "<resource-group>" ` 
 
@@ -130,13 +167,6 @@ You need to use 32 sessions to each target volume to achieve its maximum IOPS an
   -VolumeGroupName "<volume-group>" ` 
 
   -VolumeName "<volume1>", "<volume2>" ` 
-
-  -NumSession “<value>”
-
-## Next steps
-
-[Configure Elastic SAN networking](elastic-san-networking.md)
-
 
   -NumSession “<value>”
 ```

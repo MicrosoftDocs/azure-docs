@@ -8,7 +8,7 @@ ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/23/2025
 # customer intent: As a developer, I want to access reference information about the .NET feature management library so that I can control feature availability in my app without redeploying the app.
 ---
@@ -1316,6 +1316,9 @@ The `telemetry` section of a feature flag has the following properties:
 | ---------------- | ---------------- |
 | `enabled` | A Boolean value that specifies whether telemetry should be published for the feature flag. |
 | `metadata` | A collection of key-value pairs, modeled as a dictionary, that you can use to attach custom metadata about the feature flag to evaluation events. |
+
+> [!NOTE]
+> When you use the .NET configuration provider with Azure App Configuration, [additional telemetry metadata](./reference-dotnet-provider.md#feature-flag-telemetry) is added to feature flag evaluation when telemetry is enabled.
 
 ### Custom telemetry publishing
 

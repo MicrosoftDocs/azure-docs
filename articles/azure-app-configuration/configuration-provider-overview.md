@@ -48,30 +48,30 @@ This is an overview of each feature and its current status for different framewo
 
 Feature | .NET | Spring | Kubernetes | Python | JavaScript | Go |
 ------- | ---- | ------ | ---------- | ------ | ---------- | -- |
-Connection String Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | GA 
-Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | GA 
-Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sentinel-key) | GA | GA | GA | [GA](./reference-javascript-provider.md#refresh-on-sentinel-key) | GA
+Connection String Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | [GA](./reference-go-provider.md#load-configuration)
+Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | [GA](./reference-go-provider.md#load-configuration)
+Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sentinel-key) | GA | GA | GA | [GA](./reference-javascript-provider.md#refresh-on-sentinel-key) | [GA](./reference-go-provider.md#refresh-on-sentinel-key)
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A | N/A
-Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | GA
-JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
-JSON with Comments | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
+Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | [GA](./reference-go-provider.md#configuration-refresh)
+JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | [GA](./reference-go-provider.md#json-content-type-handling)
+JSON with Comments | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | [GA](./reference-go-provider.md#json-content-type-handling)
 Configuration Setting Mapping | [GA](./reference-dotnet-provider.md#configuration-setting-mapping) | N/A | N/A | N/A | N/A | N/A
-Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
-Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#key-vault-secret-refresh) | GA
-Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
+Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | [GA](./reference-go-provider.md#key-vault-reference)
+Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#key-vault-secret-refresh) | [GA](./reference-go-provider.md#key-vault-secret-refresh)
+Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | [GA](./reference-go-provider.md#custom-secret-resolver)
 Parallel Secret Resolution | WIP | N/A | WIP | N/A | [GA](./reference-javascript-provider.md#parallel-secret-resolution) | GA
-Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
-Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | Preview | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
-Feature Flag Telemetry | GA | Preview | GA | GA | GA | WIP
-Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | GA
-Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | GA
-Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
-Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
-Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
-Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | GA
+Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | [GA](./reference-go-provider.md#feature-flags)
+Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | Preview | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | [GA](./reference-go-provider.md#feature-flags)
+Feature Flag Telemetry | [GA](./reference-dotnet-provider.md#feature-flag-telemetry) | Preview | GA | GA | GA | WIP
+Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | [GA](./reference-go-provider.md#trim-prefix-from-keys)
+Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | [GA](./reference-go-provider.md#startup-retry)
+Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
+Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
+Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
+Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | [GA](./reference-go-provider.md#snapshot)
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
 Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | N/A 
-Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | GA | GA | [GA](./reference-javascript-provider.md#tag-filters) | GA 
+Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | GA | GA | [GA](./reference-javascript-provider.md#tag-filters) | [GA](./reference-go-provider.md#tag-filters)
 Snapshot Reference | [GA](./reference-dotnet-provider.md#snapshot-reference) | WIP | WIP | WIP | WIP | WIP
 
 ## Support policy

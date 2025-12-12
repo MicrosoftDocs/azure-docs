@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/20/2025
+ms.date: 11/25/2025
 ms.author: anfdocs
 # Customer intent: As a cloud storage administrator, I want to analyze performance and usage metrics for Azure NetApp Files, so that I can optimize storage provisioning and ensure efficient operation of my storage resources.
 ---
@@ -184,6 +184,10 @@ Subscription quota metrics display subscription-level quotas relative to the imp
 - *Short-term clone volumes per subscription*
 
     Total number of short-term clone volumes per subscription
+
+- *Ransomware protection volumes per subscription*
+
+    Total number of volumes protected with advanced ransomware protection per subscription
 
 - *Total TIBs per subscription* 
 

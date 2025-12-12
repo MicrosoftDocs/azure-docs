@@ -19,6 +19,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## December 2025
 
+* [Advanced ransomware protection](ransomware-configure.md) (preview)
+
+    Azure NetApp Files advanced ransomware protection is designed to help organizations proactively detect, respond to, and recover from ransomware threats on cloud volumes. Advanced ransomware protection monitors Azure NetApp Files volumes for suspicious activity using file extension profiling, entropy, and I/OPS patterns. When a threat is detected, the system creates a point-in-time snapshot, enabling rapid evaluation and recovery. Notifications are sent through the Azure Activity log, and attack reports are retained for 30 days. Advanced ransomware protection is currently in preview. 
+    
 * [Cross-zone-region replication](cross-zone-region-replication-configure.md) is now generally available (GA)
 
     [Cross-zone-region replication](replication.md#cross-zone-region-replication) builds on the existing capabilities of cross-region replication and cross-zone replication. It enables you to replicate volumes across regions and across availability zones within the same region, combining disaster recovery and business continuance capabilities for volumes. To establish two protection volumes, you can create a cross-zone replication relationship and a cross-region replication relationship _or_ two cross-region replication relationships _or_ two cross-zone replication relationships. The source volume must in an availability zone for the cross-zone replication relationship. Cross-zone-region replication is now generally available.

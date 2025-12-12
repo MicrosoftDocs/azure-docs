@@ -51,7 +51,7 @@ Use zonal resources only when there's a clear need. Typical reasons for a single
 
 A few Azure services only support zonal deployments and don't provide zone-redundant deployments.
 
-[VMs](./reliability-virtual-machines.md#availability-zone-support) are a zonal resource. You can use virtual machine scale sets to create sets of VMs. Virtual Machine Scale Sets can be made zone-spanning, which means that the VMs in the set are spread across multiple zones. Scale sets are a good way to achieve zone resiliency for many VM-based workloads.
+[VMs](./reliability-virtual-machines.md#resilience-to-availability-zone-failures) are a zonal resource. You can use virtual machine scale sets to create sets of VMs. Virtual Machine Scale Sets can be made zone-spanning, which means that the VMs in the set are spread across multiple zones. Scale sets are a good way to achieve zone resiliency for many VM-based workloads.
     
 > [!TIP]
 > If you deploy multiple VMs that do similar functions, we recommend that you use zone-spanning scale sets instead of single-instance VMs that you deploy individually.

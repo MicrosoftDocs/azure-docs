@@ -17,10 +17,40 @@ ms.custom:
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## December 2025
+### FHIR service
+
+**Enhancement to $expand operation**: Added support for "context" parameter for [$expand](./fhir/fhir-expand.md) operation for US Core 6 IG support.
+
+**Enhancement to SMART v2**: Enabled support for _include and _revinclude searches when using [SMART v2](./fhir/smart-on-fhir.md) granular scopes.
+
+#### Bug fixes:
+
+**Bug fix for PUT request with new search parameters**: Resolved issue where PUT requests for new search parameters were failing due to validation. This issue has been resolved, and PUT requests for search parameters should now properly work as upserts, allowing new search parameters to be inserted using PUT if  the search parameter doesn't already exist in the system.
+
+**Bug fix for PUT regression with metadata-only updates**: Resolved issue where metadata-only updates made via PATCH incremented the resource version without preserving the previous version. This issue was resolved on November 28, 2025.
+
+## November 2025
+### FHIR service
+
+**Metadata-only updates and versioning configuration**: Introduced new query parameter "_meta-history" for PUT updates when versioning policy is set to either "versioned" or "version-update" to configure whether or not the old version is saved as a historical record. "_meta-history = true" is the default. By default, the resource version is incremented, a new version is created, and the old version is saved as a historical record. "_meta-history=false" can be configured so that the resource version is incremented, a new version is created, but the old version is not saved as a historical record. For more information, visit [metadata-only updates and versioning](./fhir/fhir-versioning-policy-and-history-management.md#metadata-only-updates-and-versioning).
+
+**Composite search parameter collation fix**:  Corrected inconsistent collation handling for Token-String composite search parameters.
+
 ## October 2025
 ### FHIR service
 
+#### Bulk Delete with references is in GA
+We are excited to announce that Bulk Delete with references is GA. This feature enables customers to efficiently remove large sets of reference data in a single operation,  simplifying data retention workflows. For more information, visit [`$bulk-delete`](./fhir/fhir-bulk-delete.md).
+
+#### Support for US Core 6 and USCDI v3 
+The FHIR service now supports US Core Implementation Guide version 6.1.0 and USCDI v3 standards. For more information, visit [`US Core`](./fhir/us-core.md).
+
 **Enhancement to _not-referenced search and delete**: Adds the ability to use not referenced search and delete to look for the lack of specific references. For example, to search for Patients without an Encounter listing them as a subject: /Patient?_not-referenced=Encounter:subject.
+
+**Reindex job processing improvements**: Made improvements to reindex job processing, including improving background job reliability and flexibility by refining cache refresh timing and enhancing reindex job handling. This includes a change where Create, Update, Delete, and Patch changes to custom search parameters while a reindex job is running will no longer be allowed.
+
+**Reindex improvements**: Updates to reindex, including more robust loading of soft-deleted search parameters, better logging, and performance improvements in filtering and status updates.
 
 #### Bug fixes:
 

@@ -38,9 +38,9 @@ When you create a new API Management instance in the **Premium** tier in a regio
 > [!IMPORTANT]
 > To ensure the reliability of your API Management instance, use the automatic availability zone support. To achieve maximum zone redundancy, deploy a minimum of two units in each region where you deploy API Management to ensure that an availability zone outage doesn't affect your instance. For more information, see [Reliability in API Management](../reliability/reliability-api-management.md).
 
-## Manual availability zone support
+### Manual availability zone support
 
-We recommend automatic availability zone configuration, but you can manually configure or update availability zones for an existing location of your API Management instance. The following sections provide steps for manually configuring zone redundancy on an existing location of your API Management instance, depending on whether the instance is injected in a virtual network.
+We recommend automatic availability zone configuration in the Premium tier, but you can manually configure or update availability zones for an existing location of your API Management instance. The following sections provide steps for manually configuring zone redundancy on an existing location of your API Management instance, depending on whether the instance is injected in a virtual network.
 
 > [!NOTE]
 > You can optionally enable a *zonal* configuration, where the API Management instance or location is deployed in a single availability zone. Because it doesn't provide resiliency to an outage in that zone, this configuration generally isn't recommended except for specific scenarios. For more information, see [Reliability in API Management](../reliability/reliability-api-management.md).

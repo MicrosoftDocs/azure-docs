@@ -6,7 +6,7 @@ manager: pmwongera
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 12/11/2025
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: sfi-image-nochange
@@ -15,7 +15,7 @@ ms.custom: sfi-image-nochange
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. Starting on **April 30, 2025**, any Co-Administrator or Service Administrator role assignments will lose access. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately. Starting in **December 2025**, Azure will begin to automatically assign the Owner role at subscription scope to users in the public cloud who are still assigned the Co-Administrator or Service Administrator role.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). If you're still using the classic deployment model, you'll need to migrate your resources from classic deployment to Resource Manager deployment. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -27,9 +27,9 @@ What happens to classic administrator role assignments after August 31, 2024?
 
 - Co-Administrator and Service Administrator roles are retired and no longer supported. You should convert these role assignments to Azure RBAC immediately.
 
-What happens to classic administrator role assignments after April 30, 2025?
+What happens to classic administrator role assignments after December 2025?
 
-- Co-Administrator and Service Administrator role assignments will lose access. If you don't have an Owner role assignment at subscription scope, you will lose access to manage the subscription.
+- Azure will begin to automatically assign the Owner role at subscription scope to users in the public cloud who are still assigned the Co-Administrator or Service Administrator role. For more information, see [Automatic assignment to Owner role](#automatic-assignment-to-owner-role).
 
 How do I know what subscriptions have classic administrators?
 
@@ -58,6 +58,17 @@ What should I do if I lose access to a subscription?
     - Follow steps to [elevate access to manage all subscriptions in a tenant](elevate-access-global-admin.md).
     - Assign the Owner role at subscription scope for a user.
     - Remove elevated access.
+
+## Automatic assignment to Owner role
+
+Starting in December 2025, if you don't take any action and you still have classic administrators in the public cloud, Azure will begin to automatically assign the classic administrators the Owner role at subscription scope. These role assignments will have the following properties:
+
+- description: `The Classic Admin role was converted to an Azure Owner role on behalf of the user due to Classic Admin retirement`
+- createdBy: `0469d4cd-df37-4d93-8a61-f8c75b809164`
+
+:::image type="content" source="./media/classic-administrators/classic-administrator-owner-description.png" alt-text="Screenshot of Access control (IAM) page that shows the description for an Owner role assignment that was automatically assigned." lightbox="./media/classic-administrators/classic-administrator-owner-description.png":::
+
+If Azure automatically assigns the Owner role, it **doesn't** automatically remove the classic administrator role assignment. You should remove this classic administrator role assignment. For steps on how to remove this role assignment, see [remove Co-Administrator](#how-to-remove-a-co-administrator). If you don't want the Owner role assignment, you must remove both the Owner and Co-Administrator role assignments to remove access for the user.
 
 ## List classic administrators
 
@@ -134,6 +145,8 @@ If you still have classic administrators, use the following steps to help you co
     :::image type="content" source="media/classic-administrators/user-not-found.png" alt-text="Screenshot of user not found in directory and with Co-Administrator role." lightbox="media/classic-administrators/user-not-found.png":::
 
 1. After reviewing activity of user, if user is no longer active, [remove Co-Administrator](#how-to-remove-a-co-administrator).
+
+1. If user already has the [Owner](built-in-roles.md#owner) role assignment, [remove Co-Administrator](#how-to-remove-a-co-administrator).
 
 ### Step 3: Convert Co-Administrators to job function roles
 

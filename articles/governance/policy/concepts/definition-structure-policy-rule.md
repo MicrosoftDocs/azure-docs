@@ -82,6 +82,8 @@ A condition evaluates whether a value meets certain criteria. The supported cond
 
 For `less`, `lessOrEquals`, `greater`, and `greaterOrEquals`, if the property type doesn't match the condition type, an error is thrown. String comparisons are made using `InvariantCultureIgnoreCase`.
 
+When using the `contains` and `notContains` conditions, the wildcard character (`*`) cannot be provided in the value.
+
 When using the `like` and `notLike` conditions, you provide a wildcard character (`*`) in the value. The value shouldn't have more than one wildcard character.
 
 When using the `match` and `notMatch` conditions, provide a hashtag (`#`) to match a digit, question mark (`?`) for a letter, and a dot  (`.`) to match any character, and any other character to match that actual character. While `match` and `notMatch` are case-sensitive, all other conditions that evaluate a `stringValue` are case-insensitive. Case-insensitive alternatives are available in `matchInsensitively` and `notMatchInsensitively`.

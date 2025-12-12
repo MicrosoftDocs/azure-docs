@@ -90,7 +90,7 @@ Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving
 
 To change the redundancy configuration for a storage account that contains blobs in the archive tier, you must first rehydrate all archived blobs to the hot, cool, or cold tier. Because rehydration operations can be costly and time-consuming, Microsoft recommends that you avoid changing the redundancy configuration of a storage account that contains archived blobs.
 
-Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 14 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
+Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. 
 
 ## Default account access tier setting
 

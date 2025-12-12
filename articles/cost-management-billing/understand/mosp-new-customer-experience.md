@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 11/11/2025
 ms.author: jkinma
 ms.custom: sfi-image-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Get started with your updated Azure billing account

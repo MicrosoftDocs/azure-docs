@@ -60,9 +60,6 @@ An installation package is available only for Linux. For all other operating sys
 
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
-> [!NOTE]
-> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
-
 ### Add AzCopy to your system path
 
 For convenience, consider adding the directory location of the AzCopy executable to your system path. That way you can type `azcopy` from any directory on your system. If you don't add the AzCopy directory to your path, you need to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in a command shell.
@@ -170,17 +167,6 @@ See any of the following resources:
 - [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
 
 <a id="previous-version"></a>
-
-## Use a previous version (deprecated)
-
-If you need to use a previous version of AzCopy, see either of the following links:
-
-- [AzCopy on Windows (v8)](/previous-versions/azure/storage/storage-use-azcopy)
-
-- [AzCopy on Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
-
-> [!NOTE]
-> These versions of AzCopy are deprecated. Microsoft recommends using AzCopy v10.
 
 ## Next steps
 
