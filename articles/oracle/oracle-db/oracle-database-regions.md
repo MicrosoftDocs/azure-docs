@@ -49,7 +49,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 |------------|--|--------------------------|------------------------------| ------| ---- | ---- |----|-------|
 | France Central       |France central (Paris) | ✓   | ✓ | ✓ | ✓ | | |  Dual |
 | France South | France South (Marseille) |  ✓  | | | | | |   Single   |
-| Germany North |Germany Central (Frankfurt) | ✓  | ✓ | | | | |   Single    |
+| Germany North |Germany Central (Frankfurt) | ✓  | ✓ | ✓ | | | |   Single    |
 | Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓ | ✓ | ✓ | ✓ | Dual |
 | Italy North | Italy North (Milan)   | ✓   | ✓   | ✓ |  ✓ | ✓ | ✓ | Dual |
 | North Europe | Ireland (Dublin) | ✓  | ✓ |   | | | |   Dual   |
