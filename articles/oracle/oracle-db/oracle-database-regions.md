@@ -40,6 +40,8 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Azure region | OCI region                 | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
 | ------------ | -------------------------- | ----------------------------- | -------------------------------- | ------------------------------------------------- | --------------------------------------------------------- | ------ | --------------------- |-------|
 | Brazil South | Brazil Southeast (Vinhedo) | ✓    | ✓      | ✓   | ✓     | ✓  |    | Dual   |
+| Brazil Southeast | Brazil East (Rio de Janeiro) | ✓    |       |    |      |   |    | Single   |
+
 
 ## Europe, Middle East, Africa (EMEA)
 
