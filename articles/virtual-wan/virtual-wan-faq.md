@@ -610,6 +610,9 @@ We recommend aggregating the prefixes before advertising them over ExpressRoute 
 
 Yes. The routes that Virtual WAN hub advertises to resources deployed in connected spoke Virtual Networks are routes of type Border Gateway Protocol (BGP). If a user-defined route table is associated to a subnet connected to Virtual WAN, the "Propagate Gateway Routes" setting **must** be set to "Yes"  for Virtual WAN to advertise  to resources deployed in that subnet. Azure's underlying software-defined networking platform uses the following algorithm to select routes based on the [Azure route selection algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
+###  Why do I face connectivity issues after advertising Azure routes back into Azure?
+If you plan to remove Azure BGP communities from virtual network and UDR routes, don't advertise these routes back into Azure, as this causes routing issues. We don't recommend advertising Azure routes back into Azure.
+
 ## Next steps
 
 For more information about Virtual WAN, see [About Virtual WAN](virtual-wan-about.md).

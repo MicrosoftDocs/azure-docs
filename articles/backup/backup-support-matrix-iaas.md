@@ -76,7 +76,7 @@ Here's what's supported if you want to back up Linux machines.
 
 **Action** | **Support**
 --- | ---
-Back up Linux Azure VMs with the Linux Azure VM agent | Supported for file-consistent backup.<br/><br/> Also supported for app-consistent backup that uses [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
+Back up Linux Azure VMs with the Linux Azure VM agent | Supported for file-consistent backup.<br/><br/> Also supported for app-consistent backup that uses [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.<br/><br/> *Note: Azure Backup requires the /var and /var/lib directories on Linux machines not to be mounted with the noexec flag. Certain backup operations rely on executing helper scripts from /var/lib, and enforcing noexec prevents these components from running.*
 [Back up Azure VM directly by using agentless crash-consistent backup](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md) | Agentless crash-consistent backups are operating system agnostic.
 Back up Linux Azure VMs with the MARS agent | Not supported.<br/><br/> The MARS agent can be installed only on Windows machines.
 Back up Linux Azure VMs with DPM or MABS | Not supported.

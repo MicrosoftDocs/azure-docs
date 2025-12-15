@@ -22,7 +22,7 @@ This article describes how to make Table Storage resilient to a variety of poten
 > [!NOTE]
 > Table Storage is part of the Azure Storage platform. Some of the capabilities of Table Storage are common across many Azure Storage services. In this article, we use *Azure Storage* or *Storage* to refer to these common capabilities.
 
-## Production deployment recommendations
+## Production deployment recommendations for reliability
 
 For production environments, take the following actions:
 

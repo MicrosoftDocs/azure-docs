@@ -38,7 +38,7 @@ Before you begin, complete the Azure VM assessment in Azure Migrate either throu
 
 Follow the steps to generate Infrastructure as Code (IaC) for your assessed workloads or applications in Azure Migrate:
 
-1. Open the assessment report in the Azure Migrate portal after you complete the workload or application assessment.
+1. Go to the assessment report in the Azure Migrate portal after you complete the workload or application assessment.
 1. Select **Generate IaC** at the top of the report to start the code generation process.
 
 
@@ -69,7 +69,7 @@ Follow the steps to generate Infrastructure as Code (IaC) for your assessed work
 
 :::image type="content" source="./media/server-redeploy/generate-code.png" alt-text="The screenshot shows how to select Generate Code after review is complete." lightbox="./media/server-redeploy/generate-code.png":::
 
-11. When the download completes, extract the ZIP file and open the folder in an IDE such as **Visual Studio Code** to explore the generated code.
+11. When the download completes, extract the ZIP file and go to the folder in an IDE such as **Visual Studio Code** to explore the generated code.
 
 ## Deploy the IaaS application IaC 
 

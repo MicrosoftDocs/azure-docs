@@ -56,7 +56,7 @@ A few Azure services only support zonal deployments and don't provide zone-redun
 > [!TIP]
 > If you deploy multiple VMs that do similar functions, we recommend that you use zone-spanning scale sets instead of single-instance VMs that you deploy individually.
 
-Another example is [Azure NetApp Files](./reliability-netapp-files.md#availability-zone-support), which supports the deployment of volumes into a single zone. The service also provides a way for you to replicate between multiple zonal volumes.
+Another example is [Azure NetApp Files](./reliability-netapp-files.md#resilience-to-availability-zone-failures), which supports the deployment of volumes into a single zone. The service also provides a way for you to replicate between multiple zonal volumes.
 
 Some services provide options that are available only in specific zones. For example, specific VM types that use advanced graphics processing units (GPUs) might be available only in specific zones within a region, which means that they can't be deployed across multiple zones. To check which regions and zones support the VM types that you need, use the following resources:
 

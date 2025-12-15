@@ -25,7 +25,7 @@ Integrating CAST Highlight with Azure Migrate allows you to import code-level in
 
 ## Steps to Add CAST Highlight Code Insights in Azure Migrate
 
-1. **Open Azure Migrate & Select Application**
+1. **Go to Azure Migrate & Select Application**
    - In the Azure Migrate portal, navigate to your project.
    - Go to **Servers, Databases & Web Apps > Applications** (under **Discovery and Assessment**).
    - Locate the application (or group of VMs) you want to enrich with code insights.

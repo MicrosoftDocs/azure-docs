@@ -9,6 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: laurtay
 ms.custom: cpx
+service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
 ---
 
 # Create SQL Server license assignments for Azure Hybrid Benefit

@@ -9,6 +9,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/07/2025
 ms.author: chbenne
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Billing and tenant relationship

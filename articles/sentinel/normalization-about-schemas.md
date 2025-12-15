@@ -96,6 +96,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**IP address**     |String         |    Microsoft Sentinel schemas don't have separate IPv4 and IPv6 addresses. Any IP address field might include either an IPv4 address or an IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation.<br>- **IPv6** in 8-hextets notation, allowing for the short form.<br><br>For example:<br>- **IPv4**: `192.168.10.10` <br>- **IPv6**: `FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`<br>- **IPv6 short form**: `1080::8:800:200C:417A`     |
 |**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `learn.microsoft.com`. For more information, see [The Device entity](normalization-entity-device.md). |
 |<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](normalization-entity-device.md).|
+|**Domain**        |   String      |    the domain part of an FQDN, without the hostname, for example, `learn.microsoft.com`. For more information, see [The Device entity](normalization-entity-device.md). |
 | **DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. For a list of values and more information, see [The Device entity](normalization-entity-device.md). |
 | **DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. For a list of allowed values and further information refer to [DvcIdType](normalization-entity-device.md#dvcidtype). |
 |<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other`. For more information, see [The Device entity](normalization-entity-device.md). |
@@ -113,6 +114,11 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**SHA1**     |   String      | 40-hex characters.        |
 |**SHA256**     | String        |  64-hex characters.       |
 |**SHA512**     |   String      |  128-hex characters.       |
+|**ConfidenceLevel**     |   Integer      |  A confidence level normalized to the range of 0 to a 100.       |
+|**RiskLevel**     |   Integer      |  A risk level normalized to the range of 0 to a 100.       |
+|**SchemaVersion** | String | An ASIM schema version in the format `<major>.<minor>.<sub-minor>` |
+| **DnsQueryClassName** | String | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).|
+| **Username** | String | A simple or domain qualified username | 
 
 
 ## Entities

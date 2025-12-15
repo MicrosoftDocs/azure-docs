@@ -10,9 +10,10 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/13/2025
 ms.custom:
-  - sfi-image-nochange
-  - sfi-ga-nochange
-  - build-2025
+- sfi-image-nochange
+- sfi-ga-nochange
+- build-2025
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Create a Microsoft Customer Agreement subscription

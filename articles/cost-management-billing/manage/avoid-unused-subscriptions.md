@@ -9,6 +9,7 @@ ms.subservice: billing
 ms.topic: concept-article
 ms.date: 07/25/2025
 # customer intent: As a billing administrator, I want to prevent my subscriptions from getting blocked or deleted.
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Avoid unused subscriptions

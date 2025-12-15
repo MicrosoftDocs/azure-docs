@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/27/2025
 ms.author: jkinma
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Why is my Azure for Students subscription disabled and how do I reactivate it?

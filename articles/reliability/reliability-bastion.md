@@ -22,7 +22,7 @@ This article describes how to make Azure Bastion resilient to a variety of poten
 > Availability zone support for Azure Bastion is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability.
 
-## Production deployment recommendations
+## Production deployment recommendations for reliability
 
 For production workloads, we recommend that you:
 

@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure IoT Hub
-description: Learn how to enhance IoT reliability in Azure IoT Hub by using device identity protection, availability zones, and failover strategies.
+description: Learn about resiliency in Azure IoT Hub, including resilience to transient faults, availability zone failures, and region-wide failures. Understand backup options and SLA details.
 author: kgremban
 ms.author: kgremban
 ms.topic: reliability-article
@@ -17,27 +17,21 @@ ms.date: 05/02/2025
 
 # Reliability in Azure IoT Hub
 
-This article describes reliability support in Azure IoT Hub. It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+[Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices.
 
-[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+[!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
 
-When you evaluate reliability options, you also need to evaluate the trade-offs between the following items:
+This article describes how to make IoT Hub resilient to a variety of potential outages and problems, including transient faults, availability zone outages, and region outages. It also describes how you can use backups to recover from other types of problems, and highlights some key information about the IoT Hub service level agreement (SLA).
 
-- Level of resiliency that you require
-- Implementation and maintenance complexity
-- Cost of implementing different options
+## Resilience to transient faults
 
-For more information, see [Reliability trade-offs](/azure/well-architected/reliability/tradeoffs).
-
-## Transient faults
-
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Resilience to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 IoT Hub provides a reasonably high uptime guarantee, but transient failures can occur in any distributed computing platform. To handle transient failures, build the appropriate [retry patterns](../iot/concepts-manage-device-reconnections.md#retry-patterns) in components that interact with cloud applications.
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Resilience to availability zone failures](includes/reliability-availability-zone-description-include.md)]
 
 IoT Hub supports two distinct types of availability zone support:
 
@@ -81,7 +75,7 @@ There's no extra cost for zone redundancy with IoT Hub.
 
 IoT Hub resources automatically support zone redundancy when deployed in [supported regions](#region-support). No further configuration is required.
 
-### Normal operations
+### Behavior when all zones are healthy
 
 This section describes what to expect when IoT Hub resources are configured for zone redundancy and all availability zones are operational.
 
@@ -89,15 +83,13 @@ This section describes what to expect when IoT Hub resources are configured for 
 
 - **Traffic routing between zones:** When your IoT hub is deployed in a region that supports zone redundancy for compute components, requests are routed to a primary instance of the service in one of the availability zones. Azure selects the active instance and zone automatically.
 
-### Zone-down experience
+### Behavior during a zone failure
 
 This section describes what to expect when IoT Hub resources are configured for zone redundancy and there's an availability zone outage.
 
 - **Detection and response:** The IoT Hub service is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
-+ **Notification**: Azure IoT Hub doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your IoT hub. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure IoT Hub service, including any zone failures.
-
-  Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
+[!INCLUDE [Availability zone down notification (Service Health and Resource Health)](./includes/reliability-availability-zone-down-notification-service-resource-include.md)]
 
 - **Active requests:** During a zone failure, active requests might be dropped. Your clients and devices should have sufficient [retry logic](../iot/concepts-manage-device-reconnections.md#retry-patterns) implemented to handle transient faults.
 
@@ -111,11 +103,11 @@ This section describes what to expect when IoT Hub resources are configured for 
 
 When the availability zone recovers, IoT Hub automatically restores instances in the availability zone and reroutes traffic between your instances as normal.
 
-### Testing for zone failures
+### Test for zone failures
 
 Because IoT Hub fully manages traffic routing, failover, and failback for zone failures, you don't need to validate availability zone failure processes or provide any further input.
 
-## Multi-region support
+## Resilience to region-wide failures
 
 IoT Hub is a single-region service. If the region becomes unavailable, your IoT Hub resources are also unavailable.
 
@@ -129,7 +121,7 @@ Your IoT hub might fail over to the paired region in the following scenarios:
 
 If resources are in a *nonpaired region*, Microsoft doesn’t replicate configuration and data across regions, and there’s no built-in cross-region failover. However, you can deploy separate resources into multiple regions. In this scenario, it's your responsibility to manage replication, traffic distribution, and failover.
 
-If your IoT hub is in a nonpaired region, or if the default replication and failover behavior doesn't meet your needs, you can use [alternative multi-region approaches](#alternative-multi-region-approaches) to plan for and initiate failovers.
+If your IoT hub is in a nonpaired region, or if the default replication and failover behavior doesn't meet your needs, you can use [custom multi-region solutions for resiliency](#custom-multi-region-solutions-for-resiliency) to plan for and initiate failovers.
 
 ### Region support
 
@@ -147,7 +139,7 @@ Don't use customer-initiated failover to permanently migrate your hub between th
 
 For hubs in regions that are paired, there's no extra cost for cross-region data replication or failover.
 
-If your IoT hub is in a nonpaired region, see [alternative multi-region approaches](#alternative-multi-region-approaches) for possible cost information.
+If your IoT hub is in a nonpaired region, see [Custom multi-region solutions for resiliency](#custom-multi-region-solutions-for-resiliency) for possible cost information.
 
 ### Configure replication and prepare for failover
 
@@ -155,9 +147,9 @@ By default, cross-region data replication is automatically configured when you c
 
 If your IoT hub is in the Brazil South or Southeast Asia (Singapore) regions, you can disable data replication and opt out of failover. For more information, see [Disable disaster recovery (DR)](../iot-hub/how-to-disable-dr.md).
 
-If your IoT hub is in a nonpaired region, you need to plan your own cross-region replication and failover approach. For more information, see [Alternative multi-region approaches](#alternative-multi-region-approaches).
+If your IoT hub is in a nonpaired region, you need to plan your own cross-region replication and failover approach. For more information, see [Custom multi-region solutions for resiliency](#custom-multi-region-solutions-for-resiliency).
 
-### Normal operations
+### Behavior when all regions are healthy
 
 This section describes what to expect when an IoT hub is configured for cross-region replication and failover, and the primary region is operational.
 
@@ -165,7 +157,7 @@ This section describes what to expect when an IoT hub is configured for cross-re
 
 - **Traffic routing between regions:** In normal operations, traffic only flows to the primary region.
 
-### Region-down experience
+### Behavior during a region failure
 
 This section describes what to expect when an IoT hub is configured for cross-region replication and failover and there's an outage in the primary region.
 
@@ -237,15 +229,15 @@ Depending on where you route your IoT hub's messages, you might need to perform 
 
 ### Region recovery
 
-To fail back to the primary region, you can manually trigger the failover action a second time. It's important to remember the [restrictions on how frequently you can fail over](#region-down-experience).
+To fail back to the primary region, you can manually trigger the failover action a second time. It's important to remember the [restrictions on how frequently you can fail over](#behavior-during-a-region-failure).
 
 If the original failover operation was performed to recover from an extended outage in the original primary region, perform failback to the primary region after the primary region recovers from the outage.
 
-### Testing for region failures
+### Test for region failures
 
-To simulate a failure during a region outage, you can trigger a manual failover of your IoT hub. However, because regional failover causes both downtime and data loss, you should only perform test failovers in nonproduction environments. For more information, see [Region-down experience](#region-down-experience). Consider setting up a test IoT Hub instance to initiate the planned failover option periodically. Periodic testing can help you build confidence in your ability to restore and operate your end-to-end solutions effectively when a real disaster occurs.
+To simulate a failure during a region outage, you can trigger a manual failover of your IoT hub. However, because regional failover causes both downtime and data loss, you should only perform test failovers in nonproduction environments. For more information, see [Behavior during a region failure](#behavior-during-a-region-failure). Consider setting up a test IoT Hub instance to initiate the planned failover option periodically. Periodic testing can help you build confidence in your ability to restore and operate your end-to-end solutions effectively when a real disaster occurs.
 
-### Alternative multi-region approaches
+### Custom multi-region solutions for resiliency
 
 The cross-region failover capabilities of IoT Hub aren't suitable for the following scenarios:
 
@@ -276,7 +268,7 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 
   To simplify this step, use *idempotent* operations. Idempotent operations minimize the side effects from the eventual consistent distribution of events and from duplicates or out-of-order delivery of events. Also, the application logic should be designed to tolerate potential inconsistencies or slightly out-of-date state. This scenario can occur because of the extra time that it takes for the system to heal based on RPOs.
 
-## Backups
+## Backup and restore
 
 The IoT Hub service enables bulk export operations, which allow you to export the entire identity registry of an IoT hub. This data is transferred to an Azure Storage blob container by using a shared access signature. This method enables you to create reliable backups of your device information in a blob container that you control. For more information, see [Import and export IoT Hub device identities in bulk](../iot-hub/iot-hub-bulk-identity-mgmt.md).
 
@@ -286,7 +278,7 @@ You can also export an existing IoT hub's Azure Resource Manager template (ARM t
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for IoT Hub describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review the [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
 ## Related content
 

@@ -19,14 +19,9 @@ ms.date: 05/20/2025
 
 This article describes how to make Virtual Network resilient to a variety of potential outages and problems, including transient faults, availability zone outages, and region outages. It also describes how you can use backups to recover from other types of problems, and highlights some key information about the Virtual Network service level agreement (SLA).
 
-> [!IMPORTANT]
-> This guide focuses on Azure virtual networks, which are only one component in your network architecture.
->
-> From a reliability perspective, it's important that you consider each component in your solution individually and how they operate together. Many core Azure networking services provide high resiliency by default. However, you might need to consider how other network appliances, VMs, and other components can support your reliability needs. For more information about how other services support reliability, see [Azure service reliability guides](./overview-reliability-guidance.md).
+## Production deployment recommendations for reliability
 
-## Production deployment recommendations
-
-The Azure Well-Architected Framework provides recommendations across reliability, performance, security, cost, and operations. To understand how these areas influence each other and contribute to a reliable Virtual Network solution, see [Architecture best practices for Azure Virtual Network in the Azure Well-Architected Framework](/azure/well-architected/service-guides/virtual-network).
+For more information about how to deploy virtual networks to support your solution's reliability requirements and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure Virtual Network in the Azure Well-Architected Framework](/azure/well-architected/service-guides/virtual-network).
 
 ## Reliability architecture overview
 

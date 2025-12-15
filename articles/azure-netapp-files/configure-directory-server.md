@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/07/2025
+ms.date: 12/09/2025
 ms.author: anfdocs
 ---
 # Configure LDAP directory services for Azure NetApp Files NFS volumes (preview)
@@ -121,6 +121,10 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
     * **Domain:** The domain name serves as the base DN. 
     * **LDAP servers:** The IP address of the LDAP server. 
     * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. For more information, see [Configure LDAP over TLS](configure-ldap-over-tls.md).
+      
+       > [!NOTE]
+       > To enable LDAP over TLS on multiple servers, you should generate and install the common certificate on each server and then upload the server CA certificate in the Azure portal.
+
     * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
     * **Certificate CN Host:** The common name server of the host, for example contoso.server.com. 
 

@@ -9,6 +9,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/18/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Programmatically create Azure Enterprise Agreement subscriptions with the latest APIs

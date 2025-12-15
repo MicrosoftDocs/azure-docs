@@ -8,7 +8,7 @@ ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 11/12/2025
-#Customer intent: I want to learn about how to Azure App Configuration emulator for local development.
+#Customer intent: I want to learn about how to use Azure App Configuration emulator for local development.
 ---
 
 # Azure App Configuration emulator overview

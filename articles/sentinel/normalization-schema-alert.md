@@ -99,7 +99,7 @@ The following list mentions fields that have specific guidelines for Alert event
 | **IpAddr** | Alias | | Alias or friendly name for `DvcIpAddr` field. |
 | **Hostname** | Alias | | Alias or friendly name for `DvcHostname` field. |
 | **EventSchema** | Mandatory | Enumerated | The schema used for the event. The schema documented here is `AlertEvent`. |
-| **EventSchemaVersion** | Mandatory | string | The version of the schema. The version of the schema documented here is `0.1`. |
+| **EventSchemaVersion** | Mandatory | SchemaVersion (String) | The version of the schema. The version of the schema documented here is `0.1`. |
 
 ### All Common Fields
 
@@ -136,9 +136,9 @@ The following table covers fields that provide critical insights into the rules 
 | **ThreatCategory** | Recommended | Enumerated | 	The category of the threat or malware identified in the alert.<br><br>Supported values are: `Malware`, `Ransomware`, `Trojan`, `Virus`, `Worm`, `Adware`, `Spyware`, `Rootkit`, `Cryptominor`, `Phishing`, `Spam`, `MaliciousUrl`, `Spoofing`, `Security Policy Violation`, `Unknown` |
 | **ThreatOriginalCategory** | Optional | string | The category of the threat as reported by the originating system. |
 | **ThreatIsActive** | Optional | bool | Indicates whether the threat is currently active.<br><br>Supported values are: `True`, `False` |
-| **ThreatRiskLevel** | Optional | int | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |
+| **ThreatRiskLevel** | Optional | RiskLevel (Integer) | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |
 | **ThreatOriginalRiskLevel** | Optional | string | The risk level as reported by the originating system. |
-| **ThreatConfidence** | Optional | int | The confidence level of the threat identified, normalized to a value between 0 and a 100. |
+| **ThreatConfidence** | Optional | ConfidenceLevel (Integer) | The confidence level of the threat identified, normalized to a value between 0 and a 100. |
 | **ThreatOriginalConfidence** | Optional | string | The confidence level as reported by the originating system. |
 | **IndicatorType** | Recommended | Enumerated | The type or category of the indicator<br><br>Supported values are:<br>-`Ip`<br>-`User`<br>-`Process`<br>-`Registry`<br>-`Url`<br>-`Host`<br>-`Cloud Resource`<br>-`Application`<br>-`File`<br>-`Email`<br>-`Mailbox`<br>-`Logon Session`|
 | **IndicatorAssociation** | Optional | Enumerated | Specifies whether the indicator is linked to or directly impacted by the threat.<br><br>Supported values are:<br>-`Associated`<br>-`Targeted` |
@@ -154,7 +154,7 @@ This section defines fields related to the identification and classification of 
 |-------|-------|------|-------------|
 | **UserId** | Optional | string | A machine-readable, alphanumeric, unique representation of the user associated with the alert.<br><br>e.g. `A1bC2dE3fH4iJ5kL6mN7o` |
 | **UserIdType** | Conditional | Enumerated | The type of the user ID, such as `GUID`, `SID`, or `Email`.<br><br>Supported values are:<br>- `GUID`<br>- `SID`<br>- `Email`<br>- `Username`<br>- `Phone`<br>- `Other` |
-| **Username** | Recommended | string | Name of the user associated with the alert, including domain information when available.<br><br>e.g. `Contoso\JSmith` or `john.smith@contoso.com` |
+| **Username** | Recommended | Username (string) | Name of the user associated with the alert, including domain information when available.<br><br>e.g. `Contoso\JSmith` or `john.smith@contoso.com` |
 | **User** | Alias | string | Alias or friendly name for `Username` field. |
 | **UsernameType** | Conditional | UsernameType | Specifies the type of the user name stored in the `Username` field. For more information, and list of allowed values, see [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Windows` |
 | **UserType** | Optional | UserType | The type of the Actor. For more information, and list of allowed values, see [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br> e.g. `Guest`|

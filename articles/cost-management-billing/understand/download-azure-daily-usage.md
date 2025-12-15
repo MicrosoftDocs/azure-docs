@@ -10,6 +10,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 07/27/2025
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # View and download your Azure usage and charges

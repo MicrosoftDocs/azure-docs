@@ -624,6 +624,8 @@
             href: datalake/sentinel-mcp-triage-tool.md
           - name: Create your own custom tool
             href: datalake/sentinel-mcp-create-custom-tool.md
+        - name: Build logic apps with Microsoft Sentinel MCP
+          href: datalake/sentinel-mcp-logic-apps.md
         - name: Troubleshooting
           href: datalake/troubleshoot-sentinel-mcp.md
         - name: Billing, limits, and availability

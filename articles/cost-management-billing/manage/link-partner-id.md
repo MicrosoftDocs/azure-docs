@@ -9,6 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Link a partner ID to your account that’s used to manage customers

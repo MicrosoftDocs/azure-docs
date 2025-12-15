@@ -22,7 +22,7 @@ This article describes how to make Queue Storage resilient to a variety of poten
 > [!NOTE]
 > Queue Storage is part of the Azure Storage platform. Some of the capabilities of Queue Storage are common across many Azure Storage services.
 
-## Production deployment recommendations
+## Production deployment recommendations for reliability
 
 For production environments:
 

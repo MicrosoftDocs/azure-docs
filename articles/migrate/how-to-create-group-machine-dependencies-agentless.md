@@ -71,7 +71,7 @@ The new users need to follow the below steps:
 
 ### Add credentials and initiate discovery
 
-1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
+1. Go to the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 
 2. Navigate to the **Manage credentials and discovery sources** panel.
 

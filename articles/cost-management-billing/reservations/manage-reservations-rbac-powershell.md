@@ -12,6 +12,7 @@ ms.author: liuyizhu
 
 #CustomerIntent: As a billing administrator, I want to learn how to grant RBAC access to reservations by using PowerShell so that I can effectively assign permissions.
 
+service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
 ---
 
 # Grant RBAC access to Azure reservations by using PowerShell

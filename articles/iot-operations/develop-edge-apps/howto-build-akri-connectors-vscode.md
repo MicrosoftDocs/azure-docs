@@ -350,7 +350,7 @@ Use the VS Code workspace created from the **Create an Akri Connector** command 
 
 ## Publish metadata artifacts
 
-Use the **Azure IoT Operations Akri connectors: Publish Akri Connector Image or Metadata** command to publish metadata folders to an ACR registry. The command uses the Azure CLI and `oras` commands. To publish to an ACR registry, you need your Azure subscription ID and ACR registry name. Currently, the extension expects files called `connector-metadata.json` and `additionalConfig.json` to be present in any folder you push.
+Use the **Azure IoT Operations Akri connectors: Publish Akri Connector Image or Metadata** command to publish metadata folders to an ACR registry. The command uses the Azure CLI and `oras` commands. To publish to an ACR registry, you need your Azure subscription ID and ACR registry name. Currently, the extension expects files called `connector-metadata.json` and optionally `additionalConfig.json` to be present in any folder you push.
 
 
 ## Known Issues

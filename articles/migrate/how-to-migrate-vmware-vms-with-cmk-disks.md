@@ -140,7 +140,7 @@ uuid                                 label       name    maxSizeInBytes
 
 ## Create Resource Manager template for replication
 
-- Open the Resource Manager template file that you downloaded in the **Identifying replication infrastructure components** step in an editor of your choice.
+- Go to the Resource Manager template file that you downloaded in the **Identifying replication infrastructure components** step in an editor of your choice.
 - Remove all resource definitions from the template except for resources that are of type *"Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
 - If there are multiple resource definitions of the above type, remove all but one. Remove any **dependsOn** property definitions from the resource definition.
 - At the end of this step, you should have a file that looks like the example below and has the same set of properties.

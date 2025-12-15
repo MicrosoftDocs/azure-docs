@@ -49,7 +49,7 @@ In this tutorial, you learn how:
 
 ### Add credentials and initiate discovery
 
-1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
+1. Go to the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 2. Navigate to the **Manage credentials and discovery sources** panel.
 3. In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
 4. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.

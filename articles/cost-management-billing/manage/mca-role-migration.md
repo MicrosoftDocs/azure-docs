@@ -9,6 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/21/2025
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Copy billing roles from one MCA to another MCA across tenants with a script

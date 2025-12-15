@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure SQL Database
-description: Find out about reliability in Azure SQL Database, including availability zones and multi-region deployments.
+description: Find out about resiliency in Azure SQL Database, including resilience to transient faults, availability zone failures, region-wide failures, service maintenance, and information about backup and restore and service-level agreements.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.topic: reliability-article
@@ -12,9 +12,11 @@ zone_pivot_groups: sql-database-tiers
 
 # Reliability in Azure SQL Database
 
-This article describes reliability support in Azure SQL Database, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement.
 
-[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+[!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
+
+This article describes how to make Azure SQL Database resilient to a variety of potential outages and problems, including transient faults, availability zone outages, and region outages. It also describes how you can use backups to recover from other types of problems, how to handle service maintenance, and highlights some key information about the Azure SQL Database service level agreement (SLA).
 
 ## Production deployment recommendations
 
@@ -44,9 +46,9 @@ SQL Database uses Azure Service Fabric to manage the replication of your databas
 
 Redundancy is implemented in different ways for different service tiers of SQL Database. For more information, see [Availability through redundancy - SQL Database](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy).
 
-## Transient faults
+## Resilience to transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Resilience to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 SQL Database automatically handles critical servicing tasks, such as patching, backups, Windows, and SQL Database engine upgrades. It also automatically handles unplanned events such as underlying hardware, software, or network failures. SQL Database is designed to recover quickly from critical failures, which ensures that your data is always available. Most users don't notice that upgrades are performed continuously.
 
@@ -54,9 +56,9 @@ When a database is patched or fails over, the downtime isn't disruptive if you [
 
 You can test your application's resiliency to transient faults by following the guidance in [Test application fault resiliency](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy#testing-application-fault-resiliency).
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Resilience to availability zone failures](includes/reliability-availability-zone-description-include.md)]
 
 :::zone pivot="general-purpose,premium,business-critical,hyperscale"
 
@@ -92,9 +94,11 @@ Zone redundancy is available to databases in the Business Critical, General Purp
 
 For the General Purpose service tier:
 
-- Zone-redundant configuration is available only when standard-series (Gen5) hardware is selected.
+- **Region support:** Zone redundancy is available in [all Azure regions that support availability zones](./regions-list.md).
 
-- When you use a zone-redundant SQL database, only specific regions support custom maintenance windows. For more information, see [SQL Database region support for maintenance windows](/azure/azure-sql/database/region-availability#ZR-maintenance-window-availability).
+- **Hardware:** Zone-redundant configuration is available only when standard-series (Gen5) hardware is selected.
+
+- **Maintenance windows:** When you use a zone-redundant SQL database, only specific regions support custom maintenance windows. For more information, see [SQL Database region support for maintenance windows](/azure/azure-sql/database/region-availability#ZR-maintenance-window-availability).
 
 :::zone-end
 
@@ -102,7 +106,9 @@ For the General Purpose service tier:
 
 For the Premium and Business Critical service tiers:
 
-- When you use a zone-redundant SQL database, only specific regions support custom maintenance windows. For more information, see [Maintenance window availability for zone-redundant databases](/azure/azure-sql/database/region-availability#ZR-maintenance-window-availability).
+- **Region support:** Zone redundancy is available in [all Azure regions that support availability zones](./regions-list.md).
+
+- **Maintenance windows:** When you use a zone-redundant SQL database, only specific regions support custom maintenance windows. For more information, see [Maintenance window availability for zone-redundant databases](/azure/azure-sql/database/region-availability#ZR-maintenance-window-availability).
 
 :::zone-end
 
@@ -110,27 +116,11 @@ For the Premium and Business Critical service tiers:
 
 For the Hyperscale service tier:
 
-- When you use a zone-redundant SQL database, only specific regions support custom maintenance windows. For more information, see [Maintenance window availability for zone-redundant databases](/azure/azure-sql/database/region-availability#ZR-maintenance-window-availability).
+- **Region support:** Zone redundancy is available in [all Azure regions that support availability zones](./regions-list.md). However, zone redundancy support for Hyperscale premium-series and premium-series memory optimized hardware is available in [select Azure regions](/azure/azure-sql/database/region-availability#hyperscale-premium-series-availability).
 
-- You must enable zone-redundant or geo-zone-redundant backup storage.
+- **Maintenance windows:** When you use a zone-redundant SQL database, only specific regions support custom maintenance windows. For more information, see [Maintenance window availability for zone-redundant databases](/azure/azure-sql/database/region-availability#ZR-maintenance-window-availability).
 
-:::zone-end
-
-:::zone pivot="premium,general-purpose,business-critical,hyperscale"
-
-### Regions supported
-
-:::zone-end
-
-:::zone pivot="premium,general-purpose,business-critical"
-
-For the Premium, General Purpose, and Business Critical service tiers, zone redundancy is available in [all Azure regions that support availability zones](./regions-list.md).
-
-:::zone-end
-
-:::zone pivot="hyperscale"
-
-For the Hyperscale service tier, zone redundancy is available in [all Azure regions that support availability zones](./regions-list.md). However, zone redundancy support for Hyperscale premium-series and premium-series memory optimized hardware is available in [select Azure regions](/azure/azure-sql/database/region-availability#hyperscale-premium-series-availability).
+- **Backup storage:** You must enable zone-redundant or geo-zone-redundant backup storage.
 
 :::zone-end
 
@@ -206,7 +196,7 @@ For the Hyperscale service tier:
 
 To view information about availability zone support for other service tiers, be sure to select the appropriate service tier at the beginning of this page.
 
-### Normal operations
+### Behavior when all zones are healthy
 
 This section describes what to expect when databases are configured for zone redundancy and all availability zones are operational.
 
@@ -246,13 +236,15 @@ For the Hyperscale service tier:
 
 To view information about availability zone support for other service tiers, be sure to select the appropriate service tier at the beginning of this page.
 
-### Zone-down experience
+### Behavior during a zone failure
 
 This section describes what to expect when databases are configured for zone redundancy and there's an availability zone outage.
 
 - **Detection and response:** SQL Database is responsible for detecting and responding to a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
-- **Active requests:** When an availability zone goes offline, any requests that are being processed in the faulty availability zone are terminated and must be retried. For more information about how to make your applications resilient to these types of problems, see the [transient fault handling guidance](#transient-faults).
+[!INCLUDE [Zone down notification (Service Health only)](./includes/reliability-availability-zone-down-notification-service-include.md)]
+
+- **Active requests:** When an availability zone goes offline, any requests that are being processed in the faulty availability zone are terminated and must be retried. For more information about how to make your applications resilient to these types of problems, see the [Resilience to transient faults](#resilience-to-transient-faults) guidance.
 
 :::zone-end
 
@@ -282,7 +274,7 @@ This section describes what to expect when databases are configured for zone red
 
 :::zone pivot="premium,general-purpose,business-critical,hyperscale"
 
-- **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 30 seconds, which your application should tolerate if it's following the [transient fault handling guidance](#transient-faults).
+- **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 30 seconds, which your application should tolerate if it's following the [Resilience to transient faults](#resilience-to-transient-faults) guidance.
 
 - **Expected data loss:** There's no data loss expected during an availability zone failover.
 
@@ -292,103 +284,48 @@ To view information about availability zone support for other service tiers, be 
 
 When the availability zone recovers, Azure Service Fabric automatically creates database replicas in the recovered availability zone, removes any temporary replicas created in the other availability zones, and resumes normal traffic routing to your database. To avoid disruption, the primary replica doesn't automatically return the original zone after the zone recovery.
 
-### Testing for zone failures
+### Test for zone failures
 
 The SQL Database platform manages traffic routing, failover, and zone recovery procedures for zone-redundant databases. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes. However, you can validate your application's handling of failures and failovers by following the process described in [Test application fault resiliency](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy#testing-application-fault-resiliency).
 
 :::zone-end
 
-## Multi-region support
+## Resilience to region-wide failures
 
 This section provides an overview of two related but separate features that can be used for multi-region geo-replication of SQL Database:
 
-- [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) replicates a single database to a synchronized secondary database.
+- [Active geo-replication](#active-geo-replication) replicates a single database to a synchronized secondary database.
 
-- [Failover groups](/azure/azure-sql/database/failover-group-sql-db) build on top of active geo-replication and allow you to fail over a group of databases.
+- [Failover groups](#failover-groups) build on top of active geo-replication and allow you to fail over a group of databases.
 
-### [Active geo-replication](#tab/active-geo)
+### Active geo-replication
 
 [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) creates a continuously synchronized readable secondary database (which is sometimes known as *geo-secondary* or *geo-replica*) in any region for a single primary database. Active geo-replication can create secondary databases in the same region, but this configuration doesn't provide protection against a region outage. When you use active geo-replication to achieve geo-redundancy, you locate the secondary database in a different region to the primary database.
 
-### [Failover groups](#tab/failover-groups)
-
-[Failover groups](/azure/azure-sql/database/failover-group-sql-db) build on top of active geo-replication. With failover groups, you can perform the following operations:
-
-- Replicate a set of databases from a single logical server across any combination of Azure regions.
-
-- Perform failover on the databases as a group.
-
-- Use connection endpoints that automatically direct connections to the primary.
-
----
-
-### Region support
-
-### [Active geo-replication](#tab/active-geo)
-
-[Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) can be enabled in all Azure regions and doesn't require you to use Azure region pairs.
-
-> [!TIP]
-> SQL Database follows a safe deployment practice where Azure strives not to deploy updates to paired regions at the same time. If you configure active geo-replication to use nonpaired regions, set different maintenance windows for the servers in each region. This approach helps reduce the chance that both regions experience connectivity problems caused by maintenance occurring at the same time.
-
-### [Failover groups](#tab/failover-groups)
-
-Failover groups can be created across all Azure regions and don't require you to use Azure region pairs.
-
-> [!TIP]
-> If you configure a failover group with nonpaired regions, consider setting different maintenance windows for the servers in each region. This approach helps reduce the chance that both regions experience connectivity problems caused by maintenance occurring at the same time.
-
----
-
-### Requirements
-
-### [Active geo-replication](#tab/active-geo)
+#### Requirements
 
 When you use active geo-replication, consider the following requirements:
 
-- Both the primary and the geo-secondary must have the same service tier and should have the same compute tier, compute size, and backup storage redundancy.
+- **Region support:** [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) can be enabled in all Azure regions and doesn't require you to use Azure region pairs.
 
-- Both the primary and the geo-secondary should have the same IP address firewall rules.
+    > [!TIP]
+    > SQL Database follows a safe deployment practice where Azure strives not to deploy updates to paired regions at the same time. If you configure active geo-replication to use nonpaired regions, set different maintenance windows for the servers in each region. This approach helps reduce the chance that both regions experience connectivity problems caused by maintenance occurring at the same time.
 
-Active geo-replication is supported for databases across different Azure subscriptions.
+- **Configuration:** Both the primary and the geo-secondary must have the same service tier and should have the same compute tier, compute size, and backup storage redundancy.
 
-### [Failover groups](#tab/failover-groups)
+- **Firewall:** Both the primary and the geo-secondary should have the same IP address firewall rules.
 
-Secondary databases in a failover group should have the same service tier, compute tier, compute size, IP address firewall rules, and backup storage redundancy as the primary database.
+- **Azure subscriptions:** Active geo-replication is supported for databases across different Azure subscriptions.
 
----
-
-### Considerations
-
-### [Active geo-replication](#tab/active-geo)
+#### Considerations
 
 - Active geo-replication is designed to provide failover of a single database. If you need to fail over multiple databases, consider using failover groups instead.
 
 - Because geo-replication is asynchronous, data loss is possible when a failover occurs. If you need to eliminate data loss from asynchronous replication during failovers, configure your application to block the calling thread until the last committed transaction is transmitted and hardened in the transaction log of the secondary database. This approach requires custom development and reduces the performance of your application. For more information, see [Prevent loss of critical data](/azure/azure-sql/database/active-geo-replication-overview#prevent-loss-of-critical-data).
 
-- For more information, see [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview).
+- For more information about limitations and considerations, see [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview).
 
-### [Failover groups](#tab/failover-groups)
-
-:::zone pivot="hyperscale"
-
-- For the Hyperscale service tier, if your primary database has zone redundancy enabled, then secondary databases have zone redundancy enabled automatically.
-
-:::zone-end
-
-:::zone pivot="basic-standard,premium,general-purpose,business-critical"
-
-- Secondary databases don't have zone redundancy enabled by default, but it can be enabled later.
-
-:::zone-end
-
-- Because geo-replication is asynchronous, it's possible to have data loss when a failover occurs. If you need to eliminate data loss from asynchronous replication during failovers, you can configure your application to block the calling thread until the last committed transaction is transmitted and hardened in the transaction log of the secondary database. This approach requires custom development and it reduces the performance of your application. For more information, see [Prevent loss of critical data](/azure/azure-sql/database/active-geo-replication-overview#prevent-loss-of-critical-data).
-
-- For more information about limitations and considerations, see [Failover groups](/azure/azure-sql/database/failover-group-sql-db).
-
----
-
-### Cost
+#### Cost
 
 Secondary databases are billed as separate databases.
 
@@ -398,9 +335,7 @@ If you don't use a secondary database for any read or write workloads, consider 
 
 :::zone-end
 
-### Configure multi-region support
-
-### [Active geo-replication](#tab/active-geo)
+#### Configure multi-region support
 
 - **Enable active geo-replication:** For more information about how to enable active geo-replication in the Azure portal, see [Configure active geo-replication for SQL Database](/azure/azure-sql/database/active-geo-replication-configure-portal) or [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview).
 
@@ -408,7 +343,90 @@ If you don't use a secondary database for any read or write workloads, consider 
 
 - **Disable active geo-replication:** For more information about how to disable active geo-replication on a database, see [Remove secondary database](/azure/azure-sql/database/active-geo-replication-configure-portal).
 
-### [Failover groups](#tab/failover-groups)
+#### Behavior when all regions are healthy
+
+This section describes what to expect when a database is configured to use active geo-replication and all regions are operational.
+
+- **Traffic routing between regions:** Your application must be configured to send read-write requests to the primary database. You can optionally send read-only requests to a secondary database, which helps reduce the impact of read-only workloads on your primary database.
+
+- **Data replication between regions:** Replication between the primary and secondary databases occurs asynchronously, which means that there can be a delay between the moment when a change is applied to the primary database and when it's replicated to the secondary database.
+
+    When you perform a failover, you decide how to handle the possibility of data loss.
+
+#### Behavior during a region failure
+
+This section describes what to expect when a database is configured to use active geo-replication and there's an outage in your primary region:
+
+- **Detection and response:** You're responsible both for detecting the outage of a database or region and for triggering failover.
+
+[!INCLUDE [Region down notification (Service Health only)](./includes/reliability-region-down-notification-service-include.md)]
+
+- **Active requests:** Any active requests during the failover are terminated and must be retried.
+
+- **Expected data loss:** If your primary database is available, you can optionally perform a failover with no data loss. The failover process synchronizes data between the primary and secondary databases before switching roles.
+
+    If your primary database isn't available, you might need to perform a *forced failover*, which results in data loss. You can estimate the amount of data loss by monitoring the replication lag. For more information, see [Monitor SQL Database with metrics and alerts](/azure/azure-sql/database/monitoring-metrics-alerts#use-metrics-to-monitor-databases-and-elastic-pools).
+
+- **Expected downtime:** There's typically up to 60 seconds of downtime during a failover. Ensure that your application [handles transient faults](#resilience-to-transient-faults) so that it can recover from short periods of downtime. Also, how quickly you reconfigure your application to connect to the new primary database affects the downtime that you experience.
+
+- **Traffic rerouting:** You're responsible for reconfiguring your application to send requests to the new primary database. If you need to have transparent failover, consider using failover groups.
+
+#### Region recovery
+
+After the primary region recovers, you can manually perform a failback to the primary region by performing another failover.
+
+#### Test for region failures
+
+You can simulate a region outage by triggering a manual failover at any time. You can trigger a failover (no data loss) or a forced failover.
+
+### Failover groups
+
+[Failover groups](/azure/azure-sql/database/failover-group-sql-db) build on top of active geo-replication. With failover groups, you can perform the following operations:
+
+- Replicate a set of databases from a single logical server across any combination of Azure regions.
+
+- Perform failover on the databases as a group.
+
+- Use connection endpoints that automatically direct connections to the primary.
+
+#### Requirements
+
+- **Region support:** Failover groups can be created across all Azure regions and don't require you to use Azure region pairs.
+
+    > [!TIP]
+    > If you configure a failover group with nonpaired regions, consider setting different maintenance windows for the servers in each region. This approach helps reduce the chance that both regions experience connectivity problems caused by maintenance occurring at the same time.
+
+- **Configuration:** Secondary databases in a failover group should have the same service tier, compute tier, compute size, IP address firewall rules, and backup storage redundancy as the primary database.
+
+#### Considerations
+
+:::zone pivot="hyperscale"
+
+- **Zone redundancy:** For the Hyperscale service tier, if your primary database has zone redundancy enabled, then secondary databases have zone redundancy enabled automatically.
+
+:::zone-end
+
+:::zone pivot="basic-standard,premium,general-purpose,business-critical"
+
+- **Zone redundancy:** Secondary databases don't have zone redundancy enabled by default, but you can enable it later.
+
+:::zone-end
+
+- **Possible data loss:** Because geo-replication is asynchronous, it's possible to have data loss when a failover occurs. If you need to eliminate data loss from asynchronous replication during failovers, you can configure your application to block the calling thread until the last committed transaction is transmitted and hardened in the transaction log of the secondary database. This approach requires custom development and it reduces the performance of your application. For more information, see [Prevent loss of critical data](/azure/azure-sql/database/active-geo-replication-overview#prevent-loss-of-critical-data).
+
+- For more information about limitations and considerations, see [Failover groups](/azure/azure-sql/database/failover-group-sql-db).
+
+#### Cost
+
+Secondary databases are billed as separate databases.
+
+:::zone pivot="basic-standard,premium,general-purpose,business-critical"
+
+If you don't use a secondary database for any read or write workloads, consider whether you can [designate it as a standby replica](/azure/azure-sql/database/standby-replica-how-to-configure) to reduce your costs.
+
+:::zone-end
+
+#### Configure multi-region support
 
 - **Enable failover groups:** You configure a failover group on a logical server. You can add all the databases in the logical server to the failover group, or you can select a subset of databases to add.
 
@@ -421,21 +439,7 @@ If you don't use a secondary database for any read or write workloads, consider 
 
 - **Disable failover groups:** You can remove an individual database from a failover group, remove an entire failover group, or move a database into a different failover group.
 
----
-
-### Normal operations
-
-### [Active geo-replication](#tab/active-geo)
-
-This section describes what to expect when a database is configured to use active geo-replication and all regions are operational.
-
-- **Traffic routing between regions:** Your application must be configured to send read-write requests to the primary database. You can optionally send read-only requests to a secondary database, which helps reduce the impact of read-only workloads on your primary database.
-
-- **Data replication between regions:** Replication between the primary and secondary databases occurs asynchronously, which means that there can be a delay between the moment when a change is applied to the primary database and when it's replicated to the secondary database.
-
-    When you perform a failover, you decide how to handle the possibility of data loss.
-
-### [Failover groups](#tab/failover-groups)
+#### Behavior when all regions are healthy
 
 This section describes what to expect when a database is configured within a failover group and all regions are operational.
 
@@ -448,28 +452,8 @@ This section describes what to expect when a database is configured within a fai
 - **Data replication between regions:** Geo-replication between the primary and secondary databases occurs asynchronously. This latency means that there can be a delay between a change being applied to the primary database and when it's replicated to the secondary database.
 
     When you perform a failover, you decide how to handle the possibility of data loss.
-  
----
 
-### Region-down experience
-
-### [Active geo-replication](#tab/active-geo)
-
-This section describes what to expect when a database is configured to use active geo-replication and there's an outage in your primary region:
-
-- **Detection and response:** You're responsible both for detecting the outage of a database or region and for triggering failover.
-
-- **Active requests:** Any active requests during the failover are terminated and must be retried.
-
-- **Expected data loss:** If your primary database is available, you can optionally perform a failover with no data loss. The failover process synchronizes data between the primary and secondary databases before switching roles.
-
-    If your primary database isn't available, you might need to perform a *forced failover*, which results in data loss. You can estimate the amount of data loss by monitoring the replication lag. For more information, see [Monitor SQL Database with metrics and alerts](/azure/azure-sql/database/monitoring-metrics-alerts#use-metrics-to-monitor-databases-and-elastic-pools).
-
-- **Expected downtime:** There's typically up to 60 seconds of downtime during a failover. Ensure that your application [handles transient faults](#transient-faults) so that it can recover from short periods of downtime. Also, how quickly you reconfigure your application to connect to the new primary database affects the downtime that you experience.
-
-- **Traffic rerouting:** You're responsible for reconfiguring your application to send requests to the new primary database. If you need to have transparent failover, consider using failover groups.
-
-### [Failover groups](#tab/failover-groups)
+#### Behavior during a region failure
 
 This section describes what to expect when a database is configured within a failover group and there's an outage in your primary region:
 
@@ -478,6 +462,8 @@ This section describes what to expect when a database is configured within a fai
     - *Customer-initiated failover:* You're responsible for detecting the outage of a database or region and for triggering failover.
 
     - *Microsoft-initiated failover:* Microsoft triggers failover for all failover groups in the affected region. Microsoft expects to perform this type of failover only in exceptional situations. Don't rely on Microsoft-managed failover for most solutions. For more information, see [Failover policy - Microsoft managed](/azure/azure-sql/database/failover-group-sql-db#microsoft-managed).
+
+[!INCLUDE [Region down notification (Service Health only)](./includes/reliability-region-down-notification-service-include.md)]
 
 - **Active requests:** Any active requests during the failover are terminated and must be retried.
 
@@ -491,7 +477,7 @@ This section describes what to expect when a database is configured within a fai
 
 - **Expected downtime:** Downtime depends on the failover policy that you use.
 
-    - *Customer-initiated failover:* There's typically up to 60 seconds of downtime during a failover. Ensure that your application [handles transient faults](#transient-faults) so that it can recover from short periods of downtime.
+    - *Customer-initiated failover:* There's typically up to 60 seconds of downtime during a failover. Ensure that your application [handles transient faults](#resilience-to-transient-faults) so that it can recover from short periods of downtime.
 
     - *Microsoft-initiated failover:* You can specify a *grace period* that determines how long Microsoft should wait before initiating the failover. The minimum grace period is one hour. However, the Microsoft response time will likely be several hours at least.
 
@@ -499,27 +485,17 @@ This section describes what to expect when a database is configured within a fai
 
     If the new secondary database (previously the primary database) isn't available, the read-only listener endpoint can't connect until the new secondary is available.
 
----
-
-### Region recovery
-
-### [Active geo-replication](#tab/active-geo)
-
-After the primary region recovers, you can manually perform a failback to the primary region by performing another failover.
-
-### [Failover groups](#tab/failover-groups)
+#### Region recovery
 
 You're responsible for failing back to the primary region if you need to do so. You can manually perform a failback to the primary region by performing a customer-managed failover.
 
 Even if Microsoft initiated the original failover, you're still responsible for failing back to the previous region, if you choose to.
 
----
-
-### Testing for region failures
+#### Test for region failures
 
 You can simulate a region outage by triggering a manual failover at any time. You can trigger a failover (no data loss) or a forced failover.
 
-## Backups
+## Backup and restore
 
 Take backups of your databases to protect against various risks, including loss of data. Backups can be restored to recover from accidental data loss, corruption, or other problems. Backups differ from zone redundancy, active geo-replication, or failover groups, and they have different purposes. For more information, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md).
 
@@ -531,9 +507,9 @@ You can choose to store your automated backups in LRS or ZRS. If you use a regio
 
 If you use a nonpaired region, or if you need to replicate backups to a region other than the paired region, consider exporting the database and storing the exported file in a storage account that uses [blob object replication](/azure/storage/blobs/object-replication-overview) to replicate to a storage account in another region. For more information, see [Export a database](/azure/azure-sql/database/automated-backups-overview#export-a-database).
 
-## Reliability during service maintenance
+## Resilience to service maintenance
 
-When SQL Database performs maintenance on your databases and elastic pools, it might automatically fail over your database to use a secondary replica. Client applications might observe brief connectivity disruptions when a failover occurs. Your client applications should follow the [transient fault handling guidance](#transient-faults) to minimize the effects.
+When SQL Database performs maintenance on your databases and elastic pools, it might automatically fail over your database to use a secondary replica. Client applications might observe brief connectivity disruptions when a failover occurs. Your client applications should follow the [Resilience to transient faults](#resilience-to-transient-faults) guidance to minimize the effects.
 
 SQL Database enables you to specify a maintenance window that's typically used for service upgrades and other maintenance operations. Configuring a maintenance window can help you to minimize any side effects, like automatic failovers, during your business hours. You can also receive advance notification of planned maintenance.
 
@@ -543,7 +519,9 @@ For more information, see [Maintenance window in SQL Database](/azure/azure-sql/
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for SQL Database describes the expected availability of the service and the expected recovery point and recovery time for active geo-replication. It also describes the conditions that must be met to achieve those expectations. To understand those conditions, it's important that you review the [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
+
+The service-level agreement (SLA) for SQL Database describes the expected availability of the service and the expected recovery point and recovery time for active geo-replication.
 
 When you deploy a zone-redundant database or elastic pool and use a supported service tier, the uptime SLA is higher.
 

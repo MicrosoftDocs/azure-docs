@@ -10,12 +10,16 @@ ms.date: 01/29/2025
 
 # CI/CD patterns with Workflow Orchestration Manager
 
-> [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
-
 Workflow Orchestration Manager provides a simple and efficient way to create and manage Apache Airflow environments. The service enables you to run data pipelines at scale with ease. There are two primary methods to run DAGs in Workflow Orchestration Manager. You can upload the DAG files in your blob storage and link them with the Airflow environment. Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
 
 Working with data pipelines in Airflow requires you to create or update your DAGs, plugins, and requirement files frequently, based on your workflow needs. Although developers can manually upload or edit DAG files in blob storage, many organizations prefer to use a continuous integration and continuous delivery (CI/CD) approach for code deployment. This article walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with Workflow Orchestration Manager.
+
+> [!IMPORTANT]
+> Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory on December 31, 2025. The feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/fabric/data-factory/apache-airflow-jobs-concepts)
+>
+> We recommend that you migrate all Workflow Orchestration Manager (Apache Airflow in Azure Data Factory) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to benefit from expanded capabilities before December 31, 2025.
+>
+> For more information or for support during your migration to Apache Airflow in Microsoft Fabric, contact Microsoft Support.
 
 ## Understand CI/CD
 

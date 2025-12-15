@@ -129,7 +129,7 @@ To review detailed security risks for Servers and Software, perform the followin
 
 To review detailed security risks for servers, follow these steps:
 
-1. Open the **Insights** (preview) pane.
+1. Go to the **Insights** (preview) pane.
 1. In the **Servers card**, select the link that shows the number of servers with security risks.
 
     :::image type="content" source="./media/security-insights-overview/servers-risk-type.png" alt-text="Screenshot shows the servers with security risks." lightbox="./media/security-insights-overview/servers-risk-type.png":::
@@ -157,7 +157,7 @@ Alternatively, you can filter servers with security risks from the **Explore inv
 
 To review software with identified security risks, follow these steps:
 
-1. Open the **Insights** (preview) pane.
+1. Go to the **Insights** (preview) pane.
 1. In the **Software** card, select the link that shows the number of software items with security risks.
 
     :::image type="content" source="./media/security-insights-overview/software-with-security-risks.png" alt-text="Screenshot shows the number of software security risks." lightbox="./media/security-insights-overview/software-with-security-risks.png":::
@@ -207,7 +207,7 @@ Security insights are enabled by default for all users. To manage access, create
 |  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of VMware machine |
 
 
-You can also implement built-in roles for Azure Migrate to manage access to view Insights. [Learn more](/azure/migrate/prepare-azure-accounts?view=migrate)
+You can also implement built-in roles for Azure Migrate to manage access to view Insights. [Learn more](/azure/migrate/prepare-azure-accounts)
 
 Below error message is displayed when a user does not have permissions to view Insights:
 
@@ -221,7 +221,7 @@ Below error message is displayed when a user does not have permissions to view I
 Azure offers integrated solutions to identify and mitigate security risks and strengthen cloud security posture:
 
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) delivers unified security management and advanced threat protection. It continuously evaluates resources for misconfigurations and vulnerabilities, providing actionable recommendations to harden your infrastructure. By aligning with industry compliance standards, it ensures your workloads remain secure and compliant.
-- [Azure Update Manager](/azure/update-manager/overview?view=migrate) streamlines operating system patching without additional infrastructure. It automates update schedules to minimize security risks from unpatched systems and offers detailed compliance reporting. With granular control over deployments, it helps maintain system integrity and resilience against evolving threats.
+- [Azure Update Manager](/azure/update-manager/overview) streamlines operating system patching without additional infrastructure. It automates update schedules to minimize security risks from unpatched systems and offers detailed compliance reporting. With granular control over deployments, it helps maintain system integrity and resilience against evolving threats.
 
 ## Next steps
 

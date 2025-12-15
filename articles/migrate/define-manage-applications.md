@@ -47,9 +47,9 @@ This article describes how you can use Azure Migrate to define applications runn
 
 ### Add credentials and initiate discovery
 
-1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
+1. Go to the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 
-2. Navigate to the **Manage credentials and discovery sources** panel.
+2. Go to the **Manage credentials and discovery sources** panel.
 
 3. In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
 

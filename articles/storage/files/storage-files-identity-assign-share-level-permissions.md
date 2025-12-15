@@ -4,7 +4,7 @@ description: Learn how to control access to Azure Files by assigning share-level
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 12/15/2025
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
@@ -70,7 +70,7 @@ In order for share-level permissions to work, you must:
 You can use the Azure portal, Azure PowerShell, or Azure CLI to assign the built-in roles to the Microsoft Entra identity of a user for granting share-level permissions.
 
 > [!IMPORTANT]
-> The share-level permissions will take up to three hours to take effect once completed. Be sure to wait for the permissions to sync before connecting to your file share using your credentials.
+> Share-level permission changes usually take effect within 30 minutes. Please allow time for permissions to propagate before connecting to the file share using your credentials.
 
 # [Portal](#tab/azure-portal)
 

@@ -10,6 +10,7 @@ ms.subservice: billing
 ms.date: 07/30/2025
 ms.custom:
 - build-2025
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Error when creating a VM as an Azure Enterprise user: Contact your reseller for accurate pricing

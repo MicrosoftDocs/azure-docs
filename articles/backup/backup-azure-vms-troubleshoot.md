@@ -308,7 +308,7 @@ An Azure virtual machine wasn't found.
 
 This error happens when the primary VM is deleted, but the backup policy still looks for a VM to back up. To fix this error, take the following steps:
 
-* Re-create the virtual machine with the same name and same resource group name, **cloud service name**,<br>or
+* Re-create the virtual machine with the same name and same resource group name. <br>or
 * Stop protecting the virtual machine with or without deleting the backup data. For more information, see [Stop protecting virtual machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
 ### UserErrorBCMPremiumStorageQuotaError - Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account
@@ -403,7 +403,6 @@ To resolve this issue, try to restore the VM from a different restore point.<br>
 
 | Error details | Workaround |
 | --- | --- |
-| Restore failed with a cloud internal error. |<ol><li>The cloud service to which you're trying to restore is configured with DNS settings. You can check: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>If **Address** is configured, then DNS settings are configured.<br> <li>The cloud service to which to you're trying to restore is configured with **ReservedIP**, and existing VMs in the cloud service are in the stopped state. You can check that a cloud service has reserved an IP by using the following PowerShell cmdlets: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>You're trying to restore a virtual machine with the following special network configurations into the same cloud service: <ul><li>Virtual machines under load balancer configuration, internal and external.<li>Virtual machines with multiple reserved IPs. <li>Virtual machines with multiple NICs. </ul><li>Select a new cloud service in the UI or see [restore considerations](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) for VMs with special network configurations.</ol> |
 | The selected DNS name is already taken: <br>Specify a different DNS name and try again. |This DNS name refers to the cloud service name, usually ending with **.cloudapp.net**. This name needs to be unique. If you get this error, you need to choose a different VM name during restore. <br><br> This error is shown only to users of the Azure portal. The restore operation through PowerShell succeeds because it restores only the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation. |
 | The specified virtual network configuration isn't correct: <br>Specify a different virtual network configuration and try again. |None |
 | The specified cloud service is using a reserved IP that doesn't match the configuration of the virtual machine being restored: <br>Specify a different cloud service that isn't using a reserved IP. Or choose another recovery point to restore from. |None |
@@ -570,7 +569,6 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
   If the key is set to False or not present, Azure Backup defaults to VSS Full backups, which may truncate application logs to achieve application-consistent backups.
 
 * **VM status is reported incorrectly because the VM is shut down in RDP**. If you used the remote desktop to shut down the virtual machine, verify that the VM status in the portal is correct. If the status isn't correct, use the **Shutdown** option in the portal VM dashboard to shut down the VM.
-* **If more than four VMs share the same cloud service, spread the VMs across multiple backup policies**. Stagger the backup times, so no more than four VM backups start at the same time. Try to separate the start times in the policies by at least an hour.
 * **The VM runs at high CPU or memory**. If the virtual machine runs at high memory or CPU usage, more than 90 percent, your snapshot task is queued and delayed. Eventually it times out. If this issue happens, try an on-demand backup.
 
 ## Networking

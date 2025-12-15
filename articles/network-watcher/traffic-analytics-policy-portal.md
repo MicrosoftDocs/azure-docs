@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/23/2025
+ms.date: 12/15/2025
 ms.custom: sfi-image-nochange
 
 # Customer intent: "As an Azure administrator, I want to utilize Azure Policy to audit and manage the deployment of traffic analytics for NSG flow logs, so that I can ensure compliance and optimize network monitoring within my organization."

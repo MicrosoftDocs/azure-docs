@@ -20,6 +20,12 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
+## December 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | Sensor version 25.2.1 is now available. See [release details and updates](release-notes.md#version-2521). |
+
 ## September 2025
 
 |Service area  |Updates  |
@@ -71,16 +77,6 @@ To reduce alert fatigue, multiple versions of the same alert violation and with 
 ## On-premises management console retirement
 
 The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
-
-## December 2024
-
-|Service area  |Updates  |
-|---------|---------|
-| **OT networks** | - [Support Multiple Source Devices in DDoS Attack Alerts](#support-multiple-source-devices-in-ddos-attack-alerts) |
-
-### Support Multiple Source Devices in DDoS Attack Alerts
-
-Alert details now display up to 10 source devices involved in DDoS attack.
 
 ## Next steps
 

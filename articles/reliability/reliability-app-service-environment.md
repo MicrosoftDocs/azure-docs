@@ -30,7 +30,7 @@ This article describes reliability support in App Service Environment, including
 >
 >For more information about reliability support in App Service, see [Reliability in App Service](./reliability-app-service.md).
 
-## Production deployment recommendations
+## Production deployment recommendations for reliability
 
 We recommend that you [enable zone redundancy](#resilience-to-availability-zone-failures) on your environment and App Service plans, which requires that your plans use a minimum of two instances.
 

@@ -117,7 +117,7 @@ For quick discovery of Windows servers, create a Windows user account that belon
 
 The guest user account needs permission to access the **CIMV2** namespace and its sub-namespaces in the **WMI Control** item in Control Panel. To set the access, use the following steps:
 
-1. On the target Windows server, open the **Start** menu, search for **Run**, and then select it.
+1. On the target Windows server, go to the **Start** menu, search for **Run**, and then select it.
 
 1. In the **Run** dialog, type `wmimgmt.msc` and then press the Enter key.
   

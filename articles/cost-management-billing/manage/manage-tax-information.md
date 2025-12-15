@@ -9,8 +9,9 @@ ms.topic: how-to
 ms.date: 07/29/2025
 ms.author: jkinma
 ms.custom:
-  - references_regions
-  - sfi-image-nochange
+- references_regions
+- sfi-image-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Update tax details for an Azure billing account

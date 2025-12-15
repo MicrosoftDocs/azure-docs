@@ -100,6 +100,16 @@ If you try to install Azure Container Storage with Ephemeral Disk, specifically 
 
 To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](/azure/virtual-machines/sizes-storage).
 
+### Prometheus operator conflict in Azure Container Storage
+
+Azure Container Storage uses the Prometheus Operator and its deployment to collect metrics for internal support and troubleshooting. If your Kubernetes cluster already has a Prometheus Operator installed, both operators might attempt to provision the PromCluster custom resource, which can lead to conflicts or installation issues.
+
+To avoid conflicts, you can either exclude the acstor namespace from your existing Prometheus configuration or disable Azure Container Storage metrics collection by running the following command. Replace `<cluster_name>` and `<resource_group_name>` with your own values.
+
+```azurecli
+az k8s-extension update --cluster-type managedClusters --cluster-name <cluster_name> --resource-group <resource_group_name> --name azurecontainerstorage --config base.metrics.enablePrometheusStack=false
+```
+
 ## Troubleshoot storage pool issues
 
 To check the status of your storage pools, run `kubectl describe sp <storage-pool-name> -n acstor`. Here are some issues you might encounter.

@@ -10,6 +10,7 @@ ms.subservice: billing
 ms.topic: concept-article
 ms.date: 08/21/2025
 #customer intent: As a billing administrator, I want to understand the different states and status of an Azure subscription so that I can manage my subscriptions effectively.
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Azure subscription states

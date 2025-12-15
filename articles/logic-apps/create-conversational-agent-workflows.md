@@ -597,6 +597,29 @@ Except for the different agent parameters to set up for the **Send an email (V2)
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
 
+## Trigger or run the workflow
+
+You can trigger or run conversational agent workflows in the following ways, based on the deployment environment:
+
+| Environment | Description |
+|-------------|-------------|
+| Nonproduction | On the workflow designer toolbar, select **Chat** to manually start a chat session with the conversational agent in the Azure portal. <br><br>**Important**: This method is intended only for test activities. Portal-based testing uses a temprary developer key. External users or production systems can't use this key. For more information, see [Authentication and authorization](#authentication-and-authorization). |
+| Production | Requires that you set up authentication for external users or clients such as websites, mobile apps, bots, or other Azure services to access the conversational agent. They can then trigger the workflow by using the chat client URL. |
+
+The following table describes how chat users or clients use the chat client URL to run the workflow in production:
+
+| Workflow type | Chat client URL usage | Required authentication |
+|---------------|-----------------------|-------------------------|
+| **Consumption** | Open the URL in a browser or embed the URL in an *iFrame* HTML element. | OAuth 2.0 with Microsoft Entra ID |
+| **Standard** | Open the URL in a browser, embed the URL in an *iFrame* element, or if you use the **Request** trigger, call the trigger's HTTP URL. | Managed identity or Easy Auth |
+
+To embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe), use the following format:
+
+| Workflow type | iFrame HTML element |
+|---------------|---------------------|
+| Consumption | `<iframe src="https://agents.<region>.logic.azure.com/scaleunits/<scale-unit-ID>/flows/<workflow-ID>/agentChat/IFrame" title="<chat-client-name>"></iframe>` |
+| Standard | `<iframe src="https://<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>` |
+
 ## Authentication and authorization
 
 For nonproduction activities, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf. The following list recommends some best practices for handling this developer key:
