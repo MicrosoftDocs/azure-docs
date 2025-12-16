@@ -95,7 +95,7 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 # [PowerShell](#tab/azure-powershell)
 
-You can use Azure PowerShell to create zonal or regional storage accounts. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values. For `<SkuName>`, specify either `Premium_LRS` for pay-as-you-go file shares or `PremiumV2_LRS` to provision capacity, throughput, and IOPS individually (Provisioned v2).
+You can use Azure PowerShell to create zonal or regional storage accounts. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values. For `<SkuName>`, specify either `Premium_LRS` for file shares or `PremiumV2_LRS` to provision capacity, throughput, and IOPS individually (Provisioned v2).
 
 ### Create a storage account in an Azure-selected zone
 

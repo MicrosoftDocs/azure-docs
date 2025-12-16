@@ -2,7 +2,7 @@
 title: What is Workflow Orchestration Manager?
 titleSuffix: Azure Data Factory
 description: Learn about when to use Workflow Orchestration Manager, basic concepts and supported regions.
-ms.topic: conceptual
+ms.topic: overview
 author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
@@ -14,20 +14,14 @@ ms.custom: references_regions
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
+
 Azure Data Factory offers serverless pipelines for data process orchestration, data movement with 100+ managed connectors, and visual transformations with the mapping data flow.
 
 Azure Data Factory's Workflow Orchestration Manager service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org) environments, enabling you to run data pipelines at scale with ease.
 [Apache Airflow](https://airflow.apache.org) is an open-source platform used to programmatically create, schedule, and monitor complex data workflows. It allows you to define a set of tasks, called operators, that can be combined into directed acyclic graphs (DAGs) to represent data pipelines. Airflow enables you to execute these DAGs on a schedule or in response to an event, monitor the progress of workflows, and provide visibility into the state of each task. It's widely used in data engineering and data science to orchestrate data pipelines, and is known for its flexibility, extensibility, and ease of use.
 
 :::image type="content" source="media/concepts-workflow-orchestration-manager/data-integration.png" alt-text="Screenshot shows data integration.":::
-
-
-> [!IMPORTANT]
-> Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory on December 31, 2025. The feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/fabric/data-factory/apache-airflow-jobs-concepts)
->
-> We recommend that you migrate all Workflow Orchestration Manager (Apache Airflow in Azure Data Factory) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to benefit from expanded capabilities before December 31, 2025.
->
-> For more information or for support during your migration to Apache Airflow in Microsoft Fabric, contact Microsoft Support.
 
 ## When to use Workflow Orchestration Manager?
 

@@ -2,7 +2,7 @@
 title: Triggers and Bindings in Azure Functions
 description: Learn how to use triggers and bindings to connect your Azure function to online events and cloud-based services.
 ms.topic: concept-article
-ms.date: 10/28/2024
+ms.date: 10/10/2025
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ai-usage: ai-assisted
@@ -68,7 +68,7 @@ Legacy C# script functions use a `function.json` definition file. For more infor
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-For Java functions, you configure triggers and bindings by annotating specific methods and parameters. This HTTP trigger (`@HttpTrigger`) is defined on the `run` method for a function named `HttpTriggerQueueOutput`. The function writes to a storage queue that the `@QueueOutput` annotation defines on the `message` parameter:
+For Java functions, you configure triggers and bindings by annotating specific methods and parameters. This HTTP trigger (`@HttpTrigger`) is defined on the `run` method for a function named `HttpExample`. The function writes to a storage queue named `outqueue` that the `@QueueOutput` annotation defines on the `msg` parameter:
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="16-23":::
 

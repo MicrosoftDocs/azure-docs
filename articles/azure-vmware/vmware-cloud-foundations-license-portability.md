@@ -96,6 +96,10 @@ This should be done in addition to the base VCF license registration. Once enter
 
 If you intend to utilize vDefend Firewall with Advanced Threat Prevention, please submit a support ticket with license key to have your license provisioned in your private cloud, in addition to adding the vDefend Firewall add-on license key as outlined. 
 
+>[!NOTE]
+> * NSX Distributed Firewall is considered enabled when a customer configures a non-default Distributed Firewall policy or Distributed Firewall IPFIX profile.
+> * NSX Gateway Firewall is considered enabled when a customer configures a non-default Gateway Firewall policy.
+
 ## How to calculate number of cores
 
 ### VCF cores for Azure VMware Solution private cloud

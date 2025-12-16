@@ -5,12 +5,11 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 12/01/2025
 zone_pivot_groups: service-portal-azcli-powershell
 ---
 
 # Configure IoT Hub file uploads using the Azure portal
-
 
 Configuring file uploads in your IoT hub enables your connected devices to upload files to an Azure storage account. This article shows you how to configure file uploads on your IoT hub using the Azure portal, Azure CLI, and Azure PowerShell.
 

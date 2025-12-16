@@ -1,6 +1,6 @@
 ---
 title: Overview - Azure Files Identity-Based Authentication
-description: Azure Files supports identity-based authentication over SMB (Server Message Block) with Active Directory Domain Services (AD DS), Microsoft Entra Domain Services, and Microsoft Entra Kerberos for hybrid and cloud-only identities.
+description: Azure Files supports identity-based authentication over SMB (Server Message Block) with Active Directory Domain Services (AD DS), Microsoft Entra Domain Services, and Microsoft Entra Kerberos for hybrid and cloud-only identities (preview).
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
@@ -62,7 +62,7 @@ Use the following guidelines to determine which identity source you should choos
 
 - If you have an existing on-premises AD but are planning to move applications to the cloud and you want your identities to exist both on-premises and in the cloud (hybrid), choose Microsoft Entra Kerberos.
 
-- If you want to authenticate cloud-only identities without using domain controllers, choose Microsoft Entra Kerberos. This feature is currently in public preview.
+- If you want to authenticate cloud-only identities without using domain controllers, choose Microsoft Entra Kerberos. This feature is currently in preview.
 
 - If you already use Microsoft Entra Domain Services, choose Microsoft Entra Domain Services as your identity source.
 
@@ -104,13 +104,17 @@ You can also use this feature to store FSLogix profiles on Azure file shares for
 For Microsoft Entra Domain Services authentication, you must enable Microsoft Entra Domain Services and domain join the virtual machines that will access Azure file shares using Kerberos authentication. These virtual machines must have network connectivity to the Microsoft Entra Domain Services managed domain.
 
 The authentication flow is similar to on premises AD DS authentication, with the following differences:
-- The storage account identity is created automatically during enablement.
-- All Microsoft Entra ID users can be authenticated and authorized. Users can be cloud only or hybrid. User synchronization from Microsoft Entra ID to Microsoft Entra Domain Services is managed by the platform.
 
-**Access requirements**
--  Kerberos authentication requires the client to be domain joined to the Microsoft Entra Domain Services managed domain.
--  Non Azure clients cannot be domain joined to the Microsoft Entra Domain Services managed domain.
--  Clients that are not domain joined can still access Azure file shares using explicit credentials only if the client has unimpeded network connectivity to the Microsoft Entra Domain Services domain controllers, for example through VPN or other supported connections.
+- The storage account identity is created automatically during enablement.
+- All Microsoft Entra ID users can be authenticated and authorized. Users can be cloud-only or hybrid. User synchronization from Microsoft Entra ID to Microsoft Entra Domain Services is managed by the platform.
+
+#### Access requirements for Microsoft Entra Domain Services
+
+For clients to authenticate using Microsoft Entra Domain Services, the following requirements must be met.
+
+- Kerberos authentication requires the client to be domain joined to the Microsoft Entra Domain Services managed domain.
+- Non-Azure clients can't be domain joined to the Microsoft Entra Domain Services managed domain.
+- Clients that aren't domain joined can still access Azure file shares using explicit credentials only if the client has unimpeded network connectivity to the Microsoft Entra Domain Services domain controllers, for example through VPN or other supported connections.
 
 :::image type="content" source="media/storage-files-active-directory-overview/files-microsoft-entra-domain-services-auth-diagram.png" alt-text="Diagram of configuration for Microsoft Entra Domain Services authentication with Azure Files over SMB.":::
 

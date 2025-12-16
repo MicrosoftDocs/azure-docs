@@ -12,16 +12,9 @@ ms.date: 02/13/2025
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
+
 A python package is a way to organize related Python modules into a single directory hierarchy. A package is typically represented as a directory that contains a special file called `__init__.py`. Inside a package directory, you can have multiple Python module files (.py files) that define functions, classes, and variables. In the context of Workflow Orchestration Manager, you can create packages to add your custom code.
-
-> [!IMPORTANT]
-> Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory on December 31, 2025. The feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/fabric/data-factory/apache-airflow-jobs-concepts)
->
-> We recommend that you migrate all Workflow Orchestration Manager (Apache Airflow in Azure Data Factory) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to benefit from expanded capabilities before December 31, 2025.
->
-> For more information or for support during your migration to Apache Airflow in Microsoft Fabric, contact Microsoft Support.
-
-This guide provides step-by-step instructions on installing `.whl` (Wheel) file, which serve as a binary distribution format for Python package in your Workflow Orchestration Manager.
 
 For illustration purpose, I create a simple custom operator as python package that can be imported as a module inside dags file.
 

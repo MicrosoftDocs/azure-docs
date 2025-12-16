@@ -92,7 +92,7 @@ To exclude files or folders from cloud tiering, follow these steps:
 >
 > `^ $ ( ) [ ] { } +`
 >
-> If these characters are not escaped, the exclusion policy will not work correctly for any folder path that contains them.
+> If you don't escape these characters, the exclusion policy won't work correctly for any folder path that contains them.
 
 ### Tiered downloads
 

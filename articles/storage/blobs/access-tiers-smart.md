@@ -23,7 +23,8 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 
 ## Known issues and considerations
 
-- Smart tier is currently in Public Preview for account level tiering for zone redundancy (ZRS, GZRS, and RA-GZRS) for both flat and hierarchical namespaces. 
+- Smart tier is currently in Public Preview for account level tiering for zone redundancy (ZRS, GZRS, and RA-GZRS) for both flat and hierarchical namespaces including ADLS (Azure Data Lake Storage). 
+
 - Redundancy conversions to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account fails over, convert the LRS account to zone-redundant within 60 days to continue Smart tier support. 
 - Smart tier characteristics might change during or after the public preview phase.
