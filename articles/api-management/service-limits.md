@@ -4,7 +4,7 @@ description: Learn about service limits in Azure API Management, including their
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 10/22/2025
+ms.date: 12/15/2025
 ms.author: danlep
 ai-usage: ai-assisted
 ---
@@ -27,21 +27,19 @@ Resource limits are interrelated and tuned to work together. They prevent any si
 
 ## Changes to service limits in Classic tiers
 
-Starting March 2026, Azure API Management will apply updated limits to instances in the Classic tiers (Developer, Basic, Standard, and Premium) and the Consumption tier. These updates align with each tier’s capabilities and help customers choose the right option for their needs.
-
-Current limits for Classic tiers are published [here](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-classic-tiers). By March 2026, the scope of entities with limits could be reduced.
+Starting March 2026, Azure API Management will publish and apply updated limits to instances in the Classic tiers (Developer, Basic, Standard, and Premium) and the Consumption tier. These updates will align with each tier’s capabilities and help customers choose the right option for their needs.
 
 ### What's changing
 
-* New limits for Classic tier resources are more easily compared with the limits in the [V2 service tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-v2-tiers).
-* Previously, limits for certain resources in Classic tiers weren't defined explicitly or enforced. In practice, these resources were always constrained by service configuration, service capacity, number of scale units, policy configuration, and other factors. The new limits make these constraints explicit and predictable.
+* New limits for Classic tier resources will be more easily compared with the limits in the [V2 service tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-v2-tiers).
+* Previously, limits for certain resources in Classic tiers weren't defined explicitly or enforced. In practice, these resources were always constrained by service configuration, service capacity, number of scale units, policy configuration, and other factors. The new limits will make these constraints explicit and predictable.
 
 ### Limits policy for existing customers
 
-If your existing API Management instance already exceeds new Classic tier limits, you can continue using your resources without interruption. This means:
+After the new Classic tier limits take effect, you can continue using your resources without interruption. This means:
 
-* Existing services that already exceed published limits aren't impacted.
-* You're able to make changes to existing resources and add new resources up to a small threshold above your current usage.
+* Existing Classic tier services that already exceed published limits won't be impacted.
+* You'll be able to make changes to existing resources and add new resources up to a small threshold above your current usage.
 
 This approach ensures that existing workloads aren't disrupted while still encouraging alignment with the new limits over time.
 

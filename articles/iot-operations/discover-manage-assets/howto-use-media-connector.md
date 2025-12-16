@@ -81,6 +81,9 @@ Example uses of the media connector include:
 
 - Save snapshots or video clips to a local file system on your cluster. Use [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to provide a reliable and fault-tolerant solution for uploading the captured video to the cloud for storage or processing. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes).
 
+    > [!IMPORTANT]
+    > You must install [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-install-edge-volumes) before you use it with the media connector template.
+
 - Proxy a live video stream from a camera to an endpoint that an operator can access. For security and performance reasons, only the media connector should have direct access to an edge camera. The media connector uses a separate media server component to stream video to an operator's endpoint. This media server can transcode to various protocols such as RTSP, RTCP, SRT, and HLS. You need to deploy your own media server to provide these capabilities.
 
 ## Deploy the media connector

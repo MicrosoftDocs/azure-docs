@@ -77,7 +77,8 @@ Connect-AzAccount
 # Define parameters
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
 # $SamAccountName is the name of the to-be-created AD object, which is used by AD as the logon name 
-# for the object. It must be 15 characters or less and has certain character restrictions.
+# for the object. It must be 20 characters or less and has certain character restrictions.
+# Certain NETBIOS restrictions might require a $SamAccountName of 15 characters or less.
 # Make sure that you provide the SamAccountName without the trailing '$' sign.
 # See https://learn.microsoft.com/windows/win32/adschema/a-samaccountname for more information.
 $SubscriptionId = "<your-subscription-id-here>"

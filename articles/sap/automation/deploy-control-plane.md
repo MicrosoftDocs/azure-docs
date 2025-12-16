@@ -88,7 +88,7 @@ management_subnet_address_prefix = "10.10.20.64/28"
 
 # management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
 management_firewall_subnet_address_prefix = "10.10.20.0/26"
-firewall_deployment = false
+firewall_deployment = true
 
 # management_bastion_subnet_address_prefix is the address prefix for the bastion subnet
 management_bastion_subnet_address_prefix = "10.10.20.128/26"
@@ -104,13 +104,13 @@ deployer_count = 1
 use_service_endpoint = true
 
 # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
-use_private_endpoint = false
+use_private_endpoint = true
 
 # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
 enable_firewall_for_keyvaults_and_storage = false
 
 # public_network_access_enabled controls if storage account and key vaults have public network access enabled
-public_network_access_enabled = true
+public_network_access_enabled = false
 
 ```
 
@@ -126,9 +126,9 @@ location = "westeurope"
 
 #Defines the DNS suffix for the resources
 dns_label = "azure.contoso.net"
-
+        
 # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
-use_private_endpoint = false
+use_private_endpoint = true
 ```
 
 

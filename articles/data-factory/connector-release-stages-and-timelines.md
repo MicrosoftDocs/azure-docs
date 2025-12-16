@@ -50,7 +50,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Hive](connector-hive.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | Removed         | September 30, 2025         | October 31, 2025    |
 | [HubSpot](connector-hubspot.md)                          | version 2.0    |GA                            | /                   | /                   |
-|                                    | version 1.0    | End of support          | October 22, 2025         | November 22, 2025      |
+|                                    | version 1.0    | Removed          | October 22, 2025         | November 22, 2025      |
 | [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | Removed          | September 30, 2025         | October 31, 2025    |
 | [Magento (Preview)](connector-magento.md)                  | /              | Removed                    | December 31, 2024     | December 31, 2024     |
@@ -81,8 +81,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Salesforce Service Cloud V1](connector-salesforce-service-cloud-legacy.md) | /              | Removed         | June 30, 2025         | September 30, 2025    |
 | [ServiceNow V2](connector-servicenow.md)                   | /              | GA                                | /                   | /                   |
 | [ServiceNow V1](connector-servicenow-legacy.md)            | /              | Removed          | June 30, 2025         | September 30, 2025    |
-| [Shopify (Preview)](connector-shopify.md)                        | version 2.0    | Public Preview                    | /                   |/
-|                                    | version 1.0    | End of support                                 | October 22, 2025     | November 22, 2025                    |
+| [Shopify](connector-shopify.md)                        | version 2.0    | GA                     | /                   |/
+|                                    | version 1.0    | Removed                                 | October 22, 2025     | November 22, 2025                    |
 | [Snowflake V2](connector-snowflake.md)                     | version 1.1    | GA                                | /                   | /                   |
 |                                    | version 1.0    | GA                                | /                   | /                   |
 | [Snowflake V1](connector-snowflake-legacy.md)              | /              | Removed        | June 30, 2025         | September 30, 2025    |
@@ -90,8 +90,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 |                                    | version 1.0    | Removed                          |September 30, 2025     | October 31, 2025                  |
 | [SQL Server](connector-sql-server.md)                 | version 2.0  | GA                           | /                      | /                      |
 |                                                       | version 1.0  | GA                           | To be determined       | /       |
-| [Square (Preview)](connector-square.md)                        | version 2.0    | Public Preview                    | /                   |/
-|                                    | version 1.0    | End of support announced                                | October 15, 2025     | November 15, 2025                    |
+| [Square](connector-square.md)                        | version 2.0    | GA                     | /                   |/
+|                                    | version 1.0    | Removed                                | October 15, 2025     | November 15, 2025                    |
 | [Teradata](connector-teradata.md)                          | version 2.0    | GA                  | /                   | /                   |
 |                                    | version 1.0    | Removed                                | September 30, 2025     | October 31, 2025                     |
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |

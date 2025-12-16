@@ -103,7 +103,7 @@ You can choose between two failover options, Microsoft-initiated failover and cu
 
     Enable this functionality by updating the configuration for your topic or domain. Select **Regional**.
 
-    :::image type="content" source="../event-grid/media/availability-zones-disaster-recovery/configuration-page.png" alt-text="Screenshot showing the Configuration page for an Event Grid custom topic.":::
+    :::image type="content" source="/azure/event-grid/media/availability-zones-disaster-recovery/configuration-page.png" alt-text="Screenshot showing the Configuration page for an Event Grid custom topic.":::
 
 If you use a [nonpaired region](cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), then regardless of the data residency configuration you select, your metadata will only be replicated within the region.
 

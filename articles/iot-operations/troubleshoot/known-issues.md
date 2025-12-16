@@ -77,6 +77,10 @@ Issue ID: 7710
 
 ---
 
+Fixed in version 1.2.154 (2512) and later
+
+---
+
 Log signature:
 
 ```output
@@ -130,6 +134,10 @@ When using secret sync, ensure that secret names are globally unique. If a local
 ---
 
 Issue ID: 9545
+
+---
+
+Fixed in version 1.2.154 (2512) and later
 
 ---
 

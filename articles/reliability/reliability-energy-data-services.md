@@ -43,7 +43,7 @@ During a zone-wide outage, no action is required during zone recovery. There may
 
 Azure Data Manager for Energy is a regional service and, therefore, is susceptible to region-down service failures. Azure Data Manager for Energy follows an active-passive failover configuration to recover from regional disaster. An active-passive configuration keeps warm Azure Data Manager for Energy resource running in the secondary region, but doesn't send traffic there unless the primary region fails. 
 
-:::image type="content" source="../energy-data-services/media/reliability-energy-data-services/cross-region-disaster-recovery.png" alt-text="Diagram of Azure data manager for energy cross region disaster recovery workflow." lightbox="../energy-data-services/media/reliability-energy-data-services/cross-region-disaster-recovery.png":::
+:::image type="content" source="/azure/energy-data-services/media/reliability-energy-data-services/cross-region-disaster-recovery.png" alt-text="Diagram of Azure data manager for energy cross region disaster recovery workflow." lightbox="/azure/energy-data-services/media/reliability-energy-data-services/cross-region-disaster-recovery.png":::
 
 Below is the list of primary and secondary regions for regions where disaster recovery is supported:
 

@@ -22,6 +22,11 @@ Azure Change Tracking and Inventory (CTI) monitors changes and provide inventory
 |Resource types | Azure VMs </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
 |Data types | Windows registry </br> Windows services </br> Linux Daemons </br> Files </br> Software
 
+> [!NOTE]
+> Change Tracking and Inventory (CTI) currently does not support configuration to collect data from only specific services (such as selected Windows services or Linux daemons). 
+> The service is designed to collect data from all services, and this behavior cannot be customized.
+> Additionally, DCR transformations are not supported for Change Tracking DCRs.
+
 ## Limits
 
 The following table shows the tracked item limits per machine for Azure CTI.
@@ -67,6 +72,10 @@ The next table shows the data collection frequency for the types of changes supp
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
 | Linux Daemons | 5 minutes | 
+
+> [!NOTE]
+> The ability to customize data collection frequency is limited.
+> Currently, this option is available only for Windows Files and Windows Services, and must adhere to the ranges specified in the preceding table.
 
 The following table shows the tracked item limits per machine for Azure CTI.
 

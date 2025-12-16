@@ -102,9 +102,8 @@ This section explains how to configure availability zone support for your firewa
 
     When you use the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform, you can optionally specify the availability zones for deployment. To deploy a zone-redundant firewall, specify two or more zones. We recommend that you select all zones so that your firewall can use every availability zone, unless you have a specific reason to exclude a zone.
     
-    For more information about Azure PowerShell, see [Deploy an Azure Firewall with availability zones by using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md).
+    For more information about deploying a ZR Firewall, see [Deploy an Azure Firewall with availability zones](../firewall/deploy-availability-zone-powershell.md).
 
-  - *Zonal:* You can deploy a zonal firewall by using the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform. Select a single specific availability zone.
 
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]

@@ -47,10 +47,10 @@ In a region with availability zones, a Standard Load Balancer can be zone-redund
 
 The frontend's IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones. Any retries or reestablishment will succeed in other zones not affected by the zone failure.
 
-:::image type="content" source="../load-balancer/media/az-zonal/zone-redundant-lb-1.svg" alt-text="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration.":::
+:::image type="content" source="/azure/load-balancer/media/az-zonal/zone-redundant-lb-1.svg" alt-text="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration.":::
 
 >[!NOTE]
->VMs 1,2, and 3 can be belong to the same subnet and don't necessarily have to be in separate zones as the diagram suggestions.
+>VMs 1, 2, and 3 can belong to the same subnet and don't necessarily have to be in separate zones as the diagram suggestions.
 
 Members in the backend pool of a load balancer are normally associated with a single zone such as with zonal virtual machines. A common design for production workloads would be to have multiple zonal resources. For example, placing virtual machines from zone 1, 2, and 3 in the backend of a load balancer with a zone-redundant frontend meets this design principle.
 
@@ -60,7 +60,7 @@ You can choose to have a frontend guaranteed to a single zone, which is known as
 
 Additionally, the use of zonal frontends directly for load-balanced endpoints within each zone is supported. You can use this configuration to expose per zone load-balanced endpoints to individually monitor each zone. For public endpoints, you can integrate them with a DNS load-balancing product like [Traffic Manager](../traffic-manager/traffic-manager-overview.md) and use a single DNS name.
 
-:::image type="content" source="../load-balancer/media/az-zonal/zonal-lb-1.svg" alt-text="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration.":::
+:::image type="content" source="/azure/load-balancer/media/az-zonal/zonal-lb-1.svg" alt-text="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration.":::
 
 For a public load balancer frontend, you add a **zones** parameter to the public IP. This public IP is referenced by the frontend IP configuration used by the respective rule.
 
@@ -128,7 +128,7 @@ Azure Standard Load Balancer supports global load balancing enabling geo-redunda
 
 The frontend IP configuration of your global load balancer is static and advertised across [most Azure regions](#participating-regions).
 
-:::image type="content" source="../load-balancer/media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram of global load balancer." border="true":::
+:::image type="content" source="/azure/load-balancer/media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram of global load balancer." border="true":::
 
 > [!NOTE]
 > The backend port of your load balancing rule on global load balancer should match the frontend port of the load balancing rule/inbound nat rule on regional standard load balancer. 
@@ -144,7 +144,7 @@ If one region fails, the traffic is routed to the next closest healthy regional 
 
 The health probe of the global load balancer gathers information about availability of each regional load balancer every 5 seconds. If one regional load balancer drops its availability to 0, global load balancer detects the failure. The regional load balancer is then taken out of rotation. 
 
-:::image type="content" source="../load-balancer/media/cross-region-overview/global-region-view.png" alt-text="Diagram of global region traffic view." border="true":::
+:::image type="content" source="/azure/load-balancer/media/cross-region-overview/global-region-view.png" alt-text="Diagram of global region traffic view." border="true":::
 
 
 #### Ultra-low latency
@@ -219,7 +219,7 @@ Traffic started by the user travels to the closest participating region through 
 
 Global load balancer routes the traffic to the appropriate regional load balancer.
 
-:::image type="content" source="../load-balancer/media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
+:::image type="content" source="/azure/load-balancer/media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
 
 ### Participating regions
 * Australia East 

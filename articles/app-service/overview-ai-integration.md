@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: overview
-ms.date: 11/18/2025
+ms.date: 12/12/2025
 ms.custom:
   - build-2025
 ms.collection: ce-skilling-ai-copilot
@@ -31,22 +31,22 @@ App Service offers several advantages for developing and deploying AI-powered ap
 Build intelligent web apps that use Azure OpenAI for chat or retrieval augmented generation (RAG). These tutorials show you how to integrate Azure OpenAI and (optionally) Azure AI Search to create chatbots and RAG solutions in your preferred language, using managed identities for secure authentication.
 
 ### [.NET](#tab/dotnet)
-- [Build a chatbot with Azure OpenAI (Blazor)](tutorial-ai-openai-chatbot-dotnet.md)
-- [Build a RAG application with Azure OpenAI and Azure AI Search (.NET)](tutorial-ai-openai-search-dotnet.md)
-- [Build a RAG application with Azure OpenAI and Azure SQL](deploy-intelligent-apps-dotnet-to-azure-sql.md)
+- [Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (.NET)](tutorial-ai-openai-chatbot-dotnet.md)
+- [Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (.NET)](tutorial-ai-openai-search-dotnet.md)
+- [Deploy a .NET Blazor App Connected to Azure SQL and Azure OpenAI on Azure App Service](deploy-intelligent-apps-dotnet-to-azure-sql.md)
 
 ### [Java](#tab/java)
-- [Build a chatbot with Azure OpenAI (Spring Boot)](tutorial-ai-openai-chatbot-java.md)
-- [Build a RAG application with Azure OpenAI and Azure AI Search (Java)](tutorial-ai-openai-search-java.md)
+- [Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Spring Boot)](tutorial-ai-openai-chatbot-java.md)
+- [Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Spring Boot)](tutorial-ai-openai-search-java.md)
 - Sample: [SpringBoot-Petclinic-AI-Chat-on-App-Service](https://github.com/Azure-Samples/SpringBoot-Petclinic-AI-Chat-on-App-Service)
 
 ### [Node.js](#tab/nodejs)
-- [Build a chatbot with Azure OpenAI (Express.js)](tutorial-ai-openai-chatbot-node.md)
-- [Build a RAG application with Azure OpenAI and Azure AI Search (Node.js)](tutorial-ai-openai-search-nodejs.md)
+- [Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Express.js)](tutorial-ai-openai-chatbot-node.md)
+- [Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Express.js)](tutorial-ai-openai-search-nodejs.md)
 
 ### [Python](#tab/python)
-- [Build a chatbot with Azure OpenAI (Flask)](tutorial-ai-openai-chatbot-python.md)
-- [Build a RAG application with Azure OpenAI and Azure AI Search (Python)](tutorial-ai-openai-search-python.md)
+- [Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Flask)](tutorial-ai-openai-chatbot-python.md)
+- [Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (FastAPI)](tutorial-ai-openai-search-python.md)
 - [Microsoft Foundry tutorial: Deploy an enterprise chat web app](/azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json)
 -----
 
@@ -55,14 +55,14 @@ Build intelligent web apps that use Azure OpenAI for chat or retrieval augmented
 Transform your traditional CRUD web applications for the AI era by adding agentic capabilities with frameworks like Microsoft Semantic Kernel, LangGraph, or Foundry Agent Service. Instead of users navigating forms, textboxes, and dropdowns, you can offer a conversational interface that lets users "talk to an agent" that intelligently performs the same operations your app provides. This approach enables your web app to reason, plan, and take actions on behalf of users.
 
 ### [.NET](#tab/dotnet)
-- [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Foundry Agent Service (.NET)](tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md)
+- [Tutorial: Build an agentic web app in Azure App Service with Microsoft Agent Framework or Foundry Agent Service (.NET)](tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md)
 - Blog series: Build long-running AI agents with Microsoft Agent Framework
   - [Part 1: Build long-running AI agents on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/build-long-running-ai-agents-on-azure-app-service-with-microsoft-agent-framework/4463159)
   - [Part 2: Build long-running AI agents on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/part-2-build-long-running-ai-agents-on-azure-app-service-with-microsoft-agent-fr/4465825)
   - [Part 3: Client-side multi-agent orchestration on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/part-3-client-side-multi-agent-orchestration-on-azure-app-service-with-microsoft/4466728)
 
 ### [Java](#tab/java)
-- [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel (Spring Boot)](tutorial-ai-agent-web-app-semantic-kernel-java.md)
+- [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Foundry Agent Service (Spring Boot)](tutorial-ai-agent-web-app-semantic-kernel-java.md)
 
 ### [Node.js](#tab/nodejs)
 - [Tutorial: Build an agentic web app in Azure App Service with LangGraph or Foundry Agent Service (Node.js)](tutorial-ai-agent-web-app-langgraph-foundry-node.md)
@@ -77,10 +77,9 @@ Empower your existing web apps by exposing their capabilities to Foundry Agent S
 
 ### [.NET](#tab/dotnet)
 - [Add an App Service app as a tool in Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md)
-- [Invoke a web app from Microsoft Foundry agent](invoke-openapi-web-app-from-azure-ai-agent-service.md)
 
 ### [Java](#tab/java)
-- [Add an App Service app as a tool in Foundry Agent Service (Java)](tutorial-ai-integrate-azure-ai-agent-java.md)
+- [Add an App Service app as a tool in Foundry Agent Service (Spring Boot)](tutorial-ai-integrate-azure-ai-agent-java.md)
 
 ### [Node.js](#tab/nodejs)
 - [Add an App Service app as a tool in Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md)
@@ -98,7 +97,7 @@ Integrate your web app as a [Model Context Protocol (MCP)](https://modelcontextp
 - Sample: [Host a .NET MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-dotnet)
 
 ### [Java](#tab/java)
-- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Java)](tutorial-ai-model-context-protocol-server-java.md)
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Spring Boot)](tutorial-ai-model-context-protocol-server-java.md)
 
 ### [Node.js](#tab/nodejs)
 - [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Node.js)](tutorial-ai-model-context-protocol-server-node.md)
@@ -116,24 +115,24 @@ Integrate your web app as a [Model Context Protocol (MCP)](https://modelcontextp
 Deploy a web app with a local small language model (SLM) as a sidecar container to run AI models entirely within your App Service environment. No outbound calls or external AI service dependencies required. This approach is ideal if you have strict data privacy or compliance requirements, as all AI processing and data remain local to your app. App Service offers high-performance, memory-optimized pricing tiers needed for running SLMs in sidecars.
 
 ### [.NET](#tab/dotnet)
-- [Run a chatbot with a local SLM sidecar extension](tutorial-ai-slm-dotnet.md)
+- [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
 
 ### [Java](#tab/java)
-- [Run a chatbot with a local SLM (Spring Boot)](tutorial-ai-slm-spring-boot.md)
+- [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Spring Boot)](tutorial-ai-slm-spring-boot.md)
 
 ### [Node.js](#tab/nodejs)
-- [Run a chatbot with a local SLM (Express.js)](tutorial-ai-slm-expressjs.md)
+- [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Express.js)](tutorial-ai-slm-expressjs.md)
 
 ### [Python](#tab/python)
-- [Run a chatbot with a local SLM (FastAPI)](tutorial-ai-slm-fastapi.md)
+- [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (FastAPI)](tutorial-ai-slm-fastapi.md)
 -----
 
 ## Authenticate tool calls to App Service
 
 Secure your AI-powered applications with Microsoft Entra authentication and authorization. These guides show you how to protect your OpenAPI tools and MCP servers in Azure App Service so only authorized users and agents can access them.
 
-- [Authenticate Microsoft Foundry tool calls](configure-authentication-ai-foundry-openapi-tool.md) - Secure your App Service app when used as an OpenAPI tool in Foundry Agent Service with Microsoft Entra authentication
-- [Secure a Model Context Protocol server in Azure App Service](configure-authentication-mcp.md) - Overview of authentication methods for MCP servers
+- [Secure OpenAPI endpoints for Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md) - Secure your App Service app when used as an OpenAPI tool in Foundry Agent Service with Microsoft Entra authentication
+- [Configure built-in MCP server authorization (Preview)](configure-authentication-mcp.md) - Overview of authentication methods for MCP servers
 - [Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication](configure-authentication-mcp-server-vscode.md) - Step-by-step guide to secure your MCP server for GitHub Copilot Chat in VS Code
 
 ## More resources

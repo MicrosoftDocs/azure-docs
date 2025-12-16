@@ -3,10 +3,10 @@ title: GPv1 ZRS standard account retirement FAQ
 titleSuffix: Azure Storage
 description: Commonly asked questions regarding the retirement of Azure general-purpose v1 (GPv1) ZRS storage accounts and upgrading to GPv2.
 Services: storage
-author: gtrossell
+author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: faq
-ms.date: 07/22/2025
+ms.date: 12/15/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template

@@ -1,5 +1,5 @@
 ---
-title: Copy data from Square (Preview) 
+title: Copy data from Square
 description: Learn how to copy data from Square to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
@@ -12,17 +12,14 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Copy data from Square using Azure Data Factory or Synapse Analytics (Preview)
+# Copy data from Square using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Square. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
-
 
 > [!IMPORTANT]
-> The Square connector version 2.0 (Preview) provides improved native Square support. If you are using Square connector version 1.0 in your solution, please [upgrade the Square connector](#upgrade-the-square-connector-from-version-10-to-version-20) before **October 15, 2025**. Refer to this [section](#square-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
+> The Square connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Square connector](#square-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -46,7 +43,7 @@ The connector supports the Windows versions in this [article](create-self-hosted
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
-> Version 2.0 (Preview) is supported with the self-hosted integration runtime version 5.56.0.0 or above.
+> Version 2.0 is supported with the self-hosted integration runtime version 5.56.0.0 or above.
 
 ## Getting started
 
@@ -81,14 +78,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Square connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-square-connector-from-version-10-to-version-20) to upgrade your Square connector version from version 1.0. For the property details, see the corresponding sections.
+The Square connector now supports version 2.0. Refer to this [section](#upgrade-the-square-connector-from-version-10-to-version-20) to upgrade your Square connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (Preview)](#version-20)
+- [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
-### <a name="version-20"></a>Version 2.0 (Preview)
+### <a name="version-20"></a>Version 2.0
 
-The Square linked service supports the following properties when apply version 2.0 (Preview):
+The Square linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -206,7 +203,7 @@ To copy data from Square, set the type property of the dataset to **SquareObject
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **SquareObject** | Yes |
-| tableName | Name of the table. | Yes for version 2.0 (Preview).<br> No for version 1.0 (if "query" in activity source is specified) |
+| tableName | Name of the table. | Yes for version 2.0.<br> No for version 1.0 (if "query" in activity source is specified) |
 
 **Example**
 
@@ -239,7 +236,7 @@ To copy data from Square, set the source type in the copy activity to **SquareSo
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM Business"`. | No (if "tableName" in dataset is specified) |
 
 > [!Note]
-> `query` is not supported in version 2.0 (Preview).
+> `query` is not supported in version 2.0.
 
 **Example:**
 
@@ -277,7 +274,7 @@ To copy data from Square, set the source type in the copy activity to **SquareSo
 
 When you copy data from Square, the following mappings apply from Square's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Square data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+| Square data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |------------------|----------------------------------|----------------------|
 | String           | String                           | String               |
 | Integer          | Int32                            | Int32                |
@@ -300,18 +297,18 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support announced | / |  
-| Version 2.0 | Public Preview |  • The self-hosted integration runtime version should be 5.56.0.0 or above. <br><br>• Date, Timestamp and Timestamp with offset are read as String data type. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   <br><br>• `query` is not supported.  |
+| Version 1.0 | Removed | Not applicable. |
+| Version 2.0 | General availability |  • The self-hosted integration runtime version should be 5.56.0.0 or above. <br><br>• Date, Timestamp and Timestamp with offset are read as String data type. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   <br><br>• `query` is not supported.  |
 
-### <a name="upgrade-the-square-connector-from-version-10-to-version-20"></a> Upgrade the Square connector from version 1.0 to version 2.0 (Preview)
+### <a name="upgrade-the-square-connector-from-version-10-to-version-20"></a> Upgrade the Square connector from version 1.0 to version 2.0
 
-1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
+1. In **Edit linked service** page, select 2.0 for version. For more information, see [linked service version 2.0 properties](#version-20).
 
-1. The data type mapping for the Square linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Square](#data-type-mapping-for-square).
+1. The data type mapping for the Square linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Square](#data-type-mapping-for-square).
 
 1. Apply a self-hosted integration runtime with version 5.56.0.0 or above.
 
-1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
+1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0.
 
 
 ## Related content

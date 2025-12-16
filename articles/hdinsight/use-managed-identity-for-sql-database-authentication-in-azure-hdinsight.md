@@ -24,6 +24,8 @@ The managed identity option is available for the following databases:
 |Oozie |✅ |✅ |
 |Ranger (ESP)|❌ | ❌ |
 
+> [!NOTE]
+> Managed identity change is available in public regions. For use in other regions (Federal and China regions), please contact [support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) for assistance.
 
 > [!IMPORTANT]
 > * It's recommended not to update the managed identity after cluster recreation as it can disrupt cluster operation.

@@ -135,7 +135,7 @@ There are currently multiple ways to deploy a zone-redundant Flex Consumption ap
     | **Region** | Your preferred supported region | The region in which your Flex Consumption plan is created. You must select a region that supports availability zones. See the [region availability list](#regional-availability). |
     | **Zone redundancy** | Enabled | This setting specifies whether your app is zone redundant. You can only select `Enabled` when you've chosen a region that supports zone redundancy. |
     
-    :::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-flex-basics-az.png" alt-text="Screenshot of the Basics tab of the Flex Consumption function app create page.":::
+    :::image type="content" source="/azure/azure-functions/media/functions-az-redundancy/azure-functions-flex-basics-az.png" alt-text="Screenshot of the Basics tab of the Flex Consumption function app create page.":::
     
 
 1. On the **Storage** tab, select the zone-redundant storage account for your function app. Pay special attention to the setting in the following table, which has specific requirements for zone redundancy.
@@ -246,7 +246,7 @@ After the storage accounts used by your app are updated, you can update the Flex
 
 1. Select **Save** to commit your changes and restart the app.
 
-:::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-flex-update-az.png" alt-text="Screenshot of the Scale and Concurrency tab of a Flex Consumption function app.":::
+:::image type="content" source="/azure/azure-functions/media/functions-az-redundancy/azure-functions-flex-update-az.png" alt-text="Screenshot of the Scale and Concurrency tab of a Flex Consumption function app.":::
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -337,7 +337,7 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
     | **Pricing plan** | One of the Elastic Premium plans. For more information, see [Available instance SKUs](../azure-functions/functions-premium-plan.md#available-instance-skus). | This article describes how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on App Service plans, see [Reliability in Azure App Service](./reliability-app-service.md). |
     | **Zone redundancy** | Enabled | This setting specifies whether your app is zone redundant. You won't be able to select `Enabled` unless you have chosen a region that supports zone redundancy, as described previously. |
     
-    :::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-ep-basics-az.png" alt-text="Screenshot of the Basics tab of the function app create page.":::
+    :::image type="content" source="/azure/azure-functions/media/functions-az-redundancy/azure-functions-ep-basics-az.png" alt-text="Screenshot of the Basics tab of the function app create page.":::
     
 
 1. On the **Storage** tab, enter the settings for your function app storage account. Pay special attention to the setting in the following table, which has specific requirements for zone redundancy.
@@ -492,7 +492,7 @@ When you run the same function code in multiple regions, there are two patterns 
 
 With an active-active pattern, functions in both regions are actively running and processing events, either in a duplicate manner or in rotation. You should use an active-active pattern in combination with [Azure Front Door](../frontdoor/front-door-overview.md) for your critical HTTP triggered functions, which can route and round-robin HTTP requests between functions running in multiple regions. Front door can also periodically check the health of each endpoint. When a function in one region stops responding to health checks, Azure Front Door takes it out of rotation, and only forwards traffic to the remaining healthy functions.  
 
-![Architecture for Azure Front Door and Function](../azure-functions/media/functions-geo-dr/front-door.png)  
+![Architecture for Azure Front Door and Functions.](/azure/azure-functions/media/functions-geo-dr/front-door.png)  
 
 ### Active-passive pattern for non-HTTPS trigger functions
 
@@ -508,7 +508,7 @@ Consider an example topology using an Azure Event Hubs trigger. In this case, th
 * Function app triggers on the *direct* (nonalias) connection string for its respective event hub. 
 * Publishers to the event hub should publish to the alias connection string. 
 
-![Active-passive example architecture](../azure-functions/media/functions-geo-dr/active-passive.png)
+![Active-passive example architecture.](/azure/azure-functions/media/functions-geo-dr/active-passive.png)
 
 Before failover, publishers sending to the shared alias route to the primary event hub. The primary function app is listening exclusively to the primary event hub. The secondary function app is passive and idle. As soon as failover is initiated, publishers sending to the shared alias are routed to the secondary event hub. The secondary function app now becomes active and starts triggering automatically. Effective failover to a secondary region can be driven entirely from the event hub, with the functions becoming active only when the respective event hub is active.
 

@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/09/2025
+ms.date: 12/11/2025
 ms.author: anfdocs
+ms.custom: references_regions
 ---
 # Configure advanced ransomware protection for Azure NetApp Files volumes (preview)
 
@@ -29,6 +30,51 @@ Advanced ransomware protection's alert mechanisms enable you to stay vigilant in
 * Ransomware threat notifications are sent in the Azure Activity log.  
 * It’s recommended that you enable no more than five volumes per Azure region with advanced ransomware protection to mitigate performance issues. 
 * It's recommended you increase QoS capacity by 5 to 10 percent due to potential performance impacts of advanced ransomware protection. The scale of the impact can vary based on the configurations across your Azure NetApp Files deployment.  
+
+## Supported regions 
+
+- Australia Central 
+- Australia Central 2 
+- Australia East 
+- Australia Southeast 
+- Brazil South 
+- Brazil Southeast 
+- Canada Central 
+- Canada East 
+- Central India 
+- Central US 
+- East Asia 
+- East US 
+- East US 2 
+- France Central 
+- Germany North 
+- Germany West Central 
+- Israel Central 
+- Italy North 
+- Japan East 
+- Korea Central 
+- Korea South 
+- New Zealand North 
+- North Central US 
+- North Europe 
+- Norway East 
+- Qatar Central 
+- South Africa North 
+- South Central US 
+- Southeast Asia 
+- Spain Central 
+- Sweden Central 
+- Switzerland North 
+- Switzerland West 
+- UAE Central 
+- UAE North 
+- UK South 
+- UK West 
+- West Europe 
+- West India 
+- West US 
+- West US 2 
+- West US 3 
 
 ## Register the feature 
 
