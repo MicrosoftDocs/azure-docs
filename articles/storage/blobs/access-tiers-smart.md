@@ -28,7 +28,7 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 - Redundancy conversions to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account fails over, convert the LRS account to zone-redundant within 60 days to continue Smart tier support. 
 - Smart tier characteristics might change during or after the public preview phase.
-- Smart tier monitoring operations are billed based on the price displayed on the Azure pricing pages. This pricing will go into effect starting January 1, 2026.
+- Smart tier monitoring operations are billed **at $0.04 (USD) per 10K Monitoring Operations**. This **pricing will go** into effect starting **January 1, 2026**.
 
 ## Enabling smart tier
 Enable access to the smart tier public preview by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
@@ -50,7 +50,7 @@ Blob lifecycle management doesn't impact objects on smart tier. Storage actions 
 
 ## Billing details
 Objects on smart tier are billed for the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). there's no smart tier specific capacity meter or price. All capacity under smart tier is billed at pay-as-you-go rates. there's no reserved capacity applicable.
-Smart tier charges a monitoring operation for each set of 10,000 objects over 128KiB managed by smart tier.
+Smart tier charges a monthly monitoring operation for each object over 128KiB managed by smart tier.
 Objects in smart tier aren't charged for tier transitions within smart tier, early deletion fees, or data retrieval operations.
 
 All access operations billed for smart tier objects occur against the hot tier. This transaction includes the initial move to the hot tier for any object on other capacity tiers. Moving existing objects into smart tier doesn't trigger any tier transition transaction, moving blobs out of smart tier triggers a cool write operation per object.
@@ -71,5 +71,6 @@ The Azure portal supports the current smart tier public preview. Smart tier requ
 - [Set a blob's access tier](access-tiers-online-manage.md)
 - [Archive a blob](archive-blob.md)
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+
 - [Best practices for using blob access tiers](access-tiers-best-practices.md)
 

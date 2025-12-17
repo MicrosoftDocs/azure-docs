@@ -76,9 +76,9 @@ To exclude files or folders from cloud tiering, follow these steps:
    To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
 
-   To exclude all files under a folder path that contains one or more special characters (see note below regarding escaping), (for example, D:\+$Folder\SubFolder), run the following command:
-   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\\+\$Folder\\SubFolder /f****
-
+   To exclude all files under a folder path that contains one or more special characters (see note below regarding escaping), (for example, D:\\+\$Folder\SubFolder), run the following command:
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\\\\\+\\\$Folder\\\\SubFolder /f****
+  
    To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
 

@@ -42,7 +42,7 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 ### Adding a source:
 - Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
 - [Temporary] v6 VM SKU aren't supported as a source. 
-- [Temporary] Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an erorr stating the NIC is not on fastpath**.
+- [Temporary] Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an error stating the NIC is not on fastpath**.
 
 ### Other Limitations
 - Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.

@@ -3,7 +3,7 @@ title: Azure VMware Solution Generation 2 private cloud design considerations
 description: Learn about Azure VMware Solution Generation 2 private cloud design considerations.
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 4/21/2025
+ms.date: 12/16/2025
 ms.custom:
   - build-2025
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Generation 2 private cloud design considerations so that I can make informed decisions about my Azure VMware Solution deployment.
@@ -45,6 +45,7 @@ The following functionality is limited during this time. These limitations will 
 16. If you are using **Private DNS** for your Azure VMware Solution Gen 2 private cloud, using **Custom DNS** on the virtual network where an Azure VMware Solution Gen 2 private cloud is deployed is unsupported. Custom DNS breaks lifecycle operations such as scaling, upgrades, and patching.  
 17. If you are **deleting** your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.
 18. Azure VMware Solution Gen 2 uses an HTTP Proxy to distinguish between customer and management network traffic. Certain VMware cloud service endpoints **may not follow the same network path or proxy rules as general vCenter-managed traffic**. Examples include: "scapi.vmware" and "apigw.vmware". The VAMI proxy governs the vCenter Server Appliance’s (VCSA) general outbound internet access, but not all service endpoint interactions flow through this proxy. Some interactions originate directly from the user’s browser or from integration components, which instead follow the workstation’s proxy settings or initiate connections independently. As a result, traffic to VMware cloud service endpoints may bypass the VCSA proxy entirely.
+19. HCX RAV and Bulk migrations on Gen 2 can experience significantly slower performance due to stalls during Base Sync and Online Sync phases. Customers should plan for longer migration windows and schedule waves accordingly for now. For suitable workloads, vMotion offers a faster, low‑overhead option when host and network conditions allow.
 
 ## Unsupported integrations
 
@@ -94,8 +95,12 @@ Example /22 CIDR network address block **10.31.0.0/22** is divided into the foll
 |esx-mgmt-vmk1 | /24 | vmk1 is the management interface used by customers to access the host. IPs from the vmk1 interface come from these subnets. All of the vmk1 traffic for all hosts comes from this subnet range. | 10.31.1.0/24  |
 |esx-vmotion-vmk2 | /24 | vMotion VMkernel interfaces. | 10.31.2.0/24  |
 |esx-vsan-vmk3  | /24 | vSAN VMkernel interfaces and node communication. | 10.31.3.0/24 |
+|VMware HCX Network | /22 | VMware HCX Network | 10.31.4.0/22  |
 |Reserved | /27 | Reserved Space. | 10.31.0.128/27 |
 |Reserved | /27 | Reserved Space. | 10.31.0.192/27 |
+
+> [!Note]
+> For Azure VMware Solution Gen 2 deployments, customers must now allocate an additional /22 subnet for HCX management and uplink, in addition to the /22 entered during SDDC deployment. This additional /22 is not required for Gen 1.
 
 ## Next steps
 

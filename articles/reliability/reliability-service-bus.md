@@ -120,7 +120,7 @@ Service Bus manages traffic routing, failover, and zone recovery for zone failur
 
 Service Bus provides two types of multi-region support, both of which require Premium tier namespaces:
 
-- [Geo-Replication (preview)](#geo-replication) provides active-passive replication of both metadata and message data between a primary region and a secondary region. Use Geo-Replication for most applications that need to remain resilient to region outages and have a low tolerance for message data loss.
+- [Geo-Replication](#geo-replication) provides active-passive replication of both metadata and message data between a primary region and a secondary region. Use Geo-Replication for most applications that need to remain resilient to region outages and have a low tolerance for message data loss.
 
 - [Metadata Geo-Disaster Recovery](#metadata-geo-disaster-recovery) provides active-passive replication of configuration and metadata between a primary and secondary region, but it doesn't replicate message data. Consider using Geo-Disaster Recovery for applications that handle their own data replication, or that don't need data replication.
 
@@ -130,10 +130,7 @@ Namespaces in the Basic and Standard tiers don't include native multi-region fea
 
 ### Geo-Replication
 
-The Premium tier support Geo-Replication (Preview). This feature replicates both metadata (such as entities, configuration, and properties) and data (such as messages in your queues and topics, and message properties and state) for the namespace. You configure the replication approach for your namespace's configuration and data. This feature ensures that your messages remain available in another region and allows you to switch to the secondary region when needed.
-
-> [!IMPORTANT]
-> This feature is currently in public preview, and as such shouldn't be used in production scenarios.
+The Premium tier support Geo-Replication. This feature replicates both metadata (such as entities, configuration, and properties) and data (such as messages in your queues and topics, and message properties and state) for the namespace. You configure the replication approach for your namespace's configuration and data. This feature ensures that your messages remain available in another region and allows you to switch to the secondary region when needed.
 
 Use Geo-Replication for scenarios that require resiliency to region outages and have a low tolerance for message data loss.
 
@@ -206,7 +203,7 @@ This section describes what to expect when a Service Bus namespace is configured
 
 This section describes what to expect when a Service Bus namespace is configured for Geo-Replication and there's an outage in the primary or a secondary region.
 
-- **Detection and response:** You're responsible for deciding when to promote your namespace's secondary region to become the new primary region. Microsoft doesn't make this decision or initiate the process for you, even if there's a region outage. For suggested criteria to consider when deciding whether to fail over, see [Criteria to trigger promotion](../service-bus-messaging/service-bus-geo-replication.md#criteria-to-trigger-promotion).
+- **Detection and response:** You're responsible for deciding when to promote your namespace's secondary region to become the new primary region. Microsoft doesn't make this decision or initiate the process for you, even if there's a region outage. For suggested criteria to consider when deciding whether to fail over, see [Recommended scenarios to trigger promotion](../service-bus-messaging/service-bus-geo-replication.md#recommended-scenarios-to-trigger-promotion).
 
     For more information about how to promote a secondary region to the new primary, see [Promotion flow](../service-bus-messaging/service-bus-geo-replication.md#promotion-flow).
 

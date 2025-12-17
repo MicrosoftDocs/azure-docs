@@ -162,7 +162,7 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 
 [!INCLUDE [Storage - Test for region failures](includes/storage/reliability-storage-multi-region-testing-include.md)]
 
-## Custom multi-region solutions for resiliency
+### Custom multi-region solutions for resiliency
 
 [!INCLUDE [Storage - Custom multi-region solutions - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
