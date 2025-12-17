@@ -2,7 +2,7 @@
 title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/05/2025
 recommendations: false
 ms.custom:
@@ -663,30 +663,7 @@ When testing SDK types locally on your machine, you also need to use [Azure Func
 
 Each trigger and binding extension also has its own minimum version requirement, which is described in the extension reference articles. The following service-specific bindings provide SDK types:
 
-| Service | Trigger | Input binding | Output binding |
-|-|-|-|-|
-| [Azure Blobs][blob-sdk-types] | **Generally Available** | **Generally Available** | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Queues][queue-sdk-types] | **Generally Available** | _Input binding doesn't exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Service Bus][servicebus-sdk-types] | **Generally Available**  | _Input binding doesn't exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Event Hubs][eventhub-sdk-types] | **Generally Available** | _Input binding doesn't exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>2</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Tables][tables-sdk-types] | _Trigger doesn't exist_ | **Generally Available** |  _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding doesn't exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
-
-[blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
-[cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
-[tables-sdk-types]: ./functions-bindings-storage-table.md?tabs=isolated-process%2Ctable-api&pivots=programming-language-csharp#binding-types
-[eventgrid-sdk-types]: ./functions-bindings-event-grid.md?tabs=isolated-process%2Cextensionv3&pivots=programming-language-csharp#binding-types
-[queue-sdk-types]: ./functions-bindings-storage-queue.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
-[eventhub-sdk-types]: ./functions-bindings-event-hubs.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
-[servicebus-sdk-types]: ./functions-bindings-service-bus.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
-
-<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for a dependency injection example.
-
-<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
-
-> [!NOTE]
-> When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
+[!INCLUDE [functions-sdk-types-dotnet-isolated](../../includes/functions-sdk-types-dotnet-isolated.md)]
 
 ## HTTP trigger
 

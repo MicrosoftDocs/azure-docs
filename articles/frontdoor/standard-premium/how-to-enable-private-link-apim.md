@@ -18,6 +18,9 @@ zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 
 This article guides you through the steps to configure an Azure Front Door Premium to connect privately to your Azure API Management origin using Azure Private Link.
 
+> [!NOTE]
+> This functionality is not supported with API Management Premium v2 tier.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).

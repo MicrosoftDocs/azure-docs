@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 12/15/2025
+ms.date: 12/17/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.7.2] (CDN: December 15, 2025, npm: TBD)
+### [3.7.2] (CDN: December 15, 2025, npm: December 17, 2025)
 
 #### New features
 - Added support for the following languages:
@@ -679,6 +679,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.7.2]: https://www.npmjs.com/package/azure-maps-control/v/3.7.2
 [3.7.1]: https://www.npmjs.com/package/azure-maps-control/v/3.7.1
 [3.6.1]: https://www.npmjs.com/package/azure-maps-control/v/3.6.1
 [3.6.0]: https://www.npmjs.com/package/azure-maps-control/v/3.6.0

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Start developing with the Azure IoT Operations SDKs (preview)"
+title: "Quickstart: Start developing with the Azure IoT Operations SDKs"
 description: Setup up a development environment for building and running the samples, as well as creating and testing your own Azure IoT Operations highly available edge applications.
 author: dominicbetts
 ms.author: dobett
@@ -7,7 +7,7 @@ ms.topic: quickstart-sdk
 ms.date: 05/08/2025
 ---
 
-# Quickstart: Start developing with the Azure IoT Operations SDKs (preview)
+# Quickstart: Start developing with the Azure IoT Operations SDKs
 
 Get started developing with the Azure IoT Operations SDKs. Follow these steps to set up your development environment for building and running the samples, as well as creating and testing your own highly available edge applications.
 

@@ -191,7 +191,7 @@ You can block all other incoming traffic by using a **Deny All** rule.
 
 ## Supported user-defined routes
 
-Fine-grain control over the Application Gateway subnet via route table rules is possible in public preview. For more information, see [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md#route-table-control).
+Fine-grain control over the Application Gateway subnet via route table rules is possible. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md#route-table-control).
 
 With current functionality, there are some restrictions:
 

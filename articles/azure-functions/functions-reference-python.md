@@ -505,35 +505,22 @@ For data intensive binding operations, you may want to use a separate storage ac
  
 For select triggers and bindings, you can work with data types implemented by the underlying Azure SDKs and frameworks. These _SDK type bindings_ let you interact binding data as if you were using the underlying service SDK. 
 ::: zone pivot="python-mode-configuration" 
-`> [!IMPORTANT]  
+> [!IMPORTANT]  
 > Using SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings).
 ::: zone-end  
 ::: zone pivot="python-mode-decorators" 
 
 > [!IMPORTANT]  
-> SDK type bindings support for Python is only supported in the Python v2 programming model.
+> SDK type bindings support for Python is only available in the Python v2 programming model.
 
 ### Prerequisites
 
 * [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34, or a later version.
 * [Python](https://www.python.org/downloads/) version 3.10, or a later [supported version](#python-version).
 
-### SDK Types
+### Supported Types
 
-| Service                                   | Trigger                          | Input binding                 | Output binding                           | Samples                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|-------------------------------------------|----------------------------------|-------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure Blobs][blob-sdk-types]             | **Generally available**          | **Generally available**       | _SDK types not recommended.<sup>1</sup>_ | [Quickstart](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python),<br/>[`BlobClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py),<br/>[`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py),<br/>[`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py)             |
-| [Azure Cosmos DB][cosmos-sdk-types]       | _SDK types not used<sup>2</sup>_ | **Preview**                   | _SDK types not recommended.<sup>1</sup>_ | [Quickstart](https://github.com/Azure-Samples/azure-functions-cosmosdb-sdk-bindings-python), <br/> [`ContainerProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_containerproxy/function_app.py),<br/>[`CosmosClient`](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_cosmosclient/function_app.py),<br/>[`DatabaseProxy`](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_databaseproxy/function_app.py) |
-| [Azure Event Hubs][eventhub-sdk-types]    | **Preview**                      | _Input binding doesn't exist_ | _SDK types not recommended.<sup>1</sup>_ | [Quickstart](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python), <br/> [`EventData`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-eventhub/samples/eventhub_samples_eventdata/function_app.py)                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [Azure Service Bus][servicebus-sdk-types] | **Preview**                      | _Input binding doesn't exist_ | _SDK types not recommended.<sup>1</sup>_ | [Quickstart](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/README.md), <br/> [`ServiceBusReceivedMessage`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single/function_app.py)                                                                                                                                                                                                                                                                                                                                |
-
-[blob-sdk-types]: ./functions-bindings-storage-blob.md?pivots=programming-language-python#sdk-binding-types
-[cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?pivots=programming-language-python#sdk-binding-types
-[eventhub-sdk-types]: ./functions-bindings-event-hubs.md
-[servicebus-sdk-types]: ./functions-bindings-service-bus.md?pivots=programming-language-python#sdk-binding-types
-<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding.
-<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
-
+[!INCLUDE [functions-sdk-types-python](../../includes/functions-sdk-types-python.md)]
 
 ::: zone-end
 
@@ -638,13 +625,13 @@ def main(req):
 
 More logging methods are available that let you write to the console at different trace levels:
 
-| Method                 | Description                                |
-| ---------------------- | ------------------------------------------ |
-| **`critical(_message_)`**   | Writes a message with level CRITICAL on the root logger.  |
-| **`error(_message_)`**   | Writes a message with level ERROR on the root logger.    |
-| **`warning(_message_)`**    | Writes a message with level WARNING on the root logger.  |
-| **`info(_message_)`**    | Writes a message with level INFO on the root logger.  |
-| **`debug(_message_)`** | Writes a message with level DEBUG on the root logger.  |
+| Method | Description |
+| --- | --- |
+| **`critical(_message_)`** | Writes a message with level CRITICAL on the root logger. |
+| **`error(_message_)`** | Writes a message with level ERROR on the root logger. |
+| **`warning(_message_)`** | Writes a message with level WARNING on the root logger. |
+| **`info(_message_)`** | Writes a message with level INFO on the root logger. |
+| **`debug(_message_)`** | Writes a message with level DEBUG on the root logger. |
 
 To learn more about logging, see [Monitor Azure Functions](functions-monitoring.md).
 
@@ -1081,10 +1068,10 @@ For local development, application settings are [maintained in the *local.settin
 Azure Functions supports the following Python versions:
 
 | Python<sup>1</sup> versions | Support level |
-| ----- | ----- |
+| --- | --- |
 | 3.13 | Generally available (GA)<sup>2</sup> |
 | 3.12 | GA |
-| 3.11 | GA | 
+| 3.11 | GA |
 | 3.10 | GA |
 
 1. Official Python distributions
@@ -1476,7 +1463,7 @@ You can use a Python worker extension library in your Python functions by doing 
 1. Configure the extension instance, if needed. Configuration requirements should be called out in the extension's documentation. 
 
 > [!IMPORTANT]
-> Third-party Python worker extension libraries aren't supported or warranted by Microsoft. You must make sure that any extensions that you use in your function app is trustworthy, and you bear the full risk of using a malicious or poorly written extension. 
+> Third-party Python worker extension libraries aren't supported or warranted by Microsoft. You must make sure that any extensions that you use in your function app are trustworthy, and you bear the full risk of using a malicious or poorly written extension. 
 
 Third-parties should provide specific documentation on how to install and consume their extensions in your function app. For a basic example of how to consume an extension, see [Consuming your extension](develop-python-worker-extensions.md#consume-your-extension-locally). 
 

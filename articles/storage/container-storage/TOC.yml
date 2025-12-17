@@ -17,6 +17,8 @@
   items:
   - name: Enable monitoring with managed Prometheus
     href: enable-monitoring.md
+  - name: Use Grafana dashboards
+    href: use-grafana-dashboard.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
 - name: Concepts

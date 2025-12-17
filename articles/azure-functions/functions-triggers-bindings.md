@@ -217,6 +217,45 @@ For information about which bindings are in preview or are approved for producti
 
 Specific versions of binding extensions are supported only while the underlying service SDK is supported. Changes to support in the underlying service SDK version affect the support for the consuming extension.
 
+## SDK types
+
+Azure Functions binding extensions use Azure service SDKs to connect to Azure services. The specific SDK types used by bindings can affect how you work with the data in your functions. Some bindings support SDK-specific types that provide richer functionality and better integration with the service, while others use more generic types like strings or byte arrays. When available, using SDK-specific types can provide benefits such as better type safety, easier data manipulation, and access to service-specific features.
+
+This table indicates binding extensions that currently support SDK types:
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [functions-sdk-types-dotnet-isolated](../../includes/functions-sdk-types-dotnet-isolated.md)]
+
+For more information, see [SDK types](dotnet-isolated-process-guide.md#sdk-types) in the C# developer guide.
+::: zone-end
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [functions-sdk-types-python](../../includes/functions-sdk-types-python.md)]
+
+SDK types are supported only when using the Python v2 programming model. For more information, see [SDK type bindings](./functions-reference-python.md#sdk-type-bindings) in the Python developer guide.
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`ContainerClient`<br/>`ReadableStream` | Preview |
+| [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | Preview |
+
+SDK types are supported only when using the Node v4 programming model. For more information, see [SDK types](./functions-reference-node.md#sdk-types) in the Node.js developer guide.
+::: zone-end
+::: zone pivot="programming-language-java"
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`BlobContainerClient` | Preview |
+
+For more information, see [SDK types](./functions-reference-java.md#sdk-types) in the Java developer guide.
+::: zone-end
+::: zone pivot="programming-language-powershell"  
+>[!IMPORTANT]  
+>SDK types aren't currently supported for PowerShell apps.
+::: zone-end
 ## Code examples for bindings
 
 Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project.

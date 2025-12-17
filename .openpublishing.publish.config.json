@@ -507,6 +507,18 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "functions-nodejs-extensions",
+            "url": "https://github.com/Azure/azure-functions-nodejs-extensions",
+            "branch": "main",
+            "branch_mapping": {}
+        },        
+        {
+            "path_to_root": "functions-node-sdk-bindings-blob",
+            "url": "https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "functions-python-tensorflow-tutorial",
             "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
             "branch": "master",
