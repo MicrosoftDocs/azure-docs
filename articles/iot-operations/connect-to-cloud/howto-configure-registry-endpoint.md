@@ -1,18 +1,18 @@
 ---
-title: Configure Registry Endpoints in Azure IoT Operations (Preview)
+title: Configure registry endpoints in Azure IoT Operations
 description: Learn how to configure registry endpoints for container registries in Azure IoT Operations data flow graphs.
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 12/17/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull WASM modules and graph definitions from container registries.
 ---
 
-# Configure registry endpoints (preview)
+# Configure registry endpoints
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
@@ -20,7 +20,7 @@ Data flow graphs use registry endpoints to pull WebAssembly (WASM) modules and g
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), version 1.2 preview or later
+- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), version 1.2 or later
 - Access to a container registry, such as Azure Container Registry
 
 ## Registry endpoint overview
@@ -119,7 +119,7 @@ Deploy the Bicep file using Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file with the following content:
 
@@ -201,7 +201,7 @@ authentication: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 authentication:
@@ -258,7 +258,7 @@ authentication: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 authentication:
@@ -323,7 +323,7 @@ authentication: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 authentication:
@@ -359,7 +359,7 @@ authentication: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 authentication:
@@ -417,7 +417,7 @@ resource acrRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoint
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1

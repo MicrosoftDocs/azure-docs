@@ -6,19 +6,18 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 12/09/2025
+ms.date: 12/17/2025
 ai-usage: ai-assisted
 
 ---
 
-# Use WebAssembly (WASM) with data flow graphs (preview)
+# Use WebAssembly (WASM) with data flow graphs
 
-> [!IMPORTANT]
-> WebAssembly (WASM) with data flow graphs is in PREVIEW. This feature has limitations and isn't for production workloads.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
+
+WebAssembly (WASM) with data flow graphs is generally available.
 
 > [!TIP]
 > Want to run AI in-band? See [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md) to package and execute small ONNX models inside your WASM operators.
@@ -197,10 +196,7 @@ resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
-
-> [!IMPORTANT]
-> This section includes instructions for managing Azure IoT Operations components using Kubernetes deployment manifests, which is in **preview**. This feature is provided with [several limitations](/azure/iot-operations/deploy-iot-ops/howto-manage-update-uninstall#preview-manage-components-using-kubernetes-deployment-manifests), and shouldn't be used for production workloads.
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -429,7 +425,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a YAML file with the following configuration:
 
@@ -710,7 +706,7 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -933,7 +929,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -976,7 +972,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -1023,7 +1019,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -1076,7 +1072,7 @@ In the data flow diagram, select **Source** to configure the source node. Under 
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - nodeType: Source
@@ -1136,7 +1132,7 @@ In the data flow diagram, select **Add graph transform (optional)** to add a gra
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - nodeType: Graph
@@ -1201,7 +1197,7 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - nodeType: Destination
@@ -1253,7 +1249,7 @@ nodeConnections: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 nodeConnections:

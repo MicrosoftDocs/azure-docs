@@ -150,7 +150,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/managedenvironments/dotnetcomponents/read | Read Managed Environment .NET Component |
 > | microsoft.app/managedenvironments/dotnetcomponents/write | Create or update Managed Environment .NET Component |
 > | microsoft.app/managedenvironments/dotnetcomponents/delete | Delete Managed Environment .NET Component |
-> | microsoft.app/managedenvironments/httprouteconfigs/read | Get All HTTP Route Configuraions for a Managed Environment. |
+> | microsoft.app/managedenvironments/httprouteconfigs/read | Get All HTTP Route Configurations for a Managed Environment. |
 > | microsoft.app/managedenvironments/httprouteconfigs/write | Create or Update HTTP Route Configuration for a Managed Environment. |
 > | microsoft.app/managedenvironments/httprouteconfigs/delete | Delete an HTTP Route Configuration for a Managed Environment. |
 > | microsoft.app/managedenvironments/javacomponents/read | Read Managed Environment Java Component |

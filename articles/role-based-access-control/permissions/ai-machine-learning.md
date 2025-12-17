@@ -714,7 +714,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/analyzeresults/read | Use this interface to retrieve the status and OCR result of a Read operation.  The URL containing the 'operationId' is returned in the Read operation 'Operation-Location' response header.* |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/core/asyncbatchanalyze/action | Use this interface to get the result of a Batch Read File operation, employing the state-of-the-art Optical Character |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/operations/read | This interface is used for getting OCR results of Read operation. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Batch Read File interface. |
-> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/index-statis/action | Get index statistics inforamtion for the given users. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/index-statis/action | Get index statistics information for the given users. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/suggest/action | Get search suggestions for the user, given the query text that the user has entered so far. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/search/action | Perform a search using the specified search query and parameters. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:query/action | Search indexes using the specified search query and parameters. |

@@ -204,12 +204,6 @@ cd pubsub-dapr-nodejs-servicebus
      - A *core* reference library that contains the Bicep modules used by the `azd` template.
    - Deploys the code by using `azd deploy`.
 
-   If this step causes [error BCP420](https://aka.ms/bicep/core-diagnostics#BCP420), go to your cloned repo, open the *pubsub-dapr-nodejs-servicebus/infra/core/host/container-apps.bicep* file, and replace line 28 with the following line:
-
-   ```bicep
-   scope: resourceGroup(!empty(containerRegistryResourceGroupName) ? containerRegistryResourceGroupName : resourceGroup().name)
-   ```
-
 #### Expected output
 
 The `azd init` command displays output that's similar to the following lines:
@@ -879,12 +873,6 @@ cd pubsub-dapr-csharp-servicebus
      - An *app* resources directory organized by functionality.
      - A *core* reference library that contains the Bicep modules used by the `azd` template.
    - Deploys the code by using `azd deploy`.
-
-   If this step causes [error BCP420](https://aka.ms/bicep/core-diagnostics#BCP420), go to your cloned repo, open the *pubsub-dapr-csharp-servicebus/infra/core/host/container-apps.bicep* file, and replace line 28 with the following line:
-
-   ```bicep
-   scope: resourceGroup(!empty(containerRegistryResourceGroupName) ? containerRegistryResourceGroupName : resourceGroup().name)
-   ```
 
 #### Expected output
 

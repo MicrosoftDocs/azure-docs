@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 ---
 # What is Azure Native Pure Storage Cloud?
 
-Azure Native Pure Storage Cloud (refered to as Pure Storage Cloud from here on) is a jointly developed and managed enterprise-class cloud block storage service offered as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
+Azure Native Pure Storage Cloud (referred to as Pure Storage Cloud from here on) is a jointly developed and managed enterprise-class cloud block storage service offered as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
 ## What is it used for?
 

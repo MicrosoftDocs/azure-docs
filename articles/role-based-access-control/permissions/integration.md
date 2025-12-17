@@ -814,7 +814,7 @@ Azure service: [Event Grid](/azure/event-grid/)
 > | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for topics |
 > | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for topics |
 > | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for topics |
-> | Microsoft.EventGrid/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Upate notifications for network security perimeter |
+> | Microsoft.EventGrid/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Update notifications for network security perimeter |
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | List regional event subscriptions |
 > | Microsoft.EventGrid/locations/operationResults/read | Read the result of a regional operation |
 > | Microsoft.EventGrid/locations/operationsStatus/read | Read the status of a regional operation |

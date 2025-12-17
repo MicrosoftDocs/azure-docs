@@ -47,6 +47,8 @@ Follow these steps to open the Azure Container Storage dashboard using a linked 
 1. Click on the endpoint URL in the next window to browse the dashboards.
 1. From the **Azure Managed Grafana** window, select the **Azure Container Storage v2** dashboard.
 
+   :::image type="content" source="media/use-grafana-dashboard/linked-dashboard.png" alt-text="Screenshot showing the Azure Container Storage dashboard using a linked Grafana instance." lightbox="media/use-grafana-dashboard/linked-dashboard.png":::
+
 ## See also
 
 - [Install Azure Container Storage for use with AKS](install-container-storage-aks.md)

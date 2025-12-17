@@ -24,7 +24,7 @@ Key traits that noise suppression enables:
 - Typically works on the speaker’s end before sending out the audio.
 
 **Echo cancellation** removes echo caused when your microphone picks up audio from your speakers. For example, when someone is on speakerphone and their microphone picks up your voice from their speaker, it can loop back to you as an echo. Echo cancellation predicts and subtracts this returning sound so you don’t hear yourself talking back a fraction of a second later.
-Key traits for echo cancelation:
+Key traits for echo cancellation:
 - Reduces acoustic feedback.
 - Essential in open microphone and desktop setups where the microphone picks up audio output from a local speaker.
 - Reduces listener fatigue and confusion caused by hearing your own voice returned.
@@ -35,13 +35,13 @@ Key traits for echo cancelation:
 > **Noise Suppression** features are available in GA WebJS SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version GA `1.1.2` or later. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
 
 > [!IMPORTANT]
-> **Echo Cancellation** features are available in GA WebJS SDK version [1.38.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1381-2025-09-02) or later. Also note that to use echo cancelation you must use the audio effects SDK version GA version [1.31.1](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.3.1) or later. Alternatively, if you opt to use the public preview version, Calling SDK versions [1.38.1-beta.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1381-beta1-2025-07-21) and later also support noise suppression.
+> **Echo Cancellation** features are available in GA WebJS SDK version [1.38.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1381-2025-09-02) or later. Also note that to use echo cancellation you must use the audio effects SDK version GA version [1.31.1](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.3.1) or later. Alternatively, if you opt to use the public preview version, Calling SDK versions [1.38.1-beta.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1381-beta1-2025-07-21) and later also support noise suppression.
 
 > [!NOTE]
 > - Utilizing audio effects is available only on Chrome and Edge desktop browsers.
 > - The audio effects library isn't a standalone module and can't function independently. To utilize its capabilities the effects package must be integrated with the Azure Communication Services Calling client library for WebJS.
 > - If you use the GA version of the Calling SDK, you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
-> - If you use the public preview version of the Calling SDK, you must use the [public prevew version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
+> - If you use the public preview version of the Calling SDK, you must use the [public preview version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
 
 ## Install the Audio Effects Package
 Use the `npm install` command to install the Azure Communication Services Audio Effects SDK for JavaScript.
@@ -158,8 +158,8 @@ if (isNoiseSuppressionSupported) {
 }
 ```
 
-## Bring it all together: Load and start noise suppression and echo cancelation  
-To initiate a call with both **noise suppression** and **echo cancelation** enabled, create a new `LocalAudioStream` property using `AudioDeviceInfo`. Ensure that the `LocalAudioStream` source isn't set as a raw `MediaStream` property to support audio effects. Then, include this property within `CallStartOptions.audioOptions` when starting the call.
+## Bring it all together: Load and start noise suppression and echo cancellation  
+To initiate a call with both **noise suppression** and **echo cancellation** enabled, create a new `LocalAudioStream` property using `AudioDeviceInfo`. Ensure that the `LocalAudioStream` source isn't set as a raw `MediaStream` property to support audio effects. Then, include this property within `CallStartOptions.audioOptions` when starting the call.
 
 ```js
 import { EchoCancellationEffect, DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects';
@@ -230,14 +230,14 @@ await audioEffectsFeatureApi.stopEffects({
 });
 ```
 
-#### To start Azure Communication Services echo cancelation
+#### To start Azure Communication Services echo cancellation
 ```js
 await audioEffectsFeatureApi.startEffects({
     noiseSuppression: echoCancellation
 });
 ```
 
-#### To stop Azure Communication Services echo cancelation
+#### To stop Azure Communication Services echo cancellation
 ```js
 await audioEffectsFeatureApi.stopEffects({
     echoCancellation: true

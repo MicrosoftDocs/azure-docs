@@ -137,7 +137,7 @@ DATE_TIME                  OPERATION_NAME  STATUS   DATABASE_TYPE  SID       DUR
 
 ## Understanding the snapshot name suffix
 
-The AzAcSnap snapshot name has a suffix specifically generated to prevent naming collisions and ensure unique snapshot names.  The suffix is based on the time AzAcSnap is run to create the snapshot to the nearest ten-thousandths of a second, which is converted to a hexdecimal to minimize the length of the snapshot name.  The following example shell script can be used to convert the hexdecimal suffix to the time the snapshot name was generated.
+The AzAcSnap snapshot name has a suffix specifically generated to prevent naming collisions and ensure unique snapshot names.  The suffix is based on the time AzAcSnap is run to create the snapshot to the nearest ten-thousandths of a second, which is converted to a hexadecimal to minimize the length of the snapshot name.  The following example shell script can be used to convert the hexadecimal suffix to the time the snapshot name was generated.
 
 ```bash
 #!/bin/sh

@@ -103,7 +103,7 @@ After servers are automatically enabled for agentless dependency analysis, appli
 
 ## Review dependency status
 
-After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. We recommend that you wait for **atleast 24 hours** to allow for enough dependency data to be gathered for your servers and show in a visualization. 
+After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. We recommend that you wait for **at least 24 hours** to allow for enough dependency data to be gathered for your servers and show in a visualization. 
 
 In the project, you can review dependencies for each server either through the **All inventory** or **Infrastructure inventory** view. 
 
@@ -343,7 +343,7 @@ If you are an existing user, you already set up an Azure Migrate project. You pe
 
 1. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization. 
 1. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project is upgraded to version or later.
-1. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Subscription else this step isn't complete.
+1. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've at least **Contributor** role on the Subscription else this step isn't complete.
 
 > [!NOTE]
 > Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Migrate appliance isn't up to date. Ensure that autoupdate service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)

@@ -44,7 +44,7 @@ Follow these steps to create a maintenance configuration directly from the Azure
     :::image type="content" source="media/customer-controlled-maintenance/maintenance-overview.png" alt-text="Screenshot showing the Maintenance configuration option in an Azure Firewall resource.":::
 
 1. In the configuration panel, choose an existing configuration from the drop-down menu or create a new configuration.
-1. Enter a descriptive name for the maintenance configuration and select **Edit schedule**. Define a maintenance    schedule of atleast 5 hours recurring daily and select **Save**.
+1. Enter a descriptive name for the maintenance configuration and select **Edit schedule**. Define a maintenance schedule of at least 5 hours recurring daily and select **Save**.
 
     :::image type="content" source="media/customer-controlled-maintenance/maintenance-schedule-on-firewall.png" alt-text="Screenshot showing the Maintenance configuration scheduling in an Azure Firewall resource.":::
 
