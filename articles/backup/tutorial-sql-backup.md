@@ -2,7 +2,7 @@
 title: Tutorial - Back up SQL Server databases to Azure 
 description: In this tutorial, learn how to back up a SQL Server database running on an Azure VM to an Azure Backup Recovery Services vault.
 ms.topic: tutorial
-ms.date: 01/31/2025
+ms.date: 12/18/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -27,46 +27,51 @@ Before you back up your SQL Server database, check the following conditions:
 
 ## Discover SQL Server databases
 
-Discover databases running on the VM.
+To discover databases running on a VM, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), go to **Backup center** and click **+Backup**.
+1. In the [Azure portal](https://portal.azure.com), go to **Resiliency**, and then **+ Configure protection**.
 
-1. Select **SQL in Azure VM** as the datasource type, select the Recovery Services vault you have created, and then click **Continue**.
+1. On the **Configure protection** pane, select **Datasource type** as **SQL in Azure VM**, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot showing to select Backup to view the databases running in a VM.":::
+   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot shows how to select SQL database as the datasource for Backup.":::
 
-1. In **Backup Goal** > **Discover DBs in VMs**, select **Start Discovery** to search for unprotected VMs in the subscription. It can take a while, depending on the number of unprotected virtual machines in the subscription.
+1. On the **Start: Configure Backup** pane, under **Vault**, click **Select vault**.
+1. On the **Select a Vault** pane, choose the Recovery Services vault you created from the list in which you want to back up the database, and then click **Select**.
+1. On the **Start: Configure Backup** pane, select **Continue**.
 
-   * Unprotected VMs should appear in the list after discovery, listed by name and resource group.
-   * If a VM isn't listed as you expect, check whether it's already backed up in a vault.
-   * Multiple VMs can have the same name but they'll belong to different resource groups.
+1. On the **Backup Goal** pane, under **Discover DBs in VMs**, select **Start Discovery** to search for unprotected VMs in the subscription. This search can take a while, depending on the number of unprotected VMs in the subscription.
 
-     ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
+1. On the **Select Virtual Machine** pane, select the VMs running the SQL Server database, and then select **Discover DBs**.
 
-1. In the VM list, select the VM running the SQL Server database > **Discover DBs**.
+   :::image type="content" source="./media/backup-azure-sql-database/discovering-sql-databases.png" alt-text="Screenshot shows the list of VMs running SQL databases that aren't protected." lightbox="./media/backup-azure-sql-database/discovering-sql-databases.png":::
 
-1. Track database discovery in the **Notifications** area. It can take a while for the job to complete, depending on how many databases are on the VM. When the selected databases are discovered, a success message appears.
+   >[!Note]
+   >- Unprotected VMs should appear in the list after discovery, listed by name and resource group.
+   >- If a VM isn't listed as you expect, see whether it's already backed up in a vault.
+   >- Multiple VMs can have the same name, but they'll belong to different resource groups.
+ 
+You can track database discovery in **Notifications**. The time required for this action depends on the number of VM databases. When the selected databases are discovered, a success message appears.
 
-    ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
+   :::image type="content" source="./media/backup-azure-sql-database/notifications-db-discovered.png" alt-text="Screenshot shows the deployment success message.":::
 
-1. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following occurs in the background:
+   Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
 
-    * Azure Backup register the VM with the vault for workload backup. All databases on the registered VM can only be backed up to this vault.
-    * Azure Backup installs the **AzureBackupWindowsWorkload** extension on the VM. No agent is installed on the SQL database.
-    * Azure Backup creates the service account **NT Service\AzureWLBackupPluginSvc** on the VM.
-      * All backup and restore operations use the service account.
-      * **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in Azure Marketplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
-    * If you didn't create the VM from the marketplace, then the VM doesn't have the **SqlIaaSExtension** installed, and the discovery operation fails with the error message **UserErrorSQLNoSysAdminMembership**. Follow the [instructions](backup-azure-sql-database.md#set-vm-permissions) to fix this issue.
+   * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
+   * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on a SQL database.
+   * Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
+     * All backup and restore operations use the service account.
+     * NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
+   * If you didn't create the VM from the Marketplace or if you are on SQL 2008 and 2008 R2, the VM might not have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the instructions under [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 
 ## Configure backup  
 
-Configure backup as follows:
+To configure SQL database backup, follow these steps:
 
-1. In **Backup Goal** > **Step 2: Configure Backup**, select **Configure Backup**.
+1. On the **Backup Goal** pane, under **Step 2: Configure Backup**, select **Configure Backup**.
 
-   ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-goal-configure-backup.png" alt-text="Screenshot shows the selection of Configure Backup.":::
 
 1. Select **Add Resources** to see all the registered availability groups and standalone SQL Server instances.
 
@@ -83,10 +88,10 @@ Configure backup as follows:
    To optimize backup loads, Azure Backup sets a maximum number of databases in one backup job to 50.
 
      * To protect more than 50 databases, configure multiple backups.
-     * To [enable](./backup-sql-server-database-azure-vms.md#enable-auto-protection) the entire instance or the Always On availability group, in the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
+     * To [enable](backup-sql-server-database-azure-vms.md#enable-auto-protection) the entire instance or the Always On availability group, in the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
 
          > [!NOTE]
-         > The [auto-protection](./backup-sql-server-database-azure-vms.md#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
+         > The [auto-protection](backup-sql-server-database-azure-vms.md#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
 
 1. Define the **Backup policy**. You can do one of the following:
 
@@ -100,7 +105,8 @@ Configure backup as follows:
 
    ![Track configuration progress](./media/backup-azure-sql-database/track-configuration-progress.png)
 
-### Create a backup policy
+
+## Create a backup policy
 
 A backup policy defines when backups are taken and how long they're retained.
 
@@ -112,58 +118,64 @@ A backup policy defines when backups are taken and how long they're retained.
 
 To create a backup policy:
 
-1. Go to **Backup center** and click **+Policy**.
+1. Go to **Resiliency**, and then select **Manage** > **Protection policies** > **+ Create policy** > **Create backup policy**.
 
-1. Select **SQL Server in Azure VM** as the datasource type, select the vault under which the policy should be created, and then click **Continue**.
+1. On the **Start: Create Policy** pane, select **SQL Server in Azure VM** as the datasource type, select the vault under which the policy should be created, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/create-sql-policy.png" alt-text="Screenshot showing to choose a policy type for the new backup policy.":::
+   :::image type="content" source="./media/backup-azure-sql-database/create-sql-policy.png" alt-text="Screenshot shows how to choose a policy type for the new backup policy." lightbox="./media/backup-azure-sql-database/create-sql-policy.png":::
 
-1. In **Policy name**, enter a name for the new policy.
+1. On the **Create policy** pane, under **Policy name**, enter a name for the new policy.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-policy-summary.png" alt-text="Screenshot to showing to enter policy name.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-policy-summary.png" alt-text="Screenshot shows how to enter policy name." lightbox="./media/backup-azure-sql-database/sql-policy-summary.png":::
 
-1. Select the **Edit** link corresponding, to **Full backup**, to modify the default settings.
+1. To modify the default backup frequency settings, select the **Edit** link corresponding, to **Full backup**.
+
+1. On the **Full Backup Policy** pane, configure the following backup schedule settings:
 
    * Select a **Backup Frequency**. Choose either **Daily** or **Weekly**.
    * For **Daily**, select the hour and time zone when the backup job begins. You can't create differential backups for daily full backups.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-schedule-inline.png" alt-text="Screenshot showing new backup policy fields." lightbox="./media/backup-azure-sql-database/sql-backup-schedule-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-schedule.png" alt-text="Screenshot showing new backup policy fields." lightbox="./media/backup-azure-sql-database/sql-backup-schedule.png":::
 
-1. In **RETENTION RANGE**, all options are selected by default. Clear any retention range limits that you don't want, and then set the intervals to use.
+1. Under **RETENTION RANGE**, all options are selected by default. Clear any retention range limits that you don't want, and then set the intervals to use.
 
     * Minimum retention period for any type of backup (full, differential, and log) is seven days.
-    * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
+    * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered for every day.
     * The backup for a specific day is tagged and retained based on the weekly retention range and the weekly retention setting.
     * Monthly and yearly retention ranges behave in a similar way.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-retention-range-inline.png" alt-text="Screenshot showing the retention range interval settings." lightbox="./media/backup-azure-sql-database/sql-retention-range-expanded.png":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-retention-range.png" alt-text="Screenshot shows the retention range interval settings." lightbox="./media/backup-azure-sql-database/sql-retention-range.png":::
 
 1. Select **OK** to accept the setting for full backups.
-1. Select the **Edit** link corresponding to **Differential backup**, to modify the default settings.
+1. On the **Create policy** pane, to modify the default settings, select the **Edit** link corresponding to **Differential backup**.
 
-    * In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
+1. On the **Differential Backup Policy** pane, configure the following settings:
+
+    * Under **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
     * You can trigger only one differential backup per day. A differential backup can't be triggered on the same day as a full backup.
     * Differential backups can be retained for a maximum of 180 days.
     * The differential backup retention period can't be greater than that of the full backup (as the differential backups are dependent on the full backups for recovery).
     * Differential Backup isn't supported for the master database.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-differential-backup-inline.png" alt-text="Screenshot showing the differential Backup policy." lightbox="./media/backup-azure-sql-database/sql-differential-backup-expanded.png":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-differential-backup.png" alt-text="Screenshot shows the differential Backup policy." lightbox="./media/backup-azure-sql-database/sql-differential-backup.png":::
 
-1. Select the **Edit** link corresponding to **Log backup**, to modify the default settings
+1. On the **Create policy** pane, to modify the default settings, select the **Edit** link corresponding to **Log backup**.
 
-    * In **Log Backup**, select **Enable**, and then set the frequency and retention controls.
+1. On the **Log Backup Policy** pane, configure the following settings:
+
+    * On **Log Backup**, select **Enable**, and then set the frequency and retention controls.
     * Log backups can occur as often as every 15 minutes and can be retained for up to 35 days.
     * If the database is in the [simple recovery model](/sql/relational-databases/backup-restore/recovery-models-sql-server), the log backup schedule for that database will be paused and so no log backups will be triggered.
     * If the recovery model of the database changes from **Full** to **Simple**, log backups will be paused within 24 hours of the change in the recovery model. Similarly, if the recovery model changes from **Simple**, implying log backups can now be supported for the database, the log backups schedules will be enabled within 24 hours of the change in recovery model.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup-inline.png" alt-text="Screenshot showing the log Backup policy." lightbox="./media/backup-azure-sql-database/sql-log-backup-expanded.png":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup.png" alt-text="Screenshot shows the log Backup policy." lightbox="./media/backup-azure-sql-database/sql-log-backup.png":::
 
 1. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression** or not. This option is disabled by default. If enabled, SQL Server will send a compressed backup stream to the VDI. Azure Backup overrides instance level defaults with COMPRESSION / NO_COMPRESSION clause depending on the value of this control.
 
 1. After you complete the edits to the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential, and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22. Until this log is available until Dec 22, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22.
 
 ## Run an on-demand backup
 

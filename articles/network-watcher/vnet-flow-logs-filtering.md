@@ -24,7 +24,6 @@ In this article, you learn about virtual network flow logs filtering capability.
 | Field           | Filter based on                        | Example                                                                   |
 |-----------------|----------------------------------------|---------------------------------------------------------------------------|
 | Direction       | Traffic direction                      | Inbound, Outbound                                                         |
-| Actions         | Selective actions                      | Allow, Deny                                                               |
 | SrcIP           | Source IP address / CIDR range         | 192.168.1.1, 2001:db8::1/64                                               |
 | SrcPort         | Source port ranges and values          | 1024-65535, 80, 443                                                       |
 | DstIP           | Destination IP addresses / CIDR range  | 192.168.2.1, 2001:db8::2/64                                               |

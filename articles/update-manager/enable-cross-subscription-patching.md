@@ -46,20 +46,7 @@ This article describes how to enable cross-subscription patching either through 
 
 1. Scheduling using maintenance configurations
 
-   To create maintenance configurations in Azure Update Manager, you can set it up as follows:
-
-   # [Using Azure portal](#tab/az-patch-portal)
-      
-   1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
-   1. Under **Resources**, select **Machines**, and then select **Maintenance configurations**.
-   1. In the **Maintenance Configurations** page, follow the steps to [set up the maintenance configuration schedule](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm).
-      
-      # [Using API](#tab/az-patch-cli)
-    
-   - Use the API to programmatically schedule the patching.
-   - For scheduled patching on VM or Arc assets, locate the assets by using the *resourceId* and *subscription* that they're attached to.
-
----
+     To schedule updates, see [Schedule recurring updates on a single VM](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm).
 
 ## Next steps
 

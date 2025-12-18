@@ -15,12 +15,9 @@ ms.custom:
   - ai-gen-description
 ---
 
-# HTTP Publish of MQTT messages with Azure Event Grid (preview)
+# HTTP Publish of MQTT messages with Azure Event Grid
 
 The Azure Event Grid MQTT Broker HTTP Publish API empowers customers to publish Message Queuing Telemetry Transport (MQTT) messages by using standard HTTP requests. This capability complements direct MQTT client connections. It provides a simple and scalable option for server-side systems that prefer HTTP for server-to-device command and control, updates, or retained message management.
-
-> [!NOTE]
-> This feature is currently in preview.
 
 Key benefits:
 

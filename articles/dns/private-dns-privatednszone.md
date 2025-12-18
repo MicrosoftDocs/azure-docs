@@ -1,16 +1,16 @@
 ---
-title: What is an Azure Private DNS zone?
-description: Overview of Private DNS zones
+title: Azure Private DNS Zone Overview
+description: "Learn how Azure Private DNS zones provide secure DNS resolution for virtual networks using custom domain names. Discover setup, limits, and best practices."
 services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
-ms.date: 10/12/2023
+ms.date: 12/18/2025
 ms.author: allensu
 # Customer intent: "As a cloud network administrator, I want to manage DNS resolution using private DNS zones, so that I can customize domain names and enhance security for virtual network resources without exposing them to the public Internet."
 ---
 
-# What is an Azure Private DNS zone?
+# Azure Private DNS zone overview
 
 Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. 
 
@@ -21,9 +21,9 @@ You can also enable the [autoregistration](./private-dns-autoregistration.md) fe
 
 ## Private DNS zone resolution
 
-Private DNS zones linked to a VNet are queried first when using the default DNS settings of a VNet. Azure provided DNS servers are queried next. However, if a [custom DNS server](../virtual-network/manage-virtual-network.yml#change-dns-servers) is defined in a VNet, then private DNS zones linked to that VNet are not automatically queried, because the custom settings override the name resolution order. 
+When you use the default DNS settings of a virtual network, the system queries private DNS zones linked to that virtual network first. The system then queries Azure-provided DNS servers next. However, if you define a [custom DNS server](/azure/virtual-network/manage-virtual-network#change-dns-servers) in a virtual network, the system doesn't automatically query private DNS zones linked to that virtual network. The custom settings override the name resolution order.
 
-To enable custom DNS to resolve the private zone, you can use an [Azure DNS Private Resolver](dns-private-resolver-overview.md) in a VNet linked to the private zone as described in [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture). If the custom DNS is a virtual machine, configure a conditional forwarder to Azure DNS (168.63.129.16) for the private zone.
+To enable custom DNS to resolve the private zone, use an [Azure DNS Private Resolver](dns-private-resolver-overview.md) in a virtual network linked to the private zone as described in [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture). If your custom DNS server is a virtual machine, you must configure a conditional forwarder. Point the conditional forwarder to Azure DNS (168.63.129.16) for the private zone.
 
 ## Limits
 

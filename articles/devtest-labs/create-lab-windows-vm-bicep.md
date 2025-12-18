@@ -55,7 +55,7 @@ Review the Bicep file. The file uses the following resource types to take the fo
    - `<location>`: Azure region you want to use.
    - `<lab-name>`: Name for the new lab.
    - `<vm-name>`: Name for the new VM.
-   - `<user-name>`: Username of a local account to create on the new VM. You're prompted to enter a password for the local account. Be sure not to use any [disallowed usernames or passwords](/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#osprofile).
+   - `<user-name>`: Username of a local account to create on the new VM. You're prompted to enter a password for the local account. Be sure not to use any disallowed usernames or passwords listed in the **OSProfile** section of [Virtual Machines - Create or Update](/rest/api/compute/virtual-machines/create-or-update).
 
    # [Azure CLI](#tab/CLI)
 
