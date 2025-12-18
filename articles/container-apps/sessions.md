@@ -78,9 +78,11 @@ Dynamic sessions are available in the following regions:
 | Region | Code interpreter | Custom container |
 |--------|------------------|------------------|
 | Australia East | ✔ | ✔ |
+| Australia Southeast | ✔ | ✔ |
 | Brazil South | ✔ | ✔ |
 | Canada Central | ✔ | ✔ |
 | Canada East | ✔ | ✔ |
+| Central India | ✔ | ✔ |
 | Central US | ✔ | ✔ |
 | East Asia | ✔ | ✔ |
 | East US | ✔ | ✔ |
@@ -89,6 +91,7 @@ Dynamic sessions are available in the following regions:
 | Germany West Central | ✔ | ✔ |
 | Italy North | ✔ | ✔ |
 | Japan East | ✔ | ✔ |
+| Japan West | ✔ | ✔ |
 | Korea Central | ✔ | ✔ |
 | North Central US | ✔ | ✔ |
 | North Europe | ✔ | ✔ |
@@ -96,10 +99,13 @@ Dynamic sessions are available in the following regions:
 | Poland Central | ✔ | ✔ |
 | South Africa North | ✔ | ✔ |
 | South India | ✔ | ✔ |
+| Southeast Asia | ✔ | ✔ |
 | Sweden Central | ✔ | ✔ |
 | Switzerland North | ✔ | ✔ |
+| Switzerland West | ✔ | ✔ |
 | UAE North | ✔ | ✔ |
 | UK South | ✔ | ✔ |
+| UK West | ✔ | ✔ |
 | West Central US | ✔ | ✔ |
 | West Europe | ✔ | ✔ |
 | West US | ✔ | ✔ |
