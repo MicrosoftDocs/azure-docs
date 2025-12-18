@@ -2,8 +2,8 @@
 title: Get started with module identity and module identity twins
 titleSuffix: Azure IoT Hub
 description: Learn how to create module identities and update module identity twins using the Azure IoT Hub SDKs.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 manager: lizross
 ms.service: azure-iot-hub
 ms.devlang: csharp

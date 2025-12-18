@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 10/07/2025
+ms.date: 12/18/2025
 ms.author: phjensen
 # Customer intent: As a cloud administrator, I want to stay updated with the latest release notes for the Azure Application Consistent Snapshot tool, so that I can leverage new features and improvements for enhanced data protection and compliance in my environment.
 ---
@@ -13,15 +13,6 @@ ms.author: phjensen
 # Release Notes for Azure Application Consistent Snapshot tool
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
-
-> [!CAUTION]
-> **AzAcSnap 11/11a and Non-Public Cloud Compatibility**
-> 
-> AzAcSnap versions 11 and 11a are experiencing compatibility issues in non-Public Cloud environments, such as Azure Government.
-> These issues may result in errors like `SubscriptionNotFound` or failed snapshot operations due to changes in authentication and configuration handling.
-> 
-> To avoid disruption, customers operating in non-Public Cloud environments are advised to remain on AzAcSnap 10a until a fix is released.
-> A future update is in development and will restore full compatibility. For updates and support, please refer to the https://aka.ms/azacsnap-release-notes.
 
 We recommend that customers always use the latest release of the Azure Application Consistent Snapshot tool (AzAcSnap) to benefit from the most up-to-date security enhancements, performance improvements, and expanded platform support. Each release is designed to strengthen the tool’s reliability and security posture, ensuring alignment with Microsoft’s evolving best practices for data protection and compliance.
 
@@ -31,6 +22,18 @@ We recommend that customers always use the latest release of the Azure Applicati
 Download the latest release of the binary for [Linux](https://aka.ms/azacsnap-linux) or [Windows](https://aka.ms/azacsnap-windows) and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## Dec-2025
+
+### AzAcSnap 11b (Build: 1C1226A)
+
+AzAcSnap 11b is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Connectivity to non-Public Cloud environments, such as Azure Government, has been resolved.
+    - For details on configuring for non-Public Clouds check the [Tips for using Azure Application Consistent Snapshot tool](azacsnap-tips.md).
+
+Download the binary of [AzAcSnap 11b for Linux](https://aka.ms/azacsnap-11b-linux) ([signature file](https://aka.ms/azacsnap-11b-linux-signature)) or [AzAcSnap 11b for Windows](https://aka.ms/azacsnap-11b-windows).
 
 ## Oct-2025
 

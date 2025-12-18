@@ -2,8 +2,8 @@
 title: What is New in Azure IoT Hub? (Preview)
 titleSuffix: Azure IoT Hub
 description: This article explains the new features and improvements in Azure IoT Hub.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview

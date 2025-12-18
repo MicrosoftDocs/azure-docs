@@ -1,8 +1,8 @@
 ---
 ms.topic: include
 ms.date: 10/20/2025
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
 ---

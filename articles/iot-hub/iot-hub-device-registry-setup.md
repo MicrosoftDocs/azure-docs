@@ -2,8 +2,8 @@
 title: Get Started with ADR and Certificate Management in IoT Hub (Preview)
 titleSuffix: Azure IoT Hub
 description: This article explains how to create an IoT Hub with ADR integration and Microsoft-backed X.509 certificate management.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to

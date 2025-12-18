@@ -2,12 +2,12 @@
 title: Create and delete routes and endpoints in Azure portal
 titleSuffix: Azure IoT Hub
 description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using the Azure portal for message routing.
-author: SoniaLopezBravo
+author: cwatson-cat
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
 ms.date: 08/13/2025
-ms.author: sonialopez
+ms.author: cwatson
 ---
 
 # Create and delete routes and endpoints by using the Azure portal

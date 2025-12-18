@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/25/2025
+ms.date: 12/18/2025
 ms.author: phjensen
 # Customer intent: As a DevOps engineer managing database backups, I want to configure and monitor the Azure Application Consistent Snapshot tool for Azure NetApp Files, so that I can automate and ensure the reliability of regular snapshot backups for my SAP HANA databases.
 ---
@@ -20,13 +20,23 @@ AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be l
 
 Settings, which can be controlled by adding/editing the global override settings file or by setting them as environment variables are:
 
-- **AZURE_MANAGEMENT_ENDPOINT** to customize the location of the Azure Management Endpoint which AzAcSnap make Azure REST API calls to was introduced in AzAcSnap 9a. Values should be URL paths and the default value = 'https://management.azure.com'. For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Government Cloud (ref: [Azure Government Guidance for developers](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers)) add the following to the `.azacsnaprc` file:
+- **AZURE_ENVIRONMENT** (from AzAcSnap 11b) to customize connectivity to the correct management endpoint.  The values could be one of: AzurePublicCloud, AzureGovernment, AzureChina, AzureGermany - the default is 'AzurePublicCloud'.  For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Government Cloud add the following to the `.azacsnaprc` file:
+  - `AZURE_ENVIRONMENT=AzureGovernment`
+
+  > [!NOTE]
+  > The `AZURE_ENVIRONMENT` only applies to AzAcSnap 11b (or later).
+
+- **AZURE_MANAGEMENT_ENDPOINT** (for AzAcSnap 9a, 10, 10a only) to customize the location of the Azure Management Endpoint which AzAcSnap make Azure REST API calls to was introduced in AzAcSnap 9a. Values should be URL paths and the default value = 'https://management.azure.com'. For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Government Cloud (ref: [Azure Government Guidance for developers](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers)) add the following to the `.azacsnaprc` file:
   - `AZURE_MANAGEMENT_ENDPOINT=https://management.usgovcloudapi.net`
+
+  > [!NOTE]
+  > `AZURE_MANAGEMENT_ENDPOINT` only applies to AzAcSnap 9a, 10, 10a, do not set this for AzAcSnap 11 or later.
+
 - **EXTERNAL_CMD_TIMEOUT_SECS** customizes the timeout for external shell commands. Values should be integers and the default value = 300. For example, to set the external command timeout to 10 minutes (600 seconds) add the following to the `.azacsnaprc` file:
   - `EXTERNAL_CMD_TIMEOUT_SECS=600`
 
-> [!NOTE]
-> As of AzAcSnap 11, the `EXTERNAL_CMD_TIMEOUT_SECS` only applies to Db2 database commands.
+  > [!NOTE]
+  > As of AzAcSnap 11, the `EXTERNAL_CMD_TIMEOUT_SECS` only applies to Db2 database commands.
 
 - **MAINLOG_LOCATION** which customizes the location of the "main-log" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8. Values should be absolute paths and the default value = '.' (which is the current working directory). For example, to ensure the "main-log" output file goes to the `/home/azacsnap/bin/logs` add the following to the `.azacsnaprc` file:
   - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`

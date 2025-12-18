@@ -2,8 +2,8 @@
 title: X.509 certificate attestation with Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes concepts specific to using X.509 certificate attestation with Device Provisioning Service (DPS) and IoT Hub
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/07/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

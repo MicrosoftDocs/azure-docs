@@ -40,7 +40,7 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 - The file format should be XLSX.
 - File sensitivity is set to **General** or file protection is set to **Any user**.
 - [Operating system names](tutorial-discover-import.md#supported-operating-system-names) specified in the RVTools XLSX (preview) file contains and matches the supported names.
-- The XLSX file should contain the vInfo, vPartition & vMemory sheets. The columns in these sheets are as follows:
+- The XLSX file should contain the vInfo, vHost, vDatastore, vSnapshot, vPartition & vMemory sheets. The columns in these sheets are as follows:
     - **vInfo** - VM, Powerstate, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID.
     - **vHost** - Host, Cluster, Datacenter, Config status, in Maintenance Mode, in Quarantine Mode, CPU Model, Speed, #CPU, Cores per CPU, # Cores, CPU usage %, # Memory, Memory usage %, VM Used memory, VM Memory Swapped, VM Memory Ballooned, #NICs, # vCPUs, vRAM, ESX Version, Vendor, Model, Object ID, UUID, 
     - **vDatastore** - Name, Type, Hosts, Capacity MiB, Provisioned MiB, In Use MiB, Object ID

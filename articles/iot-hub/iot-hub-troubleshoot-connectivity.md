@@ -1,9 +1,9 @@
 ---
 title: Monitor and troubleshoot device connectivity to Azure IoT Hub
 description: Learn to monitor and troubleshoot common errors with device connectivity for Azure IoT Hub.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 07/30/2024

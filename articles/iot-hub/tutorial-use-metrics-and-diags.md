@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Set up and use metrics and logs with an Azure IoT hub
 description: Tutorial - Learn how to set up and use metrics and logs with an Azure IoT hub to provide data to analyze and diagnose problems your hub may be having.
-author: SoniaLopezBravo
+author: cwatson-cat
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 07/21/2022
-ms.author: sonialopez
+ms.author: cwatson
 ms.custom:
   - mvc
   - mqtt

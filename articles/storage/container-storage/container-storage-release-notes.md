@@ -18,6 +18,7 @@ The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
 |-----------|--------|
+|2.0.1 - Patch Release | Supported |
 |2.0.0 - Major Release | Supported |
 |1.4.0 - Minor Release | Supported |
 |1.3.2 - Patch Release | Supported |
@@ -31,6 +32,12 @@ The following Azure Container Storage versions are no longer supported: 1.0.6-pr
 ## Major vs. minor vs. patch releases
 
 A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.2.0 to 1.3.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
+
+## Version 2.0.1
+
+### Improvements and issues that are fixed
+
+- Addressed a vulnerability where full customer pod details including potentially sensitive data passed through environment variables were being logged. Logging has now been restricted to pod name only to prevent exposure of sensitive information.
 
 ## Version 2.0.0
 
@@ -133,6 +140,7 @@ Azure Container Storage follows a transparent and predictable support lifecycle,
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |-----------------|---------------|-------------|-------------------------------|
+|2.0.1 - Patch Release | 12/16/2025 | 09/09/2026 | 1.33, 1.32, 1.31 |
 |1.4.0 - Minor Release | 12/16/2025 | 12/15/2026 | 1.32, 1.31, 1.30 |
 |2.0.0 - Major Release | 09/10/2025 | 09/09/2026 | 1.33, 1.32, 1.31 |
 |1.3.2 - Patch Release | 09/15/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |

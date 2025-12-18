@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub device streams | Microsoft Docs
 description: Overview of Azure IoT Hub device streams, which facilitate secure bi-directional TCP tunnels for various cloud-to-device communication scenarios.
-author: SoniaLopezBravo
+author: cwatson-cat
 services: iot-hub
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/23/2025
-ms.author: sonialopez
+ms.author: cwatson
 ms.custom:
   - 'Role: Cloud Development'
   - 'Role: IoT Device'

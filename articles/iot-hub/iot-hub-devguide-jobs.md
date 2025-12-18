@@ -1,8 +1,8 @@
 ---
 title: Schedule Azure IoT Hub Jobs on Multiple Devices
 description: Learn to schedule Azure IoT Hub jobs on multiple devices to update properties, tags, and invoke direct methods. Automate device management tasks efficiently with step-by-step examples and code samples.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/06/2019

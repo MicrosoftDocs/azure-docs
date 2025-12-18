@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) with an Azure Resource Manager template (ARM template)
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) instance using an Azure Resource Manager template (ARM template).
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/12/2025
 ms.topic: quickstart
 ms.service: azure-iot-hub

@@ -1,8 +1,8 @@
 ---
 title: Understand Azure IoT Hub endpoints
 description: This article provides information about IoT Hub device-facing and service-facing endpoints.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 12/03/2024
