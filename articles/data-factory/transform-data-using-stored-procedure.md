@@ -34,7 +34,7 @@ The Stored Procedure activity doesn’t support output parameters. To run a stor
 
 If you call a stored procedure with output parameters using stored procedure activity, following error occurs.
 
-> [!ERROR]
+> [!WARNING]
 > Execution failed against SQL Server. Please contact your SQL Server team for further support.  
 > **SQL error number:** 201  
 > **Error message:** Procedure or function 'sp_name' expects parameter '@output_param_name', which was not supplied.
