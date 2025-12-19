@@ -111,7 +111,8 @@ The connections and the NAT rules are specified in the sample topology shown in 
 ## NAT limitations
 
 [!INCLUDE [NAT limitations](../../includes/vpn-gateway-nat-limitations.md)]
-
+You can add a maximum of 10 prefixes in internal and external mapping of Dynamic NAT rule.
+A connection cant be associated to 2 NAT rules with same values in internal/external mapping.
 ## Next steps
 
 Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal) for steps.
