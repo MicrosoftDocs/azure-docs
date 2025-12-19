@@ -21,6 +21,7 @@ This article explains how to create a new IoT Hub with [Azure Device Registry (A
 ## Prerequisites
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Review and plan to deploy IoT Hub with Azure Device Registry and certificate management in one of the [supported regions](iot-hub-what-is-new.md#supported-regions).
 - If you don't have the Azure CLI installed, follow the steps to [install the Azure CLI](/cli/azure/install-azure-cli). 
 - Install the **Azure IoT CLI extension with previews enabled** to access the ADR integration and certificate management functionalities for IoT Hub:
 
@@ -54,7 +55,7 @@ This article explains how to create a new IoT Hub with [Azure Device Registry (A
         az extension list
         ``` 
 
-- Ensure that you have the privilege to perform role assignments within your target scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope. 
+- Ensure that you have the privilege to perform role assignments within your target scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
 
 ## Choose a deployment method
 

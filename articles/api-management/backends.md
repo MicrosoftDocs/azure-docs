@@ -118,6 +118,9 @@ To add CA certificate details, follow these steps:
 > [!NOTE]
 > When you configure details of a custom CA certificate in the backend entity, API Management always validates the certificate name and certificate chain, regardless of whether you enable or disable validation settings in the backend's `backendTlsProperties`.
 
+> [!TIP]
+> You can also configure CA certificate details programmatically by using the API Management REST API. Set the `backendTlsProperties` in the [backend entity](/rest/api/apimanagement/backend/create-or-update?view=rest-apimanagement-2025-03-01-preview&preserve-view=true#backendtlsproperties).
+
 ## Reference backend using set-backend-service policy
 
 After creating a backend, you can reference the backend identifier (name) in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:

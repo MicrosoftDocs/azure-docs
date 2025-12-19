@@ -98,7 +98,7 @@ When a destination file is overwritten with a copy, any share snapshots associat
 
 ## Copying data back to a local drive from share snapshot
 
-When restoring data from an Azure Files snapshot to a local drive on Windows, you can use Robocopy to copy files and folders from a snapshot view of the file share.
+If you want to restore data from a snapshot of an SMB Azure file share to a local drive on Windows, you can use Robocopy to copy files and folders from the snapshot.
 
 On Windows, you can access SMB file share snapshots from the **Previous Versions** tab in Windows File Explorer. When you access a snapshot view using this method, you can copy files and folders to a local path using standard file operations or Robocopy.
 

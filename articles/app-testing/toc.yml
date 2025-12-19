@@ -84,6 +84,8 @@ items:
               href: load-testing/how-to-configure-load-test-cicd.md
         - name: Analyze test results
           items:
+            - name: Analyze tests using the results dashboard
+              href: load-testing/how-to-understand-test-run-results-dashboard.md          
             - name: Compare test runs
               displayName: comparison, regression, baseline, compare metrics, compare results
               href: load-testing/how-to-compare-multiple-test-runs.md

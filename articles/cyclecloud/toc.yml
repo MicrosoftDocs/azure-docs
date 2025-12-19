@@ -258,6 +258,10 @@
         href: /previous-versions/azure/cyclecloud/release-notes-previous
       - name: Older Releases
         href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: 8.8.1 Release Notes
+        href: ./release-notes/8-8-1.md
+      - name: 8.8.0 Release Notes
+        href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     href: ./release-notes/ccws/release-notes.md       
   - name: Service Policy

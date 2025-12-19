@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 10/30/2025
+ms.date: 12/19/2025
 ms.custom: engagement-fy23
 ---
 
@@ -63,6 +63,21 @@ When a customer has a deployed Azure VMware Solution private cloud, they can sca
 
 > [!NOTE]
 > All traffic from an AV64 host towards a customer network will utilize the IP address of the VMKernel Network Interface 1.
+
+### Enhanced vMotion Compatibility (EVC) with AV64 extension
+Adding AV64 nodes to an Azure VMware Solution private cloud creates a heterogeneous environment, which results in [Enhanced vMotion Compatibility](https://knowledge.broadcom.com/external/article/313545/vmware-evc-and-cpu-compatibility-faq.html) (EVC) issues between AV64 clusters and base SKU clusters using AV36, AV36P, or AV52 SKUs. AV64 clusters use the Icelake EVC mode due to their Intel Icelake CPUs, whereas AV36, AV36P, and AV52 clusters, built on older Intel CPUs, do not have explicit EVC mode enabled. Details on CPU generations for each SKU are provided above. 
+
+The heterogeneity of EVC modes across clusters presents challenges for live vMotion operations, as defined by Broadcom, based on the specific scenario and direction of migration. The following section provides a summary of the user experience when performing live vMotion between AV64 and the base clusters. 
+
+- vMotion to AV64 cluster from Base SKU cluster – this works fine as virtual machine is vMotioned from lower EVC mode cluster to higher EVC mode cluster.
+  
+- vMotion to base SKU cluster from AV64 cluster – two scenarios
+  
+	- If virtual machine was previously moved from base cluster and not power cycled, then the live vMotion succeeds.
+   
+ 	- If virtual machine was created on AV64 cluster or power cycled, even though it was previously vMotioned from the base SKU cluster, live vMotion will fail with EVC compatibility error.
+ 
+Customers can avoid live vMotion problems between base SKU and AV64 clusters by setting the VM-level EVC mode to match a lower base cluster EVC, or by powering off the virtual machine and doing a cold vMotion.
 
 ### AV64 Cluster vSAN fault domain (FD) design and recommendations
 

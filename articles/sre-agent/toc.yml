@@ -19,6 +19,8 @@ items:
     items:
       - name: Connectors overview
         href: connectors.md
+      - name: Documentation connector
+        href: documentation-connector.md
       - name: Connect to custom MCP server
         href: custom-mcp-server.md
   - name: Build custom subagents
@@ -33,6 +35,8 @@ items:
     href: code-repository-connect.md
   - name: Scheduled tasks
     href: scheduled-tasks.md
+  - name: Knowledge retention
+    href: memory-system.md
   - name: Incident management
     items:
       - name: Overview

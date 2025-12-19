@@ -120,6 +120,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Analyze tests using the results dashboard
+            url: load-testing/how-to-understand-test-run-results-dashboard.md
           - text: Compare load test runs
             url: load-testing/how-to-compare-multiple-test-runs.md
           - text: Analyze results using AI insights

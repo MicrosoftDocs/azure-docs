@@ -141,7 +141,7 @@ Azure Container Storage follows a transparent and predictable support lifecycle,
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |-----------------|---------------|-------------|-------------------------------|
 |2.0.1 - Patch Release | 12/16/2025 | 09/09/2026 | 1.33, 1.32, 1.31 |
-|1.4.0 - Minor Release | 12/16/2025 | 12/15/2026 | 1.32, 1.31, 1.30 |
+|1.4.0 - Minor Release | 12/16/2025 | 12/15/2026 | 1.33, 1.32, 1.31 |
 |2.0.0 - Major Release | 09/10/2025 | 09/09/2026 | 1.33, 1.32, 1.31 |
 |1.3.2 - Patch Release | 09/15/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.3.1 - Patch Release | 07/02/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |

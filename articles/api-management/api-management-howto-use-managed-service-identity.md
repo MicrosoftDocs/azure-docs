@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 12/18/2025
 ms.author: danlep
 ms.custom:
   - devx-track-azurepowershell
@@ -314,27 +314,17 @@ You can use the system-assigned identity to authenticate to a backend service vi
 
 ### Connect to Azure resources behind an IP firewall by using a system-assigned managed identity
 
-For certain scenarios, API Management can communicate with resources in the following services using a system-assigned managed identity configured with an appropriate role assignment:
+API Management is a trusted Microsoft service to the following resources. This trusted status enables the service to connect to the following resources behind a firewall when the firewall enables a setting to **Allow Trusted Microsoft Services to bypass this firewall**. After you explicitly assign the appropriate Azure role to the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) for a resource instance, the scope of access for the instance corresponds to the Azure role that's assigned to the managed identity.
 
-- Azure Key Vault
-- Azure Storage
-- Azure Service Bus
-- Azure Event Hubs
-- Azure Container Registry
-- Azure Managed HSM
 
-For resources in these services that are protected by an IP firewall, ensure that you have networking line of sight from API Management. Configure one of the following network access options on the resource:
+- [Trusted access for Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
+- [Trusted access for Azure Storage](../storage/common/storage-network-security-trusted-azure-services.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)
+- [Trusted access for Azure Service Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)
+- [Trusted access for Azure Event Hubs](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)
 
-- Allow public access from all networks.
-
-- Set a network security rule to allow API Management traffic based on the IP address or virtual network connectivity.
-
-- Secure traffic from API Management with Private Link connectivity.
-
-- Use a [network security perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to secure the resource and allow traffic from API Management. 
 
 > [!IMPORTANT]
-> Starting March 2026, trusted service connectivity to Azure services from API Management by enabling the **Allow Trusted Microsoft Services to bypass this firewall** firewall setting will no longer be supported. To continue accessing these services from API Management after this change, ensure that you choose a supported network access option as described above. [Learn more](breaking-changes/trusted-service-connectivity-retirement-march-2026.md)
+> Starting March 2026, trusted service connectivity to Azure services from the API Management gateway by enabling the **Allow Trusted Microsoft Services to bypass this firewall** firewall setting will no longer be supported. To continue accessing these services from the API Management gateway after this change, ensure that you choose a different supported network access option. For control-plane operations, you can continue to use trusted service connectivity. [Learn more](breaking-changes/trusted-service-connectivity-retirement-march-2026.md).
 
 ### Log events to an event hub
 

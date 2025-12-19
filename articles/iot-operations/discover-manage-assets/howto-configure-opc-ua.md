@@ -25,7 +25,10 @@ This article describes how to use the operations experience web UI and the Azure
 
 These assets, data points, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
 
-The connector can use `anonymous` or `username password` authentication when it connects to an OPC UA server.
+The connector can use `anonymous` or `username password` user authentication when it connects to an OPC UA server.
+
+> [!NOTE]
+> This user authentication is separate from the certificate-based application authentication that's used to establish a secure channel between the connector for OPC UA and the OPC UA server. To learn more, see [Understand the OPC UA certificates infrastructure](overview-opc-ua-connector-certificates-management.md).
 
 ## Prerequisites
 
