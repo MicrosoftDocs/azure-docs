@@ -25,7 +25,7 @@ This section helps you connect to your virtual machine scale set.
 1. Open the [Azure portal](https://portal.azure.com) and go to **Virtual machine scale sets**. To open the scale sets instances page, click the scale set that contains the instance that you want to connect to.
 1. On the **Scale set instance** page, click the instance that you want to connect to. This opens the page for the instance.
 1. On the instance page, select **Connect** at the top of the page, then choose **Bastion** from the dropdown.
-1. On the **Bastion** page, fill in the required settings. The settings you can select depend on the virtual machine to which you're connecting, and the [Bastion SKU](configuration-settings.md#skus) tier that you're using. For more information about settings and SKUs, see [Bastion configuration settings](configuration-settings.md).
+1. On the **Bastion** page, fill in the required settings. The settings you can select depend on the virtual machine to which you're connecting, and the [Bastion SKU](bastion-sku-comparison.md) tier that you're using. For more information about settings, see [Bastion configuration settings](configuration-settings.md).
 
 1. After filling in the values on the Bastion page, select **Connect** to connect to the instance.
 

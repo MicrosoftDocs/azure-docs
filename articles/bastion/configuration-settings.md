@@ -1,54 +1,18 @@
 ---
-title: 'About Azure Bastion configuration settings'
+title: About Azure Bastion configuration settings
 description: Learn about the available configuration settings for Azure Bastion.
 author: abell
 ms.author: abell
 ms.service: azure-bastion
 ms.topic: concept-article
-ms.date: 03/14/2025
+ms.date: 11/24/2025
 ms.custom: references_regions, ignite-2024
 # Customer intent: "As a cloud administrator, I want to configure Azure Bastion settings, including SKU selection and network requirements, so that I can ensure secure and efficient access to virtual machines within my infrastructure."
 ---
 
-# About Bastion configuration settings
+# About Azure Bastion configuration settings
 
 The sections in this article discuss the resources and settings for Azure Bastion.
-
-## <a name="skus"></a>SKUs
-
-A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When you configure Bastion, you select the SKU tier. You decide the SKU tier based on the features that you want to use. The following table shows the availability of features per corresponding SKU.
-
-[!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
-
-### Bastion Developer
-
-[!INCLUDE [Bastion Developer description](../../includes/bastion-developer-description.md)]
-
-[!INCLUDE [Bastion Developer regions](../../includes/bastion-developer-regions.md)]
-
-> [!NOTE]
-> VNet peering isn't currently supported for Bastion Developer.
-
-### <a name="premium"></a>Premium SKU
-
-The Premium SKU is a new SKU that supports Bastion features such as [Session Recording](session-recording.md) and [Private-Only Bastion](private-only-deployment.md). When you deploy Bastion, we recommend that you select the Premium SKU only if you need the features that it supports.
-
-### Specify SKU
-
-| Method | SKU Value | Links |
-| --- | --- | --- |
-| Azure portal | Tier - Developer | [Quickstart](quickstart-developer-sku.md)|
-| Azure portal | Tier - Standard| [Quickstart](quickstart-host-portal.md) |
-| Azure portal | Tier - Basic or higher | [Tutorial](tutorial-create-host-portal.md) |
-| Azure PowerShell | Tier - Basic or higher |[How-to](bastion-create-host-powershell.md) |
-| Azure CLI | Tier - Basic or higher | [How-to](create-host-cli.md) |
-
-### <a name="upgradesku"></a>Upgrade a SKU
-
-You can always upgrade a SKU to add more features. For more information, see [Upgrade a SKU](upgrade-sku.md).
-
-> [!NOTE]
-> Downgrading a SKU is not supported. To downgrade, you must delete and recreate Azure Bastion.
 
 ## <a name="subnet"></a>Azure Bastion subnet
 
@@ -74,7 +38,7 @@ You can configure this setting using the following methods:
 
 ## <a name="public-ip"></a>Public IP address
 
-Azure Bastion deployments, except [Bastion Developer](#bastion-developer) and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
+Azure Bastion deployments, except Bastion Developer and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
 
 * The Public IP address SKU must be **Standard**.
 * The Public IP address assignment/allocation method must be **Static**.
@@ -147,3 +111,5 @@ When a user without Azure credentials clicks a shareable link, a webpage opens t
 ## Next steps
 
 For frequently asked questions, see the [Azure Bastion FAQ](bastion-faq.md).
+Choose the right Azure Bastion SKU for your needs by reading [Choose the right Azure Bastion SKUs to meet your needs](bastion-sku-comparison.md).
+Review the cost optimization recommendations for Azure Bastion in [Optimize Azure Bastion costs](cost-optimization.md).

@@ -91,15 +91,15 @@ For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual
 
 ### <a name="all-skus"></a> What SKU should I use?
 
-Azure Bastion has multiple SKUs. You should select a SKU based on your connection and feature requirements. For a full list of SKU tiers and supported connections and features, see the [Configuration settings](configuration-settings.md#skus) article.
+Azure Bastion has multiple SKUs. You should select a SKU based on your connection and feature requirements. For a full list of SKU tiers and supported connections and features, see the [SKU Comparison](bastion-sku-comparison.md) article and the [Configuration settings](configuration-settings.md) article.
 
 ### <a name="upgradesku"></a> Can I upgrade a SKU?
 
-Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [SKU Comparison](bastion-sku-comparison.md) article.
 
 ### <a name="downgradesku"></a> Can I downgrade a SKU?
 
-No. Downgrading a SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+No. Downgrading a SKU isn't supported. For more information about SKUs, see the [SKU Comparison](bastion-sku-comparison.md) article.
 
 ### <a name="virtual-desktop"></a>Does Bastion support connectivity to Azure Virtual Desktop?
 

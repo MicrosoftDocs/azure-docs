@@ -12,7 +12,7 @@ ms.custom: sfi-image-nochange
 
 # Tutorial: Deploy Azure Bastion by using specified settings
 
-This tutorial helps you configure dedicated deployment of Azure Bastion to your virtual network from the Azure portal using the settings and SKU of your choice. The SKU determines the features and connections that are available for your deployment. For more information about SKUs and features, see [Configuration settings - SKUs](configuration-settings.md#skus). After Bastion is deployed, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Bastion using the private IP addresses of the VMs. When you connect to a VM, it doesn't need a public IP address, client software, an agent, or a special configuration.
+This tutorial helps you configure dedicated deployment of Azure Bastion to your virtual network from the Azure portal using the settings and SKU of your choice. The SKU determines the features and connections that are available for your deployment. For more information about SKUs and features, see [Bastion SKUs](bastion-sku-comparison.md). After Bastion is deployed, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Bastion using the private IP addresses of the VMs. When you connect to a VM, it doesn't need a public IP address, client software, an agent, or a special configuration.
 
 The following diagram shows the Azure Bastion dedicated deployment [architecture](design-architecture.md) for this tutorial. Unlike the [Bastion Developer architecture](design-architecture.md#developer), a dedicated deployment architecture deploys a dedicated bastion host directly to your virtual network.
 
@@ -69,7 +69,7 @@ This section helps you deploy Bastion to your virtual network. After Bastion is 
    | Name| Specify the name that you want to use for your Bastion resource. For example, **VNet1-bastion**. |
    | Region | Select the region where your virtual network resides. |
    | Availability zone | Select the zone(s) from the dropdown, if desired. Only certain regions are supported. For more information, see [What are availability zones?](../reliability/availability-zones-overview.md?tabs=azure-cli) |
-   | Tier| For this tutorial, select the **Standard** SKU. For information about the features available for each SKU, see [Configuration settings - SKU](configuration-settings.md#skus). |
+   | Tier| For this tutorial, select the **Standard** SKU. For information about the features available for each SKU, see [Bastion SKU comparison](bastion-sku-comparison.md). |
    | Instance count | Configure host scaling in scale unit increments. Use the slider or enter a number to configure the instance count that you want, for example, **3**. For more information, see [Instances and host scaling](configuration-settings.md#instance) and [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion). |
 
 1. Configure the **Virtual networks** settings. Select your virtual network from the dropdown list. If your virtual network isn't in the dropdown list, make sure that you selected the correct **Region** value in the previous step.
@@ -104,7 +104,7 @@ This section helps you deploy Bastion to your virtual network. After Bastion is 
 
 ## <a name="connect"></a>Connect to a VM
 
-You can use any of the following detailed articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
+You can use any of the following detailed articles to connect to a VM. Some connection types require the Bastion [Standard SKU](bastion-sku-comparison.md).
 
 [!INCLUDE [Links to connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 

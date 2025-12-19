@@ -3,7 +3,7 @@ title: Migrate Files Between SMB Azure file shares
 description: Learn how to migrate files from one SMB Azure file share to another using Robocopy, a common migration tool.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 12/19/2025
 ms.author: kendownie
 author: khdownie
 # Customer intent: As a cloud administrator, I want to migrate files between SMB Azure file shares using Robocopy, so that I can efficiently transition data with minimal downtime and optimize storage performance.
@@ -36,7 +36,7 @@ Follow these steps to migrate using Robocopy, a command-line file copy utility i
 
 1. Deploy a Windows virtual machine (VM) in Azure in the same region as your source file share. Keeping the data and networking in Azure is faster and avoids outbound data transfer charges. For optimal performance, we recommend a multi-core VM type with at least 56 GiB of memory, for example **Standard_DS5_v2**.
 
-2. Mount both the source and target file shares to the VM. Be sure to mount them using the storage account key to make sure the VM has access to all the files. Don't use a domain identity.
+2. Mount both the source and target file shares to the VM. To make sure the VM has access to all the files, mount the Azure file share with [admin-level access](storage-files-identity-configure-file-level-permissions.md#mount-the-file-share-with-admin-level-access): either with identity-based access with admin-level Azure RBAC roles (recommended) or with storage account key (less secure).
 
 3. Run this command at the Windows command prompt. Optionally, you can include flags for logging features as a best practice (/NP, /NFL, /NDL, /UNILOG). Remember to replace `s:\` and `t:\` with the paths to the mounted source and target shares as appropriate.
    
