@@ -69,6 +69,10 @@ The two rules must match the prefix lengths of the corresponding address prefixe
 
 You can use any suitable IP range that you want for external mapping, including public and private IPs.
 
+### How many IP prefixes can I add in my internal/external mapping in a Dynamic NAT rule?
+
+You can have a maximum of 10 prefixes in a mapping (internal or external) of a Dynamic NAT rule.
+
 ### Can I use different EgressSNAT rules to translate my VNet address space to different prefixes for on-premises networks?
 
 Yes. You can create multiple **EgressSNAT** rules for the same VNet address space, and then apply the **EgressSNAT** rules to different connections.
