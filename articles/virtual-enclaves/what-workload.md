@@ -120,4 +120,4 @@ The workload resource groups function like an Azure resource group and you can d
 - [What is an Enclave?](./what-enclave.md)
 - [Shared responsibility model in the cloud](/azure/security/fundamentals/shared-responsibility)
 - [Best practices](./best-practices.md)
-- [Tutorial: Create a workload](./3-create-workloads-inside-enclave.md)
+- [Tutorial: Create a workload](./1-3-create-workloads-inside-enclave.md)

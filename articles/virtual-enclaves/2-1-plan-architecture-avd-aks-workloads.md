@@ -22,11 +22,11 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 This tutorial assumes understanding of the concepts covered in tutorials 1-8:
-- [Tutorial 1: Deploy a community](./1-create-community.md)
-- [Tutorial 2: Create enclaves inside a community](./2-create-enclaves-inside-community.md)
-- [Tutorial 3: Create workloads inside an enclave](./3-create-workloads-inside-enclave.md)
-- [Tutorial 4: Use the service catalog](./4-use-service-catalog-create-azure-resources-workloads.md)
-- [Tutorial 5: Create enclave endpoints and connections](./5-create-enclave-endpoint-connections.md)
+- [Tutorial 1: Deploy a community](./1-1-create-community.md)
+- [Tutorial 2: Create enclaves inside a community](./1-2-create-enclaves-inside-community.md)
+- [Tutorial 3: Create workloads inside an enclave](./1-3-create-workloads-inside-enclave.md)
+- [Tutorial 4: Use the service catalog](./1-4-use-service-catalog-create-azure-resources-workloads.md)
+- [Tutorial 5: Create enclave endpoints and connections](./1-5-create-enclave-endpoint-connections.md)
 - Understanding of [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 - Understanding of [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 

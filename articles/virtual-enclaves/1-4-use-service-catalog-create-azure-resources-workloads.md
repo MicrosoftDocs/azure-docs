@@ -84,7 +84,7 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 In this tutorial, you created Azure resources with service catalog using Azure portal.
 
-In the [next tutorial](./5-create-enclave-endpoint-connections.md), you'll learn how to create Azure resources in your enclave.
+In the [next tutorial](./1-5-create-enclave-endpoint-connections.md), you'll learn how to create Azure resources in your enclave.
 
 ## Recommendations
 

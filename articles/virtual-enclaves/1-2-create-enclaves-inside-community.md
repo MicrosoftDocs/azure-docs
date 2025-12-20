@@ -18,7 +18,7 @@ In this tutorial, part two of eight, you deploy enclaves into a community. You l
 - ✅ View enclaves in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./1-create-community.md), you used Azure portal to create a simple community. If you haven't created the community yet, return to [Tutorial 1 - Deploy a community](./1-create-community.md).
+In the previous [tutorial](./1-1-create-community.md), you used Azure portal to create a simple community. If you haven't created the community yet, return to [Tutorial 1 - Deploy a community](./1-1-create-community.md).
 
 ## Create an enclave using Azure Virtual Enclaves
 Before creating an enclave instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [enclave](./what-enclave.md) and [How-To create an enclave](./create-enclave-portal.md).
@@ -40,7 +40,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
    - **Resource Group**: `myResourceGroup`
    - **Enclave name**: `Enclave-WebApp`
    - **Region**: `East US`
-   - **Community**: Select the community created in the earlier tutorial `fabrikam` - [1. Deploy a community](./1-create-community.md).
+   - **Community**: Select the community created in the earlier tutorial `fabrikam` - [1. Deploy a community](./1-1-create-community.md).
 
 ![Screenshot showing the create WebApp enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png)
 
@@ -51,7 +51,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
    - **Resource Group**: `myResourceGroup`
    - **Enclave name**: `Enclave-DMZ`
    - **Region**: `East US`
-   - **Community**: Select the community created in the earlier tutorial `fabrikam` - [1. Deploy a community](./1-create-community.md).
+   - **Community**: Select the community created in the earlier tutorial `fabrikam` - [1. Deploy a community](./1-1-create-community.md).
 
 ![Screenshot showing the create DMZ enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-dmz-enclave-screen-basics-input.png)
 

@@ -22,8 +22,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Completion of [Tutorial 1: Deploy a community](./1-create-community.md) or an existing community
-- Understanding of [Tutorial 10: Plan your architecture](./10-plan-architecture-avd-aks-workloads.md)
+- Completion of [Tutorial 1: Deploy a community](./1-1-create-community.md) or an existing community
+- Understanding of [Tutorial 10: Plan your architecture](./2-1-plan-architecture-avd-aks-workloads.md)
 - **Contributor** access to the resource group containing the community
 - **Contributor** access to the subscription for creating resources
 
