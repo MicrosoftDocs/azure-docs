@@ -8,7 +8,7 @@ ms.date: 12/18/2024
 ms.custom: references_region
 ---
 
-# Tutorial 10: Plan your architecture for AVD and AKS workloads in Azure Virtual Enclaves
+# Tutorial 2-1: Plan your architecture for AVD and AKS workloads in Azure Virtual Enclaves
 
 This tutorial helps you plan and design your Azure Virtual Enclaves (AVE) architecture for deploying Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. Proper planning ensures optimal security, network isolation, and resource organization.
 

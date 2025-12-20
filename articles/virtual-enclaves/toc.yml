@@ -89,13 +89,13 @@
 - name: Tutorials - Create a complex workload architecture
   items:
   - name: Plan your architecture for AVD and AKS workloads
-    href: 2-1-plan-architecture-avd-aks-workloads.md
+    href: 2-1-plan-architecture-workloads.md
   - name: Create Azure Virtual Enclave environment for workloads
-    href: 2-2-create-ave-environment-workloads.md
+    href: 2-2-create-virtual-enclaves-environment.md
   - name: Deploy Azure Virtual Desktop (AVD) workload
-    href: 2-3-deploy-avd-workload.md
+    href: 2-3-deploy-virtual-desktop-workload.md
   - name: Deploy Azure Kubernetes Service (AKS) workload
-    href: 2-4-deploy-aks-workload.md
+    href: 2-4-deploy-kubernetes-workload.md
 - name: Governance, Security, and Compliance
   items:
   - name: Observability

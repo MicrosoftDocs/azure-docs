@@ -8,7 +8,7 @@ ms.date: 12/18/2024
 ms.custom: references_region
 ---
 
-# Tutorial 12: Deploy Azure Virtual Desktop (AVD) workload in Azure Virtual Enclaves
+# Tutorial 2-3: Deploy Azure Virtual Desktop (AVD) workload in Azure Virtual Enclaves
 
 This tutorial guides you through deploying Azure Virtual Desktop (AVD) in Azure Virtual Enclaves. You'll create AVD infrastructure including host pools, session hosts, application groups, and FSLogix storage, all secured within your enclave boundary.
 
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Completion of [Tutorial 11: Create AVE environment for workloads](./11-create-ave-environment-workloads.md)
+- Completion of [Tutorial 2-2: Create Azure Virtual Enclaves Environment](./2-2-create-virtual-enclaves-environment.md)
 - AVD enclave with management and session hosts subnets
 - Common dependencies (Key Vault, managed identity, disk encryption set) from Tutorial 11
 - Private DNS zones for AVD deployed
@@ -432,13 +432,13 @@ az group delete --name rg-avd-infrastructure --yes --no-wait
 
 With AVD deployed, you can now deploy Azure Kubernetes Service workloads.
 
-> [Tutorial 13: Deploy Azure Kubernetes Service (AKS) workload](./13-deploy-aks-workload.md)
+> [Tutorial 2-4: Deploy Azure Kubernetes Service Workload](./2-4-deploy-kubernetes-workload.md)
 
 ## Related content
 
 - [Azure Virtual Desktop documentation](/azure/virtual-desktop/)
 - [FSLogix documentation](/fslogix/)
 - [AVD Insights workbook](/azure/virtual-desktop/insights)
-- [Manage session hosts with Azure portal](/azure/virtual-desktop/manage-session-hosts-portal)
+- [Manage session hosts with Azure portal](/azure/virtual-desktop/management)
 - [Set up MSIX app attach](/azure/virtual-desktop/app-attach-overview)
 - [Configure user profile containers](/azure/virtual-desktop/create-profile-container-azure-ad)

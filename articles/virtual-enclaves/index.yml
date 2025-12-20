@@ -97,21 +97,31 @@ landingContent:
           - text: Learn Virtual Enclaves
             url: virtual-enclaves-learn.md
           - text: Create a community
-            url: 1-create-community.md
+            url: 1-1-create-community.md
           - text: Create enclaves inside a community
-            url: 2-create-enclaves-inside-community.md
+            url: 1-2-create-enclaves-inside-community.md
           - text: Create workloads inside an enclave
-            url: 3-create-workloads-inside-enclave.md
+            url: 1-3-create-workloads-inside-enclave.md
           - text: Use the service catalog to create Azure resources inside a workload
-            url: 4-use-service-catalog-create-azure-resources-workloads.md
+            url: 1-4-use-service-catalog-create-azure-resources-workloads.md
           - text: Create an enclave endpoint and connection
-            url: 5-create-enclave-endpoint-connections.md
+            url: 1-5-create-enclave-endpoint-connections.md
           - text: Monitor your enclaves
-            url: 6-monitor-your-enclaves.md
+            url: 1-6-monitor-your-enclaves.md
           - text: Host a publicly accessible application in an enclave
-            url: 7-host-publicly-accessible-application-virtual-enclave.md
+            url: 1-7-host-publicly-accessible-application-virtual-enclave.md
           - text: Migrate workload resources
-            url: 8-migrate-workload-resources.md
+            url: 1-8-migrate-workload-resources.md
+      - linkListType: tutorial
+        links:
+          - text: Plan Architecture for Workload
+            url: 2-1-plan-architecture-avd-aks-workload.md
+          - text: Create Azure Virtual Enclaves Environment
+            url: 2-2-create-virtual-enclaves-environment.md
+          - text: Deploy Azure Virtual Desktop Workload
+            url: 2-3-deploy-virtual-desktop-workload.md
+          - text: Deploy Azure Kubernetes Service Workload
+            url: 2-4-deploy-kubernetes-workload.md
   # Card
   - title: Governance, Security, and Compliance
     linkLists:

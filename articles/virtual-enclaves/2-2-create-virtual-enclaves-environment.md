@@ -8,7 +8,7 @@ ms.date: 12/18/2024
 ms.custom: references_region
 ---
 
-# Tutorial 11: Create Azure Virtual Enclave environment for workloads
+# Tutorial 2-2: Create Azure Virtual Enclave environment for workloads
 
 This tutorial guides you through creating the Azure Virtual Enclaves environment for AVD and AKS workloads. You'll set up common dependencies, create separate enclaves with properly sized subnets, deploy private DNS zones, and configure community and enclave endpoints for network connectivity.
 
@@ -22,8 +22,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Completion of [Tutorial 1: Deploy a community](./1-1-create-community.md) or an existing community
-- Understanding of [Tutorial 10: Plan your architecture](./2-1-plan-architecture-avd-aks-workloads.md)
+- Understanding of [Tutorial 2-1: Plan your architecture](./2-1-plan-architecture-workloads.md)
 - **Contributor** access to the resource group containing the community
 - **Contributor** access to the subscription for creating resources
 

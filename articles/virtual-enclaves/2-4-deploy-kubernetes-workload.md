@@ -8,7 +8,7 @@ ms.date: 12/18/2024
 ms.custom: references_region
 ---
 
-# Tutorial 13: Deploy Azure Kubernetes Service (AKS) workload in Azure Virtual Enclaves
+# Tutorial 2-4: Deploy Azure Kubernetes Service (AKS) workload in Azure Virtual Enclaves
 
 This tutorial guides you through deploying a private Azure Kubernetes Service (AKS) cluster in Azure Virtual Enclaves. You'll create a fully private AKS cluster with customer-managed encryption, network integration, and secure access patterns.
 
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Completion of [Tutorial 11: Create AVE environment for workloads](./11-create-ave-environment-workloads.md)
+- Completion of [Tutorial 2-3: Deploy Azure Virtual Desktop Workload](./2-3-deploy-virtual-desktop-workload.md)
 - AKS enclave with node, API server, and private endpoint subnets
 - Common dependencies (Key Vault, managed identity, disk encryption set) from Tutorial 11
 - Private DNS zones for AKS deployed
