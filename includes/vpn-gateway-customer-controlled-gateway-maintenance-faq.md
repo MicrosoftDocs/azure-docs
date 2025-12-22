@@ -15,9 +15,6 @@ The Network Gateways scope includes gateway resources in networking services inc
 
 * Virtual network gateway in the ExpressRoute service
 * Virtual network gateway in the VPN Gateway service
-* VPN gateway (site-to-site) in the Azure Virtual WAN service
-* VPN gateway (User VPN or point-to-site) in the Azure Virtual WAN service
-* ExpressRoute gateway in the Virtual WAN service
 
 ### Which maintenance does customer-controlled maintenance support?
 
