@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/31/2022
 ms.custom: template-how-to
 # Customer Intent: As a cloud architect, I want to deploy a web app based on Zero Trust principles so that my applications & traffic are always secure.
+# Customer intent: As a cloud architect, I want to deploy a Zero Trust virtual network for web applications so that I can ensure robust security mechanisms are in place to protect app traffic against threats and data breaches.
 ---
 # Deploy a zero trust network for web applications
 
@@ -22,7 +23,7 @@ This how-to follows the [Zero Trust Network for Web Applications reference archi
 To complete the Zero Trust deployment, you'll need:
 - A Custom domain name
 - A Trusted wildcard certificate for your custom domain
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Visual Studio Code (optional, to assist with an automated deployment)
 
 > [!NOTE]

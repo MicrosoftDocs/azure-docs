@@ -7,8 +7,9 @@ ms.custom:
 ms.topic: quickstart
 ms.date: 02/18/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to configure automated backups for Azure Database for PostgreSQL - Flexible Server using a Terraform template, so that I can ensure data protection and streamline management of backup policies."
 ---
 
 #  Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server using a Terraform template
@@ -21,7 +22,7 @@ This quickstart describes how to configure backup for the Azure Database for Pos
 
 Before you configure backup for Azure Database for PostgreSQL - Flexible Server, ensure that the following prerequisites are met:
 
-* You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 

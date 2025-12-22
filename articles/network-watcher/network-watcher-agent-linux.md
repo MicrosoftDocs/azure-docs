@@ -5,10 +5,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 07/16/2024
+ms.date: 09/23/2025
 ms.custom: devx-track-arm-template, linux-related-content
 
-#CustomerIntent: As an Azure administrator, I want to install Network Watcher Agent VM extension and manage it so that I can use Network watcher features to diagnose and monitor my Linux virtual machines (VMs).
+# Customer intent: As an Azure administrator, I want to install and manage the Network Watcher Agent extension on my Linux VMs so that I can utilize network monitoring and diagnostic features effectively.
 ---
 
 # Manage Network Watcher Agent virtual machine extension for Linux

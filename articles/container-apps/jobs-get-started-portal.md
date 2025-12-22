@@ -6,25 +6,25 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: quickstart
-ms.date: 08/21/2023
+ms.date: 11/06/2025
 ms.author: cshoe
 ---
 
 # Create a job with Azure Container Apps using the Azure portal
 
-Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually, schedule their execution, or trigger their execution based on events.
+Azure Container Apps [jobs](jobs.md) let you run containerized tasks that run for a limited time and then stop. You can start a job manually, set it to run on a schedule, or set it to run when certain events happen.
 
-Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
+Jobs work well for tasks like data processing, machine learning, or any situation where you need processing on demand.
 
 In this quickstart, you create a scheduled job. To learn how to create an event-driven job, see [Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
 
 ## Prerequisites
 
-An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Also, please make sure to have the Resource Provider "Microsoft.App" registered.
+You need an Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Also, make sure the Resource Provider "Microsoft.App" is registered.
 
 ## Setup
 
-Begin by signing in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a container app
 
@@ -36,7 +36,7 @@ To create your Container Apps job, start at the Azure portal home page.
 
 ### Basics tab
 
-In the *Basics* tab, do the following actions.
+In the *Basics* tab, complete the following steps.
 
 1. Enter the following values in the *Project details* section.
 
@@ -91,13 +91,13 @@ Next, create an environment for your container app.
 
 1. Select the **Review and create** button at the bottom of the page.  
 
-    As the settings in the job are verified, if no errors are found, the *Create* button is enabled.  
+    As the portal verifies the settings in the job, if no errors are found, it enables the *Create* button.  
 
-    Any errors appear on a tab marked with a red dot. If you encounter errors, navigate to the appropriate tab and you'll find fields containing errors highlighted in red. Once all errors are fixed, select **Review and create** again.
+    Any errors appear on a tab marked with a red dot. If you encounter errors, navigate to the appropriate tab and you find fields containing errors highlighted in red. Once you fix all errors, select **Review and create** again.
 
 1. Select **Create**.
 
-    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message: *Your deployment is complete*.
+    A page with the message *Deployment is in progress* is displayed. Once the deployment is successful, you see the message: *Your deployment is complete*.
 
 ### Verify deployment
 
@@ -109,17 +109,17 @@ Next, create an environment for your container app.
 
 1. Select **View logs**.
 
-    The logs show the output of the job execution. It may take a few minutes for the logs to appear.
+    The logs show the output of the job execution. It might take a few minutes for the logs to appear.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+If you don't plan to continue using this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
 1. Select the **jobs-quickstart** resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
 1. Enter the resource group name **jobs-quickstart** in the *Are you sure you want to delete "jobs-quickstart"* confirmation dialog.
 1. Select **Delete**.  
-    The process to delete the resource group may take a few minutes to complete.
+    The process to delete the resource group might take a few minutes to complete.
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).

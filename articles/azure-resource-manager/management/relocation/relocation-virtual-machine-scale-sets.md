@@ -1,7 +1,7 @@
 ---
 title: Relocate Azure Virtual Machine Scale Sets to another region
 description: Learn how to relocate Azure Virtual Machine Scale Sets to another region
-ms.date: 08/20/2024
+ms.date: 09/15/2025
 ms.topic: how-to
 ms.custom: subject-relocation
 # Customer intent: As an administrator, I want to move Azure Virtual Machine Scale Sets to another region.

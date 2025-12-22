@@ -13,6 +13,8 @@ ms.date: 04/10/2025
 
 # Tutorial: Add security headers with rules engine
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This tutorial demonstrates how to implement security headers to prevent browser-based vulnerabilities such as HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, and X-Frame-Options. Security attributes can also be defined with cookies.

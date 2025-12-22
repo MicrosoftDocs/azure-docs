@@ -5,11 +5,12 @@ description: Optimize the performance of your SSH File Transfer Protocol (SFTP) 
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/20/2022
 ms.custom: references_regions
 ms.author: normesta
 
+# Customer intent: As a cloud administrator, I want to implement performance optimizations for SFTP file transfers with Azure Blob Storage, so that I can ensure efficient uploads and manage network latency effectively.
 ---
 
 # SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage

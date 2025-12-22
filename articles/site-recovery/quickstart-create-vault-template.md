@@ -4,9 +4,10 @@ description: In this quickstart, you learn how to create an Azure Recovery Servi
 ms.date: 05/23/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.service: azure-site-recovery
+# Customer intent: As a cloud administrator, I want to create a Recovery Services vault using an ARM template, so that I can implement a disaster recovery strategy for my business applications during outages.
 ---
 
 # Quickstart: Create a Recovery Services vault using an ARM template
@@ -28,7 +29,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 If you don't have an active Azure subscription, you can create a
-[free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 

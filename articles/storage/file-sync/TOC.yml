@@ -35,6 +35,8 @@
     href: file-sync-replace-server.md
   - name: Replace drive of an Azure File Sync server
     href: file-sync-replace-drive.md
+  - name: Install Azure File Sync agent extension on Arc-enabled Windows Servers
+    href: file-sync-extension.md    
 - name: Cloud tiering
   items:
   - name: Cloud tiering overview
@@ -161,8 +163,12 @@
     href: ../common/last-sync-time-get.md?toc=/azure/storage/file-sync/toc.json
 - name: Performance, scale, and cost
   items:
-  - name: Scale and performance targets
+  - name: Azure Files scale and performance targets
     href: ../files/storage-files-scale-targets.md?toc=/azure/storage/file-sync/toc.json
+  - name: Azure File Sync scale and performance targets
+    href: file-sync-scale-targets.md
+  - name: Azure File Sync throttling
+    href: file-sync-throttling.md
   - name: Understanding billing
     href: ../files/understanding-billing.md?toc=/azure/storage/file-sync/toc.json
   - name: Optimize costs with storage reservations
@@ -191,8 +197,6 @@
     href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
 - name: Training
   items:
-  - name: Extend share capacity with Azure File Sync
-    href: /training/modules/extend-share-capacity-with-azure-file-sync/
   - name: Configure Azure Files and Azure File Sync
     href: /training/modules/configure-azure-files-file-sync/
   - name: Implement a hybrid file server infrastructure
@@ -214,8 +218,6 @@
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-  - name: Samples
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
   - name: Azure Files and Azure NetApp Files comparison
     href: ../files/storage-files-netapp-comparison.md?toc=/azure/storage/file-sync/toc.json
   - name: Manage storage in Azure-independent clouds

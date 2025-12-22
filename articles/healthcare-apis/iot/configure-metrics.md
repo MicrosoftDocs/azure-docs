@@ -6,14 +6,14 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 10/10/2025
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor performance metrics for the MedTech service
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 Gain insights into the health, availability, latency, traffic, and errors of your organization's MedTech services by monitoring MedTech service metrics in the Azure portal. To help you identify patterns or trends, pin tiles for the metrics to an Azure portal dashboard for easy access and visualization.
 

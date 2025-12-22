@@ -4,19 +4,21 @@ description: Learn how App Service plans work in Azure App Service, how they're 
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: overview
-ms.date: 03/28/2025
+ms.date: 07/02/2025
+ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
 #customer intent: As an app developer, I want to understand which service plan is right for apps in my organization in Azure App Service.
+ms.service: azure-app-service
 ---
 # What are Azure App Service plans?
 
 An *Azure App Service plan* defines a set of compute resources for a web app to run. An app service always runs in an App Service plan. [Azure Functions](../azure-functions/dedicated-plan.md) also has the option of running in an App Service plan.
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 When you create an App Service plan in a certain region, you create a set of compute resources for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
+
+[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
 Each App Service plan defines:
 
@@ -24,7 +26,7 @@ Each App Service plan defines:
 - Region (West US, East US, and so on)
 - Number of virtual machine (VM) instances
 - Size of VM instances (small, medium, large)
-- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, IsolatedV2)
+- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, PremiumV4 IsolatedV2)
 
 ## Pricing tiers
 
@@ -33,7 +35,7 @@ The pricing tier of an App Service plan determines what App Service features you
 | Category | Tiers | Description |
 |:-|:-|:-|
 | Shared compute | Free, Shared | Free and Shared, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources. The resources can't scale out. These tiers are intended for only development and testing purposes. |
-| Dedicated compute | Basic, Standard, Premium, PremiumV2, PremiumV3 | The Basic, Standard, Premium, PremiumV2, and PremiumV3 tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out. |
+| Dedicated compute | Basic, Standard, Premium, PremiumV2, PremiumV3, PremiumV4 | The Basic, Standard, Premium, PremiumV2, PremiumV3, and PremiumV4 tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out. |
 | Isolated | IsolatedV2 | The IsolatedV2 tier runs dedicated Azure VMs on dedicated Azure virtual networks. This tier provides network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities. |
 
 Each tier also provides a specific subset of App Service features. These features include custom domains and TLS/SSL certificates, autoscaling, deployment slots, backups, Azure Traffic Manager integration, and more. The higher the tier, the more features that are available. To find out which features are supported in each pricing tier, see the [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing).
@@ -42,29 +44,7 @@ You can find more comparisons of plans in [App Service limits](../azure-resource
 
 <a name="new-pricing-tier-premiumv3"></a>
 
-### PremiumV3 pricing tier
-
-The PremiumV3 pricing tier provides machines with faster processors (minimum 195 [Azure Compute Units](/azure/virtual-machines/acu) per virtual CPU), SSD storage, memory-optimized options, and quadruple memory-to-core ratio compared to the Standard tier.
-
-PremiumV3 also supports higher scale by using increased instance count, while it still provides the advanced capabilities in the Standard tier. PremiumV3 includes all features available in the PremiumV2 tier.
-
-Multiple VM sizes are available for this tier, including 4-to-1 and 8-to-1 memory-to-core ratios:
-
-| App Service plan | Cores (vCPU) | Memory (GiB) |
-|:-|:-|:-|
-| P0v3 | 1 | 4 |
-| P1v3 | 2 | 8 |
-| P1mv3 | 2 | 16 |
-| P2v3 | 4 | 16 |
-| P2mv3 | 4 | 32 |
-| P3v3 | 8 | 32 |
-| P3mv3 | 8 | 64 |
-| P4mv3 | 16 | 128 |
-| P5mv3 | 32 | 256 |
-
-For PremiumV3 pricing information, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
-
-To get started with the PremiumV3 pricing tier, see [Configure PremiumV3 tier for Azure App Service](app-service-configure-premium-tier.md).
+For pricing information, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## Considerations for running and scaling an app
 
@@ -76,8 +56,7 @@ In other tiers, an app runs and scales as follows:
 - If multiple apps are in the same App Service plan, they all share the same VM instances.
 - If you have multiple deployment slots for an app, all deployment slots also run on the same VM instances.
 - If you enable diagnostic logs, perform backups, or run [WebJobs](webjobs-create.md), they also use CPU cycles and memory on these VM instances.
-
-In this way, the App Service plan is the scale unit of the App Service apps. If the plan is configured to run five VM instances, then all apps in the plan run on all five instances. If the plan is configured for autoscaling, then all apps in the plan are scaled out together, based on the autoscale settings.
+- All apps in an App Service plan scale together, because they share the same underlying compute resources (VM instances). Scaling the plan — whether manually or through autoscale rules — affects all apps in the plan.
 
 For more information on scaling out an app, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
 
@@ -90,7 +69,7 @@ This section describes how App Service apps are billed. For detailed, region-spe
 Except for the Free tier, an App Service plan carries a charge on the compute resources that it uses:
 
 - **Shared tier**: Each app receives a quota of CPU minutes, so *each app* is charged for the CPU quota.
-- **Dedicated compute tiers (Basic, Standard, Premium, PremiumV2, PremiumV3)**: The App Service plan defines the number of VM instances that the apps are scaled to, so *each VM instance* in the App Service plan is charged. These VM instances are charged the same, regardless of how many apps are running on them. To avoid unexpected charges, see [Delete an App Service plan](app-service-plan-manage.md#delete-an-app-service-plan).
+- **Dedicated compute tiers (Basic, Standard, Premium, PremiumV2, PremiumV3, PremiumV4)**: The App Service plan defines the number of VM instances that the apps are scaled to, so *each VM instance* in the App Service plan is charged. These VM instances are charged the same, regardless of how many apps are running on them. To avoid unexpected charges, see [Delete an App Service plan](app-service-plan-manage.md#delete-an-app-service-plan).
 - **IsolatedV2 tier**: The App Service Environment defines the number of isolated workers that run your apps, and *each worker* is charged.
 
 You aren't charged for using the App Service features that are available to you. These features include configuring custom domains, TLS/SSL certificates, deployment slots, and backups. The exceptions are:
@@ -124,12 +103,42 @@ However, keep in mind that apps in the same App Service plan all share the same 
 
 Isolate your app in a new App Service plan when:
 
-- The app is resource intensive.
+- The app is resource intensive. For general guidance, use this table:
+
+  | App Service plan | Maximum apps |
+  |--|--|
+  | B1, S1, P1v2, I1v1 | 8 |
+  | B2, S2, P2v2, I2v1 | 16 |
+  | B3, S3, P3v2, I3v1 | 32 |
+  | P0v3, P0v4 | 8 |
+  | P1v3, P1v4, I1v2 | 16 |
+  | P2v3, P2v4, I2v2, P1mv3, P1mv4 | 32 |
+  | P3v3, P3v4, I3v2, P2mv3 | 64 |
+  | I4v2, I5v2, I6v2 | Maximum density bound by vCPU usage |
+  | P3mv3, P3mv4, P4mv3, P4mv4, P5mv3, P5mv4 | Maximum density bound by vCPU usage |
 - You want to scale the app independently from the other apps in the existing plan.
 - The app needs resources in a different geographical region. This way, you can allocate a new set of resources for your app and gain greater control of your apps.
 
 > [!NOTE]
 > An active slot is also classified as an active app because it's competing for resources in the same App Service plan.
+
+## Managed Instance on Azure App Service (preview)
+Managed Instance is a plan-scoped hosting option for Windows web apps that require operating system customization, optional private networking, and legacy Windows component support. It's designed for "lift and improve" migrations of infrastructure-dependent workloads that need COM components, registry access, MSI installers, or IIS customization while retaining App Service's managed platform features.
+
+Key features:
+
+- PowerShell configuration scripts for persistent OS and middleware setup
+- Plan-level virtual network integration with private DNS
+- Azure Key Vault-backed registry adapters for secure configuration
+- Storage mounts (Azure Files, UNC paths, local temporary storage)
+- Just-in-time RDP access via Azure Bastion for diagnostics
+- Plan-level managed identities for infrastructure authentication
+- Pre-installed .NET Framework (3.5, 4.8) and .NET 8 with support for custom runtimes
+- Best for: Legacy .NET Framework apps requiring Windows-specific dependencies, gradual modernization without complete rewrites, and plan-level network isolation for compliance.
+
+Current limitations (preview): Windows only, Pv4/Pmv4 SKUs, available in East Asia, West Central US, North Europe, and East US. Not available for Linux, containers, or in App Service Environment.
+
+[Learn more about Managed Instance](overview-managed-instance.md)
 
 ## Related content
 

@@ -1,10 +1,9 @@
 ---
-title: Understand Azure IoT Hub message routing
+title: Understand Azure IoT Hub Message routing
 titleSuffix: Azure IoT Hub
 description: This article describes how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and nontelemetry data.
-author: SoniaLopezBravo
-
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/27/2025
@@ -50,9 +49,13 @@ If your custom endpoint has firewall configurations, consider using the [Microso
 
 ## Route to an endpoint in another subscription
 
-If the endpoint resource is in a different subscription than your IoT hub, you need to configure your IoT hub as a trusted Microsoft service before creating a custom endpoint. When you do create the custom endpoint, set the **Authentication type** to user-assigned identity.
+If the endpoint resource is in a different subscription than your IoT hub, you can use different authentication methods depending on your security requirements:
 
-For more information, see [Egress connectivity from IoT Hub to other Azure resources](./iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
+* **Key-based authentication**: You can use connection strings to authenticate to endpoints in different subscriptions or even different tenants. This method uses the endpoint's access keys or connection strings for authentication.
+
+* **User-assigned managed identity**: For enhanced security, you can configure your IoT hub as a trusted Microsoft service and use user-assigned managed identity for authentication. This method requires configuring the managed identity before creating the custom endpoint.
+
+For more information about managed identity authentication, see [Egress connectivity from IoT Hub to other Azure resources](./iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
 
 ## Routing queries
 

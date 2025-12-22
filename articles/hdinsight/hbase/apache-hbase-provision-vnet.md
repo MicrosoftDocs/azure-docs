@@ -20,7 +20,7 @@ With virtual network integration, Apache HBase clusters can be deployed to the s
 * Improved performance by not having your traffic go over multiple gateways and load-balancers.
 * The ability to process sensitive information in a more secure manner without exposing a public endpoint.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create Apache HBase cluster into virtual network
 

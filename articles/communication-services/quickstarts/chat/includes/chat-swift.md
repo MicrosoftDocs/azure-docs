@@ -2,19 +2,21 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: probableprime
+author: awang119
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
-ms.custom: include file
-ms.author: rifox
+ms.author: awang119
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 - Install [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org/). You use Xcode to create an iOS application for this article, and CocoaPods to install dependencies.
 - Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You need to **record your resource endpoint and connection string** for this article.
 - Create two users in Azure Communication Services, and issue them a [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. In this article, you create a thread with an initial participant, and then add a second participant to the thread. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
@@ -31,7 +33,7 @@ ms.author: rifox
 
 Open Xcode and select **Create a new Xcode project**. Then select **iOS** as the platform and **App** for the template.
 
-For the project name, enter **ChatQuickstart**. Then select **Storyboard** as the interface, **UIKit App Delegate** as the life cycle, and **Swift** as the language.
+For the project name, enter **ChatQuickstart**. Then select **Storyboard** as the interface, and **Swift** as the language.
 
 Select **Next**, and choose the directory where you want the project to be created.
 
@@ -394,9 +396,16 @@ For more information, see [Enable Push Notification in your chat app](../../../t
 
 ## Run the code
 
-In Xcode hit the Run button to build and run the project. In the console, you can view the output from the code and the logger output from the ChatClient.
+### Turn off User Script Sandboxing
 
-**Note:** Set `Build Settings > Build Options > Enable Bitcode` to `No`. Currently the AzureCommunicationChat SDK for iOS doesn't support enabling bitcode, the following [GitHub issue](https://github.com/Azure/azure-sdk-for-ios/issues/787) is tracking the issue.
+Some of the scripts within the linked libraries write files during the build process. To enable file writing, disable the User Script Sandboxing in Xcode.
+
+In the Xcode project, under **Build Settings**, set the **User Script Sandboxing** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
+
+:::image type="content" source="../media/ios/disable-user-script-sandbox.png" alt-text="Screenshot that shows the Build Settings option to turn off User Script Sandboxing.":::
+
+### Run the project
+In Xcode hit the Run button to build and run the project. In the console, you can view the output from the code and the logger output from the ChatClient.
 
 ## Sample code
 

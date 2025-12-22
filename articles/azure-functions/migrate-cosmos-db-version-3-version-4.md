@@ -2,10 +2,14 @@
 title: Migrate Azure Cosmos DB extension for Azure Functions to version 4.x 
 description: This article shows you how to upgrade your existing function apps using the Azure Cosmos DB extension version 3.x to be able to use version 4.x of the extension. 
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
 ms.date: 07/10/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - sfi-ropc-nochange
 ---
 
 # Migrate function apps from Azure Cosmos DB extension version 3.x to version 4.x 
@@ -97,7 +101,7 @@ The underlying SDK used by extension changed to use the Azure Cosmos DB V3 SDK, 
 
 ## Update the extension bundle
 
-By default, [extension bundles](./functions-bindings-register.md#extension-bundles) are used by non-.NET function apps to install binding extensions. The Azure Cosmos DB version 4 extension is part of the Microsoft Azure Functions version 4 extension bundle.
+By default, [extension bundles](./extension-bundles.md) are used by non-.NET function apps to install binding extensions. The Azure Cosmos DB version 4 extension is part of the Microsoft Azure Functions version 4 extension bundle.
 
 To update your application to use the latest extension bundle, update your `host.json`. The following `host.json` file uses version 4 of the Microsoft Azure Functions extension bundle.
 

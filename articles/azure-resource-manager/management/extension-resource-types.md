@@ -1,7 +1,7 @@
----
+﻿---
 title: Extension Resource Types
 description: Lists the Azure resource types that you use to extend the capabilities of other resource types.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/09/2025
 ---
 
@@ -427,3 +427,4 @@ An extension resource is a resource that adds to another resource's capabilities
 
 - To get the resource ID for an extension resource in an Azure Resource Manager template, use the [extensionResourceId](../templates/template-functions-resource.md#extensionresourceid).
 - For an example of creating an extension resource in a template, see [Event Grid Event Subscriptions](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions).
+

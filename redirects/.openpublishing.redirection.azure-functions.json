@@ -6,14 +6,94 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/functions-create-serverless-api.md",
+            "redirect_url": "/azure/azure-functions/functions-proxies",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-functions/functions-move-across-regions.md",
             "redirect_url": "/azure/operational-excellence/relocation-functions?toc=/azure/azure-functions/toc.json",
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/functions-scenario-database-table-cleanup.md",
+            "redirect_url": "/azure/azure-functions/scenario-database-changes-azure-sqldb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-cosmos-db-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/scenario-database-changes-azure-cosmosdb",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure-functions/durable/durable-functions-configure-durable-functions-with-credentials.md",
             "redirect_url": "/azure/azure-functions/durable/durable-functions-configure-managed-identity",
             "redirect_document_id": false
-        }    
+        },        
+        {
+            "source_path_from_root": "/articles/azure-functions/start-stop-vms/deploy.md",
+            "redirect_url": "/previous-versions/azure/functions/start-stop-vms/deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/start-stop-vms/manage.md",
+            "redirect_url": "/previous-versions/azure/functions/start-stop-vms/manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/start-stop-vms/overview.md",
+            "redirect_url": "/previous-versions/azure/functions/start-stop-vms/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/start-stop-vms/pre-actions.md",
+            "redirect_url": "/previous-versions/azure/functions/start-stop-vms/pre-actions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/start-stop-vms/remove.md",
+            "redirect_url": "/previous-versions/azure/functions/start-stop-vms/remove",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/start-stop-vms/troubleshoot.md",
+            "redirect_url": "/previous-versions/azure/functions/start-stop-vms/troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-csharp.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-java.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-node.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-powershell.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-python.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-typescript.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-typescript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-other.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-other",
+            "redirect_document_id": false
+        } 
     ]
 }

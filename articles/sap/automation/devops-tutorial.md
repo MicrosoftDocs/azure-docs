@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As a DevOps engineer, I want to automate the deployment of SAP infrastructure using a deployment framework, so that I can streamline and manage SAP resources efficiently within Azure DevOps."
 ---
 
 # Tutorial: Use SAP Deployment Automation Framework with DevOps
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
    > [!Note]
    > The free Azure account might not be sufficient to run the deployment.

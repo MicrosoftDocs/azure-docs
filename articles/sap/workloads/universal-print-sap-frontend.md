@@ -10,6 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 01/31/2024
 ms.author: robiro
+# Customer intent: "As a SAP user, I want to configure front-end printing with Universal Print, so that I can print documents easily from various SAP applications without needing dedicated printer servers or complex integrations."
 ---
 
 # SAP front-end printing with Universal Print

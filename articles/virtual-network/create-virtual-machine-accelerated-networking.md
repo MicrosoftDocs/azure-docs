@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 01/07/2025
 ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content, innovation-engine
+# Customer intent: "As a cloud engineer, I want to create Azure virtual machines with Accelerated Networking enabled, so that I can improve their network performance for resource-intensive applications."
 ---
 
 # Create an Azure Virtual Machine with Accelerated Networking
@@ -19,11 +20,11 @@ This article describes how to create a Linux or Windows virtual machine (VM) wit
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 

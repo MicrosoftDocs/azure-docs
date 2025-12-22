@@ -3,8 +3,10 @@ title: Common issues in Azure Migrate assessments
 description: Get help with assessment issues in Azure Migrate.
 ms.topic: troubleshooting
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 09/26/2024
 ms.custom: engagement-fy24
+# Customer intent: As a cloud architect, I want to troubleshoot assessment errors in Azure Migrate, so that I can ensure successful migration and operation of applications in the cloud environment.
 ---
 
 # Common issues in Azure Migrate assessments
@@ -13,7 +15,7 @@ This article helps you troubleshoot issues with assessment and dependency visual
 
 ## Common assessment errors
 
-Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-calculation.md#how-does-the-appliance-calculate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
+Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-overview.md#how-does-the-appliance-aggregate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
 The following table summarizes the errors encountered while fetching the data by the assessment service. 
 
 ### Error Code: 60001:UnableToConnectToPhysicalServer	

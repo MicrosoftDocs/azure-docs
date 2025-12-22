@@ -2,13 +2,17 @@
 title: Tutorial - Visualize IoT data in a web app
 titleSuffix: Azure IoT Hub
 description: This tutorial uses a web application to visualize temperature and humidity data that is collected from a sensor and sent to your IoT hub.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 03/26/2025
-ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
+ms.custom:
+  - 'Role: Cloud Development'
+  - 'Role: Data Analytics'
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Tutorial: Visualize real-time sensor data from your Azure IoT hub in a web application
@@ -21,7 +25,7 @@ In this article, you learn how to visualize real-time sensor data that your IoT 
 
 The web application sample for this tutorial is written in Node.js. The steps in this article assume a Windows development machine; however, you can also perform these steps on a Linux system in your preferred shell.
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 

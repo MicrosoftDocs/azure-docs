@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 12/07/2018
 ms.author: shaas
+ms.custom: sfi-image-nochange
 ---
 
 1. Sign into the Data Box device. Ensure it is unlocked.

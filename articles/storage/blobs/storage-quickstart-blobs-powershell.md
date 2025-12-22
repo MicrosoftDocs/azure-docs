@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 06/26/2023
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, mode-api
+# Customer intent: As a cloud user, I want to upload, download, and manage blobs using PowerShell, so that I can efficiently transfer and organize files in Azure Blob storage.
 ---
 
 # Quickstart: Upload, download, and list blobs with PowerShell
@@ -17,7 +18,7 @@ Use the Azure PowerShell module to create and manage Azure resources. You can cr
 
 ## Prerequisites
 
-To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 You will also need the Storage Blob Data Contributor role to read, write, and delete Azure Storage containers and blobs.
 

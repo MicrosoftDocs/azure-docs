@@ -3,9 +3,10 @@ title: Troubleshoot upgrade of the Microsoft Azure Site Recovery Provider
 description: Resolve common issues that occur when upgrading the Microsoft Azure Site Recovery provider.
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 11/10/2019
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
+# Customer intent: "As an IT administrator troubleshooting upgrade issues, I want to identify and resolve common errors during the Site Recovery provider upgrade, so that I can ensure successful installation and maintain backup and disaster recovery capabilities."
 ---
 
 # Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
@@ -16,12 +17,12 @@ This article helps you resolve issues that can cause failures during a Microsoft
 
 When upgrading Microsoft Azure Site Recovery Provider (DRA), the Unified Setup upgrade fails and issues the error message:
 
-Upgrade is not supported as a higher version of the software is already installed.
+Upgrade isn't supported as a higher version of the software is already installed.
 
 To upgrade, use the following steps:
 
 1. Download the Microsoft Azure Site Recovery Unified Setup:
-   1. In the "Links to currently supported update rollups" section of the [Service updates in Azure Site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups) article, select the provider to which you are upgrading.
+   1. In the "Links to currently supported update rollups" section of the [Service updates in Azure Site Recovery](/azure/site-recovery/service-updates-how-to#updates-support) article, select the provider to which you're upgrading.
    2. On the rollup page, locate the **Update information** section and download the Update Rollup for Microsoft Azure Site Recovery Unified Setup.
 
 2. Open a command prompt and navigate to the folder to which you downloaded Unified Setup file. Extract the setup files from the download using the following command, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;folder path for the extracted files&gt;.
@@ -44,9 +45,9 @@ For the upgrade to succeed, the 3rd-party folder must not be renamed.
 To resolve the issue.
 
 1. Start the Registry Editor (regedit.exe) and open the HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 branch.
-1. Inspect the `Build_Version` key value. If it is set to the latest version, reduce version number. For example, if latest version is 9.22.\* and the `Build_Version` key set to that value, then reduce it to 9.21.\*.
+1. Inspect the `Build_Version` key value. If it's set to the latest version, reduce version number. For example, if latest version is 9.22.\* and the `Build_Version` key set to that value, then reduce it to 9.21.\*.
 1. Download the latest Microsoft Azure Site Recovery Unified Setup:
-   1. In the "Links to currently supported update rollups" section of the [Service updates in Azure Site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups) article, select the provider to which you are upgrading.
+   1. In the "Links to currently supported update rollups" section of the [Service updates in Azure Site Recovery](/azure/site-recovery/service-updates-how-to#updates-support) article, select the provider to which you're upgrading.
    2. On the rollup page, locate the **Update information** section and download the Update Rollup for Microsoft Azure Site Recovery Unified Setup.
 1. Open a command prompt and navigate to the folder to which you downloaded Unified Setup file and the extract the setup files from the download using the following command, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;folder path for the extracted files&gt;.
 
@@ -72,4 +73,4 @@ This could be due to null value for a parameter in the Registry Key. To resolve 
 1. Inspect the 'InstallDirectory' key value. If it is null, then add the current install directory value.
 1. Similarly, open the HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 branch in Registry Editor.
 1. Inspect the 'InstallDirectory' key value and add the current install directory value.
-1. Re-run the Unified Setup installer.
+1. Rerun the Unified Setup installer.

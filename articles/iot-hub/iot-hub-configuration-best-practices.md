@@ -1,10 +1,10 @@
 ---
 title: Device configuration best practices for Azure IoT Hub | Microsoft Docs 
 description: Learn about best practices for using automatic device management to minimize repetitive and complex tasks involved in managing IoT devices at scale.
-author: SoniaLopezBravo
-ms.author: sonialopez
-ms.date: 06/28/2019
-ms.topic: conceptual
+author: cwatson-cat
+ms.author: cwatson
+ms.date: 08/05/2025
+ms.topic: concept-article
 ms.service: azure-iot-hub
 services: iot-hub
 ---
@@ -15,9 +15,9 @@ Automatic device management in Azure IoT Hub automates many repetitive and compl
 
 * **IoT hardware manufacturer/integrator:** Manufacturers of IoT hardware, integrators assembling hardware from various manufacturers, or suppliers providing hardware for an IoT deployment manufactured or integrated by other suppliers. Involved in development and integration of firmware, embedded operating systems, and embedded software.
 
-* **IoT solution developer:** The development of an IoT solution is typically done by a solution developer. This developer may be part of an in-house team or a system integrator specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various standard, or open-source components.
+* **IoT solution developer:** The development of an IoT solution is typically done by a solution developer. This developer might be part of an in-house team or a system integrator specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various standard, or open-source components.
 
-* **IoT solution operator:** After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance. These tasks can be done by an in-house team that consists of information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of the overall IoT infrastructure.
+* **IoT solution operator:** After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance. Multiple teams, such as an in-house team that consists of information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of the overall IoT infrastructure, can perform these tasks.
 
 ## Understand automatic device management for configuring IoT devices at scale
 
@@ -40,11 +40,11 @@ The following are best practices for hardware manufacturers and integrators deal
     * Follow the principle of eventual consistency.
     * Are fully queriable in the cloud.
 
-* **Structure the device twin for device management:** The device twin should be structured such that device management properties are logically grouped together into sections. Doing so will enable configuration changes to be isolated without impacting other sections of the twin. For example, create a section within desired properties for firmware, another section for software, and a third section for network settings. 
+* **Structure the device twin for device management:** The device twin should be structured such that device management properties are logically grouped together into sections. Doing so enables configuration changes to be isolated without impacting other sections of the twin. For example, create a section within desired properties for firmware, another section for software, and a third section for network settings. 
 
 * **Report device attributes that are useful for device management:** Attributes like physical device make and model, firmware, operating system, serial number, and other identifiers are useful for reporting and as parameters for targeting configuration changes.
 
-* **Define the main states for reporting status and progress:** Top-level states should be enumerated so that they can be reported to the operator. For example, a firmware update would report status as Current, Downloading, Applying, In Progress, and Error. Define additional fields for more information on each state.
+* **Define the main states for reporting status and progress:** Top-level states should be enumerated so that they can be reported to the operator. For example, a firmware update would report status as Current, Downloading, Applying, In Progress, and Error. Define more fields for more information on each state.
 
 ## IoT solution developer
 
@@ -61,21 +61,21 @@ The following are best practices for IoT solution developers who are building sy
 
 * **Implement [automatic device configurations](./iot-hub-automatic-device-management.md):** Automatic device configurations deploy and monitor configuration changes to large sets of IoT devices via device twins.
 
-   Automatic device configurations target sets of device twins via the **target condition,** which is a query on device twin tags or reported properties. The **target content** is the set of desired properties that will be set within the targeted device twins. The target content should align with the device twin structure defined by the IoT hardware manufacturer/integrator. The **metrics** are queries on device twin reported properties and should also align with the device twin structure defined by the IoT hardware manufacturer/integrator.
+   Automatic device configurations target sets of device twins via the **target condition,** which is a query on device twin tags or reported properties. The **target content** is the set of desired properties that are set within the targeted device twins. The target content should align with the device twin structure defined by the IoT hardware manufacturer/integrator. The **metrics** are queries on device twin reported properties and should also align with the device twin structure defined by the IoT hardware manufacturer/integrator.
 
-   Automatic device configurations run for the first time shortly after the configuration is created and then at five minute intervals. They also benefit from the IoT Hub performing device twin operations at a rate that will never exceed the [throttling limits](iot-hub-devguide-quotas-throttling.md) for device twin reads and updates.
+   Automatic device configurations run for the first time shortly after the configuration is created and then at five-minute intervals. They also benefit from the IoT Hub performing device twin operations at a rate that exceeds the [throttling limits](iot-hub-devguide-quotas-throttling.md) for device twin reads and updates.
 
-* **Use the [Device Provisioning Service](../iot-dps/how-to-manage-enrollments.md):** Solution developers should use the Device Provisioning Service to assign device twin tags to new devices, such that they will be automatically configured by **automatic device configurations** that are targeted at twins with that tag. 
+* **Use the [Device Provisioning Service](../iot-dps/how-to-manage-enrollments.md):** Solution developers should use the Device Provisioning Service to assign device twin tags to new devices, such that they're automatically configured by **automatic device configurations** that are targeted at twins with that tag. 
 
 ## IoT solution operator
 
 The following are best practices for IoT solution operators who using an IoT solution built on Azure:
 
-* **Organize devices for management:** The IoT solution should define or allow for the creation of quality rings or other sets of devices based on various deployment strategies such as canary. The sets of devices will be used to roll out configuration changes and to perform other at-scale device management operations.
+* **Organize devices for management:** The IoT solution should define or allow for the creation of quality rings or other sets of devices based on various deployment strategies such as canary. The sets of devices are used to roll out configuration changes and to perform other at-scale device management operations.
 
-* **Perform configuration changes using a phased roll out:**  A phased roll out is an overall process whereby an operator deploys changes to a broadening set of IoT devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.  The operator should use the solution's interface to create an [automatic device configuration](./iot-hub-automatic-device-management.md) and the targeting condition should target an initial set of devices (such as a canary group). The operator should then validate the configuration change in the initial set of devices.
+* **Perform configuration changes using a phased roll out:**  A phased rollout is an overall process whereby an operator deploys changes to a broadening set of IoT devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.  The operator should use the solution's interface to create an [automatic device configuration](./iot-hub-automatic-device-management.md) and the targeting condition should target an initial set of devices (such as a canary group). The operator should then validate the configuration change in the initial set of devices.
 
-   Once validation is complete, the operator will update the automatic device configuration to include a larger set of devices. The operator should also set the priority for the configuration to be higher than other configurations currently targeted to those devices. The roll out can be monitored using the metrics reported by the automatic device configuration.
+   Once validation is complete, the operator updates the automatic device configuration to include a larger set of devices. The operator should also set the priority for the configuration to be higher than other configurations currently targeted to those devices. The rollout can be monitored using the metrics reported by the automatic device configuration.
 
 * **Perform rollbacks in case of errors or misconfigurations:**  An automatic device configuration that causes errors or misconfigurations can be rolled back by changing the **targeting condition** so that the devices no longer meet the targeting condition. Ensure that another automatic device configuration of lower priority is still targeted for those devices. Verify that the rollback succeeded by viewing the metrics: The rolled-back configuration should no longer show status for untargeted devices, and the second configuration's metrics should now include counts for the devices that are still targeted.
 
@@ -83,6 +83,6 @@ The following are best practices for IoT solution operators who using an IoT sol
 
 * Learn about implementing device twins in [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
 
-* Walk through the steps to create, update, or delete an automatic device configuration in [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md).
+* Walk through the steps to create, update, or delete an automatic device configuration in [Automatic IoT device and module management using the Azure portal](./iot-hub-automatic-device-management.md).
 
 * Learn how to complete an end-to-end image-based update in  [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).

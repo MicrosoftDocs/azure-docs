@@ -20,7 +20,7 @@ You can add serverless APIs to Azure Static Web Apps powered by Azure Functions.
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have an account, you can [create one for free](https://azure.microsoft.com/free).
+  - If you don't have an account, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code.
 - [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
@@ -101,7 +101,7 @@ You create an Azure Functions project for your static web app's API. By default,
         methods: ['GET', 'POST'],
         authLevel: 'anonymous',
         handler: async (request, context) => {
-            return { body: `Hello, from the API!` };
+            return { body: JSON.stringify({ "text": `Hello, from the API!` }) };
         }
     });
     ```

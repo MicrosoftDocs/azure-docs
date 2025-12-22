@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 11/27/2023
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator, I want to deploy Citrix Virtual Apps and Desktops on Azure VMware Solution, so that I can leverage cloud infrastructure for provisioning my Virtual Delivery Agent workloads and ensure seamless migration or hybrid operation with existing on-premises environments."
 ---
 
 

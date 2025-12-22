@@ -1,11 +1,11 @@
----
+﻿---
 title: How to initiate a cloud relocation project
 description: Learn how to initiate a cloud relocation project so you can relocate workloads and applications to another region.
 author: SomilGanguly
 ms.author: ssumner
-ms.date: 12/18/2023
+ms.date: 09/15/2025
 ms.reviewer: ssumner
-ms.topic: conceptual
+ms.topic: article
 ms.custom: internal
 keywords: cloud adoption, cloud framework, cloud adoption framework
 ---
@@ -43,7 +43,7 @@ You should create a relocation plan that addresses service capacity and high-lev
 
 - *Know cost factors.* Relocation has a cost. Moving data and using services isn't free. To minimize cost, you should move data once and avoid duplicating services or environments for extended periods of time. A hidden cost you might not consider comes from suppliers, partners, or third-party technical support. You might need their help to relocate a workload, and they typically charge a fee.
 
-    The pricing for certain Azure services can differ based on the region. Therefore, it’s crucial to review the costs associated with each region before initiating a relocation project. If you’re currently utilizing Azure Reservations in your source region, consider [transferring them to your destination region](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). Also, don’t forget to account for the [Azure network bandwidth costs](https://azure.microsoft.com/pricing/details/bandwidth) associated with data transfers between regions during the relocation process.
+    The pricing for certain Azure services can differ based on the region. Therefore, it's crucial to review the costs associated with each region before initiating a relocation project. If you're currently utilizing Azure Reservations in your source region, consider [transferring them to your destination region](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). Also, don't forget to account for the [Azure network bandwidth costs](https://azure.microsoft.com/pricing/details/bandwidth) associated with data transfers between regions during the relocation process.
 
 ## Next step
 

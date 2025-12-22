@@ -1,14 +1,15 @@
 ---
 title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
-ms.date: 02/01/2024
+ms.date: 07/22/2025
 ms.topic: how-to
+ms.custom: references_regions
 ---
 # How to create custom machine configuration package artifacts
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
-Machine configuration uses [Desired State Configuration][02] (DSC) when auditing and configuring
+Machine configuration uses [PowerShell Desired State Configuration][02] (PSDSC) when auditing and configuring
 both Windows and Linux. The DSC configuration defines the condition that the machine should be in.
 
 > [!IMPORTANT]
@@ -49,6 +50,10 @@ This example configuration is for Windows machines. It configures the machine to
 variable sets to `'This was set by machine configuration'`.
 
 ```powershell
+Install-Module -Name PSDscResources
+```
+
+```powershell
 Configuration MyConfig {
     Import-DscResource -Name 'Environment' -ModuleName 'PSDscResources'
     Environment MachineConfigurationExample {
@@ -56,6 +61,26 @@ Configuration MyConfig {
         Value  = 'This was set by machine configuration'
         Ensure = 'Present'
         Target = @('Process', 'Machine')
+    }
+}
+
+MyConfig
+```
+
+This example configuration is for Linux machines. It creates a file at the path `/tmp/myfile`, sets its content to `Hello, world!`, and configures the file with mode `0777`.
+
+```powershell
+Install-Module -Name nxtools
+```
+
+```powershell
+Configuration MyConfig {
+    Import-DscResource -ModuleName 'nxtools'
+    nxFile MyFile {
+        Ensure = 'Present'
+        DestinationPath = '/tmp/myfile'
+        Contents = 'Hello, world!'
+        Mode ='0777'
     }
 }
 
@@ -149,6 +174,17 @@ $params = @{
 }
 New-GuestConfigurationPackage @params
 ```
+```powershell
+# Create a package that will audit the configuration at 180 minute intervals
+$params = @{
+    Name          = 'MyConfig'
+    Configuration = './MyConfig/MyConfig.mof'
+    Type          = 'Audit'
+    Force         = $true
+    FrequencyMinutes = 180
+}
+New-GuestConfigurationPackage @params
+```
 
 An object is returned with the **Name** and **Path** of the created package.
 
@@ -222,7 +258,7 @@ third-party platform in the content artifact.
 
 <!-- Reference link definitions -->
 [01]: ../../overview.md
-[02]: /powershell/dsc/overview
+[02]: /powershell/dsc/overview?view=dsc-2.0&preserve-view=true
 [03]: ./1-set-up-authoring-environment.md
 [05]: /powershell/dsc/resources/authoringResourceClass
 [06]: https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22

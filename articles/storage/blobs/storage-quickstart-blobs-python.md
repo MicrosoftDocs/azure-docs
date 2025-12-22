@@ -2,15 +2,22 @@
 title: "Quickstart: Azure Blob Storage client library for Python"
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 09/13/2024
 ms.topic: quickstart
 ms.service: azure-blob-storage
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 zone_pivot_groups: azure-blob-storage-quickstart-options
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - passwordless-python
+  - ai-video-demo
+  - devx-track-extended-azdevcli
+  - sfi-ropc-nochange
+# Customer intent: As a developer, I want to quickly set up and manage Azure Blob Storage using Python, so that I can efficiently store and manipulate unstructured data in my applications.
 ---
 
 # Quickstart: Azure Blob Storage client library for Python
@@ -58,7 +65,7 @@ The steps in the video are also described in the following sections.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
 - [Python](https://www.python.org/downloads/) 3.8+
 
@@ -66,7 +73,7 @@ The steps in the video are also described in the following sections.
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Python](https://www.python.org/downloads/) 3.8+
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
@@ -456,4 +463,5 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 
 > [!div class="nextstepaction"]
 > [Azure Storage samples and developer guides for Python](../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json)
+
 

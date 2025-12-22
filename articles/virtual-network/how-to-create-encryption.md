@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/15/2024
 ms.author: allensu
 
+# Customer intent: As a network administrator, I want to create an encrypted virtual network, so that I can secure internal communication between Azure resources while maintaining performance and scalability.
 ---
 
 # Create a virtual network with encryption
@@ -18,11 +19,11 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. With Vir
 
 ### [Portal](#tab/portal)
 
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Install Azure PowerShell locally or use Azure Cloud Shell.
 
@@ -34,7 +35,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ### [CLI](#tab/cli)
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

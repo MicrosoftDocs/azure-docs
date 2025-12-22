@@ -3,15 +3,18 @@ title: System state and bare-metal recovery protection for Azure Backup
 description: Use Azure Backup Server to back up your system state and provide bare-metal recovery (BMR) protection.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 12/03/2024
-author: jyothisuri
-ms.author: jsuri
+ms.date: 12/05/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to back up the system state and enable bare-metal recovery using a backup server, so that I can ensure complete protection and quick recovery of critical server data in the event of system failures."
 ---
 
 # Back up system state and restore to bare metal by using Azure Backup Server
 
 This article describes how to back up system state and restore to bare metal by using Azure Backup Server.
+
+## Key capabilities for system state and BMR protection
 
 Azure Backup Server backs up system state and provides bare-metal recovery (BMR) protection.
 
@@ -22,7 +25,7 @@ Azure Backup Server backs up system state and provides bare-metal recovery (BMR)
   * Computer that runs certificate services: Certificate data
 * **Bare-metal backup**: Backs up operating system files and all data on critical volumes, except for user data. By definition, a BMR backup includes a system state backup. It provides protection when a computer won't start and you have to recover everything.
 
-## Supported backup and restore scenarios
+## Supported backup and restore scenarios for system state and BMR
 
 The following table summarizes what you can back up and recover. For information about app versions that system state and BMR can protect, see [What does Azure Backup Server back up?](backup-mabs-protection-matrix.md).
 
@@ -72,7 +75,9 @@ Backup Server calls Windows Server Backup and shares out the replica volume for 
 
 When the backup finishes, the file is transferred to the Backup Server computer. Logs are stored in *C:\Windows\Logs\WindowsServerBackup*.
 
-## Prerequisites and limitations
+## Prerequisites and limitations for system state and BMR protection
+
+Before you back up system state or BMR, review the following prerequisites and limitations:
 
 * BMR isn't supported for computers that run Windows Server 2003 or for computers that run a client operating system.
 

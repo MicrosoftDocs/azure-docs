@@ -9,6 +9,7 @@ ms.date: 03/03/2025
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using Azure PowerShell so I can enhance the connectivity to Microsoft services over the public internet.
+# Customer intent: As a network administrator, I want to create and manage Peering Service connections using PowerShell so that I can improve connectivity to Microsoft cloud services over the public internet.
 ---
 
 # Create or change a Peering Service connection using PowerShell
@@ -19,7 +20,7 @@ In this article, you learn how to create and change a Peering Service connection
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Azure Cloud Shell or Azure PowerShell installed locally.
 

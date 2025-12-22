@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-ansible, devx-track-azurecli
+# Customer intent: "As a cloud engineer, I want to manually deploy the SAP on Azure Deployment Automation Framework, so that I can configure and manage my SAP environment according to specific requirements using customizable parameters."
 ---
 
 # Get started with manual deployment
@@ -22,7 +23,7 @@ These steps reference and use the [default naming convention](naming.md) for the
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure account with privileges to create a service principal. 
 - A [download of the SAP software](software.md) in your Azure environment.
 

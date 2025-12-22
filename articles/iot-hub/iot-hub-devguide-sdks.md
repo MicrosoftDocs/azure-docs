@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Hub device and service SDKs
 description: Links to the Azure IoT Hub SDKs that you can use to build device apps and back-end apps.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/27/2025
@@ -54,4 +54,4 @@ Azure IoT SDKs are also available for the following services:
 
 ## Next steps
 
-Learn about [IoT asset and device developement](../iot/concepts-manage-device-reconnections.md).
+Learn about [IoT asset and device development](../iot/concepts-manage-device-reconnections.md).

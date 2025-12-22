@@ -2,10 +2,12 @@
 title: Troubleshoot Azure Database for PostgreSQL backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL.
 ms.topic: troubleshooting
-ms.date: 11/20/2024
+ms.date: 09/09/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+ms.custom: sfi-image-nochange
+# Customer intent: As a database administrator, I want to troubleshoot Azure Database for PostgreSQL backup issues, so that I can ensure successful backups and restore operations without encountering permission or authentication errors.
 ---
 
 # Troubleshoot PostgreSQL database backup using Azure Backup

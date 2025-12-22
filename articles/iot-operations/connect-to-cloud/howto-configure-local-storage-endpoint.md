@@ -1,12 +1,12 @@
 ---
 title: Configure local storage data flow endpoint in Azure IoT Operations
 description: Learn how to configure a local storage data flow endpoint in Azure IoT Operations.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 06/13/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage data flow endpoint so that I can create a data flow.
@@ -27,7 +27,7 @@ To send data to local storage in Azure IoT Operations, you can configure a data 
 
 Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the operations experience, select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Local Storage** > **New**.
@@ -42,6 +42,51 @@ Use the local storage option to send data to a locally available persistent volu
     | Persistent volume claim name | The name of the PersistentVolumeClaim (PVC) to use for local storage.                        |
 
 1. Select **Apply** to provision the endpoint.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-local-storage) command to create or replace a local storage data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create local-storage --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --pvc-ref <PersistentVolumeClaimName>
+```
+
+The `--pvc-ref` parameter is the name of the PersistentVolumeClaim (PVC) to use for local storage. The PVC must be in the same namespace as the data flow endpoint.
+
+Here's an example command to create or replace a local storage data flow endpoint named `local-storage-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create local-storage --resource-group myResourceGroup --instance myAioInstance --name local-storage-endpoint --pvc-ref mypvc
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a local storage data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `local-storage-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "LocalStorage",
+    "localStorageSettings": {
+        "persistentVolumeClaimRef": "<PersistentVolumeClaimName>"
+    }
+}
+```
+
+Here's an example command to create a new local storage data flow endpoint named `local-storage-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name local-storage-endpoint --config-file ~/local-storage-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -113,17 +158,20 @@ The only supported serialization format is Parquet.
 
 ## Use Azure Container Storage enabled by Azure Arc (ACSA)
 
-You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration) to store data locally or send data to a cloud destination.
+You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to store data locally or send data to a cloud destination.
+
+> [!IMPORTANT]
+> You must install [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/howto-install-edge-volumes) before using it with a local storage data flow endpoint.
 
 ### Local shared volume
 
-To write to a local shared volume, first create a PersistentVolumeClaim (PVC) according to the instructions from [Local Shared Edge Volumes](/azure/azure-arc/container-storage/local-shared-edge-volumes).
+To write to a local shared volume, first create a PersistentVolumeClaim (PVC) according to the instructions from [Local Shared Edge Volumes](/azure/azure-arc/container-storage/tutorial-create-local-shared-volume).
 
 Then, when configuring your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
 
 ### Cloud ingest
 
-To write your data to the cloud, follow the instructions in [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration) to create a PVC and attach a subvolume for your desired cloud destination.
+To write your data to the cloud, follow the instructions in [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to create a PVC and attach a subvolume for your desired cloud destination.
 
 > [!IMPORTANT]
 > Don't forget to create the subvolume after creating the PVC, or else the data flow fails to start and the logs show a "read-only file system" error.

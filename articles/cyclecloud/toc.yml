@@ -78,18 +78,28 @@
       href: ./how-to/multiple-installs.md
     - name: Move a Cluster to Another Resource Group
       href: ./how-to/move-resource-group.md
+  - name: Cloud Bursting
+    items:
     - name: Cloud Bursting Using Azure CycleCloud and Slurm
-      href: ./how-to/slurm-cloud-bursting-setup.md
+      href: ./how-to/bursting/slurm-cloud-bursting-setup.md
   - name: CycleCloud Workspace for Slurm
     items:
     - name: Plan your CycleCloud Workspace for Slurm Deployment
       href: ./how-to/ccws/plan-your-deployment.md
+    - name: Register a Microsoft Entra ID application for Open OnDemand Authentication
+      href: ./how-to/ccws/register-entra-id-app.md
+    - name: Configure Open OnDemand with CycleCloud
+      href: ./how-to/ccws/configure-open-ondemand.md
+    - name: Add users for Open OnDemand
+      href: ./how-to/ccws/open-ondemand-add-users.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
     - name: How to connect to a Login Node through Bastion
       href: ./how-to/ccws/connect-to-login-node-with-bastion.md
     - name: How to connect to the CycleCloud Portal through Bastion
       href: ./how-to/ccws/connect-to-portal-with-bastion.md
+    - name: Submit job on CycleCloud with Slurm
+      href: ./how-to/ccws/submit-job-with-slurm.md  
   - name: Cluster Operations
     items:
     - name: Create a Cluster
@@ -248,10 +258,12 @@
         href: /previous-versions/azure/cyclecloud/release-notes-previous
       - name: Older Releases
         href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: 8.8.1 Release Notes
+        href: ./release-notes/8-8-1.md
+      - name: 8.8.0 Release Notes
+        href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
-    items:
-    - name: Current Release - 2025.02.06
-      href: ./release-notes/ccws/release-notes.md       
+    href: ./release-notes/ccws/release-notes.md       
   - name: Service Policy
     href: service-policy.md
   - name: Data Usage Policy

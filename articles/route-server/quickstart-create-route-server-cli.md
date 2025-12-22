@@ -1,92 +1,114 @@
 ---
-title: 'Quickstart: Create an Azure Route Server - Azure CLI'
-description: In this quickstart, you learn how to create an Azure Route Server and peer it with an NVA using the Azure CLI.
-author: halkazwini
-ms.author: halkazwini
+title: 'Quickstart: Create an Azure Route Server using Azure CLI'
+description: Learn how to create and configure Azure Route Server with Border Gateway Protocol (BGP) peering to network virtual appliances using Azure CLI commands for dynamic routing in your virtual network.
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 02/26/2025
+ms.date: 09/17/2025
 ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Quickstart: Create an Azure Route Server using the Azure CLI 
+# Quickstart: Create an Azure Route Server using Azure CLI
 
-In this quickstart, you learn how to create an Azure Route Server to peer with a network virtual appliance (NVA) in your virtual network using the Azure CLI.
+This quickstart shows you how to create an Azure Route Server and configure BGP peering with a network virtual appliance (NVA) using Azure CLI. Azure Route Server enables dynamic routing between your virtual network and network virtual appliances, automatically exchanging routes through BGP protocols.
 
-:::image type="content" source="./media/route-server-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI.":::
+By completing this quickstart, you have a functioning Route Server that can facilitate dynamic route exchange with network virtual appliances in your Azure virtual network.
+
+:::image type="content" source="./media/route-server-diagram.png" alt-text="Diagram showing Azure Route Server deployment environment with BGP peering to network virtual appliances using Azure CLI.":::
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
-##  Prerequisites
+## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Before you begin, ensure you have the following requirements:
 
-- Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Familiarity with [Azure Route Server service limits](route-server-faq.md#limitations).
+- Access to Azure Cloud Shell or Azure CLI installed locally.
 
-- Azure Cloud Shell or Azure CLI.
+### Azure CLI setup
 
-    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+The steps in this article use Azure CLI commands that you can run interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To use Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block, then select **Copy** to copy the code and paste it into Cloud Shell.
 
-    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+Alternatively, you can [install Azure CLI locally](/cli/azure/install-azure-cli) and run the commands from your local environment. If you use Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
-## Create a route server
+## Create a Route Server
 
-In this section, you create a route server. Prior to creating the route server, create a resource group to host all resources including the route server. You'll also need to create a virtual network with a dedicated subnet for the route server.
+This section walks you through creating the foundational infrastructure for Azure Route Server, including the resource group, virtual network, and Route Server instance.
 
-1. Create a resource group using [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named **myResourceGroup** in the **EastUS** region:
+### Create resource group and virtual network
+
+Route Server requires a dedicated subnet named **RouteServerSubnet** with a minimum size of /26. First, create the resource group and virtual network infrastructure:
+
+1. Create a resource group using the [az group create](/cli/azure/group#az-group-create) command:
 
     ```azurecli-interactive
-    # Create a resource group.
+    # Create a resource group
     az group create --name 'myResourceGroup' --location 'eastus'
     ```
 
-1. The route server requires a dedicated subnet named *RouteServerSubnet*, with a minimum subnet size of /26 or larger. Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command. The following example creates a default virtual network named **myVirtualNetwork** in the **EastUS** region with **RouteServerSubnet** subnet. 
+1. Create a virtual network with the required RouteServerSubnet using the [az network virtual network create](/cli/azure/network/vnet#az-network-vnet-create) command:
 
     ```azurecli-interactive
-    # Create a virtual network and a route server subnet. 
+    # Create a virtual network and RouteServerSubnet
     az network vnet create --resource-group 'myResourceGroup' --name 'myVirtualNetwork' --subnet-name 'RouteServerSubnet' --subnet-prefixes '10.0.1.0/26'
-    # Place the subnet ID into a variable.
+    
+    # Store the subnet ID in a variable for later use
     subnetId=$(az network vnet subnet show --name 'RouteServerSubnet' --resource-group 'myResourceGroup' --vnet-name 'myVirtualNetwork' --query id -o tsv)
-    ``` 
+    ```
 
-1. To ensure connectivity to the backend service that manages Route Server configuration, assigning a public IP address is required. Create a Standard Public IP named **RouteServerIP** using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) command.
+### Create public IP and Route Server
+
+Route Server requires a public IP address to ensure connectivity to the backend management service:
+
+1. Create a Standard public IP address using the [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) command:
 
     ```azurecli-interactive
-    # Create a Standard public IP.
+    # Create a Standard public IP for Route Server
     az network public-ip create --resource-group 'myResourceGroup' --name 'RouteServerIP' --sku Standard --version 'IPv4'
     ```
 
-1. Create the route server using [az network routeserver create](/cli/azure/network/routeserver#az-network-routeserver-create) command. The following example creates a route server named **myRouteServer** in the **EastUS** region. The *HostedSubnet* is the resource ID of the RouteServerSubnet created in the previous steps.
+1. Create the Route Server using the [az network routeserver create](/cli/azure/network/routeserver#az-network-routeserver-create) command:
 
     ```azurecli-interactive
-    # Create the route server.
+    # Create the Route Server
     az network routeserver create --name 'myRouteServer' --resource-group 'myResourceGroup' --hosted-subnet $subnetId --public-ip-address 'RouteServerIP'
-    ``` 
+    ```
 
     [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
-## Set up peering with NVA
+## Configure BGP peering with network virtual appliance
 
-In this section, you learn how to configure BGP peering with a network virtual appliance (NVA). Use [az network routeserver peering create](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-create) command to establish BGP peering from the route server to your NVA. The following example adds a peer named **myNVA** that has an IP address of **10.0.0.4** and an ASN of **65001**. For more information, see [What Autonomous System Numbers (ASNs) can I use?](route-server-faq.md#what-autonomous-system-numbers-asns-can-i-use)
+After creating the Route Server, configure BGP peering with your network virtual appliance to enable dynamic route exchange.
+
+### Establish BGP peering
+
+Use the [az network routeserver peering create](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-create) command to create a BGP peering session between Route Server and your NVA:
 
 ```azurecli-interactive 
-# Add a peer.
+# Create BGP peering with the network virtual appliance
 az network routeserver peering create --name 'myNVA' --peer-ip '10.0.0.4' --peer-asn '65001' --routeserver 'myRouteServer' --resource-group 'myResourceGroup'
-``` 
-> [!NOTE]
-> The peer name doesn't have to be the same name of the NVA.
- 
-## Complete the configuration on the NVA 
+```
 
-To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. Use [az network routeserver show](/cli/azure/network/routeserver#az-network-routeserver-show) command to get the IP and ASN of the route server.
+This command creates a peer named **myNVA** with:
+- **Peer IP address**: 10.0.0.4 (the NVA's IP address)
+- **Autonomous System Number (ASN)**: 65001 (see [supported ASN values](route-server-faq.md#what-autonomous-system-numbers-asns-can-i-use))
+
+> [!NOTE]
+> The peer name doesn't need to match the actual NVA name; it's just an identifier for the BGP peering session.
+ 
+### Get Route Server BGP information
+
+To complete the BGP peering configuration on your NVA, you need the Route Server's IP addresses and ASN. Use the [az network routeserver show](/cli/azure/network/routeserver#az-network-routeserver-show) command to retrieve this information:
 
 ```azurecli-interactive
-# Get the route server details.
+# Get Route Server details for NVA configuration
 az network routeserver show --resource-group 'myResourceGroup' --name 'myRouteServer'
-``` 
+```
 
-The output should look similar to the following example:
+The command returns output similar to the following example. Note the **virtualRouterAsn** and **virtualRouterIps** values needed for your NVA configuration:
 
 ```output
 {
@@ -115,20 +137,26 @@ The output should look similar to the following example:
     "10.0.1.5"
   ]
 }
-``` 
+```
+
+Use these values to configure BGP on your NVA:
+- **ASN**: 65515 (virtualRouterAsn)
+- **Peer IP addresses**: 10.0.1.4 and 10.0.1.5 (virtualRouterIps)
 
 [!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all of the resources it contains using [az group delete](/cli/azure/group#az-group-delete) command.
+When you no longer need the Route Server and associated resources, delete the resource group using the [az group delete](/cli/azure/group#az-group-delete) command:
 
 ```azurecli-interactive
-# Delete the resource group and all the resources it contains. 
+# Delete the resource group and all contained resources
 az group delete --name 'myResourceGroup' --yes --no-wait
 ```
 
 ## Next step
 
+Now that you've created a Route Server and established BGP peering, learn more about Route Server capabilities:
+
 > [!div class="nextstepaction"]
-> [Configure peering between a route server and NVA](peer-route-server-with-virtual-appliance.md)
+> [Tutorial: Configure BGP peering between Route Server and network virtual appliance](peer-route-server-with-virtual-appliance.md)

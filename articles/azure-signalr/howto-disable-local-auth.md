@@ -3,7 +3,7 @@ title: Disable local (access key) authentication with Azure SignalR Service
 description: This article provides information about how to disable access key authentication and use only Microsoft Entra authorization with Azure SignalR Service.
 author: terencefan
 
-ms.author: tefa
+ms.author: lianwei
 ms.date: 03/31/2023
 ms.service: azure-signalr-service
 ms.custom: devx-track-arm-template

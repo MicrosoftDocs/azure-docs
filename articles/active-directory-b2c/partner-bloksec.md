@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 ## Before you begin
 
 Azure Active Directory B2C has two methods to define user interactions with applications: predefined user flows or configurable custom policies.  
@@ -65,7 +67,7 @@ The following architecture diagram illustrates the sign-up, sign-in flow in the 
 To get started, you need:
 
 * An Azure subscription
-  * If you don't have one, get an [Azfree account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azfree account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A BlokSec [demo](https://bloksec.com/)
 * Register a web application

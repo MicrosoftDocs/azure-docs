@@ -3,13 +3,12 @@ title: Security best practices for IaaS workloads in Azure | Microsoft Docs
 description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
 services: security
 author: msmbaldwin
-manager: rkarlin
 
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/29/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 ---
 
@@ -53,10 +52,12 @@ Your subscription admins and coadmins can change this setting, making them admin
 
 Organizations that control VM access and setup improve their overall VM security.
 
-## Use multiple VMs for better availability
-If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, use an [availability set](/azure/virtual-machines/availability-set-overview) or availability [zones](../../reliability/availability-zones-overview.md).
+## Use Virtual Machine Scale Sets for high availability
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
-An availability set is a logical grouping that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they're deployed in an Azure datacenter. Azure ensures that the VMs you place in an availability set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are affected, and your overall application continues to be available to your customers. Availability sets are an essential capability when you want to build reliable cloud solutions.
+Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There is no cost for the scale set itself, you only pay for each VM instance that you create.
+
+Virtual machines in a scale set can also be deployed into multiple availability zones, a single availability zone, or regionally.
 
 ## Protect against malware
 You should install antimalware protection to help identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://cloudone.trendmicro.com/docs/workload-security/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security), and [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).

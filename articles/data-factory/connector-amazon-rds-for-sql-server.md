@@ -6,8 +6,11 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 06/17/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from Amazon RDS for SQL Server by using Azure Data Factory or Azure Synapse Analytics

@@ -5,8 +5,8 @@ ms.topic: concept-article
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.custom: references_regions
-author: guyhay
-ms.author: guyhay
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 12/06/2024
 ---
 

@@ -1,12 +1,13 @@
 ---
 title: Quickstart to create an Azure Recovery Services vault using Bicep.
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using Bicep.
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
-ms.author: ankitadutta
+ms.author: v-gajeronika
 ms.date: 05/23/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
+# Customer intent: As an IT administrator, I want to create a Recovery Services vault using Bicep, so that I can ensure business continuity and disaster recovery for my applications during outages.
 ---
 
 # Quickstart: Create a Recovery Services vault using Bicep
@@ -18,7 +19,7 @@ This quickstart describes how to set up a Recovery Services vault using Bicep. T
 ## Prerequisites
 
 If you don't have an active Azure subscription, you can create a
-[free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

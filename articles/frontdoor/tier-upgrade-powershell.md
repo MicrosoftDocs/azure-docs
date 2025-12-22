@@ -11,6 +11,8 @@ ms.custom: devx-track-azurepowershell
 
 # Upgrade from Azure Front Door Standard to Premium with Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Front Door Standard
+
 Azure Front Door allows upgrading from Standard to Premium for enhanced capabilities and increased quota limits. This upgrade doesn't cause any downtime to your services or applications. For more information on the differences between Standard and Premium, see [Tier comparison](standard-premium/tier-comparison.md).
 
 This guide explains how to upgrade an Azure Front Door Standard profile to Premium. After the upgrade, you'll be charged the Azure Front Door Premium monthly base fee at an hourly rate.

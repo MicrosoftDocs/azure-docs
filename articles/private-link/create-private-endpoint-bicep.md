@@ -9,6 +9,7 @@ ms.date: 03/25/2025
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint using Bicep.
+# Customer intent: As a network engineer new to Azure, I want to create a private endpoint using Bicep so that I can securely connect to Azure SQL Database without exposing it to the public internet.
 ---
 
 # Quickstart: Create a private endpoint using Bicep
@@ -23,7 +24,7 @@ You can also create a private endpoint by using the [Azure portal](create-privat
 
 ## Prerequisites
 
-You need an Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You need an Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the Bicep file
 

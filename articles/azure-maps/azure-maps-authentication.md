@@ -127,11 +127,7 @@ Some Azure Maps services require elevated privileges to perform write or delete 
 
 | Azure Maps service                 | Azure Maps Role Definition  |
 | :----------------------------------| :-------------------------- |
-| [Creator] (Deprecated<sup>1</sup>) | Azure Maps Data Contributor |
-| [Spatial] (Deprecated<sup>1</sup>) | Azure Maps Data Contributor |
 | Batch [Search] and [Route]         | Azure Maps Data Contributor |
-
-<sup>1</sup> Azure Maps Creator, and the Data registry and Spatial services are now deprecated and will be retired on 9/30/25.
 
 For information about viewing your Azure RBAC settings, see [How to configure Azure RBAC for Azure Maps].
 
@@ -147,21 +143,19 @@ Here are some example scenarios where custom roles can improve application secur
 | :----------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
 | A public facing or interactive sign-in web page with base map tiles and no other REST APIs.| `Microsoft.Maps/accounts/services/render/read`                                                  |
 | An application, which only requires reverse geocoding and no other REST APIs.              | `Microsoft.Maps/accounts/services/search/read`                                                  |
-| A role for a security principal, which requests a reading of Azure Maps Creator based map data and base map tile REST APIs. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read` |
-| A role for a security principal, which requires reading, writing, and deleting of Creator based map data. Defined as a map data editor role that doesn't allow access to other REST API like base map tiles. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
 
 ### Understand scope
 
-Role assignments are defined within the Azure resource hierarchy, from the top-level [management group] to the lowest level like an Azure Maps account.
+Role assignments are defined within the Azure resource hierarchy, from the top-level management group to the lowest level like an Azure Maps account. For more information, see [What are Azure management groups?].
 
-Assigning a role assignment to a resource group can enable access to multiple Azure Maps accounts or resources in the group.
+By assigning a role to a resource group, you can grant access to multiple Azure Maps accounts or resources within that group.
 
 > [!TIP]
-> Microsoft's general recommendation is to assign access to the Azure Maps account scope because it prevents **unintended access to other Azure Maps accounts** existing in the same Azure subscription.
+> Microsoft generally recommends assigning access at the Azure Maps account scope to prevent unintended access to other Azure Maps accounts within the same Azure subscription.
 
 ## Disable local authentication
 
-Azure Maps accounts support the standard Azure property in the [Management API] for `Microsoft.Maps/accounts` called `disableLocalAuth`. When _true_, all authentication to the Azure Maps data-plane REST API is disabled, except [Microsoft Entra authentication]. This is configured using Azure Policy to control distribution and management of shared keys and SAS tokens. For more information, see [What is Azure Policy?].
+Azure Maps accounts support the standard Azure property in the [Maps Management API] for `Microsoft.Maps/accounts` called `disableLocalAuth`. When _true_, all authentication to the Azure Maps data-plane REST API is disabled, except [Microsoft Entra authentication]. This is configured using Azure Policy to control distribution and management of shared keys and SAS tokens. For more information, see [What is Azure Policy?].
 
 Disabling local authentication doesn't take effect immediately. Allow a few minutes for the service to block future authentication requests. To re-enable local authentication, set the property to _false_ and after a few minutes local authentication resumes.
 
@@ -176,9 +170,9 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 ## Shared access signature token authentication
 
-Shared access signature (SAS) tokens are authentication tokens created using the JSON Web Token (JWT) format. These tokens are cryptographically signed to authenticate an application with the Azure Maps REST API. These SAS tokens are created by integrating a [user-assigned managed identity] with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using either built-in or custom role definitions.
+Shared access signature (SAS) tokens, which are authentication tokens in the JSON Web Token (JWT) format, are cryptographically signed to authenticate applications with the Azure Maps REST API. These tokens are generated by integrating a [user-assigned managed identity] with an Azure Maps account in your Azure subscription. The managed identity is authorized to access the Azure Maps account through Azure RBAC, using either built-in or custom role definitions.
 
-Functional key differences of SAS token from Microsoft Entra access tokens:
+Key functional differences between SAS tokens and Microsoft Entra access tokens:
 
 - Lifetime of a token for a max expiration of one day (24 hours).
 - Azure location and geography access control per token.
@@ -192,7 +186,7 @@ SAS tokens are immutable. Once they're created, they remain valid until they exp
 
 #### SAS token maximum rate limit can control billing for an Azure Maps resource
 
-When setting a maximum rate limit on the token (`maxRatePerSecond`), any rates exceeding this limit aren't billed to the account, enabling you to establish a cap on billable transactions. However, the application receives client error responses with `429 (TooManyRequests)` for all transactions once that limit is reached. It's the application's responsibility to manage retries and distribution of SAS tokens. There's no restriction on the number of SAS tokens that can be created for an account. To modify an existing token's limit, a new SAS token must be generated. The old SAS token remains valid until it expires.
+When setting a maximum rate limit on the token (`maxRatePerSecond`), any rates exceeding this limit aren't billed to the account, allowing you to cap billable transactions. However, the application will receive client error 429 (`TooManyRequests`) responses for all transactions once the limit is reached. It is the application's responsibility to manage retries and distribute SAS tokens. There is no restriction on the number of SAS tokens that can be created for an account. To modify an existing token's limit, a new SAS token must be generated. The old SAS token remains valid until it expires.
 
 Estimated Example:
 
@@ -213,11 +207,11 @@ Consider the application topology where the endpoint `https://us.atlas.microsoft
 
 #### Default rate limits take precedent over SAS token rate limits
 
-As described in [Azure Maps rate limits](azure-maps-qps-rate-limits.md), the rate limits for individual service offerings are enforced collectively at the account level.
+As described in [Azure Maps QPS rate limits](azure-maps-qps-rate-limits.md), the rate limits for individual service offerings are enforced collectively at the account level.
 
-Consider the case of **Search service - Non-Batch Reverse**, with its limit of 250 queries per second (QPS) for the following tables. Each table represents estimated total successful transactions from example usage.
+Consider the case of **Search service - single request reverse**, with its limit of 250 queries per second (QPS) for the following tables. Each table represents estimated total successful transactions from example usage.
 
-The first table shows one token that has a maximum request per second of 500, and actual usage of the application is 500 request per second for a duration of 60 seconds. **Search service - Non-Batch Reverse** has a rate limit of 250, meaning of the total 30,000 requests made in the 60 seconds; 15,000 of those requests are billable transactions. The remaining requests result in status code `429 (TooManyRequests)`.
+The first table shows one token that has a maximum request per second of 500, and actual usage of the application is 500 request per second for a duration of 60 seconds. **Search service - single request reverse** has a rate limit of 250, meaning of the total 30,000 requests made in the 60 seconds; 15,000 of those requests are billable transactions. The remaining requests result in status code `429 (TooManyRequests)`.
 
 | Name  | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
 | :---- | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |
@@ -427,18 +421,15 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [Azure services that can use managed identities to access other services]: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
 [Authentication flows and application scenarios]: ../active-directory/develop/authentication-flows-app-scenarios.md
 [Azure role-based access control (Azure RBAC)]: ../role-based-access-control/overview.md
-[Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.yml
+[Assign Azure roles using the Azure portal]: /azure/role-based-access-control/role-assignments-portal
 
-[Data]: /rest/api/maps/data
-[Creator]: /rest/api/maps-creator/
-[Spatial]: /rest/api/maps/spatial
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Route]: /rest/api/maps/route
 
 [How to configure Azure RBAC for Azure Maps]: how-to-manage-authentication.md
 [Azure custom roles]: ../role-based-access-control/custom-roles.md
-[management group]: ../governance/management-groups/overview.md
-[Management API]: /rest/api/maps-management/
+[What are Azure management groups?]: ../governance/management-groups/overview.md
+[Maps Management API]: /rest/api/maps-management/
 [Microsoft Entra authentication]: #microsoft-entra-authentication
 [What is Azure Policy?]: ../governance/policy/overview.md
 [user-assigned managed identity]: ../active-directory/managed-identities-azure-resources/overview.md

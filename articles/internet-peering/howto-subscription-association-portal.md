@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 04/21/2025
 
 #CustomerIntent: As an administrator, I want to learn how to create a PeerASN resource so I can associate my peer ASN to Azure subscription and submit peering requests.
+# Customer intent: As an Internet Service Provider, I want to associate my Autonomous System Number with my Azure subscription, so that I can successfully submit peering requests and establish connections for my network.
 ---
 
 # Associate your ASN with an Azure subscription using the Azure portal
@@ -19,7 +20,7 @@ As an Internet Service Provider or Internet Exchange Provider, you must associat
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Peering provider. For more information, see [Register Peering provider](#register-peering-provider).
 

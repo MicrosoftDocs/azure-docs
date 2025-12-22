@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Azure Firewall and a firewall policy - Terraform'
 description: In this quickstart, you deploy an Azure Firewall and a firewall policy using Terraform.
 services: firewall-manager
-author: cshea-msft
-ms.author: chashea
+author: duongau
+ms.author: duau
 ms.date: 01/07/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager
@@ -28,7 +28,7 @@ For information about IP Groups, see [IP Groups in Azure Firewall](../firewall/i
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 

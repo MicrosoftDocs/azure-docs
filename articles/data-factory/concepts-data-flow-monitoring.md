@@ -6,8 +6,10 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 10/20/2023
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Monitor Data Flows

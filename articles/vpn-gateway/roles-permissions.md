@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 12/4/2024
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to understand the roles and permissions required for managing a VPN gateway, so that I can ensure the appropriate access and functionality for users and resources involved in VPN operations.
 ---
 # About roles and permissions for VPN 
 
@@ -40,6 +41,7 @@ Depending on whether you're creating new resources or using existing ones, add t
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
 | Local Network Gateway  | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write |
 | Connection | Create new/ Update existing| Microsoft.Network/connections/write |
+| Connection/Preshared Key | Update existing | Microsoft.Network/connections/sharedKey/action | 
 | Azure VPN Gateway | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write<br>Microsoft.Network/publicIPAddresses/join/action<br>Microsoft.Network/virtualNetworks/subnets/join/action | 
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
@@ -76,5 +78,5 @@ To view roles and permissions for other services, see the following links:
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
 
-- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+- [Azure Role Based Access Control](/azure/role-based-access-control/role-assignments-list-portal)
 

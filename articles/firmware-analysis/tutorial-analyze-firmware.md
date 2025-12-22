@@ -2,7 +2,7 @@
 title: Analyze a firmware image with the firmware analysis service.
 description: Learn to analyze a compiled firmware image using firmware analysis.
 ms.topic: tutorial
-ms.date: 02/07/2025
+ms.date: 07/17/2025
 author: karengu0
 ms.author: karenguo
 ms.service: azure-iot-operations
@@ -13,19 +13,12 @@ ms.service: azure-iot-operations
 
 This tutorial describes how to use the **firmware analysis** page to upload a firmware image for security analysis and view analysis results.
 
-> [!NOTE]
-> The **firmware analysis** page is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## Prerequisites
 
-> [!NOTE]
-> The **firmware analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the Security Reader role or want to use **firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](./firmware-analysis-rbac.md).
->
-
-* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * If you have a subscription but don't have a resource group where you could upload your firmware images, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups).
-* If you already have a subscription and resource group, move on to the next section.
+* Make sure you have Security Admin, Contributor, or Owner role in your resource group. If you only have the Security Reader role or want to use **firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](./firmware-analysis-rbac.md).
+* If you already have a subscription and resource group, and have the proper permissions, move on to the next section.
 
 To use the **firmware analysis** page to analyze your firmware security, your firmware image must have the following prerequisites:
 
@@ -35,6 +28,20 @@ To use the **firmware analysis** page to analyze your firmware security, your fi
 
 - Your image must be less than 1 GB in size.
 
+## Firmware analysis workspace limits
+
+Firmware analysis workspaces are currently available as a free tier. The free tier has the following capacity limitations. If you use more than the capacity, you will receive an indication in the Azure Portal that you are over the capacity but will not be prevented from going over the capacity limit.
+
+The following limits apply to [firmware analysis workspaces](firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy).
+
+| Resource | Free Tier Limit |
+| --- | --- |
+| Images scanned per month | 5 |
+| Images stored in workspace | 10 |
+| Free tier workspaces per subscription | 1 |
+
+In the future, a paid license tier may be introduced, and these limits will be enforced on new and existing free tier workspaces. This means that once you reach any of the limits, you will be required to create or upgrade to a paid tier workspace to scan or store more images. However, even when the limits are enforced, your existing free tier workspaces will continue to have the firmware images you already analyzed and stored. 
+
 ## Onboard your subscription to use firmware analysis
 > [!NOTE]
 > To onboard a subscription to use firmware analysis, you must be an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. To learn more about roles and their capabilities in firmware analysis, visit [Firmware analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
@@ -42,38 +49,36 @@ To use the **firmware analysis** page to analyze your firmware security, your fi
 
 If this is your first interaction with **firmware analysis**, then you'll need to onboard your subscription to the service and select a region in which to upload and store your firmware images.
 
-1. Sign into the Azure portal and go to Defender for IoT.
+1. Sign into the Azure portal and search for "firmware analysis" in the Azure portal search bar.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot of the 'Getting started' page." lightbox="media/tutorial-firmware-analysis/defender-portal.png":::
+    :::image type="content" source="media/tutorial-firmware-analysis/firmware-analysis-landing.png" alt-text="Screenshot of the 'Getting started' page." lightbox="media/tutorial-firmware-analysis/firmware-analysis-landing.png":::
 
-2. Select **Set up a subscription** in the **Get Started** card, or select the **Subscription management** subtab.
+2. Select the blue **Get started** button in the **Get Started** card, or select the **Firmware workspaces** subtab.
 
     :::image type="content" source="media/tutorial-firmware-analysis/subscription-management.png" alt-text="Screenshot of the 'Subscription management' page." lightbox="media/tutorial-firmware-analysis/subscription-management.png":::
 
-3. Select **Onboard a new subscription**
+3. Select **Create a Workspace**
 
-    :::image type="content" source="media/tutorial-firmware-analysis/onboard-subscription.png" alt-text="Screenshot of the 'Onboard subscription' pane appearing on the right side of the screen." lightbox="media/tutorial-firmware-analysis/onboard-subscription.png":::
+    :::image type="content" source="media/tutorial-firmware-analysis/create-workspace.png" alt-text="Screenshot of the 'Onboard subscription' pane appearing on the right side of the screen." lightbox="media/tutorial-firmware-analysis/create-workspace.png":::
 
-4. In the **Onboard subscription** pane, select a subscription from the drop-down list.
+4. In the **Create a workspace** pane, select a subscription from the drop-down list.
 5. Select a resource group from the **Resource group** drop-down or create a new resource group.
-6. Select a region to use for storage in the **Location** drop-down.
-7. Select **Onboard** to onboard your subscription to firmware analysis.
-
-    :::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed." lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
+6. Enter your **Workspace name**.
+7. Select a region to use for storage in the **Location** drop-down.
+8. For the **Tier** field, we currently offer a free tier. In the future, a paid tier may be introduced with additional features and capabilities. For more information, see our [licensing terms and workspace limits](tutorial-analyze-firmware.md#firmware-analysis-workspace-limits)
+8. Select **Onboard** to create your workspace in your selected resource group and onboard your subscription to firmware analysis.
 
 ## Upload a firmware image for analysis
 
-If you've just onboarded your subscription, are signed into the Azure portal, and already in the Defender for IoT portal, skip to step two.
+If you've just onboarded your subscription, are signed into the Azure portal, and already in the firmware analysis portal, skip to step two.
 
-1. Sign into the Azure portal and go to Defender for IoT.
+1. Sign into the Azure portal and go to firmware analysis.
 
-1. Select **Firmware analysis** > **Firmware inventory** > **Upload**.
+1. Go to the **Firmware workspaces** page, then select the workspace in which you'd like to upload images. Click the **Upload** button.
 
-1. In the **Upload a firmware image** pane, select **Choose file**. Browse to and select the firmware image file you want to upload.
+1. In the **Upload a firmware image** pane, drag and drop your firmware image or click on the grey box. Browse to and select the firmware image file you want to upload.
 
     :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within firmware analysis." lightbox="media/tutorial-firmware-analysis/upload.png":::
-
-1. Select a **Subscription** that you have onboarded onto Defender for IoT firmware analysis. Then select a **Resource group** that you would like to upload your firmware image to.
 
 1. Enter the following details:
 
@@ -84,13 +89,13 @@ If you've just onboarded your subscription, are signed into the Azure portal, an
     
 1. Select **Upload** to upload your firmware for analysis.
 
-    Your firmware appears in the grid on the **Firmware inventory** page. 
+    Your firmware appears in the grid on the **All firmware** page. 
 
 ## View firmware analysis results
 
 The analysis time will vary based on the size of the firmware image and the number of files discovered in the image. While the analysis is taking place, the status will say *Extracting* and then *Analyzing*.  When the status is *Ready*, you can see the firmware analysis results.
 
-1. Sign into the Azure portal and go to Microsoft Defender for IoT > **Firmware analysis** > **Firmware inventory**.
+1. Sign into the Azure portal and go to firmware analysis > **All firmware** page. Alternatively, you can go to the **Firmware workspaces** page, and select the workspace in which you have your firmware image.
 
 1. Select the row of the firmware you want to view. The **Firmware overview** pane shows basic data about the firmware on the right.
 

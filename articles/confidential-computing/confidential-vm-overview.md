@@ -1,7 +1,7 @@
 ---
 title: About Azure confidential VMs
 description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
-author: ju-shim
+author: cynthn
 ms.author: mmcrey
 ms.reviewer: mattmcinnes
 ms.service: azure-virtual-machines
@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: overview
 ms.date: 11/14/2023
+# Customer intent: "As a cloud architect, I want to deploy Azure confidential VMs, so that I can ensure strong security and confidentiality for sensitive applications during cloud migrations without modifying existing code."
 ---
 
 # About Azure confidential VMs 
@@ -40,8 +41,14 @@ If the compute platform is missing critical settings for your VM's isolation, [A
 
 Confidential OS disk encryption is optional, as this process can lengthen the initial VM creation time. You can choose between:
 
-- A confidential VM with Confidential OS disk encryption before VM deployment that uses platform-managed keys (PMK) or a customer-managed key (CMK).
-- A confidential VM without Confidential OS disk encryption before VM deployment.
+- A confidential VM with Confidential OS disk encryption that uses platform-managed keys (PMK) or a customer-managed key (CMK).
+
+- A confidential VM without Confidential OS disk encryption.
+
+
+
+> [!NOTE]
+> Confidential OS disk encryption setting can't be changed after VM deployment
 
 For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default when confidential OS disk encryption is selected.
 
@@ -100,12 +107,14 @@ Confidential VMs support the following OS options:
 | 22.04 LTS | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session  | 2019 Datacenter  |
 | 24.04 LTS | 23H2, 23H2 Pro, 23H2 Enterprise, 23H2 Enterprise N, 23H2 Enterprise Multi-session | 2022 Server Core |
 | **RHEL**  | **Windows 10**  | 2022 Azure Edition|
-| 9.4 | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session | 2022 Azure Edition Core|
+| 9.4 (or later) | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session | 2022 Azure Edition Core|
 | | | 2022 Datacenter  |
 | **SUSE (Tech Preview)** | | 2025 Server Core |
 | [15 SP5 <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>|  | 2025 Datacenter |
 | [15 SP5 for SAP <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    | | 2025 Azure Edition |
 ||| 2025 Azure Edition Core |
+| **Rocky** |||
+| [9.4](https://portal.azure.com/#create/ciq.rocky-ltsciqrl94lts-cvm) |||
 
 ### Regions
 
@@ -119,14 +128,15 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 Confidential VMs *don't support*:
 
-- Azure Backup
-- Azure Site Recovery
-- Limited Azure Compute Gallery support
-- Shared disks
-- Accelerated Networking
-- Live migration
-- Screenshots under boot diagnostics
-
+- [Azure Backup](/azure/backup/backup-overview)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery/)
+- Limited [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) support
+- [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview)
+- [Live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview)
+- [Screenshots under boot diagnostics](/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
+- [Dynamic memory](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
+- Confidential disk encryption is only supported for disks that are smaller than 128 GB. For larger disks, it is recommended to opt for premium SSDs, particularly for disks exceeding 32 GB.
+- Auto keyrotation is not supported, only [offline key rotation](/azure/confidential-computing/key-rotation-offline#change-customer-managed-key) is supported. 
 
 ## Next steps
 

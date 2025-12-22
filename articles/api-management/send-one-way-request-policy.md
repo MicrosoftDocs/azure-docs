@@ -28,6 +28,7 @@ The `send-one-way-request` policy sends the provided request to the specified UR
   <set-header>...</set-header>
   <set-body>...</set-body>
   <authentication-certificate thumbprint="thumbprint" />
+  <authentication-managed-identity resource="ResourceID"/>
 </send-one-way-request>
 ```
 
@@ -48,14 +49,19 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 | [set-header](set-header-policy.md)                     | Sets a header in the request. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
 | [set-body](set-body-policy.md)                       | Sets the body of the request.                   | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                              |
+| authentication-managed-identity | [Authenticate with managed identity](authentication-managed-identity-policy.md) to resource specified in `resource` attribute. | No |
 | [proxy](proxy-policy.md) | Routes request via HTTP proxy. | No |
 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+
+### Usage notes
+
+* Using multiple `send-one-way-request` policies in outbound section is not supported in self-hosted gateway.
 
 ## Example
 
@@ -89,6 +95,6 @@ This example uses the `send-one-way-request` policy to send a message to a Slack
 
 ## Related policies
 
-* [Intergration and external communication](api-management-policies.md#integration-and-external-communication)
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

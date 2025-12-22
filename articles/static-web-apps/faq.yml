@@ -138,7 +138,7 @@ sections:
       - question: |
           How do I configure environment variables for my app?
         answer: |
-          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configurate variables that are used by your app's API, use [application settings](application-settings.yml). To learn more, see [Configuration overview](configuration-overview.md).
+          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configure variables that are used by your app's API, use [application settings](application-settings.yml). To learn more, see [Configuration overview](configuration-overview.md).
 
       - question: |
           Does Static Web Apps support managed identity?

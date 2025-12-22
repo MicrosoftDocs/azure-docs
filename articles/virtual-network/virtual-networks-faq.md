@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 07/22/2024
 ms.author: allensu
+# Customer intent: "As a network engineer, I want to configure virtual networks in Azure so that I can establish secure, private communication between cloud resources and extend our on-premises infrastructure efficiently."
 ---
 
 # Azure Virtual Network frequently asked questions (FAQ)
@@ -208,7 +209,7 @@ If you change your DNS server list, you need to perform a DHCP lease renewal on 
 Azure-provided DNS is a multitenant DNS service from Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution:
 
 * By host name for VMs and role instances in the same cloud service.
-* By fully qualified domain main (FQDN) for VMs and role instances in the same virtual network.
+* By fully qualified domain name (FQDN) for VMs and role instances in the same virtual network.
 
 To learn more about DNS, see [Name resolution for resources in Azure virtual networks](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -344,7 +345,7 @@ No. You must set the [FlowTimeoutInMinutes](/powershell/module/az.network/set-az
 
 ```Powershell
 $Allvnet = Get-AzVirtualNetwork
-$time = 4 #The value should be 4 to 30 minutes (inclusive) to enable tracking, or null to disable tracking. 
+$time = 4 #The value should be from 4 to 30 minutes (inclusive) to enable tracking, or null to disable tracking. 
 ForEach ($vnet in $Allvnet)
 {
     $vnet.FlowTimeoutInMinutes = $time
@@ -505,7 +506,7 @@ Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the
 Turning on the service endpoints on the network side can lead to a connectivity drop, because the source IP changes from a public IPv4 address to a private address. Setting up virtual network ACLs on the Azure service side before turning on service endpoints on the network side can help avoid a connectivity drop.
 
 >[!NOTE]
-> If you enable Service Endpoint on certain services like "Microsoft.AzureActiveDirectory" you can see IPV6 address connections on Sign-In Logs. Microsoft use an internal IPV6 private range for this type of connection.
+> If you enable Service Endpoint on certain services like "Microsoft.AzureActiveDirectory" you can see IPv6 address connections on Sign-In Logs. Microsoft use an internal IPv6 private range for this type of connection.
 
 ### Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
 
@@ -697,6 +698,10 @@ Scenarios that aren't supported include:
 ### Where can I find more information about migration from classic to Resource Manager?
 
 See [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq).
+
+### Can I recover a deleted public IP address?
+
+No. Once an Azure public IP address is deleted, it cannot be recovered. For more information, see [View, modify settings for, or delete a public IP address](ip-services/virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 ### How can I report a problem?
 

@@ -6,8 +6,10 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 04/30/2024
+ms.date: 11/11/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Tutorial: Review your individual Azure subscription bill

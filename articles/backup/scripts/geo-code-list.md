@@ -2,11 +2,12 @@
 title: Geo-code mapping
 description: Learn about geo-codes mapped with the respective regions.
 ms.topic: sample
-ms.date: 11/30/2024
+ms.date: 04/30/2025
 ms.service: azure-backup
 ms.custom: references_regions
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a network administrator, I want to access a detailed list of geo-codes mapped to their respective regions, so that I can effectively configure custom DNS zones for private endpoints in my cloud environment.
 ---
 
 # Geo-code mapping
@@ -68,7 +69,7 @@ This sample XML provides you with an insight about the geo-codes mapped with the
 <GeoCodeRegionNameMap	GeoCode="JIW"	RegionName="Jio India West"	/>
 <GeoCodeRegionNameMap	GeoCode="QAC"	RegionName="Qatar Central"	/>
 <GeoCodeRegionNameMap	GeoCode="PLC"	RegionName="Poland Central"	/>
-<GeoCodeRegionNameMap	GeoCode="MYS"	RegionName="Malaysia South"	/
+<GeoCodeRegionNameMap	GeoCode="MYS"	RegionName="Malaysia South"	/>
 <GeoCodeRegionNameMap	GeoCode="TWN"	RegionName="Taiwan North"	/>
 <GeoCodeRegionNameMap	GeoCode="TWNR"	RegionName="Taiwan Northwest"	/>
 <GeoCodeRegionNameMap	GeoCode="ILC"	RegionName="Israel Central"	/>

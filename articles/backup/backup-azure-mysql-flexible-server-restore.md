@@ -2,9 +2,10 @@
 title: Restore an Azure Database for MySQL Flexible Server by Using Azure Backup
 description: Learn how to restore an Azure Database for MySQL flexible server.
 ms.topic: how-to
-ms.date: 11/21/2024
-author: jyothisuri
-ms.author: jsuri
+ms.date: 11/21/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to restore an Azure Database for MySQL flexible server using backup, so that I can recover data and ensure business continuity after data loss or corruption."
 ---
 
 # Restore an Azure Database for MySQL flexible server by using Azure Backup (preview)
@@ -19,7 +20,7 @@ Learn more about the [supported scenarios, considerations, and limitations](back
 
 Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the `AllowCrossTenantReplication` property set to `true`.
 
-## Restore an Azure Database for MySQL - Flexible Server database
+## Restore the Azure Database for MySQL - Flexible Server
 
 To restore the database, follow these steps:
 
@@ -47,7 +48,8 @@ To restore the database, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/review-restore.png" alt-text="Screenshot that shows how to trigger restore operation." lightbox="./media/backup-azure-mysql-flexible-server-restore/review-restore.png":::
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Back up an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server.md)
+> [Back up an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server.md).
+> [Troubleshoot Azure Database for MySQL - Flexible Server backup (preview)](backup-azure-mysql-flexible-server-troubleshoot.md).

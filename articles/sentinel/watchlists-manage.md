@@ -1,14 +1,15 @@
 ---
 title: Edit watchlists - Microsoft Sentinel
 description: Learn how to edit and add more items to Microsoft Sentinel watchlists to them to keep them up-to-date.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 3/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to manage Microsoft Sentinel watchlists so that I can efficiently monitor and respond to potential threats.
@@ -25,7 +26,7 @@ We recommend you edit an existing watchlist instead of deleting and recreating a
 
 Edit a watchlist to edit or add an item to the watchlist.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.
 1. Select the watchlist you want to edit.
 1. On the details pane, select **Update watchlist** > **Edit watchlist items**.
 

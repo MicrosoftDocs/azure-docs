@@ -3,14 +3,18 @@ title: SAP HANA scale-out with standby with Azure NetApp Files on SLES | Microso
 description: Learn how to deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server.
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, linux-related-content
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 07/11/2023
+ms.date: 05/22/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As an IT architect, I want to implement a highly available SAP HANA scale-out system on Azure using NetApp for shared storage, so that I can ensure continuous operations and quick failover in case of node failures."
 ---
 
 # Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server
@@ -197,15 +201,18 @@ The next instructions assume that you've already created the resource group, the
 
     2. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `storage` and `hana` subnets.
 
-        ```bash
+        ```azurecli
         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb1-storage --accelerated-networking true
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb2-storage --accelerated-networking true
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb3-storage --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb2-storage --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb3-storage --accelerated-networking true
         
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb1-hana --accelerated-networking true
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb2-hana --accelerated-networking true
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb3-hana --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb1-hana --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb2-hana --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb3-hana --accelerated-networking true
         ```
+
+        > [!NOTE]
+        > You don’t have to install the Azure CLI package on your HANA nodes to run `az` command. You can run it from any machine that has the CLI installed, or use Azure Cloud Shell.
 
 7. Start the virtual machines by doing the following steps:
 
@@ -600,7 +607,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    * `async_write_submit_active` **on**
    * `async_write_submit_blocks` **all**
 
-   For more information, see [I/O stack configuration for SAP HANA](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_i_o_stack_configuration_for_sap_hana.html).  
+   For more information, see [I/O stack configuration for SAP HANA](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-io-stack-configuration.html).  
 
    Starting with SAP HANA 2.0 systems, you can set the parameters in `global.ini`. For more information, see SAP Note [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
 

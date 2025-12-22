@@ -1,9 +1,9 @@
----
+﻿---
 title: Bicep spread operator
 description: Describes Bicep spread operator.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Bicep spread operator
@@ -101,7 +101,7 @@ param tier string = 'Hot'
 var storageAccountName = uniqueString(resourceGroup().id)
 var accessTier = tier != '' ? {accessTier: tier} : {}
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -122,7 +122,7 @@ param tier string = 'Hot'
 
 var storageAccountName = uniqueString(resourceGroup().id)
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -143,7 +143,7 @@ param storageProperties {
   accessTier: string?
 }
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueString(resourceGroup().id)
   location: location
   sku: {
@@ -162,3 +162,4 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 - To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-the-bicep-file).
 - To create a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - For information about how to resolve Bicep type errors, see [Any function for Bicep](./bicep-functions-any.md).
+

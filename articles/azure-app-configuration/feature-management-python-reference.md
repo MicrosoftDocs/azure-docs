@@ -7,9 +7,11 @@ author: mrm9084
 ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
-ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 11/15/2024
+ms.date: 12/12/2025
+ms.custom:
+  - devx-track-python
+  - sfi-ropc-nochange
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
@@ -195,19 +197,177 @@ Each of the built-in feature filters has its own parameters. Here's the list of 
 
 ### Microsoft.TimeWindow
 
-This filter provides the capability to enable a feature based on a time window. If only `End` is specified, the feature is considered on until that time. If only `Start` is specified, the feature is considered on at all points after that time.
+The `Microsoft.TimeWindow` filter provides a way to enable a feature based on a time window.
+
+- If you specify only an `End` value, the feature is considered on until that time.
+- If you specify only a `Start` value, the feature is considered on at all points after that time.
 
 ```json
-"client_filters": [
-    {
-        "name": "Microsoft.TimeWindow",
-        "parameters": {
-            "Start": "Wed, 01 May 2019 13:59:59 GMT",
-            "End": "Mon, 01 Jul 2019 00:00:00 GMT"
-        }
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.TimeWindow",
+                "parameters": {
+                    "Start": "Sun, 01 Jun 2025 13:59:59 GMT",
+                    "End": "Fri, 01 Aug 2025 00:00:00 GMT"
+                }
+            }
+        ]
     }
-]     
+}
 ```
+
+You can configure the filter to apply a time window on a recurring basis. This capability can be useful when you need to turn on a feature during a low-traffic or high-traffic period of a day or certain days of a week. To expand an individual time window to a recurring time window, you use a `Recurrence` parameter to specify a recurrence rule.
+
+> [!NOTE]
+> To use recurrence, you must specify `Start` and `End` values. With recurrence, the date part of the `End` value doesn't specify an end date for considering the filter active. Instead, the filter uses the end date, relative to the start date, to define the duration of the time window that recurs.
+
+```json
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.TimeWindow",
+                "parameters": {
+                    "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
+                    "End": "Sat, 23 Mar 2024 02:00:00 GMT",
+                    "Recurrence": {
+                        "Pattern": {
+                            "Type": "Daily",
+                            "Interval": 1
+                        },
+                        "Range": {
+                            "Type": "NoEnd"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+The `Recurrence` settings are made up of two parts:
+
+* The `Pattern` settings specify how often the time window repeats.
+* The `Range` settings specify for how long the recurrence pattern repeats. 
+
+#### Recurrence pattern
+
+There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window can repeat every day, every three days, every Monday, or every other Friday. 
+
+Depending on the type, certain fields of the `Pattern` settings are required, optional, or ignored.
+
+* `Daily`
+    
+  The daily recurrence pattern causes the time window to repeat based on a specified number of days between each occurrence.
+
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence pattern type. Must be set to `Daily`. |
+  | `Interval` | Optional | The number of days between each occurrence. The default value is `1`. |
+
+* `Weekly`
+
+  The weekly recurrence pattern causes the time window to repeat on the same day or days of the week. But you can specify the number of weeks between each set of occurrences.
+
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence pattern type. Must be set to `Weekly`. |
+  | `DaysOfWeek` | Required | The days of the week the event occurs on. |
+  | `Interval` | Optional | The number of weeks between each set of occurrences. The default value is `1`. |
+  | `FirstDayOfWeek` | Optional | The day to use as the first day of the week. The default value is `Sunday`. |
+
+  The following example repeats the time window every other Monday and Tuesday:
+
+  ```json
+  "Pattern": {
+      "Type": "Weekly",
+      "Interval": 2,
+      "DaysOfWeek": ["Monday", "Tuesday"]
+  }
+  ```
+
+> [!NOTE]
+> The `Start` value must be a valid first occurrence that fits the recurrence pattern. Also, the duration of the time window can't be longer than how frequently it occurs. For example, a 25-hour time window can't recur every day.
+
+#### Recurrence range
+
+There are three possible recurrence range types: `NoEnd`, `EndDate`, and `Numbered`.
+
+* `NoEnd`
+
+  The `NoEnd` range causes the recurrence to occur indefinitely.
+
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence range type. Must be set to `NoEnd`. |
+
+* `EndDate`
+
+  The `EndDate` range causes the time window to occur on all days that fit the applicable pattern until the end date.
+
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence range type. Must be set to `EndDate`. |
+  | `EndDate` | Required | 	The date and time to stop applying the pattern. If the start time of the last occurrence falls before the end date, the end time of that occurrence can extend beyond it. |
+
+  In the following example, the time window repeats every day until the last occurrence on April 1, 2024.
+
+  ```json
+  "Start": "Fri, 22 Mar 2024 18:00:00 GMT",
+  "End": "Fri, 22 Mar 2024 20:00:00 GMT",
+  "Recurrence":{
+      "Pattern": {
+          "Type": "Daily",
+          "Interval": 1
+      },
+      "Range": {
+          "Type": "EndDate",
+          "EndDate": "Mon, 1 Apr 2024 20:00:00 GMT"
+      }
+  }
+  ```
+
+* `Numbered`
+
+  The `Numbered` range causes the time window to occur a specified number of times.
+
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence range type. Must be set to `Numbered`. |
+  | `NumberOfOccurrences` | Required | The number of occurrences. |
+
+  In the following example, the time window repeats on Monday and Tuesday for a total of three occurrences, which happen on the following dates:
+
+  * Monday, April 1
+  * Tuesday, April 2
+  * Monday, April 8
+
+  ```json
+  "Start": "Mon, 1 Apr 2024 18:00:00 GMT",
+  "End": "Mon, 1 Apr 2024 20:00:00 GMT",
+  "Recurrence":{
+      "Pattern": {
+          "Type": "Weekly",
+          "Interval": 1,
+          "DaysOfWeek": ["Monday", "Tuesday"]
+      },
+      "Range": {
+          "Type": "Numbered",
+          "NumberOfOccurrences": 3
+      }
+  }
+  ```
+
+To create a recurrence rule, you must specify both `Pattern` and `Range` settings. Any pattern type can work with any range type.
+
+**Advanced:** The time zone offset of the `Start` property is applied to the recurrence settings.
 
 ### Microsoft.Targeting
 

@@ -2,13 +2,18 @@
 title: Quickstart - route messages to storage (ARM template)
 titleSuffix: Azure IoT Hub
 description: Learn how to use an ARM template to publish Azure IoT Hub, storage account, route messages in this quickstart
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: quickstart-arm
-ms.date: 01/04/2024
-ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 08/13/2025
+ms.custom:
+  - mvc
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Deploy an Azure IoT hub and a storage account using an ARM template
@@ -23,7 +28,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 
@@ -46,7 +51,7 @@ This section provides the steps to deploy the ARM template.
 
 ## Send device-to-cloud messages
 
-In this section, you register a device in your new IoT hub and then send messages from that device to IoT Hub. The route that the template configured in the IoT hub only sends messages to storage if they contain the message property `level=storage`. To test that this routing condition works as expected, we'll send some messages with that property and some without.
+In this section, you register a device in your new IoT hub and then send messages from that device to IoT Hub. The route that the template configured in the IoT hub only sends messages to storage if they contain the message property `level=storage`. To test that this routing condition works as expected, we send some messages with that property and some without.
 
 >[!TIP]
 >This quickstart uses the Azure CLI simulated device for convenience. For a code example of sending device-to-cloud messages with message properties for routing, see [HubRoutingSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/HubRoutingSample) in the Azure IoT SDK for .NET.
@@ -81,7 +86,7 @@ In this section, you register a device in your new IoT hub and then send message
    The simulator sends 100 messages and then disconnects. You don't need to wait for all 100 for the purposes of this quickstart.
 
    >[!TIP]
-   >The Azure CLI won't print the messages as it sends them. If you want to watch the messages as the arrive at your hub, you can install the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) and use it to monitor the built-in endpoint.
+   >The Azure CLI doesn't print the messages as it sends them. If you want to watch the messages as they arrive at your hub, you can install the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) and use it to monitor the built-in endpoint.
 
 1. Send device-to-cloud messages to be routed to storage.
 
@@ -101,22 +106,22 @@ In this section, you register a device in your new IoT hub and then send message
 
 1. Drill down into the storage account until you find files.
 
-   ![Look at the storage account files](./media/horizontal-arm-route-messages/07-see-storage.png)
+   :::image type="content" source="./media/horizontal-arm-route-messages/07-see-storage.png" alt-text="Screenshot showing a list of files for an Azure Storage account in the Azure portal.":::
 
 1. Select one of the files and select **Download** and download the file to a location you can find later. It has a name that's numeric, like 47. Add _.txt_ to the end and then double-click on the file to open it.
 
 1. When you open the file, each row is for a different message; the body of each message is also encrypted. It must be in order for you to perform queries against the body of the message.
 
-   ![View the sent messages](./media/horizontal-arm-route-messages/08-messages.png)
-
+   :::image type="content" source="./media/horizontal-arm-route-messages/08-messages.png" alt-text="Screenshot of sent device-to-cloud messages, from a file in an Azure Storage account.":::
+   
    > [!NOTE]
-   > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here is the path from the top of that folder: *./iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
+   > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here's the path from the top of that folder: *./iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it opens and translates the first row in the file.
 
 In this quickstart, you deployed an ARM template to create an IoT hub and a storage account, then run a program to send messages to the hub. The messages are routed based on their message properties and stored in the storage account where they can be viewed.
 
 ## Clean up resources
 
-To remove the resources added during this quickstart, sign in to the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select *Delete*. When the group is deleted, so are all of the resources in the group.
+To remove the resources added during this quickstart, sign in to the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select _Delete_. When the group is deleted, so are all of the resources in the group.
 
 ## Next steps
 

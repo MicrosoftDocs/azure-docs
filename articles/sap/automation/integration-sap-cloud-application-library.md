@@ -4,14 +4,18 @@ description: Learn how to integrate SAP Cloud Appliance Library with SAP Deploym
 author: nnoaman
 ms.author: nadeennoaman
 ms.reviewer: kimforss
-ms.date: 10/24/2024
+ms.date: 08/12/2025
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As an IT administrator, I want to integrate the SAP Cloud Appliance Library with the SAP Deployment Automation Framework, so that I can streamline the deployment and management of SAP solutions on Azure."
 ---
 # Integrate SAP Cloud Appliance Library with SAP Deployment Automation Framework
 
 The integration between SAP Deployment Automation Framework (SDAF) and [SAP Cloud Appliance Library (CAL)](https://cal.sap.com/catalog#/solutions) offers a seamless experience for customers who want to deploy infrastructure by using SDAF's guided deployment. You can use Azure Pipelines or the provided shell scripts for deployment.
+
+> [!IMPORTANT]
+> The SAP Systems Management API will be deprecated on September 30, 2025, and decommissioned on December 2, 2025. After decommissioning, the SAP Cloud Appliance Library (CAL) integration with the SAP Deployment Automation Framework (SDAF) will no longer be available.
 
 ## Introduction to SAP Cloud Appliance Library
 
@@ -111,16 +115,16 @@ To track the installation and get detailed information about steps and any error
 
 ## SAP Cloud Appliance Library API documentation
 
-The CAL installation API documentation is available on the [SAP Business Accelerator Hub](https://api.sap.com/api/Workloads/path/createSystemExt).
+The CAL installation API documentation is available on the [SAP Business Accelerator Hub](https://api.sap.com/api/Workloads/resource/createSystemExt).
 
 ## Workflow for SDAF: CAL API integration
 
-The workflow/process diagram for the installation of S/4 HANA with the CAL API is available in the article on [software provisioning of S/4 HANA](https://caldocs.hana.ondemand.com/caldocs/help/External_to_CAL_infrastructure.pdf).
+The workflow/process diagram for the installation of S/4 HANA with the CAL API is available in the article on [software provisioning of S/4 HANA](https://caldocs.cfapps.eu01.hana.ondemand.com/caldocs/help/External_to_CAL_infrastructure.pdf).
 
 ## Support
 
 - For questions about the integration experience of SAP CAL and SDAF, contact <SDAFicm@microsoft.com>.
-- For help on issues with installation, create a support request with SAP CAL on [Report an Issue Dashboard - SAP for Me](https://me.sap.com/createIssue/0).
+- For help on issues with installation, create a support request with SAP CAL on [Report an Issue Dashboard - SAP for Me](https://me.sap.com/).
   
   Raise the request for the component `BC-VCM-PSD` so that the request reaches the SAP CAL team.
 

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a network engineer, I want to create a Basic SKU VPN gateway using PowerShell, so that I can establish a secure connection between my virtual network and on-premises infrastructure or other virtual networks."
 ---
 
 # Create a Basic SKU VPN gateway using PowerShell
@@ -30,7 +31,7 @@ The Basic SKU has certain feature and performance limitations and shouldn't be u
 
 ## Before you begin
 
-These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Working with Azure PowerShell
 

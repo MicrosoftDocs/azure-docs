@@ -4,8 +4,10 @@ description: Understand the Digital Twins Definition Language (DTDL) modeling la
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/30/2024
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.service: azure-iot
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a device builder, I want to understand how to design and author a DTDL model for an IoT Plug and Play device.
 

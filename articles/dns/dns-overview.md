@@ -1,19 +1,20 @@
 ---
-title: Azure DNS overview
-description: An overview of services provided by Azure DNS.
-author: greg-lindsay
+title: "Azure DNS Overview: Hosting and Resolution"
+description: Learn how Azure DNS provides public and private DNS hosting, resolution, and load balancing for your applications using Microsoft Azure infrastructure.
+author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 08/12/2024
-ms.author: greglin
+ms.date: 12/16/2025
+ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
+# Customer intent: As an IT administrator, I want to assess Azure DNS services, so that I can decide if it meets my organization's DNS hosting and management needs better than our current solution.
 ---
 
 # Azure DNS overview
 
-The Domain Name System (DNS) is responsible for translating (resolving) a service name to an IP address. Azure DNS provides DNS hosting, resolution, and load balancing for your applications using the Microsoft Azure infrastructure. 
+The Domain Name System (DNS) translates (resolves) a service name to an IP address. Azure DNS provides DNS hosting, resolution, and load balancing for your applications by using the Microsoft Azure infrastructure. 
 
-Azure DNS supports both internet-facing DNS domains and private DNS zones, and provides the following services:
+Azure DNS supports both internet-facing DNS domains and private DNS zones. It provides the following services:
 - **[Azure Public DNS](public-dns-overview.md)** is a hosting service for DNS domains. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
 
 - **[Azure Private DNS](private-dns-overview.md)** is a DNS service for your virtual networks. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution. 
@@ -21,6 +22,8 @@ Azure DNS supports both internet-facing DNS domains and private DNS zones, and p
 - **[Azure DNS Private Resolver](dns-private-resolver-overview.md)** is a service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers.
 
 - **[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)** is a DNS-based traffic load balancer. This service allows you to distribute traffic to your public facing applications across the global Azure regions.
+
+- **[DNS Security Policy](dns-security-policy.md)** offers the ability to filter and log DNS queries at the virtual network level. It also includes a Threat Intelligence feed which allows early detection and prevention of security incidents on your Virtual Networks where known malicious domains sourced by [Microsoft's Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution. 
 
 Azure DNS enables multiple scenarios, including:
 
@@ -37,6 +40,10 @@ Azure DNS enables multiple scenarios, including:
 * [Load-balance your applications](/azure/traffic-manager/traffic-manager-how-it-works)
 * Increase application [availability](/azure/traffic-manager/traffic-manager-monitoring) and [performance](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
 * [Monitor your application traffic patterns](/azure/traffic-manager/traffic-manager-traffic-view-overview)
+* [Secure and view DNS traffic](/azure/dns/dns-traffic-log-how-to)
+
+> [!NOTE]
+> Azure DNS is one of the services that make up the Network Foundations category in Azure. Other services in this category include [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) and [Azure Private Link](../private-link/private-link-overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Foundations](../networking/foundations/network-foundations-overview.md).
 
 ## Next steps
 
@@ -45,5 +52,5 @@ Azure DNS enables multiple scenarios, including:
 * To learn about private resolver endpoints and rulesets, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
 * For frequently asked questions about Azure DNS, see [Azure DNS FAQ](dns-faq.yml).
 * For frequently asked questions about Azure Private DNS, see [Azure Private DNS FAQ](dns-faq-private.yml).
-* For frequently asked questions about Traffic Manager, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-faqs)
+* For frequently asked questions about Traffic Manager, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-faqs).
 * Also see [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

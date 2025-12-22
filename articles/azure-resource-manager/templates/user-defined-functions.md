@@ -1,16 +1,14 @@
----
+﻿---
 title: User-defined functions in templates
 description: Describes how to define and use user-defined functions in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 07/17/2025
 ---
 
 # User-defined functions in ARM template
 
-Within your template, you can create your own functions. These functions are available for use in your template. User-defined functions are separate from the [standard template functions](template-functions.md) that are automatically available within your template. Create your own functions when you have complicated expressions that are used repeatedly in your template.
-
-This article describes how to add user-defined functions in your Azure Resource Manager template (ARM template).
+User-defined functions help simplify and reuse complex expressions in your ARM templates. By encapsulating logic in custom functions, you can improve template readability, maintainability, and scalability-especially when the same logic appears in multiple places. These functions are distinct from the [built-in template functions](template-functions.md) that are always available. To define user-defined functions in Bicep, see [User-defined functions in Bicep](../bicep/user-defined-functions.md).
 
 ## Define the function
 
@@ -65,7 +63,7 @@ The following example shows a template that includes a user-defined function to 
         ],
         "output": {
           "type": "string",
-          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+          "value": "[format('{0}{1}', toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
         }
       }
     }
@@ -74,7 +72,7 @@ The following example shows a template that includes a user-defined function to 
  "resources": [
    {
      "type": "Microsoft.Storage/storageAccounts",
-     "apiVersion": "2022-09-01",
+     "apiVersion": "2025-06-01",
      "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
      "location": "South Central US",
      "sku": {
@@ -109,3 +107,4 @@ When defining a user function, there are some restrictions:
 
 * To learn about the available properties for user-defined functions, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * For a list of the available template functions, see [ARM template functions](template-functions.md).
+

@@ -19,6 +19,11 @@
             "source_path_from_root": "/articles/partner-solutions/nginx/nginx-troubleshoot.md",
             "redirect_url": "/azure/partner-solutions/nginx/troubleshoot",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/nginx/troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/partner-solutions/welcome-native-integrations",
+            "redirect_document_id": false
         }
     ]
 }

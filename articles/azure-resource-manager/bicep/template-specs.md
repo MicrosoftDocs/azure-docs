@@ -2,7 +2,7 @@
 title: Create and deploy template specs in Bicep
 description: Learn how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 12/10/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 
@@ -63,7 +63,7 @@ The following example shows a simple Bicep file for creating a storage account i
 ])
 param storageAccountType string = 'Standard_LRS'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name:  'store${uniqueString(resourceGroup().id)}'
   location: resourceGroup().location
   sku: {
@@ -133,7 +133,7 @@ resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2
       'resources': [
         {
           'type': 'Microsoft.Storage/storageAccounts'
-          'apiVersion': '2023-04-01'
+          'apiVersion': '2025-06-01'
           'name': 'store$uniquestring(resourceGroup().id)'
           'location': resourceGroup().location
           'kind': 'StorageV2'
@@ -438,4 +438,4 @@ Both the template and its versions can have tags. The tags are either applied or
 
 ## Next steps
 
-See the [Publish libraries of reusable infrastructure code by using template specs](/training/modules/arm-template-specs) Learn module for more information and hands-on guidance about template specs.
+See the [Create template specs](./quickstart-create-template-specs.md) for hands-on guidance about template specs.

@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 1. Go to the local web UI of your device and sign into your device. Ensure that the device is unlocked.

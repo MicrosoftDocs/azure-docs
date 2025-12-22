@@ -2,8 +2,8 @@
 title: Tutorial - Synchronize device state from Azure IoT Hub
 description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.devlang: javascript
 ms.topic: tutorial
@@ -34,7 +34,7 @@ In this tutorial, you perform the following tasks:
 > * Use desired properties to send state information to your simulated device.
 > * Use reported properties to receive state information from your simulated device.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

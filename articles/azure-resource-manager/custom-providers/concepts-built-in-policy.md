@@ -1,8 +1,8 @@
----
+﻿---
 title: Deploy associations using policies
 description: Learn about deploying associations for a custom resource provider using Azure Policy service.
 author: msHich
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/06/2019
 ms.author: hich
 ---
@@ -46,3 +46,4 @@ In this article, you learnt about using built-in policy to deploy associations. 
 - [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+

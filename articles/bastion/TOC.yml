@@ -6,6 +6,10 @@
     href: bastion-overview.md
   - name: What's new in Bastion?
     href: whats-new.md
+  - name: Bastion SKU comparison
+    href: bastion-sku-comparison.md
+  - name: Cost optimization principles
+    href: cost-optimization.md
 - name: Quickstarts & Tutorials
   expanded: true
   items:
@@ -21,6 +25,8 @@
     href: quickstart-deploy-terraform.md
 - name: Concepts
   items:
+  - name: Bastion configuration settings
+    href: configuration-settings.md
   - name: Work remotely
     items:
     - name: Support for working remotely
@@ -31,8 +37,6 @@
     href: bastion-faq.md
   - name: Design architecture
     href: design-architecture.md
-  - name: Bastion configuration settings
-    href: configuration-settings.md
   - name: VM connections and features
     href: vm-about.md
   - name: Bastion and VNet peering
@@ -45,6 +49,8 @@
       href: ../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json
 - name: Security
   items:
+  - name: Secure Bastion
+    href: secure-bastion.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
   - name: Azure Security blog
@@ -107,6 +113,8 @@
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs VMs
     href: ../devtest-labs/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
+  - name: Connect to an AKS cluster
+    href: bastion-connect-to-aks-private-cluster.md
   - name: Work with a VM session
     items:
     - name: Copy and paste

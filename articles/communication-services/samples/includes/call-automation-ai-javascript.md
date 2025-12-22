@@ -1,43 +1,45 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
 manager: visho
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 12/08/2023
 ms.topic: include
-ms.custom: include file
 ms.author: kpunjabi
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
-## Download code  
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/callautomation-openai-sample). You can download this code and run it locally to try it for yourself. 
+## Download code
 
-## Overview 
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/callautomation-openai-sample). You can download this code and run it locally to try it for yourself.
 
-This sample is a server-side application that helps you create a virtual assistant capable of handling calls using Call Automation and responding to customers using the newly announced integration with Azure AI services to provide AI capabilities such as Text-to-Speech and Speech-to-Text along with smart responses provided by Azure OpenAI. 
+## Overview
 
-This Azure Communication Services Call Automation AI sample demonstrates how to use the Call Automation SDK to answer an inbound call, recognizes user voice input using Call Automation recognize API with support for Speech-to-Text. Once input is recognized, it sends that information to OpenAI for an answer and plays the answer that is provided back by OpenAI to the caller using Call Automation play API with support for Text-to-Speech.
+This sample is a server-side application that helps you create a virtual assistant that can handle calls by using Call Automation. The virtual assistant responds to customers by using the newly announced integration with Azure AI services to provide AI capabilities such as text to speech and speech to text, along with smart responses provided by Azure OpenAI.
+
+This Azure Communication Services Call Automation AI sample demonstrates how to use the Call Automation SDK to answer an inbound call. It recognizes user voice input by using Call Automation to recognize the API with support for speech to text. When the system recognizes the input, it sends that information to OpenAI for an answer. It uses the Call Automation Play API with support for text to speech to play back the answer provided by OpenAI to the caller.
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
-- A Calling-enabled telephone number. [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
--- [Node.js](https://nodejs.org/en/download) installed
-- Azure Dev Tunnels. For details, see  [Enable dev tunnel](/azure/developer/dev-tunnels/get-started)
-- Create an Azure AI Multi service resource. For details, see [Create an Azure AI services Resource](/azure/ai-services/multi-service-resource)
-- An Azure OpenAI Resource and Deployed Model. See [instructions](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
-
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
+- A calling-enabled telephone number. For more information, see [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
+- [Node.js](https://nodejs.org/en/download) installed.
+- An Azure dev tunnel. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
+- An Azure AI multiservice resource. For more information, see [Create an Azure AI services resource](/azure/ai-services/multi-service-resource).
+- An Azure OpenAI resource and deployed model. For more information, see [Create an Azure OpenAI resource and deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
 ## Setup instructions
 
-Before running this sample, you need to set up the resources mentioned in the 'Prerequisites' section with the following configuration updates:
+Before you run this sample, you need to set up the resources mentioned in the preceding section with the following configuration updates.
 
-##### 1. Setup and host your Azure DevTunnel
+#### Step 1: Set up and host your Azure dev tunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands provided in this document to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll use this endpoint to notify your application of calling events from the ACS Call Automation service.
+With [dev tunnels](/azure/developer/dev-tunnels/overview), you can share local web services that are hosted on the internet. Use the following commands to connect your local development environment to the public internet. This process creates a tunnel with a persistent endpoint URL and allows anonymous access. We use this endpoint to notify your application of calling events from Call Automation.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -47,30 +49,32 @@ devtunnel host
 
 <a name='2-add-a-managed-identity-to-the-acs-resource-that-connects-to-the-cognitive-services-resource'></a>
 
-##### 2. Add a Managed Identity to the Azure Communication Services Resource that connects to the Azure AI services resource
-Follow the instructions in this [documentation](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
+#### Step 2: Add a managed identity to the Azure Communication Services resource that connects to the Azure AI services resource
 
-##### 3. Add the required API Keys and endpoints
-Open the `.env` file to configure the following settings
+Follow the instructions in [Connect Azure Communication Services with Azure AI services](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
-1. `CONNECTION_STRING`: Azure Communication Service resource's connection string.
-2. `CALLBACK_URI`: Base url of the app. (For local development replace the dev tunnel url)
-3. `COGNITIVE_SERVICE_ENDPOINT`: Azure AI Service endpoint
-4. `AZURE_OPENAI_SERVICE_KEY`: Azure OpenAI service key
-5. `AZURE_OPENAI_SERVICE_ENDPOINT`: Azure OpenAI endpoint
-6. `AZURE_OPENAI_DEPLOYMENT_MODEL_NAME`: Azure OpenAI deployment name
-6. `AGENT_PHONE_NUMBER`: Agent phone number to transfer the call to resolve queries
+#### Step 3: Add the required API keys and endpoints
 
+Open the `.env` file to configure the following settings:
+
+- `CONNECTION_STRING`: Azure Communication Services resource connection string.
+- `CALLBACK_URI`: Base URL of the app. For local development, replace the dev tunnel URL.
+- `COGNITIVE_SERVICE_ENDPOINT`: Azure AI service endpoint.
+- `AZURE_OPENAI_SERVICE_KEY`: Azure OpenAI service key.
+- `AZURE_OPENAI_SERVICE_ENDPOINT`: Azure OpenAI endpoint.
+- `AZURE_OPENAI_DEPLOYMENT_MODEL_NAME`: Azure OpenAI deployment name.
+- `AGENT_PHONE_NUMBER`: Agent phone number to transfer the call to resolve queries.
 
 ## Run the application
 
-1. Open a new PowerShell window, cd into the `callautomation-openai-sample` folder and run `npm run dev`
-2. Browser should pop up with the below page. If not, navigate it to `http://localhost:8080/`
-3. Register an Event Grid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](/azure/communication-services/concepts/call-automation/incoming-call-notification).
+1. Open a new PowerShell window, use the `cd` command to open the `callautomation-openai-sample` folder, and run `npm run dev`.
+1. The browser opens with a page. If it doesn't, go to `http://localhost:8080/`.
+1. Register an Azure Event Grid webhook for the `IncomingCall` event that points to your `DevTunnel` URI. For more information, see [Incoming call concepts](/azure/communication-services/concepts/call-automation/incoming-call-notification).
 
-Once that's completed, you should have a running application. The best way to test this sample is to place a call to your Azure Communication Services phone number and talk to your intelligent agent.
+Now you have a running application. The best way to test this sample is to place a call to your Azure Communication Services phone number and talk to your intelligent agent.
 
-## Next steps
+## Related content
+
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md).
 - Learn more about [playing custom messages](../../how-tos/call-automation/play-action.md).
 - Learn more about [recognizing user input](../../how-tos/call-automation/recognize-action.md).

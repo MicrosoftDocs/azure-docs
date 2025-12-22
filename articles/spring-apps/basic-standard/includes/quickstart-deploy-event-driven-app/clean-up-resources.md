@@ -3,7 +3,8 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 08/31/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!-- 
@@ -43,7 +44,7 @@ az group delete --name ${RESOURCE_GROUP}
 
 ::: zone-end
 
-::: zone pivot="sc-consumption-plan,sc-standard"
+::: zone pivot="sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 

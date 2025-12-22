@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.author: primittal
-ms.reviewer: franlanglois
+ms.reviewer: primittal
 author: pri-mittal
-ms.date: 03/26/2025
+ms.date: 10/28/2025
 
 ---
 

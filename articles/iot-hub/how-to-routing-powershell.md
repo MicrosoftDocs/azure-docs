@@ -1,13 +1,15 @@
 ---
 title: Create and delete routes and endpoints by using Azure PowerShell
 description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using Azure PowerShell.
-author: SoniaLopezBravo
+author: cwatson-cat
 ms.service: azure-iot-hub
-ms.custom: devx-track-azurepowershell
 services: iot-hub
 ms.topic: how-to
 ms.date: 12/05/2024
-ms.author: sonialopez
+ms.author: cwatson
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Create and delete routes and endpoints by using Azure PowerShell
@@ -27,7 +29,7 @@ Review the prerequisites for this article based on the type of endpoint you want
 
 ### [Event Hubs](#tab/eventhubs)
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * An IoT hub. If you don't have a hub, you can follow the steps to [create an IoT hub](create-hub.md).
 
@@ -39,7 +41,7 @@ Review the prerequisites for this article based on the type of endpoint you want
 
 ### [Service Bus queue](#tab/servicebusqueue)
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * An IoT hub. If you don't have a hub, you can follow the steps to [create an IoT hub](create-hub.md).
 
@@ -51,7 +53,7 @@ Review the prerequisites for this article based on the type of endpoint you want
 
 ### [Service Bus topic](#tab/servicebustopic)
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * An IoT hub. If you don't have a hub, you can follow the steps to [create an IoT hub](create-hub.md).
 
@@ -63,7 +65,7 @@ Review the prerequisites for this article based on the type of endpoint you want
 
 ### [Azure Storage](#tab/azurestorage)
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * An IoT hub. If you don't have a hub, you can follow the steps to [create an IoT hub](create-hub.md).
 

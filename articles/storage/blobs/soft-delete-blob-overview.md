@@ -5,9 +5,10 @@ description: Soft delete for blobs protects your data so that you can more easil
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/17/2024
 ms.author: normesta
+# Customer intent: "As a data manager, I want to implement blob soft delete for my storage accounts, so that I can recover accidentally deleted or modified blobs during a specified retention period and ensure the safety of my data against accidental loss."
 ---
 
 # Soft delete for blobs
@@ -105,7 +106,7 @@ If blob versioning and blob soft delete are both enabled for a storage account, 
 
 If blob versioning and blob soft delete are both enabled for a storage account, then when you delete a blob, the current version of the blob becomes a previous version, and there's no longer a current version. No new version is created and no soft-deleted snapshots are created. All previous versions are retained until they're explicitly deleted, either with a direct delete operation or via a lifecycle management policy.
 
-Enabling soft delete and versioning together protects previous blob versions as well as current versions from deletion. When soft delete is enabled, explicitly deleting a previous version creates a soft-deleted version that is retained until the soft-delete retention period elapses. After the soft-delete retention period has elapsed, the soft-deleted blob version is permanently deleted.
+Enabling soft delete and versioning together protects previous blob versions as well as current versions from deletion. When soft delete is enabled, versions remain undeleted even if the blob is deleted. If you delete a version, then that version becomes soft-deleted. Soft-deleted versions are retained until the soft-delete retention period elapses. After the retention period has elapsed, the soft-deleted blob version is permanently deleted.
 
 You can use the **Undelete Blob** operation to restore soft-deleted versions during the soft-delete retention period. The **Undelete Blob** operation always restores all soft-deleted versions of the blob. It isn't possible to restore only a single soft-deleted version.
 

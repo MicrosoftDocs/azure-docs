@@ -1,0 +1,44 @@
+### YamlMime:FAQ
+metadata:
+  title: Dell PowerScale Preview FAQ
+  description: Get answers to common questions about using Dell PowerScale on Azure.
+  ms.topic: faq
+  ms.date: 08/12/2025
+
+title: Dell PowerScale Preview FAQ
+summary: |
+  This FAQ provides answers to common questions about Dell PowerScale Preview.
+
+sections:
+  - name: General
+    questions:
+      - question: What is Dell PowerScale for Azure?
+        answer: |
+          Dell PowerScale is an enterprise-class, high-performance software-defined file storage solution that brings PowerScale OneFS software to Azure. It's jointly developed and managed by Microsoft and Dell, and available as a native service in the Azure portal and Azure Marketplace.
+      - question: How do I provision Dell PowerScale on Azure?
+        answer: |
+          You can provision Dell PowerScale directly from the Azure portal or from Azure Marketplace. Search for the service, select your preferred plan, and subscribe. Resources are created through the Dell.Storage resource provider. For more information, see [Create a resource](create.md).
+      - question: What protocols are supported?
+        answer: |
+          Dell PowerScale supports NFS, SMB, and S3 protocols.
+      - question: How is billing handled?
+        answer: |
+          Unified billing is provided in your Azure monthly bill. All Dell PowerScale costs appear on a single line item.
+      - question: What security features are available?
+        answer: |
+          Private access is enforced within your Azure virtual network via Vnet Injection. Data is encrypted at rest via Microsoft-managed keys.
+      - question: What are the prerequisites for deployment?
+        answer: |
+          You must have Owner or Contributor access to your Azure subscription and a Dell reference number, which is provided after you complete the Dell form in the offer listing.
+      - question: Can I scale my storage resources?
+        answer: |
+          Yes. Dell PowerScale offers seamless scalability and operational consistency, similar to on-premises PowerScale.
+      - question: How do I manage my Dell PowerScale resource?
+        answer: |
+          Use the Azure portal to view, configure, and manage your Dell PowerScale resource. The **Get Started** tab provides links to Dell documentation, the OneFS portal for deployment and maintenance, and Dell AIOps for observability. For more information, see [Manage your resource](manage.md).
+      - question: How do I delete my Dell PowerScale resource?
+        answer: |
+          For instructions on how to delete a resource, see [Delete a resource](manage.md#delete-a-resource). Note that this action isn't reversible. The data contained in the file system is permanently deleted if you delete the resource.
+      - question: Where can I find more documentation and support?
+        answer: |
+          Visit the Dell documentation hub and support resources for information about configuration, management, and troubleshooting. See [PowerScale for Public Cloud](https://www.dell.com/support/product-details/en-us/product/apex-file-storage-public-cloud/resources/manuals).

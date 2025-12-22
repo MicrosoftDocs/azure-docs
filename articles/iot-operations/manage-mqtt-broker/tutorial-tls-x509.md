@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Azure IoT Operations MQTT broker TLS, X.509 client authentication, and ABAC"
 description: "Learn how to configure the Azure IoT Operations MQTT broker with TLS encryption, X.509 client authentication, and attribute-based access control (ABAC) authorization."
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
@@ -251,7 +251,7 @@ mqtts-endpoint   LoadBalancer   10.43.28.140   XXX.XX.X.X    8883:30988/TCP   10
 Instead of using the external IP, we use `localhost` for the tutorial. 
 
 > [!TIP]
-> The codespace configuration automatically sets up port forwarding for 8883. To setup other environments, see [Use port forwarding](./howto-test-connection.md#use-port-forwarding).
+> The codespace configuration automatically sets up port forwarding for 8883. To set up other environments, see [Use port forwarding](./howto-test-connection.md#use-port-forwarding).
 
 ## Use a single Mosquito client to publish messages over TLS
 
@@ -304,7 +304,7 @@ To restrict access to MQTT topics based on the client certificate attributes, cr
           {
             "method": "Publish",
             "topics": [
-              "telemetry/temperature"
+              "sensor/temperature"
             ]
           }
         ]
@@ -324,7 +324,7 @@ To restrict access to MQTT topics based on the client certificate attributes, cr
           {
             "method": "Publish",
             "topics": [
-              "telemetry/humidity"
+              "sensor/humidity"
             ]
           }
         ]
@@ -362,8 +362,8 @@ To restrict access to MQTT topics based on the client certificate attributes, cr
           {
             "method": "Subscribe",
             "topics": [
-              "telemetry/temperature",
-              "telemetry/humidity"
+              "sensor/temperature",
+              "sensor/humidity"
             ]
           }
         ]
@@ -388,10 +388,10 @@ Then, update the MQTT broker listener to use the new authorization policy.
 
 In this section, we test out the newly applied authorization policies.
 
-First, connect with `thermostat` and try to publish on topic `telemetry/humidity`:
+First, connect with `thermostat` and try to publish on topic `sensor/humidity`:
 
 ```sh
-mosquitto_pub -t "telemetry/humidity" -m "example temperature measurement" -i thermostat \
+mosquitto_pub -t "sensor/humidity" -m "example temperature measurement" -i thermostat \
 -q 1 -V mqttv5 -d \
 -h localhost \
 --key thermostat.key \
@@ -404,15 +404,15 @@ Since `thermostat` is part of `thermostat_group`, which isn't allowed to publish
 ```console {hl_lines=5}
 Client thermostat sending CONNECT
 Client thermostat received CONNACK (0)
-Client thermostat sending PUBLISH (d0, q1, r0, m1, 'telemetry/humidity', ... (6 bytes))
+Client thermostat sending PUBLISH (d0, q1, r0, m1, 'sensor/humidity', ... (6 bytes))
 Client thermostat received PUBACK (Mid: 1, RC:135)
 Warning: Publish 1 failed: Not authorized.
 ```
 
-Change to publish to `telemetry/temperature`, which is allowed and the publish succeeds. Leave the command running.
+Change to publish to `sensor/temperature`, which is allowed and the publish succeeds. Leave the command running.
 
 ```sh
-mosquitto_pub -t "telemetry/temperature" -m "example temperature measurement" -i thermostat \
+mosquitto_pub -t "sensor/temperature" -m "example temperature measurement" -i thermostat \
 -q 1 -V mqttv5 -d \
 -h localhost \
 --repeat 10000 \
@@ -445,10 +445,10 @@ Client heater received SUBACK
 Subscribed (mid: 1): 135
 ```
 
-Switch the subscription topic to `telemetry/temperature`, which `thermostat` is still sending messages to.
+Switch the subscription topic to `sensor/temperature`, which `thermostat` is still sending messages to.
 
 ```sh
-mosquitto_sub -q 1 -t "telemetry/temperature" -d -V mqttv5 \
+mosquitto_sub -q 1 -t "sensor/temperature" -d -V mqttv5 \
 -i heater \
 -h localhost \
 --key heater.key \
@@ -504,4 +504,4 @@ Finally, delete the certificates and keys generated earlier.
 ```sh
 rm contoso_root_ca.crt contoso_root_ca.key contoso_intermediate_ca.crt contoso_intermediate_ca.key mqtts-endpoint.crt mqtts-endpoint.key
 rm fabrikam_root_ca.crt fabrikam_root_ca.key fabrikam_intermediate_ca.crt fabrikam_intermediate_ca.key thermostat.crt thermostat.key hygrometer.crt hygrometer.key heater.crt heater.key lightbulb.crt lightbulb.key
-````
+```

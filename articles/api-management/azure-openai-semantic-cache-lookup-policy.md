@@ -9,7 +9,8 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 12/13/2024
+ms.date: 10/27/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -21,8 +22,7 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 > [!NOTE]
 > * This policy must have a corresponding [Cache responses to Azure OpenAI API requests](azure-openai-semantic-cache-store-policy.md) policy. 
-> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
-> * Currently, this policy is in preview.
+> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for LLM APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -32,7 +32,7 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 ```xml
 <azure-openai-semantic-cache-lookup
-    score-threshold="similarity score threshold"
+    score-threshold="score threshold to return cached response"
     embeddings-backend-id ="backend entity ID for embeddings API"
     embeddings-backend-auth ="system-assigned"             
     ignore-system-messages="true | false"      
@@ -41,33 +41,7 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 </azure-openai-semantic-cache-lookup>
 ```
 
-## Attributes
-
-| Attribute         | Description                                            | Required | Default |
-| ----------------- | ------------------------------------------------------ | -------- | ------- |
-| score-threshold	| Similarity score threshold used to determine whether to return a cached response to a prompt. Value is a decimal between 0.0 and 1.0. [Learn more](../redis/tutorial-semantic-cache.md#change-the-similarity-threshold). | Yes |	N/A |
-| embeddings-backend-id | [Backend](backends.md) ID for OpenAI embeddings API call. |	Yes |	N/A |
-| embeddings-backend-auth | Authentication used for Azure OpenAI embeddings API backend. | Yes. Must be set to `system-assigned`. | N/A |
-| ignore-system-messages | Boolean. If set to `true`, removes system messages from a GPT chat completion prompt before assessing cache similarity. | No | false |
-| max-message-count | If specified, number of remaining dialog messages after which caching is skipped. | No | N/A |
-                                             
-## Elements
-
-|Name|Description|Required|
-|----------|-----------------|--------------|
-|vary-by| A custom expression determined at runtime whose value partitions caching. If multiple `vary-by` elements are added, values are concatenated to create a unique combination. | No |
-
-## Usage
-
-
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
-
-### Usage notes
-
-- This policy can only be used once in a policy section.
-
+[!INCLUDE [api-management-semantic-cache-policy-details](../../includes/api-management-semantic-cache-policy-details.md)]
 
 ## Examples
 

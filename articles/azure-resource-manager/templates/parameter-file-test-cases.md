@@ -1,9 +1,9 @@
----
+﻿---
 title: Parameter file test cases for Azure Resource Manager test toolkit
 description: Describes the parameter file tests that are run by the Azure Resource Manager template test toolkit.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 07/23/2025
 ---
 
 # Test cases for parameter files
@@ -165,3 +165,4 @@ The following example **passes**.
 - For ARM template tests, see [Test cases for ARM templates](template-test-cases.md).
 - For createUiDefinition tests, see [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md).
 - To learn about tests for all files, see [Test cases for all files](all-files-test-cases.md).
+

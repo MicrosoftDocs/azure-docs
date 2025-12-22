@@ -7,7 +7,9 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/07/2025
 ms.author: cherylmc
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 ---
 # Scenario: Route traffic through an NVA
@@ -99,6 +101,8 @@ In **Figure 2**, there are two hubs; **Hub1** and **Hub2**.
 * For this scenario, you can use either a third party NVA, or Azure Firewall in VNet 2 and VNet 4.
 
 * This scenario doesn't support Secure Hubs with Routing Intent due to the [routing policies limitations](how-to-routing-policies.md#knownlimitations) regarding static routes. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md) to use indirect spokes together with Secure Hubs with Routing Intent.
+
+* Make sure to review the static routes placed on your VNet Connections and check if [bypass next hop IP for workloads within this VNet](howto-connect-vnet-hub.md#bypassexplained) is enabled for your connection.
 
 ## <a name="workflow"></a>Scenario workflow
 

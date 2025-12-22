@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 06/05/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to configure private and public network endpoints for Azure File Sync, so that I can securely manage access to file shares and enhance network security.
 ---
 
 # Configure Azure File Sync public and private network endpoints
@@ -26,7 +27,7 @@ We recommend reading [Azure File Sync networking considerations](file-sync-netwo
 
 This article assumes that:
 
-- You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - You've already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json).
 - You allow domain traffic to the following endpoints, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy.md#firewall):
 

@@ -1,7 +1,7 @@
 ---
 title: Template with dependent resources
 description: Learn how to create an Azure Resource Manager template (ARM template) with multiple resources, and how to deploy it using the Azure portal.
-ms.date: 01/30/2025
+ms.date: 10/29/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
@@ -21,7 +21,7 @@ This tutorial covers the following tasks:
 > * Explore the template
 > * Deploy the template
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 For a Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 
@@ -29,7 +29,7 @@ For a Learn module that covers resource dependencies, see [Manage complex cloud 
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. For more information, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* [Visual Studio Code](https://code.visualstudio.com/).
 * To increase security, use a generated password for the virtual machine administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
     ```shell

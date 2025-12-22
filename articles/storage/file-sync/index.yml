@@ -73,8 +73,8 @@ landingContent:
         links:
           - text: Implement a hybrid file server infrastructure
             url: /training/modules/implement-hybrid-file-server-infrastructure/
-          - text: Extend your on-premises file share capacity using Azure File Sync
-            url: /training/modules/extend-share-capacity-with-azure-file-sync/
+          - text: Configure Azure Files and Azure File Sync
+            url: /training/modules/configure-azure-files-file-sync/
 
   # Card
   - title: Architecture

@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub limits | Microsoft Docs
 description: Understand key limits for Azure Device Update for IoT Hub.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/21/2025
 ms.topic: conceptual
 ms.service: azure-iot-hub

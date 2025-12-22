@@ -8,7 +8,7 @@ ms.author: cgillum
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python
 ms.reviewer: azfuncdf
 zone_pivot_groups: df-languages
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#customer intent: As a cloud developer or architect, I want to understand Durable Functions patterns and capabilities so that I can design and implement resilient, stateful workflows in a serverless environment.
 ---
 
 # What are Durable Functions?

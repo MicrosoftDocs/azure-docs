@@ -12,9 +12,9 @@ ms.author: egrootenboer
 
 Communication between a client application and an Azure Service Bus namespace is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://datatracker.ietf.org/wg/tls/about/).
 
-Azure Service Bus supports choosing a specific TLS version for namespaces. Currently Azure Service Bus uses TLS 1.2 on public endpoints by default, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
+Azure Service Bus supports choosing a specific TLS version for namespaces. Currently Azure Service Bus uses TLS 1.3 on public endpoints by default, but TLS 1.2 is still supported for backward compatibility.
 
-Azure Service Bus namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Service Bus namespace to require that clients send and receive data with a newer version of TLS. If a Service Bus namespace requires a minimum version of TLS, then any requests made with an older version will fail.
+Azure Service Bus namespaces permit clients to send and receive data with TLS 1.2 and above. To enforce stricter security measures, you can configure your Service Bus namespace to require that clients send and receive data with a newer version of TLS. If a Service Bus namespace requires a minimum version of TLS, then any requests made with an older version will fail.
 
 > [!IMPORTANT]
 > If you are using a service that connects to Azure Service Bus, make sure that service is using the appropriate version of TLS to send requests to Azure Service Bus before you set the required minimum version for a Service Bus namespace.
@@ -46,7 +46,7 @@ When a client sends a request to Service Bus namespace, the client establishes a
 Here're a few important points to consider:
 
 - A network trace would show the successful establishment of a TCP connection and successful TLS negotiation, before a 401 is returned if the TLS version used is less than the minimum TLS version configured.
-- Penetration or endpoint scanning on `yournamespace.servicebus.windows.net` will indicate the support for TLS 1.0, TLS 1.1, and TLS 1.2, as the service continues to support all these protocols. The minimum TLS version, enforced at the namespace level, indicates what the lowest TLS version the namespace will support. 
+- Penetration or endpoint scanning on `yournamespace.servicebus.windows.net` will indicate the support for TLS 1.2 and TLS 1.3, as the service continues to support all these protocols. The minimum TLS version, enforced at the namespace level, indicates what the lowest TLS version the namespace will support. 
 
 ## Next steps
 

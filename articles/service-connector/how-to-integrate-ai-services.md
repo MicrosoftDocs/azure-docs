@@ -6,7 +6,8 @@ author: wchigit
 ms.author: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 09/30/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -106,5 +107,5 @@ Refer to the steps and code below to connect to Azure AI Services using a servic
 ## Related content
 
 * [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
-* [Azure OpenAI Service integration](./how-to-integrate-openai.md)
-* [Connect to Azure OpenAI Service in AKS using a Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
+* [Azure OpenAI integration](./how-to-integrate-openai.md)
+* [Connect to Azure OpenAI in AKS using a Workload Identity](./tutorial-python-aks-openai-workload-identity.md)

@@ -2,12 +2,15 @@
 title: Assign Azure roles to external users using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users external to an organization using the Azure portal and Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/30/2025
 ms.author: rolyon
-ms.custom: it-pro,subject-rbac-steps
+ms.custom:
+  - it-pro
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Assign Azure roles to external users using the Azure portal
@@ -60,7 +63,7 @@ For more information about the invitation process, see [Microsoft Entra B2B coll
 
 ## Assign a role to an external user
 
-In Azure RBAC, to grant access, you assign a role. To assign a role to an external user, you follow [same steps](role-assignments-portal.yml) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to an external user at different scopes.
+In Azure RBAC, to grant access, you assign a role. To assign a role to an external user, you follow [same steps](/azure/role-based-access-control/role-assignments-portal) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to an external user at different scopes.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -110,7 +113,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to an extern
 
 ## Assign a role to an external user not yet in your directory
 
-To assign a role to an external user, you follow [same steps](role-assignments-portal.yml) as you would for a member user, group, service principal, or managed identity.
+To assign a role to an external user, you follow [same steps](/azure/role-based-access-control/role-assignments-portal) as you would for a member user, group, service principal, or managed identity.
 
 If the external user is not yet in your directory, you can invite the user directly from the Select members pane.
 

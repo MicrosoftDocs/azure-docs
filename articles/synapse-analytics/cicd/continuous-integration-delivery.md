@@ -8,6 +8,9 @@ ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: liud 
 ms.reviewer: pimorano
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace
@@ -248,6 +251,8 @@ You can choose the operation types based on the use case. Following part is an e
 
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime type in different environments must be the same. For example, if you have a self-hosted integration runtime in the development environment, the same integration runtime must be self-hosted in other environments, such as in test and production. Similarly, if you're sharing integration runtimes across multiple stages, the integration runtimes must be linked and self-hosted in all environments, such as in development, test, and production.
+>           
+> Currently, the DevOps Service Connection with **Workload Identity Federation (WIF)** is not supported in Synapse Workspace deployment extension. Switch to secret mode to make the connection successful.
 
 ### Create a release for deployment
 

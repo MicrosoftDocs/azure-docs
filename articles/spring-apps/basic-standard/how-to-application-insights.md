@@ -5,9 +5,14 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 zone_pivot_groups: spring-apps-tier-selection
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Use Application Insights Java In-Process Agent in Azure Spring Apps
@@ -17,7 +22,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > With Spring Boot Native Image applications, use the [Azure Monitor OpenTelemetry Distro / Application Insights in Spring Boot native image Java application](https://aka.ms/AzMonSpringNative) project instead of the Application Insights Java agent.
 
 
-**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Apps.
 

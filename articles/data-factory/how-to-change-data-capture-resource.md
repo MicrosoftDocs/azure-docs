@@ -6,6 +6,7 @@ ms.author: noelleli
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-flows
+ms.custom: sfi-image-nochange
 ---
 
 # Capture changed data from Azure Data Lake Storage Gen2 to Azure SQL Database by using a change data capture resource
@@ -25,7 +26,7 @@ You can modify and expand the configuration pattern in this article.
 
 Before you begin the procedures in this article, make sure that you have these resources:
 
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free).
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * **SQL database**. You use Azure SQL Database as a source data store. If you don't have a SQL database, create one in the Azure portal.
 * **Storage account**. You use Delta Lake stored in Azure Data Lake Storage Gen2 as a target data store. If you don't have a storage account, see [Create a storage account](/azure/storage/common/storage-account-create) for the steps to create one.
 

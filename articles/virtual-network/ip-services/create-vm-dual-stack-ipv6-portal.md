@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 07/24/2024
 ms.custom: template-how-to
+# Customer intent: As a cloud engineer, I want to create a virtual machine with a dual-stack network in Azure using the portal, CLI, or PowerShell, so that I can ensure both IPv4 and IPv6 connectivity for my applications.
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network
@@ -19,11 +20,11 @@ In this article, you create a virtual machine in Azure with the Azure portal. Th
 
 # [Azure portal](#tab/azureportal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 # [Azure CLI](#tab/azurecli/)
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -31,7 +32,7 @@ In this article, you create a virtual machine in Azure with the Azure portal. Th
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 - Sign in to Azure PowerShell and select the subscription you want to use. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 - Ensure your Az. Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az. Network".

@@ -1,8 +1,8 @@
 ---
 title: Provision Azure Device Update for IoT Hub agent| Microsoft Docs
 description: Learn how to provision the Azure Device Update for Azure IoT Hub agent.
-author: eshashah-msft
-ms.author: eshashah
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 12/19/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
@@ -173,25 +173,33 @@ Devices running the Device Update agent send HTTPS requests to communicate with 
 
 Before configuring Device Update, ensure that you have the the Proxy URL. Proxy URL is in the format protocol://proxy_host:proxy_port.
 
-Navigate to the Device Update configuration by running the following command:
+Create a systemd override configuration directory and the override file by running the following command:
 
    ```shell
-   sudo systemctl edit deviceupdate-agent.service
+   sudo mkdir -p /etc/systemd/system/deviceupdate-agent.service.d
+   sudo nano /etc/systemd/system/deviceupdate-agent.service.d/override.conf
    ```
+
 
 Add the proxy details to the configuration
 
    ```shell
    [Service]
-   Environment="https_proxy=<Proxy URL>"
+   Environment="HTTP_PROXY=http://your.proxy.server:port"
+   Environment="HTTPS_PROXY=http://your.proxy.server:port"
    ```
 
 Restart the agent to apply the changes:
 
    ```shell
+   sudo systemctl daemon-reexec
    sudo systemctl daemon-reload
    sudo systemctl restart deviceupdate-agent
-   sudo systemctl status deviceupdate-agent
+   ```
+You can then check the environment variables are applied using
+
+   ```shell
+   sudo systemctl show deviceupdate-agent | grep -i proxy
    ```
 
 ## Build and run a Device Update agent

@@ -7,6 +7,7 @@ ms.author: beber
 ms.date: 10/30/2023
 ms.service: azure-storage
 ms.topic: quickstart
+# Customer intent: "As an IT manager, I want to implement intelligent tiering for cold file data to Azure Blob storage, so that I can reduce storage costs and optimize data management while ensuring smooth access for users."
 ---
 
 # Optimize File Storage with Komprise Intelligent Tiering for Azure 

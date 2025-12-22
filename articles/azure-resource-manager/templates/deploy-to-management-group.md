@@ -1,21 +1,21 @@
----
+﻿---
 title: Deploy resources to management group
-description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
-ms.topic: conceptual
-ms.date: 03/26/2024
+description: Describes how to deploy resources at the management-group scope in an Azure Resource Manager template.
+ms.topic: article
+ms.date: 08/01/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
-# Management group deployments with ARM templates
+# Management-group deployments with ARM templates
 
-As your organization matures, you can deploy an Azure Resource Manager template (ARM template) to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
+As your organization matures, you can deploy an Azure Resource Manager template (ARM template) to create resources at the management-group level. For example, you might need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management-group-level templates, you can declaratively apply policies and assign roles at the management-group level.
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [management group deployments](../bicep/deploy-to-management-group.md).
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [management-group deployments](../bicep/deploy-to-management-group.md).
 
 ## Supported resources
 
-Not all resource types can be deployed to the management group level. This section lists which resource types are supported.
+Not all resource types can be deployed to the management-group level. This section lists which resource types are supported.
 
 For Azure Blueprints, use:
 
@@ -49,11 +49,11 @@ For managing your resources, use:
 * [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [tags](/azure/templates/microsoft.resources/tags)
 
-Management groups are tenant-level resources. However, you can create management groups in a management group deployment by setting the scope of the new management group to the tenant. See [Management group](#management-group).
+Management groups are tenant-level resources. However, you can create management groups in a management-group deployment by setting the scope of the new management group to the tenant. See [Management group](#management-group).
 
 ## Schema
 
-The schema you use for management group deployments is different than the schema for resource group deployments.
+The schema you use for management-group deployments is different than the schema for resource group deployments.
 
 For templates, use:
 
@@ -75,7 +75,7 @@ The schema for a parameter file is the same for all deployment scopes. For param
 
 ## Deployment commands
 
-To deploy to a management group, use the management group deployment commands.
+To deploy to a management group, use the management-group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -114,11 +114,11 @@ For more detailed information about deployment commands and options for deployin
 
 ## Deployment location and name
 
-For management group level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Subscription](deploy-to-subscription.md) and [tenant](deploy-to-tenant.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
+For management-group-level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Subscription](deploy-to-subscription.md) and [tenant](deploy-to-tenant.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
 
 You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named _azuredeploy.json_ creates a default deployment name of **azuredeploy**.
 
-For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. For example, if you create a management group deployment with the name **deployment1** in **centralus**, you can't later create another deployment with the name **deployment1** but a location of **westus**. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. For example, if you create a management-group deployment with the name **deployment1** in **centralus**, you can't later create another deployment with the name **deployment1** but a location of **westus**. If you get the error code `InvalidDeploymentLocation`, use a different name or the same location as the previous deployment for that name.
 
 ## Deployment scopes
 
@@ -132,7 +132,7 @@ When deploying to a management group, you can deploy resources to:
 
 [!INCLUDE [Scope transitions](../../../includes/resource-manager-scope-transition.md)]
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+An [extension resource](scope-extension-resources.md) can be scoped to a target that's different from the deployment target.
 
 The user deploying the template must have access to the specified scope.
 
@@ -140,51 +140,189 @@ This section shows how to specify different scopes. You can combine these differ
 
 ### Scope to target management group
 
-Resources defined within the resources section of the template are applied to the management group from the deployment command.
+Resources defined within the **resources** section of the template are applied to the management group from the deployment command:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    management-group-resources-default
+  ],
+  "outputs": {}
+}
+```
 
 ### Scope to another management group
 
-To target another management group, add a nested deployment and specify the `scope` property. Set the `scope` property to a value in the format `Microsoft.Management/managementGroups/<mg-name>`.
+To target another management group, add a nested deployment and specify the `scope` property. Set the `scope` property to a value in the `Microsoft.Management/managementGroups/<mg-name>` format.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,18,22":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "mgName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "mgId": "[format('Microsoft.Management/managementGroups/{0}', parameters('mgName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedDeployment",
+      "scope": "[variables('mgId')]",
+      "location": "eastus",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          management-group-resources-non-default
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ### Scope to subscription
 
 You can also target subscriptions within a management group. The user deploying the template must have access to the specified scope.
 
-To target a subscription within the management group, use a nested deployment and the `subscriptionId` property.
+To target a subscription within the management group, use a nested deployment and the `subscriptionId` property:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="9,10,18":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedSub",
+      "location": "westus2",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              subscription-resources
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ### Scope to resource group
 
 You can also target resource groups within the management group. The user deploying the template must have access to the specified scope.
 
-To target a resource group within the management group, use a nested deployment. Set the `subscriptionId` and `resourceGroup` properties. Don't set a location for the nested deployment because it's deployed in the location of the resource group.
+To target a resource group within the management group, use a nested deployment. Set the `subscriptionId` and `resourceGroup` properties. Don't set a location for the nested deployment because it's deployed in the location of the resource group:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="9,10,18":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedRGDeploy",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "resourceGroup": "demoResourceGroup",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              resource-group-resources
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
-To use a management group deployment for creating a resource group within a subscription and deploying a storage account to that resource group, see [Deploy to subscription and resource group](#deploy-to-subscription-and-resource-group).
+To use a management-group deployment for creating a resource group within a subscription and deploying a storage account to that resource group, see [Deploy to subscription and resource group](#deploy-to-subscription-and-resource-group).
 
 ### Scope to tenant
 
 To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-To use a nested deployment, set `scope` and `location`.
+To use a nested deployment, set `scope` and `location`:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedDeployment",
+      "location": "centralus",
+      "scope": "/",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          tenant-resources
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
-Or, you can set the scope to `/` for some resource types, like management groups. Creating a new management group is described in the next section.
+Or, you can set the scope to `/` for some resource types like management groups. Creating a new management group is described in the next section.
 
 ## Management group
 
-To create a management group in a management group deployment, you must set the scope to `/` for the management group.
+To create a management group in a management-group deployment, you must set the scope to `/` for the management group.
 
-The following example creates a new management group in the root management group.
+The following example creates a new management group in the root management group:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "mgName": {
+      "type": "string",
+      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Management/managementGroups",
+      "apiVersion": "2024-02-01-preview",
+      "name": "[parameters('mgName')]",
+      "scope": "/",
+      "location": "eastus",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "output": {
+      "type": "string",
+      "value": "[parameters('mgName')]"
+    }
+  }
+}
+```
 
 The next example creates a new management group in the management group specified as the parent. Notice that the scope is set to `/`.
 
@@ -205,7 +343,7 @@ The next example creates a new management group in the management group specifie
     {
       "name": "[parameters('mgName')]",
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2024-02-01-preview",
       "scope": "/",
       "location": "eastus",
       "properties": {
@@ -238,9 +376,9 @@ To deploy a template that moves an existing Azure subscription to a new manageme
 
 ## Azure Policy
 
-Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function. Built-in policy definitions are tenant level resources. To get the ID of a built-in policy definition, use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function.
+Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [`extensionResourceId()`](template-functions-resource.md#extensionresourceid) function. Built-in policy definitions are tenant-level resources. To get the ID of a built-in policy definition, use the [`tenantResourceId()`](template-functions-resource.md#tenantresourceid) function.
 
-The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level, and assign it.
+The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management-group level and assign it:
 
 ```json
 {
@@ -273,7 +411,7 @@ The following example shows how to [define](../../governance/policy/concepts/def
     {
       "type": "Microsoft.Authorization/policyDefinitions",
       "name": "[variables('policyDefinition')]",
-      "apiVersion": "2020-09-01",
+      "apiVersion": "2025-03-01",
       "properties": {
         "policyType": "Custom",
         "mode": "All",
@@ -295,7 +433,7 @@ The following example shows how to [define](../../governance/policy/concepts/def
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "location-lock",
-      "apiVersion": "2020-09-01",
+      "apiVersion": "2025-03-01",
       "dependsOn": [
         "[variables('policyDefinition')]"
       ],
@@ -310,7 +448,7 @@ The following example shows how to [define](../../governance/policy/concepts/def
 
 ## Deploy to subscription and resource group
 
-From a management group level deployment, you can target a subscription within the management group. The following example creates a resource group within a subscription and deploys a storage account to that resource group.
+From a management-group-level deployment, you can target a subscription within the management group. The following example creates a resource group within a subscription and deploys a storage account to that resource group:
 
 ```json
 {
@@ -333,7 +471,7 @@ From a management group level deployment, you can target a subscription within t
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedSub",
       "location": "[parameters('nestedLocation')]",
       "subscriptionId": "[parameters('nestedSubId')]",
@@ -349,7 +487,7 @@ From a management group level deployment, you can target a subscription within t
           "resources": [
             {
               "type": "Microsoft.Resources/resourceGroups",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-04-01",
               "name": "[parameters('nestedRG')]",
               "location": "[parameters('nestedLocation')]"
             }
@@ -359,7 +497,7 @@ From a management group level deployment, you can target a subscription within t
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedRG",
       "subscriptionId": "[parameters('nestedSubId')]",
       "resourceGroup": "[parameters('nestedRG')]",
@@ -374,7 +512,7 @@ From a management group level deployment, you can target a subscription within t
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-06-01",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('nestedLocation')]",
               "kind": "StorageV2",
@@ -393,5 +531,6 @@ From a management group level deployment, you can target a subscription within t
 ## Next steps
 
 * To learn about assigning roles, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
-* For an example of deploying workspace settings for Microsoft Defender for Cloud, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* You can also deploy templates at [subscription level](deploy-to-subscription.md) and [tenant level](deploy-to-tenant.md).
+* For an example of deploying workspace settings for Microsoft Defender for Cloud, see [_deployASCwithWorkspaceSettings.json_](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* You can also deploy templates at the [subscription level](deploy-to-subscription.md) and [tenant level](deploy-to-tenant.md).
+

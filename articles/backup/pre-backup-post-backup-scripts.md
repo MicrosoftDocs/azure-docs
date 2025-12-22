@@ -2,12 +2,13 @@
 title: Using Pre-Backup and Post-Backup Scripts
 description: This article contains the procedure to specify pre-backup and post-backup scripts. Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 07/30/2024
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/16/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a system administrator, I want to configure pre-backup and post-backup scripts in the backup environment, so that I can automate data preparation and post-processing tasks for better backup efficiency and data management.
 ---
 
-# Using pre-backup and post-backup scripts
+# Use pre-backup and post-backup scripts
 
 Applies to: Microsoft Azure Backup Server (MABS)
 
@@ -42,7 +43,9 @@ xmlns="http://schemas.microsoft.com/2003/dls/ScriptingConfig.xsd">
 </ScriptConfiguration>
 ```
 
-To specify pre-backup and post-backup scripts
+## Specify pre-backup and post-backup scripts
+
+To specify pre-backup and post-backup scripts, follow these steps:
 
 1. On the protected computer, open the ScriptingConfig.xml file with an XML or text editor.
 
@@ -57,9 +60,15 @@ To specify pre-backup and post-backup scripts
    1. In the _PreBackupCommandLine_ tag, enter command-line parameters to be passed to the scripts, separated by spaces.
    1. In the _PostBackupScript_ tag, enter the path and script name.
    1. In the _PostBackupCommandLine_ tag, enter command-line parameters to be passed to the scripts, separated by spaces.
-   1. In the _TimeOut_ tag, enter the amount of time in minutes that MABS should wait after invoking a script before timing out and marking the script as failed.
+   1. In the `TimeOut` tag, enter the amount of time in minutes that MABS should wait after invoking a script before timing out and marking the script as failed.
 
 1. Save the ScriptingConfig.xml file.
 
 >[!Note]
 >MABS will suffix an additional Boolean (true/false) parameter to the post-backup script command, indicating the status of the MABS backup job.
+
+
+## Related content
+
+- [Azure Backup Server (MABS) V4 protection matrix](backup-mabs-protection-matrix.md).
+- [Back up file data with MABS](back-up-file-data.md).

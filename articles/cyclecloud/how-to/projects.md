@@ -1,18 +1,18 @@
 ---
 title: Projects
-description: Learn about projects in Azure CycleCloud. A project is a collection of resources which define node configurations. Projects contain specs.
-author: KimliW
-ms.date: 04/01/2018
-ms.author: adjohnso
+description: Learn about projects in Azure CycleCloud. A project is a collection of resources that define node configurations. Projects contain specs.
+author: dougclayton
+ms.author: doclayto
+ms.date: 09/23/2025
 ---
 
 # Projects
 
-A **project** is a collection of resources which define node configurations. Projects contain **specs**. When a node starts, it is configured by processing and running a sequence of specs.
+A **project** is a collection of resources that define node configurations. Projects contain **specs**. When a node starts, it processes and runs a sequence of specs to configure the node.
 
-Azure CycleCloud uses projects to manage clustered applications, such as batch schedulers. In the CycleCloud HPCPack, the project is a `hn` spec and `cn` spec which define the configurations and recipes for HPCPack headnode and computenode.
+Azure CycleCloud uses projects to manage clustered applications, such as batch schedulers. In the CycleCloud HPCPack cluster, the project uses `hn` and `cn` specs to define the configurations and recipes for the HPCPack headnode and compute node.
 
-Below is a partial node definition. The docker-registry node will run three specs: bind spec from the okta project version 1.3.0, as well as core and registry specs from the docker project version 2.0.0:
+In the following partial node definition, the docker-registry node runs three specs: the `bind` spec from the Okta project version 1.3.0, and the `core` and `registry` specs from the docker project version 2.0.0:
 
 ``` ini
 [[node docker-registry]]
@@ -22,52 +22,44 @@ Below is a partial node definition. The docker-registry node will run three spec
     [[[cluster-init docker:registry:2.0.0]]]
 ```
 
-The trailing tag is the project version number.
+The trailing tag is the project version number:
 
 ``` ini
 [[[cluster-init <project>:<spec>:<project version>]]]
 ```
 
-A **locker** is a reference to a storage account container and credential. Nodes have a default locker, so this attribute is not strictly necessary.
+A **locker** is a reference to a storage account container and credential. Nodes have a default locker, so you don't always need to specify this attribute.
 
-Azure CycleCloud uses a shorthand for storage accounts, so _`https://mystorage.blob.core.windows.net/mycontainer`_ can be written as _az://mystorage/mycontainer_.
+Azure CycleCloud uses a shorthand for storage accounts. For example, you can write _`https://mystorage.blob.core.windows.net/mycontainer`_ as _az://mystorage/mycontainer_.
 
-The node will download each project it references from the locker using the pogo tool:
+If you define a project on a node but it doesn't exist in the expected storage location, the node reports a `Software Installation Failure` to CycleCloud.
 
-```azurecli-interactive
-pogo get az://mystorage/mycontainer/projects/okta/1.3.0/bind
-```
+CycleCloud has internal projects that run by default on all nodes to perform special volume and network handling and setup communication to CycleCloud. The system automatically mirrors these internal projects to the locker.
 
-If a project is defined on a node but does not exist in the expected storage location then the node will report a `Software Installation Failure` to CycleCloud.
-
-CycleCloud has internal projects that run by default on all nodes to perform special volume and network handling and setup communication to CycleCloud. These internal projects are mirrored to the locker automatically.  
-
-The user is responsible to mirroring any additional projects to the locker. The [CycleCloud CLI](~/articles/cyclecloud/cli.md) has methods to compose projects:
+You're responsible for mirroring any extra projects to the locker. The [CycleCloud CLI](~/articles/cyclecloud/cli.md) offers methods to compose projects:
 
 ```azurecli-interactive
 cyclecloud project init myproject
 ```
 
-and mirror:
+And, mirror projects to lockers:
 
 ```azurecli-interactive
 cyclecloud project init mylocker
 ```
 
-projects to lockers.  
-
-Specs are made up of python, shell, or powershell scripts.
+Specs consist of Python, shell, or PowerShell scripts.
 
 ## Create a New Project
 
-To create a new project, use the CLI command `cyclecloud project init myproject`, where `myproject` is the name of the project you wish to create. This will create a project called "myproject", with a single spec named "default" that you can change. The directory tree will be created with skeleton files you will amend to include your own information.
+To create a new project, use the CLI command `cyclecloud project init myproject` where `myproject` is the name of the project you want to create. `myproject` has one `default` spec that you can change. The command creates the directory tree with skeleton files that you update with your own information.
 
-### Directory Structure
+### Directory structure
 
-The following directories will be created by the project command:
+The project command creates the following directories:
 
 ``` directories
-      \myproject
+      myproject
           ├── project.ini
           ├── blobs
           ├── templates
@@ -77,191 +69,106 @@ The following directories will be created by the project command:
           │        ├── scripts
           │        ├── files
           │        └── tests
-          │     └── chef
-          │         ├── site-cookbooks
-          │         ├── data_bag
-          │         └── roles
 ```
 
-The **templates** directory will hold your cluster templates, while **specs** will contain the specifications defining your project. **spec** has two subdirectories: cluster-init and custom chef. cluster-init contains directories which have special meaning, such as the **scripts** directory (contains scripts that are executed in lexicographical order on the node), **files** (raw data files to will be put on the node), and **tests** (contains tests to be run when a cluster is started in testing mode).
-
-The custom chef subdirectory has three directories: **site-cookbooks** (for cookbook definitions), **data_bags** (databag definitions), and **roles** (chef role definition files).
+The **templates** directory holds your cluster templates, while **specs** contains the specifications that define your project. The **specs** directory has a subdirectory named **cluster-init** (but see also [Chef Orchestration](../cluster-references/chef-reference.md)). 
+The **cluster-init** directory contains directories with special meanings, including the **scripts** directory (which contains scripts that run in lexicographical order on the node), **files** (which contains raw data files that go on the node), and **tests** (which contains tests that run when you start a cluster in testing mode).
 
 ## project.ini
 
-``project.ini`` is the file containing all the metadata for your project. It can contain:
+_project.ini_ is the file that contains all the metadata for your project. It can contain:
 
 | Parameter | Description                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------- |
-| name      | Name of the project. Words must be separated by dashes, e.g. order-66-2018                                    |
-| label     | Name of the project. Long name (with spaces) of the cluster for display purposes.                             |
-| type      | Three options: scheduler, application, \<blank\>. Determines the type of project and generates the appropriate template. Default: application |
-| version   | Format: x.x.x                                                                                                 |
+| name      | Name of the project. Use dashes to separate words, such as `order-66-2018`.                                  |
+| label     | Name of the project. Use a long cluster name with spaces for display purposes.                                |
+| type      | Three options: `scheduler`, `application`, or `<blank>`. This parameter determines the type of project and generates the appropriate template. Default: `application`. |
+| version   | Format: x.x.|
 
 ## Lockers
 
-Project contents are stored within a **locker**. You can upload the contents of your project to any locker defined in your CycleCloud install via the command `cyclecloud project upload (locker)`, where (locker) is the name of a cloud storage locker in your CycleCloud install. This locker will be set as the default target. Alternatively, you can see what lockers are available to you with the command `cyclecloud locker list`. Details about a specific locker can be viewed with `cyclecloud locker show (locker)`.
+Project contents are stored within a **locker**. You can upload the contents of your project to any locker defined in your CycleCloud installation by running the command `cyclecloud project upload (locker)`, where `(locker)` is the name of a cloud storage locker in your CycleCloud installation. This locker is the default target. Alternatively, you can run the command `cyclecloud locker list` to see what lockers are available to you. You can view details about a specific locker with `cyclecloud locker show (locker)`.
 
-If you add more than one locker, you can set your default with `cyclecloud project default_target (locker)`, then simply run `cyclecloud project upload`. You can also set a global default locker that can be shared by projects with the command `cyclecloud project default locker (locker) -global`.
+If you add more than one locker, you can set your default locker with `cyclecloud project default_target (locker)`, and then run `cyclecloud project upload`. You can also set a global default locker for projects to share by running the command `cyclecloud project default locker (locker) -global`.
 
 > [!NOTE]
-> Default lockers will be stored in the cyclecloud config file (usually located in ~/.cycle/config.ini),
-> not in the project.ini. This is done to allow project.ini to be version controlled.
+> Default lockers are stored in the CycleCloud config file, located in _~/.cycle/config.ini_ and not the _project.ini_ file. This setup allows version control for _project.ini_.
 
-Uploading your project contents will zip the chef directories and sync both chef and cluster init to your target locker. These will be stored at:
-
-* (locker)/projects/(project)/(version)/(spec_name)/cluster-init
-* (locker)/projects/(project)/(version)/(spec_name)/chef
+When you upload your project contents, CycleCloud syncs the cluster-init contents to your target locker, at `projects/(project)/(version)/(spec_name)/cluster-init`.
 
 ## Blob Download
 
-Use `project download` to download all blobs referenced in the project.ini to your local blobs directory. The command uses the `[locker]` parameter and will attempt to download blobs listed in project.ini from the locker to local storage. An error will be returned if the files cannot be located.
+Use `project download` to download all blobs referenced in _project.ini_ to your local blobs directory. The command uses the `[locker]` parameter and tries to download blobs listed in _project.ini_ from the locker to local storage. If the command can't find the files, it returns an error.
 
 ## Project Setup
 
 ## Specs
 
-When creating a new project, a single default spec is defined. You can add additional specs to your project via the `cyclecloud project add_spec` command.
+When you create a new project, you define one `default` spec. Use the `cyclecloud project add_spec` command to add more specs to your project.
 
 ## Versioning
 
-By default, all projects have a **version** of 1.0.0. You can set a custom version as you develop and deploy projects by setting `version=x.y.z` in the _project.ini_ file.
+By default, all projects use version 1.0.0. Set a custom version as you develop and deploy projects by setting `version=x.y.z` in the _project.ini_ file.
 
-For example, if "locker_url" was "az://my-account/my-container/projects", project was named "Order66", version was "1.6.9", and the spec is "default", your url would be:
+For example, if the locker_url is `az://my-account/my-container/projects`, the project name is "Order66", the version is 1.6.9, and the spec is `default`, the URL is:
 
-* _az://my-account/my-container/projects/Order66/1.6.9/default/cluster-init_
-* _az://my-account/my-container/projects/Order66/1.6.9/default/chef_
+```
+az://my-account/my-container/projects/Order66/1.6.9/default
+```
 
 ## Blobs
 
-There are two types of blob: **project blobs** and **user blobs**.
+There are two types of blobs: **project blobs** and **user blobs**.
 
 ### Project Blobs
 
-Project Blobs are binary files provided by the author of the project with the assumption that they can be distributed (i.e. a binary file for an open source project you are legally allowed to redistribute). Project Blobs go into the "blobs" directory of a project, and when uploaded to a locker they will be located at _/project/blobs_.
+Project authors provide project blobs, which are binary files that they can distribute (for example, binary files for an open-source project that someone can legally redistribute). Project blobs go into the `blobs` directory of a project and are located in `/project/blobs` when you upload them to a locker.
 
-To add blobs to projects, add the file(s) to your _project.ini_:
+To add blobs to projects, add the files to your _project.ini_:
 
 ``` ini
 [[blobs optionalname]]
   Files = projectblob1.tgz, projectblob2.tgz, projectblob3.tgz
 ```
 
-Multiple blobs can be separated by a comma. You can also specify the relative path to the project's blob directory.
+Separate multiple blobs with a comma. You can also specify the relative path to the project's blob directory.
 
-### User Blobs
+### User blobs
 
-User Blobs are binary files that the author of the project cannot legally redistribute, such as UGE binaries. These files are not packaged with the project, but instead must be staged to the locker manually. The files will be located at _/blobs/my-project/my-blob.tgz_. User Blobs do not need to be defined in the project.ini.
+User blobs are binary files, such as Univa Grid Engine binaries, that the author of the project can't legally redistribute. 
+These files are not packaged with the project. Users must manually stage them to their locker. 
+The files are located in _/blobs/my-project/_ in the locker (for example, _/blobs/my-project/my-blob.tgz_). You don't need to define user blobs in _project.ini_.
 
-To download any blob, use the `jetpack download` command from the CLI, or the `jetpack_download` Chef resource. CycleCloud will look for the user blob first. If that file is not located, the project level blob will be used.
-
-> [!NOTE]
-> It is possible to override a project blob with a user blob of the same name.
-
-## Specify Project within a Cluster Template
-
-Project syntax allows you to specify multiple specs on your nodes. To define a project, use the following:
-
-``` ini
-[[[cluster-init myspec]]]
-  Project = myproject # inferred from name
-  Version = x.y.z
-  Spec = default  # (alternatively, you can name your own spec to be used here)
-  Locker = default  # (optional, will use default locker for node)
-```
+To download any blob, use the `jetpack download` command. CycleCloud looks for the user blob first and uses the project-level blob if it can't locate the file.
 
 > [!NOTE]
-> The name specified after 'spec' can be anything, but can and should be used as a shortcut to define some > common properties.
+> A user blob can override a project blob if they have the same name.
 
-You can also apply multiple specs to a given node as follows:
+## Specify projects within a cluster template
 
-``` ini
-[[node scheduler]]
-  [[[cluster-init myspec]]]
-  Project = myproject
-  Version = x.y.z
-  Spec = default  # (alternatively, you can name your own spec to be used here)
-  Locker = default  # (optional, will use default locker for node)
-
-[[[cluster-init otherspec]]]
-Project = otherproject
-Version = a.b.c
-Spec = otherspec  # (optional)
-```
-
-By separating the project name, spec name, and version with colons, CycleCloud can parse those values into the appropriate `Project/Version/Spec` settings automatically:
-
-``` ini
-[[node scheduler]]
-  AdditionalClusterInitSpecs = $ClusterInitSpecs
-  [[[cluster-init myproject:myspec:x.y.z]]]
-  [[[cluster-init otherproject:otherspec:a.b.c]]]
-```
-
-Specs can also be inherited between nodes. For example, you can share a common spec between all nodes, then run a custom spec on the scheduler node:
+Specs are defined in your cluster template, using the `[[[cluster-init]]]` [section on a node](../cluster-references/cluster-init-reference.md):
 
 ``` ini
 [[node defaults]]
 [[[cluster-init my-project:common:1.0.0]]]
-Order = 2 # optional
+
 [[node scheduler]]
 [[[cluster-init my-project:scheduler:1.0.0]]]
-Order = 1 # optional
 
 [[nodearray execute]]
 [[[cluster-init my-project:execute:1.0.0]]]
-   Order = 1 # optional
 ```
 
-This would apply both the `common` and `scheduler` specs to the scheduler node, while only applying the `common` and `execute` specs to the execute nodearray.
+This example takes advantage of the `defaults` node definition that all nodes inherit from. 
+The scheduler node gets both the `common` and `scheduler` specs, and nodes in the execute node array get both the `common` and `execute` specs.
 
-By default, the specs will be run in the order they are shown in the template, running inherited specs first. `Order` is an optional integer set to a default of 1000, and can be used to define the order of the specs.
+## File locations
 
-If only one name is specified in the `[[[cluster-init]]]` definition, it will be assumed to be the spec name. For example:
+The node downloads the cluster-init files to `/mnt/cluster-init/(project)/(spec)/`. For `my-project` and `my-spec`, your scripts, files, and tests are in `/mnt/cluster-init/my-project/my-spec`.
 
-``` ini
-[[[cluster-init myspec]]]
-Project = myproject
-Version = 1.0.0
-```
+## Sync projects
 
-is a valid spec setup in which `Spec=myspec` is implied by the name.
-
-## run_list
-
-You can specify a runlist at the project or spec level within your project.ini:
-
-``` ini
-[spec scheduler]
-run_list = role[a], recipe[b]
-```
-
-When a node includes the spec "scheduler", the run_list defined will be automatically appended to any previously-defined runlist. For example, if my run_list defined under `[configuration]` was `run_list = recipe[test]`, the final runlist would be `run_list = recipe[cyclecloud], recipe[test], role[a], recipe[b], recipe[cluster_init]`.
-
-You can also overwrite a runlist at the spec level on a node. This will replace any run_list included in the project.ini. For example, if we changed the node definition to the following:
-
-``` ini
-[cluster-init test-project:scheduler:1.0.0]
-run_list = recipe[different-test]
-```
-
-The runlist defined in the project would be ignored, and the above would be used instead. The final runlist on the node would then be `run_list = recipe[cyclecloud], recipe[test], recipe[different-test], recipe[cluster_init]`.
-
-> [!NOTE]
-> runlists are specific to chef and do not apply otherwise.
-
-## File Locations
-
-The zipped chef files will be downloaded during the bootstrapping phase of node startup. They are downloaded to *$JETPACK_HOME/system/chef/tarballs* and unzipped to *$JETPACK_HOME/system/chef/chef-repo/*, and used when converging the node.
-
-> [!NOTE]
-> To run custom cookbooks, you MUST specify them in the run_list for the node.
-
-The cluster-init files will be downloaded to */mnt/cluster-init/(project)/(spec)/*. For "my-project" and "my-spec", you will see your scripts, files, and tests located in */mnt/cluster-init/my-project/my-spec*.
-
-## Syncing Projects
-
-CycleCloud projects can be synced from mirrors into cluster local cloud storage. Set a SourceLocker attribute on a `[cluster-init]` section within your template. The name of the locker specified will be used as the source of the project, and contents will synced to the your locker at cluster start. You can also use the name of the locker as the first part of the cluster-init name. For example, if the source locker was "cyclecloud", the following two definitions are the same:
+You can sync CycleCloud projects from mirrors into cluster local cloud storage. Set a `SourceLocker` attribute on a `[cluster-init]` section within your template. The name of the locker you specify is the source of the project, and the contents sync to your locker when the cluster starts. You can also use the name of the locker as the first part of the `cluster-init` name. For example, if the source locker is `cyclecloud`, the following two definitions are the same:
 
 ``` ini
 [cluster-init my-project:my-spect:1.2.3]
@@ -270,32 +177,32 @@ CycleCloud projects can be synced from mirrors into cluster local cloud storage.
 [cluster-init cyclecloud/my-proect:my-spec:1.2.3]
 ```
 
-## Large File Storage
+## Large file storage
 
-Projects supports large files. At the top level of a newly created project you will see a "blobs" directory for your large files (blobs). Please note that blobs placed in this directory have a specific purpose, and will act differently than the items within the "files" directory.
+Projects support large files. At the top level of a newly created project, you see a `blobs` directory for your large files (blobs). Blobs you place in this directory serve a specific purpose and act differently than the items within the `files` directory.
 
-Items within the "blobs" directory are spec and version independent: anything in "blobs" can be shared between specs or project versions. As an example, an installer for a program that changes infrequently can be stored within "blobs" and referenced within your *project.ini*. As you iterate on versions of your project, that single file remains the same and is only copied into your cloud storage once, which saves on transfer and storage cost.
+Items within the `blobs` directory act independently of specs and versions. You can share anything in blobs between specs or project versions. For example, you can store an installer for a program that changes infrequently within blobs and reference it within your *project.ini*. As you iterate on versions of your project, that single file remains the same and copies to your cloud storage once, which saves on transfer and storage costs.
 
-To add a blob, simply place a file into the "blobs" directory and edit your *project.ini* to reference that file:
+To add a blob, place a file into the `blobs` directory, and edit your *project.ini* to reference that file:
 
 ``` ini
 [blobs]
   Files=big_file1.tgz
 ```
 
-When you use the `project upload` command, all blobs referenced in the project.ini will be transferred into cloud storage.
+When you use the `project upload` command, it transfers all blobs referenced in *project.ini* to cloud storage.
 
-## Log Files
+## Log files
 
-Log files generated when running cluster-init are located in *$JETPACK_HOME/logs/cluster-init/(project)/(spec)*.
+Log files generated when running cluster-init are located in `$JETPACK_HOME/logs/cluster-init/(project)/(spec)`.
 
-## Run Files
+## Run files
 
-When a cluster-init script is run successfully, a file is placed in */mnt/cluster-init/.run/(project)/(spec)* to ensure it isn't run again on a subsequent converge. If you want to run the script again, delete the appropriate file in this directory.
+When a cluster-init script runs successfully, it places a file in `/mnt/cluster-init/.run/(project)/(spec)` to ensure the script doesn't run again on a subsequent converge. To run the script again, delete the appropriate file in this directory.
 
-## Script Directories
+## Script directories
 
-When CycleCloud executes scripts in the scripts directory, it will add environment variables to the path and name of the spec and project directories:
+When CycleCloud executes scripts in the `scripts` directory, it adds environment variables to the path and name of the `spec` and `project` directories:
 
 ``` script
 CYCLECLOUD_PROJECT_NAME
@@ -304,7 +211,7 @@ CYCLECLOUD_SPEC_NAME
 CYCLECLOUD_SPEC_PATH
 ```
 
-On linux, a project named "test-project" with a spec of "default" would have paths as follows:
+On Linux, a project named _test-project_ with a spec of `default` has the following paths:
 
 ``` script
 CYCLECLOUD_PROJECT_NAME = test-project
@@ -315,41 +222,18 @@ CYCLECLOUD_SPEC_PATH = /mnt/cluster-init/test-project/default
 
 ## Run Scripts Only
 
-To run ONLY the cluster-init scripts:
+To run only cluster-init scripts, use the following command:
 
 ```azurecli-interactive
 jetpack converge --cluster-init
 ```
 
-Output from the command will both go to STDOUT as well as jetpack.log. Each script will also have its output logged to:
+The command sends its output to STDOUT and to _jetpack.log_. Each script's output is also logged to:
 
 ``` outfile
       $JETPACK_HOME/logs/cluster-init/(project)/(spec)/scripts/(script.sh).out
 ```
 
-## Custom chef and Composable Specs
-
-Each spec has a chef directory in it. Before a converge, each spec will be untarred and extracted into the local chef-repo, replacing any existing cookbooks, roles, and data bags with the same name(s). This is done in the order the specs are defined, so in the case of a naming collision, the last defined spec will always win.
-
 ## jetpack download
 
-To download a blob within a cluster-init script, use the command `jetpack download (filename)` to pull it from the blobs directory. Running this command from a cluster-init script will determine the project and base URL for you. To use it in a non-cluster-init context, you will need to specify the project (see --help for more information).
-
-For chef users, a `jetpack_download` LWRP has been created:
-
-``` ini
-jetpack_download "big-file1.tgz" do
-  project "my-project"
-  end
-```
-
-In chef, the default download location is `#{node[:jetpack][:downloads]}`. To change the file destination, use the following:
-
-``` ini
-jetpack_download "foo.tgz" do
-  project "my-project"
-  dest "/tmp/download.tgz"
-end
-```
-
-When used within chef, you must specify the project.
+To download a blob within a cluster-init script, use the command `jetpack download (filename)` to pull it from the `blobs` directory. Running this command from a cluster-init script lets it determine the project and base URL for you. To use it in a non-cluster-init context, you need to specify the project. For more information, use the `--help` option.

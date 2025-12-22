@@ -18,7 +18,7 @@ The following limits are common across all tiers.
 | Size of a consumer group name | Kafka protocol doesn't require the creation of a consumer group. | <p>Kafka: 256 characters</p><p>AMQP: 50 characters |
 | Number of non-epoch receivers per consumer group |- |5 |
 | Number of authorization rules per namespace | Subsequent requests for authorization rule creation are rejected.|12 |
-| Number of calls to the GetRuntimeInformation method |  - | 50 per second | 
+| Number of calls to the GetRuntimeInformation method |  - | 50 per second per consumer group | 
 | Number of virtual networks (VNet) | - | 128 | 
 | Number of IP Config rules | - | 128 | 
 | Maximum length of a schema group name | | 50 |  
@@ -27,4 +27,4 @@ The following limits are common across all tiers.
 | Number of properties per schema group | | 1024 |
 | Size in bytes per schema group property key | | 256 | 
 | Size in bytes per schema group property value | | 1024 | 
-
+| Number of concurrent receive requests on a hub/topic | Subsequent receive requests are throttled. This quota applies to the combined number of concurrent receive operations across all consumers/consumer groups | 5000 |

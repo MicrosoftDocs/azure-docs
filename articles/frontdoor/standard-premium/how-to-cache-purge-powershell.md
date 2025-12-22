@@ -12,13 +12,15 @@ ms.custom: devx-track-azurepowershell
 
 # Cache purging in Azure Front Door with Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Front Door caches assets until their time-to-live (TTL) expires. When a client requests an asset with an expired TTL, Azure Front Door retrieves and caches a new copy of the asset.
 
 To ensure users always get the latest assets, version your assets for each update and publish them with new URLs. Azure Front Door fetches the new assets for subsequent client requests. However, you might need to purge cached content from all edge nodes to force them to retrieve updated assets, especially after making updates or correcting incorrect information.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]

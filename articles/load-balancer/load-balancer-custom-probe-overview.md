@@ -34,7 +34,8 @@ Health probes have the following properties:
 | Protocol | Protocol of health probe. This is the protocol type you would like the health probe to use. Options are: TCP, HTTP, HTTPS |
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check its health |
 | Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probes on two consecutive health check attempts to the virtual machine |
-| Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
+| Threshold | Threshold of the health probe. The number of times the health probe needs to succeed or fail in order to allow or deny traffic from being delivered to the virtual machine
+| Used by | List of load balancer rules using this health probe. You should have at least one rule using the health probe for it to be effective |
 
 ## Probe configuration
 
@@ -74,6 +75,14 @@ In order to ensure a timely response is received, HTTP/S health probes have buil
 - HTTP/S probe timeout duration: 30 seconds
 
 For HTTP/S probes, if the configured interval is longer than the above timeout period, the health probe times out and fails if no response is received during the timeout period. For example, if an HTTP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 30 seconds, the probe reaches its timeout period and fails. When the configured interval is shorter than the above timeout period, the health probe will fail if no response is received before the configured interval period completes and the next probe will be sent immediately.
+
+## Probe threshold
+
+The probe threshold value is the number of times a health probe will need to succeed or fail consecutively in order for the probe to mark a backend instance as healthy or unhealthy, respectively. 
+
+For TCP probes, if the probe threshold is configured to 2, the probe will need to receive 2 consecutive responses before a backend instance begins to receive traffic. Similarly, once a backend instance is deemed healthy, 2 consecutive failures or timeouts are required for the instance to be considered unhealthy and stop receiving new traffic. 
+
+For HTTP probes, explicit responses will immediately mark the probe as up or down for 200 and non-200 responses, and will effectively reset the threshold. This means that the threshold value only applies to HTTP probes if the probe times out due to no response.
 
 ## Design guidance
 

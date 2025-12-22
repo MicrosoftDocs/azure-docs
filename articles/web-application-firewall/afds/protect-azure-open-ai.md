@@ -6,6 +6,8 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/28/2023
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud architect, I want to implement Azure Web Application Firewall on Azure Front Door for my Azure OpenAI APIs, so that I can enhance security and protect against evolving web application attacks.
 ---
 
 # Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
@@ -18,7 +20,7 @@ This article describes how to use Azure Web Application Firewall (WAF) on Azure 
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 
 ## Create Azure OpenAI instance using the gpt-35-turbo model

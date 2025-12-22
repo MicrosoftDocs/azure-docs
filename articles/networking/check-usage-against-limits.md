@@ -4,10 +4,13 @@ description: Learn how to check your Azure resource usage against Azure subscrip
 services: networking
 author: mbender-ms
 ms.author: mbender
-ms.custom: devx-track-azurecli
 ms.service: azure
 ms.topic: how-to
 ms.date: 06/05/2018
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to monitor my Azure resource usage against subscription limits so that I can manage resources efficiently and plan for future scaling.
 ---
 # Check resource usage against limits
 

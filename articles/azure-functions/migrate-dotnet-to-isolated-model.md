@@ -54,7 +54,7 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 6 o
 > [!TIP]
 > **We recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick migration path to the fully released version with the longest support window from .NET.
 
-This guide doesn't present specific examples for .NET 9. If you need to target that version, you can adapt the .NET 8 examples.
+This guide doesn't present specific examples for .NET 10 (preview) or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
 
 ## Prepare for migration
 

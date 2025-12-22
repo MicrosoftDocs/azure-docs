@@ -1,15 +1,24 @@
 ---
-title: Configure APM platforms for Tomcat, JBoss, or Java SE apps
-description: Learn how to configure APM platforms, such as Application Insights, NewRelic, and AppDynamics, for Tomcat, JBoss, or Java SE app on Azure App Service.
+title: Configure APM Platforms for Tomcat, JBoss, or Java SE Apps
+description: Learn how to configure APM platforms, such as Application Insights, New Relic, and AppDynamics, for Tomcat, JBoss, or Java SE app on Azure App Service.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/17/2024
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - linux-related-content
+  - sfi-ropc-nochange
+
+# customer intent: As a developer, I want to configure APM platforms for Tomcat, JBoss, or Java SE apps so that I can monitor my apps. 
+ 
 ---
 
 # Configure APM platforms for Tomcat, JBoss, or Java SE apps in Azure App Service
@@ -66,6 +75,8 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 ---
 
 ## Configure New Relic
+
+To configure New Relic: 
 
 # [Linux](#tab/linux)
 
@@ -136,6 +147,8 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 ## Configure AppDynamics
 
+To configure AppDynamics:
+
 # [Linux](#tab/linux)
 
 1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
@@ -204,7 +217,7 @@ Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com
 
 ---
 
-## Next steps
+## Related content
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 

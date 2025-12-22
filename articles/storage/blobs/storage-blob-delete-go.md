@@ -3,14 +3,15 @@ title: Delete and restore a blob with Go
 titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the Go client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a developer using the Go client library, I want to delete and restore blobs in Azure Storage, so that I can manage my data effectively and recover from accidental deletions."
 ---
 
 # Delete and restore a blob with Go

@@ -19,7 +19,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-streamanalytics](../../includes/policy/standards/byrp/microsoft.streamanalytics.md)]
+[!INCLUDE [azure-policy-compliancecontrols-streamanalytics](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.streamanalytics.md)]
 
 ## Next steps
 

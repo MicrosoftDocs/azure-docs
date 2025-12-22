@@ -1,12 +1,13 @@
 ---
 title: Enable accelerated networking for Azure VM disaster recovery with Azure Site Recovery
 description: Describes how to enable Accelerated Networking with Azure Site Recovery for Azure virtual machine disaster recovery
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 09/23/2024
-ms.author: ankitadutta
+ms.author: v-gajeronika
 ms.custom: engagement-fy23, linux-related-content
+# Customer intent: As a cloud administrator, I want to enable Accelerated Networking for Azure VMs during disaster recovery, so that I can improve network performance and minimize latency for critical workloads in Azure Site Recovery.
 ---
 # Accelerated Networking with Azure virtual machine disaster recovery
 
@@ -29,6 +30,8 @@ Azure Site Recovery supports enabling Accelerated Networking for replicated virt
 
 ### Supported operating systems
 The following distributions are supported out of the box from the Azure Gallery:
+* **Windows Server 2022 Datacenter**
+* **Windows Server 2019 Datacenter**
 * **Windows Server 2016 Datacenter**
 * **Windows Server 2012 R2 Datacenter**
 

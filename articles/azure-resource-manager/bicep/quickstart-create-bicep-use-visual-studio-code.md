@@ -2,8 +2,11 @@
 title: 'Quickstart: Create Bicep files with Visual Studio Code'
 description: Learn how to use Visual Studio Code and the Bicep extension to create Bicep files and deploy Azure resources.
 ms.topic: quickstart
-ms.date: 03/25/2025
-ms.custom: mode-ui, devx-track-bicep
+ms.date: 12/10/2025
+ms.custom:
+  - mode-ui
+  - devx-track-bicep
+  - sfi-image-nochange
 #customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files so that I can use them to deploy Azure resources.
 ---
 
@@ -15,7 +18,7 @@ Visual Studio supports a similar authoring experience. See [Quickstart: Create B
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you start.
 
 To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also have either the latest [Azure CLI](/cli/azure/) version or [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
@@ -33,7 +36,7 @@ Launch Visual Studio Code, and create a new file named _main.bicep_. In _main.bi
 Your Bicep file now contains the following code:
 
 ```bicep
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'name'
   location: location
   properties: {
@@ -154,7 +157,7 @@ After the single quote for the resource type, add **=** and a space. You're pres
 This option adds all of the properties for the resource type that are required for deployment. After selecting this option, your storage account has the following properties:
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name:
   location:
   sku: {
@@ -181,7 +184,7 @@ When finished, you have:
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'exampleVNet'
   location: location
   properties: {
@@ -207,7 +210,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   }
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -294,4 +297,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Explore [Learn modules for Bicep](learn-bicep.md).
+> [Create template specs](./quickstart-create-template-specs.md).

@@ -4,10 +4,12 @@ description: Create your first example Standard logic app workflow that runs in 
 services: azure-logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.date: 12/05/2025
+ms.update-cycle: 180-days
+ms.custom: sfi-image-nochange
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -52,7 +54,7 @@ For more information, see the following documentation:
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An [Azure Storage account](../storage/common/storage-account-overview.md). If you don't have one, you can either create a storage account in advance or during logic app creation.
 
@@ -103,7 +105,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
    :::image type="content" source="media/create-single-tenant-workflows-azure-portal/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with the words, logic app, and shows the selection, Logic apps." lightbox="media/create-single-tenant-workflows-azure-portal/find-select-logic-apps.png":::
 
-1. On the **Logic apps** page toolbar, select **Add**.
+1. On the **Logic apps** page toolbar, select **Create**.
 
    The **Create Logic App** page appears and shows the following options:
 
@@ -194,6 +196,21 @@ For optimal designer responsiveness and performance, review and follow these gui
    1. On the **Monitoring** tab, under **Application Insights**, set **Enable Application Insights** to **Yes**.
 
    1. For the **Application Insights** setting, either select an existing Application Insights instance, or if you want to create a new instance, select **Create new** and provide the name that you want to use.
+  
+1. On the **Authentication** tab, under **Authentication type**, select the authentication to use for connecting to the host storage account resource (**Host storage (AzureWebJobsStorage)**).
+
+   > [!IMPORTANT]
+   >
+   > If you select **Managed identity** for authentication, you must specify the managed identity to use. Choose one of the following options:
+   >
+   > - If you select **Create new managed identity**, the portal creates this identity and automatically assigns the correct role-based access
+   > permissions to the identity on the host storage account for your logic app. After you create your logic app, you might have to wait a few
+   > minutes for the permissions to propagate onto your new managed identity. You can then restart your logic app. If no option exists to create
+   > a managed identity, you need the lowest level of permissions that permits you to complete this task.
+   >
+   > - If you select an existing managed identity, you must manually assign the roles in the **Minimum roles required column** to the managed
+   > identity on the host storage account resource. Consider completing this assignment before you deploy your logic app. Otherwise, you get 
+   > errors when you open your new logic app resource. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. After Azure validates your logic app settings, on the **Review + create** tab, select **Create**, for example:
 
@@ -205,7 +222,7 @@ For optimal designer responsiveness and performance, review and follow these gui
    > For example, if your selected region reaches a quota for resources that you're 
    > trying to create, you might have to try a different region.
 
-   After Azure finishes deployment, your logic app resource is automatically live but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
+   After Azure finishes deployment, your logic app resource is automatically live but doesn't do anything yet because the resource is empty, and you didn't add any workflows yet.
 
 1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow.
 
@@ -241,11 +258,11 @@ Now, add a trigger that starts your workflow.
 
 ## Add a trigger
 
-This example workflow starts with the [built-in **Request** trigger](../connectors/connectors-native-reqres.md) named **When a HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
+This example workflow starts with the [built-in **Request** trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
-1. In the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
+1. On the designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected.
 
-1. By using **request** as the search term, [follow these steps to add the built-in **Request** trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
+1. By using **request** as the search term, [follow these steps to add the built-in **Request** trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
@@ -263,7 +280,7 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
    The **Add an action** pane opens so that you can select an action.
 
-1. By using **office 365 outlook send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
+1. By using **office 365 outlook send email** as the search term, [follow these steps to add the Office 365 Outlook action named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
 1. In the action's information pane, under **Create a new connection**, select **Sign in** so that you can create a connection to your email account.
 
@@ -355,7 +372,7 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 In this example, the workflow runs when the **Request** trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
-1. On the workflow designer, select the **Request** trigger that's named **When a HTTP request is received**.
+1. On the workflow designer, select the **Request** trigger that's named **When an HTTP request is received**.
 
 1. After the information pane opens, on the **Parameters** tab, find the **HTTP URL** property.
 
@@ -437,7 +454,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
       - **Storage Queue Data Contributor**
       - **Storage Table Data Contributor**
 
-   For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) and [Understand role assignments](../role-based-access-control/role-assignments.md).
+   For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Understand role assignments](../role-based-access-control/role-assignments.md).
 
 1. [Follow these steps to add the user-assigned managed identity to your Standard logic app resource](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
 
@@ -484,27 +501,35 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 <a name="enable-run-history-stateless"></a>
 
-## Enable run history for stateless workflows
+## Turn on debugging mode for stateless workflows
 
-To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
+To help you more easily debug a stateless workflow, you can enable partial run history by turning on the workflow's **Debug state** setting. This setting doesn't change a stateless workflow into a stateful workflow. In debugging mode, run history doesn't persist and isn't stored. The setting is a temporary, session-level setting that automatically resets to **Off** when you close the workflow, refresh the page, or sign out. You must enable debug mode each time you want to view run history for a stateless workflow in the Azure portal.
+
+> [!IMPORTANT]
+>
+> The **Debug state** setting is designed only for debugging and isn't supported in production. When you finish debugging, make sure to turn off the **Debug state** setting.
+>
+> Stateless workflows with debugging turned on don't perform faster than stateful workflows. If you want full run history, create a stateful workflow instead.
+
+To turn on debugging mode in the Azure portal, follow these steps, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app menu, under **Settings**, select **Environment variables**.
+1. On the logic app sidebar, under **Workflows**, select **Workflows**.
 
-1. On the **App settings** tab, select **Add**.
+1. From the workflows list, select your stateless workflow.
 
-1. On the **Add/Edit application setting** pane, in the **Name** box, enter the following app setting name: 
+1. On the workflow sidebar menu, under **Configuration**, select **Settings**.
 
-   **Workflows.{*your-workflow-name*}.OperationOptions**
+1. On the **Settings** page, set **Debug state** to **On**.
 
-1. In the **Value** box, enter the following value: **WithStatelessRunHistory**
+   This step adds an app setting named **Workflows.<*workflow-name*>.OperationOptions** to the environment variables for your logic app resource. To view this app setting, follow these steps:
 
-   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png" alt-text="Screenshot shows Standard logic app with open Environment variables page and open pane for Add/Edit application setting.":::
+   1. On the logic app sidebar, under **Settings**, select **Environment variables**.
 
-1. To finish this task, select **Apply**.
+   1. On the **App settings** tab, find the setting named **Workflows.<*workflow-name*>.OperationOptions**. When the workflow's **Debug state** setting is turned on, the app setting value is **WithStatelessRunHistory**.
 
-1. To disable the run history when you're done, either set the property named **Workflows.{*your-workflow-name*}.OperationOptions** to **None**, or delete the property and its value.
+1. When you finish debugging, turn off the **Debug state** setting.
 
 <a name="enable-open-application-insights"></a>
 

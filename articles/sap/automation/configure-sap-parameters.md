@@ -5,10 +5,11 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 03/17/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-ansible
+# Customer intent: "As an SAP administrator, I want to configure SAP parameters for Ansible, so that I can customize the deployment process for my SAP applications and ensure that all required settings are correctly defined."
 ---
 
 # Configure SAP installation parameters

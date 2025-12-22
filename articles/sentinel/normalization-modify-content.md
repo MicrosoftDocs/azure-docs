@@ -11,7 +11,7 @@ ms.author: ofshezaf
 
 ---
 
-# Modify content to use the Advanced Security Information Model (ASIM) (Public preview)
+# Modify content to use the Advanced Security Information Model (ASIM)
 
 Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
@@ -23,10 +23,6 @@ To understand how normalized content fits within the ASIM architecture, refer to
 
 > [!TIP]
 > Also watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
->
-
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Modify custom content to use normalization

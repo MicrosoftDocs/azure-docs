@@ -7,7 +7,9 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 10/22/2024
 ms.topic: how-to
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Manage devices in bulk in your Azure IoT Central application

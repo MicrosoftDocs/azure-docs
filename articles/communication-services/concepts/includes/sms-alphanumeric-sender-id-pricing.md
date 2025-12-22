@@ -1,5 +1,5 @@
 ---
-title: Alphanumeric sender ID SMS pricing includes file
+title: Alphanumeric sender ID SMS pricing
 description: include file
 services: azure-communication-services
 author: prakulka
@@ -14,19 +14,20 @@ ms.author: prakulka
 ---
 
 > [!IMPORTANT]
->- For billing locations in the US and Puerto Rico – Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products. Additionally, customer spend on the products is not eligible for Microsoft Azure Consumption Commitment drawdown.
 >
+>- For billing locations in the US and Puerto Rico, Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits aren't eligible for purchasing the products. In addition, customer spend on the products isn't eligible for Microsoft Azure Consumption Commitment drawdown.
 >
->- For billing locations outside the US and Puerto Rico Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products.
+>- For billing locations outside the US and Puerto Rico, Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits aren't eligible for purchasing the products.
 
-The Alphanumeric sender ID service requires enabling alphanumeric sender ID through the Azure portal. Once the alphanumeric sender ID service is enabled, pay-as-you-go pricing applies to the usage fee. The usage fee is determined by the destination of the message.
+To use the Alphanumeric sender ID service, you need to enable alphanumeric sender ID through the Azure portal. Once the alphanumeric sender ID service is enabled, pay-as-you-go pricing applies to the usage fee. Azure Communication Services determines the usage fee by the destination of the message.
 
-##  Alphanumeric sender ID  Pricing
+## Alphanumeric sender ID  Pricing
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from an alphanumeric sender ID to phone numbers located within the destinations mentioned below. 
 
-The following prices are exclusive of the required communications taxes and fees:
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. You can send messages from an alphanumeric sender ID to phone numbers located within the destinations in the following table.
+
+The following prices don't include the required communications taxes and fees:
 
 |Country/Region| Send Message |
 |-----------|---------|
@@ -53,6 +54,4 @@ The following prices are exclusive of the required communications taxes and fees
 |Switzerland | $0.069 | 
 |United Kingdom | $0.04 |
 
-*See our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
-
-
+*For more information about message segments, see [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit).

@@ -1,87 +1,106 @@
 ---
 title: What is Azure Load Balancer?
 titleSuffix: Azure Load Balancer
-description: Get an overview of Azure Load Balancer features, architecture, and implementation. Learn how the service works and how to use it in the cloud.
+description: Learn what Azure Load Balancer is, its key features, and how it supports scalable, highly available cloud workloads. Discover scenarios and benefits for your organization.
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: overview
-ms.date: 02/19/2024
+ms.date: 07/09/2025
 ms.author: mbender
-ms.custom: template-overview, engagement-fy23
-# Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
+ms.custom: portfolio-consolidation-2025
+#customer intent: As an IT administrator, I want to understand what Azure Load Balancer is so that I can decide if it fits my organization's needs.
 ---
 
 # What is Azure Load Balancer?
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
+>On September 30, 2025, Basic Load Balancer was retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer as soon as possible. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
+
+Azure Load Balancer is a cloud service that distributes incoming network traffic across backend virtual machines (VMs) or virtual machine scale sets (VMSS). This article explains Azure Load Balancer's key features, architecture, and scenarios, helping you decide if it fits your organization's load balancing needs for scalable, highly available workloads.
 
 *Load balancing* refers to efficiently distributing incoming network traffic across a group of backend virtual machines (VMs) or virtual machine scale sets (VMSS).
+
+> [!NOTE]
+> Azure Load Balancer is one of the services that make up the Load Balancing and Content Delivery category in Azure. Other services in this category include [Azure Front Door](../frontdoor/front-door-overview.md) and [Azure Application Gateway](../application-gateway/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Load Balancing and Content Delivery](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
+
+## Load balancer overview
 
 Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. The service distributes inbound flows that arrive at the load balancer's frontend to backend pool instances. These flows are distributed according to configured load-balancing rules and health probes. The backend pool instances can be Azure virtual machines (VMs) or virtual machine scale sets.
 
 A [public load balancer](./components.md#frontend-ip-configurations) can provide both inbound and outbound connectivity for the VMs inside your virtual network. For inbound traffic scenarios, Azure Load Balancer can load balance internet traffic to your VMs. For outbound traffic scenarios, the service can translate the VMs' private IP addresses to public IP addresses for any outbound connections that originate from your VMs.
 
-Alternatively, an [internal (or private) load balancer](./components.md#frontend-ip-configurations) can provide inbound connectivity to your VMs in private network connectivity scenarios, such as accessing a load balancer frontend from an on-premises network in a hybrid scenario. Internal load balancers are used to load balance traffic inside a virtual network.
+Alternatively, an [internal (or private) load balancer](./components.md#frontend-ip-configurations) are used to load balance traffic inside a virtual network. With internal load balancer, you can provide inbound connectivity to your VMs in private network connectivity scenarios, such as accessing a load balancer frontend from an on-premises network in a hybrid scenario. 
 
-:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram that depicts a load balancer directing traffic.":::
+:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Screenshot of a diagram showing Azure Load Balancer directing network traffic to backend virtual machines.":::
 
 For more information on the service's individual components, see [Azure Load Balancer components](./components.md).
 
 Azure Load Balancer has three stock-keeping units (SKUs) - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. For more information, see [Azure Load Balancer SKUs](skus.md).
 
-## Why use Azure Load Balancer?
+## Why use Azure Load Balancer
 
-With Azure Load Balancer, you can scale your applications and create highly available services.
+With Azure Load Balancer, you can scale your applications and create highly available services. The service supports both inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
-The service supports both inbound and outbound scenarios. It provides low latency and high throughput, and it scales up to millions of flows for all TCP and UDP applications.
+### Core capabilities
 
-Key scenarios that you can accomplish by using Azure Standard Load Balancer include:
+Azure Load Balancer provides:
+- **High availability**: Distribute resources [within](./tutorial-load-balancer-standard-public-zonal-portal.md) and [across](./quickstart-load-balancer-standard-public-portal.md) availability zones
+- **Scalability**: Handle millions of flows for TCP and UDP applications
+- **Low latency**: Use pass-through load balancing for ultralow latency
+- **Flexibility**: Support for [multiple ports, multiple IP addresses, or both](./load-balancer-multivip-overview.md)
+- **Health monitoring**: Use [health probes](./load-balancer-custom-probe-overview.md) to ensure traffic is only sent to healthy instances
 
-- Load balance [internal](./quickstart-load-balancer-standard-internal-portal.md) and [external](./quickstart-load-balancer-standard-public-portal.md) traffic to Azure virtual machines.
+### Traffic distribution scenarios
 
-- Use pass-through load balancing, which results in ultralow latency.
+- Load balance [internal](./quickstart-load-balancer-standard-internal-portal.md) and [external](./quickstart-load-balancer-standard-public-portal.md) traffic to Azure virtual machines
+- Configure [outbound connectivity](./load-balancer-outbound-connections.md) for Azure virtual machines
+- Load balance TCP and UDP flow on all ports simultaneously using [high-availability ports](./load-balancer-ha-ports-overview.md)
+- Enable [port forwarding](./tutorial-load-balancer-port-forwarding-portal.md) to access virtual machines by public IP address and port
 
-- Increase availability by distributing resources [within](./tutorial-load-balancer-standard-public-zonal-portal.md) and [across](./quickstart-load-balancer-standard-public-portal.md) zones.
+### Advanced features
 
-- Configure [outbound connectivity](./load-balancer-outbound-connections.md) for Azure virtual machines.
+- **IPv6 support**: Enable [load balancing of IPv6](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) traffic
+- **Cross-region mobility**: Move [internal](./move-across-regions-internal-load-balancer-portal.md) and [external](./move-across-regions-external-load-balancer-portal.md) load balancer resources across Azure regions
+- **Gateway load balancer integration**: Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-create-gateway-load-balancer.md)
+- **Global load balancing integration**: Distribute traffic [across multiple Azure regions](./cross-region-overview.md) for global applications
+- **Admin State**: [Override health probe behavior](./manage-admin-state-how-to.md) for maintenance and operational management
 
-- Use [health probes](./load-balancer-custom-probe-overview.md) to monitor load-balanced resources.
+### Monitoring and insights
 
-- Employ [port forwarding](./tutorial-load-balancer-port-forwarding-portal.md) to access virtual machines in a virtual network by public IP address and port.
+- **Comprehensive metrics**: Use multidimensional metrics through [Azure Monitor](/azure/azure-monitor/overview)
+- **Pre-built dashboards**: Access [Insights for Azure Load Balancer](./load-balancer-insights.md) with useful visualizations
+- **Diagnostics**: Review [Standard load balancer diagnostics](load-balancer-standard-diagnostics.md) for performance insights
+- **Health Event Logs**: Monitor load balancer [health events](./load-balancer-health-event-logs.md) and status changes for proactive management
+- **Load Balancer health status**: Gain deeper insights into the health of your load balancer through [health status](./load-balancer-manage-health-status.md) monitoring
 
-- Enable support for [load balancing](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) of [IPv6](../virtual-network/ip-services/ipv6-overview.md).
+### <a name="securebydefault"></a>Security features
 
-- Use multidimensional metrics through [Azure Monitor](/azure/azure-monitor/overview). You can filter, group, and break out these metrics for a particular dimension. They provide current and historic insights into performance and health of your service.
+Azure Load Balancer implements security through multiple layers:
 
-  [Insights for Azure Load Balancer](./load-balancer-insights.md) offer a preconfigured dashboard with useful visualizations for these metrics. Resource Health is also supported. For more details, review [Standard load balancer diagnostics](load-balancer-standard-diagnostics.md).
+#### Zero Trust security model
+- **Standard Load Balancer** is built on the Zero Trust network security model
+- Part of your virtual network, which is private and isolated by default
 
-- Load balance services on [multiple ports, multiple IP addresses, or both](./load-balancer-multivip-overview.md).
+#### Network access controls
+- Standard load balancers and public IP addresses are **closed to inbound connections by default**
+- **Network Security Groups (NSGs)** must explicitly permit allowed traffic
+- Traffic is blocked if no NSG exists on a subnet or NIC
 
-- Move [internal](./move-across-regions-internal-load-balancer-portal.md) and [external](./move-across-regions-external-load-balancer-portal.md) load balancer resources across Azure regions.
+#### Data protection
+- Azure Load Balancer **doesn't store customer data**
+- All traffic processing happens in real-time without data persistence
 
-- Load balance TCP and UDP flow on all ports simultaneously by using [high-availability ports](./load-balancer-ha-ports-overview.md).
+> [!IMPORTANT]
+> Basic Load Balancer is open to the internet by default and will be retired on September 30, 2025. Migrate to Standard Load Balancer for enhanced security.
 
-- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-create-gateway-load-balancer.md).
-
-### <a name="securebydefault"></a>Security by default
-
-- [Standard Load Balancer](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/load-balancer/skus.md) is built on the Zero Trust network security model.
-
-- [Standard Load Balancer](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/load-balancer/skus.md) is part of your virtual network, which is private and isolated for security.
-
-- Standard load balancers and standard public IP addresses are closed to inbound connections, unless network security groups (NSGs) open them. You use NSGs to explicitly permit allowed traffic. If you don't have an NSG on a subnet or network interface card (NIC) of your virtual machine resource, traffic is not allowed to reach the resource. To learn about NSGs and how to apply them to your scenario, see [Network security groups](../virtual-network/network-security-groups-overview.md).
-
-- [Basic Load Balancer](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/load-balancer/skus.md) is open to the internet by default.
-
-- Azure Load Balancer doesn't store customer data.
+To learn about NSGs and how to apply them to your scenario, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 
 ## Pricing and SLA
 
 For [Standard Load Balancer](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/load-balancer/skus.md) pricing information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/). For service-level agreements (SLAs), see the [Microsoft licensing information for online services](https://aka.ms/lbsla).
 
-Basic Load Balancer is offered at no charge and has no SLA. Also, it will be retired on September 30, 2025.
+Basic Load Balancer is offered at no charge and has no SLA. It was retired on September 30, 2025.
 
 ## What's new?
 

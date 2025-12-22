@@ -1,19 +1,19 @@
 - name: Azure IoT Edge documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
-  - name: Version / release notes
+  - name: Version history and release notes
     href: version-history.md
   - name: Supported platforms
     href: support.md
-- name: Quickstarts
   expanded: true
+- name: Quickstarts
   items:
   - name: Deploy code to a Linux device
     href: quickstart-linux.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Develop modules
@@ -30,8 +30,6 @@
       href: tutorial-deploy-stream-analytics.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md
-    - name: Store data locally with SQL
-      href: tutorial-store-data-sql-server.md
   - name: Create hierarchies of IoT Edge devices
     href: tutorial-nested-iot-edge.md
   - name: Configure EST server
@@ -73,7 +71,7 @@
     - name: IoT Edge certificates
       href: iot-edge-certs.md
     - name: Using Private Link with IoT Edge
-      href: using-private-link.md   
+      href: using-private-link.md
     - name: Confidential computing
       href: deploy-confidential-applications.md
   - name: Offline capabilities
@@ -123,10 +121,10 @@
       href: how-to-configure-module-build-options.md
     - name: Configure module createOptions
       items:
-        - name: Understand and use createOptions
-          href: how-to-use-create-options.md
-        - name: Give modules access to a device's local storage
-          href: how-to-access-host-storage-from-module.md
+      - name: Understand and use createOptions
+        href: how-to-use-create-options.md
+      - name: Give modules access to a device's local storage
+        href: how-to-access-host-storage-from-module.md
     - name: Debug modules with VS Code
       href: debug-module-vs-code.md
   - name: Deploy modules
@@ -145,30 +143,30 @@
         href: how-to-deploy-cli-at-scale.md
   - name: Monitor and diagnose
     items:
-      - name: Monitor IoT Edge deployments
-        href: how-to-monitor-iot-edge-deployments.md
-      - name: Monitor module twins
-        href: how-to-monitor-module-twins.md
-      - name: End-to-end observability for IoT Edge
-        href: how-to-observability.md
-      - name: Use edgeAgent direct methods
-        href: how-to-edgeagent-direct-method.md
-      - name: Retrieve logs with direct methods
-        href: how-to-retrieve-iot-edge-logs.md
-      - name: Access built-in metrics
-        href: how-to-access-built-in-metrics.md
-      - name: Azure Monitor integration
-        items:
-        - name: Collect and transport metrics
-          href: how-to-collect-and-transport-metrics.md
-        - name: Explore curated visualizations
-          href: how-to-explore-curated-visualizations.md
-        - name: Create alert rules
-          href: how-to-create-alerts.md
-        - name: Add custom metrics
-          href: how-to-add-custom-metrics.md
-        - name: FAQ and troubleshooting
-          href: how-to-troubleshoot-monitoring-and-faq.md
+    - name: Monitor IoT Edge deployments
+      href: how-to-monitor-iot-edge-deployments.md
+    - name: Monitor module twins
+      href: how-to-monitor-module-twins.md
+    - name: End-to-end observability for IoT Edge
+      href: how-to-observability.md
+    - name: Use edgeAgent direct methods
+      href: how-to-edgeagent-direct-method.md
+    - name: Retrieve logs with direct methods
+      href: how-to-retrieve-iot-edge-logs.md
+    - name: Access built-in metrics
+      href: how-to-access-built-in-metrics.md
+    - name: Azure Monitor integration
+      items:
+      - name: Collect and transport metrics
+        href: how-to-collect-and-transport-metrics.md
+      - name: Explore curated visualizations
+        href: how-to-explore-curated-visualizations.md
+      - name: Create alert rules
+        href: how-to-create-alerts.md
+      - name: Add custom metrics
+        href: how-to-add-custom-metrics.md
+      - name: FAQ and troubleshooting
+        href: how-to-troubleshoot-monitoring-and-faq.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Gateways for IoT devices
@@ -185,18 +183,7 @@
         href: how-to-connect-downstream-iot-edge-device.md
       - name: Configure the API proxy module
         href: how-to-configure-api-proxy-module.md
-  - name: Azure Blob Storage on IoT Edge
-    items:
-    - name: Understand blob storage at the edge
-      href: how-to-store-data-blob.md
-    - name: Deploy blob storage modules
-      href: how-to-deploy-blob.md
   - name: Azure SQL Edge on IoT Edge
-    items:
-    - name: Understand Azure SQL at the edge
-      href: ../azure-sql-edge/overview.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
-    - name: Deploy Azure SQL Edge modules
-      href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Manage with DevOps tools
     href: how-to-continuous-integration-continuous-deployment.md
   - name: Troubleshoot
@@ -208,7 +195,6 @@
     - name: Resolve common errors
       href: troubleshoot-common-errors.md
 - name: Azure IoT Edge for Linux on Windows (EFLOW)
-  expanded: false
   items:
   - name: About EFLOW
     href: iot-edge-for-linux-on-windows.md
@@ -280,6 +266,7 @@
     items:
     - name: PowerShell functions
       href: reference-iot-edge-for-linux-on-windows-functions.md
+  expanded: false
 - name: Reference
   items:
   - name: Azure IoT Edge 1.1 archive
@@ -333,7 +320,7 @@
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
+    href: https://azure.microsoft.com/updates/?category=iot
   - name: Azure IoT Edge for Visual Studio Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
   - name: Azure IoT Hub extension for Visual Studio Code
@@ -351,4 +338,4 @@
   - name: Technical case studies
     href: https://microsoft.github.io/generative-ai-for-beginners/#/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-edge
+    href: /shows/Inside-Azure-for-IT/?products=azure-iot-edge

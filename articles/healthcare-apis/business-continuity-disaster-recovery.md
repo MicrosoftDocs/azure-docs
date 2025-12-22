@@ -7,7 +7,7 @@ ms.author: ounyman
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.date: 09/07/2023
+ms.date: 06/02/2025
 ---
 # Business continuity and disaster recovery considerations
 
@@ -38,5 +38,9 @@ The support team handles the backups and restores of the FHIR database. To resto
 Learn more: [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 
 For a large or active database, the restore might take several hours to several days. The restoration process involves taking a snapshot of your database at a certain time and then creating a new database to point your FHIR service to. During the restoration process, the server may return an HTTP Status code response with 503, meaning the service is temporarily unavailable and can't handle the request at the moment. After the restoration process completes, the support team updates the ticket with a status that the operation has been completed to restore the requested service.
+
+## Cross-Region DR
+
+Azure Health Data Services does not currently offer cross region DR (disaster recovery) built-in to the service. However, you can utilize native capabilities, such as $export and $import, to achieve cross-region disaster recovery. An OSS sample is provided for you [here](https://github.com/Azure/apiforfhir-migration-tool/blob/main/FHIR-data-migration-tool-docs/disaster-recovery.md). Note: The samples are open-source code and subject to Github's licensing terms and you should review the information and licensing terms before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples are used to demonstrate how Azure Health Data Services (AHDS) and other open-source tools can be used together for cross-region replication.
 
 [!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]

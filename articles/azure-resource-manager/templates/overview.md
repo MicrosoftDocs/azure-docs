@@ -3,7 +3,7 @@ title: Templates overview
 description: Describes the benefits of using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: overview
 ms.custom: devx-track-arm-template
-ms.date: 01/29/2025
+ms.date: 10/29/2025
 ---
 
 # What are ARM templates?
@@ -25,30 +25,30 @@ If you're trying to decide between using ARM templates and one of the other infr
 
 * **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Templates are idempotent, which means you can deploy the same template many times and get the same resource types in the same state. You can develop one template that represents the desired state, rather than developing lots of separate templates to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account with the specified properties already exists, no changes are made.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    }
-  },
-  "resources": {
-    "mystore": {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-04-01",
-      "name": "mystorageaccount",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "StorageV2"
-    }
+  ```json
+  {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2025-06-01",
+        "name": "mystorageaccount",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "StorageV2"
+      }
+    ]
   }
-}
-```
+  ```
 
 * **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so they're created in the correct order. When possible, Resource Manager deploys resources in parallel, so your deployments finish faster than serial deployments. You deploy the template through one command, rather than through multiple imperative commands.
 
@@ -78,7 +78,7 @@ If you're trying to decide between using ARM templates and one of the other infr
 
 * **Exportable code**: You can get a template for an existing resource group by either exporting the current state of the resource group or viewing the template used for a particular deployment. Viewing the [exported template](export-template-portal.md) is a helpful way to learn about the template syntax.
 
-* **Authoring tools**: You can author templates with [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) and the template tool extension. You get IntelliSense, syntax highlighting, in-line help, and many other language functions. In addition to Visual Studio Code, you can also use [Visual Studio](create-visual-studio-deployment-project.md).
+* **Authoring tools**: You can author templates with [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) and [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## Template file
 
@@ -104,7 +104,7 @@ When you deploy a template, Resource Manager converts the template into REST API
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-06-01",
     "name": "mystorageaccount",
     "location": "centralus",
     "sku": {

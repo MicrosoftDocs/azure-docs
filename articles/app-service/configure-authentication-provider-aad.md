@@ -4,15 +4,17 @@ description: Learn how to configure Microsoft Entra authentication as an identit
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: how-to
 ms.date: 03/28/2025
-ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app deployment engineer, I want configure Microsoft Entra authentication for my apps in App Service and understand how to migrate older apps to Microsoft Graph.
+ms.service: azure-app-service
+ms.custom:
+  - fasttrack-edit
+  - AppServiceIdentity
+  - sfi-ropc-nochange
 ---
 
 # Configure your App Service or Azure Functions app to use Microsoft Entra sign-in
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 Select another authentication provider to jump to it.
 
@@ -24,7 +26,7 @@ This article shows you how to configure authentication for Azure App Service or 
 
 Before your application can sign in users, you need to register it in a workforce tenant or an external tenant. If you're making your app available to employee or business guests, register your app in a workforce tenant. If your app is for consumers and business customers, register it in an external tenant.
 
-1. Sign in to the [Azure portal] and go to your app.
+1. Sign in to the [Azure portal] and go to your App Service app or Functions app.
 
 1. On your app's left menu, select **Settings** > **Authentication**, and then select **Add identity provider**.
 
@@ -77,11 +79,14 @@ To use an existing registration, select either:
   - **Client secret (recommended)**. A secret value that the application uses to prove its identity when it requests a token. This value is saved in your app's configuration as a slot-sticky application setting named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If the client secret isn't set, sign-in operations from the service use the OAuth 2.0 implicit grant flow, which we *don't* recommend.
 
     You can also configure the application to [use an identity instead of a client secret][fic-config]. Support for using an identity is currently in preview.
-  - **Issuer URL**. This URL takes the form `<authentication-endpoint>/<tenant-id>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint [value that's specific to the cloud environment](/entra/identity-platform/authentication-national-cloud#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use `https://sts.windows.net` as its authentication endpoint.
+  - **Issuer URL**. This URL takes the form `<authentication-endpoint>/<tenant-id>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint [value that's specific to the cloud environment](/entra/identity-platform/authentication-national-cloud#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use `https://login.microsoftonline.com` as its authentication endpoint.
+  
+    > [!NOTE]
+    > If you created your identity provider using the express setup (Option 1), the issuer URL is automatically set to use the legacy `https://sts.windows.net` endpoint. To align with current Microsoft Entra ID best practices, edit your identity provider and update the issuer URL to use `https://login.microsoftonline.com/<tenant-id>/v2.0` instead.
 
 If you need to manually create an app registration in a workforce tenant, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app). As you go through the registration process, be sure to note the application (client) ID and client secret values.
 
-During the registration process, in the **Redirect URIs** section, select **Web** for platform and enter `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+During the registration process, in the **Redirect URIs** section, select **Web** for platform, and enter a redirect URI. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 Now, modify the app registration:
 
@@ -168,7 +173,7 @@ To use an existing registration, select **Provide the details of an existing app
 
 If you need to manually create an app registration in an external tenant, see [Register an app in your external tenant](/entra/external-id/customers/how-to-register-ciam-app?tabs=webapp#register-your-web-app).
 
-During the registration process, in the **Redirect URIs** section, select **Web** for platform and enter `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+During the registration process, in the **Redirect URIs** section, select **Web** for platform, and enter a redirect URI. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 Now, modify the app registration:
 
@@ -210,9 +215,9 @@ For **Identity requirement**, choose whether to:
 
 For **Tenant requirement**, choose whether to:
 
-- Allow requests only from the issuer tenant.
+- Allow requests only from the same tenant as the app registration.
 - Allow requests from specific tenants.
-- Use default restrictions based on the issuer.
+- Use default restrictions based on the app registration's tenant.
 
 Your app might still need to make other authorization decisions in code. For more information, see [Use a built-in authorization policy](#use-a-built-in-authorization-policy) later in this article.
 
@@ -267,7 +272,7 @@ The created app registration authenticates incoming requests for your Microsoft 
 
 Your application code is often the best place to handle custom authorization logic. However, for common scenarios, the Microsoft identity platform provides built-in checks that you can use to limit access.
 
-This section shows how to enable built-in checks by using the [App Service authentication V2 API](./configure-authentication-api-version.md). Currently, the only way to configure these built-in checks is by using [Azure Resource Manager templates](/azure/templates/microsoft.web/sites/config-authsettingsv2) or the [REST API](/rest/api/appservice/web-apps/update-auth-settings-v2).
+This section shows how to enable built-in checks by using the [App Service authentication V2 API](./configure-authentication-api-version.md). Currently, the only way to configure these built-in checks is by using [Azure Resource Manager templates](/azure/templates/microsoft.web/sites/config-authsettingsv2) or the [REST API](/rest/api/appservice/web-apps/update-auth-settings-v-2).
 
 Within the API object, the Microsoft Entra identity provider configuration has a `validation` section that can include a `defaultAuthorizationPolicy` object, as shown in the following structure:
 
@@ -303,7 +308,7 @@ Requests that fail these built-in checks get an HTTP `403 Forbidden` response.
 
 [fic-config]: #use-a-managed-identity-instead-of-a-secret-preview
 
-Instead of configuring a client secret for your app registration, you can [configure an application to trust a managed identity (preview)][entra-fic]. Using an identity instead of a secret means you don't have to manage a secret. You don't have secret expiration events to handle, and you don't have the same level of risk associated with possibly disclosing or leaking that secret.
+Instead of configuring a client secret for your app registration, you can [configure an application to trust a managed identity][entra-fic]. Using an identity instead of a secret means you don't have to manage a secret. You don't have secret expiration events to handle, and you don't have the same level of risk associated with possibly disclosing or leaking that secret.
 
 The identity allows you to create a *federated identity credential*, which can be used instead of a client secret as a *client assertion*. This approach is available only for workforce configurations. The built-in authentication feature currently supports federated identity credentials as a preview.
 
@@ -315,6 +320,7 @@ You can use the steps in this section to configure your App Service or Azure Fun
 
     > [!IMPORTANT]
     > The user-assigned managed identity that you create should only be assigned to the App Service or Azure Functions application through this registration. If you assign the identity to another resource, you're giving that resource unnecessary access to your app registration.
+
 1. Note down the **Object ID** and **Client ID** values of the managed identity. You'll need the object ID to create a federated identity credential in the next step. You'll use the managed identity's client ID in a later step.
 
 1. Follow the Microsoft Entra ID [instructions to configure a federated identity credential on an existing application](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#configure-a-federated-identity-credential-on-an-existing-application). Those instructions also include sections for updating application code, which you can skip.
@@ -364,7 +370,7 @@ You can register native clients to request access to your App Service app's APIs
 
 1. On the **Register an application** pane, for **Name**, enter a name for your app registration.
 
-1. In **Redirect URI**, select **Public client/native (mobile & desktop)** and enter the URL `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. In **Redirect URI**, select **Public client/native (mobile & desktop)** and enter the redirect URL. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 1. Select **Register**.
 

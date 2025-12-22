@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Transmit Security with Azure Active Directory B2C for passkeys authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's hosted passkeys authentication solution](https://transmitsecurity.com/solutions/password-mfa-replacement). Transmit Security uses strong Fast Identity Online (FIDO2) biometric authentication for reliable omni-channel authentication. The solution ensures a smooth sign-in experience for customers across devices and channels, while reducing fraud, phishing, and credential reuse.
 
 ## Scenario description
@@ -39,7 +41,7 @@ To get started, you need:
 
 ::: zone pivot="b2c-user-flow"
 
-* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Entra subscription.
 * [A registered web application](./tutorial-register-applications.md) in your Azure AD B2C tenant.
 * A Transmit Security tenant. Go to [transmitsecurity.com](https://transmitsecurity.com/).
@@ -47,7 +49,7 @@ To get started, you need:
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Entra subscription.
 * [A registered web application](./tutorial-register-applications.md) in your Azure AD B2C tenant.
 * [Azure AD B2C custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).

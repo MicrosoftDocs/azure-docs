@@ -6,7 +6,7 @@ ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: concept-article
-ms.date: 04/01/2025
+ms.date: 09/23/2025
 ms.author: prsaini
 #customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
@@ -164,17 +164,17 @@ The following table shows user limits and permissions associated with each admin
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)| EA Purchaser | Department Administrator|Department Administrator (read only)|Account Owner| Partner|
 |---|---|---|---|---|---|---|---|
-|View Enterprise Administrators|✔|✔| ✔|✘|✘|✘|✔|
-|Add or remove Enterprise Administrators|✔|✘|✘|✘|✘|✘|✘|
-|View Notification Contacts⁴ |✔|✔|✔|✘|✘|✘|✔|
-|Add or remove Notification Contacts⁴ |✔|✘|✘|✘|✘|✘|✘|
-|Create and manage Departments |✔|✘|✘|✘|✘|✘|✘|
-|View Department Administrators|✔|✔|✔|✔|✔|✘|✔|
-|Add or remove Department Administrators|✔|✘|✘|✔|✘|✘|✘|
-|View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
-|Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
-|Purchase reservations/savings plans|✔|✘⁶|✔|✘|✘|✘|✘|
-|Create and manage subscriptions |✔|✘|✘|✘|✘|✔|✘|
+|View Enterprise Administrators|〇|〇| 〇|✘|✘|✘|〇|
+|Add or remove Enterprise Administrators|〇|✘|✘|✘|✘|✘|✘|
+|View Notification Contacts⁴ |〇|〇|〇|✘|✘|✘|〇|
+|Add or remove Notification Contacts⁴ |〇|✘|✘|✘|✘|✘|✘|
+|Create and manage Departments |〇|✘|✘|✘|✘|✘|✘|
+|View Department Administrators|〇|〇|〇|〇|〇|✘|〇|
+|Add or remove Department Administrators|〇|✘|✘|〇|✘|✘|✘|
+|View Accounts in the enrollment |〇|〇|〇|〇⁵|〇⁵|✘|〇|
+|Add Accounts to the enrollment and change Account Owner|〇|✘|✘|〇⁵|✘|✘|✘|
+|Purchase reservations/savings plans|〇|✘⁶|〇|✘|✘|✘|✘|
+|Create and manage subscriptions |〇|✘|✘|✘|✘|〇|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.
@@ -242,10 +242,11 @@ The Enterprise Administrator always sees usage details based on the organization
 |Account Owner OR Department Admin|✘ Disabled |none|No pricing|
 |None|Not applicable |Owner|No pricing|
 
-You set the Enterprise admin role and view charges policies in the Azure portal. The Azure role-based-access-control (RBAC) role can be updated with information at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+You set the Enterprise admin role and view charges policies in the Azure portal. The Azure role-based-access-control (RBAC) role can be updated with information at [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Related content
 
 - [Manage access to billing information for Azure](manage-billing-access.md)
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
+)
 - Assign [Azure built-in roles](../../role-based-access-control/built-in-roles.md)

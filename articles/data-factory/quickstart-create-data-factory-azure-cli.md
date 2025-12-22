@@ -6,8 +6,12 @@ ms.author: whhender
 ms.reviewer: jianleishen
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 05/15/2024
-ms.custom: template-quickstart, devx-track-azurecli, mode-api
+ms.date: 06/06/2025
+ms.custom:
+  - template-quickstart
+  - devx-track-azurecli
+  - mode-api
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create an Azure Data Factory using Azure CLI
@@ -16,7 +20,7 @@ This quickstart describes how to use Azure CLI to create an Azure Data Factory. 
 
 For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

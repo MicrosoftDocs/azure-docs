@@ -6,16 +6,18 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 07/22/2025
 ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure service endpoints in Azure virtual networks, so that I can ensure secure, direct connectivity to Azure services and optimize routing while minimizing management complexity."
 ---
 
-# Virtual Network service endpoints
+# Azure virtual network service endpoints
 
-Virtual Network service endpoint provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Service Endpoints enables private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network.
+Azure virtual network service endpoints provide secure and direct connectivity to Azure services over an optimized route through the Azure backbone network. These endpoints allow you to secure critical Azure service resources exclusively to your virtual networks, enabling private IP addresses to reach Azure services without requiring public IP addresses. This guide covers how to configure service endpoints, their benefits, and best practices for implementation.
 
-   >[!NOTE]
-   > Microsoft recommends use of Azure Private Link and private endpoints for secure and private access to services hosted on the Azure platform. Azure Private Link deploys a network interface into a virtual network of your choosing for Azure services such as Azure Storage or Azure SQL. For more information, see [Azure Private Link](../private-link/private-link-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md).  
+> [!NOTE]
+> Microsoft recommends use of Azure Private Link and private endpoints for secure and private access to services hosted on the Azure platform. Azure Private Link deploys a network interface into a virtual network of your choosing for Azure services such as Azure Storage or Azure SQL. For more information, see [Azure Private Link](../private-link/private-link-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md).
 
 Service endpoints are available for the following Azure services and regions. The *Microsoft.\** resource is in parenthesis. Enable this resource from the subnet side while configuring service endpoints for your service:
 
@@ -43,9 +45,9 @@ Service endpoints are available for the following Azure services and regions. Th
 
 - **[Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Azure AI services are available.
 
-**Public Preview**
+- **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Generally available in all Azure regions where Azure Container Registry is available.
 
-- **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Preview available in limited Azure regions where Azure Container Registry is available.
+**Public Preview**
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -55,7 +57,7 @@ Service endpoints provide the following benefits:
 
 - **Improved security for your Azure service resources**: Virtual network private address spaces can overlap. You can't use overlapping spaces to uniquely identify traffic that originates from your virtual network. Service endpoints enable securing of Azure service resources to your virtual network by extending virtual network identity to the service. Once you enable service endpoints in your virtual network, you can add a virtual network rule to secure the Azure service resources to your virtual network. The rule addition provides improved security by fully removing public internet access to resources and allowing traffic only from your virtual network.
 
-- **Optimal routing for Azure service traffic from your virtual network**: Today, any routes in your virtual network that force internet traffic to your on-premises and/or virtual appliances also force Azure service traffic to take the same route as the internet traffic. Service endpoints provide optimal routing for Azure traffic. 
+- **Optimal routing for Azure service traffic from your virtual network**: Today, any routes in your virtual network that force internet traffic to your on-premises and/or virtual appliances also force Azure service traffic to take the same route as the internet traffic. Service endpoints provide optimal routing for Azure traffic.
 
   Endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. For more information about user-defined routes and forced-tunneling, see [Azure virtual network traffic routing](virtual-networks-udr-overview.md).
 
@@ -79,8 +81,8 @@ Service endpoints provide the following benefits:
 
 - Today, Azure service traffic from a virtual network uses public IP addresses as source IP addresses. With service endpoints, service traffic switches to use virtual network private addresses as the source IP addresses when accessing the Azure service from a virtual network. This switch allows you to access the services without the need for reserved, public IP addresses used in IP firewalls.
 
-   >[!NOTE]
-   > With service endpoints, the source IP addresses of the virtual machines in the subnet for service traffic switches from using public IPv4 addresses to using private IPv4 addresses. Existing Azure service firewall rules using Azure public IP addresses stop working with this switch. Ensure Azure service firewall rules allow for this switch before setting up service endpoints. You might also experience temporary interruption to service traffic from this subnet while configuring service endpoints. 
+  > [!NOTE]
+  > With service endpoints, the source IP addresses of the virtual machines in the subnet for service traffic switches from using public IPv4 addresses to using private IPv4 addresses. Existing Azure service firewall rules using Azure public IP addresses stop working with this switch. Ensure Azure service firewall rules allow for this switch before setting up service endpoints. You might also experience temporary interruption to service traffic from this subnet while configuring service endpoints. 
  
 ## Secure Azure service access from on-premises
 
@@ -88,7 +90,7 @@ Service endpoints provide the following benefits:
 
   ExpressRoute: If you're using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Microsoft peering from your premises, identify the NAT IP addresses that you're using. The NAT IP addresses are either customer provided or provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. For more information about NAT for ExpressRoute Microsoft peering, see [ExpressRoute NAT requirements](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-![Securing Azure services to virtual networks](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
+:::image type="content" source="./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png" alt-text="Screenshot of diagram showing virtual network service endpoints securing Azure services to virtual networks.":::
 
 ### Configuration
 
@@ -128,8 +130,8 @@ Service endpoints provide the following benefits:
 
 ### Logging and troubleshooting
 
-Once you configure service endpoints to a specific service, validate that the service endpoint route is in effect by: 
- 
+Once you configure service endpoints to a specific service, validate that the service endpoint route is in effect by:
+
 - Validating the source IP address of any service request in the service diagnostics. All new requests with service endpoints show the source IP address for the request as the virtual network private IP address, assigned to the client making the request from your virtual network. Without the endpoint, the address is an Azure public IP address.
 
 - Viewing the effective routes on any network interface in a subnet. The route to the service:
@@ -140,7 +142,7 @@ Once you configure service endpoints to a specific service, validate that the se
 
   - Indicates that a more direct connection to the service is in effect compared to any forced-tunneling routes
 
->[!NOTE]
+> [!NOTE]
 > Service endpoint routes override any BGP or user-defined routes (UDRs) for the address prefix match of an Azure service. For more information, see [troubleshooting with effective routes](diagnose-network-routing-problem.md).
 
 ## Provisioning

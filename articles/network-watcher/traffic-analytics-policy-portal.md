@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 12/15/2025
+ms.custom: sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy traffic analytics.
+# Customer intent: "As an Azure administrator, I want to utilize Azure Policy to audit and manage the deployment of traffic analytics for NSG flow logs, so that I can ensure compliance and optimize network monitoring within my organization."
 ---
 
 # Manage traffic analytics using Azure Policy 
@@ -69,7 +70,7 @@ There are two *deployIfNotExists* policies available to configure NSG flow logs:
 - **Configure network security groups to enable traffic analytics**: This policy is similar to the previous policy except that during remediation, it doesn't overwrite flow logs settings on the flagged network security groups that have flow logs enabled but traffic analytics disabled with the parameter provided in the policy assignment.
 
 > [!NOTE]
-> Network Watcher is a regional service so the two *deployIfNotExists* policies will apply to network security groups that exist in a particular region. For network security groups in a different region, create another policy assignment in that region.
+> Network Watcher is a regional service so the two *deployIfNotExists* policies apply to network security groups that exist in a particular region. For network security groups in a different region, create another policy assignment in that region.
 
 To assign any of the *deployIfNotExists* two policies, follow these steps: 
 

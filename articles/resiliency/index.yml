@@ -1,0 +1,84 @@
+### YamlMime:Landing
+
+title: Resiliency documentation
+summary: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zonal Resiliency & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
+
+metadata:
+  title: Resiliency Documentation
+  description: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zonal Resiliency & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
+  ms.service: resiliency
+  ms.custom:
+    - ignite-2023
+    - ignite-2024
+  ms.topic: landing-page
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
+  ms.date: 11/19/2025
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Learn about Resiliency in Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Resiliency?
+            url: resiliency-overview.md
+      - linkListType: concept
+        links:
+          - text: Resiliency support matrix
+            url: resiliency-support-matrix.md
+          
+  # Card (optional)
+  - title: Manage data protection
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Understand the protection estate
+            url: quick-understand-protection-estate.md
+      - linkListType: tutorial
+        links:
+          - text: Configure protection for data sources
+            url: tutorial-configure-protection-datasource.md
+          - text: Review and modify the security level
+            url: tutorial-review-security-posture.md  
+          - text: Recover deleted items
+            url: tutorial-recover-deleted-item.md
+          - text: Configure and view reports
+            url: tutorial-reporting-for-data-insights.md
+
+  # Card (optional)
+  - title: Monitor protection
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor protection summary
+            url: tutorial-monitor-protection-summary.md
+
+  # Card (optional)
+  - title: Resiliency Copilot
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Manage BCDR estate
+            url: tutorial-manage-data-using-copilot.md
+
+  # Card (optional)
+  - title: Supported workloads
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Back up SAP ASE database
+            url: ../backup/sap-ase-database-about.md
+          - text: Protect Azure Elastic SAN via Azure Backup (preview)
+            url: ../backup/azure-elastic-storage-area-network-backup-overview.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json    
+  
+  # Card (optional)
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Well-Architecture design recommendation for monitoring/ alerting
+            url: /azure/well-architected/reliability/monitoring-alerting-strategy#azure-facilitation

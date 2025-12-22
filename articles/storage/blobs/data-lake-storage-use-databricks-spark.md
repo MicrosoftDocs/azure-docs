@@ -11,6 +11,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: py-fresh-zinc
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
+# Customer intent: As a data scientist, I want to connect Azure Databricks to Azure Data Lake Storage so that I can efficiently run analytics and transform unstructured data into a more query-friendly format.
 ---
 
 # Tutorial: Azure Data Lake Storage, Azure Databricks & Spark
@@ -23,7 +24,7 @@ In this tutorial, you will:
 > - Ingest unstructured data into a storage account
 > - Run analytics on your data in Blob storage
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

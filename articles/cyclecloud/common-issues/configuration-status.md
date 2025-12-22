@@ -2,19 +2,19 @@
 title: Common Issues - Unknown Config Status
 description: Azure CycleCloud common issue - Unknown Config Status
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/30/2025
 ms.author: adjohnso
 ---
-# Common Issues: Unknown configuration status returned
+# Common issues: Unknown configuration status returned
 
-## Possible Error Messages
+## Possible error messages
 
 - `Unknown configuration status returned`
 
 ## Resolution
 
-This message indicates a jetpack failure that we're unable to characterize. Hopefully this category gets smaller and smaller over time.
+This message indicates a jetpack failure that the system can't characterize.
 
-By logging into the log there may be informative messages in `/opt/cycle/jetpack/logs/jetpack.log` to help troubleshoot this failure.
+To troubleshoot this failure, check the log at `/opt/cycle/jetpack/logs/jetpack.log` for informative messages.
 
-Verify that the jetpack version (`jetpack -v`) matches the CycleCloud version.
+Make sure the jetpack version (`jetpack -v`) matches the CycleCloud version.

@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/22/2024
+ms.date: 09/29/2025
 ms.devlang: azurecli
 ms.custom: passwordless-dotnet, passwordless-java, devx-track-azurecli
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
@@ -17,7 +17,7 @@ zone_pivot_groups: passwordless
 
 Passwordless connections use managed identities to access Azure services. With this approach, you don't have to manually track and manage secrets for managed identities. These tasks are securely handled internally by Azure.
 
-Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database services, such as Azure Database for PostgreSQL, Azure Database for MySQL, and Azure SQL Database, to accept managed identities.
+Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database services, such as Azure Database for PostgreSQL, Azure Database for MySQL, Azure SQL Database, and SQL database in Microsoft Fabric, to accept managed identities.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -28,7 +28,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An app deployed to [Azure App Service](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.61.0 or higher.
 

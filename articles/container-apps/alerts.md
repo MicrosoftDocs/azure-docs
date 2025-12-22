@@ -7,6 +7,7 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: cshoe
+ms.custom: sfi-image-nochange
 ---
 
 # Set up alerts in Azure Container Apps

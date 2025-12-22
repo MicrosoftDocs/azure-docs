@@ -5,15 +5,15 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 06/13/2024
+ms.date: 11/07/2025
 ms.author: cshoe
 ---
 
 # .NET on Azure Container Apps overview
 
-To deploy a .NET application to a cloud native environment like Azure Container Apps, there are decisions you need to make to ensure your application runs smoothly and securely. This guide covers key concepts involved in deploying a .NET application to Azure Container Apps.
+To deploy a .NET application to a cloud native environment like Azure Container Apps, you need to make decisions that ensure your application runs smoothly and securely. This guide covers key concepts involved in deploying a .NET application to Azure Container Apps.
 
-Azure Container Apps is a fully managed serverless container service that allows you to run containerized applications without having to manage the underlying infrastructure. Container Apps includes built-in support for features including autoscaling, health checks, and transport layer security (TLS) certificates.
+Azure Container Apps is a fully managed serverless container service that lets you run containerized applications without managing the underlying infrastructure. Container Apps includes built-in support for features like autoscaling, health checks, and transport layer security (TLS) certificates.
 
 This article details the concepts and concerns important to you as you deploy a .NET application on Azure Container Apps.
 
@@ -21,7 +21,7 @@ This article details the concepts and concerns important to you as you deploy a 
 
 Container Apps supports two types of resources: apps and jobs. Apps are continuously running services, while jobs are short-lived tasks designed to run to completion.
 
-As you prepare to deploy your app, consider differences between these two application types as their behavior affects how you manage your .NET application. The following table describes the difference in use cases between and jobs.
+As you prepare to deploy your app, consider differences between these two application types as their behavior affects how you manage your .NET application. The following table describes the difference in use cases between apps and jobs.
 
 | Use case | Resource type |
 |-------------|---------------|
@@ -43,9 +43,9 @@ Once set up, you can deploy your application to Azure Container Apps by followin
 
 ## Use the HTTP ingress
 
-Azure Container Apps includes a built-in HTTP ingress that allows you to expose your apps to traffic coming from outside the container. The Container Apps ingress sits between your app and the end user. Since the ingress acts as an intermediary, whatever the end user sees ends at the ingress, and whatever your app sees begins at the ingress.
+Azure Container Apps includes a built-in HTTP ingress that you can use to expose your apps to traffic coming from outside the container. The Container Apps ingress sits between your app and the end user. Since the ingress acts as an intermediary, whatever the end user sees ends at the ingress, and whatever your app sees begins at the ingress.
 
-The ingress manages TLS termination and custom domains, eliminating the need for you to manually configure them in your app. Through the ingress, port `443` is exposed for HTTPS traffic, and optionally port `80` for HTTP traffic. The ingress forwards requests to your app at its target port.
+The ingress manages TLS termination and custom domains, so you don't need to manually configure them in your app. Through the ingress, port `443` is exposed for HTTPS traffic, and optionally port `80` for HTTP traffic. The ingress forwards requests to your app at its target port.
 
 If your app needs metadata about the original request, it can use [X-forwarded headers](#define-x-forwarded-headers).
 
@@ -53,9 +53,9 @@ To learn more, see [HTTP ingress in Azure Container Apps](ingress.md).
 
 ### Define a target port
 
-To receive traffic, the ingress is configured on a target port where your app listens for traffic.
+To receive traffic, configure the ingress on a target port where your app listens for traffic.
 
-When ASP.NET Core is running in a container, the application listens to ports as configured in the container image. When you use the [official ASP.NET Core images](/aspnet/core/host-and-deploy/docker/building-net-docker-images), your app is configured to listen to HTTP on a default port. The default port depends on the ASP.NET Core version.
+When ASP.NET Core runs in a container, the application listens to ports as configured in the container image. When you use the [official ASP.NET Core images](/aspnet/core/host-and-deploy/docker/building-net-docker-images), your app is configured to listen to HTTP on a default port. The default port depends on the ASP.NET Core version.
 
 | Runtime | Target port |
 |---|---|
@@ -66,7 +66,7 @@ When you configure the ingress, set the target port to the number corresponding 
 
 ### Define X-forwarded headers
 
-As the ingress handles the original HTTP request, your app sees the ingress as the client. There are some situations where your app needs to know the original client's IP address or the original protocol (HTTP or HTTPS). You can access the protocol and IP information via the request's [`X-Forwarded-*` header](ingress-overview.md#http-headers).
+As the ingress handles the original HTTP request, your app sees the ingress as the client. In some situations, your app needs to know the original client's IP address or the original protocol (HTTP or HTTPS). You can access the protocol and IP information via the request's [`X-Forwarded-*` header](ingress-overview.md#http-headers).
 
 You can read original values from these headers by accessing the `ForwardedHeaders` object.
 
@@ -88,7 +88,7 @@ Applications deployed to Container Apps often work best when you build on the fo
 
 ### Application configuration
 
-When deploying your .NET application to Azure Container Apps, use environment variables for storing configuration information instead of using *appsettings.json*. This practice allows you to configure your application in different ways in differing environments. Additionally, using environment variables makes it easier to manage configuration values without having to rebuild and redeploy your container image.
+When you deploy your .NET application to Azure Container Apps, use environment variables to store configuration information instead of using *appsettings.json*. This practice allows you to configure your application in different ways in different environments. Additionally, using environment variables makes it easier to manage configuration values without having to rebuild and redeploy your container image.
 
 In Azure Container Apps, you [set environment variables](./environment-variables.md) when you define your app or job's container. Store sensitive values in secrets and reference them as environment variables. To learn more about managing secrets, see [Manage secrets in Azure Container Apps](manage-secrets.md).
 
@@ -112,15 +112,15 @@ For a chance to implement custom logic to determine the health of your applicati
 
 By default, Azure Container Apps automatically scales your ASP.NET Core apps based on the number of incoming HTTP requests. You can also configure custom autoscaling rules based on other metrics, such as CPU or memory usage. To learn more about scaling, see [Set scaling rules in Azure Container Apps](scale-app.md).
 
-In .NET 8.0.4 and later, ASP.NET Core apps that use [data protection](/aspnet/core/security/data-protection/introduction) are automatically configured to keep protected data accessible to all replicas as the application scales. When your app begins to scale, a key manager handles the writing and sharing keys across multiple revisions. As the app is deployed, the environment variable `autoConfigureDataProtection` is automatically set `true` to enable this feature.  For more information on this auto configuration, see [this GitHub pull request](https://github.com/Azure/azure-rest-api-specs/pull/28001).
+In .NET 8.0.4 and later, ASP.NET Core apps that use [data protection](/aspnet/core/security/data-protection/introduction) are automatically configured to keep protected data accessible to all replicas as the application scales. When your app begins to scale, a key manager handles the writing and sharing keys across multiple revisions. As the app is deployed, the environment variable `autoConfigureDataProtection` is automatically set to `true` to enable this feature. For more information on this auto configuration, see [this GitHub pull request](https://github.com/Azure/azure-rest-api-specs/pull/28001).
 
 Autoscaling changes the number of replicas of your app based on the rules you define. By default, Container Apps randomly routes incoming traffic to the replicas of your ASP.NET Core app. Since traffic can split among different replicas, your app should be stateless so your application doesn't experience state-related issues.
 
-Features such as anti-forgery, authentication, SignalR, Blazor Server, and Razor Pages depend on data protection require extra configuration to work correctly when scaling to multiple replicas.
+Features such as anti-forgery, authentication, SignalR, Blazor Server, and Razor Pages depend on data protection and require extra configuration to work correctly when scaling to multiple replicas.
 
 #### Configure data protection
 
-ASP.NET Core has special features protect and unprotect data, such as session data and anti-forgery tokens. By default, data protection keys are stored on the file system, which isn't suitable for a cloud-native environment.
+ASP.NET Core has special features to protect and unprotect data, such as session data and anti-forgery tokens. By default, data protection keys are stored on the file system, which isn't suitable for a cloud-native environment.
 
 If you're deploying an Aspire application, data protection is automatically configured for you. In all other situations, you need to [configure data protection manually](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps?view=aspnetcore-8.0&tabs=login-azure-cli&preserve-view=true#connect-the-azure-services).
 

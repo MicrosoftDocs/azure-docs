@@ -4,6 +4,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/11/2023
 ms.author: glenga
+ms.custom: sfi-image-nochange
 ---
 
 To download the publishing profile of your function app:

@@ -1,12 +1,13 @@
 ---
-title: Configure an NFS client for Azure NetApp Files | Microsoft Docs
+title: Configure an NFS client for Azure NetApp Files
 description: Describes how to configure NFS clients to use with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/27/2024
+ms.date: 05/27/2025
 ms.author: anfdocs
+# Customer intent: "As a system administrator, I want to configure NFS clients on RHEL and Ubuntu for Azure NetApp Files, so that I can securely manage file storage with Kerberos encryption and support dual-protocol access in my organization's environment."
 ---
 # Configure an NFS client for Azure NetApp Files
 

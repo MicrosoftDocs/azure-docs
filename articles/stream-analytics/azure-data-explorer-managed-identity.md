@@ -6,7 +6,9 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/27/2022
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Use managed identities to access Azure Data Explorer from an Azure Stream Analytics job
@@ -53,7 +55,7 @@ For more information about roles supported Azure Data Explorer, see [Role-based 
 
 2. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |

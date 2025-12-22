@@ -9,6 +9,7 @@ ms.date: 03/25/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: "As a network administrator, I want to establish a site-to-site VPN connection using PowerShell, so that I can securely link my on-premises network to an Azure virtual network for seamless data access and management."
 ---
 # Create a site-to-site VPN connection - Azure PowerShell
 

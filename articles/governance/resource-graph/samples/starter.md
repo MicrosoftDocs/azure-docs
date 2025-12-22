@@ -35,7 +35,7 @@ This article uses the following starter queries:
 - [List Azure Monitor alerts ordered by severity and alert state](#list-azure-monitor-alerts-ordered-by-severity-and-alert-state)
 - [List Azure Monitor alerts ordered by severity, monitor service, and target resource type ](#list-azure-monitor-alerts-ordered-by-severity-monitor-service-and-target-resource-type)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 before you begin.
 
 ## Language support

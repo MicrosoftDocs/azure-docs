@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 10/09/2023
+# Customer intent: As a security operations analyst, I want to integrate Azure Firewall with my security monitoring solution, so that I can enhance threat detection and automate incident response to safeguard my organization's network against sophisticated cyber attacks.
 ---
 
 # Azure Firewall with Microsoft Sentinel overview
@@ -18,7 +19,7 @@ Combining prevention and detection allows you to ensure that you both prevent so
 
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 
 ## Key capabilities

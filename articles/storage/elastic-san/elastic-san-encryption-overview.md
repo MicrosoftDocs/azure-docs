@@ -3,9 +3,10 @@ title: Encryption options for Azure Elastic SAN
 description: Use platform-managed keys for the encryption of your Elastic SAN volumes or use customer-managed keys to manage encryption with your own keys.
 author: roygara
 ms.date: 05/31/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
+# Customer intent: "As a cloud architect, I want to choose between platform-managed and customer-managed keys for encryption, so that I can meet my organization's specific security and compliance requirements for data stored in Azure Elastic SAN."
 ---
 
 # Learn about encryption for an Azure Elastic SAN

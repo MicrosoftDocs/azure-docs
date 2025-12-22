@@ -2,11 +2,12 @@
 title: Back up a SharePoint farm to Azure with MABS
 description: Use Azure Backup Server to back up and restore your SharePoint data. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
 ms.topic: how-to
-ms.date: 07/22/2024
+ms.date: 07/14/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a SharePoint administrator, I want to configure Azure Backup Server to back up my SharePoint farm, so that I can ensure data protection and enable quick recovery of my SharePoint data in the event of loss or corruption."
 ---
 
 # Back up a SharePoint farm to Azure using Microsoft Azure Backup Server
@@ -53,11 +54,9 @@ Additional prerequisites:
 
 * In the SharePoint farm, if you've SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that MABS will protect.
 
-## Configure the backup
+## Configure SharePoint Farm backup
 
-To back up the SharePoint farm, configure protection for SharePoint by using *ConfigureSharePoint.exe* and then create a protection group in MABS.
-
-Follow these steps:
+To back up the SharePoint farm, configure protection for SharePoint using *ConfigureSharePoint.exe* and create a protection group in MABS by following these steps:
 
 1. **Run ConfigureSharePoint.exe**: This tool configures the SharePoint VSS Writer service \(WSS\) and provides the protection agent with credentials for the SharePoint farm. After you've deployed the protection agent, the ConfigureSharePoint.exe file can be found in the `<MABS Installation Path\>\bin` folder on the front\-end Web server.
    
@@ -127,7 +126,7 @@ Follow these steps:
 
    When it finishes, the protection group status will show as **OK** on the **Status** page. Backup then takes place in line with the protection group settings.
 
-## Monitor the operations
+## Monitor the SharePoint Farm backup operations
 
 After the protection group creation is complete, the initial replication happens and MABS starts backing up and synchronizing the SharePoint data. MABS monitors the initial synchronization and subsequent backups. You can monitor the SharePoint data in a couple of ways:
 
@@ -135,9 +134,9 @@ After the protection group creation is complete, the initial replication happens
 
 * If you use Operations Manager, you can centrally publish alerts.
 
-### Set up monitoring notifications
+### Configure monitoring notifications
 
-To set up monitoring notifications, follow these steps:
+To configure monitoring notifications, follow these steps:
 
 1. On the **MABS Administrator Console**, select **Monitoring** > **Action** > **Options**.
 
@@ -295,7 +294,7 @@ To change the front-end Web server that MABS uses to protect the farm, follow th
 
 1. On *Server2*, at a command prompt, change the directory to `_MABS installation location_\bin\` and run **ConfigureSharepoint**.
 
-   For more information about ConfigureSharePoint, see [Configure backup](#configure-the-backup).
+   For more information about ConfigureSharePoint, see [Configure backup](#configure-sharepoint-farm-backup).
 
 1. Select the protection group that the server farm belongs to, and then select **Modify protection group**.
 

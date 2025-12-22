@@ -1,13 +1,14 @@
 ---
-title: Troubleshoot VMware vCenter discovery failures in Azure Site Recovery 
-description: This article describes how to troubleshooting VMware vCenter discovery failures in Azure Site Recovery. 
-author: ankitaduttaMSFT
-manager: gaggupta
+title: Troubleshoot VMware vCenter discovery failures in Azure Site Recovery
+ms.reviewer: v-gajeronika
+description: This article describes how to troubleshoot VMware vCenter discovery failures in Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.author: ankitadutta
-ms.date: 09/06/2024
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
 
+# Customer intent: As a system administrator troubleshooting VMware vCenter discovery failures, I want to understand the common issues and resolutions, so that I can ensure seamless connectivity and operation of Azure Site Recovery.
 ---
 # Troubleshoot vCenter Server discovery failures
 
@@ -15,7 +16,7 @@ This article helps you to troubleshoot issues that occur because of VMware vCent
 
 ## Non-numeric values in the maxSnapShots property
 
-On versions prior to 9.20, vCenter disconnects when it retrieves a non-numeric value for the property  `snapshot.maxSnapShots` property on a VM.
+On versions prior to 9.20, vCenter disconnects when it retrieves a non-numeric value for the property  `snapshot.maxSnapShots` property on a Virtual Machine.
 
 This issue is identified by error ID 95126.
 
@@ -29,7 +30,7 @@ System.FormatException: Input string was not in a correct format.
 
 To resolve the issue:
 
-- Identify the VM and set the value to a numeric value (VM Edit settings in vCenter).
+- Identify the Virtual Machine and set the value to a numeric value (Virtual Machine Edit settings in vCenter).
 
 Or
 
@@ -76,4 +77,4 @@ For DRA proxy configuration:
 
 ## Next steps
 
-[Manage the configuration server for VMware VM disaster recovery](./vmware-azure-manage-configuration-server.md#refresh-configuration-server)
+[Manage the configuration server for VMware Virtual Machine disaster recovery](./vmware-azure-manage-configuration-server.md#refresh-configuration-server)

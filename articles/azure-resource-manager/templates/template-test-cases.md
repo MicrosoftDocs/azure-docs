@@ -1,9 +1,9 @@
----
+﻿---
 title: Template test cases for test toolkit
 description: Describes the template tests that are run by the Azure Resource Manager template test toolkit.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 07/23/2025
 ---
 
 # Test cases for ARM templates
@@ -178,13 +178,12 @@ The following example **fails** because the resource's `location` is set to `res
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-06-01",
       "name": "storageaccount1",
       "location": "[resourceGroup().location]",
       "kind": "StorageV2",
       "sku": {
         "name": "Premium_LRS",
-        "tier": "Premium"
       }
     }
   ]
@@ -207,13 +206,12 @@ The next example uses a `location` parameter but **fails** because the parameter
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-06-01",
       "name": "storageaccount1",
       "location": "[parameters('location')]",
       "kind": "StorageV2",
       "sku": {
         "name": "Premium_LRS",
-        "tier": "Premium"
       }
     }
   ],
@@ -240,13 +238,12 @@ The following example **passes** when the template is used as the main template.
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-06-01",
       "name": "storageaccount1",
       "location": "[parameters('location')]",
       "kind": "StorageV2",
       "sku": {
         "name": "Premium_LRS",
-        "tier": "Premium"
       }
     }
   ],
@@ -277,13 +274,12 @@ The following example **fails** because the `location` isn't an expression or `g
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-06-01",
       "name": "storageaccount1",
       "location": "westus",
       "kind": "StorageV2",
       "sku": {
         "name": "Premium_LRS",
-        "tier": "Premium"
       }
     }
   ],
@@ -303,13 +299,12 @@ The following example **passes** because the resource `location` is set to `glob
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-06-01",
       "name": "storageaccount1",
       "location": "global",
       "kind": "StorageV2",
       "sku": {
         "name": "Premium_LRS",
-        "tier": "Premium"
       }
     }
   ],
@@ -337,13 +332,12 @@ The next example also **passes** because the `location` parameter uses an expres
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-06-01",
       "name": "storageaccount1",
       "location": "[parameters('location')]",
       "kind": "StorageV2",
       "sku": {
         "name": "Premium_LRS",
-        "tier": "Premium"
       }
     }
   ],
@@ -363,7 +357,7 @@ The following example **fails** because the `hardwareProfile` object's `vmSize` 
 "resources": [
   {
     "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-12-01",
+    "apiVersion": "2025-04-01",
     "name": "demoVM",
     "location": "[parameters('location')]",
     "properties": {
@@ -395,7 +389,7 @@ Then, `hardwareProfile` uses an expression for `vmSize` to reference the paramet
 "resources": [
   {
     "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-12-01",
+    "apiVersion": "2025-04-01",
     "name": "demoVM",
     "location": "[parameters('location')]",
     "properties": {
@@ -608,7 +602,7 @@ The following example **fails** because the API version is more than two years o
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2019-06-01",
+    "apiVersion": "2025-06-01",
     "name": "storageaccount1",
     "location": "[parameters('location')]"
   }
@@ -634,7 +628,7 @@ The following example **passes** because it's a recent version that's not a prev
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2021-02-01",
+    "apiVersion": "2025-06-01",
     "name": "storageaccount1",
     "location": "[parameters('location')]"
   }
@@ -665,7 +659,7 @@ The following example **passes**.
 "resources": [
   {
     "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-12-01",
+    "apiVersion": "2025-04-01",
     ...
   }
 ]
@@ -685,7 +679,7 @@ The following example **fails** because there are empty properties.
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2021-01-01",
+    "apiVersion": "2025-06-01",
     "name": "storageaccount1",
     "location": "[parameters('location')]",
     "sku": {},
@@ -700,12 +694,11 @@ The following example **passes** because the properties include values.
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2021-01-01",
+    "apiVersion": "2025-06-01",
     "name": "storageaccount1",
     "location": "[parameters('location')]",
     "sku": {
       "name": "Standard_LRS",
-      "tier": "Standard"
     },
     "kind": "Storage"
   }
@@ -739,7 +732,7 @@ The next example **passes**.
 
 ```json
 "networkSecurityGroup": {
-    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
 }
 ```
 
@@ -753,7 +746,7 @@ The following example **fails** because you don't need to provide the current su
 
 ```json
 "networkSecurityGroup": {
-    "id": "[resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+  "id": "[resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
 }
 ```
 
@@ -761,7 +754,7 @@ The next example **passes**.
 
 ```json
 "networkSecurityGroup": {
-    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
 }
 ```
 
@@ -1116,7 +1109,7 @@ The following example **fails** because `expressionEvaluationOptions` uses `oute
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2021-04-01",
+    "apiVersion": "2025-04-01",
     "name": "nestedTemplate",
     "properties": {
       "expressionEvaluationOptions": {
@@ -1133,7 +1126,7 @@ The following example **passes** because `expressionEvaluationOptions` uses `inn
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2021-04-01",
+    "apiVersion": "2025-04-01",
     "name": "nestedTemplate",
     "properties": {
       "expressionEvaluationOptions": {
@@ -1151,3 +1144,4 @@ The following example **passes** because `expressionEvaluationOptions` uses `inn
 - To test parameter files, see [Test cases for parameter files](parameters.md).
 - For createUiDefinition tests, see [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md).
 - To learn about tests for all files, see [Test cases for all files](all-files-test-cases.md).
+

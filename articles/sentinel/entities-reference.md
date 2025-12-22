@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel entity types reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel entity types and their identifiers, and lists strong and weak identifiers for each.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 03/24/2025
 
@@ -499,7 +499,7 @@ The Address identifier by itself is a weak identifier when the IP address is a p
 | **DisplayName** | String | The mailbox's display name. |
 | **Upn** | String | The mailbox's UPN. |
 | **AadId** | String | The mailbox's Azure AD identifier of the user. |
-| **RiskLevel** | RiskLevel?  | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
+| **RiskLevel** | RiskLevel (Integer)  | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
 | **ExternalDirectoryObjectId** | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in the Account entity, but this property is specific to mailbox object on the Office side. |
 
 #### Strong identifiers of a mailbox entity

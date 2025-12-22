@@ -160,7 +160,23 @@ PowerShell example code pending.
 The following example shows a warmup trigger in a *function.json* file and a [Python function](functions-reference-python.md) that runs on each new instance when it'is added to your app.
 
 Your function must be named `warmup` (case-insensitive) and there can only be one warmup function per app.
+# [v2](#tab/python-v2)
 
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+
+@app.warm_up_trigger('warmup')
+def warmup(warmup) -> None:
+    logging.info('Function App instance is warm')
+```
+
+For more information, see [Configuration](#configuration).
+
+# [v1](#tab/python-v1)
 Here's the *function.json* file:
 
 ```json

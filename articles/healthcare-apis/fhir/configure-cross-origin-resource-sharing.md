@@ -3,7 +3,7 @@ title: Configure cross-origin resource sharing in FHIR service
 description: This article describes how to configure cross-origin resource sharing in FHIR service
 author: expekesheth
 ms.author: kesheth
-ms.date: 06/06/2022
+ms.date: 08/12/2025
 ms.topic: reference
 ms.service: azure-health-data-services
 ms.subservice: fhir

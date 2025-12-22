@@ -7,9 +7,12 @@ ms.reviewer: gamullen, hmb
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/18/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Blue/Green Deployments Using Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
 
 *Blue/Green deployment* is a software release strategy that gradually introduces application updates to a small group of users. If the updates are successful, the number of users accessing the new deployment is gradually increased until all users are on the new version. If issues arise, traffic can be redirected to the old version, ensuring minimal disruption. This approach is safer than deploying updates to all users at once.
 
@@ -17,7 +20,7 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create an Azure Front Door profile
 

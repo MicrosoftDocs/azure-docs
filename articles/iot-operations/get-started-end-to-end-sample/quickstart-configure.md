@@ -1,12 +1,13 @@
 ---
 title: "Quickstart: Configure your cluster"
-description: "Quickstart: Configure asset endpoints, assets, and data flows in your cluster to process and route data from a simulated OPC PLC server to the cloud."
+description: "Quickstart: Configure devices, assets, and data flows in your cluster to process and route data from a simulated OPC PLC server to the cloud."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
+ms.date: 07/18/2025
 ms.custom:
   - ignite-2023
-ms.date: 10/17/2024
+  - sfi-image-nochange
 
 #CustomerIntent: As an OT user, I want to configure my Azure IoT Operations cluster so that I can see how to process and route data to a cloud endpoint.
 ---
@@ -15,15 +16,18 @@ ms.date: 10/17/2024
 
 In this quickstart, you configure the following resources in your Azure IoT Operations cluster:
 
-- An *asset endpoint* that defines a connection to a simulated OPC PLC server that simulates an oven in a bakery.
+- A *device* that defines a connection to a simulated OPC PLC server that simulates an oven in a bakery.
 - An *asset* that represents the oven and defines the data points that the oven exposes.
 - A *data flow* that manipulates the messages from the simulated oven.
 
-An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream telemetry, or generate events.
+In the context of Azure IoT operations, an asset is a logical representation of a physical device or system that you want to monitor or control.
 
-_OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
+*OPC UA servers* are software applications that communicate with assets. *OPC UA data points* are values that OPC UA servers expose. OPC UA data points can provide real-time or historical data about the status, performance, quality, or condition of assets.
 
 In this quickstart, you use a Bicep file to configure your Azure IoT Operations instance.
+
+> [!TIP]
+> If you prefer a longer tutorial that walks you through the same steps in more depth and includes additional detail such as security configuration, see [Tutorial: Add OPC UA assets to your Azure IoT Operations cluster](../end-to-end-tutorials/tutorial-add-assets.md).
 
 ## Prerequisites
 
@@ -44,7 +48,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-ope
 ```
 
 > [!CAUTION]
-> This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
+> This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md).
 
 ---
 
@@ -84,7 +88,7 @@ $CLUSTER_NAME = "<kubernetes-cluster-name>"
 
 Run the following commands to download and run the Bicep file that configures your Azure IoT Operations instance. The Bicep file:
 
-- Adds an asset endpoint that connects to the OPC PLC simulator.
+- Adds a device that connects to the OPC PLC simulator.
 - Adds an asset that represents the oven and defines the data points that the oven exposes.
 - Adds a data flow that manipulates the messages from the simulated oven.
 - Creates an Azure Event Hubs instance to receive the data.
@@ -98,7 +102,7 @@ AIO_EXTENSION_NAME=$(az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CL
 AIO_INSTANCE_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
 CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv | awk -F'/' '{print $NF}')
 
-az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file quickstart.bicep --parameters clusterName=$CLUSTER_NAME customLocationName=$CUSTOM_LOCATION_NAME aioExtensionName=$AIO_EXTENSION_NAME aioInstanceName=$AIO_INSTANCE_NAME
+az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file quickstart.bicep --parameters clusterName=$CLUSTER_NAME customLocationName=$CUSTOM_LOCATION_NAME aioExtensionName=$AIO_EXTENSION_NAME aioInstanceName=$AIO_INSTANCE_NAME aioNamespaceName=myqsnamespace
 ```
 
 # [PowerShell](#tab/powershell)
@@ -110,7 +114,7 @@ $AIO_EXTENSION_NAME = (az k8s-extension list -g $RESOURCE_GROUP --cluster-name $
 $AIO_INSTANCE_NAME = $(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
 $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv) -split '/' | Select-Object -Last 1
 
-az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file quickstart.bicep --parameters clusterName=$CLUSTER_NAME customLocationName=$CUSTOM_LOCATION_NAME aioExtensionName=$AIO_EXTENSION_NAME aioInstanceName=$AIO_INSTANCE_NAME
+az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file quickstart.bicep --parameters clusterName=$CLUSTER_NAME customLocationName=$CUSTOM_LOCATION_NAME aioExtensionName=$AIO_EXTENSION_NAME aioInstanceName=$AIO_INSTANCE_NAME aioNamespaceName=myqsnamespace
 ```
 
 ---
@@ -119,18 +123,18 @@ az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RES
 
 The Bicep file configured the following resources:
 
-- An asset endpoint that connects to the OPC PLC simulator.
+- A device that connects to the OPC PLC simulator.
 - An asset that represents the oven and defines the data points that the oven exposes.
 - Two data flows that process the messages from the simulated oven.
 - An Azure Event Hubs namespace that contains a destination hub for the data flows.
 
-To view the asset endpoint, asset, and data flows, navigate to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+To view the device, asset, and data flows, navigate to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
 :::image type="content" source="media/quickstart-configure/instance-list.png" alt-text="Screenshot in the operations experience showing unassigned instances.":::
 
-The asset endpoint defines the connection to the OPC PLC simulator:
+The opc-ua-connector device defines the connection to the OPC PLC simulator:
 
-:::image type="content" source="media/quickstart-configure/asset-endpoint-list.png" alt-text="Screenshot in the operations experience that shows a list of asset endpoints.":::
+:::image type="content" source="media/quickstart-configure/device-list.png" alt-text="Screenshot in the operations experience that shows a list of devices.":::
 
 The oven asset defines the data points that the oven exposes:
 
@@ -163,7 +167,7 @@ If messages are flowing, you can use the **Data Explorer** to view the messages:
 
 ## How did we solve the problem?
 
-In this quickstart, you used a bicep file to configure your Azure IoT Operations instance with an asset endpoint, asset, and data flow. The configuration processes and routes data from a simulated oven. The data flow in the configuration routes the messages to an Azure Event Hubs instance.
+In this quickstart, you used a bicep file to configure your Azure IoT Operations instance with a device, asset, and data flow. The configuration processes and routes data from a simulated oven. The data flow in the configuration routes the messages to an Azure Event Hubs instance.
 
 ## Clean up resources
 

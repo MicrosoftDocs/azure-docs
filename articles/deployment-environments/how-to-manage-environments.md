@@ -20,7 +20,7 @@ In Azure Deployment Environments, a platform engineer gives developers access to
 ## Prerequisites
 
 - Access to a project that has at least one environment type.
-- The [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions to create an environment.
+- The [Deployment Environments User](how-to-manage-deployment-environments-access.md) role, the [DevCenter Project Admin](how-to-manage-deployment-environments-access.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions to create an environment.
 
 ## Create an environment by using the developer portal
 

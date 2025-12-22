@@ -1,12 +1,13 @@
 ---
 title: Import an update to Azure Device Update for IoT Hub
 description: Learn how to import update files into Azure Device Update for IoT Hub by using the Azure portal, Azure CLI, or programmatically.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/08/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
 # Import an update to Azure Device Update for IoT Hub

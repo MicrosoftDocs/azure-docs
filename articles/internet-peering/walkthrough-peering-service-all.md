@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As a network engineer, I want to establish a direct interconnect for internet peering with Azure Peering Service, so that I can ensure reliable, high-performance connectivity for data exchange with my organization's endpoints.
 ---
 
 # Set up a direct interconnect for internet peering

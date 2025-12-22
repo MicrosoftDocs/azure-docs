@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 03/31/2025
 ms.custom: mvc, mode-other
 ROBOTS: NOINDEX
+# Customer intent: As a web developer, I want to integrate an Azure Storage account with a content delivery network, so that I can efficiently deliver high-bandwidth content by caching blobs and improving access speeds for users worldwide.
 ---
 
 # Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network
@@ -18,11 +19,11 @@ ROBOTS: NOINDEX
 In this quickstart, you enable [Azure Content Delivery Network](cdn-overview.md) to cache content from Azure Storage. Azure Content Delivery Network offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
 
 > [!NOTE]  
-> Azure Content Delivery Network provides permanent access to Azure Storage resources and removing access requires manual steps.
+> Azure Content Delivery Network provides permanent access to Azure Storage resources and removing the access requires manual steps.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to the Azure portal
 
@@ -70,9 +71,6 @@ To create a storage account, you must be either the service administrator or a c
     | **Pricing tier** | Select one of the options, such as **Microsoft CDN (classic)**. |
 
 1. Select **Create**. After the endpoint is created, it appears in the endpoint list.
-
-> [!TIP]
-> If you want to specify advanced configuration settings for your content delivery network endpoint, such as [large file download optimization](cdn-optimization-overview.md#large-file-download), you can instead use the [Azure Content Delivery Network extension](cdn-create-new-endpoint.md) to create a content delivery network profile and endpoint.
 
 <a name='enable-additional-cdn-features'></a>
 

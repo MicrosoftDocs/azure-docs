@@ -7,6 +7,7 @@ ms.date: 08/15/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
+ms.custom: sfi-image-nochange
 ---
 
 # Connect to dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics with Visual Studio and SSDT

@@ -5,9 +5,10 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 5/23/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As an IT operations manager, I want to understand the supported platforms and configurations of the SAP Deployment Automation Framework, so that I can effectively deploy and manage SAP solutions in our Azure environment.
 ---
 
 # Supportability matrix for the SAP automation framework

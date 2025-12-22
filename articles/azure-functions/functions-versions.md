@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions
 | Version | Support level | Description |
 | --- | --- | --- |
 | 4.x | GA | **_Recommended runtime version for functions in all languages._** Check out [Supported language versions](#languages). |
-| 1.x | GA ([support ends September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1)) | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. **Support will end for version 1.x on September 14, 2026.** We highly recommend you [migrate your apps to version 4.x](migrate-version-1-version-4.md?pivots=programming-language-csharp), which supports .NET Framework 4.8, .NET 8, and .NET 9.|
+| 1.x | GA ([support ends September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1)) | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. **Support will end for version 1.x on September 14, 2026.** We highly recommend you [migrate your apps to version 4.x](migrate-version-1-version-4.md?pivots=programming-language-csharp), which supports .NET Framework 4.8, .NET 8, .NET 9, and .NET 10 Preview.|
 
 > [!IMPORTANT]
 > As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime reached the end of extended support. For more information, see [Retired versions](#retired-versions).
@@ -96,7 +96,7 @@ If you receive a warning about your extension bundle version not meeting a minim
 }
 ```  
 
-To learn more about extension bundles, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+To learn more about extension bundles, see [Extension bundles](extension-bundles.md).
 ::: zone-end
 
 ## Retired versions
@@ -131,8 +131,9 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-If you're using the [isolated worker model](dotnet-isolated-process-guide.md), you can choose, `net8.0`, `net6.0`, or `net48` as the target framework. You can also choose to use [preview support](./dotnet-isolated-process-guide.md#preview-net-versions) for `net9.0`. If you're using the [in-process model](./functions-dotnet-class-library.md), you can choose `net8.0` or `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.4.0`.
+If you're using the [isolated worker model](dotnet-isolated-process-guide.md), you can choose, `net9.0`, `net8.0`, or `net48` as the target framework. You can also choose to use [preview support](./dotnet-isolated-process-guide.md#preview-net-versions) for `net10.0`. If you're using the [in-process model](./functions-dotnet-class-library.md), you can choose `net8.0` or `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.4.0`. .NET 10 is not supported by the in-process model; if you are on the in-process model and wish to use .NET 10, [migrate your app to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
 
+.NET 6 was previously supported on the isolated worker model and the in-process model, but it reached the end of official support on [November 12, 2024][dotnet-policy].
 .NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle

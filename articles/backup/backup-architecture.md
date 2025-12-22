@@ -2,11 +2,12 @@
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
 ms.topic: overview
-ms.date: 04/14/2025
+ms.date: 11/18/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to understand the architecture and features of the cloud backup solution, so that I can effectively manage data protection and recovery for both on-premises and Azure virtual machines."
 ---
 
 # Azure Backup architecture and components
@@ -40,7 +41,7 @@ Vaults have the following features:
 
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml).
+- You can manage vault access with [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal).
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect your data against server rack and drive failures, you can use LRS. LRS replicates your data three times within a single data center in the primary region. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
@@ -232,6 +233,15 @@ In Azure, all communications and data in transit is securely transferred with *H
 
 This robust approach ensures that even in a compromised environment, existing backups cannot be tampered with or deleted by unauthorized users.
 
+Learn more about vaulted backup for the following datasources:
+
+- [Azure Files](azure-file-share-backup-overview.md?tabs=vault-standard#architecture-for-azure-files-backup)
+- [Azure Blob](blob-backup-overview.md?tabs=vaulted-backup#how-the-azure-blobs-backup-works)
+- [Azure Data Lake Storage](azure-data-lake-storage-backup-overview.md), [Azure Kubernetes](azure-kubernetes-service-backup-overview.md#which-backup-storage-tier-does-aks-backup-support)
+- [PostgreSQL - Flexible server](tutorial-create-first-backup-azure-database-postgresql-flex.md#configure-backup--for-the-database)
+- [PostgreSQL database](backup-azure-database-postgresql-overview.md#changes-to-vaulted-backups-for-postgresql-single-servers)
+- [SAP ASE (Sybase) database](sap-ase-database-about.md#key-benefits-of-sap-ase-sybase-database-backup)
+
 ## Next steps
 
 - Review the support matrix to [learn about supported features and limitations for backup scenarios](backup-support-matrix.md).
@@ -240,6 +250,9 @@ This robust approach ensures that even in a compromised environment, existing ba
   - [Back up Windows machines directly](tutorial-backup-windows-server-to-azure.md), without a backup server.
   - [Set up MABS](backup-azure-microsoft-azure-backup.md) for backup to Azure, and then back up workloads to MABS.
   - [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
+  - [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+  - [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).
+
 
 [green]: ./media/backup-architecture/green.png
 [yellow]: ./media/backup-architecture/yellow.png

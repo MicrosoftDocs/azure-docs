@@ -5,11 +5,14 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: sample
-ms.date: 03/14/2025
-ms.custom: template-concept
+ms.date: 07/16/2025
+ms.custom:
+  - references_regions
 ---
 
 # Automate virtual network IP Address Management with Azure IPAM Pools
+
+[!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
 
 IPAM Pools in Azure Virtual Network Manager allow you to manage IP address spaces for your virtual networks. This feature helps you avoid overlapping address spaces and ensures that your VNets are created with the correct IP address ranges.
 
@@ -17,7 +20,7 @@ In this article, we provide a sample PowerShell script that demonstrates how to 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-7.4.0&preserve-view=true) installed locally or use [Azure Cloud Shell](/azure/cloud-shell/overview).
 - A virtual network manager instance with an IPAM pool created. For more information, see [Create a virtual network manager](./create-virtual-network-manager-powershell.md) and [Create an IPAM pool](./how-to-manage-ip-addresses-network-manager.md).
 - An existing resource group where you want to create the VNets. It's recommended to use the same resource group as the virtual network manager instance for better organization and management.

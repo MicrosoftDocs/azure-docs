@@ -5,8 +5,10 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, edwardhe, azla
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
-ms.date: 03/18/2025
+ms.date: 07/12/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Enable stateful mode for stateless built-in connectors in Azure Logic Apps
@@ -23,7 +25,7 @@ To run these connector operations in stateful mode, you must enable this capabil
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The Standard logic app resource where you plan to create the workflow that uses the stateful mode-enabled connector operations. If you don't have this resource, [create your Standard logic app resource now](/azure/logic-apps/create-single-tenant-workflows-azure-portal).
 
@@ -197,6 +199,13 @@ Set-AzResource :
 
 Resource scale-in events might cause the loss of context for built-in connectors with stateful mode enabled. To prevent this potential loss before such events can happen, fix the number of instances available for your logic app resource. This way, no scale-in events can happen to cause this potential context loss.
 
+> [!NOTE]
+>
+> For logic apps that doesn't use the App Service Environment v3 hosting option,
+> Azure Logic Apps waits up to 5 minutes before taking down a virtual machine during 
+> scale-in events. Built-in connectors might experience issues. For example,
+> Azure Service Bus can't complete messages during platform upgrades.
+
 1. On your logic app resource menu, under **Settings**, select **Scale out (App Service plan)**.
 
 1. On the **Scale out (App Service plan)** page, in the **App Scale out** section, follow these steps:
@@ -209,7 +218,7 @@ Resource scale-in events might cause the loss of context for built-in connectors
 
 1. When you're done, on the **Scale out** toolbar, select **Save**.
 
-## Next steps
+## Related content
 
 - [Connect to Azure Service Bus](/azure/connectors/connectors-create-api-servicebus)
 - [Connect to SAP](/azure/logic-apps/connectors/sap)

@@ -9,6 +9,7 @@ ms.date: 03/25/2025
 ms.author: abell
 ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using the Azure CLI.
+# Customer intent: As a network engineer new to Azure, I want to create a private endpoint using the Azure CLI, so that I can securely connect to an Azure web app and test connectivity within a private network.
 ---
 
 # Quickstart: Create a private endpoint by using the Azure CLI
@@ -23,7 +24,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An Azure web app with a *PremiumV2-tier* or higher app service plan, deployed in your Azure subscription.  
 

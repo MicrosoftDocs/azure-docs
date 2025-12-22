@@ -2,16 +2,20 @@
 title: Enabling end to end TLS on Azure Application Gateway
 description: This article is an overview of the Application Gateway end to end TLS support.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 06/09/2023
-ms.author: greglin
+ms.date: 10/09/2025
+ms.author: mbender
 
+# Customer intent: "As a cloud architect, I want to configure end to end TLS on the application gateway, so that I can ensure secure communication and compliance for sensitive data transmitted between clients and backend servers."
 ---
 # Overview of TLS termination and end to end TLS with Application Gateway
 
 Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is the standard security technology for establishing an encrypted link between a web server and a browser. This link ensures that all data passed between the web server and browsers remain private and encrypted. Application gateway supports both TLS termination at the gateway as well as end to end TLS encryption.
+
+> [!IMPORTANT]
+> Starting **August 31, 2025**, all clients and backend servers interacting with Azure Application Gateway must use Transport Layer Security (TLS) 1.2 or higher, as [support for TLS 1.0 and 1.1 will be discontinued](https://azure.microsoft.com/updates/azure-application-gateway-support-for-tls-10-and-tls-11-will-end-by-31-august-2025).
 
 ## TLS termination
 
@@ -57,7 +61,7 @@ You may not want unencrypted communication to the backend servers. You may have 
 
 End-to-end TLS allows you to encrypt and securely transmit sensitive data to the backend while you use Application Gateway's Layer-7 load-balancing features. These features include cookie-based session affinity, URL-based routing, support for routing based on sites, the ability to rewrite or inject X-Forwarded-* headers, and so on.
 
-When configured with end-to-end TLS communication mode, Application Gateway terminates the TLS sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application Gateway then initiates a new TLS connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. Any response from the web server goes through the same process back to the end user. End-to-end TLS is enabled by setting protocol setting in [Backend HTTP Setting](./configuration-overview.md#http-settings) to HTTPS, which is then applied to a backend pool.
+When configured with end-to-end TLS communication mode, Application Gateway terminates the TLS sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application Gateway then initiates a new TLS connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. Any response from the web server goes through the same process back to the end user. End-to-end TLS is enabled by setting protocol setting in [Backend HTTP Setting](./configuration-overview.md#backend-settings) to HTTPS, which is then applied to a backend pool.
 
 In Application Gateway v1 SKU gateways, [TLS policy](./application-gateway-ssl-policy-overview.md) applies the TLS version only to frontend traffic and the defined ciphers to both frontend and backend targets.  In Application Gateway v2 SKU gateways, TLS policy only applies to frontend traffic, backend TLS connections will always be negotiated via TLS 1.0 to TLS 1.2 versions.
 
@@ -136,20 +140,16 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 
 |Scenario | v1 | v2 |
 | --- | --- | --- |
-| SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the custom probe attached to the HTTP settings (if configured), otherwise from the hostname mentioned in the HTTP settings, otherwise from the FQDN mentioned in the backend pool. The order of precedence is custom probe > HTTP settings > backend pool. <br> **Note:** If the hostnames configured in HTTP settings and custom probe are different, then according to the precedence, SNI will be set as the hostname from the custom probe.
-| If the backend pool address is an IP address (v1) or if custom probe hostname is configured as IP address (v2) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | In the order of precedence mentioned previously, if they have IP address as hostname, then SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Note:** SNI also won't be set in v2 probes if no custom probe is configured and no hostname is set on HTTP settings or backend pool |
-
-> [!NOTE] 
-> If a custom probe isn't configured, then Application Gateway sends a default probe in this format - \<protocol\>://127.0.0.1:\<port\>/. For example, for a default HTTPS probe, it will be sent as https://127.0.0.1:443/. Note that, the 127.0.0.1 mentioned here is only used as HTTP host header and as per RFC 6066, won't be used as SNI header. For more information on health probe errors, check the [backend health troubleshooting guide](application-gateway-backend-health-troubleshooting.md).
+| When an FQDN or SNI is configured | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. | The SNI value is set based on the [TLS validation type](configuration-http-settings.md?tabs=backendhttpsettings#backend-https-validation-settings) in the Backend Settings.<br><br> 1. **Complete validation** – The probes uses the SNI in the following order of precedence:<br> a) Custom Health Probe's hostname <br> b) Backend Setting's hostname (as per Overridden value or Pick from backend server) <br><br> 2.	**Configurable** <br> Use specific SNI: The probes use this fixed hostname for validation.<br> Skip SNI: No Subject Name validation.
+| When an FQDN or SNI is NOT configured (only IP address is available)  | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | If the Custom Probe or Backend Settings use an IP address in the hostname field, the SNI is not set, in accordance with [RFC 6066](https://tools.ietf.org/html/rfc6066). This includes cases where the default probe uses 127.0.0.1. |
 
 #### For live traffic
 
 
 |Scenario | v1 | v2 |
 | --- | --- | --- |
-| SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the HTTP settings, otherwise, if *PickHostnameFromBackendAddress* option is chosen or if no hostname is mentioned, then it will be set as the FQDN in the backend pool configuration
-| If the backend pool address is an IP address or hostname isn't set in HTTP settings | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry isn't an FQDN | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
-| Hostname isn't provided in HTTP Settings, but an FQDN is specified as the Target for a backend pool member | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname. | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
+| When an FQDN or SNI is available | The SNI is set using the backend server's FQDN. | The SNI value is set based on the [TLS validation type](configuration-http-settings.md?tabs=backendhttpsettings#backend-https-validation-settings) in the Backend Settings.<br><br> 1. **Complete validation** – SNI is set according to the following order of precedence: <br> a) Backend Setting’s hostname (as per Overridden value or Pick from backend server) <br> b) Host header of the incoming client request <br><br> 2. **Configurable** <br> Use specific SNI: Uses this fixed hostname for validation. <br> Skip SNI: No Subject Name validation. | 
+| When an FQDN or SNI is NOT available (only IP address is available) | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry isn't an FQDN | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). |
 
 ## Next steps
 

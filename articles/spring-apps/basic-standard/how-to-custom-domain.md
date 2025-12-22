@@ -4,7 +4,8 @@ description: Learn how to map an existing custom Distributed Name Service (DNS) 
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -23,7 +24,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 - An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app). If your application is deployed using the Basic plan, be sure to upgrade to the Standard plan.
 - A domain name with access to the DNS registry for a domain provider, such as GoDaddy.
@@ -32,33 +33,15 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Key Vault private link considerations
 
-The IP addresses for Azure Spring Apps management aren't yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the following IP addresses to Azure Key Vault firewall:
+The IP addresses for Azure Spring Apps management aren't yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the IP addresses of Azure Spring Apps control plane **AND** the service tag to Azure Key Vault firewall.
 
-- `20.99.204.111`
-- `20.201.9.97`
-- `20.74.97.5`
-- `52.235.25.35`
-- `20.194.10.0`
-- `20.59.204.46`
-- `104.214.186.86`
-- `52.153.221.222`
-- `52.160.137.39`
-- `20.39.142.56`
-- `20.199.190.222`
-- `20.79.64.6`
-- `20.211.128.96`
-- `52.149.104.144`
-- `20.197.121.209`
-- `40.119.175.77`
-- `20.108.108.22`
-- `102.133.143.38`
-- `52.226.244.150`
-- `20.84.171.169`
-- `20.93.48.108`
-- `20.75.4.46`
-- `20.78.29.213`
-- `20.106.86.34`
-- `20.193.151.132`
+| Cloud    | IP Addresses                                                 | Service Tag                                  |
+| -------- | ------------------------------------------------------------ | -------------------------------------------- |
+| Public   | - `20.99.204.111`<br/>- `20.201.9.97`<br/>- `20.74.97.5`<br/>- `52.235.25.35`<br/>- `20.194.10.0`<br/>- `20.59.204.46`<br/>- `104.214.186.86`<br/>- `52.153.221.222`<br/>- `52.160.137.39`<br/>- `20.39.142.56`<br/>- `20.199.190.222`<br/>- `20.79.64.6`<br/>- `20.211.128.96`<br/>- `52.149.104.144`<br/>- `20.197.121.209`<br/>- `40.119.175.77`<br/>- `20.108.108.22`<br/>- `102.133.143.38`<br/>- `52.226.244.150`<br/>- `20.84.171.169`<br/>- `20.93.48.108`<br/>- `20.75.4.46`<br/>- `20.78.29.213`<br/>- `20.106.86.34`<br/>- `20.193.151.132` | `SystemServiceAzureSpringAppsResourceProvider` |
+| Mooncake | - `52.131.254.89`<br/>- `52.131.41.48`<br/>- `159.27.26.25`  | N/A                                          |
+
+> [!NOTE]
+> For security compliance, Azure Spring Apps is going to replace these IP addresses in the public cloud with new IP addresses tagged with `SystemServiceAzureSpringAppsResourceProvider`. To avoid service disruption, add the service tag in your firewall as soon as possible.
 
 ## Import certificate
 

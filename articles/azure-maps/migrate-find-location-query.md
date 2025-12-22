@@ -26,7 +26,7 @@ This article explains how to migrate the Bing Maps [Find a Location by Query] AP
 - Bing Maps Find a Location by Query API returns coordinates in latitude/longitude format, while Azure Maps Get Geocoding API returns coordinates in longitude/latitude format, as defined by the [GeoJSON] format.
 - Bing Maps Find a Location by Query API supports XML and JSON response format. Azure Maps Get Geocoding API supports GeoJSON.
 - Unlike Bing Maps Find a Location by Query API, Azure Maps Get Geocoding API has a `view` input parameter, which is a string that represents an [ISO 3166-1 Alpha-2 region/country code]. The `view` input parameter alters geopolitical disputed borders and labels to align with the specified user region. For more information, see [URI Parameters].
-- Unlike Bing Maps Find a Location by Query API, Azure Maps Get Geocoding API doesn’t currently support address geocoding for China, Japan, or South Korea.
+- Unlike Bing Maps Find a Location by Query API, Azure Maps Get Geocoding API doesn’t currently support address geocoding in China.
 - Unlike Bing Maps for Enterprise, Azure Maps is a global service that supports specifying a geographic scope, allowing limits to data residency to the European (EU) or United States (US) geographic areas (geos). All requests (including input data) are processed exclusively in the specified geographic area. For more information, see [geographic scope].
 
 ## Security and authentication

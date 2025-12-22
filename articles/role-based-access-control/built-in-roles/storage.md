@@ -2,12 +2,12 @@
 title: Azure built-in roles for Storage - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Storage category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -168,6 +168,45 @@ Used by the Avere vFXT cluster to manage the cluster
 }
 ```
 
+## Azure File Sync Reader
+
+This role provides read access to Azure File Sync service (Storage Sync Service).
+
+[Learn more](/azure/storage/file-sync/file-sync-deployment-guide)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This role provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/754c1a27-40dc-4708-8ad4-2bffdeee09e8",
+  "name": "754c1a27-40dc-4708-8ad4-2bffdeee09e8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.StorageSync/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure File Sync Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 ## Backup Contributor
 
 Lets you manage backup service, but can't create vaults and give access to others
@@ -263,6 +302,8 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateForModifyBackup/action | Validates for modification of Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/SuspendBackups/action | Suspend Backups operation stops only backups of backup instance. Retention activities will continue and hence data will be ratained as per policy. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -366,7 +407,9 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
-        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action"
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateForModifyBackup/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/SuspendBackups/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -626,6 +669,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateForModifyBackup/action | Validates for modification of Backup Instance |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -745,7 +789,8 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
-        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action"
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateForModifyBackup/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1951,6 +1996,110 @@ Allows for read access on files/directories in Azure file shares by overriding e
 }
 ```
 
+## Storage File Data SMB Admin
+
+Allows for admin access equivalent to storage account key for end users over SMB.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/takeOwnership/action | File Take Ownership Privilege |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for admin access equivalent to storage account key for end users over SMB.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bbf004e3-0e4b-4f86-ae4f-1f8fb47b357b",
+  "name": "bbf004e3-0e4b-4f86-ae4f-1f8fb47b357b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Data SMB Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage File Data SMB MI Admin
+
+Allows for admin-level access for managed identities on files/directories in Azure file shares.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/takeOwnership/action | File Take Ownership Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/runAsBuiltInFileAdministrator/action | Permission that gives built-in admin privilege for file share mounts via managed identity |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for admin-level access for managed identities on files/directories in Azure file shares.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a235d3ee-5935-4cfb-8cc5-a3303ad5995e",
+  "name": "a235d3ee-5935-4cfb-8cc5-a3303ad5995e",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action",
+        "Microsoft.Storage/storageAccounts/fileServices/runAsBuiltInFileAdministrator/action",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Data SMB MI Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Storage File Data SMB Share Contributor
 
 Allows for read, write, and delete access on files/directories in Azure file shares. This role has no built-in equivalent on Windows file servers.
@@ -2079,6 +2228,86 @@ Allows for read access on files/directories in Azure file shares. This role is e
     }
   ],
   "roleName": "Storage File Data SMB Share Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage File Data SMB Take Ownership
+
+Allows end user to assume ownership of a file/directory
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/takeOwnership/action | File Take Ownership Privilege |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows end user to assume ownership of a file/directory",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5d9bac3f-34b2-432f-bde5-78aa8e73ce6b",
+  "name": "5d9bac3f-34b2-432f-bde5-78aa8e73ce6b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Data SMB Take Ownership",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage File Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for a file or Azure file share that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/generateUserDelegationKey/action | Returns a user delegation key for the File service. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key which can be used to sign SAS tokens",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/765a04e0-5de8-4bb2-9bf6-b2a30bc03e91",
+  "name": "765a04e0-5de8-4bb2-9bf6-b2a30bc03e91",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/fileServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Delegator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2264,6 +2493,47 @@ Read and list Azure Storage queues and queue messages. To learn which actions ar
 }
 ```
 
+## Storage Queue Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for an Azure Storage queue that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/queueServices/generateUserDelegationKey/action | Returns a user delegation key for the Queue service. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key which can be used to sign SAS tokens",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7ee386e9-84f0-448e-80a6-f185f6533131",
+  "name": "7ee386e9-84f0-448e-80a6-f185f6533131",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/queueServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Queue Delegator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Storage Table Data Contributor
 
 Allows for read, write and delete access to Azure Storage tables and entities
@@ -2353,6 +2623,47 @@ Allows for read access to Azure Storage tables and entities
     }
   ],
   "roleName": "Storage Table Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage Table Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for an Azure Storage table that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/tableServices/generateUserDelegationKey/action | Returns a user delegation key for the Table service. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key which can be used to sign SAS tokens",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/965033a5-c8eb-4f35-b82f-fef460a3606d",
+  "name": "965033a5-c8eb-4f35-b82f-fef460a3606d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/tableServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Table Delegator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

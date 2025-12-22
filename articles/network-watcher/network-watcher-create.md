@@ -5,10 +5,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 09/23/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 
-#CustomerIntent: As an Azure administrator, I want to manage Network Watcher instance in Azure regions based on my team's needs to Network Watcher capabilities in those regions.
+#CustomerIntent: As an Azure administrator, I want to manage Network Watcher instance in Azure regions, so that I can effectively utilize Network Watcher capabilities in those regions to ensure optimal performance and reliability of my Azure resources.
 ---
 
 # Enable or disable Azure Network Watcher
@@ -20,19 +20,19 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 > [!NOTE]
 > - By default, Network Watcher is automatically enabled. When you create or update a virtual network in your subscription, Network Watcher will be automatically enabled in your Virtual Network's region.
 > - Automatically enabling Network Watcher doesn't affect your resources or associated charge.
-> - If you previously chose to [opt out of Network Watcher automatic enablement](#opt-out-of-network-watcher-automatic-enablement), you must manually [enable Network Watcher](#enable-network-watcher-for-your-region) in each region where you want to use Network Watcher capabilities. For more information, see [Network Watcher Azure regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=network-watcher&regions=all).
+> - If you previously chose to [opt out of Network Watcher automatic enablement](#opt-out-of-network-watcher-automatic-enablement), you must manually [enable Network Watcher](#enable-network-watcher-for-your-region) in each region where you want to use Network Watcher capabilities.
 
 ## Prerequisites
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Sign in to the [Azure portal](https://portal.azure.com/?WT.mc_id=A261C142F) with your Azure account.
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -42,7 +42,7 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Azure Cloud Shell or Azure CLI.
     
@@ -73,7 +73,7 @@ If you choose to [opt out of Network Watcher automatic enablement](#opt-out-of-n
 
 > [!NOTE]
 > When you create a Network Watcher instance using the Azure portal:
-> - The name of the Network Watcher instance is automatically set to **NetworkWatcher_region**, where *region* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named **NetworkWatcher_eastus**.
+> - The name of the Network Watcher instance is automatically set to **NetworkWatcher_{region}**, where *region* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named **NetworkWatcher_eastus**.
 > - The Network Watcher instance is created in a resource group named **NetworkWatcherRG**. The resource group is created if it doesn't already exist.
 
 If you wish to customize the name of a Network Watcher instance and resource group, you can use [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods. In each option, the resource group must exist before you create a Network Watcher in it.  
@@ -107,7 +107,7 @@ az network watcher configure --resource-group 'NetworkWatcherRG' --locations 'ea
 
 > [!NOTE]
 > When you create a Network Watcher instance using the Azure CLI:
-> - The name of the Network Watcher instance is automatically set to **region-watcher**, where *region* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named **eastus-watcher**.
+> - The name of the Network Watcher instance is automatically set to **{region}-watcher**, where *region* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named **eastus-watcher**.
 > - You can customize the name of the Network Watcher resource group. However, the resource group must exist before you create a Network Watcher instance in it.
 
 If you wish to customize the name of the Network Watcher instance, you can use [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods.
@@ -119,7 +119,7 @@ If you wish to customize the name of the Network Watcher instance, you can use [
 You can disable Network Watcher for a region by deleting the Network Watcher instance in that region. You can delete a Network Watcher instance using the [Azure portal](?tabs=portal#disable-network-watcher-for-your-region), [PowerShell](?tabs=powershell#disable-network-watcher-for-your-region), the [Azure CLI](?tabs=cli#disable-network-watcher-for-your-region), or [REST API](/rest/api/network-watcher/network-watchers/delete).
 
 > [!WARNING]
-> Deleting a Network Watcher instance deletes all Network Watcher running operations, historical data, and alerts with no option to revert. For example, if you delete `NetworkWatcher_eastus` instance, all flow logs, connection monitors and packet captures in East US region will be deleted.
+> Deleting a Network Watcher instance deletes all Network Watcher running operations, historical data, and alerts with no option to revert. For example, if you delete `NetworkWatcher_eastus` instance, all flow logs, connection monitors, and packet captures in East US region will be deleted.
 
 # [**Portal**](#tab/portal)
 
@@ -158,7 +158,7 @@ az network watcher configure --locations 'eastus' --enabled 'false'
 You can opt out of Network Watcher automatic enablement using Azure PowerShell or Azure CLI.
 
 > [!CAUTION]
-> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt out, you cannot opt in without contacting [Azure support](https://azure.microsoft.com/support/options/).
+> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt out, you can't opt in without contacting [Azure support](https://azure.microsoft.com/support/options/).
 
 # [**Portal**](#tab/portal)
 

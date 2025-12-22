@@ -1,15 +1,18 @@
 ---
 title: Create an ASP.NET web app with an Azure Redis cache
 description: In this quickstart, you learn how to create an ASP.NET web app with an Azure Redis cache
-
-ms.topic: quickstart
 ms.date: 12/12/2024
-ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
+ms.topic: quickstart
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - mode-other
+  - ignite-2024
+  - build-2025
 zone_pivot_groups: redis-type
 appliesto:
   - ✅ Azure Cache for Redis
-
-#Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
+# Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Redis with an ASP.NET web app
@@ -22,13 +25,13 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads.
 - [.NET Framework 4 or higher](https://dotnet.microsoft.com/download/dotnet-framework) is required by the StackExchange.Redis client.
 
 ::: zone pivot="azure-managed-redis"
 
-## Create an Azure Managed Redis (preview) instance
+## Create an Azure Managed Redis instance
 
 [!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 
@@ -48,7 +51,7 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 ### Install the library for using Microsoft Entra ID Authentication
 
-The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft using Microsoft Entra ID authentication method for connecting to Azure Redis services using Microsoft Entra ID. It's applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
+The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft using Microsoft Entra ID authentication method for connecting to Azure Redis services using Microsoft Entra ID. It's applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis.
 
 1. Open your project in Visual Studio
 

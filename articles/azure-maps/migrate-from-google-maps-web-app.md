@@ -1836,7 +1836,7 @@ Learn more about migrating to Azure Maps:
 [Drawing tools module]: set-drawing-options.md
 [Drawing tools]: map-add-drawing-toolbar.md
 [f]: /javascript/api/azure-maps-rest/atlas.service.searchurl
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Get information from a coordinate (reverse geocode)]: map-get-information-from-coordinate.md
 [Heat map layer class]: /javascript/api/azure-maps-control/atlas.layer.heatmaplayer
 [Heat map layer options]: /javascript/api/azure-maps-control/atlas.heatmaplayeroptions

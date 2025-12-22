@@ -331,10 +331,6 @@
         href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
       - name: GPU extension issues
         href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
-  - name: Azure Kubernetes service
-    items:
-    - name: Deploy AKS on Azure Stack Edge
-      href: azure-stack-edge-deploy-aks-on-azure-stack-edge.md
   - name: Kubernetes
     items:
     - name: What is Kubernetes?
@@ -497,7 +493,11 @@
         href: azure-stack-edge-contact-microsoft-support.md
   - name: Shared release notes
     items:
-    - name: 2501 - Current
+    - name: 2510 - Current
+      href: azure-stack-edge-gpu-2510-release-notes.md
+    - name: "2506"
+      href: azure-stack-edge-gpu-2506-release-notes.md
+    - name: "2501"
       href: azure-stack-edge-gpu-2501-release-notes.md
     - name: "2407"
       href: azure-stack-edge-gpu-2407-release-notes.md

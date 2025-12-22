@@ -43,7 +43,7 @@ The later sections describe the role of the various Azure IoT services and techn
 
 ## Adaptive cloud approach
 
-Another way to categorize IoT solutions is by whether they adopt the [adaptive cloud](/azure/adaptive-cloud/) approach. The adaptive cloud approach unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
+Another way to categorize IoT solutions is by whether they adopt the [adaptive cloud](https://azure.microsoft.com/solutions/adaptive-cloud) approach. The adaptive cloud approach unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
 
 An example of how Azure IoT Operations uses the adaptive cloud approach is its use of [Azure Arc-enabled services](/azure/azure-arc/) to manage and monitor edge-based resources such as assets and data flows. These edge-based resources are exposed in your Azure portal as individual cloud-based resources that you can manage and monitor with standard Azure tools.
 
@@ -59,7 +59,7 @@ To learn more, see [What is Azure IoT Operations?](../iot-operations/overview-io
 
 ### Azure Device Registry
 
-> Currently, Azure Device Registry is typically part of an **edge-based IoT solution** that uses Azure IoT Operations and follows the adaptive cloud approach.
+> Currently, Azure Device Registry is typically part of an **edge-based IoT solution** that uses Azure IoT Operations and follows the adaptive cloud approach. Integration of Azure Device Registry with Azure IoT Hub is currently in preview.
 
 Azure Device Registry is a backend service that enables the management of assets and devices in your solution using Azure Resource Manager. Azure Device Registry:
 
@@ -80,7 +80,7 @@ To learn more, see [Azure IoT Operations SDKs](https://github.com/Azure/iot-oper
 
 ## Azure IoT Hub
 
-> Use Azure IoT Hub to build a **cloud-based IoT solution**. IoT Hub does not follow the adaptive cloud approach.
+> Use Azure IoT Hub to build a **cloud-based IoT solution**.
 
 Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. Several messaging patterns are supported, including device-to-cloud messages, uploading files from devices, and request-reply methods to control your devices from the cloud. IoT Hub can route messages from devices to other cloud services for storage, analysis, or processing. IoT Hub also supports monitoring to help you track device creation, device connections, and device failures.
 

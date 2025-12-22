@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 05/10/2021
 ms.author: duau
+# Customer intent: As a cloud architect, I want to deploy an Azure Firewall using an ARM template, so that I can quickly set up a secure network environment with high availability across multiple zones.
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - ARM template
@@ -30,7 +31,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 

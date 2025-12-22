@@ -1,17 +1,22 @@
 ---
-title: Caching with Azure Front Door
+title: Caching
+titleSuffix: Azure Front Door
 description: This article helps you understand Front Door behavior when enabling caching in routing rules.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 11/08/2023
+ms.date: 09/25/2025
 zone_pivot_groups: front-door-tiers
 ---
 
 # Caching with Azure Front Door
 
+::: zone pivot="front-door-classic"
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
+::: zone-end
 
 Azure Front Door is a modern content delivery network (CDN), with dynamic site acceleration and load balancing capabilities. When caching is configured on your route, the edge site that receives each request checks its cache for a valid response. Caching helps to reduce the amount of traffic sent to your origin server. If no cached response is available, the request is forwarded to the origin.
 
@@ -30,7 +35,7 @@ Only requests that use the `GET` request method are cacheable. All other request
 
 Azure Front Door delivers large files without a cap on file size. If caching is enabled, Front Door uses a technique called *object chunking*. When a large file is requested, Front Door retrieves smaller pieces of the file from the origin. After Front Door receives a full file request or byte-range file request, the Front Door environment requests the file from the origin in chunks of 8 MB.
 
-After the chunk arrives at the Azure Front Door environment, it's cached and immediately served to the user. Front Door then prefetches the next chunk in parallel. This prefetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection. For more information on the byte-range request, read [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
+After the chunk arrives at the Azure Front Door environment, it's cached and immediately served to the user. Front Door then prefetches the next chunk in parallel. This prefetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection. For more information on the byte-range request, see [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
 
 Front Door caches any chunks as they're received so the entire file doesn't need to be cached on the Front Door cache. Subsequent requests for the file or byte ranges are served from the cache. If the chunks aren't all cached, prefetching is used to request chunks from the origin.
 
@@ -51,7 +56,7 @@ If the origin uses Chunked Transfer Encoding (CTE) to send data to the Azure Fro
 
 ::: zone pivot="front-door-standard-premium"
 
-Refer to [improve performance by compressing files](standard-premium/how-to-compression.md) in Azure Front Door.
+See [improve performance by compressing files](standard-premium/how-to-compression.md) in Azure Front Door.
 
 ::: zone-end
 
@@ -172,9 +177,8 @@ These formats are supported in the lists of paths to purge:
 
 > [!NOTE]
 > **Purging wildcard domains**: Specifying cached paths for purging as discussed in this section doesn't apply to any wildcard domains that are associated with the Front Door. Currently, we don't support directly purging wildcard domains. You can purge paths from specific subdomains by specifying that specific subdomain and the purge path. For example, if my Front Door has `*.contoso.com`, I can purge assets of my subdomain `foo.contoso.com` by typing `foo.contoso.com/path/*`. Currently, specifying host names in the purge content path is limited to subdomains of wildcard domains, if applicable.
->
 
-Cache purges on the Front Door are case-insensitive. Additionally, they're query string agnostic, which means that purging a URL purges all query string variations of it. 
+Cache purges on the Front Door are case-insensitive. Additionally, they're query string agnostic, which means that purging a URL purges all query string variations of it.
 
 ::: zone-end
 
@@ -192,7 +196,6 @@ If the `Cache-Control` header isn't present on the response from the origin, by 
 
 > [!NOTE]
 > Cache expiration can't be greater than **366 days**.
-> 
 
 You may see `REVALIDATED_HIT` in the `Cache-Control` response header. This indicates that the cached content in Azure Front Door was revalidated with the origin server before being served to the client. This can happen when the cached content has expired, but the origin server indicates that the content hasn't changed. In this case, the cached content is served to the client, and the cache expiration is reset.
 
@@ -208,7 +211,7 @@ The following request headers don't get forwarded to the origin when caching is 
 - `Vary`
 
 > [!NOTE]
-> Requests that include authorization header will not be cached, unless the response contains a Cache-Control directive that allows caching. The following Cache-Control directives have such an effect: must-revalidate, public, and s-maxage.
+> Requests that include authorization header won't be cached, unless the response contains a Cache-Control directive that allows caching. The following Cache-Control directives have such an effect: must-revalidate, public, and s-maxage.
 
 ## Response headers
 
@@ -220,6 +223,9 @@ In addition, Front Door attaches the `X-Cache` header to all responses. The `X-C
 - `TCP_MISS`: The first 8-MB chunk of the response is a cache miss, and the content is fetched from the origin.
 - `PRIVATE_NOSTORE`: Request can't be cached because the *Cache-Control* response header is set to either *private* or *no-store*.
 - `CONFIG_NOCACHE`: Request is configured to not cache in the Front Door profile.
+
+> [!NOTE]
+> Azure Front Door strips the `Content-Type` header for empty files when caching is enabled. To continue sending this header to clients, use Azure Front Door rules engine (Action - Modify response header, Operator - Overwrite, Header name - Content-Type) to manually override it for such files. You also can disable caching for empty files, but this approach is less recommended as it increases the load on your origin and may impact performance.
 
 ## Logs and reports
 
@@ -250,7 +256,7 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
    * **Override if origin missing**: If the origin doesn’t return caching TTL values, Azure Front Door uses the specified cache duration. This behavior only applies if the response is cacheable. 
 
 > [!NOTE]
-> * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your origins are offline.
+> * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content isn't frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your origins are offline.
 > * Origins may specify not to cache specific responses using the Cache-Control header with a value of no-cache, private, or no-store. When used in an HTTP response from the origin server to the Azure Front Door POPs, Azure Front Door supports Cache-control directives and honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://www.rfc-editor.org/rfc/rfc7234#section-5.2.2.8). 
 
 ::: zone-end
@@ -266,13 +272,12 @@ Cache behavior and duration can be configured in both the Front Door designer ro
     * When *Use cache default duration* is set to **No**, Azure Front Door (classic) always override with the *cache duration* (required fields), meaning that it caches the contents for the cache duration ignoring the values from origin response directives. 
 
 > [!NOTE]
-> * Azure Front Door (classic) makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Azure Front Door (classic) might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your origins are offline.
-> * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the origin has a greater TTL than the override value.
-> 
+> * Azure Front Door (classic) makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content isn't frequently used. Azure Front Door (classic) might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your origins are offline.
+> * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override doesn't work if the cache control header from the origin has a greater TTL than the override value.
 
 ::: zone-end
 
-## Next steps
+## Related content
 
 ::: zone pivot="front-door-classic"
 
@@ -283,7 +288,7 @@ Cache behavior and duration can be configured in both the Front Door designer ro
 
 ::: zone pivot="front-door-standard-premium"
 
-* Learn more about [Rule set match conditions](standard-premium/concept-rule-set-match-conditions.md)
-* Learn more about [Rule set actions](front-door-rules-engine-actions.md)
+- Learn more about [Rule set match conditions](standard-premium/concept-rule-set-match-conditions.md)
+- Learn more about [Rule set actions](front-door-rules-engine-actions.md)
 
 ::: zone-end

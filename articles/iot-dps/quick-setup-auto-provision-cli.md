@@ -1,14 +1,19 @@
 ---
 title: Quickstart - Set up Azure IoT Hub Device Provisioning Service using Azure CLI
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) using Azure CLI
-author: SoniaLopezBravo
-ms.author: sonialopez
-ms.date: 11/08/2019
+author: cwatson-cat
+ms.author: cwatson
+ms.date: 08/12/2025
 ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
-ms.custom: mvc, devx-track-azurecli, mode-api
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with Azure CLI
@@ -18,7 +23,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Both the IoT hub and the provisioning service you create in this quickstart will be publicly discoverable as DNS endpoints. Make sure to avoid any sensitive information if you decide to change the names used for these resources.
+> Both the IoT hub and the provisioning service you create in this quickstart are publicly discoverable as DNS endpoints. Make sure to avoid any sensitive information if you decide to change the names used for these resources.
 >
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
@@ -59,13 +64,13 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 ```
 
 > [!TIP]
-> The example creates the provisioning service in the West US location. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `--location "West US"`.
+> The example creates the provisioning service in the West US location. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value isn't case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `--location "West US"`.
 >
 > For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md).
 
 ## Get the connection string for the IoT hub
 
-You need your IoT hub's connection string to link it with the Device Provisioning Service. Use the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string and use its output to set a variable that's used later, when you link the two resources.
+You need your IoT hub's connection string to link it with the Device Provisioning Service. Use the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string and use its output to set a variable used later, when you link the two resources.
 
 The following example sets the *hubConnectionString* variable to the value of the connection string for the primary key of the hub's *iothubowner* policy (the `--policy-name` parameter can be used to specify a different policy). Trade out *my-sample-hub* for the unique IoT hub name you chose earlier. The command uses the Azure CLI [query](/cli/azure/query-azure-cli) and [output](/cli/azure/format-output-azure-cli#tsv-output-format) options to extract the connection string from the command output.
 
@@ -97,7 +102,7 @@ The following example links an IoT hub named *my-sample-hub* in the *westus* loc
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus
 ```
 
-The command may take a few minutes to complete.
+The command might take a few minutes to complete.
 
 ## Verify the provisioning service
 
@@ -111,11 +116,11 @@ az iot dps show --name my-sample-dps
 
 The linked IoT hub is shown in the *properties.iotHubs* collection.
 
-![Verify Provisioning Service](./media/quick-setup-auto-provision-cli/verify-provisioning-service.png)
+:::image type="content" source="./media/quick-setup-auto-provision-cli/verify-provisioning-service.png" alt-text="Screen capture of an Azure Cloud Shell window, highlighting the properties.iotHubs collection displayed in the output of the az iot dps show command.":::
 
 ## Clean up resources
 
-Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, you can use the following commands to delete the provisioning service, the IoT hub or the resource group and all of its resources. Replace the names of the resources included in the following commands with the names of your own resources.
+Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, you can use the following commands to delete the provisioning service, the IoT hub, or the resource group and all of its resources. Replace the names of the resources included in the following commands with the names of your own resources.
 
 To delete the provisioning service, run the [az iot dps delete](/cli/azure/iot/dps#az-iot-dps-delete) command:
 

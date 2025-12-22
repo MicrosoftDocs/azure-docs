@@ -9,7 +9,13 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 09/17/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23, doc-a-thon, linux-related-content
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - doc-a-thon
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As a system administrator managing Linux VMs, I want to configure DHCPv6 on my operating system, so that I can ensure proper IPv6 address allocation and maintain network connectivity."
 ---
 
 # Configure DHCPv6 for Linux VMs

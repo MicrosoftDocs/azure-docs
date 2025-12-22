@@ -1,11 +1,10 @@
 ---
 title: Windows security event sets that can be sent to Microsoft Sentinel
 description: Learn about the pre-built sets of Windows security events that you can collect and stream from your Windows systems to your Microsoft Sentinel workspace. 
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 11/09/2021
-ms.author: yelevin
-
 
 #Customer intent: As a security analyst, I want to select specific sets of Windows security events to ingest into Microsoft Sentinel, so that I can efficiently monitor and detect potential threats while managing data volume.
 
@@ -13,7 +12,7 @@ ms.author: yelevin
 
 # Windows security event sets that can be sent to Microsoft Sentinel
 
-When ingesting security events from Windows devices using the [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md) (including the [legacy version](data-connectors/security-events-via-legacy-agent.md)), you can choose which events to collect from among the following sets:
+When ingesting security events from Windows devices using the [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama) (including the legacy version), you can choose which events to collect from among the following sets:
 
 - **All events** - All Windows security and AppLocker events.
 

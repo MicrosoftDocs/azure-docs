@@ -9,7 +9,9 @@ ms.topic: tutorial
 ms.date: 11/18/2024
 ms.author: normesta
 ms.reviewer: jamesbak
+ms.custom: sfi-image-nochange
 #Customer intent: As an analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
+# Customer intent: As an analytics user, I want to perform an ETL operation using Apache Hive and Sqoop with Azure HDInsight so that I can transform raw data into a structured format and load it into my SQL database for analysis.
 ---
 
 # Tutorial: Extract, transform, and load data by using Azure HDInsight
@@ -23,7 +25,7 @@ In this tutorial, you learn how to:
 > - Transform the data by using Apache Hive.
 > - Load the data to Azure SQL Database by using Sqoop.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

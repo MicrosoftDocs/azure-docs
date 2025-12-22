@@ -8,6 +8,7 @@ ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/12/2025
+ms.custom: sfi-ropc-nochange
 #As an integration solution developer, I want to learn how I can build automated workflows that perform tasks with SAP resources.
 ---
 
@@ -159,7 +160,7 @@ The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a 
 
 To receive IDoc packets, which are batches or groups of IDocs, the SAP trigger doesn't need extra configuration. However, to process each item in an IDoc packet after the trigger receives the packet, you have to implement a few more steps to split the packet into individual IDocs by setting up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html). 
 
-The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](../workflow-definition-language-functions-reference.md#xpath):
+The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](../expression-functions-reference.md#xpath):
 
 1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [add the SAP trigger that can receive messages to your workflow](#receive-messages-sap).
 
@@ -191,7 +192,7 @@ The following example workflow shows how to extract individual IDocs from a pack
 
    1. In the action, select inside the **Value** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
    
-   1. Select the function icon to open expression editor, and create the following expression using the [`xpath()` function](../workflow-definition-language-functions-reference.md#xpath):
+   1. Select the function icon to open expression editor, and create the following expression using the [`xpath()` function](../expression-functions-reference.md#xpath):
 
       `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
@@ -578,7 +579,7 @@ Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 
 ### Add a response action
 
-Now, set up your workflow to return the results from your SAP server to the original requestor. For this task, follow these steps:
+Now, set up your workflow to return the results from your SAP server to the original requester. For this task, follow these steps:
 
 ### [Consumption](#tab/consumption)
 
@@ -778,7 +779,7 @@ When you connect to SAP from Azure Logic Apps, English is the default language u
 
 When you send transactions to SAP from Azure Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true).
 
-By default, the SAP managed connector action named [**Send message to SAP**](/connectors/sap/#send-message-to-sap) handles both the steps to transfer the function and confirm the transaction in a single call. You can also to decouple these steps. The capability to decouple the transfer and confirmation steps is useful for scenarios where you don't want to duplicate transactions in SAP. Such scenarios include failures that happen due to causes such as network issues.
+By default, the SAP managed connector action named [**Send message to SAP**](/connectors/sap/#send-message-to-sap) handles both the steps to transfer the function and confirm the transaction in a single call. You can also decouple these steps. The capability to decouple the transfer and confirmation steps is useful for scenarios where you don't want to duplicate transactions in SAP. Such scenarios include failures that happen due to causes such as network issues.
 
 You can send an IDoc without automatically confirming the transaction using the SAP managed connector action named [**[IDOC] Send document to SAP**](/connectors/sap/#[idoc]-send-document-to-sap). You can then explicitly confirm the transaction using the SAP managed connector action named [**[IDOC - RFC] Confirm transaction Id**](/connectors/sap/#[idoc---rfc]-confirm-transaction-id). When your workflow separately confirms the transaction in a different step, the SAP system completes the transaction only once.
 

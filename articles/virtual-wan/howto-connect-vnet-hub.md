@@ -17,9 +17,10 @@ Before you create a connection, be aware of the following:
 
 * A virtual network can only be connected to one virtual hub at a time.
 * In order to connect it to a virtual hub, the remote virtual network can't have a gateway (ExpressRoute or VPN) or RouteServer.
+* To create a cross-tenant virtual network connection to the virtual hub, refer to [Connect cross-tenant virtual networks to a Virtual WAN hub](cross-tenant-vnet.md)
 
 > [!IMPORTANT]
-> If VPN gateways are present in the virtual hub, this operation as well as any other write operation on the connected VNet can cause disconnection to Point-to-site clients as well as reconnection of site-to-site tunnels and BGP sessions.
+> * If VPN gateways are present in the virtual hub, this operation as well as any other write operation on the connected VNet can cause disconnection to Point-to-site clients as well as reconnection of site-to-site tunnels and BGP sessions.
 
 ## Add a connection
 
@@ -28,6 +29,9 @@ Before you create a connection, be aware of the following:
 > [!NOTE]
 >
 > * To delete a virtual network connected to the virtual hub, you must delete both the virtual network connection and virtual network resource. 
+
+## <a name="bypassexplained"> </a> Understanding Bypass Next Hop IP for workloads within this VNet
+[!INCLUDE [Bypass Next Hop IP](../../includes/virtual-wan-bypass-next-hop-ip-include.md)]
 
 ## Next steps
 

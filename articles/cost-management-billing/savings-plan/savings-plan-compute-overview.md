@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: overview
-ms.date: 01/07/2025
+ms.date: 07/09/2025
 ms.author: onwokolo
 ---
 
@@ -46,6 +46,8 @@ Azure provides commitment recommendations based on usage from your last 30 days.
 - [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/%7E/score)
 - The savings plan purchase experience in the [Azure portal](https://portal.azure.com/)
 - Benefit [Recommendation APIs](/rest/api/cost-management/benefit-recommendations/list)
+
+Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 7 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
 
 For more information, see [Choose an Azure saving plan commitment amount](choose-commitment-amount.md).
 

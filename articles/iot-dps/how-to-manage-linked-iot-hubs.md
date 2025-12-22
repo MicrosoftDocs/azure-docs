@@ -1,14 +1,18 @@
 ---
 title: How to manage linked IoT hubs with Device Provisioning Service (DPS)
 description: This article shows how to link and manage IoT hubs with the Device Provisioning Service (DPS).
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/23/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 services: iot-dps
-ms.custom: mvc, devx-track-azurecli
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # How to link and manage IoT hubs

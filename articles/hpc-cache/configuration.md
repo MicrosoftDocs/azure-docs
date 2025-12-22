@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.author: rohogue
+# Customer intent: "As a cloud administrator, I want to configure network settings for Azure HPC Cache, such as MTU, NTP, and DNS, so that I can optimize connectivity and ensure reliable performance across my infrastructure."
 ---
 
 # Configure additional Azure HPC Cache settings

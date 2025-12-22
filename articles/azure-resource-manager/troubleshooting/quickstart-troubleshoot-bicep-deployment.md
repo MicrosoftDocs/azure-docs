@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Bicep file deployments
 description: Learn how to monitor and troubleshoot Bicep file deployments. Shows activity logs and deployment history.
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 ---
@@ -22,7 +22,7 @@ All types of errors return an error code that you use to troubleshoot the deploy
 
 To complete this quickstart, you need the following items:
 
-- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com) with the latest [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - The latest version of either [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 

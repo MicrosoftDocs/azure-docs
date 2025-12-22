@@ -3,10 +3,11 @@ title: Architecture – Migration considerations with VMware HCX
 description: Learn about VMware HCX migration considerations for Azure VMware Solution.
 author: rvandenbedem
 ms.author: rvandenbedem
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy24
+# Customer intent: As a cloud architect, I want to understand the VMware HCX migration options for Azure VMware Solution, so that I can choose the most suitable migration method that balances downtime and scale for our virtual machine migration.
 ---
 
 # VMware HCX migration considerations

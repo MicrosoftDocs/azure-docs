@@ -24,7 +24,7 @@ This article explains how to migrate the Bing Maps [Find a Location by Point] AP
 
 - Bing Maps Find a Location by Point API supports XML and JSON response formats. Azure Maps Get Reverse Geocoding API supports the [GeoJSON] response format.
 - Bing Maps Find a Location by Point API uses coordinates in the latitude/longitude format. Azure Maps Get Reverse Geocoding API uses coordinates in the longitude/latitude format, as defined by [GeoJSON].
-- Unlike Bing Maps Find a Location by Point API, Azure Maps Get Reverse Geocoding API doesn’t currently support address or street level data for China, Japan or South Korea.
+- Unlike Bing Maps Find a Location by Point API, Azure Maps Get Reverse Geocoding API doesn’t currently support address or street level data for China.
 - Unlike Bing Maps Find a Location by Point API, Azure Maps Get Reverse Geocoding API has a `view` input parameter, which is a string that represents an [ISO 3166-1 Alpha-2 region/country code]. The `view` input parameter will alter geopolitical disputed borders and labels to align with the specified user region. For more information, see [URI Parameters].
 - Unlike Bing Maps for Enterprise, Azure Maps is a global service that supports specifying a geographic scope, which allows you to limit data residency to the European (EU) or United States (US) geographic areas (geos). All requests (including input data) are processed exclusively in the specified geographic area. For more information, see [Azure Maps service geographic scope].
 
@@ -59,7 +59,7 @@ https://dev.virtualearth.net/REST/v1/Locations/48.830345,2.338166&key={BingMapsK
 Azure Maps _Get Reverse Geocoding_ API request:
 
 ``` http
-http://atlas.microsoft.com/reverseGeocode?api-version=2023-06-01&coordinates=2.338166,48.830345&subscription-key={Your-Azure-Maps-Subscription-key}
+https://atlas.microsoft.com/reverseGeocode?api-version=2023-06-01&coordinates=2.338166,48.830345&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ## Response fields

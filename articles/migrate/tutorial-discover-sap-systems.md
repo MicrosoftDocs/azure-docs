@@ -6,14 +6,20 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 05/04/2024
+ms.reviewer: v-uhabiba
+ms.date: 02/07/2025
 ms.custom: engagement-fy24
 
+# Customer intent: "As a system administrator, I want to discover on-premises SAP systems using Azure Migrate, so that I can assess and plan their migration to the cloud effectively."
 ---
 
 # Tutorial: Discover SAP systems with Azure Migrate (preview)
 
 As part of your migration journey to Azure, discover your on-premises SAP inventory and workloads.
+
+>[!IMPORTANT]
+> This discovery and assessment tool is being deprecated. "Deprecated" means we intend to remove the feature. The feature will remain working and will be fully supported until it's officially removed. This deprecation notification might span a few months. After removal, the tool won't work. We're notifying you now so that you have sufficient time to plan before the tool is removed.
+
 
 This tutorial explains how to prepare an import file with server inventory details and to discover the SAP systems within Azure Migrate.
 
@@ -33,7 +39,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Set up an Azure Migrate project
 
 To set up a migration project, follow these steps:
-
 1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for **Azure Migrate**.
 1. On the **Get started** page, select **Discover, assess and migrate**.
 1. On the **Servers, databases and web apps** page, select **Create project**.
@@ -50,19 +55,17 @@ To set up a migration project, follow these steps:
     :::image type="content" source="./media/tutorial-discover-sap-systems/create-project-sap.png" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create-project-sap.png":::
 
     Wait for a few minutes for the project deployment.
-
+    
 ## Prepare the import file
 
 To prepare the import file, do the following:
-
 1. Download the template file.
 1. Add on-premises SAP infrastructure details.
 
 ### Download the template file
 
 To download the template, follow these steps:
-
-1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Using import** from the **Discover** dropdown menu.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/using-import.png" alt-text="Screenshot that shows how to download a template using import option." lightbox="./media/tutorial-discover-sap-systems/using-import.png":::
@@ -73,7 +76,7 @@ To download the template, follow these steps:
     :::image type="content" source="./media/tutorial-discover-sap-systems/download-template.png" alt-text="Screenshot that shows how to download a template." lightbox="./media/tutorial-discover-sap-systems/download-template.png":::
 
 > [!Note]
-   > To avoid any duplication or inadvertent errors affecting from one discovery file to another discovery file, we recommend you use a new file for every discovery that you plan to run.
+> To avoid any duplication or inadvertent errors affecting from one discovery file to another discovery file, we recommend you use a new file for every discovery that you plan to run.
 
 ### Add on-premises SAP infrastructure details
 
@@ -112,12 +115,11 @@ The following table summarizes the file fields to fill in:
 <sup>*</sup> These fields are mandatory.
 
 ## Import SAP systems inventory
-
 After you add information to the import file, import the file from your machine to Azure Migrate.
 
 To import SAP systems inventory, follow these steps:
 
-1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, from the **Discover** dropdown menu, select **Using import**.
 1. On the **Discover** page, under **Import the file**, upload the XLS file.
 1. Select **Import**.
@@ -131,8 +133,7 @@ To import SAP systems inventory, follow these steps:
 ## View discovered SAP systems
 
 To view the discovered SAP systems, follow these steps:
-
-1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, select the number associated with **Discovered SAP® systems**.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/discovered-systems.png" alt-text="Screenshot that shows discovered SAP inventory." lightbox="./media/tutorial-discover-sap-systems/discovered-systems.png":::

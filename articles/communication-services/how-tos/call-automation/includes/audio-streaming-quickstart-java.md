@@ -13,7 +13,7 @@ ms.author: alvinhan
 
 ## Prerequisites
 
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp).
 - A new web service application created using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 17 or above.
@@ -46,9 +46,12 @@ When Azure Communication Services receives the URL for your WebSocket server, it
 To start media streaming during the call, you can use the API. To do so, set the `startMediaStreaming` parameter to `false` (which is the default), and later in the call, you can use the start API to enable media streaming.
 
 ``` Java 
-MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(appConfig.getTransportUrl(), MediaStreamingTransport.WEBSOCKET, MediaStreamingContent.AUDIO, MediaStreamingAudioChannel.MIXED, false)
-    .setEnableBidirectional(true)
-    .setAudioFormat(AudioFormat.PCM_24K_MONO);
+MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(MediaStreamingAudioChannel.UNMIXED);
+mediaStreamingOptions.setTransportUrl(appConfig.getTransportUrl());
+mediaStreamingOptions.setStartMediaStreaming(true);
+mediaStreamingOptions.setEnableDtmfTones(true); // Allow receiving DTMF tones
+mediaStreamingOptions.setEnableBidirectional(true);
+mediaStreamingOptions.setAudioFormat(AudioFormat.PCM_24K_MONO);
 
 options = new AnswerCallOptions(data.getString(INCOMING_CALL_CONTEXT), callbackUri)
     .setCallIntelligenceOptions(callIntelligenceOptions)
@@ -56,10 +59,12 @@ options = new AnswerCallOptions(data.getString(INCOMING_CALL_CONTEXT), callbackU
 
 Response answerCallResponse = client.answerCallWithResponse(options, Context.NONE);
 
-StartMediaStreamingOptions startMediaStreamingOptions = new StartMediaStreamingOptions()
-    .setOperationContext("startMediaStreamingContext");
+StartMediaStreamingOptions mediaStreamingOptions = new StartMediaStreamingOptions();
+mediaStreamingOptions.setOperationContext("StartMediaStreamingContext");
 
-callConnection.getCallMedia().startMediaStreamingWithResponse(startMediaStreamingOptions, Context.NONE);     
+client.getCallConnection(callConnectionId)
+      .getCallMedia()
+      .startMediaStreamingWithResponse(mediaStreamingOptions, Context.NONE);    
 ```
 
 ## Stop audio streaming
@@ -68,9 +73,12 @@ To stop receiving audio streams during a call, you can use the **Stop streaming 
 - **Automatic stop on call disconnect:** Audio streaming automatically stops when the call is disconnected.
 
 ``` Java
-StopMediaStreamingOptions stopMediaStreamingOptions = new StopMediaStreamingOptions()
-    .setOperationContext("stopMediaStreamingContext");
-callConnection.getCallMedia().stopMediaStreamingWithResponse(stopMediaStreamingOptions, Context.NONE);
+StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions();
+stopOptions.setOperationContext("StopMediaStreamingContext");
+
+client.getCallConnection(callConnectionId)
+      .getCallMedia()
+      .stopMediaStreamingWithResponse(stopOptions, Context.NONE);
 ```
 
 ## Handling audio streams in your websocket server
@@ -89,6 +97,9 @@ public void onMessage(String message, Session session) {
 ```
 
 The first packet you receive contains metadata about the stream, including audio settings such as encoding, sample rate, and other configuration details.
+
+### Additional Headers
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`. These are sent when Azure Communication Services tries to connect to your endpoint.
 
 ``` json
 {
@@ -113,6 +124,18 @@ After sending the metadata packet, Azure Communication Services (ACS) will begin
     "participantRawID": "8:acs:3d20e1de-0f28-41c5…",
     "data": "5ADwAOMA6AD0A…",
     "silent": false
+  }
+}
+```
+
+#### DTMF example 
+When DTMF is enabled Azure Communication Services sends a `DtmfData` type.
+
+``` json
+{
+  "kind": "DtmfData",
+  "dtmfData": {
+    "data": "3"
   }
 }
 ```

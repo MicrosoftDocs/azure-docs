@@ -203,18 +203,18 @@ To view custom resource types other that pods in the cluster:
 
 1. Press **Ctrl-a** to display the list of custom resource types.
 
-1. Select the custom resource type, such as **assetendpointprofiles** and press **Enter**.
+1. Select the custom resource type, such as **devices** and press **Enter**.
 
     > [!TIP]
     > To search for a custom resource type by name, type **/** and then start typing the name of the type you're looking for.
 
-1. Select a custom resource and choose one of the available operations. For example, you can view the YAML definition os an asset endpoint profile by selecting it and pressing **y**. For some resources, you can edit the configuration.
+1. Select a custom resource and choose one of the available operations. For example, you can view the YAML definition of a device endpoint profile by selecting it and pressing **y**. For some resources, you can edit the configuration.
 
 The following table describes some of the custom resource types you might work with in Azure IoT Operations:
 
 | Custom resource type | Description |
 |----------------------|-------------|
-| `assetendpointprofiles` | Represents the configuration for an asset endpoint. |
+| `devices` | Represents the configuration for a device. |
 | `assets` | Represents the configuration for an asset. |
 | `brokers`, `brokerlisters`, `brokerauthentications`, `brokerauthorizations` | Represent the configuration for an MQTT broker. |
 | `dataflows`, `dataflowendpoints`, `dataflowprofiles` | Represent the configuration for a data flow. |
@@ -325,3 +325,17 @@ Make sure that MQTT Explorer has at least the `#` topic configured:
 After you connect, you can see messages in the topics you subscribed to and publish messages:
 
 :::image type="content" source="media/tips-tools/mqtt-explorer-subscription.png" alt-text="Screenshot that shows the MQTT Explorer subscribed to Azure IoT Operations topics.":::
+
+## Tips
+
+Here are some additional tips to help you work with your Azure IoT Operations instance:
+
+### Find the custom location of your Azure IoT Operations instance
+
+To find the custom location associated with your Azure IoT Operations instance, use the following command:
+
+```azurecli
+az iot ops show --name <YOUR_INSTANCE_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query "extendedLocation.name" --output tsv
+```
+
+You can also find the custom location in the Azure portal on the instance overview page in the **Extended location** field.

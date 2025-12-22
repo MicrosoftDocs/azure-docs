@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 07/16/2024
 ms.author: duau
 ms.custom: ai-usage
+# Customer intent: As a network architect, I want to design Azure ExpressRoute for maximum resiliency, so that I can ensure high availability and reliability for our on-premises connections to Azure, supporting critical workloads without interruption.
 ---
 
 # Design and architect Azure ExpressRoute for resiliency
@@ -30,7 +31,7 @@ There are three ExpressRoute resiliency architectures that can be utilized to en
 
 ### Maximum resiliency
 
-The Maximum resiliency architecture in ExpressRoute is structured to eliminate any single point of failure within the Microsoft network path. This set up is achieved by configuring a pair of circuits across two distinct locations for site diversity with ExpressRoute. The objective of Maximum resiliency is to enhance reliability, resiliency, and availability, as a result ensuring the highest level of resilience for business and/or mission-critical workloads. For such operations, we recommend that you configure maximum resiliency. This architectural design is recommended as part of the [Well Architected Framework](/azure/well-architected/service-guides/azure-expressroute#reliability) under the reliability pillar. The ExpressRoute engineering team developed a [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) to assist you in configuring maximum resiliency.
+The Maximum resiliency architecture in ExpressRoute is structured to eliminate any single point of failure within the Microsoft network path. This setup is achieved by configuring a pair of circuits across two distinct locations for site diversity with ExpressRoute. The objective of Maximum resiliency is to enhance reliability, resiliency, and availability, as a result ensuring the highest level of resilience for business and/or mission-critical workloads. For such operations, we recommend that you configure maximum resiliency. This architectural design is recommended as part of the [Well Architected Framework](/azure/well-architected/service-guides/azure-expressroute#reliability) under the reliability pillar. The ExpressRoute engineering team developed a [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) to assist you in configuring maximum resiliency.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
 

@@ -2,11 +2,12 @@
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
 ms.service: azure-backup
-ms.date: 09/11/2024
+ms.date: 09/11/2025
 ms.topic: reference
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator using MABS or DPM, I want to understand the backup support limitations and configurations, so that I can effectively manage and safeguard my on-premises and Azure workloads.
 ---
 
 # Support matrix for backup with Microsoft Azure Backup Server or System Center DPM
@@ -54,6 +55,22 @@ For more information:
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
 **Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is 2.0.8719.0.  | DPM/MABS must be running on-premises.
+
+> [!NOTE]
+> Backup of virtual machines hosted on public cloud platforms such as Azure VMs or AWS EC2 using DPM/MABS is not supported.
+> 
+> Also, Bare Metal Recovery (BMR) with MABS is supported only for recovery on the same hardware; recovery to different hardware or cloud environments (such as Azure VM or AWS EC2) isn't supported.
+
+> **System state recovery support matrix**
+> 
+> | Scenario | Supported |
+| --- | --- |
+| Recover system state after BMR on the same hardware | ✅ Yes |
+| Recover system state after BMR on different hardware | ❌ No |
+| Recover system state after non-BMR full restore (same/different hardware) | ❌ No |
+
+>[!Note]
+>This limitation is primarily due to the fact that **system state backups contain hardware-dependent information**, making recovery on different environments technically infeasible.
 
 ## Supported deployments
 
@@ -145,6 +162,10 @@ BitLocker can only be enabled after you add the disk the storage pool. Don't ena
 
 Network-attached storage (NAS) isn't supported for use in the DPM storage pool.
 
+>[!NOTE]
+>Microsoft Azure Backup Server (MABS)/DPM supports a maximum total replica (protected data) size of 75 TB per server. Exceeding this threshold can lead to missed backup SLAs and may render the server unresponsive. 
+>In case consider to add another MABS Server.
+
 **Storage** | **Details**
 --- | ---
 **MBS** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
@@ -221,3 +242,5 @@ Deduplication support for MABS depends on operating system support.
 - [Review](backup-support-matrix-mars-agent.md) what's supported for the MARS agent.
 - [Set up](backup-azure-microsoft-azure-backup.md) a MABS server.
 - [Set up DPM](/system-center/dpm/install-dpm).
+- [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+- [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).

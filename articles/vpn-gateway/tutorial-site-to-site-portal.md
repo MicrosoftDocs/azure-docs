@@ -6,9 +6,10 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 01/15/2025
+ms.date: 07/09/2025
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
+# Customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises network and Azure, so that I can ensure secure and reliable connectivity for my resources in the cloud.
 ---
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
@@ -16,6 +17,8 @@ ms.date: 01/15/2025
 In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). This configuration uses a specified pre-shared key for the connection between the Azure VPN gateway and your on-premises VPN device. You can also configure a site-to-site connection using [certificate authentication](site-to-site-certificate-authentication-gateway-portal.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
+
+## What you accomplish
 
 In this tutorial, you:
 
@@ -27,9 +30,11 @@ In this tutorial, you:
 > * Verify the connection.
 > * Connect to a virtual machine.
 
+**Estimated time to complete**: 90-120 minutes (including gateway deployment time)
+
 ## Prerequisites
 
-* You need an Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* You need an Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * If you're unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure routes to your on-premises location. None of the subnets of your on-premises network can overlap with the virtual network subnets that you want to connect to.
 * VPN devices:
@@ -46,7 +51,7 @@ In this section, you create a virtual network by using the following values:
 * **Region**: (US) East US
 * **IPv4 address space**: 10.1.0.0/16
 * **Subnet name**: FrontEnd
-* **Subnet address space**: 
+* **Subnet address space**: 10.1.0.0/24
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -115,7 +120,7 @@ Create a local network gateway by using the following values:
 
 Site-to-site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When you configure your VPN device, you need the following values:
 
-* **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a simple shared key. We recommend that you generate a more complex key to use.
+* **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a simple shared key. We recommend that you generate a more complex key to use, with at least 32 characters, including a mix of uppercase and lowercase letters, numbers, and special characters.
 * **Public IP addresses of your virtual network gateway instances**: Obtain the IP address for each VM instance. If your gateway is in active-active mode, you'll have an IP address for each gateway VM instance. Be sure to configure your device with both IP addresses, one for each active gateway VM. Active-standby mode gateways have only one IP address.
 
 > [!NOTE]
@@ -149,7 +154,7 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 
 ### <a name="reset"></a>Reset a gateway
 
-Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more site-to-site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly but aren't able to establish IPsec tunnels with the Azure VPN gateways. If you need to reset an active-active gateway, you can reset both instances using the portal. You can also use PowerShell or CLI to reset each gateway instance separately using instance VIPs. For more information, see [Reset a connection or a gateway](reset-gateway.md#reset-a-gateway).
+Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more site-to-site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly but aren't able to establish IPsec tunnels with the Azure VPN gateways. If you need to reset an active-active gateway, you can reset both instances using the portal. You can also use PowerShell or CLI to reset each gateway instance separately using instance VIPs. For more information, see [Reset a VPN gateway or a connection](reset-gateway.md).
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
@@ -171,9 +176,9 @@ You can specify a different shared key for your connection.
 1. Save your changes.
 1. Update your VPN device with the new shared key as necessary.
 
-### <a name="resize"></a>Resize or change a gateway SKU
+### <a name="resize"></a>Upgrade a gateway SKU
 
-You can resize a gateway SKU, or you can change the gateway SKU. There are specific rules regarding which option is available, depending on the SKU your gateway is currently using. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
+You can upgrade the SKU of your VPN gateway to a different SKU. There are rules regarding which SKUs are available for upgrade. For more information, see [Upgrade a gateway SKU](gateway-sku-upgrade.md).
 
 ### <a name="additional"></a>More configuration considerations
 

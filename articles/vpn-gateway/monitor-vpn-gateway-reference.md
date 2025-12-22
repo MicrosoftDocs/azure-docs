@@ -7,6 +7,7 @@ ms.topic: reference
 author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
+# Customer intent: As a network administrator, I want to access detailed monitoring data for Azure VPN Gateway, so that I can effectively manage connectivity, diagnose issues, and ensure optimal performance of the VPN services.
 ---
 
 # Azure VPN Gateway monitoring data reference

@@ -6,8 +6,9 @@ ms.date: 01/21/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to configure a backup for my Azure Kubernetes Service cluster, so that I can ensure the protection of my cluster resources and persistent volumes."
 ---
 
 # Quickstart: Configure backup for an AKS cluster

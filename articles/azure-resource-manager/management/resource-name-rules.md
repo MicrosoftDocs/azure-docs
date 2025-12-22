@@ -1,8 +1,8 @@
----
+﻿---
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
-ms.topic: conceptual
-ms.date: 03/14/2025
+ms.topic: article
+ms.date: 08/04/2025
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -20,9 +20,9 @@ This article also lists resources by resource provider namespace. For a list of 
 
 In the following tables, the term alphanumeric refers to:
 
-* **a** through **z** (lowercase letters)
-* **A** through **Z** (uppercase letters)
-* **0** through **9** (numbers)
+- **a** through **z** (lowercase letters)
+- **A** through **Z** (uppercase letters)
+- **0** through **9** (numbers)
 
 > [!NOTE]
 > Resources with a public endpoint can't include reserved words or trademarks in the name. For a list of blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
@@ -87,8 +87,8 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | configurationStores* | global | 5-50 | Alphanumerics and hyphens<br><br>Can’t contain a sequence of more than two hyphens.<br><br>Can’t start with or end with a hyphen. |
-> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can’t exceed 60 characters.| Only alphanumerics are valid. |
+> | configurationStores\* | global | 5-50 | Alphanumerics and hyphens<br><br>Can't contain a sequence of more than two hyphens.<br><br>Can't start with or end with a hyphen. |
+> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can't exceed 60 characters.| Only alphanumerics are valid. |
 
 \* {storeName}-{replicaName} needs to be globally unique.
 
@@ -111,19 +111,20 @@ In the following tables, the term alphanumeric refers to:
 > | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't use:<br>`#<>%&:\?/` or control characters. <br><br>Can't end with period or space. |
 > | roleAssignments | tenant | 36 | Must be a globally unique identifier (GUID). |
 > | roleDefinitions | tenant | 36 | Must be a GUID.
+
 ## Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | automationAccounts | resource group & region <br>(See note below) | 6-50 | Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric. |
-> | automationAccounts / certificates | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space.  |
+> | automationAccounts / certificates | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
 > | automationAccounts / connections | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
 > | automationAccounts / credentials | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
-> | automationAccounts / runbooks | automation account | 1-63 | Alphanumerics, underscores, and hyphens<br><br>Start with a letter.  |
+> | automationAccounts / runbooks | automation account | 1-63 | Alphanumerics, underscores, and hyphens<br><br>Start with a letter. |
 > | automationAccounts / schedules | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
 > | automationAccounts / variables | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
-> | automationAccounts / watchers | automation account | 1-63 |  Alphanumerics, underscores, and hyphens<br><br>Start with a letter. |
+> | automationAccounts / watchers | automation account | 1-63 | Alphanumerics, underscores, and hyphens<br><br>Start with a letter. |
 > | automationAccounts / webhooks | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
 
 > [!NOTE]
@@ -166,7 +167,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | botServices | global | 2-64 |  Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. |
+> | botServices | global | 2-64 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. |
 > | botServices / channels | bot service | 2-64 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. |
 > | botServices / Connections | bot service | 2-64 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. |
 > | enterpriseChannels | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. |
@@ -215,7 +216,7 @@ In the following tables, the term alphanumeric refers to:
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens |
 > | galleries | resource group | 1-80 | Alphanumerics and periods<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods<br><br>Start and end with alphanumeric. |
-> | galleries / applications/versions | application | 32-bit integer | Numbers and periods<br/>(Each segment is converted to an int32. So each segment has a max value of 2,147,483,647.)  |
+> | galleries / applications/versions | application | 32-bit integer | Numbers and periods<br/>(Each segment is converted to an int32. So each segment has a max value of 2,147,483,647.) |
 > | galleries / images | gallery | 1-80 | Alphanumerics, underscores, hyphens, and periods<br><br>Start and end with alphanumeric. |
 > | galleries / images / versions | image | 32-bit integer | Numbers and periods<br/>Each segment is converted to an int32, so each segment has a max value of 2,147,483,647. |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
@@ -281,7 +282,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | hubs | resource group | 1-64 | Alphanumerics<br><br>Start with a letter.  |
+> | hubs | resource group | 1-64 | Alphanumerics<br><br>Start with a letter. |
 > | hubs / authorizationPolicies | hub | 1-50 | Alphanumerics, underscores, and periods<br><br>Start and end with alphanumeric. |
 > | hubs / connectors | hub | 1-128 | Alphanumerics and underscores<br><br>Start with a letter. |
 > | hubs / connectors/mappings | connector | 1-128 | Alphanumerics and underscores<br><br>Start with a letter. |
@@ -366,7 +367,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | backupVaults | resource group | 2-50 | Alphanumerics and hyphens<br><br>Start with a letter. |
 > | backupvaults / backupInstances | backup vault | 1-75 | Alphanumerics and hyphens |
-> | backupVaults / backupPolicies  | backup vault | 1-75 | Alphanumerics and hyphens |
+> | backupVaults / backupPolicies | backup vault | 1-75 | Alphanumerics and hyphens |
 
 ## Microsoft.DBforMariaDB
 
@@ -466,6 +467,13 @@ In the following tables, the term alphanumeric refers to:
 > | namespaces / eventhubs / authorizationRules | event hub | 1-50 | Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / consumergroups | event hub | 1-50 | Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with letter or number. |
 
+## Microsoft.FileShares
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | file share | global | 3-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphens. Can't use consecutive hyphens. |
+
 ## Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
@@ -485,21 +493,19 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?|` or control characters <br><br>Can't end with space or period.  |
-> | autoScaleSettings | resource group | 1-260 | Can't use:<br>`:<>+/&%\?|` or control characters <br><br>Can't end with space or period.  |
-> | components | resource group | 1-260 | Can't use:<br>`%&\?/` or control characters <br><br>Can't end with space or period.  |
-> | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#|` or control characters <br><br>Can't end with space or period.  |
-> | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/|` or control characters <br><br>Can't end with space or period.  |
-> | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period.  |
+> | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?|` or control characters <br><br>Can't end with space or period. |
+> | autoScaleSettings | resource group | 1-260 | Can't use:<br>`:<>+/&%\?|` or control characters <br><br>Can't end with space or period. |
+> | components | resource group | 1-260 | Can't use:<br>`%&\?/` or control characters <br><br>Can't end with space or period. |
+> | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#|` or control characters <br><br>Can't end with space or period. |
+> | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/|` or control characters <br><br>Can't end with space or period. |
+> | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period. |
 
-## Microsoft.AlertsManagement 
+## Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | prometheusRuleGroups  | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period.  |
-
-
+> | prometheusRuleGroups | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period. |
 
 ## Microsoft.IoTCentral
 
@@ -539,7 +545,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | loadtests | global | 1-64 | Can't use:<br>`<>*&@:?+/\,;=.|[]"` or space<br><br>Can't start with underscore, hyphen, or number. Can't end with underscore or hyphen.  |
+> | loadtests | global | 1-64 | Can't use:<br>`<>*&@:?+/\,;=.|[]"` or space<br><br>Can't start with underscore, hyphen, or number. Can't end with underscore or hyphen. |
 
 ## Microsoft.Logic
 
@@ -586,7 +592,7 @@ In the following tables, the term alphanumeric refers to:
 
 ## Microsoft.Management
 
->[!div class="mx-tableFixed"]
+> [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | managementgroups | tenant | 1-90 | Alphanumerics, hyphens, underscores, periods, and parentheses <br><br> Start with a letter or number.<br><br>Can't end with period. |
@@ -633,12 +639,13 @@ In the following tables, the term alphanumeric refers to:
 > | netAppAccounts | resource group | 1-128 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / backups | NetApp account | 3-225 | Alphanumerics, underscores, periods, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / backupPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
-> | netAppAccounts / capacityPools | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
+> | netAppAccounts / capacityPools | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 > | netAppAccounts / shareNames | NetApp account | 1-64 | Alphanumerics and hyphens. <br><br>Start with alphanumeric.<br><br>Underscores aren't supported. |
 > | netAppAccounts / snapshots | NetApp account | 1-255 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
-> | netAppAccounts / snapshotPolicies | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
+> | netAppAccounts / snapshotPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 > | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
-> | netAppAccounts / volumeGroups | NetApp account | 3-64 |  Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
+> | netAppAccounts / buckets | NetApp account |13-64 |  Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
+> | netAppAccounts / volumeGroups | NetApp account | 3-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 
 ## Microsoft.Network
 
@@ -665,7 +672,7 @@ In the following tables, the term alphanumeric refers to:
 > | localNetworkGateways | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | networkInterfaces | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | networkSecurityGroups | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | networkSecurityGroups / securityRules | network security group | 1-80 |  Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
+> | networkSecurityGroups / securityRules | network security group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | networkWatchers | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | privateDnsZones | resource group | 1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, **contoso.com** has two labels. | Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period. |
 > | privateDnsZones / virtualNetworkLinks | private Domain Name System zone | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
@@ -690,6 +697,7 @@ In the following tables, the term alphanumeric refers to:
 > | vpnSites | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 
 ## Microsoft.NetworkCloud
+
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
@@ -783,7 +791,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start with a letter. End with a letter or number. |
-> | namespaces / AuthorizationRules | namespace | 1-50 |  Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphanumeric. |
+> | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphanumeric. |
 > | namespaces / HybridConnections | namespace | 1-260 | Alphanumerics, periods, hyphens, underscores, and slashes<br><br>Start and end with alphanumeric. |
 > | namespaces / HybridConnections/authorizationRules | hybrid connection | 1-50 | Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphanumeric. |
 > | namespaces / WcfRelays | namespace | 1-260 | Alphanumerics, periods, hyphens, underscores, and slashes<br><br>Start and end with alphanumeric. |
@@ -832,7 +840,7 @@ In the following tables, the term alphanumeric refers to:
 > | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start with a letter. End with a letter or number.<br><br>For more information, see [Create namespace](/rest/api/servicebus/create-namespace). |
 > | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphnumeric. |
 > | namespaces / disasterRecoveryConfigs | global | 6-50 | Alphanumerics and hyphens<br><br>Start with a letter. End with alphanumeric. |
-> | namespaces / migrationConfigurations | namespace |  | Should always be **$default**. |
+> | namespaces / migrationConfigurations | namespace | | Should always be **$default**. |
 > | namespaces / queues | namespace | 1-260 | Alphanumerics, periods, hyphens, underscores, and slashes<br><br>Start and end with alphanumeric. |
 > | namespaces / queues / authorizationRules | queue | 1-50 | Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphnumeric. |
 > | namespaces / topics | namespace | 1-260 | Alphanumerics, periods, hyphens, underscores, and slashes<br><br>Start and end with alphanumeric. |
@@ -861,13 +869,13 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens<br><br> Can't start or end with hyphen. |
 > | servers | global | 1-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphen. |
-> | servers / administrators | server |  | Must be `ActiveDirectory`. |
+> | servers / administrators | server | | Must be `ActiveDirectory`. |
 > | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores |
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
-> | servers / failoverGroups | global |  1-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphen. |
+> | servers / failoverGroups | global | 1-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphen. |
 > | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
-> | servers / keys | server |  | Must be in format:<br>`VaultName_KeyName_KeyVersion`. |
+> | servers / keys | server | | Must be in format:<br>`VaultName_KeyName_KeyVersion`. |
 
 ## Microsoft.Storage
 
@@ -875,11 +883,11 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | storageAccounts | global | 3-24 | Lowercase letters and numbers |
-> | storageAccounts / blobServices | storage account |  | Must be `default`. |
+> | storageAccounts / blobServices | storage account | | Must be `default`. |
 > | storageAccounts / blobServices / containers | storage account | 3-63 | Lowercase letters, numbers, and hyphens<br><br>Start with lowercase letter or number. Can't use consecutive hyphens. |
-> | storageAccounts / fileServices | storage account |  | Must be `default`. |
+> | storageAccounts / fileServices | storage account | | Must be `default`. |
 > | storageAccounts / fileServices / shares | storage account | 3-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphen. Can't use consecutive hyphens. |
-> | storageAccounts / managementPolicies | storage account |  | Must be `default`. |
+> | storageAccounts / managementPolicies | storage account | | Must be `default`. |
 > | blob | container | 1-1024 | Any URL characters and case sensitive |
 > | queue | storage account | 3-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphens. Can't use consecutive hyphens. |
 > | table | storage account | 3-63 | Alphanumerics<br><br>Start with a letter. |
@@ -935,7 +943,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with a space or period.  |
+> | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with a space or period. |
 > | serverfarms | resource group | 1-60 | Alphanumeric, hyphens, and Unicode characters that can be mapped to Punycode |
 > | sites | Global or per domain; see note below. | 2-60 | Alphanumeric, hyphens, and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumeric, hyphens, and Unicode characters that can be mapped to Punycode |
@@ -944,12 +952,13 @@ In the following tables, the term alphanumeric refers to:
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
 >
-> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see [Host ID considerations](../../azure-functions/storage-considerations.md#host-id-considerations). 
+> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see [Host ID considerations](../../azure-functions/storage-considerations.md#host-id-considerations).
 >
 > Unicode characters are parsed to Punycode using the [IdnMapping.GetAscii method](/dotnet/api/system.globalization.idnmapping.getascii)
 
 ## Next steps
 
-* For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+- For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-* Resources with public endpoints can't include reserved words or trademarks in their names. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+- Resources with public endpoints can't include reserved words or trademarks in their names. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+

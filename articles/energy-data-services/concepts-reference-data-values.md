@@ -1,19 +1,15 @@
 ---
-title: Reference Data Value Syncing in Microsoft Azure Data Manager for Energy
-description: This article describes Reference Values and syncing of Reference Values with Azure Data Manager for Energy data partitions.
-author: bharathim
-ms.author: bselvaraj
+title: Reference Data Value in Microsoft Azure Data Manager for Energy
+description: This article describes Reference Values and how Reference Data Values are automatically loaded in Azure Data Manager.
+author: marielherz
+ms.author: marielherzog
 ms.service: azure-data-manager-energy
 ms.topic: conceptual
-ms.date: 08/28/2024
+ms.date: 10/03/2025
 ms.custom: template-concept
 ---
 
-# Syncing Reference Data Values
-
-> [!IMPORTANT]
-> The feature to sync reference values in your Azure Data Manager for Energy data partition is currently in **Limited Preview**. If you are interested in having this feature enabled for your Azure subscription, then please reach out to either your Microsoft Sales contact or open a support ticket for assistance.
->
+# Reference Data Values Automated Sync in ADME
 
 This article provides an overview of reference data values in OSDU Data Platform, and explains how Azure Data Manager for Energy helps you synchronize them with OSDU community standards. 
 
@@ -32,7 +28,7 @@ For more information about OSDU reference data values and their different types,
 
 ## Configuring value syncing in Azure Data Manager for Energy
 
-To help you maintain data integrity and facilitate interoperability, new Azure Data Manager for Energy instances are automatically created with **FIXED** and **OPEN** reference data values synced per the latest set from the OSDU community for the [current milestone supported by Azure Data Manager for Energy](osdu-services-on-adme.md). You can additionally choose to have new instances create with **LOCAL** values synced as well.
+To help you maintain data integrity and facilitate interoperability, new Azure Data Manager for Energy instances are automatically created with **FIXED** and **OPEN** reference data values synced per the latest set from the OSDU community for the [current milestone supported by Azure Data Manager for Energy](osdu-services-on-adme.md). During provisioning, you can additionally choose to have new instances create with **LOCAL** values synced or opt out.
 
 Later, if you create new data partitions in the Azure Data Manager for Energy instance, they'll also be created with FIXED and OPEN reference values synced. If you had chosen to additionally sync LOCAL values when you first created the instance, new partitions will also sync LOCAL values from the community.
 

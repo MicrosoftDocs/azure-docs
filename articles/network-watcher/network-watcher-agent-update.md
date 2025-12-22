@@ -7,6 +7,7 @@ ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 01/24/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to update the Network Watcher extension on my Azure virtual machines, so that I can ensure optimal network performance and access the latest monitoring features."
 ---
 
 # Update Azure Network Watcher extension to the latest version
@@ -15,7 +16,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure virtual machine (VM) that has the Network Watcher extension installed.
 
 ## Latest version

@@ -5,32 +5,22 @@ description: "Learn how to upgrade an Azure Managed Grafana workspace from Grafa
 ms.service: azure-managed-grafana
 author: maud-lv  
 ms.author: malev 
-ms.date: 02/28/2025 
+ms.date: 09/23/2025 
 ms.topic: how-to 
-# customerIntent: As a user of Azure Managed Grafana, I want to upgrade my workspce from Grafana 10 to Grafana 11.
+# customerIntent: As a user of Azure Managed Grafana, I want to upgrade my workspace from Grafana 10 to Grafana 11.
 --- 
 
 # Upgrade to Grafana 11
 
-Azure Managed Grafana will stop offering Grafana 10 as a supported software version on July 31, 2025. This guide provides information about the retirement of Grafana 10 and guides you through updating your Azure Managed Grafana workspace to Grafana 11.
+Azure Managed Grafana stopped offering Grafana 10 for new resources as of July 31, 2025. This guide provides information about the retirement of Grafana 10 and guides you through updating your Azure Managed Grafana workspace to Grafana 11.
 
 > [!IMPORTANT]
-> We recommend that you familiarize yourself with the [breaking changes introduced in Grafana 11](https://grafana.com/docs/grafana/latest/breaking-changes/breaking-changes-v11-0/) and upgrade your workspace to Grafana 11 before August 2025. If your workspace is still running Grafana version 10 in August 2025, it will be automatically upgraded to Grafana 11.
+> We recommend that you familiarize yourself with the [breaking changes introduced in Grafana 11](https://grafana.com/docs/grafana/latest/breaking-changes/breaking-changes-v11-0/) and upgrade your workspace to Grafana 11 by October 31, 2025. Workspaces still running Grafana version 10 after this date will be automatically upgraded to Grafana 11.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure Managed Grafana instance. [Create one if you haven't already](quickstart-managed-grafana-portal.md).
-
-## Retirement timeline
-
-The following table outlines the retirement timeline.
-
-| Key dates   | Status                                                                                                                                                    |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| March 2025  | Users can start to upgrade existing workspaces to Grafana 11.                                                                                             |
-| June 2025   | <li>All new workspaces use Grafana 11. Creating new workspaces on Grafana 10 is disabled. <li> Users can still upgrade existing workspaces to Grafana 11. |
-| August 2025 | All workspaces are forcibly upgraded to Grafana 11.                                        |
 
 ## Check the version of your Grafana workspace
 
@@ -87,7 +77,7 @@ In the Azure CLI:
 1. Once you have reviewed the breaking changes in Grafana 11 and are ready to proceed with the upgrade, run the [az grafana update](/cli/azure/grafana#az-grafana-update) command and replace `<azure-managed-grafana-workspace>` with the name of your Azure Managed Grafana workspace.
 
     ```azurecli
-    az grafana update --name <azure-managed-grafana-workspace> --major-version 11
+    az grafana update --name <azure-managed-grafana-workspace> --resource-group <azure-managed-grafana-resource-group-name> --major-version 11
     ```
 
 1. The CLI displays a warning indicating that upgrading to Grafana version 11 is a permanent an irreversible operation.

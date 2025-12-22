@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 06/23/2022
 ms.author: akashdubey
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a developer, I want to perform common operations on Azure Table storage using PowerShell, so that I can efficiently manage and manipulate structured data within my applications.
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 

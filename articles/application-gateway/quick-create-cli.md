@@ -3,12 +3,17 @@ title: 'Quickstart: Direct web traffic using CLI'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: quickstart
 ms.date: 05/30/2024
-ms.author: greglin
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.author: mbender
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+  - sfi-image-nochange
+# Customer intent: "As a cloud engineer, I want to configure an application gateway using the command-line interface, so that I can efficiently direct web traffic to backend servers and verify the setup."
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
@@ -43,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources
 
-For Azure to communicate between the resources that you create, it needs a virtual network.  The application gateway subnet can contain only application gateways. No other resources are allowed.  You can either create a new subnet for Application Gateway or use an existing one. In this example, you create two subnets: one for the application gateway, and another for the backend servers. You can configure the Frontend IP of the Application Gateway to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP address.
+For Azure to communicate between the resources that you create, it needs a virtual network. The application gateway subnet can contain only application gateways. No other resources are allowed.  You can either create a new subnet for Application Gateway or use an existing one. In this example, you create two subnets: one for the application gateway, and another for the backend servers. You can configure the Frontend IP of the Application Gateway to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP address.
 
   > [!NOTE]
   > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
@@ -173,6 +178,9 @@ It can take up to 30 minutes for Azure to create the application gateway. After 
 - **appGatewayHttpListener**: Located on the **Listeners page**. It specifies the default listener associated with **appGatewayBackendPool**.
 - **appGatewayFrontendIP**: Located on the **Frontend IP configurations** page. It assigns *myAGPublicIPAddress* to **appGatewayHttpListener**.
 - **rule1**: Located on the **Rules** page. It specifies the default routing rule that's associated with **appGatewayHttpListener**.
+
+> [!NOTE]
+> In regions that support availability zones, if you don't specify zones during creation via CLI, PowerShell, ARM/Bicep, or the REST API—Azure Application Gateway automatically enables zone redundancy, distributing instances across multiple availability zones for enhanced resiliency
 
 ## Test the application gateway
 

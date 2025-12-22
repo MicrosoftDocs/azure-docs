@@ -4,10 +4,13 @@ description: Learn how to copy data from MariaDB to supported sink data stores u
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/14/2025
+ms.date: 07/28/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from MariaDB using Azure Data Factory or Synapse Analytics
@@ -16,7 +19,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The MariaDB connector version 2.0 provides improved native MariaDB support. If you are using MariaDB connector version 1.0 in your solution, please [upgrade your MariaDB connector](#upgrade-the-mariadb-driver-version) as version 1.0 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** (Disabled date) if not upgraded. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
+> The MariaDB connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the MariaDB connector](#upgrade-the-mariadb-driver-version) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -249,47 +252,47 @@ When copying data from MariaDB, the following mappings are used from MariaDB dat
 
 | MariaDB data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
-| `bigint` |`Int64` |`Int64` |
-| `bigint unsigned` |`Decimal` |`Decimal` |
-| `bit(1)` |`UInt64` |`Boolean` |
-| `bit(M), M>1`|`UInt64`|`Byte[]`|
-| `blob` |`Byte[]` |`Byte[]` |
-| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by default ) |`Int16` |
-| `char` |`String` |`String` |
-| `date` |`Datetime` |`Datetime` |
-| `datetime` |`Datetime` |`Datetime` |
-| `decimal` |`Decimal` |`Decimal, String` |
-| `double` |`Double` |`Double` |
-| `double precision` |`Double` |`Double` |
-| `enum` |`String` |`String` |
-| `float` |`Single` |`Single` |
-| `int` |`Int32` |`Int32` |
-| `int unsigned` |`Int64`|`Int64`|
-| `integer` |`Int32` |`Int32` |
-| `integer unsigned` |`Int64` |`Int64` |
-| `JSON` |`String` |-|
-| `long varbinary` |`Byte[]` |`Byte[]` |
-| `long varchar` |`String` |`String` |
-| `longblob` |`Byte[]` |`Byte[]` |
-| `longtext` |`String` |`String` |
-| `mediumblob` |`Byte[]` |`Byte[]` |
-| `mediumint` |`Int32` |`Int32` |
-| `mediumint unsigned` |`Int64` |`Int64` |
-| `mediumtext` |`String` |`String` |
-| `numeric` |`Decimal` |`Decimal` |
-| `real` |`Double` |`Double` |
-| `set` |`String` |`String` |
-| `smallint` |`Int16` |`Int16` |
-| `smallint unsigned` |`Int32` |`Int32` |
-| `text` |`String` |`String` |
-| `time` |`TimeSpan` |`TimeSpan` |
-| `timestamp` |`Datetime` |`Datetime` |
-| `tinyblob` |`Byte[]` |`Byte[]` |
-| `tinyint` |`SByte` |`Int16` |
-| `tinyint unsigned` |`Int16` |`Int16` |
-| `tinytext` |`String` |`String` |
-| `varchar` |`String` |`String` |
-| `year` |`Int` |`Int` |
+| BIGINT | Int64 | Int64 |
+| BIGINT UNSIGNED | UInt64 | Decimal |
+| BIT(1) | UInt64 | Boolean |
+| BIT(M), M>1 | UInt64 | Byte[] |
+| BLOB |Byte[] |Byte[] |
+| BOOL |Boolean <br/>(If TreatTinyAsBoolean=false, it is mapped as SByte. TreatTinyAsBoolean is true by default) | Int16 |
+| CHAR | String  | String |
+| DATE | Datetime  | Datetime  |
+| DATETIME | Datetime  | Datetime  |
+| DECIMAL | Decimal | Decimal, String |
+| DOUBLE | Double  | Double  |
+| DOUBLE PRECISION | Double  | Double  |
+| ENUM | String  | String  |
+| FLOAT | Single  | Single  |
+| INT | Int32  | Int32  |
+| INT UNSIGNED | Int64 | Int64 |
+| INTEGER | Int32  | Int32  |
+| INTEGER UNSIGNED | UInt32 | Int64  |
+| JSON |String |Byte[]|
+| LONG VARBINARY | Byte[] | Byte[]  |
+| LONG VARCHAR | String | String  |
+| LONGBLOB |Byte[] |Byte[] |
+| LONGTEXT |String | String  |
+| MEDIUMBLOB |Byte[] | Byte[]  |
+| MEDIUMINT |Int32 | Int32  |
+| MEDIUMINT UNSIGNED |UInt32 |Int64 |
+| MEDIUMTEXT |String |String |
+| NUMERIC |Decimal |Decimal |
+| REAL |Double |Double |
+| SET |String |String |
+| SMALLINT |Int16 |Int16 |
+| SMALLINT UNSIGNED | UInt16 |Int32 |
+| TEXT |String |String |
+| TIME |TimeSpan |TimeSpan |
+| TIMESTAMP |Datetime |Datetime |
+| TINYBLOB |Byte[] |Byte[] |
+| TINYINT |SByte | Int16  |
+| TINYINT unsigned |Int16 | Int16 |
+| TINYTEXT | String | String |
+| VARCHAR | String | String |
+| YEAR | Int | Int |
 
 ## Lookup activity properties
 
@@ -311,10 +314,16 @@ The table below shows the data type mapping differences between MariaDB version 
 
 |MariaDB data type |Interim service data type (using version 2.0) |Interim service data type (using version 1.0)|
 |:---|:---|:---|
-|bit(1)| UInt64|Boolean|
-|bit(M), M>1|UInt64|Byte[]|
-|bool|Boolean|Int16|
+|BIGINT UNSIGNED|UInt64|Decimal|
+|BIT(1)| UInt64|Boolean|
+|BIT(M), M>1|UInt64|Byte[]|
+|BOOL|Boolean|Int16|
+|DECIMAL | Decimal | Decimal, String |
+|INTEGER UNSIGNED |UInt32|Int64|
 |JSON|String|Byte[]|
+|MEDIUMINT UNSIGNED |UInt32|Int64|
+|SMALLINT UNSIGNED |UInt16|Int32|
+|TINYINT |SByte| Int16|
 
 ## Related content
 

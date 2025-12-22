@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Azure Blob Storage library - .NET"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
@@ -10,6 +10,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 zone_pivot_groups: azure-blob-storage-quickstart-options
+# Customer intent: As a .NET developer, I want to create and manage blob storage in Azure using the client library, so that I can efficiently store and retrieve large amounts of unstructured data for my applications.
 ---
 
 # Quickstart: Azure Blob Storage client library for .NET
@@ -57,7 +58,7 @@ The steps in the video are also described in the following sections.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
@@ -65,7 +66,7 @@ The steps in the video are also described in the following sections.
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. This code sample uses .NET 8.0. Be sure to get the SDK and not the runtime.
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
@@ -600,3 +601,4 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 
 > [!div class="nextstepaction"]
 > [Azure Storage samples and developer guides for .NET](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json)
+

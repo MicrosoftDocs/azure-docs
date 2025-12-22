@@ -7,6 +7,8 @@ ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/30/2025
 ms.custom: devx-track-azurepowershell
+
+# Customer intent: As a WAF administrator, I want to create and manage custom rules for the Web Application Firewall on the Application Gateway, so that I can enhance security by controlling traffic based on specific conditions and actions.
 ---
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway
@@ -89,6 +91,9 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
 
 This custom rule contains a name, priority, an action, and the array of matching conditions that must be met for the action to take place. For further explanation of these fields, see the following field descriptions. For example custom rules, see [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
+> [!NOTE]
+> WAF custom rules don't support allowing or blocking requests based on filenames or file types.
+
 ## Fields for custom rules
 
 ### Name [optional]
@@ -129,10 +134,10 @@ Describes the field of the matchVariable collection. For example, if the matchVa
 
 Must be one of the following operators:
 
-- IPMatch - only used when Match Variable is *RemoteAddr,* and only supports IPv4
-- Equal – input is the same as the MatchValue
-- Any – It shouldn't have a MatchValue. It's recommended for Match Variable with a valid Selector.
-- Contains
+- IPMatch - only used when Match Variable is *RemoteAddr,* and only supports IPv4.
+- Equal - input is the same as the MatchValue.
+- Any - It shouldn't have a MatchValue. It's recommended for Match Variable with a valid Selector.
+- Contains - MatchValue should be an explicit value only. Wildcard and regex are not supported.
 - LessThan
 - GreaterThan
 - LessThanOrEqual

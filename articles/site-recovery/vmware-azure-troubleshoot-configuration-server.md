@@ -1,12 +1,13 @@
 ---
 title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery
 description: This article provides troubleshooting information for deploying the configuration server for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
-author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
 
+# Customer intent: As a system administrator, I want to troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to the cloud, so that I can ensure a successful and reliable disaster recovery process.
 ---
 # Troubleshoot configuration server issues
 
@@ -48,7 +49,7 @@ The source machine registers with the configuration server when you install the 
     c. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
     d. [Uninstall](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
 
-8. Ensure that multi-factor authentication is not enabled for user account. Azure Site Recovery does not support multi-factor authentication for user account as of now. Register the configuration server without multi-factor authentication enabled user account.  
+8. Ensure that multifactor authentication is not enabled for user account. Azure Site Recovery does not support multifactor authentication for user account as of now. Register the configuration server without multifactor authentication enabled user account.  
 
 ## Installation failure: Failed to load accounts
 
@@ -182,7 +183,7 @@ Manually stop the following services:
 - Microsoft Azure Site Recovery Service, 
 - tmansvc
   
-To update the configuration server, run the [unified setup](service-updates-how-to.md#links-to-currently-supported-update-rollups) again.
+To update the configuration server, run the [unified setup](/azure/site-recovery/service-updates-how-to#updates-support) again.
 
 <a name='azure-active-directory-application-creation-failure'></a>
 
@@ -247,12 +248,12 @@ To resolve the issue:
     ```
 4. Refresh the portal page.
 
-## An infinite sign in loop occurs when entering your credentials
+## An infinite sign-in loop occurs when entering your credentials
 
-After entering the correct username and password on the configuration server OVF, Azure sign in continues to prompt for the correct credentials.
+After entering the correct username and password on the configuration server OVF, Azure sign-in continues to prompt for the correct credentials.
 
 This issue can occur when the system time is incorrect.
 
 To resolve the issue:
 
-Set the correct time on the computer and retry the sign in. 
+Set the correct time on the computer and retry the sign-in. 

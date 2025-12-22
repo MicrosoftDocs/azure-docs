@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Azure Active Directory B2C with Bluink eID-Me for identity verification
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 ## Before you begin
 
 Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows, or configurable custom policies. 
@@ -35,7 +37,7 @@ To get started, you need:
 * A Relying Party account with eID-Me
   * Go to bluink.ca to [learn more](https://bluink.ca/eid-me/solutions/id-verification#contact-form) and request a demo
 * An Azure subscription
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure AD B2C tenant](tutorial-create-tenant.md)
 * A trial or production version of the eID-Me Digital ID App

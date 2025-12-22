@@ -48,6 +48,220 @@ sections:
         answer: |
           Yes. To utilize policies like User-Defined Routes and Network Security Groups, you need to enable Network policies for a subnet in a virtual network for the Private Endpoint. This setting affects all the private endpoints within the subnet.
           
+  - name: Service endpoint
+    questions:
+      - question: |
+          What is the right sequence of operations to set up service endpoints to an Azure service?
+        answer: |
+          There are two steps to secure an Azure service resource through service endpoints:
+
+          1. Turn on service endpoints for the Azure service.
+          1. Set up virtual network access control lists (ACLs) on the Azure service.
+
+          The first step is a network-side operation, and the second step is a service resource-side operation. The same administrator or different administrators can perform the steps, based on the Azure role-based access control (RBAC) permissions granted to the administrator role.
+
+          We recommend that you turn on service endpoints for your virtual network before you set up virtual network ACLs on the Azure service side. To set up virtual network service endpoints, you must perform the steps in the preceding sequence.
+
+          >[!NOTE]
+          > You must complete both of the preceding operations before you can limit the Azure service access to the allowed virtual network and subnet. Only turning on service endpoints for the Azure service on the network side does not give you the limited access. You must also set up virtual network ACLs on the Azure service side.
+
+          Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the preceding sequence through the `IgnoreMissingVnetServiceEndpoint` flag. After you set the flag to `True`, you can set up virtual network ACLs on the Azure service side before turning on the service endpoints on the network side. Azure services provide this flag to help customers in cases where the specific IP firewalls are configured on Azure services.
+
+          Turning on the service endpoints on the network side can lead to a connectivity drop, because the source IP changes from a public IPv4 address to a private address. Setting up virtual network ACLs on the Azure service side before turning on service endpoints on the network side can help avoid a connectivity drop.
+
+          >[!NOTE]
+          > If you enable Service Endpoint on certain services like "Microsoft.AzureActiveDirectory" you can see IPV6 address connections on Sign-In Logs. Microsoft use an internal IPV6 private range for this type of connection.
+
+      - question: |
+          Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
+        answer: |
+          Not all Azure services reside in the customer's virtual network. Most Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/vnet-integration-for-azure-services).
+
+          When you turn on virtual network service endpoints on the network side, and set up appropriate virtual network ACLs on the Azure service side, access to an Azure service is restricted to an allowed virtual network and subnet.
+
+      - question: |
+          How do virtual network service endpoints provide security?
+        answer: |
+          Virtual network service endpoints limit the Azure service's access to the allowed virtual network and subnet. In this way, they provide network-level security and isolation of the Azure service traffic.
+
+          All traffic that uses virtual network service endpoints flows over the Microsoft backbone to provide another layer of isolation from the public internet. Customers can also choose to fully remove public internet access to the Azure service resources and allow traffic only from their virtual network through a combination of IP firewall and virtual network ACLs. Removing internet access helps protect the Azure service resources from unauthorized access.
+
+      - question: |
+          What does the virtual network service endpoint protect - virtual network resources or Azure service resources?
+        answer: |
+          Virtual network service endpoints help protect Azure service resources. Virtual network resources are protected through network security groups.
+
+      - question: |
+          Is there any cost for using virtual network service endpoints?
+        answer: |
+          No. There's no additional cost for using virtual network service endpoints.
+
+      - question: |
+          Can I turn on virtual network service endpoints and set up virtual network ACLs if the virtual network and the Azure service resources belong to different subscriptions?
+        answer: |
+          Yes, it's possible. Virtual networks and Azure service resources can be in the same subscription or in different subscriptions. The only requirement is that both the virtual network and the Azure service resources must be under the same Microsoft Entra tenant.
+
+      - question: |
+          Can I turn on virtual network service endpoints and set up virtual network ACLs if the virtual network and the Azure service resources belong to different Microsoft Entra tenants?
+        answer: |
+          Yes, it's possible when you're using service endpoints for Azure Storage and Azure Key Vault. For other services, virtual network service endpoints and virtual network ACLs are not supported across Microsoft Entra tenants.
+
+      - question: |
+          Can an on-premises device's IP address that's connected through an Azure virtual network gateway (VPN) or ExpressRoute gateway access Azure PaaS services over virtual network service endpoints?
+        answer: |
+          By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from on-premises or ExpressRoute. You can add these IP addresses through the IP firewall configuration for the Azure service resources.
+
+          Alternatively, you can implement [private endpoints](/azure/private-link/private-endpoint-overview) for supported services.
+
+      - question: |
+          Can I use virtual network service endpoints to secure Azure services to multiple subnets within a virtual network or across multiple virtual networks?
+        answer: |
+          To secure Azure services to multiple subnets within a virtual network or across multiple virtual networks, enable service endpoints on the network side on each of the subnets independently. Then, secure Azure service resources to all of the subnets by setting up appropriate virtual network ACLs on the Azure service side.
+
+      - question: |
+          How can I filter outbound traffic from a virtual network to Azure services and still use service endpoints?
+        answer: |
+          If you want to inspect or filter the traffic destined to an Azure service from a virtual network, you can deploy a network virtual appliance within the virtual network. You can then apply service endpoints to the subnet where the network virtual appliance is deployed and secure Azure service resources only to this subnet through virtual network ACLs.
+
+          This scenario might also be helpful if you want to restrict Azure service access from your virtual network only to specific Azure resources by using network virtual appliance filtering. For more information, see [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha).
+
+      - question: |
+          What happens when someone accesses an Azure service account that has a virtual network ACL enabled from outside the virtual network?
+        answer: |
+          The service returns an HTTP 403 or HTTP 404 error.
+
+      - question: |
+          Are subnets of a virtual network created in different regions allowed to access an Azure service account in another region?
+        answer: |
+          Yes. For most of the Azure services, virtual networks created in different regions can access Azure services in another region through the virtual network service endpoints. For example, if an Azure Cosmos DB account is in the West US or East US region, and virtual networks are in multiple regions, the virtual networks can access Azure Cosmos DB.
+
+          Azure SQL is an exception and is regional in nature. Both the virtual network and the Azure service need to be in the same region.
+
+      - question: |
+          Can an Azure service have both a virtual network ACL and an IP firewall?
+        answer: |
+          Yes. A virtual network ACL and an IP firewall can coexist. The features complement each other to help ensure isolation and security.
+
+      - question: |
+          What happens if you delete a virtual network or subnet that has service endpoints turned on for Azure services?
+        answer: |
+          Deletion of virtual networks and deletion of subnets are independent operations. They're supported even when you turn on service endpoints for Azure services.
+
+          If you set up virtual network ACLs for Azure services, the ACL information associated with those Azure services is disabled when you delete a virtual network or subnet that has virtual network service endpoints turned on.
+
+      - question: |
+          What happens if I delete an Azure service account that has a virtual network service endpoint turned on?
+        answer: |
+          The deletion of an Azure service account is an independent operation. It's supported even if you turned on the service endpoint on the network side and set up virtual network ACLs on the Azure service side.
+
+      - question: |
+          What happens to the source IP address of a resource (like a VM in a subnet) that has virtual network service endpoints turned on?
+        answer: |
+          When you turn on virtual network service endpoints, the source IP addresses of the resources in your virtual network's subnet switch from using public IPv4 addresses to using the Azure virtual network's private IP addresses for traffic to Azure services. This switch can cause specific IP firewalls that are set to a public IPv4 address earlier on the Azure services to fail.
+
+      - question: |
+          Does the service endpoint route always take precedence?
+        answer: |
+          Service endpoints add a system route that takes precedence over Border Gateway Protocol (BGP) routes and provides optimum routing for the service endpoint traffic. Service endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network.
+
+          For more information about how Azure selects a route, see [Virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview).
+
+      - question: |
+          Do service endpoints work with ICMP?
+        answer: |
+          No. ICMP traffic that's sourced from a subnet with service endpoints enabled won't take the service tunnel path to the desired endpoint. Service endpoints handle only TCP traffic. If you want to test latency or connectivity to an endpoint via service endpoints, tools like ping and tracert won't show the true path that the resources within the subnet will take.
+
+      - question: |
+          How do NSGs on a subnet work with service endpoints?
+        answer: |
+          To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all internet outbound traffic, the service endpoint traffic should work. You can also limit the outbound traffic to only service IP addresses by using the service tags.
+
+      - question: |
+          What permissions do I need to set up service endpoints?
+        answer: |
+          You can configure service endpoints on a virtual network independently if you have write access to that network.
+
+          To secure Azure service resources to a virtual network, you must have **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** permission for the subnets that you're adding. This permission is included in the built-in service administrator role by default and can be modified through the creation of custom roles.
+
+          For more information about built-in roles and assigning specific permissions to custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+      - question: |
+          Can I filter virtual network traffic to Azure services over service endpoints?
+        answer: |
+          You can use virtual network service endpoint policies to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services.
+
+          To learn more, see [Virtual network service endpoint policies for Azure Storage](/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+
+      - question: |
+          Does Microsoft Entra ID support virtual network service endpoints?
+        answer: |
+          Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+          In that list, the *Microsoft.AzureActiveDirectory* tag listed under services that support service endpoints is used for supporting service endpoints to Azure Data Lake Storage Gen1. [Virtual network integration for Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
+
+      - question: |
+          Are there any limits on how many service endpoints I can set up from my virtual network?
+        answer: |
+          There is no limit on the total number of service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services might enforce limits on the number of subnets that you use for securing the resource. The following table shows some example limits:
+
+          | Azure service | Limits on virtual network rules |
+          |---|---|
+          | Azure Storage | 200 |
+          | Azure SQL | 128 |
+          | Azure Synapse Analytics | 128 |
+          | Azure Key Vault | 200 |
+          | Azure Cosmos DB | 64 |
+          | Azure Event Hubs | 128 |
+          | Azure Service Bus | 128 |
+
+          >[!NOTE]
+          > The limits are subject to change at the discretion of the Azure services. Refer to the respective service documentation for details.
+
+      - question: |
+          How do NSGs on a subnet work with service endpoints?
+        answer: |
+          To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all internet outbound traffic, the service endpoint traffic should work. You can also limit the outbound traffic to only service IP addresses by using the service tags.
+
+      - question: |
+          What permissions do I need to set up service endpoints?
+        answer: |
+          You can configure service endpoints on a virtual network independently if you have write access to that network.
+
+          To secure Azure service resources to a virtual network, you must have **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** permission for the subnets that you're adding. This permission is included in the built-in service administrator role by default and can be modified through the creation of custom roles.
+
+          For more information about built-in roles and assigning specific permissions to custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+      - question: |
+          Can I filter virtual network traffic to Azure services over service endpoints?
+        answer: |
+          You can use virtual network service endpoint policies to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services.
+
+          To learn more, see [Virtual network service endpoint policies for Azure Storage](/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+      - question: |
+          Does Microsoft Entra ID support virtual network service endpoints?
+        answer: |
+          Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+          In that list, the *Microsoft.AzureActiveDirectory* tag listed under services that support service endpoints is used for supporting service endpoints to Azure Data Lake Storage Gen1. [Virtual network integration for Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
+
+      - question: |
+          Are there any limits on how many service endpoints I can set up from my virtual network?
+        answer: |
+          There is no limit on the total number of service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services might enforce limits on the number of subnets that you use for securing the resource. The following table shows some example limits:
+
+          | Azure service | Limits on virtual network rules |
+          |---|---|
+          | Azure Storage | 200 |
+          | Azure SQL | 128 |
+          | Azure Synapse Analytics | 128 |
+          | Azure Key Vault | 200 |
+          | Azure Cosmos DB | 64 |
+          | Azure Event Hubs | 128 |
+          | Azure Service Bus | 128 |
+
+          >[!NOTE]
+          > The limits are subject to change at the discretion of the Azure services. Refer to the respective service documentation for details.         
 
   - name: Private Endpoint
     questions:

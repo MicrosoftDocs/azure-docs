@@ -3,7 +3,7 @@ title: Linter rule - outputs should not contain secrets
 description: Linter rule - outputs should not contain secrets
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Linter rule - outputs should not contain secrets
@@ -35,7 +35,7 @@ The following example fails because it uses a [`list*`](./bicep-functions-resour
 
 ```bicep
 param storageName string
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageName
 }
 
@@ -50,7 +50,7 @@ The following example fails because the output name contains 'password', indicat
 output accountPassword string = '...'
 ```
 
-To fix it, you need to remove the secret data from the output.  The recommended practice is to output the resourceId of the resource containing the secret and retrieve the secret when the resource needing the information is created or updated.  Secrets may also be stored in KeyVault for more complex deployment scenarios.
+To fix it, you need to remove the secret data from the output. The recommended practice is to output the resourceId of the resource containing the secret and retrieve the secret when the resource needing the information is created or updated. Secrets may also be stored in KeyVault for more complex deployment scenarios.
 
 The following example shows a secure pattern for retrieving a storageAccount key from a module.
 

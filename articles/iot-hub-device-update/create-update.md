@@ -1,8 +1,8 @@
 ---
 title: Prepare an update to import into Azure Device Update for IoT Hub | Microsoft Docs
 description: Learn how to prepare an update for import into Azure Device Update for IoT Hub by creating an import manifest to describe the update.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 12/30/2024
 ms.topic: how-to
 ms.service: azure-iot-hub

@@ -7,13 +7,12 @@ ms.author: baanders
 ms.date: 03/10/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
+ms.custom: sfi-image-nochange
 ---
 
 # Create an app registration to use with Azure Digital Twins
 
 This article describes how to create an [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *app registration* that can access Azure Digital Twins. This article includes steps for the [Azure portal](https://portal.azure.com) and the [Azure CLI](/cli/azure/what-is-azure-cli).
-
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 When working with Azure Digital Twins, it's common to interact with your instance through client applications. Those applications need to authenticate with Azure Digital Twins, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an app registration.
 
@@ -212,7 +211,7 @@ Use these steps to create the role assignment for your registration.
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the appropriate role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the appropriate role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -235,8 +234,6 @@ You can view the role assignment you set up under **Access control (IAM) > Role 
 The app registration should show up in the list along with the role you assigned to it. 
 
 # [CLI](#tab/cli)
-
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 Use the [az dt role-assignment create](/cli/azure/dt/role-assignment#az-dt-role-assignment-create) command to assign the role (you must have [sufficient permissions](how-to-set-up-instance-cli.md#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the name of the role you want to assign, the name of your Azure Digital Twins instance, and either the name or the object ID of the app registration.
 

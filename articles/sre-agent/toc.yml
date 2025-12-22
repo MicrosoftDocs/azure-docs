@@ -1,0 +1,70 @@
+items:
+  - name: Azure SRE Agent Preview documentation
+    href: index.yml
+  - name: Get started
+    expanded: true
+    items:
+      - name: About Azure SRE Agent
+        href: overview.md
+      - name: Diagnose your first incident
+        href: usage.md
+      - name: Ask the agent for help
+        href: ask-agent.md
+      - name: Starter prompts
+        href: prompts.md
+  - name: Scenarios
+    items:
+      - name: Connect source control
+        href: code-repository-connect.md
+      - name: Multi-cause investigation
+        href: deep-investigation.md
+      - name: Build incident response plans
+        href: incident-response-plan.md
+      - name: Build subagents
+        href: subagent-builder-scenarios.md
+      - name: Troubleshoot apps
+        items:
+          - name: App Service
+            href: troubleshoot-azure-app-service.md
+          - name: Container Apps
+            href: troubleshoot-azure-container-apps.md
+  - name: Features
+    items:
+      - name: Memory system
+        href: memory-system.md
+      - name: Subagents
+        href: subagent-builder-overview.md
+      - name: Incident management
+        href: incident-management.md
+  - name: Automation
+    items:
+      - name: Build a custom subagent
+        href: subagent-builder-scenarios.md
+      - name: Schedule a task
+        href: scheduled-tasks.md
+      - name: Create an incident response plan
+        href: incident-response-plan.md
+  - name: Integrations
+    items:
+      - name: Connect to custom MCP server
+        href: custom-mcp-server.md
+      - name: Connect to external services
+        href: connectors.md
+  - name: Security
+    items:
+      - name: Roles and permissions
+        href: roles-permissions-overview.md
+      - name: Agent run modes
+        href: agent-run-modes.md
+      - name: Role based access control
+        href: user-access-roles.md
+      - name: Use Managed Identity
+        href: agent-managed-identity.md
+  - name: Reference
+    items:
+      - name: Frequently asked questions
+        href: faq.md
+      - name: Billing
+        href: billing.md
+      - name: Data residency and privacy
+        href: data-privacy.md

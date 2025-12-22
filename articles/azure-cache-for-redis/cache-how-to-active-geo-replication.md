@@ -10,12 +10,16 @@ appliesto:
 
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 In this article, you learn how to configure an active geo-replicated cache using the Azure portal.
 
 Active geo-replication groups up to five instances of Enterprise Azure Cache for Redis into a single cache that spans across Azure regions. All instances act as the local, primary caches. An application decides which instance or instances to use for read and write requests.
 
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
+>
+> Data sync among replicas follows eventual consistency. The service does not provide SLA on sync time. Please design your system without relying on the  timeliness of data sync.
 >
 
 ## Scope of availability

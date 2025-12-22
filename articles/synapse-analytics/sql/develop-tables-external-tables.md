@@ -8,6 +8,7 @@ ms.date: 02/19/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: concept-article
+ms.custom: sfi-image-nochange
 ---
 
 # Use external tables with Synapse SQL
@@ -77,6 +78,11 @@ User must have `SELECT` permission on an external table to read the data.
 External tables access underlying Azure storage using the database scoped credential defined in data source using the following rules:
 - Data source without credential enables external tables to access publicly available files on Azure storage.
 - Data source can have a credential that enables external tables to access only the files on Azure storage using SAS token or workspace Managed Identity - For examples, see [the Develop storage files storage access control](develop-storage-files-storage-access-control.md#examples) article.
+
+## Remarks
+To ensure reliable query execution, the source files and folders referenced by external tables must remain unchanged throughout the duration of the operation.
+- Modifying, deleting, or replacing any referenced files or folders while the query is running may cause failures or lead to inconsistent results.
+- Before querying external tables in a dedicated SQL pool, verify that all source data is stable and will not be altered during execution.
 
 ### Example for CREATE EXTERNAL DATA SOURCE
 

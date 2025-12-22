@@ -2,12 +2,14 @@
 title: 'Tutorial: Use Azure Automation runbooks to create clusters - Azure HDInsight'
 description: Learn how to create and delete Azure HDInsight clusters with scripts that run in the cloud by using Azure Automation runbooks.
 ms.service: azure-hdinsight
-ms.custom: hdinsightactive
 ms.topic: tutorial
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: sairamyeturi
 ms.date: 12/02/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create Azure HDInsight clusters with Azure Automation
@@ -21,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create and store credentials needed during cluster creation.
 > * Create a new Automation runbook to create an HDInsight cluster.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

@@ -6,7 +6,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
-ms.date: 1/18/2024
+ms.date: 07/15/2025
 ms.author: buchvarun
 ---
 
@@ -297,6 +297,7 @@ An example response with `Accept` header `application/dicom+json` with a FailedA
 | `43265` | The provided instance `StudyInstanceUID` didn't match the specified `StudyInstanceUID` in the store request. |
 | `45070` | A DICOM instance with the same `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` was already stored. If you want to update the contents, delete this instance first. |
 | `45071` | A DICOM instance is being created by another process, or the previous attempt to create failed and the cleanup process isn't complete. Delete the instance first before attempting to create again. |
+| `45073` | A DICOM instance was deleted by the user, before the write operation for that instance could be committed successfully. |
 
 #### Store warning reason codes
 

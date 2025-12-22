@@ -12,7 +12,7 @@ You can use a few different technologies to deploy your Azure Functions project 
 
 ## Deployment methods
 
-The deployment technology you use to publish code to your function app in Azure depends on your specific needs and the point in the development cycle. For example, during development and testing you may deploy directly from your development tool, such as Visual Studio Code. When your app is in production, you're more likely to publish continuously from source control or by using an automated publishing pipeline, which can include validation and testing.  
+The deployment technology you use to publish code to your function app in Azure depends on your specific needs and the point in the development cycle. For example, during development and testing you can deploy directly from your development tool, such as Visual Studio Code. When your app is in production, you're more likely to publish continuously from source control or by using an automated publishing pipeline, which can include validation and testing.  
 
 The following table describes the available deployment methods for your code project.
 
@@ -34,7 +34,7 @@ Currently, Functions offers five options for hosting your function apps:
 + [Consumption](consumption-plan.md)
 + [Elastic Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
-+ [Azure Container Apps](functions-container-apps-hosting.md)
++ [Azure Container Apps](../container-apps/functions-overview.md)
 
 Each plan has different behaviors. Not all deployment technologies are available for each hosting plan and operating system. This chart provides information on the supported deployment technologies:
 
@@ -75,11 +75,11 @@ You can sync triggers in one of these ways:
     ```azurecli
     az rest --method post --url https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME>/syncfunctiontriggers?api-version=2016-08-01
     ```
-When you deploy an updated version of the deployment package and maintain the same external package URL, you need to manually restart your function app. This indicates to the host that it should synchronize and redeploy your updates from the same package URL.
-The Functions host also performs a background trigger sync after the application has started. However, for the Consumption and Elastic Premium hosting plans you should also [manually sync triggers](#trigger-syncing) in these scenarios:
+When you deploy an updated version of the deployment package and maintain the same external package URL, you need to manually restart your function app. A restart indicates to the host that it should synchronize and redeploy your updates from the same package URL.
+The Functions host also performs a background trigger sync after the application starts. However, for the Consumption and Elastic Premium hosting plans you should also [manually sync triggers](#trigger-syncing) in these scenarios:
 
-+ Deployments using an external package URL with either ARM Templates or Terraform.
-+ When updating the deployment package at the same external package URL.
++ When deployments use an external package URL with a resource manager-based deployment using ARM templates or Bicep or Terraform files.
++ When you update the deployment package _in-place_ using the same external package URL.
 
 ### Remote build
 
@@ -104,11 +104,11 @@ To enable remote build on Linux Consumption, Elastic Premium, and App Service pl
 + [`ENABLE_ORYX_BUILD=true`](functions-app-settings.md#enable_oryx_build)
 + [`SCM_DO_BUILD_DURING_DEPLOYMENT=true`](functions-app-settings.md#scm_do_build_during_deployment)
 
-By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
+By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp#deploy-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
-When deploying to the Flex Consumption plan, you don't need to set any application settings to request a remote build. You instead pass a remote build parameter when you start deployment. How you pass this parameter depends on the deployment tool you are using. For Core Tools and Visual Studio Code, a remote build is always requested when deploying a Python app.
+When deploying to the Flex Consumption plan, you don't need to set any application settings to request a remote build. You instead pass a remote build parameter when you start deployment. How you pass this parameter depends on the deployment tool you're using. For Core Tools and Visual Studio Code, a remote build is always requested when deploying a Python app.
 
 ---
 
@@ -117,7 +117,7 @@ The following considerations apply when using remote builds during deployment:
 + Remote builds are supported for function apps running on Linux in the Consumption plan. However, deployment options are limited for these apps because they don't have an `scm` (Kudu) site. 
 + Function apps running on Linux in a [Premium plan](functions-premium-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md) do have an `scm` (Kudu) site, but it's limited compared to Windows.
 + Remote builds aren't performed when an app is using [run-from-package](run-functions-from-deployment-package.md). To learn how to use remote build in these cases, see [Zip deploy](#zip-deploy).
-+ You may have issues with remote build when your app was created before the feature was made available (August 1, 2019). For older apps, either create a new function app or run `az functionapp update --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME>` to update your function app. This command might take two tries to succeed.
++ You might have issues with remote build when your app was created before the feature was made available (August 1, 2019). For older apps, either create a new function app or run `az functionapp update --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME>` to update your function app. This command might take two tries to succeed.
 
 ### App content storage
 
@@ -127,24 +127,24 @@ Package-based deployment methods store the package in the storage account associ
 
 ## Deployment technology details
 
-The following deployment methods are available in Azure Functions. Refer to the [deployment technology availability](#deployment-technology-availability) table to determine which technologies each hosting plan supports.
+The following deployment methods are available in Azure Functions. To determine which technologies each hosting plan supports, refer to the [deployment technology availability](#deployment-technology-availability) table.
 
 ### One deploy
-One deploy is the only deployment technology supported for apps on the Flex Consumption plan. The end result is a ready-to-run .zip package that your function app runs on.
+One deploy is the only deployment technology supported for apps on a [Flex Consumption plan](./flex-consumption-plan.md). The end result is a ready-to-run .zip package that your function app runs on.
 
->__How to use it:__ Deploy with the [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure) publish feature, or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage one deploy when they detect that a Flex Consumption app is being deployed to.
+>__How to use it:__ Deploy with the [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure) publish feature, or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage one deploy when they detect that a Flex Consumption app is being deployed to.
 >
-> When you create a Flex Consumption app, you will need to specify a deployment storage (blob) container as well as an authentication method to it. By default the same storage account as the `AzureWebJobsStorage` connection is used, with a connection string as the authentication method. Thus, your [deployment settings](flex-consumption-how-to.md#configure-deployment-settings) are configured during app create time without any need of application settings.
+> When you create a Flex Consumption app, you must specify a deployment storage (blob) container as well as an authentication method to it. By default the same storage account as the `AzureWebJobsStorage` connection is used, with a connection string as the authentication method. Thus, your [deployment settings](flex-consumption-how-to.md#configure-deployment-settings) are configured during app create time without any need of application settings.
 
->__When to use it:__ One deploy is the only deployment technology available for function apps running on the Flex Consumption plan. 
+>__When to use it:__ One deploy is the only deployment technology available for function apps running in a Flex Consumption plan. 
 
->__Where app content is stored:__ When you create a Flex Consumption function app, you specify a [deployment storage container](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#deployment-sources). This is a blob container where the platform will upload the app content you deployed. To change the location, you can visit the Deployment Settings blade in the Azure portal or use the [Azure CLI](flex-consumption-how-to.md#configure-deployment-settings).
+>__Where app content is stored:__ When you create a Flex Consumption function app, you specify a [deployment storage container](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#deployment-sources). This is a blob container where your tools upload the app content you deployed. To change the location, you can visit the Deployment Settings blade in the Azure portal or use the [Azure CLI](flex-consumption-how-to.md#configure-deployment-settings).
 
 ### Zip deploy
 
 Zip deploy is the default and recommended deployment technology for function apps on the Consumption, Elastic Premium, and App Service (Dedicated) plans. The end result a ready-to-run .zip package that your function app runs on. It differs from [external package URL](#external-package-url) in that our platform is responsible for remote building and storing your app content.
 
->__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage zip deploy. 
+>__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage zip deploy. 
 >
 >When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI.
 
@@ -174,8 +174,7 @@ You can deploy a function app running in a Linux container.
 >
 >+ Deploy to Azure Functions resources you create in the Azure portal. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 >+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
->+ Deploy to Azure Container Apps. To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
->+ Deploy to Azure Arc (preview). To learn how, see [Working with containers and Azure Functions](functions-how-to-custom-container.md?pivots=azure-arc).
+>+ Deploy to Azure Container Apps. To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](../container-apps/functions-usage.md).
 >+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
 
 >__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs and where the container is hosted. This deployment mechanism is available only for functions running on Linux.
@@ -210,7 +209,7 @@ You can use FTP/S to directly transfer files to Azure Functions, although this d
 
 >__When to use it:__ To reduce the chance of errors, you should avoid using deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Use [zip deployment](run-functions-from-deployment-package.md) when possible.
 
->__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
+>__Where app content is stored:__ App content is stored on the file system. FTP/FTPS deployments fail when your app's file system is backed by Azure Files in the default host storage account. FTP/FTPS fails with Azure Files as mounted storage because of [FTP limitations](../app-service/configure-connect-to-azure-storage.md#limitations).
 
 ### Portal editing
 
@@ -220,7 +219,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__When to use it:__ The portal is a good way to get started with Azure Functions. Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should use one of the following client tools more advanced development work:
 >
->+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
+>+ [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp)
 >+ [Azure Functions Core Tools (command line)](functions-run-local.md)
 >+ [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
@@ -228,9 +227,13 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 ## Deployment behaviors
 
-When you deploy updates to your function app code, currently executing functions are terminated. After deployment completes, the new code is loaded to begin processing requests. Review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
+When you deploy updates to your function app code, the deployment behavior depends on your hosting plan:
 
-If you need more control over this transition, you should use deployment slots.
+**Consumption, Elastic Premium, and Dedicated plans:** Currently executing functions are terminated when new code is deployed. After deployment completes, the new code is loaded to begin processing requests. This forceful termination behavior is known as a recreate strategy. For near zero-downtime deployments on Consumption, Elastic Premium, and Dedicated plans, use [deployment slots](#deployment-slots).
+
+Review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
+
+**Flex Consumption plan:** The default behavior also uses the recreate strategy, terminating currently executing functions during deployment. However, Flex Consumption uniquely supports two different site update strategies. You can [configure rolling updates](flex-consumption-site-updates.md) for zero-downtime deployments.
 
 ## Deployment slots
 
@@ -249,3 +252,4 @@ Read these articles to learn more about deploying your function apps:
 + [Zip deployments for Azure Functions](deployment-zip-push.md)
 + [Run your Azure Functions from a package file](run-functions-from-deployment-package.md)
 + [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md)
++ [Configure zero-downtime deployments in Flex Consumption](flex-consumption-site-updates.md)

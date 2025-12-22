@@ -1,17 +1,14 @@
 ---
 title: Tutorial - Add authentication to a web app on Azure App Service | Azure
 description: In this tutorial, you learn how to enable authentication and authorization for a web app running on Azure App Service. Limit access to the web app to users in your organization​.
-services: active-directory, app-service-web
-author: rwike77
-manager: CelesteDG
-
+author: cephalin
+ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 11/29/2024
-ms.author: ryanwi
-ms.reviewer: stsoneff
-ms.custom: azureday1
-ms.subservice: web-apps
+ms.custom:
+  - azureday1
+  - sfi-image-nochange
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ---
 
@@ -150,19 +147,21 @@ Now that you have a web app running on App Service, enable authentication and au
 
 When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your workforce or external tenant. The app registration has the display name you created in a previous step. 
 
-1. To check the settings, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/entra/identity/role-based-access-control/permissions-reference#application-developer).  If you chose external configuration, use the **Settings** icon  in the top menu to switch to the external tenant with your web app from the **Directories** + **subscriptions** menu.   When you are in the correct tenant:
+1. To check the settings, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/entra/identity/role-based-access-control/permissions-reference#application-developer).
+1. If you chose external configuration, use the **Settings** icon in the top menu to switch to the external tenant with your web app from the **Directories** + **subscriptions** menu. 
 
 1. Browse to **Identity** > **Applications** > **App registrations** and select **Applications** > **App registrations** from the menu. 
 1. Select the app registration that was created. 
 1. In the overview, verify that **Supported account types** is set to **My organization only**.
     
-1. To verify that access to your app is limited to users in your organization, go to your web app **Overview** and select the **Default domain** link.  Or, start a browser in incognito or private mode and go to `https://<app-name>.azurewebsites.net` (see [note at top](#dnl-note)).
+1. To verify that access to your app is limited to users in your organization, go to your web app **Overview** and select the **Default domain** link.
 
     :::image type="content" alt-text="Screenshot that shows verifying access." source="../../media/scenario-secure-app-authentication-app-service/verify-access.png":::
 
 1. You should be directed to a secured sign-in page, verifying that unauthenticated users aren't allowed access to the site.
 1. Sign in as a user in your organization to gain access to the site.
-    You can also start up a new browser and try to sign in by using a personal account to verify that users outside the organization don't have access.
+
+1. To verify that users outside the organization don't have access, open another incognito or private browser window and try to sign in by using a personal Microsoft account. The sign-in should fail or be denied.
 
 ## 5. Clean up resources
 

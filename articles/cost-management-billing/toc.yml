@@ -25,6 +25,8 @@
     href: understand/understand-usage.md
   - name: Individual subscription invoice terms
     href: understand/understand-invoice.md
+  - name: Understand the billing and tenant relationship
+    href: understand/understand-billing-tenant-relationship.md  
   - name: Microsoft Customer Agreement usage terms
     href: understand/mca-understand-your-usage.md
   - name: Microsoft Customer Agreement invoice terms
@@ -35,6 +37,8 @@
     href: understand/mpa-invoice-terms.md
   - name: Changes to your updated pay-as-you-go billing account
     href: understand/mosp-new-customer-experience.md
+  - name: Keep your billing account active
+    href: understand/keep-billing-accounts-active.md
   - name: Billing accounts for Microsoft Customer Agreement
     href: understand/mca-overview.md
   - name: Billing accounts for Microsoft Partner Agreement
@@ -95,10 +99,14 @@
         href: manage/spending-limit.md
       - name: Track credits for Microsoft Customer Agreement
         href: manage/mca-check-azure-credits-balance.md
+      - name: Manage a Microsoft Azure credit resource
+        href: manage/manage-azure-credits.md
       - name: Manage a Microsoft Azure Consumption Commitment
         href: manage/manage-consumption-commitment.md
       - name: Track your Microsoft Azure Consumption Commitment
         href: manage/track-consumption-commitment.md
+      - name: Manage a Microsoft Azure discount resource
+        href: manage/manage-azure-discount.md
       - name: Markup - China
         href: manage/markup-china.md
     - name: Administer subscriptions
@@ -140,6 +148,8 @@
         href: manage/manage-azure-subscription-policy.md
       - name: Filter and view subscriptions
         href: manage/filter-view-subscriptions.md
+      - name: Data transfer fees
+        href: manage/data-transfer-fees.md
     - name: Transfer billing products
       items:
       - name: Azure billing product transfers
@@ -158,11 +168,13 @@
       - name: Transfer Microsoft Customer Agreement ownership
         href: manage/mca-request-billing-ownership.md
       - name: Transfer Microsoft Partner Agreement ownership
-        href: manage/mpa-request-ownership.md
+        href: manage/mpa-request-ownership.md      
   - name: Perform key billing administration tasks
     items:
     - name: Enable Azure Marketplace purchases
       href: manage/enable-marketplace-purchases.md
+    - name: Initiate a Change of Channel Partner (COCP) request
+      href: manage/change-of-channel-partner.md
     - name: Create subscriptions programmatically
       items:
       - name: Create subscriptions programmatically
@@ -297,6 +309,12 @@
   items:
   - name: Cost Management + Billing FAQ
     href: cost-management-billing-faq.yml
+  - name: Enterprise Agreement (EA) FAQ
+    href: enterprise-agreement-faq.yml
+  - name: Partner FAQ
+    href: partner-faq.yml
+  - name: Azure Reservations and Savings Plan FAQ
+    href: reservations-savings-plan-faq.yml
   - name: Discover cloud footprint FAQ
     href: manage/discover-cloud-footprint.md
 - name: Samples

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 09/11/2025
 ms.author: danlep
 ---
 
@@ -61,9 +61,13 @@ The `retry` policy may contain any other policies as its child elements, except 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
+
+### Usage notes
+
+* The policy executes the child policies in the `retry` block before it evaluates the `condition` for executing the first retry attempt.
 
 ## Examples
 
@@ -104,6 +108,28 @@ In the following example, sending a request to a URL other than the defined back
 		</send-request>
 </retry>
 ```
+
+### Switch backend when error received
+
+In the following example, the initial request is dispatched to the primary backend. If a `429 Too Many Requests` response status code is returned, the request is retried immediately and forwarded to the secondary backend. 
+
+```xml
+<backend>
+    <retry
+        condition="@(context.Response != null && context.Response.StatusCode == 429)"
+        count="1"
+        interval="1"
+        first-fast-retry="true">
+           <set-variable name="attempt-count" value="@(context.Variables.GetValueOrDefault<int>("attempt-count", 0)+1)" />
+           <set-backend-service backend-id="@(context.Variables.GetValueOrDefault<int>("attempt-count") < 2 ? "primary-backend" : "secondary-backend" )" />
+           <forward-request />
+    </retry>
+</backend>
+```
+
+> [!TIP]
+> As an alternative, you can configure a [backend resource](backends.md) with circuit breaker rules to detect failure conditions and a load-balanced pool that distributes requests across multiple backends.
+> 
 
 ## Related policies
 

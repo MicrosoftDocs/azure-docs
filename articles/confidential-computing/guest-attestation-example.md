@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: how-to
 ms.date: 04/11/2023
 ms.custom: template-concept, linux-related-content
+# Customer intent: As a developer working with confidential VMs, I want to utilize sample applications for guest attestation APIs, so that I can verify the security and integrity of my virtual machine environment.
 ---
 
 # Use sample application for guest attestation

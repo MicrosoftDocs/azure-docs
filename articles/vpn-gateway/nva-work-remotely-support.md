@@ -4,10 +4,11 @@ titleSuffix: Azure VPN Gateway
 description: Learn about the things that you should take into consideration working with Network Virtual Appliances (NVAs) in Azure during the COVID-19 pandemic.
 author: KumudD
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/05/2023
 ms.author: kumud
 
+# Customer intent: As an IT administrator, I want to implement Network Virtual Appliances for secure remote access, so that I can effectively support my employees working from home during increased demand.
 ---
 
 # Working remotely: Network Virtual Appliance (NVA) considerations for remote work
@@ -49,7 +50,7 @@ Most major NVA partners have posted guidance around scaling for sudden, unexpect
 
 [Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation")
 
-[F5 Guidance to Address the Dramatic Increase in Remote Workers](https://www.f5.com/business-continuity "F5 Guidance to Address the Dramatic Increase in Remote Workers")
+[F5 Guidance to Address the Dramatic Increase in Remote Workers](https://www.f5.com/ "F5 Guidance to Address the Dramatic Increase in Remote Workers")
 
 [Fortinet COVID-19 Updates for Customers and Partners](https://www.fortinet.com/covid-19.html "COVID-19 Updates for Customers and Partners")
 

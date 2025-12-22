@@ -4,8 +4,9 @@ description: Learn how soft delete for SQL server in Azure VM and SAP HANA in Az
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.custom: devx-track-azurepowershell, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to implement soft delete for SQL server in Azure VM and SAP HANA backups, so that I can ensure backup data is retrievable for 14 days after deletion, protecting against accidental loss or malicious actions."
 ---
 # Soft delete backups  for SQL server in Azure VM and SAP HANA in Azure VM workloads
 
@@ -90,10 +91,6 @@ Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -
 The **DeleteState** of the backup item will revert to **NotDeleted**. But the protection is still stopped. Resume the backup to re-enable the protection.
 
 ---
-
-## Disable soft delete
-
-Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 
 ## Next steps
 

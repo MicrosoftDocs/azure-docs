@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/01/2024
+ms.date: 10/01/2025
 ms.author: kesheth
 ---
 
@@ -37,7 +37,7 @@ In Azure FHIR service, bundles act as containers for multiple resources. Batch a
 
 * **Do** generate load on Azure FHIR service in a linear manner and avoid burst operations to prevent performance degradation.
 * **Do** tune the number of concurrent bundle requests to the FHIR server. A high number (>100) may lead to negative scaling and reduced processing throughput.
-* **DO** use separate transaction bundles for FHIR resources that don't depend on each other, and can be updated separately.
+* **DO** use separate transaction bundles for FHIR resources that don't depend on each other and can be updated separately.
 * **Consider** using smaller bundle sizes for complex operations such as conditional creates or updates.
 * **Consider** enabling parallel processing for batch and transaction bundles. By default, resources in bundles are processed sequentially. To enhance throughput, you can enable parallel resource processing by adding the HTTP header flag `x-bundle-processing-logic` and setting it to `parallel`. For more information, see the [batch bundle parallel processing documentation](rest-api-capabilities.md#bundle-parallel-processing).
 * **Avoid** submitting parallel bundle requests that attempt to update the same resources concurrently, which can cause delays in processing.
@@ -63,6 +63,9 @@ Logical Identifiers are considered "deterministic" because FHIR operations perfo
 * **Consider** using the `PUT` HTTP verb instead of POST where applicable. `PUT` requests can help maintain data integrity and optimize resource management. `POST` requests can lead to duplication of resources, poor data quality, and increase FHIR data size unnecessarily.
 * **Avoid** the use of `_revinclude` in search queries, as they can result in unbounded result sets and higher latencies.
 * **Avoid** using complex searches (for example: `_has`, or chained search parameters), as they impact query performance.
+
+> [!NOTE]
+> For the rare outliers or 1% of queries can be impacted due to transient conditions, maintenance or network variability. We recommend implementing retry logic to ensure reliability without degrading your application and user experience.
 
 ## Data extraction
 

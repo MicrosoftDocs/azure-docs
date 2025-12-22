@@ -10,6 +10,8 @@ ms.date: 11/13/2024
 
 # What is Azure Front Door Manager?
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Front Door Manager in Azure Front Door Standard and Premium provides an overview of the endpoints configured for your Azure Front Door profile. With Front Door Manager, you can manage your collection of endpoints, configure routing rules, domains, origin groups, and apply security policies to protect your web application.
 
 :::image type="content" source="./media/manager/manager.png" alt-text="Screenshot of the Azure Front Door Manager page." lightbox="./media/manager/manager-expanded.png":::

@@ -12,6 +12,7 @@ ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up direct sign-in and prepopulate the sign-in name, so that users can easily sign in using their preferred social identity provider and have a seamless authentication experience.
@@ -19,6 +20,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up direct sign-in using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

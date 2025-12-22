@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 10/28/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
+# Customer intent: As a database administrator, I want to deploy Oracle Database for SAP workloads on Azure, so that I can optimize performance and ensure compatibility with SAP application requirements.
 ---
 
 # Azure Virtual Machines Oracle database deployment for SAP workload

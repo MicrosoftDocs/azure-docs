@@ -6,8 +6,9 @@ ms.service: azure-virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
 ms.date: 7/21/2023
-ms.author: vvenugopal
+ms.author: mattmcinnes
 ms.custom: devx-track-azurecli, linux-related-content
+# Customer intent: "As a system administrator, I want to remove sudo users from a Linux image, so that I can enhance the security of confidential VM deployments by reducing administrative privileges."
 ---
 
 # Harden a Linux image to remove sudo users
@@ -30,7 +31,7 @@ In the context of admin-less Linux images, the aim is to deploy systems without 
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Ubuntu image - you can choose one from the [Azure Marketplace](/azure/virtual-machines/linux/cli-ps-findimage).
 
 ### Remove sudo users and prepare a generalized Linux image

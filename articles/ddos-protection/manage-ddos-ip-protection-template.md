@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
 ms.date: 03/17/2025
+# Customer intent: As a network administrator, I want to deploy a DDoS IP Protection using an ARM template, so that I can safeguard my public IP addresses against distributed denial-of-service attacks.
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using ARM template
@@ -25,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 
 ## Review the template

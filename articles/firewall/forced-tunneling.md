@@ -7,6 +7,8 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 09/10/2024
 ms.author: duau
+ms.custom: sfi-image-nochange
+# Customer intent: As a network administrator, I want to route Internet-bound traffic through an on-premises firewall using forced tunneling, so that I can enhance security and control over outbound traffic processing before it reaches the Internet.
 ---
 
 # Azure Firewall forced tunneling
@@ -22,7 +24,7 @@ Azure Firewall provides automatic SNAT for all outbound traffic to public IP add
 Azure Firewall also supports split tunneling, which is the ability to selectively route traffic. For example, you can configure Azure Firewall to direct all traffic to your on-premises network while routing traffic to the Internet for KMS activation, ensuring the KMS server is activated. You can do this using route tables on the AzureFirewallSubnet. For more information, see [Configuring Azure Firewall in Forced Tunneling mode - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-network-security-blog/configuring-azure-firewall-in-forced-tunneling-mode/ba-p/3581955).  
 
 > [!IMPORTANT]
-> If you deploy Azure Firewall inside of a Virtual WAN Hub (Secured Virtual Hub), advertising the default route over Express Route or VPN Gateway is not currently supported. A fix is being investigated.
+> Forced tunnel is available for Azure Firewall deployments in the Virtual WAN hub (secured Virtual hub) that utilize routing intent. See [internet access patterns in Virtual WAN](../virtual-wan/about-internet-routing.md) for more information.  
 
 > [!IMPORTANT]
 > DNAT isn't supported with forced tunneling enabled. Firewalls deployed with Forced Tunneling enabled can't support inbound access from the Internet because of asymmetric routing. However, firewalls with a Management NIC still support DNAT.

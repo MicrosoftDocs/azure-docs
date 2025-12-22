@@ -1,13 +1,16 @@
 ---
-title: Solution architectures using Azure NetApp Files | Microsoft Docs
+title: Solution architectures using Azure NetApp Files
 description: Provides references to best practices for solution architectures using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 12/11/2024
+ms.custom:
+  - linux-related-content
+  - build-2025
+ms.topic: concept-article
+ms.date: 12/07/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
 # Solution architectures using Azure NetApp Files
 
@@ -56,6 +59,7 @@ This section provides references for solutions for Linux OSS applications and da
 * [Migrate Product Lifecycle Management (PLM) to Azure](/industry/manufacturing/architecture/ra-migrate-plm-azure)
 
 ### Machine Learning
+* [Building an Enterprise RAG Pipeline in Azure with NVIDIA AI Blueprint for RAG and Azure NetApp Files](https://techcommunity.microsoft.com/blog/azurearchitectureblog/building-an-enterprise-rag-pipeline-in-azure-with-nvidia-ai-blueprint-for-rag-an/4414301)
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 * [Distributed ML Training for Lane Detection, powered by NVIDIA and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-lane-detection-powered-by-nvidia-and/ba-p/3848255)
 * [Distributed ML Training for Click-Through Rate Prediction with NVIDIA, Dask and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-click-through-rate-prediction-with/ba-p/3848262)
@@ -131,6 +135,7 @@ This section provides references to SAP on Azure solutions.
 * [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
 * [Azure NetApp Files Backup for SAP Solutions](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/anf-backup-for-sap-solutions/ba-p/3717977)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
+* [Running SAP Applications on the Microsoft Platform](https://techcommunity.microsoft.com/blog/sapapplications/designing-migrating-and-managing-a-151-node-sap-bw-scale-out-landscape-on-micros/3715003)
 
 ### SAP AnyDB
 
@@ -144,6 +149,7 @@ This section provides references to SAP on Azure solutions.
 * [Manual Recovery Guide for SAP DB2 on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-db2-on-azure-vms-from-azure-netapp/ba-p/3865379)
 * [SAP ASE 16.0 on Azure NetApp Files for SAP Workloads on SLES15](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/ba-p/3729496)
 * [SAP Netweaver 7.5 with MaxDB 7.9 on Azure using Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-netweaver-7-5-with-maxdb-7-9-on-azure-using-azure-netapp/ba-p/3905041)
+
 
 ### SAP IQ-NLS
 
@@ -175,8 +181,8 @@ This section provides references for Virtual Desktop infrastructure solutions.
 ### <a name="windows-virtual-desktop"></a>Azure Virtual Desktop
 
 * [Benefits of using Azure NetApp Files with Azure Virtual Desktop](solutions-windows-virtual-desktop.md)
-* [Storage options for FSLogix profile containers in Azure Virtual Desktop](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
-* [Create an FSLogix profile container for a host pool using Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
+* [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
+* [Create an FSLogix profile container for a host pool using Azure NetApp Files](/azure/virtual-desktop/create-fslogix-profile-container)
 * [Azure Virtual Desktop at enterprise scale](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix for the enterprise - Azure NetApp Files best practices](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
 * [Enhanced Performance and Scalability: Microsoft Entra joined Session Hosts with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/enhanced-performance-and-scalability-azure-ad-joined-session/ba-p/3836576)
@@ -208,12 +214,12 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Electronic design automation (EDA)
 
-* [Azure Modeling and Simulation Workbench](../modeling-simulation-workbench/index.yml)
+* [Validating Scalable EDA Storage Performance - Azure NetApp Files and SPECstorage Solution 2020](https://techcommunity.microsoft.com/blog/azurearchitectureblog/validating-scalable-eda-storage-performance-azure-netapp-files-and-specstorage-s/4459517)
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
-* [Azure for the semiconductor industry](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure%20for%20the%20semiconductor%20industry.pdf)
 * [Benchmark EDA workloads on Azure Intel Emerald Rapids (EMR) VMs](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/benchmark-eda-workloads-on-azure-intel-emerald-rapids-emr-vms/4334619)
+* [Accelerating HPC and EDA with Powerful Azure NetApp Files Enhancements](https://techcommunity.microsoft.com/blog/azurearchitectureblog/accelerating-hpc-and-eda-with-powerful-azure-netapp-files-enhancements/4469739)
 
 ### Analytics
 

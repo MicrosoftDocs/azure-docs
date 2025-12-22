@@ -32,8 +32,8 @@ landingContent:
             url: ../connectors/introduction.md
           - text: Single-tenant versus multitenant
             url: single-tenant-overview-compare.md
-          - text: Resource health for logic apps
-            url: healthy-unhealthy-resource.md
+          - text: AI agent workflows
+            url: agent-workflows-concepts.md
           - text: Business rules engine Integration
             url: rules-engine/rules-engine-overview.md
           - text: B2B enterprise integration
@@ -48,10 +48,8 @@ landingContent:
         links:
           - text: Introducing Azure Logic Apps
             url: /Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/
-          - text: Connect and extend your mainframe to the cloud with Azure Logic Apps
-            url: /Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps
-          - text: Azure Logic Apps - Code & API free integration
-            url: https://www.youtube.com/watch?v=Z3qaBQS0w20
+          - text: Azure Logic Apps - Intelligent Automation Platform
+            url: https://www.youtube.com/watch?v=IaBLyU28q8w&t=3s
 
   # Card (optional)
   - title: Get started
@@ -64,10 +62,10 @@ landingContent:
             url: create-single-tenant-workflows-azure-portal.md
           - text: Create Standard workflow from template - Portal
             url: create-single-tenant-workflows-templates.md
-          - text: Create Consumption workflows with Visual Studio Code
-            url: quickstart-create-logic-apps-visual-studio-code.md
-          - text: Create Standard workflows with Visual Studio Code
-            url: create-standard-workflows-Visual-Studio-Code.md
+          - text: Create autonomous agent workflows - Portal
+            url: create-autonomous-agent-workflows.md
+          - text: Create conversational agent workflows - Portal
+            url: create-conversational-agent-workflows.md
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -108,6 +106,17 @@ landingContent:
           - text: Authenticate with managed identities
             url: create-managed-service-identity.md
   # Card (optional)
+  - title: Test logic apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create unit tests from workflow definitions
+            url: testing-framework/create-unit-tests-standard-workflow-definitions-visual-studio-code.md
+          - text: Create unit tests from workflow runs
+            url: testing-framework/create-unit-tests-standard-workflow-runs-visual-studio-code.md
+          - text: Test workflows with mock outputs
+            url: testing-framework/test-logic-apps-mock-data-static-results.md
+  # Card (optional)
   - title: Deploy logic apps
     linkLists:
       - linkListType: concept
@@ -120,10 +129,12 @@ landingContent:
             url: logic-apps-create-azure-resource-manager-templates.md
           - text: Deploy ARM templates for logic apps
             url: logic-apps-deploy-azure-resource-manager-templates.md
+          - text: Set up DevOps for Standard logic apps
+            url: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+          - text: Automate build and deployment for Standard logic apps
+            url: automate-build-deployment-standard.md
       - linkListType: learn
         links:
-          - text: Create and deploy with ARM templates
-            url: /training/modules/create-deploy-logic-apps-using-arm-templates/
           - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
             url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
   # Card (optional)

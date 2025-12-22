@@ -5,11 +5,14 @@ description: This article describes the two layers of encryption available for d
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 06/15/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
-author: anuj1905
-ms.author: anujsharda
+author: apurbasroy
+ms.author: apsinhar
 ms.reviewer: hgowrisankar
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 # Azure HDInsight double encryption for data at rest
 

@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As an IT administrator, I want to provision an instance of Oracle Autonomous Database in Azure, so that I can efficiently manage my database services within the cloud environment and ensure optimal performance for my applications.
 ---
 
 # Provision an instance of Oracle Database@Azure

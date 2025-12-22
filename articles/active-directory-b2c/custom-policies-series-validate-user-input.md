@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.custom: b2c-docs-improvements
 ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to validate user inputs by using custom policies, so that I can ensure that the data entered by users is accurate and meets the required criteria.
@@ -21,6 +23,7 @@ ms.subservice: b2c
 ---
 
 #  Validate user inputs by using Azure Active Directory B2C custom policy 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to make user inputs mandatory but also to validate them. You can mark user inputs as *required*, such as `<DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>`, but it doesn't mean your users will enter valid data. Azure AD B2C provides various ways to validate a user input. In this article, you learn how to write a custom policy that collects the user inputs and validates them by using the following approaches: 
 

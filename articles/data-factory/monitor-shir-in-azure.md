@@ -5,7 +5,7 @@ description: This article describes how to monitor Azure virtual machines hostin
 author: whhender
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 07/25/2025
 ms.subservice: integration-runtime
 ms.author: whhender
 ---
@@ -21,11 +21,11 @@ When logged on locally to the Self Hosted Integration Runtime, specific events c
 
 ## Performance counters
 
-Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications such as the Self Hosted Integration Runtime. The performance counters can be viewed and collected locally on the VM using the performance monitor tool. See the article on [using performance counters](/windows/win32/perfctrs/using-performance-counters) for more details. 
+Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications such as the Self Hosted Integration Runtime. The performance counters can be viewed and collected locally on the VM using the performance monitor tool. See the article on [using performance counters](/windows/win32/perfctrs/using-performance-counters) for more details.
 
 ## Centralize log collection and analysis
 
-When a deployment requires a more in-depth level of analysis or has reached a certain scale, it becomes impractical to log on to locally to each Self Hosted Integration Runtime host. Therefore, we recommend using Azure Monitor and Azure Log Analytics specifically to collect that data and enable a single pane of glass monitoring for your Self Hosted Integration Runtimes. See the article on [Configuring the SHIR for log analytics collection](how-to-configure-shir-for-log-analytics-collection.md) for instructions on how to instrument your Self Hosted Integration Runtimes for Azure Monitor.
+When a deployment requires a more in-depth level of analysis or has reached a certain scale, it becomes impractical to log on locally to each Self Hosted Integration Runtime host. Therefore, we recommend using Azure Monitor and Azure Log Analytics specifically to collect that data and enable a single pane of glass monitoring for your Self Hosted Integration Runtimes. See the article on [Configuring the SHIR for log analytics collection](how-to-configure-shir-for-log-analytics-collection.md) for instructions on how to instrument your Self Hosted Integration Runtimes for Azure Monitor.
 
 ## Related content
 

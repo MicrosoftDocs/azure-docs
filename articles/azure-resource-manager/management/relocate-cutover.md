@@ -1,11 +1,11 @@
----
+﻿---
 title: How to cut over a cloud workload
 description: How to cut over a cloud workload and application.
 author: SomilGanguly
 ms.author: ssumner
-ms.date: 12/19/2023
+ms.date: 09/15/2025
 ms.reviewer: ssumner
-ms.topic: conceptual
+ms.topic: article
 ms.custom: internal
 keywords: cloud adoption, cloud framework, cloud adoption framework
 ---
@@ -30,3 +30,4 @@ Cutover is when you direct traffic away from the source region and to the worklo
 **Close project.** After you're done relocating, you should officially close the relocation project. Closure should take place two weeks after the final cutover. You need time to assess the success of the relocation and create a report for stakeholders to review. Business and technical stakeholders should review the report and approve.
 
 **Modernize workloads.** Depending on the state of your workload, you might want to continue with our adopt guidance for modernizing workloads with Azure platform-as-a-service solutions (PaaS) or conduct a well-architected review to determine areas of improvement.
+

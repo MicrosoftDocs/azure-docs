@@ -3,24 +3,35 @@ title: Troubleshoot issues with agentless and agent-based dependency analysis
 description: Get help with dependency visualization in Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
-ms.manager: abhemraj
+ms.manager: ronai
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: troubleshooting
 ms.date: 09/09/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to troubleshoot issues with agentless and agent-based dependency analysis, so that I can ensure accurate dependency visualization and optimize migration processes for my VMware servers.
 ---
 
 # Troubleshoot dependency visualization
 
-This article helps you troubleshoot issues with agent-based and agentless dependency analysis, which is _only available for VMware servers_. [Learn more](concepts-dependency-visualization.md) about the types of dependency visualization supported in Azure Migrate.
+This article helps you troubleshoot issues with agent-based and agentless dependency analysis which can be performed on VMware, Hyper-V and physical servers. [Learn more](concepts-dependency-visualization.md) about the types of dependency visualization supported in Azure Migrate.
 
 ## Visualize dependencies for >1 hour with agentless dependency analysis
 
-With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of up to 30 days.
+With agentless dependency analysis, you can visualize dependencies in a multi-server visualization or export them in a CSV file for a duration of up to 30 days.
 
 ## Visualize dependencies for >10 servers with agentless dependency analysis
 
-Azure Migrate offers a Power BI template that you can use to visualize network connections of many servers at once, and filter by process and server. [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-network-connections-in-power-bi) about how to visualize the dependencies for many servers together.
+You can now visualize dependencies across all servers where dependency analysis is auto-enabled and running without any errors in the [multi-server dependency visualization](how-to-create-group-machine-dependencies-agentless.md#visualize-dependencies-across-servers). 
+
+## Unable to view all the connections in the new dependency analysis visualization and export
+In the new dependency analysis capabilities, the unresolved connections between discovered or undiscovered servers are omitted from the single-server, multi-server visualization and the exported CSV file. This is done to reduce the unwanted noise from the dependency data for ease of analysis and interpretation. 
+- Resolved connections : Network connections between servers discovered by Azure Migrate where Application & Process information was successfully gathered from both source and destination servers.
+- Unresolved connections: Network connections either between a discovered and undiscovered server (not discovered by Azure Migrate) or the connection where Application & Process information could not be gathered from any of the source or destination servers, that were discovered by Azure Migrate (Dependency anlaysis either not enabled or failing due to errors).
+
+If you want to visualize or export all network connections (including unresolved connections), you can switch to the **Classic experience** on through a footer note on the **Overview** page of the project on the portal. 
 
 ## Dependencies export CSV shows "Unknown process" with agentless dependency analysis
 In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it isn't feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process."
@@ -30,9 +41,7 @@ If your Azure Migrate project has private endpoint connectivity, the request to 
 
 ## Export the dependency analysis errors
 
-You can export all the errors and remediations for agentless dependency analysis from the portal by selecting **Export notifications**. The exported CSV file also contains additional information like the timestamp at which the error was encountered and if it was an error in validation or discovery of dependency data.
-
-:::image type="content" source="./media/troubleshoot-dependencies/export-notifications.png" alt-text="Screenshot of Export notifications screen.":::
+You can export all the errors and remediations from the Action Center in your project by filtering the errors for affected features as dependency mapping and selecting **Export issues**. The exported CSV file also contains additional information like the timestamp at which the error was encountered.
 
 ## Common agentless dependency analysis errors
 
@@ -324,16 +333,19 @@ For Linux servers:
 
 After you verify that the mitigation worked, go to the **Azure Migrate project** > **Discovery and assessment** > **Overview** > **Manage** > **Appliances**, select the appliance name, and select **Refresh services** to start a fresh discovery cycle.
 
+## Unable to find a way to get to agent-based dependency analysis from the new Azure Migrate experiences
+Agent-based dependency analysis is not supported in the new Azure Migrate experience. You can go to the Classic experience through a footer note on the **Overview** page of the project, where you can continue using the agent-based dependency analysis using the associated Log Analytics workspace.
+
 ## My Log Analytics workspace isn't listed when you try to configure the workspace in Azure Migrate for agent-based dependency analysis
-Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia, and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently can't be associated with a project.
+Azure Migrate currently supports creation of Log Analytics workspace in East US, Southeast Asia, and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently can't be associated with a project.
 
 ## Agent-based dependency visualization in Azure Government
 
-Agent-based dependency analysis isn't supported in Azure Government. Use agentless dependency analysis, which is _only available for VMware servers_.
+Agent-based dependency analysis isn't supported in Azure Government. You can use agentless dependency analysis instead.
 
 ## Agent-based dependencies don't show after agent installation
 
-After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15 to 30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
+After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15 to 30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Azure Monitoring Agent (AMA) can connect to the Log Analytics workspace.
 
 For Windows VMs:
 1. In the Control Panel, start MMA.

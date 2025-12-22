@@ -237,6 +237,7 @@ You can enable extended sessions by setting `durableTask/extendedSessionsEnabled
   }
 }
 ```
+---
 
 There are two potential downsides of this setting to be aware of:
 
@@ -248,7 +249,7 @@ As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30
 The specific effects of extended sessions on orchestrator and entity functions are described in the next sections.
 
 > [!NOTE]
-> Extended sessions are currently only supported in .NET languages, like C# (in-process model only) or F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
+> In the .NET isolated model, the extended sessions feature is currently only supported in orchestrations (not entities). Additionally, this feature is available only for .NET languages such as C# and F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
 
 ### Orchestrator function replay
 
@@ -287,8 +288,6 @@ If you are not seeing the throughput numbers you expect and your CPU and memory 
 
 ### Flex Consumption Plan 
 The [Flex Consumption plan](../flex-consumption-plan.md) is an Azure Functions hosting plan that provides many of the benefits of the Consumption plan, including a serverless billing model, while also adding useful features, such as private networking, instance memory size selection, and full support for managed identity authentication.
-
-Azure Storage is currently the only supported [storage provider](durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan.
 
 You should follow these performance recommendations when hosting Durable Functions in the Flex Consumption plan:
 

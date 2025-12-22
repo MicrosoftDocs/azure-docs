@@ -2,36 +2,27 @@
 title: SQL DB in Azure VM backup & restore via PowerShell
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 11/12/2025
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
 ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to automate the backup and restore process for SQL databases in Azure VMs using PowerShell, so that I can efficiently manage data protection and recovery within my cloud environment.
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell
 
-This article describes how to use Azure PowerShell to back up and recover a SQL DB within an Azure VM using [Azure Backup](backup-overview.md) Recovery Services vault.
+This article describes how to use Azure PowerShell to [back up and recover a SQL database within an Azure VM using Azure Backup](backup-azure-recovery-services-vault-overview.md) in a Recovery Services vault.
 
-This article explains how to:
+## Prerequisites
 
-> [!div class="checklist"]
->
-> * Set up PowerShell and register the Azure Recovery Services Provider.
-> * Create a Recovery Services vault.
-> * Configure backup for SQL DB within an Azure VM.
-> * Run a backup job.
-> * Restore a backed up SQL DB.
-> * Monitor backup and restore jobs.
+Before you back up and restore SQL databases in Azure VMs with PowerShell, ensure that the following prerequisites are met:
 
-## Before you start
-
-* [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-* Read about the feature capabilities for [backing up SQL DBs within Azure VMs](backup-azure-sql-database.md#before-you-start).
+* Check the feature capabilities for [backing up SQL databases within Azure VMs](backup-azure-sql-database.md#before-you-start).
 * Review the PowerShell object hierarchy for Recovery Services.
 
-### Recovery Services object hierarchy
+## Recovery Services object hierarchy
 
 The object hierarchy is summarized in the following diagram.
 
@@ -39,7 +30,7 @@ The object hierarchy is summarized in the following diagram.
 
 Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices) reference in the Azure library.
 
-### Set up and install
+## Set up and install PowerShell for Azure Backup
 
 Set up PowerShell as follows:
 
@@ -81,7 +72,11 @@ Set up PowerShell as follows:
 
 9. In the command output, verify that **RegistrationState** changes to **Registered**. If it doesn't, run the **Register-AzResourceProvider** cmdlet again.
 
-## Create a Recovery Services vault
+## Create the Recovery Services vault and set the vault context
+
+To set up backup for SQL databases in Azure VMs, you first need to create a Recovery Services vault and set the vault context.
+
+### Create a Recovery Services vault
 
 Follow these steps to create a Recovery Services vault.
 
@@ -151,7 +146,7 @@ $testVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -N
 $testVault.ID
 ```
 
-## Configure a backup policy
+## Configure a backup policy for SQL databases
 
 A backup policy specifies the schedule for backups, and how long backup recovery points should be kept:
 
@@ -188,9 +183,9 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 AM      Daily                                    False                True
 ```
 
-## Enable backup
+## Enable backup for SQL databases
 
-### Registering the SQL VM
+### Register the SQL VM
 
 For Azure VM backups and Azure File shares, Backup service can connect to these Azure Resource Manager resources and fetch the relevant details. Since SQL is an application within an Azure VM, Backup service needs permission to access the application and fetch the necessary details. In order to do that, you need to *'register'* the Azure VM that contains the SQL application with a Recovery Services vault. Once you register a SQL VM with a vault, you can protect the SQL DBs to that vault only. Use [Register-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) PowerShell cmdlet to register the VM.
 
@@ -204,7 +199,7 @@ The command will return a 'backup container' of this resource and the status wil
 > [!NOTE]
 > If the force parameter isn't given, you're asked to confirm with a text 'Do you want to disable protection for this container'. Please ignore this text and say "Y" to confirm. This is a known issue and we're working to remove the text and the requirement for the force parameter.
 
-### Fetching SQL DBs
+### Fetch SQL DBs
 
 Once the registration is done, Backup service will be able to list all the available SQL components within the VM. To view all the SQL components yet to be backed up to this vault use [Get-AzRecoveryServicesBackupProtectableItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectableitem) PowerShell cmdlet
 
@@ -218,7 +213,7 @@ The output will show all unprotected SQL components across all SQL VMs registere
 $SQLDB = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDataBase -VaultId $testVault.ID -Name "<Item Name>" -ServerName "<Server Name>"
 ```
 
-### Configuring backup
+### Configure backup
 
 Now that we have the required SQL DB and the policy with which it needs to be backed up, we can use the [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) cmdlet to configure backup for this SQL DB.
 
@@ -234,7 +229,7 @@ WorkloadName     Operation            Status               StartTime            
 master           ConfigureBackup      Completed            3/18/2019 6:00:21 PM      3/18/2019 6:01:35 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-### Fetching new SQL DBs
+### Fetch the new SQL databases
 
 Once the machine is registered, Backup service will fetch the details of the DBs available then. If SQL DBs or SQL instances are added to the registered machine later, you need to manually trigger the backup service to perform a fresh 'inquiry' to get **all** the unprotected DBs (including the newly added ones) again. Use the [Initialize-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/initialize-azrecoveryservicesbackupprotectableitem) PowerShell cmdlet on the SQL VM to perform a fresh inquiry. The command waits until the operation is completed. Later use the [Get-AzRecoveryServicesBackupProtectableItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectableitem) PowerShell cmdlet to get the list of latest unprotected SQL components.
 
@@ -244,14 +239,14 @@ Initialize-AzRecoveryServicesBackupProtectableItem -Container $SQLContainer -Wor
 Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDataBase -VaultId $testVault.ID
 ```
 
-Once the relevant protectable items are fetched, enable the backups as instructed in the [above section](#configuring-backup).
-If one doesn't want to manually detect new DBs, they can opt for autoprotection as explained [below](#enable-autoprotection).
+Once the relevant protectable items are fetched, enable the backups as instructed in the [above section](#configure-backup).
+If one doesn't want to manually detect new DBs, they can opt for autoprotection as explained [below](#enable-autoprotection-for-future-sql-databases).
 
-## Enable autoprotection
+## Enable autoprotection for future SQL databases
 
 You can configure backup so all DBs added in the future are automatically protected with a certain policy. To enable autoprotection, use [Enable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupautoprotection) PowerShell cmdlet.
 
-Since the instruction is to back up all future DBs, the operation is done at a SQLInstance level.
+Since the instruction is to back up all future databases, the operation is done at a SQLInstance level.
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $testVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
@@ -260,7 +255,7 @@ Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupMan
 
 Once the autoprotection intent is given, the inquiry into the machine to fetch newly added DBs takes place as a scheduled background task every 8 hours.
 
-## Restore SQL DBs
+## Restore SQL databases in Azure VMs
 
 Azure Backup can restore SQL Server databases that are running on Azure VMs as follows:
 
@@ -339,7 +334,7 @@ For a SQL DB restore, the following restore scenarios are supported.
 
 After fetching the relevant recovery point (distinct or log point-in-time), use [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupworkloadrecoveryconfig) PowerShell cmdlet to fetch the recovery config object according to the desired recovery plan.
 
-#### Original workload restore
+#### Original workload restores
 
 To override the backed-up DB with data from the recovery point, just specify the right flag and the relevant recovery point as shown in the following example(s).
 
@@ -355,12 +350,12 @@ $OverwriteWithFullConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -R
 $OverwriteWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $bkpItem  -OriginalWorkloadRestore -VaultId $testVault.ID
 ```
 
-#### Alternate workload restore
+#### Alternate workload restores
 
 > [!IMPORTANT]
-> A backed up SQL DB can be restored as a new DB to another SQLInstance only, in a Azure VM 'registered' to this vault.
+> A backed-up SQL DB can be restored as a new DB to another SQLInstance only, in an Azure VM 'registered' to this vault.
 
-As outlined above, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#registering-the-sql-vm) and the relevant SQLInstance appears as a protectable item. In this document, let's assume that the target SQLInstance name is MSSQLSERVER within another VM "Contoso2".
+As outlined above, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#register-the-sql-vm) and the relevant SQLInstance appears as a protectable item. In this document, let's assume that the target SQLInstance name is MSSQLSERVER within another VM "Contoso2".
 
 ```powershell
 $TargetContainer =  Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -Status Registered  -VaultId $testVault.ID -FriendlyName "Contoso2"
@@ -465,7 +460,7 @@ PointInTime          : 1/1/0001 12:00:00 AM
 > [!NOTE]
 > If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](restore-sql-database-azure-vm.md#partial-restore-as-files).
 
-#### Alternate workload restore to a vault in secondary region
+#### Alternate workload restores to a vault in secondary region
 
 > [!IMPORTANT]
 > Support for secondary region restores for SQL from PowerShell is available from Az 6.0.0
@@ -669,7 +664,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $testVault.ID
 
 #### Disable auto protection
 
-If autoprotection was configured on an SQLInstance, you can disable it using the [Disable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) PowerShell cmdlet.
+If autoprotection was configured on a SQLInstance, you can disable it using the [Disable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) PowerShell cmdlet.
 
 Find the instances where auto-protection is enabled using the following PowerShell command.
 
@@ -711,11 +706,11 @@ Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWo
 
 To cancel an in-progress job, use the [Stop-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) PowerShell cmdlet.
 
-## Managing SQL Always On Availability groups
+## Manage SQL Always On Availability groups
 
-For SQL Always On Availability Groups, make sure to [register all the nodes](#registering-the-sql-vm) of the Availability group (AG). Once registration is done for all nodes, a SQL availability group object is logically created under protectable items. The databases under the SQL AG will be listed as 'SQLDatabase'. The nodes will show up as standalone instances and the default SQL databases under them will be listed as SQL databases as well.
+For SQL Always On Availability Groups, make sure to [register all the nodes](#register-the-sql-vm) of the Availability group (AG). Once registration is done for all nodes, a SQL availability group object is logically created under protectable items. The databases under the SQL AG will be listed as 'SQLDatabase'. The nodes will show up as standalone instances and the default SQL databases under them will be listed as SQL databases as well.
 
-For example, let's assume a SQL AG has two nodes: *sql-server-0* and *sql-server-1* and 1 SQL AG DB. Once both these nodes are registered, if you [list the protectable items](#fetching-sql-dbs), it lists the following components
+For example, let's assume a SQL AG has two nodes: *sql-server-0* and *sql-server-1* and 1 SQL AG DB. Once both these nodes are registered, if you [list the protectable items](#fetch-sql-dbs), it lists the following components
 
 * A SQL AG object - protectable item type as SQLAvailabilityGroup
 * A SQL AG DB - protectable item type as SQLDatabase
@@ -726,4 +721,4 @@ For example, let's assume a SQL AG has two nodes: *sql-server-0* and *sql-server
 
 sql-server-0, sql-server-1 will also be listed as "AzureVMAppContainer" when [backup containers are listed](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 
-Just fetch the relevant database to [enable backup](#configuring-backup) and the [on-demand backup](#on-demand-backup) and [restore PowerShell cmdlets](#restore-sql-dbs) are identical.
+Just fetch the relevant database to [enable backup](#configure-backup) and the [on-demand backup](#on-demand-backup) and [restore PowerShell cmdlets](#restore-sql-databases-in-azure-vms) are identical.

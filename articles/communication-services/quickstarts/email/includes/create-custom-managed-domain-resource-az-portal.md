@@ -7,7 +7,7 @@ ms.author: v-vprasannak
 ---
 ## Prerequisites
 
-- An Azure account with an active subscription. See [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. See [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Communication Services Email Resource created and ready to add the domains. See [Create and manage Email Communication Service resources](../../../quickstarts/email/create-email-communication-resource.md).
 
 ## Provision a custom domain

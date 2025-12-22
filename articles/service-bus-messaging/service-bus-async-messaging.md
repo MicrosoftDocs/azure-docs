@@ -11,6 +11,8 @@ Asynchronous messaging can be implemented in a variety of different ways. With q
 
 Applications typically use asynchronous messaging patterns to enable a number of communication scenarios. You can build applications in which clients can send messages to services, even when the service is not running. For applications that experience bursts of communications, a queue can help [level the load](/azure/architecture/patterns/queue-based-load-leveling) by providing a place to buffer communications. Finally, you can get a simple but effective load balancer to distribute messages across multiple machines.
 
+For a real-world analogy of asynchronous scalability and expected delays or retries, see Gregor Hohpe’s [Starbucks Does Not Use Two-Phase Commit](https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html) and the follow-up [What Starbucks Can Teach Us About Software Scalability](https://particular.net/blog/what-starbucks-can-teach-us-about-software-scalability). They offer a clear mental model for how Service Bus behaves under load.
+
 In order to maintain availability of any of these entities, consider a number of different ways in which these entities can appear unavailable for a durable messaging system. Generally speaking, we see the entity becomes unavailable to applications we write in the following different ways:
 
 * Unable to send messages.

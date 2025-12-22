@@ -8,6 +8,7 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication Services .NET Email client library to send Email messages.
@@ -48,7 +49,7 @@ EmailSendResult returns the following status on the email operation performed.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../../create-email-communication-resource.md)
 - An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../../connect-email-communication-resource.md)

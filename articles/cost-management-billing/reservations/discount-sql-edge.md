@@ -2,11 +2,11 @@
 title: Understand reservations discount for Azure SQL Edge
 description: Learn how a reservation discount is applied to Azure SQL Edge.
 author: pri-mittal
-ms.reviewer: kendalv
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/26/2025
+ms.date: 10/28/2025
 ms.author: primittal
 ---
 

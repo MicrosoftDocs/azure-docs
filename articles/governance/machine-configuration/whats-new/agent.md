@@ -20,7 +20,33 @@ For information on release notes for the connected machine agent, see
 
 ## Windows extension release notes (Microsoft.GuestConfiguration.ConfigurationforWindows)
 
+### Version 1.29.98.0 - July 2025
+
+#### New Features
+
+- Announcing the general availability of System Assigned Identities for Azure Machine Configuration as well as Arc Machines,
+  enhancing security and simplifying at-scale server management by allowing private access to
+  configuration packages in Azure Storage. For more information, see
+  [System-Assigned Identity-based Access for Machine Configuration Packages][11].
+
+#### Fixed
+
+- Resolved an issue where the compliance status did not update correctly until services were restarted.
+- Updated local PATH environment variable to resolve service install/delete errors.
+  
 ### Version 1.29.92.0 - April 2025
+
+#### New features 
+
+- Today our extension uses a maximum of 5% CPU. For cases where this needs to be configured, a configuration file "cpu_config.json" can be written under the path, /var/opt/azcmagent/. This file should contain the following configuration: 
+
+```json
+{
+    "PolicyAgentCpu": 5
+}
+```
+ 
+In this case the maximum CPU utilization of the service will be 5%. This can be configured per the needs of the required scenario. 
 
 #### Updated
 
@@ -67,6 +93,41 @@ For information on release notes for the connected machine agent, see
 
 
 ## Extension for Linux extension release notes (Microsoft.GuestConfiguration.ConfigurationforLinux)
+
+### Version 1.26.93.0 - July 2025
+
+#### New Features
+
+- Announcing the general availability of System Assigned Identities for Azure Machine Configuration as well as Arc Machines,
+  enhancing security and simplifying at-scale server management by allowing private access to
+  configuration packages in Azure Storage. For more information, see
+  [System-Assigned Identity-based Access for Machine Configuration Packages][11].
+
+#### Fixed
+
+- Resolved an issue where the compliance status did not update correctly until services were restarted.
+- Updated Boost on Linux to resolve service start issues caused by compatibility problems.
+- Resolved "No public key" error by adding GPG package signature validation.
+- Resolved gpg installation issues on debian
+
+### Version 1.26.87 - April 2025
+
+#### New features 
+
+- Today our extension uses a maximum of 5% CPU. For cases where this needs to be configured, a configuration file "cpu_config.json" can be written under the path, /var/opt/azcmagent/. This file should contain the following configuration: 
+
+```json
+{
+    "PolicyAgentCpu": 5
+}
+```
+ 
+In this case the maximum CPU utilization of the service will be 5%. This can be configured per the needs of the required scenario. 
+
+#### Updated
+
+- Updated .NET from version 6 to 8
+- Updated PowerShell from version 7.2.x to 7.4.7
 
 ### Version 1.26.85 - March 2025
 
@@ -184,3 +245,4 @@ az vm extension set \
 [08]: ../../policy/assign-policy-portal.md
 [09]: ../../policy/how-to/determine-non-compliance.md
 [10]: https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/user-assigned-identity-based-access-for-machine-configuration-packages-%E2%80%93-general/4305594
+[11]: https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/system-assigned-identity-based-access-for-machine-configuration-packages-%E2%80%93-ga-on/4446603

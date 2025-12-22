@@ -1,8 +1,8 @@
 ---
 title: Request quota increase - Azure portal
 description: Learn how to request a quota increase for your Azure Extended Zone resources using the Azure portal.
-author: halkazwini
-ms.author: halkazwini
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 03/07/2025
@@ -71,6 +71,9 @@ In this section, you request a quota increase in the Azure portal.
 1. In the Support Method section, provide your preferred contact method, availability, and support language, and confirm your region. Complete the *Contact info* section to ensure we can reach you.
 
 1. Select **Next**. Review your request and select **Create**. Your request will be processed by the Extended Zones engineering team accordingly.
+
+> [!NOTE]
+> The Quota's view will only show the quota from the Extended Zone's parent region, given Extended Zones respect quota from their parent region. Nevertheless, providing the Extended Zone's information is needed when requesting quotas, as that's where the SKU is intended to be deployed. Consequently, there may be situations where the parent region is capacity constrained while the Extended Zone is not. 
 
 ## Related content
 

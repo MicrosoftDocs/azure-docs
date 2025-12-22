@@ -1,24 +1,24 @@
 ---
-title: RestApiPoller data connector reference for the Codeless Connector Platform
+title: RestApiPoller data connector reference for the Codeless Connector Framework
 titleSuffix: Microsoft Sentinel
-description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type and its data connection rules as part of the Codeless Connector Platform.
+description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type and its data connection rules as part of the Codeless Connector Framework.
 services: sentinel
-author: austinmccollum
+author: EdB-MSFT
 ms.topic: reference
 ms.date: 9/30/2024
-ms.author: austinmc
+ms.author: edbaynash
 
 
 
-#Customer intent: As a security engineer, I want to reference paging, authentication and payload options to create and configure RestApiPoller data connectors using the Codeless Connector Platform so that I can integrate a specific data source into Microsoft Sentinel without writing custom code.
+#Customer intent: As a security engineer, I want to reference paging, authentication and payload options to create and configure RestApiPoller data connectors using the Codeless Connector Framework so that I can integrate a specific data source into Microsoft Sentinel without writing custom code.
 
 ---
 
-# RestApiPoller data connector reference for the Codeless Connector Platform
+# RestApiPoller data connector reference for the Codeless Connector Framework
 
-To create a `RestApiPoller` data connector with the Codeless Connector Platform (CCP), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) docs.
+To create a `RestApiPoller` data connector with the Codeless Connector Framework (CCF), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) docs.
 
-Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCP data connector. 
+Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCF data connector. 
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md#create-the-deployment-template).
 
@@ -45,7 +45,7 @@ For more information about the latest API version, see [Data Connectors - Create
 
 ## Request body
 
-The request body for a `RestApiPoller` CCP data connector has the following structure:
+The request body for a `RestApiPoller` CCF data connector has the following structure:
 
 ```json
 {
@@ -66,7 +66,7 @@ The request body for a `RestApiPoller` CCP data connector has the following stru
 
 ### RestApiPoller
 
-**RestApiPoller** represents an API Poller CCP data connector where you customize paging, authorization and request/response payloads for your data source.
+**RestApiPoller** represents an API Poller CCF data connector where you customize paging, authorization and request/response payloads for your data source.
 
 | Name | Required | Type | Description |
 | ---- | ---- | ---- | ---- |
@@ -82,20 +82,20 @@ The request body for a `RestApiPoller` CCP data connector has the following stru
 
 ## Authentication configuration
 
-The CCP supports the following authentication types:
+The CCF supports the following authentication types:
 - [Basic](#basic-auth)
 - [APIKey](#apikey)
 - [OAuth2](#oauth2)
 - [JWT](#jwt)
 
 > [!NOTE]
-> CCP OAuth2 implementation does not support client certificate credentials.
+> CCF OAuth2 implementation does not support client certificate credentials.
 
 As a best practice, use parameters in the auth section instead of hard-coding credentials. For more information, see [Secure confidential input](create-codeless-connector.md#secure-confidential-input).
 
 In order to create the deployment template which also uses parameters, you need to escape the parameters in this section with an extra starting `[`. This allows the parameters to assign a value based on the user interaction with the connector. For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
 
-To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Platform](data-connector-ui-definitions-reference.md#instructions).
+To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Framework](data-connector-ui-definitions-reference.md#instructions).
 
 #### Basic auth
 
@@ -152,7 +152,7 @@ Since the `ApiKeyName` is explicitly set to `""`, the result is the following he
 
 #### OAuth2
 
-The Codeless Connector Platform supports OAuth 2.0 authorization code grant and client credentials. The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
+The Codeless Connector Framework supports OAuth 2.0 authorization code grant and client credentials. The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
 After the user returns to the client via the redirect URL, the application will get the authorization code from the URL and use it to request an access token.
 
 |Field | Required | Type | Description |
@@ -217,36 +217,147 @@ OAuth2 `client_credentials` grant type
 
 #### JWT
 
-Example:
-JSON web token (JWT)
+JSON Web Token (JWT) authentication supports obtaining tokens via username/password credentials and using them for API requests.
 
+**Basic Example:**
 ```json
 "auth": {
     "type": "JwtToken",
     "userName": {
-        "key":"username",
-        "value":"[[parameters('UserName')]"
+        "key": "username",
+        "value": "[[parameters('UserName')]"
     },
     "password": {
-        "key":"password",
-        "value":"[[parameters('Password')]"
+        "key": "password", 
+        "value": "[[parameters('Password')]"
     },
     "TokenEndpoint": "https://token_endpoint.contoso.com",
-    "IsJsonRequest": true
+    "IsJsonRequest": true,
+    "JwtTokenJsonPath": "$.access_token"
 }
 ```
+**Credentials in POST Body (default):**
+```json
+"auth": {
+    "type": "JwtToken",
+    "userName": {
+        "key": "username",
+        "value": "[[parameters('UserName')]"
+    },
+    "password": {
+        "key": "password",
+        "value": "[[parameters('Password')]"
+    },
+    "TokenEndpoint": "https://api.example.com/token",
+    "Headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    },
+    "IsCredentialsInHeaders": false,
+    "IsJsonRequest": true,
+    "JwtTokenJsonPath": "$.access_token"
+}
+```
+**Credentials in Headers (Basic Auth):**
+```json
+"auth": {
+    "type": "JwtToken",
+    "userName": {
+        "key": "client_id",
+        "value": "[[parameters('ClientId')]"
+    },
+    "password": {
+        "key": "client_secret",
+        "value": "[[parameters('ClientSecret')]"
+    },
+    "TokenEndpoint": "https://api.example.com/oauth/token",
+    "Headers": {
+        "Accept": "application/json"
+    },
+    "IsCredentialsInHeaders": true,
+    "IsJsonRequest": true,
+    "JwtTokenJsonPath": "$.access_token",
+    "RequestTimeoutInSeconds": 30
+}
+```
+**Credentials in Headers (User token):**
+```json
+"auth": {
+    "type": "JwtToken",
+    "UserToken": "[[parameters('userToken')]",
+    "UserTokenPrepend": "Bearer",
+    "TokenEndpoint": "https://api.example.com/oauth/token",
+    "Headers": {
+        "Accept": "application/json"
+    },
+    "TokenEndpointHttpMethod": "GET",
+    "NoAccessTokenPrepend": true,
+    "JwtTokenJsonPath": "$.systemToken"
+}
+```
+__Authentication Flow:__
+
+1. Send credentials to `TokenEndpoint` to obtain JWT token
+
+   - If `IsCredentialsInHeaders: true`: Sends Basic Auth header with username:password
+   - If `IsCredentialsInHeaders: false`: Sends credentials in POST body
+
+2. Extract token using `JwtTokenJsonPath` or from response header
+
+3. Use token in subsequent API requests with `ApiKeyName` header
+
+**Properties:**
+
+|Field |Required |Type |Description	|
+| ---- | ---- | ---- | ---- |
+| **type**                      | True      | String   | Must be `JwtToken` |
+| **userName**                  | True (if **userToken** is not used)      | Object   | Key-value pair for username credential. If `userName` and `password` are sent in header request, specify the `value` property with the user name. If `userName` and `password` sent in body request, specify the `Key` and `Value` |
+| **password**                  | True (if **userToken** is not used)     | Object   | Key-value pair for password credential. If `userName` and `password` are sent in header request, specify the `value` property with the user name. If `userName` and `password` sent in body request, specify the `Key` and `Value` |
+| **userToken**                  | True (if **userName** is not used)     | String   | User token generated by the client to get system token for authentication |
+| **UserTokenPrepend**                  | False     | String   | Prepend text before the token. Example: `Bearer` |
+| **NoAccessTokenPrepend**                  | False     | Boolean   | Access flag to indicate token should not prepend anything |
+| **TokenEndpointHttpMethod**                  | False     | String   | HTTP method to token endpoint. Can be `Get` or `Post`. Default: `Post` |
+| **TokenEndpoint**             | True      | String   | URL endpoint to obtain the JWT token |
+| **IsCredentialsInHeaders**    |           | Boolean  | Send credentials as Basic Auth header (`true`) vs POST body (`false`). Default: `false` |
+| **IsJsonRequest**             |           | Boolean  | Send request as JSON (header `Content-Type = application/json`) vs form-encoded (header `Content-Type = application/x-www-form-urlencoded`). Default: `false` |
+| **JwtTokenJsonPath**          |           | String   | JSONPath to extract the token from response (e.g., "`$.access_token`") |
+| **JwtTokenInResponseHeader**  |           | Boolean  | Extract token from the response header vs body. Default: `false` |
+| **JwtTokenHeaderName**        |           | String   | Header name when token is in the response header. Default: "`Authorization`" |
+| **JwtTokenIdentifier**        |           | String   | Identifier used to extract the JWT from a prefixed token string |
+| **QueryParameters**           |           | Object   | Custom query parameters to include when sending the request to the token endpoint |
+| **Headers**                   |           | Object   | Custom headers to include when sending the request to the token endpoint |
+| **RequestTimeoutInSeconds**   |           | Integer  | Request timeout in seconds. Default: `100`, Max `180` |
+
+__Authentication Flow:__
+
+1. Send credentials to `TokenEndpoint` to obtain JWT token
+
+   - If `IsCredentialsInHeaders: true`: Sends Basic Auth header with username:password
+   - If `IsCredentialsInHeaders: false`: Sends credentials in POST body
+
+2. Extract token using `JwtTokenJsonPath` or from response header
+
+3. Use token in subsequent API requests with `ApiKeyName` header
+
+>[!NOTE]
+>__Limitations:__
+> - Requires username/password authentication for token acquisition
+> - Does not support API key-based token requests
+> - Custom header authentication (without username/password) is not supported
+___
 
 ## Request configuration
 
-The request section defines how the CCP data connector sends requests to your data source, like the API endpoint and how often to poll that endpoint.
+The request section defines how the CCF data connector sends requests to your data source, like the API endpoint and how often to poll that endpoint.
 
 |Field |Required |Type |Description	|
 | ---- | ---- | ---- | ---- |
 | **ApiEndpoint** | True | String | URL for remote server. Defines the endpoint to pull data from. |
 | **RateLimitQPS** |  | Integer | Defines the number of calls or queries allowed in a second. |
+| **RateLimitConfig** |  | Object | Defines the rate limit configuration for the RESTful API. See [example](#ratelimitconfig-example). |
 | **QueryWindowInMin** |  | Integer | Defines the available query window in minutes. Minimum is 1 minute. Default is 5 minutes.|
 | **HttpMethod** |  | String | Defines the API method: `GET`(default) or `POST` |
-| **QueryTimeFormat** |  | String | Defines the date and time format the endpoint (remote server) expects. The CCP uses the current date and time wherever this variable is used. Possible values are the constants: `UnixTimestamp`, `UnixTimestampInMills` or any other valid representation of date time, for example: `yyyy-MM-dd`, `MM/dd/yyyy HH:mm:ss`<br>default is ISO 8601 UTC |
+| **QueryTimeFormat** |  | String | Defines the date and time format the endpoint (remote server) expects. The CCF uses the current date and time wherever this variable is used. Possible values are the constants: `UnixTimestamp`, `UnixTimestampInMills` or any other valid representation of date time, for example: `yyyy-MM-dd`, `MM/dd/yyyy HH:mm:ss`<br>default is ISO 8601 UTC |
 | **RetryCount** |  | Integer (1...6) | Defines `1` to `6` retries allowed to recover from a failure. Default is `3`.|
 | **TimeoutInSeconds** |  | Integer (1...180) | Defines the request timeout, in seconds. Default is `20` |
 | **IsPostPayloadJson** |  | Boolean | Determines whether the POST payload is in JSON format.	Default is `false`|
@@ -285,7 +396,40 @@ Consider this example:
 - `QueryTimeIntervalDelimiter` = `..`
 - `ApiEndpoint` = `https://www.example.com`
 
-The query sent to the remote server is: `https://www.example.com?interval=time:{QueryTimeFormat}..{QueryTimeFormat + QueryWindowInMin}`	
+The query sent to the remote server is: `https://www.example.com?interval=time:{QueryTimeFormat}..{QueryTimeFormat + QueryWindowInMin}`
+
+### RateLimitConfig example
+
+Consider this example:
+- `ApiEndpoint` = `https://www.example.com`
+```json
+"rateLimitConfig": {
+  "evaluation": {
+    "checkMode": "OnlyWhen429"
+  },
+  "extraction": {
+    "source": "CustomHeaders",
+    "headers": {
+      "limit": {
+        "name": "X-RateLimit-Limit",
+        "format": "Integer"
+      },
+      "remaining": {
+        "name": "X-RateLimit-Remaining",
+        "format": "Integer"
+      },
+      "reset": {
+        "name": "X-RateLimit-RetryAfter",
+        "format": "UnixTimeSeconds"
+      }
+    }
+  },
+  "retryStrategy": {
+    "useResetOrRetryAfterHeaders": true
+  }
+}
+```
+When the response includes rate limit headers, the connector can use this information to adjust its request rate.
 
 ### Request examples using Microsoft Graph as data source API
 
@@ -356,7 +500,7 @@ For complex queries, use `QueryParametersTemplate`. This next example sends a `P
 Example:
 
 ```json
-request: {
+"request": {
   "apiEndpoint": "https://graph.microsoft.com/v1.0/me/messages",
   "httpMethod": "POST",
   "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
@@ -402,7 +546,7 @@ A server response with JSON format is expected, with the requested data in the p
   "format": "json",
   "SuccessStatusJsonPath": "$.status",
   "SuccessStatusValue": "success",
-  "IsGzipCompressed: true
+  "IsGzipCompressed": true
  }
 ```
 
@@ -418,13 +562,14 @@ The expected response in this example prepares for a CSV with no header.
 
 ## Paging configuration
 
-When the data source can't send the entire response payload all at once, the CCP data connector needs to know how to receive portions of the data in response *pages*. The paging types to choose from are:
+When the data source can't send the entire response payload all at once, the CCF data connector needs to know how to receive portions of the data in response *pages*. The paging types to choose from are:
 
 | Paging type | decision factor |
 |----|----|
 | <ul><li>[LinkHeader](#configure-linkheader-or-persistentlinkheader)</li><li>[PersistentLinkHeader](#configure-linkheader-or-persistentlinkheader)</li><li>[NextPageUrl](#configure-nextpageurl)</li></ul> | Does the API response have links to next and previous pages? |
 | <ul><li>[NextPageToken](#configure-nextpagetoken-or-persistenttoken)</li><li>[PersistentToken](#configure-nextpagetoken-or-persistenttoken)</li> | Does the API response have a token or cursor for the next and previous pages? |
 | <ul><li>[Offset](#configure-offset)</li></ul> | Does the API response support a parameter for the number of objects to skip when paging? | 
+| <ul><li>[CountBasedPaging](#configure-countbasedpaging)</li></ul> | Does the API response support a parameter for the number of objects to return? |
 
 #### Configure LinkHeader or PersistentLinkHeader
 
@@ -444,18 +589,20 @@ The most common paging type is when a server data source API provides URLs to th
 | **LinkHeaderTokenJsonPath** | False | String | Use this property to indicate where to get the value in the response body.<br><br>For example, if the data source returns the following JSON: `{ nextPage: "foo", value: [{data}]}` then `LinkHeaderTokenJsonPath` will be `$.nextPage` |
 | **PageSize** | False | Integer | How many events per page |
 | **PageSizeParameterName** | False | String | Query parameter name for the page size |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Here are some examples:
 
 ```json
-Paging: {
+"paging": {
   "pagingType": "LinkHeader",
   "linkHeaderTokenJsonPath" : "$.metadata.links.next"
 }
 ```
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "PersistentLinkHeader", 
  "pageSizeParameterName" : "limit", 
  "pageSize" : 500 
@@ -476,11 +623,13 @@ Paging: {
 | **HasNextFlagJsonPath** | False | String | Defines the path to the HasNextPage flag attribute |
 | **NextPageRequestHeader** | False | String | Determines the next page header name in the request. |
 | **NextPageUrlQueryParametersTemplate** | False | String | Only if the connector is for Coralogix API |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Example:
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "NextPageUrl", 
   "nextPageTokenJsonPath" : "$.data.repository.pageInfo.endCursor", 
   "hasNextFlagJsonPath" : "$.data.repository.pageInfo.hasNextPage", 
@@ -504,11 +653,13 @@ Paging: {
 | **NextPageParaName** | False | string | Determines the next page name in the request. |
 | **HasNextFlagJsonPath** | False | string | Defines the path to a **HasNextPage** flag attribute when determining if more pages are left in the response.	|
 | **NextPageRequestHeader** | False | string | Determines the next page header name in the request. |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Examples:
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "NextPageToken", 
  "nextPageRequestHeader" : "ETag", 
  "nextPageTokenResponseHeader" : "ETag" 
@@ -516,7 +667,7 @@ Paging: {
 ```
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "PersistentToken", 
     "nextPageParaName" : "gta", 
     "nextPageTokenJsonPath" : "$.alerts[-1:]._id" 
@@ -531,15 +682,50 @@ Paging: {
 |----|----|----|----|
 | **PageSize** | False | Integer | How many events per page |
 | **PageSizeParameterName** | False | String | Query parameter name for the page size |
-| **OffsetParaName** | False | String | The next request query parameter name. The CCP calculates the offset value for each request, (all events ingested + 1) |
+| **OffsetParaName** | False | String | The next request query parameter name. The CCF calculates the offset value for each request, (all events ingested + 1) |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Example:
 ```json
-Paging: {
-   
-       "pagingType": "Offset", 
-        "offsetParaName": "offset" 
- }
+"paging": {
+  "pagingType": "Offset", 
+  "offsetParaName": "offset",
+  "pageSize": 50,
+  "pagingQueryParamOnly": true,
+  "pagingInfoPlacement": "QueryString"
+}
+```
+
+#### Configure CountBasedPaging
+
+`CountBasedPaging` allows the client to specify the number of items to return in the response. This is useful for APIs that support pagination based on a count parameter as part of the response payload.
+
+| Field | Required | Type | Description |
+|----|----|----|----|
+| **pageNumberParaName** | True | String | Parameter name of page number in HTTP request |
+| **PageSize** | False | Integer | How many events per page |
+| **ZeroBasedIndexing** | False | Boolean | Flag to indicate if count is zero based |
+| **HasNextFlagJsonPath** | False | String | JSON path of flag in HTTP response payload to indicate there are more pages |
+| **TotalResultsJsonPath** | False | String | JSON path of total number of results in HTTP response payload |
+| **PageNumberJsonPath** | False | String | Required if totalResultsJsonPath is provided. JSON path of page number in HTTP response payload |
+| **PageCountJsonPath** | False | String | Required if totalResultsJsonPath is provided. JSON path of page count in HTTP response payload |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
+
+Example:
+
+```json
+"paging": {
+ "pagingType" : "CountBasedPaging", 
+ "pageNumberParaName" : "page", 
+ "pageSize" : 10, 
+ "zeroBasedIndexing" : true, 
+ "hasNextFlagJsonPath" : "$.hasNext", 
+ "totalResultsJsonPath" : "$.totalResults", 
+ "pageNumberJsonPath" : "$.pageNumber", 
+ "pageCountJsonPath" : "$.pageCount"
+}
 ```
 
 ## DCR configuration
@@ -550,9 +736,9 @@ Paging: {
 | **DataCollectionRuleImmutableId** | True | String | The DCR immutable ID. Find it by viewing the DCR creation response or using the [DCR API](/rest/api/monitor/data-collection-rules/get) |
 | **StreamName** | True | string | This value is the `streamDeclaration` defined in the DCR (prefix must begin with *Custom-*) |
 
-## Example CCP data connector
+## Example CCF data connector
 
-Here's an example of all the components of the CCP data connector JSON together.
+Here's an example of all the components of the CCF data connector JSON together.
 
 ```json
 {
@@ -573,8 +759,33 @@ Here's an example of all the components of the CCP data connector JSON together.
       "request": {
          "apiEndpoint": "https://rest.contoso.com/example",
          "rateLimitQPS": 10,
+         "rateLimitConfig": {
+            "evaluation": {
+              "checkMode": "OnlyWhen429"
+            },
+            "extraction": {
+              "source": "CustomHeaders",
+              "headers": {
+                "limit": {
+                  "name": "X-RateLimit-Limit",
+                  "format": "Integer"
+                },
+                "remaining": {
+                  "name": "X-RateLimit-Remaining",
+                  "format": "Integer"
+                },
+                "reset": {
+                  "name": "X-RateLimit-RetryAfter",
+                  "format": "UnixTimeSeconds"
+                }
+              }
+            },
+            "retryStrategy": {
+              "useResetOrRetryAfterHeaders": true
+            }
+         },
          "queryWindowInMin": 5,
-         "httpMethod": "GET",
+         "httpMethod": "POST",
          "queryTimeFormat": "UnixTimestamp",
          "startTimeAttributeName": "t0",
          "endTimeAttributeName": "t1",
@@ -586,7 +797,9 @@ Here's an example of all the components of the CCP data connector JSON together.
          } 
       },
       "paging": {
-         "pagingType": "LinkHeader"
+         "pagingType": "LinkHeader",
+         "pagingInfoPlacement": "RequestBody",
+         "pagingQueryParamOnly": true
       },
       "response": {
          "eventsJsonPaths": ["$"]

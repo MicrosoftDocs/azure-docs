@@ -1,0 +1,25 @@
+items:
+- name: Dell PowerScale documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Dell PowerScale?
+    href: overview.md
+  - name: FAQ
+    href: faq.yml
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a resource
+    href: create.md
+- name: How to
+  items:
+  - name: Manage your resource
+    href: manage.md
+  - name: Troubleshoot
+    items:
+    - name: Get support
+      href: https://www.dell.com/support/home/
+    - name: Troubleshoot
+      href: /troubleshoot/azure/partner-solutions
+    

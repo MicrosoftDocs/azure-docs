@@ -6,9 +6,10 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 03/26/2024
+ms.topic: concept-article
+ms.date: 07/14/2025
 ms.author: normesta
+# Customer intent: "As a data storage administrator, I want to implement container-level WORM policies for immutable blob data, so that I can ensure compliance and protection against data modification or deletion."
 ---
 
 # Container-level write once, read many (WORM) policies for immutable blob data
@@ -33,12 +34,19 @@ A container with a container-level WORM policy set must be empty before the cont
 > [!div class="mx-imgBorder"]
 > ![Diagram that shows the order of operations in deleting an account that has a container-level WORM policy.](media/immutable-version-level-worm-policies/container-level-immutable-storage-deletion.png)
 
+You can delete a container that has a container-level WORM policy only by using control plane operations. All such requests are sent to the Azure Resource Manager URL. For example, the PowerShell command [Remove-AzRmStorageContainer](/powershell/module/az.storage/remove-azrmstoragecontainer) uses a control plane operation to delete a container. In contrast, the [Remove-AzStorageContainer](/powershell/module/az.storage/remove-azstoragecontainer) command attempts to use a data plane operation, which won't succeed. Similarly, the Azure CLI command [az storage container-rm delete](/cli/azure/storage/container-rm) uses a control plane operation, whereas [az storage container](/cli/azure/storage/container#az-storage-container-delete) delete relies on a data plane operation. You can also delete a container through the Azure portal, as it performs the task using a control plane operation.
+
 ## Scenarios
 
 | Scenario | Prohibited operations | Blob protection | Container protection | Account protection |
 |----|----|----|-----|-----|
 | A container is protected by an active time-based retention policy with container scope and/or a legal hold is in effect | [Delete Blob](/rest/api/storageservices/delete-blob), [Put Blob](/rest/api/storageservices/put-blob)<sup>1</sup>, [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), [Set Blob Properties](/rest/api/storageservices/set-blob-properties), [Snapshot Blob](/rest/api/storageservices/snapshot-blob), [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob), [Append Block](/rest/api/storageservices/append-block)<sup>2</sup>| All blobs in the container are immutable for content and user metadata. | Container deletion fails if a container-level WORM policy is in effect.| Storage account deletion fails if there's a container with at least one blob present.|
 | A container is protected by an expired time-based retention policy with container scope and no legal hold is in effect | [Put Blob](/rest/api/storageservices/put-blob)<sup>1</sup>, [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), [Set Blob Properties](/rest/api/storageservices/set-blob-properties), [Snapshot Blob](/rest/api/storageservices/snapshot-blob), [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob), [Append Block](/rest/api/storageservices/append-block)<sup>2</sup> | Delete operations are allowed. Overwrite operations aren't allowed. | Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked. | Storage account deletion fails if there is at least one container with a locked time-based retention policy.<br>Unlocked policies don't provide delete protection.|
+
+> [!NOTE]
+> Unlocked policies don't provide delete protection.  
+> This applies to both:
+> - Containers protected by an active, unlocked time-based retention policy and/or legal hold (Scenario 1).
 
 <sup>1</sup>    Azure Storage permits the [Put Blob](/rest/api/storageservices/put-blob) operation to create a new blob. Subsequent overwrite operations on an existing blob path in an immutable container aren't allowed.
 

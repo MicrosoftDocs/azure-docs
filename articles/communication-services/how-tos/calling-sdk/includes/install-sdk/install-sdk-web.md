@@ -44,7 +44,7 @@ const callAgent = await callClient.createCallAgent(tokenCredential, {displayName
 const deviceManager = await callClient.getDeviceManager()
 ```
 
-### How to best manage SDK connectivity to Microsoft infrastructure
+### Manage SDK connectivity to Microsoft infrastructure
 
 The `Call Agent` instance helps you manage calls (to join or start calls). In order to work your calling SDK needs to connect to Microsoft infrastructure to get notifications of incoming calls and coordinate other call details. Your `Call Agent` has two possible states:
 

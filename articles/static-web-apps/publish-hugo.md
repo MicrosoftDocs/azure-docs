@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
 - A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 
@@ -173,6 +173,40 @@ jobs:
         env:
           HUGO_VERSION: 0.58.0
 ```
+
+#### Alternative deployment using SWA CLI
+
+If your Hugo application has dependencies requiring additional setup, such as GoLang modules, you can use the Azure Static Web Apps CLI for deployment directly. Below is an example GitHub Actions workflow that installs the CLI and deploys your application:
+
+```yaml
+jobs:
+   build_and_deploy_job:
+      runs-on: ubuntu-latest
+      name: Build and Deploy with SWA CLI
+      steps:
+         - name: Checkout code
+            uses: actions/checkout@v3
+            with:
+               submodules: true
+
+         - name: Install SWA CLI
+            run: npm install -g @azure/static-web-apps-cli
+
+         - name: Build Hugo site
+            run: |
+               # Install Hugo modules
+               hugo mod get
+
+               # Minify the supported output formats
+               hugo --minify
+
+         - name: Deploy with SWA CLI
+            env:
+               AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+            run: |
+               swa deploy ./public --api-location ./api --env production
+```
+This workflow builds the Hugo site and deploys it using the Azure Static Web Apps CLI. It assumes the `go.mod` file is located in the root directory of your project to manage dependencies and module configurations.
 
 #### Use the Git Info feature in your Hugo application
 

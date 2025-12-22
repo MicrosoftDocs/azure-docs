@@ -11,6 +11,7 @@ ms.topic: reference
 ms.date: 02/24/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer implementing user interface localization in Azure AD B2C, I want to access the list of localization string IDs, so that I can use them in my policy to support multiple locales or languages in the user journeys.
@@ -18,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Localization string IDs
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

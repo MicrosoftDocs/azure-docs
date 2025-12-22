@@ -13,6 +13,6 @@ ms.custom: Include file
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * At least a Contributor role assignment or equivalent permissions in the Azure subscription. 

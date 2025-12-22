@@ -9,6 +9,7 @@ ms.date: 01/07/2025
 
 #customer intent: As a network or virtual machine administrator, I want to manage the accelerated networking feature of my Azure Virtual Machines. I want to enable or disable accelerated networking using the Azure portal, Azure CLI, or PowerShell.
 
+# Customer intent: As a network administrator, I want to manage the accelerated networking feature on my Azure Virtual Machines, so that I can optimize network performance and ensure consistent packet delivery for my applications.
 ---
 
 # Manage accelerated networking for Azure Virtual Machines
@@ -19,11 +20,11 @@ The article discusses how to enable and manage Accelerated Networking on existin
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -105,14 +106,6 @@ To enable or disable Accelerated Networking for an existing VM through the Azure
 1. At the top of the NIC **Overview** page, select **Edit accelerated networking**.
 
 1. Select **Automatic**, **Enabled**, or **Disabled**, and then select **Save**.
-
-To confirm whether Accelerated Networking is enabled for an existing VM:
-
-1. From the portal page for the VM, select **Networking** from the left menu.
-
-1. On the **Networking** page, select the **Network Interface**.
-
-1. On the network interface **Overview** page, under **Essentials**, note whether **Accelerated networking** is set to **Enabled** or **Disabled**.
 
 To confirm whether Accelerated Networking is enabled for an existing VM:
 

@@ -2,7 +2,7 @@
 title: "Tutorial: Grant a user access to Azure resources using Azure PowerShell - Azure RBAC"
 description: Learn how to grant a user access to Azure resources using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref,  azure-ad-ref-level-one-done
 ms.topic: tutorial
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * List access
 > * Remove access
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

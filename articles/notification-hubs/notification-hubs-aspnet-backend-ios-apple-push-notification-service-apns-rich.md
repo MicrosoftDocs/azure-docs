@@ -13,7 +13,9 @@ ms.date: 08/17/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-ropc-nochange
 ---
 
 # Azure Notification Hubs Rich Push

@@ -3,13 +3,14 @@ title: Quickstart - Back up a VM with PowerShell
 description: In this Quickstart, learn how to back up your Azure virtual machines with the Azure PowerShell module.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/30/2025
+ms.date: 12/19/2025
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator, I want to back up my Azure virtual machines using PowerShell, so that I can ensure the protection and recoverability of critical data and applications.
 ---
 
-# Back up a virtual machine in Azure with PowerShell
+# Quickstart: Back up a virtual machine in Azure with PowerShell
 
 The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
@@ -35,7 +36,7 @@ This quickstart requires the Azure PowerShell AZ module version 1.0.0 or later. 
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-## Create a Recovery Services vault
+## Create a Recovery Services vault for Azure VM backup
 
 A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a logical container that stores backup data for protected resources, such as Azure VMs. When a backup job runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
@@ -97,7 +98,7 @@ Enable backup as follows:
         -Policy $policy
     ```
 
-## Start a backup job
+## Trigger an Azure VM backup job
 
 Backups run according to the schedule specified in the backup policy. You can also run an on-demand backup:
 
@@ -128,30 +129,30 @@ Run an on-demand backup job as follows:
 
 2. You might need to wait up to 20 minutes, since the first backup job creates a full recovery point. Monitor the job as described in the next procedure.
 
-## Monitor the backup job
+## Monitor the backup job for the Azure VM
 
-1. Run [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) to monitor the job status.
+To monitor the status of backup jobs, use [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet.
 
-    ```powershell
-    Get-AzRecoveryservicesBackupJob
-    ```
+```powershell
+Get-AzRecoveryservicesBackupJob
+```
 
-    Output is similar to the following example, which shows the job as **InProgress**:
+Output is similar to the following example, which shows the job as **InProgress**:
 
-    ```output
-    WorkloadName   Operation         Status       StartTime              EndTime                JobID
-    ------------   ---------         ------       ---------              -------                -----
-    myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
-    myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
-    ```
+```output
+WorkloadName   Operation         Status       StartTime              EndTime                JobID
+------------   ---------         ------       ---------              -------                -----
+myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
+myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
+```
 
-2. When the job status is **Completed**, the VM is protected and has a full recovery point stored.
+When the job status is **Completed**, the VM is protected and has a full recovery point stored.
 
 ## Manage VM backups
 
 If you want to perform more actions such as change policy, edit policy etc.. refer to the [manage VM backups section](backup-azure-vms-automation.md#manage-azure-vm-backups).
 
-## Clean up the deployment
+## Clean up the deployment for Azure VM backup
 
 If you no longer need to back up the VM, you can clean it up.
 

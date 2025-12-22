@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
+# Customer intent: As a network administrator, I want to access Azure Firewall logs and metrics so that I can monitor traffic, analyze performance, and ensure compliance with security protocols effectively.
 ---
 # Monitor Azure Firewall
 
@@ -39,7 +40,7 @@ For the available resource log categories, their associated Log Analytics tables
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
 > [!TIP]
-> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
+> If you're familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -47,7 +48,7 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 Azure Resource Graph (ARG) is an Azure service designed to provide efficient and performant resource exploration at scale.  Azure Resource Graph (ARG) provides change analysis data for various management and troubleshooting scenarios. Users can find when changes were detected on an Azure Resource Manager (ARM) property, view property change details and query changes at scale across their subscription, management group, or tenant.  
 
-ARG change analysis recently added support for RuleCollectionGroups. You can now track changes to Azure Firewall Rule Collection Groups using an Azure Resource Graph query from the Azure Portal ResourceGraphExplorer page using a query like this:  
+ARG change analysis recently added support for RuleCollectionGroups. You can now track changes to Azure Firewall Rule Collection Groups using an Azure Resource Graph query from the Azure portal ResourceGraphExplorer page using a query like this:  
 
 :::image type="content" source="media/monitor-firewall/query.png" alt-text="Screenshot of the Azure Resource Graph query to track changes to Azure Firewall Rule Collection Groups.":::
 
@@ -55,7 +56,9 @@ Below is a sample change output.  
 
 :::image type="content" source="media/monitor-firewall/output.png" alt-text="Screenshot of the output that depicts the change to Azure Firewall Rule Collection Groups.":::
 
-This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.  
+This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.
+
+For comprehensive tracking of rule set changes with detailed queries and examples, see [Track rule set changes](rule-set-change-tracking.md).
 
 ## Structured Azure Firewall logs
 
@@ -86,7 +89,7 @@ In **Resource specific** mode, individual tables in the selected workspace are c
 New resource specific tables are now available in Diagnostic setting that allows you to utilize the following categories:
 
 - [Network rule log](/azure/azure-monitor/reference/tables/azfwnetworkrule) - Contains all Network Rule log data. Each match between data plane and network rule creates a log entry with the data plane packet and the matched rule's attributes.
-- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes. Asa note, the AZFWNATRule table logs only when a DNAT rule match occurs. If there is no match, no log is generated. 
+- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes. As a note, the AZFWNATRule table logs only when a DNAT rule match occurs. If there's no match, no log is generated. 
 - [Application rule log](/azure/azure-monitor/reference/tables/azfwapplicationrule) - Contains all Application rule log data. Each match between data plane and Application rule creates a log entry with the data plane packet and the matched rule's attributes.
 - [Threat Intelligence log](/azure/azure-monitor/reference/tables/azfwthreatintel) - Contains all Threat Intelligence events.
 - [IDPS log](/azure/azure-monitor/reference/tables/azfwidpssignature) - Contains all data plane packets that were matched with one or more IDPS signatures.
@@ -95,10 +98,14 @@ New resource specific tables are now available in Diagnostic setting that allows
 - [Application rule aggregation log](/azure/azure-monitor/reference/tables/azfwapplicationruleaggregation) - Contains aggregated Application rule log data for Policy Analytics.
 - [Network rule aggregation log](/azure/azure-monitor/reference/tables/azfwnetworkruleaggregation) - Contains aggregated Network rule log data for Policy Analytics.
 - [NAT rule aggregation log](/azure/azure-monitor/reference/tables/azfwnatruleaggregation) - Contains aggregated NAT rule log data for Policy Analytics.
-- [Top flow log](/azure/azure-monitor/reference/tables/azfwfatflow) - The Top Flows (Fat Flows) log shows the top connections that are contributing to the highest throughput through the firewall.
+- [Top flow log](/azure/azure-monitor/reference/tables/azfwfatflow) - The Top Flows (Fat Flows) log shows the top connections that are contributing to the highest throughput through the firewall. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
 - [Flow trace](/azure/azure-monitor/reference/tables/azfwflowtrace) - Contains flow information, flags, and the time period when the flows were recorded. You can see full flow information such as SYN, SYN-ACK, FIN, FIN-ACK, RST, INVALID (flows).
 
-All resource specific tables now support Basic log mode, which can reduce logging costs by up to 80%. However, [Policy Analytics](policy-analytics.md) and [Security Copilot integrations](firewall-copilot.md) aren't compatible with Basic log mode. For more information on the limitations and differences of this logging mode, see [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs.md#table-plans). To learn about the new querying experience, see [Query data in a basic and auxiliary table](/azure/azure-monitor/logs/basic-logs-query.md).
+All resource specific tables now support the *Basic* table plan, which can reduce logging costs by up to 80%. For more information on the limitations and differences of this new logging plan, see [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs#table-plans). To learn about the new querying experience, see [Query data in a basic and auxiliary table](/azure/azure-monitor/logs/basic-logs-query).
+
+> [!NOTE]
+> - [Policy Analytics](policy-analytics.md) and [Security Copilot integrations](firewall-copilot.md) aren't compatible with the *Basic* table plan. To enable these features, make sure the required log tables are configured with the *Analytics* table plan.
+> - The table plan can be updated only once every **7 days**.
 
 ### Enable structured logs
 
@@ -107,9 +114,10 @@ To enable Azure Firewall structured logs, you must first configure a Log Analyti
 Once you configure the Log Analytics workspace, you can enable structured logs in Azure Firewall by navigating to the Firewall's **Diagnostic settings** page in the Azure portal. From there, you must select the **Resource specific** destination table and select the type of events you want to log.
 
 > [!NOTE]
-> There's no requirement to enable this feature with a feature flag or Azure PowerShell commands.
+> * To enable Azure Firewall Fat Flow Log (Top flow log), you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
 
 :::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
+
 
 ### Structured log queries
 

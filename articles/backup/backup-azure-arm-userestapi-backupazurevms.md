@@ -2,11 +2,12 @@
 title: Back up Azure VMs using REST API in Azure Backup
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure VM Backup using REST API.
 ms.topic: how-to
-ms.date: 02/09/2025
+ms.date: 10/16/2025
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to configure and manage Azure VM backups using REST API, so that I can automate backup operations and maintain data protection efficiently.
 ---
 
 # Back up an Azure VM using Azure Backup via REST API
@@ -488,7 +489,7 @@ It returns two responses: 202 (Accepted) when another operation is created, and 
 |202 Accepted     |         |     Accepted    |
 
 > [!IMPORTANT]
-> In order to protect against accidental delete scenarios, there's a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
+> In order to protect against accidental delete scenarios, there's a [soft-delete feature available](use-restapi-update-vault-properties.md#manage-soft-delete-operations-in-recovery-services-vault) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
 
 ### Undo the deletion
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table.
 author: asudbring
 ms.service: azure-virtual-network
-ms.date: 10/31/2024
+ms.date: 07/11/2025
 ms.author: allensu
 ms.topic: tutorial
 ms.custom: 
@@ -19,7 +19,7 @@ ai-usage: ai-assisted
 
 # Tutorial: Route network traffic with a route table
 
-Azure routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. Custom routes are helpful when, for example, you want to route traffic between subnets through a network virtual appliance (NVA).
+Azure routes traffic between all subnets within a virtual network by default. You can create your own routes to override Azure's default routing. Custom routes are helpful when, for example, you want to route traffic between subnets through a network virtual appliance (NVA).
 
 :::image type="content" source="./media/tutorial-create-route-table-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-create-route-table-portal/resources-diagram.png":::
 
@@ -38,11 +38,11 @@ In this tutorial, you learn how to:
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -60,7 +60,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Create subnets
 
-A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subnet is where you deploy the NVA, and the **Private** subnet is where you deploy the virtual machines that you want to route traffic to. The **subnet-1** is the subnet created in the previous steps. Use **subnet-1** for the public virtual machine.
+A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subnet is where you deploy the NVA and the **Private** subnet is where you deploy the private virtual machines you want to route traffic to. In the diagram, **subnet-1** is the **Public** subnet used for the public virtual machine.
 
 ### [Portal](#tab/portal)
 
@@ -321,13 +321,13 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 
 ### [PowerShell](#tab/powershell)
 
-Create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *vm-nva*.
+Create the virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a virtual machine named *vm-nva*.
 
 ```azurepowershell-interactive
 # Create a credential object
 $cred = Get-Credential
 
-# Define the VM parameters
+# Define the virtual machine parameters
 $vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
@@ -340,13 +340,13 @@ $vmParams = @{
     PublicIpAddressName = $null  # No public IP address
 }
 
-# Create the VM
+# Create the virtual machine
 New-AzVM @vmParams
 ```
 
 ### [CLI](#tab/cli)
 
-Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). 
+Create a virtual machine to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). 
 
 ```azurecli-interactive
 az vm create \
@@ -360,17 +360,17 @@ az vm create \
     --authentication-type password
 ```
 
-The VM takes a few minutes to create. Don't continue to the next step until Azure finishes creating the VM and returns output about the VM.
+The virtual machine takes a few minutes to create. Don't continue to the next step until Azure finishes creating the virtual machine and returns output for the virtual machine.
 
 ---
 
 ## Create public and private virtual machines
 
-Create two virtual machines in the **vnet-1** virtual network. One virtual machine is in the **subnet-1** subnet, and the other virtual machine is in the **subnet-private** subnet. Use the same virtual machine image for both virtual machines.
+Create two virtual machines in the **vnet-1** virtual network. One virtual machine is in the **subnet-1** subnet and the other virtual machine is in the **subnet-private** subnet. Use the same virtual machine image for both virtual machines.
 
 ### Create public virtual machine
 
-The public virtual machine is used to simulate a machine in the public internet. The public and private virtual machine are used to test the routing of network traffic through the NVA virtual machine.
+The public virtual machine is used to simulate a machine in the public internet. The public and private virtual machines are used to test the routing of network traffic through the NVA virtual machine.
 
 ### [Portal](#tab/portal)
 
@@ -464,13 +464,13 @@ The public virtual machine is used to simulate a machine in the public internet.
 
 ### [PowerShell](#tab/powershell)
 
-Create a VM in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *vm-public* in the *subnet-public* subnet of the *vnet-1* virtual network.
+Create a virtual machine in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a virtual machine named *vm-public* in the *subnet-public* subnet of the *vnet-1* virtual network.
 
 ```azurepowershell-interactive
 # Create a credential object
 $cred = Get-Credential
 
-# Define the VM parameters
+# Define the virtual machine parameters
 $vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
@@ -483,17 +483,17 @@ $vmParams = @{
     PublicIpAddressName = $null  # No public IP address
 }
 
-# Create the VM
+# Create the virtual machine
 New-AzVM @vmParams
 ```
 
-Create a VM in the *subnet-private* subnet.
+Create a virtual machine in the *subnet-private* subnet.
 
 ```azurepowershell-interactive
 # Create a credential object
 $cred = Get-Credential
 
-# Define the VM parameters
+# Define the virtual machine parameters
 $vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
@@ -506,15 +506,15 @@ $vmParams = @{
     PublicIpAddressName = $null  # No public IP address
 }
 
-# Create the VM
+# Create the virtual machine
 New-AzVM @vmParams
 ```
 
-The VM takes a few minutes to create. Don't continue with the next step until the VM is created and Azure returns output to PowerShell.
+The virtual machine takes a few minutes to create. Don't continue with the next step until the virtual machine is created and Azure returns the output to PowerShell.
 
 ### [CLI](#tab/cli)
 
-Create a VM in the *subnet-1* subnet with [az vm create](/cli/azure/vm). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command.
+Create a virtual machine in the *subnet-1* subnet with [az vm create](/cli/azure/vm). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command.
 
 ```azurecli-interactive
 az vm create \
@@ -529,7 +529,7 @@ az vm create \
     --no-wait
 ```
 
-Create a VM in the *subnet-private* subnet.
+Create a virtual machine in the *subnet-private* subnet.
 
 ```azurecli-interactive
 az vm create \
@@ -546,7 +546,7 @@ az vm create \
 
 ## Enable IP forwarding
 
-To route traffic through the NVA, turn on IP forwarding in Azure and in the operating system of **vm-nva**. When IP forwarding is enabled, any traffic received by **vm-nva** that's destined for a different IP address, isn't dropped and is forwarded to the correct destination.
+To route traffic through the NVA, turn on IP forwarding in Azure and in the operating system of **vm-nva**. When IP forwarding is enabled, any traffic received by **vm-nva** destined for a different IP address isn't dropped and is forwarded to the correct destination.
 
 ### Enable IP forwarding in Azure
 
@@ -820,7 +820,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
      Resume: pmtu 1500 hops 2 back 1 
     ```
     
-    You can see that there are two hops in the above response for **`tracepath`** ICMP traffic from **vm-public** to **vm-private**. The first hop is **vm-nva**. The second hop is the destination **vm-private**.
+    You can see that there are two hops in this response for **`tracepath`** ICMP traffic from **vm-public** to **vm-private**. The first hop is **vm-nva**. The second hop is the destination **vm-private**.
 
     Azure sent the traffic from **subnet-1** through the NVA and not directly to **subnet-private** because you previously added the **to-private-subnet** route to **route-table-public** and associated it to **subnet-1**.
 
@@ -854,7 +854,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
      Resume: pmtu 1500 hops 1 back 2 
     ```
 
-    You can see that there's one hop in the above response, which is the destination **vm-public**.
+    You can see there's one hop in this response, which is the destination **vm-public**.
 
     Azure sent the traffic directly from **subnet-private** to **subnet-1**. By default, Azure routes traffic directly between subnets.
 
@@ -899,7 +899,7 @@ In this tutorial, you:
 
 You can deploy different preconfigured NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking), which provide many useful network functions. 
 
-To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.yml).
+To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.yml). Routing can also be automatically configured at scale with [Azure Virtual Network Manager's user-defined route (UDR) management](../virtual-network-manager/concept-user-defined-route.md) feature.
 
 To learn how to restrict network access to PaaS resources with virtual network service endpoints, advance to the next tutorial.
 

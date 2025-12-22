@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: faq
-  ms.date: 03/23/2025
+  ms.date: 11/05/2025
 title: Azure Front Door frequently asked questions (FAQ) 
 summary : |
   This article provides answers to the most frequently asked questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -70,12 +70,26 @@ sections:
       - question: |
           What is the estimated time for deploying an Azure Front Door? Does my Front Door remain operational during the update process?
         answer: |
-          The deployment time for new Front Door configurations varies depending on the type of change. Typically, it takes between 3 and 20 minutes for the changes to propagate to all our edge locations worldwide.
+          Configuration propagation times for a single create, update, delete, WAF, and cache purge operation for Azure Front Door and CDN profiles might take up to 45 minutes for added safety. Back-to-back changes can extend the total deployment time to approximately 90 minutes. Each configuration update, including rules set adjustments, routing changes, origin or domain updates, and WAF modifications etc., is treated as a global operation. If additional operations are submitted while the first is still propagating (within its ~45-minute window), they are queued and begin only after the preceding operation completes. In this scenario, the first operation completes within the initial 45 minutes, and subsequent changes are processed in the following window. Ongoing platform enhancements are underway that will further reduce this time.
           
           > [!NOTE]  
-          > Custom TLS/SSL certificate updates might take longer, from several minutes up to an hour, to be deployed globally.
+          > Custom TLS/SSL certificate updates might take longer, up to an hour, to be deployed globally.
           
-          Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there's no risk of outage.
+          **Submit multiple purge requests**
+          
+          Each purge request can include up to 100 URLs (combination of domain and path). The first batch is processed and takes effect within approximately 45 minutes.
+          
+          If you have more than 100 URLs to purge, you must wait and verify for the first batch to complete (approximately 45 minutes) before you submit the next batch. If you submit a new purge request before the previous batch completes, the request will be rejected.
+
+          **Example: Purge 256 URLs**
+          1. Submit the first 100 URLs in the initial purge request.
+          2. Wait approximately 45 minutes and verify the first batch completed successfully.
+          3. Submit the next 101-200 URLs in the second request.
+          4. Wait approximately 45 minutes for the second batch to complete.
+          5. Submit the remaining 201-256 URLs in the third request.
+          
+          Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there is no downtime.
+
       - question: |
           Can I move Front Door and CDN profiles between resource groups or subscriptions without any downtime?
         answer:  |
@@ -112,7 +126,7 @@ sections:
       - question: |
           Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
         answer:  |
-          Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
+          Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](front-door-ddos.md).
       - question: |
           Does Azure Front Door preserve `x-forwarded-for` headers?
         answer: |
@@ -155,7 +169,7 @@ sections:
           Azure Front Door and Azure CDN are two services that provide fast and reliable web delivery for your applications. However, they aren't compatible with each other, because they share the same network of Azure edge sites to deliver content to your users. This shared network causes conflicts between their routing and caching policies. Therefore, you have to choose either Azure Front Door or Azure CDN for your application, depending on your performance and security requirements.
 
       - question: |
-          Is it possible to configure a Azure Front Door profile/endpoint behind another Front Door profile/endpoint or the other way around?
+          Is it possible to configure an Azure Front Door profile/endpoint behind another Front Door profile/endpoint or the other way around?
         answer:  |
           The fact that both profiles/endpoints would use the same Azure edge POP to handle incoming requests causes a limitation that prevents you from nesting one Azure Front Door profile/endpoint behind another. This setup would cause routing conflicts and performance issues. Therefore, you should ensure that your Azure Front Door profiles/endpoints are  not chained together, if you need to use multiple profiles/endpoints for your applications.
 
@@ -268,13 +282,57 @@ sections:
           Front Door uses TLS 1.2 as the minimum version for all profiles created after September 2019.
 
           You can choose to use TLS 1.2 or 1.3 with Azure Front Door. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
+          
+  - name: Certificate Management and DigiCert DCV Workflow Deprecation
+    questions:
 
+    - question: | 
+        What is happening with DigiCert’s CNAME Delegation DCV workflow? 
+      answer: |
+        On 15 August 2025, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. DigiCert is transitioning to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert will no longer support the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
+    
+    - question: | 
+        Which Azure Front Door SKUs are affected by this change? 
+      answer: |
+        The deprecation impacts services that rely on CNAME-based validation for automated certificate issuance and renewal, including:
+
+        - Azure Front Door (classic)
+        - Azure CDN from Microsoft (classic)
+
+    - question: | 
+        What will happen after 15 August 2025?
+      answer: |
+        Azure Front Door (classic) and Azure CDN from Microsoft (classic):
+        - Will no longer support for new domain onboarding and new profile creation.
+        - Will no longer support Azure-managed certificates.
+        - Automation scripts for these actions will begin to fail.
+        - Switching to managed certificates on existing domains will no longer be allowed.
+        - Emergent renewals of managed certificates will not be possible due to the deprecation of CNAME-based validation.
+
+    - question: | 
+        What happens to existing managed certificates?
+      answer: |
+        Existing managed certificates will be automatically renewed before 15 August 2025 and remain valid until 14 April, 2026. However, any renewal required after 15 August 2025 will not be possible.
+
+    - question: | 
+        What actions should I take to avoid service disruption?
+      answer: |
+        Azure Front Door (classic)
+
+        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
+        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
+
+        Azure CDN from Microsoft (classic)
+
+        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
+        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
+    
   - name: Billing
     questions:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          Azure Front Door is a service that provides fast and secure web delivery. It allows you to define how your web traffic is routed and optimized across multiple regions and endpoints. Azure Front Door resources, such as Front Door profiles and routing rules, are only charged when they're enabled. However, web application firewall (WAF) policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
+          Azure Front Door resources cannot be disabled. They can only be deleted. Variable meters like Data Transfer Out, Data Transfer In and Requests are not charged when there is no traffic but base fee is charged even if there is no traffic. Base fee will be charged till the profile is deleted. For AFD Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
 
   - name: Caching
     questions:

@@ -20,7 +20,7 @@ This article describes how to use Azure CLI Python to automate the creation of A
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A DNS zone in Azure to manage your domains.
 - The latest [Python.org](https://www.python.org/downloads/).
 - The latest [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).

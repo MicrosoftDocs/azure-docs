@@ -7,8 +7,9 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 07/29/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Download or view your Azure billing invoice
@@ -47,11 +48,12 @@ Invoices are generated for each [billing profile](../understand/mca-overview.md#
 > VAT taxes shown on your invoice might have imprecise decimal point rounding that results in tax that's under or overcharged. For more information, see [What is the Modern Limited Risk Distributor model?](../understand/mca-understand-your-invoice.md#what-is-the-modern-limited-risk-distributor-model)
 
 1. Search for **Cost Management + Billing**.
-2. Select a billing profile.
-3. Select **Invoices**.
+1. If needed, select a scope.
+
+1. Select **Billing>Invoices**
+
 4. In the invoice grid, find the row of the invoice you want to download.
-5. Select the download symbol at the end of the row.
-6. In the download context menu, select **Invoice**.
+1. Select the download symbol at the end of the row to start the download.
 
 If you don't see an invoice for the last billing period, see the following section.
 
@@ -92,13 +94,14 @@ If you have a Microsoft Customer Agreement, you can opt in to get your invoice i
 1. Search for **Cost Management + Billing**.
 1. Select a billing profile.
 1. Under **Settings**, select **Properties**.
-1. Under **Email Invoice**, select **Update email invoice preference**.
-1. Select **Opt in**.
-1. Select **Update**.
+1. Under **Invoice and payment contact settings**, select **Manage settings**.
+1. Toggle the **Get invoices in email attachments** option to **on**
+
+1. Select **Save changes**.
 
 ### Opt out of getting your billing profile invoices in email
 
-You can opt out of getting your invoice by email by following the preceding steps and select **Opt out**. All Owners, Contributors, Readers, and Invoice managers will be opted out of getting the invoice by email, too. If you're a Reader, you can't change the email invoice preference.
+You can opt out of getting your invoice by email by following the preceding steps and set the toggle to **off**. All Owners, Contributors, Readers, and Invoice managers will be opted out of getting the invoice by email, too. If you're a Reader, you can't change the email invoice preference.
 
 ## Azure Government support for invoices
 

@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 05/19/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
+# Customer intent: "As a web application administrator, I want to configure a rate-limit rule for my Azure Front Door endpoint, so that I can manage incoming traffic and protect my back-end services from performance issues during high-traffic promotions."
 ---
 
 # Configure a Web Application Firewall rate-limit rule
 
-The Azure Web Application Firewall rate-limit rule for Azure Front Door controls the number of requests allowed from a particular source IP address to the application during a rate-limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md).
+The Azure Web Application Firewall rate-limit rule for Azure Front Door controls the number of requests allowed from a particular source IP address to the application during a rate-limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
 
 This article shows how to configure a web application firewall (WAF) rate-limit rule on Azure Front Door Standard and Premium tiers.
 
@@ -25,7 +26,7 @@ Suppose you're responsible for a public website. You've just added a page with i
 You decide to create a rate-limit rule that restricts each source IP address to a maximum of 1,000 requests per minute. You only apply this rule to requests that contain `*/promo*` in the request URL.
 
 > [!TIP]
-> If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ::: zone-end
 

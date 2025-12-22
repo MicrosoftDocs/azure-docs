@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 11/18/2025
 
-#CustomerIntent: As an Azure administrator, I want to learn what connectivity problems I can use Connection troubleshoot to diagnose so that I can use it to resolve those problems.
+# Customer intent: As an Azure administrator, I want to understand the capabilities of the Connection troubleshoot tool so that I can effectively diagnose and resolve network connectivity issues in my cloud infrastructure.
 ---
 
 # Connection troubleshoot overview
@@ -21,11 +21,22 @@ Connection troubleshoot reduces the Mean Time To Resolution (MTTR) by providing 
 
 - Connectivity test with different destination types (VM, URI, FQDN, or IP Address)
 - Configuration issues that impact reachability
-- All possible hop by hop paths from the source to destination
-- Hop by hop latency
 - Latency (minimum, maximum, and average between source and destination)
 - Graphical topology view from source to destination
 - Number of probes failed during the connection troubleshoot check
+
+## Agentless experience (preview)
+
+Connection troubleshoot now supports an agentless experience (currently in preview). You no longer need to install the Network Watcher agent VM extension on your virtual machines to run connectivity tests. Features and functionality may change before general availability.
+
+Previously, connectivity tests with Connection troubleshoot required that the source virtual machine had the Network Watcher agent VM extension installed. This extension was necessary to run tests from the VM.
+
+### What's new
+
+With the agentless (preview) update, you can now run connectivity tests between Azure resources without installing any diagnostic agent or VM extension. This simplifies setup, reduces operational overhead, and enables faster troubleshooting directly from the Azure portal.
+
+- **No agent installation required**: Connectivity tests can be initiated without deploying or updating the Network Watcher agent VM extension on your Windows or Linux virtual machines.
+- **Streamlined experience**: All diagnostics are performed using Azure platform APIs, making the process seamless and efficient.
 
 ## Supported source and destination types
 
@@ -36,11 +47,6 @@ Connection troubleshoot provides the capability to check TCP or ICMP connections
 - Azure Bastion instances
 - Application gateways v2 with the exception of gateways enrolled in the [Private Application Gateway deployment](../application-gateway/application-gateway-private-deployment.md)
 
-> [!IMPORTANT]
-> Connectivity test of connection troubleshoot requires that the virtual machine you run the test from has the ***Network Watcher agent VM extension*** installed.  This extension is not required for running other connection troubleshoot tests or on the destination virtual machine.
-> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
-> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
-> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
 
 Connection troubleshoot can test connections to any of these destinations:
 

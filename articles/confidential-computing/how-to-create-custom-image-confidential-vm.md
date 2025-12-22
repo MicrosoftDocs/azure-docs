@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 6/09/2023
 ms.author: corsini
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud engineer, I want to create a custom image for Azure confidential VMs using the CLI, so that I can ensure my virtual machines are preconfigured with the necessary software and security settings."
 ---
 
 # How to create a custom image for Azure confidential VMs
@@ -20,7 +21,7 @@ Creating a custom image allows you to preconfigure your confidential VM with spe
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Launch Azure Cloud Shell
 

@@ -8,7 +8,10 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-ansible
+ms.custom:
+  - devx-track-ansible
+  - sfi-ropc-nochange
+# Customer intent: As an SAP operator, I want to download SAP software using Ansible playbooks in my Azure environment, so that I can automate the deployment process and effectively manage my SAP resources.
 ---
 
 # Download SAP software
@@ -17,7 +20,7 @@ You need a copy of the SAP software before you can use [SAP Deployment Automatio
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An SAP user account (SAP-User or S-User account) with software download privileges.
 
 ## Configure a key vault

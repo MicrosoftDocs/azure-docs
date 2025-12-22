@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mattmcinnes
+# Customer intent: As a Linux VM administrator, I want to implement the Microsoft Azure Network Adapter, so that I can enhance the networking performance and availability of my virtual machines in Azure.
 ---
 
 # Linux VMs with the Microsoft Azure Network Adapter
@@ -27,7 +28,13 @@ Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-ove
 - Red Hat Enterprise Linux 8.10
 - Red Hat Enterprise Linux 9.2
 - Red Hat Enterprise Linux 9.4
+- Red Hat Enterprise Linux 9.6
+
 - SUSE Linux Enterprise Server 15 SP4
+- Rocky Linux (CIQ) 8.10 (all variants)
+
+- Rocky Linux (CIQ) 9.2+ (all variants)
+
 - Debian 12 "Bookworm"
 - Oracle Linux 8.0 UEK R7
 - Oracle Linux 9.0 UEK R7

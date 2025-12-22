@@ -38,6 +38,34 @@ items:
        href: model-configuration.md
      - name: Inference information
        href: inferences.md
+     - name: Inference types
+       items:
+         - name: Age Mismatch
+           href: age-mismatch-inference.md
+         - name: Sex Mismatch
+           href: sex-mismatch-inference.md
+         - name: Laterality Discrepancy
+           href: laterality-mismatch-inference.md
+         - name: Complete Order Discrepancy
+           href: complete-order-discrepancy-inference.md
+         - name: Limited Order Discrepancy
+           href: limited-order-discrepancy-inference.md
+         - name: Finding
+           href: finding-inference.md
+         - name: Critical Result
+           href: critical-result-inference.md
+         - name: Follow-Up Recommendation
+           href: recommendation-inference.md
+         - name: Communication
+           href: communication-inference.md
+         - name: Radiology Procedure
+           href: radiology-procedure-inference.md
+         - name: Scoring and Assessment
+           href: scoring-and-assessment-inference.md
+         - name: Quality Measure
+           href: quality-measure-inference.md
+         - name: Clinical Guidance
+           href: guidance-inference.md
 - name: Reference
   items:
      - name: Tutorial
@@ -52,8 +80,8 @@ items:
            href: /java/api/overview/azure/health-insights-radiologyinsights-readme
          - name: Python
            href: /python/api/overview/azure/healthinsights-radiologyinsights-readme
-#         still being finalized- name: JavaScript
-#           href: /javascript/api/overview/azure/health-insights-radiologyinsights-rest-readme
+         - name: JavaScript
+           href: /javascript/api/overview/azure/health-insights-radiologyinsights-rest-readme?view=azure-node-latest
 - name: Resources
   items:
      - name: FAQ

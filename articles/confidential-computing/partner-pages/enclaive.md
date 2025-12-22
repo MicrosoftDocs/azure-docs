@@ -5,9 +5,10 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: As a cloud developer, I want to implement Enclaive's solutions for confidential computing, so that I can secure my applications from insider threats without modifying my existing code.
 ---
 
 # Enclaive

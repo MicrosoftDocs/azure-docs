@@ -4,9 +4,10 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 03/27/2025
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 12/09/2025
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
+  ms.custom: build-2025
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -148,6 +149,10 @@ sections:
         answer: |
           No, you can't retain one single restore point. When you delete the previous restore points, the chain gets deleted. Therefore, you can't selectively retain or delete a recovery point.
 
+      - question: In Azure VM Backup, what is the Snapshot Tier and Storage Redundancy for snapshot taken as part of backup?
+        answer: |
+          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage locates in the region which supports Zone Redundancy, snapshots will be of Zone Redundant Storage.
+
       - question: How long can I retain backup points of Azure VMs using the backup policy?
         answer: |
           The maximum retentions of the backup points are:
@@ -157,6 +162,47 @@ sections:
           - **Retention of monthly backup points**: 1188 months
           - **Retention of yearly backup points**: 99 years 
 
+      - question: Can I back up a VM disks that are created in the Azure Classic Storage?
+        answer: |
+          No, the support for disks created in Azure Classic Storage is no longer available. To ensure continued functionality, you must migrate these disks to Azure Resource Manager Storage. Also, Classic Storage accounts can't support ARM-based Virtual Machines (VMs), and no workarounds exist to enable compatibility.
+
+          >[!Important]
+          >Support for backup of all Classic VMs is planned for deprecation on September 30, 2025. We recommend that you migrate the Classic VMs and associated disks to Azure Resource Manager Storage before this timeline to avoid disruptions.
+ 
+      - question: How Soft-Delete behavior occurs when the retention of the backup policy is changed or modified?
+        answer: |
+          When the retention period of a backup policy is changed, the soft-delete behavior for restore points (RPs) is determined based on the current policy at the time of evaluation—not the policy in place when the RP was created.
+      - question: I have an Azure VM stored in a zone with a Premium SSD ZRS disk. What happens if I restore this VM to a Paired region using CRR where ZRS is not supported?
+        answer: |
+          When restoring a VM to a peered region that does not support Zone-Redundant Storage (ZRS), Azure Backup will automatically create the disk in the same performance tier (e.g., Standard or Premium) as the original disk, but with Locally Redundant Storage (LRS) instead of ZRS. This ensures that the restore operation completes successfully, even though the redundancy model changes.
+      - question: Is 64 TB disk support for Azure Backup available in all regions?
+        answer: |
+          Azure Backup supports individual disk sizes up to 64 TB and a combined total of 512 TB per VM. This support is available in all Azure regions where Azure Backup services are offered.
+      - question: How does the MDCC backup works via Enhanced Policy with and without selecting the option "only Crash Consistency Snapshot"?
+        answer: |
+          The behavior of MDCC backup under Enhanced Policy depends on whether the **"Only Crash Consistency Snapshot"** checkbox is selected:
+          
+          **When the checkbox is NOT selected:**
+          
+          Enhanced Policy will attempt to take application-consistent or filesystem-consistent backups. However, if these attempts fail, the policy will fall back to crash-consistent backups at specific intervals:
+            - A crash-consistent snapshot will be taken on the 4th, 6th, and 8th attempt.
+            - This fallback ensures backup continuity even when consistency cannot be guaranteed.
+          
+          **When the checkbox is selected:**
+
+          The policy will not attempt application or filesystem consistency. Instead, it will directly initiate a crash-consistent MDCC backup without any retries for higher consistency levels.
+          
+          This option is useful when speed and simplicity are prioritized over consistency guarantees.
+      - question: When we migrate the policy from the Standard to enhanced, how does the retention period will apply on the restore points?
+        answer: |
+          Retention Period will apply as per the new enhanced policy for all the restore points.
+      - question: Why don’t I see the updated expiry time for my Recovery Points immediately after changing the backup policy?
+        answer: |
+          When you modify a backup policy (for example, changing the retention duration), the updated expiry time for Recovery Points (RPs) is not reflected instantly on the Azure portal. This is expected behavior.
+          
+          The expiry time is updated only after the system runs its daily cleanup process (also known as the expired Recovery Points pruning job). This job typically runs once every 24 hours. Therefore, it may take up to 24 hours for the new expiry time to appear on the portal for existing or newly created Recovery Points.
+          
+          If you don’t see the updated expiry time immediately, please wait for up to 24 hours before raising a support request.
   - name: Restore
     questions:
       - question: How do I decide whether to restore disks only or a full VM?
@@ -218,7 +264,7 @@ sections:
 
       - question: How do I restore a VM into powered down state?
         answer: |
-          To restore a VM in powered down state, you can [create a VM](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) or [restore disks](./backup-azure-arm-restore-vms.md#restore-disks), but you can't replace an existing VM. Learn more about the [available restore options](./backup-azure-arm-restore-vms.md#restore-options).
+          To restore a VM in powered down state, you can [create a VM](./backup-during-vm-creation.md#create-a-vm-with-backup-configuration) or [restore disks](./backup-azure-arm-restore-vms.md#restore-disks), but you can't replace an existing VM. Learn more about the [available restore options](./backup-azure-arm-restore-vms.md#restore-options).
 
       - question: Can I restore Azure VM that is in the powered-off state?
         answer: |
@@ -228,7 +274,7 @@ sections:
 
       - question: Is there a limit to trigger restore in a day?
         answer: |
-          Yes, the default maximum limit to trigger restore is 20 attempts per VM in 24 hours, and 24 hours window gets reset at *UTC 00:00*.
+          The restore limit applies per data source within a 24-hour window. You can restore the same VM up to 20 times in that period. Restoring multiple VMs simultaneously is allowed, but may trigger throttling from other Azure services, such as [Azure Resource Manager due to request limits](/azure/azure-resource-manager/management/request-limits-and-throttling#migrating-to-regional-throttling-and-token-bucket-algorithm).
 
       - question: How does restored disk SKU depend on target SA provided?
         answer: |
@@ -254,7 +300,7 @@ sections:
 
       - question: Can I restore an Azure Virtual Machine in a different subscription?
         answer: |
-          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores.
+          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation).
 
       - question: Does Cross Subscription Restore support all Azure VM?
         answer: |
@@ -266,7 +312,7 @@ sections:
 
       - question: Can I perform Cross Subscription Restore for Azure VMs running in secondary regions?
         answer: |
-          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) does not support restore from [secondary regions](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+          Yes.
 
       - question: Can I use Enhanced policy for Cross Subscription Restore?
         answer: |
@@ -307,6 +353,12 @@ sections:
           - **MarketPlace Image VMs**: Only VMs created from a MarketPlace image will have the Offer, SKU, and Publisher details. These properties are derived from the VM image itself. When a VM is created from a MarketPlace image, the createOption is set to **from image**. This ensures that the Offer, SKU, and Publisher properties are included during the VM creation process. 
           - **VMs Created from Disks**: When a VM is created from disks (such as restored VMs, uploaded VMs, or VMs created from snapshots), the createOption is set to **Attach** instead of "from image". In this case, the Offer, SKU, and Publisher properties are not included because these properties are read-only and can only be added during the initial VM creation process when the createOption is **from image**. 
 
+      - question: What is the expected throughput when we perform the restore from the Vault storage.
+        answer: |
+          For Tier-2 restores (restores from vault data), the time required depends on the amount of allocated data that needs to be transferred. In one observed case, disks with approximately 2 TB of allocated data each contributed significantly to the overall transfer time. While a transfer rate of 30 MBps is generally considered optimal, we achieved around 50 MBps in this instance.
+          
+          For example, if a customer has a 16 TB disk with 2 TB of allocated data per segment, the total restore time could extend up to 20 hours at the optimal transfer rate.
+ 
   - name: Manage VM backups
     questions:
       - question: What happens if I modify a backup policy?
@@ -399,6 +451,10 @@ sections:
         answer: |
           Azure Backup backs up the secrets and KEK data of the key version during backup, and restores the same. However, booting ADE VMs with older version keys are also possible.
 
+      - question: How often are Microsoft managed keys rotated for Azure Backup?
+        answer: |
+          Microsoft-managed keys are rotated as per compliance requirements. If you have specific key rotation requirements, we recommend that you move to customer-managed keys so that you can manage and audit the rotation manually. Learn more [about Azure Storage encryption] (..\storage\common\storage-service-encryption.md).
+
       - question: When Vault is configured with CRR, what happens to the secondary data if the primary region fails?
         answer: |
           Backup data fully replicated to the secondary region before the failure of the primary region will remain intact. This remains the case even after the primary region has recovered from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure as per the replication schedule. Note that the RPO for the secondary region is 36 hours i.e., data takes approximately 36 hours to be fully replicated from primary to the secondary region.
@@ -409,7 +465,7 @@ sections:
 
       - question: Why the expiry time for latest recovery points doesn't appear in the Azure portal for VMs?
         answer: |
-          The expiry time for the latest recovery point doesn't appear because it has infinite retention until a newer one gets created. The expiry time of other recovery points will be available in the Azure Portal after 24 hours of creation, depending on when the garbage collection runs (that will be within 24 hours).
+          The expiry time for the latest recovery point doesn't appear because it has infinite retention until a newer one gets created. The expiry time of other recovery points will be available in the Azure portal after 24 hours of creation, depending on when the garbage collection runs (that will be within 24 hours).
 
       - question: Will an Azure VM restore operation to original or alternate location affect a scheduled backup?
         answer: |
@@ -449,7 +505,7 @@ sections:
         answer: |
           This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
 
-      - question: If backup fails with time out error for large disk VMs after running sometime, when can I re-trigger the backup job again and will the backup continue from where it failed?
+      - question: If backup fails with a time-out error for large disk VMs after running sometime, when can I re-trigger the backup job again and will the backup continue from where it failed?
         answer: |
           For Initial Replica, a full backup will be re-initiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
@@ -459,3 +515,12 @@ sections:
 
           >[!Note]
           >GRS functions only when both paired regions support SSD V2/Ultra disks. 
+
+      - question: Why don’t I see the updated expiry time for my Recovery Points immediately after changing the backup policy?
+        answer: |
+          When you modify a backup policy (for example, changing the retention duration), the updated expiry time for Recovery Points (RPs) is not reflected instantly on the Azure portal. This is expected behavior.
+          
+          The expiry time is updated only after the system runs its daily cleanup process (also known as the expired Recovery Points pruning job). This job typically runs once every 24 hours. Therefore, it may take up to 24 hours for the new expiry time to appear on the portal for existing or newly created Recovery Points.
+          
+          If you don’t see the updated expiry time immediately, please wait for up to 24 hours before raising a support request.
+

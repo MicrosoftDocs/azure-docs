@@ -2,7 +2,7 @@
 title: Recommended policies for Azure virtual machines
 description: Describes recommended policies for Azure virtual machines.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Azure virtual machine recommended policies
@@ -19,6 +19,6 @@ As an organization reaches maturity with [organizing their resources and resourc
 
 ## Next steps
 
-- [Azure Policy samples](../samples/index.md) and [Azure Policy built-in definitions](../samples/built-in-policies.md).
+- [Azure Policy samples](/azure/governance/policy/samples/index) and [Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies).
 - [Azure Policy definitions effect basics](../concepts/effect-basics.md).
 - [Remediate non-compliant resources with Azure Policy](../how-to/remediate-resources.md).

@@ -4,18 +4,20 @@ description: Learn how to use Microsoft Entra with Azure Cache for Redis.
 ms.custom: references_regions, ignite-2024
 
 ms.topic: conceptual
-ms.date: 07/17/2024
+ms.date: 07/22/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
 
 # Use Microsoft Entra for cache authentication
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 Azure Cache for Redis offers two methods to [authenticate](cache-configure.md#authentication) to your cache instance: access keys and Microsoft Entra.
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
-Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open-source Redis.
+Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) supported in open-source Redis.
 
 To use the ACL integration, your client application must assume the identity of a Microsoft Entra entity, like service principal or managed identity, and connect to your cache. In this article, you learn how to use your service principal or managed identity to connect to your cache. You also learn how to grant your connection predefined permissions based on the Microsoft Entra artifact that's used for the connection.
 
@@ -142,16 +144,14 @@ The library [`Microsoft.Azure.StackExchangeRedis`](https://www.nuget.org/package
 
 The following table includes links to code samples. They demonstrate how to connect to your Azure Cache for Redis instance by using a Microsoft Entra token. Various client libraries are included in multiple languages.
 
-| Client library  | Language   | Link to sample code|
-|----|----|----|
-| StackExchange.Redis | .NET           | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
-| go-redis            | Go             | [go-redis code sample](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#example-package-Redis) |
-| redis-py            | Python         | [redis-py code sample](https://aka.ms/redis/aad/sample-code/python)        |
-| Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
-| Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
-| Redisson            | Java           | [Redisson code sample](https://aka.ms/redis/aad/sample-code/java-redisson) |
-| ioredis             | Node.js        | [ioredis code sample](https://aka.ms/redis/aad/sample-code/js-ioredis)    |
-| node-redis          | Node.js        | [node-redis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
+| Client library      | Language | Link to sample code                                                                            |
+|---------------------|----------|------------------------------------------------------------------------------------------------|
+| StackExchange.Redis | .NET     | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis) |
+| redis-py            | Python   | [redis-py code sample](https://redis.io/docs/latest/develop/clients/redis-py/amr/)             |
+| Jedis               | Java     | [Jedis code sample](https://redis.io/docs/latest/develop/clients/jedis/amr/)                   |
+| Lettuce             | Java     | [Lettuce code sample](https://redis.io/docs/latest/develop/clients/lettuce/amr/)               |
+| node-redis          | Node.js  | [node-redis code sample](https://redis.io/docs/latest/develop/clients/nodejs/amr/)             |
+| go-redis            | Go       | [go code sample](https://redis.io/docs/latest/develop/clients/go/amr)                          |
 
 ### Best practices for Microsoft Entra authentication
 

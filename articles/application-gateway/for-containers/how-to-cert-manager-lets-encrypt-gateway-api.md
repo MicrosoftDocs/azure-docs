@@ -2,11 +2,12 @@
 title: Cert-manager and Let's Encrypt with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with certificates managed by CNCF project cert-manager.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 3/21/2025
-ms.author: greglin
+ms.date: 10/23/2025
+ms.author: mbender
+# Customer intent: "As a cloud infrastructure engineer, I want to configure an Application Gateway for Containers with automated SSL/TLS certificates using cert-manager and Let's Encrypt, so that I can ensure secure communication for my deployed applications in a Kubernetes environment."
 ---
 
 # Cert-manager and Let's Encrypt with Application Gateway for Containers - Gateway API
@@ -170,12 +171,11 @@ status:
 Install cert-manager using Helm:
 
 ```bash
-helm repo add jetstack https://charts.jetstack.io --force-update
 helm install \
-  cert-manager jetstack/cert-manager \
+  cert-manager oci://quay.io/jetstack/charts/cert-manager \
+  --version v1.19.1 \
   --namespace cert-manager \
   --create-namespace \
-  --version v1.17.1 \
   --set config.enableGatewayAPI=true \
   --set crds.enabled=true
 ```
@@ -362,9 +362,9 @@ EOF
 
 ---
 
-### Create a HTTPRoute that listens for your hostname
+### Create an HTTPRoute that listens for your hostname
 
-Create a HTTPRoute to handle requests received by the `https-listener` listener.
+Create an HTTPRoute to handle requests received by the `https-listener` listener.
 
 >[!IMPORTANT]
 >Ensure you replace `contoso.com` with the domain name you are expecting the certificate to be issued to.
@@ -431,7 +431,7 @@ status:
 Now we're ready to send some traffic to our sample application, via the hostname used for your certificate.
 
 >[!IMPORTANT]
->Ensure you replace `contoso.com` with the domain name you are expecting the certificate to be issued to.
+>Ensure you replace `contoso.com` with the domain name you're expecting the certificate to be issued to.
 
 ```bash
 curl https://contoso.com/ -v 2>&1 | grep issuer

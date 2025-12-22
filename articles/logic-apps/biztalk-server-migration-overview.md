@@ -7,8 +7,8 @@ ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 12/03/2024
+ms.topic: concept-article
+ms.date: 07/03/2025
 # Customer intent: As a BizTalk Server customer, I want to better understand why I should migrate from BizTalk Server to Azure Logic Apps in the cloud or hybrid deployment.
 ---
 
@@ -265,9 +265,9 @@ Adapters provide the connectivity capabilities in BizTalk Server and run locally
 
 Connectors provide the connectivity capabilities in Azure Logic Apps and offer an abstraction on top of APIs that are usually owned by the underlying SaaS system. For example, services such as SharePoint are built using an API-first approach where APIs provide functionality to the service for end users, but the same functionality is exposed for other systems to call through an API. To simplify calling these APIs, connectors use metadata to describe the messaging contract so that developers know what data is expected in the request and in the response.
 
-The following screenshot shows the connector operations search experience in the designer for a Standard logic app workflow in single-tenant Azure Logic Apps. When you select **In-app** from the **Runtime** list, you can find built-in connectors such as Azure Functions, Azure Service Bus, IBM DB2, SQL Server, Azure Storage, File System, HTTP, and more. If you select **Shared**, you can find over 1,000 connectors, including other Microsoft SaaS connectors, partner SaaS connectors, and so on.
+The following screenshot shows the connector operations search experience in the designer for a Standard logic app workflow in single-tenant Azure Logic Apps. When you select **Built-in**, you can find built-in connectors such as Azure Functions, Azure Service Bus, IBM DB2, SQL Server, Azure Storage, File System, HTTP, and more. If you select **Shared**, you can find over 1,000 connectors, including other Microsoft SaaS connectors, partner SaaS connectors, and so on.
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/azure-logic-apps-connectors-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and connectors based on whether In-app or Shared is selected.":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/azure-logic-apps-connectors-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and connectors based on whether Built-in or Shared is selected.":::
 
 ### Web services and API connectivity
 
@@ -308,7 +308,7 @@ Based on the software vendor who implements the underlying service that a connec
 
 Microsoft provides strong layers of protection by [encrypting data during transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) and at rest. When Azure customer traffic moves between datacenters, outside physical boundaries that aren't controlled by Microsoft or on behalf of Microsoft, a data-link layer encryption method that uses [IEEE 802.1AE MAC Security Standards (MACsec)](https://1.ieee802.org/security/802-1ae/) applies from point-to-point across the underlying network hardware.
 
-Microsoft gives you the option to use [Transport Layer Security (TLS) protocol](../security/fundamentals/encryption-overview.md#tls-encryption-in-azure) for protecting data that travels between cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity, which enables detection of message tampering, interception, and forgery along with interoperability, algorithm flexibility, and ease of deployment and use.
+Microsoft gives you the option to use [Transport Layer Security (TLS) protocol](../security/fundamentals/encryption-overview.md#tls-encryption) for protecting data that travels between cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity, which enables detection of message tampering, interception, and forgery along with interoperability, algorithm flexibility, and ease of deployment and use.
 
 While this section focused on RESTful connectivity through connectors, you can implement SOAP web service connectivity through the custom connector experience or by using the API Management experience, which provides great SOAP capabilities. For more information, see [Increasing business value by integrating SOAP legacy assets with Azure logic Apps and Azure APIM](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/increasing-business-value-by-integrating-soap-legacy-assets-with/ba-p/4238077).
 

@@ -13,7 +13,7 @@ items:
   - name: What's new
     href: whats-new.md
   - name: Compare available plans
-    href: ../basic-standard/plan-comparison.md
+    href: ../basic-standard/plan-comparison.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
   - name: Manage costs
     href: ../basic-standard/cost-management.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
   - name: Compare Java application hosting options on Azure
@@ -119,8 +119,6 @@ items:
       href: quickstart-automate-deployments-github-actions-enterprise.md
   - name: Run microservice apps
     href: ../basic-standard/quickstart-sample-app-introduction.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
-  - name: Authenticate client with Spring Cloud Gateway
-    href: tutorial-authenticate-client-with-gateway.md
 - name: Concepts
   items:
   - name: App and deployment
@@ -401,8 +399,6 @@ items:
   items:
   - name: API breaking changes
     href: ../basic-standard/breaking-changes.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
-  - name: Azure CLI plugin
-    href: /cli/azure/spring?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
   - name: Azure Pipelines task

@@ -10,7 +10,10 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
+# Customer intent: As an SAP administrator, I want to configure the SAP Landscape Management connector for Azure, so that I can effectively manage and monitor my SAP landscapes hosted on Azure virtual machines.
 ---
 # SAP LaMa connector for Azure
 
@@ -85,13 +88,13 @@ Follow these steps to create a service principal for the SAP LaMa connector for 
 1. Write down the value. You'll use it as the password for the service principal.
 1. Write down the application ID. You'll use it as the username of the service principal.
 
-By default, the service principal doesn't have permissions to access your Azure resources. Assign the Contributor role to the service principal at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+By default, the service principal doesn't have permissions to access your Azure resources. Assign the Contributor role to the service principal at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use a managed identity to get access to the Azure API
 
 To be able to use a managed identity, your SAP LaMa instance has to run on an Azure VM that has a system-assigned or user-assigned identity. For more information about managed identities, read [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-By default, the managed identity doesn't have permissions to access your Azure resources. Assign the Contributor role to the VM identity at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+By default, the managed identity doesn't have permissions to access your Azure resources. Assign the Contributor role to the VM identity at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 In your configuration of the SAP LaMa connector for Azure, select **Use Managed Identity** to enable the use of the managed identity. If you want to use a system-assigned identity, leave the **User Name** field empty. If you want to use a user-assigned identity, enter its ID in the **User Name** field.
 
@@ -276,7 +279,9 @@ Azure NetApp Files requires a delegated subnet, which must be part of the same v
 
 1. Create the delegated subnet for *Microsoft.NetApp/volumes*.
 
-   ![Screenshot that shows selections for adding a delegated subnet.](media/lama/sap-lama-addsubnet-50.png)
+   ![Screenshot that shows selections for adding subnet.](media/lama/sap-lama-addsubnet-50.png)
+   
+   ![Screenshot that shows selections for choosing subnet delegation.](media/lama/sap-lama-addsubnet2-50.png)
 
    ![Screenshot that shows a list of subnets.](media/lama/sap-lama-subnets.png)
 
@@ -322,10 +327,10 @@ Azure NetApp Files requires a delegated subnet, which must be part of the same v
    1. Mount the Azure NetApp Files volumes by using the following commands:
 
       ```bash
-      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
-      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-sapmnt-sid /sapmnt/AN1
-      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
-      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
+      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.133:/an1-home-sidadm /home/an1adm
+      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.134:/an1-sapmnt-sid /sapmnt/AN1
+      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.134:/an1-usr-sap-sid /usr/sap/AN1
+      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.134:/global-usr-sap-trans /usr/sap/trans
       ```
 
       You can also look up the mount commands from the portal. The local mount points need to be adjusted.

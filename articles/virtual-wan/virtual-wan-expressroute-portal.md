@@ -35,7 +35,9 @@ Verify that you've met the following criteria before beginning your configuratio
 
 * The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium.
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+* If you plan to remove Azure BGP communities from virtual network and UDR routes, don't advertise these routes back into Azure, as this causes routing issues. We don't recommend advertising Azure routes back into Azure.
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
@@ -64,8 +66,8 @@ You can also create a gateway in an existing hub by editing the hub.
 
 1. Go to the virtual WAN.
 1. In the left pane, select **Hubs**.
-1. On the **Virtual WAN | Hubs** page, click the hub that you want to edit.
-1. On the **Virtual HUB** page, at the top of the page, click **Edit virtual hub**.
+1. On the **Virtual WAN | Hubs** page, select the hub that you want to edit.
+1. On the **Virtual HUB** page, at the top of the page, select **Edit virtual hub**.
 1. On the **Edit virtual hub** page, select the checkbox **Include ExpressRoute gateway** and adjust any other settings that you require.
 1. Select **Confirm** to confirm your changes. It takes about 30 minutes for the hub and hub resources to fully create.
 
@@ -79,14 +81,14 @@ Once you've created an ExpressRoute gateway, you can view gateway details. Navig
 
 In this section, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
-1. On the page for your virtual WAN, click **Virtual network connection**.
-2. On the virtual network connection page, click **+Add connection**.
+1. On the page for your virtual WAN, select **Virtual network connection**.
+2. On the virtual network connection page, select **+Add connection**.
 3. On the **Add connection** page, fill in the following fields:
 
     * **Connection name** - Name your connection.
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway (neither VPN nor ExpressRoute).
+    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway (i.e. VPN, ExpressRoute).
 
 ## <a name="connectcircuit"></a>Connect your circuit to the hub gateway
 
@@ -103,7 +105,7 @@ First, verify that your circuit's peering status is provisioned in the **Express
 
 Use the authorization key and circuit URI you were provided in order to connect.
 
-1. On the ExpressRoute page, click **+Redeem authorization key**
+1. On the ExpressRoute page, select **+Redeem authorization key**
 2. On the Redeem authorization key page, fill in the values.
 3. Select **Add** to add the key.
 4. View the circuit. A redeemed circuit only shows the name (without the type, provider and other information) because it is in a different subscription than that of the user.
@@ -139,6 +141,26 @@ By default, VNet to Virtual WAN traffic is disabled over ExpressRoute. You can e
 1. In the "Virtual network gateway" blade, enable **Allow traffic from remote Virtual WAN networks.** See instructions [here.](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute)
 
 We recommend that you keep these toggles disabled and instead create a Virtual Network connection between the standalone virtual network and Virtual WAN hub. This offers better performance and lower latency, as conveyed in our [FAQ.](virtual-wan-faq.md#when-theres-an-expressroute-circuit-connected-as-a-bow-tie-to-a-virtual-wan-hub-and-a-standalone-vnet-what-is-the-path-for-the-standalone-vnet-to-reach-the-virtual-wan-hub)
+
+## <a name="modify"></a> Modify an ExpressRoute circuit
+
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity. Learn more about [Modifying an ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md#modify).
+
+## <a name="delete-connection"></a> Delete your ExpressRoute Connection to the hub
+When deleting an ExpressRoute connection to a Virtual WAN hub, you can delete the ExpressRoute Connection by navigating to:
+* The circuit connected to the hub: Your Virtual WAN -> Hubs -> The Relevant Hub -> Overview -> ExpressRoute -> Select the relevant circuit -> Connections -> Select the relevant connection -> Delete
+* The ExpressRoute Gateway in the hub: Your Virtual WAN -> Hubs -> The Relevant Hub -> Overview -> ExpressRoute -> Select the ExpressRoute gateway link in the top right -> ExpressRoute Connections -> Select the relevant connection -> Delete
+
+Make sure to review the following guidance for your ExpressRoute Connections as well:
+* Review how you'd like to manage your connection authorization keys. Learn more about [Managing ExpressRoute circuit authorization keys](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#circuit-owner-operations).
+
+> [!NOTE]
+> If you encounter difficulties when deleting ExpressRoute connections, try using alternative deletion methods. You can delete connections through the Azure portal, PowerShell, or Azure CLI. Using a different method may resolve any transient issues you experience during the deletion process.
+>
+
+## <a name="delete-circuit"></a> Deprovision and delete your ExpressRoute Circuit
+
+You can deprovision and delete your ExpressRoute Circuit by following the steps in [Deprovisioning and deleting an ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md#delete).
 
 ## <a name="cleanup"></a>Clean up resources
 

@@ -2,9 +2,6 @@
 metadata:
   title: Azure Cache for Redis development FAQs
   description: Learn the answers to common questions that help you develop for Azure Cache for Redis.
-  
-  
-  
   ms.topic: faq
   ms.devlang: csharp
   ms.custom: devx-track-csharp, ignite-2024
@@ -13,8 +10,9 @@ metadata:
     - ✅ Azure Cache for Redis
 
 title: Azure Cache for Redis development FAQs
-summary: This article provides answers to common questions about how to develop for Azure Cache for Redis.
-
+summary:  |
+          This article provides answers to common questions about how to develop for Azure Cache for Redis.
+          [!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 sections:
   - name: Ignored
@@ -67,7 +65,7 @@ sections:
       - question: |
           What Azure Cache for Redis clients can I use?
         answer: |
-          One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/docs/connect/clients/). For tutorials that cover several different languages and clients, see [How to use Azure Cache for Redis](../redis/dotnet-how-to-use-azure-redis-cache.md).
+          One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/docs/latest/operate/rs/databases/connect/supported-clients-browsers/). For tutorials that cover several different languages and clients, see [How to use Azure Cache for Redis](../redis/dotnet-how-to-use-azure-redis-cache.md).
           
           [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
           
@@ -108,7 +106,7 @@ sections:
       - question: |
           Why doesn't Azure Cache for Redis have an MSDN class library reference?
         answer: |
-          Microsoft Azure Cache for Redis is based on the popular open-source in-memory data store, Redis. You can use a wide variety of [Redis clients](https://redis.io/docs/connect/clients/) for many programming languages. Each client has its own API that makes calls to the Azure Cache for Redis instance using [Redis commands](https://redis.io/commands).
+          Microsoft Azure Cache for Redis is based on the popular open-source in-memory data store, Redis. You can use a wide variety of [Redis clients](https://redis.io/docs/latest/operate/rs/databases/connect/supported-clients-browsers/) for many programming languages. Each client has its own API that makes calls to the Azure Cache for Redis instance using [Redis commands](https://redis.io/commands).
           
           Because each client is different, you can't find one centralized class reference on MSDN. Each client maintains its own reference documentation. Besides the reference documentation, there are several tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Cache for Redis](../redis/dotnet-how-to-use-azure-redis-cache.md) and its sibling articles in the table of contents.
           

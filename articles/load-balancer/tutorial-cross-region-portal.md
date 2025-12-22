@@ -7,8 +7,12 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 08/01/2024
-ms.custom: template-tutorial, references_regions
+ms.custom:
+  - template-tutorial
+  - references_regions
+  - sfi-image-nochange
 #Customer intent: As a administrator, I want to deploy a global load balancer for global high availability of my application or service.
+# Customer intent: As an IT administrator, I want to deploy a global load balancer using Azure tools, so that I can ensure high availability and failover capabilities for my application across multiple regions.
 ---
 
 # Tutorial: Create an Azure Global Load Balancer
@@ -29,13 +33,13 @@ You can use the Azure portal, Azure CLI, or Azure PowerShell to complete this tu
 
 # [Azure portal](#tab/azureportal)
 
-- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
 
 # [Azure CLI](#tab/azurecli/)
 
-- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using Azure CLI](quickstart-load-balancer-standard-public-cli.md).
         - Append the name of the load balancers and virtual machines in each region with a **-R1** and **-R2**. 
@@ -45,7 +49,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md).
 - Azure PowerShell installed locally or Azure Cloud Shell.

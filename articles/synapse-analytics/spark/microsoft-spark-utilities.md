@@ -8,7 +8,11 @@ ms.subservice: spark
 ms.date: 09/10/2020
 ms.author: jingzh
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.custom: subject-rbac-steps, devx-track-python
+ms.custom:
+  - subject-rbac-steps
+  - devx-track-python
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Introduction to Microsoft Spark Utilities
@@ -31,7 +35,7 @@ Follow these steps to make sure your Microsoft Entra ID and workspace MSI have a
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |
@@ -1041,7 +1045,6 @@ Returns Microsoft Entra token for a given audience, name (optional). The table b
 | Azure Management                                      | `AzureManagement`                     |
 | Azure SQL Data Warehouse (Dedicated and Serverless)   | `DW`                                  |
 | Azure Synapse                                         | `Synapse`                             |
-| Azure Data Lake Store                                 | `DataLakeStore`                       |
 | Azure Data Factory                                    | `ADF`                                 |
 | Azure Data Explorer                                   | `AzureDataExplorer`                   |
 | Azure Database for MySQL                              | `AzureOSSDB`                          |

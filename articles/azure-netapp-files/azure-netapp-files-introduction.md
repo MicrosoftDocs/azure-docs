@@ -1,12 +1,13 @@
 ---
-title: What is Azure NetApp Files | Microsoft Docs
+title: What is Azure NetApp Files
 description: Learn about Azure NetApp Files, an Azure native, first-party, enterprise-class, high-performance file storage service.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: overview
-ms.date: 03/24/2025
+ms.date: 10/28/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to evaluate Azure NetApp Files for high-performance file storage, so that I can efficiently manage enterprise workloads while ensuring data availability, scalability, and security in the cloud.
 ---
 
 # What is Azure NetApp Files?
@@ -26,6 +27,9 @@ Azure NetApp Files supports SMB, NFS, and dual protocols volumes and can be used
 - Databases.
 - High-performance computing.
 
+>[!NOTE]
+>Azure NetApp Files also supports integrations with S3. For more information, see [Understand object REST API](object-rest-api-introduction.md).
+
 For more information about workload solutions using Azure NetApp Files, see [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md).
 
 ## Performance, cost optimization, and scale
@@ -35,13 +39,14 @@ Azure NetApp Files is designed to provide high-performance file storage for ente
 | Functionality | Description | Benefit |
 | - | - | - | 
 | In-Azure bare-metal flash performance | Fast and reliable all-flash performance with submillisecond latency. | Run performance-intensive workloads in the cloud with on-premises infrastructure-level performance.
-| Multi-protocol support | Supports multiple protocols, including NFSv3, NFSv4.1, SMB 3.0, SMB 3.1.1, and simultaneous dual-protocol. | Seamlessly integrate with existing infrastructure and workflows without compatibility issues or complex configurations. |
-| Four adaptable performance tiers (Standard, Premium, Ultra, Flexible) | Four performance tiers with dynamic service-level change capability based on workload needs, including cool access for cold data. | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources.
+| Multi-protocol support | Supports multiple protocols, including NFSv3, NFSv4.1, SMB 3.0, SMB 3.1.1, and simultaneous dual-protocol. Also supports integration with S3. | Seamlessly integrate with existing infrastructure and workflows without compatibility issues or complex configurations. Azure NetApp Files also integrates with S3 using the [object REST API](object-rest-api-introduction.md). |
+| Four adaptable performance tiers (Flexible, Standard, Premium, Ultra) | Four performance tiers with dynamic service-level change capability based on workload needs, including cool access for cold data. | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources.
 | Small-to-large volumes | Easily resize file volumes from 100 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
 | Small-to-large volumes | Easily resize file volumes from 50 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
 | 1-TiB minimum capacity pool size | 1-TiB capacity pool is a reduced-size storage pool compared to the initial 4-TiB minimum. | Save money by starting with a smaller storage footprint and lower entry point, without sacrificing performance or availability. Scale storage based on growth without high upfront costs.
 | 2,048-TiB maximum capacity pool | 2048-TiB capacity pool is an increased storage pool compared to the initial 500-TiB maximum. | Reduce waste by creating larger, pooled capacity and performance budget, and share and distribute across volumes.
 | 50-1,024 TiB large volumes | Store large volumes of data up to 1,024 TiB in a single volume. | Manage large datasets and high-performance workloads with ease.
+| 7.2 PiB large volumes with cool access | With cool access, extend the size of your large volumes to 7.2 PiB | Manage large datasets with infrequently accessed data with cost efficiency in mind. 
 | User and group quotas | Set quotas on storage usage for individual users and groups. | Control storage usage and optimize resource allocation.
 | Virtual machine (VM) networked storage performance | Higher VM network throughput compared to disk IO limits enable more demanding workloads on smaller Azure VMs. | Improve application performance at a smaller VM footprint, improving overall efficiency and lowering application license cost.
 | Deep workload readiness | Seamless deployment and migration of any-size workload with well-documented deployment guides. | Easily migrate any workload of any size to the platform. Enjoy a seamless, cost-effective deployment and migration experience.
@@ -84,6 +89,7 @@ Azure NetApp Files provides built-in data management and security capabilities t
 | Azure platform integration and compliance certifications | Compliance with regulatory requirements and Azure platform integration. | Adheres to Azure standards and regulatory compliance and ensures audit and governance completion.
 | Azure Identity & Access Management (IAM) | Azure role-based access control (RBAC) allows you to manage permissions for resources at any level. | Simplifies access management and improves compliance with Azure-native RBAC, empowering you to easily control user access to configuration management.
 | AD/LDAP authentication, export policies, and access control lists (ACLs) | Authenticate and authorize access to data by using existing AD/LDAP credentials and allow for the creation of export policies and ACLs to govern data access and usage. | Prevents data breaches and ensures compliance with data security regulations, with enhanced granular control over access to data volumes, directories, and files. |
+| Built-in ransomware protection | Azure NetApp Files advanced ransomware protection can be enabled at the volume level, using machine learning to observe deviations in your volume behaviors that resemble ransomware attacks. | Ransomware protection enables you to stay vigilant and attuned to aberrations in your workloads, improving the resiliency of your applications with alerts customized to the specific patterns of your volumes. | 
 
 These features work together to provide a comprehensive data management solution that helps to ensure that your data is always available, recoverable, and secure.
 

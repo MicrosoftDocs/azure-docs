@@ -2,7 +2,7 @@
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions.
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ms.custom: github-actions-azure, devx-track-arm-template
 ---
 
@@ -14,7 +14,7 @@ Use the [Deploy Azure Resource Manager Template Action](https://github.com/marke
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
 
   - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).

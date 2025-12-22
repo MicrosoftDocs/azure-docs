@@ -1,17 +1,22 @@
 ---
 title: How to programmatically create an Azure Device Provisioning Service individual enrollment for TPM attestation
 description: This article shows you how to programmatically create an individual enrollment entry for a device that uses TPM attestation.
-author: SoniaLopezBravo
-ms.author: sonialopez
-ms.date: 07/28/2022
+author: cwatson-cat
+ms.author: cwatson
+ms.date: 08/12/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 services: iot-dps
 ms.devlang: csharp
 # ms.devlang: csharp, java, nodejs
-ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-js
 zone_pivot_groups: iot-dps-set2
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - mode-other
+  - devx-track-extended-java
+  - devx-track-js
+  - sfi-image-nochange
 ---
  
 # Programmatically create a Device Provisioning Service individual enrollment for TPM attestation
@@ -24,17 +29,20 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 * [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+* Complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 :::zone pivot="programming-language-csharp"
 
-* Install [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
     ```
 
-* (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) up to the step where you get an endorsement key for the device. Save the **Endorsement key**, as you use it later in this article.
+    > [!IMPORTANT]
+    > You must use the .NET 6.0 SDK to build and run the sample code in this article. The sample currently doesn't work with later versions of the SDK.
+
+* (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) up to the step where you get an endorsement key for the device. Save the **Endorsement key**, as you use it later in this article.
 
   Don't follow the steps to create an individual enrollment by using the Azure portal.
 
@@ -44,7 +52,7 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 * Install [Node.js v4.0+](https://nodejs.org).
 
-* (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-nodejs) up to the step where you get an endorsement key and registration ID for the device. Save the **Endorsement key** and **Registration ID**, as you use them later in this article.
+* (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-nodejs) up to the step where you get an endorsement key and registration ID for the device. Save the **Endorsement key** and **Registration ID**, as you use them later in this article.
 
   Don't follow the steps to create an individual enrollment by using the Azure portal.
 
@@ -58,7 +66,7 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 * Install [Git](https://git-scm.com/downloads) and make sure that the path is added to the environment variable `PATH`.
 
-* (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) up to the step where you get an endorsement key for the device. Note the **Endorsement key** and the **Registration ID**, as you use them later in this article.
+* (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) up to the step where you get an endorsement key for the device. Note the **Endorsement key** and the **Registration ID**, as you use them later in this article.
 
   Don't follow the steps to create an individual enrollment by using the Azure portal.
 
@@ -70,17 +78,17 @@ For the sample in this article, you use the connection string for your provision
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the left-hand menu or on the portal page, select **All resources**.
+2. On the portal menu or on the portal page, select **All resources**.
 
-3. Select your Device Provisioning Service.
+3. Select your Device Provisioning Service instance.
 
-4. In the **Settings** menu, select **Shared access policies**.
+4. In the service menu, under **Settings**, select **Shared access policies**.
 
 5. Select the access policy that you want to use.
 
-6. In the **Access Policy** panel, copy and save the primary key connection string.
+6. In the **Access Policy** panel, copy and save the primary connection string.
 
-    :::image type="content" source="./media/quick-enroll-device-tpm/get-service-connection-string.png" alt-text="Get provisioning service connection string from the portal.":::
+    :::image type="content" source="./media/quick-enroll-device-tpm/get-service-connection-string.png" alt-text="Screenshot that shows  how to get the primary connection string from the Azure portal.":::
 
 ## Create the individual enrollment sample
 
@@ -106,7 +114,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
 1. Open *Program.cs* file in an editor.
 
-1. Replace the namespace statement at the top of the file with the following:
+1. Replace the namespace statement at the top of the file with the following code:
 
     ```csharp
     namespace CreateIndividualEnrollment;
@@ -138,7 +146,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
     * Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you copied in the previous section.
 
-    * If you're using this article together with the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) quickstart to provision a simulated device, replace the endorsement key with the value that you noted in that quickstart. You can replace the device ID and registration ID with the values suggested in that quickstart, use your own values, or use the default values in this sample.
+    * If you're using this article together with the [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) article to provision a simulated device, replace the endorsement key with the value that you noted in that quickstart. You can replace the device ID and registration ID with the values suggested in that quickstart, use your own values, or use the default values in this sample.
 
 1. Add the following method to the `Program` class. This code creates an individual enrollment entry and then calls the `CreateOrUpdateIndividualEnrollmentAsync` method on the `ProvisioningServiceClient` to add the individual enrollment to the provisioning service.
 
@@ -267,7 +275,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
     private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
     ```
 
-    * If you're using this article together with the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) quickstart to provision a simulated device, use the **Registration ID** and **Endorsement key** values that you noted from that quickstart.
+    * If you're using this article together with the [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) article to provision a simulated device, use the **Registration ID** and **Endorsement key** values that you noted from that quickstart.
 
     * If you're using this article to just create a sample individual enrollment and don't intend to use it to enroll a device, you can use the following value for an endorsement key:
 
@@ -289,7 +297,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
     individualEnrollment.setDeviceId(DEVICE_ID);
     ```
 
-1. The sample allows you to set an IoT hub in the individual enrollment to provision the device to. This IoT hub must be one that has been previously linked to the provisioning service. For this article, we let DPS choose from the linked hubs according to the default allocation policy, evenly weighted distribution. Comment out the following statement in the file:
+1. The sample allows you to set an IoT hub in the individual enrollment to provision the device to. This IoT hub must be one that was previously linked to the provisioning service. For this article, we let DPS choose from the linked hubs according to the default allocation policy, evenly weighted distribution. Comment out the following statement in the file:
 
     ```Java
     individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
@@ -323,7 +331,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
 :::zone pivot="programming-language-nodejs"
 
-To run the sample, you need the connection string for your provisioning service that you copied in the previous section, and the endorsement key for the device. If you've followed the [Create and provision a simulated device](quick-create-simulated-device-tpm.md) quickstart to create a simulated TPM device, use the endorsement key created for that device. Otherwise, to create a sample individual enrollment, you can use the following endorsement key supplied with the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node):
+To run the sample, you need the connection string for your provisioning service that you copied in the previous section, and the endorsement key for the device. If you follow the [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md) article to create a simulated TPM device, use the endorsement key created for that device. Otherwise, to create a sample individual enrollment, you can use the following endorsement key supplied with the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node):
 
 ```bash
 AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUScTk1UjuioeTlfGYZrrimExB+bScH75adUMRIi2UOMxG1kw4y+9RW/IVoMl4e620VxZad0ARX2gUqVjYO7KPVt3dyKhZS3dkcvfBisBhP1XH9B33VqHG9SHnbnQXdBUaCgKAfxome8UmBKfe+naTsE5fkvjb/do3/dD6l4sGBwFCnKRdln4XpM03zLpoHFao8zOwt8l/uP3qUIxmCYv9A7m69Ms+5/pCkTu/rK4mRDsfhZ0QLfbzVI6zQFOKF/rwsfBtFeWlWtcuJMKlXdD8TXWElTzgh7JS4qhFzreL0c1mI0GCj+Aws0usZh7dLIVPnlgZcBhgy1SSDQMQ==
@@ -360,11 +368,11 @@ AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEA
 
 :::zone-end
 
-To verify that the individual enrollment has been created:
+To verify that the individual enrollment was created:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Device Provisioning Service instance.
 
-2. In the **Settings** menu, select **Manage enrollments**.
+2. In the service menu, under **Settings**, select **Manage enrollments**.
 
 3. Select the **Individual enrollments** tab. You should see a new enrollment entry that corresponds to the registration ID that you used in the sample.
 
@@ -374,19 +382,19 @@ To verify that the individual enrollment has been created:
 
 :::zone pivot="programming-language-csharp"
 
-If you've been following steps in the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) quickstart to provision a simulated device, resume the quickstart at [Register the device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp#register-the-device).
+If you've been following steps in the [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) article to provision a simulated device, resume the quickstart at [Register the device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp#register-the-device).
 
 :::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
-If you've been following steps in the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-nodejs) quickstart to provision a simulated device, resume the quickstart at [Register the device](quick-create-simulated-device-tpm.md?pivots=programming-language-nodejs#register-the-device).
+If you've been following steps in the [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-nodejs) article to provision a simulated device, resume the quickstart at [Register the device](quick-create-simulated-device-tpm.md?pivots=programming-language-nodejs#register-the-device).
 
 :::zone-end
 
 :::zone pivot="programming-language-java"
 
-If you've been following steps in the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) quickstart to provision a simulated device, resume the quickstart at [Register the device](quick-create-simulated-device-tpm.md?pivots=programming-language-java#register-the-device).
+If you've been following steps in the [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) article to provision a simulated device, resume the quickstart at [Register the device](quick-create-simulated-device-tpm.md?pivots=programming-language-java#register-the-device).
 
 :::zone-end
 
@@ -396,21 +404,21 @@ If you plan to explore the DPS tutorials, don't clean up the resources created i
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Device Provisioning Service instance.
 
-2. In the **Settings** menu, select **Manage enrollments**.
+2. In the service menu, under **Settings**, select **Manage enrollments**.
 
 3. Select the **Individual enrollments** tab.
 
 4. Select the check box next to the registration ID of the enrollment entry you created in this article.
 
-5. At the top of the page, select  **Delete**.
+5. At the top of the pane, select  **Delete**.
 
 :::zone pivot="programming-language-csharp"
 
-6. If you followed the steps in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivot=programming-language-csharp) to create a simulated TPM device, do the following steps:
+6. If you followed the steps in [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivot=programming-language-csharp) to create a simulated TPM device, do the following steps:
 
-    1. In the Azure portal, navigate to the IoT Hub where your device was provisioned.
+    1. In the Azure portal, navigate to the IoT hub where your device was provisioned.
 
-    1. In the left-hand menu under **Device management**, select **Devices**.
+    1. In the service menu, under **Device management**, select **Devices**.
 
     1. Select the check box next to the Device ID of the device you registered in this article.
 
@@ -419,13 +427,13 @@ If you plan to explore the DPS tutorials, don't clean up the resources created i
 
 :::zone pivot="programming-language-nodejs"
 
-8. If you followed the steps in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivot=programming-language-nodejs) to create a simulated TPM device, do the following steps:
+8. If you followed the steps in [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivot=programming-language-nodejs) to create a simulated TPM device, do the following steps:
 
     1. Close the TPM simulator window and the sample output window for the simulated device.
 
-    2. In the Azure portal, navigate to the IoT Hub where your device was provisioned.
+    2. In the Azure portal, navigate to the IoT hub where your device was provisioned.
 
-    3. In the left-hand menu under **Device management**, select **Devices**.
+    3. In the service menu, under **Device management**, select **Devices**.
 
     4. Select the check box next to the device ID of the device you registered in this article.
 
@@ -434,13 +442,13 @@ If you plan to explore the DPS tutorials, don't clean up the resources created i
 
 :::zone pivot="programming-language-java"
 
-8. If you followed the steps in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivot=programming-language-java) to create a simulated TPM device, do the following steps:
+8. If you followed the steps in [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivot=programming-language-java) to create a simulated TPM device, do the following steps:
 
     1. Close the TPM simulator window and the sample output window for the simulated device.
 
-    2. In the Azure portal, navigate to the IoT Hub where your device was provisioned.
+    2. In the Azure portal, navigate to the IoT hub where your device was provisioned.
 
-    3. In the left-hand menu under **Device management**, select **Devices**.
+    3. In the service menu, under **Device management**, select **Devices**.
 
     4. Select the check box next to the device ID of the device you registered in this article.
 
@@ -451,8 +459,8 @@ If you plan to explore the DPS tutorials, don't clean up the resources created i
 
 In this article, you programmatically created an individual enrollment entry for a TPM device. Optionally, you created a TPM simulated device on your computer and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To explore further, check out the following links:
 
-* For more information about TPM attestation with DPS, see [TPM attestation](concepts-x509-attestation.md).
+* For more information about TPM attestation with DPS, see [TPM attestation](concepts-tpm-attestation.md).
 
-* For an end-to-end example of a provisioning a device through an individual enrollment using TPM attestation, see the [Provision a simulated TPM device](quick-create-simulated-device-tpm.md) quickstart.
+* For an end-to-end example of provisioning a device through an individual enrollment using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md).
 
-* To learn about managing individual enrollments and enrollment groups using Azure portal, see [How to manage device enrollments with Azure portal](how-to-manage-enrollments.md).
+* To learn about managing individual enrollments and enrollment groups using Azure portal, see [Manage device enrollments in the Azure portal](how-to-manage-enrollments.md).

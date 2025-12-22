@@ -5,8 +5,14 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 06/13/2023
-ms.custom: template-quickstart, mode-ui, engagement-fy23, devx-track-azurepowershell, devx-track-bicep
+ms.date: 04/09/2025
+ms.custom:
+  - template-quickstart
+  - mode-ui
+  - engagement-fy23
+  - devx-track-azurepowershell
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager by using Bicep
@@ -17,9 +23,9 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 :::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager." lightbox="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png":::
 
-## Bicep Template Modules
+## Bicep File Modules
 
-The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The template sections detailed below are the unique components for Virtual Network Manager. In addition to the sections detailed below, the solution deploys Virtual Networks, a User Assigned Identity, and a Role Assignment. 
+The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The file sections detailed below are the unique components for Virtual Network Manager. In addition to the sections detailed below, the solution deploys Virtual Networks, a User Assigned Identity, and a Role Assignment.
 
 ### Virtual Network Manager, Network Groups, and Connectivity Configurations
 
@@ -118,7 +124,7 @@ resource connectivityConfigurationMesh 'Microsoft.Network/networkManagers/connec
 
 #### Deployment Script
 
-In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit`​ PowerShell command. The Deployment Script needs an identity with sufficient permissions to execute the PowerShell script against the Virtual Network Manager, so the Bicep template creates a User Managed Identity and grants it the 'Contributor' role on the target resource group. For more information on Deployment Scripts and associated identities, see [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
+In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit`​ PowerShell command. The Deployment Script needs an identity with sufficient permissions to execute the PowerShell script against the Virtual Network Manager, so the Bicep file creates a User Managed Identity and grants it the 'Contributor' role on the target resource group. For more information on Deployment Scripts and associated identities, see [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
 
 ```bicep
 @description('Create a Deployment Script resource to perform the commit/deployment of the Network Manager connectivity configuration.')
@@ -232,7 +238,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
 
 ### Deployment Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Permissions to create a Policy Definition and Policy Assignment at the target subscription scope (this is required when using the deployment parameter `networkGroupMembershipType=Dynamic` to deploy the required Policy resources for Network Group membership. The default is `static`, which does not deploy a Policy.
 
 #### Download the Bicep Solution

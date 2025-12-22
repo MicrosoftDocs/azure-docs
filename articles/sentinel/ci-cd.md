@@ -1,22 +1,23 @@
 ---
-title: Deploy custom content from your repository
+title: Deploy custom content from your repository (Preview)
 titleSuffix: Microsoft Sentinel
 description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can manage your custom content and deploy it to Microsoft Sentinel.
-author: austinmccollum
+author: mberdugo 
 ms.topic: how-to
 ms.date: 12/31/2024
-ms.author: austinmc
+ms.author: monaberdugo 
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
 #Customer intent: As a security administrator or MSSP analyst, I want to manage dynamic Microsoft Sentinel content as code based on source control repositories using CI/CD pipelines. I want to automate updates and ensure consistent configurations across workspaces in my security monitoring environment. As an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
-
+ms.custom:
+  - build-2025
 ---
 
-# Deploy content as code from your repository (Public preview)
+# Deploy content as code from your repository (Preview)
 
 When creating custom content, you can manage it from your own Microsoft Sentinel workspaces, or an external source control repository. This article describes how to create and manage connections between Microsoft Sentinel and GitHub or Azure DevOps repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces. For more information, see [Update custom content with repository connections](ci-cd-custom-content.md).
 
@@ -26,14 +27,24 @@ When creating custom content, you can manage it from your own Microsoft Sentinel
 
 ## Prerequisites
 
-Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
+Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that:
 
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
-- Collaborator access to your GitHub repository or Project Administrator access to your Azure DevOps repository
+- You have an **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
+- Custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
+- The account you use to create the connection is in your home tenant. External identities, such as B2B guest accounts, and delegated access aren’t supported.
+
+### [GitHub prerequisites](#tab/github)
+
+- Collaborator access to your GitHub repository 
 - Actions enabled for GitHub and Pipelines enabled for Azure DevOps
+
+### [Azure DevOps prerequisites](#tab/azure-devops)
+
+- Project Administrator access to your Azure DevOps repository
 - Third-party application access via OAuth enabled for Azure DevOps [application connection policies](/azure/devops/organizations/accounts/change-application-access-policies#manage-a-policy).
-- An Azure DevOps connection must be in the same tenant as your Microsoft Sentinel workspace
-- Ensure custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
+- An Azure DevOps connection in the same tenant as your Microsoft Sentinel workspace
+
+---
 
 For more information on deployable content types, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
 
@@ -84,9 +95,7 @@ You can't create duplicate connections, with the same repository and branch, in 
     # [Azure DevOps](#tab/azure-devops)
 
     You're automatically authorized to Azure DevOps using your current Azure credentials. [Verify that you're authorized to the same Azure DevOps tenant](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.
-
-    Due to cross-tenant limitations, if you're creating a connection as a [guest user](../active-directory/external-identities/what-is-b2b.md) on the workspace, your Azure DevOps URL doesn't appear in the dropdown. Enter it manually instead.
-    
+   
     1.  In Microsoft Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
 
         - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Microsoft Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
@@ -133,7 +142,7 @@ Deleting content from your repository doesn't delete it from your Microsoft Sent
 
 ## Remove a repository connection
 
-This procedure describes how to remove the connection to a source control repository from Microsoft Sentinel. In order to use Bicep templates, your repository connection must be newer than November 1, 2024. Use this procedure to remove the connection and recreate it in order to update the connection.
+This procedure describes how to remove the connection to a source control repository from Microsoft Sentinel. In order to use Bicep files, your repository connection must be newer than November 1, 2024. Use this procedure to remove the connection and recreate it in order to update the connection.
 
 **To remove your connection**:
 

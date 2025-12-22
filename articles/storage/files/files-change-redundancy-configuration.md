@@ -1,5 +1,5 @@
 ---
-title: Change redundancy configuration for Azure Files
+title: Change Redundancy Configuration for Azure Files
 description: Learn how to change how Azure Files data in an existing storage account is replicated.
 author: khdownie
 ms.service: azure-file-storage
@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/15/2025
 ms.author: kendownie
 ms.custom: references_regions, devx-track-azurepowershell
+# Customer intent: "As a cloud storage administrator, I want to change the redundancy configuration for Azure Files so that I can optimize data protection and cost based on my organization’s specific availability and disaster recovery needs."
 ---
 
 # Change how Azure Files data is replicated
@@ -15,7 +16,11 @@ Azure always stores multiple copies of your data to protect it in the face of bo
 
 This article describes the process of changing replication settings for an existing storage account that hosts Azure file shares.
 
+> [!IMPORTANT]
+> If you're using a zonal storage account, then you must first [unpin the storage account](zonal-placement.md#unpin-a-storage-account-from-a-zone) from its zone before you can change the redundancy configuration from locally redundant storage (LRS) to a non-LRS configuration.
+
 ## Applies to
+
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -229,7 +234,7 @@ To track the current migration status of the conversion initiated on your storag
 ```azurecli-interactive
 az storage account migration show \
     --account-name <string> \
-    - g <sting> \
+    - g <string> \
     -n "default"
 ```
 
@@ -325,7 +330,7 @@ The following table lists the redundancy options available for storage account t
 | SSD provisioned v1 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
 | HDD pay-as-you-go | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
-<sup>1</sup> Customer-initiated conversion can be undertaken using [Azure Portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](../common/redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](../common/redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
+<sup>1</sup> Customer-initiated conversion can be undertaken using [Azure portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](../common/redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](../common/redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
 
 ### Protocol support
 

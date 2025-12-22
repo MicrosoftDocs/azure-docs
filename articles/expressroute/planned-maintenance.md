@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 05/10/2023
+# Customer intent: "As a network administrator, I want to understand the planned maintenance process for ExpressRoute circuits, so that I can ensure reliable connectivity and minimize service disruptions during maintenance events."
 ---
 
 # Planned maintenance guidance for ExpressRoute
@@ -51,13 +52,13 @@ After you complete the activation of an ExpressRoute circuit and before being us
 
 The process of validation of ExpressRoute circuit failover can be executed in two steps:
 
-1. Shutdown the BGP session between your on-premises edge router and the primary connection on the MSEE router. This forces the traffic only through the secondary connection. You can monitor the traffic statistics on the MSEE connection using the [`Get-AzExpressRouteCircuitStats`](expressroute-troubleshooting-expressroute-overview.md#confirm-the-traffic-flow) command. The **BitsInPerSecond** and **BitsOutPerSecond** traffic metrics should only increment on the path that is currently active.  
+1. Shut down the BGP session between your on-premises edge router and the primary connection on the MSEE router. This forces the traffic only through the secondary connection. You can monitor the traffic statistics on the MSEE connection using the [`Get-AzExpressRouteCircuitStats`](expressroute-troubleshooting-expressroute-overview.md#confirm-the-traffic-flow) command. The **BitsInPerSecond** and **BitsOutPerSecond** traffic metrics should only increment on the path that is currently active.  
 
     :::image type="content" source="./media/planned-maintenance/primary-down.png" alt-text="Diagram of BGP peering down for primary connection of an ExpressRoute circuit.":::
 
     When the test is completed successful, move to the second step.
 
-1. Shutdown the BGP session between your on-premises edge router and the secondary MSEE connection. Repeat the verification actions in Step 1 to validate the traffic is only incrementing on the primary path.
+1. Shut down the BGP session between your on-premises edge router and the secondary MSEE connection. Repeat the verification actions in Step 1 to validate the traffic is only incrementing on the primary path.
 
     :::image type="content" source="./media/planned-maintenance/secondary-down.png" alt-text="Diagram of BGP peering down for secondary connection of an ExpressRoute circuit.":::
 
@@ -70,7 +71,7 @@ The failover validation of an ExpressRoute circuit reduces the risk of outages d
 If the verification of ExpressRoute circuit failover hasn't been completed and the ExpressRoute circuit is already in production, it's never too late to schedule a customer’s maintenance, out of working hours, and proceed with failover test. 
 
 > [!NOTE]
-> As general guideline, terminating ExpressRoute BGP connections on stateful devices (such as firewalls) can cause issues with failover during planned or unplanned maintenances by Microsoft or your ExpressRoute service provider. You should evaluate your set up to ensure your traffic will failover properly, and when possible, terminate BGP sessions on stateless devices.
+> As general guideline, terminating ExpressRoute BGP connections on stateful devices (such as firewalls) can cause issues with failover during planned or unplanned maintenance by Microsoft or your ExpressRoute service provider. You should evaluate your setup to ensure your traffic will fail over properly, and when possible, terminate BGP sessions on stateless devices.
 
 ##	Monitor of ExpressRoute circuit
 

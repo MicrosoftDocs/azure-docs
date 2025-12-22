@@ -3,8 +3,8 @@ title: Getting Started - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Learn how to get started using the Threat Modeling Tool. Create a diagram, identify threats, mitigate threats, and validate each mitigation.
 services: security
 author: jegeib
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: azure-information-protection
+ms.subservice: azure-information-protection-policy
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib

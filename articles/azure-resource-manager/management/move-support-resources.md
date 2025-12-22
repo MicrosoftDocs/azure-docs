@@ -1,8 +1,8 @@
----
+﻿---
 title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
-ms.topic: conceptual
-ms.date: 01/23/2025
+ms.topic: article
+ms.date: 04/29/2025
 ms.custom: tbd
 ---
 
@@ -136,7 +136,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | attestationproviders | **Yes** | **Yes** | No |
+> | attestationproviders | No | No | No |
 
 ## Microsoft.Authorization
 
@@ -460,7 +460,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | sharedvmextensions | No | No | No |
 > | sharedvmimages | No | No | No |
 > | sharedvmimages / versions | No | No | No |
-> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> **Yes** - Incremental |
+> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> No - Incremental |
 > | sshpublickeys | No | No | No |
 > | virtualmachines | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure Virtual Machines. |
 > | virtualmachines / extensions | **Yes** | **Yes** | No |
@@ -756,6 +756,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | hostpools | **Yes** | **Yes** | No |
 > | scalingplans | **Yes** | **Yes** | No |
 > | workspaces | **Yes** | **Yes** | No |
+> | appattachpackages | **Yes** | **Yes** | No |
 
 ## Microsoft.Devices
 
@@ -1350,7 +1351,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | expressroutegateways | No | No | No |
 > | expressrouteserviceproviders | No | No | No |
 > | firewallpolicies | No | No | No |
-> | frontdoors | No | No | No |
+> | frontdoors (This row is for Front Door Classic tier only. For Front Door Standard/Premium, refer to [Microsoft.Cdn/profiles](#microsoftcdn))| No | No | No |
 > | ipallocations | **Yes** | **Yes** | No |
 > | ipgroups | No | No | No |
 > | loadbalancers | **Yes** - Basic SKU<br> **Yes** - Standard SKU | **Yes** - Basic SKU<br>No - Standard SKU | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move internal and external load balancers. |
@@ -1804,8 +1805,10 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | sqlvirtualmachinegroups | **Yes** | **Yes** | No |
-> | sqlvirtualmachines | **Yes** | **Yes** | No |
+> | sqlvirtualmachinegroups | **No** | **No** | No |
+> | sqlvirtualmachines | **No** | **No** | No |
+
+If you need to move your SQL virtual machines resource, first delete the [SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#delete-the-extension) from the virtual machine, move the virtual machine to a different resource group or subscription, and then [re-register](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#register-with-extension) your SQL Server VM with the SQL IaaS Agent extension again. 
 
 ## Microsoft.Storage
 
@@ -2038,3 +2041,4 @@ Third-party services don't support move operations at this time.
 - For commands to move resources, see [Move Azure resources to a new resource group or subscription](move-resource-group-and-subscription.md).
 - [Learn more](../../resource-mover/overview.md) about the Azure Resource Mover service.
 - To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you need those properties and support for how to move regions, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).
+

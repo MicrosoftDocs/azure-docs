@@ -1,12 +1,18 @@
 ---
 title: Configure Sign in with Apple (Preview)
 description: Learn how to configure Sign in with Apple as an identity provider for your App Service or Azure Functions app.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
-ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+ms.custom:
+  - AppServiceIdentity
+  - sfi-image-nochange
+# customer intent: As a developer, I want to configure Sign in with Apple so that I can use it as an identity provider for an App Service or Azure Functions app.  
+ 
+
 ---
 
 # Configure your App Service or Azure Functions app to sign in using a Sign in with Apple provider (Preview)
@@ -193,6 +199,6 @@ A complete configuration might look like the following example (where the APPLE_
 }
 ```
 
-## <a name="related-content"> </a>Next steps
+## <a name="related-content"> </a>Related content
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]

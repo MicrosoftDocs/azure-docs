@@ -4,9 +4,10 @@ description: How to use the Intel SGX device plugin and Intel SGX quote helper d
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: article
+ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: ananyagarg
+# Customer intent: As a cloud developer, I want to implement Intel SGX remote attestation using the Azure Kubernetes Service plugin, so that I can securely manage confidential workloads and ensure the integrity of my applications within the AKS environment.
 ---
 
 # Confidential computing plugin for Confidential VMs
@@ -54,9 +55,9 @@ You don't have to check for backward compatibility with PSW and DCAP. The provid
 
 ### Out-of-proc attestation for confidential workloads
 
-The out-of-proc attestation model works for confidential workloads. The quote requestor and quote generation are executed separately, but on the same physical machine. The quote generation happens in a centralized manner and serves requests for QUOTES from all entities. Properly define the interface and make the interface discoverable for any entity to request quotes.
+The out-of-proc attestation model works for confidential workloads. The quote requester and quote generation are executed separately, but on the same physical machine. The quote generation happens in a centralized manner and serves requests for QUOTES from all entities. Properly define the interface and make the interface discoverable for any entity to request quotes.
 
-![Diagram of quote requestor and quote generation interface.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
+![Diagram of quote requester and quote generation interface.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
 The abstract model applies to confidential workload scenarios. This model uses the already available AESM service. AESM is containerized and deployed as a daemon set across the Kubernetes cluster. Kubernetes guarantees a single instance of an AESM service container, wrapped in a pod, to be deployed on each agent node. The new SGX Quote daemon set has a dependency on the `sgx-device-plugin` daemon set, since the AESM service container would request EPC memory from `sgx-device-plugin` for launching QE and PCE enclaves.
 

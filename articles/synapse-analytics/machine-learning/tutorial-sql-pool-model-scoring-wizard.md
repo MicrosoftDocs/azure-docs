@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to:
 > - Train a predictive machine learning model and register the model in the Azure Machine Learning model registry.
 > - Use the SQL scoring wizard to launch predictions in a dedicated SQL pool.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

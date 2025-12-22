@@ -1,0 +1,64 @@
+### YamlMime:FAQ
+metadata:
+  title: Software and Insights - common questions
+  description: This article answers common questions about Software and Insights capabilities in Azure Migrate.
+  ms.date: 10/29/2025
+  ms.topic: faq
+  ms.service: azure-migrate
+  author: Jeronika-MS
+  ms.author: v-gajeronika
+  monikerRange: migrate
+title: Software and Insights - common questions
+summary: This article answers common questions about Software and Insights capabilities in Azure Migrate. For any other questions, refer to the following resources
+
+          - [General questions](resources-faq.md) about Azure Migrate
+
+          - Questions about [Azure Migrate appliance](common-questions-appliance.md)
+
+          - Questions about [Migration and modernization](common-questions-server-migration.md)
+          
+          - Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
+
+sections:
+  - name: Common questions
+    questions:
+      - question: What are the new enhancements available with software inventory?
+        answer: |
+          - You can now review the inventory in the Azure portal at the project level or server level. 
+          - You can review the inventory of all software discovered from the servers, running in your on-premises datacenter at one place by navigating to your Azure Migrate project and from the left menu, select **Software** under **Explore inventory**.
+          - In addition to the software metadata gathered through software inventory such as **Name**, **Publisher**, and **Version**, you can also review the other insights such as **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are AI generated (may contain inaccuracies).
+          - You can also review the list of **Potential Targets** that have been suggested to plan the migration of your software to the Azure First Party(1P) services or Third Party (3P) Independent Software Vendor (ISV) services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
+          [Learn more](/azure/migrate/how-to-discover-applications?view=migrate#software-classification--potential-targets) about the enhancements.
+      - question: How is the software classification and other insights derived?
+        answer: |
+          The gathered software data is processed further to derive **Category**, **Subcategory**, and **Support Status**. <br>As this information is AI-generated, there might be inaccuracies. **Vulnerabilities** are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software.
+      - question: What are the different categories and subcategories that software is classified into?
+        answer: |
+          Refer [Software classification and Potential Targets](https://learn.microsoft.com/azure/migrate/how-to-discover-applications?view=migrate#software-classification--potential-targets) for different categories and subcategories in which the discovered software is categorized, along with some examples of software found running in IT datacentres with the Potential Targets suggested for all software at a subcategory level.
+      - question: What are Insights in Azure Migrate?
+        answer: |
+          Insights (preview) in Azure Migrate helps you identify and address security risks in your datacenter while you plan migration to Azure. It provides a risk assessment of discovered servers and software, highlighting vulnerabilities and end-of-support systems that present risk to your business.
+      - question: How does Security Insights help with migration planning?
+        answer: |
+          By surfacing security risks early during migration planning, Insights enable you to prepare mitigation strategies, ensuring a smooth and secure transition to Azure. You can plan operating system upgrades, address vulnerabilities, apply pending patches, and take necessary remediation steps as part of your migration strategy. These measures minimize unexpected issues and downtime during the final migration.
+      - question: What types of security risks does Azure Migrate identify?
+        answer: |
+          Insights identifies the following security risks:
+          -	Windows and Linux servers with end of support operating system, end of support software and pending updates.
+          -	Known vulnerabilities (sourced from the [National Vulnerability Database](https://www.nist.gov/itl/nvd)) in discovered software and Operating system.
+          -	Servers missing essential security or patch management software.
+      - question: How do Insights collect and analyze data?
+        answer: |
+          Refer [how Insights are derived](/azure/migrate/insights-overview?view=migrate#how-are-insights-derived) to know about the details of analysis used to generate insights.
+      - question: Do I need to install any agent to generate Insights?
+        answer: |
+          Azure Migrate doesn't install other agents or run a deep scan of your environment. Security insights are limited to software and operating system data discovered through the Azure Migrate appliance quick discovery. It analyzes the collected software inventory and pending updates metadata and cross-references it with publicly available vulnerability and support lifecycle databases to highlight security risks in your datacenter. 
+      - question: Is there additional cost to use Insights in Azure Migrate?
+        answer: |
+          No. Learn more about [Azure Migrate pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
+      - question: What steps can I take to manage access to Insights?
+        answer: |
+          To manage access to Insights, refer to [Manage permissions for Security Insights](/azure/migrate/insights-overview?view=migrate#manage-permissions-for-security-insights).
+      - question: Are there more security risks beyond those listed in Insights?
+        answer: |
+          Yes, there could possibly be more security risks than those mentioned in Insights. Security risks in Azure Migrate are derived from software and operating system metadata to help guide and highlight potential security issues in the datacenter. It must not be compared with specialized security tools that can identify configuration-specific risks. It's recommended to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](/azure/update-manager/) for comprehensive threat detection and protection of your environment.

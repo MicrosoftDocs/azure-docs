@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Alert Events normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Alert Events normalization schema reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel Alert Events normalization schema.
 author: vakohl
 ms.topic: reference
@@ -19,12 +19,6 @@ The Microsoft Sentinel Alert Schema is designed to normalize security-related al
 The Alert Schema represents various types of security alerts, such as threats, suspicious activities, user behavior anomalies and compliance violations. These alerts are reported by different security products and systems, including but not limited to EDRs, antivirus software, intrusion detection systems, data loss prevention tools etc.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Alert normalization schema is currently in *preview*. This feature is provided without a service level agreement. We don't recommend it for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 
@@ -104,8 +98,8 @@ The following list mentions fields that have specific guidelines for Alert event
 | **EventMessage** | Optional | string | Detailed information about the alert, including its context, cause, and potential impact. <br> e.g. `Potential use of the Rubeus tool for kerberoasting, a technique used to extract service account credentials from Kerberos tickets.` |
 | **IpAddr** | Alias | | Alias or friendly name for `DvcIpAddr` field. |
 | **Hostname** | Alias | | Alias or friendly name for `DvcHostname` field. |
-| **EventSchema** | Mandatory | string | The schema used for the event. The schema documented here is `AlertEvent`. |
-| **EventSchemaVersion** | Mandatory | string | The version of the schema. The version of the schema documented here is `0.1`. |
+| **EventSchema** | Mandatory | Enumerated | The schema used for the event. The schema documented here is `AlertEvent`. |
+| **EventSchemaVersion** | Mandatory | SchemaVersion (String) | The version of the schema. The version of the schema documented here is `0.1`. |
 
 ### All Common Fields
 
@@ -142,9 +136,9 @@ The following table covers fields that provide critical insights into the rules 
 | **ThreatCategory** | Recommended | Enumerated | 	The category of the threat or malware identified in the alert.<br><br>Supported values are: `Malware`, `Ransomware`, `Trojan`, `Virus`, `Worm`, `Adware`, `Spyware`, `Rootkit`, `Cryptominor`, `Phishing`, `Spam`, `MaliciousUrl`, `Spoofing`, `Security Policy Violation`, `Unknown` |
 | **ThreatOriginalCategory** | Optional | string | The category of the threat as reported by the originating system. |
 | **ThreatIsActive** | Optional | bool | Indicates whether the threat is currently active.<br><br>Supported values are: `True`, `False` |
-| **ThreatRiskLevel** | Optional | int | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |
+| **ThreatRiskLevel** | Optional | RiskLevel (Integer) | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |
 | **ThreatOriginalRiskLevel** | Optional | string | The risk level as reported by the originating system. |
-| **ThreatConfidence** | Optional | int | The confidence level of the threat identified, normalized to a value between 0 and a 100. |
+| **ThreatConfidence** | Optional | ConfidenceLevel (Integer) | The confidence level of the threat identified, normalized to a value between 0 and a 100. |
 | **ThreatOriginalConfidence** | Optional | string | The confidence level as reported by the originating system. |
 | **IndicatorType** | Recommended | Enumerated | The type or category of the indicator<br><br>Supported values are:<br>-`Ip`<br>-`User`<br>-`Process`<br>-`Registry`<br>-`Url`<br>-`Host`<br>-`Cloud Resource`<br>-`Application`<br>-`File`<br>-`Email`<br>-`Mailbox`<br>-`Logon Session`|
 | **IndicatorAssociation** | Optional | Enumerated | Specifies whether the indicator is linked to or directly impacted by the threat.<br><br>Supported values are:<br>-`Associated`<br>-`Targeted` |
@@ -160,14 +154,14 @@ This section defines fields related to the identification and classification of 
 |-------|-------|------|-------------|
 | **UserId** | Optional | string | A machine-readable, alphanumeric, unique representation of the user associated with the alert.<br><br>e.g. `A1bC2dE3fH4iJ5kL6mN7o` |
 | **UserIdType** | Conditional | Enumerated | The type of the user ID, such as `GUID`, `SID`, or `Email`.<br><br>Supported values are:<br>- `GUID`<br>- `SID`<br>- `Email`<br>- `Username`<br>- `Phone`<br>- `Other` |
-| **Username** | Recommended | string | Name of the user associated with the alert, including domain information when available.<br><br>e.g. `Contoso\JSmith` or `john.smith@contoso.com` |
+| **Username** | Recommended | Username (string) | Name of the user associated with the alert, including domain information when available.<br><br>e.g. `Contoso\JSmith` or `john.smith@contoso.com` |
 | **User** | Alias | string | Alias or friendly name for `Username` field. |
-| **UsernameType** | Conditional | UsernameType | Specifies the type of the user name stored in the `Username` field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Windows` |
-| **UserType** | Optional | UserType | The type of the Actor. For more information, and list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br> e.g. `Guest`|
+| **UsernameType** | Conditional | UsernameType | Specifies the type of the user name stored in the `Username` field. For more information, and list of allowed values, see [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Windows` |
+| **UserType** | Optional | UserType | The type of the Actor. For more information, and list of allowed values, see [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br> e.g. `Guest`|
 | **OriginalUserType** | Optional | string | The user type as reported by the reporting device. |
 | **UserSessionId** | Optional | string | The unique ID of the user's session associated with the alert.<br><br>e.g. `a1bc2de3-fh4i-j5kl-6mn7-op8qr9st0u` |
 | **UserScopeId** | Optional | string | The scope ID, such as Microsoft Entra Directory ID, in which UserId and Username are defined.<br><br>e.g. `a1bc2de3-fh4i-j5kl-6mn7-op8qrs` |
-| **UserScope** | Optional | string | The scope, such as Microsoft Entra tenant, in which UserId and Username are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Contoso Directory` |
+| **UserScope** | Optional | string | The scope, such as Microsoft Entra tenant, in which UserId and Username are defined. or more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Contoso Directory` |
 
 ### Process Fields
 

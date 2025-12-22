@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 02/20/2025
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to configure a global load balancer with backends across multiple subscriptions, so that I can optimize traffic management and resource utilization across different Azure environments.
 ---
 
 # Create a global load balancer with cross-subscription backends
@@ -22,7 +23,7 @@ A [cross-subscription load balancer](cross-subscription-overview.md) can referen
 # [Azure PowerShell](#tab/azurepowershell)
 
 - Two Azure subscriptions. 
-- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - A global public IP address deployed in **Azure Subscription A** located in a [Global load balancer home region](cross-subscription-how-to-global-backend.md).
 - A regional load balancer deployed in **Azure Subscription A**.
 - Azure PowerShell installed locally or Azure Cloud Shell.
@@ -37,7 +38,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 # [Azure CLI](#tab/azurecli/)
 
 - Two Azure subscriptions. One subscription for the virtual network (**Azure Subscription A**) and another subscription for the load balancer(**Azure Subscription B**).
-- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - A global public IP address deployed in **Azure Subscription A** located in a [Global load balancer home region](cross-subscription-how-to-global-backend.md).
 - A regional load balancer deployed in **Azure Subscription A**. For this example, the load balancer is called **load-balancer-regional** in a resource group called **resource-group-a**.
 

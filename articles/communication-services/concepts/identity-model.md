@@ -2,11 +2,11 @@
 title: Identity model
 titleSuffix: An Azure Communication Services article
 description: This article describes identities and access tokens.
-author: FarrukhGhaffar
+author: kirmadi
 manager: cassidyfein
 services: azure-communication-services
 
-ms.author: faghaffa
+ms.author: jorgegarc
 ms.date: 01/02/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -16,22 +16,44 @@ ms.subservice: identity
 # Identity model
 
 Azure Communication Services is an identity-agnostic service, which offers multiple benefits:
-
-- Reuse existing identities from your identity management system and map them with Azure Communication Services identities. 
+- Adopt a bring your own identity (BYOI) model, allowing you to reuse existing identities from your identity management system and map them with Azure Communication Services identities.
 - Works well with any existing identity system and has no dependency on a specific identity provider.
 - Keep your user's data, such as their name, private as you don't need to duplicate it in Azure Communication Services.
+- Organizations that use Microsoft Entra ID for identity and access management can now access Azure Communication Services resources directly with Entra ID users. This new support for Entra ID authentication eliminates the need to develop or operate your own identity management or authorization proxy service. This feature is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Communication Services identity model works with two key concepts.
 
-## User identity / mapping
+## Bring Your Own Identity (BYOI): Integrating with Your Identity Management System
+Azure Communication Services supports a bring your own identity (BYOI) model, which allows you to integrate with your existing identity management system. You can create user identities in Azure Communication Services and map them to your own user identity system. This approach enables you to manage user identities and access tokens without duplicating user data in Azure Communication Services.
+
+The following sections will guide you through the key concepts of the bring your own identity (BYOI) model:
+- How to map user identities: [User identity mapping in the bring your own identity (BYOI) model](#user-identity-mapping-in-the-bring-your-own-identity-byoi-model).
+- How to create and manage access tokens: [Access tokens](#access-tokens). 
+- How to implement a client-server architecture for your identity management: [Client-server architecture for the bring your own identity (BYOI) model](#client-server-architecture-for-the-bring-your-own-identity-byoi-model).
+
+### User identity mapping in the bring your own identity (BYOI) model
 
 When you create a user identity via SDK or REST API, Azure Communication Services creates a unique user identifier. You can't use external identifiers such as phone numbers, user/device/application IDs, or user names directly in Azure Communication Services. Instead, you need to use the Communication Services identities and maintain a mapping to your own user ID system as needed.
 
 You can create Azure Communication Service user identities for free. The only charges are incurred when the user consumes communication services such as a chat or a call. How you use your generated Communication Services identity depends on your scenario. For example, you can map an identity 1:1, 1:N, N:1, or N:N, and you can use it for human users or applications. Your end-user can participate in multiple communication sessions, using multiple devices, simultaneously.
 
-Managing a mapping between Azure Communication Services user identities and your own identity system is your responsibility as a developer, and doesn't come built-in. For example, you can add a `CommunicationServicesId` column in your existing user table to store the associated Azure Communication Services identity. A mapping design is described in more detail under [Client-server architecture](#client-server-architecture).
+Managing a mapping between Azure Communication Services user identities and your own identity system is your responsibility as a developer, and doesn't come built-in. For example, you can add a `CommunicationServicesId` column in your existing user table to store the associated Azure Communication Services identity. A mapping design is described in more detail under [Client-server architecture for the bring your own identity (BYOI) model](#client-server-architecture-for-the-bring-your-own-identity-byoi-model).
 
-## Access tokens 
+### (Preview) Simplify identity mapping with `customId`
+
+> [!IMPORTANT]  
+> This feature is available starting with the Identity SDK version `1.4.0-beta1` and REST API version `2025-03-02-preview`.
+
+> [!NOTE]
+> This feature is currently in preview.
+
+Previously, developers were responsible for maintaining a mapping between their own user identity system and Azure Communication Services identities. With the introduction of the `customId` parameter, you can now associate your own user identifiers—such as email addresses or internal user IDs—directly when creating a Communication Services identity.
+
+When you create a user with a `customId`, Azure Communication Services will return the same identity if you call the method again with the same `customId`. This eliminates the need to store and manage the mapping yourself.
+
+This feature is supported in both the SDK and REST API, and is especially useful for scenarios where you want to maintain a consistent identity across sessions, devices, or services without additional storage overhead.
+
+### Access tokens 
 
 After you create a user identity, the end-user then needs an access token with specific scopes to participate in communications using chat or calls. For example, only a user with a token of `chat` scope can participate in chat. Only a user with a token of `voip` scope can participate in a VoIP call.
 
@@ -45,7 +67,7 @@ A user can have multiple tokens simultaneously. Azure Communication Services sup
 
 An access token is a JSON Web Token (JWT) and has integrity protection. That is, its claims can't be changed without invalidating the access token because then the token signature no longer matches. If communication primitives are used with invalid tokens, access is denied. Even though tokens aren't encrypted or obfuscated, your application shouldn't depend on the token format or its claims. The token format can change and isn't part of the official API contract. Azure Communication Services supports the following scopes for access tokens.
 
-### Chat token scopes
+#### Chat token scopes
 
 The identity model supports three different chat token scopes. Permissions for each scope are described in the following table.
 - `chat`
@@ -70,7 +92,7 @@ The identity model supports three different chat token scopes. Permissions for e
 | Send typing indicator | Y | Y | Y |
 | Get participant for thread ID | Y | Y | Y |
 
-### VoIP token scopes
+#### VoIP token scopes
 
 The identity model supports two VoIP token scopes. Permissions for each scope are described in the following table.
 - `voip`
@@ -87,13 +109,13 @@ The identity model supports two VoIP token scopes. Permissions for each scope ar
 
 You can use the `voip.join` scope together with [Rooms](./rooms/room-concept.md) to create a scheduled call. In this scenario, only invited users get access and users are prohibited from creating any other calls.
 
-### Revoke or update access token
+#### Revoke or update access token
 - Azure Communication Services Identity library can be used to revoke an access token before its expiration time. Token revocation isn't immediate. It can take up to 15 minutes to propagate.
 - Deleting an identity, resource, or subscription revokes all access tokens.
 - If you want to remove a user's ability to access specific functionality, revoke all access tokens for the user. Then issue a new access token that has a more limited set of scopes.
 - Rotation of access keys revokes all active access tokens that were created by using a former access key. So all identities lose access to Azure Communication Services and need new access tokens.
 
-## Client-server architecture
+### Client-server architecture for the bring your own identity (BYOI) model
 
 Create and manage user access tokens through a trusted service and not create tokens in your client application. You need the connection string or Microsoft Entra credentials to create user access tokens. Remember to protect the credentials, passing them to a client would risk leaking the secret. Failure to properly manage access tokens can result in extra charges on your resource when tokens are dispensed freely and misused by someone else.
 
@@ -113,10 +135,64 @@ Make sure to include only those scopes in the token that your client application
 
 Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](../../app-service/overview-authentication-authorization.md) users. They're integrated with [OpenID](../../app-service/configure-authentication-provider-openid-connect.md) and third-party identity providers like [Facebook](../../app-service/configure-authentication-provider-facebook.md).
 
+## Microsoft Entra ID: Integrating with Entra ID
+[!INCLUDE [Public Preview Disclaimer](../includes/public-preview-include.md)]
+
+Azure Communication Services now supports Microsoft Entra ID authentication, allowing you to access Azure Communication Services resources directly with Entra ID users. This new support for Entra ID authentication eliminates the need to develop or operate your own identity management or authorization proxy service mentioned in the section [Client-server architecture](#client-server-architecture-for-the-bring-your-own-identity-byoi-model). 
+
+The following sections will guide you through the essential aspects of Microsoft Entra ID integration:
+
+- How to obtain and manage access tokens: [Access tokens with Microsoft Entra ID](#access-tokens-with-microsoft-entra-id). 
+- How to implement a client architecture with Microsoft Entra ID: [Client architecture for the Microsoft Entra ID](#client-architecture-for-microsoft-entra-id).
+- Current Limitations and Recommended Guidance: [Limitations](#limitations).
+
+### Access tokens with Microsoft Entra ID
+
+Only Azure Communication Services access tokens are supported for authentication and authorization in Azure Communication Services, including chat and call functionalities. For more on token structure and management, see [Access tokens](#access-tokens). **During the Microsoft Entra ID public preview, only calling (VoIP) access token scopes are supported through Entra ID integration.**
+
+With Microsoft Entra ID integration, you authenticate users via Entra ID, obtain an Entra ID user access token with API permissions for the Azure Communication Services Clients application, and exchange it for an Azure Communication Services access token. The Azure Communication Services Common SDKs offer seamless authentication by automatically obtaining an Azure Communication Services access token for Entra ID user. For more information on how to implement the logic with Azure Communication Services Common SDK, see [Obtain access tokens for Microsoft Entra ID users](../quickstarts/identity/microsoft-entra-id-authentication-integration.md#developer-actions)
+
+The API permissions for the Azure Communication Services Clients application are named consistently with the Azure Communication Services access token scopes described in the sections [Chat token scopes](#chat-token-scopes) and [VoIP token scopes](#voip-token-scopes). The following table shows the mapping between API permissions and the access token scopes. 
+
+> [!IMPORTANT]
+> Chat (messaging) API permissions (`Chat`, `Chat.Join`, `Chat.Join.Limited`) are not yet supported through Microsoft Entra ID in the public preview. For now, only VoIP-related permissions (`VoIP`, `VoIP.Join`) are available. Chat support is planned for a future update.
+
+| Azure Communication Services Clients API permission | Azure Communication Services access token scope |
+| --- | --- |
+| `Chat` (Entra ID public preview: VoIP only – chat coming) | `chat` |
+| `Chat.Join` (Entra ID public preview: VoIP only – chat coming) | `chat.join` |
+| `Chat.Join.Limited` (Entra ID public preview: VoIP only – chat coming) | `chat.join.limited` |
+| `VoIP` | `voip` |
+| `VoIP.Join` | `voip.join` |
+
+
+Azure Communication Services access tokens are issued with the same expiration as the Microsoft Entra ID user access token.
+
+### Client architecture for Microsoft Entra ID
+With Microsoft Entra ID integration, you can simplify your architecture by directly using Entra ID for authentication and authorization. The following steps outline the process:
+
+:::image type="content" source="./media/entra-client-server-architecture.png" alt-text="Diagram that shows the Microsoft Entra ID integration architecture." border="false":::
+
+1. A user starts the client application.
+2. The client application authenticates the user via Microsoft Entra ID. The client application obtains an Entra ID user access token with API permissions for the Azure Communication Services Clients application.
+3. The client application obtains an Azure Communication Services access token for Entra ID user using one of the following methods:
+   - Using the Azure Communication Services Common SDKs: The client initializes the [CommunicationTokenCredential](./credentials-best-practices.md#communication-token-credential) with Entra ID token credential options, which automatically handles  obtaining an Azure Communication Services access token for Entra ID user in the background. The application then uses this credential to access Azure Communication Services APIs.
+   - Custom implementation: The client application calls the [Exchange Entra ID token for Azure Communication Services access token](https://learn.microsoft.com/rest/api/communication/identity/entra-id-token) API to obtain an Azure Communication Services access token. The resulting Azure Communication Services access token is then used to access  Azure Communication Services APIs.
+
+This architecture eliminates the need for a separate identity management service, as Microsoft Entra ID handles user authentication and authorization directly.
+
+### Limitations
+The Microsoft Entra ID integration is currently in preview and has the following limitations:
+- [Continuous Access Evaluation](/entra/identity/conditional-access/concept-continuous-access-evaluation) is not available. To revoke access tokens immediately, follow the instructions in [Revoke access tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli#revoke-access-tokens).
+- Removing an Entra ID user does not automatically remove all associated data from the Communication Services resource. To ensure all data is deleted, follow the instructions in [Delete an identity](../quickstarts/identity/access-tokens.md?pivots=platform-azcli#delete-an-identity).
+ - Chat (messaging) API permissions (`Chat`, `Chat.Join`, `Chat.Join.Limited`) can't be granted or used via Microsoft Entra ID integration in the public preview. Only VoIP-related permissions (`VoIP`, `VoIP.Join`) are supported. Use the BYOI identity model to obtain chat access tokens until GA.
+
 ## Next steps
 
 * To issue tokens, see [Create and manage access tokens for end users](../quickstarts/identity/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
+* For details on how authentication works in single-tenant and multitenant Microsoft Entra ID scenarios, refer to [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps).
+* For a quickstart on how to authenticate Microsoft Entra ID users, see [Authenticate Microsoft Entra ID users](../quickstarts/identity/microsoft-entra-id-authentication-integration.md).
 * To read about data residency and privacy, see [Region availability and data residency](./privacy.md).
 * For a full sample of a simple identity management service, see [Trusted service tutorial](../tutorials/trusted-service-tutorial.md).
 * For a more advanced identity management sample which integrates with Entra ID and Microsoft Graph, see [Authentication service hero sample](../samples/trusted-auth-sample.md).

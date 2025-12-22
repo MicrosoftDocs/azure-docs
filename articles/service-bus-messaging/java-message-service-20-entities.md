@@ -3,12 +3,12 @@ title: Azure Service Bus messaging - Java message service entities
 description: This article provides an overview of Azure Service Bus messaging entities accessible through the Java message service API.
 ms.topic: article
 ms.custom: devx-track-extended-java
-ms.date: 09/27/2021
+ms.date: 12/04/2025
 ---
 
 # Java message service (JMS) 2.0 entities
 
-Client applications connecting to Azure Service Bus Premium and using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can use the below entities.
+Client applications connecting to Azure Service Bus Premium and using the [Azure Service Bus JMS library](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms) can use the below entities.
 
 ## Queues
 
@@ -52,17 +52,17 @@ TemporaryTopic createTemporaryTopic()
 
 ## Java message service (JMS) subscriptions
 
-While these are semantically similar to the [Subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (that is, exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable, and **Non-durable** attributes for a given subscription.
+While these subscriptions are semantically similar to the [subscriptions on Service Bus topics](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (that is, exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable, and **Non-durable** attributes for a given subscription.
 
 > [!NOTE]
-> The below subscriptions are available in Azure Service Bus Premium tier for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
+> The below subscriptions are available in Azure Service Bus Premium tier for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms).
 >
 > Only durable subscriptions can be created using the Azure portal.
 >
 
 ### Shared durable subscriptions
 
-A shared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively consuming from the subscription at all times.
+A shared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively consuming from the subscription always.
 
 Any application that is authenticated to receive from Service Bus can receive from the shared durable subscription.
 
@@ -84,7 +84,7 @@ void unsubscribe(String name)
 
 Like a shared durable subscription, an unshared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively consuming from the subscription.
 
-However, since this is an unshared subscription, only the application that created the subscription can receive from it.
+However, since this subscription is an unshared subscription, only the application that created the subscription can receive from it.
 
 To create an unshared durable subscription, use the below methods from `JMSContext` class - 
 
@@ -104,13 +104,13 @@ The unshared durable subscription continues to exist unless deleted using the `u
 void unsubscribe(String name)
 ```
 
-### Shared non-durable subscriptions
+### Shared nondurable subscriptions
 
-A shared non-durable subscription is used when multiple client applications need to receive and process messages from a single subscription, only until they are actively consuming/receiving from it.
+A shared nondurable subscription is used when multiple client applications need to receive and process messages from a single subscription, only until they're actively consuming/receiving from it.
 
-Since the subscription is not durable, it is not persisted. Messages are not received by this subscription when there are no active consumers on it.
+Since the subscription isn't durable, it isn't persisted. Messages aren't received by this subscription when there are no active consumers on it.
 
-To create a shared non-durable subscription, create a `JmsConsumer` as shown in the below methods from the `JMSContext` class -
+To create a shared nondurable subscription, create a `JmsConsumer` as shown in the below methods from the `JMSContext` class -
 
 ```java
 JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName)
@@ -118,15 +118,15 @@ JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName)
 JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName, String messageSelector)
 ```
 
-The shared non-durable subscription continues to exist until there are active consumers receiving from it.
+The shared nondurable subscription continues to exist until there are active consumers receiving from it.
 
-### Unshared non-durable subscriptions
+### Unshared nondurable subscriptions
 
-An unshared non-durable subscription is used when the client application needs to receive and process message from a subscription, only until it is actively consuming from it. Only one consumer can exist on this subscription, that is, the client that created the subscription.
+An unshared nondurable subscription is used when the client application needs to receive and process message from a subscription, only until it's actively consuming from it. Only one consumer can exist on this subscription, that is, the client that created the subscription.
 
-Since the subscription is not durable, it is not persisted. Messages are not received by this subscription when there is no active consumer on it.
+Since the subscription isn't durable, it isn't persisted. Messages aren't received by this subscription when there's no active consumer on it.
 
-To create an unshared non-durable subscription, create a `JMSConsumer` as shown in the below methods from the `JMSContext` class -
+To create an unshared nondurable subscription, create a `JMSConsumer` as shown in the below methods from the `JMSContext` class -
 
 ```java
 JMSConsumer createConsumer(Destination destination)
@@ -140,28 +140,28 @@ JMSConsumer createConsumer(Destination destination, String messageSelector, bool
 > The `noLocal` feature is currently unsupported and ignored.
 >
 
-The unshared non-durable subscription continues to exist until there is an active consumer receiving from it.
+The unshared nondurable subscription continues to exist until there's an active consumer receiving from it.
 
 ### Message selectors
 
 Just like **Filters and Actions** exist for regular Service Bus subscriptions, **Message Selectors** exist for JMS Subscriptions.
 
-Message selectors can be set up on each of the JMS subscriptions and exist as a filter condition on the message header properties. Only messages with header properties matching the message selector expression are delivered. A value of null or an empty string indicates that there is no message selector for the JMS Subscription/Consumer.
+Message selectors can be set up on each of the JMS subscriptions and exist as a filter condition on the message header properties. Only messages with header properties matching the message selector expression are delivered. A value of null or an empty string indicates that there's no message selector for the JMS Subscription/Consumer.
 
 ## Additional concepts for Java Message Service (JMS) 2.0 subscriptions
 
 ### Client scoping
 
-Subscriptions, as specified in the Java Message Service (JMS) 2.0 API, may or may not be *scoped to specific client application/s* (identified with the appropriate `clientId`).
+Subscriptions, as specified in the Java Message Service (JMS) 2.0 API, might or might not be *scoped to specific client application/s* (identified with the appropriate `clientId`).
 
-Once the subscription is scoped, it **can only be accessed** from client applications that have the same client id. 
+Once the subscription is scoped, it **can only be accessed** from client applications that have the same client ID. 
 
 Any attempts to access a subscription scoped to a specific client ID (say clientId1) from an application having another client ID (say clientId2) will lead to the creation of another subscription scoped to the other client ID (clientId2).
 
 > [!NOTE]
-> Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior.
+> Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client ID have the same behavior.
 >
-> If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+> If the client ID is set to null or empty, it's only accessible to client applications whose client ID is also set to null or empty.
 >
 
 ### Shareability
@@ -169,7 +169,7 @@ Any attempts to access a subscription scoped to a specific client ID (say client
 **Shared** subscriptions permit multiple client/consumer (that is, JMSConsumer objects) to receive messages from them.
 
 >[!NOTE]
-> Shared subscriptions scoped to a specific client ID can still be accessed by multiple client/consumers (i.e. JMSConsumer objects), but each of the client applications must have the same client ID.
+> Shared subscriptions scoped to a specific client ID can still be accessed by multiple client/consumers (that is, JMSConsumer objects), but each of the client applications must have the same client ID.
 >
  
 
@@ -184,10 +184,10 @@ Any attempts to access a subscription scoped to a specific client ID (say client
 
 ## Representation of client scoped subscriptions
 
-Given that the client scoped (JMS) subscriptions must co-exist with the existing [subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), the way the client scoped (JMS) subscriptions are represented follow the below format.
+Given that the client scoped (JMS) subscriptions must coexist with the existing [subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), the way the client scoped (JMS) subscriptions are represented use the following format.
 
    * **\<SUBSCRIPTION-NAME\>**$**\<CLIENT-ID\>**$**D** (for durable subscriptions)
-   * **\<SUBSCRIPTION-NAME\>**$**\<CLIENT-ID\>**$**ND** (for non-durable subscriptions)
+   * **\<SUBSCRIPTION-NAME\>**$**\<CLIENT-ID\>**$**ND** (for nondurable subscriptions)
 
 Here, **$** is the delimiter.
 

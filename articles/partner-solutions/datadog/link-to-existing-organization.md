@@ -3,9 +3,11 @@ title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.topic: quickstart
 ms.date: 12/11/2024
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 
 
-ms.custom: references_regions
 ---
 
 # QuickStart: Link to existing Datadog organization
@@ -17,7 +19,7 @@ In this quickstart, you link to an existing organization of Datadog.
 
 ## Prerequisites
 
-[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+[!INCLUDE [create-prerequisites-owner](../includes/create-prerequisites-owner.md)]
 - You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
@@ -31,7 +33,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. Select the **+ Create** option under **Link Azure subscription to an existing Datadog org**.
 
-The **Create** resource pane displays in the working pane with the *Basics* tab open by default.
+The **Create** resource pane shows in the working pane with the *Basics* tab open by default.
 
 ### Basics tab
 
@@ -74,7 +76,7 @@ There are required fields (identified with a red asterisk) in the first two sect
 
 ### Metrics and logs tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to Datadog.
+If you wish, you can configure resources to send metrics/logs to Datadog. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 
 Enter the names and values for each *Action* listed under Metrics and Logs.
 
@@ -83,17 +85,7 @@ Enter the names and values for each *Action* listed under Metrics and Logs.
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources**.
 
-#### Inclusion and exclusion rules for metrics and logs
-
-To filter the set of Azure resources that send logs to Datadog, use inclusion and exclusion rules and set Azure resource tags.
-
-- All Azure resources with tags defined in include rules send logs to Datadog.
-- All Azure resources with tags defined in exclude rules don't send logs to Datadog.
-
-> [!NOTE]
-> If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
-
-Select the **Next** button at the bottom of the page.
+After you finish configuring metrics and logs, select **Next**.
 
 ### Security tab (optional)
 

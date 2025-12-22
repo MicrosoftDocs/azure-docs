@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: Include file
 ---
 
-To allow import of APIs, assign your API center's managed identity the **Key Vault Secrets User** role in your Azure key vault. You can use the [portal](../../role-based-access-control/role-assignments-portal-managed-identity.yml) or the Azure CLI.
+To allow import of APIs, assign your API center's managed identity the **Key Vault Secrets User** role in your Azure key vault. You can use the [portal](/azure/role-based-access-control/role-assignments-portal-managed-identity) or the Azure CLI.
 
 #### [Portal](#tab/portal)
 

@@ -5,10 +5,11 @@ ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/27/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to configure vaulted backup for Azure Files using Terraform, so that I can ensure secure and reliable data protection against ransomware and other threats.
 ---
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure Terraform
@@ -23,7 +24,7 @@ This quickstart describes how to configure vaulted backup for Azure Files using 
 
 Before you configure vaulted backup for Azure Files, ensure that  the following prerequisites are met:
 
-- Use an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Use an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Log in to Azure account
@@ -246,4 +247,6 @@ If you encounter issues while using Terraform on Azure, see the [troubleshooting
 
 ## Next steps
 
-[Restore Azure Files using Azure portal](restore-afs.md).
+- [Restore Azure Files using Azure portal](restore-afs.md).
+- Restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
+- Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

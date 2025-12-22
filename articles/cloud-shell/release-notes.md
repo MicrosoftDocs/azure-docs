@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 04/15/2025
+ms.date: 12/03/2025
 ms.topic: release-notes
 ---
 
@@ -19,6 +19,34 @@ and bug fixes.
 > vulnerability or other critical issue. As with any other tool, if there's a tool you need, you
 > can install them in your Cloud Shell session as long as it doesn't require root access. For
 > installation instructions, consult the documentation for the package you require.
+
+## November 2025
+
+User experience improvements
+
+- You can now use <kbd>Ctrl</kbd>+<kbd>V</kbd> to paste on Windows and Linux. Previously, you had to
+  use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> to paste.
+- You can now drag and drop files in the new UI. Previously, this feature was only available in the
+  old UI. You can use this to upload individual files, but not folders.
+
+Tool changes
+
+- Az CLI is version 2.79.0
+- PostgreSQL is version 16.10
+- Azure PowerShell is version 14.6.0
+
+## June 2025
+
+Tool changes
+
+- Updated Azure CLI to v2.74.0
+- Updated Azure PowerShell to v14.1.0
+- Updated .NET to v9.0.3
+- Updated Microsoft.PowerShell.PSResourceGet to v1.1.1. This version includes support for MAR as a
+  PSRepository.
+- Added [Inspektor Gadget][13] and `kubectl-gadget` packages. Inspektor Gadget offers tools for data
+  collection and system inspection on Kubernetes clusters and Linux hosts using eBPF.
+- `msodbcsql18` and `mssql-tools18` were readded to the image.
 
 ## April 2025
 
@@ -71,7 +99,7 @@ New features
   toolbar uses text-based menu items rather than icons, making it easier to find the desired action.
 
   For more information, see
-  [How to use the new user interface for Azure Cloud Shell][14].
+  [How to use the new user interface for Azure Cloud Shell][15].
 
 - Support for ephemeral sessions
 
@@ -91,7 +119,7 @@ require.
 
 - [Batch-Shipyard][09]
 - [blobxfer][10]
-- [Yeoman (yo)][13]
+- [Yeoman (yo)][14]
 - [generator-az-terra module][12]
 - [Azure-functions-cli][08]
 
@@ -108,5 +136,6 @@ require.
 [10]: https://github.com/Azure/blobxfer
 [11]: https://github.com/Azure/CloudShell/blob/master/docs/package-inclusion-guide.md
 [12]: https://github.com/Azure/generator-az-terra-module
-[13]: https://yeoman.io/
-[14]: new-ui-shell-window.md
+[13]: https://inspektor-gadget.io/
+[14]: https://yeoman.io/
+[15]: new-ui-shell-window.md

@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge for Linux on Windows
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge for Linux on Windows devices.
-author: PatAltimore
-
-ms.author: patricka
-ms.date: 06/10/2024
+author: sethmanheim
+ms.author: sethm
+ms.date: 07/22/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
 ms.custom: devx-track-azurecli, linux-related-content
@@ -14,12 +13,12 @@ ms.custom: devx-track-azurecli, linux-related-content
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-You can deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it. This configuration is also known as *nested edge*.
+Deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it. This configuration is also known as *nested edge*.
 
-You can structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can only communicate with adjacent north and south layers. This network layering is the foundation of most industrial networks, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
+Structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can communicate only with adjacent north and south layers. This network layering is the foundation of most industrial networks, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
 
 
-This tutorial walks you through creating a hierarchy of IoT Edge devices using IoT Edge for Linux on Windows, deploying IoT Edge runtime containers to your devices, and configuring your devices locally. You do the following tasks:
+This tutorial shows you how to create a hierarchy of IoT Edge devices using IoT Edge for Linux on Windows, deploy IoT Edge runtime containers to your devices, and configure your devices locally. In this tutorial, you do the following tasks:
 
 > [!div class="checklist"]
 >
@@ -42,7 +41,7 @@ In this tutorial, the following network layers are defined:
 
 * **Lower layers**: IoT Edge devices at layers below the top layer can't connect directly to the cloud. They need to go through one or more intermediary IoT Edge devices to send and receive data.
 
-This tutorial uses a two device hierarchy for simplicity. The **top layer device** represents a device at the top layer of the hierarchy that can connect directly to the cloud. This device is referred to as the **parent device**. The **lower layer device** represents a device at the lower layer of the hierarchy that can't connect directly to the cloud. You can add more devices to represent your production environment, as needed. Devices at lower layers are referred to as **child devices**.
+This tutorial uses a two-device hierarchy for simplicity. The **top layer device** represents a device at the top layer of the hierarchy that can connect directly to the cloud. This device is called the **parent device**. The **lower layer device** represents a device at the lower layer of the hierarchy that can't connect directly to the cloud. Add more devices to represent your production environment as needed. Devices at lower layers are called **child devices**.
 
 ![Structure of the tutorial hierarchy, containing two devices: the top layer device and the lower layer device](./media/tutorial-nested-iot-edge/tutorial-hierarchy-diagram.png)
 
@@ -53,18 +52,18 @@ This tutorial uses a two device hierarchy for simplicity. The **top layer device
 
 To create a hierarchy of IoT Edge devices, you need:
 
-* A Bash shell in Azure Cloud Shell using Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed. This tutorial uses the [Azure Cloud Shell](../cloud-shell/overview.md). To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az-version).
-* Two Windows devices running Azure IoT Edge for Linux on Windows. Both devices should be deployed using an **external virtual switch**.
+* A Bash shell in Azure Cloud Shell using Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed. This tutorial uses [Azure Cloud Shell](../cloud-shell/overview.md). To check your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az-version).
+* Two Windows devices running Azure IoT Edge for Linux on Windows. Deploy both devices using an **external virtual switch**.
 
 > [!TIP]
-> It is possible to use **internal** or **default** virtual switch if a port forwarding is configured on the Windows host OS. However, for the simplicity of this tutorial, both devices should use an **external** virtual switch and be connected to the same external network. 
+> You can use an **internal** or **default** virtual switch if port forwarding is set up on the Windows host OS. But to keep this tutorial simple, use an **external** virtual switch for both devices and connect them to the same external network. 
 >
 > For more information about networking, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md) and [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 >
 > If you need to set up the EFLOW devices on a DMZ, see [How to configure Azure IoT Edge for Linux on Windows Industrial IoT & DMZ configuration](how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md).
-* An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* Make sure that the following ports are open inbound for all devices except the lowest layer device: 443, 5671, 8883:
+* Make sure that the following ports are open inbound for all devices except the lowest layer device: 443, 5671, and 8883:
   * 443: Used between parent and child edge hubs for REST API calls and to pull docker container images.
   * 5671, 8883: Used for AMQP and MQTT.
 
@@ -229,7 +228,7 @@ Each device needs its corresponding configuration bundle. You can use a USB driv
     ```bash
     sudo iotedge check
     ```
-On your **top layer device**, expect to see an output with several passing evaluations. You may see some warnings about logs policies and, depending on your network, DNS policies.
+On your **top layer device**, expect to see an output with several passing evaluations. You might see some warnings about logs policies and, depending on your network, DNS policies.
 
 If you want a closer look at what modifications are being made to your device's configuration file, see [the configure IoT Edge on devices section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#configure-parent-device).
 
@@ -297,24 +296,24 @@ The **Docker registry** module points to an existing Azure Container Registry. I
 
 The *IoT Edge API Proxy* module routes HTTP requests to other modules, allowing lower layer devices to pull container images or push blobs to storage. In this tutorial, it communicates on port 443 and is configured to send Docker container image pull requests route to your **Docker registry** module on port 5000. Also, any blob storage upload requests route to module AzureBlobStorageonIoTEdge on port 11002. For more information about the **IoT Edge API Proxy** module and how to configure it, see the module's [how-to guide](how-to-configure-api-proxy-module.md).
 
-If you'd like a look at how to create a deployment like this through the Azure portal or Azure Cloud Shell, see [top layer device section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-top-layer-devices).
+To learn how to create a deployment like this in the Azure portal or Azure Cloud Shell, see the [top layer device section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-top-layer-devices).
 
-You can view the status of your modules using the command:
+View the status of your modules with the following command:
 
 ```azurecli
 az iot hub module-twin show --device-id <edge-device-id> --module-id '$edgeAgent' --hub-name <iot-hub-name> --query "properties.reported.[systemModules, modules]"
 ```
 
-This command outputs all the edgeAgent reported properties. Here are some helpful ones for monitoring the status of the device: *runtime status*, *runtime start time*, *runtime last exit time*, *runtime restart count*.
+This command shows all the edgeAgent reported properties. Helpful properties for monitoring device status include: *runtime status*, *runtime start time*, *runtime last exit time*, and *runtime restart count*.
 
-You can also see the status of your modules on the [Azure portal](https://portal.azure.com/). Navigate to the **Devices** section of your IoT Hub to see your devices and modules.
+You also see the status of your modules in the [Azure portal](https://portal.azure.com/). Go to the **Devices** section of your IoT Hub to view your devices and modules.
 
 ## View generated data
 
 
 The **Simulated Temperature Sensor** module that you pushed generates sample environment data. It sends messages that include ambient temperature and humidity, machine temperature and pressure, and a timestamp.
 
-You can also view these messages through the [Azure Cloud Shell](https://shell.azure.com/):
+You can also view these messages using [Azure Cloud Shell](https://shell.azure.com/):
 
 ```azurecli
 az iot hub monitor-events -n <iot-hub-name> -d <lower-layer-device-name>
@@ -350,15 +349,15 @@ When you run `iotedge check` from the lower layer, the program tries to pull the
 sudo iotedge check --diagnostics-image-name $upstream:443/azureiotedge-diagnostics:1.2
 ```
 
-The `azureiotedge-diagnostics` value is pulled from the container registry that's linked with the registry module. This tutorial has it set by default to https://mcr.microsoft.com:
+The `azureiotedge-diagnostics` value is pulled from the container registry that's linked with the registry module. This tutorial sets it by default to https://mcr.microsoft.com:
 
 | Name | Value |
 | - | - |
 | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 
-If you're using a private container registry, make sure that all the images (IoTEdgeAPIProxy, edgeAgent, edgeHub, Simulated Temperature Sensor, and diagnostics) are present in the container registry.
+If you use a private container registry, make sure all images (IoTEdgeAPIProxy, edgeAgent, edgeHub, Simulated Temperature Sensor, and diagnostics) are in the container registry.
 
-If a downstream device has a different processor architecture from the parent device, you need the appropriate architecture image. You can use a [connected registry](/azure/container-registry/intro-connected-registry) or you can specify the correct image for the *edgeAgent* and *edgeHub* modules in the downstream device *config.toml* file. For example, if the parent device is running on an ARM32v7  architecture and the downstream device is running on an AMD64 architecture, you need to specify the matching version and architecture image tag in the downstream device *config.toml* file.
+If a downstream device has a different processor architecture from the parent device, use the appropriate architecture image. Use a [connected registry](/azure/container-registry/intro-connected-registry), or specify the correct image for the *edgeAgent* and *edgeHub* modules in the downstream device *config.toml* file. For example, if the parent device runs on an ARM32v7 architecture and the downstream device runs on an AMD64 architecture, specify the matching version and architecture image tag in the downstream device *config.toml* file.
 
 ```toml
 [agent.config]

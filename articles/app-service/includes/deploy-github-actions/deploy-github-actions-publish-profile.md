@@ -3,6 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.date: 01/16/2025
+ms.service: azure-app-service
 ---
 
 The `publish-profile` input should reference the `AZURE_WEBAPP_PUBLISH_PROFILE` GitHub secret that you created earlier.
@@ -181,6 +182,9 @@ Here's a [full example](https://github.com/Azure-Samples/onlinebookstore/blob/ma
 
 # [Node.js](#tab/nodejs)
 
+> [!IMPORTANT]
+> If you're deploying a Node.js app with TypeScript or other compiled languages using `azure/webapps-deploy@v3`, build your app first in GitHub Actions and then deploy the compiled output folder (such as `dist/` or `build/`). If instead you want to use App Service build automation, [set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting](../../configure-common.md#configure-app-settings) to `true`.
+
 Build and deploy a Node.js app to Azure by using the app's publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
@@ -192,7 +196,7 @@ on: [push]
 env:
   AZURE_WEBAPP_NAME: my-app-name   # Set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # Set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '18.x'                # Set this to the node version to use
+  NODE_VERSION: '24.x'                # Set this to the node version to use
 
 jobs:
   build-and-deploy:

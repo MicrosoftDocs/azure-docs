@@ -3,10 +3,13 @@ title: Manage and update Azure HPC Cache
 description: How to manage and update Azure HPC Cache using the Azure portal or Azure CLI
 author: ekpgh
 ms.service: azure-hpc-cache
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/29/2022
 ms.author: rohogue
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: As an IT administrator, I want to manage and update the Azure HPC Cache through the portal or CLI, so that I can ensure optimal performance and data consistency for my high-performance computing workloads.
 ---
 
 # Manage your cache

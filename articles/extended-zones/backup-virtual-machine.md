@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Back up an Azure Extended Zone VM"
 description: Learn how to back up a virtual machine (VM) in Azure Extended Zones using the Azure portal.
-author: halkazwini
-ms.author: halkazwini
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: tutorial
 ms.date: 11/19/2024
@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - An Azure virtual machine (VM) in an Extended Zone. For more information, see [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md).
 

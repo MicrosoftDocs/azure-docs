@@ -2,12 +2,14 @@
 title: 'Tutorial: Improve website response with Azure Traffic Manager'
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: tutorial
 ms.date: 08/08/2024
-ms.author: greglin
-ms.custom: template-tutorial
+ms.author: allensu
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ---
 
@@ -25,7 +27,7 @@ In this tutorial, you learn how to:
 > * Add VM endpoints to the Traffic Manager profile
 > * View Traffic Manager in action
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

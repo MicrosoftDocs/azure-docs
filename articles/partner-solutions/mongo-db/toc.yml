@@ -1,0 +1,40 @@
+items:
+- name: MongoDB Atlas documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is MongoDB Atlas?
+    href: overview.md 
+  - name: Resources and developer tools
+    href: tools.md 
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create a resource
+    href: create.md
+- name: How to
+  expanded: true
+  items:
+  - name: Manage a resource
+    href: manage.md
+  - name: Troubleshoot a resource
+    href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
+  - name: Get support
+    href: https://www.mongodb.com/company/contact
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/mongo-db
+  - name: Azure PowerShell
+    href: /powershell/module/az.mongodb
+  - name: .NET
+    href: /dotnet/api/overview/azure/resourcemanager.mongodbatlas-readme
+  - name: Java
+    href: /java/api/overview/azure/resourcemanager-mongodbatlas-readme
+  - name: Javascript
+    href: /javascript/api/overview/azure/arm-mongodbatlas-readme
+  - name: Python
+    href: /python/api/overview/azure/mgmt-mongodbatlas-readme
+  - name: Go
+    href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mongodbatlas/armmongodbatlas

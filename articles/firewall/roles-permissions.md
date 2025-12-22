@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 12/9/2024
 ms.author: duau
 
+# Customer intent: "As an IT administrator, I want to configure roles and permissions for Azure Firewall, so that I can ensure the right access controls and functionalities are in place for users managing network resources."
 ---
 # About roles and permissions for Azure Firewall
 
@@ -79,4 +80,4 @@ To view roles and permissions for other services, see the following links:
 ## Next steps
 
 [What is Azure Role Based Access](../role-based-access-control/overview.md)
-[Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+[Azure Role Based Access Control](/azure/role-based-access-control/role-assignments-list-portal)

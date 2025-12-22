@@ -17,7 +17,7 @@ In Azure Monitor, metrics are a series of measured values and counts that are co
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md) 
 
 ## Supported metrics
@@ -42,7 +42,7 @@ These metrics can be accessed from your Azure Managed Grafana workspace, from Az
 
    :::image type="content" source="media/monitoring-metrics/metric-chart.png" alt-text="Screenshot of the Azure platform showing a metric chart.":::
 
-1. Optionally create a new alert rule to be notified if the metric you configured exceeds or drops below a threshhold, or pin your dashboard to an Azure Dashboard, Grafana workspace or a Workbook.
+1. Optionally create a new alert rule to be notified if the metric you configured exceeds or drops below a threshold, or pin your dashboard to an Azure Dashboard, Grafana workspace or a Workbook.
 
 ## Next step
 

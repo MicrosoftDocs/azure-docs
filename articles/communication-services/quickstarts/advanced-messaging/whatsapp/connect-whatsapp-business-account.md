@@ -1,6 +1,6 @@
 ---
-title: Register WhatsApp business account
-titleSuffix: An Azure Communication Services concept document
+title: Register WhatsApp Business Account
+titleSuffix: An Azure Communication Services article
 description: Learn about Communication Service WhatsApp Business Accounts concepts.
 author: darmour
 manager: sundraman
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---
 
-# Register WhatsApp business account
+# Register WhatsApp Business Account
 
 Get started with the Azure Communication Services Advanced Messaging, which extends messaging to users on WhatsApp. This feature enables your organization to send and receive messages with WhatsApp users using a WhatsApp Business Account. The Advanced Communication Messages SDK extends your communications to interact with the large global WhatsApp community for common scenarios:
 
@@ -21,7 +21,8 @@ Get started with the Azure Communication Services Advanced Messaging, which exte
 
 ## Overview
 
-This article provides information about registering a WhatsApp Business Account with Azure Communication Services. The following video demonstrates this process. 
+This article describes how to register a WhatsApp Business Account with Azure Communication Services. The following video demonstrates this process.
+
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=04c63978-6f27-4289-93d6-625d8569ee28]
 
 ## Prerequisites
@@ -50,8 +51,8 @@ This article provides information about registering a WhatsApp Business Account 
     > You can now use your WhatsApp Business Account multiple times with different Phone Numbers.
 
     > [!NOTE]
-    > If you try to create a WhatsApp channel multiple times using the same WhatsApp Business Account and Phone Number, you may encounter errors. This happens because the Phone Number is already shared with Microsoft and 'locked'. To fix this, delete the Phone Number and WhatsApp Business Account on the META portal. If you are unable to delete your WhatsApp Business Account, open a Support Case for manual assistance.
-        
+    > If you try to create a WhatsApp channel multiple times using the same WhatsApp Business Account and Phone Number, you might encounter errors. This problem happens because the Phone Number is already shared with Microsoft and `locked`. To fix the problem, delete the Phone Number and WhatsApp Business Account on the META portal. If you can't delete your WhatsApp Business Account, open a Support Case for manual assistance.
+    
     :::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" lightbox="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows WhatsApp Business account details.":::
 
 1. Once you complete the form, select **Next** to continue.
@@ -104,7 +105,7 @@ This article described how to register your WhatsApp Business Account with Azure
 > [!div class="nextstepaction"]
 > [Get started With Advanced Messages SDK](../../../quickstarts//advanced-messaging/whatsapp/get-started.md)
 
-You might also want to see the following articles: 
+## Related articles
 
 -    [WhatsApp Business Account FAQ](../../../quickstarts//advanced-messaging/whatsapp/whatsapp-business-account-faq.md)
 -    [WhatsApp Business Help Center](https://www.facebook.com/business/help/524220081677109?id=2129163877102343)

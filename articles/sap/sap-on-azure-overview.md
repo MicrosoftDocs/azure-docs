@@ -1,12 +1,13 @@
 ---
 title: What SAP on Azure offerings are available?
 description: Learn about the different offerings for running and managing your SAP systems on Azure. These include SAP virtual machine workloads, Azure Center for SAP solutions, the SAP on Azure deployment automation framework, and Azure Monitor for SAP solutions.
-author: ju-shim
-ms.author: jushiman
+author: jjaygbay1 
+ms.author: jacobjaygbay
 ms.service: sap-on-azure
 ms.topic: overview
 ms.date: 08/22/2024
 ms.custom: template-overview
+# Customer intent: As an IT manager overseeing SAP systems, I want to explore available offerings for running and managing SAP on Azure, so that I can choose the best solutions for deploying, integrating, and monitoring our SAP workloads effectively.
 ---
 
 # What SAP on Azure offerings are available?

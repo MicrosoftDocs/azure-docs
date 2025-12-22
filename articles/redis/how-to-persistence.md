@@ -1,19 +1,18 @@
 ---
-title: Configure data persistence - Azure Managed Redis (preview)
+title: Configure data persistence - Azure Managed Redis
 description: Learn how to configure and manage data persistence your Azure Managed Redis instances
-
-
-
-ms.service: azure-managed-redis
-ms.custom: devx-track-azurecli, ignite-2024
+ms.date: 10/22/2025
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Configure data persistence for an Azure Managed Redis (preview) instance
+# Configure data persistence for an Azure Managed Redis instance
 
-[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your [high availability and disaster recovery](high-availability.md) strategy with Azure Managed Redis (preview).
+[Redis persistence)](https://redis.io/topics/persistence) allows you to persist data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your high availability and disaster recovery strategy with Azure Managed Redis.
 
 > [!IMPORTANT]
 >
@@ -22,9 +21,9 @@ appliesto:
 
 ## Scope of availability
 
-|Tier     | Memory Optimized, Balanced, Compute Optimized  | Flash Optimized  |
-|---------|---------|---------|
-|Available  | Yes       | Yes        |
+| Tier      | Memory Optimized, Balanced, Compute Optimized | Flash Optimized |
+|-----------|-----------------------------------------------|-----------------|
+| Available | Yes                                           | Yes (preview)   |
 
 ## Types of data persistence in Redis
 
@@ -37,7 +36,6 @@ You have two options for persistence with Azure Managed Redis: the _Redis databa
 > Azure Managed Redis persistence features are intended to be used to restore data automatically to the same cache after data loss. The RDB/AOF persisted data files can neither be accessed by users nor imported to a new or existing cache. To move data across caches, use the _Import and Export_ feature. For more information, see [Import and Export data in Azure Managed Redis](how-to-import-export-data.md).
 > 
 
-
 To generate any backups of data that can be added to a new cache, you can write automated scripts using PowerShell or Azure CLI that export data periodically.
 
 ## Prerequisites and limitations
@@ -45,7 +43,7 @@ To generate any backups of data that can be added to a new cache, you can write 
 Persistence features are intended to be used to restore data to the same cache after data loss.
 
 - RDB/AOF persisted data files can't be imported to a new cache or the existing cache. Use the [Import/Export](how-to-import-export-data.md) feature instead.
-- Persistence isn't supported with caches using [active geo-replication](how-to-active-geo-replication.md).
+- Data Persistence requires a cache to have **High availability** enabled. The Data persistence feature isn't supported when you use [active geo-replication](how-to-active-geo-replication.md).
 - The managed disk holding persisted data files is encrypted using Microsoft managed keys (MMK) by default, but customer managed keys (CMK) can also be used. For more information, see [managing data encryption](#managing-data-encryption).
 
 ## How to set up data persistence using the Azure portal
@@ -54,7 +52,7 @@ Persistence features are intended to be used to restore data to the same cache a
 
 1. When you reach the **Advanced** tab, select either _RDB_ or _AOF_ options in the **Data Persistence** section.
 
-    :::image type="content" source="media/how-to-persistence/managed-redis-advanced-persistence.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab and Data persistence is highlighted with a red box.":::
+    :::image type="content" source="media/how-to-persistence/managed-redis-advanced-persistence.png" alt-text="Screenshot that shows a new Azure Managed Redis cache with Advanced tab and Data persistence highlighted with a red box." lightbox="media/how-to-persistence/managed-redis-advanced-persistence.png":::
 
 1. To enable RDB persistence, select **RDB** and configure the settings.
 
@@ -190,4 +188,3 @@ For more information on scaling, see [What happens if I've scaled to a different
 
 - [Azure Managed Redis service tiers](overview.md#choosing-the-right-tier)
 - [Export data from Azure Managed Redis](how-to-import-export-data.md)
-- [High availability and disaster recovery](high-availability.md)

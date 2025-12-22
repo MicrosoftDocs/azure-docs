@@ -1,11 +1,12 @@
 ---
 title: What Azure Backup Server V3 RTM can back up
 description: This article provides a protection matrix listing all workloads, data types, and installations that Azure Backup Serve V3 RTM protects.
-ms.date: 09/11/2024
+ms.date: 07/14/2025
 ms.topic: reference
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT admin, I want to access a detailed protection matrix for Azure Backup Server V3 RTM, so that I can ensure all necessary workloads and data types are properly supported for backup and recovery."
 ---
 
 # Azure Backup Server V3 RTM protection matrix
@@ -121,3 +122,8 @@ Azure Backup Server can protect data in the following clustered applications:
 * SQL Server - Azure Backup Server doesn't support backing up SQL Server databases hosted on cluster-shared volumes (CSVs).
 
 Azure Backup Server can protect cluster workloads that are located in the same domain as the MABS server, and in a child or trusted domain. If you want to protect data sources in untrusted domains or workgroups, use NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.
+
+## Next steps
+
+- [Manage telemetry settings in MABS](manage-telemetry.md).
+

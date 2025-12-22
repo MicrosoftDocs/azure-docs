@@ -1,13 +1,13 @@
 ---
 title: Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs
 description: Use the Amazon Web Services (AWS) S3-based Web Application Firewall (WAF) connector to ingest AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 04/06/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security operator, I want to ingest web application firewall (WAF) from my Amazon Web Services S3 bucket to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 Use the Amazon Web Services (AWS) S3-based Web Application Firewall (WAF) connector to ingest AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel. AWS WAF logs are detailed records of the web traffic analyzed by the AWS WAF against web access control lists (ACLs). These records contain information such as the time AWS WAF received the request, the specifics of the request, and the action taken by the rule that the request matched. These logs and this analysis are essential for maintaining the security and performance of web applications.
 
-This connector features the debut of a new *AWS CloudFormation*-based onboarding script, to streamline the creation of the AWS resources used by the connector.
+This connector features an *AWS CloudFormation*-based onboarding script to streamline the creation of the AWS resources used by the connector.
 
 > [!IMPORTANT]
 > - The **Amazon Web Services S3 WAF** data connector is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -63,13 +63,16 @@ The process of enabling and configuring the connector consists of the following 
 
 ## Set up the AWS environment
 
-To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable templates for you to use with the AWS CloudFormation service. The CloudFormation service uses these templates to automatically create resource stacks in AWS. These stacks include the resources themselves as described in this article, as well as credentials, permissions, and policies.
+To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable templates for you to use with the AWS CloudFormation service. The CloudFormation service uses these templates to automatically create resource stacks in AWS. These stacks include the resources themselves as described in this article, and credentials, permissions, and policies.
+
+> [!NOTE]
+> We strongly recommend using the automatic setup process. For special cases, see the [manual setup instructions](connect-aws-configure-environment.md#manual-setup).
 
 ### Prepare the template files
 
 To run the script to set up the AWS environment, use the following steps:
 
-1. In the Azure portal, from the Microsoft Sentinel navigation menu, expand **Configuration** and select **Data connectors**.
+1. In the Azure portal, from the Microsoft Sentinel navigation menu, expand **Configuration**, and select **Data connectors**.
 
     In the Defender portal, from the quick launch menu, expand **Microsoft Sentinel > Configuration** and select **Data connectors**.
 
@@ -86,7 +89,7 @@ To run the script to set up the AWS environment, use the following steps:
 1. Return to the tab of the portal where you have Microsoft Sentinel open. Select **Download** under *Template 1: OpenID Connect authentication deployment* to download the template that creates the OIDC web identity provider. The template is downloaded as a JSON file to your designated downloads folder.
 
     > [!NOTE]
-    > If you have the older AWS S3 connector, and therefore you already have an OIDC web identity provider, you can skip this step.
+    > If you already have an OIDC web identity provider, skip this step.
 
 1. Select **Download** under *Template 2: AWS WAF resources deployment* to download the template that creates the other AWS resources. The template is downloaded as a JSON file to your designated downloads folder.
 
@@ -96,13 +99,14 @@ To run the script to set up the AWS environment, use the following steps:
 
 Return to the AWS Console browser tab, which is open to the AWS CloudFormation page for creating a stack.
 
-If you're not already logged in to AWS, log in now, and you are redirected to the AWS CloudFormation page.
+If you're not already logged in to AWS, log in now, and you're redirected to the AWS CloudFormation page.
 
 #### Create the OIDC web identity provider
 
-Follow the instructions on the AWS Console page for creating a new stack.
+> [!IMPORTANT]
+> If you already have the OIDC web identity provider from the previous version of the AWS S3 connector, skip this step and proceed to [Create the remaining AWS resources](#create-the-remaining-aws-resources).<br>If you already have an OIDC Connect provider set up for Microsoft Defender for Cloud, add Microsoft Sentinel as an audience to your existing provider (Commercial: `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`, Government:`api://d4230588-5f84-4281-a9c7-2c15194b28f7`). Do not try to create a new OIDC provider for Microsoft Sentinel.
 
-(If you already have the OIDC web identity provider from the previous version of the AWS S3 connector, skip this step and proceed to [Create the remaining AWS resources](#create-the-remaining-aws-resources).)
+Follow the instructions on the AWS Console page for creating a new stack.
 
 1. Specify a template and upload a template file.
 
@@ -144,10 +148,6 @@ When the resource stacks are all created, return to the browser tab open to the 
 
     :::image type="content" source="media/connect-aws-s3-waf/enter-collector-details.png" alt-text="Screenshot of adding new collector for WAF logs.":::
 
-## Manual setup
-
-Now that the automatic setup process is more reliable, there aren't many good reasons to resort to manual setup. If you must, though, see the [Manual setup instructions](connect-aws.md#manual-setup) in the [Amazon Web Services S3 Connector documentation](connect-aws.md).
-
 ## Test and monitor the connector
 
 1. After the connector is set up, go to the **Logs** page (or the **Advanced hunting** page in the Defender portal) and run the following query. If you get any results, the connector is working properly.
@@ -157,4 +157,4 @@ Now that the automatic setup process is more reliable, there aren't many good re
     | take 10
     ```
 
-1. If you haven't already done so, we recommend that you implement **data connector health monitoring** so that you can know when connectors are not receiving data or any other issues with connectors. For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).
+1. If you haven't already done so, we recommend that you implement **data connector health monitoring** so that you can know when connectors aren't receiving data or any other issues with connectors. For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).

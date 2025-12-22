@@ -1,8 +1,8 @@
 ---
 title: About Azure Cloud Services (extended support)
 description: Learn about the child elements of the Network Configuration element of the service configuration file, which specifies Virtual Network and DNS values.
-ms.topic: article
-ms.service: azure-cloud-services-extended-support
+ms.topic: overview
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

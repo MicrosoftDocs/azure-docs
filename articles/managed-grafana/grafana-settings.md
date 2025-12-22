@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 11/10/2025
 #customer intent: In this document, learn how to configure the custom Grafana options available in the Grafana settings tab, in Azure Managed Grafana.
 
 ---
@@ -46,11 +46,14 @@ Description: The **Viewers Can Edit** setting enables users with the Grafana Vie
 
 Default: disabled. Toggle on to enable this setting.
 
-### Editors Can Admin (Preview)
+### Editors Can Admin
 
-Description: The **Editors Can Admin (Preview)** setting enables users with the Grafana Editor role to administrate dashboards, folders and teams they create.
+Description: The **Editors Can Admin** setting enables users with the Grafana Editor role to administrate dashboards, folders and teams they create.
 
 Default: disabled. Toggle on the switch to enable this setting.
+
+> [!NOTE]
+> This setting is not supported in Grafana 12 or later. Workspaces running Grafana 12 or later won't have access to this configuration option.
 
 ### CSRF Always Check
 

@@ -2,19 +2,21 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: probableprime
+author: awang119
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
-ms.custom: include file
-ms.author: rifox
+ms.author: anniewang
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Node.js](https://nodejs.org/en/download/package-manager/) Active LTS and Maintenance LTS versions.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You need to **record your resource endpoint and connection string** for this article.
 - Create *three* Azure Communication Services Users and issue them a [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
@@ -60,11 +62,25 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ### Set up the app framework
 
-This article uses parcel to bundle the application assets. Run the following command to install it and list it as a development dependency in your **package.json**:
+This article uses webpack to bundle the application assets. Run the following command to install it and list it as a development dependency in your **package.json**:
 
 ```console
-npm install parcel --save-dev
+npm install webpack webpack-cli webpack-dev-server --save-dev
 ```
+
+Create a **webpack.config.js** in the root directory of your project. 
+
+```js
+module.exports = {
+    entry: "./client.js",
+    output: {
+        filename: "bundle.js"
+    },
+    devtool: "inline-source-map",
+    mode: "development"
+}
+```
+
 Create an **index.html** file in the root directory of your project. Use this file as a template to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
 ```html
@@ -76,7 +92,7 @@ Create an **index.html** file in the root directory of your project. Use this fi
   <body>
     <h4>Azure Communication Services</h4>
     <h1>Chat Quickstart</h1>
-    <script src="./client.js" type="module"></script>
+    <script src="./bundle.js"></script>
   </body>
 </html>
 ```
@@ -110,12 +126,18 @@ console.log('Azure Communication Chat client created!');
 
 ### Run the code
 
-Run the following command to run your application:
-```console
-npx parcel index.html
+Update the `scripts` section in the **package.json** to include "start"
+```json
+"start": "webpack serve --config ./webpack.config.js"
 ```
 
-Open your browser and navigate to http://localhost:1234/. In the developer tools console within your browser, you should see:
+Run the following command to run your application:
+```console
+npm install
+npm run start
+```
+
+Open your browser and navigate to http://localhost:8080/. In the developer tools console within your browser, you should see:
 
 ```console
 Azure Communication Chat client created!

@@ -6,13 +6,12 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: faq
-ms.date: 06/05/2024
+ms.date: 08/18/2025
 ms.author: chrupa
 ---
 # MedTech service FAQ
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 ## Where is the MedTech service available?
 

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/24/2022
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a network administrator, I want to deploy Azure Firewall with multiple public IP addresses using PowerShell, so that I can efficiently manage incoming and outgoing network traffic while ensuring high availability and reducing port exhaustion."
 ---
 
 # Deploy an Azure Firewall with multiple public IP addresses using Azure PowerShell
@@ -17,9 +18,9 @@ This feature enables the following scenarios:
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. Azure Firewall randomly selects the first source public IP address to use for a connection and selects another public IP after ports from the first IP have been exhausted. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md) to simplify this configuration.
  
-Azure Firewall with multiple public IP addresses is available via the Azure portal, Azure PowerShell, Azure CLI, REST, and templates.\
-You can deploy an Azure Firewall with up to 250 public IP addresses, however DNAT destination rules will also count toward the 250 maximum.
-Public IPs + DNAT destination rule = 250 max.
+Azure Firewall with multiple public IP addresses is available via the Azure portal, Azure PowerShell, Azure CLI, REST, and templates.
+You can deploy an Azure Firewall in a Hub VNET with up to 250 public IP addresses, however DNAT destination rules will also count toward the 250 maximum.
+The limit for an Azure Firewall in a VHUB deployment with Bring your own Public IP is 250 addresses and for classic VHUB deployment is 80 public IP addresses. 
 
 > [!NOTE]
 > In scenarios with high traffic volume and throughput, it is recommended to use a [NAT Gateway](/azure/nat-gateway/nat-overview) to provide outbound connectivity. SNAT ports are dynamically allocated across all public IPs associated with NAT Gateway. To learn more see [integrate NAT Gateway with Azure Firewall](/azure/firewall/integrate-with-nat-gateway).

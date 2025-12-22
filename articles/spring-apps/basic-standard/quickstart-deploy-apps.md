@@ -5,7 +5,8 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---
@@ -196,7 +197,7 @@ This article explains how to build and deploy Spring applications to Azure Sprin
   - [Set up Azure Spring Apps Config Server](./quickstart-setup-config-server.md).
 - [JDK 17](/azure/developer/java/fundamentals/java-jdk-install)
 - [Maven 3.0 or above](https://maven.apache.org/download.cgi)
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Optionally, [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 - Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
 

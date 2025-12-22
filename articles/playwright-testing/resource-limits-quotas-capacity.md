@@ -8,6 +8,8 @@ ms.custom: playwright-testing-preview
 
 # Service limits in Microsoft Playwright Testing Preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Azure uses limits and quotas to prevent budget overruns due to fraud, and to honor Azure capacity constraints. Consider these limits as you scale for production workloads. In this article, you learn about:
 
 - Default limits on Azure resources related to Microsoft Playwright Testing Preview.

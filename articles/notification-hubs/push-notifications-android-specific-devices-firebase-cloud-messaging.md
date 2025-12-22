@@ -8,11 +8,14 @@ ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc, devx-track-java
 ms.date: 05/08/2024
 ms.author: sethm
 ms.reviewer: heathertian
 ms.lastreviewed: 02/06/2024
+ms.custom:
+  - mvc
+  - devx-track-java
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Send notifications to specific devices using Notification Hubs and Google Firebase Cloud Messaging

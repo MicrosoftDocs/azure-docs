@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 01/13/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to implement best practices for Azure Firewall configuration, so that I can optimize its performance and ensure efficient network traffic management while maintaining security.
 ---
 
 # Best practices for Azure Firewall performance
@@ -50,6 +51,9 @@ To maximize the [performance](firewall-performance.md) of your Azure Firewall an
    - While the *Alert + Deny* mode offers enhanced security by blocking suspicious traffic, it can also introduce more processing overhead. If you disable this mode, you might observe performance improvement, especially in scenarios where the firewall is primarily used for routing and not deep packet inspection.
    - It's essential to remember that traffic through the firewall is denied by default until you explicitly configure *allow* rules. Therefore, even when IDPS *Alert + Deny* mode is disabled, your network remains protected, and only explicitly permitted traffic is allowed to pass through the firewall. It can be a strategic choice to disable this mode to optimize performance without compromising the core security features provided by the Azure Firewall.
 
+> [!NOTE]
+> Avoid bulk *deny all signatures* overrides. Some signatures set context for later detections and can't be overridden to prevent silent drops. For details, see [Override behavior and limitations](idps-signature-categories.md#override-behavior-and-limitations).
+
 ## Testing and monitoring
 
 To ensure optimal performance for your Azure Firewall, you should continuously and proactively monitor it. It's crucial to regularly assess the health and key metrics of your firewall to identify potential issues and maintain efficient operation, especially during configuration changes. 
@@ -68,6 +72,9 @@ Use the following best practices for testing and monitoring:
    - Look for spikes in network performance or latency. Correlate rule hit timestamps, such as application rules hit count and network rules hit count, to determine if rule processing is a significant factor contributing to performance or latency issues. By analyzing these patterns, you can identify specific rules or configurations that you might need to optimize.
 - **Add alerts to key metrics**
    - In addition to regular monitoring, it's crucial to set up alerts for key firewall metrics. This ensures that you're promptly notified when specific metrics surpass predefined thresholds. To configure alerts, see [Azure Firewall logs and metrics](metrics.md#alert-on-azure-firewall-metrics) for detailed instructions about setting up effective alerting mechanisms. Proactive alerting enhances your ability to respond swiftly to potential issues and maintain optimal firewall performance.
+- **Implement governance and compliance**
+   - Use [Azure Policy](firewall-azure-policy.md) to enforce consistent configuration standards across your Azure Firewall deployments, including explicit proxy settings and other security configurations.
+   - Track configuration changes using [Azure Resource Graph](rule-set-change-tracking.md) to maintain compliance and operational visibility.
 
 ## Next steps
 

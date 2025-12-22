@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.date: 01/09/2025
+ms.date: 02/06/2025
 #customer intent : As a data analyst, I want to share Grafana dashboards and panels with stakeholders.
 ---
 
@@ -18,7 +18,6 @@ This article covers information about sharing access to Grafana dashboards with 
 
   - direct links
   - snapshots
-  - HTML code for iframe embedding
   - library panels
   - JSON or PDF files
   - reports
@@ -28,7 +27,7 @@ This article covers information about sharing access to Grafana dashboards with 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 
 ## Share access with team members
@@ -87,10 +86,6 @@ The **Snapshot** tab lets you share an interactive dashboard or panel publicly. 
 
 > [!TIP]
 > To disable public sharing of snapshots, open your Azure Managed Grafana workspace within the Azure portal, then go to **Settings** > **Configuration** > **Grafana Settings (Preview)**, and turn off the **External Enabled** option.
-
-## Create HTML code for iframe embedding
-
-From the **Embed** tab, generate HTML code used to embed an iframe with a panel. Optionally transform the current relative time range to an absolute time range and update theme.
 
 ### Create a library panel
 

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to connect virtual networks with vi
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: tutorial
-ms.date: 11/14/2024
+ms.date: 07/11/2025
 ms.author: allensu
 ms.custom: 
   - template-tutorial
@@ -20,7 +20,7 @@ ai-usage: ai-assisted
 
 # Tutorial: Connect virtual networks with virtual network peering
 
-You can connect virtual networks to each other with virtual network peering. These virtual networks can be in the same region or different regions (also known as global virtual network peering). Once virtual networks are peered, resources in both virtual networks can communicate with each other over a low-latency, high-bandwidth connection using Microsoft backbone network.
+You can connect virtual networks to each other with virtual network peering. These virtual networks can be in the same region or different regions (also known as global virtual network peering). Once virtual networks are peered, resources in both virtual networks can communicate with each other over a low-latency, high-bandwidth connection using the Microsoft backbone network.
 
 :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-connect-virtual-networks-portal/resources-diagram.png":::
 
@@ -28,19 +28,19 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create virtual networks
-> * Connect two virtual networks with a virtual network peering
+> * Connect two virtual networks with virtual network peering
 > * Deploy a virtual machine (VM) into each virtual network
-> * Communicate between VMs
+> * Communicate between virtual machines
 
 ## Prerequisites
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -63,7 +63,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 Repeat the previous steps to create a second virtual network with the following values:
 
 >[!NOTE]
->The second virtual network can be in the same region as the first virtual network or in a different region. You can skip the **Security** tab and the Bastion deployment for the second virtual network. After the network peer, you can connect to both virtual machines with the same Bastion deployment.
+>The second virtual network can be in the same region as the first virtual network or in a different region. You can skip the **Security** tab and the Bastion deployment for the second virtual network. After the virtual network peering is established, you can connect to both virtual machines with the same Bastion deployment.
 
 | Setting | Value |
 | --- | --- |
@@ -75,7 +75,7 @@ Repeat the previous steps to create a second virtual network with the following 
 
 ### [PowerShell](#tab/powershell)
 
-Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named **test-rg** in the **eastus** location.
+Before creating a virtual network, you must create a resource group for the virtual network and all other resources created in this article. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named **test-rg** in the **eastus** location.
 
 ```azurepowershell-interactive
 $resourceGroup = @{
@@ -159,7 +159,7 @@ New-AzBastion @bastionParams -AsJob
 Create a second virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named **vnet-2** with the address prefix **10.1.0.0/16**.
 
 >[!NOTE]
->The second virtual network can be in the same region as the first virtual network or in a different region. You don't need a Bastion deployment for the second virtual network. After the network peer, you can connect to both virtual machines with the same Bastion deployment.
+>The second virtual network can be in the same region as the first virtual network or in a different region. You don't need a Bastion deployment for the second virtual network. After the virtual network peering is established, you can connect to both virtual machines with the same Bastion deployment.
 
 ```azurepowershell-interactive
 $vnet2 = @{
@@ -190,7 +190,7 @@ $virtualNetwork2 | Set-AzVirtualNetwork
 
 ### [CLI](#tab/cli)
 
-Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named **test-rg** in the **eastus** location.
+Before creating a virtual network, you must create a resource group for the virtual network and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named **test-rg** in the **eastus** location.
 
 ```azurecli-interactive 
 az group create \
@@ -250,7 +250,7 @@ az network bastion create \
 Create a second virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a virtual network named **vnet-2** with the address prefix **10.1.0.0/16**.
 
 >[!NOTE]
->The second virtual network can be in the same region as the first virtual network or in a different region. You don't need a Bastion deployment for the second virtual network. After the network peer, you can connect to both virtual machines with the same Bastion deployment.
+>The second virtual network can be in the same region as the first virtual network or in a different region. You don't need a Bastion deployment for the second virtual network. After the virtual network peering is established, you can connect to both virtual machines with the same Bastion deployment.
 
 ```azurecli-interactive
 az network vnet create \
@@ -284,7 +284,7 @@ $peerConfig1 = @{
 Add-AzVirtualNetworkPeering @peerConfig1
 ```
 
-In the output returned after the previous command executes, you see that the **PeeringState** is **Initiated**. The peering remains in the **Initiated** state until you create the peering from **vnet-2** to **vnet-1**. Create a peering from **vnet-2** to **vnet-1**.
+In the output returned after the previous command executes, you see the **PeeringState** is **Initiated**. The peering remains in the **Initiated** state until you create the peering from **vnet-2** to **vnet-1**. Create a peering from **vnet-2** to **vnet-1**.
 
 ```azurepowershell-interactive
 $peerConfig2 = @{
@@ -295,7 +295,7 @@ $peerConfig2 = @{
 Add-AzVirtualNetworkPeering @peerConfig2
 ```
 
-In the output returned after the previous command executes, you see that the **PeeringState** is **Connected**. Azure also changed the peering state of the **vnet-1-to-vnet-2** peering to **Connected**. Confirm that the peering state for the **vnet-1-to-vnet-2** peering changed to **Connected** with [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
+In the output returned after the previous command executes, you see the **PeeringState** is **Connected**. Azure also changed the peering state of the **vnet-1-to-vnet-2** peering to **Connected**. Confirm the peering state for the **vnet-1-to-vnet-2** peering changed to **Connected** with [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
 
 ```azurepowershell-interactive
 $peeringState = @{
@@ -311,7 +311,7 @@ Resources in one virtual network can't communicate with resources in the other v
 
 ## Peer virtual networks
 
-Peerings are established between virtual network IDs. Obtain the ID of each virtual network with [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) and store the ID in a variable.
+Peerings are established between virtual network IDs. Obtain the ID of each virtual network with [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) and store the IDs in their respective variables.
 
 ```azurecli-interactive
 # Get the id for vnet-1.
@@ -339,7 +339,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-In the output returned after the previous command executes, you see that the **peeringState** is **Initiated**. The peering remains in the **Initiated** state until you create the peering from **vnet-2** to **vnet-1**. Create a peering from **vnet-2** to **vnet-1**. 
+In the output returned after the previous command executes, you see the **peeringState** is **Initiated**. The peering remains in the **Initiated** state until you create the peering from **vnet-2** to **vnet-1**. Create a peering from **vnet-2** to **vnet-1**.
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -350,7 +350,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-In the output returned after the previous command executes, you see that the **peeringState** is **Connected**. Azure also changed the peering state of the **vnet-1-to-vnet-2** peering to **Connected**. Confirm that the peering state for the **vnet-1-to-vnet-2** peering changed to **Connected** with [az network vnet peering show](/cli/azure/network/vnet/peering#az-network-vnet-show).
+In the output returned after the previous command executes, you see the **peeringState** is **Connected**. Azure also changed the peering state of the **vnet-1-to-vnet-2** peering to **Connected**. Confirm the peering state for the **vnet-1-to-vnet-2** peering changed to **Connected** with [az network vnet peering show](/cli/azure/network/vnet/peering#az-network-vnet-show).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -366,7 +366,7 @@ Resources in one virtual network can't communicate with resources in the other v
 
 ## Create virtual machines
 
-Test the communication between the virtual machines by creating a virtual machine in each virtual network. The virtual machines can communicate with each other over the virtual network peering.
+Test the communication between the virtual machines by creating a virtual machine in each virtual network. The virtual machines can communicate with each other over the virtual network peering you just created.
 
 ### [Portal](#tab/portal)
 
@@ -387,13 +387,13 @@ Repeat the previous steps to create a second virtual machine in the second virtu
 
 ### Create the first virtual machine
 
-Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. When prompted, enter the username and password for the virtual machine.
+Create a virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a virtual machine named **vm-1** in the **vnet-1** virtual network. When prompted, enter the username and password for the virtual machine.
 
 ```azurepowershell-interactive
 # Create a credential object
 $cred = Get-Credential
 
-# Define the VM parameters
+# Define the virtual machine parameters
 $vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
@@ -406,17 +406,17 @@ $vmParams = @{
     PublicIpAddressName = $null  # No public IP address
 }
 
-# Create the VM
+# Create the virtual machine
 New-AzVM @vmParams
 ```
 
-### Create the second VM
+### Create the second virtual machine
 
 ```azurepowershell-interactive
 # Create a credential object
 $cred = Get-Credential
 
-# Define the VM parameters
+# Define the virtual machine parameters
 $vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
@@ -429,15 +429,15 @@ $vmParams = @{
     PublicIpAddressName = $null  # No public IP address
 }
 
-# Create the VM
+# Create the virtual machine
 New-AzVM @vmParams
 ```
 
 ### [CLI](#tab/cli)
 
-### Create the first VM
+### Create the first virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. If SSH keys don't already exist in a default key location, the command creates them. The `--no-wait` option creates the VM in the background, so you can continue to the next step.
+Create a virtual machine with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a virtual machine named **vm-1** in the **vnet-1** virtual network. If SSH keys don't already exist in a default key location, the command creates them. The `--no-wait` option creates the virtual machine in the background, so you can continue to the next step.
 
 ```azurecli-interactive
 az vm create \
@@ -451,9 +451,9 @@ az vm create \
     --no-wait
 ```
 
-### Create the second VM
+### Create the second virtual machine
 
-Create a VM in the **vnet-2** virtual network.
+Create a virtual machine in the **vnet-2** virtual network.
 
 ```azurecli-interactive
 az vm create \
@@ -466,7 +466,7 @@ az vm create \
     --authentication-type password
 ```
 
-The VM takes a few minutes to create.
+The virtual machine takes a few minutes to create.
 
 ---
 
@@ -474,7 +474,7 @@ Wait for the virtual machines to be created before continuing with the next step
 
 ## Connect to a virtual machine
 
-Use `ping` to test the communication between the virtual machines. Sign-in to the Azure portal to complete the following steps.
+Use `ping` to test the communication between the virtual machines. Sign in to the Azure portal to complete the following steps.
 
 1. In the portal, search for and select **Virtual machines**.
 
@@ -486,9 +486,9 @@ Use `ping` to test the communication between the virtual machines. Sign-in to th
 
 1. Select **Use Bastion**.
 
-1. Enter the username and password you created when you created the VM, and then select **Connect**.
+1. Enter the username and password you created when you created the virtual machine, then select **Connect**.
 
-## Communicate between VMs
+## Communicate between virtual machines
 
 1. At the bash prompt for **vm-1**, enter `ping -c 4 10.1.0.4`.
 
@@ -562,7 +562,7 @@ In this tutorial, you:
 
 * Tested the communication between two virtual machines over the virtual network peering with `ping`.
 
-To learn more about a virtual network peering:
+To learn more about virtual network peering:
 
 > [!div class="nextstepaction"]
-> [Virtual network peering](virtual-network-peering-overview.md)
+> [Virtual network peering overview](virtual-network-peering-overview.md)

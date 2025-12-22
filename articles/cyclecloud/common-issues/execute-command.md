@@ -2,32 +2,32 @@
 title: Common Issues - Software Configuration
 description: Azure CycleCloud common issue - Software Configuration
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/30/2025
 ms.author: adjohnso
 ---
-# Common Issues: Software Configuration -- unable to execute command
+# Common issues: Software configuration - unable to execute command
 
-## Possible Error Messages
+## Possible error messages
 
 - `Unable to execute command`
 
 ## Resolution
 
-As part of the node setup phase, CycleCloud uses Chef to configure services and applications on the nodes, and Chef does this by invoking native OS commands.
+During the node setup phase, CycleCloud uses Chef to configure services and applications on the nodes. Chef invokes native OS commands to do this configuration.
 
-An example of this may be an attempt to create a mount point and mount a NAS to a cluster node:
+For example, Chef might try to create a mount point and mount a NAS to a cluster node:
 
 ``` CMD
 mkdir -p /data
 mount -t nfs 10.0.1.5:/exports/data /data
 ```
 
-These commands may fail for a variety of reasons which triggers a Chef error. In version 7.9 and later, CycleCloud displays the command that failed, as well as the STDOUT and STDERR that contains the error message.
+These commands can fail for many reasons, which triggers a Chef error. In version 7.9 and later, CycleCloud shows the command that failed, along with the STDOUT and STDERR that contain the error message.
 
-- Review the command that is being invoked and check for syntax errors. If this is coming from a custom Chef recipe or cookbook, fix the error and re-upload the project.
-- Log into the node that has the error and attempt to run the command as the admin or `root` user.
+- Review the command that Chef runs and check for syntax errors. If the command comes from a custom Chef recipe or cookbook, fix the error and re-upload the project.
+- Sign in to the node that has the error and try running the command as the admin or `root` user.
 - Using `mount` as an example, if the command is failing, troubleshoot the mounting error by running the command manually and diagnosing the root cause, such as an incorrect server host/IP or export path.
 
 ## More Information
 
-Lean more about [CycleCloud Projects](~/articles/cyclecloud/how-to/projects.md)
+Learn more about [CycleCloud Projects](~/articles/cyclecloud/how-to/projects.md).

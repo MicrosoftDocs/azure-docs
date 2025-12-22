@@ -3,9 +3,10 @@ title: Disaster recovery guidance for Avere vFXT for Azure
 description: How to protect data in Avere vFXT for Azure from accidental deletion or outages
 author: ekpgh
 ms.service: azure-avere-vfxt
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/10/2019
 ms.author: rohogue
+# Customer intent: As an Avere vFXT for Azure user, I want to establish an effective disaster recovery plan for my workflows, so that I can minimize data loss and downtime in the event of accidental deletions or outages.
 ---
 
 # Disaster recovery guidance for Avere vFXT for Azure

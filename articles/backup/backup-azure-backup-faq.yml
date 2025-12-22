@@ -4,9 +4,9 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 08/09/2024
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 12/12/2025
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
   ms.custom: engagement-fy24
 
 title: Azure Backup - Frequently asked questions
@@ -83,7 +83,7 @@ sections:
           Yes. To move a subscription (that contains a vault) to a different Microsoft Entra ID, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
           
           >[!IMPORTANT]
-          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferrable. You must recreate the permissions and roles in the new Microsoft Entra ID.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#considerations), you must reconfigure the features.</li></ul>
+          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferable. You must recreate the permissions and roles in the new Microsoft Entra ID.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#considerations), you must reconfigure the features.</li></ul>
           
       - question: |
           Can I move a subscription that contains a Recovery Services Vault to a different tenant?
@@ -109,6 +109,14 @@ sections:
         answer: |
           No. Currently, Azure Backup supports only copying restore points from one vault to another. You can [move snapshots to a different region using the VM restore point APIs](/azure/virtual-machines/manage-restore-points#copy-a-vm-restore-point-between-regions), but this isn't supported for Vault-tier recovery points.
 
+      - question: |
+          Why is Cross Region Restore not supported when Public Network access is set to Deny?
+        answer: |
+          Cross Region Restore (CRR) replicates data from the primary to the secondary region using Geo-redundant storage (GRS) with CRR enabled. When you deny public access and use a private endpoint, the system expects data sync to occur over a private network. However, the secondary region currently doesn’t support private endpoint configuration, which is essential for replication. Without a private connection in the secondary region, CRR can't perform the required replication.
+      - question: |
+          When GRS is enabled can we restore the VM on to the dedicated zone?
+        answer: |
+          No, we cannot restore on to the dedicated zone.
   - name: Azure Backup agent
     questions:
       - question: |
@@ -280,6 +288,10 @@ sections:
           How long is data retained when stopping backups, but selecting the option to retain backup data?
         answer: |
           When backups are stopped and the data is retained, existing policy rules for data pruning will cease and data will be retained indefinitely until initiated by the administrator for deletion.
+      - question: |
+          I have an Azure VM stored in a zone with a Premium SSD ZRS disk. What happens if I restore this VM to a Paired region using CRR where ZRS is not supported?
+        answer: |
+          When restoring a VM to a peered region that does not support Zone-Redundant Storage (ZRS), Azure Backup will automatically create the disk in the same performance tier (e.g., Standard or Premium) as the original disk, but with Locally Redundant Storage (LRS) instead of ZRS. This ensures that the restore operation completes successfully, even though the redundancy model changes.
 
   - name: Encryption
     questions:

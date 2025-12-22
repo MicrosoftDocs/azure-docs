@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 01/23/2024
 ms.custom: template-tutorial, engagement-fy23
+# Customer intent: As a cloud administrator, I want to add an Azure Load Balancer to an existing Virtual Machine Scale Set, so that I can enhance the scalability and availability of my application infrastructure.
 ---
 
 # Tutorial: Add Azure Load Balancer to an existing Virtual Machine Scale Set using the Azure portal
@@ -24,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 
 [!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]

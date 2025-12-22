@@ -3,7 +3,7 @@ title: Network Security Perimeter
 titleSuffix: Azure Event Hubs
 description: Overview of Network Security Perimeter feature for Event Hubs
 ms.reviewer: spelluru
-ms.date: 05/13/2024
+ms.date: 12/16/2025
 ms.topic: conceptual
 ms.custom:
 ---
@@ -20,7 +20,8 @@ Integrating Event Hubs Kafka within this framework enhances data streaming capab
 Operating as a service under Azure Private Link, the Network Security Perimeter facilitates secure communication for PaaS services deployed outside the virtual network. It enables seamless interaction among PaaS services within the perimeter and facilitates communication with external resources through carefully configured access rules. Additionally, it supports outbound resources such as Azure Key Vault for Bring Your Own Key (BYOK) and Azure Storage for data capture, further enhancing its versatility and utility in diverse cloud environments.
 
 > [!NOTE]
-> Network Security Perimeter does not support [Azure Event Hubs - Geo-disaster recovery](./event-hubs-geo-dr.md)
+> - Network Security Perimeter does not support [Azure Event Hubs - Geo-disaster recovery](./event-hubs-geo-dr.md)
+> - Certain Network Security Perimeter features such as same perimeter access, cross perimeter access, and subscription access rules don’t work with Shared Access Signature authentication "
 
 ## Associate Event Hubs with a Network Security Perimeter in the Azure portal
 1. Search for "Network Security Perimeter" in the Portal search bar and then click on **Create** button and create the resource.

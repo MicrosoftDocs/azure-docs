@@ -1,13 +1,13 @@
 ---
 title: Microsoft Sentinel solution for SAP applications - function reference
 description: Learn about the functions available from the Microsoft Sentinel solution for SAP applications.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: reference
-ms.date: 03/03/2025
+ms.date: 09/30/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #customer Intent: As a security analyst, I want to understand the functions available in the Microsoft Sentinel solution for SAP applications, so that I can use them in my Kusto queries.
 ---
@@ -289,7 +289,7 @@ The **SAPAuditLogAnomalies** function returns the following data:
 
 **Recommendations**:
 
-As with any machine learning solution, the **SAPAuditLogAnomalies** function performs better with time, and can be adjusted as needed as time goes on.
+As with any machine learning solution, the **SAPAuditLogAnomalies** function performs better with time and can be adjusted as needed as time goes on.
 
 We recommend restricting the size of the learned database to be under 100 million records using the many available input parameters.
 
@@ -432,7 +432,7 @@ The **SAPUsersHeader** function returns the following output:
 
 The **TH_SERVER_LIST** function is relevant when your SAP system is an older system using XAL, and lists active SAP application servers.
 
-The **TH_SERVER_LIST** function is supported only with the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+The **TH_SERVER_LIST** function is supported only with the SAP agentless data connector (Preview). For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## Related content
 

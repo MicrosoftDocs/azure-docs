@@ -3,6 +3,7 @@ title: Schedule Batch jobs for efficiency
 description: Learn how to schedule Batch jobs to manage your tasks, prioritize jobs to run first, and minimize resource usage.
 ms.topic: how-to
 ms.date: 03/21/2025
+# Customer intent: "As a cloud operations manager, I want to schedule Batch jobs efficiently, so that I can prioritize tasks and optimize resource usage while managing dependencies and minimizing costs."
 ---
 
 # Schedule Batch jobs for efficiency

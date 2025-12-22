@@ -14,7 +14,7 @@ In this quickstart, you create a custom resource provider and deploy custom reso
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - To complete the steps in this quickstart, you need to call `REST` operations. There are [different ways of sending REST requests](/rest/api/azure/).
 
 # [Azure CLI](#tab/azure-cli)

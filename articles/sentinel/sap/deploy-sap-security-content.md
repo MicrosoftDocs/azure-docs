@@ -1,15 +1,16 @@
 ---
 title: Install a Microsoft Sentinel solution for SAP applications
 description: Learn how to install a Microsoft Sentinel solution for SAP applications from the content hub to your Log Analytics workspace enabled for Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 09/30/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 zone_pivot_groups: sentinel-sap-connection
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security administrator, I want to deploy and configure security monitoring for SAP applications using Microsoft Sentinel so that I can enhance the security posture and threat detection capabilities of my SAP environment.
@@ -22,6 +23,8 @@ The Microsoft Sentinel solutions for SAP applications include an SAP data connec
 
 :::zone pivot="connection-agent"
 
+[!INCLUDE [data-connector-agent-deprecation](../includes/data-connector-agent-deprecation.md)]
+
 :::image type="content" source="media/deployment-steps/install-solution.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Install solution content step." border="false":::
 
 :::zone-end
@@ -32,13 +35,9 @@ The Microsoft Sentinel solutions for SAP applications include an SAP data connec
 
 :::zone-end
 
-
 Content in this article is relevant for your **security** team.
 
 :::zone pivot="connection-agentless"
-
-> [!IMPORTANT]
-> Microsoft Sentinel's agentless data connector for SAP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::zone-end
 
@@ -51,11 +50,15 @@ To deploy a Microsoft Sentinel solution for SAP applications from the content hu
 
 Make sure that you also review the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md), especially [Azure prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites).
 
-## Install the solution from the content hub
+:::zone pivot="connection-agentless"
+
+## Install the solution
 
 Installing the **Microsoft Sentinel Solution for SAP** makes both the data connector agent and the agentless data connector available to you from the Microsoft Sentinel **Configuration > Data connectors** page. The solution also deploys security content, such as the **SAP -Audit Controls** workbook and SAP-related analytics rules.
 
-1. In the Microsoft Sentinel **Content hub**, search for **SAP** to install the **SAP applications** solution. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
+1. In the Microsoft Sentinel **Content hub**, search for **SAP** to install the **SAP applications** solution.
+
+1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
 
@@ -73,6 +76,37 @@ Installing the **Microsoft Sentinel Solution for SAP** makes both the data conne
 > If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. In such cases, for more information, see [SAP and SOC data maintained in the same workspace](cross-workspace.md#sap-and-soc-data-maintained-in-the-same-workspace).
 
 For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
+
+:::zone-end
+
+:::zone pivot="connection-agent"
+
+## Install the solution
+
+Installing the **Microsoft Sentinel Solution for SAP** makes both the data connector agent and the agentless data connector available to you from the Microsoft Sentinel **Configuration > Data connectors** page. The solution also deploys security content, such as the **SAP -Audit Controls** workbook and SAP-related analytics rules.
+
+1. In the Microsoft Sentinel **Content hub**, search for **SAP** to install the **SAP applications** solution.
+
+1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
+
+    :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
+
+1. On the default **Basics** tab, scroll down to select where to install the solution. If you're working with [the Microsoft Sentinel solution for SAP applications in multiple workspaces](cross-workspace.md), select **Some of the data is on a different workspace**, and then define your target workspace, your SOC workspace, and SAP workspace. For example:
+
+    For example:
+
+    :::image type="content" source="./media/deploy-sap-security-content/sap-multi-workspace.png" alt-text="Screenshot that shows how to configure the Microsoft Sentinel solution for SAP applications to work across multiple workspaces.":::
+
+1. Select **Review + create** or **Next** to browse through the solution components. When you're ready, select **Create**
+
+    The deployment process can take a few minutes. After the deployment is finished, you can view the deployed content in Microsoft Sentinel.
+
+> [!TIP]
+> If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. In such cases, for more information, see [SAP and SOC data maintained in the same workspace](cross-workspace.md#sap-and-soc-data-maintained-in-the-same-workspace).
+
+For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
+
+:::zone-end
 
 ## View deployed content
 

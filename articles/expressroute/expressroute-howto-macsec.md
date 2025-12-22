@@ -113,13 +113,17 @@ Every ExpressRoute Direct instance consists of two physical ports. You can activ
 
 
 > [!NOTE]
-> You can configure both XPN and Non-XPN ciphers:
+> You can configure Non-XPN ciphers for 10 gbps ExpressRoute Ports:
 > * GcmAes128
 > * GcmAes256
+>
+> You can configure either Non-XPN or XPN ciphers for 40 gbps and greater ExpressRoute Ports:
+> * GcmAes128
+> * GcmAes256 
 > * GcmAesXpn128
 > * GcmAesXpn256
 >
-> The suggested best practice is to set up encryption with xpn ciphers to prevent sporadic session failures that occur with non-xpn ciphers on high speed links.
+> The suggested best practice is to set up encryption with xpn ciphers to prevent sporadic session failures that occur with non-xpn ciphers on links with 40 gbps or greater bandwidth.
 
 1. Establish the MACsec secrets and cipher and link the user identity with the port to enable the ExpressRoute management code to retrieve the MACsec secrets when required.
 

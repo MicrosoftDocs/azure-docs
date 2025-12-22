@@ -1,8 +1,8 @@
----
+﻿---
 title: Tag resources, resource groups, and subscriptions with Python
 description: Shows how to use Python to apply tags to Azure resources.
-ms.topic: conceptual
-ms.date: 09/26/2024
+ms.topic: article
+ms.date: 09/15/2025
 ms.custom: devx-track-python
 content_well_notification: 
   - AI-contribution
@@ -527,3 +527,4 @@ resource_client.tags.begin_delete_at_scope(subscription.id)
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
 * For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 * For tag recommendations and limitations, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
+

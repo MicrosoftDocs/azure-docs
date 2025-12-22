@@ -4,10 +4,14 @@ description: Use Azure API Management to set a policy on an API. The policy retu
 
 author: dlepow
 ms.service: azure-api-management
-ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
 ms.date: 03/24/2025
 ms.author: danlep
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - devdivchpfy22
+  - sfi-image-nochange
 
 
 #customer intent: As a developer, I want to set a policy on an API so that a mock response is returned.
@@ -60,7 +64,7 @@ The steps in this section show how to create an HTTP API with no backend.
 1. In the **Create an HTTP API** window, select **Full**.
 1. In **Display name**, enter *Test API*.
 1. In **Products**, select *Unlimited*, if that value is available. This value is available only in some tiers. You can leave the value blank for this tutorial, but you need to associate the API with a product to publish it. For more information, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api). 
-1. In **Gateways**, select **Managed** if this option is available. (This option is avaiable only in certain service tiers.)
+1. In **Gateways**, select **Managed** if this option is available. (This option is available only in certain service tiers.)
 1. Select **Create**.
 
     :::image type="content" source="media/mock-api-responses/create-http-api.png" alt-text="Screenshot that shows the Create an HTTP API window." lightbox="media/mock-api-responses/create-http-api.png":::

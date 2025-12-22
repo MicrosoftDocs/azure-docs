@@ -5,9 +5,10 @@ description: Learn about limitations and known issues of Network File System (NF
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2024
 ms.author: normesta
+# Customer intent: As a storage administrator, I want to understand the limitations and known issues of NFS 3.0 support for Azure Blob Storage, so that I can make informed decisions about enabling it and managing my storage environment effectively.
 ---
 
 # Known issues with Network File System (NFS) 3.0 protocol support for Azure Blob Storage
@@ -26,6 +27,8 @@ This article describes limitations and known issues of Network File System (NFS)
 - Geo-redundant storage (GRS), Geo-zone-redundant storage (GZRS), and Read-access geo-redundant storage (RA-GRS) redundancy options aren't supported when you create an NFS 3.0 storage account.
 
 - Access control lists (ACLs) can't be used to authorize an NFS 3.0 request. In fact, if the ACL or a blob or directory contains an entry for a named user or group, that file becomes inaccessible on the client for nonroot users. You have to remove these entries to restore access to nonroot users on the client. For information about how to remove an ACL entry for named users and groups, see [How to set ACLs](data-lake-storage-access-control.md#how-to-set-acls).
+
+- NFS 3.0 enabled accounts don't support [Azure Data Lake Storage vaulted backup](/azure/backup/azure-data-lake-storage-backup-support-matrix).
 
 ## NFS 3.0 features
 

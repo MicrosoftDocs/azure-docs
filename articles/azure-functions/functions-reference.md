@@ -2,9 +2,14 @@
 title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.topic: conceptual
-ms.date: 06/26/2024
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.topic: article
+ms.date: 12/03/2025
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+  - build-2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -15,22 +20,22 @@ In Azure Functions, all functions share some core technical concepts and compone
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md).
 
 ::: zone pivot="programming-language-csharp"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md), or from the [command prompt](./create-first-function-cli-csharp.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp), or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp).
 ::: zone-end
 ::: zone pivot="programming-language-java"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](create-first-function-cli-java.md) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio Code](./create-first-function-vs-code-java.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](how-to-create-function-azure-cli.md?pivots=programming-language-java) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-java).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-node.md) or from the [command prompt](./create-first-function-cli-node.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-javascript) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript).
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-typescript.md) or from the [command prompt](./create-first-function-cli-typescript.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-typescript) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-typescript).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-powershell.md) or from the [command prompt](./create-first-function-cli-powershell.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-powershell) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell).
 ::: zone-end
 ::: zone pivot="programming-language-python"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-python.md) or from the [command prompt](./create-first-function-cli-python.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-python) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end
 
 ## Code project
@@ -99,7 +104,7 @@ When the function app and any other required resources don't already exist in Az
 ::: zone-end 
 + Using [Visual Studio Code](./functions-develop-vs-code.md#publish-to-azure)
 
-+ Programmatically using [Azure CLI](./scripts/functions-cli-create-serverless.md), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep templates](functions-create-first-function-bicep.md)
++ Programmatically using [Azure CLI](./scripts/functions-cli-create-serverless.md), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep files](functions-create-first-function-bicep.md)
 
 + In the [Azure portal](functions-create-function-app-portal.md)
 
@@ -247,11 +252,14 @@ You need to create a role assignment that provides access to Azure SignalR Servi
 
 An identity-based connection for an Azure service accepts the following common properties, where `<CONNECTION_NAME_PREFIX>` is the value of your `connection` property in the trigger or binding definition:
 
-| Property    |  Environment variable template | Description |
+| Property | Environment variable template | Description |
 |---|---|---|
-| Token Credential |  `<CONNECTION_NAME_PREFIX>__credential` | Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. |
-| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
-| Resource ID | `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` shouldn't be set.
+| Token Credential |  `<CONNECTION_NAME_PREFIX>__credential` | This property determines how a token should be obtained for the connection. The property shouldn't be set in [local development scenarios]. When you intend to use managed identity authentication, set this property to `managedidentity`. When you intend to [connect to a resource in another tenant][cross-tenant scenarios], instead use `managedidentityasfederatedidentity`. |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used.<br/><br/>This property is used differently in cross-tenant scenarios. See the [cross-tenant scenarios] section.<br/><br/>This property is used differently in [local development scenarios], when `credential` shouldn't be set. |
+| Resource ID | `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a resource identifier corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used.|
+
+[local development scenarios]: #local-development-with-identity-based-connections
+[cross-tenant scenarios]: #connecting-to-a-resource-in-another-tenant
 
 Other options may be supported for a given connection type. Refer to the documentation for the component making the connection.
 
@@ -282,7 +290,7 @@ Your identity may already have some role assignments against Azure resources use
 
 In some cases, you may wish to specify use of a different identity. You can add configuration properties for the connection that point to the alternate identity based on a client ID and client Secret for a Microsoft Entra service principal. **This configuration option is not supported when hosted in the Azure Functions service.** To use an ID and secret on your local machine, define the connection with the following extra properties:
 
-| Property    | Environment variable template | Description |
+| Property | Environment variable template | Description |
 |---|---|---|
 | Tenant ID | `<CONNECTION_NAME_PREFIX>__tenantId` | The Microsoft Entra tenant (directory) ID. |
 | Client ID | `<CONNECTION_NAME_PREFIX>__clientId` |  The client (application) ID of an app registration in the tenant. |
@@ -330,6 +338,38 @@ If you're configuring `AzureWebJobsStorage` using a storage account that uses th
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
+#### Connecting to a resource in another tenant
+
+If your function needs to connect to a resource in a different Microsoft Entra tenant, your connection needs to use a _federated identity credential_. This requires a user-assigned managed identity and a multi-tenant Entra ID app registration. You cannot use a system-assigned managed identity for cross-tenant connections.
+
+> [!IMPORTANT]
+> When you configure a trigger for a cross-tenant connection in the Consumption or Flex Consumption plan types, the platform no longer scales the function app based on that trigger.
+
+To configure a cross-tenant identity-based connection, you first need to set up your infrastructure using the following steps:
+
+1. In the tenant where your function app is deployed, [create a new user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+1. [Assign that identity](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-user-assigned-identity) to the function app.
+1. In the same tenant, [create a multi-tenant Entra app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#configure-a-multi-tenant-app-registration) that represents the cross-tenant resource you want to access.
+1. [Add the managed identity as a federated identity credential for the app registration.](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity)
+1. In the tenant where the resource is deployed, [create an enterprise application for the app registration](/entra/identity/enterprise-apps/create-service-principal-cross-tenant).
+1. Assign permissions for the enterprise application to access the resource.
+
+A cross-tenant identity-based connection uses the following properties, where `<CONNECTION_NAME_PREFIX>` is the value of your `connection` property in the trigger or binding definition:
+
+| Property | Environment variable template | Description |
+|---|---|---|
+| Token Credential | `<CONNECTION_NAME_PREFIX>__credential` | **Required.** When connecting to a resource in another tenant, set this property to `managedidentityasfederatedidentity`. |
+| Azure Cloud | `<CONNECTION_NAME_PREFIX>__azureCloud` | **Required.** This property determines the Azure cloud environment. Allowed values are "public" for Azure Public Cloud, "usgov" for Azure US Government Cloud, and "china" for Azure operated by 21Vianet. |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | **Required.** When `credential` is set to `managedidentityasfederatedidentity`, set this property to the client ID (app ID) of the app registration.<br/><br/>This property is used differently in single-tenant identity-based connections. See the [common properties](#common-properties-for-identity-based-connections) section.<br/><br/>This property is used differently in [local development scenarios], when `credential` shouldn't be set. |
+| Tenant ID  | `<CONNECTION_NAME_PREFIX>__tenantId` | **Required.** When `credential` is set to `managedidentityasfederatedidentity`, set this property to the tenant ID of the resource tenant.<br/><br/>This property is used differently in [local development scenarios], when `credential` shouldn't be set. |
+| Managed Identity Client ID | `<CONNECTION_NAME_PREFIX>__managedIdentityClientId` | When `credential` is set to `managedidentityasfederatedidentity`, this property specifies the user-assigned identity that you configured as a federated identity credential and assigned to the application.<sup>1</sup> The property accepts a client ID corresponding to that user-assigned identity. |
+| Managed Identity Object ID | `<CONNECTION_NAME_PREFIX>__managedIdentityObjectId` | When `credential` is set to `managedidentityasfederatedidentity`, this property specifies the user-assigned identity that you configured as a federated identity credential and assigned to the application.<sup>1</sup> The property accepts an object ID (principal ID) corresponding to that user-assigned identity. |
+| Managed Identity Resource ID | `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentityasfederatedidentity`, this property specifies the user-assigned identity that you configured as a federated identity credential and assigned to the application.<sup>1</sup> The property accepts a resource identifier corresponding to that user-assigned identity. |
+
+<sup>1</sup> When `credential` is set to `managedidentityasfederatedidentity`, your connection must specify exactly one of `managedIdentityClientId`, `managedIdentityObjectId`, or `managedIdentityResourceId`.
+
+This is also [documented by the Azure SDK](/dotnet/azure/sdk/authentication/create-token-credentials-from-configuration?tabs=client-id#managed-identity-as-a-federated-identity-credential) in a JSON format.
+
 ## Reporting Issues
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
@@ -340,8 +380,6 @@ The code for Azure Functions is open source, and you can find key components in 
 * [Azure Functions](https://github.com/Azure/Azure-Functions)
 
 * [Azure Functions host](https://github.com/Azure/azure-functions-host/)
-
-* [Azure Functions portal](https://github.com/azure/azure-functions-ux)
 
 * [Azure Functions templates](https://github.com/azure/azure-functions-templates)
 

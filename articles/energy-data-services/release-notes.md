@@ -23,6 +23,48 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## November 2025
+### Reservoir DDMS Standard SKU Preview
+
+Reservoir DDMS is now available on the standard SKU as a preview. The standard SKU offering of the DDMS is intended for scale and performance testing on a standard SKU deployment of Azure Data Manager for Energy. It is recommended that customers create a new data partition for such testing since the feature is still under preview to maintain isolation from partitions containing production data. The feature is available on request only. For more details, see [How to enable reservoir DDMS](how-to-enable-reservoir-ddms.md).
+
+## October 2025
+### Reference Data Values Automatic Sync
+
+With this release, all new Azure Data Manager for Energy instances provisioned automatically includes the latest set of Reference Data Values by default, ensuring out-of-the-box compliance with OSDU® standards and accelerating data onboarding workflows. The update delivers a complete library of reference values synced to the latest OSDU milestone (currently **M25**), improving interoperability, guaranteeing schema consistency, and eliminating manual setup during provisioning.  
+
+For more details on how to work with this feature, see the official documentation: [Reference Data Values in ADME](concepts-reference-data-values.md).
+
+## September 2025
+### Rock and Fluid Samples (RAFS) Preview
+The Rock and Fluid Samples (RAFS) DDMS introduces a standardized approach for storing, querying, and analyzing geological and engineering sample data collected from subsurface and surface sites. These samples are critical for workflows such as reservoir modeling, facility design, and drilling planning. RAFS DDMS is now available as a Preview feature on ADME Developer SKU. See [Tutorial: Use Rock and Fluid Samples (RAFS) DDMS APIs](tutorial-rock-and-fluid-samples-ddms.md) on how to use RAFS DDMS APIs.
+
+### Manifest Ingestion log enhancements
+Manifest ingestion logs have been enhanced to improve troubleshooting of data ingestion issues. Skipped records are now logged for better visibility. See [Skipped records logging](troubleshoot-manifest-ingestion.md#skipped-records-logging)
+
+## August 2025
+### Compliant with M25 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M25 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M25](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M25-Release-Notes). The upgrade with the OSDU&reg; M25 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+## July 2025
+### Azure Data Manager for Energy available in Central India and Indonesia Central
+Azure Data Manager for Energy is now available in two new regions: **Central India** and **Indonesia Central**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported.
+
+Central India is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Central India" as your preferred region when creating Azure Data Manager for Energy resource, using the Azure portal or your preferred provisioning method.
+
+For more information on region reliability, refer to [Azure Data Manager for Energy reliability](../reliability/reliability-energy-data-services.md).
+
+## April 2025
+### Azure Data Manager for Energy available in four new regions
+Azure Data Manager for Energy is now available in four new regions: **South Africa North**, **Southeast Asia**, **Sweden Central**, and **UAE North**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported. 
+
+### 3D SEG-Y to OpenZGY Data Conversion Bug Fix
+This release fixes a bug in the 3D SEG-Y to OpenZGY conversion process. When you convert SEG-Y datasets with many inlines or crosslines not divisible by 64 after January 26, 2024, you may notice missing or empty traces in the resulting OpenZGY files. To resolve this issue, re-convert any affected datasets to ensure your OpenZGY files accurately reflect the original SEG-Y volumes.
+
+### User OID added to service logs for traceability and audit purpose
+After this release, a dedicated OID (Object ID) field appears in the service logs to ensure that user IDs are correctly captured. This enhancement improves traceability and supports your auditing requirements.
+
 ## February 2025
 ### Reservoir DDMS preview 
 Reservoir DDMS (M23 version) is available as a preview feature on Azure Data Manager for Energy Developer tier as a fully integrated offering for customers and partners. See [How to enable Reservoir DDMS (Preview)](how-to-enable-reservoir-ddms.md) for more details.
@@ -67,7 +109,7 @@ Effective June 1, 2024, the monthly base instance fee of the Developer tier of A
 ## April 2024
 
 ### Azure Data Manager for Energy in Qatar Central Region
-Azure Data Manager for Energy is now available in the Qatar Central Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy, and is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Qatar" as your preferred region when creating Azure Data Manager for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy) or your preferred provisioning method. Qatar Central region supports zone-redundant storage (ZRS) with 3 availability zones for disaster recovery. Data is stored at rest in Qatar in compliance with data residency requirements. For more details on zonal replication, please review the [documentation](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) page. Note that the default maximum ingress per general purpose v2 and Blob storage accounts in Qatar Central is 25 Gbps. For more details, please review scalability and performance [targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts).
+Azure Data Manager for Energy is now available in the Qatar Central Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy, and is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Qatar" as your preferred region when creating Azure Data Manager for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy) or your preferred provisioning method. Qatar Central region supports zone-redundant storage (ZRS) with 3 availability zones for disaster recovery. Data is stored at rest in Qatar in compliance with data residency requirements. For more details on zonal replication, please review the [documentation](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) page. Note that the default maximum ingress per general purpose v2 and Blob storage accounts in Qatar Central is 25 Gbps. For more details, please review scalability and performance [targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts-and-disk-access-resources).
 
 ## March 2024
 

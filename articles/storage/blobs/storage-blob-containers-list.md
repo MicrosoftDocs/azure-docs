@@ -3,14 +3,15 @@ title: List blob containers with .NET
 titleSuffix: Azure Storage 
 description: Learn how to list blob containers in your Azure Storage account using the .NET client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to list blob containers in my Azure Storage account, so that I can manage and retrieve container information efficiently based on specific options like prefixes and pagination."
 ---
 
 # List blob containers with .NET

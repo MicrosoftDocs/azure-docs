@@ -1,19 +1,20 @@
 ---
-title: Release notes of Arc-enabled VM extensions
+title: Release notes of Arc-enabled VM extensions May 2025
 description: Learn about Azure Arc-enabled VM extensions, including their latest releases, known issues, and bug fixes, to help you manage updates effectively.
 ms.service: azure-update-manager
 ms.date: 03/28/2025
 ms.topic: overview
-author: SnehaSudhir 
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: "As a cloud administrator, I want to stay updated on the latest improvements and bug fixes for Azure Arc-enabled VM extensions, so that I can effectively manage updates and troubleshoot any issues that arise."
 ---
 
-# Release notes for Azure Arc-enabled VM extensions
+# Release notes for Azure Arc-enabled VM extensions - March 25
 
 For Azure Arc-enabled machines, two extensions are installed. For more information, see [How Update Manager works](workflow-update-manager.md)
 
 
-The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with the information about:
+The Azure Arc-enabled VM extensions receive improvements on an ongoing basis.  This article provides you with the following information to help you stay up to date with the latest developments:
 
 - The latest releases
 - Known issues
@@ -32,7 +33,7 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To
     - Current error message:  *An internal error occurred while processing the operation.*
     - New error message: *Windows update API threw an exception while assessing the machine for available updates. HResult: 0x80004005*
     > [!NOTE]
-    > The HResult could be different, based on the issue.
+    > The HResult changes based on the issue.
 
 - Fixed an issue where at times the extension status is stuck in  **Creating state**. Then the assessment or install updates job fails with the following error: *Extension failed during enable. Extension Enable command timed out.*
 
@@ -41,7 +42,6 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To
 ## Linux Extension
 
 To be updated as and when future versions are released.
-
 
 ## Next steps
 

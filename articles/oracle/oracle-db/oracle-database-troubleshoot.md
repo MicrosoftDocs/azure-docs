@@ -7,6 +7,7 @@ ms.collection: linux
 ms.topic: troubleshooting
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
+# Customer intent: "As a database administrator, I want troubleshooting guidance for Oracle Database@Azure, so that I can quickly resolve common issues related to DNS, tags, and network configurations."
 ---
 
 # Troubleshoot problems in Oracle Database@Azure

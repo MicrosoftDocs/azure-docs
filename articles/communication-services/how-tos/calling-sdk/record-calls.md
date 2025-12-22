@@ -22,7 +22,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Completion of the [quickstart to add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
@@ -90,8 +90,8 @@ The following table shows the minimum version of SDKs that support individual AP
 |------------|-----|--------|-----|--------|---------|------------|---------|
 | Get notification that recording started or stopped | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.15.0-beta.1 | 2.0.0, 2.1.0-beta.1 | 1.0.0, 1.15.0-beta.1 | 2.0.0, 1.2.0-beta.1 | 1.0.0, 1.15.0-beta.1 | 1.0.0, 1.0.0-beta.31 |
 | Get state of recording | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.15.0-beta.1 | 2.0.0, 2.1.0-beta.1 | 1.0.0, 1.15.0-beta.1 | 2.0.0, 1.2.0-beta.1 | 1.0.0, 1.15.0-beta.1 | 1.0.0, 1.0.0-beta.31 |
-| Learn whether explicit consent is required | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Give explicit consent for being recorded | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Learn whether explicit consent is required  | 1.31.2, 1.32.1-beta.1 | ❌ | 2.16.0-beta.1  | ❌ | 2.14.0-beta.1  | ❌ | 1.12.0-beta.1 |
+| Give explicit consent for being recorded | 1.31.2, 1.32.1-beta.1 | ❌ | 2.16.0-beta.1  | ❌ | 2.14.0-beta.1  | ❌ | 1.12.0-beta.1 |
 
 ## Next steps
 

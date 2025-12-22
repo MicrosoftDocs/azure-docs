@@ -6,9 +6,10 @@ author: duongau
 
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 02/06/2020
+ms.date: 07/09/2025
 ms.author: duau
 
+# Customer intent: "As an ExpressRoute partner, I want to utilize the expressRouteCrossConnections API for managing layer-2 and layer-3 configurations, so that I can efficiently handle customer ExpressRoute circuits and enhance connectivity management."
 ---
 
 
@@ -388,9 +389,171 @@ Once you receive the ExpressRoute service key from the target customer, follow t
     "status": "Succeeded"
   }
   ```
+### To validate the advertised public prefixes (Public Preview)
+  6. **(Optional) GET expressRouteCrossConnection to verify Microsoft Peering advertised prefixes** If you allow customers to advertise your public IP addresses over Microsoft Peering, you can obtain the Validation ID required to authorize their prefix usage. 
+
+> [!NOTE]
+> When customer advertises public prefixes over BGP, Microsoft verifies the authority to announce them by validating a signed digital certificate against RIR or IRR records. The prefixes may be owned by the customer, or leased from your organization. See the [authorization requirements](expressroute-howto-routing-portal-resource-manager.md) for more details
+    
+  ```
+GET /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/MicrosoftPeering?api-version=2024-05-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer eyJ0eXAiOiJKV...
+User-Agent: ARMClient/1.2.0.0
+Accept: application/json
+x-ms-request-id: d17924c4-f977-4c82-b933-d66c5fa334dd
+
+
+---------- Response (3317 ms) ------------
+
+HTTP/1.1 200 OK
+Pragma: no-cache
+Retry-After: 10
+x-ms-request-id: eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c
+Azure-AsyncOperation: https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Network/locations/eastus2euap/operations/eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c?api-version=2018-02-01
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Cache-Control: no-cache
+Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
+x-ms-ratelimit-remaining-subscription-writes: 1199
+x-ms-correlation-request-id: 8e26bc5d-f1cd-4305-a373-860aaf7bb694
+x-ms-routing-request-id: WESTUS:20180501T213857Z:8e26bc5d-f1cd-4305-a373-860aaf7bb694
+X-Content-Type-Options: nosniff
+Date: Tue, 01 May 2018 21:38:56 GMT
+
+{
+  "name": "MicrosoftPeering",
+  "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/MicrosoftPeering",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "peeringType": "MicrosoftPeering",
+    "azureASN": 0,
+    "peerASN": 900,
+    "primaryPeerAddressPrefix": "203.0.113.0/30",
+    "secondaryPeerAddressPrefix": "203.0.113.4/30",
+    "state": "Disabled",
+    "vlanId": 300,
+    "lastModifiedBy": "",
+    "microsoftPeeringConfig": {
+      "advertisedPublicPrefixes": [
+        "203.0.113.128/25"
+      ],
+    "advertisedPublicPrefixInfo": [
+        {
+          "prefix": "203.0.113.128/25",
+          "validationId": "Azure-SKEY|bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f|203.0.113.128/25|ASN-45",
+          "signature": "",
+          "validationState": "ValidationNeeded"
+        }
+      ]
+      "advertisedPublicPrefixesState": "NotConfigured",
+      "customerASN": 45,
+      "legacyMode": 0,
+      "routingRegistryName": "ARIN"
+    }
+  }
+}
+
+C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c?api-version=2018-02-01
+{
+  "status": "Succeeded"
+}
+  ```
+  7. **(Optional) PUT expressRouteCrossConnection to validate Microsoft Peering advertised prefixes** If you allow customers to advertise your public IP addresses over Microsoft Peering, you can configure the signature to automatically validate the advertised prefixes.
+
+  ```
+PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/MicrosoftPeering?api-version=2018-02-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer eyJ0eXAiOiJKV...
+User-Agent: ARMClient/1.2.0.0
+Accept: application/json
+x-ms-request-id: af4527eb-7b68-4a50-b953-c0606524d8f3
+
+{
+  "name": "MicrosoftPeering",
+  "properties": {
+    "peeringType": "MicrosoftPeering",
+    "peerASN": 900,
+    "primaryPeerAddressPrefix": "203.0.113.0/30",
+    "secondaryPeerAddressPrefix": "203.0.113.4/30",
+    "vlanId": 300
+    "microsoftPeeringConfig": {
+      "advertisedPublicPrefixes": [
+        "203.0.113.128/25"
+      ],
+    "advertisedPublicPrefixInfo": [
+        {
+          "prefix": "203.0.113.128/25",
+          "validationId": "Azure-SKEY|bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f|203.0.113.128/25|ASN-45",
+          "signature": "jC6pMjA1INbvQp9YouUhY2pfD1Xuzs5wGuyKBt6ay39+2EHZGwTV65fP0wETKnpUwYVmxzjIYkVLYmZvLlwhFbLZ4trn1no4n9aHD0HYqV3Uqi9F6gg7qOjfQTbTQQ14X8IJRmwke57eYSaZAYRz4Nz9sP54Ah8qnHJNh0BlKCDrOoDNtr7Vo/VDBkOLTD4t/ANCjoBofZSlzrN5LHFDCd+3IqAWkfqII3VhhtvXsYGQtjG3v1ylhMVC9+rEQjZM2ywku6v4zDzlIVAQZvHUVyvODok5czjEI7XOzvVTZixqj+HUX723yR6cE6SOzBV8gXOrfE1iu+c+oB01juFE2Q==",
+        }
+      ]
+      "customerASN": 45,
+      "routingRegistryName": "ARIN"
+    }
+  }
+}
+
+---------- Response (3317 ms) ------------
+
+HTTP/1.1 200 OK
+Pragma: no-cache
+Retry-After: 10
+x-ms-request-id: eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c
+Azure-AsyncOperation: https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Network/locations/eastus2euap/operations/eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c?api-version=2018-02-01
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Cache-Control: no-cache
+Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
+x-ms-ratelimit-remaining-subscription-writes: 1199
+x-ms-correlation-request-id: 8e26bc5d-f1cd-4305-a373-860aaf7bb694
+x-ms-routing-request-id: WESTUS:20180501T213857Z:8e26bc5d-f1cd-4305-a373-860aaf7bb694
+X-Content-Type-Options: nosniff
+Date: Tue, 01 May 2018 21:38:56 GMT
+
+{
+  "name": "MicrosoftPeering",
+  "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/MicrosoftPeering",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "peeringType": "MicrosoftPeering",
+    "azureASN": 0,
+    "peerASN": 900,
+    "primaryPeerAddressPrefix": "203.0.113.0/30",
+    "secondaryPeerAddressPrefix": "203.0.113.4/30",
+    "state": "Disabled",
+    "vlanId": 300,
+    "lastModifiedBy": "",
+    "microsoftPeeringConfig": {
+      "advertisedPublicPrefixes": [
+        "203.0.113.128/25"
+      ],
+    "advertisedPublicPrefixInfo": [
+        {
+          "prefix": "203.0.113.128/25",
+          "validationId": "Azure-SKEY|bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f|203.0.113.128/25|ASN-45",
+          "signature": "jC6pMjA1INbvQp9YouUhY2pfD1Xuzs5wGuyKBt6ay39+2EHZGwTV65fP0wETKnpUwYVmxzjIYkVLYmZvLlwhFbLZ4trn1no4n9aHD0HYqV3Uqi9F6gg7qOjfQTbTQQ14X8IJRmwke57eYSaZAYRz4Nz9sP54Ah8qnHJNh0BlKCDrOoDNtr7Vo/VDBkOLTD4t/ANCjoBofZSlzrN5LHFDCd+3IqAWkfqII3VhhtvXsYGQtjG3v1ylhMVC9+rEQjZM2ywku6v4zDzlIVAQZvHUVyvODok5czjEI7XOzvVTZixqj+HUX723yR6cE6SOzBV8gXOrfE1iu+c+oB01juFE2Q==",
+          "validationState": "Configured"
+        }
+      ]
+      "advertisedPublicPrefixesState": "NotConfigured",
+      "customerASN": 45,
+      "legacyMode": 0,
+      "routingRegistryName": "ARIN"
+    }
+  }
+}
+
+C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c?api-version=2018-02-01
+{
+  "status": "Succeeded"
+}
+  ```
 ## REST API
 
 See [ExpressRoute CrossConnections REST API](/rest/api/expressroute/expressroutecrossconnections) for REST API documentation.
+
+## Circuit Placement API 
+
+The ExpressRoute partner circuit placement API allows ExpressRoute partners to provision circuit connectivity on a specific port pair. See [circuit placement API](circuit-placement-api.md) for API documentation.
 
 ## Next steps
 

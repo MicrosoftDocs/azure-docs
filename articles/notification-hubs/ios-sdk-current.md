@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: azure-notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Initial configuration to receive push notification from Azure Notification Hubs

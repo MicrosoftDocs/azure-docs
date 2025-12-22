@@ -6,7 +6,9 @@ author: dlepow
 ms.author: danlep
 ms.topic: tutorial
 ms.date: 02/20/2025
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 # Tutorial: Use the Azure API Management extension for Visual Studio Code to import and manage APIs

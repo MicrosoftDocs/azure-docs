@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 03/23/2025
+ms.date: 10/31/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.
 ---
@@ -80,7 +80,7 @@ The following steps show you how to create a dev box definition by using an exis
    | **Name** | Enter a descriptive name for your dev box definition. | You can't change the dev box definition name after creation. |
    | **Image** | Select the base operating system for the dev box. You can select an image from Azure Marketplace or from Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image or **Visual Studio 2022 Pro on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. | To access custom images when you create a dev box definition, you can use Azure Compute Gallery. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). |
    | **Image version** | Select a specific, numbered version to ensure that all the dev boxes in the pool always use the same version of the image. Select **Latest** to ensure that new dev boxes use the latest image available. | Selecting the **Latest** image version enables the dev box pool to use the most recent version of your chosen image from the gallery. This approach ensures the created dev boxes stay up to date with the latest tools and code for your image. Existing dev boxes aren't modified when an image version is updated. |
-   | **Compute** | Select the compute combination for your dev box definition. | Dev boxes use Azure vitual machines for compute. |
+   | **Compute** | Select the compute combination for your dev box definition. | Dev boxes use Azure virtual machines for compute. |
    | **Storage** | Select the amount of storage for your dev box definition. | Dev boxes use Azure Premium SSDs for storage. |
    | **Enable hibernation**| Leave this checkbox unselected. | |
 
@@ -139,7 +139,25 @@ To delete a dev box definition in the Azure portal:
 
    :::image type="content" source="./media/how-to-manage-dev-box-definitions/delete-warning.png" alt-text="Screenshot of the warning message about deleting a dev box definition.":::
 
+## Migrate to using images
+
+For new deployments or when updating existing configurations, consider migrating from dev box definitions to images defined through image definitions, custom images, or marketplace images. These approaches provide greater flexibility and customization options.
+
+### Recommended migration path
+
+- **For team-specific customizations**: Create [image definitions](how-to-configure-team-customizations.md) with YAML-based customization files
+- **For organization-specific images**: Use [custom images from Azure Compute Gallery](how-to-configure-azure-compute-gallery.md) in your pools
+- **For standard configurations**: Use [marketplace images](how-to-manage-dev-box-pools.md#understanding-image-and-definition-types) directly in your pools 
+
+### Benefits of using images
+
+- **Better customization**: YAML-based team customizations with image definitions
+- **Simplified management**: Pool-level configuration without pre-defined bundles
+- **Greater flexibility**: Independent selection of compute size and storage
+
 ## Related content
 
-- [Provide access to projects for project admins](./how-to-project-admin.md)
+- [Manage dev box pools](./how-to-manage-dev-box-pools.md)
+- [Configure team customizations](./how-to-configure-team-customizations.md)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
+- [Provide access to projects for project admins](./how-to-project-admin.md)

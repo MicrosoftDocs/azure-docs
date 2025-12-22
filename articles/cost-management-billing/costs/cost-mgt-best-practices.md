@@ -2,22 +2,22 @@
 title: Optimize your cloud investment with Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
-author: sdoultani
-ms.author: sadoulta
-ms.date: 01/07/2025
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 07/09/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: sadoulta
+ms.reviewer: vikdesai
 ---
 
 # How to optimize your cloud investment with Cost Management
 
-Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization's cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools will help to make sure your organization is prepared for success.
+Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization's cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools can help your organization be better prepared for success.
 
 ## Methodology
 
-Cost management is an organizational problem and should be an ongoing practice that begins before you spend money on cloud resources. To successfully implement cost management and optimize costs, your organization must:
+Cost management is an organizational problem and should be an ongoing practice that begins before you spend money on cloud resources. To successfully implement cost management and optimize costs, we recommend that your organization:
 
 - Be prepared with the proper tools for success
 - Be accountable for costs
@@ -44,7 +44,7 @@ Comprehensive, up-front planning allows you to tailor cloud usage to your specif
 - What business problem am I solving?
 - What usage patterns do I expect from my resources?
 
-Your answers will help you select the offerings that are right for you. They determine the infrastructure to use and how it's used to maximize your Azure efficiency.
+Your answers can help you select the offerings that are right for you. They determine the infrastructure to use and how it's used to maximize your Azure efficiency.
 
 #### Visibility
 
@@ -70,20 +70,26 @@ Before you deploy cloud resources, assess the following items:
 
 - The Azure offer that best meets your needs
 - The resources you plan to use
-- How much they might cost
+- The cost of the resources
+- The services available to track, report, and optimize cost, also via using automation
 
-Azure provides tools to assist you in the assessment process. The tools can give you a good idea of the investment required to enable your workloads. Then you can select the best configuration for your situation.
+Azure provides tools and APIs to assist you in the assessment process. These tools can give you a good idea of the investment required to enable your workloads, and help you automate cost management from the start. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and consider using the [Cost Management Exports API](/rest/api/cost-management/exports), [Cost Details API](/rest/api/cost-management/generate-cost-details-report), and [Query API](/rest/api/cost-management/query) to automate cost data retrieval and analysis.
+
+> [!NOTE]
+> Cost data for the open billing period is refreshed every four hours in Azure. At month close, billed charges are typically available within 72 hrs after invoice is issued. Note that your billing period might not necessarily align to a calendar month. Plan automation and reporting accordingly.
+> API rate limits might apply when automating data retrieval. For more information, see [Cost Management API reference](/rest/api/cost-management/operation-groups).
 
 ### Azure onboarding options
 
 The first step in maximizing your experience within Cost Management is to investigate and decide which Azure offer is best for you. Think about how you plan to use Azure in the future. Also consider how you want your billing model configured. Consider the following questions when making your decision:
 
 - How long do I plan to use Azure? Am I testing, or do I plan to build longer-term infrastructure?
-- How do I want to pay for Azure? Should I prepay for a reduced price or get invoiced at the end of the month?
+- How do I want to pay for Azure? Should I prepay or commit to spending a certain amount for a reduced price or get invoiced at the end of the month?
+- Do I need to automate cost tracking, reporting, or budgeting for my workloads?
 
 To learn more about the various options, visit [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/). Several of the most common billing models are identified below.
 
-#### [Free](https://azure.microsoft.com/free/)
+#### [Free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - 12 months of popular free services
 - $200 credit in your billing currency to explore services for 30 days
@@ -105,7 +111,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 
 - CSP partners are the first point of contact for their customers’ needs and the center of the customer relationship
 - CSP partners provision new customers, order subscriptions, manage subscriptions, and perform admin tasks on behalf of their customers
-- CSP partners bundle services with unique solutions or resell Azure while controlling the pricing, terms and billing
+- CSP partners bundle services with unique solutions or resell Azure while controlling the pricing, terms, and billing
 
 ## Estimate the cost of your solution
 
@@ -153,7 +159,7 @@ Consider creating Dev/Test subscriptions for your development environments to ta
 
 ### Tag shared resources
 
-Tags are a effective way to understand costs that span across multiple teams and Azure scopes. For example, you might have a resource like an email server that many teams use. You can put a shared resource, like the email server, in a subscription that's dedicated to shared resources or put it in an existing subscription. If you put it in an existing subscription, the subscription owner might not want its cost accruing to their team every month. For this example, you can use a tag to identify the resource as being shared.
+Tags are an effective way to understand costs that span across multiple teams and Azure scopes. For example, you might have a resource like an email server that many teams use. You can put a shared resource, like the email server, in a subscription that's dedicated to shared resources or put it in an existing subscription. If you put it in an existing subscription, the subscription owner might not want its cost accruing to their team every month. For this example, you can use a tag to identify the resource as being shared.
 
 Similarly, you might also have web apps or environments, such as Test or Production, that use resources across multiple subscriptions owned by different teams. To better understand the full cost of the workloads, tag the resources that they use. When tags are applied properly, you can apply them as a filter in cost analysis to better understand trends.
 
@@ -163,7 +169,7 @@ After you plan for resource tagging, you can configure an Azure Policy definitio
 
 ### Use cost analysis
 
-Cost analysis allows you to analyze your organizational costs in-depth by slicing and dicing your costs using standard resource properties. Consider the following common questions as a guide for your analysis. Answering these questions on a regular basis will help you stay more informed and enable more cost-conscious decisions.
+Cost analysis allows you to analyze your organizational costs in-depth by slicing and dicing your costs using standard resource properties. Consider the following common questions as a guide for your analysis. Answering these questions regularly will help you stay more informed and enable more cost-conscious decisions.
 
 - **Estimated costs for the current month** – How much have I incurred so far this month? Will I stay under my budget?
 - **Investigate anomalies** – Do routine checks to make sure that costs stay within a reasonable range of normal usage. What are the trends? Are there any outliers?
@@ -174,17 +180,43 @@ For more information, see [cost analysis](quick-acm-cost-analysis.md).
 
 ### Export billing data on a schedule
 
-Do you need to import your billing data into an external system, like a dashboard or financial system? Set up automated exports to Azure Storage and avoid manually downloading files every month. You can then easily set up automatic integrations with other systems to keep your billing data in sync.
+Do you need to import your billing data into an external system, like a dashboard or financial system? Set up automated exports to Azure Storage using the [Exports API](/rest/api/cost-management/exports) and avoid manually downloading files every month. You can then easily set up automatic integrations with other systems (such as Power BI, Azure Synapse, or custom analytics) to keep your billing data in sync.
 
 For more information about exporting billing data, see [Create and manage exported data](tutorial-improved-exports.md).
 
-### Create budgets
+### Automate cost data retrieval and analysis
 
-After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Make sure to review the budgets that you create regularly to see your budget burn-down progress and make changes as needed. Budgets also allow you to configure an automation trigger when a given budget threshold is reached. For example, you can configure your service to shut down VMs. Or you can move your infrastructure to a different pricing tier in response to a budget trigger.
+For Enterprise Agreement (EA) and Microsoft Customer Agreement
+(MCA) accounts, use the [Cost Details API](/rest/api/cost-management/generate-cost-details-report) to programmatically generate and download detailed, unaggregated cost data. For Pay-As-You-Go subscriptions, use the [Exports API](/rest/api/cost-management/exports). If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. See instructions on how to do this [here](../automate/get-usage-details-legacy-customer.md). For custom, on-demand analysis, and dashboards, use the [Query API](/rest/api/cost-management/query).
 
-For more information, see [Create budgets](tutorial-acm-create-budgets.md).
+For more information, see [Get small cost datasets on demand](../automate/get-small-usage-datasets-on-demand.md) and [Query cost data](../costs/cost-analysis-common-uses.md).
 
-For more information about budget-based automation, see [Budget Based Automation](../manage/cost-management-budget-scenario.md).
+### Create budgets and automate alerts
+
+After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Use the [Budgets API](/rest/api/consumption/budgets) to automate budget creation and management. Budgets can also trigger automated actions (via Action Groups) when thresholds are reached.
+
+For more information, see [Create budgets](tutorial-acm-create-budgets.md) and [Budget Based Automation](../manage/cost-management-budget-scenario.md).
+
+### Use tags, management groups, and custom dimensions
+
+Emphasize the use of tags, management groups, and custom dimensions for cost allocation and reporting. Cost Analysis supports filtering and grouping by these attributes, enabling more granular cost tracking and accountability. Use the [Cost Management Dimensions API](/rest/api/cost-management/dimensions) to list and manage available dimensions.
+
+>[!NOTE]
+> Management groups aren't supported for Microsoft Customer Agreement customers.
+
+### Use benefit recommendations and savings tools
+
+Take advantage of Azure's cost-saving programs and recommendations:
+
+- **Azure Savings Plans for Compute**: The most flexible savings plan, applying to a broad range of compute services. See [Azure savings plans for compute](../savings-plan/savings-plan-compute-overview.md).
+- **Azure Reservations**: Prepay for one- or three-year terms for VMs or databases to receive significant discounts. See [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
+- **Azure Hybrid Benefit**: Use existing Windows Server or SQL Server licenses to save on Azure. See [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+- **Benefit Recommendations API**: Use the [Benefit Recommendations API](/rest/api/cost-management/benefit-recommendations) and [Azure Advisor](/azure/advisor/advisor-overview) to proactively identify savings opportunities, such as reserved instances or savings plans, based on your usage patterns.
+
+### Additional best practices
+- All cost data in the Azure portal, APIs, and exports is based on the same underlying dataset.
+- Use the [Price Sheet API](/rest/api/cost-management/price-sheet) to retrieve negotiated and retail meter rates for cost estimation and reconciliation.
+- For advanced reporting, integrate exported or queried cost data with Power BI, Azure Synapse, or other analytics platforms.
 
 ## Act to optimize
 Use the following ways to optimize spending.
@@ -201,30 +233,30 @@ For more information, see [Azure Advisor](/azure/advisor/advisor-overview).
 
 ### Size your VMs properly
 
-VM sizing has a significant impact on your overall Azure cost. The number of VMs needed in Azure might not equate to what you currently have deployed in an on-premises datacenter. Make sure your choose the right size for the workloads that you plan to run.
+VM sizing has a significant effect on your overall Azure cost. The number of VMs needed in Azure might not equate to what you currently have deployed in an on-premises datacenter. Make sure you choose the right size for the workloads that you plan to run.
 
-For more information, see [Azure IaaS: proper sizing and cost](https://azure.microsoft.com/resources/videos/azurecon-2015-azure-iaas-proper-sizing-and-cost/).
+For more information, see [Azure IaaS: proper sizing and cost](/shows/microsoft-azure-azurecon-2015/acon210).
 
 ### Use purchase discounts
 
 Azure has many discounts that your organization should take advantage of to save money.
 #### Azure savings plan for compute
 
-Azure savings plan for compute is our most flexible savings plan. It lets you save up to 65 percent on pay-as-you-go prices and applies to a broad range of compute services across subscriptions, resource groups, management groups or entire Azure accounts. You select an hourly compute commitment for a one-year or three-year term. The longer the commitment, the more savings you earn. You can pay monthly for no additional cost, and Azure automatically applies the largest savings to your account. 
+Azure savings plan for compute is our most flexible savings plan. It lets you save up to 65 percent on pay-as-you-go prices and applies to a broad range of compute services across subscriptions, resource groups, management groups, or entire Azure accounts. You select an hourly compute commitment for a one-year or three-year term. The longer the commitment, the more savings you earn. You can pay monthly for no additional cost, and Azure automatically applies the largest savings to your account. 
 
 For more information, see [Azure savings plan for compute](../savings-plan/savings-plan-compute-overview.md).
 
 #### Azure Reservations
 
-Azure Reservations allow you to prepay for one-year or three-years of virtual machine or SQL Database compute capacity. Pre-paying will allow you to get a discount on the resources you use. Azure reservations can significantly reduce your virtual machine or SQL database compute costs — up to 72 percent on pay-as-you-go prices with one-year or three-year upfront commitment. Reservations provide a billing discount and don't affect the runtime state of your virtual machines or SQL databases.
+Azure Reservations allow you to prepay for one-year or three-years of virtual machine or SQL Database compute capacity. Prepaying will allow you to get a discount on the resources you use. Azure reservations can significantly reduce your virtual machine or SQL database compute costs — up to 72 percent on pay-as-you-go prices with one-year or three-year upfront commitment. Reservations provide a billing discount and don't affect the runtime state of your virtual machines or SQL databases.
 
 For more information, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
 
 #### Use Azure Hybrid Benefit
 
-If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With the Windows Server benefit, each license covers the cost of the OS (up to two virtual machines), and you only pay for base compute costs. You can use existing SQL Server licenses to save up to 55 percent on vCore-based SQL Database options. Options include SQL Server in Azure Virtual Machines and SQL Server Integration Services.
+If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With this Azure offer, each license covers the cost of the OS (up to two virtual machines). SQL Server licensees can save up to 55 percent on vCore-based SQL Database options. Options include SQL Server in Azure Virtual Machines and SQL Server Integration Services. 
 
-For more information, see [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
+For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ### Other resources
 

@@ -11,17 +11,13 @@ ms.author: ofshezaf
 
 --- 
 
-# The Advanced Security Information Model (ASIM) parsers (Public preview)
+# The Advanced Security Information Model (ASIM) parsers
 
 In Microsoft Sentinel, parsing and [normalizing](normalization.md) happen at query time. Parsers are built as [KQL user-defined functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema.
 
 Users [use Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md) instead of table names in their queries to view data in a normalized format, and to include all data relevant to the schema in your query. 
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
-
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Built-in ASIM parsers and workspace-deployed parsers
 
@@ -44,7 +40,7 @@ ASIM includes two levels of parsers: **unifying** parser and **source-specific**
 The unifying parser name is `_Im_<schema>` for built-in parsers and `im<schema>` for workspace deployed parsers, where `<schema>` stands for the specific schema it serves. Source-specific parsers can also be used independently. Use `_Im_<schema>_<source>` for built-in parsers and `vim<schema><source>` for workspace deployed parsers. For example, in an Infoblox-specific workbook, use the `_Im_Dns_InfobloxNIOS` source-specific parser. You can find a list of source-specific parsers in the [ASIM parsers list](normalization-parsers-list.md).
 
 >[!TIP]
-> A corresponding set of parsers that use `_ASim_<schema>` and `ASim<Schema>` are also available. Theses parsers do not support filtering parameters and are provided to help mitigate the [Time picker set to a custom range](normalization-known-issues.md#time-picker-set-to-a-custom-range) issue. Use those parsers only interactively in the logs screen, but not elsewhere, for example in analytic rules or workbooks. This parsers may not be removed when the issue is resolves.
+> A corresponding set of parsers that use `_ASim_<schema>` and `ASim<Schema>` are also available. These parsers do not support filtering parameters and are provided to help mitigate the [Time picker set to a custom range](normalization-known-issues.md#time-picker-set-to-a-custom-range) issue. Use those parsers only interactively in the logs screen, but not elsewhere, for example in analytic rules or workbooks. This parsers may not be removed when the issue is resolves.
 
 
 >[!TIP]

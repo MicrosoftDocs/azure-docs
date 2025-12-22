@@ -2,12 +2,13 @@
 title: Tutorial - Enable Vault Tier protection for Azure Kubernetes Cluster (AKS) clusters and restore backups in secondary region using Azure Backup
 description: Learn how to enable Vault Tier protection for AKS clusters and restore backups in secondary region using Azure Backup.
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 05/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to enable Vault Tier backups for my AKS clusters and perform cross-region restores, so that I can ensure data protection and recovery during regional disasters."
 ---
 
 # Tutorial: Enable Vault Tier backups for AKS and restore across regions by using Azure Backup
@@ -15,6 +16,11 @@ ms.author: jsuri
 This tutorial describes how to create backups for an AKS cluster stored in the Secondary Region (Azure Paired region). Then perform a Cross Region Restore to recover the AKS Cluster during regional disaster.
 
 Azure Backup allows you to store AKS cluster backups in both **Operational Tier** and **Vault Tier**. This feature enables you to move snapshot-based AKS backups stored in Operational Tier to a Vault-standard Tier. You can use the backup policy, to define whether to store backups just in Operational Tier as snapshots or also protect them in Vault Tier along with Operational. Vaulted backups are stored offsite, which protects them from tenant compromise, malicious attacks, and ransomware threats. You can also retain the backup data for long term. Additionally, you can perform Cross Region Restore by configuring the Backup vault with storage redundancy set as global and Cross Region Restore property enabled. [Learn more](azure-kubernetes-service-backup-overview.md). 
+
+>[!Note]
+> In the Vault Tier, only one scheduled recovery point is created per day, providing a Recovery Point Objective (RPO) of 24 hours in the primary region. In the secondary region, replication of this recovery point can take up to 12 additional hours, resulting in an effective RPO of up to 36 hours.
+
+> When a backup is created in the Operational Tier and becomes eligible for Vault Tier, it may take up to four hours for the tiering process to begin.
 
 ## Consideration
 

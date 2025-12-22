@@ -10,6 +10,8 @@ ms.date: 11/15/2024
 
 # Configure rule sets in Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 This article demonstrates how to create rule sets and your first set of rules using the Azure portal. You also learn how to associate a rule set to a route from the rule sets page or from the Front Door manager.
 
 ## Prerequisites

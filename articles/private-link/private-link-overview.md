@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 03/25/2025
 ms.author: abell
 ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance, ignite-2024
+# Customer intent: As a network architect, I want to implement Azure Private Link to access Azure services privately, so that I can enhance security and eliminate data leakage risks while maintaining seamless connectivity across my organization's virtual networks.
 ---
 
 # What is Azure Private Link? 
@@ -17,9 +18,15 @@ Azure Private Link enables you to access Azure PaaS Services (for example, Azure
 Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own [private link service](private-link-service-overview.md) in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 > [!IMPORTANT]
-> Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. See [Private Link availability](availability.md) for an accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
+> Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. See [Private Link availability](availability.md) for an accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations).
+
+> [!NOTE]
+> The feature Private Link Service Direct Connect, which allows you to connect to any privately routable destination IP address, is now in public preview. For more information and known limitations, see [Private Link Service Direct Connect](configure-private-link-service-direct-connect.md)
 
 :::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Screenshot of Azure Private Link center in Azure portal." :::
+
+> [!NOTE]
+> Azure Private Link is one of the services that make up the Network Foundations category in Azure. Other services in this category include [Azure DNS](../dns/dns-overview.md) and [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Foundations](../networking/foundations/network-foundations-overview.md).
 
 For scenarios that involve public internet PaaS traffic, configure [network security perimeter](network-security-perimeter-concepts.md) to set up a secure logical boundary. Network security perimeter restricts communication to services within its perimeter, and it allows nonperimeter public traffic through inbound and outbound access rules.
 

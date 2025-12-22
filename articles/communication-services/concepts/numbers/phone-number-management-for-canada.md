@@ -21,7 +21,7 @@ Use the below tables to find all the relevant information on number availability
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |General Availability  | General Availability | General Availability | General Availability\* |
-| Local       | -                    | -                    | General Availability | General Availability\* |
+| Local       | General Availability (via 10DLC) |General Availability (via 10DLC) | General Availability | General Availability\* |
 | Short code       |General Availability                    |General Availability                    | - | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -39,6 +39,13 @@ More details on eligible subscription types are as follows:
 | Alphanumeric Sender ID           | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go                                      |
 
 \** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
+
+## Azure subscription billing locations where Canada phone numbers are available for 10DLC SMS
+
+| Country/Region |
+| :---------- |
+|Canada|
+|United States|
 
 
 ## Azure subscription billing locations where Canada phone numbers are available
@@ -72,3 +79,4 @@ For more information about Azure Communication Services' telephony options, see 
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+

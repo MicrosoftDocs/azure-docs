@@ -1,11 +1,13 @@
 ---
 title: Troubleshoot Mobility Service push installation with Azure Site Recovery
 description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery with Azure Site Recovery.
-author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
+ms.custom: sfi-image-nochange
+# Customer intent: "As a system administrator, I want to troubleshoot and resolve Mobility service installation errors during disaster recovery setup, so that I can ensure successful replication and recovery of virtual machines."
 ---
 
 # Troubleshoot Mobility service push installation
@@ -14,7 +16,7 @@ The Mobility service installation is a key step to enable replication. The succe
 
 * [Credential/Privilege errors](#credentials-check-errorid-95107--95108)
 * [Login failures](#login-failures-errorid-95519-95520-95521-95522)
-* [Connectivity errors](#connectivity-failure-errorid-95117--97118)
+* [Connectivity errors](#connectivity-failures)
 * [File and printer sharing errors](#file-and-printer-sharing-services-check-errorid-95105--95106)
 * [Windows Management Instrumentation (WMI) failures](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
 * [Unsupported operating systems](#unsupported-operating-systems)
@@ -30,6 +32,8 @@ When you enable replication, Azure Site Recovery tries to install the Mobility s
 
 Verify if the user account chosen during enable replication is valid and accurate. Azure Site Recovery requires the **root** account or user account with **administrator privileges** to perform a push installation. Otherwise, the push installation will be blocked on the source machine.
 
+# [Windows](#tab/windows)
+
 For Windows (**error 95107**), verify that the user account has administrative access on the source computer, with either a local account or domain account. If you aren't using a domain account, you need to disable Remote User Access control on the local computer.
 
 * To manually add a registry key that disables Remote User Access control:
@@ -42,6 +46,8 @@ For Windows (**error 95107**), verify that the user account has administrative a
 
   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
 
+# [Linux](#tab/linx)
+
 For Linux (**error 95108**), you must choose the **root** account for successful installation of Mobility service agent. Additionally, SSH File Transfer Protocol (SFTP) services should be running. To enable the SFTP subsystem and password authentication in the _sshd_config_ file:
 
 1. Sign in as **root**.
@@ -52,17 +58,23 @@ For Linux (**error 95108**), you must choose the **root** account for successful
 
 If you wish to modify the credentials of the chosen user account, follow [these instructions](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## Insufficient privileges failure (ErrorID: 95517)
+---
+
+### Insufficient privileges failure 
+
+# [ErrorID: 95517](#tab/95517)
 
 When the user chosen to install the Mobility agent doesn't have administrator privileges, the configuration server/scale-out process server won't be allowed to copy the Mobility agent software to source machine. This error is a result of an access denied failure. Ensure that the user account has administrator privileges.
 
 If you wish to modify the credentials of the chosen user account, follow [these instructions](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## Insufficient privileges failure (ErrorID: 95518)
+# [ErrorID: 95518](#tab/95518)
 
 When the domain trust relationship establishment between the primary domain and workstation fails while trying to sign in to the source machine, the Mobility agent installation fails with error ID 95518. Ensure that the user account used to install the Mobility agent has administrative privileges to sign in through primary domain of the source machine.
 
 If you wish to modify the credentials of chosen user account, follow the [these instructions](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+---
 
 ## Login failures (ErrorID: 95519, 95520, 95521, 95522)
 
@@ -94,7 +106,9 @@ The login service isn't running on your source machine and caused failure of the
 * To start the `Netlogon` service from a command prompt, run the command `net start Netlogon`.
 * From Task Manager, start the `Netlogon` service.
 
-## Connectivity failure (ErrorID: 95117 & 97118)
+## Connectivity failures
+
+# [ErrorID: 95117 & 97118](#tab/95117)
 
 Configuration server/scale-out process server tries to connect to the source VM to install the Mobility agent. This error occurs when the source machine isn't reachable because there are network connectivity issues.
 
@@ -135,11 +149,13 @@ To resolve the error:
 * A connection attempt could have failed if there are no proper responses after a period of time, or an established connection failed because a connected host failed to respond.
 * It may be a connectivity/network/domain related issue. It could also be because DNS name resolving issue or TCP port exhaustion issue. Check if there are any such known issues in your domain.
 
-## Connectivity failure (ErrorID: 95523)
+# [ErrorID: 95523](#tab/95523)
 
 This error occurs when the network that the source machine resides isn't found, might have been deleted, or is no longer available. The only way to resolve the error is to ensure that the network exists.
 
-## Check access for network shared folders on source machine (ErrorID: 95105,95523)
+---
+
+### Check access for network shared folders on source machine (ErrorID: 95105,95523)
 
 Verify if the network shared folders on your virtual machine, are accessible from Process Server (PS) remotely using specified credentials. To confirm access: 
 
@@ -231,7 +247,7 @@ Before the 9.20 version, a root partition or volume setup on multiple disks was 
 
 ## Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (ErrorID: 95320)
 
-### Possible Cause
+**Possible Cause**
 
 The Grand Unified Bootloader (GRUB) configuration files (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_, or _/etc/default/grub_) may contain the value for the parameters **root** and **resume** as the actual device names instead of a universally unique identifier (UUID). Site Recovery mandates the UUID approach as the device names may change across reboot of the VM. For example, the VM may not come online with the same name on failover and that results in issues.
 
@@ -248,7 +264,7 @@ For example:
 > [!NOTE]
 > The GRUB lines contain actual device names for the parameters **root** and **resume** rather than the UUID.
 
-### How to Fix
+**Workaround**
 
 The device names should be replaced with the corresponding UUID.
 

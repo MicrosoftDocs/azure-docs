@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub update manifest
 description: Learn about the update manifest that the Azure Device Update for IoT Hub service uses to send properties to devices during updates.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/08/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

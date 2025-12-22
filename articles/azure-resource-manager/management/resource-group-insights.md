@@ -1,7 +1,7 @@
----
+﻿---
 title: Azure Monitor Resource Group insights | Microsoft Docs
 description: Understand the health and performance of your distributed applications and services at the Resource Group level with Resource Group insights feature of Azure Monitor.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/22/2025
 ms.reviewer: daviste
 ---

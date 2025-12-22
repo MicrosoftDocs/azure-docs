@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 03/26/2021
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud engineer, I want to set up a Web Application Firewall using PowerShell on an application gateway, so that I can secure my application against web exploits and attacks effectively."
 ---
 
 # Enable Web Application Firewall using Azure PowerShell
@@ -25,7 +26,7 @@ In this article, you learn how to:
 
 If you prefer, you can complete this article using the [Azure portal](application-gateway-web-application-firewall-portal.md) or the [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

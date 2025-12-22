@@ -3,8 +3,9 @@ title: Tutorial - Network planning checklist
 description: In this tutorial, learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 5/15/2024
+ms.date: 12/16/2025
 ms.custom: engagement-fy23
+# Customer intent: As a network architect, I want to understand the network requirements for Azure VMware Solution, so that I can ensure proper connectivity and compliance for deploying a VMware private cloud environment.
 ---
 
 # Networking planning checklist for Azure VMware Solution
@@ -100,6 +101,7 @@ The subnets:
 | Interconnect (HCX-IX)| L2C | TCP (HTTPS) | 443 | Send management instructions from Interconnect to L2C when L2C uses the same path as the Interconnect. |
 | HCX Manager, Interconnect (HCX-IX) | ESXi Hosts | TCP | 80,443,902 | Management and OVF deployment. |
 | Interconnect (HCX-IX), Network Extension (HCX-NE) at Source| Interconnect (HCX-IX), Network Extension (HCX-NE) at Destination| UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Supports Network Address Translation-Traversal (NAT-T). |
+| Interconnect (HCX-IX) / Network Extension (HCX-NE) | Remote Interconnect (HCX-IX) / Network Extension (HCX-NE) | TCP,UDP | 5201 | Required for Service Mesh diagnostics for the perftest uplink test. (Moved from port 4500 with HCX 4.8). |
 | On-premises Interconnect (HCX-IX) | Cloud Interconnect (HCX-IX) | UDP | 4500 | Required for IPSEC<br> Internet Key Exchange (ISAKMP) for the bidirectional tunnel. |
 | On-premises vCenter Server network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter Server to Private Cloud vCenter Server   |
 | HCX Connector | connect.hcx.vmware.com<br> hybridity.depot.vmware.com | TCP | 443 | `connect` is needed to validate license key.<br> `hybridity` is needed for updates. |

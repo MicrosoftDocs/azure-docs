@@ -7,6 +7,7 @@ ms.date: 06/15/2024
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: sairamyeturi
+ms.custom: sfi-image-nochange
 #Customer intent: As an Azure HDInsight user, I want to configure Apache Ambari to send email notifications.
 ---
 
@@ -100,4 +101,3 @@ If you select the **Start TLS** checkbox in the **Create Alert Notification** di
 In this tutorial, you learned how to configure Ambari email notifications by using SendGrid. To learn more about Ambari, see the following articles:
 
 * [Manage HDInsight clusters by using the Apache Ambari web UI](./hdinsight-hadoop-manage-ambari.md)
-* [Create an alert notification](https://docs.cloudera.com/HDPDocuments/Ambari-latest/managing-and-monitoring-ambari/content/amb_create_an_alert_notification.html)

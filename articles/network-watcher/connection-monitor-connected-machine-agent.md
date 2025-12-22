@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/25/2025
 
 #CustomerIntent: As an Azure administrator, I need to install the Azure Connected Machine agent so I can monitor a connection using the Connection Monitor.
+# Customer intent: As an Azure administrator, I want to install the Azure Connected Machine agent on my hybrid machines, so that I can manage them through Azure Arc and effectively monitor their connectivity.
 ---
 
 # Install the Azure Connected Machine agent to enable Azure Arc 
@@ -17,7 +18,7 @@ In this article, you learn how to install the Azure Connected Machine agent. For
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have an account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. If you don't already have an account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Administrator permissions to install and configure the Connected Machine agent. On Linux, install and configure using the root account. On Windows, use an account that's a member of the Local Administrators group.
 * Register the Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers on your subscription. You can [register these resource providers](/azure/azure-arc/servers/prerequisites#azure-resource-providers) either ahead of time or as you're completing the steps in this article.
 * Review the [agent prerequisites](/azure/azure-arc/servers/prerequisites), and ensure that:

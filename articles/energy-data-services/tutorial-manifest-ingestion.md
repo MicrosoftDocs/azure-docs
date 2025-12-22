@@ -20,85 +20,292 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Ingest sample manifests into an Azure Data Manager for Energy instance by using Postman.
-> * Search for storage metadata records created during manifest ingestion by using Postman.
+> * Ingest sample manifests into an Azure Data Manager for Energy instance by using cURL.
+> * Search for storage metadata records created during manifest ingestion by using cURL.
 
 ## Prerequisites
 
-Before you start this tutorial, complete the following prerequisites.
+* An Azure subscription
+* An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
+* cURL command-line tool installed on your machine
+* Service principal access token to call the Ingestion APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 
 ### Get details for the Azure Data Manager for Energy instance
 
-* You need an Azure Data Manager for Energy instance. If you don't already have one, create one by following the steps in [Quickstart: Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-* For this tutorial, you need the following parameters:
+For this tutorial, you need the following parameters:
 
-  | Parameter          | Value to use             | Example                               | Where to find this value           |
-  | ------------------ | ------------------------ |-------------------------------------- |-------------------------------------- |
-  | `CLIENT_ID`          | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  | You use this app or client ID when registering the application with the Microsoft identity platform. See [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application). |
-  | `CLIENT_SECRET`      | Client secrets           |  `_fl******************`                | Sometimes called an *application password*, a client secret is a string value that your app can use in place of a certificate to identity itself. See [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret).|
-  | `TENANT_ID`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  | Hover over your account name in the Azure portal to get the directory or tenant ID. Alternately, search for and select **Microsoft Entra ID** > **Properties** > **Tenant ID** in the Azure portal. |
-  | `SCOPE`              | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  | This value is the same as the app or client ID mentioned earlier. |
-  | `refresh_token`      | Refresh token value      | `0.ATcA01-XWHdJ0ES-qDevC6r...........`  | Follow [How to generate auth token](how-to-generate-auth-token.md) to create a refresh token and save it. You need this refresh token later to generate a user token. |
-  | `DNS`                | URI                      | `<instance>.energy.Azure.com`         | Find this value on the overview page of the Azure Data Manager for Energy instance.|
-  | `data-partition-id`  | Data partitions        | `<data-partition-id>`  | Find this value on the overview page of the Azure Data Manager for Energy instance.|
+| Parameter | Value to use | Example | Where to find this value |
+|----|----|----|----|
+| `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
+| `data-partition-id` | Data partition | `<data-partition-id>` | Find this value on the Data Partition section within the Azure Data Manager for Energy instance. |
+| `access_token`       | Access token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access token and save it.|
 
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
-### Set up Postman and execute requests
+### Set up your environment
 
-1. Download and install the [Postman](https://www.postman.com/) desktop app.
+Ensure you have `cURL` installed on your system to make API calls.
 
-1. Import the following files into Postman:
+## Ingest sample manifests by using `cURL`
 
-   * [Manifest ingestion Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json)
-   * [Manifest ingestion Postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json)
+To ingest sample manifests into the Azure Data Manager for Energy instance, complete the following steps:
 
-   To import the Postman collection and environment variables, follow the steps in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
+1. **Create a Legal Tag**: Use the following `cURL` command to create a legal tag for data compliance purposes:
 
-1. Update **CURRENT VALUE** for the Postman environment with the information that you obtained in the details of the Azure Data Manager for Energy instance.
+    ```bash
+    curl -X POST "https://<DNS>/api/legal/v1/legaltags" \
+    -H "Authorization: Bearer <access_token>" \
+    -H "Content-Type: application/json" \
+    -H "data-partition-id: <data-partition-id>" \
+    -d '{
+        "name": "<tagName>",
+        "description": "Legal Tag added for Well",
+        "properties": {
+            "contractId": "123456",
+            "countryOfOrigin": ["US", "CA"],
+            "dataType": "Third Party Data",
+            "exportClassification": "EAR99",
+            "originator": "Schlumberger",
+            "personalData": "No Personal Data",
+            "securityClassification": "Private",
+            "expirationDate": "2025-12-25"
+        }
+    }'
+    ```
 
-1. The Postman collection for manifest ingestion contains multiple requests that you must execute sequentially.
+    **Sample Response:**
+    ```json
+    {
+        "name": "abcd",
+        "description": "Legal Tag added for Well",
+        "properties": {
+            "contractId": "123456",
+            "countryOfOrigin": ["US", "CA"],
+            "dataType": "Third Party Data",
+            "exportClassification": "EAR99",
+            "originator": "Schlumberger",
+            "personalData": "No Personal Data",
+            "securityClassification": "Private",
+            "expirationDate": "2025-12-25"
+        }
+    }
+    ```
 
-   Be sure to choose **Ingestion Workflow Environment** before you trigger the Postman collection.
+2. **Ingest Master, Reference, and Work Product Component (WPC) data**: Use the following `cURL` command to ingest the master, reference, and work product component (WPC) manifest metadata:
 
-   :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the Postman environment." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png":::
+    ```bash
+    curl -X POST "https://<DNS>/api/workflow/v1/workflow/Osdu_ingest/workflowRun" \
+    -H "Authorization: Bearer <access_token>" \
+    -H "data-partition-id: <data-partition-id>" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "executionContext": {
+            "Payload": {
+                "AppKey": "test-app",
+                "data-partition-id": "<data-partition-id>"
+            },
+            "manifest": {
+                "kind": "osdu:wks:Manifest:1.0.0",
+                "ReferenceData": [
+                    {
+                        "id": "osdu:wks:reference-data--FacilityType:1.0.0",
+                        "name": "FacilityType",
+                        "description": "Reference data for facility types"
+                    }
+                ],
+                "MasterData": [
+                    {
+                        "id": "osdu:wks:master-data--Well:1.0.0",
+                        "name": "Well",
+                        "description": "Master data for wells"
+                    }
+                ],
+                "Data": {
+                    "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+                    "name": "Sample Dataset",
+                    "description": "Dataset for testing purposes"
+                }
+            }
+        }
+    }'
+    ```
 
-1. Trigger each request by selecting the **Send** button.
+    **Sample Response:**
+    ```json
+    {
+        "workflowId": "Osdu_ingest",
+        "runId":"5d6c4e37-ab53-4c5e-9c27-49dd77895377",
+        "status": "In Progress",
+        "message": "Workflow started successfully."
+    }
+    ```
+    Save the `runId` from the response for use as run_id in the next steps.
 
-   On every request, Postman validates the actual API response code against the expected response code. If there's any mismatch, the test section indicates failures.
+3. **Get Manifest Ingestion Workflow status**: Use the following `cURL` command to check the workflow status (replace `<run_id>` with the workflow run ID):
 
-Here's an example of a successful Postman request:
+    ```bash
+    curl -X GET "https://<DNS>/api/workflow/v1/workflow/Osdu_ingest/workflowRun/<run_id>" \
+    -H "Authorization: Bearer <access_token>" \
+    -H "data-partition-id: <data-partition-id>" \
+    ```
 
-:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful Postman call." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-test-success.png":::
+    **Sample Response:**
+    ```json
+    {
+        "workflowId": "Osdu_ingest",
+        "runId":"5d6c4e37-ab53-4c5e-9c27-49dd77895377",
+        "status": "finished"
+    }
+    ```
 
-Here's an example of a failed Postman request:
+## Search for ingested data by using `cURL`
 
-:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failed Postman call." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png":::
+To search for storage metadata records created during the manifest ingestion, complete the following steps:
 
-## Ingest sample manifests by using Postman
+1. **Search Work Products**: Use the following `cURL` command to retrieve the work product metadata records:
 
-To ingest sample manifests into the Azure Data Manager for Energy instance by using the Postman collection, complete the following steps:
+    ```bash
+    curl -X POST "https://<DNS>/api/search/v2/query" \
+    -H "Authorization: Bearer <access_token>" \
+    -H "data-partition-id: <data-partition-id>" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "kind": "osdu:wks:work-product--WorkProduct:1.0.0",
+        "query": "id:\"<data-partition-id>:work-product--WorkProduct:feb22:1<randomIdWP>\""
+    }'
+    ```
 
-1. **Get a User Access Token**: Generate the user token, which will be used to authenticate further API calls.
-1. **Create a Legal Tag**: Create a legal tag that will be added to the manifest data for data compliance purposes.
-1. **Get a Signed URL for uploading a file**: Get the signed URL path to which the manifest file will be uploaded.
-1. **Upload a file**: Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) sample to your local machine. It could be any file type, including CSV, LAS, or JSON. Select this file in Postman by clicking the **Select File** button.
+    **Sample Response:**
+    ```json
+    {
+        "results": [
+            {
+                "id": "<data-partition-id>:work-product--WorkProduct:feb22:1<randomIdWP>",
+                "kind": "osdu:wks:work-product--WorkProduct:1.0.0",
+                "data": {
+                    "name": "Sample Work Product",
+                    "description": "Description of the work product."
+                }
+            }
+        ]
+    }
+    ```
 
-   :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-select-manifest-file.png" alt-text="Screenshot of uploading a manifest file." lightbox="media/tutorial-manifest-ingestion/tutorial-select-manifest-file.png":::  
-1. **Upload File Metadata**: Upload the file metadata information, such as file location and other relevant fields.
-1. **Get the File Metadata**: Call to validate if the metadata was created successfully.
-1. **Ingest Master, Reference and Work Product Component (WPC) data**: Ingest the master, reference, and work product component (WPC) manifest metadata.
-1. **Get Manifest Ingestion Workflow status**: The workflow starts and is in the **running** state. Keep querying until the state changes to **finished** (typically 20 to 30 seconds).
+2. **Search Work Product Components**: Use the following `cURL` command to retrieve the WPC metadata records:
 
-## Search for ingested data by using Postman
+    ```bash
+    curl -X POST "https://<DNS>/api/search/v2/query" \
+    -H "Authorization: Bearer <access_token>" \
+    -H "data-partition-id: <data-partition-id>" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "kind": "osdu:wks:work-product-component--WellboreMarkerSet:1.0.0",
+        "query": "id:\"<data-partition-id>:work-product-component--WellboreMarkerSet:feb22:1<randomIdWPC>\""
+    }'
+    ```
 
-To search for storage metadata records created during the manifest ingestion by using the Postman collection, complete the following steps:
+    **Sample Response:**
+    ```json
+    {
+        "results": [
+            {
+                "id": "<data-partition-id>:work-product-component--WellboreMarkerSet:feb22:1<randomIdWPC>",
+                "kind": "osdu:wks:work-product-component--WellboreMarkerSet:1.0.0",
+                "data": {
+                    "name": "Sample WPC",
+                    "description": "Description of the work product component."
+                }
+            }
+        ]
+    }
+    ```
 
-1. **Search Work Products**: Call the search service to retrieve the work product metadata records.
-1. **Search Work Product Components**: Call the search service to retrieve the WPC metadata records.
-1. **Search for Dataset**: Call the search service to retrieve the dataset metadata records.
-1. **Search for Master data**: Call the search service to retrieve the master metadata records.
-1. **Search for Reference Data**: Call the search service to retrieve the reference metadata records.
+3. **Search for Dataset**: Use the following `cURL` command to retrieve the dataset metadata records:
+
+    ```bash
+    curl -X POST "https://<DNS>/api/search/v2/query" \
+    -H "Authorization: Bearer <access_token>" \
+    -H "data-partition-id: <data-partition-id>" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+        "query": "id:\"<data-partition-id>:dataset--File.Generic:feb22:1<randomIdDataset>\""
+    }'
+    ```
+
+    **Sample Response:**
+    ```json
+    {
+        "results": [
+            {
+                "id": "<data-partition-id>:dataset--File.Generic:feb22:1<randomIdDataset>",
+                "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+                "data": {
+                    "name": "Sample Dataset",
+                    "description": "Description of the dataset."
+                }
+            }
+        ]
+    }
+    ```
+
+4. **Search for Master data**: Use the following `cURL` command to retrieve the master metadata records:
+
+    ```bash
+    curl -X POST "https://<DNS>/api/search/v2/query" \
+    -H "Authorization: Bearer <access_token>" \
+    -H "data-partition-id: <data-partition-id>" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "kind": "osdu:wks:master-data--Well:1.0.0",
+        "query": "id:\"<data-partition-id>:master-data--Well:1112-<randomIdMasterData>\""
+    }'
+    ```
+
+    **Sample Response:**
+    ```json
+    {
+        "results": [
+            {
+                "id": "<data-partition-id>:master-data--Well:1112-<randomIdMasterData>",
+                "kind": "osdu:wks:master-data--Well:1.0.0",
+                "data": {
+                    "name": "Sample Well",
+                    "description": "Description of the well."
+                }
+            }
+        ]
+    }
+    ```
+
+5. **Search for Reference Data**: Use the following `cURL` command to retrieve the reference metadata records:
+
+    ```bash
+    curl -X POST "https://<DNS>/api/search/v2/query" \
+    -H "Authorization: Bearer <access_token>" \
+    -H "data-partition-id: <data-partition-id>" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "kind": "osdu:wks:reference-data--FacilityType:1.0.0",
+        "query": "id:\"<data-partition-id>:reference-data--FacilityType:Well-<randomIdReferenceData>\""
+    }'
+    ```
+
+    **Sample Response:**
+    ```json
+    {
+        "results": [
+            {
+                "id": "<data-partition-id>:reference-data--FacilityType:Well-<randomIdReferenceData>",
+                "kind": "osdu:wks:reference-data--FacilityType:1.0.0",
+                "data": {
+                    "name": "Sample Facility Type",
+                    "description": "Description of the facility type."
+                }
+            }
+        ]
+    }
+    ```
 
 ## Next step
 

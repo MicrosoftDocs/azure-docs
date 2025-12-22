@@ -1,6 +1,6 @@
 ---
 title: Send WhatsApp template messages using Advanced Messages
-titleSuffix: An Azure Communication Services Advanced Messaging concept
+titleSuffix: An Azure Communication Services Advanced Messaging article
 description: This article describes how to send WhatsApp template messages with Advanced Messaging.
 author: Shamkh
 manager: camilo.ramirez

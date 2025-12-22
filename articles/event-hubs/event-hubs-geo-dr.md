@@ -7,7 +7,10 @@ ms.date: 07/29/2024
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
-This article describes the Geo-disaster recovery feature that replicates metadata and is generally available. It doesn't describe the public preview Geo-replication feature, which replicates both data and metadata. For more information, see [Geo-replication](./geo-replication.md).
+
+> [!NOTE]
+> This article describes the Geo-disaster recovery feature that replicates metadata only. For more information, regarding Geo-replication feature, which replicates both data and metadata, see [Geo-replication](./geo-replication.md).
+>
 
 The all-active Azure Event Hubs cluster model with [availability zone support](../reliability/reliability-event-hubs.md) provides resiliency against  hardware and datacenter outages. However, if a disaster where an entire region and all zones are unavailable, you can use Geo-disaster recovery to recover your workload and application configuration. Geo-Disaster recovery ensures that the entire configuration of a namespace (Event Hubs, Consumer Groups, and settings) is continuously replicated from a primary namespace to a secondary namespace when paired. 
 
@@ -95,7 +98,7 @@ If you initiate the failover, two steps are required:
 2. Pull messages from the former primary namespace once it's available again. After that, use that namespace for regular messaging outside of your geo-recovery setup, or delete the old primary namespace.
 
 > [!NOTE]
-> Only fail forward semantics are supported. In this scenario, you fail over and then re-pair with a new namespace. Failing back is not supported; for example, in a SQL cluster. 
+> Only *fail-forward* semantics are supported. When you initiative a failover with geo-disaster recovery, you can optionally re-pair with a new namespace after failover completes. Failing back to the previous primary replica is not supported. These semantics might be different to other data stores you're used to, like Microsoft SQL Server clusters. 
 
 :::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Image showing the failover flow." lightbox="./media/event-hubs-geo-dr/geo2.png":::
 

@@ -4,8 +4,9 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 09/09/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
 
 # VPN Gateway FAQ
@@ -74,9 +75,9 @@ When configuring the Azure DNS Private Resolver's forwarding rule in the VNet wh
 
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 
-No. VPN clients connected in point-to-site to the same VPN gateway can't communicate with each other.
+Yes. VPN clients connected in point-to-site to the same VPN gateway can communicate with each other.
 
-When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool. However, if the VPN clients are connected to different VPN gateways, routing between the VPN clients isn't possible because each VPN gateway is unaware of the IP address that the other gateway assigned to the client.
+When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool.
 
 ### Could a potential vulnerability known as "tunnel vision" affect point-to-site VPN connections?
 
@@ -146,13 +147,17 @@ Azure Standard SKU public IP resources must use a static allocation method. You 
 
 Standard SKU public IP address resources use a static allocation method. Going forward, you must use a Standard SKU public IP address when you create a new VPN gateway. This requirement applies to all gateway SKUs except the Basic SKU. The Basic SKU currently supports only Basic SKU public IP addresses. We're working on adding support for Standard SKU public IP addresses for the Basic SKU.
 
-For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that don't have *AZ* in the name), dynamic IP address assignment is supported but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it's assigned to your VPN gateway. The only time that the VPN gateway IP address changes is when the gateway is deleted and then re-created. The public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
+For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that don't have *AZ* in the name), dynamic IP address assignment is supported but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it's assigned to your VPN gateway. The only time that the VPN gateway IP address changes is when the gateway is deleted and then re-created. The public IP address doesn't change when you upgrade (resize), reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
 We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. Before this retirement, we'll provide customers with a migration path from Basic to Standard IP. 
 
 However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
+
+> [!NOTE]
+> The timeline for the VPN Gateway using Azure Basic IP is subject to frequent updates.
+> For the latest migration timeline, please see [this page](/azure/vpn-gateway/whats-new#upcoming-projected-changes). 
 
 ### How is my VPN tunnel authenticated?
 
@@ -165,6 +170,10 @@ Yes. You can use the Set Pre-Shared Key REST API and PowerShell cmdlet to config
 ### Can I use other authentication options?
 
 You're limited to using preshared keys for authentication.
+
+### Does Azure VPN Gateway support IPv6?
+
+Yes. For additional information see [Configure IPv6 for VPN Gateway](ipv6-configuration.md).
 
 ### How do I specify which traffic goes through the VPN gateway?
 
@@ -206,7 +215,7 @@ See the following articles:
 
 The Standard and High Performance SKUs will be deprecated on September 30, 2025. You can view the announcement on the [Azure Updates site](https://go.microsoft.com/fwlink/?linkid=2255127). The product team will make a migration path available for these SKUs by November 30, 2024. For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article.
 
-*At this time, there's no action that you need to take.*
+ For the latest migration timeline, please see [Upcoming projected changes](/azure/vpn-gateway/whats-new#upcoming-projected-changes). 
 
 
 [!INCLUDE [legacy SKU deprecation](../../includes/vpn-gateway-deprecate-sku-faq.md)]
@@ -221,14 +230,20 @@ The expected customer impact includes new [pricing](https://azure.microsoft.com/
  
 ### What is the anticipated timeline for the migration?
 
-These timelines may be subject to change. Please revisit this for the most updated timeline. Here's the anticipated timeline for the migration tool availability.
+Here is the anticipated timeline for the migration tool availability and Basic SKU Public IP deprecation.
 
-  | Date                | Event                                                      |
-  |---------------------|------------------------------------------------------------|
-  | Apr/May 2025        | Migration tooling availability for Active-Passive Gateways. |
-  | Jul/Aug 2025        | Migration tooling availability for Active-Active Gateways.  |
-  | May 2025 to Sep 2025| Customer-controlled migration can be initiated after tool availability. |
-  | Sep 2025            | Basic SKU IP addresses are deprecated.                     |
+| Date                          | Event                                                                                              |
+|-------------------------------|----------------------------------------------------------------------------------------------------|
+| Aug 4, 2025                   | Migration tooling for Basic SKU Public IP to Standard SKU becomes available (Public Preview) for **Active-Passive VPN Gateways** in Public Cloud. |
+| Sep 2025 (tentative GA)       | Temporary GA timeline for Public and Sovereign Cloud support.                                      |
+| End of Sep 2025 (tentative GA)| Migration tooling GA for **Active-Active VPN Gateways** (Basic → Standard SKU Public IP).          |
+| Oct 2025 (planned)            | Automated capability becomes available to remove the Basic public IP from **Basic SKU Gateways**. Existing IP addresses remain unchanged and connectivity is not interrupted. |
+| Aug 4, 2025 – End of Jan 2026 | Customer-controlled migrations can be initiated after tool availability (approx. 6 months window). |
+| End of Jan 2026               | Overall migration timeline for all VPN Gateways with Basic IP is extended until this date.         |
+| Feb 2026                      | Basic SKU Public IP addresses are fully deprecated.                                                |
+
+
+
 
 
 ### What are the required customer actions?
@@ -270,6 +285,18 @@ Other software VPN solutions should work with the gateway, as long as they confo
 ### Can I connect to a VPN gateway via point-to-site when located at a site that has an active site-to-site connection?
 
 Yes, but the public IP addresses of the point-to-site client must be different from the public IP addresses that the site-to-site VPN device uses, or else the point-to-site connection won't work. Point-to-site connections with IKEv2 can't be initiated from the same public IP addresses where a site-to-site VPN connection is configured on the same VPN gateway.
+
+### How does Azure VPN Gateway handle traffic flow in Active-Active mode, and what should I consider if my on-premises setup requires symmetric routing?
+
+In Azure VPN Gateway Active-Active mode, each gateway instance has its own public IP and tunnel, and Azure may send traffic over either tunnel. For a given TCP/UDP flow, Azure will try to use the same tunnel in one direction, but there’s no guarantee that return traffic will follow the same path. This means flows can be asymmetric, which Azure handles natively, but if your on-premises firewall or VPN device requires strict symmetry, you’ll need to adjust routing policies (e.g., with BGP attributes or traffic selectors) or consider Active-Standby mode instead.
+
+### Does Azure guarantee symmetric routing for a given flow in Active-Active VPN mode?
+
+No, Azure does not guarantee symmetric routing for a given flow in Active-Active VPN mode.
+* An Active-Active VPN Gateway has two gateway instances (Gateway0 and Gateway1), each with its own public IP.
+* The on-premises VPN device(s) typically establish two tunnels (one per gateway instance).
+* Azure’s BGP advertisements make both tunnels available for routing.
+* Depending on the on-premises routing policy and Azure’s route selection, packets may egress one tunnel and ingress the other.
 
 ## <a name="P2S"></a>Point-to-site connections
 

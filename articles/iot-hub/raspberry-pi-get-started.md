@@ -2,12 +2,13 @@
 title: Connect Raspberry Pi to Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Connect a Raspberry Pi to Azure IoT Hub and test sample scenarios that send data to the Azure cloud.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 03/20/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub

@@ -21,7 +21,7 @@ highlightedContent:
     - title: What's Azure VMware Solution? 
       itemType: overview
       url: /azure/azure-vmware/introduction
-    - title: Introduction to Azure VMware Solution Generation 2 Private Clouds (Public preview) 
+    - title: Introduction to Azure VMware Solution Generation 2 Private Clouds
       itemType: overview
       url: /azure/azure-vmware/native-introduction
     - title: Networking
@@ -215,7 +215,9 @@ additionalContent:
           - text: Configure VMware HCX network extension
             url: configure-hcx-network-extension.md
           - text: VMware HCX Mobility Optimized Networking (MON) guidance
-            url: vmware-hcx-mon-guidance.md	
+            url: vmware-hcx-mon-guidance.md
+          - text: Migrate workloads between Azure VMware Solution private clouds
+            url: migrate-between-private-clouds.md
         # Card
         - title: Operate and monitor
           links:

@@ -1,12 +1,14 @@
 ---
-title: Common questions about Azure Resource Mover?
+title: Common questions about Azure Resource Mover
 description: Get answers to common questions about  Azure Resource Mover.
-author: ankitaduttaMSFT
+author: jasminemehndir
+ms.author: v-jasmineme
 ms.service: azure-resource-mover
 ms.custom: engagement-fy23, UpdateFrequency.5
 ms.topic: faq
-ms.date: 12/27/2024
-ms.author: ankitadutta
+ms.date: 07/31/2025
+ms.update-cycle: 180-days
+# Customer intent: As an Azure user, I want to understand the capabilities and limitations of the Azure Resource Mover, so that I can effectively plan and execute resource migrations across regions and subscriptions.
 ---
 
 # Common questions

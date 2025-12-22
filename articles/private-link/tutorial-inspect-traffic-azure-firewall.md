@@ -7,6 +7,7 @@ ms.service: azure-private-link
 ms.topic: tutorial
 ms.custom: mvc, linux-related-content
 ms.date: 02/18/2025
+# Customer intent: "As a network administrator, I want to configure Azure Firewall to inspect traffic to private endpoints, so that I can enhance security and ensure only authorized access to Azure resources."
 ---
 # Tutorial: Inspect private endpoint traffic with Azure Firewall
 
@@ -35,7 +36,7 @@ In this tutorial, you learn how to:
 > * Route traffic between the test virtual machine and Azure SQL through Azure Firewall.
 > * Test the connection to Azure SQL and validate in Azure Firewall logs.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

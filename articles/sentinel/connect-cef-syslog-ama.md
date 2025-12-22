@@ -1,14 +1,14 @@
 ---
 title: Ingest syslog and CEF messages to Microsoft Sentinel - AMA
 description: Ingest syslog messages from linux machines and from network and security devices and appliances to Microsoft Sentinel, using data connectors based on the Azure Monitor Agent (AMA).
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 06/27/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 

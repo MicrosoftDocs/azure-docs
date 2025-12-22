@@ -14,11 +14,22 @@ ms.subservice: power-bi-visual
 
 The Azure Maps visual is now Generally Available, providing a streamlined and intuitive experience for working with your data.
 
+> [!IMPORTANT]
+> The **Bing Maps** visual is scheduled for deprecation, although the timeline hasn't yet been determined. Any Bing Maps visuals that are already included in your reports remain available.
+>
+> To ensure a smooth transition, upgrade to Azure Maps unless one of the following applies:
+>
+> * You have team members who need to access the report in China, Korea, or within government cloud environments.
+> * You're physically located in China or Korea, regardless of your home tenant's location.
+> * You're part of a government cloud, irrespective of your home tenant's location.
+>
+> We're actively working to expand Azure Maps support to currently unsupported regions. **If you and all report users are located within a supported region, we encourage you to begin using Azure Maps now**. This article provides guidance on how to transition to Azure Maps. For a list of supported regions, see [Azure Maps service geographic scope](geographic-scope.md).
+
 ## How to convert your existing Map and Filled map visuals
 
 A conversion function is available in Power BI desktop to convert any existing Map and Filled map visuals to the new Azure Maps visual.
 
-When opening a report with Map and Filled map visuals, you'll see the following dialog giving you the option to upgrade to the new Azure Maps visual:
+When opening a report with Map and Filled map visuals, you see the following dialog giving you the option to upgrade to the new Azure Maps visual:
 
 :::image type="content" source="media/power-bi-visual/introducing-azure-map-visual.png" alt-text="Screenshot showing the option to upgrade maps to the Azure Maps visual.":::
 

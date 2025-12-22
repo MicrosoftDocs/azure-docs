@@ -5,20 +5,20 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 04/03/2025
+ms.date: 12/04/2025
 ---
 
 # Integrate an Azure API Management instance with a private virtual network for outbound connections 
 
 [!INCLUDE [api-management-availability-standardv2-premiumv2](../../includes/api-management-availability-standardv2-premiumv2.md)] 
 
-This article guides you through the process of configuring *virtual network integration* for your Standard v2 or Premium v2 (preview) Azure API Management instance. With virtual network integration, your instance can make outbound requests to APIs that are isolated in a single connected virtual network.
+This article guides you through the process of configuring *virtual network integration* for your Standard v2 or Premium v2 Azure API Management instance. With virtual network integration, your instance can make outbound requests to APIs that are isolated in a single connected virtual network or any peered virtual network, as long as network connectivity is properly configured.
 
 When an API Management instance is integrated with a virtual network for outbound requests, the gateway and developer portal endpoints remain publicly accessible. The API Management instance can reach both public and network-isolated backend services.
 
 :::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.png" alt-text="Diagram of integrating API Management instance with a virtual network for outbound traffic."  :::
 
-If you want to inject a Premium v2 (preview) API Management instance into a virtual network to isolate both inbound and outbound traffic, see [Inject a Premium v2 instance into a virtual network](inject-vnet-v2.md).
+If you want to inject a Premium v2 API Management instance into a virtual network to isolate both inbound and outbound traffic, see [Inject a Premium v2 instance into a virtual network](inject-vnet-v2.md).
 
 > [!IMPORTANT]
 > * Outbound virtual network integration described in this article is available only for API Management instances in the Standard v2 and Premium v2 tiers. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
@@ -48,7 +48,11 @@ If you want to inject a Premium v2 (preview) API Management instance into a virt
 
 ### Network security group
 
-A network security group must be associated with the subnet. Configure any network security group rules that you need for the gateway to access your API backends. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
+[!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
+
+> [!IMPORTANT]
+> * Inbound NSG rules do not apply when a v2 tier instance is integrated in a virtual network for private outbound access. To enforce inbound NSG rules, use virtual network injection instead of integration.
+> * This differs from networking in the classic Premium tier, where inbound NSG rules are enforced in both external and internal virtual network injection modes. [Learn more](virtual-network-injection-resources.md)
 
 ### Subnet delegation
 
@@ -56,12 +60,7 @@ The subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
 
-
-> [!NOTE]
-> You might need to register the `Microsoft.Web/serverFarms` resource provider in the subscription so that you can delegate the subnet to the service.
-
-
-For more information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
+[!INCLUDE [api-management-virtual-network-v2-delegation-requirement](../../includes/api-management-virtual-network-v2-delegation-requirement.md)]
 
 ### Permissions
 

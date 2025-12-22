@@ -3,7 +3,7 @@ title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
 ms.topic: best-practice
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 # ARM template best practices
 
@@ -183,7 +183,7 @@ The following information can be helpful when you work with [resources](./syntax
       {
         "name": "[variables('storageAccountName')]",
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2019-06-01",
+        "apiVersion": "2025-06-01",
         "location": "[resourceGroup().location]",
         "comments": "This storage account is used to store the VM disks.",
           ...
@@ -199,7 +199,7 @@ The following information can be helpful when you work with [resources](./syntax
         // This storage account is used to store the VM disks.
         "name": "[variables('storageAccountName')]",
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2019-06-01",
+        "apiVersion": "2025-06-01",
         "location": "[resourceGroup().location]",
           ...
       }

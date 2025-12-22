@@ -4,10 +4,13 @@ description: Learn how to copy data from Vertica to supported sink data stores u
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/09/2025
+ms.date: 08/18/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Copy data from Vertica using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -15,7 +18,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Vertica. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Vertica connector version 2.0 provides improved native Vertica support. If you are using Vertica connector version 1.0 in your solution, please [upgrade your Vertica connector](#upgrade-the-vertica-version) before **July 31, 2025**. Refer to this [section](#differences-between-vertica-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Vertica connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Vertica connector](#upgrade-the-vertica-version) from version 1.0 to 2.0.
 
 ## Supported capabilities
 

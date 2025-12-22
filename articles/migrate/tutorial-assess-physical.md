@@ -2,10 +2,12 @@
 title: Assess physical servers for migration to Azure with Azure Migrate
 description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate.
 ms.topic: tutorial
-ms.date: 08/21/2024
+ms.date: 02/06/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.custom: MVC, engagement-fy25
-#Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
+monikerRange:
+# Customer intent: As a server administrator, I want to assess my on-premises physical servers for their cloud readiness and migration costs, so that I can effectively plan and execute their migration to a cloud infrastructure.
 ---
 
 # Tutorial: Assess physical servers for migration to Azure
@@ -48,7 +50,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. 1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Location of Assess and migrate servers button.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
@@ -65,16 +67,16 @@ Run an assessment as follows:
 
 1. In **Assessment properties** > **Target Properties**:
    - In **Target location**, specify the Azure region to which you want to migrate.
-   - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you'll be prompted to specify **Reserved Instances** and **VM series**.
-   - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government).
+   - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
+   - In Azure Government, you can target assessments in [these regions](supported-geographies.md#azure-government).
    - In **Storage type**,
      - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
      - Alternatively, select the storage type you want to use for VM when you migrate it.
    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
-     - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or three year reserved) are a good option for the most consistently running resources.
-     - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or three year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of one savings option at a time. 
+     - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
+     - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
      - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
-     - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties aren't applicable.
+     - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
 1. In **VM Size**:
    - In **Sizing criterion**, select if you want to base the assessment on server configuration data/metadata, or on performance-based data. If you use performance data:
      - In **Performance history**, indicate the data duration on which you want to base the assessment.
@@ -106,7 +108,7 @@ Run an assessment as follows:
 
 1. In **Select servers to assess** > **Assessment name**, specify a name for the assessment. 
 
-1. In **Select or create a group**, select **Create New**, and specify a group name.   
+1. In **Select or create a group**, select **Create New** and specify a group name.   
 
 1. Select the appliance, and select the VMs you want to add to the group. Then select **Next**.
 
@@ -131,7 +133,7 @@ An assessment describes:
 To view an assessment:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Assessments**.
-2. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
+2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
     ![Assessment summary](./media/tutorial-assess-physical/assessment-summary.png)
 
@@ -162,28 +164,8 @@ The assessment summary shows the estimated compute and storage cost of running V
 2. Review monthly storage costs. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
 3. You can drill down to see cost details for specific VMs.
 
-### Review confidence rating
 
-Azure Migrate assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
-
-![Confidence rating](./media/tutorial-assess-physical/confidence-rating.png)
-
-The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
-
-> [!NOTE]
-> Confidence ratings aren't assigned if you create an assessment based on a CSV file.
-
-Confidence ratings are as follows.
-
-**Data point availability** | **Confidence rating**
---- | ---
-0%-20% | 1 star
-21%-40% | 2 stars
-41%-60% | 3 stars
-61%-80% | 4 stars
-81%-100% | 5 stars
-
-[Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](assessment-report.md#coverage) about performance coverage.
 
 ## Next steps
 

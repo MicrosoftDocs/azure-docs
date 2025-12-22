@@ -2,10 +2,11 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 03/04/2025
+ms.date: 11/10/2025
 ms.custom: mvc, engagement-fy24, ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a business continuity planner, I want to assess Azure Backup solutions, so that I can ensure effective data protection and recovery strategies for my organization’s critical systems and resources.
 ---
 # What is the Azure Backup service?
 
@@ -63,3 +64,5 @@ In addition to various security features offered by default, you can also levera
 
 - [Review](backup-architecture.md) the architecture and components for different backup scenarios.
 - [Verify](backup-support-matrix.md) support requirements and limitations for backup, and for [Azure VM backup](backup-support-matrix-iaas.md).
+- [About Recovery Services vault](backup-azure-recovery-services-vault-overview.md).
+- [About Backup vault](backup-vault-overview.md).

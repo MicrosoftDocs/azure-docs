@@ -1,14 +1,18 @@
 ---
 title: X.509 certificates | Microsoft Docs
 description: Reference documentation containing information about X.509 certificates, including certificate fields, certificate extensions, and certificate formats.
-author: SoniaLopezBravo
+author: cwatson-cat
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: reference
 ms.date: 02/03/2022
-ms.author: sonialopez
-ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
+ms.author: cwatson
+ms.custom:
+  - mvc
+  - 'Role: Cloud Development'
+  - 'Role: Data Analytics'
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub, and I need to know what file formats, fields, and other details are supported by Azure IoT Hub. 
 ---
 
@@ -116,8 +120,8 @@ Certificates can be saved in various formats. Azure IoT Hub authentication typic
 
 You can authenticate a device to your IoT hub for testing purposes by using two self-signed certificates. This type of authentication is sometimes called *thumbprint authentication* because the certificates are identified by calculated hash values called *fingerprints* or *thumbprints*. These calculated hash values are used by IoT Hub to authenticate your devices.
 
->[!IMPORTANT]
->We recommend that you use certificates signed by an issuing Certificate Authority (CA), even for testing purposes. Never use self-signed certificates in production.
+> [!IMPORTANT]
+> We recommend that you use certificates signed by an issuing Certificate Authority (CA), even for testing purposes. Never use self-signed certificates in production.
 
 ### Create a self-signed certificate
 

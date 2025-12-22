@@ -52,7 +52,7 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
 > [!NOTE]
-> Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+> Connecting virtual networks between Azure sovereign clouds and global Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
 
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
@@ -70,7 +70,7 @@ The 'Circuit Owner' is an authorized Power User of the ExpressRoute circuit reso
 The Circuit Owner has the power to modify and revoke authorizations at any time. When an authorization is revoked, all link connections are deleted from the subscription whose access was revoked.
 
   > [!NOTE]
-  > Circuit owner is not an built-in RBAC role or defined on the ExpressRoute resource.
+  > Circuit owner is not a built-in RBAC role or defined on the ExpressRoute resource.
   > The definition of the circuit owner is any role with the following access:
   >- Microsoft.Network/expressRouteCircuits/authorizations/write
   >- Microsoft.Network/expressRouteCircuits/authorizations/read

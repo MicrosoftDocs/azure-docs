@@ -8,8 +8,14 @@ ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 06/28/2024
 ms.author: mbender
-ms.custom: mvc, mode-ui, template-quickstart, engagement-fy24
+ms.custom:
+  - mvc
+  - mode-ui
+  - template-quickstart
+  - engagement-fy24
+  - sfi-image-nochange
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: "As a cloud engineer, I want to create an internal load balancer with traffic rules and health probes for my VMs, so that I can efficiently distribute internal traffic and ensure high availability of my applications."
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
@@ -23,7 +29,7 @@ Get started with Azure Load Balancer by using the Azure portal to create an inte
 > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to Azure
 

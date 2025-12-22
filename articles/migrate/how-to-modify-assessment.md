@@ -3,9 +3,11 @@ title: Customize assessments for Azure Migrate | Microsoft Docs
 description: Describes how to customize assessments created with Azure Migrate
 ms.service: azure-migrate
 ms.topic: how-to
+ms.reviewer: v-uhabiba
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
 
+# Customer intent: As a cloud migration specialist, I want to customize assessments for migrating on-premises workloads to Azure, so that I can ensure accurate sizing and cost estimations based on performance data and specific criteria for a successful transition to the cloud.
 ---
 
 # Customize an assessment
@@ -58,22 +60,24 @@ An assessment done in Azure Migrate Discovery and assessment has three stages. A
 
 Here's what's included in an Azure VMware Solution assessment:
 
-| **Property** | **Details** |
-| - | - |
-| **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.<br/><br/> Azure VMware Solution Assessment currently supports these target regions: East US, West Europe, and West US. |
-| **Storage type** | Specifies the storage engine to be used in Azure VMware Solution.<br/><br/> Note that Azure VMware Solution assessments only support vSAN as a default storage type. |
-**Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution. RIs are currently not supported for Azure VMware Solution nodes. |
-**Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to map the on-premises VMs. Note that default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution. |
-**FTT Setting, RAID Level** | Specifies the applicable Failure to Tolerate (FTT) and Raid combinations. The selected FTT option combined with the on-premises VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. |
-**Sizing criterion** | Sets the criteria to be used to *right-size* VMs for Azure VMware Solution. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. |
-**Performance history** | Sets the duration to consider in evaluating the performance data of machines. This property is applicable only when the sizing criteria is *performance-based*. |
-**Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based.|
-**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. |
-**Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly.|
-**Currency** | Shows the billing currency for your account. |
-**Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. |
-**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although this has no impact on the Azure VMware solution's pricing due to the node-based price, customers can still apply their on-premises OS licenses (Microsoft-based) in Azure VMware Solution using Azure Hybrid Benefits. Other software OS vendors such as RHEL, for example, will have to provide their own licensing terms.  |
-**vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to 1 physical core in the Azure VMware Solution node. The default value in the calculations is 4 vCPU : 1 physical core in Azure VMware Solution. <br/><br/> API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may begin to cause performance degradation but can be used for web server type workloads. |
+**Property** | **Details**
+--- | --- 
+**Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.
+**Storage type** | Specifies the storage engine to be used in Azure VMware Solution. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required. You can alternatively use Elastic SAN instead of Azure NetApp Files, in case you prefer, for assessing the cost using Elastic SAN as the external storage option.
+**Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates take the option chosen into account. [Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify "Discount (%)".
+**Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. By default, all node types available in the selected region are used for the assessment. Currently, AV64 node type can only be used along with AV36, AV36P, or AV52 and can't be used as a single node type in an SDDC. The node type available for use depends on the capacity availability of the SKU in the region.
+**FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes (a) space reserved for management objects such as vCenter Server and (b) 25% storage slack required for vSAN operations.
+**Sizing criterion** | Sets the criteria to be used to determine memory, cpu, and storage requirements for Azure VMware Solution nodes. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. To lift and shift, choose as on-premises. To obtain usage based sizing, choose performance based.
+**Performance history** | Sets the duration to consider in evaluating the performance data of servers. This property is applicable only when the sizing criteria are *performance-based*.
+**Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based.
+**Comfort factor** | Azure Migrate includes a buffer (comfort factor) during assessment. This buffer is added to the server utilization data for VMs (CPU, memory, and disk). The comfort factor accounts for seasonal usage, short performance history, and potential future increases in usage. For example, a 10-core VM with 20% utilization would typically result in a 2-core VM. However, with a comfort factor of 2.0x, it becomes a 4-core VM instead. 
+**Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly. 
+**Currency** | Shows the billing currency for your account. 
+**Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. 
+**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although it has no impact on Azure VMware Solution pricing due to the node-based price, customers can still apply the on-premises OS or SQL licenses (Microsoft based) in Azure VMware Solution using Azure Hybrid Benefits. Other software OS vendors have to provide their own licensing terms, such as RHEL for example. 
+**vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to one physical core in the Azure VMware Solution node. The default value in the calculations is 4 vCPU: 1 physical core in Azure VMware Solution. API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may impact workloads depending on their CPU usage. When sizing, we always assume 100% utilization of the cores chosen.
+**Memory overcommit factor** | Specifies the ratio of memory overcommit on the cluster. A value of 1 represents 100% memory use, 0.5, for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place. 
+**Deduplication and compression factor** | Specifies the anticipated deduplication and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage configurations. These vary by workload. A value of 3 would mean 3x so for 300 GB disk only 100 GB storage would be used. A value of 1 would mean no deduplication or compression. You can only add values from 1 to 10 up to one decimal place.
 
 ## What properties are used to create and customize an Azure SQL assessment?
 

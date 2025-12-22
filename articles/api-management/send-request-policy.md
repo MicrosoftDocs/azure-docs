@@ -29,6 +29,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
   <set-header>...</set-header>
   <set-body>...</set-body>
   <authentication-certificate thumbprint="thumbprint" />
+  <authentication-managed-identity resource="ResourceID"/>
   <proxy>...</proxy>
 </send-request>
 ```
@@ -51,11 +52,12 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 | [set-header](set-header-policy.md)                     | Sets a header in the request. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
 | [set-body](set-body-policy.md)                       | Sets the body of the request.                   | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                          |
+| authentication-managed-identity | [Authenticate with managed identity](authentication-managed-identity-policy.md) to resource specified in `resource` attribute. | No                          |
 | [proxy](proxy-policy.md) | Routes request via HTTP proxy. | No |
 
 ## Usage
 
-- **[Policy sections:](./api-management-howto-policies.md#sections)** inbound, outbound, backend, on-error
+- **[Policy sections:](./api-management-howto-policies.md#understanding-policy-configuration)** inbound, outbound, backend, on-error
 - **[Policy scopes:](./api-management-howto-policies.md#scopes)** global, workspace, product, API, operation
 - **[Gateways:](api-management-gateways-overview.md)** dedicated, consumption, self-hosted, workspace
 

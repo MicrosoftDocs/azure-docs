@@ -2,16 +2,20 @@
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: reference
-ms.date: 04/12/2025
+ms.date: 12/11/2025
 ms.custom: references_regions 
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to understand the support matrix for backing up SAP HANA on Azure VMs, so that I can ensure compliance with supported configurations and optimize my backup strategy.
 ---
 
 # Support matrix for backup of SAP HANA databases on Azure VMs
 
 Azure Backup supports the backup of SAP HANA databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP HANA databases on Azure VMs.
+
+> [!IMPORTANT]
+> Linux distributions listed below shouldn't be in an End-of-Life (EOL) state by their vendors. Make sure it is a current, active and supported release.
 
 > [!NOTE]
 > The frequency of log backup can now be set to a minimum of 15 minutes. Log backups only begin to flow after a successful full backup for the database has completed.
@@ -22,7 +26,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topology**               | SAP HANA running in Azure Linux  VMs only                    | HANA Large Instances (HLI)                                   |
 | **Regions**                   | **Americas** – Central US, East US 2, East US, North Central US, South Central US, West US 2, West US 3, West Central US, West US, Canada Central, Canada East, Brazil South <br> **Asia Pacific** – Australia Central, Australia Central 2, Australia East, Australia Southeast, Japan East, Japan West, Korea Central, Korea South, East Asia, Southeast Asia, Central India, South India, West India, China East, China East 2, China East 3, China North, China North 2, China North 3 <br> **Europe** – West Europe, North Europe, France Central, UK South, UK West, Germany North, Germany West Central, Switzerland North, Switzerland West, Central Switzerland North, Norway East, Norway West, Sweden Central, Sweden South <br> **Africa / ME** - South Africa North, South Africa West, UAE North, UAE Central  <BR>  **Azure Government regions** | France South, Germany Central, Germany Northeast, US Gov IOWA |
-| **OS versions**            | SLES 12 with SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, SP5, and SP6 <br><br>  RHEL 7.4, 7.6, 7.7, 7.9, 8.1, 8.2, 8.4, 8.6, 8.8, 9.0, 9.2, and 9.4.               |                                             |
+| **OS versions**            | SLES 12 with SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, SP5, SP6, and SP7 <br><br>  RHEL 8.1, 8.2, 8.4, 8.6, 8.8, 8.10, 9.0, 9.2, 9.4, and 9.6               |                                             |
 | **HANA versions**          | SDC on HANA 1.x, MDC on HANA 2.x SPS 04, SPS 05 Rev <= 59, SPS 06 (validated for encryption enabled scenarios as well), SPS 07, and SPS 08.      |                                                            |
 | **Encryption** | SSLEnforce, HANA data encryption |            |
 | **HANA Instances**         | - A single SAP HANA instance on a  single Azure VM – scale up only. <br><br> - Multiple SAP HANA instances on a  single VM. You can protect only one of these multiple instances at a time. |                            |
@@ -32,11 +36,12 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
 | **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](sap-hana-database-restore.md#cross-subscription-restore). |          |
 | **Number of full backups per day**     |   One scheduled backup.  <br><br>   Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.  |
-| **HANA deployments** | HANA System Replication (HSR) |           |
+| **HANA deployments** | HANA System Replication (HSR) <br><br> HANA Scale-out system i.e one HANA system distributed across multiple nodes(PREVIEW)|           |
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |
 | **Compression** | You can enable HANA Native compression via the Backup policy. [See the SAP HANA document](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86943e9f8d5343c59577755edff8296b.html). |       |
 | **Multi-streaming backup** | You can increase your streaming backup throughput from *420 MBps* to *1.5 GBps*. [Learn more](#support-for-multistreaming-data-backups). |      |
 | **File System types** | File Systems `ext3` and `xfs` are supported for SAP HANA database instance snapshots backup. | Other File Systems aren't supported. |
+| **Server-side secure stores** | SSFS (Secure Store in the File System) is supported. | Local Secure Store (LSS) is not supported. |
 
 ------
 
@@ -49,7 +54,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 - **Parameters to enable SAP HANA settings for multistreaming**: 
   - *parallel_data_backup_backint_channels*
   - *data_backup_buffer_size (optional)*
-
+Maximum number of channels that can be opened are 32 however maximum throughput that can be achieved is 1.5GBps.
   >[!Note]
   >By setting the above HANA parameters will lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization as overutilization might negatively impact the backup and other HANA operations.
 
@@ -83,9 +88,17 @@ The following table lists the required parameters for adding/removing SAP HANA i
 | **Add an instance** | `--sid` | SAP HANA database instance that you want to protect. <br><br> By default, the first instance is selected. | `./msawb-plugin-config-com-sap-hana.sh --add --sid HXE` <br><br> Or <br><br> `./msawb-plugin-config-com-sap-hana.sh  --sid HXE` <br><br>  (Default mode is `add` for the script.) <br><br> After you add instances, registration needs to be done on recovery services vault. If a new instance is added later, re-registration is required.|
 | **Remove an instance** | `--sid` | SAP HANA database instance that you want to remove protection. <br><br> **SID** is a mandate parameter for remove. | `./msawb-plugin-config-com-sap-hana.sh --remove --sid HXE` |
 
+## Support for HANA Scale-out (PREVIEW)
+Backup for HANA systems distributed across multiple nodes i.e. HANA Scale-out is now available in PREVIEW. Reach out to AskAzureBackupTeam@microsoft.com to gain access to the preview experience. 
+
 ## Next steps
 
-* Learn how to [backup SAP HANA databases running on Azure VMs](./backup-azure-sap-hana-database.md)
-* Learn how to [restore SAP HANA databases running on Azure VMs](./sap-hana-db-restore.md)
-* Learn how to [manage SAP HANA databases that are backed up using Azure Backup](sap-hana-db-manage.md)
-* Learn how to [troubleshoot common issues when backing up SAP HANA databases](./backup-azure-sap-hana-database-troubleshoot.md)
+- Back up SAP HANA databases on Azure VMs using [Azure portal](backup-azure-sap-hana-database.md) and [Azure CLI](tutorial-sap-hana-backup-cli.md).
+- Back up SAP HANA System Replication databases on Azure VMs using [Azure portal](sap-hana-database-with-hana-system-replication-backup.md) and [Azure CLI](quick-backup-hana-cli.md).
+- [Back up SAP HANA database snapshot instances on Azure VMs](sap-hana-database-instances-backup.md).
+- [Restore SAP HANA databases on Azure VMs using Azure portal](./sap-hana-db-restore.md) and [Azure CLI](tutorial-sap-hana-restore-cli.md).
+- Manage SAP HANA databases that are backed up by Azure Backup using [Azure portal](./sap-hana-db-manage.md) and [Azure CLI](tutorial-sap-hana-manage-cli.md).
+- Restore SAP HANA System Replication on Azure VMs using [Azure portal](sap-hana-database-with-hana-system-replication-backup.md) and [Azure CLI](quick-restore-hana-cli.md).
+- [Well-architected data reliability enhancement for SAP HANA](/azure/well-architected/sap/design-areas/data-platform#use-data-backups).
+- [Troubleshoot common issues when backing up SAP HANA databases](./backup-azure-sap-hana-database-troubleshoot.md)
+- [Troubleshoot SAP HANA snapshot backup jobs on Azure Backup](sap-hana-database-instance-troubleshoot.md).

@@ -9,6 +9,7 @@ ms.date: 10/27/2022
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+# Customer intent: "As a network administrator, I want to deploy and configure Azure Firewall in a hybrid network using PowerShell, so that I can control access between on-premises and Azure virtual networks effectively."
 ---
 
 # Deploy and configure Azure Firewall in a hybrid network by using Azure PowerShell
@@ -52,7 +53,7 @@ Traffic between directly peered virtual networks is routed directly, even if a U
 
 To review the related Azure PowerShell reference documentation, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Declare the variables
 

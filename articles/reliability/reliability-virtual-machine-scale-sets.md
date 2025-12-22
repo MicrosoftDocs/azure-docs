@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Virtual Machine Scale Sets
-description: Learn about reliability in Azure Virtual Machine Scale Sets. 
+description: Learn how to ensure reliability and high availability in Azure Virtual Machine Scale Sets by using availability zones, fault domains, and zone-redundant deployments.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -14,7 +14,7 @@ ms.date: 10/31/2024
 This article contains information on [availability zones support](#availability-zone-support) for Virtual Machine Scale Sets.  
 
 >[!NOTE]
->Virtual Machine Scale Sets can only be deployed into one region. If you want to deploy VMs across multiple regions, see [Virtual Machines-Disaster recovery: cross-region failover](./reliability-virtual-machines.md#cross-region-disaster-recovery-and-business-continuity).
+>Virtual Machine Scale Sets can only be deployed into one region. If you want to deploy VMs across multiple regions, see [Virtual Machines - Multi-region support](./reliability-virtual-machines.md#resilience-to-region-wide-failures).
 
 
 ## Availability zone support
@@ -257,7 +257,7 @@ To use best-effort zone balance, set `zoneBalance` to *false*. The `zoneBalance`
 
 ### Migrate to availability zone support
 
-To learn how to redeploy a regional scale set to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
+To learn how to redeploy a regional scale set to availability zone support, see [Update scale set to add availability zones](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#update-scale-set-to-add-availability-zones).
 
 
 ## Additional guidance

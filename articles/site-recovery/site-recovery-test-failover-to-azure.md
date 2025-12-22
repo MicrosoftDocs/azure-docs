@@ -1,26 +1,27 @@
 ---
-title: Run a test failover (disaster recovery drill) to Azure in Azure Site Recovery 
-description: Learn about running a test failover from on-premises to Azure, using the Azure Site Recovery service.
+title: Run a test failover (disaster recovery drill) to Azure in Azure Site Recovery
+ms.reviewer: v-gajeronika
+description: This article describes how to run a disaster recovery drill to Azure, using a Site Recovery test failover.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 09/25/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 10/31/2025
+ms.author: v-gajeronika
+author: Jeronika-MS
 
+# Customer intent: "As a disaster recovery manager, I want to run a test failover from on-premises to the cloud, so that I can validate my disaster recovery plan without impacting the production environment."
 ---
-# Run a test failover (disaster recovery drill) to Azure 
 
+# Run a test failover (disaster recovery drill) to Azure 
 
 This article describes how to run a disaster recovery drill to Azure, using a Site Recovery test failover.  
 
 You run a test failover to validate your replication and disaster recovery strategy, without any data loss or downtime. A test failover doesn't impact ongoing replication, or your production environment. You can run a test failover on a specific virtual machine (VM), or on a [recovery plan](site-recovery-create-recovery-plans.md) containing multiple VMs.
 
-
 ## Run a test failover
-This procedure describes how to run a test failover for a recovery plan. If you want to run a test failover for a single VM, follow the steps described [here](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Screenshot of the Test failover page in the Azure portal.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+This procedure describes how to run a test failover for a recovery plan. If you want to run a test failover for a single VM, follow the steps described [here](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm).
 
+:::image type="content" source="./media/site-recovery-test-failover-to-azure/test-failover.png" alt-text="Screenshot of the Test failover page in the Azure portal.":::
 
 1. In Site Recovery in the Azure portal, click **Recovery Plans** > *recoveryplan_name* > **Test Failover**.
 2. Select a **Recovery Point** to which to fail over. You can use one of the following options:
@@ -41,8 +42,7 @@ This procedure describes how to run a test failover for a recovery plan. If you 
 6. When everything is working as expected, click **Cleanup test failover**. This deletes the VMs that were created during test failover.
 7. In **Notes**, record and save any observations associated with the test failover.
 
-
-![Screenshot of the Test failover Jobs tab.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+:::image type="content" source="./media/site-recovery-test-failover-to-azure/test-failover-job.png" alt-text="Screenshot of the Test failover Jobs tab.":::
 
 When a test failover is triggered, the following occurs:
 
@@ -65,10 +65,9 @@ In the following scenarios, failover  requires an extra intermediate step that u
 	* storflt
 	* intelide
 	* atapi
-* VMware VMs that don't have DHCP enabled , irrespective of whether they are using DHCP or static IP addresses.
+* VMware VMs that don't have DHCP enabled, irrespective of whether they are using DHCP or static IP addresses.
 
 In all the other cases, no intermediate step is not required, and failover takes significantly less time.
-
 
 ## Create a network for test failover
 
@@ -78,7 +77,6 @@ We recommended that for test failover, you choose a network that's isolated from
 - The test network should use the same IP address range.
 - Update the DNS of the test network with the IP address specified for the DNS VM in **Compute and Network** settings. Read [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations) for more details.
 
-
 ## Test failover to a production network in the recovery site
 
 Although we recommended that you use a test network separate from your production network, if you do want to test a disaster recovery drill into your production network, note the following:
@@ -86,8 +84,6 @@ Although we recommended that you use a test network separate from your productio
 - Make sure that the primary VM is shut down when you run the test failover. Otherwise there will be two VMs with the same identity,  running in the same network at the same time. This can lead to unexpected consequences.
 - Any changes to VMs created for test failover are lost when you clean up the failover. These changes are not replicated back to the primary VM.
 - Testing in your production environment leads to a downtime of your production application. Users shouldn't use apps running on VMs when the test failover is in progress.  
-
-
 
 ## Prepare Active Directory and DNS
 
@@ -99,10 +95,10 @@ If you want to connect to Azure VMs using RDP/SSH after failover, follow the req
 
 **Failover** | **Location** | **Actions**
 --- | --- | ---
-**Azure VM running Windows** | On-premises machine before failover | To access the Azure VM over the internet, enable RDP, and make sure that TCP and UDP rules are added for **Public**, and that RDP is allowed for all profiles in **Windows Firewall** > **Allowed Apps**.<br/><br/> To access the Azure VM over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.<br/><br/>  Make sure the operating system SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).<br/><br/> Make sure there are no Windows updates pending on the VM when you trigger a failover. Windows update might start when you fail over, and you won't be able to log onto the VM until the update completes.
-**Azure VM running Windows** | Azure VM after failover |  [Add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) for the VM.<br/><br/> The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the RDP port.<br/><br/> Check **Boot diagnostics** to verify a screenshot of the VM.<br/><br/> If you can't connect, check that the VM is running, and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
-**Azure VM running Linux** | On-premises machine before failover | Ensure that the Secure Shell service on the VM is set to start automatically on system boot.<br/><br/> Check that firewall rules allow an SSH connection to it.
-**Azure VM running Linux** | Azure VM after failover | The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the SSH port.<br/><br/> [Add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) for the VM.<br/><br/> Check **Boot diagnostics** for a screenshot of the VM.<br/><br/>
+Azure VM running Windows | On-premises machine before failover | To access the Azure VM over the internet, enable RDP, and make sure that TCP and UDP rules are added for **Public**, and that RDP is allowed for all profiles in **Windows Firewall** > **Allowed Apps**.<br/><br/> To access the Azure VM over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.<br/><br/>  Make sure the operating system SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).<br/><br/> Make sure there are no Windows updates pending on the VM when you trigger a failover. Windows update might start when you fail over, and you won't be able to log onto the VM until the update completes.
+Azure VM running Windows | Azure VM after failover |  [Add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) for the VM.<br/><br/> The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the RDP port.<br/><br/> Check **Boot diagnostics** to verify a screenshot of the VM.<br/><br/> If you can't connect, check that the VM is running, and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+Azure VM running Linux | On-premises machine before failover | Ensure that the Secure Shell service on the VM is set to start automatically on system boot.<br/><br/> Check that firewall rules allow an SSH connection to it.
+Azure VM running Linux | Azure VM after failover | The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the SSH port.<br/><br/> [Add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) for the VM.<br/><br/> Check **Boot diagnostics** for a screenshot of the VM.<br/><br/>
 
 Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.md) to troubleshoot any connectivity issues post failover.
 

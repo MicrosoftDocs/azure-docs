@@ -2,15 +2,16 @@
 title: Add threat intelligence in bulk by file
 titleSuffix: Microsoft Sentinel
 description: Learn how to add threat intelligence in bulk from flat files like .csv or .json into Microsoft Sentinel. 
-author: austinmccollum
+author: poliveria  
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 3/14/2024
-ms.author: austinmc
+ms.date: 10/23/2025
+ms.author: pauloliveria 
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to import threat intelligence in bulk from CSV or JSON files so that I can quickly integrate and analyze emerging threats within Microsoft Sentinel.
@@ -22,8 +23,6 @@ ms.collection: usx-security
 This article demonstrates how to add indicators from a CSV or STIX objects from a JSON file into Microsoft Sentinel threat intelligence. Because threat intelligence sharing still happens across emails and other informal channels during an ongoing investigation, the ability to import that information quickly into Microsoft Sentinel is important to relay emerging threats to your team. These identified threats are then available to power other analytics, such as producing security alerts, incidents, and automated responses.
 
 > [!IMPORTANT]
-> This feature is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 ## Prerequisites
@@ -40,12 +39,14 @@ Add multiple threat intelligence objects with a specially crafted CSV or JSON fi
 
 1. Select **Import** > **Import using a file**.
 
+    #### [Defender portal](#tab/defender-portal)
+
+    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png":::
+
     #### [Azure portal](#tab/azure-portal)
 
     :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-fixed.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
-    
-    #### [Defender portal](#tab/defender-portal)
-    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png":::
+
     ---
 
 1. On the **File format** dropdown menu, select **CSV** or **JSON**.

@@ -8,6 +8,7 @@ ms.date: 06/30/2023
 ms.topic: quickstart
 ms.service: azure-expressroute
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
+# Customer intent: "As a network engineer, I want to deploy an ExpressRoute circuit using Bicep, so that I can establish a private connection for secure and high-performance network traffic."
 ---
 
 # Quickstart: Create an ExpressRoute circuit with private peering using Bicep
@@ -20,7 +21,7 @@ This quickstart describes how to use Bicep to create an ExpressRoute circuit wit
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

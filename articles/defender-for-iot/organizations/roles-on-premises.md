@@ -32,8 +32,9 @@ For more information, see:
 
 |Legacy scenario  |Description  |
 |---------|---------|
-|**Sensor versions earlier than 23.2.0**     |   In sensor versions earlier than [23.2.0](whats-new.md#default-privileged-user-is-now-admin-instead-of-support), the default *admin* user is named *support*. The *support* user is available and supported only on versions earlier than 23.2.0.<br><br>Documentation refers to the *admin* user to match the latest version of the software.      |
-|**Sensor software versions earlier than 23.1.x**     |   In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also in use. <br><br>In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. <br><br>To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), change their passwords. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).      |
+|**Sensor versions earlier than 23.2.0**     |   In sensor versions earlier than [23.2.0](whats-new-archive.md#default-privileged-user-is-now-admin-instead-of-support), the default *admin* user is named *support*. The *support* user is available and supported only on versions earlier than 23.2.0.<br><br>Documentation refers to the *admin* user to match the latest version of the software.      |
+|**Sensor software versions earlier than 23.1.x**     |   In sensor software versions earlier than [23.1.x]whats-new-archive.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also in use. <br><br>In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. <br><br>To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), change their passwords. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).      |
+|**On-premises management consoles**     | The [on-premises management console](legacy-central-management/install-software-on-premises-management-console.md) is installed with privileged *support* and *cyberx* users. <br><br> When first setting up an on-premises management console, first sign in with the *support* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.        |
 
 ### Access per privileged user
 
@@ -41,8 +42,8 @@ The following table describes the access available to each privileged user, incl
 
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
-|**admin** | The OT sensor's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services <br><br>This user has no filesystem access. In legacy software versions, this user is named *support*. |
-|**cyberx**     |    The OT sensor's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>- Filesystem access      |
+|**admin** | The OT sensor's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services<br>- View the sensor Support page<br><br>This user has no filesystem access. In legacy software versions, this user is named *support*. |
+|**cyberx**     |    The OT sensor's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Change default passwords<br>- Troubleshoot<br>- Filesystem access<br>- View the sensor Support page      |
 |**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
 
 ## On-premises user roles
@@ -60,6 +61,8 @@ When first deploying an OT monitoring system, sign in to your sensors with one o
 See the tables below for the permissions available for each role on the [sensor](#role-based-permissions-for-ot-network-sensors).
 
 ## Role-based permissions for OT network sensors
+
+To view role-based permissions, see [Access per privileged user](#access-per-privileged-user).
 
 | Permission | Read Only | Security Analyst | Admin |
 |--|--|--|--|

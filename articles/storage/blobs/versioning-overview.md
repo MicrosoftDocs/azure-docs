@@ -6,10 +6,11 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/14/2023
 ms.author: normesta
 ms.custom: engagement-fy23
+# Customer intent: "As a data engineer, I want to enable blob versioning for my storage account, so that I can automatically maintain and restore previous versions of my data to safeguard against accidental modifications or deletions."
 ---
 
 # Blob versioning
@@ -217,8 +218,12 @@ If you've changed a blob or version's tier, then you're billed for the entire ob
 
 > [!NOTE]
 > Enabling versioning for data that is frequently overwritten may result in increased storage capacity charges and increased latency during listing operations. To mitigate these concerns, store frequently overwritten data in a separate storage account with versioning disabled.
+> 
+> Enabling versions on storage accounts that are backed up frequently might trigger data retrieval charges when the versions are stored on cool or cold access tiers.
 
 For more information about billing details for blob snapshots, see [Blob snapshots](snapshots-overview.md).
+
+For storage accounts that leverage the smart tier public preview, versions and snapshots are billed at full content length. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
 
 ### Billing when the blob tier has not been explicitly set
 

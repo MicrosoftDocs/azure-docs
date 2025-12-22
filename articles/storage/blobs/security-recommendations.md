@@ -5,10 +5,11 @@ description: Learn about security recommendations for Blob storage. Implementing
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2025
 ms.author: normesta
 ms.custom: security-recommendations
+# Customer intent: "As a cloud security administrator, I want to implement security recommendations for Blob storage, so that I can enhance data protection and fulfill my organization's security obligations in the shared responsibility model."
 ---
 
 # Security recommendations for Blob storage

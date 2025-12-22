@@ -1,6 +1,6 @@
 ---
-title: Reliability in Microsoft Defender for Cloud for DevOps security
-description: Find out about reliability in Defender for DevOps
+title: Reliability in Microsoft Defender for Cloud for DevOps Security
+description: Learn how to ensure DevOps security continuity with Microsoft Defender for Cloud by using cross-region disaster recovery and connector migration strategies.
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article

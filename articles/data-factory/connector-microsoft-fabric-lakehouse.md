@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 12/18/2024
+ms.date: 10/23/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
@@ -33,6 +35,10 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
+This connector supports connecting to Microsoft Fabric Lakehouse in the workspace with a private link enabled. You can set up and use a private link in Microsoft Fabric by referring to this [article](/fabric/security/security-workspace-level-private-links-set-up).
+
+To support workspace-level private link in the self-hosted integration runtime (version 5.58.9377.1 or above), you need to add `*.dfs.fabric.microsoft.com` to the allowlist to ensure Microsoft Fabric Lakehouse connector can access Onelake APIs through the network.
+ 
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
@@ -68,6 +74,8 @@ The following sections provide details about properties that are used to define 
 The Microsoft Fabric Lakehouse connector supports the following authentication types. See the corresponding sections for details:
 
 - [Service principal authentication](#service-principal-authentication)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 ### Service principal authentication
 
@@ -79,24 +87,8 @@ To use service principal authentication, follow these steps.
     - Client secret value, which is the service principal key in the linked service.
     - Tenant ID
 
-2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
-    1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
-    
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
+2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace)
 
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
-    
-    1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
-
-       >[!Note]
-       > The service principal will not appear in the **Add people** list unless the Power BI tenant settings [enable service principals access to Fabric APIs](/power-bi/developer/embedded/embed-service-principal#step-3---enable-the-power-bi-service-admin-settings).
-    
-    1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
-        
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
-
-    1. Your service principal is displayed on **Manage access** pane.
-    
 These properties are supported for the linked service:
 
 | Property | Description | Required |
@@ -137,6 +129,111 @@ You can also store service principal key in Azure Key Vault.
     }
 }
 ```
+
+### <a name="managed-identity"></a> System-assigned managed identity authentication
+
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can directly use this system-assigned managed identity for Microsoft Fabric Lakehouse authentication, which is similar to using your own service principal. It allows this designated resource to access and copy data from or to Microsoft Fabric Lakehouse. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+To use managed identities for Azure resource authentication, follow these steps:
+
+1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
+
+2. Grant the system-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace)
+
+These properties are supported for a Microsoft Fabric Lakehouse linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **Lakehouse**. | Yes |
+| workspaceId | The Microsoft Fabric workspace ID. | Yes |
+| artifactId | The Microsoft Fabric Lakehouse object ID. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+
+**Example:**
+
+```json
+{
+    "name": "MicrosoftFabricLakehouseLinkedService",
+    "properties": {
+        "type": "Lakehouse",
+        "typeProperties": {            
+            "workspaceId": "<Microsoft Fabric workspace ID>",
+            "artifactId": "<Microsoft Fabric Lakehouse object ID>",
+            "authenticationType": "SystemAssignedManagedIdentity"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+> [!NOTE]
+> This authentication type is not supported on the self-hosted integration runtime.
+
+### User-assigned managed identity authentication
+
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Microsoft Fabric Lakehouse authentication, which allows to access and copy data from or to Microsoft Fabric Lakehouse. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+ To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+
+1. Grant the user-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace).
+     
+1. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
+
+These properties are supported for a Microsoft Fabric Lakehouse linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **Lakehouse**. | Yes |
+| workspaceId | The Microsoft Fabric workspace ID. | Yes |
+| artifactId | The Microsoft Fabric Lakehouse object ID. | Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
+
+**Example:**
+
+```json
+{
+    "name": "MicrosoftFabricLakehouseLinkedService",
+    "properties": {
+        "type": "Lakehouse",
+        "typeProperties": {            
+            "workspaceId": "<Microsoft Fabric workspace ID>",
+            "artifactId": "<Microsoft Fabric Lakehouse object ID>",
+            "authenticationType": "UserAssignedManagedIdentity",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Grant permissions in Microsoft Fabric workspace
+
+You need to grant the service principal/system-assigned managed identity/user-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
+
+1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
+
+    :::image type="content" source="media/connector-microsoft-fabric-lakehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
+    :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
+
+1. In **Add people** pane, enter your service principal/system-assigned managed identity/user-assigned managed identity name, and select it from the drop-down list.
+
+1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
+    
+    :::image type="content" source="media/connector-microsoft-fabric-lakehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
+
+1. Your service principal/system-assigned managed identity/user-assigned managed is displayed on **Manage access** pane.
 
 ## Dataset properties
 
@@ -508,6 +605,77 @@ To copy data to Microsoft Fabric Lakehouse using Microsoft Fabric Lakehouse Tabl
     }
 ]
 ```
+
+## Data type mapping for Microsoft Fabric Lakehouse table
+
+When copying data from Microsoft Fabric Lakehouse table, the following mappings are used from Microsoft Fabric Lakehouse table data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| Microsoft Fabric Lakehouse table data type | Interim service data type |
+|---------------------|------------------|
+| string              | String           |
+| long                | Int64            |
+| integer             | Int32            |
+| short               | Int16            |
+| byte                | SByte            |
+| float               | Single           |
+| double              | Double           |
+| decimal             | Decimal          |
+| boolean             | Boolean          |
+| binary              | Byte array       |
+| date                | Date             |
+| timestamp           | DateTime         |
+
+When copying data to Microsoft Fabric Lakehouse table, the following mappings are used from interim data types used by the service internally to supported delta sink data types.
+
+| Interim service data type | Supported delta sink type |
+|---------------------|------------------|
+| Boolean          | boolean             |
+| SByte            | byte                |
+| Byte             | short               |
+| Int16            | short               |
+| UInt16           | integer             |
+| Int32            | integer             |
+| UInt32           | long                |
+| Int64            | long                |
+| UInt64           | decimal (20,0)      |
+| Single           | float               |
+| Double           | double              |
+| GUID             | string              |
+| Date             | date                |
+| TimeSpan         | Not supported       |
+| DateTime         | timestamp           |
+| DateTimeOffset   | timestamp           |
+| String           | string              |
+| Byte array       | binary              |
+| Decimal          | decimal             |
+
+## Delta Lake table support
+
+In the sections below, you will find detailed information on Delta Lake table support for both the source and sink.
+
+### Source
+
+[Delta column mapping](https://docs.delta.io/latest/delta-column-mapping.html) is supported when you apply reader version 2 or reader version 3 with `columnMapping` in `readerFeatures` in your Microsoft Fabric Lakehouse Table. 
+
+Delta table's column mapping capability allows for more flexible schema evolution, ensuring that changes in table structure do not disrupt data workflows. With column mapping, you can read data from an existing delta Lake table with `delta.columnMapping.mode` set to `name` or `id`.
+
+[Deletion vectors](https://docs.delta.io/latest/delta-deletion-vectors.html) is supported 
+when you apply reader version 3 with `deletionVectors` in `readerFeatures` in your Microsoft Fabric Lakehouse Table. Rows that are soft deleted are marked in deletion vector files and skipped when reading the delta lake table. 
+
+[Change Data Feed](https://docs.delta.io/delta-change-data-feed/) is supported.
+
+### Sink
+
+[Delta column mapping](https://docs.delta.io/latest/delta-column-mapping.html) is supported. This capability allows for more flexible schema evolution, ensuring that changes in table structure do not disrupt data workflows. With column mapping, you can:
+
+- Write data to an existing delta lake table with `delta.columnMapping.mode` set to `name`.
+- Auto-create a table with `delta.columnMapping.mode` set to `name` when the sink table does not exist and the source columns include special characters and whitespaces.
+- Auto-create a table with `delta.columnMapping.mode` set to `name` when the table action is overwrite and the source dataset columns include special characters and whitespaces.
+
+[Deletion vectors](https://docs.delta.io/latest/delta-deletion-vectors.html) is supported.
+
+[Change Data Feed](https://docs.delta.io/delta-change-data-feed/) is supported.
+
 
 ## Mapping data flow properties
 

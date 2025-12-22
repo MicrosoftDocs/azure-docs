@@ -3,7 +3,8 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 08/09/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!-- 
@@ -55,7 +56,7 @@ Use the following steps to delete the resource group by using Visual Studio Code
 
 ::: zone-end
 
-::: zone pivot="sc-consumption-plan,sc-standard"
+::: zone pivot="sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 

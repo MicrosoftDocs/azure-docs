@@ -4,8 +4,9 @@ description: Learn how to configure Azure RBAC for the FHIR service in Azure Hea
 author: chachachachami
 ms.service: azure-health-data-services
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 06/02/2025
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 --- 
 # Configure Azure RBAC roles for Azure Health Data Services
 

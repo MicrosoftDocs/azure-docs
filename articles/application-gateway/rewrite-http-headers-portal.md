@@ -2,19 +2,20 @@
 title: Rewrite HTTP request and response headers in portal - Azure Application Gateway
 description: Use the Azure portal to configure an application gateway to rewrite the HTTP headers in the requests and responses that pass through the gateway.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc
+# Customer intent: As an application administrator, I want to configure HTTP header rewrites in an application gateway, so that I can customize request and response headers to meet my application's needs.
 ---
 
 # Rewrite HTTP request and response headers with Azure Application Gateway - Azure portal
 
 This article describes how to use the Azure portal to configure an [Azure Application Gateway v2 SKU](./application-gateway-autoscaling-zone-redundant.md) instance to rewrite the HTTP headers in requests and responses.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Before you begin
 

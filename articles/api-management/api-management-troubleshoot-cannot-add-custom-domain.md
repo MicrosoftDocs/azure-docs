@@ -9,6 +9,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: tehnoonr
+ms.custom: sfi-image-nochange
 ---
 
 # Failed to update API Management service hostnames
@@ -50,7 +51,7 @@ Check whether the issue is resolved. To do this, try to create the custom domain
 ## Related content
 Learn more about API Management service:
 
-- Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
+- Check out more videos about API Management.
 * For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 
 * [Create an API Management service instance](get-started-create-service-instance.md).

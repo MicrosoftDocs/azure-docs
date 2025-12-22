@@ -6,8 +6,10 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 12/10/2024
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Manage logic apps with Visual Studio (Deprecated)
@@ -22,7 +24,7 @@ You can create, edit, manage, and deploy automated workflows that integrate serv
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Download and install these tools, if you don't have them already:
 

@@ -1,11 +1,12 @@
----
+﻿---
 title: Azure resource providers and types
 description: Understand which resource providers support Azure Resource Manager and their schemas, available API versions, and the regions that can host the resources.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/12/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: AI-contribution
 ai-usage: ai-assisted
+#customer intent: As a subscription owner or cloud operator, I want clear steps to view, register, and manage Azure resource providers and types so that I can enable required services in the right regions, choose appropriate API versions, and maintain least privilege.
 ---
 
 # Azure resource providers and types
@@ -553,3 +554,4 @@ West US
 * To view the template schemas for resource providers, see [Define resources with Bicep, ARM templates, and Terraform AzAPI provider](/azure/templates/).
 * For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).
+

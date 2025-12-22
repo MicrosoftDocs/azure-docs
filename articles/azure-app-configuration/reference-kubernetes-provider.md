@@ -7,12 +7,13 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 04/12/2023
 ms.author: junbchen
+ms.custom: sfi-ropc-nochange
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.3.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -73,6 +74,7 @@ If the `spec.configuration.selectors` property isn't set, all key-values with no
 |---|---|---|---|
 |keyFilter|The key filter for querying key-values. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
 |labelFilter|The label filter for querying key-values. This property and the `snapshotName` property should not be set at the same time.|false|string|
+|tagFilters|The tag filters for querying key-values. This property and the `snapshotName` property should not be set at the same time. Tag filter must be formatted as `tag1=value1`.|false|string array|
 |snapshotName|The name of a snapshot from which key-values are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.configuration.refresh` property has the following child properties.
@@ -103,6 +105,15 @@ The `spec.secret.target` property has the following child property.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |secretName|The name of the Kubernetes Secret to be created.|true|string|
+|secretData|The setting that specifies how the retrieved data should be populated in the generated Secret.|true|string|
+
+If the `spec.secret.target.secretData` property is not set, the generated Secret is populated with the list of key-values retrieved from Key Vaults, which allows the Secret to be consumed as environment variables. Update this property if you wish to consume the Secret as a mounted file. This property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|type|The setting that indicates how the retrieved data is constructed in the generated Secret. The allowed values include `default`, `json`, `yaml` and `properties`.|optional|string|
+|key|The key name of the retrieved data when the `type` is set to `json`, `yaml` or `properties`. Set it to the file name if the Secret is set up to be consumed as a mounted file.|conditional|string|
+|separator|The delimiter that is used to output the Secret data in hierarchical format when the type is set to `json` or `yaml`. The separator is empty by default and the generated Secret contains key-values in their original form. Configure this setting only if the configuration file loader used in your application can't load key-values without converting them to the hierarchical format.|optional|string|
 
 If the `spec.secret.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties.
 
@@ -142,6 +153,7 @@ If the `spec.featureFlag.selectors` property isn't set, feature flags are not do
 |---|---|---|---|
 |keyFilter|The key filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
 |labelFilter|The label filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|false|string|
+|tagFilters|The tag filters for querying feature flags. This property and the `snapshotName` property should not be set at the same time. Tag filter must be formatted as `tag1=value1`.|false|string array|
 |snapshotName|The name of a snapshot from which feature flags are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.featureFlag.refresh` property has the following child properties.
@@ -346,6 +358,24 @@ spec:
         labelFilter: development
 ```
 
+Tag filters can also be used to filter key-values. In the following sample, only key-values with the tag `env=prod` are downloaded.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: '*'
+        tagFilters:
+          - env=prod
+``` 
+
 A snapshot can be used alone or together with other key-value selectors. In the following sample, you load key-values of common configuration from a snapshot and then override some of them with key-values for development.
 
 ``` yaml
@@ -383,9 +413,7 @@ spec:
 
 ### Configuration refresh
 
-When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. It's common to update multiple key-values, but you don't want the cluster to pick up a change midway through the update. To maintain configuration consistency, you can use a key-value to signal the completion of your update. This key-value is known as the sentinel key. The Kubernetes provider can monitor this key-value, and the ConfigMap and Secret will only be regenerated with updated data once a change is detected in the sentinel key.
-
-In the following sample, a key-value named `app1_sentinel` is polled every minute, and the configuration is refreshed whenever changes are detected in the sentinel key.
+When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. In the following sample, the Kubernetes provider checks Azure App Configuration for updates every minute. The associated ConfigMap and Secret are regenerated only when changes are detected. For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -403,10 +431,6 @@ spec:
     refresh:
       enabled: true
       interval: 1m
-      monitoring:
-        keyValues:
-          - key: app1_sentinel
-            label: common
 ```
 
 ### Key Vault references

@@ -1,13 +1,15 @@
 ---
 title: Configure private endpoints for Device Update for IoT Hub accounts
 description: This article describes how to configure private endpoints for Device Update for IoT Hub account. 
-author: darkoa-msft
-ms.author: darkoa
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 07/06/2022
 ms.topic: how-to
 ms.service: azure-iot-hub
-ms.custom: devx-track-azurecli
 ms.subservice: device-update
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Configure private endpoints for Device Update for IoT Hub accounts

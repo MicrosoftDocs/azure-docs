@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: harjsing 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to configure a secure SFTP connection to an Azure storage account via Azure Firewall, so that I can manage and transfer files securely while ensuring compliance with network security protocols.
 ---
 
 # Access a storage account using SFTP over an Azure Firewall static public IP address
@@ -26,7 +27,7 @@ In this article, you:
 - Create a private endpoint for the storage account container
 - Test the connection to the storage account container
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

@@ -117,12 +117,15 @@ If `Complete` fails, which occurs typically at the very end of message handling 
 
 The typical mechanism for identifying duplicate message deliveries is by checking the `message-id`, which can and should be set by the sender to a unique value, possibly aligned with an identifier from the originating process. A job scheduler would likely set the `message-id` to the identifier of the job it's trying to assign to a worker with the given worker, and the worker would ignore the second occurrence of the job assignment if that job is already done.
 
+This is where designing for idempotent message handling becomes critical. For practical techniques and examples of how to achieve idempotency in distributed systems, see this guide: [What Does Idempotent Mean?](https://particular.net/blog/what-does-idempotent-mean).
+
 > [!IMPORTANT]
 > It's important to note that the lock that PeekLock or SessionLock acquires on the message is volatile and can be lost in the following conditions
 >   * Service Update
 >   * OS update
 >   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
 >   * If the Service Bus Client application loses its connection to the Service Bus for any reason.
+>   * When using sessions and the SessionIdleTimeout is shorter than the message lock duration, and no operation is performed on the message within the sessionIdletimeout period, the session will expire, and the message lock will be lost.
 >
 > When the lock is lost, Azure Service Bus generates a MessageLockLostException or SessionLockLostException, which surfaces in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation. Moreover, the delivery count of the message isn't incremented.
 

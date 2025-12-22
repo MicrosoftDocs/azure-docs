@@ -1,22 +1,24 @@
 ---
 title:  View payment history
 description: This article describes how to view your payment history for a Microsoft Customer Agreement.
-author: lindseyshep
-ms.reviewer: lishepar
+author: kennyday
+ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/06/2025
-ms.author: lishepar
+ms.date: 10/15/2025
+ms.author: souchak
 ---
 
 # View payment history
 
 The article explains how you can view your payment history in the Azure portal. This article applies to customers who have the following Azure account types:
 
-- A Microsoft Customer Agreement purchased directly through Azure.com
-- A Microsoft Customer Agreement purchased through a Microsoft representative
-- A Microsoft Customer Agreement purchased through a Microsoft partner
+- A Microsoft Customer Agreement purchased directly through Azure.com.
+
+- A Microsoft Customer Agreement purchased through a Microsoft representative.
+
+- A Microsoft Customer Agreement purchased through a Microsoft partner.
 
 ## Required permissions
 

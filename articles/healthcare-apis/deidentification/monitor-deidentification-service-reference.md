@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for the De-identification service in Azure Health Data Services
 description: This article contains important reference material you need when you monitor the De-identification service in Azure Health Data Services.
-ms.date: 09/05/2024
+ms.date: 06/16/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: jovinson-ms

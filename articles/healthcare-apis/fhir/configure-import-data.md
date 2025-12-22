@@ -5,8 +5,9 @@ author: Expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 08/12/2025
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Configure FHIR import settings
@@ -40,7 +41,7 @@ Use the following steps to assign permissions to access the storage account.
 1. In the storage account, browse to **Access Control (IAM)**.
 2. Select **Add role assignment**. If the option for adding a role assignment is unavailable, ask your Azure administrator to assign you permission to perform this step.
 
-   For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.yml).
+   For more information about assigning roles in the Azure portal, see [Azure built-in roles](/azure/role-based-access-control/role-assignments-portal).
 3. Add the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to the FHIR service.
 4. Select **Save**.
 

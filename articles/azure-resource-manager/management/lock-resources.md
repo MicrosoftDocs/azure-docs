@@ -1,7 +1,7 @@
----
+﻿---
 title: Lock your Azure resources to protect your infrastructure
 description: Learn how to lock all users and roles to protect your Azure resources from updates or deletions.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/06/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: AI-contribution
@@ -17,7 +17,7 @@ You can set locks that prevent either deletions or modifications. In the portal,
 - **CanNotDelete** means authorized users can read and modify a resource, but they can't delete it.
 - **ReadOnly** means authorized users can read a resource, but they can't delete or update it. Applying this lock is similar to restricting all authorized users to the permissions that the **Reader** role provides.
 
-Unlike with role-based access control (RBAC), you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure RBAC](../../role-based-access-control/role-assignments-portal.yml).
+Unlike with role-based access control (RBAC), you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure RBAC](/azure/role-based-access-control/role-assignments-portal).
 
 ## Lock inheritance
 
@@ -100,7 +100,7 @@ Applying locks can lead to unexpected results. Some operations that don't seem t
 
 - A read-only lock on an Azure Kubernetes Service (AKS) cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
 
-- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents you from removing certain resource links related to Site Recovery when you remove the protection or disable replication. If you plan to protect the virtual machine again later, remove the lock before disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the virtual machine. For more information, see [Troubleshoot Azure-to-Azure VM replication errors](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
+- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents you from removing certain resource links related to Site Recovery when you remove the protection or disable replication. If you plan to protect the virtual machine again later, remove the lock before disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the virtual machine. For more information, see [Troubleshoot Azure-to-Azure VM replication errors](../../site-recovery/azure-to-azure-virtual-machine-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
 
 - For **PostgreSQL**, the virtual network shouldn't have any resource locks set at the virtual network or subnet level, as locks might interfere with network and Domain Name System operations. Before creating the server in a virtual network, ensure you remove any delete or read-only locks from your virtual network and all subnets. You can reapply the locks after the server is created.
 
@@ -660,3 +660,4 @@ In the request, include a JSON object that specifies the lock properties.
 - To learn how to logically organize your resources, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
 - You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
 - For guidance on how to use the Azure portal to manage subscription policies, see [Manage Azure subscription policies](/azure/cost-management-billing/manage/manage-azure-subscription-policy).
+

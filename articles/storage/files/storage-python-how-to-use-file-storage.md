@@ -2,12 +2,13 @@
 title: Develop for Azure Files with Python
 titleSuffix: Azure Storage
 description: Learn how to develop Python applications and services that use Azure Files to store file data. Create and delete files, file shares, and directories.
-author: pauljewellmsft
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/08/2025
-ms.author: pauljewell
+ms.author: kendownie
 ms.custom: devx-track-python, py-fresh-zinc
+# Customer intent: As a Python developer, I want to integrate Azure Files into my applications so that I can store and manage file data efficiently using various programming approaches and APIs.
 ---
 
 # Develop for Azure Files with Python
@@ -53,7 +54,7 @@ This article focuses on working with Azure Files resources using the following a
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Python](https://www.python.org/downloads/) 3.8+
 

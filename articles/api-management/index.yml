@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
-  ms.date: 07/23/2024
+  ms.date: 09/12/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -93,31 +93,31 @@ landingContent:
             url: api-management-howto-policies.md
           - text: Networking options
             url: virtual-network-concepts.md
-          - text: High availability
-            url: high-availability.md
+          - text: Reliability
+            url: /azure/reliability/reliability-api-management
       - linkListType: reference
         links:
           - text: API Management policy reference
             url: api-management-policies.md
 # Card
-  - title: New content
+  - title: AI gateway
     linkLists:
-      -  linkListType: how-to-guide
-         links:
-          - text: Import API from Azure OpenAI service
-            url: azure-openai-api-from-specification.md
-          - text: Enable semantic caching for Azure OpenAI APIs
-            url: azure-openai-enable-semantic-caching.md   
-          - text: Authenticate and authorize to Azure OpenAI APIs
-            url: api-management-authenticate-authorize-azure-openai.md
       - linkListType: concept
         links:
-          - text: Premium v2 tier (preview)
-            url: v2-service-tiers-overview.md
-          - text: Workspaces
-            url: workspaces-overview.md
           - text: AI gateway capabilities
-            url: genai-gateway-capabilities.md       
+            url: genai-gateway-capabilities.md
+          - text: Manage MCP servers
+            url: mcp-server-overview.md
+      -  linkListType: how-to-guide
+         links:
+          - text: Import Microsoft Foundry API
+            url: azure-ai-foundry-api.md
+          - text: Import Azure OpenAI API
+            url: azure-openai-api-from-specification.md
+          - text: Import OpenAI-compatible LLM API
+            url: openai-compatible-llm-api.md
+          - text: Expose REST API as MCP server
+            url: export-rest-mcp-server.md      
 # Card
   - title: Related services
     linkLists:

@@ -2,13 +2,18 @@
 title: Control access with Microsoft Entra ID
 titleSuffix: Azure IoT Hub
 description: Understand how Azure IoT Hub uses Microsoft Entra ID to authenticate identities and authorize access to IoT hubs and devices. 
-author: SoniaLopezBravo
+author: cwatson-cat
 ms.service: azure-iot-hub
 services: iot-hub
-ms.author: sonialopez
+ms.author: cwatson
 ms.topic: conceptual
 ms.date: 03/28/2025
-ms.custom: ["Role: Cloud Development", "Role: IoT Device", "Role: System Architecture", devx-track-azurecli]
+ms.custom:
+  - "Role: Cloud Development"
+  - "Role: IoT Device"
+  - "Role: System Architecture"
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Control access to IoT Hub by using Microsoft Entra ID
@@ -34,7 +39,7 @@ After the Microsoft Entra principal is authenticated, the next step is *authoriz
 
 With Microsoft Entra ID and RBAC, IoT Hub requires that the principal requesting the API have the appropriate level of permission for authorization. To give the principal the permission, give it a role assignment.
 
-- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 - If the principal is a managed identity, follow the guidance in [Assign a managed identity access to an Azure resource or another resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource).
 
 To ensure least privilege, always assign the appropriate role at the lowest possible [resource scope](#resource-scope), which is probably the IoT Hub scope.

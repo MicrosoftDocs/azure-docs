@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: As a network administrator, I want to create and configure a DDoS protection plan using Azure CLI, so that I can enhance the security of my virtual networks against DDoS attacks.
 ---
 # QuickStart: Create and configure Azure DDoS Network Protection using Azure CLI
 
@@ -21,7 +22,7 @@ In this QuickStart, you'll create a DDoS protection plan and link it to a virtua
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure CLI installed locally or Azure Cloud Shell
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]

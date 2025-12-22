@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Government?
     href: documentation-government-welcome.md
+  - name: Azure Government product General Availability
+    href: documentation-government-product-roadmap.md
   - name: Compare Azure Government and global Azure
     href: compare-azure-government-global-azure.md
 - name: Quickstarts
@@ -112,9 +114,9 @@
   - name: Azure Government Website
     href: https://azure.microsoft.com/global-infrastructure/government/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?tag=azure-government
+    href: /shows/browse?terms=government
   - name: Blog
     href: https://devblogs.microsoft.com/azuregov/
   - name: Pricing

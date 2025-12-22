@@ -1,23 +1,27 @@
 ---
-title: Use Azure Container Storage with temp SSD
-description: Configure Azure Container Storage for use with Ephemeral Disk using temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod.
+title: Use Azure Container Storage (version 1.x.x) with Temp SSD
+description: Configure Azure Container Storage (version 1.x.x) for use with Ephemeral Disk using temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: "As a Kubernetes administrator, I want to set up Azure Container Storage (version 1.x.x) using Ephemeral Disk with temp SSD, so that I can optimize storage performance for my applications that don't require data durability."
 ---
 
-# Use Azure Container Storage with temp SSD
+# Use Azure Container Storage (version 1.x.x) with temp SSD
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with temp SSD as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using temp SSD as its storage.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Ephemeral Disk with temp SSD as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using temp SSD as its storage.
+
+> [!IMPORTANT]
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available, but it currently only supports local NVMe for backing storage.
 
 ## What is Ephemeral Disk?
 
 When your application needs sub-millisecond storage latency and doesn't require data durability, you can use Ephemeral Disk with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
 
-There are two types of Ephemeral Disk available: [local NVMe](use-container-storage-with-local-disk.md) and temp SSD. NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application needs higher IOPS or throughput than temp SSD, or requires more storage space. Be aware that Azure Container Storage only supports synchronous data replication for local NVMe.
+There are two types of Ephemeral Disk available: local NVMe and temp SSD. NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application needs higher IOPS or throughput than temp SSD, or requires more storage space. Be aware that Azure Container Storage only supports synchronous data replication for local NVMe.
 
 Due to the ephemeral nature of these disks, Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. However, certain use cases might call for *persistent volumes* even if the data isn't durable; for example, if you want to use existing YAML files or deployment templates that are hard-coded to use persistent volumes, and your workload supports application-level replication for durability. In such cases, you can [update your Azure Container Storage installation](#create-and-attach-persistent-volumes) and add the annotation `acstor.azure.com/accept-ephemeral-storage=true` in your persistent volume claim definition to support the creation of persistent volumes from ephemeral disk storage pools.
 
@@ -400,4 +404,4 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 ## See also
 
-- [What is Azure Container Storage?](container-storage-introduction.md)
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)

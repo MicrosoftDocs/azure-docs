@@ -11,7 +11,6 @@ metadata:
   ms.topic: hub-page
   author: msmbaldwin
   ms.author: mbaldwin
-  manager: rkarlin
   ms.date: 10/20/2024
 
 highlightedContent:
@@ -190,8 +189,6 @@ additionalContent:
               text: Azure Key Vault
             - url: /azure/key-vault/managed-hsm/
               text: Azure Managed HSM
-            - url: /azure/dedicated-hsm/
-              text: Azure Dedicated HSM
             - url: /azure/payment-hsm/
               text: Azure Payment-HSM
 

@@ -6,11 +6,11 @@ summary: The IoT Hub Device Provisioning Service (DPS) is a helper service for I
 metadata:
   title: Azure IoT Hub Device Provisioning Service Documentation
   description: Azure IoT Hub Device Provisioning Service (DPS) - Tutorials, Quickstarts, HowTos, and API Reference
-  author: SoniaLopezBravo
+  author: cwatson-cat
   ms.service: azure-iot-hub
   ms.topic: landing-page
-  ms.date: 08/16/2024
-  ms.author: sonialopez
+  ms.date: 06/20/2025
+  ms.author: cwatson
   ms.subservice: azure-iot-hub-dps
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -26,7 +26,7 @@ landingContent:
             url: about-iot-dps.md
       - linkListType: concept
         links:
-          - text: Understand the roles and operations of auto-provisioning
+          - text: Understand the roles and operations of autoprovisioning
             url: concepts-roles-operations.md
 
   - title: Get started
@@ -46,7 +46,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links: 
-          - text: Provision for geolatency
+          - text: Provision for geo latency
             url: how-to-provision-multitenant.md
           - text: Use custom allocation policies
             url: tutorial-custom-allocation-policies.md
@@ -54,7 +54,7 @@ landingContent:
         links:
           - text: Link multiple IoT hubs to DPS
             url: how-to-manage-linked-iot-hubs.md
-          - text: Use allocation policies to assign devices to IoT hubs
+          - text: Use allocation policies to provision devices across IoT hubs
             url: how-to-use-allocation-policies.md
 
   - title: Develop with SDKs

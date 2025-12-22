@@ -18,7 +18,7 @@ In this quickstart, you use an Azure Resource Manager (ARM) template to create a
 
 ## Prerequisite
 
-You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a private endpoint
 

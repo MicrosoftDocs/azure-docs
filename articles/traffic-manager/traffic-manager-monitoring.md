@@ -2,11 +2,12 @@
 title: Azure Traffic Manager endpoint monitoring
 description: Learn how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
+# Customer intent: "As a cloud architect, I want to configure endpoint monitoring in Traffic Manager, so that I can ensure high availability and automatic failover for my applications in the event of endpoint failures."
 ---
 
 # Traffic Manager endpoint monitoring
@@ -18,6 +19,8 @@ Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoi
 To configure endpoint monitoring, you must specify the following settings on your Traffic Manager profile:
 
 * **Protocol**. Choose HTTP, HTTPS, or TCP as the protocol that Traffic Manager uses when probing your endpoint to check its health. HTTPS monitoring doesn't verify whether your TLS/SSL certificate is valid, it only checks that the certificate is present.
+> [!NOTE]
+> Traffic Manager support for TLS 1.0 and 1.1 ended on Feb 28, 2025. For more information, see [Traffic Manager TLS FAQ](traffic-manager-faqs.md#what-version-of-tls-is-required-by-traffic-manager).
 * **Port**. Choose the port used for the request.
 * **Path**. This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For  HTTP and HTTPS protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash `/` is a valid entry for the relative path. This value implies that the file is in the root directory (default).
 * **Custom header settings**. This configuration setting helps you add specific HTTP headers to the health checks that Traffic Manager sends to endpoints under a profile. The custom headers can be specified at a profile level to be applicable for all endpoints in that profile and/or at an endpoint level applicable only to that endpoint. You can use custom headers for health checks of endpoints in a multi-tenant environment. That way, it can be routed correctly to their destination by specifying a host header. You can also use this setting by adding unique headers that can be used to identify Traffic Manager originated HTTP(S) requests and processes them differently. You can specify up to eight `header:value` pairs separated by a comma. For example, `header1:value1, header2:value2`. 
@@ -187,6 +190,20 @@ See the following example:
 > - An endpoint must be enabled to configure health checks.
 > - Enabling and disabling an endpoint doesn't reset the **Health Checks** configuration. 
 > - Endpoints that are configured to always serve traffic are billed for [basic health checks](https://azure.microsoft.com/pricing/details/traffic-manager/).
+
+## Firewall Setup for Health Checks
+
+Azure Traffic Manager relies on health probes to monitor endpoint availability and performance. For probes to succeed, endpoints must be reachable, and any firewalls or access control lists (ACLs) in the path must allow traffic from all Traffic Manager IP addresses. If probe IP addresses are not allowed, health checks may fail. Endpoints marked as unhealthy can cause unexpected traffic rerouting or downtime.
+
+**Option 1: Use Service Tags (recommended)**
+The recommended approach is to use the **AzureTrafficManager** Service Tag in NSGs, or Azure Firewall. Service Tags automatically include the latest IP ranges and don’t require manual updates.
+* [Use Service Tags with NSGs](/azure/virtual-network/service-tags-overview#use-service-tags-in-network-security-groups)
+* [Use Service Tags with Azure Firewall](/azure/firewall/service-tags)
+
+**Option 2: Manually update firewall rules**
+If Service Tags cannot be used (for example, with custom firewall appliances or in non-Azure environments), update ACLs or firewall rules to allow the latest Azure Traffic Manager IPs.
+* The full list of IP addresses is published in the [Azure IP Ranges and Service Tags – Public Cloud JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
+* Periodically refresh rules to ensure the most up-to-date IP addresses are included.
 
 ## FAQs
 

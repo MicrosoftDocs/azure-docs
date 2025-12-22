@@ -5,10 +5,13 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 05/12/2025
 ms.author: mbender
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
+# Customer intent: As a network architect, I want to create a cross-subscription internal load balancer, so that I can efficiently manage traffic between virtual networks across different subscriptions.
 ---
 
 # Create a cross-subscription internal load balancer
@@ -38,7 +41,7 @@ With Azure PowerShell, you'll:
 ```azurepowershell
 # Create a load balancer
 
-$tags = @{
+$tag = @{
 'IsRemoteFrontend'= 'true'
 }
 
@@ -47,7 +50,7 @@ $loadbalancer = @{
     Name = 'myLoadBalancer'
     Location = 'westus'
     Sku = 'Standard'
-    Tags = $tags
+    Tag = $tag
 }
 
 $LB = New-AzLoadBalancer @loadbalancer

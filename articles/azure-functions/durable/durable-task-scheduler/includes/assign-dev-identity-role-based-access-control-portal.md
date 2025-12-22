@@ -1,16 +1,17 @@
 ---
 ms.service: azure-functions
+ms.subservice: durable-task-scheduler
 ms.topic: include
-ms.date: 03/17/2025
-ms.author: jiayma
+ms.date: 10/29/2025
+ms.author: hannahhunter
 ms.reviewer: azfuncdf
-author: lilyjma
+author: hhunter-ms
 ---
 
 > [!NOTE] 
 > The following instruction shows a role assignment scoped to a specific task hub. If you need access to *all* task hubs in a scheduler, perform the assignment on the scheduler level. 
 
-1. Navigate to the durable task scheduler resource on the portal. 
+1. Navigate to the Durable Task Scheduler resource on the portal. 
 
 1. Click on a task hub name.
 

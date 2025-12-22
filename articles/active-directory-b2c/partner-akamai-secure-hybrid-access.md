@@ -12,12 +12,15 @@ ms.date: 11/23/2022
 ms.author: gasinh
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer building a desktop app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social and enterprise accounts and protect my application and customer data.
 
 ---
 
 # Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this sample tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Akamai Enterprise Application Access](https://www.akamai.com/products/enterprise-application-access). Akamai Enterprise Application Access is a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private datacenters. Akamai Enterprise Application Access federates with Identity Provider (IdP) Azure AD B2C to authenticate users and then uses its authorization policies to perform continuous evaluation of the identity, device, application, and request context before allowing access to private applications.  
 
@@ -35,7 +38,7 @@ To get started, you'll need:
 
 - An Akamai Enterprise Access contract. If you don’t have one, get a [free trial](https://www.akamai.com/products/enterprise-application-access).
 
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 

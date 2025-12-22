@@ -10,13 +10,16 @@ ms.date: 10/11/2024
 ms.author: gasinh
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer integrating Azure AD B2C authentication with Trusona Authentication Cloud. I want to configure Trusona Authentication Cloud as an identity provider (IdP) in Azure AD B2C, so I can enable passwordless authentication and provide a better user experience for my web application users.
 ---
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
 
-In this sample tutorial, you learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+In this sample tutorial, you learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/white-paper/trusona-authentication-cloud-white-paper). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
 
 Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 -	Deliver strong authentication with a better user experience
@@ -39,7 +42,7 @@ Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 To get started, you need:
 
 - A Trusona Authentication Cloud trial account. To request an account, [contact Trusona](mailto:info@trusona.com).
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ::: zone pivot="b2c-custom-policy"
@@ -73,7 +76,7 @@ In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to
 
 ## Step 1: Onboard with Trusona Authentication Cloud
 
-1.	Sign in to the [Trusona Portal](https://portal.trusona.io).
+1.	Sign in to the [Trusona Portal](https://portal.trusona.com/).
 2.	From the left navigation panel, select **Settings**
 3.	In the Settings menu, select the slider to **Enable OIDC**.
 4.	Select the appropriate **Inputs** and provide the **Redirect URL** `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.

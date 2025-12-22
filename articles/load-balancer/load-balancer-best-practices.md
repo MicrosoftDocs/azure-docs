@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 01/13/2025
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to implement best practices for deploying and configuring a load balancer, so that I can enhance the reliability and performance of my Azure network infrastructure.
 ---
 
 # Azure Load Balancer Best Practices
@@ -108,7 +109,7 @@ Along with new improvements and updates to Azure Load Balancer, there are also d
 
 ### Use or upgrade to Standard Load Balancer
 
-[Basic Load Balancer will be retired September 30, 2025](https://azure.microsoft.com/updates?id=azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer) and customers should upgrade from Basic Load Balancer to Standard Load Balancer by then. Standard Load Balancer provides significant improvements including high performance, ultra-low latency, security by default, and SLA of 99.99% availability. 
+[Basic Load Balancer was retired September 30, 2025](https://azure.microsoft.com/updates?id=azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer) and customers should upgrade from Basic Load Balancer to Standard Load Balancer by then. Standard Load Balancer provides significant improvements including high performance, ultra-low latency, security by default, and SLA of 99.99% availability. 
 
 ### Don't use default outbound access
 

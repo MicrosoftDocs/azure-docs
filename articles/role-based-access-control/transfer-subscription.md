@@ -2,7 +2,7 @@
 title: Transfer an Azure subscription to a different Microsoft Entra directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Microsoft Entra directory.
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
@@ -82,6 +82,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Policy | Yes | No | All Azure Policy objects, including custom definitions, assignments, exemptions, and compliance data. | You must [export](../governance/policy/how-to/export-resources.md), import, and re-assign definitions. Then, create new policy assignments and any needed [policy exemptions](../governance/policy/concepts/exemption-structure.md). |
 | Microsoft Entra Domain Services | Yes | No |  | You cannot transfer a Microsoft Entra Domain Services managed domain to a different directory. For more information, see [Frequently asked questions (FAQs) about Microsoft Entra Domain Services](../active-directory-domain-services/faqs.yml) |
 | App registrations | Yes | Yes |  |  |
+| Entra ID access reviews | Yes | No |  |  |
 | Microsoft Dev Box | Yes | No | | You cannot transfer a dev box and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your dev box |
 | Azure Deployment Environments | Yes | No | | You cannot transfer an environment and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your environment |
 | Azure Service Fabric | Yes | No | | You must re-create the cluster. For more information, see [SF Clusters FAQ](/azure/service-fabric/service-fabric-common-questions) or [SF Managed Clusters FAQ](/azure/service-fabric/faq-managed-cluster) |
@@ -90,6 +91,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Databricks | Yes | No |  | Currently, Azure Databricks doesn't support moving workspaces to a new tenant. For more information, see [Manage your Azure Databricks account](/azure/databricks/administration-guide/account-settings/#move-workspace-between-tenants-unsupported). |
 | Azure Compute Gallery | Yes | Yes |  | Replicate the image versions in the gallery to other regions or [copy an image from another gallery](/azure/virtual-machines/image-version). |
 | Azure resource locks | Yes | Yes | [List resource locks](/cli/azure/resource/lock#az-resource-lock-list) | Export Azure resource locks manually using the Azure portal or [Azure CLI](/cli/azure/resource/lock). |
+
 
 > [!WARNING]
 > If you're using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
@@ -102,6 +104,8 @@ To complete these steps, you will need:
 
 - [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 - Billing account owner of the subscription you want to transfer in the source directory
+- You must have the Owner role on the subscription in the source directory.
+- The Owner role must be directly assigned without conditions, group assignment, or Privileged Identity Management (PIM).
 - A user account in both the source and target directory for the user making the directory change
 
 ## Step 1: Prepare for the transfer
@@ -148,7 +152,7 @@ To complete these steps, you will need:
 
 1. Use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) to list all the role assignments (including inherited role assignments).
 
-    To make it easier to review the list, you can export the output as JSON, TSV, or a table. For more information, see [List role assignments using Azure RBAC and Azure CLI](role-assignments-list-cli.yml).
+    To make it easier to review the list, you can export the output as JSON, TSV, or a table. For more information, see [List role assignments using Azure RBAC and Azure CLI](/azure/role-based-access-control/role-assignments-list-cli).
 
     ```azurecli
     az role assignment list --all --include-inherited --output json > roleassignments.json

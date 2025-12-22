@@ -4,8 +4,16 @@ description: Learn how to code and test Azure Functions from the command prompt 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 02/23/2025
-ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - 80e4ff38-5174-43
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+  - sfi-ropc-nochange
+#customer intent: As an Azure Functions developer, I want to run and test Functions locally using Core Tools so that I can validate behavior before deploying to Azure.
 ---
 
 # Develop Azure Functions locally using Core Tools
@@ -15,32 +23,32 @@ Azure Functions Core Tools lets you develop and test your functions on your loca
 ::: zone pivot="programming-language-csharp"
 >You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-csharp.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-csharp).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 >You're viewing the Java version of this article. Make sure to select your preferred Functions programming language at the top of the article.
 
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-java.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-java).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 >You're viewing the JavaScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-node.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-javascript).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 >You're viewing the PowerShell version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-powershell.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-powershell).
 ::: zone-end
 ::: zone pivot="programming-language-python"
 >You're viewing the Python version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-python.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
 >You're viewing the TypeScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-typescript.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-typescript).
 ::: zone-end
 
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)] 
@@ -50,7 +58,7 @@ For help with version-related issues, see [Core Tools versions](#v2).
 ## Create your local project
 ::: zone pivot="programming-language-python"  
 > [!IMPORTANT]
-> For Python, you must run Core Tools commands in a virtual environment. For more information, see [Quickstart: Create a Python function in Azure from the command line](create-first-function-cli-python.md#create-venv).
+> For Python, you must run Core Tools commands in a virtual environment. For more information, see [Quickstart: Create a Python function in Azure from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-python#create-venv).
 ::: zone-end
 In the terminal window or from a command prompt, run the following command to create a project in the `MyProjFolder` folder:
 
@@ -76,7 +84,7 @@ This command creates a project that runs on the current [Long-Term Support (LTS)
 For a comparison between the two .NET process models, see the [process mode comparison article](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
-Java uses a Maven archetype to create the local project, along with your first HTTP triggered function. Rather than using `func init` and `func new`, you should instead follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
+Java uses a Maven archetype to create the local project, along with your first HTTP triggered function. Rather than using `func init` and `func new`, you should instead follow the steps in the [Command line quickstart](./how-to-create-function-azure-cli.md?pivots=programming-language-java).  
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 ### [v4](#tab/node-v4)
@@ -164,7 +172,7 @@ The following considerations apply when adding bindings to a function:
 ::: zone-end 
 + When you add bindings that connect to a service, you must also add an application setting that references a connection string or managed identity to the local.settings.json file. For more information, see [Work with app settings locally](#local-settings).  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"
-+ When you add a supported binding, the extension should already be installed when your app uses extension bundle. For more information, see [extension bundles](functions-bindings-register.md#extension-bundles).
++ When you add a supported binding, the extension should already be installed when your app uses extension bundle. For more information, see [extension bundles](extension-bundles.md).
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 + When you add a binding that requires a new binding extension, you must also add a reference to that specific binding extension in your C# project. 
@@ -232,7 +240,7 @@ npm start
 
 ::: zone-end
 ::: zone pivot="programming-language-python" 
-This command must be [run in a virtual environment](./create-first-function-cli-python.md).
+This command must be [run in a virtual environment](./how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end  
 
 When the Functions host starts, it outputs a list of functions in the project, including the URLs of any HTTP-triggered functions, like in this example:
@@ -347,6 +355,9 @@ The following considerations apply when using the administrator endpoint for loc
 
 + Calling an administrator endpoint and passing test data is similar to using the **Test** tab in the Azure portal.
 
++ If the input is a complex JSON object, additional formatting is needed. The data must be properly escaped and include a `SystemProperties` object. 
+This example shows a properly escaped JSON string with both a `testData` object and `SystemProperties`:   
+`'{"input": "{\"SystemProperties\":{},\"testData\":{\"testid\":\"123\"}"}'`
 ### [Event Grid trigger](#tab/event-grid-trigger)
 
 Event Grid triggers have specific requirements to enable local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
@@ -385,7 +396,7 @@ Java uses Maven to publish your local project to Azure instead of Core Tools. Us
 mvn azure-functions:deploy
 ```
 
-When you run this command, Azure resources are created during the initial deployment based on the settings in your _pom.xml_ file. For more information, see [Deploy the function project to Azure](create-first-function-cli-java.md#deploy-the-function-project-to-azure).
+When you run this command, Azure resources are created during the initial deployment based on the settings in your _pom.xml_ file. For more information, see [Deploy the function project to Azure](how-to-create-function-azure-cli.md?pivots=programming-language-java#deploy-the-function-project-to-azure).
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"  
 The following considerations apply to this kind of deployment:
@@ -426,7 +437,7 @@ When you deploy to an Azure Container Apps environment, the following considerat
 
 + Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems. You can [encrypt the local.settings.json file](#encrypt-the-local-settings-file) for added security.
 
-For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+For more information, see [Azure Container Apps hosting of Azure Functions](../azure-functions/functions-container-apps-hosting.md). 
 
 ### [Kubernetes cluster](#tab/kubernetes)
 
@@ -526,10 +537,10 @@ This section doesn't apply to version 1.x of the Functions runtime. In version 1
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-For C# class library projects, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project must use [extension bundles](functions-bindings-register.md#extension-bundles).
+For C# class library projects, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project must use [extension bundles](extension-bundles.md).
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](extension-bundles.md).
 
 If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see the [`func extensions install`](./functions-core-tools-reference.md#func-extensions-install) command.
 ::: zone-end
@@ -568,7 +579,7 @@ Learn how to [develop, test, and publish Azure functions by using Azure Function
 
 <!-- LINKS -->
 
-[extension bundles]: functions-bindings-register.md#extension-bundles
+[extension bundles]: extension-bundles.md
 [func azure functionapp publish]: functions-core-tools-reference.md?tabs=v2#func-azure-functionapp-publish
 
 

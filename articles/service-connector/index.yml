@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 04/16/2025
+  ms.date: 07/22/2025
 landingContent:
   - title: About Service Connector
     linkLists:
@@ -33,35 +33,20 @@ landingContent:
           - text: Frequently asked questions
             url: faq.yml
 
-  - title: Get started using the Azure portal
+  - title: Get started using Service Connector
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a connection in Azure App Service
-            url: quickstart-portal-app-service-connection.md 
-          - text: Create a connection in Azure Container Apps
+          - text: Connect Azure App Service
+            url: quickstart-portal-app-service-connection.md
+          - text: Connect Azure Container Apps (preview)
             url: quickstart-portal-container-apps.md
-          - text: Create a connection in Azure Functions
+          - text: Connect Azure Functions
             url: quickstart-portal-functions-connection.md
-          - text: Create a connection in Azure Kubernetes Service (AKS)
+          - text: Connect Azure Kubernetes Service
             url: quickstart-portal-aks-connection.md
-          - text: Create a connection in Azure Spring Apps
+          - text: Connect Azure Spring Apps 
             url: quickstart-portal-spring-cloud-connection.md
-
-  - title: Get started using the Azure CLI
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a connection in Azure App Service
-            url: quickstart-cli-app-service-connection.md
-          - text: Create a connection in Azure Container Apps
-            url: quickstart-cli-container-apps.md
-          - text: Create a connection in Azure Functions
-            url: quickstart-cli-functions-connection.md
-          - text: Create a connection in Azure Kubernetes Service (AKS)
-            url: quickstart-portal-aks-connection.md
-          - text: Create a connection in Azure Spring Apps
-            url: quickstart-cli-spring-cloud-connection.md
 
   - title: Common tasks
     linkLists:
@@ -81,9 +66,7 @@ landingContent:
             url: tutorial-connect-web-app-app-configuration.md
           - text: Passwordless connection to database
             url: tutorial-passwordless.md
-          - text: Connect to Azure OpenAI in AKS using a connection string
-            url: tutorial-python-aks-openai-connection-string.md
-          - text: Connect to Azure OpenAI in AKS using workload identity
+          - text: Connect AKS to Azure OpenAI
             url: tutorial-python-aks-openai-workload-identity.md  
           - text: Connect to Azure SQL Database
             url: tutorial-python-aks-sql-database-connection-string.md

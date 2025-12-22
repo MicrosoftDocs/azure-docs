@@ -9,8 +9,8 @@ metadata:
   services: application-gateway
   ms.service: azure-appgw-for-containers
   ms.topic: landing-page
-  author: greg-lindsay
-  ms.author: greglin
+  author: mbender-ms
+  ms.author: mbender
   ms.date: 02/27/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

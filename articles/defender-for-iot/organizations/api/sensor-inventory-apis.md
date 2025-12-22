@@ -609,7 +609,7 @@ This section lists the supported values for the [type](#type) response field.
 - `Backup Server`
 - `Meter`
 - `Barcode Scanner`
-- `Uninterruptable Power Supply`
+- `Uninterruptible Power Supply`
    :::column-end:::
    :::column span="":::
 - `Variable Frequency Drive`

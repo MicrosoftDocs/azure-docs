@@ -1,12 +1,14 @@
 ---
-title: Create a dual-protocol volume for Azure NetApp Files | Microsoft Docs
+title: Create a dual-protocol volume for Azure NetApp Files
 description: Describes how to create a volume that uses the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB) with support for LDAP user mapping.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 08/11/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT administrator, I want to create a dual-protocol volume in Azure NetApp Files, so that I can enable both NFS and SMB access with LDAP user mapping for a flexible file storage solution.
 ---
 # Create a dual-protocol volume for Azure NetApp Files
 
@@ -17,9 +19,6 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 ## Before you begin 
 
 [!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
-
->[!IMPORTANT]
->Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 * You must have already created a capacity pool.  
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
@@ -112,11 +111,15 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
+    * **Availability zone**   
+        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+
     * **Encryption key source** 
         You can select `Microsoft Managed Key` or `Customer Managed Key`. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
-    * **Availability zone**   
-        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+    * **Advanced Ransomware Protection**
+        Select **Enabled** to configure ransomware threat detection alerts for your volumes. For more information, see [Configure advanced ransomware protection](ransomware-configure.md). 
+
 
     * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 

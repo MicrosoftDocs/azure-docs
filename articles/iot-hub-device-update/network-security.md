@@ -1,12 +1,13 @@
 ---
 title: Azure Device Update for IoT Hub network security
 description: Understand how Azure Device Update for IoT Hub uses service tags and private endpoints for network security when managing updates.
-author: darkoa-msft
-ms.author: darkoa
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/15/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Device Update for IoT Hub network security

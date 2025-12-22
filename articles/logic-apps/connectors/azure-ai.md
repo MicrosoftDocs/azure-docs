@@ -1,13 +1,14 @@
 ---
-title: Connect to Azure AI services from workflows
-description: Integrate with Azure OpenAI and Azure AI Search in workflows for Azure Logic Apps.
+title: Connect to Azure AI services from Workflows
+description: Learn to integrate workflows with Azure OpenAI and Azure AI Search services using Azure Logic Apps.
 author: ecfan
 services: logic-apps
 ms.suite: integration
-ms.collection: ce-skilling-ai-copilot
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, divswa, azla
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 09/28/2025
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Connect to Azure AI services from workflows in Azure Logic Apps
@@ -45,7 +46,7 @@ For more information, see the following resources:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The Azure AI Search and Azure OpenAI resources to access and use in your workflow, including connection information:
 
@@ -58,11 +59,18 @@ For more information, see the following resources:
 
 ## Connector technical reference
 
-In Consumption workflows, the **Azure OpenAI** and **Azure AI Search** managed or "shared" connectors are currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The following sections specify the connector reference articles that describe the connection parameters and operation parameters for each connector. If any operations in these connectors show the "Preview" label, they're currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Azure OpenAI
 
-Azure OpenAI Service provides access to [OpenAI's language models](https://openai.com/product), which include GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and the Embeddings model series. With the **Azure OpenAI** connector, your workflow can connect to Azure OpenAI Service and get OpenAI embeddings for your data or generate chat completions.
+Azure OpenAI Service provides access to [OpenAI's language models](https://openai.com/product), for example, GPT-5, GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and the Embeddings model series. With the **Azure OpenAI** connector, your workflow can connect to Azure OpenAI Service and get OpenAI embeddings for your data or generate chat completions.
+
+The **Azure OpenAI** connector has different versions, based on [logic app type and hosting model](/azure/logic-apps/logic-apps-overview#resource-environment-differences):
+
+| Logic app | Environment | Connector version |
+|-----------|-------------|-------------------|
+| **Consumption** | Multitenant Azure Logic Apps | Managed, Azure-hosted connector, which appears in the connector gallery under the **Shared** filter. <br><br>For more information, see [Azure OpenAI managed connector reference](/connectors/azureopenai). |
+| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), or hybrid deployment, which is your own infrastructure. | Built-in connector, which appears in the connector gallery under the **Built-in** filter and is [service provider-based](/azure/logic-apps/custom-connector-overview#service-provider-interface-implementation). The built-in connector has the following capabilities among others: <br><br>- Multiple [authentication type support](#authentication) <br><br>- Direct access to resources in Azure virtual networks and endpoints for Azure OpenAI behind firewalls. <br><br>For more information, see [Azure OpenAI built-in connector reference](/azure/logic-apps/connectors/built-in/reference/openai). |
 
 > [!TIP]
 >
@@ -73,13 +81,6 @@ Azure OpenAI Service provides access to [OpenAI's language models](https://opena
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-The **Azure OpenAI** connector has different versions, based on [logic app type and hosting model](/azure/logic-apps/logic-apps-overview#resource-environment-differences):
-
-| Logic app | Environment | Connector version |
-|-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | Managed, Azure-hosted connector, which appears in the connector gallery under **Runtime** > **Shared**. <br><br>For more information, see [Azure OpenAI managed connector reference](/connectors/azureopenai). |
-| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), or hybrid deployment, which is your own infrastructure. | Built-in connector, which appears in the connector gallery under **Runtime** > **In-app** and is [service provider-based](/azure/logic-apps/custom-connector-overview#service-provider-interface-implementation). The built-in connector has the following capabilities among others: <br><br>- Multiple [authentication type support](#authentication) <br><br>- Direct access to resources in Azure virtual networks and endpoints for Azure OpenAI behind firewalls. <br><br>For more information, see [Azure OpenAI built-in connector reference](/azure/logic-apps/connectors/built-in/reference/openai). |
-
 ### Azure AI Search
 
 Azure AI Search is platform for AI-powered information retrieval that helps developers build rich search experiences and generative AI apps by combining large language models with enterprise data. With the **Azure AI Search** connector, your workflow can connect to Azure AI Search to index documents and perform vector searches on your data.
@@ -88,8 +89,8 @@ The **Azure AI Search** connector has different versions, based on [logic app ty
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | Managed, Azure-hosted connector, which appears in the connector gallery under **Runtime** > **Shared**.  <br><br>For more information, see [Azure AI Search managed connector reference](/connectors/azureaisearch). |
-| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), or hybrid deployment, which is your own infrastructure. | Built-in connector, which appears in the connector gallery under **Runtime** > **In-app** and is [service provider-based](/azure/logic-apps/custom-connector-overview#service-provider-interface-implementation). The built-in connector has the following capabilities among others: <br><br>- Multiple [authentication type support](#authentication) <br><br>- Direct access to resources in Azure virtual networks and endpoints for Azure OpenAI behind firewalls. <br><br>For more information, see [Azure AI Search built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch). |
+| **Consumption** | Multitenant Azure Logic Apps | Managed, Azure-hosted connector, which appears in the connector gallery under the **Shared** filter. <br><br>For more information, see [Azure AI Search managed connector reference](/connectors/azureaisearch). |
+| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), or hybrid deployment, which is your own infrastructure. | Built-in connector, which appears in the connector gallery under the **Built-in** filter and is [service provider-based](/azure/logic-apps/custom-connector-overview#service-provider-interface-implementation). The built-in connector has the following capabilities among others: <br><br>- Multiple [authentication type support](#authentication) <br><br>- Direct access to resources in Azure virtual networks and endpoints for Azure OpenAI behind firewalls. <br><br>For more information, see [Azure AI Search built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch). |
 
 ### Authentication
 

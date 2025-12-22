@@ -2,8 +2,10 @@
 title: Authenticate an application to access Azure Service Bus entities
 description: This article provides information about authenticating an application with Microsoft Entra ID to access Azure Service Bus  entities (queues, topics, etc.)
 ms.topic: conceptual
-ms.date: 02/23/2024
-ms.custom: subject-rbac-steps
+ms.date: 04/29/2025
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities
@@ -29,7 +31,7 @@ Native applications and web applications that make requests to Service Bus can a
 
 Microsoft Entra authorizes access rights to secured resources through [Azure RBAC](../role-based-access-control/overview.md). Azure Service Bus defines a set of Azure built-in roles that encompass common sets of permissions used to access Service Bus entities and you can also define custom roles for accessing the data.
 
-When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Service Bus namespace or entity (queue, topic or subscription). A Microsoft Entra security principal can be a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Service Bus namespace, or entity (queue, topic, or subscription). A Microsoft Entra security principal can be a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 For Azure Service Bus, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the Azure RBAC model. Azure provides the following built-in roles for authorizing access to a Service Bus namespace:
 
@@ -50,7 +52,7 @@ The following list describes the levels at which you can scope access to Service
 - **Azure Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
 
 > [!NOTE]
-> Keep in mind that Azure role assignments may take up to five minutes to propagate. 
+> Keep in mind that Azure role assignments can take up to five minutes to propagate. 
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
@@ -73,7 +75,7 @@ Follow steps in the [Quickstart: Register an application with the Microsoft iden
 After you've registered your application, you'll see the **Application (client) ID** and **Directory (tenant) ID** under **Settings**:
 
 > [!IMPORTANT]
-> Make note of the **TenantId** and the **ApplicationId**. You will need these values to run the application.
+> Make note of the **TenantId** and the **ApplicationId**. You'll need these values to run the application.
 
 :::image type="content" source="./media/authenticate-application/application-id.png" alt-text="Screenshot showing the App registration page showing the Application ID and Tenant ID.":::
 
@@ -99,7 +101,7 @@ The application needs a client secret to prove its identity when requesting a to
 If your application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the **required permissions** set. Native applications also need a **redirect-uri** in Microsoft Entra ID, which serves as an identifier; the URI doesn't need to be a network destination. Use `https://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
 
 ## Assign Azure roles using the Azure portal  
-Assign one of the [Service Bus roles](#azure-built-in-roles-for-azure-service-bus) to the application's service principal at the desired scope (entity, Service Bus namespace, resource group, Azure subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+Assign one of the [Service Bus roles](#azure-built-in-roles-for-azure-service-bus) to the application's service principal at the desired scope (entity, Service Bus namespace, resource group, Azure subscription). For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 Once you define the role and its scope, you can test this behavior with the [sample on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample00_AuthenticateClient.md#authenticate-with-azureidentity).
 

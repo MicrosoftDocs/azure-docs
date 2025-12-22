@@ -4,6 +4,7 @@ description: Learn how to encrypt data in Azure VMware Solution with customer-ma
 ms.topic: how-to 
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.date: 4/12/2024
+# Customer intent: As a cloud administrator, I want to configure customer-managed key encryption for my Azure VMware Solution, so that I can securely manage the encryption keys and control access to sensitive data at rest.
 ---
 
 # Configure customer-managed key encryption at rest in Azure VMware Solution

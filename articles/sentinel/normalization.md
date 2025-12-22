@@ -11,7 +11,7 @@ ms.author: vakohl
 
 ---
 
-# Normalization and the Advanced Security Information Model (ASIM) (Public preview)
+# Normalization and the Advanced Security Information Model (ASIM)
 
 Microsoft Sentinel ingests data from many sources. Working with various data types and tables together requires you to understand each of them, and write and use unique sets of data for analytics rules, workbooks, and hunting queries for each type or schema.
 
@@ -23,10 +23,6 @@ This article provides an overview of the Advanced Security Information Model (AS
 
 > [!TIP]
 > Also watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [webinar slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG).
->
-
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Common ASIM usage
@@ -96,9 +92,14 @@ On the other hand, while ASIM parsers are optimized, query time parsing can slow
 Currently, ASIM supports the following native normalized tables as a destination for ingest time normalization:
 
 - [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs) for the [Audit Event](normalization-schema-audit.md) schema.
-- **ASimAuthenticationEventLogs** for the [Authentication](normalization-schema-authentication.md) schema.
+- [**ASimAuthenticationEventLogs**](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs) for the [Authentication](normalization-schema-authentication.md) schema.
+- [**ASimDhcpEventLogs**](/azure/azure-monitor/reference/tables/asimdhcpeventlogs) for the [DHCP Event](normalization-schema-dhcp.md) schema.
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
-- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](normalization-schema-network.md) schema 
+- [**ASimFileEventLogs**](/azure/azure-monitor/reference/tables/asimfileeventlogs) for the [File Event](normalization-schema-file-event.md) schema.
+- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](normalization-schema-network.md) schema.
+- [**ASimProcessEventLogs**](/azure/azure-monitor/reference/tables/asimprocesseventlogs) for the [Process Event](normalization-schema-process-event.md) schema.
+- [**ASimRegistryEventLogs**](/azure/azure-monitor/reference/tables/asimregistryeventlogs) for the [Registry Event](normalization-schema-registry-event.md) schema.
+- [**ASimUserManagementActivityLogs**](/azure/azure-monitor/reference/tables/asimusermanagementactivitylogs) for the [User Management](normalization-schema-user-management.md) schema.
 - [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs) for the [Web Session](normalization-schema-web.md) schema.
 
 For more information, see [Ingest Time Normalization](normalization-ingest-time.md).

@@ -8,7 +8,9 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: cherylmc
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 # Create a Microsoft Entra tenant for P2S OpenVPN protocol connections
 

@@ -6,7 +6,8 @@ ms.author: karler
 ms.topic: conceptual
 ms.service: azure-spring-apps
 ms.devlang: azurepowershell
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-azurepowershell, devx-track-java
 ---
 
@@ -22,7 +23,7 @@ This article describes how you can create an instance of Azure Spring Apps by us
 
 The requirements for completing the steps in this article depend on your Azure subscription:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 

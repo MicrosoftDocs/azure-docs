@@ -1,23 +1,27 @@
 ---
 title: Configure Virtual Machine Scale Set with an existing Azure Load Balancer - Azure portal/CLI/PowerShell
-description: Learn to configure a Virtual Machine Scale Set with an existing Azure standard Load Balancer using the Azure portal, Azure CLI or Azure PowerShell.
+description: Learn to configure a Virtual Machine Scale Set with an existing Azure standard Load Balancer using the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 09/11/2024
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As an IT administrator, I want to configure a Virtual Machine Scale Set with an existing load balancer using the Azure portal, CLI, or PowerShell, so that I can efficiently manage and scale my virtual machine instances.
 ---
 
 # Configure a Virtual Machine Scale Set with an existing Azure Standard Load Balancer
 
-In this article, you'll learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer. With an existing virtual network and standard sku load balancer, you can deploy a Virtual Machine Scale Set with a few clicks in the Azure portal, or with a few lines of code in the Azure CLI or Azure PowerShell using the tabs below.
+In this article, you'll learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer. With an existing virtual network and standard sku load balancer, you can deploy a Virtual Machine Scale Set with a few clicks in the Azure portal, or with a few lines of code in the Azure CLI, or Azure PowerShell using the following tabs.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - - An [Azure Virtual Network](../virtual-network/quick-create-portal.md) for the Virtual Machine Scale Set and the load balancer.
 - An existing [standard sku load balancer](quickstart-load-balancer-standard-internal-portal.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
 
@@ -90,7 +94,7 @@ In this section, you'll create a Virtual Machine Scale Set in the Azure portal w
 
 ## Prerequisites 
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - You need an existing [standard sku load balancer](quickstart-load-balancer-standard-internal-cli.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
 - You need an [Azure Virtual Network](../virtual-network/quick-create-cli.md) for the Virtual Machine Scale Set.
  
@@ -143,14 +147,14 @@ az vmss create \
     --backend-pool-name myBackendPool
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> After the scale set has been created, the backend port can't be modified for a load-balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
 
 # [Azure PowerShell](#tab/powershell)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - - An [Azure Virtual Network](../virtual-network/quick-create-powershell.md) for the Virtual Machine Scale Set and the load balancer.
 - An existing [standard sku load balancer](quickstart-load-balancer-standard-internal-powershell.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
 
@@ -216,7 +220,7 @@ New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualN
 
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> After the scale set has been created, the backend port can't be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
 ## Next steps
 

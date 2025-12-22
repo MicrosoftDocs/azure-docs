@@ -2,7 +2,7 @@
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
 ms.date: 03/20/2024
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Understanding the Azure Resource Graph query language
@@ -192,7 +192,7 @@ Here's the list of KQL tabular operators supported by Resource Graph with specif
 |[count](/azure/data-explorer/kusto/query/countoperator) |[Count key vaults](../samples/starter.md#count-key-vault-resources) | |
 |[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[Show resources that contain storage](../samples/starter.md#show-resources-that-contain-storage) | |
 |[extend](/azure/data-explorer/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type) | |
-|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#key-vaults-with-subscription-name) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join), and [fullouter](/azure/data-explorer/kusto/query/join-fullouter). Limit of three `join` in a single query, one of which might be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
+|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#key-vaults-with-subscription-name) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join), and [fullouter](/azure/data-explorer/kusto/query/join-fullouter). Limit of three `join` or `union` operations (or a combination of the two) in a single query, counted together, one of which might be a cross-table join. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
 |[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-all-public-ip-addresses) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 2,000. The default is 128. |
 |[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#list-azure-cosmos-db-with-specific-write-locations) |_RowLimit_ max of 2,000. The default is 128. Limit of 3 `mv-expand` in a single query.|

@@ -4,17 +4,17 @@ description: Learn about the built-in authentication and authorization support i
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: conceptual
 ms.date: 03/28/2025
+ms.update-cycle: 1095-days
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to user Easy Auth to simplify authentication and authorization for my apps in Azure App Service.
+ms.service: azure-app-service
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
 Azure App Service provides built-in authentication (signing in users) and authorization (providing access to secure data) capabilities. These capabilities are sometimes called *Easy Auth*. You can use them to sign in users and access data by writing little or no code in your web app, RESTful API, mobile server, and [functions](../azure-functions/functions-overview.md).
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 This article describes how App Service helps simplify authentication and authorization for your app.
 
@@ -131,9 +131,6 @@ In the [Azure portal](https://portal.azure.com), you can configure App Service w
   > [!NOTE]
   > When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
 
-
-When you're using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) that can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
-
 #### Unauthenticated requests
 
 - **HTTP 302 Found redirect: recommended for websites**: Redirects action to one of the configured identity providers. In these cases, a browser client is redirected to `/.auth/login/<provider>` for the provider that you choose.
@@ -173,6 +170,27 @@ App Service authentication mitigates cross-site request forgery by inspecting cl
 
 When a request fulfills all these conditions, App Service authentication automatically rejects it. You can work around this mitigation logic by adding your external domain to the redirect list in **Settings** > **Authentication** > **Edit authentication settings** > **Allowed external redirect URLs**.
 
+### Protected resource metadata (preview)
+
+App Service can serve OAuth 2.0 protected resource metadata, as defined in [RFC 9728](https://datatracker.ietf.org/doc/html/rfc9728). This can help OAuth 2.0 clients understand how to interact with your app. It is required for [Model Context Protocol (MCP) server authorization](./configure-authentication-mcp.md).
+
+> [!NOTE]
+> Support for protected resource metadata is currently in preview, and the way you configure it may change before the feature is generally available.
+
+During the preview period, you can enable a default protected resource metadata document by configuring the `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` [application setting](./configure-common.md#configure-app-settings) with a comma-separated list of scopes needed by the application. For example, when you let App Service configure the Microsoft Entra provider for you, it will set up a scope like `api://<client-id>/user_impersonation`, replacing `<client-id>` with the actual client ID of your app registration.
+
+The default protected resource metadata document includes the following properties:
+
+| Property | Description |
+|-|-|
+| `resource` | The resource URI corresponding to the endpoint at which the protected resource metadata was accessed. |
+| `authorization_servers` | A list of authorization servers for the identity providers that you have configured. |
+| `scopes_supported` | The list of scopes that you specified in the `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` application setting. |
+
+Additional properties are not supported when using the default configuration.
+
+Configuring the default protected resource metadata document also changes how App Service handles unauthenticated requests for APIs. When the app issues an authorization challenge, it includes the URL of the protected resource metadata, which the client can then retrieve and process. The challenge also includes the scopes that you configured in the `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` application setting.
+
 ## Considerations for using Azure Front Door
 
 When you're using Azure App Service with authentication behind Azure Front Door or other reverse proxies, consider the following actions.
@@ -183,7 +201,7 @@ Disable [Azure Front Door caching](../frontdoor/front-door-caching.md) for the a
 
 ### Use the Azure Front Door endpoint for redirects
 
-App Service is usually not accessible directly when it's exposed by Azure Front Door. You can prevent this behavior, for example, by exposing App Service by using Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly, it's important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
+App Service is usually not accessible directly when it's exposed by Azure Front Door. You can prevent this behavior, for example, by exposing App Service by using Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly. For more information, see [Redirect URI](/entra/identity-platform/reply-url).
 
 ### Ensure that App Service is using the right redirect URI
 

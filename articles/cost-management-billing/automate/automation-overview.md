@@ -2,20 +2,15 @@
 title: Cost Management automation overview
 titleSuffix: Microsoft Cost Management
 description: This article covers common scenarios for Cost Management automation and options available based on your situation.
-author: jojopm
-ms.author: jojoh
-ms.date: 01/07/2025
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
-
 # Cost Management automation overview
-
-You can use Cost Management automation and reporting to build a custom set of solutions to retrieve and manage cost data. This article covers what APIs are available for use and common scenarios for Cost Management automation.
-
-## Available APIs
 
 There are many different APIs that can be used to interact with Cost Management data. A summary of the available APIs and what they do is below. Multiple APIs may need to be used to achieve a specific scenario. Review the common scenarios outlined later to learn more. 
 
@@ -108,7 +103,7 @@ For more information about reservation-specific automation scenarios, see [APIs 
 
 ## Related content
 
-- To learn more about how to assign the proper permissions to call our APIs programatically, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
+- To learn more about how to assign the proper permissions to call our APIs programmatically, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 - To learn more about working with cost details, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
 - To learn more about budget automation, see [Automate budget creation](automate-budget-creation.md).

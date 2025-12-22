@@ -22,7 +22,7 @@ In this quickstart, you take the following steps:
 
 ## Prerequisites
 - [Node.js](https://nodejs.org/en/).
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a namespace using the Azure portal
 [!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]

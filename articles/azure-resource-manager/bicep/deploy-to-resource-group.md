@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to resource groups
 description: Learn how to deploy resources in a Bicep file and how to target more than one resource group.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.date: 12/10/2025
 ---
 
 # Use Bicep to deploy resources to resource groups
@@ -82,7 +82,7 @@ To deploy resources to the target resource group, add those resources to the Bic
 
 ```bicep
 // resource deployed to target resource group
-resource exampleResource 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource exampleResource 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   ...
 }
 ```
@@ -171,7 +171,7 @@ Instead of using a module, you can set the scope to `tenant()` for some resource
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
 // ManagementGroup deployed at tenant
-resource managementGroup 'Microsoft.Management/managementGroups@2023-04-01' = {
+resource managementGroup 'Microsoft.Management/managementGroups@2024-02-01-preview' = {
   scope: tenant()
   name: mgName
   properties: {}
@@ -207,7 +207,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -268,7 +268,7 @@ Both modules use the same Bicep file named **storage.bicep**:
 param storageLocation string
 param storageName string
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageName
   location: storageLocation
   sku: {

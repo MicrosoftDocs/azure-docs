@@ -1,9 +1,10 @@
 ---
 title: Azure subscription and service limits, quotas, and constraints
 description: Understand common Azure subscription and service limits, quotas, and constraints. This article includes information about how to increase limits along with maximum values.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/23/2025
 ms.custom: ignite-2024
+#customer intent: As a subscription owner or cloud operator, I want an authoritative list of subscription and service limits and guidance for requesting increases so that I can plan capacity and avoid service interruptions.
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -29,7 +30,7 @@ This document lists some of the most common Microsoft Azure limits, which are al
 > The terms *soft limit* and *hard limit* are often used informally to describe the current, adjustable limit (soft limit) and the maximum limit (hard limit). If a limit isn't adjustable, there won't be a soft limit but only a hard limit.
 >
 
-[Free Azure trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) aren't eligible for limit or quota increases. If you have this type of subscription, you can upgrade to a [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) one. For more information, see [Upgrade your Azure account](../../cost-management-billing/manage/upgrade-azure-subscription.md) and the overviews for [Try Azure for free or pay as you go](https://azure.microsoft.com/free/free-account-faq).
+[Free Azure trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) aren't eligible for limit or quota increases. If you have this type of subscription, you can upgrade to a [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) one. For more information, see [Upgrade your Azure account](../../cost-management-billing/manage/upgrade-azure-subscription.md) and the overviews for [Try Azure for free or pay as you go](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 Some limits are managed at a regional level. You decide what your quotas must be for your workload in any one region, and then request that amount for each region into which you want to deploy.
 
@@ -58,6 +59,8 @@ The following limits apply to [Azure management groups](../../governance/managem
 The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
+
+Note that subscription IDs must be non-empty GUIDs.
 
 ### Azure resource group limits
 
@@ -140,20 +143,6 @@ See [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capac
 
 See [Azure Chaos Studio service limits](/azure/chaos-studio/chaos-studio-service-limits) for Azure Chaos Studio limits.
 
-## Azure Communications Gateway limits
-
-Some of the following default limits and quotas can be increased. To request a change, create an [Azure portal support request](../../communications-gateway/request-changes.md), and describe the limit that you need to change.
-
-[!INCLUDE [communications-gateway-general-restrictions](../../communications-gateway/includes/communications-gateway-general-restrictions.md)]
-
-Azure Communications Gateway also has limits on SIP signaling.
-
-[!INCLUDE [communications-gateway-sip-size-restrictions](../../communications-gateway/includes/communications-gateway-sip-size-restrictions.md)]
-
-[!INCLUDE [communications-gateway-sip-behavior-restrictions](../../communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
-
-[!INCLUDE [limits on the Provisioning API](../../communications-gateway/includes/communications-gateway-provisioning-api-restrictions.md)]
-
 ## Azure Container Apps limits
 
 See [Quotas in Azure Container Apps](../../container-apps/quotas.md) for Azure Container Apps limits.
@@ -168,13 +157,13 @@ See [Limits in Azure Cosmos DB](/azure/cosmos-db/concepts-limits) for Azure Cosm
 
 [!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
-## Azure Database for MySQL
+## Azure Database for MySQL flexible server
 
-See [Limitations in Azure Database for MySQL](/azure/mysql/concepts-limits) for Azure Database for MySQL limits.
+See [Limitations in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-limitations) for Azure Database for MySQL - Flexible Server limits.
 
-## Azure Database for PostgreSQL
+## Azure Database for PostgreSQL flexible server
 
-See [Limitations in Azure Database for PostgreSQL](/azure/postgresql/concepts-limits) for Azure Database for PostgreSQL limits.
+See [Limits in Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/concepts-limits) for Azure Database for PostgreSQL flexible server limits.
 
 ## Azure Deployment Environments limits
 
@@ -204,13 +193,15 @@ See [Azure Functions hosting options](../../azure-functions/functions-scale.md) 
 
 [!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
 
+[!INCLUDE [container-quota-limits](~/reusable-content/ce-skilling/azure/includes/container-quota-limits.md)]
+
 ## Azure Lab Services
 
 [!INCLUDE [azure-lab-services-limits](../../../includes/azure-lab-services-limits.md)]
 
 ## Azure Load Testing limits
 
-See [Service limits in Azure Load Testing](../../load-testing/resource-limits-quotas-capacity.md) for Azure Load Testing limits. 
+See [Service limits in Azure Load Testing](../../app-testing/load-testing/resource-limits-quotas-capacity.md) for Azure Load Testing limits. 
 
 ## Azure Machine Learning limits
 
@@ -349,6 +340,10 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## Azure Device Registry limits
+
+[!INCLUDE [device-registry-limits](../../iot-operations/includes/device-registry-limits.md)]
+
 ## Azure Device Update for IoT Hub limits
 
 [!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
@@ -380,7 +375,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Azure Key Vault limits
 
-[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-service-limits.md)]
+
+## Azure Key Vault: Managed HSM limits
+
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm-service-limits.md)]
 
 ## Azure Managed Identity limits
 
@@ -523,7 +522,7 @@ See [VM Applications overview](/azure/virtual-machines/vm-applications) for more
 
 A limit of 5,000 disk encryption sets are allowed per region and per subscription. [Contact Azure support](../../communications-gateway/request-changes.md) to increase the quota. 
 
-See the following documentation to learn more about about encryption restrictions:
+See the following documentation to learn more about encryption restrictions:
 
 - [Linux](/azure/virtual-machines/disk-encryption#restrictions)
 - [Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines

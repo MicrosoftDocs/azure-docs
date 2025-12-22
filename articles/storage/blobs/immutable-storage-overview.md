@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: overview
 ms.date: 05/01/2024
 ms.author: normesta
+# Customer intent: "As a compliance officer, I want to implement immutable storage policies for blob data, so that I can ensure regulatory compliance and protect business-critical information from unauthorized modifications or deletions."
 ---
 
 # Store business-critical blob data with immutable storage in a write once, read many (WORM) state
@@ -170,13 +171,17 @@ You can use a _storage task_ to configure a immutability policies at scale acros
 
 There's no extra capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. If you're using version-level WORM, the bill might be higher because you've enabled versioning, and there's a cost associated with extra versions being stored. Review the versioning pricing policy for more information.  For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-Creating, modifying, or deleting a time-based retention policy or legal hold on a blob version results in a write transaction charge.
+Creating or deleting a time-based retention policy or legal hold on a blob version results in a write transaction charge. Modifying a time-based retention policy (either locking it or extending it) results in an other operation charge. If you are interested in learning more about transaction charges, please see [Operations and Data Transfer](https://azure.microsoft.com/pricing/details/storage/blobs/#pricing) here.
 
 If you fail to pay your bill and your account has an active time-based retention policy in effect, normal data retention policies apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
 
 ## Feature support
 
-This feature is incompatible with point in time restore and last access tracking. This feature is compatible with customer-managed unplanned failover, however, any changes that are made to the immutable policy after the last sync time (such as locking a time based retention policy, extending it, etc.) will not be synced to the secondary region. Once failover is completed, you can redo the changes to the secondary region to ensure it is up-to-date with your immutability requirements.
+> [!IMPORTANT]
+> This feature is **incompatible** with point-in-time restore and last access tracking.
+
+
+This feature is compatible with customer-managed unplanned failover, however, any changes that are made to the immutable policy after the last sync time (such as locking a time based retention policy, extending it, etc.) will not be synced to the secondary region. Once failover is completed, you can redo the changes to the secondary region to ensure it is up-to-date with your immutability requirements.
 Immutability policies aren't supported in accounts that have Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
 Some workloads, such as SQL Backup to URL, create a blob and then add to it.   If a container has an active time-based retention policy or legal hold in place, this pattern won't succeed. For more information, see [Allow protected append blob writes](immutable-container-level-worm-policies.md#allow-protected-append-blobs-writes).

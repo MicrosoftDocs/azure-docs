@@ -9,6 +9,7 @@ ms.date: 03/25/2025
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using an ARM template.
+# Customer intent: As a network administrator new to Azure, I want to create a private endpoint using an ARM template, so that I can securely connect to my Azure SQL Database while learning to manage resources in the cloud.
 ---
 
 # Quickstart: Create a private endpoint by using an ARM template
@@ -28,7 +29,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-You need an Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You need an Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 

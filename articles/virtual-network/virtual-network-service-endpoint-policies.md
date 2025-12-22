@@ -13,6 +13,7 @@ ms.custom:
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: "As a network administrator, I want to create and associate service endpoint policies to a subnet, so that I can control access to specific Azure Storage accounts from within my virtual network."
 ---
 
 # Create and associate service endpoint policies
@@ -34,11 +35,11 @@ Service endpoint policies enable you to filter virtual network traffic to specif
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 

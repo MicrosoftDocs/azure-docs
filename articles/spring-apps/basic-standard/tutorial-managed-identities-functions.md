@@ -7,7 +7,8 @@ ms.reviewer: margard
 ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 08/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app
@@ -22,7 +23,7 @@ Both Azure Functions and App Services have built in support for Microsoft Entra 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - [Git](https://git-scm.com/downloads).
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or higher.

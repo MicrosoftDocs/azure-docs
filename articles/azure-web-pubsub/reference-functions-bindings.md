@@ -6,6 +6,7 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 01/12/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 #  Azure Web PubSub trigger and bindings for Azure Functions
@@ -26,21 +27,18 @@ Web PubSub is an Azure-managed service that helps developers easily build web ap
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
-## Add to your Functions app
+## Add to your function app
 
-Working with the trigger and bindings requires you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
+Working with the trigger and bindings requires you reference the appropriate package. The NuGet package is used for .NET class libraries while an extension bundle is used for all other application types.
 
-| Language                                        | Add by...                                   | Remarks 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installing the [NuGet package], version prerelease | |
-| C# Script, JavaScript, Python, PowerShell       | [Explicitly install extensions], [Use extension bundles] | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
-| C# Script (online-only in Azure portal)         | Adding a binding                                   | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
+| Language                                        | Add by...                                   |  
+|-------------------------------------------------|---------------------------------------------|
+| C#                                              | Install the [NuGet package], target specific version | 
+| JavaScript, Python, PowerShell, C# script (Azure portal-only)  | [Use extension bundles] (recommended), [explicitly install extensions] | 
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
-[Use extension bundles]: ../azure-functions/functions-bindings-register.md#extension-bundles
+[Use extension bundles]: ../azure-functions/extension-bundles.md
 [Explicitly install extensions]: ../azure-functions/functions-bindings-register.md#explicitly-install-extensions 
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-[Update your extensions]: ../azure-functions/functions-bindings-register.md
 
 ## Key concepts
 
@@ -203,7 +201,7 @@ The following table explains the binding configuration properties that you set i
 | **hub** | Hub | Required - the value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
 | **eventType** | WebPubSubEventType | Required - the value must be set as the event type of messages for the function to be triggered. The value should be either `user` or `system`. |
 | **eventName** | EventName | Required - the value must be set as the event of messages for the function to be triggered. </br> For `system` event type, the event name should be in `connect`, `connected`, `disconnected`. </br> For user-defined subprotocols, the event name is `message`. </br> For system supported subprotocol `json.webpubsub.azure.v1.`, the event name is user-defined event name. |
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for signature validation. And the value is auto resolved with app settings "WebPubSubConnectionString" by default. And `null` means the validation is not needed and always succeed. |
+| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for signature validation. And the value is auto resolved with app settings "WebPubSubConnectionString" by default. And `null` means the validation isn't needed and always succeed. |
 
 ### Usages
 
@@ -350,7 +348,7 @@ public static WebPubSubConnection Run(
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` isn't fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
 > ```cs
 > [FunctionName("WebPubSubConnectionCustomRoles")]
 > public static async Task<Uri> Run(
@@ -367,7 +365,7 @@ public static WebPubSubConnection Run(
 # [JavaScript Model v4](#tab/javascript-v4)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` isn't fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
 > ```js
 > const { app } = require('@azure/functions');
 > const { WebPubSubServiceClient } = require('@azure/web-pubsub');
@@ -385,7 +383,7 @@ public static WebPubSubConnection Run(
 # [JavaScript Model v3](#tab/javascript-v3)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` isn't fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
 > 
 > Define input bindings in `function.json`.
 > 
@@ -540,7 +538,7 @@ The following table explains the binding configuration properties that you set i
 | **type** | n/a | Must be set to `webPubSubContext`. |
 | **direction** | n/a | Must be set to `in`. |
 | **name** | n/a | Variable name used in function code for input Web PubSub request. |
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value is auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation is not needed and always succeed. |
+| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value is auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation isn't needed and always succeed. |
 
 ### Usage
 
@@ -601,7 +599,7 @@ For `WebPubSubEventRequest`, it's deserialized to different classes that provide
 | `DisconnectedEventRequest` | Used in system `Disconnected` event type | Reason |
 
 > [!NOTE]
-> Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge is not supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
+> Though the `WebPubSubContext` is an input binding that provides a similar request deserialize method under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations; that is, connection state post merge isn't supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
 
 ## Output binding
 
@@ -796,7 +794,7 @@ The following table explains the binding configuration properties that you set i
 ### Setting up console logging
 You can also easily [enable console logging](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#logging) if you want to dig deeper into the requests you're making against the service.
 
-[azure_sub]: https://azure.microsoft.com/free/
+[azure_sub]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [samples_ref]: https://github.com/Azure/azure-webpubsub/tree/main/samples/functions
 
 ## Next steps

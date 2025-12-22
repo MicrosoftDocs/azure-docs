@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 04/11/2022
 author: gillharmeet
 ms.author: harmeetgill
+ms.custom: sfi-image-nochange
 
 ---
 

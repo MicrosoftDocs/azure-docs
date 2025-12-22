@@ -9,6 +9,7 @@ ms.date: 03/25/2025
 ms.author: abell
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
+# Customer intent: As a network engineer new to Azure, I want to create a Private Link service using Azure PowerShell, so that I can provide secure and private access to my resources within a virtual network.
 ---
 
 # Quickstart: Create a Private Link service using Azure PowerShell
@@ -19,7 +20,7 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Azure Cloud Shell or Azure PowerShell.
 

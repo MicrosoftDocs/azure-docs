@@ -2,7 +2,7 @@
 title: Download Cluster Projects and Templates
 description: Azure CycleCloud has built-in templates you can configure and edit to make your own custom templates.
 author: adriankjohnson
-ms.date: 07/17/2019
+ms.date: 11/21/2025
 ms.author: adjohnso
 ---
 
@@ -20,7 +20,6 @@ cyclecloud import_template -f templates/template-name.template.txt
 
 | Project/template type  | CycleCloud repo | Description  |
 | --------------------- | ---------------- | ------------ | --- |
-| [![BeeGFS Logo](~/articles/cyclecloud/media/index/beegfs.png)](https://www.beegfs.io/content/) | [BeeGFS](https://github.com/Azure/cyclecloud-beegfs) | CycleCloud project to enable configuration, orchestration, and management of BeeGFS file systems in Azure CycleCloud HPC clusters. |
 | [![Grid Engine Logo](~/articles/cyclecloud/media/index/grid-engine.png)](http://gridscheduler.sourceforge.net/) | [Grid Engine](https://github.com/Azure/cyclecloud-gridengine)    | Azure CycleCloud GridEngine cluster template.  |
 | [![HPCPack logo](~/articles/cyclecloud/media/index/hpcpack.png)](/powershell/high-performance-computing/overview?view=hpc16-ps&preserve-view=true)  | [HPC Pack](https://github.com/Azure/cyclecloud-hpcpack) | CycleCloud project that enables use of Microsoft HPC Pack job scheduler.  |
 | [![HTCondor Logo](~/articles/cyclecloud/media/index/htcondor.png)](https://research.cs.wisc.edu/htcondor/) | [HTCondor](https://github.com/Azure/cyclecloud-htcondor)  | Azure CycleCloud HTCondor cluster template. |

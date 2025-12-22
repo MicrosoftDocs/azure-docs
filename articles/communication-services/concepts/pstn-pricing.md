@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Azure Prepayment](../includes/azure-prepayment.md)]
 
-Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country/region) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
+Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country/region) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis (in 6-second increments). PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
 
 In most cases, customers with Azure subscriptions locations that match the country/region of the Number offer are able to buy the Number. See here for details on [in-country/region and cross-country/region purchases](../concepts/numbers/sub-eligibility-number-capability.md).
 

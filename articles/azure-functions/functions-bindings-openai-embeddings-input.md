@@ -2,15 +2,17 @@
 title: Azure OpenAI embeddings input binding for Azure Functions
 description: Learn how to use the Azure OpenAI embeddings input binding to generate embeddings during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: 
+ms.custom:
   - build-2024
   - devx-track-extended-java
   - devx-track-js
   - devx-track-python
   - devx-track-ts
+  - build-2025
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 01/07/2025
+ms.date: 05/15/2025
+ms.update-cycle: 180-days
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -29,7 +31,7 @@ For information on setup and configuration details of the Azure OpenAI extension
 ::: zone pivot="programming-language-csharp"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="41-57"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57"::: 
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
@@ -39,11 +41,11 @@ This example shows how to retrieve embeddings stored at a specified file that is
 ::: zone pivot="programming-language-java"
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="26-55":::
+:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="26-53":::
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="61-90":::
+:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="59-86":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -51,7 +53,7 @@ This example shows how to generate embeddings for a raw text string.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-31":::
+:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-27":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
@@ -86,7 +88,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-21":::
+:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-27":::
 
 ::: zone-end  
 <!--- End code examples section -->  
@@ -98,7 +100,8 @@ Apply the `EmbeddingsInput` attribute to define an embeddings input binding, whi
 | Parameter | Description |
 | --------- | ----------- |
 | **Input** | The input string for which to generate embeddings. |
-| **Model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **AIConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **EmbeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **MaxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **MaxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **InputType** | _Optional_. Gets the type of the input. |
@@ -113,7 +116,8 @@ The `EmbeddingsInput` annotation enables you to define an embeddings input bindi
 | ------- | ----------- |
 | **name** | Gets or sets the name of the input binding. |
 | **input** | The input string for which to generate embeddings. |
-| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **inputType** |  _Optional_. Gets the type of the input. |
@@ -128,7 +132,8 @@ During the preview, define the input binding as a `generic_input_binding` bindin
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **input** | The input string for which to generate embeddings. |
-| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **ai_connection_name** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **embeddings_model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **max_overlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **input_type** | Gets the type of the input. |
@@ -146,7 +151,8 @@ The binding supports these configuration properties that you set in the function
 | **direction** | Must be `in`. |
 | **name** | The name of the input binding. |
 | **input** | The input string for which to generate embeddings. |
-| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **inputType** | _Optional_. Gets the type of the input. |
@@ -160,7 +166,8 @@ The binding supports these properties, which are defined in your code:
 |Property | Description |
 |-----------------------|-------------|
 | **input** | The input string for which to generate embeddings. |
-| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **inputType** | _Optional_. Gets the type of the input. |

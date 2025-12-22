@@ -3,7 +3,9 @@ title: Integrate Fortinet with Microsoft Defender for IoT
 description: In this article, you learn how to integrate Microsoft Defender for IoT with Fortinet.
 ms.topic: tutorial
 ms.date: 10/14/2024
-ms.custom: how-to
+ms.custom:
+  - how-to
+  - sfi-image-nochange
 ---
 
 # Integrate Fortinet with Microsoft Defender for IoT
@@ -13,6 +15,10 @@ This article helps you learn how to integrate and use Fortinet with Microsoft De
 Microsoft Defender for IoT mitigates IIoT, ICS, and SCADA risk with ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats.  Defender for IoT accomplishes this without relying on agents, rules, signatures, specialized skills, or prior knowledge of the environment.
 
 Defender for IoT and Fortinet have established a technological partnership that detects and stop attacks on IoT and ICS networks.
+
+>[!Note]
+>
+>Defender for IoT plans to retire the Fortinet integration on December 1, 2025
 
 Fortinet and Microsoft Defender for IoT prevent:
 

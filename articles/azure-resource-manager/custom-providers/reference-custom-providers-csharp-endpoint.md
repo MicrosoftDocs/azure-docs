@@ -1,7 +1,7 @@
----
+﻿---
 title: Custom resource provider C# RESTful endpoint reference
 description: Provides basic reference for an Azure Custom Resource Providers C# RESTful endpoint. The endpoint is provided through an Azure function app.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
@@ -255,3 +255,4 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 - [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [Reference: Custom resource cache reference](proxy-cache-resource-endpoint-reference.md)
+

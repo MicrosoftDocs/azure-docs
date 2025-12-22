@@ -6,6 +6,8 @@ ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
 ms.date: 08/07/2023
+ms.custom:
+  - build-2025
 ---
 
 <!-- 
@@ -100,7 +102,7 @@ The outcome of the planning phase is a mapping of source shares to Azure target 
 
 After you complete a migration plan, you need to ensure that the target Azure Storage resources such as storage accounts and containers are deployed. You need to complete this deployment before you can record your migration plan as a job definition for each source/target pair within Azure Storage Mover.
 
-Azure Storage Mover currently can't help with the target resource deployment. To deploy Azure storage, you can use the Azure portal, Azure PowerShell, Azure CLI, or a [Bicep template](../azure-resource-manager/bicep/overview.md).
+Azure Storage Mover currently can't help with the target resource deployment. To deploy Azure storage, you can use the Azure portal, Azure PowerShell, Azure CLI, or a [Bicep file](../azure-resource-manager/bicep/overview.md).
 
 > [!IMPORTANT]
 > When deploying Azure Storage, [review the support source/target pair combinations](service-overview.md#supported-sources-and-targets) for Azure Storage Mover and ensure that you don't configure unsupported scenarios.

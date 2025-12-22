@@ -3,8 +3,11 @@ title: Overview of Assessments for Migration to Azure Database for MySQL (previe
 description: Learn how to assess your on-premises MySQL database instances for migration to Azure Database for MySQL using the Azure Migrate Discovery and Assessment tool. This article provides an overview of the assessment process, types of assessments, and key criteria for evaluating readiness, sizing, and cost.
 author: ankitsurkar06
 ms.author: ankitsurkar
-ms.topic: conceptual
-ms.date: 02/24/2025
+ms.topic: concept-article
+ms.date: 05/08/2025
+ms.reviewer: v-uhabiba
+monikerRange:
+# Customer intent: "As a database administrator, I want to use an assessment tool to evaluate my on-premises MySQL database for migration, so that I can understand readiness, sizing, and costs for transitioning to Azure Database for MySQL."
 ---
 
 # Assessment overview - Migrate to Azure Database for MySQL (preview)
@@ -21,10 +24,10 @@ The Azure Migrate: Discovery and assessment tool supports the following types of
 
 **Assessment Type** | **Details**
 --- | ---
-**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines.<br/><br>You can assess your on-premises servers in [VMware environment](vmware/how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines.<br/><br>You can assess your on-premises servers in [VMware environment](how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure Databases** | Assessments to migrate your on-premises [SQL servers to Azure SQL Database or Azure SQL Managed Instance](concepts-azure-sql-assessment-calculation.md), or on-premises MySQL database instances to Azure Database for MySQL.
 **Web apps on Azure** | Assessments to migrate your on-premises [Spring Boot apps to Azure Spring Apps](concepts-azure-spring-apps-assessment-calculation.md) or [ASP.NET/Java web apps to Azure App Service](concepts-azure-webapps-assessment-calculation.md).
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](vmware/how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 
 ## MySQL assessments - Overview and sizing criteria
@@ -83,7 +86,7 @@ The appliance collects the following performance data for compute settings:
 - The appliance collects a real-time sample point. For MySQL instances, it collects a sample point every 30 seconds.
 - The appliance aggregates the sample data points collected every 30 seconds over 10 minutes. To create the data point, the appliance selects the peak values from all samples. It sends the max and means for each counter to Azure.
 - Azure Migrate stores all the 10-minute data points for the last month.
-- When you create an assessment, Azure Migrate identifies the appropriate data point to use for right-sizing. Identification is based on the percentile values for performance history and percentile utilization.
+- When you create an assessment, Azure Migrate identifies the appropriate data point to use for right sizing. Identification is based on the percentile values for performance history and percentile utilization.
     - For example, if the performance history spans a week and the utilization is at 95th percentile, the assessment sorts the 10-minute sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for right-sizing.
     - The 95th percentile value ensures you ignore any outliers, which might be included if you picked the 99th percentile.
     - If you want to pick the peak usage for the period and don't want to miss any outliers, select the 99th percentile for percentile utilization.
@@ -104,7 +107,7 @@ Readiness to migrate a MySQL instance to Azure Database for MySQL is determined 
 
 An instance is then marked as:
 - **Ready**: If no major compatibility issues were found between source and target MySQL instances.
-- **Ready with conditions**: If there are non-critical compatibility issues such as degraded or unsupported features, that don't block the migration to Azure Database for MySQL. Azure Migrate displays the migration warnings with impact details and recommended remediation guidelines.
+- **Ready with conditions**: If there are non-critical compatibility issues such as degraded or unsupported features that don't block the migration to Azure Database for MySQL. Azure Migrate displays the migration warnings with impact details and recommended remediation guidelines.
 - **Not ready**: If there are any compatibility issues that may block the migration to Azure Database for MySQL. Azure Migrate displays the migration issues with impact details and recommended remediation guidance.
 - **Unknown**:  If the discovery is still in progress or there are any discovery issues in the source instance.
 
@@ -130,51 +133,42 @@ Azure Migrate calculates the total disk space used by the MySQL instance (includ
 ### IOPS sizing
 Azure Migrate recommends the [Autoscale IOPS feature in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-service-tiers-storage#autoscale-iops), which enables the MySQL instance to automatically scale the database instance’s performance (IO) seamlessly and independent of the selected storage size, depending on the workload needs. With Autoscale IOPS, you pay only for the IO the server uses, eliminating the need to provision and pay for resources that aren't fully utilized, thereby saving time and money.
 
-## Confidence ratings
+## Performance coverage
 
-Each MySQL assessment is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
--  The rating is based on the availability of data points that are required to compute the assessment.
+Each MySQL assessment is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
+-  The coverage is based on the availability of data points that are required to compute the assessment.
 - For performance-based sizing, the assessment collects performance data of all the MySQL instances and databases, which include:
   - CPU utilization (%)
-  -	Memory utilization (%)
-  -	IOPS
+  - Memory utilization (%)
+  - IOPS
   - Number of connections to the MySQL instance
   - Read-write ratio
-- If any of these utilization numbers aren't available, the size recommendations might be unreliable. This table shows the assessment confidence ratings, which depend on the percentage of available data points:
+- If any of these utilization numbers aren't available, the size recommendations might be unreliable. This table shows the assessment performance coverage, which depend on the percentage of available data points:
 
-    **Data point availability** | **Confidence rating**
-    --- | ---
-    0%-20% | One star
-    21%-40% | Two stars
-    41%-60% | Three stars
-    61%-80% | Four stars
-    81%-100% | Five stars
+### Low performance coverage
 
-
-### Low confidence ratings
-
-Here are a few reasons why an assessment could get a low confidence rating:
+Here are a few reasons why an assessment could get a low performance coverage:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
-- The Assessment isn't able to collect the performance data for some or all the servers in the assessment period. 
+- The Assessment isn't able to collect the performance data for some or all the servers in the assessment period.
 
-**Recalculate** the assessment to reflect the latest changes in confidence rating.
+**Recalculate** the assessment to reflect the latest changes in performance coverage.
 
-- Some database instances were created during the time for which the assessment was calculated. For example, you created an assessment for the performance history of the last month, but some instances were created only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low.
+- Some database instances were created during the time for which the assessment was calculated. For example, you created an assessment for the performance history of the last month, but some instances were created only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the performance coverage would be low.
 
-### High confidence ratings
+### High performance coverage
 
-Here are a few reasons why an assessment could have a high confidence rating:
+Here are a few reasons why an assessment could have a high performance coverage:
 
   - Servers are powered on during the assessment.
   - Outbound connections on ports 3306 are allowed.
   - If Azure Migrate connection status of the MySQL agent in Azure Migrate is Connected, check the last heartbeat.
   - Azure Migrate connection status for all MySQL instances is Connected in the discovered MySQL instance section.
 
- **Recalculate** the assessment to reflect the latest changes in confidence rating.
+ **Recalculate** the assessment to reflect the latest changes in performance coverage.
 
 > [!NOTE]
-> As MySQL assessments are performance-based assessments, if the confidence rating of any assessment is fewer than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable.
+> As MySQL assessments are performance-based assessments, if the performance coverage of any assessment is fewer than 80%, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable.
 
 ## Calculate monthly costs
 Once the sizing recommendations are complete, MySQL assessment calculates the compute, storage, and IO costs for the recommended Azure Database for MySQL configurations using an internal pricing API. It aggregates these costs across all the instances to determine the total monthly cost.

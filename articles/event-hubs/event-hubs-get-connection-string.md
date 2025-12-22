@@ -1,13 +1,17 @@
 ---
-title: Get connection string - Azure Event Hubs 
-description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
+title: Get Connection String for Azure Event Hubs
+description: Learn how to get a connection string for Azure Event Hubs using the portal, PowerShell, or CLI to enable secure communication with your event hub.
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 11/18/2024
+ms.date: 08/11/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a developer, I want to know how to get a connection string to an Event Hubs namespace or an event hub. 
 ---
 
-# Get an Event Hubs connection string
+
+# Get an Azure Event Hubs connection string
 To communicate with an event hub in a namespace, you need a connection string for the namespace or the event hub. If you use a connection string to the namespace from your application, the application will have the provided access (manage, read, or write) to all event hubs in the namespace. If you use a connection string to the event hub, you'll have the provided access to that specific event hub. 
 
 The connection string for a namespace has the following components embedded within it,
@@ -22,7 +26,7 @@ The connection string for a namespace looks like:
 Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 ```
 
-The connection string for an event hub has an additional component in it. That's, `EntityPath=<EventHubName>`. 
+The connection string for an event hub has an extra component in it, i.e., `EntityPath=<EventHubName>`. 
 
 ```bash
 Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<EventHubName>
@@ -35,7 +39,7 @@ This article shows you how to get a connection string to a namespace or a specif
 ### Connection string for a namespace
 
 1. Sign in to [Azure portal](https://portal.azure.com). 
-2. Select **All services** on the left navigational menu. 
+2. Select **All services** in the left navigational menu. 
 3. Select **Event Hubs** in the **Analytics** section. 
 4. In the list of event hubs, select your event hub.
 6. On the **Event Hubs namespace** page, select **Shared Access Policies** on the left menu under **Settings**. 

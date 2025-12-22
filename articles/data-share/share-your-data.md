@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Your recipient's Azure e-mail address (using their e-mail alias won't work).
 * If the source Azure data store is in a different Azure subscription than the one you'll use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
 
@@ -312,6 +312,8 @@ Use these commands to create the resource:
    ```
 
 ---
+
+**Note:** Azure Data Share uses UTC (Coordinated Universal Time) for all scheduled operations, including snapshot schedules. Ensure you adjust your local time accordingly when setting the schedule.
 
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation.
 

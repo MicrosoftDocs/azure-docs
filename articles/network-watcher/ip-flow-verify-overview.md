@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 09/30/2024
+ms.date: 09/23/2025
+ms.custom: sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I want learn about IP flow verify so I can use it to check the security rules applied on the VMs to confirm if traffic is allowed or denied.
+# Customer intent: As an Azure administrator, I want to understand how to use IP flow verify, so that I can troubleshoot and confirm if network traffic is allowed or denied for my virtual machines based on security rules.
 ---
 
 # IP flow verify overview

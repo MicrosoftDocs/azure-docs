@@ -3,13 +3,14 @@ title: 'Quickstart: Create an Azure DNS zone and record - Bicep'
 titleSuffix: Azure DNS
 description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step quickstart to create and manage your first DNS zone and record using Bicep.
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Bicep so I can use Azure DNS for my name resolution.
+# Customer intent: "As a developer, I want to create and manage a DNS zone and record using Bicep, so that I can efficiently handle name resolution in Azure."
 ---
 
 # Quickstart: Create an Azure DNS zone and record using Bicep
@@ -20,7 +21,7 @@ This quickstart describes how to use Bicep to create a DNS zone with an `A` reco
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

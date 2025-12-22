@@ -4,6 +4,7 @@ description: Install the Azure IoT explorer tool and use it to interact with dev
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024
+ms.update-cycle: 1095-days
 ms.topic: how-to
 ms.service: azure-iot
 services: azure-iot
@@ -26,7 +27,7 @@ For more general information about using the tool, see the GitHub [readme](https
 
 To use the Azure IoT explorer tool, you need:
 
-- An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Creating an IoT hub by using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub connection string to run the Azure IoT explorer tool. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Creating an IoT hub by using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub connection string to run the Azure IoT explorer tool. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - A device registered in your IoT hub. You can use IoT Explorer to create and manage device registrations in your IoT Hub.
 
 ## Install Azure IoT explorer
@@ -107,7 +108,7 @@ You can view the read-only properties defined in an interface on the **Propertie
 1. Preview the payload to be sent to the device.
 1. Submit the change.
 
-After you submit a change, you can track the update status: **synching**, **success**, or **error**. When the synching is complete, you see the new value of your property in the **Reported Value** column. If you navigate to other pages before the synching completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history.
+After you submit a change, you can track the update status: **syncing**, **success**, or **error**. When the syncing is complete, you see the new value of your property in the **Reported Value** column. If you navigate to other pages before the syncing completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history.
 
 #### Commands
 

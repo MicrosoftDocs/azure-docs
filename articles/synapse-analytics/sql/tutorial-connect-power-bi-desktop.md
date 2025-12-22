@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
+ms.custom: sfi-image-nochange
  
 ---
 

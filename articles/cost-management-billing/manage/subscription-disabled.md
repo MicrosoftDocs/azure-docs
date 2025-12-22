@@ -2,13 +2,13 @@
 title: Reactivate a disabled Azure subscription
 description: Describes when you might have an Azure subscription disabled and how to reactivate it.
 keywords: azure subscription disabled
-author: bandersmsft
-ms.reviewer: amberb
+author: Nicholak-MS
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
-ms.author: banders
+ms.date: 08/18/2025
+ms.author: nicholak
 ---
 
 # Reactivate a disabled Azure subscription

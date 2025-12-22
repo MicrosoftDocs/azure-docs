@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/04/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Monitor Route-maps using the Route Map dashboard

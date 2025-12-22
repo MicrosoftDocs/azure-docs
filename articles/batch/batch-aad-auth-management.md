@@ -4,6 +4,7 @@ description: Explore using Microsoft Entra ID to authenticate from applications 
 ms.topic: how-to
 ms.date: 06/24/2024
 ms.custom: has-adal-ref, devx-track-csharp, devx-track-arm-template, devx-track-dotnet
+# Customer intent: As a developer integrating batch management solutions, I want to authenticate my application using a cloud-based identity service, so that I can securely manage resources and access the Batch Management .NET library programmatically.
 ---
 
 # Authenticate Batch Management solutions with Microsoft Entra ID

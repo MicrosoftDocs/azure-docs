@@ -7,7 +7,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 10/02/2024
+ms.date: 05/06/2025
 ms.author: danlep
 ---
 
@@ -24,7 +24,7 @@ More information about policies:
 + [Policy expressions](api-management-policy-expressions.md)
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
 + [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
-+ [Author policies using Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
++ [Author policies using Azure Copilot](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 > [!IMPORTANT]
 >  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.
@@ -36,7 +36,7 @@ More information about policies:
 | [Limit call rate by subscription](rate-limit-policy.md) | Prevents API usage spikes by limiting call rate, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
 | [Limit call rate by key](rate-limit-by-key-policy.md) | Prevents API usage spikes by limiting call rate, on a per key basis. | Yes | Yes | No | Yes | Yes |
 | [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
-| [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | No | No | Yes | Yes |
+| [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | Yes | No | Yes | Yes |
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes | Yes |
 | [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | Yes | Yes |
 | [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |
@@ -125,7 +125,8 @@ More information about policies:
 |---------|---------|---------|---------|---------|--------|----------|
  |  [Send request](send-request-policy.md) | Sends a request to the specified URL. | Yes | Yes | Yes | Yes | Yes |
  |  [Send one way request](send-one-way-request-policy.md) | Sends a request to the specified URL without waiting for a response. | Yes | Yes | Yes | Yes | Yes |
-|  [Log to event hub](log-to-eventhub-policy.md) | Sends messages in the specified format to an event hub defined by a Logger entity.| Yes | Yes | Yes | Yes | Yes |
+|  [Log to event hub](log-to-eventhub-policy.md) | Sends a message in the specified format to an event hub defined by a Logger entity.| Yes | Yes | Yes | Yes | Yes |
+| [Send message to Azure Service Bus](send-service-bus-message-policy.md) (preview) | Sends a message to an Azure Service Bus queue or topic. | Yes | No | No | No  | No |
 | [Send request to a service (Dapr)](set-backend-service-dapr-policy.md)| Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.     | No | No | No | Yes | No |
 | [Send message to Pub/Sub topic (Dapr)](publish-to-dapr-policy.md) | Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file. | No | No | No | Yes | No |
 | [Trigger output binding (Dapr)](invoke-dapr-binding-policy.md) | Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file. | No | No | No | Yes | No |
@@ -150,6 +151,21 @@ More information about policies:
 | [Cosmos DB data source for resolver](cosmosdb-data-source-policy.md) | Configures the Cosmos DB request and optional response to resolve data for an object type and field in a GraphQL schema. | Yes | Yes | No | No | No |
 | [HTTP data source for resolver](http-data-source-policy.md) | Configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema. | Yes | Yes | Yes | No | No |
 | [Publish event to GraphQL subscription](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in a GraphQL API schema. Configure the policy in a GraphQL resolver for a related field in the schema for another operation type such as a mutation. | Yes | Yes | Yes | No | No |
+
+## AI gateway 
+
+|Policy  |Description  | Classic | V2  | Consumption |Self-hosted  | Workspace |
+|---------|---------|---------|---------|---------|--------|----------|
+| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | Yes | Yes |
+| [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |
+|  [Emit Azure OpenAI token metrics](azure-openai-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model tokens through Azure OpenAI service APIs. | Yes | Yes | No | Yes | Yes |
+|  [Emit large language model API token metrics](llm-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model (LLM) tokens through LLM APIs. | Yes | Yes | No | Yes | Yes |
+|  [Get cached responses of Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) | Performs lookup in Azure OpenAI API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes | No |
+|  [Get cached responses of large language model API requests](llm-semantic-cache-lookup-policy.md) | Performs lookup in large language model API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes | No |
+|  [Store responses of Azure OpenAI API requests to cache](azure-openai-semantic-cache-store-policy.md) | Caches response according to the Azure OpenAI API cache configuration. | Yes | Yes | Yes | Yes | No |
+|  [Store responses of large language model API requests to cache](llm-semantic-cache-store-policy.md) | Caches response according to the large language model API cache configuration. | Yes | Yes | Yes | Yes | No |
+| [Enforce content safety checks on LLM requests](llm-content-safety-policy.md) | Enforces content safety checks on LLM requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM. | Yes | Yes | Yes | Yes | Yes |
+
 
 ## Policy control and flow
 

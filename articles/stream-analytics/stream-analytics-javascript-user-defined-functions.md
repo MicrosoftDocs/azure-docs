@@ -207,7 +207,7 @@ FROM
 
 The output of this query will be the input datetime in **de-DE** with the options provided.
 ```
-Samstag, 28. Dezember 2019
+Samstag, 28. December 2019
 ```
 
 ## User Logging

@@ -2,7 +2,7 @@
 author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
-ms.date: 12/19/2024
+ms.date: 11/25/2025
 ms.author: v-abhmallick
 ---
 
@@ -12,7 +12,7 @@ You can use a single backup policy to back up one or more storage accounts to th
 
 To configure backup for storage accounts, follow these steps:
 
-1. Go to **Business Continuity Center** > **Overview**, and then select **+ Configure protection**.
+1. Go to **Resiliency** > **Overview**, and then select **+ Configure protection**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/start-vaulted-backup.png" alt-text="Screenshot shows how to initiate vaulted blob backup.":::
 
@@ -59,6 +59,8 @@ To configure backup for storage accounts, follow these steps:
 
         >[!Note]
         >The template contains details for selected storage accounts only. If there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
+
+   1. To configure the backup operation with a storage account in a different subscription (Cross Subscription Backup), choose the alternate subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
 
 6. To assign the required roles, select the storage accounts, and then select **Download role assignment template** to download the template. Once the role assignments are complete, select **Revalidate** to validate the permissions again, and then configure backup.
 

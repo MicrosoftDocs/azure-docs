@@ -1,7 +1,7 @@
----
+﻿---
 title: Manage resources through private link
 description: Restrict management access for resource to private link
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/22/2025
 ---
 

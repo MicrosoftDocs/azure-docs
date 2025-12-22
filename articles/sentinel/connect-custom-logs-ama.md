@@ -1,14 +1,14 @@
 ---
 title: Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel - AMA
 description: Collect text file-based logs from network or security applications installed on Windows- or Linux-based machines, using the Custom Logs via AMA data connector based on the Azure Monitor Agent (AMA).
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 08/06/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security engineer, I want to ingest and filter text file-based logs from network or security applications installed on Windows- or Linux-based machines to my Microsoft Sentinel workspace, so that analysts can monitor activity on these systems and detect security threats.
 ---

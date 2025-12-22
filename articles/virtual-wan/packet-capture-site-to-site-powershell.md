@@ -5,10 +5,12 @@ services: virtual-wan
 titleSuffix: Azure Virtual WAN
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Configure a packet capture for Virtual WAN site-to-site VPN: PowerShell

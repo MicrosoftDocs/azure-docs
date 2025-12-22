@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 12/18/2025
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,14 +29,21 @@ This article shows how to automate backup and restore operations of your API Man
 > Each backup expires after 30 days. If you attempt to restore a backup after the 30-day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
 
 > [!IMPORTANT]
-> Restore operation doesn't change custom hostname configuration of the target service. We recommend to use the same custom hostname and TLS certificate for both active and standby services, so that, after restore operation completes, the traffic can be re-directed to the standby instance by a simple DNS CNAME change.
+> Restore operation doesn't change custom hostname configuration of the target service. We recommend using the same custom hostname and TLS certificate for both active and standby services, so that, after restore operation completes, the traffic can be re-directed to the standby instance by a simple DNS CNAME change.
 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
+
 ## Prerequisites
 
-* An API Management service instance. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
+* An API Management service instance in a supported service tier. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
+
+   > [!NOTE]
+   > Currently, backup and restore aren't supported in API Management instances with associated [workspace gateways](workspaces-overview.md#workspace-gateway).
+
 * An Azure storage account. If you don't have one, see [Create a storage account](../storage/common/storage-account-create.md).
     * [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in the storage account to hold the backup data.
         
@@ -58,7 +65,7 @@ Azure generates two 512-bit storage account access keys for each storage account
 
     * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     * If you will back up and restore to different API Management instances, enable a managed identity in both the source and target instances.
-1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
+1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or other Azure tools.
 
 
 ## Back up an API Management service
@@ -291,8 +298,6 @@ Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $ap
     -SourceBlobName $blobName -AccessType "UserAssignedManagedIdentity" ` -identityClientId $identityid
 ```
 
-Restore is a long-running operation that may take up to 45 minutes or more to complete. 
-
 ### [CLI](#tab/cli)
 
 In the following examples, 
@@ -319,8 +324,6 @@ storageKey=$(az storage account keys list --resource-group $storageResourceGroup
 az apim restore --resource-group $apiManagementResourceGroup --name $apiManagementName \
     --storage-account-name $storageAccountName --storage-account-key $storageKey --storage-account-container $containerName --backup-name $backupName
 ```
-
-Restore is a long-running operation that may take up to 45 minutes or more to complete. 
 
 ### [REST](#tab/rest)
 
@@ -380,7 +383,7 @@ In the body of the request, specify the existing storage account name, blob cont
 
 Set the value of the `Content-Type` request header to `application/json`.
 
-Restore is a long-running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
+Restore is a long-running operation that may take several minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
 
 ---
 

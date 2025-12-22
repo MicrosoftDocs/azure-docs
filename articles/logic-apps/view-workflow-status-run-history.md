@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/07/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Check workflow status, view run history, and set up alerts in Azure Logic Apps
@@ -46,7 +47,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
    |----------------|-------------|
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt, and choose **Outputs**. For example, you might find inputs that aren't valid. |
    | **Skipped** | The trigger checked the endpoint but found no data that met the specified criteria. |
-   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition or **SplitOn** command that wasn't met. <br><br>This status can apply to a manual trigger, recurrence-based trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
+   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition that wasn't met or the `splitOn` property set to a value. <br><br>This status can apply to a manual trigger, recurrence-based trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
 
    > [!TIP]
    >
@@ -83,7 +84,7 @@ For a stateful workflow, you can review the trigger history for each run, includ
    |----------------|-------------|
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. |
    | **Skipped** | The trigger checked the endpoint but found no data that met the specified criteria. |
-   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition or **SplitOn** command that wasn't met. <br><br>This status can apply to a manual trigger, recurrence-based trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
+   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition that wasn't met or the `splitOn` property set to a value. <br><br>This status can apply to a manual trigger, recurrence-based trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
 
    > [!TIP]
    >
@@ -303,7 +304,7 @@ Completing this task creates and adds a new workflow run to your workflow's run 
 
 ### Limitations and considerations
 
-- By default, only Consumption workflows and Standard stateful workflows, which record and store run history, are supported. To use these capabilities with a stateless Standard workflow, enable stateful mode. For more information, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-for-stateless-workflows) and [Enable stateful mode for stateless connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+- By default, only Consumption workflows and Standard stateful workflows, which record and store run history, are supported. To use these capabilities with a stateless Standard workflow, enable stateful mode. For more information, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless) and [Enable stateful mode for stateless connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 - The resubmitted run executes the same workflow version as the original run, even if you updated the workflow definition.
 

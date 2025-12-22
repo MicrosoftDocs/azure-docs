@@ -1,9 +1,9 @@
----
+﻿---
 title: Bicep file structure and syntax
 description: Understand how to use declarative syntax to understand the structure and properties of Bicep files.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.date: 07/25/2025
 ---
 
 # Bicep file structure and syntax
@@ -68,7 +68,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -168,7 +168,7 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 Apply this variable wherever you need the complex expression.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
 ```
 
@@ -195,7 +195,7 @@ param storageAccountConfig storageAccountConfigType = {
   sku: 'Standard_LRS'
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountConfig.name
   location: location
   sku: {
@@ -228,7 +228,7 @@ Use the `resource` keyword to define a resource to deploy. Your resource declara
 The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -250,7 +250,7 @@ Some resources have a parent/child relationship. You can define a child resource
 The following example shows how to define a child resource within a parent resource. It contains a storage account with a child resource (file service) that's defined within the storage account. The file service also has a child resource (share) that's defined within it.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -271,7 +271,7 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 The next example shows how to define a child resource outside of the parent resource. You use the parent property to identify a parent/child relationship. The same three resources are defined.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -280,12 +280,12 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2025-06-01' = {
   name: 'default'
   parent: storage
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01' = {
   name: 'exampleshare'
   parent: service
 }
@@ -373,7 +373,7 @@ Spaces and tabs are ignored when you author Bicep files.
 Bicep is newline sensitive. For example:
 
 ```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
+resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' = if (newOrExisting == 'new') {
   ...
 }
 ```
@@ -381,7 +381,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting =
 Can't be written as:
 
 ```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' =
+resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' =
     if (newOrExisting == 'new') {
       ...
     }
@@ -397,7 +397,7 @@ The following example shows a single-line comment.
 
 ```bicep
 // This is your primary NIC.
-resource nic1 'Microsoft.Network/networkInterfaces@2023-11-01' = {
+resource nic1 'Microsoft.Network/networkInterfaces@2025-01-01' = {
   ...
 }
 ```
@@ -462,3 +462,4 @@ For multiple-line declaration samples, see [arrays](./data-types.md#arrays) and 
 
 * For an introduction to Bicep, see [What is Bicep?](./overview.md).
 * For Bicep data types, see [Data types](./data-types.md).
+

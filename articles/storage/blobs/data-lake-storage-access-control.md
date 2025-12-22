@@ -5,12 +5,13 @@ description: Understand how POSIX-like ACLs access control lists work in Azure D
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/03/2024
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
 ms.custom: engagement-fy23
+# Customer intent: As a data engineer, I want to manage access control lists in Azure Data Lake Storage, so that I can ensure the right permissions for users and groups when interacting with files and directories.
 ---
 
 # Access control lists (ACLs) in Azure Data Lake Storage

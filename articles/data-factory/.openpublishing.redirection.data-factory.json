@@ -86,6 +86,11 @@
             "redirect_document_id": false
           },
           {
+            "source_path_from_root": "/articles/data-factory/how-to-send-notifications-to-teams.md",
+            "redirect_url": "/fabric/data-factory/teams-activity",
+            "redirect_document_id": false
+          },
+          {
             "source_path_from_root": "/articles/data-factory/data-factory-amazon-simple-storage-service-connector.md",
             "redirect_url": "/azure/data-factory/",
             "redirect_document_id": false
@@ -1104,7 +1109,12 @@
             "source_path_from_root": "/articles/data-factory/lab-data-flow-data-share.md",
             "redirect_url": "/azure/data-factory/data-factory-tutorials",
             "redirect_document_id": false
-          }           
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/connector-deprecation-plan.md",
+            "redirect_url": "/azure/data-factory/connector-release-stages-and-timelines",
+            "redirect_document_id": false
+          }             
     ]
 }                    
 

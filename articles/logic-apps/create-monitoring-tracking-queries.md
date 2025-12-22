@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 07/16/2025
 ---
 
 # View and create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps
@@ -20,7 +20,7 @@ You can view the underlying queries that produce the results from [Azure Monitor
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * A Log Analytics workspace. If you don't have a Log Analytics workspace, learn [how to create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 

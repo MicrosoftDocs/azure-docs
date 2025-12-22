@@ -3,9 +3,14 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 11/11/2024
-ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell, ignite-2024
+ms.date: 05/21/2025
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
+ms.custom:
+  - cc996988-fb4f-47
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2024
+  - sfi-image-nochange
 ---
 
 # Manage your function app
@@ -35,6 +40,9 @@ In addition to the predefined app settings used by Azure Functions, you can crea
 These settings are stored encrypted. For more information, see [App settings security](security-concepts.md#application-settings).
 
 You can manage app settings from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage app settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings).
+
+> [!NOTE]  
+> Changing application settings causes your function app to restart by default across all hosting plans. For zero-downtime deployments when changing settings, use the [Flex Consumption plan](flex-consumption-plan.md) with [rolling updates as the site update strategy](flex-consumption-site-updates.md). For other hosting plans, see [optimize deployments](functions-best-practices.md#optimize-deployments) for guidance on minimizing downtime.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -182,7 +190,12 @@ In the previous example, replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wi
 
 ## Plan migration
 
-You can migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
+You can migrate a function app between a Consumption plan and a Premium plan on Windows. 
+
+>[!TIP]  
+>We recommend you migrate your Consumption plan app to run in a Flex Consumption plan instead of a Premium plan. Migration to the Flex Consumption plan is the only migration option for a Linux Consumption plan app. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).   
+
+When migrating between plans, keep in mind the following considerations:
 
 + Direct migration to a Dedicated (App Service) plan isn't supported.
 + Migration isn't supported on Linux.
@@ -211,17 +224,21 @@ Choose the direction of the migration for your app on Windows.
 
 ### [Consumption-to-Premium](#tab/to-premium/azure-portal)
 
-1. In the Azure portal, navigate to your Consumption plan app and choose **Change App Service plan** under **App Service plan**.
+1. In the Azure portal, navigate to your Consumption plan app, and in the left pane expand **App Service plan** and select **App Service plan**.
 
-1. Select **Premium** under **Plan type**, create a new Premium plan, and select **OK**.
+1. In the **App Service plan** page, select **Change plan** under **Current App Service plan**. 
+
+1. In **Change App Service plan**, select **Premium** for **Plan type**, create a new Premium plan, and select **OK**.
 
 For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
 
 ### [Premium-to-Consumption](#tab/to-consumption/azure-portal)
 
-1. In the Azure portal, navigate to your Premium plan app and choose **Change App Service plan** under **App Service plan**.
+1. In the Azure portal, navigate to your Elastic Premium plan app, and in the left pane expand **App Service plan** and select **App Service plan**.
 
-1. Select **Consumption** under **Plan type**, create a new Consumption plan, and select **OK**.
+1. In the **App Service plan** page, select **Change plan** under **Current App Service plan**. 
+
+1. In **Change App Service plan**, select **Consumption** under **Plan type**, create a new Consumption plan, and select **OK**.
 
 For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
 
@@ -353,20 +370,21 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
 
 The following table shows the operating systems and languages that support in-portal editing:
 
-| Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
-|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
-| C# | | | | | |
-| Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔|✔|
-| Python | | | |✔ |✔ |✔ |
-| PowerShell |✔|✔|✔| | | |
-| TypeScript (Node.js) | | | | | | |
+| Language | Flex Consumption | Premium | Dedicated | Consumption | 
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|
+| C# | | | | |
+| Java | | | | |
+| JavaScript (Node.js) | |✔|✔| Windows-only |
+| Python | | Linux-only | Linux-only| Linux-only |
+| PowerShell | |Windows-only|Windows-only|Windows-only|
+| TypeScript (Node.js) | | | | | 
 
 Consider these limitations when you develop your functions in the [Azure portal](https://portal.azure.com):
 
 + In-portal editing is supported only for functions that were created or last modified in the Azure portal.
-+ In-portal editing is supported only for JavaScript, PowerShell, Python, and C# Script functions.
++ In-portal editing is supported only for [JavaScript](./functions-reference-node.md), [PowerShell](./functions-reference-powershell.md), [Python](./functions-reference-python.md), and [C# script](./functions-reference-csharp.md) (in-process) functions.
 + In-portal editing isn't currently supported by the [Flex Consumption plan](flex-consumption-plan.md#considerations).
++ The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
 + When you deploy code to a function app from outside the Azure portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md).
 + For Python, development with custom modules isn't currently supported in the portal. To add custom modules to your function app, you must [develop your app locally](functions-develop-local.md).
 + For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
@@ -375,7 +393,7 @@ When possible, develop your functions locally and publish your code project to a
 
 ## Manually install extensions
 
-C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, you should [use extension bundles](functions-bindings-register.md#extension-bundles). If you must manually install extensions, you can do so by [using Azure Functions Core Tools](./functions-core-tools-reference.md#func-extensions-install) locally. If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the *host.json* file.
+C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, you should [use extension bundles](extension-bundles.md). If you must manually install extensions, you can do so by [using Azure Functions Core Tools](./functions-core-tools-reference.md#func-extensions-install) locally. If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the *host.json* file.
 
 This same process works for any other file you need to add to your app.
 

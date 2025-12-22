@@ -2,17 +2,18 @@
 title: Troubleshoot Backup vault management operations on Azure Backup
 description: This article describes how to troubleshoot common errors that might occur when you manage Backup vault.
 ms.topic: troubleshooting
-ms.date: 10/25/2024
+ms.date: 10/13/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to troubleshoot errors during Backup vault management, so that I can ensure successful vault operations and maintain data protection without unnecessary delays.
 ---
 
 # Troubleshoot Backup vault management operations on Azure Backup
 
 This article provides troubleshooting information to manage Back vault operations. For more information on the supported Backup vault management scenarios we currently support, see [Backup vault overview](backup-vault-overview.md).
 
-## Common user errors
+## Common user errors for Backup vault management operations
 
 This section provides the troubleshooting details for the issues you might encounter while moving  Backup vaults to a different subscription.
 

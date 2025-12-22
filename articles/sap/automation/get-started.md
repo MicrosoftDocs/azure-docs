@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-azurecli
+# Customer intent: As an SAP administrator, I want to deploy the SAP Deployment Automation Framework using either Azure DevOps or a virtual machine, so that I can streamline the configuration and installation of SAP applications in the Azure environment.
 ---
 
 # Get started with SAP Deployment Automation Framework
@@ -19,7 +20,7 @@ Get started quickly with [SAP Deployment Automation Framework](deployment-framew
 
 To get started with SAP Deployment Automation Framework, you need:
 
-- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An SAP User account with permissions to [download the SAP software](software.md) in your Azure environment. For more information on S-User, see [SAP S-User](https://support.sap.com/en/my-support/users/welcome.html).
 - An [Azure CLI](/cli/azure/install-azure-cli) installation.
 - A user Assigned Identity (MS) or a service principal to use for the control plane deployment.

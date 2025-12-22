@@ -10,6 +10,7 @@ ms.date: 01/29/2025
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
+# Customer intent: As a network administrator, I want to utilize troubleshooting tools to diagnose VPN connection issues, so that I can ensure proper communication between virtual networks and on-premises resources.
 ---
 
 # Troubleshoot VPN virtual network gateways and connections using PowerShell
@@ -18,7 +19,7 @@ In this article, you learn how to use Network Watcher VPN troubleshoot capabilit
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Network Watcher enabled in the region of the virtual network gateway. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md?tabs=powershell).
 

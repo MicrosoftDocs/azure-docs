@@ -2,15 +2,18 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 11/25/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to configure and manage backup for Azure Blobs across multiple storage accounts, so that I can ensure data protection and recovery options are available in case of accidental deletion or data loss."
 ---
 
 # Configure and manage backup for Azure Blobs using Azure Backup
 
 Azure Backup allows you to configure operational and vaulted backups to protect block blobs in your storage accounts. This article describes how to configure and manage backups on one or more storage accounts using the Azure portal. You can also [configure backup using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
+
+For more information on the general availability of vaulted backups for Azure Blob Storage and how they enhance data protection with ransomware resilience and long-term retention, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/general-availability-vaulted-backups-for-azure-blob-storage/4207474).
 
 ## Before you start
 
@@ -151,30 +154,30 @@ Once backup is configured, changes taking place on block blobs in the storage ac
 
 ## Manage backups
 
-You can use [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) as your single blade of glass for managing all your backups. Regarding backup for Azure Blobs, you can use Azure Business Continuity Center to do the following operations:
+You can use [Resiliency](../resiliency/resiliency-overview.md) as your single blade of glass for managing all your backups. Regarding backup for Azure Blobs, you can use Resiliency to do the following operations:
 
 - As we've seen above, you can use it for creating Backup vaults and policies. You can also view all vaults and policies under the selected subscriptions.
-- Azure Business Continuity Center gives you an easy way to [monitor the state of protection](../business-continuity-center/tutorial-monitor-protection-summary.md) of protected storage accounts as well as storage accounts for which [backup isn't currently configured](../business-continuity-center/quick-understand-protection-estate.md#identify-unprotected-resources).
+- Resiliency gives you an easy way to [monitor the state of protection](../resiliency/tutorial-monitor-protection-summary.md) of protected storage accounts as well as storage accounts for which [backup isn't currently configured](../resiliency/quick-understand-protection-estate.md#identify-unprotected-resources).
 - You can configure backup for any storage accounts using the **+Configure protection** button.
 - You can initiate restores using the **Restore** button and track restores using **Jobs**. For more information on performing restores, see [Restore Azure Blobs](blob-restore.md?tabs=vaulted-backup).
 - Analyze your backup usage using Backup reports.
 
     :::image type="content" source="./media/blob-backup-configure-manage/manage-azure-blob-backup.png" alt-text="Screenshot shows the Azure Business  Continuity Center console to manage the Azure Blob backups." lightbox="./media/blob-backup-configure-manage/manage-azure-blob-backup.png":::
 
-For more information, see [Overview of Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md).
+For more information, see [Overview of Resiliency](../resiliency/resiliency-overview.md).
 
 ## Stop protection
 
 You can stop operational backup for your storage account according to your requirement.
 
 >[!NOTE]
->When you remove backups, the **object replication policy** isn't removed from the source. So, you need to remove the policy separately. Stopping protection only dissociates the storage account from the Backup vault (and the backup tools, such as Backup center), and doesn’t disable blob point-in-time restore, versioning, and change feed that were configured.
+>When you remove backups, Azure Backup automatically deletes the **object replication policy** from the source. If custom locks exist, remove the policy manually. If you stop protection, it disconnects only the storage account from the Backup vault and tools (such as Backup center). This action doesn't disable blob point-in-time restore, versioning, or change feed settings.
 
 To stop backup for a storage account, follow these steps:
 
-1.Go to the backup instance for the storage account being backed up.
+1. Go to the backup instance for the storage account being backed up.
 
-   You can go to the backup instance from the storage account via **Storage account** > **Data protection** > **Manage backup settings**, or directly from the Business Continuity Center  via **Business Continuity Center** > **Protected Items** , and then select **Azure Backup** as a **Solution** in the filter. 
+   You can go to the backup instance from the storage account via **Storage account** > **Data protection** > **Manage backup settings**, or directly from the Resiliency  via **Resiliency** > **Protected Items** , and then select **Azure Backup** as a **Solution** in the filter. 
 
    :::image type="content" source="./media/blob-backup-configure-manage/storage-account-location.png" alt-text="Screenshot shows the Storage account location.":::
    
@@ -205,5 +208,8 @@ To update the backup instance, follow these steps:
 
 ## Next steps
 
-- [Restore Azure Blobs](blob-restore.md).
-- [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
+[Restore Azure Blobs using Azure portal](blob-restore.md).
+
+## Related content
+
+Restore Azure Blobs by Azure Backup using [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

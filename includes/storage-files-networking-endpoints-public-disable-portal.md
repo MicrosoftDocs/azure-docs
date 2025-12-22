@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 11/01/2022
  ms.author: kendownie
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 Navigate to the storage account for which you would like to restrict all access to the public endpoint. In the table of contents for the storage account, select **Networking**.
 

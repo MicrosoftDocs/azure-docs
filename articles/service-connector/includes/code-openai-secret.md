@@ -2,17 +2,19 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 06/12/2024
+ms.date: 07/28/2025
 ms.author: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
 1. Install the following dependencies.
+
     ```bash
     dotnet add package Azure.AI.OpenAI --prerelease
     dotnet add package Azure.Core --version 1.40.0
     ```
+
 1. Get the Azure OpenAI endpoint and API key from the environment variables added by Service Connector.
     
     ```csharp
@@ -29,6 +31,7 @@ ms.author: wchi
 ### [Java](#tab/java)
 
 1. Add the following dependency in your *pom.xml* file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -41,7 +44,9 @@ ms.author: wchi
         <version>1.0.0-beta.6</version>
     </dependency>
     ```
+
 1. Get the Azure OpenAI endpoint and API key from the environment variables added by Service Connector.
+
     ```java
     String endpoint = System.getenv("AZURE_OPENAI_BASE");
     String key = System.getenv("AZURE_OPENAI_KEY");
@@ -54,11 +59,14 @@ ms.author: wchi
 ### [Python](#tab/python)
 
 1. Install the following dependencies.
+
     ```bash
     pip install openai
     pip install azure-core
     ```
+
 1. Get the Azure OpenAI endpoint and API key from the environment variables added by Service Connector.
+
     ```python
     import os
     from openai import AzureOpenAI
@@ -76,10 +84,12 @@ ms.author: wchi
 ### [NodeJS](#tab/nodejs)
 
 1. Install the following dependencies.
+
     ```bash
     npm install @azure/openai
     npm install @azure/core-auth
     ```
+
 1. Get the Azure OpenAI endpoint and API key from the environment variables added by Service Connector.
     
     ```javascript

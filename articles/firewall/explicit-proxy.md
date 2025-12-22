@@ -7,6 +7,8 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/30/2023
 ms.author: magakman
+ms.custom: sfi-image-nochange
+# Customer intent: As a network administrator, I want to configure an explicit proxy on Azure Firewall, so that I can manage outbound traffic efficiently without using a user-defined route.
 ---
 
 # Azure Firewall Explicit proxy (preview)
@@ -42,6 +44,15 @@ With the Explicit proxy mode (supported for HTTP/S), you can define proxy settin
    The SAS URL must have READ permissions so the firewall can download the file. If changes are made to the PAC file, a new SAS URL needs to be generated and configured on the firewall **Enable explicit proxy** page.
 
    :::image type="content" source="media/explicit-proxy/shared-access-signature.png" alt-text="Screenshot showing generate shared access signature.":::
+
+## Governance and compliance
+
+To ensure consistent configuration of explicit proxy settings across your Azure Firewall deployments, you can use Azure Policy definitions. The following policies are available to govern explicit proxy configurations:
+
+- **Enforce Explicit Proxy Configuration for Firewall Policies**: Ensures that all Azure Firewall policies have explicit proxy configuration enabled.
+- **Enable PAC file configuration while using Explicit Proxy**: Audits that when explicit proxy is enabled, the PAC (Proxy Auto-Configuration) file is also properly configured.
+
+For more information about these policies and how to implement them, see [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md).
 
 ## Next steps
 

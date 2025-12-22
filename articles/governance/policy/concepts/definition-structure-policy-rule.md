@@ -82,6 +82,8 @@ A condition evaluates whether a value meets certain criteria. The supported cond
 
 For `less`, `lessOrEquals`, `greater`, and `greaterOrEquals`, if the property type doesn't match the condition type, an error is thrown. String comparisons are made using `InvariantCultureIgnoreCase`.
 
+When using the `contains` and `notContains` conditions, the wildcard character (`*`) cannot be provided in the value.
+
 When using the `like` and `notLike` conditions, you provide a wildcard character (`*`) in the value. The value shouldn't have more than one wildcard character.
 
 When using the `match` and `notMatch` conditions, provide a hashtag (`#`) to match a digit, question mark (`?`) for a letter, and a dot  (`.`) to match any character, and any other character to match that actual character. While `match` and `notMatch` are case-sensitive, all other conditions that evaluate a `stringValue` are case-insensitive. Case-insensitive alternatives are available in `matchInsensitively` and `notMatchInsensitively`.
@@ -636,6 +638,32 @@ The following functions are only available in policy rules:
 - `requestContext().apiVersion`
   - Returns the API version of the request that triggered policy evaluation (example: `2021-09-01`). This value is the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
 
+- `requestContext().identity` 
+  - `idtyp`: returns the request caller's identity that triggered policy evaluation (example: `user`). Accepted values include: `app`, `user`, `null`.
+ 
+      ```json
+      {
+      "value": "[tryGet(requestContext().identity, 'idtyp')]",
+      "equals": "user"
+      }
+    ```
+  - `appid`: returns the client application ID that the request was executed from (example: Portal's application ID)
+     ```json
+     {
+      "value": "[tryGet(requestContext().identity, 'appid')]",
+      "notIn": "[parameters('allowedClientAppIds')]"
+     }
+    ```
+  
+  - `acrs`: returns whether a request was authenticated with multi-factor authentication (MFA)
+ 
+    ```json
+      {
+       "value": "p1",
+       "notIn": "[split(requestContext().identity.acrs, ',')]"
+      }
+    ```
+
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
 
@@ -724,7 +752,7 @@ The length of the string created by the `concat()` function depends on the value
 
 - For more information about policy definition structure, go to [basics](./definition-structure-basics.md), [parameters](./definition-structure-parameters.md), and [alias](./definition-structure-alias.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

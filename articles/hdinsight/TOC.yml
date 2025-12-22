@@ -333,6 +333,12 @@ items:
           href: ./component-version-validation-error-arm-templates.md
         - name: Switch Users in Ambari UI
           href: ./hdinsight-known-issues-ambari-users-cache.md
+        - name: Azure HDInsight Ambari access broken due to certificate issues post certification rotation
+          href: ./hdinsight-known-issues-ambari-access-certificate-issue.md
+        - name: Azure HDInsight headnode goes to unresponsive state
+          href: ./hdinsight-known-issues-cluster-head-node-unresponsive.md
+        - name: Azure HDInsight ESP cluster creation issues due to Ranger service startup
+          href: ./hdinsight-known-issues-ranger-cluster-create-failure.md
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
       - name: Troubleshoot Apache Ambari Metrics Collector
@@ -347,6 +353,30 @@ items:
         href: ./troubleshoot-sqoop.md
       - name: Understand and resolve WebHCat errors
         href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
+  - name: Cluster operations with Entra ID authentication
+    items:
+    - name: Create and manage Entra ID enabled Azure HDInsight clusters
+      href: ./hdinsight-with-entra-authentication/create-clusters-with-entra.md
+    - name: Manage Entra ID enabled clusters with ARM templates
+      href: ./hdinsight-with-entra-authentication/manage-entra-id-enabled-azure-hdinsight-clusters-with-arm-templates.md
+    - name: Manage Entra ID enabled clusters using REST API
+      href: ./hdinsight-with-entra-authentication/manage-entra-id-enabled-cluster-with-rest-api.md
+    - name: Manage Apache Hadoop clusters in Entra Auth enabled clusters by using the .NET SDK
+      href: ./hdinsight-with-entra-authentication/manage-hadoop-cluster-dot-net-sdk.md
+    - name: Run Hadoop jobs on Entra ID enabled clusters using PowerShell
+      href: ./hdinsight-with-entra-authentication/run-map-reduce-jobs-entra-id-enabled-using-powershell.md
+    - name: Run Apache Hive queries using PowerShell on Entra ID enabled clusters
+      href: ./hdinsight-with-entra-authentication/run-apache-hive-queries-using-powershell-on-entra-enabled-hdinsight-cluster.md
+    - name: Run Spark jobs in Entra ID enabled clusters using Rest API
+      href: ./hdinsight-with-entra-authentication/run-spark-jobs-using-rest-api.md
+    - name: Run Apache Hive queries in Entra ID enabled clusters using REST API
+      href: ./hdinsight-with-entra-authentication/run-apache-hive-queries-using-rest-api.md
+    - name: Run MapReduce jobs In Entra ID enabled clusters using REST API
+      href: ./hdinsight-with-entra-authentication/run-map-reduce-rest-jobs.md
+    - name: Run MapReduce jobs Entra ID enabled clusters using .NET SDK
+      href: ./hdinsight-with-entra-authentication/run-map-reduce-jobs-dot-net-sdk.md
+    - name: Run Hive Queries In Entra ID enabled clusters using .NET SDK
+      href: ./hdinsight-with-entra-authentication/run-hive-queries-using-dot-net-sdk.md
   - name: Reference
     items:
     - name: Azure CLI
@@ -907,7 +937,7 @@ items:
         href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
       - name: HWC 1.0 Supported APIs
         href: ./interactive-query/hive-warehouse-connector-apis.md
-      - name: HWC 2.0 Supported APIs
+      - name: HWC 2.1 and 2.0 Supported APIs
         href: ./interactive-query/hive-warehouse-connector-v2-apis.md
       - name: Apache Hive with Hadoop
         href: ./hadoop/hdinsight-use-hive.md

@@ -2,12 +2,13 @@
 title: What is Application Gateway for Containers?
 description: Overview of Azure Application Load Balancer Application Gateway for Containers features, resources, architecture, and implementation. Learn how Application Gateway for Containers works and how to use Application Gateway for Containers resources in Azure.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
 ms.topic: overview
-ms.date: 1/14/2025
-ms.author: greglin
+ms.date: 11/10/2025
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to understand how Application Gateway for Containers functions, so that I can effectively implement it for load balancing and traffic management within my Kubernetes cluster."
 ---
 
 # What is Application Gateway for Containers?
@@ -77,6 +78,7 @@ Application Gateway for Containers supports the following features for traffic m
 - TLS policies
 - URL redirect
 - URL rewrite
+- Web Application Firewall (WAF)
 - WebSocket support
 
 ### Deployment strategies
@@ -93,6 +95,7 @@ There are two deployment strategies for management of Application Gateway for Co
 Application Gateway for Containers is currently offered in the following regions:
 
 - Australia East
+- Brazil South
 - Canada Central
 - Central India
 - Central US
@@ -111,6 +114,8 @@ Application Gateway for Containers is currently offered in the following regions
 - UAE North
 - UK South
 - West US
+- West US 2
+- West US 3
 - West Europe
 
 ### Implementation of Gateway API

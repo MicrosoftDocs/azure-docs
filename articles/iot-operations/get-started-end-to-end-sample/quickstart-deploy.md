@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Run Azure IoT Operations in Codespaces"
 description: "Quickstart: Deploy Azure IoT Operations to a Kubernetes cluster running in GitHub Codespaces."
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: dominicbetts
+ms.author: dobett
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 01/30/2025
+ms.date: 11/20/2025
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -18,17 +18,20 @@ In this quickstart, you deploy Azure IoT Operations to an Azure Arc-enabled Kube
 
 This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, multiple teams working together perform these tasks and some tasks might require elevated permissions.
 
-For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) so that you have owner permissions over the resources in these quickstarts.
+For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) so that you have owner permissions over the resources in these quickstarts.
 
-We also use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+We use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
-[!INCLUDE [supported-environments](../includes/supported-environments.md)]
+> [!IMPORTANT]
+> Codespaces are easy to set up quickly and tear down later, but they're not suitable for production, performance evaluation, or scale testing. Use GitHub Codespaces for exploration only.
+>
+> The Codespaces environment is sufficient to complete the quickstart steps, but doesn't support advanced configurations like _secure settings_.
 
 ## Prerequisites
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * A [GitHub](https://github.com) account.
 
@@ -46,13 +49,6 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 1. Deploy Azure IoT Operations to your cluster.
 
 ## Create cluster
-
-Azure IoT Operations can be deployed to K3s on Ubuntu, Azure Kubernetes Service (AKS) Edge Essentials, and AKS on Azure Local. However, for speed and convenience, this quickstart uses GitHub Codespaces to host your cluster. To learn how to deploy Azure IoT Operations to a cluster on Windows or Ubuntu instead, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
-
->[!NOTE]
->Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only.
->
->The Codespaces environment is sufficient to complete the quickstart steps, but doesn't support advanced configurations.
 
 In this section, you create a new cluster. If you want to reuse a cluster that you deployed Azure IoT Operations to previously, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
@@ -75,12 +71,12 @@ To create your codespace and cluster, use the following steps:
    | --------- | ----- |
    | SUBSCRIPTION_ID | Your Azure subscription ID. |
    | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
-   | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+   | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-support.md#supported-regions). |
 
-   >[!TIP]
-   >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
+   > [!TIP]
+   > The values you provide as secrets in this step get saved on your GitHub account to be used in this and future Codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
    >
-   >Additionally, this codespace creates a `CLUSTER_NAME` environment variable which is set with the codespace name.
+   > Additionally, this codespace creates a `CLUSTER_NAME` environment variable which is set with the codespace name.
 
 1. Select **Create new codespace**.
 
@@ -108,14 +104,14 @@ To connect your cluster to Azure Arc:
    > If you're using the GitHub codespace environment in a browser rather than VS Code desktop, running `az login` returns a localhost error. To fix the error, either:
    >
    > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
-   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
+   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!"
 
 1. After you sign in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
 1. Register the required resource providers in your subscription:
 
-   >[!NOTE]
-   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+   > [!TIP]
+   > This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
    ```azurecli
    az provider register -n "Microsoft.ExtendedLocation"
@@ -138,8 +134,8 @@ To connect your cluster to Azure Arc:
    az connectedk8s connect --name $CLUSTER_NAME --location $LOCATION --resource-group $RESOURCE_GROUP
    ```
 
-   >[!TIP]
-   >The value of `$CLUSTER_NAME` is automatically set to the name of your codespace. Replace the environment variable if you want to use a different name.
+   > [!TIP]
+   > The value of `$CLUSTER_NAME` is automatically set to the name of your codespace. Replace the environment variable if you want to use a different name.
 
 1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant and save it as an environment variable. Run the following command exactly as written, without changing the GUID value.
 
@@ -152,6 +148,14 @@ To connect your cluster to Azure Arc:
    ```azurecli
    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
+
+## Install the latest version of `az iot ops`
+
+This quickstart uses the latest version of Azure IoT Operations. To install the latest version you need the latest version of the Azure IoT Operations CLI extension:
+
+```azurecli
+az extension add --upgrade --name azure-iot-ops
+```
 
 ## Create storage account and schema registry
 
@@ -187,6 +191,16 @@ Run the following CLI commands in your Codespaces terminal.
    az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT -o tsv --query id)
    ```
 
+## Create an Azure Device Registry namespace
+
+Azure IoT Operations and Azure Device Registry use _namespaces_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices.
+
+Run the following CLI command to create an Azure Device Registry namespace.
+
+```azurecli
+az iot ops ns create -n myqsnamespace -g $RESOURCE_GROUP
+```
+
 ## Deploy Azure IoT Operations
 
 In this section, you configure your cluster with the dependencies for your Azure IoT Operations components, then deploy Azure IoT Operations.
@@ -207,7 +221,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations.
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance  --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id) --broker-frontend-replicas 1 --broker-frontend-workers 1  --broker-backend-part 1  --broker-backend-workers 1 --broker-backend-rf 2 --broker-mem-profile Low
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id) --ns-resource-id $(az iot ops ns show --name myqsnamespace --resource-group $RESOURCE_GROUP -o tsv --query id) --broker-frontend-replicas 1 --broker-frontend-workers 1  --broker-backend-part 1  --broker-backend-workers 1 --broker-backend-rf 2 --broker-mem-profile Low
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.

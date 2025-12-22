@@ -1,12 +1,10 @@
 ---
 title: Test connectivity to MQTT broker with MQTT clients
 description: Learn how to use common and standard MQTT tools to test connectivity to an MQTT broker in a nonproduction environment.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
 ms.date: 11/06/2024
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
@@ -43,13 +41,7 @@ Download the `mqtt-client.yaml` deployment from the GitHub sample repository.
 > Don't use the MQTT client in production. The client is for testing purposes only.
 
 ```bash
-wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml -O mqtt-client.yaml
-```
-
-Apply the deployment file with kubectl:
-
-```bash
-kubectl apply -f mqtt-client.yaml
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
 ```
 
 ```output

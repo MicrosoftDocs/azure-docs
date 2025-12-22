@@ -36,7 +36,7 @@ If those options don't solve the problem, contact [Dynatrace support](https://s
 - **Single sign-on configuration indicates lack of permissions**
   - Occurs when the user that is trying to configure single sign-on doesn't have Manage users permissions for the Dynatrace account. For a description of how to configure this permission, see [here](https://www.dynatrace.com/support/help/shortlink/azure-native-integration#setup).
 - **Unable to save single sign-on settings**
-  - Error happens when there's another Enterprise app that is using the Dynatrace SAML identifier. To find which app is using it, select **Edit** on the Basic **SAML** configuration section. To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
+  - Error happens when there's another Enterprise app that is using the Dynatrace SAML identifier. To find which app is using it, select **Edit** on the Basic **SAML** configuration section. To fix this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
 
 - **App not showing in Single sign-on settings page**
   - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
@@ -47,7 +47,7 @@ If those options don't solve the problem, contact [Dynatrace support](https://s
 
 ## Diagnostic settings are active even after disabling the Dynatrace resource or applying necessary tag rules
 
-If logs are being emitted and diagnostic settings remain active on monitored resources even after the Dynatrace resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this, remove the delete lock from the resource or the resource group. If the lock is removed after the Dynatrace resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the Dynatrace resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To fix this, remove the delete lock from the resource or the resource group. If the lock is removed after the Dynatrace resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
 
 [!INCLUDE [diagnostic-settings](../includes/diagnostic-settings.md)]
 

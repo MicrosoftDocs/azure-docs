@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ms.custom: engagement-fy24
+# Customer intent: "As a cloud administrator, I want to link Oracle Database@Azure to multiple Azure subscriptions, so that I can efficiently manage projects and resources across different environments while maintaining simplified billing and account management."
 ---
 
 # Link Oracle Database@Azure to multiple Azure subscriptions

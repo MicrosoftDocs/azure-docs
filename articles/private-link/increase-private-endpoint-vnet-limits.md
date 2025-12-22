@@ -9,21 +9,19 @@ ms.date: 04/01/2025
 ms.service: azure-private-link
 ms.topic: how-to
 #customer intent: As a network administrator, I want to increase private endpoint limits so that I can scale my virtual network infrastructure effectively.
+# Customer intent: As a network administrator, I want to upgrade to High Scale Private Endpoints so that I can increase the limit of private endpoints in my virtual network and effectively scale my infrastructure without risking connectivity issues.
 ---
 
 # How-to: Increase Private Endpoint virtual network limits
 
-Today, users are [limited](/azure/azure-resource-manager/management/azure-subscription-service-limits) to deploying only 1,000 private endpoints within their virtual network. It's common for users to navigate around this limitation by implementing a [Hub and Spoke](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) model or a [Mesh network](/azure/virtual-network-manager/concept-connectivity-configuration). Doing so would make it possible to deploy extra private endpoints across peered virtual networks to temporarily surpass the per virtual network limit. However, scaling in this manner places users at risk of a silently enforced limitation. Whenever users surpass 4,000 private endpoints across their peered virtual networks, they put themselves at risk of connectivity issues and packet drops.
+Today, users are [limited](/azure/azure-resource-manager/management/azure-subscription-service-limits) to deploying only 1,000 private endpoints within their virtual network. It's common for users to navigate around this limitation by implementing a [Hub and Spoke](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) model or a [Mesh network](/azure/virtual-network-manager/concept-connectivity-configuration). Doing so would make it possible to deploy extra private endpoints across peered virtual networks to temporarily surpass the per virtual network limit. However, scaling in this manner places users at risk of a silently enforced limitation. Whenever users surpass 4,000 private endpoints across their peered virtual networks, they may experience connection health degradation.
 
 For users looking to surpass these current limits, we recommend upgrading to *High Scale Private Endpoints*. This feature increases standard limits to 5,000 private endpoints in a singular virtual network and 20,000 private endpoints across peered networks. This article details how to opt into this feature and provide extra considerations before enablement.
 
-> [!NOTE]
-> This feature is currently in public preview and available in select regions. We recommend reviewing all considerations before enabling it for your subscription.
 
 ## Prerequisites
 
-* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* Register feature flag Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath on current subscription, see [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
+* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Understanding of [Hub and Spoke](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) or [Mesh network](/azure/virtual-network-manager/concept-connectivity-configuration) topology.
 * A virtual network with private endpoint configured, see [Create a private endpoint](/azure/private-link/create-private-endpoint-portal).
 * Private Endpoint Network Policies set to **Enabled** or **RouteTableEnabled** for all Private Endpoint Subnets, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
@@ -176,9 +174,9 @@ $vnet.PrivateEndpointVNetPolicies
 
 | **Limit** | **Description** |
 |---|---|
-| Subscription must be enabled before enabling High Scale Private Endpoints. | Enabling Private Endpoint virtual network Policies before allow listing subscription feature flag requires a reconfiguration. |
-| Swift based virtual machines aren't supported. | Swift based virtual machines deployed within a High Scale Private Endpoint virtual network aren't supported with this feature. |
-| Feature currently available in select regions. | West Central US <br> UK South <br> East Asia <br> US East <br> US North |
+| Access to Baremetal subnets from an HSPE enabled peered VNet isn't supported | Connections destined to Azure baremetal subnets won't work  |
+| Feature currently available in all public regions | Mooncake and Azure Gov regions aren't supported at this time |
+
 
 ## Next Steps
 

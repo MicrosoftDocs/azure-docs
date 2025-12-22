@@ -1,7 +1,7 @@
----
+﻿---
 title: Create private link for managing resources - Azure portal
 description: Use Azure portal to create private link for managing resources.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/09/2025
 ---
 
@@ -61,4 +61,6 @@ To make sure your environment is properly configured, check the local IP address
 
 ## Next steps
 
-To learn more about private links, see [Azure Private Link](../../private-link/index.yml).
+- To learn more about private links, see [Azure Private Link](../../private-link/index.yml).
+- Refer to Azure [Private Link availability](../../private-link/availability.md) for information on supported services and regions, including Government cloud support.
+

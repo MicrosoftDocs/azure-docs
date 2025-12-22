@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: tutorial
 ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: As a cloud administrator, I want to view DDoS protection alerts in the security management portal so that I can investigate and respond effectively to potential DDoS attacks on our public IP addresses.
 ---
 
 # Tutorial: View Azure DDoS Protection alerts in Microsoft Defender for Cloud
@@ -29,7 +30,7 @@ To view the alerts, open **Defender for Cloud** in the Azure portal and select *
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 
 ## View alerts in Microsoft Defender for Cloud

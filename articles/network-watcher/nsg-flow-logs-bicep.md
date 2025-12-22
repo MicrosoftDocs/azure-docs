@@ -7,9 +7,14 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
 ms.date: 03/12/2025
-ms.custom: devx-track-bicep, subject-bicepqs, mode-arm
+ms.custom:
+  - devx-track-bicep
+  - subject-bicepqs
+  - mode-arm
+  - build-2025
 
 #CustomerIntent: As an Azure administrator, I need to enable NSG flow logs using a Bicep file so that I can log the traffic flowing through a network security group.
+# Customer intent: As an Azure administrator, I want to configure NSG flow logs using a Bicep file so that I can programmatically log and monitor the traffic through my network security groups.
 ---
 
 # Quickstart: Configure NSG flow logs using a Bicep file
@@ -24,13 +29,13 @@ In this quickstart, you learn how to enable NSG flow logs using a Bicep file. Fo
 
 # [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - [Azure PowerShell installed locally](/powershell/azure/install-azure-powershell) to run the cmdlets. Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to sign in to Azure.
 
 # [Azure CLI](#tab/cli)
 
-- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - [Azure CLI installed locally](/cli/azure/install-azure-cli) to run the commands. Use [az login](/cli/azure/reference-index#az-login) command to sign in to Azure.
 
@@ -38,7 +43,7 @@ In this quickstart, you learn how to enable NSG flow logs using a Bicep file. Fo
 
 ## Review the Bicep file
 
-This quickstart uses the [Create NSG flow logs](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep) Bicep template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create/).
+This quickstart uses the [Create NSG flow logs](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep) Bicep file from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep" range="1-67" highlight="51-67":::
 

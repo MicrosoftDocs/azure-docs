@@ -1,10 +1,11 @@
 ---
 title: Monitor the health and audit the integrity of your Microsoft Sentinel analytics rules
 description: Use the SentinelHealth data table to keep track of your analytics rules' execution and performance.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 10/30/2025
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to monitor and audit the health and integrity of my analytics rules so that I can ensure uninterrupted and tampering-free threat detection.
@@ -13,7 +14,7 @@ ms.date: 02/20/2023
 
 # Monitor the health and audit the integrity of your analytics rules
 
-To ensure comprehensive, uninterrupted, and tampering-free threat detection in your Microsoft Sentinel service, keep track of your analytics rules' health and integrity and keep them functioning optimally, by monitoring their [execution insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights), by querying the health and audit logs, and by [using manual rerun to test and optimize your rules](monitor-optimize-analytics-rule-execution.md#use-cases-and-benefits-of-rule-rerun).
+To ensure comprehensive, uninterrupted, and tampering-free threat detection in your Microsoft Sentinel service, keep track of your analytics rules' health and integrity. Keep them functioning optimally by monitoring their [execution insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights), by querying the health and audit logs, and by [using manual rerun to test and optimize your rules](monitor-optimize-analytics-rule-execution.md#use-cases-and-benefits-of-rule-rerun).
 
 Set up notifications of health and audit events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
@@ -21,9 +22,6 @@ This article describes how to use Microsoft Sentinel's [auditing and health moni
 
 For information on rule insights and manual rerunning of rules, see [Monitor and optimize the execution of your scheduled analytics rules](monitor-optimize-analytics-rule-execution.md).
 
-> [!IMPORTANT]
->
-> The *SentinelHealth* and *SentinelAudit* data tables are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Summary
 
@@ -31,7 +29,7 @@ For information on rule insights and manual rerunning of rules, see [Monitor and
 
     - This log captures events that record the running of analytics rules, and the end result of these runnings&mdash;if they succeeded or failed, and if they failed, why. 
     - The log also records, for each running of an analytics rule: 
-        - How many events were captured by the rule's query.
+        - How many events the rule's query captured.
         - Whether the number of events passed the threshold defined in the rule, causing the rule to fire an alert.
 
     These logs are collected in the *SentinelHealth* table in Log Analytics.
@@ -48,35 +46,33 @@ For information on rule insights and manual rerunning of rules, see [Monitor and
     
     These logs are collected in the *SentinelAudit* table in Log Analytics.
 
-## Use the SentinelHealth and SentinelAudit data tables (Preview)
+## Use the SentinelHealth and SentinelAudit data tables
 
-To get audit and health data from the tables described above, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on auditing and health monitoring for Microsoft Sentinel](enable-monitoring.md).
+To get audit and health data from the tables described earlier, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on auditing and health monitoring for Microsoft Sentinel](enable-monitoring.md).
 
 Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your automation rules and playbooks.
 
 ### Understanding SentinelHealth and SentinelAudit table events
 
-The following types of analytics rule health events are logged in the *SentinelHealth* table:
+The *SentinelHealth* table logs the following types of analytics rule health events:
 
 - **Scheduled analytics rule run**.
-
 - **NRT analytics rule run**.
 
-    For more information, see [SentinelHealth table columns schema](health-table-reference.md#sentinelhealth-table-columns-schema).
+For more information, see [SentinelHealth table columns schema](health-table-reference.md#sentinelhealth-table-columns-schema).
 
-The following types of analytics rule audit events are logged in the *SentinelAudit* table:
+The *SentinelAudit* table logs the following types of analytics rule audit events:
 
 - **Create or update analytics rule**.
-
 - **Analytics rule deleted**.
 
-    For more information, see [SentinelAudit table columns schema](audit-table-reference.md#sentinelaudit-table-columns-schema).
+For more information, see [SentinelAudit table columns schema](audit-table-reference.md#sentinelaudit-table-columns-schema).
 
 ### Run queries to detect health and integrity issues
 
-For best results, you should build your queries on the **pre-built functions** on these tables, ***_SentinelHealth()*** and ***_SentinelAudit()***, instead of querying the tables directly. These functions ensure the maintenance of your queries' backward compatibility in the event of changes being made to the schema of the tables themselves.
+For best results, build your queries on the **prebuilt functions** for these tables, ***_SentinelHealth()*** and ***_SentinelAudit()***, instead of querying the tables directly. These functions maintain your queries' backward compatibility if changes are made to the schema of the tables.
 
-As a first step, your queries should filter the tables for data related to analytics rules. Use the `SentinelResourceType` parameter.
+As a first step, filter the tables for data related to analytics rules. Use the `SentinelResourceType` parameter.
 
 ```kusto
 _SentinelHealth()
@@ -95,15 +91,7 @@ If you want, you can further filter the list for a particular kind of analytics 
 
 Here are some sample queries to help you get started:
 
-- Find rules that didn't run successfully:
-
-    ```kusto
-    _SentinelHealth()
-    | where SentinelResourceType == "Analytics Rule"
-    | where Status != "Success"
-    ``` 
-
-- Find rules that have been "[auto-disabled](troubleshoot-analytics-rules.md#issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name)":
+- Find rules that are "[autodisabled](troubleshoot-analytics-rules.md#issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name)":
 
     ```kusto
     _SentinelHealth()
@@ -153,46 +141,90 @@ Here are some sample queries to help you get started:
 
 [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
-### Statuses, errors and suggested steps
+#### Scheduled rules
+When a schedule rule fails, it's retried five more times on the exact same window. The rule doesn't skip the window and miss an alert as long as one of the six attempts is successful.
 
-For either **Scheduled analytics rule run** or **NRT analytics rule run**, you may see any of the following statuses and descriptions:
-- **Success**: Rule executed successfully, generating `<n>` alert(s).
+Failure in one of the six attempts indicates a delay in the alert triggering. The following query calculates the exact delay:
 
-- **Success**: Rule executed successfully, but did not reach the threshold (`<n>`) required to generate an alert.
+```kusto
+_SentinelHealth()
+| where SentinelResourceType == @"Analytics Rule" 
+| where SentinelResourceKind == "Scheduled"
+| extend startTime = todatetime(ExtendedProperties["QueryStartTimeUTC"]), executionStart = todatetime(ExtendedProperties["executionStart"])
+| extend delay = datetime_diff('minute', startTime, executionStart)
+```
 
-- **Failure**: These are the possible descriptions for rule failure, and what you can do about them.
+To look for complete failures (that is, a window that was skipped), use the following query:
+
+```kusto
+_SentinelHealth()| where SentinelResourceType == @"Analytics Rule" 
+| where SentinelResourceKind == "Scheduled"
+| where Status != "Success"
+| extend startTime = tostring(ExtendedProperties["QueryStartTimeUTC"])
+| summarize failuresByStartTime = count() by startTime, SentinelResourceId
+| where failuresByStartTime == 6
+| summarize count() by SentinelResourceId
+```
+
+This query looks for scheduled analytics rule runs where none of the six retries were successful. You can identify a retry by looking at the start time of the rule’s window since the retries always look at the original start time. This query gives you the amount of skipped windows for each analytic rule. We expect skipped windows to be rare. If you see that you have analytics rules with skipped windows, use the queries to understand the failure reason of these specific rules and the table of failures reasons and mitigations to fix them.
+
+
+#### NRT rules
+The retry mechanism for NRT rules behaves differently from scheduled rules. If a rule fails to run, the system also considers the failed window in the next run (one minute later). This behavior continues for up to 60 failures (one hour).
+
+Since one failure of a specific run reflects only one-minute delay, don't look at single failures. Instead, use the following query to monitor the delay of each analytic rule:
+
+```kusto
+_SentinelHealth()
+| where SentinelResourceKind == "NRT"
+| extend startTime = todatetime(ExtendedProperties["QueryStartTimeUTC"]), endTime = todatetime(ExtendedProperties["QueryEndTimeUTC"]), alertsCreated = toint(ExtendedProperties["AlertsGeneratedAmount"])
+| where alertsCreated == 0 
+| extend ruleDelay = datetime_diff('minute', endTime, startTime)
+| project TimeGenerated, ruleDelay, SentinelResourceId
+| render timechart
+```
+
+You can also define an analytics rule to trigger alerts on significant delays (for example, if an NRT rule has a delay of more than 10 minutes).
+
+
+### Statuses, errors, and suggested steps
+
+For either **Scheduled analytics rule run** or **NRT analytics rule run**, you might see any of the following statuses and descriptions:
+- **Success**: Rule executed successfully, generating `<n>` alerts.
+- **Success**: Rule executed successfully, but didn't reach the threshold (`<n>`) required to generate an alert.
+- **Failure**: These descriptions explain rule failure and what you can do about them.
 
     | Description  | Remediation  |
     | ------------ | ------------ |
     | An internal server error occurred while running the query.   |   |
     | The query execution timed out.   |   |
-    | A table referenced in the query was not found.   | Verify that the relevant data source is connected.   |
+    | A table referenced in the query wasn't found.   | Verify that the relevant data source is connected.   |
     | A semantic error occurred while running the query.   | Try resetting the analytics rule by editing and saving it (without changing any settings). |
     | A function called by the query is named with a reserved word.   | Remove or rename the function.   |
     | A syntax error occurred while running the query.   | Try resetting the analytics rule by editing and saving it (without changing any settings). |
-    | The workspace does not exist.   |   |
-    | This query was found to use too many system resources and was prevented from running. | Review and tune the analytics rule. Consult our Kusto Query Language [overview](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) and [best practices](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) documentation. |
-    | A function called by the query was not found.   | Verify the existence in your workspace of all functions called by the query.   |
-    | The workspace used in the query was not found.   | Verify that all workspaces in the query exist.   |
+    | The workspace doesn't exist.   |   |
+    | This query uses too many system resources and was prevented from running. | Review and tune the analytics rule. Consult our Kusto Query Language [overview](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) and [best practices](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) documentation. |
+    | A function called by the query wasn't found.   | Verify the existence in your workspace of all functions called by the query.   |
+    | The workspace used in the query wasn't found.   | Verify that all workspaces in the query exist.   |
     | You don't have permissions to run this query.   | Try resetting the analytics rule by editing and saving it (without changing any settings).   |
     | You don't have access permissions to one or more of the resources in the query.   |   |
-    | The query referred to a storage path that was not found.   |   |
+    | The query referred to a storage path that wasn't found.   |   |
     | The query was denied access to a storage path.   |   |
     | Multiple functions with the same name are defined in this workspace. | Remove or rename the redundant function and reset the rule by editing and saving it. |
-    | This query did not return any result.   |   |
-    | Multiple result sets in this query are not allowed.   |   |
+    | This query didn't return any result.   |   |
+    | Multiple result sets in this query aren't allowed.   |   |
     | Query results contain inconsistent number of fields per row.   |   |
     | The rule's running was delayed due to long data ingestion times.   |   |
     | The rule's running was delayed due to temporary issues.   |   |
-    | The alert was not enriched due to temporary issues.   |   |
-    | The alert was not enriched due to entity mapping issues.   |   |
+    | The alert wasn't enriched due to temporary issues.   |   |
+    | The alert wasn't enriched due to entity mapping issues.   |   |
     | \<*number*> entities were dropped in alert \<*name*> due to the 32 KB alert size limit.   |   |
     | \<*number*> entities were dropped in alert \<*name*> due to entity mapping issues.   |   |
     | The query resulted in \<*number*> events, which exceeds the maximum of \<*limit*> results allowed for \<*rule type*> rules with alert-per-row event-grouping configuration. Alert-per-row was generated for first \<*limit*-1> events and an additional aggregated alert was generated to account for all events.<br>- \<*number*> = number of events returned by the query<br>- \<*limit*> = currently 150 alerts for scheduled rules, 30 for NRT rules<br>- \<*rule type*> = Scheduled or NRT
 
 ## Use the auditing and health monitoring workbook
 
-1. To make the workbook available in your workspace, you must install the workbook solution from the Microsoft Sentinel content hub:
+1. To make the workbook available in your workspace, install the workbook solution from the Microsoft Sentinel content hub:
     1. From the Microsoft Sentinel portal, select **Content hub (Preview)** from the **Content management** menu.
 
     1. In the **Content hub**, enter *health* in the search bar, and select **Analytics Health & Audit** from among the **Workbook** solutions under **Standalone** in the results.
@@ -211,11 +243,11 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
 
 1. Select **Save** in the details pane to create an editable and usable copy of the workbook. When the copy is created, select **View saved workbook**.
 
-1. Once in the workbook, first select the **subscription** and **workspace** you wish to view (they may already be selected), then define the **TimeRange** to filter the data according to your needs. Use the **Show help** toggle to display in-place explanation of the workbook.
+1. Once in the workbook, first select the **subscription** and **workspace** you want to view (they might already be selected), then define the **TimeRange** to filter the data according to your needs. Use the **Show help** toggle to display in-place explanation of the workbook.
 
     :::image type="content" source="media/monitor-analytics-rule-integrity/analytics-health-workbook-overview.png" alt-text="Screenshot of analytics rule health workbook overview tab.":::
 
-There are three tabbed sections in this workbook:
+This workbook has three tabbed sections:
 
 ### Overview tab
 
@@ -225,12 +257,12 @@ The **Overview** tab shows health and audit summaries:
 
 ### Health tab
 
-The **Health** tab lets you drill down to particular health events.
+The **Health** tab lets you explore specific health events.
 
 :::image type="content" source="media/monitor-analytics-rule-integrity/analytics-health-workbook-health-tab.png" alt-text="Screenshot of selection of health tab in analytics health workbook.":::
 
-- Filter the whole page data by **status** (success/failure) and **rule type** (scheduled/NRT).
-- See the trends of successful and/or failed rule runs (depending on the status filter) over the selected time period. You can "time brush" the trend graph to see a subset of the original time range.
+- Filter the whole page data by **status** (success or failure) and **rule type** (scheduled or NRT).
+- See the trends of successful and failed rule runs (depending on the status filter) over the selected time period. You can "time brush" the trend graph to see a subset of the original time range.
     :::image type="content" source="media/monitor-analytics-rule-integrity/analytics-rule-runs-over-time.png" alt-text="Screenshot of analytics rule runs over time in analytics health workbook.":::
 - Filter the rest of the page by **reason**.
 - See the total number of runs for all the analytics rules, displayed proportionally by status in a pie chart.
@@ -238,7 +270,7 @@ The **Health** tab lets you drill down to particular health events.
     - Select a status to filter the remaining charts for that status.
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
     :::image type="content" source="media/monitor-analytics-rule-integrity/number-rule-runs-by-status-and-type.png" alt-text="Screenshot of number of rules run by status and type in the analytics health workbook.":::
-- See each status, with the number of possible reasons for that status. (Only reasons represented in the runs in the selected time frame will be shown.)
+- See each status, with the number of possible reasons for that status. (Only reasons represented in the runs in the selected time frame are shown.)
     - Select a status to filter the remaining charts for that status.
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
     :::image type="content" source="media/monitor-analytics-rule-integrity/unique-reasons-by-status.png" alt-text="Screenshot of number of unique reasons by status in analytics health workbook.":::
@@ -246,11 +278,11 @@ The **Health** tab lets you drill down to particular health events.
     - Select a reason to filter the following charts for that reason.
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
     :::image type="content" source="media/monitor-analytics-rule-integrity/rule-runs-by-reason.png" alt-text="Screenshot of rule runs by unique reason in analytics health workbook.":::
-- After that is a list of the unique analytics rules that ran, with the latest results and trendlines of their success and/or failure (depending on the status selected to filter the list).
+- After that is a list of the unique analytics rules that ran, with the latest results and trendlines of their success and failure (depending on the status selected to filter the list).
     - Select a rule to drill down and show a new table with all the runnings of that rule (in the selected time frame).
     - Clear that table by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
     :::image type="content" source="media/monitor-analytics-rule-integrity/unique-rules-by-status-and-trend.png" alt-text="Screenshot of list of unique rules run, with status and trendlines, in analytics health workbook.":::
-- If you selected a rule in the list above, a new table will appear with the health details for the selected rule.
+- If you select a rule in the list, a new table appears with the health details for the selected rule.
 :::image type="content" source="media/monitor-analytics-rule-integrity/health-events-for-rule.png" alt-text="Screenshot of list of runs of selected analytics rule, in analytics health workbook.":::
 
 
@@ -272,7 +304,7 @@ The **Audit** tab lets you drill down to particular audit events.
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
     :::image type="content" source="media/monitor-analytics-rule-integrity/activity-by-rule-name-and-caller.png" alt-text="Screenshot of audited events by rule name and caller in analytics health workbook.":::
 - See the number of audited events by **caller** (the identity that performed the activity).
-- If you selected a rule name in the chart depicted above, another table will appear showing the audited **activities** on that rule. Select the value that appears as a link in the ExtendedProperties column to open a side panel displaying the changes made to the rule.
+- If you selected a rule name in the preceding chart, another table appears showing the audited **activities** on that rule. Select the value that appears as a link in the ExtendedProperties column to open a side panel displaying the changes made to the rule.
     :::image type="content" source="media/monitor-analytics-rule-integrity/audit-activity-for-rule.png" alt-text="Screenshot of audit activity for selected rule in analytics health workbook.":::
 
 ## Next steps

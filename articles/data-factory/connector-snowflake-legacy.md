@@ -6,8 +6,11 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 10/15/2024
+ms.date: 05/15/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy and transform data in Snowflake V1 using Azure Data Factory or Azure Synapse Analytics
@@ -17,7 +20,7 @@ ms.date: 10/15/2024
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 > [!IMPORTANT]
-> The [Snowflake V2 connector](connector-snowflake.md) provides improved native Snowflake support. If you are using the [Snowflake V1 connector](connector-snowflake-legacy.md) in your solution, you are recommended to [upgrade your Snowflake connector](connector-snowflake.md#upgrade-the-snowflake-linked-service) at your earliest convenience. Refer to this [section](connector-snowflake.md#differences-between-snowflake-and-snowflake-legacy) for details on the difference between V2 and V1.
+> The Snowflake V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Snowflake connector](connector-snowflake.md#differences-between-snowflake-and-snowflake-legacy) from V1 to V2.
 
 ## Supported capabilities
 
@@ -89,8 +92,6 @@ The following sections provide details about properties that define entities spe
 
 This Snowflake connector supports the following authentication types. See the corresponding sections for details. 
 
- 
-
 - [Basic authentication](#basic-authentication)
 
 ### Basic authentication 
@@ -100,7 +101,7 @@ The following properties are supported for a Snowflake linked service when using
 | Property         | Description                                                  | Required |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | The type property must be set to **Snowflake**.              | Yes      |
-| connectionString | Specifies the information needed to connect to the Snowflake instance. You can choose to put password or entire connection string in Azure Key Vault. Refer to the examples below the table, and the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article, for more details.<br><br>Some typical settings:<br>- **Account name:** The  [full account name](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) of your Snowflake account (including additional segments that identify the region and cloud platform), e.g. xy12345.east-us-2.azure.<br/>- **User name:** The login name of the user for the connection.<br>- **Password:** The password for the user.<br>- **Database:** The default database to use once connected. It should be an existing database for which the specified role has privileges.<br>- **Warehouse:** The virtual warehouse to use once connected. It should be an existing warehouse for which the specified role has privileges.<br>- **Role:** The default access control role to use in the Snowflake session. The specified role should be an existing role that has already been assigned to the specified user. The default role is PUBLIC. | Yes      |
+| connectionString | Specifies the information needed to connect to the Snowflake instance. You can choose to put password or entire connection string in Azure Key Vault. Refer to the examples below the table, and the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article, for more details.<br><br>Some typical settings:<br>- **Account name:** The  [full account name](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) of your Snowflake account (including additional segments that identify the region and cloud platform), for example, xy12345.east-us-2.azure.<br/>- **User name:** The login name of the user for the connection.<br>- **Password:** The password for the user.<br>- **Database:** The default database to use once connected. It should be an existing database for which the specified role has privileges.<br>- **Warehouse:** The virtual warehouse to use once connected. It should be an existing warehouse for which the specified role has privileges.<br>- **Role:** The default access control role to use in the Snowflake session. The specified role should be an existing role that has already been assigned to the specified user. The default role is PUBLIC. | Yes      |
 | authenticationType  | Set this property to **Basic**. | Yes    | 
 | connectVia       | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
 
@@ -197,7 +198,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | Property                     | Description                                                  | Required |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | The type property of the Copy activity source must be set to **SnowflakeSource**. | Yes      |
-| query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`.<br>Executing stored procedure isn't supported. | No       |
+| query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query, for example, `select * from "schema"."myTable"`.<br>Executing stored procedure isn't supported. | No       |
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes       |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
@@ -562,6 +563,28 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 > [!NOTE]
 > We don’t support temporary tables in Snowflake, as they are local to the session or user who creates them, making them inaccessible to other sessions and prone to being overwritten as regular tables by Snowflake. While Snowflake offers transient tables as an alternative, which are accessible globally, they require manual deletion, contradicting our primary objective of using Temp tables which is to avoid any delete operations in source schema.
+
+## Data type mapping for Snowflake V1
+
+When you copy data from Snowflake, the following mappings are used from Snowflake data types to interim data types within the service internally. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Snowflake data type      | Service interim data type |
+|--------------------|---------------------------------------------|
+| NUMBER (p,0)       | Int64                                       |
+| NUMBER (p,s where s>0) | Decimal                                 |
+| FLOAT              | Double                                      |
+| VARCHAR            | String                                      |
+| CHAR               | String                                      |
+| BINARY             | Byte[]                                      |
+| BOOLEAN            | Boolean                                     |
+| DATE               | DateTime                                    |
+| TIME               | TimeSpan                                    |
+| TIMESTAMP_LTZ      | DateTime                                    |
+| TIMESTAMP_NTZ      | DateTime                                    |
+| TIMESTAMP_TZ       | DateTime                                    |
+| VARIANT            | String                                      |
+| OBJECT             | String                                      |
+| ARRAY              | String                                      |
 
 ## Lookup activity properties
 

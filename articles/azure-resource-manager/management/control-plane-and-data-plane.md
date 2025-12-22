@@ -1,7 +1,7 @@
----
+﻿---
 title: Control plane and data plane operations
 description: Describes the difference between control plane and data plane operations. Azure Resource Manager handles control plane operations. A service handles data plane operations.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 01/23/2025
 ---
@@ -29,7 +29,7 @@ All requests for control plane operations are sent to the Azure Resource Manager
 * For Azure Germany, the URL is `https://management.microsoftazure.de/`.
 * For Microsoft Azure operated by 21Vianet, the URL is `https://management.chinacloudapi.cn`.
 
-To discover which operations use the Azure Resource Manager URL, see the [Azure REST API](/rest/api/azure/). For example, the [create or update operation](/rest/api/mysql/singleserver/databases/create-or-update) for MySQL is a control plane operation because the request URL is:
+To discover which operations use the Azure Resource Manager URL, see the [Azure REST API](/rest/api/azure/). For example, the [create or update operation](/rest/api/mysql/databases/create-or-update) for MySQL is a control plane operation because the request URL is:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
@@ -65,3 +65,4 @@ You can use some policies to govern data plane operations. For more information,
 * For an overview of Azure Resource Manager, see [What is Azure Resource Manager?](overview.md)
 
 * To learn more about the effect of policy definitions on new resources and existing resources, see [Evaluate the impact of a new Azure Policy definition](../../governance/policy/concepts/evaluate-impact.md).
+

@@ -4,7 +4,9 @@ description: In this tutorial, you implement an Azure Policy with an Azure DevOp
 ms.date: 03/04/2025
 ms.topic: tutorial
 ms.author: jukullam
-ms.custom: devops-pipelines-deploy
+ms.custom:
+  - devops-pipelines-deploy
+  - sfi-image-nochange
 ---
 
 # Implement Azure Policy with Azure DevOps release pipelines
@@ -20,7 +22,7 @@ and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 ## Prepare
 
 1. Create an [Azure Policy](./create-and-manage.md) in the Azure portal.
-   There are several [predefined sample policies](../samples/index.md)
+   There are several [predefined sample policies](/azure/governance/policy/samples/index)
    that can be applied to a management group, subscription, and resource group.
 
 1. In Azure DevOps, create a release pipeline that contains at least one stage, or open an existing release pipeline.

@@ -9,6 +9,7 @@ ms.author: estfan
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 07/11/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Migrate Azure Scheduler jobs to Azure Logic Apps
@@ -38,7 +39,7 @@ For more information, see [What is Azure Logic Apps?](../logic-apps/logic-apps-o
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
@@ -152,7 +153,7 @@ To control the way that an action tries to rerun in your workflow when intermitt
 
 ## Handle exceptions and errors
 
-In Azure Scheduler, if the default action fails to run, you can run an alterative action that addresses the error condition. In Azure Logic Apps, you can also perform the same task. For more information about exception handling in Azure Logic Apps, see [Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
+In Azure Scheduler, if the default action fails to run, you can run an alternative action that addresses the error condition. In Azure Logic Apps, you can also perform the same task. For more information about exception handling in Azure Logic Apps, see [Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
 1. In the designer, above the action that you want to handle, [add a parallel branch](../logic-apps/logic-apps-control-flow-branches.md).
 

@@ -4,9 +4,11 @@ description: Learn how to create, understand, and debug Azure API Management Pol
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 09/26/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
+ms.custom: sfi-image-nochange
 ---
 
 # Create, understand, and debug Azure API Management policies in Visual Studio Code
@@ -49,8 +51,8 @@ To create a policy:
     * To create a policy that applies to a specific API, under **APIs**, select the API, and then select **Policy**.
     * To create a policy that applies to a specific API operation, select the operation, and then select **Policy**.
 
-1. In the policy editor window that appears, right-click and select **Copilot** > **Draft APIM Policies**. The Copilot Chat window appears.
-1. In the Copilot Chat window, enter a prompt in natural language to create a policy. Examples:
+1. Open Chat.
+1. In the Chat window, enter a prompt in natural language to create a policy. Examples:
     
     ```copilot-prompt
     @azure I want to limit requests to 100 calls per minute
@@ -59,11 +61,9 @@ To create a policy:
     ```copilot-prompt
     @azure Create a policy that sets the backend URL to https://mybackend.contoso.com and adds a custom header to the request
     ```
-1. Copilot generates a policy draft in the chat window. You can refine the prompt if you want Copilot to change the output. 
+1. Copilot generates a policy draft in the Chat window. You can refine the prompt if you want Copilot to change the output. 
 
 1. When you're ready, select the **Copy** button to copy the policy to the clipboard, or select **Apply in Editor** to insert the policy in the editor window. If you are satisfied with the change in the policy XML, select **Keep**.
-
-:::image type="content" source="media/api-management-debug-policies/draft-policy.gif" alt-text="Animation showing drafting of an API Management policy in VS Code.":::
 
 > [!TIP]
 > Check in the **Problems** window for explanation of any issues in the policy XML.
@@ -81,10 +81,9 @@ To receive an explanation:
     * To explain a policy that applies to a specific API, under **APIs**, select the API, and then select **Policy**.
     * To explain a policy that applies to a specific API operation, select the operation, and then select **Policy**.
 
-1. In the policy editor window that appears, right-click and select **Copilot** > **Explain APIM Policies**. 
-1. An overview and explanation of policies in the policy XML document are generated in the Copilot Chat window.
+1. In the policy editor window that appears, right-click and select **Explain**.
+1. An overview and explanation of policies in the policy XML document are generated in the Chat window.
 
-:::image type="content" source="media/api-management-debug-policies/draft-policy.gif" alt-text="Animation showing explanation of an API Management policy in VS Code.":::
 
 ## Debug policies using the VS Code extension
 

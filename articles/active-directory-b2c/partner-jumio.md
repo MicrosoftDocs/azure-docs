@@ -16,6 +16,8 @@ ms.subservice: b2c
 
 # Tutorial for configuring Jumio with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) with [Jumio](https://www.jumio.com/), an ID verification service that enables real-time automated ID verification to help protect customer data.
 
 ## Prerequisites
@@ -24,7 +26,7 @@ To get started, you'll need:
 
 * An Azure subscription
 
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription 
 
 ## Scenario description

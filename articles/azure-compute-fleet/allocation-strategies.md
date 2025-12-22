@@ -1,20 +1,18 @@
 ---
 title: Allocation strategies for Azure Compute Fleet
 description: Learn about Compute Fleet allocation strategies for Spot and Standard virtual machines (VM).
-author: rrajeesh
-ms.author: rajeeshr
+author: shandilvarun
+ms.author: vashan
 ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/13/2024
-ms.reviewer: jushiman
+ms.date: 04/21/2025
+ms.reviewer: cynthn, iamwilliew
+# Customer intent: As a cloud architect, I want to understand the allocation strategies for Compute Fleet, so that I can optimize virtual machine deployments based on cost, performance, and availability for my workloads.
 ---
 
 # Allocation strategies for Azure Compute Fleet 
-
-> [!IMPORTANT]
-> [Azure Compute Fleet](overview.md) is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
 When using a Compute Fleet for your workloads, you have several allocation strategies available to optimize costs, performance, or availability. These strategies determine how the fleet fulfills your capacity requirements by distributing the requested instances across different instance types and Availability Zones. 
 
@@ -42,7 +40,7 @@ For Spot VMs, you have the following allocation strategies available for your Co
 
 The **price capacity optimized** allocation strategy is the recommended strategy for Spot VMs.
 
-The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fullfil the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. This strategy is not compatible with attribute-based VM selection.
+The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fulfill the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. This strategy is not compatible with attribute-based VM selection.
 
 If you select multiple VMs that happen to offer the ideal capacity to meet your target, then Compute Fleet prioritizes deploying VMs that offer the lowest price first. Followed by the second and third lowest price if sufficient capacity isn't available with the first lowest price VMs. Compute Fleet considers both price and capacity while configuring this strategy.
 

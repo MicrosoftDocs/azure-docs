@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to configure an Always On VPN device tunnel to Azure, so that I can ensure a persistent and secure connection for my organization's remote devices.
 ---
 # Configure an Always On VPN device tunnel
 

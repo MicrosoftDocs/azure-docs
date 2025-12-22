@@ -1,8 +1,8 @@
 ---
 title: Region failover mapping - Device Update for Azure IoT Hub
 description: Regional mapping for business continuity and disaster recovery (BCDR) for Device Update for IoT Hub.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/31/2022
 ms.topic: conceptual
 ms.service: azure-iot-hub

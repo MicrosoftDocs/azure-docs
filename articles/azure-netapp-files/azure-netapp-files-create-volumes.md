@@ -1,12 +1,13 @@
 ---
-title: Create an NFS volume for Azure NetApp Files | Microsoft Docs
+title: Create an NFS volume for Azure NetApp Files
 description: This article shows you how to create an NFS volume in Azure NetApp Files. Learn about considerations, like which version to use, and best practices.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/10/2024
+ms.date: 10/07/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to create an NFS volume in Azure NetApp Files, so that I can support my application’s data management requirements and ensure optimized performance through proper version selection and configuration.
 ---
 # Create an NFS volume for Azure NetApp Files
 
@@ -22,6 +23,11 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
+* Plan your lightweight directory access protocol (LDAP) server.
+    If you're using FreeIPA, OpenLDAP, or Red Hat Directory Server, you must create the server before creating the NFS volumes. For other considerations, see [Configure LDAP directory servers](configure-directory-server.md).
+
+    >[!NOTE]
+    >[!INCLUDE [Note about Kerberos non-support for other LDAP services](includes/kerberos-other-servers.md)]
 
 ## Considerations 
 
@@ -32,9 +38,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
   Support for UNIX mode bits (read, write, and execute) is available for NFSv3 and NFSv4.1. Root-level access is required on the NFS client to mount NFS volumes.
 
 * User ID mapping in NFSv4.1 for LDAP-enabled and non-LDAP volumes  
-  To avoid permission issues, including access for a root user, when using NFSv4.1, the ID domain configuration on the NFS client and Azure NetApp Files must match. User ID mapping can use centralized user management with LDAP or use local users for non-LDAP volumes. To configure the ID Domain in Azure NetApp Files for non-LDAP volumes, see [Configure NFSv4.1 ID domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
+  To avoid permission issues including access for a root user when using NFSv4.1, the ID domain configuration on the NFS client and Azure NetApp Files must match. User ID mapping can use centralized user management with LDAP or use local users for non-LDAP volumes. To configure the ID Domain in Azure NetApp Files for non-LDAP volumes, see [Configure NFSv4.1 ID domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
 
-## Best practice
+## Best practices
 
 * Ensure that you’re using the proper mount instructions for the volume. See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
@@ -92,11 +98,14 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
+    * **Availability zone**   
+        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+
     * **Encryption key source** 
         You can select Microsoft Managed Key or Customer Managed Key. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
-    * **Availability zone**   
-        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+    * **Advanced Ransomware Protection**
+        Select **Enabled** to configure ransomware threat detection alerts for your volumes. For more information, see [Configure advanced ransomware protection](ransomware-configure.md). 
 
     * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
@@ -123,7 +132,13 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
         Additional configurations are required if you use Kerberos with NFSv4.1. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
 
-    * If you want to enable Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume, select the **LDAP** option. Follow instructions in [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
+    * Select **LDAP** to enable LDAP users and extended groups (up to 1,024 groups) to access the volume.
+        * For Active Directory servers, follow instructions in [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
+        * For other servers, you must have created the server before you can create the volume. Follow instructions in [Configure LDAP directory servers](configure-directory-server.md).
+
+    * **LDAP server type**: If you've selected **LDAP**, choose the server connection type:
+        - For Active Directory, select **Active Directory connections**.
+        - For all other servers, select **LDAP connection**.
  
     *  Customize **Unix Permissions** as needed to specify change permissions for the mount path. The setting does not apply to the files under the mount path. The default setting is `0770`. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users.     
         Registration requirement and considerations apply for setting **Unix Permissions**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).   

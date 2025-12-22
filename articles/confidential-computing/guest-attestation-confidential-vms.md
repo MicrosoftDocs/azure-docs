@@ -5,9 +5,10 @@ author: prasadmsft
 ms.author: reprasa
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/29/2022
 ms.custom: template-concept
+# Customer intent: "As a security engineer, I want to implement guest attestation for confidential VMs, so that I can ensure that my applications are running in a trusted and secure environment on genuine hardware with integrity and isolation measures in place."
 ---
 
 # What is guest attestation for confidential VMs?

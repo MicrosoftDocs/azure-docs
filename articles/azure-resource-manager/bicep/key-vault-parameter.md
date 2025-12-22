@@ -1,8 +1,8 @@
----
+﻿---
 title: Use Azure Key Vault to Pass a Secret as a Parameter During Bicep Deployment
 description: Learn how to pass a secret from a key vault as a parameter during Bicep deployment.
-ms.topic: conceptual
-ms.date: 01/31/2025
+ms.topic: article
+ms.date: 12/10/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -169,7 +169,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   name: sqlServerName
   location: location
   properties: {
@@ -192,7 +192,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -221,7 +221,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   name: sqlServerName
   location: location
   properties: {
@@ -284,4 +284,3 @@ If you need to use a version of the secret other than the current one, include a
 
 - For general information about key vaults, see [About Azure Key Vault](/azure/key-vault/general/overview).
 - For complete GitHub examples that demonstrate how to reference key vault secrets, see [Key vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
-- For a Learn module that covers how to use a key vault to pass a secure value, see [Manage complex cloud deployments by using advanced JSON ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).

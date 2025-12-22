@@ -7,6 +7,7 @@ ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 01/13/2025
+ms.custom: sfi-image-nochange
 
 ---
 

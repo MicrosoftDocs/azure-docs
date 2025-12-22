@@ -21,7 +21,7 @@ In this guide, you connect Dapr Pub/Sub API to an Azure Service Bus by:
 > - Use your Azure Service Bus pub/sub component!
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create a free Azure account](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [An existing Azure Container App](./quickstart-portal.md).
 
 ## Create a Dapr component

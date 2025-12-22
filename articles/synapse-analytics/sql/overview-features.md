@@ -8,6 +8,7 @@ ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 03/24/2022
+ms.custom: sfi-ropc-nochange
 
 ---
 

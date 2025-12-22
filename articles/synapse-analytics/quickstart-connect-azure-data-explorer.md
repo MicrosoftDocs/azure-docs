@@ -7,7 +7,9 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 02/15/2022
 ms.author: juluczni
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Connect to Azure Data Explorer using Apache Spark for Azure Synapse Analytics

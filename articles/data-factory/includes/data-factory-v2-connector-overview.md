@@ -5,6 +5,9 @@ ms.date: 07/12/2024
 ms.author: jianleishen
 ---
 
+> [!NOTE]
+> Connectors marked *Preview* are available to try, but are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+
 | Category              | Data store                                                   | [Copy activity](../copy-activity-overview.md)  (source/sink) | [Mapping Data Flow](../concepts-data-flow-overview.md) (source/sink) | [Lookup Activity](../control-flow-lookup-activity.md) | [Get Metadata Activity](../control-flow-get-metadata-activity.md)/[Validation Activity](../control-flow-validation-activity.md) | [Delete Activity](../delete-activity.md) |[Managed private endpoint](../managed-virtual-network-private-endpoint.md#managed-private-endpoints) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | **Azure**             | [Azure Blob Storage](../connector-azure-blob-storage.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            | ✓                                                            |✓Exclude storage account V1 |
@@ -110,6 +113,3 @@ ms.author: jianleishen
 | &nbsp;                | [Xero](../connector-xero.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
 | &nbsp;                | [Zendesk (Preview)](../connector-zendesk.md)           |                                                          |  ✓/−                                                             |                                                            |                                                              |                                                              ||
 | &nbsp;                | [Zoho (Preview)](../connector-zoho.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
-
-> [!NOTE]
-> Connectors marked *Preview* are available to try, but are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.

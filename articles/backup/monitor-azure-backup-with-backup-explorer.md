@@ -2,9 +2,10 @@
 title: Monitor your backups with Backup Explorer
 description: This article describes how to use Backup Explorer to perform real-time monitoring of backups across vaults, subscriptions, regions, and tenants.
 ms.topic: how-to
-ms.date: 09/11/2024
-author: jyothisuri
-ms.author: jsuri
+ms.date: 11/28/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a backup administrator, I want to monitor my organization's backup operations in a centralized dashboard, so that I can ensure all machines are protected and quickly address any issues that arise across multiple subscriptions and tenants.
 ---
 
 # Monitor your backups with Backup Explorer
@@ -28,7 +29,7 @@ These capabilities are provided out-of-box by native integration with Azure Reso
 > * We don't recommend writing custom automations on Azure Resource Graph data.
 > * Currently, Backup Explorer allows you to monitor backups across a maximum of 1000 subscriptions (across tenants).
 
-## Get started
+## Get started with Backup Explorer
 
 You can access Backup Explorer by going to any of your Recovery Services vaults and selecting the **Backup Explorer** link in the **Overview** pane.
 
@@ -38,7 +39,7 @@ Selecting the link opens Backup Explorer, which provides an aggregated view acro
 
 ![Backup Explorer landing page](media/backup-azure-monitor-with-backup-explorer/explorer-landing-page.png)
 
-## Backup Explorer use cases
+## Backup Explorer use cases f
 
 Backup Explorer displays multiple tabs, each providing detailed information about a specific backup artifact (for example, a backup item, job, or policy). This section provides a brief overview of each of the tabs. The videos provide sample use cases for each backup artifact, along with descriptions of the available controls.
 

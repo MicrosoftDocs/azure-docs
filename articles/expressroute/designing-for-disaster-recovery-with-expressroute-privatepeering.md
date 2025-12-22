@@ -5,8 +5,10 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/18/2024
+ms.date: 04/28/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network architect, I want to implement disaster recovery plans using geo-redundant ExpressRoute circuits, so that I can ensure continuous connectivity and business operations during regional outages or failures."
 ---
 
 # Designing for disaster recovery with ExpressRoute private peering
@@ -68,7 +70,7 @@ Let's consider the example network illustrated in the following diagram. In the 
 
 :::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png" alt-text="Diagram of small to medium size on-premises network considerations.":::
 
-By default, if you advertise routes identically over all the ExpressRoute paths, Azure load-balances on-premises bound traffic across all the ExpressRoute paths using Equal-cost multi-path (ECMP) routing.
+By default, if you advertise routes identically over all the ExpressRoute paths, Azure load-balances on-premises bound traffic across a maximum of 4 ExpressRoute circuits using Equal-cost multi-path (ECMP) routing.
 
 However, with the geo-redundant ExpressRoute circuits we need to take into consideration different network performances with different network paths (particularly for network latency). To get more consistent network performance during normal operation, you may want to prefer the ExpressRoute circuit that offers the minimal latency.
 
@@ -104,7 +106,7 @@ The following diagram illustrates influencing ExpressRoute path selection using 
 
 :::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png" alt-text="Diagram of influencing path selection using AS path prepend.":::
 
-If both the connections of ExpressRoute 1 go down, then the virtual network would see the 10.1.11.0/24 route advertisement only via ExpressRoute 2. Consequentially, the longer AS path would become irrelevant. Therefore, the standby circuit would be used in this failure state.
+If both the connections of ExpressRoute 1 go down, then the virtual network would see the 10.1.11.0/24 route advertisement only via ExpressRoute 2. Consequently, the longer AS path would become irrelevant. Therefore, the standby circuit would be used in this failure state.
 
 Using any of the techniques, if you influence Azure to prefer one of your ExpressRoute over others, you also need to ensure the on-premises network also prefer the same ExpressRoute path for Azure bound traffic to avoid asymmetric flows. Typically, local preference value is used to influence on-premises network to prefer one ExpressRoute circuit over others. Local preference is an internal BGP (iBGP) metric. The BGP route with the highest local preference value is preferred.
 

@@ -1,9 +1,8 @@
 ---
 title: Understand Azure IoT Hub endpoints
 description: This article provides information about IoT Hub device-facing and service-facing endpoints.
-author: SoniaLopezBravo
-
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 12/03/2024
@@ -26,7 +25,7 @@ You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's *
 
 Azure IoT Hub is a multitenant service that exposes its functionality to various actors. The following diagram shows the various endpoints that IoT Hub exposes.
 
-:::image type="content" source="./media/iot-hub-devguide-endpoints/endpoints.png" alt-text="Diagram showing the list of build-in IoT Hub endpoints." border="false":::
+:::image type="content" source="./media/iot-hub-devguide-endpoints/endpoints.png" alt-text="Diagram showing the list of built-in IoT Hub endpoints." border="false":::
 
 The following list describes the endpoints:
 
@@ -64,7 +63,6 @@ The [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md) article describes the various
 
 All IoT Hub endpoints use the [TLS](https://tools.ietf.org/html/rfc5246) protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
 
-[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## Custom endpoints for message routing
 

@@ -5,6 +5,7 @@ ms.date: 5/21/2024
 ms.topic: tutorial
 ms.collection:
   -       zerotrust-services
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Monitor your OT networks with Zero Trust principles

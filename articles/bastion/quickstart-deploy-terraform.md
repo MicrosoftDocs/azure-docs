@@ -5,11 +5,12 @@ ms.topic: quickstart
 ms.date: 01/22/2025
 ms.custom: devx-track-terraform
 ms.service: azure-bastion
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 #customer intent: As a Terraform user, I want to learn how to use Terraform to create Azure resources that set up Azure Bastion host. The Azure resources in an Azure Bastion deployment include an Azure resource group, a virtual network, an Azure Bastion subnet, a public IP, and an Azure Bastion host.
 content_well_notification: 
   - AI-contribution
+# Customer intent: As a Terraform user, I want to automate the deployment of Azure Bastion and its associated resources, so that I can securely access my virtual machines without exposing them to public networks.
 ---
 
 # Quickstart: Use Terraform to deploy Azure Bastion
@@ -32,7 +33,7 @@ Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual 
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 

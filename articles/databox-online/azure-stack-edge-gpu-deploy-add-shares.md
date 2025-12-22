@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 02/04/2025
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
 # Tutorial: Transfer data via shares with Azure Stack Edge Pro GPU

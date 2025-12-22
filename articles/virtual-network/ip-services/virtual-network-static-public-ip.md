@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to
+# Customer intent: As a cloud administrator, I want to create a virtual machine with a static public IP address using Azure, so that I can ensure reliable external connectivity for my applications.
 ---
 # Create a virtual machine with a static public IP address using the Azure portal, Azure PowerShell, or Azure CLI
 

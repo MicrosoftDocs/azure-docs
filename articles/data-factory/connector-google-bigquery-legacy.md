@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 04/14/2025
+ms.date: 12/01/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from Google BigQuery V1 using Azure Data Factory or Synapse Analytics 
@@ -16,7 +18,7 @@ ms.date: 04/14/2025
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, please [upgrade your Google BigQuery connector](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** (Disabled date) if not upgraded. Refer to this [section](connector-google-bigquery.md#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
+> The Google BigQuery V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Google BigQuery connector](connector-google-bigquery.md#differences-between-google-bigquery-and-google-bigquery-legacy) from V1 to V2.
 
 ## Supported capabilities
 
@@ -238,6 +240,28 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
     }
 ]
 ```
+
+## Data type mapping for Google BigQuery V1
+
+When you copy data from Google BigQuery, the following mappings are used from Google BigQuery data types to interim data types within the service internally. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Google BigQuery data type | Service interim data type |
+|---------------------------|------------------------------|
+| JSON                      | String                      |
+| STRING                    | String                      |
+| BYTES                     | Byte array                  |
+| INTEGER                   | Int64                       |
+| FLOAT                     | Double                      |
+| NUMERIC                   | String                      |
+| BIGNUMERIC                | String                      |
+| BOOLEAN                   | Boolean                     |
+| TIMESTAMP                 | DateTime                    |
+| DATE                      | DateTime                    |
+| TIME                      | TimeSpan                    |
+| DATETIME                  | DateTime                    |
+| GEOGRAPHY                 | String                      |
+| RECORD/STRUCT             | String                      |
+| ARRAY                     | String                      |
 
 ## Lookup activity properties
 

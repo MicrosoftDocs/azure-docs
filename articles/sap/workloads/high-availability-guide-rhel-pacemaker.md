@@ -7,9 +7,13 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.custom: linux-related-content
-ms.date: 10/28/2024
+ms.date: 08/01/2025
 ms.author: radeltch
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: "As a system administrator managing RHEL clusters on Azure, I want to configure a high availability cluster using Pacemaker, so that I can ensure redundancy and fault tolerance for my applications."
 ---
 
 # Set up Pacemaker on Red Hat Enterprise Linux in Azure
@@ -42,12 +46,12 @@ Read the following SAP Notes and articles first:
 ## Overview
 
 > [!IMPORTANT]
-> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets are not covered by standard support policies.
+> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets aren't covered by standard support policies.
 
 There are two options available on Azure for configuring the fencing in a pacemaker cluster for RHEL: Azure fence agent, which restarts a failed node via the Azure APIs, or you can use SBD device.
 
 > [!IMPORTANT]
-> In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It is important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
+> In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It's important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
 
 ### Use an SBD device
 
@@ -65,9 +69,9 @@ You can configure the SBD device by using either of two options:
   ![Diagram of pacemaker with iSCSI target server as SBD device in RHEL](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
   > [!IMPORTANT]
-  > When you're planning to deploy and configure Linux pacemaker cluster nodes and SBD devices, do not allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
+  > When you're planning to deploy and configure Linux pacemaker cluster nodes and SBD devices, don't allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
   >
-  > Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [user-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
+  > Maintenance events and other issues with the NVA can have a negative effect on the stability and reliability of the overall cluster configuration. For more information, see [user-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
 
 * SBD with Azure shared disk
 
@@ -104,7 +108,7 @@ You first need to create the iSCSI target virtual machines. You can share iSCSI 
 
 1. Deploy virtual machines that run on supported RHEL OS version, and connect to them via SSH. The VMs don't have to be of large size. VM sizes such as Standard_E2s_v3 or Standard_D2s_v3 are sufficient. Be sure to use Premium storage for the OS disk.
 
-2. It isn't necessary to use RHEL for SAP with HA and Update Services, or RHEL for SAP Apps OS image for the iSCSI target server. A standard RHEL OS image can be used instead. However, be aware that the support life cycle varies between different OS product releases.
+2. It isn't necessary to use RHEL for SAP with HA and Update Services, or RHEL for SAP Apps OS image for the iSCSI target server. A standard RHEL OS image can be used instead. However, the support life cycle varies between different OS product releases.
 
 3. Run following commands on all iSCSI target virtual machines.
 
@@ -375,7 +379,8 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
        [...]
        SBD_STARTMODE=always
        [...]
-       SBD_DELAY_START=yes
+       # # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
+       SBD_DELAY_START=186
        [...]
        ```
 
@@ -392,16 +397,17 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
     systemctl restart systemd-modules-load
     ```
 
-16. **[A]** The SBD service timeout value is set to 90 s by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
+16. **[A]** The SBD service timeout value is set to 90 seconds by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
 
     ```bash
     sudo mkdir /etc/systemd/system/sbd.service.d
-    echo -e "[Service]\nTimeoutSec=144" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
+    echo -e "[Service]\nTimeoutSec=223" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
     sudo systemctl daemon-reload
     
     systemctl show sbd | grep -i timeout
-    # TimeoutStartUSec=2min 24s
-    # TimeoutStopUSec=2min 24s
+    # TimeoutStartUSec=3min 43s
+    # TimeoutStopUSec=3min 43s
+    # TimeoutAbortUSec=3min 43s
     ```
 
 ## SBD with an Azure shared disk
@@ -506,7 +512,7 @@ foreach ($vmName in $vmNames) {
       sudo vi /etc/sysconfig/sbd
       ```
 
-   2. Change the property of the SBD device, enable the pacemaker integration, and change the start mode of SBD
+   2. Change the property of the SBD device, enable the pacemaker integration, change the start mode of SBD, and adjust SBD_DELAY_START value. 
 
       ```bash
       [...]
@@ -516,7 +522,8 @@ foreach ($vmName in $vmNames) {
       [...]
       SBD_STARTMODE=always
       [...]
-      SBD_DELAY_START=yes
+      # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
+      SBD_DELAY_START=186
       [...]
       ```
 
@@ -537,12 +544,13 @@ foreach ($vmName in $vmNames) {
 
    ```bash
    sudo mkdir /etc/systemd/system/sbd.service.d
-   echo -e "[Service]\nTimeoutSec=144" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
+   echo -e "[Service]\nTimeoutSec=223" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
    sudo systemctl daemon-reload
    
    systemctl show sbd | grep -i timeout
-   # TimeoutStartUSec=2min 24s
-   # TimeoutStopUSec=2min 24s
+   # TimeoutStartUSec=3min 43s
+   # TimeoutStopUSec=3min 43s
+   # TimeoutAbortUSec=3min 43s
    ```
 
 ## Azure fence agent configuration
@@ -613,7 +621,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    #### [Service principal](#tab/spn)
 
-   Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+   Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
    Make sure to assign the role for both cluster nodes.
 
@@ -798,7 +806,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
 2. **[1]** For the SBD device configured using iSCSI target servers or Azure shared disk, run the following commands.
 
    ```bash
-   sudo pcs property set stonith-timeout=144
+   sudo pcs property set stonith-timeout=210
    sudo pcs property set stonith-enabled=true
 
    # Replace the device IDs with your device ID. 
@@ -811,7 +819,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
 
    ```bash
    sudo pcs cluster stop --all
-
+   
    # It would take time to start the cluster as "SBD_DELAY_START" is set to "yes"
    sudo pcs cluster start --all
    ```
@@ -837,7 +845,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    > When using Azure government cloud, you must specify `cloud=` option when configuring fence agent. For example, `cloud=usgov` for the Azure US government cloud. For details on RedHat support on Azure government cloud, see [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341).
 
    > [!TIP]
-   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names are *not* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
+   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names aren't* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
 
    #### [Managed identity](#tab/msi)
 
@@ -858,7 +866,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
    op monitor interval=3600
-
+   
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
@@ -887,7 +895,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
    op monitor interval=3600
-
+   
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
    sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
    resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
@@ -896,7 +904,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    op monitor interval=3600
    ```
 
-    ---
+   ---
 
 If you're using a fencing device based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters by using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
@@ -907,11 +915,13 @@ The monitoring and fencing operations are deserialized. As a result, if there's 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are sent via the metadata service and allow time for the application to prepare for such events.
+Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. 
 
-The Pacemaker resource agent `azure-events-az` monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute.
+Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`. 
 
-When the cluster health attribute is set for a node, the location constraint triggers and all resources with names that don't start with `health-` are migrated away from the node with the scheduled event. After the affected cluster node is free of running cluster resources, the scheduled event is acknowledged and can execute its action, such as a restart.
+When this special cluster health attribute is set for a node, the node is considered unhealthy by the cluster and all resources are migrated away from the affected node. The location constraint ensures resources with name starting with ‘health-‘ are excluded, as the agent needs to run in this unhealthy state. Once the affected cluster node is free of running cluster resources, scheduled event can execute its action, such as restart, without risk to running resources. 
+
+The `#heath-azure` attribute is set back to `0` on pacemaker startup once all events have been processed, marking the node as healthy again.
 
 1. **[A]** Make sure that the package for the `azure-events-az` agent is already installed and up to date.
 
@@ -1005,6 +1015,7 @@ The following Red Hat KB articles contain important information about configurin
 * For information on how to change the default timeout, see [How do I configure kdump for use with the RHEL 6, 7, 8 HA Add-On?](https://access.redhat.com/articles/67570).
 * For information on how to reduce failover delay when you use `fence_kdump`, see [Can I reduce the expected delay of failover when adding fence_kdump configuration?](https://access.redhat.com/solutions/5512331).
   
+
 Run the following optional steps to add `fence_kdump` as a first-level fencing configuration, in addition to the Azure fence agent configuration.
 
 1. **[A]** Verify that `kdump` is active and configured.

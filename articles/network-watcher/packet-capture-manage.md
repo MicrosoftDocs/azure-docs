@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/21/2025
 
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
+# Customer intent: As a network administrator, I want to manage packet captures on Azure virtual machines so that I can analyze network traffic and troubleshoot issues effectively.
 ---
 
 # Start, stop, download, and delete packet captures with Azure Network Watcher
@@ -19,7 +20,7 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A virtual machine (VM) or virtual machine scale set with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
 
@@ -33,7 +34,7 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A virtual machine (VM) with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
 
@@ -51,7 +52,7 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A virtual machine (VM) with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
 

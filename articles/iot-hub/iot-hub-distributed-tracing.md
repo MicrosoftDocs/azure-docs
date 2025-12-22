@@ -2,13 +2,18 @@
 title: Monitor IoT messages with distributed tracing (preview)
 titleSuffix: Azure IoT Hub
 description: Learn how to use distributed tracing to trace IoT messages throughout the Azure services that your solution uses.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 02/29/2024
-ms.custom: [amqp, mqtt, fasttrack-edit, references_regions]
+ms.custom:
+  - amqp
+  - mqtt
+  - fasttrack-edit
+  - references_regions
+  - sfi-ropc-nochange
 ---
 
 # Trace Azure IoT device-to-cloud messages by using distributed tracing (preview)

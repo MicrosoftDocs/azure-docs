@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 06/07/2024
 ms.author: duau
+# Customer intent: As a network administrator, I want to use FQDN tags in application rules for Azure Firewall, so that I can easily manage and allow outbound network traffic for essential Microsoft services without manually specifying each individual FQDN.
 ---
 
 # FQDN tags overview

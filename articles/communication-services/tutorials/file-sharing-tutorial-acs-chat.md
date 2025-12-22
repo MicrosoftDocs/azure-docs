@@ -30,7 +30,7 @@ Access the full code for this tutorial at [UI Library Sample - File Sharing usin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS, and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
@@ -87,11 +87,11 @@ For this quickstart, we're modifying files inside of the `src` folder.
 
 ### Install the package
 
-Use the `npm install` command to install the beta Azure Communication Services UI Library for JavaScript.
+Use the `npm install` command to install the latest beta Azure Communication Services UI Library for JavaScript.
 
 ```bash
 
-npm install @azure/communication-react@1.16.0-beta.1
+npm install @azure/communication-react@1.28.0-beta.2
 
 ```
 
@@ -100,8 +100,8 @@ you can most consistently use the API from the core libraries in your applicatio
 
 ```bash
 
-npm install @azure/communication-calling@1.24.1-beta.2
-npm install @azure/communication-chat@1.6.0-beta.1
+npm install @azure/communication-calling@1.36.1-beta.1
+npm install @azure/communication-chat@1.6.0-beta.7
 
 ```
 
@@ -133,9 +133,9 @@ import {
 } from '@azure/communication-react';
 import React, { useMemo } from 'react';
 
-initializeFileTypeIcons();
-
 function App(): JSX.Element {
+  initializeFileTypeIcons();
+
   // Common variables
   const endpointUrl = 'INSERT_ENDPOINT_URL';
   const userId = ' INSERT_USER_ID';
@@ -167,7 +167,7 @@ function App(): JSX.Element {
   );
   const chatAdapter = useAzureCommunicationChatAdapter(chatAdapterArgs);
 
-  if (!!chatAdapter) {
+  if (chatAdapter) {
     return (
       <>
         <div style={containerStyle}>
@@ -219,6 +219,7 @@ const uploadFileToAzureBlob = async (uploadTask: AttachmentUploadTask) => {
   return {
     url: 'https://sample.com/sample.jpg', // Download URL of the file.
   };
+}
 
 ```
 
@@ -290,6 +291,7 @@ const attachmentSelectionHandler: AttachmentSelectionHandler = async (uploadTask
       // Allows you to provide a custom error message.
       task.notifyUploadFailed('File too big. Select a file under 99 MB.');
     }
+    ...
   }
 }
 
@@ -318,7 +320,8 @@ const handler = async (attachment: AttachmentMetadata, message?: ChatMessage) =>
 };
 
 const customHandler = = async (attachment: AttachmentMetadata, message?: ChatMessage) => {
-   if (attachment.extension === "pdf") {
+  const extension = attachment.name.split(".").pop() || "";
+   if (extension === "pdf") {
     return [
       {
         title: "Custom button",
@@ -367,7 +370,7 @@ If there were any issues during the download and the user needs to be notified, 
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about [cleaning up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [cleaning Azure Function Resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about [cleaning up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [cleaning Azure Function Resources](../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#clean-up-resources).
 
 ## Next steps
 
@@ -378,7 +381,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model)
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)
 - [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md)

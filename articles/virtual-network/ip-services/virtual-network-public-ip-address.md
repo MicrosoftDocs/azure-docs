@@ -9,6 +9,7 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: "As a cloud network administrator, I want to create, modify, or delete public IP addresses in Azure, so that I can manage network connectivity for my resources efficiently and ensure compliance before the upcoming SKU retirement deadline."
 ---
 
 # Create, change, or delete an Azure public IP address
@@ -77,6 +78,9 @@ For more detail on the specific attributes of a public IP address during creatio
 
    - **Delete**: Deletion of public IPs requires that the public IP object isn't associated to any IP configuration or virtual machine network interface. For more information, see the following table.
 
+>[!WARNING]
+   >Once a public IP address is deleted it can not be recovered.
+
 |Resource|Azure portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|
 |[Virtual machine](./remove-public-ip-address-vm.md)|Select **Dissociate** to dissociate the IP address from the NIC configuration, then select **Delete**.|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to dissociate the IP address from the NIC configuration; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) and with the parameter `--public-ip-address` to remove the IP address from the NIC configuration. Use [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete the public IP. |
@@ -115,6 +119,17 @@ Learn how to assign a public IP address to the following resources:
 ## Region availability
 
 Azure Public IP is available in all regions for both Public and US Gov clouds. Azure Public IP doesn't move or store customer data out of the region it's deployed in.
+
+## Moving Public IP Addresses
+
+You can move Standard Public IP addresses under certain conditions:
+
+| Scenario                     | Allowed | Notes                                                              |
+|------------------------------|---------|--------------------------------------------------------------------|
+| Move across resource groups  | Yes     | While attached to all resources except a virtual network gateway  |
+| Move across subscriptions    | Yes     | Only when detached from all resources                             |
+| Move across regions          | No      | IP addresses are tied to regional ranges and cannot be moved      |
+
 
 ## Permissions
 

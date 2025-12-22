@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 10/25/2024
+ms.date: 10/21/2025
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -24,10 +24,10 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 
  |Event name |Description|
  |----------|-----------|
- | [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event) |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API **and** when the Block Blob is completely committed. <br>If clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them, the `CopyBlob` operation works a little differently. In that case, the **Microsoft.Storage.BlobCreated** event is triggered when the `CopyBlob` operation is **initiated** and not when the Block Blob is completely committed.   |
+ | [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event) |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API **and** when the Block Blob is completely committed. <br>If clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them, the `CopyBlob` operation works a little differently. If the `CopyBlob` operation completes immediately, then the **Microsoft.Storage.BlobCreated** event is triggered because the block blob is completely committed. However, if the operation does not complete immediately, the **Microsoft.Storage.AsyncOperationInitiated** event is triggered instead, indicating that the `CopyBlob` operation has been initiated but the block blob is not yet completely committed. |
  |[Microsoft.Storage.BlobDeleted](#microsoftstorageblobdeleted-event) |Triggered when a blob is deleted. <br>Specifically, this event is triggered when clients call the `DeleteBlob` operation that is available in the Blob REST API. |
  | [Microsoft.Storage.BlobTierChanged](#microsoftstorageblobtierchanged-event) |Triggered when the blob access tier is changed. Specifically, when clients call the `Set Blob Tier` operation that is available in the Blob REST API, this event is triggered after the tier change completes. |
-| [Microsoft.Storage.AsyncOperationInitiated](#microsoftstorageasyncoperationinitiated-event) |Triggered when an operation involving moving or copying of data from the archive to hot or cool tiers is initiated. Specifically, this event is triggered either when clients call the `Set Blob Tier` API to move a blob from archive tier to hot or cool tier, or when clients call the `Copy Blob` API to copy data from a blob in the archive tier to a blob in the hot or cool tier.|
+ | [Microsoft.Storage.AsyncOperationInitiated](#microsoftstorageasyncoperationinitiated-event) | Triggered when an operation involving moving or copying of data from the archive to hot or cool tiers is initiated. Specifically, this event is triggered either when clients call the `Set Blob Tier` API to move a blob from archive tier to hot or cool tier, or when clients call the `Copy Blob` API to copy data from a blob in the archive tier to a blob in the hot or cool tier.<br>This event can also be triggered if clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them and the operation does not complete immediately. In that case, the **Microsoft.Storage.AsyncOperationInitiated** event is triggered indicating that the `CopyBlob` operation has been initiated but the block blob is not yet completely committed. Once the block blob is completely committed, a final [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event) event is triggered to confirm completion.|
 
 ### Example events
 
@@ -1256,7 +1256,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `api` | string | The operation that triggered the event. |
-| `clientRequestId` | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
+| `clientRequestId` | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | `requestId` | string | Service-generated request ID for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | `eTag` | string | The value that you can use to run operations conditionally. |
 | `contentType` | string | The content type specified for the blob. |

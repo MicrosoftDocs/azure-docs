@@ -5,8 +5,9 @@ services: healthcare-apis
 author: expekesheth
 ms.service: azure-health-data-services
 ms.topic: tutorial
-ms.date: 04/16/2024
+ms.date: 10/10/2025
 ms.author: kesheth
+ms.custom: sfi-image-blocked
 ---
 
 # Access the FHIR service

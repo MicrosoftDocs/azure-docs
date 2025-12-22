@@ -2,13 +2,13 @@
 title: HTCondor Scheduler Integration
 description: HT Condor Scheduler configurations in Azure CycleCloud
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
 
 # HTCondor
 
-You can enable [HTCondor](http://research.cs.wisc.edu/htcondor/manual/latest) on a CycleCloud cluster by modifying the `run_list` in the configuration section of your cluster definition. There are three basic components of an HTCondor cluster. The first is the **central manager**, which provides the scheduling and management daemons. The second component is one or more **schedulers**, from which jobs are submitted into the system. The final component is one or more **execute nodes**, which are the hosts that perform the computation. A simple HTCondor template might look like:
+You can enable [HTCondor](https://htcondor.org/manual/) on a CycleCloud cluster by modifying the `run_list` in the configuration section of your cluster definition. There are three basic components of an HTCondor cluster. The first is the **central manager**, which provides the scheduling and management daemons. The second component is one or more **schedulers**, from which jobs are submitted into the system. The final component is one or more **execute nodes**, which are the hosts that perform the computation. A simple HTCondor template might look like:
 
 ``` ini
 [cluster htcondor]

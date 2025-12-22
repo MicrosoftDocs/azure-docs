@@ -15,7 +15,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
 
 ## Prerequisites
 
-- Azure Subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free).
+- Azure Subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure Kubernetes Cluster (AKS) with virtual network integration. See [Create an Azure Kubernetes Service (AKS) cluster](/azure/aks/tutorial-kubernetes-deploy-cluster) and [Azure Container Networking Interface (CNI) networking](/azure/aks/azure-cni-overview) for further instructions.
 - [Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure/install-azure-cli), kubectl, and Git CLI.
 
@@ -316,7 +316,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
 1. Deploy the GCZ HELM chart:
 
    ```bash
-   helm upgrade -i $CHART . -n $NAMESPACE -f osdu_gcz_custom_values.yaml --set-file global.provider.configLoaderJs="../../../../gcz-provider/gcz-provider-core/config/configLoader.js"
+   helm upgrade -i "$RELEASE_CHART_NAME" . -n "$NAMESPACE" -f osdu_gcz_custom_values.yaml \
+  --set-file global.provider.configLoaderJs="../../../../gcz-provider/gcz-provider-core/config/configLoader.js"
    ```
 
 1. Verify the deployment:

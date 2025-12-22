@@ -10,6 +10,7 @@ ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer, I want to set up OAuth 2.0 client credentials flow in Azure Active Directory B2C, so that I can authenticate my app and call web resources without user interaction.
@@ -17,6 +18,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up OAuth 2.0 client credentials flow in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

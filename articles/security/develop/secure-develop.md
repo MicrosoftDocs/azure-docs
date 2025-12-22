@@ -2,9 +2,8 @@
 title: Develop secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the implementation and verification phases of your web application project.
 author: msmbaldwin
-manager: rkarlin
 ms.author: mbaldwin
-ms.date: 09/29/2024
+ms.date: 05/28/2025
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -83,8 +82,8 @@ This means fewer people have access to your real data, which reduces your attack
 
 To defend against brute-force and dictionary-based guessing, you must implement a strong password policy to ensure that users create a complex password (for example, 12 characters minimum length and requiring alphanumeric and special characters).
 
-Azure Active Directory B2C helps you with password management, by providing
-[self-service password reset](../../active-directory-b2c/add-password-reset-policy.md), [force password reset](../../active-directory-b2c/force-password-reset.md), and more.
+Microsoft Entra External ID in external tenants help you with password management, by providing
+[self-service password reset](/entra/external-id/customers/how-to-enable-password-reset-customers) and more.
 
 To defend against attacks on default accounts, verify that all keys and passwords are replaceable and that they're generated or replaced after you install resources.
 
@@ -128,7 +127,7 @@ In [fuzz testing](https://www.microsoft.com/security/blog/2007/09/20/fuzz-testin
 
 Reviewing the attack surface after code completion helps ensure that any design or implementation changes to an application or system has been considered. It helps ensure that any new attack vectors that were created as a result of the changes, including threat models, has been reviewed and mitigated.
 
-You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Attack Surface Detector](https://owasp.org/www-project-attack-surface-detector/), [Arachni](http://arachni-scanner.com/), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Attack Surface Detector](https://owasp.org/www-project-attack-surface-detector/), [Arachni](https://github.com/Arachni/arachni), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
 ### Perform security penetration testing
 

@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 # ms.devlang: csharp, java, python, javascript
 ms.topic: how-to
-ms.date: 01/13/2025
+ms.date: 08/25/2025
 ms.author: zhiyuanliang
 ms.custom: devx-track-azurecli
 
@@ -22,7 +22,7 @@ To learn more about the concept of geo-replication, see [Geo-replication in Azur
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free)
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
 ## Create and list a replica
@@ -116,7 +116,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
+Specify the `replicaDiscoveryEnabled` property in the `application.properties` file of your application.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
@@ -174,6 +174,22 @@ const config = load(endpoint, credential, {
 > The automatic replica discovery support is available if you use version **2.0.0** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
 > The feature is not available for browser-based applications due to the restriction of browser security sandbox.
 
+### [Go](#tab/go)
+
+Specify the `azureappconfiguration.Options.ReplicaDiscoveryEnabled` property when loading the configuration store and set it to `false`.
+
+```golang
+replicaDiscoveryEnabled := false
+options := azureappconfiguration.Options{
+    ReplicaDiscoveryEnabled: &replicaDiscoveryEnabled,
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **1.2.0** or later of [azureappconfiguration](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).
+
 ---
 
 ## Scale and failover with replicas
@@ -230,7 +246,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Edit the `endpoints` or `connection-strings` properties in the `bootstrap.properties` file of your application.
+Edit the `endpoints` or `connection-strings` properties in the `application.properties` file of your application.
 
 **Connect with Microsoft Entra ID**
 
@@ -263,6 +279,10 @@ The Azure App Configuration Python Provider supports failover with automatically
 ### [JavaScript](#tab/javascript)
 
 The Azure App Configuration JavaScript Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
+
+### [Go](#tab/go)
+
+The Azure App Configuration Go Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
 
 ---
 
@@ -339,7 +359,26 @@ const config = load(endpoint, credential, {
 > [!NOTE]
 > Load balancing support is available if you use version **2.0.0** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
 
+### [Go](#tab/go)
+
+Set `azureappconfiguration.Options.LoadBalancingEnabled` to `true` while loading configuration from App Configuration.
+
+```golang
+options := azureappconfiguration.Options{
+    LoadBalancingEnabled: true,
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+> [!NOTE]
+> Load balancing support is available if you use version **1.2.0** or later of [azureappconfiguration](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).
+
 ---
+
+## Use geo-replication with Azure Front Door
+
+Replica discovery and load balancing cannot be enabled when using Azure Front Door. To use geo-replication with Azure Front Door, add replicas to your Azure Front Door origin group. For more information, see [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin).
+
 
 ## Next steps
 

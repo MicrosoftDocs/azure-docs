@@ -6,8 +6,11 @@ ms.author: karler
 ms.reviewer: jiec
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 01/10/2024
-ms.custom: devx-track-java
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - sfi-image-nochange
 ---
 
 # Troubleshoot VMware Spring Cloud Gateway

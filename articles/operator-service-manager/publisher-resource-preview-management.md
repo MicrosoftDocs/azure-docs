@@ -1,71 +1,59 @@
 ---
-title: Publisher resource preview management
-description: Learn about publisher resource preview management.
-author: sherrygonz
-ms.author: sherryg
-ms.date: 09/11/2023
+title: Publisher Resource Preview Management
+description: Learn about the Publisher Resource Preview Management feature in Azure Operator Service Manager.
+author: msftadam
+ms.author: adamdor
+ms.date: 08/06/2025
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
-ms.custom:
 ---
 
-# Publisher Tenants, subscriptions, regions and preview management
+# Publisher Resource Preview Management feature
 
-This article introduces the Publisher Resource Preview Management feature.
+This article introduces the publisher resource preview management feature in Azure Operator Service Manager. The publisher API offers partners a seamless experience for onboarding network functions (NFs) and network service designs (NSDs). The publisher API preview feature enables publishers to manage NF artifacts across various lifecycle states. With the ability to control deployments, access privileges, and version management, partners can provide a smooth experience for their customers while maintaining the quality and stability of their offerings.
 
-## Overview
+## Considerations for tenants, subscriptions, and regions
 
-The Azure Network Function Manager (NFM) Publisher API offers partners a seamless Azure Marketplace experience for onboarding Network Functions (NF) and Network Service Designs (NSDs).
+- Publisher NSDV and NFDV resources must be in the same Azure tenant as site network service (SNS) resources.
 
-The Publisher API introduces features that enable Network Function (NF) Publishers and Service Designers to manage Network Function Definition (NFD) and Network Service Design (NSD) in various modes. These modes empower partners to exercise control over Network Function Definition (NFD) and Network Service Design (NSD) usage. Control over the NFDs and NSDs allows partners to target specific subscriptions, all subscriptions, or deprecate an NFDVersion or NSDVersion if there are regressions. This article delves into the specifics of these different modes.
-
-The Publisher Resource Preview Management feature in Azure Network Function Manager empowers partners to seamlessly manage Network Function Definitions and their versions. With the ability to control deployment states, access privileges, and version management, partners can ensure a smooth experience for their customers while maintaining the quality and stability of their offerings.
-
-## Tenants, subscriptions and regions
-
-Do my publisher and Site Network Service (SNS) resources need to be in the same tenant, subscription or region?
-
-- Publisher Network Service Design Version (**NSDV**) and Network Function Definition Version (**NFDV**) resources must be in the same Azure tenant as Site Network Services (**SNS**) resources.
-
-- Network Service Design Version (**NSDV**) and  Network Function Definition Version (**NFDV**) versionState are key for cross-subscription. 
-  - Preview = Site Network Service (**SNS**) is deployable in the same subscription as the  Network Function Definition Version/Network Function Definition Version (**NSDV/NFDV**).
-  - Active = Site Network Service (**SNS**) is deployable in any *subscription*.
-- Publisher resources can be in different Azure Core or Nexus Regions to Site Network Service (**SNS**) resources. 
+- NSDV and NFDV states are key for cross-subscription:
+  - **Preview**: The SNS is deployable in the same subscription as the NSDV or NFDV.
+  - **Active**: The SNS is deployable in any subscription.
+- Publisher resources can be in different Azure Core or Azure Operator Nexus regions from SNS resources.
 
 - Publisher names must be unique within a region.
 
-- Site Network Service (**SNS**) can reference Configuration Group Values (**CGVs**) from any region, but can only reference Site resources from the same region.
+- SNS resources can reference configuration group values (CGVs) from any region, but they can reference site resources only from the same region.
 
-- Configuration Group Values (**CGVs**) can reference a Configuration Group Schema (**CGS**) in any region.
+- CGVs can reference a configuration group schema (CGS) in any region.
 
-- Network Functions:
-  * Can reference NFDVersion from any region.
-  * Must reference Azure Stack Edge from the same region, if hosted on Azure Stack Edge.
-  * The ARM template within a Virtual Network Function must deploy resources to the same region as the Network Function.
-  * CNFs can reference customLocation from any region.
+- Network functions:
+  - Can reference an NFDV from any region.
+  - Must reference Azure Stack Edge from the same region, if they're hosted on Azure Stack Edge.
 
-## Network Function Definition and Network Service Design version states
+- The Azure Resource Manager template within a virtualized network function (VNF) must deploy resources to the same region as the network function.
 
-The following table provides Network Function Definition (NFD) and Network Service Design (NSD) version state information.
+- Containerized network functions (CNFs) can reference a custom location from any region.
 
-|State  |Description  |Users  |Is Immutable  |
+## NFDV and NSDV states
+
+|State  |Description  |Users  |Is immutable  |
 |---------|---------|---------|---------|
-|**Preview**     |     Default state upon NFDVersion or NSDVersion creation; indicates pending testing.    |    Same subscription as Publisher.     |    No     |
-|**Active**    |   Signifies readiness for customer usage. Artifacts must be immutable with artifactManifestState Uploaded.    |    Access based on RBS, any subscription in same tenant.     |      Yes   |
-|**Deprecated**     |  Implies regression found; prevents new deployments from this version.       |    Can't be deployed.     |     Yes    |
+|**Preview**     |     Default state upon NFDV or NSDV creation; indicates pending testing.    |    Same subscription as the publisher.     |    No     |
+|**Active**    |   Signifies readiness for customer usage. Artifacts must be immutable with `artifactManifestState` uploaded.    |    Access based on Remote Blob Store (RBS) for any subscription in the same tenant.     |      Yes   |
+|**Deprecated**     |  Implies that a regression is found; prevents new deployments from this version.       |    Can't be deployed.     |     Yes    |
 
-## Artifact Manifest state machine
+## Artifact manifest states
 
- - Uploading means the state is mutable and the artifacts within the manifest can be altered.
- 
- - Uploaded means the state is immutable and the artifacts within the manifest can't be altered.
- 
-Immutable artifacts are tested artifacts that can't be modified or overwritten. Use of immutable artifacts with Azure Operator Service Manager ensures consistency, reliability and security of its artifacts across different environments and platforms. Network Function Definition Versions and Network Service Design Versions with versionState Active are enforced to deploy immutable artifacts.  
+- **Uploading** means the state is mutable and the artifacts within the manifest can be altered.
+- **Uploaded** means the state is immutable and the artifacts within the manifest can't be altered.
 
- 
- ### Update Artifact Manifest state
- Use the following Azure CLI command to change the state of a artifact manifest resource.
- 
+Immutable artifacts are tested artifacts that can't be modified or overwritten. Use of immutable artifacts with Azure Operator Service Manager helps ensure the consistency, reliability, and security of its artifacts across environments and platforms. NFDVs and NSDVs that have a version state of **Active** are enforced to deploy immutable artifacts.  
+
+### Update the artifact manifest state
+
+To change the state of an artifact manifest resource, use the following Azure CLI command:
+
 ```azurecli
   az aosm publisher artifact-manifest update-state \
     --resource-group <myResourceGroupName> \
@@ -75,13 +63,14 @@ Immutable artifacts are tested artifacts that can't be modified or overwritten. 
     --state Uploaded
 ```
 
-## Network Function Definition and Network Service Design state machine
+## NFDV and NSDV state machine
 
-- Preview is the default state.
-- Deprecated state is a terminal state but can be reversed.
+- **Preview** is the default state.
+- **Deprecated** is a terminal state but can be reversed.
 
-## Update Network Function definition version state
-Use the following Azure CLI command to change the state of a Network Function Definition Version resource.
+### Update the NFDV state
+
+To change the state of an NFDV resource, use the following Azure CLI command:
 
 ```azurecli
   az aosm publisher network-function-definition version update-state \
@@ -92,8 +81,9 @@ Use the following Azure CLI command to change the state of a Network Function De
     --version-state Active | Deprecated
 ```
 
-## Update Network Service Design Version (NSDV) version state
-Use the following Azure CLI command to change the state of a Network Service Design Version resource.
+### Update the NSDV state
+
+To change the state of an NSDV resource, use the following Azure CLI command:
 
 ```azurecli
   az aosm publisher network-service-design version update-state \

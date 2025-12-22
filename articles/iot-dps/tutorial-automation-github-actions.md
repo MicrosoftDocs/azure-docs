@@ -1,10 +1,10 @@
 ---
 title: GitOps for Azure Device Provisioning Service
 description: Tutorial - Use GitHub Actions to automate the steps for creating and managing Azure Device Provisioning Service (DPS) resources
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 manager: lizross
-ms.date: 12/19/2022
+ms.date: 08/12/2025
 ms.topic: tutorial
 ms.service: azure-iot-hub
 services: iot-dps
@@ -28,13 +28,13 @@ In this tutorial, you learn how to:
 
 * An Azure subscription
 
-  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * The Azure CLI
 
   * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
-   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
-  * Or, If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider [running Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+     :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+  * Or, if you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider [running Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
     * If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -44,13 +44,13 @@ In this tutorial, you learn how to:
 
 ## 1 - Create repository secrets
 
-The workflow that you will define in the next section requires access to your Azure subscription to create and manage resources. You don't want to put that information in an unprotected file where it could be discovered, so instead we'll use repository secrets to store this information but still make it accessible as an environment variable in the workflow. For more information, see [Encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets).
+The workflow that you define in the next section requires access to your Azure subscription to create and manage resources. You don't want to put that information in an unprotected file where it could be discovered, so instead we use repository secrets to store this information but still make it accessible as an environment variable in the workflow. For more information, see [Using secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 Only repository owners and admins can manage repository secrets.
 
 ### Create a service principal
 
-Rather than providing your personal access credentials, we'll create a service principal and then add those credentials as repository secrets. Use the Azure CLI to create a new service principal. For more information, see [Create an Azure service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
+Rather than providing your personal access credentials, we create a service principal and then add those credentials as repository secrets. Use the Azure CLI to create a new service principal. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal with *contributor* access to a specific resource group. Replace `<SUBSCRIPTION_ID>` and `<RESOURCE_GROUP_NAME>` with your own information.
 
@@ -63,7 +63,7 @@ Rather than providing your personal access credentials, we'll create a service p
 1. Copy the following items from the output of the service principal creation command to use in the next section:
 
    * The *clientId*.
-   * The *clientSecret*. This is a generated password for the service principal that you won't be able to access again.
+   * The *clientSecret*. This value is a generated password for the service principal that you aren't able to access again.
    * The *tenantId*.
 
 1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign two more access roles to the service principal: *Device Provisioning Service Data Contributor* and *IoT Hub Data Contributor*. Replace `<SP_CLIENT_ID>` with the *clientId* value that you copied from the previous command's output.
@@ -107,9 +107,9 @@ Rather than providing your personal access credentials, we'll create a service p
 
 ## 2 - Create a workflow
 
-A GitHub Actions *workflow* defines the tasks that will run once it's triggered by an *event*. A workflow contains one or more *jobs* which can run in parallel or sequentially. For more information, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+A GitHub Actions *workflow* defines the tasks that run once an *event* triggers the workflow. A workflow contains one or more *jobs* that can run in parallel or sequentially. For more information, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
 
-For this tutorial, we'll create one workflow that contains jobs for each of the following tasks:
+For this tutorial, we create one workflow that contains jobs for each of the following tasks:
 
 * Provision an IoT Hub instance and a DPS instance.
 * Link the IoT Hub and DPS instances to each other.
@@ -128,13 +128,13 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
    name: DPS Tutorial
    ```
 
-1. Add the [on.workflow_dispatch](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs) parameter. The `on` parameter defines when a workflow will run. The `workflow_dispatch` parameter indicates that we want to manually trigger the workflow. With this parameter, we could define `inputs` that would be passed to the workflow at each run, but we won't use those for this tutorial.
+1. Add the [on.workflow_dispatch](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatch) parameter. The `on` parameter defines when a workflow runs. The `workflow_dispatch` parameter indicates that we want to manually trigger the workflow. With this parameter, we could define `inputs` that would be passed to the workflow at each run, but we don't use `inputs` for this tutorial.
 
    ```yml
    on: workflow_dispatch
    ```
 
-1. Define the [environment variables](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#env) for the resources you're creating in the workflow. These variables will be available to all the jobs in the workflow. You can also define environment variables for individual jobs, or for individual steps within jobs.
+1. Define the [environment variables](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#env) for the resources you're creating in the workflow. These variables are available to all the jobs in the workflow. You can also define environment variables for individual jobs, or for individual steps within jobs.
 
    Replace the placeholder values with your own values. Make sure that you specify the same resource group that the service principal has access to.
 
@@ -160,7 +160,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
    jobs:
    ```
 
-1. Define the first job for our workflow, which we'll call the `provision` job. This job provisions the IoT Hub and DPS instances:
+1. Define the first job for our workflow, which we call the `provision` job. This job provisions the IoT Hub and DPS instances:
 
    ```yml
      provision:
@@ -179,7 +179,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
    * [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create)
    * [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create)
 
-1. Define a job to `configure` the DPS and IoT Hub instances. Notice that this job uses the [needs](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds) parameter, which means that the `configure` job won't run until listed job completes its own run successfully.
+1. Define a job to `configure` the DPS and IoT Hub instances. Notice that this job uses the [needs](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds) parameter, which means that the `configure` job doesn't run until the listed job completes its own run successfully.
 
    ```yml
      configure:
@@ -196,7 +196,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
 
    * [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create)
 
-1. Define a job called `register` that will create an individual enrollment and then use that enrollment to register a device to IoT Hub.
+1. Define a job called `register` that creates an individual enrollment and then use that enrollment to register a device to IoT Hub.
 
    ```yml
      register:
@@ -221,7 +221,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
    * [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create)
    * [az iot device registration create](/cli/azure/iot/device/registration#az-iot-device-registration-create)
 
-1. Define a job to `simulate` an IoT device that will connect to the IoT hub and send sample telemetry messages.
+1. Define a job to `simulate` an IoT device that connects to the IoT hub and sends sample telemetry messages.
 
    ```yml
      simulate:
@@ -239,7 +239,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
 
    * [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate)
 
-1. Define a job to `monitor` the IoT hub endpoint for events, and watch messages coming in from the simulated device. Notice that the **simulate** and **monitor** jobs both define the **register** job in their `needs` parameter. This configuration means that once the **register** job completes successfully, both these jobs will run in parallel.
+1. Define a job to `monitor` the IoT hub endpoint for events, and watch messages coming in from the simulated device. Notice that the **simulate** and **monitor** jobs both define the **register** job in their `needs` parameter. This configuration means that once the **register** job completes successfully, both these jobs run in parallel.
 
    ```yml
      monitor:
@@ -339,7 +339,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
 
 1. In the workflow summary, you can watch as each job begins and completes. Select any job name to view its details. The simulated device job runs for five minutes and sends telemetry to IoT Hub. During this time, select the **simulate** job to watch messages being sent from the device, and the **monitor** job to watch those messages being received by IoT Hub.
 
-1. When all the jobs have completed successfully, you should see green checkmarks by each one.
+1. When all the jobs complete successfully, you should see green checkmarks by each one.
 
    :::image type="content" source="./media/tutorial-automation-github-actions/workflow-successful.png" alt-text="Screenshot of a successfully completed workflow.":::
 
@@ -378,4 +378,4 @@ Use the Azure portal:
 Learn how to provision DPS instances with other automation tools.
 
 > [!div class="nextstepaction"]
-> [Set up DPS with Bicep](tutorial-custom-allocation-policies.md)
+> [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md)

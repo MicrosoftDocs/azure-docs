@@ -6,19 +6,22 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: overview
 ms.date: 11/12/2024
-
-# Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
+ms.custom: portfolio-consolidation-2025
+#customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
 
 # What is Azure Front Door?
 
-Whether you're delivering content and files or developing global applications and APIs, Azure Front Door enhances your user experience by providing higher availability, reduced latency, increased scalability, and improved security, no matter where your users are located. 
+Whether you are delivering content and files or developing global applications and APIs, Azure Front Door enhances your user experience by providing higher availability, reduced latency, increased scalability, and improved security, no matter where your users are located. 
 
 Azure Front Door is Microsoft's advanced cloud Content Delivery Network (CDN) designed to provide fast, reliable, and secure access to your applications' static and dynamic web content globally. By using Microsoft's extensive global edge network, Azure Front Door ensures efficient content delivery through numerous [global and local points of presence (PoPs)](edge-locations-by-region.md) strategically positioned close to both enterprise and consumer end users.
 
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png":::
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
+
+>[!NOTE]
+> Azure Front Door is one of the services in the Load Balancing and Content Delivery service category in Azure. Other services in this category include [Azure Load Balancer](../load-balancer/load-balancer-overview.md) and [Azure Application Gateway](../application-gateway/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Load Balancing and Content Delivery](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
 
 ## Why use Azure Front Door?
 
@@ -28,7 +31,7 @@ Azure Front Door enables internet-facing application to:
 
 * **Build and operate modern internet-first architectures** that have dynamic, high-quality digital experiences with highly automated, secure, and reliable platforms.
 
-* **Accelerate and deliver your app and content globally** at scale to your users wherever they're creating opportunities for you to compete, weather change, and quickly adapt to new demand and markets.
+* **Accelerate and deliver your applications and content globally** at scale to your users wherever they are, creating opportunities for you to compete, and quickly adapt to new demand and markets.
 
 * **Intelligently secure your digital estate** against known and new threats with intelligent security that embrace a **_Zero Trust_** framework.
 
@@ -38,7 +41,7 @@ Azure Front Door enables internet-facing application to:
 
 Scale out and improve performance of your applications and content using Microsoft’s global Cloud CDN and WAN.
 
-* Uses over [118 edge locations](edge-locations-by-region.md) across 100 metro cities connected to Azure using a private enterprise-grade WAN and improve latency for apps by up to three times.
+* Uses over [118 edge locations](edge-locations-by-region.md) across 100 metro cities connected to Azure using a private enterprise-grade WAN and improve latency for applications by up to three times.
 
 * Accelerate application performance by using Front Door’s [anycast](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast) network and [split TCP](front-door-traffic-acceleration.md#connect-to-the-front-door-edge-location-split-tcp) connections.
 

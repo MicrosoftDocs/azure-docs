@@ -8,7 +8,7 @@ ms.reviewer: sonwan
 ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 02/12/2025
-ms.custom:
+ms.custom: devx-track-java
 #customer intent: As a developer, I want to see a simple example of an AI application deployed to Azure Container Apps.
 ---
 
@@ -29,8 +29,8 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Prerequisites
 
-- An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
-- `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+- An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 - [A GitHub account](https://github.com/join).
 - The latest version of [git](https://git-scm.com/downloads).
 - The [Microsoft Build of Open JDK](/java/openjdk/install), version 17 or higher.

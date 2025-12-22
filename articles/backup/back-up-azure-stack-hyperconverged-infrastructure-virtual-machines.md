@@ -2,11 +2,12 @@
 title: Back up Azure Local virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 03/06/2025
+ms.date: 10/14/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to back up and recover Azure Local virtual machines using a backup server, so that I can ensure data protection and quick recovery for my virtual infrastructure."
 ---
 
 # Back up Azure Local virtual machines with Azure Backup Server
@@ -29,16 +30,16 @@ MABS can back up Azure Local virtual machines in the following scenarios:
 
 
 
-- **Arc VMs**: [Arc VMs](/azure/azure-arc/servers/overview) add fabric management capabilities in addition to [Arc-enabled servers](/azure/azure-arc/servers/overview). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Local.
+- **Azure Local VMs**: [Azure Local VMs](/azure/azure-local/concepts/compare-vm-management-capabilities) add lifecycle management capabilities in addition to [Arc-enabled servers](/azure/azure-arc/servers/overview). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Azure Local VMs is supported in a limited capacity in Azure Local.
 
-   The following table lists the various levels of backup and restore capabilities for Azure Arc VMs:
+   The following table lists the various levels of backup and restore capabilities for Azure Local VMs:
 
   | Protection level | Recovery location | Description |
   | --- | --- | --- |
   | **Guest-level backups and recovery** (which require an agent in the guest OS) |      | Work as expected. |
   | **Host-level backups** |        | Work as expected. |
   | **Host-level recovery** |   Recovery to the original VM instance |   Recovery to the original VMs works as expected. |
-  |              | Alternate location recovery (ALR)  | Recovery to the ALR is supported in a limited way as the ALR recovers to a Hyper-V VM. Currently, conversion of Hyper-V VM to an Arc VM isn't supported. |
+  |              | Alternate location recovery (ALR)  | Recovery to the ALR is supported in a limited way as the ALR recovers to an unmanaged VM. Currently, conversion of unmanaged VM to an Azure Local VM isn't supported. |
 
  Learn more about the [supported scenarios for MABS V3 UR2 and later](backup-mabs-protection-matrix.md#vm-backup).
 
@@ -90,7 +91,9 @@ These are the prerequisites for backing up virtual machines with MABS:
         ```
         Install DPMAgentInstaller.exe`
         ```
-    
+        >[!Note]
+        >Default Application Control settings may prevent agent deployment, [switch application control to "Audit" mode](/azure/azure-local/manage/manage-wdac#switch-application-control-policy-modes) before agent installation to work around this issue. After deployment is complete, we recommend that you switch the application control back to **Enforced** mode. 
+
      2. After the installation is complete, run the following command to configure the agent on the node:
 
         ```
@@ -107,11 +110,11 @@ These are the prerequisites for backing up virtual machines with MABS:
 
    During VM selection, you can choose one of the following VM type:
 
-   - **Hyper-v VMs**: Select this VM type from the individual node.
+   - **Hyper-V (Unmanaged) VMs**: Select this VM type from the individual node.
 
      :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-hyper-v-vm.png" alt-text="Screenshot shows the selection of Hyper-V VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-hyper-v-vm.png":::
 
-   - **Clustered HA VMs**: Select this VM type from the cluster.
+   - **Highly Availabe VMs**: Select this VM type from the cluster.
 
      :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png" alt-text="Screenshot shows the selection of Clustered VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png":::
 
@@ -162,8 +165,8 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
 
    >[!Note]
-   >- All the Clustered HA VMs are recovered by selecting these Virtual machines under the cluster.
-   >- Both Hyper-V and Clustered VMs are restored as Hyper-V Virtual Machines.
+   >- All the highly available VMs are recovered by selecting these Virtual machines under the cluster.
+   >- Both standalone and highly available VMs are restored as unmanaged Virtual Machines.
 
 2. In the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
 
@@ -179,7 +182,7 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
     - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Azure Local virtual machine to a different host within the same cluster,  independent of processor architecture. Azure Local virtual machines that are recovered to a cluster node won't be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
     
         >[!NOTE]
-        >- There's limited support for Alternate location recovery (ALR) for Arc VMs. The VM is recovered as a Hyper-V VM, instead of an Arc VM. Currently, conversion of Hyper-V VMs to Arc VMs isn't supported once you create them.
+        >- There's limited support for Alternate location recovery (ALR) for Azure Local VMs. The VM is recovered as an unmanaged VM, instead of an Azure Local VM. Currently, conversion of unmanaged VMs to Azure Local VMs isn't supported.
         >- If you select the original host, the behavior is the same as **Recover to original instance**. The original VHD and all associated checkpoints will be deleted.
 
     - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of  Azure Local virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.

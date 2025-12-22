@@ -3,19 +3,18 @@ title: Azure identity & access security best practices | Microsoft Docs
 description: This article provides a set of best practices for identity management and access control using built in Azure capabilities.
 services: security
 author: msmbaldwin
-manager: RKarlin
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/29/2024
+ms.date: 05/28/2025
 ms.author: mbaldwin
 
 ---
 # Azure Identity Management and access control security best practices
 
-In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) and the experiences of customers like yourself.
+In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Microsoft Entra ID](/entra/fundamentals/whatis) and the experiences of customers like yourself.
 
 For each best practice, we explain:
 
@@ -50,7 +49,7 @@ Azure identity management and access control security best practices discussed i
 
 Many consider identity to be the primary perimeter for security. This is a shift from the traditional focus on network security. Network perimeters keep getting more porous, and that perimeter defense can’t be as effective as it was before the explosion of [BYOD](/mem/intune/fundamentals/byod-technology-decisions) devices and cloud applications.
 
-[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) is the Azure solution for identity and access management. Microsoft Entra ID is a multitenant, cloud-based directory and identity management service from Microsoft. It combines core directory services, application access management, and identity protection into a single solution.
+[Microsoft Entra ID](/entra/fundamentals/whatis) is the Azure solution for identity and access management. Microsoft Entra ID is a multitenant, cloud-based directory and identity management service from Microsoft. It combines core directory services, application access management, and identity protection into a single solution.
 
 The following sections list best practices for identity and access security using Microsoft Entra ID.
 
@@ -65,27 +64,27 @@ In a hybrid identity scenario we recommend that you integrate your on-premises a
 **Detail**: Designate a single Microsoft Entra directory as the authoritative source for corporate and organizational accounts.
 
 **Best practice**: Integrate your on-premises directories with Microsoft Entra ID.  
-**Detail**: Use [Microsoft Entra Connect](../../active-directory/hybrid/whatis-hybrid-identity.md) to synchronize your on-premises directory with your cloud directory.
+**Detail**: Use [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) to synchronize your on-premises directory with your cloud directory.
 
 > [!Note]
-> There are [factors that affect the performance of Microsoft Entra Connect](../../active-directory/hybrid/plan-connect-performance-factors.md). Ensure Microsoft Entra Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](../../active-directory/hybrid/whatis-hybrid-identity.md) to optimize their Microsoft Entra Connect implementation.
+> There are [factors that affect the performance of Microsoft Entra Connect](/entra/identity/hybrid/connect/plan-connect-performance-factors). Ensure Microsoft Entra Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](/entra/identity/hybrid/connect/whatis-azure-ad-connect) to optimize their Microsoft Entra Connect implementation.
 
 **Best practice**: Don’t synchronize accounts to Microsoft Entra ID that have high privileges in your existing Active Directory instance.  
-**Detail**: Don’t change the default [Microsoft Entra Connect configuration](../../active-directory/hybrid/how-to-connect-sync-configure-filtering.md) that filters out these accounts. This configuration mitigates the risk of adversaries pivoting from cloud to on-premises assets (which could create a major incident).
+**Detail**: Don't change the default [Microsoft Entra Connect configuration](/entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering) that filters out these accounts. This configuration mitigates the risk of adversaries pivoting from cloud to on-premises assets (which could create a major incident).
 
 **Best practice**: Turn on password hash synchronization.  
 **Detail**: Password hash synchronization is a feature used to synch user password hashes from an on-premises Active Directory instance to a cloud-based Microsoft Entra instance. This sync helps to protect against leaked credentials being replayed from previous attacks.
 
 Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises servers fail or become temporarily unavailable. This sync enables users to sign in to the service by using the same password that they use to sign in to their on-premises Active Directory instance. It also allows Identity Protection to detect compromised credentials by comparing synchronized password hashes with passwords known to be compromised, if a user has used the same email address and password on other services that aren't connected to Microsoft Entra ID.
 
-For more information, see [Implement password hash synchronization with Microsoft Entra Connect Sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
+For more information, see [Implement password hash synchronization with Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization).
 
 **Best practice**: For new application development, use Microsoft Entra ID for authentication.  
 **Detail**: Use the correct capabilities to support authentication:
 
   - Microsoft Entra ID for employees
-  - [Microsoft Entra B2B](../../active-directory/external-identities/index.yml) for guest users and external partners
-  - [Azure AD B2C](../../active-directory-b2c/index.yml) to control how customers sign up, sign in, and manage their profiles when they use your applications
+  - [Microsoft Entra B2B](/entra/external-id/what-is-b2b) for guest users and external partners
+  - [Microsoft Entra External ID](/entra/external-id/external-identities-overview) to control how customers sign up, sign in, and manage their profiles when they use your applications
 
 Organizations that don’t integrate their on-premises identity with their cloud identity can have more overhead in managing accounts. This overhead increases the likelihood of mistakes and security breaches.
 
@@ -93,7 +92,7 @@ Organizations that don’t integrate their on-premises identity with their cloud
 > You need to choose which directories critical accounts will reside in and whether the admin workstation used is managed by new cloud services or existing processes. Using existing management and identity provisioning processes can decrease some risks but can also create the risk of an attacker compromising an on-premises account and pivoting to the cloud. You might want to use a different strategy for different roles (for example, IT admins vs. business unit admins). You have two options. First option is to create Microsoft Entra accounts that aren’t synchronized with your on-premises Active Directory instance. Join your admin workstation to Microsoft Entra ID, which you can manage and patch by using Microsoft Intune. Second option is to use existing admin accounts by synchronizing to your on-premises Active Directory instance. Use existing workstations in your Active Directory domain for management and security.
 
 ## Manage connected tenants
-Your security organization needs visibility to assess risk and to determine whether the policies of your organization, and any regulatory requirements, are being followed. You should ensure that your security organization has visibility into all subscriptions connected to your production environment and network (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) or [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md). A [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) in Microsoft Entra ID can elevate their access to the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role and see all subscriptions and managed groups connected to your environment.
+Your security organization needs visibility to assess risk and to determine whether the policies of your organization, and any regulatory requirements, are being followed. You should ensure that your security organization has visibility into all subscriptions connected to your production environment and network (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) or [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md). A [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) in Microsoft Entra ID can elevate their access to the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role and see all subscriptions and managed groups connected to your environment.
 
 See [elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md) to ensure that you and your security group can view all subscriptions or management groups connected to your environment. You should remove this elevated access after you’ve assessed risks.
 
@@ -104,9 +103,9 @@ In a mobile-first, cloud-first world, you want to enable single sign-on (SSO) to
 By using the same identity solution for all your apps and resources, you can achieve SSO. And your users can use the same set of credentials to sign in and access the resources that they need, whether the resources are located on-premises or in the cloud.
 
 **Best practice**: Enable SSO.  
-**Detail**: Microsoft Entra ID [extends on-premises Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) to the cloud. Users can use their primary work or school account for their domain-joined devices, company resources, and all of the web and SaaS applications that they need to get their jobs done. Users don’t have to remember multiple sets of usernames and passwords, and their application access can be automatically provisioned (or deprovisioned) based on their organization group memberships and their status as an employee. And you can control that access for gallery apps or for your own on-premises apps that you’ve developed and published through the [Microsoft Entra application proxy](../../active-directory/app-proxy/application-proxy.md).
+**Detail**: Microsoft Entra ID [extends on-premises Active Directory](/entra/identity/hybrid/whatis-hybrid-identity) to the cloud. Users can use their primary work or school account for their domain-joined devices, company resources, and all of the web and SaaS applications that they need to get their jobs done. Users don't have to remember multiple sets of usernames and passwords, and their application access can be automatically provisioned (or deprovisioned) based on their organization group memberships and their status as an employee. And you can control that access for gallery apps or for your own on-premises apps that you've developed and published through the [Microsoft Entra application proxy](/entra/identity/app-proxy/overview-what-is-app-proxy).
 
-Use SSO to enable users to access their [SaaS applications](../../active-directory/manage-apps/what-is-single-sign-on.md) based on their work or school account in Microsoft Entra ID. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../../active-directory/saas-apps/google-apps-tutorial.md) and [Salesforce](../../active-directory/saas-apps/salesforce-tutorial.md). You can configure your application to use Microsoft Entra ID as a [SAML-based identity](../../active-directory/fundamentals/active-directory-whatis.md) provider. As a security control, Microsoft Entra ID does not issue a token that allows users to sign in to the application unless they have been granted access through Microsoft Entra ID. You can grant access directly, or through a group that users are a member of.
+Use SSO to enable users to access their [SaaS applications](/entra/identity/enterprise-apps/what-is-single-sign-on) based on their work or school account in Microsoft Entra ID. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](/entra/identity/saas-apps/google-apps-tutorial) and [Salesforce](/entra/identity/saas-apps/salesforce-tutorial). You can configure your application to use Microsoft Entra ID as a [SAML-based identity](/entra/fundamentals/whatis) provider. As a security control, Microsoft Entra ID does not issue a token that allows users to sign in to the application unless they have been granted access through Microsoft Entra ID. You can grant access directly, or through a group that users are a member of.
 
 Organizations that don’t create a common identity to establish SSO for their users and applications are more exposed to scenarios where users have multiple passwords. These scenarios increase the likelihood of users reusing passwords or using weak passwords.
 
@@ -117,10 +116,10 @@ Users can access your organization's resources by using a variety of devices and
 To balance security and productivity, you need to think about how a resource is accessed before you can make a decision about access control. With Microsoft Entra Conditional Access, you can address this requirement. With Conditional Access, you can make automated access control decisions based on conditions for accessing your cloud apps.
 
 **Best practice**: Manage and control access to corporate resources.  
-**Detail**: Configure common Microsoft Entra [Conditional Access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) based on a group, location, and application sensitivity for SaaS apps and Microsoft Entra ID–connected apps.
+**Detail**: Configure common Microsoft Entra [Conditional Access policies](/entra/identity/conditional-access/concept-conditional-access-policy-common) based on a group, location, and application sensitivity for SaaS apps and Microsoft Entra ID–connected apps.
 
 **Best practice**: Block legacy authentication protocols.  
-**Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to [block legacy protocols](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md).
+**Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to [block legacy protocols](/entra/identity/conditional-access/howto-conditional-access-policy-block-legacy).
 
 ## Plan for routine security improvements
 
@@ -148,11 +147,17 @@ If you have multiple tenants or you want to enable users to [reset their own pas
 
 ## Enforce multifactor verification for users
 
-We recommend that you require two-step verification for all of your users. This includes administrators and others in your organization who can have a significant impact if their account is compromised (for example, financial officers).
+We recommend that you require multifactor authentication (MFA) for all of your users. This includes administrators and others in your organization who can have a significant impact if their account is compromised (for example, financial officers).
 
-There are multiple options for requiring two-step verification. The best option for you depends on your goals, the Microsoft Entra edition you’re running, and your licensing program. See [How to require two-step verification for a user](../../active-directory/authentication/howto-mfa-userstates.md) to determine the best option for you. See the [Microsoft Entra ID](https://azure.microsoft.com/pricing/details/active-directory/) and [Microsoft Entra multifactor authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
+> [!IMPORTANT]
+> **Mandatory MFA Enforcement**: As of October 1, 2025, Azure has entered Phase 2 of mandatory MFA enforcement, requiring strong authentication for all Azure service users including Command Line Interface (CLI), PowerShell, Azure mobile app, Infrastructure as Code (IaC) tools, and REST API endpoints for Create, Update, or Delete operations. This enforcement significantly improves identity security by neutralizing stolen credentials at scale. Microsoft internal telemetry shows this implementation has blocked more than 99% of account compromise attempts. For more information, see [Planning for mandatory multifactor authentication for Azure](/entra/identity/authentication/concept-mandatory-multifactor-authentication).
 
-Following are options and benefits for enabling two-step verification:
+**Best practice**: Prioritize phishing-resistant MFA methods such as FIDO2 security keys, passkeys, Windows Hello for Business, and certificate-based authentication.  
+**Detail**: Phishing-resistant authentication methods provide the strongest protection against sophisticated attacks. These methods use hardware-backed cryptographic keys that cannot be intercepted or replayed by attackers. Microsoft recommends deploying phishing-resistant MFA as the baseline for identity security. For guidance, see [Plan a phishing-resistant passwordless authentication deployment](/entra/identity/authentication/how-to-plan-prerequisites-phishing-resistant-passwordless-authentication).
+
+There are multiple options for requiring multifactor authentication. The best option for you depends on your goals, the Microsoft Entra edition you're running, and your licensing program. See [How to require two-step verification for a user](../../active-directory/authentication/howto-mfa-userstates.md) to determine the best option for you. See the [Microsoft Entra ID](https://azure.microsoft.com/pricing/details/active-directory/) and [Microsoft Entra multifactor authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
+
+Following are options and benefits for enabling multifactor authentication:
 
 **Option 1**: Enable MFA for all users and login methods with Microsoft Entra Security Defaults  
 **Benefit**: This option enables you to easily and quickly enforce MFA for all users in your environment with a stringent policy to:
@@ -185,7 +190,10 @@ This method uses the Microsoft Entra ID Protection risk evaluation to determine 
 > [!Note]
 > Option 2, enabling multifactor authentication by changing the user state, overrides Conditional Access policies. Because options 3 and 4 use Conditional Access policies, you cannot use option 2 with them.
 
-Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
+**Best practice**: Migrate user-based service accounts to workload identities.  
+**Detail**: Some customers use user accounts in Microsoft Entra ID as service accounts for automation. With mandatory MFA enforcement, it's critical to migrate these user-based service accounts to [secure cloud-based service accounts with workload identities](/entra/workload-id/workload-identities-overview). Workload identities such as managed identities and service principals are designed for automation scenarios and don't require MFA, providing a more secure and manageable solution. For migration guidance, see [Sign in to Azure with a managed identity using the Azure CLI](/cli/azure/authenticate-azure-cli-managed-identity) and [Sign in to Azure PowerShell non-interactively for automation scenarios](/powershell/azure/authenticate-noninteractive).
+
+Organizations that don't add extra layers of identity protection, such as multifactor authentication, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
 ## Use role-based access control
 
@@ -239,7 +247,7 @@ The following summarizes the best practices found in [Securing privileged access
 **Best practice**: Identify and categorize accounts that are in highly privileged roles.   
 **Detail**: After turning on Microsoft Entra Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
 
-* Individually assigned to administrative users, and can be used for non-administrative purposes (for example, personal email)
+* Individually assigned to administrative users and can be used for non-administrative purposes (for example, personal email)
 * Individually assigned to administrative users and designated for administrative purposes only
 * Shared across multiple users
 * For emergency access scenarios

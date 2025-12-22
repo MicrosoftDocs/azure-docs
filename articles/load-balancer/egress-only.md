@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/06/2024
 ms.author: mbender
 ms.custom: template-how-to
+# Customer intent: As an IT administrator, I want to configure an outbound-only load balancer using internal and public load balancers, so that I can enable secure outbound connectivity for virtual machines without allowing inbound public access.
 ---
 
 # Outbound-only load balancer configuration
@@ -29,7 +30,7 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a virtual network and bastion host
 

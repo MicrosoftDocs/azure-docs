@@ -22,21 +22,13 @@ landingContent:
         links:
           - text: Azure reliability overview
             url: overview.md          
-          - text: What's new
-            url: whats-new.md
   # Card
-  - title: Reliability fundamentals
+  - title: Reliability guides by service
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
-          - text: Business continuity, high availability, and disaster recovery
-            url: concept-business-continuity-high-availability-disaster-recovery.md
-          - text: Redundancy, replication, and backup
-            url: concept-redundancy-replication-backup.md
-          - text: Failover and failback
-            url: concept-failover-failback.md
-          - text: Shared responsibility for resiliency
-            url: concept-shared-responsibility.md
+          - text: Reliability guidance for Azure services
+            url: overview-reliability-guidance.md
   # Card
   - title: Azure regions
     linkLists:
@@ -67,10 +59,15 @@ landingContent:
         links:
           - text: Migrate to availability zone support
             url: availability-zones-migration-overview.md
-  # Card
-  - title: Reliability guides by service
+  - title: Reliability concepts
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: Reliability guidance for Azure services
-            url: overview-reliability-guidance.md
+          - text: Business continuity, high availability, and disaster recovery
+            url: concept-business-continuity-high-availability-disaster-recovery.md
+          - text: Redundancy, replication, and backup
+            url: concept-redundancy-replication-backup.md
+          - text: Failover and failback
+            url: concept-failover-failback.md
+          - text: Shared responsibility for resiliency
+            url: concept-shared-responsibility.md

@@ -40,7 +40,7 @@ The following table summarizes the errors related to device activation and the c
 | Error   message| Recommended   resolution |
 |------------------------------------------------------|--------------------------------------|
 | If the Channel Integrity Key in the Azure Key Vault was deleted, and you try to perform any operations that involve encryption - for example, **Add User**, **Add Share**, or **Configure Compute** - then you will receive this error.  |If the Channel Integrity Key in the key vault was deleted, but the key is still within the purge duration, follow the steps in [Undo Key vault key removal](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval). <br>If the purge protection duration has elapsed, and if you've backed up the key, you can restore the key from the backup. Otherwise, you can't recover the key. Contact Microsoft Support for next steps. |
-<!--|Remove this after checking with Noopur - customer doesnt need to do anything - If the Channel Integrity Key in the Azure Key Vault was deleted before the activation of the device, and the activation key is regenerated, you'll receive this error. <br> ![Key vault error 3](./media/azure-stack-edge-gpu-activation-key-vault/placeholder.png) | The Channel Integrity Key will be recreated, and the metadata is updated.
+<!--|Remove this after checking with Noopur - customer doesn't need to do anything - If the Channel Integrity Key in the Azure Key Vault was deleted before the activation of the device, and the activation key is regenerated, you'll receive this error. <br> ![Key vault error 3](./media/azure-stack-edge-gpu-activation-key-vault/placeholder.png) | The Channel Integrity Key will be recreated, and the metadata is updated.
 |-->
 
 ## Audit logging errors

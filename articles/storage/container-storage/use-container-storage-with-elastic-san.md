@@ -1,25 +1,31 @@
 ---
-title: Use Azure Container Storage with Azure Elastic SAN (preview)
-description: As a preview, you can configure Azure Container Storage to use Azure Elastic SAN. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage (version 1.x.x) with Azure Elastic SAN (preview)
+description: As a preview feature, you can configure Azure Container Storage (version 1.x.x) to use Azure Elastic SAN. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 09/03/2025
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
+# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage (version 1.x.x) with Azure Elastic SAN so that I can efficiently manage persistent storage for my containerized applications."
 ---
 
-# Use Azure Container Storage with Azure Elastic SAN (preview)
+# Use Azure Container Storage (version 1.x.x) with Azure Elastic SAN (preview)
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. Azure Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. Azure Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
-As a preview feature, you can configure Azure Container Storage to use Azure Elastic SAN. This article covers how to make that configuration. At the end of this article, you'll have a pod that's using Elastic SAN as its storage.
+This article shows you how to configure Azure Container Storage (version 1.x.x) to use Azure Elastic SAN. At the end of this article, you'll have a pod that's using Elastic SAN as its storage.
+
+> [!IMPORTANT]
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available, but it currently only supports local NVMe for backing storage.
 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- Ensure you have either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role on your subscription. Either of these roles grant permissions that allow Azure Container Storage to communicate with the Elastic SAN resource. To make this change, go to your subscription page on the Azure portal. Select **Access control (IAM) > Add role assignment** and search for either "Azure Container Storage Owner" or "Azure Container Storage Contributor" in the **Job function roles** tab. Select **View > Assignments > Add assignment** and add your account.
+- Ensure you have either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role on your subscription. The Azure Container Storage Contributor role grants you permissions needed to perform Azure Arc extension actions and to write to and delete resources. The Azure Container Storage Owner role grants you the same permissions and allows you to manage Elastic SAN volumes outside of your cluster. To make this change, go to your subscription page in the Azure portal. Select **Access control (IAM) > Add role assignment** and search for either "Azure Container Storage Owner" or "Azure Container Storage Contributor" in the **Job function roles** tab. Select **View > Assignments > Add assignment** and add your account.
 
 - To use Azure Container Storage with Azure Elastic SAN (preview), your AKS cluster must have a node pool of at least three [general purpose VMs](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
@@ -218,5 +224,5 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 ## See also
 
-- [What is Azure Container Storage?](container-storage-introduction.md)
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)
 - [What is Azure Elastic SAN?](../elastic-san/elastic-san-introduction.md)

@@ -1,18 +1,24 @@
 ---
-title: Authenticate access to Azure Event Hubs with shared access signatures
-description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
+title: "SAS Authentication for Azure Event Hubs Resources"
+description: Learn how to authenticate access to Azure Event Hubs resources using shared access signatures (SAS). Get granular control over permissions and security. Includes code examples in C#, Java, and Node.js to implement SAS authentication.
+#customer intent: Based on the content you've provided about SAS authentication for Azure Event Hubs, here are 10 customer intent statements following the agile user story format:
 ms.topic: conceptual
-ms.date: 06/25/2024
+ms.date: 07/25/2025
 ms.devlang: csharp
-# ms.devlang: csharp, java, javascript, php
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:07/25/2025
+  - ai-gen-description
+  - sfi-image-nochange
 ---
 
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)
 Shared access signature (SAS) gives you granular control over the type of access you grant to the clients. Here are some of the controls you can set in a SAS: 
 
 - The interval over which the SAS is valid, which includes the start time and expiry time.
-- The permissions granted by the SAS. For example, a SAS for an Event Hubs namespace might grant the listen permission, but not the send permission.
+- The permissions granted by the SAS. For example, a SAS for an Event Hubs namespace might grant the permission to listen for event, but not the permission to send events. 
 - Only clients that present valid credentials can send data to an event hub.
 - A client can't impersonate another client.
 - A rogue client can be blocked from sending data to an event hub.
@@ -50,7 +56,7 @@ The signature-string is the SHA-256 hash computed over the resource URI (scope a
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-The token contains the non-hashed values so that the recipient can recompute the hash with the same parameters, verifying that the issuer is in possession of a valid signing key.
+The token contains the nonhashed values so that the recipient can recompute the hash with the same parameters, verifying that the issuer is in possession of a valid signing key.
 
 The resource URI is the full URI of the Service Bus resource to which access is claimed. For example, `http://<namespace>.servicebus.windows.net/<entityPath>` or `sb://<namespace>.servicebus.windows.net/<entityPath>` that is, `http://contoso.servicebus.windows.net/eh1`.
 
@@ -237,7 +243,7 @@ An event publisher defines a virtual endpoint for an event hub. The publisher ca
 
 Typically, an event hub employs one publisher per client. All messages that are sent to any of the publishers of an event hub are enqueued within that event hub. Publishers enable fine-grained access control.
 
-Each Event Hubs client is assigned a unique token, which is uploaded to the client. The tokens are produced such that each unique token grants access to different unique publisher. A client that holds a token can only send to one publisher, and no other publisher. If multiple clients share the same token, then each of them shares the publisher.
+A unique token is assigned to each Event Hubs client, which is uploaded to the client. The tokens are produced such that each unique token grants access to different unique publisher. A client that holds a token can only send to one publisher, and no other publisher. If multiple clients share the same token, then each of them shares the publisher.
 
 All tokens are assigned with SAS keys. Typically, all tokens are signed with the same key. Clients aren't aware of the key, which prevents clients from manufacturing tokens. Clients operate on the same tokens until they expire.
 
@@ -251,20 +257,20 @@ For example, to define authorization rules scoped down to only sending/publishin
 
 
 > [!NOTE]
-> Although we don't recommend it, it's possible to equip devices with tokens that grant access to an event hub or a namespace. Any device that holds this token can send messages directly to that event hub. Furthermore, the device cannot be blocklisted from sending to that event hub.
+> Although we don't recommend it, it's possible to equip devices with tokens that grant access to an event hub or a namespace. Any device that holds this token can send messages directly to that event hub. Furthermore, the device can't be blocklisted from sending to that event hub.
 > 
 > We recommend that you give specific and granular scopes.
 
 > [!IMPORTANT]
-> Once the tokens have been created, each client is provisioned with its own unique token.
+> Once the tokens are created, each client is provisioned with its own unique token.
 >
 > When the client sends data into an event hub, it tags its request with the token. To prevent an attacker from eavesdropping and stealing the token, the communication between the client and the event hub must occur over an encrypted channel.
 > 
-> If a token is stolen by an attacker, the attacker can impersonate the client whose token has been stolen. Blocklisting a publisher, renders that client unusable until it receives a new token that uses a different publisher.
+> If an attacker steals a token, the attacker can impersonate the client whose token has been stolen. Disallowing a publisher, renders that client unusable until it receives a new token that uses a different publisher.
 
 
 ## Authenticating Event Hubs consumers with SAS 
-To authenticate back-end applications that consume from the data generated by Event Hubs producers, Event Hubs token authentication requires its clients to either have the **manage** rights or the **listen** privileges assigned to its Event Hubs namespace or event hub instance or topic. Data is consumed from Event Hubs using consumer groups. While SAS policy gives you granular scope, this scope is defined only at the entity level and not at the consumer level. It means that the privileges defined at the namespace level or the event hub or topic level are applied to the consumer groups of that entity.
+To authenticate back-end applications that consume data generated by Event Hubs producers, Event Hubs token authentication requires its clients to have either the **manage** rights or the **listen** privileges assigned to its Event Hubs namespace or event hub instance or topic. Data is consumed from Event Hubs using consumer groups. While SAS policy gives you granular scope, this scope is defined only at the entity level and not at the consumer level. It means that the privileges defined at the namespace level or the event hub or topic level are applied to the consumer groups of that entity.
 
 ## Disable local/SAS Key authentication  
 For certain organizational security requirements, you want to disable local/SAS key authentication completely and rely on the Microsoft Entra ID based authentication, which is the recommended way to connect with Azure Event Hubs. You can disable local/SAS key authentication at the Event Hubs namespace level using Azure portal or Azure Resource Manager template. 
@@ -333,15 +339,10 @@ You can disable local authentication for a given Event Hubs namespace by setting
 - See the .NET sample #5 in [this GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) to learn how to consume or process events using shared access credentials or the default Azure credential identity.
 
 ## Next steps
-See the following articles:
 
-- [Authorize using SAS](authenticate-shared-access-signature.md)
-- [Authorize using Azure role-based access control (RBAC)](authorize-access-azure-active-directory.md)
-- [Learn more about Event Hubs](event-hubs-about.md)
+Now that you understand SAS authentication, explore these related topics:
 
-See the following related articles:
+**Secure your Event Hubs further:**
+- [Authorize access using Shared Access Signatures](authenticate-shared-access-signature.md) - Learn authorization concepts
+- [Use Azure role-based access control (RBAC)](authorize-access-azure-active-directory.md) - Implement enterprise-grade security
 
-- [Authenticate requests to Azure Event Hubs from an application using Microsoft Entra ID](authenticate-application.md)
-- [Authenticate a managed identity with Microsoft Entra ID for accessing Event Hubs Resources](authenticate-managed-identity.md)
-- [Authorize access to Event Hubs resources using Microsoft Entra ID](authorize-access-azure-active-directory.md)
-- [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)

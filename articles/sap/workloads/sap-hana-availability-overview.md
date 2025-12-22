@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud architect, I want to implement high availability for SAP HANA on Azure VMs so that I can ensure the resilience and uptime of mission-critical databases in my organization.
 ---
 
 # SAP HANA high availability for Azure virtual machines
@@ -36,7 +37,7 @@ It's also a good idea to be familiar with these articles about SAP HANA:
 - [FAQ: High availability for SAP HANA](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/6d252db7cdd044d19ad85b46e6c294a4.html)
 - [Perform system replication for SAP HANA](https://www.sap.com/documents/2017/07/606a676e-c97c-0010-82c7-eda71af511fa.html)
 - [SAP HANA 2.0 SPS 01 What’s new: High availability](https://blogs.sap.com/2017/05/15/sap-hana-2.0-sps-01-whats-new-high-availability-by-the-sap-hana-academy/)
-- [Network recommendations for SAP HANA system replication](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html)
+- [Network recommendations for SAP HANA system replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/9abd88b15d0b4876ab672176011441de.html)
 - [SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
 - [SAP HANA service auto-restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Configure SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)

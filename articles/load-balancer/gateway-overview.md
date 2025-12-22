@@ -7,6 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 06/26/2024
 ms.topic: concept-article
+# Customer intent: "As a network administrator, I want to implement Gateway Load Balancer with my Network Virtual Appliances, so that I can enhance network performance, simplify management, and ensure seamless integration of advanced network functionalities."
 ---
 
 # Gateway Load Balancer
@@ -42,9 +43,12 @@ Gateway Load Balancer has the following benefits:
 
 ## Configuration and supported scenarios
 
-A Standard Public Load balancer or a Standard IP configuration of a virtual machine can be chained to a Gateway Load Balancer. "Chaining" refers to the load balancer frontend or NIC IP configuration containing a reference to a Gateway Load Balancer frontend IP configuration. Once the Gateway Load Balancer is chained to a consumer resource, no additional configuration such as UDRs is needed to ensure traffic to and from the application endpoint is sent to the Gateway Load Balancer.
+A Standard Public Load Balancer or a Standard IP configuration of a virtual machine can be chained to a Gateway Load Balancer. "Chaining" refers to the load balancer frontend or NIC IP configuration containing a reference to a Gateway Load Balancer frontend IP configuration. Once the Gateway Load Balancer is chained to a consumer resource, no additional configuration such as UDRs is needed to ensure traffic to and from the application endpoint is sent to the Gateway Load Balancer.
 
 Gateway Load Balancer supports both inbound and outbound traffic inspection. For inserting NVAs in the path of outbound traffic with Standard Load Balancer, Gateway Load Balancer must be chained to the frontend IP configurations selected in the configured outbound rules.
+
+> [!NOTE]
+> Configuring a Gateway Load Balancer's frontend IP as the next hop in user-defined routes (UDRs) is not supported. Gateway Load Balancer resources must be chained/referenced by a supported consumer resource such as a Standard Public Load Balancer or Standard NIC IP configuration.
 
 ## Data path diagram
 

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell, linux-related-content
 ms.date: 06/10/2024
+# Customer intent: As a cloud engineer, I want to mount a virtual file system on Batch pool nodes, so that I can efficiently manage shared data access for tasks running on those compute nodes.
 ---
 
 # Mount a virtual file system on a Batch pool
@@ -419,7 +420,7 @@ new PoolAddParameter
 }
 ```
 
-To get default access to the BlobFuse mounted directory, run the task as an administrator. BlobFuse mounts the directory at the user space, and at pool creation mounts the directory as root. In Linux, all administrator tasks are root. The [FUSE reference page](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html) describes all options for the FUSE module.
+To get default access to the BlobFuse mounted directory, run the task as an administrator. BlobFuse mounts the directory at the user space, and at pool creation mounts the directory as root. In Linux, all administrator tasks are root. The [FUSE reference page](https://manpages.ubuntu.com/manpages/questing/man8/mount.fuse.8.html) describes all options for the FUSE module.
 
 For more information and tips on using BlobFuse, see the following references:
 

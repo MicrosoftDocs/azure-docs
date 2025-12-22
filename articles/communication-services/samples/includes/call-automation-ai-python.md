@@ -1,50 +1,53 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
 manager: visho
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 12/08/2023
 ms.topic: include
-ms.custom: include file
 ms.author: kpunjabi
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
-## Download code 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/callautomation-openai-sample). You can download this code and run it locally to try it for yourself. 
+## Download code
 
-## Overview 
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/callautomation-openai-sample). You can download this code and run it locally to try it for yourself.
 
-This sample is a server-side application that helps you create a virtual assistant capable of handling calls using Call Automation. It also enables your assistant to respond to customers using Azure AI services, which provide AI capabilities such as Text-to-Speech and Speech-to-Text, as well as smart responses provided by Azure OpenAI.
+## Overview
 
-This Azure Communication Services Call Automation AI sample demonstrates how to use the Call Automation SDK to answer an inbound call, recognizes user voice input using Call Automation recognize API with support for Speech-to-Text. When the system recognizes the input, it sends the information to OpenAI for an answer and uses the Call Automation play API with support for Text-to-Speech to play back the answer provided by OpenAI to the caller.
+This sample is a server-side application that helps you create a virtual assistant that can handle calls by using Call Automation. It also enables your assistant to respond to customers by using Azure AI services, which provide AI capabilities such as text to speech and speech to text, along with smart responses provided by Azure OpenAI.
+
+This Azure Communication Services Call Automation AI sample demonstrates how to use the Call Automation SDK to answer an inbound call. It recognizes user voice input by using Call Automation to recognize the API with support for speech to text. When the system recognizes the input, it sends the information to OpenAI for an answer. It uses the Call Automation Play API with support for text to speech to play back the answer provided by OpenAI to the caller.
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/).
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
-- A Calling-enabled telephone number. [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
-- Azure Dev Tunnels. For details, see  [Enable dev tunnel](/azure/developer/dev-tunnels/get-started).
-- Create an Azure AI Multi service resource. For details, see [Create an Azure AI services Resource](/azure/ai-services/multi-service-resource).
-- An Azure OpenAI Resource and Deployed Model. See [instructions](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
-- Create and host an Azure Dev Tunnel. Instructions [here](/azure/ai-services/multi-service-resource).
-- [Python](https://www.python.org/downloads/) 3.7 or above (please be aware that currently version 3.12 does not have support for OpenAI libraries).
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
+- A calling-enabled telephone number. For more information, see [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
+- An Azure dev tunnel. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
+- An Azure AI multiservice resource. For more information, see [Create an Azure AI services resource](/azure/ai-services/multi-service-resource).
+- An Azure OpenAI resource and deployed model. For more information, see [Create an Azure OpenAI resource and deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
+- [Python](https://www.python.org/downloads/) 3.7 or later. Currently, version 3.12 doesn't have support for OpenAI libraries.
 
 ## Setup instructions
 
-Before running this sample, you need to set up the resources mentioned in the 'Prerequisites' section with the following configuration updates:
+Before you run this sample, you need to set up the resources mentioned in the preceding section with the following configuration updates.
 
-##### 1. Setup Python environment 
+#### Step 1: Set up a Python environment 
 
-Create and activate python virtual environment and install required packages using following command 
+Create and activate a Python virtual environment and install the required packages by using the following command:
+
 ```
 pip install -r requirements.txt
 ```
 
-##### 2. Setup and host your Azure DevTunnel
+#### Step 2: Set up and host your Azure dev tunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands provided to connect your local development environment to the public internet. This process creates a tunnel with a persistent endpoint URL and allows anonymous access. We'll use this endpoint to notify your application of calling events from the ACS Call Automation service.
+With [dev tunnels](/azure/developer/dev-tunnels/overview), you can share local web services that are hosted on the internet. Use the following commands to connect your local development environment to the public internet. This process creates a tunnel with a persistent endpoint URL and allows anonymous access. We use this endpoint to notify your application of calling events from Call Automation.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -54,31 +57,32 @@ devtunnel host
 
 <a name='2-add-a-managed-identity-to-the-acs-resource-that-connects-to-the-cognitive-services-resource'></a>
 
-##### 3. Add a Managed Identity to the Azure Communication Services Resource that connects to the Azure AI services resource
-Follow the instructions in this [documentation](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
+#### Step 3: Add a managed identity to the Azure Communication Services resource that connects to the Azure AI services resource
 
-##### 4. Add the required API Keys and endpoints
+Follow the instructions in [Connect Azure Communication Services with Azure AI services](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
-Open `main.py` file to configure the following settings
+#### Step 4: Add the required API keys and endpoints
 
-1. - `CALLBACK_URI_HOST`: your dev tunnel endpoint
-2. - `COGNITIVE_SERVICE_ENDPOINT`: The Azure AI Services endpoint
-3. - `ACS_CONNECTION_STRING`: Azure Communication Service resource's connection string.
-4. - `AZURE_OPENAI_SERVICE_KEY`: Azure OpenAI Service Key
-5. - `AZURE_OPENAI_SERVICE_ENDPOINT`: Azure OpenAI Service Endpoint
-6. - `AZURE_OPENAI_DEPLOYMENT_MODEL_NAME`: Azure OpenAI Model name
-6. - `AGENT_PHONE_NUMBER`: Agent Phone Number to transfer call
+Open the `main.py` file to configure the following settings:
 
+- `CALLBACK_URI_HOST`: Your dev tunnel endpoint.
+- `COGNITIVE_SERVICE_ENDPOINT`: The Azure AI services endpoint.
+- `ACS_CONNECTION_STRING`: Azure Communication Services resource connection string.
+- `AZURE_OPENAI_SERVICE_KEY`: Azure OpenAI service key.
+- `AZURE_OPENAI_SERVICE_ENDPOINT`: Azure OpenAI service endpoint.
+- `AZURE_OPENAI_DEPLOYMENT_MODEL_NAME`: Azure OpenAI model name.
+- `AGENT_PHONE_NUMBER`: Agent phone number to transfer call.
 
 ## Run the application
 
-1. Navigate to `callautomation-openai-sample` folder and run `main.py` in debug mode or use command `python ./main.py` to run it from PowerShell, Command Prompt or Unix Terminal
-2. Browser should pop up with the below page. If not, navigate it to `http://localhost:8080/` or your dev tunnel url.
-3. Register an Event Grid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](/azure/communication-services/concepts/call-automation/incoming-call-notification).
+1. Go to the `callautomation-openai-sample` folder and run `main.py` in debug mode. You can also use the command `python ./main.py` to run it from PowerShell, a command prompt, or a Unix terminal.
+1. The browser opens with a page. If it doesn't, go to `http://localhost:8080/` or your dev tunnel URL.
+1. Register an Azure Event Grid webhook for the `IncomingCall` event that points to your `DevTunnel` URI. For more information, see [Incoming call concepts](/azure/communication-services/concepts/call-automation/incoming-call-notification).
 
-Once you complete that, your application should be up and running. The best way to test this sample is to place a call to your Azure Communication Services phone number and talk to your intelligent agent.
+Now you have a running application. The best way to test this sample is to place a call to your Azure Communication Services phone number and talk to your intelligent agent.
 
-## Next steps
+## Related content
+
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md).
 - Learn more about [playing custom messages](../../how-tos/call-automation/play-action.md).
 - Learn more about [recognizing user input](../../how-tos/call-automation/recognize-action.md).

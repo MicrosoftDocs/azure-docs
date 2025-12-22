@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/22/2022
+ms.date: 10/10/2025
 ms.author: kesheth
 ---
 
@@ -23,9 +23,6 @@ Following are examples of Fast Healthcare Interoperability Resources (FHIR&#174;
  GET {{FHIR_URL}}/MedicationRequest?_include=MedicationRequest:patient
 
 ```
-
-> [!NOTE]
-> The FHIR service in Azure Health Data Services limits searches with `_include` and `_revinclude` to return a maximum of 100 items.
 
 ### `_revinclude`
 

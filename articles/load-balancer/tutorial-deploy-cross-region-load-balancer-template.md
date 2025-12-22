@@ -6,8 +6,12 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial 
 ms.date: 07/22/2024
-ms.custom: template-tutorial, devx-track-arm-template
+ms.custom:
+  - template-tutorial
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: As a administrator, I want to deploy a global load balancer for global high availability of my application or service.
+# Customer intent: As an IT administrator, I want to deploy a global load balancer using ARM templates so that I can ensure high availability of my applications across multiple Azure regions.
 ---
 
 # Tutorial: Deploy a global load balancer with Azure Resource Manager templates
@@ -31,11 +35,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
--  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
+-  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) and access to the Azure portal.
 
 ## Review the template
 In this section, you review the template and the parameters that are used to deploy the global load balancer. 
-The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-cross-region/).
+The template used in this quickstart is from the Azure Quickstart Templates.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json":::
 

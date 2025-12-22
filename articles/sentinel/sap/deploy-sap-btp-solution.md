@@ -68,7 +68,7 @@ To set up the BTP account and the solution:
 1. In the search bar, enter **BTP**, and then select **SAP BTP**.
 1. Select **Open connector page**.
 1. On the connector page, make sure that you meet the required prerequisites listed and complete the configuration steps. When you're ready, select **Add account**.
-1. Specify the parameters that you defined earlier during the configuration. The subaccount name specified is projected as a column in the `SAPBTPAuditLog_CL` table, and can be used to filter the logs when you have multiple subaccounts.
+1. Specify the parameters that you defined earlier during the configuration. The subaccount name specified is projected as a column in the `SAPBTPAuditLog_CL` table and can be used to filter the logs when you have multiple subaccounts.
 
     > [!NOTE]
     > Retrieving audits for the global account doesn't automatically retrieve audits for the subaccount. Follow the connector configuration steps for each of the subaccounts you want to monitor, and also follow these steps for the global account. Review these [account auditing configuration considerations](#consider-your-account-auditing-configurations).
@@ -101,6 +101,10 @@ You also can retrieve the logs via the UI:
 1. In the new instance, create a service key.
 1. View the service key and retrieve the required parameters from step 4 of the configuration instructions in the data connector UI (**url**, **uaa.url**, **uaa.clientid**, and **uaa.clientsecret**).
 
+## Use tools for mass-onboarding of SAP BTP subaccounts to Microsoft Sentinel
+
+To onboard SAP BTP subaccounts at scale, API and CLI based approaches are recommended. Get started with [this script library](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP%20BTP/Tools/).
+
 ## Rotate the BTP client secret
 
 We recommend that you periodically rotate the BTP subaccount client secrets. For an automated, platform-based approach, see our [Automatic SAP BTP trust store certificate renewal with Azure Key Vault – or how to stop thinking about expiry dates once and for all](https://community.sap.com/t5/technology-blogs-by-members/automatic-sap-btp-trust-store-certificate-renewal-with-azure-key-vault-or/ba-p/13565138) (SAP blog).
@@ -109,9 +113,9 @@ The following sample script demonstrates the process of updating an existing dat
 
 Before you start, collect the values you need for the scripts parameters, including:
 
- - The subscription ID, resource group, and workspace name for your Microsoft Sentinel workspace.
- - The key vault and the name of the key vault secret.
- - The name of the data connector you want to update with a new secret.  To identify the data connector name, open the SAP BPT data connector in the Microsoft Sentinel data connectors page. The data connector name has the following syntax: *BTP_{connector name}*
+- The subscription ID, resource group, and workspace name for your Microsoft Sentinel workspace.
+- The key vault and the name of the key vault secret.
+- The name of the data connector you want to update with a new secret.  To identify the data connector name, open the SAP BPT data connector in the Microsoft Sentinel data connectors page. The data connector name has the following syntax: *BTP_{connector name}*
 
 
 ```powershell

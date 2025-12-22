@@ -7,6 +7,7 @@ ms.reviewer: makromer
 ms.subservice: data-flows
 ms.topic: quickstart
 ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Create a mapping data flow in Azure Data Factory and Azure Synapse Analytics

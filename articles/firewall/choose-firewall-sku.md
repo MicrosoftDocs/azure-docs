@@ -1,21 +1,24 @@
 ---
-title: Choose the right Azure Firewall version to meet your needs
-description: Learn about the different Azure Firewall versions and how to choose the right one for your needs.
+title: Choose the right Azure Firewall SKU to meet your needs
+description: Quick comparison guide to help you choose between Azure Firewall Basic, Standard, and Premium SKUs based on your requirements.
 services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/17/2025
+ms.date: 09/18/2025
 ms.author: duau
+# Customer intent: As a network security administrator, I want to compare Azure Firewall SKUs and use a decision framework, so that I can quickly choose the most suitable option for my organization's security and performance requirements.
 ---
 
-# Choose the right Azure Firewall version to meet your needs
+# Choose the right Azure Firewall SKU to meet your needs
 
-Azure Firewall offers three versions to meet various customer needs:
+Azure Firewall offers three SKUs to meet various customer needs:
 
 - **Azure Firewall Premium**: Ideal for securing highly sensitive applications, such as payment processing. It includes advanced threat protection features like malware and TLS inspection.
 - **Azure Firewall Standard**: Suitable for customers requiring Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
 - **Azure Firewall Basic**: Designed for SMB customers with throughput requirements up to 250 Mbps.
+
+For detailed information about all Azure Firewall features, see [Azure Firewall features by SKU](features-by-sku.md).
 
 ## Feature comparison
 
@@ -54,4 +57,5 @@ Use the following flow chart to determine the best Azure Firewall version for yo
 
 ## Next steps
 
-- [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
+- [Azure Firewall features by SKU](features-by-sku.md)
+- [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal-policy.md)

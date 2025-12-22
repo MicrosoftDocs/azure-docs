@@ -5,7 +5,7 @@ author: jovinson-ms
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart
-ms.date: 7/16/2024
+ms.date: 06/19/2025
 ms.author: jovinson
 ---
 
@@ -15,7 +15,7 @@ In this quickstart, you deploy an instance of the de-identification service in y
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Register the `Microsoft.HealthDataAIServices` resource provider.
 
 ## Deploy the de-identification service

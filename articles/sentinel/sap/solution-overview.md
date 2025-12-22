@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 11/05/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a security operations team member, I want to monitor and protect SAP systems using Microsoft Sentinel so that I can detect, analyze, and respond to threats effectively across all layers of the SAP environment.
@@ -59,7 +59,7 @@ The Microsoft Sentinel **SAP applications** solution is certified for SAP S/4HAN
 - Our certification includes S/4 and SAP Rise S/4 HANA Cloud Private Edition running in any cloud and on-premises.
 - We support hybrid deployments that can cover the entire customer estate.
 
-For more information, see the certification on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8).
+For more information, see the certification on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8).
 
 ## Solution pricing
 

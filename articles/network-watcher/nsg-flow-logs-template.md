@@ -10,6 +10,7 @@ ms.date: 03/12/2025
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-arm-template
 
 #CustomerIntent: As an Azure administrator, I want to learn how to enable NSG flow logs using an ARM template so that I can log traffic flowing through a network security group.
+# Customer intent: As an Azure administrator, I want to enable NSG flow logs using an ARM template so that I can efficiently monitor and analyze network traffic for security compliance.
 ---
 
 # Quickstart: Configure NSG flow logs using an Azure Resource Manager (ARM) template
@@ -28,7 +29,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 
@@ -83,7 +84,7 @@ You can also disable or delete a flow log in the Azure portal:
 
 1. In **Network Watcher | Flow logs**, select the checkbox of the flow log that you want to delete.
 
-1. Select **Disable** or **Delete**. For more information, see [Disable a flow log](nsg-flow-logs-portal.md#disable-a-flow-log) or [Delete a flow log](nsg-flow-logs-portal.md#delete-a-flow-log).
+1. Select **Disable** or **Delete**. For more information, see [Disable a flow log](nsg-flow-logs-manage.md#disable-a-flow-log) or [Delete a flow log](nsg-flow-logs-manage.md#delete-a-flow-log).
 
 ## Related content
 

@@ -2,24 +2,24 @@
 title: Managed Disk Options
 description: Learn about volumes (Azure managed disks) within Azure CycleCloud. Understand persistent volumes and disk type options.
 author: mvrequa
-ms.date: 01/20/2020
+ms.date: 06/30/2025
 ms.author: adjohnso
 ---
 
 # Managed Disks
 
-CycleCloud will automatically attach volumes ([Azure Managed Disks](/azure/virtual-machines/linux/disks-types)) to your nodes for additional storage space. The managed disks come in four flavors and have capacities up to 64TiB.
+CycleCloud automatically attaches volumes ([Azure Managed Disks](/azure/virtual-machines/linux/disks-types)) to your nodes for extra storage space. Managed disks come in four types and have capacities up to 64 TiB.
 
-To create a 100GB volume, add the following to your `[[node]]` element in your cluster template:
+To create a 100 GB volume, add the following code to your `[[node]]` element in your cluster template:
 
 ``` ini
 [[[volume example-vol]]]
 Size = 100
 ```
 
-## Persistent Volumes
+## Persistent volumes
 
-By default, a volume will be created when the instance is started, and deleted when the instance is terminated. If you want to preserve the data on the volume even after the instance is terminated, make it a **persistent** volume:
+By default, the volume is created when the instance starts and deleted when the instance terminates. To preserve the data on the volume even after the instance terminates, make it a **persistent** volume:
 
 ``` ini
 [[[volume example-vol]]]
@@ -27,15 +27,15 @@ Size = 100
 Persistent = true
 ```
 
-This volume will be created the first time the instance is started, but will not be deleted when the instance is terminated. Instead, it will be kept and re-attached to the instance the next time the node is started. Persistent volumes are not deleted until the cluster is deleted.
+This volume is created the first time the instance starts but isn't deleted when the instance terminates. Instead, the volume is kept and reattached to the instance the next time the node starts. Persistent volumes are deleted only when the cluster is deleted.
 
 > [!WARNING]
-> When your cluster is deleted, all persistent volumes are deleted as well! If you want your storage to persist longer than your cluster, you must attach a preexisting volume by ID.
+> When you delete your cluster, you also delete all persistent volumes. To keep your storage available after your cluster is deleted, attach a preexisting volume by ID.
 
-## Disk Types
+## Disk types
 
 ::: moniker range="=cyclecloud-7"
-There are four [Azure disk types](/azure/virtual-machines/linux/disks-types). CycleCloud uses standard hard disk drives (HDD) by default. To use a more performant SSD drive for the disk, use `SSD = true`:
+There are four [Azure disk types](/azure/virtual-machines/linux/disks-types). CycleCloud uses standard hard disk drives (HDD) by default. To use a more performant SSD drive for the disk, set `SSD` to `true`:
 
 ``` ini
 [[[volume example-vol]]]
@@ -44,13 +44,13 @@ Persistent = true
 SSD = true
 ```
 
-A premium SSH disk is used by default when you are using a VM series that is premium storage-compatible.
+When you use a VM series that works with premium storage, the default is a premium SSH disk.
 
 ::: moniker-end
 ::: moniker range=">=cyclecloud-8"
 Azure offers four basic storage options: [Ultra](/azure/virtual-machines/windows/disks-types#ultra-disk), [Premium SSD](/azure/virtual-machines/windows/disks-types#premium-ssd), [Standard SSD](/azure/virtual-machines/windows/disks-types#standard-ssd), and [Standard HDD](/azure/virtual-machines/windows/disks-types#standard-hdd).
 
-To specify the storage type to use for your virtual machine, use: `StorageAccountType = [UltraSSD_LRS|Premium_LRS|StandardSSD_LRS|Standard_LRS]` on your volume.
+To specify the storage type for your virtual machine, use: `StorageAccountType = [UltraSSD_LRS|Premium_LRS|StandardSSD_LRS|Standard_LRS]` on your volume.
 
 For example:
 
@@ -61,15 +61,15 @@ Persistent = true
 StorageAccountType = StandardSSD_LRS
 ```
 
-For backwards compatibility, `SSD=true` will select `Premium_LRS` or `StandardSSD_LRS` depending on the capabilities of the VM size selected.
+For backward compatibility, `SSD=true` selects `Premium_LRS` or `StandardSSD_LRS` depending on the capabilities of the VM size you select.
 ::: moniker-end
 
 > [!NOTE]
-> Azure SSD will round up to the next size for [pricing](https://azure.microsoft.com/pricing/details/managed-disks). For example, if you create a disk size of 100GB, you will be charged at the 128GB rate.
+> For [pricing](https://azure.microsoft.com/pricing/details/managed-disks), Azure SSD rounds up to the next size. For example, if you create a disk size of 100 GB, you pay at the 128 GB rate.
 
-Specifying a volume attaches the device(s) to your instance, but does not mount and format the device.
+When you specify a volume, you attach the devices to your instance but don't mount or format the device.
 
-## Further Reading
+## Further reading
 
 * [Mounting Volumes](mount-disk.md)
 * [Creating a Fileserver](create-fileserver.md)

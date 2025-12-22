@@ -3,14 +3,15 @@ title: Create and manage blob leases with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to manage a lock on a blob in your Azure Storage account using the JavaScript client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/28/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a JavaScript developer, I want to create and manage blob leases using the Azure Storage client library, so that I can control access to blobs within my Azure Storage account effectively.
 ---
 
 # Create and manage blob leases with JavaScript or TypeScript

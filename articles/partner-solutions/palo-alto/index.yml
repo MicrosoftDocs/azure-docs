@@ -7,7 +7,7 @@ metadata:
   title: Cloud NGFW by Palo Alto Networks 
   description: Cloud NGFW by Palo Alto Networks integrates with Azure to combine the benefits of Palo Alto and the Azure cloud.
   ms.topic: landing-page
-  ms.date: 01/18/2023
+  ms.date: 09/15/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -35,8 +35,8 @@ landingContent:
             url: create.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Cloud NGFW by Palo Alto Networks
-            url: troubleshoot.md
+          - text: Troubleshoot
+            url: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
           - text: Deploying Cloud NGFW by Palo Alto Networks and Application Gateway
             url: application-gateway.md
 

@@ -17,12 +17,12 @@ ms.subservice: calling
 The **call client media statistics time series** log provides
 client-side information about the media streams between individual
 participants involved in a call. These logs are currently in limited preview and provide detailed time series
-data on the audio, video, and screen share media steams between
+data on the audio, video, and screen share media streams between
 participants with a default 10-seconds aggregation interval. The logs contain granular time series information about media stream type, direction, codec, and bitrate properties (for example, max, min, average).
 
 
 This log provides more detailed information than the call diagnostics log
-to understand the quality of media steams between participants. It can be used to
+to understand the quality of media streams between participants. It can be used to
 visualize and investigate quality issues for your calls through call
 diagnostics for your Azure Communication Services Resource. [Learn more about call diagnostics](../../voice-video-calling/call-diagnostics.md)
 

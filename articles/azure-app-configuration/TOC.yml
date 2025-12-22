@@ -64,7 +64,7 @@
     - name: Configuration
       href: quickstart-python-provider.md
     - name: Dynamic configuration
-      href: enable-dynamic-configuration-python.md 
+      href: enable-dynamic-configuration-python.md
     - name: Feature management
       href: quickstart-feature-flag-python.md
   - name: Node.js
@@ -75,6 +75,22 @@
       href: enable-dynamic-configuration-javascript.md
     - name: Feature management
       href: quickstart-feature-flag-javascript.md
+  - name: Go
+    items:
+    - name: Configuration
+      href: quickstart-go-console-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-go-console-app.md
+    - name: Feature management
+      href: quickstart-feature-flag-go-console.md
+  - name: Go Gin
+    items:
+    - name: Configuration
+      href: quickstart-go-web-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-gin-web-app.md
+    - name: Feature management
+      href: quickstart-feature-flag-go-gin.md
   - name: Azure Functions
     items:
     - name: Configuration
@@ -95,8 +111,8 @@
     items:
     - name: App Service & Azure Functions
       href: /azure/app-service/app-service-configuration-references
-    - name: Azure Container Apps
-      href: quickstart-container-apps.md
+    - name: Azure Front Door
+      href: how-to-connect-azure-front-door.md
   - name: Deployment
     items:
     - name: Overview
@@ -140,6 +156,8 @@
       href: concept-snapshots.md
     - name: Create and use snapshots
       href: howto-create-snapshots.md
+    - name: Snapshot references
+      href: concept-snapshot-references.md
   - name: Push notifications
     items:
     - name: Overview
@@ -158,6 +176,18 @@
       href: concept-soft-delete.md
     - name: Recover or purge deleted stores
       href: howto-recover-deleted-stores-in-azure-app-configuration.md
+- name: AI configuration
+  items:
+  - name: Overview
+    href: concept-ai-configuration.md
+  - name: Chat completion
+    items:
+    - name: Overview
+      href: howto-chat-completion-config.md
+    - name: .NET
+      href: quickstart-chat-completion-dotnet.md
+    - name: Go
+      href: quickstart-chat-completion-go.md
 - name: Feature management
   items:
   - name: Overview
@@ -174,6 +204,8 @@
       href: howto-feature-filters-javascript.md
     - name: Python
       href: howto-feature-filters-python.md
+    - name: Go Gin
+      href: howto-feature-filters-go.md
   - name: Enable features on a schedule
     items:
     - name: Overview
@@ -182,12 +214,22 @@
       href: howto-timewindow-filter-aspnet-core.md
     - name: JavaScript
       href: howto-timewindow-filter-javascript.md
+    - name: Go Gin
+      href: howto-timewindow-filter-go.md
+    - name: Python
+      href: howto-time-window-filter-python.md
   - name: Roll out features to targeted audience
     items:
     - name: Overview
       href: howto-targetingfilter.md
     - name: ASP.NET Core
       href: howto-targetingfilter-aspnet-core.md
+    - name: JavaScript
+      href: howto-targetingfilter-javascript.md
+    - name: Go Gin
+      href: howto-targetingfilter-go.md
+    - name: Python
+      href: how-to-targeting-filter-python.md
   - name: Use variant feature flags
     items:
     - name: Overview
@@ -196,6 +238,20 @@
       href: howto-variant-feature-flags-aspnet-core.md
     - name: Python
       href: howto-variant-feature-flags-python.md
+    - name: JavaScript
+      href: howto-variant-feature-flags-javascript.md
+    - name: Go Gin
+      href: howto-variant-feature-flags-go.md
+  - name: Enable telemetry for feature flags
+    items:
+    - name: Overview
+      href: howto-telemetry.md
+    - name: ASP.NET Core
+      href: how-to-telemetry-aspnet-core.md
+    - name: Python
+      href: howto-telemetry-python.md
+    - name: JavaScript
+      href: howto-telemetry-javascript.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
@@ -222,6 +278,10 @@
   items:
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
+  - name: Move a resource between subscriptions or resource groups
+    href: howto-move-resource-between-subscriptions-resource-groups.md
+  - name: Preview API life cycle
+    href: concept-preview-api-life-cycle.md
 - name: Security
   items:
   - name: Authentication
@@ -330,6 +390,8 @@
       href: ./configuration-provider-overview.md
     - name: .NET
       items:
+      - name: Feature reference
+        href: ./reference-dotnet-provider.md
       - name: API reference
         href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
       - name: Azure SDK for .NET
@@ -342,11 +404,13 @@
         href: https://go.microsoft.com/fwlink/?linkid=2180917
       - name: Azure SDK for Java
         href: https://go.microsoft.com/fwlink/?linkid=2098196
-      - name: Migration guide to version 4.7
+      - name: Upgrade guide to version 6
         href: howto-convert-to-the-new-spring-boot.md
     - name: Python
       items:
       - name: Feature reference
+        href: ./reference-python-provider.md
+      - name: Pypi
         href: https://pypi.org/project/azure-appconfiguration-provider/
       - name: Azure SDK for Python
         href: https://go.microsoft.com/fwlink/?linkid=2103727
@@ -362,9 +426,12 @@
         href: ./reference-kubernetes-provider.md
     - name: Go
       items:
+      - name: Feature reference
+        href: ./reference-go-provider.md
+      - name: API reference
+        href: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - name: Azure SDK for Go
         href: https://go.microsoft.com/fwlink/?linkid=2270866
-
   - name: Feature management
     items:
     - name: Overview
@@ -391,6 +458,20 @@
       items:
       - name: Feature reference
         href: ./feature-management-javascript-reference.md
+    - name: Go
+      items:
+      - name: Feature reference
+        href: ./feature-management-go-reference.md
+      - name: API reference
+        href: https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement
+    - name: Telemetry
+      items:
+      - name: Feature flag telemetry reference
+        href: feature-flag-telemetry-reference.md
+  - name: Local emulator
+    items:
+    - name: Overview
+      href: emulator-overview.md
   - name: Deployment
     items:
     - name: ARM template
@@ -406,12 +487,16 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: Azure MCP Server
+    href: /azure/developer/azure-mcp-server/tools/app-configuration?toc=/azure/azure-app-configuration/TOC.json
 - name: Resources
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-configuration/
   - name: Roadmap
     href: https://github.com/Azure/AppConfiguration/projects/1
+  - name: Support policy
+    href: ./client-library-support-policy.md
   - name: Videos
     items:
     - name: Getting started with App Configuration

@@ -10,6 +10,7 @@ ms.author: allensu
 content_well_notification: 
   - AI-contribution
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using Terraform.
+# Customer intent: As a network administrator new to Azure, I want to create a private endpoint using Terraform, so that I can securely connect my virtual network to an Azure SQL Database and ensure proper DNS resolution for improved data access and security.
 ---
 
 # Quickstart: Create a private endpoint by using Terraform
@@ -24,7 +25,7 @@ The script generates a random password for the SQL server and a random SSH key f
 
 ## Prerequisites
 
-- You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 

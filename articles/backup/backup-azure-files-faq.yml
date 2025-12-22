@@ -2,11 +2,11 @@
 metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-  ms.date: 01/08/2025
+  ms.date: 06/11/2025
   ms.topic: faq
   ms.service: azure-backup
-  author: jyothisuri
-  ms.author: jsuri
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
 title: Frequently asked questions about backing up Azure Files
 summary: |
   This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html).
@@ -108,7 +108,15 @@ sections:
         answer: |
           If you are restoring from snapshot backup, for Original Location Recovery (OLR) the total restore time depends on number of files and directories in the share. When you restore to alternate location, the restore time depends on number of files and directories in the share to be restored and  available IOPS on source and target storage account.
 
-
+      - question: |
+          Will the retention policy delete a recovery point selected for restore  before the restore operation completes?
+        answer: |
+          No. Azure Backup takes a lease on the recovery point during restore, ensuring it isn't deleted before completion.
+          
+      - question: |
+          What are the permissions used by Azure Backup during backup and restore operation?
+        answer: |
+          Azure Backup uses key-based access for backup and restore operations. Ensure that you [enable keys access](../storage/common/shared-key-authorization-prevent.md?tabs=portal) on both source and target storage accounts, even if using identity-based access is configured.
 
   - name: Manage backup
     questions:
@@ -298,6 +306,11 @@ sections:
           How is the expiry date shown when both snapshot and vaulted backups are configured?
         answer: |
           When both snapshot and vaulted backups are configured, the expiry date initially reflects the retention period of the snapshot backup. After the snapshot backup expires, the expiry date will update to reflect the retention period of the vaulted backup.
+
+      - question: |
+          Why is the lock recreated during an on-demand backup in Azure?
+        answer: |
+          During an on-demand backup, Azure Backup auto-recreates the deleted lock to protect data and prevent accidental changes or deletions.
 
   - name: Lease snapshots
     questions:

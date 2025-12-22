@@ -1,8 +1,8 @@
 ---
 title: Metrics for MQTT broker
 description: Available observability metrics for MQTT broker to monitor the health and performance of your solution.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.topic: reference
 ms.custom:
   - ignite-2023
@@ -115,7 +115,7 @@ These metrics provide observability for the connections and subscriptions on the
 
 ## State store metrics
 
-This set of metrics tracks the overall state of the [state store](../create-edge-apps/overview-state-store.md).
+This set of metrics tracks the overall state of the [state store](../develop-edge-apps/overview-state-store.md).
 
 | Metric | Description | Tags |
 |--------|-------------|------|

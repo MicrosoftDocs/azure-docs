@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As a system administrator, I want to download the required SAP media for building a Bill of Materials (BOM), so that I can effectively deploy the SAP on Azure Deployment Automation Framework."
 ---
 
 # Acquire media for BOM creation
@@ -29,7 +30,7 @@ This guide is for configurations that use either the SAP Application (DB) or HAN
     - The SAP System Identifier (SAP SID)
     - Any language pack requirements
     - The operating system (OS) to use in the application infrastructure
-- An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Acquire media
 

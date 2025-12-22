@@ -44,3 +44,20 @@ landingContent:
             url: ./how-to/assign-configuration/overview.md
           - text: Create a policy definition
             url: ./how-to/create-policy-definition.md
+          - text: View compliance reporting
+            url: ./how-to/view-compliance.md
+          - text: Discover and assign built-in policies
+            url: ./how-to/assign-built-in-policies.md
+
+  - title: Customizable Security baselines (Preview) 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Security baselines overview
+            url: ./how-to/assign-security-baselines/overview-page.md
+          - text: Deploy a baseline policy assignment
+            url: ./how-to/assign-security-baselines/deploy-a-baseline-policy-assignment.md
+          - text: Specify custom parameters for baseline policy
+            url: ./how-to/assign-security-baselines/specify-custom-parameters-for-baseline-policy.md
+          - text: Understand the baseline JSON format
+            url: ./how-to/assign-security-baselines/understand-baseline-settings-parameter.md

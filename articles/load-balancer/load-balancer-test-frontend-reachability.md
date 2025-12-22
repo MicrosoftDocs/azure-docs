@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-how-to
+# Customer intent: As a network engineer, I want to test the reachability of Azure Public Load Balancer frontends using ping and traceroute, so that I can troubleshoot inbound connectivity issues to my Azure resources effectively.
 ---
 
 # Test reachability of Azure Public Load Balancer frontends with ping and traceroute
@@ -16,7 +17,7 @@ Standard Public Azure Load Balancer frontend IPv4 and IPv6 addresses support tes
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) and access to the Azure portal.
 
 - A standard public load balancer with an IPv4 and IPv6 frontend in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer](/azure/load-balancer/quickstart-load-balancer-standard-public-portal) to load balance VMs using the Azure portal.
 

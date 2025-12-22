@@ -124,9 +124,9 @@ Service Bus supports security protocols such as [Shared Access Signatures (SAS)]
 
 Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
 
-### Geo-disaster recovery
+### Geo-Replication
 
-When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue operating in a different region or datacenter.
+When Azure regions or datacenters experience downtime, [Geo-Replication](service-bus-geo-replication.md) enables data processing to continue operating in a different region.
 
 > [!NOTE]
 > For more information about these features, see [Advanced features of Azure Service Bus](advanced-features-overview.md).

@@ -1,13 +1,13 @@
 ---
 title: Microsoft Sentinel data connectors
 description: Learn about supported data connectors, like Microsoft Defender XDR (formerly Microsoft 365 Defender), Microsoft 365 and Office 365, Microsoft Entra ID, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 11/06/2024
-ms.author: yelevin
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security engineer, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
 ---
@@ -18,7 +18,22 @@ After you onboard Microsoft Sentinel into your workspace, use data connectors to
 
 Built-in connectors enable connection to the broader security ecosystem for non-Microsoft products. For example, use Syslog, Common Event Format (CEF), or REST APIs to connect your data sources with Microsoft Sentinel.
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+> [!NOTE]
+> For information about feature availability in US Government clouds, see the Microsoft Sentinel tables in [Cloud feature availability for US Government customers](/azure/security/fundamentals/feature-availability).
+
+## Data management considerations for Microsoft Sentinel data lake
+
+The following considerations must be factored into your compliance and data management planning:
+
++ **GDPR and Data Retention**
+    + Tenant admins can exercise GDPR rights using the Purge feature for the analytics tier. This doesn't affect the data lake tier. 
+    + Specific records can't be purged from the Sentinel data lake. The data lake retains ingested data for the defined retention period, even if the data is deleted at the source or in the analytics tier.
+
++	**Purview Integration**. Changes to Purview settings don't have any effect on data stored in the Sentinel data lake.
+
++   **Storage Location** Sentinel data lake storage locations are selected by the tenant admin and may differ from the primary storage location of the source services.
+
+
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -32,13 +47,13 @@ Microsoft Sentinel solutions provide packaged security content, including data c
 
 The Microsoft Sentinel **Data connectors** page lists the installed or in-use data connectors.
 
-#### [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/connect-data-sources/data-connector-list.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list.png":::
-
 #### [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/connect-data-sources/data-connector-list-defender.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list-defender.png":::
+
+#### [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/connect-data-sources/data-connector-list.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list.png":::
 
 ---
 
@@ -54,7 +69,7 @@ To add more data connectors, install the solution associated with the data conne
 
 If you're unable to connect your data source to Microsoft Sentinel using any of the existing solutions available, consider creating your own data source connector. For example, many security solutions provide a set of APIs for retrieving log files and other security data from their product or service. Those APIs connect to Microsoft Sentinel with one of the following methods:
 
-- The data source APIs are configured with the [Codeless Connector Platform](create-codeless-connector.md).
+- The data source APIs are configured with the [Codeless Connector Framework](create-codeless-connector.md).
 - The data connector uses the Log Ingestion API for Azure Monitor as part of an [Azure Function](connect-azure-functions-template.md) or [Logic App](create-custom-connector.md#connect-with-logic-apps).
 
 You can also use Azure Monitor Agent directly or Logstash to create your custom connector. For more information, see [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).

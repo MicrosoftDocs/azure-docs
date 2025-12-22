@@ -5,7 +5,7 @@ description: Learn about Azure Communication Services Call Automation API.
 author: ashwinder
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/19/2023
 ms.author: askaur
 ---
@@ -52,8 +52,8 @@ The following features are currently available in the Azure Communication Servic
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Hold participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Unhold participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Start/Stop audio streaming (public preview)       | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Start/Stop real-time transcription (public preview)| ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop audio streaming                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop real-time transcription               | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
@@ -61,6 +61,7 @@ The following features are currently available in the Azure Communication Servic
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
 |                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them| ✔️    |  ✔️   |     ✔️         |    ✔️   |
+|                       | Move a participant to another call                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -118,10 +119,11 @@ Your application can perform these actions on calls that are answered or placed 
 
 **Cancel media operations** – Based on business logic your application might need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, your application might receive a webhook event indicating that the action was canceled. 
 
-**Start/Stop audio streaming (public preview)** - Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see our [concept](audio-streaming-concept.md) and our [quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).
+**Start/Stop audio streaming** - Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see our [concept](audio-streaming-concept.md) and our [quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).
 
-**Start/Stop real-time transcription (public preview)** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
+**Start/Stop real-time transcription** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
 
+**Move a participant to another call** – When your application needs to move a participant from one ongoing call into another using the `MoveParticipants` API. This enables dynamic routing and flexible call orchestration, such as moving a translator into a doctor–patient call or transferring a customer from a lobby call into an active support call. To learn more, see [How to control and steer calls](../../how-tos/call-automation/actions-for-call-control.md).
 
 ### Query scenarios
 

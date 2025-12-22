@@ -18,6 +18,8 @@ ms.subservice: b2c
 
 # Azure Active Directory B2C code samples
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 The following tables provide links to samples for applications including iOS, Android, .NET, and Node.js.
 
 ## Web apps and APIs

@@ -16,6 +16,8 @@ ms.subservice: b2c
 
 # Tutorial for configuring Onfido with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [Onfido](https://onfido.com/), a document ID and facial biometrics verification app. Use it to meet *Know Your Customer* and identity requirements. Onfido uses artificial intelligence (AI) technology that verifies identity by matching a photo ID with facial biometrics. The solution connects a digital identity to a person, provides a reliable onboarding experience, and helps reduce fraud.
 
 In this tutorial, you'll enable the Onfido service to verify identity in the sign-up, or sign-in, flow. Onfido results inform decisions about which products or services the user accesses.
@@ -26,7 +28,7 @@ To get started, you'll need:
 
 * An Azure subscription
 
-  - If you don't have on, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have on, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - An Onfido trial account
   - Go to onfido.com [Contact us](https://onfido.com/signup/) and fill out the form

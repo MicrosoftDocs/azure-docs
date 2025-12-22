@@ -6,8 +6,9 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/25/2025
+ms.date: 08/01/2025
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource in the Azure portal, so that I can control the network traffic to and from the resource.
+# Customer intent: As a network administrator, I want to create a network security perimeter for an Azure Key Vault in the Azure portal, so that I can manage and control network traffic securely for the resource.
 ---
 
 # Quickstart: Create a network security perimeter - Azure portal
@@ -20,7 +21,7 @@ Get started with network security perimeter by creating a network security perim
 
 Before you begin, make sure you have the following:
 
-- An Azure account with an active subscription and access to the Azure portal. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription and access to the Azure portal. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to the Azure portal
 

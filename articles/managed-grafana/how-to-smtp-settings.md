@@ -1,18 +1,21 @@
 ---
 title: 'How to configure SMTP settings within Azure Managed Grafana'
 titleSuffix: Azure Managed Grafana
-description: Learn how to configure SMTP settings to generate email notifications to monitor your services in Azure Managed Grafana.
+description: Learn how to configure SMTP settings in Azure Managed Grafana to generate email notifications and alerts.
 author: maud-lv 
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 09/23/2025
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 #customer intent: I want configure SMTP settings in Azure Managed Grafana to generate email notifications, so that I can be alerted when incidents or events happen.
 ---
 
 # Configure SMTP settings
 
-In this guide, you learn how to configure SMTP (Simple Mail Transfer Protocol) settings to generate email alerts in Azure Managed Grafana. Notifications alert users when some given scenarios occur on a Grafana dashboard.
+In this guide, you learn how to configure SMTP email notifications in Azure Managed Grafana to generate email alerts in Azure Managed Grafana. This article covers step-by-step instructions for configuring SMTP servers and enabling email alerts to warn users when some given scenarios occur on a Grafana dashboard.
 
 SMTP settings can be enabled on an existing Azure Managed Grafana workspace via the Azure portal and the Azure CLI. Enabling SMTP settings while creating a new workspace is currently not supported.
 
@@ -20,7 +23,7 @@ SMTP settings can be enabled on an existing Azure Managed Grafana workspace via 
 
 To follow the steps in this guide, you must have:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace in the Standard plan. If you don't have one yet, [create a new workspace](quickstart-managed-grafana-portal.md).
 - An SMTP server. If you don't have one yet, you might want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
 
@@ -38,7 +41,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 
         | Parameter      | Example               | Description                                                                                                                                |
         |----------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-        | Host           | test.sendgrid.net:587 | Enter the SMTP server hostname with port.                                                                                                  |
+        | Host           | smtp.sendgrid.net:587 | Enter the SMTP server hostname with port.                                                                                                  |
         | User           | admin                 | Enter the name of the user of the SMTP authentication.                                                                                     |
         | Password       | password              | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                               |
         | From Address   | user@domain.com       | Enter the email address used when sending out emails.                                                                                      |
@@ -77,7 +80,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
     | `--smtp`             | enabled                            | Enter **enabled** to disable SMTP settings.                                                                                      |
     | `--from-address`     | user@domain.com                    | Enter the email address used when sending out emails.                                                                            |
     | `--from-name`        | Azure Managed Grafana Notification | Enter the name used when sending out emails. Default is "Azure Managed Grafana Notification" if parameter isn't given or empty.    |
-    | `--host`             | test.sendgrid.net:587              | Enter the SMTP server hostname with port.                                                                                        |
+    | `--host`             | smtp.sendgrid.net:587              | Enter the SMTP server hostname with port.                                                                                        |
     | `--user`             | admin                              | Enter the name of the user of the SMTP authentication.                                                                           |
     | `--password`         | password                           | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                     |
     | `--start-tls-policy` | OpportunisticStartTLS              | The StartTLSPolicy setting of the SMTP configuration. There are three options. [More information](https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy).<br><ul><li>**OpportunisticStartTLS** means that SMTP transactions are encrypted if STARTTLS is supported by the SMTP server. Otherwise, messages are sent in the clear. This is the default setting.</li><li>**MandatoryStartTLS** means that SMTP transactions must be encrypted. SMTP transactions are aborted unless STARTTLS is supported by the SMTP server.</li><li>**NoStartTLS** means encryption is disabled and messages are sent in the clear.</li></ul>  |
@@ -86,18 +89,16 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 ---
 
 > [!TIP]
-> Here are some tips for properly configuring SMTP:
->- When using a business email account such as Office 365, you may need to contact your email administrator to enable SMTP AUTH (for example, [enable-smtp-auth-for-specific-mailboxes](/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#enable-smtp-auth-for-specific-mailboxes)). You should be able to create an app password afterwards and use it as the SMTP *password* setting.
->- When using a personal email account such as Outlook or Gmail, you should create an app password and use it as the SMTP *password* setting. Note that your account won't work for email notification if it's configured with multi-factor authentication.
+> When using a personal email account, you should create an app password and use it as the SMTP *password* setting. Note that your account won't work for email notification if it's configured with multi-factor authentication.
 >- It's recommended that you verify the SMTP configurations to be working as expected before applying them to your Azure Managed Grafana workspace. For example, you can use an open source tool such as [swaks (Swiss Army Knife for SMTP)](https://github.com/jetmore/swaks) to send a test email using the SMTP configurations by running the following command in a terminal window:
 >     ```bash
->     # fill in all the empty values for the following parameters
->     host="" # SMTP host name with port separated by a ":", e.g. smtp.office365.com:587
->     user="" # email address, e.g. team1@contoso.com
->     password="" # password
->     fromAddress="" # source email address (usually the same as user above), e.g. team1@contoso.com
->     toAddress="" # destination email address, e.g. team2@contoso.com
->     ehlo="" # grafana endpoint, e.g. team1-ftbghja6ekeybng8.wcus.grafana.azure.com
+>     # fill in all placeholders with your own values for the following parameters
+>     host="<SMTP-host>:<port>" # for example "smtp.sendgrid.net:587"
+>     user="<SMTP-user-email>" # for example "team1@contoso.com"
+>     password="<SMTP-password>" # enter your own password
+>     fromAddress="<from-email-address>" # "for example "team1@contoso.com"
+>     toAddress="<to-email-address>" # for example "team2@contoso.com"
+>     ehlo="<grafana-endpoint>" # for example "<workspace-prefix>-<ID>.<region>.grafana.azure.com"
 >
 >     header="Subject:Test"
 >     body="Testing!"
@@ -113,6 +114,9 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 >         --header $header \
 >         --body $body
 >     ```
+
+> [!TIP] 
+> To connect to your SMTP server over a private network, you can [set up a managed private endpoint](how-to-connect-to-data-source-privately.md) to your own Private Link service for the SMTP server.
 
 ## Configure Grafana contact points and send a test email
 
@@ -169,6 +173,8 @@ The following are some common error messages you might encounter:
 - "Authentication failed: The provided authorization grant is invalid, expired, or revoked". Grafana couldn't connect to the SMTP server. Check if the password entered in the SMTP settings in the Azure portal is correct.
 - "Failed to sent test alert: SMTP not configured". SMTP is disabled. Open the Azure Managed Grafana workspace in the Azure portal and enable SMTP settings.
 
-## Next steps
+## Related content
 
-In this how-to guide, you learned how to configure Grafana SMTP settings. To learn how to create reports and email them to recipients, see [Create dashboards](how-to-use-reporting-and-image-rendering.md).
+- [Create dashboards in Azure Managed Grafana](how-to-create-dashboard.md)
+- [Reporting and PDF/Image Export in Azure Managed Grafana](how-to-use-reporting-and-image-rendering.md)
+- [Configure Azure Monitor Alerts in Azure Managed Grafana](how-to-use-azure-monitor-alerts.md)

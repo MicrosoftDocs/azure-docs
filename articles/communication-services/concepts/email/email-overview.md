@@ -6,7 +6,7 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 03/31/2023
+ms.date: 06/19/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -23,7 +23,7 @@ Azure Communication Services email enables rich collaboration in communication m
 
 With Azure Communication Services, you can speed up your market entry with scalable and reliable email features by using your own SMTP domains. As with other communication channels, when you use Azure Communication Services to send email, you pay for only what you use.
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 ## Key principles
 
@@ -44,6 +44,9 @@ With Azure Communication Services, you can speed up your market entry with scala
 - **Email spam protection and fraud detection**: The platform performs email hygiene for all messages. It offers comprehensive email protection through Microsoft Defender components by enabling the existing transport rules for detecting malware: URL Blocking and Content Heuristic.
 - **Email analytics**: The **Insights** dashboard provides email analytics. The service emits logs at the request level. Each log has a message ID and recipient information for diagnostic and auditing purposes.
 - **Engagement tracking**: The platform supports bounce, blocked, open, and click tracking.
+
+> [!NOTE]  
+> To use email, you must create a separate Email Communication resource in your Azure subscription. This is not created automatically when you create a Communication Services resource.
 
 ## Next steps
 

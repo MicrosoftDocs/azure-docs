@@ -7,7 +7,7 @@ ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
 author: snehithm
 ms.author: snmuvva
-ms.date: 04/20/2023
+ms.date: 11/17/2025
 ms.topic: conceptual
 manager: kmadnani
 ---

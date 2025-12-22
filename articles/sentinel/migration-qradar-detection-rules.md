@@ -1,13 +1,13 @@
 ---
 title: Migrate QRadar detection rules to Microsoft Sentinel | Microsoft Docs
 description: Identify, compare, and migrate your QRadar detection rules to Microsoft Sentinel built-in rules.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 07/03/2025
+ms.custom: sfi-image-nochange
 
-
-#Customer intent: As a security engineer, I want to migrate QRadar detection rules to Microsoft Sentinel so that analysts can leverage machine learning analytics and built-in rules for more efficient threat detection and incident response.
+#Customer intent: As a security engineer, I want to migrate QRadar detection rules to Microsoft Sentinel so that analysts can leverage machine learning analytics for more efficient threat detection and incident response.
 
 ---
 
@@ -24,11 +24,11 @@ Microsoft Sentinel uses machine learning analytics to create high-fidelity and a
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
-- Use existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
+- Use existing functionality and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
-- Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/) to check whether  your rules are available.
+- Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/) to check whether your rules are available.
 - Consider whether an online query converter such as Uncoder.io might work for your rules. 
-- If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
+- If rules aren't available or can't be converted, they need to be created manually, using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
 
 Learn more about [best practices for migrating detection rules](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
 
@@ -42,25 +42,26 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
     1. **Confirm that you have any required data sources connected,** and review your data connection methods.
 
-1. Verify whether your detections are available as built-in templates in Microsoft Sentinel:
+1. Verify whether your detections are available as built in templates in the Content Hub:
 
-    - **If the built-in rules are sufficient**, use built-in rule templates to create rules for your own workspace.
+    - **If the built in rules are sufficient**, install the relevant solutions and use the templates to create rules for your workspace.
 
-        In Microsoft Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule.
+        1. In Microsoft Sentinel, go to **Content management > Content hub**.
+        1. Search for and install the relevant analytics rule.
 
-        For more information, see [Create scheduled analytics rules from templates](create-analytics-rule-from-template.md).
+        For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) and [Create scheduled analytics rules from templates](create-analytics-rule-from-template.md).
 
-    - **If you have detections that aren't covered by Microsoft Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
+    - **If you have detections that aren't covered by the built in rules available in theContent Hub**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
 
         Identify the trigger condition and rule action, and then construct and review your KQL query.
 
-    - **If neither the built-in rules nor an online rule converter is sufficient**, you'll need to create the rule manually. In such cases, use the following steps to start creating your rule:
+    - **If neither Content Hub solutions nor an online rule converter is sufficient**, you'll need to create the rule manually. In such cases, use the following steps to start creating your rule:
 
         1. **Identify the data sources you want to use in your rule**. You'll want to create a mapping table between data sources and data tables in Microsoft Sentinel to identify the tables you want to query.
 
         1. **Identify any attributes, fields, or entities** in your data that you want to use in your rules.
 
-        1. **Identify your rule criteria and logic**. At this stage, you may want to use rule templates as samples for how to construct your KQL queries.
+        1. **Identify your rule criteria and logic**. At this stage, you may want to use rule templates as samples for how to construct your KQL queries as samples for how to construct your KQL queries.
 
             Consider filters, correlation rules, active lists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand [how to best map your query syntax](#map-and-compare-rule-samples).            
 
@@ -73,7 +74,7 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 Learn more about analytics rules:
 
 - [**Scheduled analytics rules in Microsoft Sentinel**](scheduled-rules-overview.md). Use [alert grouping](scheduled-rules-overview.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
-- [**Map data fields to entities in Microsoft Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph (investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
+- [**Map data fields to entities in Microsoft Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
 - [**Investigate incidents with UEBA data**](investigate-with-ueba.md), as an example of how to use evidence to surface events, alerts, and any bookmarks associated with a particular incident in the incident preview pane.
 - [**Kusto Query Language (KQL)**](/kusto/query/?view=microsoft-sentinel&preserve-view=true), which you can use to send read-only requests to your [Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
@@ -399,7 +400,7 @@ Here's the sample rule in QRadar.
 
 ```kusto
 CommonSecurityLog
-| where SourceIP in (“10.1.1.1”,”10.2.2.2”)
+| where SourceIP in ("10.1.1.1","10.2.2.2")
 ```
 ### Log source tests syntax
 

@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As a voice services provider, I want to establish an interconnect with Azure Peering Service, so that I can integrate my communications infrastructure and ensure high-quality, reliable services for messaging and conferencing.
 ---
 
 # Set up an interconnect for peering with voice services
@@ -215,10 +217,6 @@ Get answers to frequently asked questions.
 
 **A.** Yes. A private ASN can't be in the AS path. For registered prefixes smaller than \/24, the AS path must be less than 4.
 
-**Q.** I need to set the prefix limit. How many routes will Microsoft announce?
-
-**A.** Microsoft announces roughly 280 prefixes on the internet. The number might increase by 10% to 15%. A limit of 400 to 500 is safe to set as the value for **Max prefix count**.
-
 **Q.** Will Microsoft readvertise peer prefixes to the internet?
 
 **A.** No.
@@ -250,3 +248,8 @@ Get answers to frequently asked questions.
 **Q.** Can we use APIs for onboarding?
 
 **A.** Currently, there's no API support. You can configure your service only by using the Azure portal.
+
+**Setting the Prefix Limit: Recommended Max Prefix Limits for Microsoft Azure Peering Service.**
+
+Microsoft currently announces up to 2000 IPv4 prefixes on the internet, and this number may increase over time. To maintain stability and prevent session drops, it is recommended to set your Max Prefix Count according to the peeringdb.com entry for ASN 8075.  This provides a safe buffer above current announcements and allows for future growth.
+

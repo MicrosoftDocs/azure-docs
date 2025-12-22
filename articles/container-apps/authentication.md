@@ -4,8 +4,8 @@ description: Use built-in authentication in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
-ms.date: 01/30/2025
+ms.topic: article
+ms.date: 12/04/2025
 ms.author: cshoe
 ---
 
@@ -26,13 +26,18 @@ For details surrounding authentication and authorization, refer to the following
 
 You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards and keep your implementation up to date.
 
-The built-in authentication feature for Container Apps saves you time and effort by providing out-of-the-box authentication with federated identity providers. These features allow you to focus more time developing your application, and less time on building security systems. 
+The built-in authentication feature for Container Apps saves you time and effort by providing out-of-the-box authentication with federated identity providers. These features allow you to focus more time developing your application, and less time on building security systems.
 
 The benefits include:
 
 * Azure Container Apps provides access to various built-in authentication providers.
 * The built-in auth features don’t require any particular language, SDK, security expertise, or even any code that you have to write.
 * You can integrate with multiple providers including Microsoft Entra ID, Facebook, Google, and X.
+
+> [!NOTE]
+> Azure Container Apps uses the same authentication and authorization system as Azure App Service. For more information authentication and authorization details, see [Authentication and authorization in Azure App Service and Azure Functions](/azure/app-service/overview-authentication-authorization).
+>
+> There are some differences in how Azure Container Apps implements authorization and authentication among App Service. The content in this article details the important differences.
 
 ## Identity providers
 
@@ -219,6 +224,64 @@ Code that is written in any language or framework can get the information that i
 
 > [!NOTE]
 > Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
+
+## Secure endpoints with EasyAuth
+
+When securing endpoints with Azure Container Apps authentication, you need to register an application with Microsoft Entra ID and configure the authentication settings.
+
+Follow these steps to set up secure access:
+
+1. Create Azure AD app registration
+
+    ```azurecli
+    az ad app create \
+      --display-name <APP_DISPLAY_NAME> \
+      --sign-in-audience AzureADMyOrg
+    ---
+
+1. Enable the app to issue ID tokens. This step is required for Easy Auth support.
+
+    ```azurecli
+    az ad app update \
+      --id <APPLICATION_ID> \
+      --enable-id-token-issuance true
+    ```
+
+1. Add the redirect URI for Easy Auth callback.
+
+    ```azurecli
+    az ad app update \
+      --id <APP_ID> \
+      --web-redirect-uris "https://<APP-NAME>.<ENVIRONMENT-NAME>.<REGION>.azurecontainerapps.io/.auth/login/aad/callback"
+    ---
+
+1. Generate a client secret
+
+    ```azurecli
+    az ad app credential reset \
+      --id <APP_ID>" \
+      --display-name "<APP_NAME>-Secret"
+    ---
+
+1. Create service principal for your application.
+
+    ```azurecli
+    az ad sp create --id <APP_ID>
+    ---
+
+1. Configure your container app to use Microsoft Entra ID authentication.
+
+    Make sure the value you provide for the `<APP_NAME>` placeholder is the name of the application that you configured to work with EasyAuth.
+
+    ```azurecli
+    az containerapp auth microsoft update \
+      --name <APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --client-id <APP_ID> \
+      --client-secret CLIENT_SECRET> \
+      --tenant-id <TENANT_ID> \
+      --yes
+    ```
 
 ## Next steps
 

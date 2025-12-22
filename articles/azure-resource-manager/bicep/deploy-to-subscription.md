@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to subscription
 description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 02/10/2025
+ms.date: 12/10/2025
 ---
 
 # Subscription deployments with Bicep files
@@ -14,10 +14,6 @@ This article describes how to set the deployment scope to a subscription in a Bi
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
-
-### Training resources
-
-If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/training/modules/deploy-resources-scopes-bicep/).
 
 ## Supported resources
 
@@ -167,7 +163,7 @@ To deploy resources to the target subscription, add those resources with the `re
 targetScope = 'subscription'
 
 // resource group created in target subscription
-resource exampleResource 'Microsoft.Resources/resourceGroups@2024-11-01' = {
+resource exampleResource 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   ...
 }
 ```
@@ -231,7 +227,7 @@ targetScope = 'subscription'
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
 // management group created at tenant
-resource managementGroup 'Microsoft.Management/managementGroups@2023-04-01' = {
+resource managementGroup 'Microsoft.Management/managementGroups@2024-02-01-preview' = {
   scope: tenant()
   name: mgName
   properties: {}
@@ -259,7 +255,7 @@ param policyDefinitionID string
 param policyName string
 param policyParameters object = {}
 
-resource policyAssign 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
+resource policyAssign 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
   name: policyName
   properties: {
     policyDefinitionId: policyDefinitionID
@@ -275,7 +271,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
 ```bicep
 targetScope = 'subscription'
 
-resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
+resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2025-03-01' = {
   name: 'locationpolicy'
   properties: {
     policyType: 'Custom'
@@ -292,7 +288,7 @@ resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2023-04-01' =
   }
 }
 
-resource locationRestrict 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
+resource locationRestrict 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
   name: 'allowedLocation'
   properties: {
     policyDefinitionId: locationPolicy.id
@@ -326,7 +322,7 @@ param roleAssignmentName string = guid(principalId, roleDefinitionId, resourceGr
 
 var roleID = '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/${roleDefinitionId}'
 
-resource newResourceGroup 'Microsoft.Resources/resourceGroups@2024-03-01' = {
+resource newResourceGroup 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: resourceGroupName
   location: resourceGroupLocation
   properties: {}

@@ -7,6 +7,8 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 03/06/2025
 ms.author: shaas
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to manage customer-managed keys in Azure Key Vault for Azure Data Box, so that I can enhance security and maintain control over access to encryption keys used for my data storage.
 ---
 
 # Use customer-managed keys in Azure Key Vault for Azure Data Box

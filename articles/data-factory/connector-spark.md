@@ -7,13 +7,16 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/26/2025
+ms.date: 08/19/2025
 ---
 
 # Copy data from Spark using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Spark. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!IMPORTANT]
+> The Spark connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Spark connector](#differences-between-spark-version-20-and-version-10) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -67,28 +70,29 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Spark connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-spark-connector) to upgrade your Spark connector version from version 1.0. For the property details, see the corresponding sections.
+The Spark connector now supports version 2.0. Refer to this [section](#upgrade-the-spark-connector) to upgrade your Spark connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (Preview)](#version-20-preview)
+- [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
-### Version 2.0 (Preview)
+### Version 2.0
 
-The following properties are supported for Spark linked service version 2.0 (Preview):
+The following properties are supported for Spark linked service version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Spark** | Yes |
 | version | The version that you specify. The value is `2.0`.  | Yes |
 | host | IP address or host name of the Spark server  | Yes |
-| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsights, specify port as 443. | Yes |
+| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Spark server. <br/>The allowed value is: **SparkThriftServer** | No |
 | thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>The allowed value is: **HTTP** | No |
 | authenticationType | The authentication method used to access the Spark server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | username | The user name that you use to access Spark Server.  | No |
 | password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| httpPath | The partial URL corresponding to the Spark server.  | No |
+| httpPath | The partial URL corresponding to the Spark server. <br/>For WindowsAzureHDInsightService authentication type, the default value is `/sparkhive2`. | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is true.  | No |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. <br>Always use System Trust Store. The default value is true. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -121,7 +125,7 @@ The following properties are supported for Spark linked service version 1.0:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Spark** | Yes |
 | host | IP address or host name of the Spark server  | Yes |
-| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsights, specify port as 443. | Yes |
+| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Spark server. <br/>Allowed values are: **SharkServer**, **SharkServer2**, **SparkThriftServer** | No |
 | thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed values are: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | The authentication method used to access the Spark server. <br/>Allowed values are: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
@@ -235,7 +239,7 @@ To copy data from Spark, set the source type in the copy activity to **SparkSour
 
 When you copy data from and to Spark, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Spark data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) | 
+| Spark data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) | 
 |:--- |:--- |:--- |
 | BooleanType  | Boolean  | Boolean  | 
 | ByteType  | Sbyte  | Int16  | 
@@ -248,7 +252,7 @@ When you copy data from and to Spark, the following interim data type mappings a
 | TimestampType  | DateTimeOffset  | DateTime  | 
 | StringType  | String  | String  | 
 | BinaryType  | Byte[]  | Byte[]  | 
-| DecimalType  | Decimal  | Decimal  | 
+| DecimalType  | Decimal  | Decimal <br>String (precision > 28) | 
 | ArrayType  | String  | String  | 
 | StructType  | String  | String  | 
 | MapType  | String  | String  | 
@@ -260,23 +264,20 @@ When you copy data from and to Spark, the following interim data type mappings a
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Spark connector
+## <a name="differences-between-spark-version-20-and-version-10"></a> Spark connector lifecycle and upgrade
 
-1. In **Edit linked service** page, select 2.0 for version and configure the linked service by referring to [Linked service properties version 2.0 (Preview)](#version-20-preview).
+The following table shows the release stage and change logs for different versions of the Spark connector:
 
-1. The data type mapping for the Spark linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Spark](#data-type-mapping-for-spark).
+| Version | Release stage | Change log |
+| :----------- | :------- | :------- |
+| Version 1.0 | Removed | Not applicable. |
+| Version 2.0 | GA version available |  • `enableServerCertificateValidation` is supported. <br><br>• The default value of `enableSSL` is true.  <br><br>• For WindowsAzureHDInsightService authentication type, the default value of `httpPath` is `/sparkhive2`.<br><br>• DecimalType is read as Decimal data type. <br><br>• TimestampType is read as DateTimeOffset data type. <br><br>•  YearMonthIntervalType, DayTimeIntervalType are read as String data type. <br><br>• `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• SharkServer and SharkServer2 are not supported for `serverType`. <br><br>• Binary and SASL are not supported for `thriftTransportProtocl`. <br><br>• Username authentication type is not supported. |
 
-## Differences between Spark version 2.0 (Preview) and version 1.0
+### <a name="upgrade-the-spark-connector"></a> Upgrade the Spark connector from version 1.0 to version 2.0
 
-The Spark connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0.
+1. In **Edit linked service** page, select 2.0 for version and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
 
-| Version 2.0 (Preview)  | Version 1.0  | 
-|:--- |:--- |
-| SharkServer and SharkServer2 are not supported for `serverType`. | Support SharkServer and SharkServer2 for `serverType`. | 
-| Binary and SASL are not supported for `thriftTransportProtocl`. | Support Binary and SASL for `thriftTransportProtocl`. | 
-| Username authentication type is not supported. | Support Username authentication type. |
-| The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.| The default value of `enableSSL` is false. Additionally, support `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert`.	 |  
-| The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTimeOffset <br>YearMonthIntervalType -> String<br>DayTimeIntervalType -> String | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTime<br>Other mappings supported by version 2.0 (Preview) listed left are not supported by version 1.0. | 
+1. The data type mapping for the Spark linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Spark](#data-type-mapping-for-spark).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

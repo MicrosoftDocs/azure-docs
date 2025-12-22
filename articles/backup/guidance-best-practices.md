@@ -2,12 +2,13 @@
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
 ms.topic: overview
-ms.date: 12/30/2024
+ms.date: 11/26/2025
 ms.reviewer: dapatil
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to implement an effective backup strategy for cloud and on-premises workloads, so that I can ensure data protection and compliance while optimizing recovery processes across my organization's Azure environment.
 ---
 
 # Backup cloud and on-premises workloads to cloud
@@ -41,7 +42,7 @@ To design your vaults, ensure if you require a centralized/ decentralized mode o
 
 Determine if it should be application consistent, crash consistent, or log backup.
 
-###### Do you’ve any compliance requirements?
+###### Do you have any compliance requirements?
 
 Ensure if you need to enforce security standards and separate access boundaries.
 
@@ -49,7 +50,7 @@ Ensure if you need to enforce security standards and separate access boundaries.
 
 Determine the backup frequency and the speed of restore.
 
-###### Do you’ve any Data Residency constraints?
+###### Do you have any Data Residency constraints?
 
 Determine the storage redundancy for the required Data Durability.
 
@@ -292,9 +293,9 @@ Governance in Azure is primarily implemented with [Azure Policy](../governance/p
 
 - Whenever new infrastructure is provisioned and new VMs are created, as a backup admin,  you need to ensure their protection. You can easily configure backups for one or two VMs. But it becomes complex when you need to configure hundreds or even thousands of VMs at scale. To simplify the process of configuring backups, Azure Backup provides you with a set of built-in Azure Policies to govern your backup estate.  
 
-- **Auto-enable backup on VMs using Policy (Central backup team model)**: If your organization has a central backup team that manages backups across application teams, you can use this policy to configure backup to an existing central Recovery Services vault in the same subscription and location as that of the VMs. You can choose to include/exclude VMs that contain a certain tag from the policy scope. [Learn more](backup-azure-auto-enable-backup.md#policy-1---configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location).
+- **Auto-enable backup on VMs using Policy (Central backup team model)**: If your organization has a central backup team that manages backups across application teams, you can use this policy to configure backup to an existing central Recovery Services vault in the same subscription and location as that of the VMs. You can choose to include/exclude VMs that contain a certain tag from the policy scope. [Learn more](backup-azure-auto-enable-backup.md#policy-1-configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location).
 
-- **Auto-enable backup on VMs using Policy (where backup owned by application teams)**: If you organize applications in dedicated resource groups and want to have them backed-up by the same vault, use this policy to automatically manage this action. You can choose to include/exclude VMs that contain a certain tag from the policy scope. [Learn more](backup-azure-auto-enable-backup.md#policy-3---configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy).
+- **Auto-enable backup on VMs using Policy (where backup owned by application teams)**: If you organize applications in dedicated resource groups and want to have them backed-up by the same vault, use this policy to automatically manage this action. You can choose to include/exclude VMs that contain a certain tag from the policy scope. [Learn more](backup-azure-auto-enable-backup.md#policy-3-configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy).
 
 - **Monitoring Policy**: To generate the Backup Reports for your resources,  enable the diagnostic settings when you create a new vault. Often, adding a diagnostic setting manually per vault can be a cumbersome task. So, you can utilize an Azure built-in policy that configures the diagnostics settings at scale to all vaults in each subscription or resource group, with Log Analytics as the destination. 
 
@@ -364,7 +365,7 @@ You can configure such critical alerts and route them to any preferred notificat
 
 - If you need to **create custom alerts** (for example, alerts of successful jobs) then use Log Analytics. In Azure Monitor, you can create your own alerts in a Log Analytics workspace. Hybrid workloads (DPM/MABS) can also send data to LA and use LA to provide common alerts across workloads supported by Azure Backup.
 
-- You can also get notifications through built-in Recovery Services vault **activity logs**. However, it supports limited scenarios and isn't suitable for operations such as scheduled backup, which aligns better with resource logs than with activity logs. To learn more about these limitations and how you can use Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup, refer to this [article](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+- You can also get notifications through built-in Recovery Services vault **activity logs**. However, it supports limited scenarios and isn't suitable for operations such as scheduled backup, which aligns better with resource logs than with activity logs. To learn more about these limitations and how you can use Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup, refer to this [article](backup-azure-monitoring-use-azuremonitor.md#monitor-at-scale-using-log-analytics-workspace).
 
 #### Automatic Retry of Failed Backup Jobs
 

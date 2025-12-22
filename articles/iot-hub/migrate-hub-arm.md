@@ -2,13 +2,15 @@
 title: How to manually migrate an IoT hub
 titleSuffix: Azure IoT Hub
 description: Use the Azure portal, ARM templates, and service SDKs to manually migrate an Azure IoT hub to a new region or new SKU
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
-ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 12/09/2024
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # How to manually migrate an Azure IoT hub using an Azure Resource Manager template
@@ -22,7 +24,7 @@ The steps in this article are useful if you want to:
 * Export IoT hub state information to have as a backup.
 * Increase the number of [partitions](iot-hub-scaling.md#partitions) for an IoT hub.
 * Set up a hub for a development, rather than production, environment.
-* Enable a custom implementation of multi-hub high availability. For more information, see the [How to achieve cross region HA section of IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md#achieve-cross-region-ha).
+* Enable a custom implementation of multi-hub high availability. For more information, see [Reliability in Azure IoT Hub](/azure/reliability/reliability-iot-hub).
 
 To migrate a hub, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, in the same subscription as the original hub, or even in a new subscription. You just can't use the same name because the hub name has to be globally unique.
 
@@ -411,7 +413,7 @@ Now you have the environment variables in a file with the SET commands, and you 
     dotnet run arg1 arg2 arg3 arg4 arg5
     ```
 
-    The dotnet command builds and runs the application. Because you're passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend not deleting any devices until you're certain you're finished with the migration. Here's an example that creates 1,000 devices and then copies them to the other hub.
+    The dotnet command builds and runs the application. Because you're passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend **not deleting** any devices until you're certain you're finished with the migration. Here's an example that creates 1,000 devices and then copies them to the other hub.
 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices

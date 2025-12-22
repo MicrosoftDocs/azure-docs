@@ -18,7 +18,7 @@ Try Phone Calling is a tool in Azure portal to help customers confirm the setup 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. Create an [Azure Communication Resource](../../quickstarts/create-communication-resource.md).
 - A [phone number acquired](../../quickstarts/telephony/get-phone-number.md) in your Communication Services resource, or Azure Communication Services direct routing configured. If you have a free subscription, you can [get a trial phone number](../../quickstarts/telephony/get-trial-phone-number.md).
 

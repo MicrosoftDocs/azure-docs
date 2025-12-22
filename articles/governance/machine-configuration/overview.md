@@ -1,8 +1,8 @@
 ---
 title: Understand Azure Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
-ms.date: 02/01/2024
-ms.topic: conceptual
+ms.date: 11/24/2025
+ms.topic: article
 ---
 # Understanding Azure Machine Configuration
 
@@ -109,8 +109,8 @@ built-in content, machine configuration handles loading these tools automaticall
 
 | Operating system |                 Validation tool                 |                                                                         Notes                                                                          |
 | ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Windows          | [PowerShell Desired State Configuration][15] v2 | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
-| Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                              |
+| Windows          | [PowerShell Desired State Configuration][15]  | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
+| Linux            | [PowerShell Desired State Configuration][15]  | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                              |
 | Linux            | [Chef InSpec][16]                               | Installs Chef InSpec version 2.2.61 in default location and adds it to system path. It installs InSpec's dependencies, including Ruby and Python, too. |
 
 ### Validation frequency
@@ -143,7 +143,7 @@ symbolic to represent new minor versions of Linux distributions.
 | Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
 | Canonical | Ubuntu Server              | 16.04 - 24.x     |
-| Credativ  | Debian                     | 10.x - 12.x      |
+| Credativ  | Debian                     | 10.x - 13.x      |
 | Microsoft | CBL-Mariner                | 1 - 2            |
 | Microsoft | Azure Linux                | 3                |
 | Microsoft | Windows Client             | Windows 10, 11   |
@@ -159,6 +159,13 @@ symbolic to represent new minor versions of Linux distributions.
 Machine configuration policy definitions support custom virtual machine images as long as they're
 one of the operating systems in the previous table. Machine Configuration does not support VMSS 
 uniform but does support [VMSS Flex][46].
+
+> [!IMPORTANT]
+> For any VM extension to function correctly in Azure, write permissions must be granted to the /var/lib directory. Without this permission, the Machine Configuration extension cannot be installed.
+> For Azure Arc-enabled servers, write access to specific directories is also required to enable logging and telemetry.
+> As a result, Azure Machine Configuration does not have official support for default CIS-hardened or SELinux configurations.
+> Additional configuration may be necessary for the extension to operate as expected.
+> Customers using hardened environments should evaluate compatibility and plan accordingly.
 
 ## Network requirements
 
@@ -500,8 +507,8 @@ Machine configuration built-in policy samples are available in the following loc
 [35]: /azure/virtual-machines/windows/run-command
 [36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
-[38]: ../policy/samples/built-in-policies.md#guest-configuration
-[39]: ../policy/samples/built-in-initiatives.md#guest-configuration
+[38]: /azure/governance/policy/samples/built-in-policies#guest-configuration
+[39]: /azure/governance/policy/samples/built-in-initiatives#guest-configuration
 [40]: https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
 [42]: ./how-to/develop-custom-package/overview.md

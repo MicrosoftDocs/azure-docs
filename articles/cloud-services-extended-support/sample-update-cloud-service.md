@@ -2,7 +2,7 @@
 title: Azure PowerShell samples - Update an Azure Cloud Service (extended support)
 description: Sample scripts for updating Azure Cloud Service (extended support) deployments
 ms.topic: sample
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

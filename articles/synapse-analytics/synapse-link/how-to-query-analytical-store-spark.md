@@ -1,16 +1,20 @@
 ---
 title: Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
 description: How to interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
-author: Rodrigossz
+author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: sidandrews
 ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 11/02/2021
-ms.author: rosouz
+ms.date: 12/08/2025
+ms.update-cycle: 1825-days
 ms.custom: cosmos-db, mode-other
 ---
 
 # Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
+
+[!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
 
 > [!NOTE]
 > For Azure Synapse Link for Azure Cosmos DB using Spark 3, refer to this article [Azure Synapse Link for Azure Cosmos DB on Spark 3](how-to-query-analytical-store-spark-3.md)
@@ -21,24 +25,24 @@ The following capabilities are supported while interacting with Azure Cosmos DB:
 * Synapse Apache Spark allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](/azure/cosmos-db/analytical-store-introduction) from Spark:
     + Load to Spark DataFrame
     + Create Spark table
-* Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It is important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
-* Synapse Apache Spark also supports Spark structured streaming with Azure Cosmos DB as a source as well as a sink. 
+* Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It's important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Azure Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
+* Synapse Apache Spark also supports Spark structured streaming with Azure Cosmos DB as a source and a sink. 
 
-The following sections walk you through the syntax of above capabilities. You can also checkout the Learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
+The following sections walk you through the syntax of above capabilities. You can also check out the Learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
 
 > [!IMPORTANT]
 > You should be aware of some constraints in the analytical schema that could lead to the unexpected behavior in data loading operations.
-> As an example, only first 1000 properties from transactional schema are available in the analytical schema, properties with spaces are not available, etc. If you are experiencing some unexpected results, check the [analytical store schema constraints](/azure/cosmos-db/analytical-store-introduction#schema-constraints) for more details.
+> As an example, only first 1,000 properties from transactional schema are available in the analytical schema, properties with spaces aren't available, etc. If you're experiencing some unexpected results, check the [analytical store schema constraints](/azure/cosmos-db/analytical-store-introduction#schema-constraints) for more details.
 
 ## Query Azure Cosmos DB analytical store
 
 Before you learn about the two possible options to query Azure Cosmos DB analytical store, loading to Spark DataFrame and creating Spark table, it is worth exploring the differences in experience so you can choose the option that works for your needs.
 
-The difference in experience is around whether underlying data changes in the Azure Cosmos DB container should be automatically reflected in the analysis performed in Spark. When either a Spark DataFrame is registered or a Spark table is created against a container's analytical store, metadata around the current snapshot of data in the analytical store is fetched to Spark for efficient pushdown of subsequent analysis. It is important to note that since Spark follows a lazy evaluation policy, unless an action is invoked on the Spark DataFrame or a SparkSQL query is executed against the Spark table, actual data is not fetched from the underlying container's analytical store.
+The difference in experience is around whether underlying data changes in the Azure Cosmos DB container should be automatically reflected in the analysis performed in Spark. When either a Spark DataFrame is registered or a Spark table is created against a container's analytical store, metadata around the current snapshot of data in the analytical store is fetched to Spark for efficient pushdown of subsequent analysis. It's important to note that since Spark follows a lazy evaluation policy, unless an action is invoked on the Spark DataFrame or a SparkSQL query is executed against the Spark table, actual data isn't fetched from the underlying container's analytical store.
 
 In the case of **loading to Spark DataFrame**, the fetched metadata is cached through the lifetime of the Spark session and hence subsequent actions invoked on the DataFrame are evaluated against the snapshot of the analytical store at the time of DataFrame creation.
 
-On the other hand, in the case of **creating a Spark table**, the metadata of the analytical store state is not cached in Spark and is reloaded on every SparkSQL query execution against the Spark table.
+On the other hand, in the case of **creating a Spark table**, the metadata of the analytical store state isn't cached in Spark and is reloaded on every SparkSQL query execution against the Spark table.
 
 Thus, you can choose between loading to Spark DataFrame and creating a Spark table based on whether you want your Spark analysis to be evaluated against a fixed snapshot of the analytical store or against the latest snapshot of the analytical store respectively.
 
@@ -48,11 +52,11 @@ If your analytical queries have frequently used filters, you have the option to 
 > To query Azure Cosmos DB for MongoDB accounts, learn more about the [full fidelity schema representation](/azure/cosmos-db/analytical-store-introduction#analytical-schema) in the analytical store and the extended property names to be used.
 
 > [!NOTE]
-> Please note that all `options` in the commands below are case sensitive. For example, you must use `Gateway` while `gateway` will return an error.
+> Note that all `options` in the commands below are case sensitive. For example, you must use `Gateway` while `gateway` will return an error.
 
 ### Load to Spark DataFrame
 
-In this example, you'll create a Spark DataFrame that points to the Azure Cosmos DB analytical store. You can then perform additional analysis by invoking Spark actions against the DataFrame. This operation doesn't impact the transactional store.
+In this example, you'll create a Spark DataFrame that points to the Azure Cosmos DB analytical store. You can then perform other analysis by invoking Spark actions against the DataFrame. This operation doesn't impact the transactional store.
 
 The syntax in **Python** would be the following:
 ```python
@@ -76,7 +80,7 @@ val df_olap = spark.read.format("cosmos.olap").
 
 ### Create Spark table
 
-In this example, you'll create a Spark table that points the Azure Cosmos DB analytical store. You can then perform additional analysis by invoking SparkSQL queries against the table. This operation neither impacts the transactional store nor does it incur any data movement. If you decide to delete this Spark table, the underlying Azure Cosmos DB container and the corresponding analytical store will not be affected. 
+In this example, you'll create a Spark table that points the Azure Cosmos DB analytical store. You can then perform other analysis by invoking SparkSQL queries against the table. This operation neither impacts the transactional store nor does it incur any data movement. If you decide to delete this Spark table, the underlying Azure Cosmos DB container and the corresponding analytical store won't be affected. 
 
 This scenario is convenient to reuse Spark tables through third-party tools and provide accessibility to the underlying data for the run-time.
 
@@ -130,7 +134,7 @@ df.write.format("cosmos.oltp").
 In this gesture, you'll use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) you connected to the workspace.
 
 > [!NOTE]
-> If you are looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md). For instance, if you are looking to ingest a Spark DataFrame to a container of Azure Cosmos DB for MongoDB, you can use the [MongoDB connector for Spark](https://docs.mongodb.com/spark-connector/master/).
+> If you're looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md). For instance, if you're looking to ingest a Spark DataFrame to a container of Azure Cosmos DB for MongoDB, you can use the [MongoDB connector for Spark](https://docs.mongodb.com/spark-connector/master/).
 
 ## Load streaming DataFrame from Azure Cosmos DB container
 In this example, you'll use Spark's structured streaming capability to load data from an Azure Cosmos DB container into a Spark streaming DataFrame using the change feed functionality in Azure Cosmos DB. The checkpoint data used by Spark will be stored in the primary data lake account (and file system) that you connected to the workspace.
@@ -229,5 +233,5 @@ query.awaitTermination()
 
 * [Samples to get started with Azure Synapse Link on GitHub](https://aka.ms/cosmosdb-synapselink-samples)
 * [Learn what is supported in Azure Synapse Link for Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
-* [Connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* Checkout the Learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/).
+* [Connect to Azure Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
+* Check out the Learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/).

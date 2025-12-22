@@ -2,12 +2,13 @@
 title: Scale SNAT ports with Azure NAT Gateway
 description: You can integrate Azure Firewall with a NAT gateway to increase SNAT ports.
 services: firewall
-author: duongau
+author: alittleton
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 01/31/2025
-ms.author: duau 
+ms.date: 09/19/2025
+ms.author: alittleton
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a network architect, I want to integrate Azure NAT Gateway with Azure Firewall, so that I can efficiently scale SNAT ports to accommodate high outbound traffic demands without compromising on IP address management.
 ---
 
 # Scale SNAT ports with Azure NAT Gateway
@@ -16,16 +17,15 @@ Azure Firewall provides 2,496 SNAT ports per public IP address configured per ba
 
 One of the challenges with using a large number of public IP addresses is when there are downstream IP address filtering requirements. When Azure Firewall is associated with multiple public IP addresses, you need to apply the filtering requirements across all public IP addresses associated with it. Even if you use [Public IP address prefixes](../virtual-network/ip-services/public-ip-address-prefix.md) and you need to associate 250 public IP addresses to meet your outbound SNAT port requirements, you still need to create and allow 16 public IP address prefixes.
 
-A better option to scale and dynamically allocate outbound SNAT ports is to use an [Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md). It provides 64,512 SNAT ports per public IP address and supports up to 16 public IP addresses. This effectively provides up to 1,032,192 outbound SNAT ports. Azure NAT Gateway also [dynamically allocates SNAT ports](/azure/nat-gateway/nat-gateway-resource#nat-gateway-dynamically-allocates-snat-ports) on a subnet level, so all the SNAT ports provided by its associated IP addresses is available on demand to provide outbound connectivity.
+A better option to scale and dynamically allocate outbound SNAT ports is to use an [Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md). It provides 64,512 SNAT ports per public IP address and supports up to 16 IPv4 public IP addresses. This effectively provides up to 1,032,192 outbound SNAT ports. Azure NAT Gateway also [dynamically allocates SNAT ports](/azure/nat-gateway/nat-gateway-resource#nat-gateway-dynamically-allocates-snat-ports) on a subnet level, so all the SNAT ports provided by its associated IP addresses is available on demand to provide outbound connectivity.
 
 When a NAT gateway resource is associated with an Azure Firewall subnet, all outbound Internet traffic automatically uses the public IP address of the NAT gateway. There’s no need to configure [User Defined Routes](../virtual-network/tutorial-create-route-table-portal.md). Response traffic to an outbound flow also passes through NAT gateway. If there are multiple IP addresses associated with the NAT gateway, the IP address is randomly selected. It isn't possible to specify what address to use.
 
 There’s no double NAT with this architecture. Azure Firewall instances send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
 > [!NOTE]
-> Deploying NAT gateway with a [zone redundant firewall](deploy-availability-zone-powershell.md) isn't recommended deployment option, as a single instance of NAT gateway doesn't support zonal redundant deployment at this time. 
->
-> In addition, Azure NAT Gateway integration isn't currently supported in secured virtual hub network (vWAN) architectures. You must deploy using a hub virtual network architecture. For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture, refer to the [NAT gateway and Azure Firewall integration tutorial](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md).
+> Deploying NAT gateway with a zone redundant firewall isn't a recommended deployment option, as Standard NAT gateway doesn't support zonal redundant deployments. StandardV2 NAT Gateway does support zone-redundant deployments and is in public preview. For more information, see [NAT Gateway SKUs](/azure/nat-gateway/nat-sku).
+> Azure NAT Gateway isn't supported in the secured virtual hub (vWAN) architecture. To use in a vWAN architecture, NAT Gateway must be configured directly to the spoke virtual networks associated with the secured virtual hub (vWAN). For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture, refer to the [NAT gateway and Azure Firewall integration tutorial](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md).
 
 ## Associate a NAT gateway with an Azure Firewall subnet - Azure PowerShell
 
@@ -48,19 +48,14 @@ $firewallSubnet = $virtualNetwork.subnets | Where-Object -Property Name -eq Azur
 $firewallSubnet.NatGateway = $natGateway
 $virtualNetwork | Set-AzVirtualNetwork
 ```
-
 ## Associate a NAT gateway with an Azure Firewall subnet - Azure CLI
-
 The following example creates and attaches a NAT gateway with an Azure Firewall subnet using Azure CLI.
-
 ```azurecli-interactive
 # Create public IP addresses
 az network public-ip create --name public-ip-1 --resource-group nat-rg --sku standard
 az network public-ip create --name public-ip-2 --resource-group nat-rg --sku standard
-
 # Create NAT gateway
-az network nat gateway create --name firewall-nat --resource-group nat-rg --public-ip-addresses public-ip-1 public-ip-2
-
+az network nat gateway create --name firewall-nat --resource-group nat-rg --public-ip-addresses public-ip-1 public-ip-2 --sku standard
 # Associate NAT gateway to subnet
 az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --resource-group nat-rg --nat-gateway firewall-nat
 ```

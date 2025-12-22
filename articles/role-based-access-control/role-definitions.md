@@ -2,7 +2,7 @@
 title: Understand Azure role definitions - Azure RBAC
 description: Learn about Azure role definitions in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.date: 03/30/2025
@@ -17,7 +17,7 @@ If you are trying to understand how an Azure role works or if you are creating y
 
 A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. It can also list the actions that are excluded from allowed actions or actions related to underlying data.
 
-The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](role-definitions-list.yml#azure-powershell):
+The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](/azure/role-based-access-control/role-definitions-list#azure-powershell):
 
 ```
 Name
@@ -33,7 +33,7 @@ Condition
 ConditionVersion
 ```
 
-The following shows an example of the properties in a role definition when displayed using the [Azure CLI](role-definitions-list.yml#azure-cli) or [REST API](role-definitions-list.yml#rest-api):
+The following shows an example of the properties in a role definition when displayed using the [Azure CLI](/azure/role-based-access-control/role-definitions-list#azure-cli) or [REST API](/azure/role-based-access-control/role-definitions-list#rest-api):
 
 ```
 roleName
@@ -97,7 +97,7 @@ The `{action}` portion of an action string specifies the type of actions you can
 
 Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) actions under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The actions under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprints assignments.
 
-Contributor role as displayed in [Azure PowerShell](role-definitions-list.yml#azure-powershell):
+Contributor role as displayed in [Azure PowerShell](/azure/role-based-access-control/role-definitions-list#azure-powershell):
 
 ```json
 {
@@ -128,7 +128,7 @@ Contributor role as displayed in [Azure PowerShell](role-definitions-list.yml#az
 }
 ```
 
-Contributor role as displayed in [Azure CLI](role-definitions-list.yml#azure-cli):
+Contributor role as displayed in [Azure CLI](/azure/role-based-access-control/role-definitions-list#azure-cli):
 
 ```json
 [
@@ -403,7 +403,7 @@ For more information about `AssignableScopes` for custom roles, see [Azure custo
 
 ## Privileged administrator role definition
 
-Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. If a built-in or custom role includes any of the following actions, it is considered privileged. For more information, see [List or manage privileged administrator role assignments](./role-assignments-list-portal.yml#list-or-manage-privileged-administrator-role-assignments).
+Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. If a built-in or custom role includes any of the following actions, it is considered privileged. For more information, see [List or manage privileged administrator role assignments](/azure/role-based-access-control/role-assignments-list-portal#list-or-manage-privileged-administrator-role-assignments).
 
 > [!div class="mx-tableFixed"]
 > | Action string | Description |

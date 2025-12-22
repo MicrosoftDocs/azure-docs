@@ -95,6 +95,8 @@ Now you're ready to use Key Vault to access your storage account.
 
 # [Azure portal](#tab/portal/basic)
 
+To mount storage to a Windows container by using the Azure portal:
+
 1. In the [Azure portal](https://portal.azure.com), navigate to the app.
 1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, then **New Azure Storage Mount**.
 1. Configure the storage mount according to the following table. When finished, select **OK**.
@@ -199,4 +201,5 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 
 ## Next step
 
-- [Migrate custom software to Azure App Service using a custom container](../../tutorial-custom-container.md?pivots=container-windows).
+> [!div class="nextstepaction"]
+> [Migrate custom software to Azure App Service using a custom container](../../tutorial-custom-container.md?pivots=container-windows)

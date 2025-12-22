@@ -3,9 +3,10 @@ title: Choose Azure File Sync cloud tiering policies
 description: Details on what to keep in mind when choosing Azure File Sync cloud tiering policies.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/06/2024
 ms.author: kendownie
+# Customer intent: As a storage administrator, I want to configure cloud tiering policies in Azure File Sync so that I can optimize local storage usage and manage costs while ensuring efficient access to frequently used files.
 ---
 
 # Choose cloud tiering policies
@@ -34,6 +35,8 @@ The minimum file size for a file to tier is based on the file system cluster siz
 |512 KiB (524,288 bytes) | 1 MiB |
 |1 MiB (1,048,576 bytes) | 2 MiB |
 |2 MiB (2,097,152 bytes) | 4 MiB |
+
+The volume cluster size can be found by executing the command `fsutil fsinfo ntfsinfo volumedriveletter:` from an administrative command prompt. The **Bytes Per Cluster** field displays the volume cluster size in bytes, and the value in kilobytes is shown in parentheses.
 
 Azure File Sync supports cloud tiering on volumes with cluster sizes up to 2 MiB.
 

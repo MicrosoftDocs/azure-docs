@@ -10,11 +10,14 @@ ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: As an IT admin, I want to integrate Azure Active Directory B2C authentication with Zscaler Private Access. I need to provide secure access to private applications and assets without the need for a virtual private network (VPN).
 ---
 
 # Tutorial: Configure Zscaler Private Access with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with Zscaler Private Access (ZPA). ZPA is policy-based, secure access to private applications and assets without the overhead or security risks of a virtual private network (VPN). Zscaler secure hybrid access reduces attack surface for consumer-facing applications when combined with Azure AD B2C.
 
@@ -25,7 +28,7 @@ Learn more: Go to [Zscaler](https://www.zscaler.com/products/zscaler-private-acc
 Before you begin, you’ll need:
 
 - An Azure subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A ZPA subscription
   - Go to [Azure Marketplace, Zscaler Private Access](https://azuremarketplace.microsoft.com/marketplace/apps/aad.zscalerprivateaccess?tab=Overview)

@@ -11,14 +11,13 @@ ms.subservice: orchestration
 
 # Delete files in Workflow Orchestration Manager
 
-> [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
-This article walks you through the steps to delete directed acyclic graph (DAG) files in Workflow Orchestration Manager environment.
+This article walks you through the steps to delete directed acyclic graph (DAG) files in a Workflow Orchestration Manager environment.
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - **Azure Data Factory**: Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Workflow Orchestration Manager preview is supported](concepts-workflow-orchestration-manager.md#region-availability-public-preview).
 
 ## Delete DAGs by using Git sync

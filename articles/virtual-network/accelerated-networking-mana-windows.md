@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mattmcinnes
+# Customer intent: As a cloud administrator, I want to configure the Microsoft Azure Network Adapter for my Windows VMs, so that I can enhance their networking performance and improve overall availability in the Azure environment.
 ---
 
 # Windows VMs with the Microsoft Azure Network Adapter

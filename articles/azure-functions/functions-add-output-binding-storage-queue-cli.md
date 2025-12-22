@@ -16,22 +16,22 @@ In this article, you integrate an Azure Storage queue with the function and stor
 ## Configure your local environment
 
 ::: zone pivot="programming-language-csharp"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-javascript). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 ::: zone pivot="programming-language-java"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-java.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-java). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 ::: zone pivot="programming-language-typescript"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-typescript.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-typescript). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-python). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-powershell.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-powershell). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 
 ### Retrieve the Azure Storage connection string
@@ -104,8 +104,6 @@ Observe that you *don't* need to write any code for authentication, getting a qu
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
-[!INCLUDE [functions-extension-bundles-info](../../includes/functions-extension-bundles-info.md)]
-
 ## View the message in the Azure Storage queue
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
@@ -167,7 +165,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 
 + [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
 
-[previous-quickstart]: create-first-function-cli-csharp.md
+[previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-csharp
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
@@ -175,26 +173,26 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 
 + [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript)  
 
-[previous-quickstart]: create-first-function-cli-javascript.md
+[previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-javascript
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
 + [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript)  
 
-[previous-quickstart]: create-first-function-cli-typescript.md
+[previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-typescript
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
 
 + [Azure Functions Python developer guide](functions-reference-python.md)  
 
-[previous-quickstart]: create-first-function-cli-python.md
+[previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-python
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
 
 + [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
 
-[previous-quickstart]: create-first-function-cli-powershell.md
+[previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-powershell
 ::: zone-end

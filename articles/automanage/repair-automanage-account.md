@@ -2,9 +2,10 @@
 title: Repair a broken Azure Automanage Account
 description: If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure it. In this article, you'll learn how.
 ms.service: azure-automanage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/05/2020
 ms.custom: devx-track-azurecli, subject-rbac-steps
+# Customer intent: As an IT administrator managing Azure subscriptions, I want to reconfigure an Automanage Account after moving it to a new tenant, so that I can ensure proper identity and role assignments for automated operations within my environment.
 ---
 
 # Repair an Automanage Account
@@ -77,7 +78,7 @@ If you're using an ARM template or the Azure CLI, you'll need the Principal ID (
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting          | Value                              |
     | ---------------- | ---------------------------------- |

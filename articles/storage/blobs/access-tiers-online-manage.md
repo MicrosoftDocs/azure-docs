@@ -11,13 +11,15 @@ ms.reviewer: fryu
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a cloud storage user, I want to set and manage blob access tiers during upload and afterward, so that I can optimize my storage costs and performance based on data access patterns."
 ---
 
 # Set a blob's access tier
 
 You can set a blob's access tier in any of the following ways:
 
-- By setting the default online access tier for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
+- By setting the account default access tier setting for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
+
 - By explicitly setting a blob's tier on upload. You can create a blob in the hot, cool, cold, or archive tier.
 - By changing an existing blob's tier with a Set Blob Tier operation. Typically, you would use this operation to move from a hotter tier to a cooler one.
 - By copying a blob with a Copy Blob operation. Typically, you would use this operation to move from a cooler tier to a hotter one.
@@ -31,6 +33,8 @@ For more information about access tiers for blobs, see [Access tiers for blob da
 The default access tier setting for a general-purpose v2 storage account determines in which online tier a new blob is created by default. You can set the default access tier for a general-purpose v2 storage account at the time that you create the account or by updating an existing account's configuration.
 
 When you change the default access tier setting for an existing general-purpose v2 storage account, the change applies to all blobs in the account for which an access tier hasn't been explicitly set. Changing the default access tier may have a billing impact. For details, see [Default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting).
+
+For storage accounts that leverage the smart tier public preview, moving objects into smart tier is only possible through the default account access tier setting. Objects in smart tier can be moved individually to different tiers by explicitly setting a different tier for an object. Once moved to an explicit tier, objects cannot be tiered back to smart tier. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
 
 #### [Portal](#tab/azure-portal)
 

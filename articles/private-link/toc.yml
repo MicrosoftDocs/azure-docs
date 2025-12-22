@@ -2,166 +2,152 @@
   href: index.yml
 - name: Get started
   items:
-  - name: What is Azure Private Link?
-    href: private-link-overview.md
-  - name: What is a private endpoint?
-    href: private-endpoint-overview.md
-  - name: Private Link service
-    href: private-link-service-overview.md
-  - name: What is a network security perimeter?
-    href: network-security-perimeter-concepts.md  
-  - name: Availability
-    href: availability.md
-  - name: FAQ
-    href: private-link-faq.yml
+    - name: What is Azure Private Link?
+      href: private-link-overview.md
+    - name: What is a private endpoint?
+      href: private-endpoint-overview.md
+    - name: Private Link service
+      href: private-link-service-overview.md
+    - name: Service endpoints
+      href: /azure/virtual-network/virtual-network-service-endpoints-overview?toc=/azure/private-link/toc.json
+    - name: What is a network security perimeter?
+      href: network-security-perimeter-concepts.md
+    - name: Availability
+      href: availability.md
+    - name: What is network foundations?
+      href: /azure/networking/foundations/network-foundations-overview
+    - name: FAQ
+      href: private-link-faq.yml
+    - name: Cost optimization
+      href: private-link-cost-optimization.md
 - name: Configure
   items:
-  - name: Create a private endpoint
-    items:
-    - name: Create a private endpoint - Azure portal
-      href: create-private-endpoint-portal.md
-    - name: Create a private endpoint - PowerShell
-      href: create-private-endpoint-powershell.md
-    - name: Create a private endpoint - Azure CLI
-      href: create-private-endpoint-cli.md
-    - name: Create a private endpoint - Bicep
-      displayName: ARM, Resource Manager, Template
-      href: create-private-endpoint-bicep.md
-    - name: Create a private endpoint - ARM template
-      displayName: Azure Resource Manager
-      href: create-private-endpoint-template.md
-    - name: Create a private endpoint - Terraform
-      href: create-private-endpoint-terraform.md
-  - name: Create a Private Link service
-    items:
-    - name: Create a Private Link service - Azure portal
-      href: create-private-link-service-portal.md
-    - name: Create a Private Link service - PowerShell
-      href: create-private-link-service-powershell.md
-    - name: Create a Private Link service - Azure CLI
-      href: create-private-link-service-cli.md
-    - name: Create a Private Link service - Bicep
-      displayName: ARM, Template, Resource Manager
-      href: create-private-link-service-bicep.md
-    - name: Create a Private Link service - ARM template
-      displayName: Azure Resource Manager
-      href: create-private-link-service-template.md
-  - name: Disable SNAT for traffic through NVA
-    href: private-link-disable-snat.md
-  - name: Increase Private Endpoint virtual network limits
-    href: increase-private-endpoint-vnet-limits.md
-  - name: Create a network security perimeter
-    items:
-    - name: Create a network security perimeter - Azure portal
-      href: create-network-security-perimeter-portal.md
-    - name: Create a network security perimeter - PowerShell
-      href: create-network-security-perimeter-powershell.md
-    - name: Create a network security perimeter - Azure CLI
-      href: create-network-security-perimeter-cli.md
-    - name: Create a network security perimeter - Bicep
-      href: create-network-security-perimeter-bicep.md
-    - name: Create a network security perimeter - ARM template
-      href: create-network-security-perimeter-template.md
-    - name: Transition to a network security perimeter
-      href: network-security-perimeter-transition.md
-  - name: DNS
-    items:  
-    - name: Private DNS zone values
-      href: private-endpoint-dns.md
-    - name: Private endpoint DNS integration
-      href: private-endpoint-dns-integration.md 
-  - name: Export private endpoint DNS records
-    href: private-endpoint-export-dns.md
-  - name: Private Link and DNS in Azure Virtual WAN
-    href: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=/azure/private-link/toc.json
+    - name: Create a private endpoint
+      items:
+        - name: Create a private endpoint - Azure portal
+          href: create-private-endpoint-portal.md
+        - name: Create a private endpoint - PowerShell
+          href: create-private-endpoint-powershell.md
+        - name: Create a private endpoint - Azure CLI
+          href: create-private-endpoint-cli.md
+        - name: Create a private endpoint - Bicep
+          href: create-private-endpoint-bicep.md
+          displayName: ARM, Resource Manager, Template
+        - name: Create a private endpoint - ARM template
+          href: create-private-endpoint-template.md
+          displayName: Azure Resource Manager
+        - name: Create a private endpoint - Terraform
+          href: create-private-endpoint-terraform.md
+    - name: Create a Private Link service
+      items:
+        - name: Create a Private Link service - Azure portal
+          href: create-private-link-service-portal.md
+        - name: Create a Private Link service - PowerShell
+          href: create-private-link-service-powershell.md
+        - name: Create a Private Link service - Azure CLI
+          href: create-private-link-service-cli.md
+        - name: Create a Private Link service - Bicep
+          href: create-private-link-service-bicep.md
+          displayName: ARM, Template, Resource Manager
+        - name: Create a Private Link service - ARM template
+          href: create-private-link-service-template.md
+          displayName: Azure Resource Manager
+    - name: Configure Private Link service Direct Connect
+      href: configure-private-link-service-direct-connect.md
+    - name: Disable SNAT for traffic through NVA
+      href: private-link-disable-snat.md
+    - name: Increase Private Endpoint virtual network limits
+      href: increase-private-endpoint-vnet-limits.md
+    - name: Create a network security perimeter
+      items:
+        - name: Create a network security perimeter - Azure portal
+          href: create-network-security-perimeter-portal.md
+        - name: Create a network security perimeter - PowerShell
+          href: create-network-security-perimeter-powershell.md
+        - name: Create a network security perimeter - Azure CLI
+          href: create-network-security-perimeter-cli.md
+        - name: Create a network security perimeter - Bicep
+          href: create-network-security-perimeter-bicep.md
+        - name: Create a network security perimeter - ARM template
+          href: create-network-security-perimeter-template.md
+        - name: Transition to a network security perimeter
+          href: network-security-perimeter-transition.md
+    - name: DNS
+      items:
+        - name: Private DNS zone values
+          href: private-endpoint-dns.md
+        - name: Private endpoint DNS integration
+          href: private-endpoint-dns-integration.md
+    - name: Export private endpoint DNS records
+      href: private-endpoint-export-dns.md
+    - name: Private Link and DNS in Azure Virtual WAN
+      href: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=/azure/private-link/toc.json
 - name: Deploy
   items:
-  - name: SQL
-    items:
-    - name: Connect to a SQL server - Azure portal
-      href: tutorial-private-endpoint-sql-portal.md
-    - name: Connect to a SQL server - PowerShell
-      href: tutorial-private-endpoint-sql-powershell.md
-    - name: Connect to a SQL server - Azure CLI
-      href: tutorial-private-endpoint-sql-cli.md
-  - name: Deploy a private endpoint with a private resolver
-    href: tutorial-dns-on-premises-private-resolver.md
-  - name: Connect to a storage account
-    href: tutorial-private-endpoint-storage-portal.md
-  - name: Connect to an Azure Cosmos DB account
-    href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
-  - name: Approve private link connections across subscriptions
-    href: how-to-approve-private-link-cross-subscription.md
-- name: Operational excellence
-  items:
-  - name: Monitor Private Link
-    href: monitor-private-link.md
-  - name: Manage network policies for private endpoints
-    href: disable-private-endpoint-network-policy.md
-  - name: Disable network policies for a Private Link service
-    href: disable-private-link-service-network-policy.md
-  - name: Manage private endpoints
-    href: manage-private-endpoint.md
-  - name: Relocate Private Link Service to another region
-    href: ../azure-resource-manager/management/relocation/relocation-private-link.md?toc=/azure/private-link/toc.json
-  - name: Azure Security blog
-    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-  - name: Network security perimeter
-    items:
-    - name: Diagnostic logs
-      href: network-security-perimeter-diagnostic-logs.md
+    - name: SQL
+      items:
+        - name: Connect to a SQL server - Azure portal
+          href: tutorial-private-endpoint-sql-portal.md
+        - name: Connect to a SQL server - PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
+        - name: Connect to a SQL server - Azure CLI
+          href: tutorial-private-endpoint-sql-cli.md
+    - name: Deploy a private endpoint with a private resolver
+      href: tutorial-dns-on-premises-private-resolver.md
+    - name: Connect to a storage account
+      href: tutorial-private-endpoint-storage-portal.md
+    - name: Connect to an Azure Cosmos DB account
+      href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
+    - name: Approve private link connections across subscriptions
+      href: how-to-approve-private-link-cross-subscription.md
 - name: Security
   items:
-  - name: Configure an application security group
-    href: configure-asg-private-endpoint.md
-  - name: Inspect private endpoint traffic with Azure Firewall
-    href: tutorial-inspect-traffic-azure-firewall.md
-  - name: RBAC permissions
-    href: rbac-permissions.md 
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
-  - name: Azure Security blog
-    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-  - name: Network security perimeter
-    items:
-    - name: Role-based access control permissions
-      href: network-security-perimeter-role-based-access-control-requirements.md
+    - name: Configure an application security group
+      href: configure-asg-private-endpoint.md
+    - name: Inspect private endpoint traffic with Azure Firewall
+      href: tutorial-inspect-traffic-azure-firewall.md
+    - name: RBAC permissions
+      href: rbac-permissions.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
+    - name: Azure Security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+    - name: Network security perimeter
+      items:
+        - name: Role-based access control permissions
+          href: network-security-perimeter-role-based-access-control-requirements.md
+- name: Operational excellence
+  items:
+    - name: Monitor Private Link
+      href: monitor-private-link.md
+    - name: Manage network policies for private endpoints
+      href: disable-private-endpoint-network-policy.md
+    - name: Disable network policies for a Private Link service
+      href: disable-private-link-service-network-policy.md
+    - name: Manage private endpoints
+      href: manage-private-endpoint.md
+    - name: Relocate Private Link Service to another region
+      href: ../azure-resource-manager/management/relocation/relocation-private-link.md?toc=/azure/private-link/toc.json
+    - name: Azure Security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+    - name: Network security perimeter
+      items:
+        - name: Diagnostic logs
+          href: network-security-perimeter-diagnostic-logs.md
 - name: Troubleshoot
   items:
-  - name: Troubleshoot private endpoint connectivity problems
-    href: troubleshoot-private-endpoint-connectivity.md
-  - name: Troubleshoot Private Link service connectivity problems
-    href: troubleshoot-private-link-connectivity.md
+    - name: Troubleshoot private endpoint connectivity problems
+      href: troubleshoot-private-endpoint-connectivity.md
+    - name: Troubleshoot Private Link service connectivity problems
+      href: troubleshoot-private-link-connectivity.md
 - name: Reference
   items:
-  - name: The Azure CLI
-    href: /cli/azure/network/private-link-service
-  - name: Azure PowerShell
-    href: /powershell/module/az.network
-  - name: .NET
-    href: /dotnet/api/overview/azure/virtual-network
-  - name: Java
-    href: /java/api/
-  - name: Node.js
-    href: /javascript/azure#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/virtualnetwork/privateendpoints
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.network/allversions
-  - name: Monitoring data reference
-    href: monitor-private-link-reference.md
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=virtual-network
-  - Name: Network security perimeter
-    items:
-    - name: Azure CLI
-      href: /azure/private-link/create-network-security-perimeter-cli
+    - name: The Azure CLI
+      href: /cli/azure/network/private-link-service
     - name: Azure PowerShell
       href: /powershell/module/az.network
     - name: .NET
-      href: /azure/application-gateway/private-link
+      href: /dotnet/api/overview/azure/virtual-network
     - name: Java
       href: /java/api/
     - name: Node.js
@@ -169,20 +155,43 @@
     - name: Python
       href: https://azure.microsoft.com/develop/python/
     - name: REST
-      href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/network/resource-manager/Microsoft.Network/preview/2023-07-01-preview/networkSecurityPerimeter.json
+      href: /rest/api/virtualnetwork/privateendpoints
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.network/allversions
+    - name: Monitoring data reference
+      href: monitor-private-link-reference.md
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+    - name: Unnamed Item
+      Name: Network security perimeter
+      items:
+        - name: Azure CLI
+          href: /azure/private-link/create-network-security-perimeter-cli
+        - name: Azure PowerShell
+          href: /powershell/module/az.network
+        - name: .NET
+          href: /azure/application-gateway/private-link
+        - name: Java
+          href: /java/api/
+        - name: Node.js
+          href: /javascript/azure#azure-sdk
+        - name: Python
+          href: https://azure.microsoft.com/develop/python/
+        - name: REST
+          href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/network/resource-manager/Microsoft.Network/preview/2023-07-01-preview/networkSecurityPerimeter.json
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn training
-    href: /training/browse/
-  - name: Azure Networking blog
-    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
-  - name: Microsoft Q&A question page for Networking
-    href: /answers/topics/azure-virtual-network.html
-  - name: Networking feedback
-    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/private-link/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/
+    - name: Azure Networking blog
+      href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+    - name: Microsoft Q&A question page for Networking
+      href: /answers/topics/azure-virtual-network.html
+    - name: Networking feedback
+      href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/private-link/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-virtual-network

@@ -6,8 +6,9 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: quickstart
-ms.date: 10/13/2023
+ms.date: 07/23/2025
 ms.author: buchvarun
+ms.custom: sfi-image-nochange
 ---
 
 # Get started using DICOM data in analytics workloads

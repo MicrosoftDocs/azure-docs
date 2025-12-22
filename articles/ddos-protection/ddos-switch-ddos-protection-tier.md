@@ -6,6 +6,7 @@ ms.author: abell
 ms.service: azure-ddos-protection
 ms.topic: how-to 
 ms.date: 03/17/2025
+# Customer intent: "As a cloud administrator, I want to switch between DDoS Protection tiers in the Azure portal, so that I can adapt my DDoS protections based on my network architecture and requirements."
 ---
 
 # How to switch Azure DDoS Protection tiers using Azure portal
@@ -14,7 +15,7 @@ In this guide, we walk through the steps to switch between Network Protection an
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 
 ## Switch Azure DDoS Protection tiers

@@ -138,7 +138,7 @@ ms.author: wchi
     ```
 1. In code, get the PostgreSQL connection information from environment variables added by Service Connector.
    ```javascript
-   const { Client } = require('pg');
+   import { Client } from 'pg';
    
    (async () => {
     const client = new Client({

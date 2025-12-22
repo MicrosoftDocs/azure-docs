@@ -2,8 +2,8 @@
 metadata:
   title: Azure IoT Operations frequently asked questions
   description: This article provides a list of frequently asked questions (FAQ) for Azure IoT Operations and their answers. 
-  author: PatAltimore
-  ms.author: patricka
+  author: dominicbetts
+  ms.author: dobett
   ms.topic: faq
   ms.custom: references_regions
   ms.date: 01/16/2025
@@ -29,28 +29,31 @@ sections:
       answer: Currently, MQTT with QoS-2 isn't supported. QoS 2 provides strict message guarantees (Exactly Once) and requires complex state management and synchronization which can impact performance and scalability. QoS-0 (At most once) and QoS-1 (At least once) provide sufficient message delivery guarantees for Azure IoT Operations applications, where a balance between availability, throughput, latency, and reliable message delivery is desired.
     - question: |
           Is message persistence supported in Azure IoT Operations?
-      answer:  Full message persistence is on the roadmap, however, Azure IoT Operations supports in-memory message persistence with optional spillover to disk. This setup allows messages to remain available in memory, with overflow messages stored temporarily on disk to prevent data loss during high message volumes. However, if a pod restarts, any messages that were written to disk can't be restored. 
+      answer: Azure IoT Operations supports message persistence through disk-backed message buffers and configurable persistence settings. To learn more, see [Configure disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) and [Data persistence](../manage-mqtt-broker/howto-broker-persistence.md).
     - question: |
          Does Azure Device Registry offer high availability across availability zones and regions?
       answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](../../reliability/reliability-device-registry.md).
     - question: |
          On which platforms is Azure IoT Operations supported?
-      answer: Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production. To learn more, see [Supported environments](../deploy-iot-ops/overview-deploy.md#supported-environments).
+      answer: To learn more about supported platforms for deploying Azure IoT Operations, see [Supported environments](../overview-support.md#supported-environments).
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
       answer: Azure IoT Edge isn't an Azure Arc-enabled service like Azure IoT Operations is. Instead, IoT Edge is deeply integrated with and relies on Azure IoT Hub primitives such as device twins and direct methods for its functionality. While Azure IoT Operations can achieve outcomes similar to IoT Edge in some scenarios, the two services have fundamentally different architectures. As a result, there isn't a direct migration path for transitioning IoT Edge workload modules to Azure IoT Operations. 
     - question: |
          For IoT Operations, which device communication protocols supported.
-      answer: Currently, Azure IoT Operations supports OPC-UA and MQTT for device communication.
+      answer: Currently, Azure IoT Operations supports HTTP/REST, SSE, OPC-UA, and MQTT for device communication.
     - question: |
          Which Azure regions is Azure IoT Operations currently available in?
-      answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe regions.
+      answer: To learn more about Azure region availability for Azure IoT Operations, see [Supported regions](../overview-support.md#supported-regions).
     - question: |
          Does Azure IoT Operations support connecting via proxy servers? 
       answer: Azure IoT Operations supports connecting via passthrough proxies that don't require proxy authentication. Proxies that require authentication or can inspect encrypted traffic are currently not supported. 
     - question: |
+         What versions of Azure IoT Operations are supported? 
+      answer: Microsoft supports the three most recent minor versions of Azure IoT Operations. To learn more, see [Supported versions](../overview-support.md#supported-versions).
+    - question: |
          Does Azure IoT Operations support Azure Private Link and private endpoints? 
-      answer: Azure IoT Operations currently does not support Azure Private Link and private endpoints. 
+      answer: Yes, Azure IoT Operations supports deployment on Azure Arc–enabled Kubernetes clusters connected through Azure Private Link. For questions or more details, please reach out to our team at [azureiotoperationslicensinghelp@microsoft.com](mailto:azureiotoperationslicensinghelp@microsoft.com). 
 additionalContent: |
     ## Related content
 

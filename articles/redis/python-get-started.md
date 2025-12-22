@@ -1,480 +1,248 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in Python'
-description: In this quickstart, you learn how to create a Python script that uses Azure Redis.
-
-
-
-ms.date: 07/09/2024
+title: "Quickstart: Create a Python app with Azure Managed Redis"
+description: In this quickstart, you learn how to create a Python app that uses Azure Managed Redis.
+ms.date: 07/29/2025
 ms.topic: quickstart
-
-ms.devlang: python
-ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc, ignite-2024
-zone_pivot_groups: redis-type
+ms.custom:
+- mode-api
+- devx-track-python
+- ignite-2024
+- build-2025
 appliesto:
-  - ✅ Azure Managed Redis
-  - ✅ Azure Cache for Redis
-#customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.
+- ✅ Azure Managed Redis
+ms.devlang: python
+ai-usage: ai-assisted
 ---
 
-# Quickstart: Use Azure Redis in Python
+# Quickstart: Create a Python app with Azure Managed Redis
 
-In this Quickstart, you incorporate Azure Managed Redis (preview) or Azure Cache for Redis into a Python script to have access to a secure, dedicated cache that is accessible from any application within Azure.
-
-## Skip to the code on GitHub
-
-If you want to skip straight to the code, see the [Python quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) on GitHub.
+In this article, you learn how to use an Azure Managed Redis cache with the Python language and connect using Microsoft Entra ID.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Python 3
-  - For macOS or Linux, download from [python.org](https://www.python.org/downloads/).
-  - For Windows 11, use the [Windows Store](https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation&hl=en-us&gl=US).
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- Install [Python 3.7+](https://www.python.org/downloads/) language environment
+- Add these imports from  to your project and to your development environment
+  - `redis` - The Redis Python client
+  - `redis-entraid` - Redis Microsoft Entra ID authentication extension
+  - `azure-identity` - Azure authentication library
 
-::: zone pivot="azure-managed-redis"
+## Create an Azure Managed Redis instance
 
-## Create an Azure Managed Redis (preview) instance
+First, create a cache. You can create a cache using Azure Managed Redis or Azure Cache for Redis using the Azure portal. In this Quickstart, we use Azure Managed Redis.
 
-[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+When you create the cache, Microsoft Entra ID is enabled by default making it secure from the start. Your cache must also use a public endpoint for this QuickStart.
 
-::: zone-end
+To create a cache with the portal, follow one of these procedures:
 
-::: zone pivot="azure-cache-redis"
+- [Azure Managed Redis](quickstart-create-managed-redis.md)
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/quickstart-create-redis)
 
-## Create an Azure Cache for Redis instance
+Optionally, you can create a cache using Azure CLI, PowerShell, whichever you prefer.
 
-[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+## Code to connect to a Redis cache
 
-::: zone-end
+In the first part of the code sample, set your connection to the cache. 
 
-## Install redis-py library
-
-[Redis-py](https://pypi.org/project/redis/) is a Python interface to Redis. Use the Python packages tool, `pip`, to install the `redis-py` package from a command prompt.
-
-The following example used `pip3` for Python 3 to install `redis-py` on Windows 11 from an Administrator command prompt.
-
-:::image type="content" source="media/python-get-started/cache-python-install-redis-py.png" alt-text="Screenshot of a terminal showing an install of redis-py interface to Azure Cache for Redis.":::
-
-::: zone pivot="azure-managed-redis"
-
-## Create a Python script to access your cache
-
-Create a Python script to that uses either Microsoft Entra ID or access keys to connect to your Azure Managed Redis (preview) instance. We recommend you use Microsoft Entra ID.
-
-## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
-
-[!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
-
-### Install the Microsoft Authentication Library
-
-1. Install the [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview). This library allows you to acquire security tokens from Microsoft identity to authenticate users.
-
-1. You can use the [Python Azure identity client library](/python/api/overview/azure/identity-readme) available that uses MSAL to provide token authentication support. Install this library using `pip`:
-
-  ```python
-  pip install azure-identity
-  ```
-
-### Create a Python script using Microsoft Entra ID
-
-1. Create a new text file, add the following script, and save the file as `PythonApplication1.py`.
-
-1. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.<region>.redis.azure.net`.
-
-1. Replace `<Your Username>` with the values from your Microsoft Entra ID user.
-
-    ```python
-    import redis
-    from azure.identity import DefaultAzureCredential
-    
-    scope = "https://redis.azure.com/.default"
-    host = "<Your Host Name>"
-    port = 10000
-    user_name = "<Your Username>"
-    
-    
-    def hello_world():
-        cred = DefaultAzureCredential()
-        token = cred.get_token(scope)
-        r = redis.Redis(host=host,
-                        port=port,
-                        ssl=True,    # ssl connection is required.
-                        username=user_name,
-                        password=token.token,
-                        decode_responses=True)
-        result = r.ping()
-        print("Ping returned : " + str(result))
-    
-        result = r.set("Message", "Hello!, The cache is working with Python!")
-        print("SET Message returned : " + str(result))
-    
-        result = r.get("Message")
-        print("GET Message returned : " + result)
-    
-        result = r.client_list()
-        print("CLIENT LIST returned : ")
-        for c in result:
-            print(f"id : {c['id']}, addr : {c['addr']}")
-    
-    if __name__ == '__main__':
-        hello_world()
-    ```
-
-1. Before you run your Python code from a Terminal, make sure you authorize the terminal for using Microsoft Entra ID.
-  
-    `azd auth login`
-
-1. Run `PythonApplication1.py` with Python. You should see results like the following example:
-
-   :::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
-
-### Create a Python script using reauthentication
-
-Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python.
-
-1. Create a new text file, add the following script. Then, save the file as `PythonApplication2.py`.
-
-1. Replace `<Your Host Name>` with the value from your Azure Managed Redis (preview) instance. Your host name is of the form `<DNS name>.<region>.redis.azure.net`.
-
-1. Replace `<Your Username>` with the values from your Microsoft Entra ID user.
-
-    ```python
-    import time
-    import logging
-    import redis
-    from azure.identity import DefaultAzureCredential
-    
-    scope = "https://redis.azure.com/.default"
-    host = "<Your Host Name>"
-    port = 10000
-    user_name = "<Your Username>"
-    
-    def re_authentication():
-        _LOGGER = logging.getLogger(__name__)
-        cred = DefaultAzureCredential()
-        token = cred.get_token(scope)
-        r = redis.Redis(host=host,
-                        port=port,
-                        ssl=True,   # ssl connection is required.
-                        username=user_name,
-                        password=token.token,
-                        decode_responses=True)
-        max_retry = 3
-        for index in range(max_retry):
-            try:
-                if _need_refreshing(token):
-                    _LOGGER.info("Refreshing token...")
-                    tmp_token = cred.get_token(scope)
-                    if tmp_token:
-                        token = tmp_token
-                    r.execute_command("AUTH", user_name, token.token)
-                result = r.ping()
-                print("Ping returned : " + str(result))
-    
-                result = r.set("Message", "Hello!, The cache is working with Python!")
-                print("SET Message returned : " + str(result))
-    
-                result = r.get("Message")
-                print("GET Message returned : " + result)
-    
-                result = r.client_list()
-                print("CLIENT LIST returned : ")
-                for c in result:
-                    print(f"id : {c['id']}, addr : {c['addr']}")
-                break
-            except redis.ConnectionError:
-                _LOGGER.info("Connection lost. Reconnecting.")
-                token = cred.get_token(scope)
-                r = redis.Redis(host=host,
-                                port=port,
-                                ssl=True,   # ssl connection is required.
-                                username=user_name,
-                                password=token.token,
-                                decode_responses=True)
-            except Exception:
-                _LOGGER.info("Unknown failures.")
-                break
-    
-    
-    def _need_refreshing(token, refresh_offset=300):
-        return not token or token.expires_on - time.time() < refresh_offset
-    
-    if __name__ == '__main__':
-        re_authentication()
-    ```
-
-1. Run `PythonApplication2.py` with Python. You should see results like the following example:
-
-   :::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
-
-   Unlike the first example, If your token expires, this example automatically refreshes it.
-
-## [Access Key Authentication](#tab/accesskey)
-
-[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
-
-### Read and write to the cache from the command line
-
-Run [Python from the command line](https://docs.python.org/3/faq/windows.html#id2) to test your cache. First, initiate the Python interpreter in your command line by typing `py`, and then use the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
-
-```python
->>> import redis
->>> r = redis.Redis(host='<Your Host Name>',
-        port=10000, password='<Your Access Key>', ssl=True)
->>> r.set('foo', 'bar')
-True
->>> r.get('foo')
-b'bar'
-```
-
-### Create a Python script using access keys
-
-Create a new text file, add the following script, and save the file as `PythonApplication1.py`. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.<region>.redis.azure.net`.
+- Ports for Azure Managed Redis and Enterprise caches: 10000
+- Ports for Azure Cache for Redis instances: 6380
 
 ```python
 import redis
+from azure.identity import DefaultAzureCredential
+from redis_entraid.cred_provider import create_from_default_azure_credential
 
-myHostname = "<Your Host Name>"
-myPassword = "<Your Access Key>"
+# Connection details for your cache
+# Get the connection details for the Redis instance
+redis_host = "contosob116.westus3.redis.azure.net"
+redis_port = 10000  #For an Azure 
 
-r = redis.Redis(host=myHostname, port=10000,
-                      password=myPassword, ssl=True)
+print("🚀 Starting Azure Redis Cache connection test...")
+print(f"📡 Connecting to: {redis_host}:{redis_port}")
 
+# Validate configuration
+if not redis_host or not redis_port:
+    print("❌ Error: Redis host and port must be configured")
+    exit(1)
+
+print()  # Add a new line
+
+try:
+    # Create credential provider using DefaultAzureCredential for Azure Entra ID authentication
+    credential_provider = create_from_default_azure_credential(
+         ("https://redis.azure.com/.default",),)
+
+    # Create a Redis client with Azure Entra ID authentication
+    r = redis.Redis(host=redis_host, 
+                    port=redis_port, 
+                    ssl=True, 
+                    decode_responses=True, 
+                    credential_provider=credential_provider,
+                    socket_timeout=10,
+                    socket_connect_timeout=10
+                    )
+```
+
+## Code to test a connection
+
+In the next section, test the connection using the Redis command `ping` that returns the `True` value.
+
+```python
+# Ping the Redis server to test the connection
 result = r.ping()
-print("Ping returned : " + str(result))
-
-result = r.set("Message", "Hello!, The cache is working with Python!")
-print("SET Message returned : " + str(result))
-
-result = r.get("Message")
-print("GET Message returned : " + result)
-
-result = r.client_list()
-print("CLIENT LIST returned : ")
-for c in result:
-    print(f"id : {c['id']}, addr : {c['addr']}")
+if result:
+    print("Ping returned: ", result)
 ```
 
-Run `PythonApplication1.py` with Python. You should see results like the following example:
+## Code set a key, get a key
 
-:::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
-
----
-::: zone-end
-
-::: zone pivot="azure-cache-redis"
-
-## Create a Python script to access your cache
-
-Create a Python script to that uses either Microsoft Entra ID or access keys to connect to your Redis instance. We recommend you use Microsoft Entra ID.
-
-## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
-
-[!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
-
-### Install the Microsoft Authentication Library
-
-1. Install the [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview). This library allows you to acquire security tokens from Microsoft identity to authenticate users.
-
-1. You can use the [Python Azure identity client library](/python/api/overview/azure/identity-readme) available that uses MSAL to provide token authentication support. Install this library using `pip`:
-
-  ```python
-  pip install azure-identity
-  ```
-
-### Create a Python script using Microsoft Entra ID
-
-1. Create a new text file, add the following script, and save the file as `PythonApplication1.py`.
-
-1. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
-
-1. Replace `<Your Username>` with the values from your Microsoft Entra ID user.
-
-    ```python
-    import redis
-    from azure.identity import DefaultAzureCredential
-    
-    scope = "https://redis.azure.com/.default"
-    host = "<Your Host Name>"
-    port = 6380
-    user_name = "<Your Username>"
-    
-    
-    def hello_world():
-        cred = DefaultAzureCredential()
-        token = cred.get_token(scope)
-        r = redis.Redis(host=host,
-                        port=port,
-                        ssl=True,    # ssl connection is required.
-                        username=user_name,
-                        password=token.token,
-                        decode_responses=True)
-        result = r.ping()
-        print("Ping returned : " + str(result))
-    
-        result = r.set("Message", "Hello!, The cache is working with Python!")
-        print("SET Message returned : " + str(result))
-    
-        result = r.get("Message")
-        print("GET Message returned : " + result)
-    
-        result = r.client_list()
-        print("CLIENT LIST returned : ")
-        for c in result:
-            print(f"id : {c['id']}, addr : {c['addr']}")
-    
-    if __name__ == '__main__':
-        hello_world()
-    ```
-
-1. Before you run your Python code from a Terminal, make sure you authorize the terminal for using Microsoft Entra ID.
-  
-    `azd auth login`
-
-1. Run `PythonApplication1.py` with Python. You should see results like the following example:
-
-   :::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
-
-### Create a Python script using reauthentication
-
-Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python.
-
-1. Create a new text file, add the following script. Then, save the file as `PythonApplication2.py`.
-
-1. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
-
-1. Replace `<Your Username>` with the values from your Microsoft Entra ID user.
-
-    ```python
-    import time
-    import logging
-    import redis
-    from azure.identity import DefaultAzureCredential
-    
-    scope = "https://redis.azure.com/.default"
-    host = "<Your Host Name>"
-    port = 6380
-    user_name = "<Your Username>"
-    
-    def re_authentication():
-        _LOGGER = logging.getLogger(__name__)
-        cred = DefaultAzureCredential()
-        token = cred.get_token(scope)
-        r = redis.Redis(host=host,
-                        port=port,
-                        ssl=True,   # ssl connection is required.
-                        username=user_name,
-                        password=token.token,
-                        decode_responses=True)
-        max_retry = 3
-        for index in range(max_retry):
-            try:
-                if _need_refreshing(token):
-                    _LOGGER.info("Refreshing token...")
-                    tmp_token = cred.get_token(scope)
-                    if tmp_token:
-                        token = tmp_token
-                    r.execute_command("AUTH", user_name, token.token)
-                result = r.ping()
-                print("Ping returned : " + str(result))
-    
-                result = r.set("Message", "Hello!, The cache is working with Python!")
-                print("SET Message returned : " + str(result))
-    
-                result = r.get("Message")
-                print("GET Message returned : " + result)
-    
-                result = r.client_list()
-                print("CLIENT LIST returned : ")
-                for c in result:
-                    print(f"id : {c['id']}, addr : {c['addr']}")
-                break
-            except redis.ConnectionError:
-                _LOGGER.info("Connection lost. Reconnecting.")
-                token = cred.get_token(scope)
-                r = redis.Redis(host=host,
-                                port=port,
-                                ssl=True,   # ssl connection is required.
-                                username=user_name,
-                                password=token.token,
-                                decode_responses=True)
-            except Exception:
-                _LOGGER.info("Unknown failures.")
-                break
-    
-    
-    def _need_refreshing(token, refresh_offset=300):
-        return not token or token.expires_on - time.time() < refresh_offset
-    
-    if __name__ == '__main__':
-        re_authentication()
-    ```
-
-1. Run `PythonApplication2.py` with Python. You should see results like the following example:
-
-   :::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
-
-   Unlike the first example, If your token expires, this example automatically refreshes it.
-
-## [Access Key Authentication](#tab/accesskey)
-
-[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
-
-[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
-
-### Read and write to the cache from the command line
-
-Run [Python from the command line](https://docs.python.org/3/faq/windows.html#id2) to test your cache. First, initiate the Python interpreter in your command line by typing `py`, and then use the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
+In this section, use a basic `set` and `get` sequence to start using the Redis cache in the simplest way to get started.
 
 ```python
->>> import redis
->>> r = redis.Redis(host='<Your Host Name>',
-        port=6380, db=0, password='<Your Access Key>', ssl=True)
->>> r.set('foo', 'bar')
-True
->>> r.get('foo')
-b'bar'
+    # Create a simple set and get operation
+    result = r.set("Message", "Hello, The cache is working with Python!")
+    print("✅ SET Message succeeded: " + str(result))
+    print()  # Add a new line
+
+    value = r.get("Message")
+
+    if value is not None:
+        print("✅ GET Message returned : " + str(value))
+        print()  # Add a new line
+    else:
+        print("⚠️  GET Message returned None")
+        print()  # Add a new line
+    
+    print("🎉 All Redis operations completed successfully!")
+    print()  # Add a new line
 ```
 
-### Create a Python script using access keys
+Before you can run this code, you must add yourself as a Redis user to the cache.
 
-Create a new text file, add the following script, and save the file as `PythonApplication1.py`. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
+You must also authorize your connection to Azure from the command line using the Azure command line or Azure developer command line (azd).
+
+You should also [add users or a System principal to your cache](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). Add anyone who might run the program as a user on the Redis cache.
+
+The result looks like this:
+
+```console
+C:\utils\python-quickstart>python quickstart-amr.py
+🚀 Starting Azure Redis Cache connection test...
+📡 Connecting to: contosob116.westus3.redis.azure.net:10000
+
+✅ Ping returned : True
+
+✅ SET Message succeeded: True
+
+✅ GET Message returned : Hello, The cache is working with Python!
+
+🎉 All Redis operations completed successfully!
+
+🔐 Redis connection closed
+
+```
+
+Here, you can see this code sample in its entirety. The code contains some error checking omitted from the earlier code explanations for simplicity. The final step is closing the connection to the cache.
 
 ```python
+# Python Quickstart using Azure Entra ID authentication
+# Azure Managed Redis cache that you created using the Azure portal, or CLI
+# This script demonstrates secure connection using Microsoft Entra ID authentication
+# This script demonstrates secure connection using the default Azure credential provider
+# You should be a user on the cache and logged in to Azure CLI with the same account using `az login`
+
 import redis
+from azure.identity import DefaultAzureCredential
+from redis_entraid.cred_provider import create_from_default_azure_credential
 
-myHostname = "<Your Host Name>"
-myPassword = "<Your Access Key>"
+# Connection details for your cache
+# Get the connection details for the Redis instance
+redis_host = "<host-url>"  # Replace with your cache info
+redis_port = <port number>  # Replace with your cache info 
 
-r = redis.Redis(host=myHostname, port=6380,
-                      password=myPassword, ssl=True)
+print("🚀 Starting Azure Redis Cache connection test...")
+print(f"📡 Connecting to: {redis_host}:{redis_port}")
 
-result = r.ping()
-print("Ping returned : " + str(result))
+# Validate configuration
+if not redis_host or not redis_port:
+    print("❌ Error: Redis host and port must be configured")
+    exit(1)
 
-result = r.set("Message", "Hello!, The cache is working with Python!")
-print("SET Message returned : " + str(result))
+print()  # Add a new line
 
-result = r.get("Message")
-print("GET Message returned : " + result)
+try:
+    # Create credential provider using DefaultAzureCredential for Azure Entra ID authentication
+    credential_provider = create_from_default_azure_credential(
+         ("https://redis.azure.com/.default",),)
 
-result = r.client_list()
-print("CLIENT LIST returned : ")
-for c in result:
-    print(f"id : {c['id']}, addr : {c['addr']}")
+    # Create a Redis client with Azure Entra ID authentication
+    r = redis.Redis(host=redis_host, 
+                    port=redis_port, 
+                    ssl=True, 
+                    decode_responses=True, 
+                    credential_provider=credential_provider,
+                    socket_timeout=10,
+                    socket_connect_timeout=10
+                    )
+
+    # Test connection 
+    result = r.ping()
+    print("✅ Ping returned : " + str(result))
+    print()  # Add a new line
+
+    # Create a simple set and get operation
+    result = r.set("Message", "Hello, The cache is working with Python!")
+    print("✅ SET Message succeeded: " + str(result))
+    print()  # Add a new line
+
+    value = r.get("Message")
+
+    if value is not None:
+        print("✅ GET Message returned : " + str(value))
+        print()  # Add a new line
+    else:
+        print("⚠️  GET Message returned None")
+        print()  # Add a new line
+    
+    print("🎉 All Redis operations completed successfully!")
+    print()  # Add a new line
+
+except redis.ConnectionError as e:
+    print(f"❌ Connection error: {e}")
+    print("💡 Check if Redis host and port are correct, and ensure network connectivity")
+    print()  # Add a new line
+except redis.AuthenticationError as e:
+    print(f"❌ Authentication error: {e}")
+    print("💡 Check if Azure Entra ID authentication is properly configured")
+    print()  # Add a new line
+except redis.TimeoutError as e:
+    print(f"❌ Timeout error: {e}")
+    print("💡 Check network latency and Redis server performance")
+    print()  # Add a new line
+except Exception as e:
+    print(f"❌ Unexpected error: {e}")
+    if "999" in str(e):
+        print("💡 Error 999 typically indicates a network connectivity issue or firewall restriction")
+        print("   - Verify the Redis hostname is correct")
+        print("   - Verify that you have logged in with Az CLI")
+        print("   - Ensure the Redis cache is running and accessible")
+    print()  # Add a new line
+finally:
+    # Clean up connection if it exists
+    if 'r' in locals():
+        try:
+            r.close()
+            print("🔐 Redis connection closed")
+        except Exception as e:
+            print(f"❌ Error closing connection: {e}")
+
 ```
 
-Run `PythonApplication1.py` with Python. You should see results like the following example:
-
-:::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
-
----
-::: zone-end
-
-<!-- Clean up resources -->
+<!-- Clean up resources include -->
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related content
 
-- [Create a ASP.NET web app that uses Azure Redis.](web-app-cache-howto.md)
+- [Redis Extension for connecting using Microsoft Entra ID](https://github.com/redis/redis-py-entraid)
+- [redis-py guide](https://redis.io/docs/latest/develop/clients/redis-py/)

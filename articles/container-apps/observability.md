@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 07/29/2022
+ms.date: 11/06/2025
 ms.author: cshoe
 ---
 
@@ -18,7 +18,7 @@ These features include:
 |Feature  |Description  |
 |---------|---------|
 |[Log streaming](log-streaming.md) | View streaming system and console logs from a container in near real-time. |
-|[Container console](container-console.md) | Connect to the Linux console in your containers to debug your application from inside the container. |
+|[Container console](container-console.md) | To debug your application from inside the container, connect to the Linux console in your containers. |
 |[Azure Monitor metrics](metrics.md)| View and analyze your application's compute and network usage through metric data. |
 |[Application logging](logging.md) | Monitor, analyze, and debug your app using log data.|
 |[Azure Monitor Log Analytics](log-monitoring.md) | Run queries to view and analyze your app's system and application logs. |
@@ -40,7 +40,7 @@ During the development and test phase, real-time access to your containers' appl
 
 ### Deployment
 
-Once you deploy your container app, continuous monitoring helps you quickly identify problems that occur around error rates, performance, and resource consumption.
+After you deploy your container app, continuous monitoring helps you quickly identify problems related to error rates, performance, and resource consumption.
 
 Azure Monitor gives you the ability to track your app with the following features:
 

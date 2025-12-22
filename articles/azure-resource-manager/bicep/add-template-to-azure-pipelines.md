@@ -3,18 +3,18 @@ title: 'Quickstart: Integrate Bicep with Azure Pipelines'
 description: This quickstart explains how to use Bicep and `.bicepparam` files to configure continuous integration and continuous deployments in Azure Pipelines, plus how to use an Azure CLI task to deploy a `.bicepparam` file.
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-azurecli
-ms.date: 03/25/2025
+ms.date: 12/10/2025
 ---
 
 # Quickstart: Integrate Bicep with Azure Pipelines
 
 This quickstart shows you how to integrate Bicep files with Azure Pipelines for continuous integration and continuous deployment.
 
-It provides a short introduction to the pipeline task you need for deploying a Bicep file. For more detailed steps on setting up the pipeline and project, see the [Deploy Azure resources by using Bicep and Azure Pipelines](/training/paths/bicep-azure-pipelines/) Microsoft Learn module.
+It provides a short introduction to the pipeline task you need for deploying a Bicep file.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 You also need an Azure DevOps organization. If you don't have one, [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). If your team already has an Azure DevOps organization, make sure you're an administrator of the Azure DevOps project that you want to use.
 

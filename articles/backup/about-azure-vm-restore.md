@@ -2,26 +2,29 @@
 title: About the Azure Virtual Machine restore process
 description: Learn how the Azure Backup service restores Azure virtual machines
 ms.topic: overview
-ms.date: 09/09/2024
-author: jyothisuri
-ms.author: jsuri
+ms.date: 10/13/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT admin, I want to understand the Azure VM restore process and its options, so that I can efficiently recover virtual machines based on different scenarios and ensure business continuity.
 ---
 
-# About Azure VM restore
+# About Azure Virtual Machine restore
 
-This article describes how the [Azure Backup service](./backup-overview.md) restores Azure virtual machines (VMs). There are a number of restore options. We'll discuss the various scenarios they support.
+This article describes how the [Azure Backup service](./backup-overview.md) restores Azure virtual machines (VMs). There are many restore options. Let's discuss the various scenarios they support.
 
-## Concepts
+## Key concepts for Azure VM restore
+
+To understand the Azure VM restore process, review the following key concepts:
 
 - **Recovery Point** (also known as **Restore Point**): A recovery point is a copy of the original data that's being backed up.
 
 - **Tier (snapshot vs. vault)**:  Azure VM backup happens in two phases:
 
-  - In phase 1, the snapshot taken is stored along with the disk. This is referred to as **snapshot tier**. Snapshot tier restores are faster (than restore from vault) because they eliminate the wait time for snapshots to copy to the vault before triggering the restore. So restore from the snapshot tier is also referred as [Instant Restore](./backup-instant-restore-capability.md).
-  - In phase 2, the snapshot is transferred and stored in the vault managed by the Azure Backup service. This is referred to as **vault tier**.
+  - In phase 1, the snapshot taken is stored along with the disk. This process is called **snapshot tier**. Snapshot tier restores are faster (than restore from vault) because they eliminate the wait time for snapshots to copy to the vault before triggering the restore. So restore from the snapshot tier is also referred as [Instant Restore](./backup-instant-restore-capability.md).
+  - In phase 2, the snapshot is transferred and stored in the vault managed by the Azure Backup service. This process is called **vault tier**.
 
-- **Original Location Recovery (OLR)**: A recovery done from the restore point to the source Azure VM from where the backups were taken, replacing it with the state stored in the recovery point. This replaces the OS disk and the data disk(s) of the source VM.
+- **Original Location Recovery (OLR)**: A recovery done from the restore point to the source Azure VM from where the backups were taken, replacing it with the state stored in the recovery point. This process replaces the OS disk and the data disks of the source VM.
 
 - **Alternate-Location Recovery (ALR)**: A recovery done from the recovery point to a server other than the original server where the backups were taken.
 
@@ -32,15 +35,17 @@ This article describes how the [Azure Backup service](./backup-overview.md) rest
   - [Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
   - [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../reliability/availability-zones-overview.md), guaranteeing data residency and resiliency in the same region. ZRS has no downtime. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), and must have no downtime, can be backed up in ZRS.
 
-- **Cross-Region Restore (CRR)**: As one of the [restore options](./backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](../reliability/cross-region-replication-azure.md) You can restore your data in the secondary region at anytime,  during partial or full outages, or any other time you choose. 
+- **Cross-Region Restore (CRR)**: As one of the [restore options](./backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](../reliability/cross-region-replication-azure.md). You can restore your data in the secondary region at any time,  during partial or full outages, or any other time you choose. 
 
-## Restore scenarios
+## Restore scenarios for Azure VMs
 
-![Restore scenarios ](./media/about-azure-vm-restore/recovery-scenarios.png)
+:::image type="content" source="./media/about-azure-vm-restore/recovery-scenarios.png" alt-text="Diagram shows the restore flow for Azure VMs.":::
+
+The following table describes the various restore scenarios for Azure VMs, what is done in each scenario, and when to use them:
 
 | **Scenario**                                                 | **What is done**                                             | **When to use**                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Restore to create a new virtual machine](./backup-azure-arm-restore-vms.md) | Restores the entire VM to OLR (if the source VM still exists) or ALR | <ul><li> If the source VM is lost or  corrupt, then you can restore entire VM  <li> You can create a copy of the  VM  <li> You can perform a restore  drill for audit or compliance  <li> If license for Marketplace Azure VM has expired, [create VM restore](./backup-azure-arm-restore-vms.md#create-a-vm) option can't be used.</ul> |
+| [Restore to create a new virtual machine](./backup-azure-arm-restore-vms.md) | Restores the entire VM to Original Location Recovery (OLR) (if the source VM still exists) or Alternate Location Recovery(ALR) | <ul><li> If the source VM is lost or  corrupt, then you can restore entire VM  <li> You can create a copy of the  VM  <li> You can perform a restore  drill for audit or compliance  <li> If license for Marketplace Azure VM has expired, [create VM restore](./backup-azure-arm-restore-vms.md#create-a-vm) option can't be used.</ul> |
 | [Restore disks of the VM](./backup-azure-arm-restore-vms.md#restore-disks) | Restore disks attached to the VM                             |  All disks: This option creates the template and restores the disk. You can edit this template  with special configurations (for example, availability sets) to meet your requirements  and then use both the template and restore the disk to recreate the VM. |
 | [Restore specific files within the VM](./backup-azure-restore-files-from-vm.md) | Choose restore point, browse, select files, and restore them to the  same (or compatible) OS as the backed-up VM. |  If you know which specific  files to restore, then use this option instead of restoring the entire VM. |
 | [Restore an encrypted VM](./backup-azure-vms-encryption.md) | From the portal, restore the disks and then use PowerShell to create the VM | <ul><li> [Encrypted VM with Microsoft Entra ID](/azure/virtual-machines/windows/disk-encryption-windows-aad) <li> [Encrypted VM without Microsoft Entra ID](/azure/virtual-machines/windows/disk-encryption-windows) <li> [Encrypted VM *with Microsoft Entra ID* migrated to *without Microsoft Entra ID*](/azure/virtual-machines/windows/disk-encryption-faq#can-i-migrate-vms-that-were-encrypted-with-a-microsoft-entra-app-to-encryption-without-a-microsoft-entra-app-)</ul> |

@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/31/2022
 ms.author: duau
+# Customer intent: "As a network administrator, I want to configure SQL FQDN application rules in Azure Firewall, so that I can control access to specific SQL server instances from my virtual networks."
 ---
 
 # Configure Azure Firewall application rules with SQL FQDNs
@@ -16,11 +17,11 @@ You can now configure Azure Firewall application rules with SQL FQDNs. This allo
 
 With SQL FQDNs, you can filter traffic:
 
-- From your VNets to an Azure SQL Database or Azure Synapse Analytics. For example: Only allow access to *sql-server1.database.windows.net*.
+- From your VNets to an Azure SQL Database or Azure Synapse Analytics. For example: Only allow access to *sql-server1.database.windows.NET*.
 - From on-premises to Azure SQL Managed Instances or SQL IaaS running in your VNets.
 - From spoke-to-spoke to Azure SQL Managed Instances or SQL IaaS running in your VNets.
 
-SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). If you use SQL in the default redirect mode, you can filter access using the SQL service tag as part of [network rules](features.md#network-traffic-filtering-rules).
+SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). If you use SQL in the default redirect mode, you can filter access using the SQL service tag as part of [network rules](features-by-sku.md#key-basic-features).
 If you use non-default ports for SQL IaaS traffic, you can configure those ports in the firewall application rules.
 
 ## Configure using Azure CLI

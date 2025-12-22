@@ -5,14 +5,13 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/18/2025
 ms.author: chrupa
 ---
 
 # How to use IotJsonPathContent templates with the MedTech service device mapping
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 This article provides an overview of how to use IotJsonPathContent templates within a MedTech service device mapping.
 

@@ -8,6 +8,7 @@ ms.date: 08/23/2023
 ms.author: cherylmc
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a network administrator, I want to delete a virtual network gateway using PowerShell, so that I can manage my VPN gateway configurations and dependencies effectively."
 ---
 # Delete a virtual network gateway using PowerShell
 > [!div class="op_single_selector"]

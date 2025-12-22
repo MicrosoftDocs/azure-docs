@@ -16,30 +16,28 @@ The following are resource limits per [workspace](../articles/api-management/wor
 
 | Resource | Workspace - Premium tier  |
 | ---------| ----------- | 
-| Maximum number of workspaces per instance | 100  |
-| Maximum number of scale units per premium workspace gateway | 12 | 
-| Maximum number of APIs (including versions and revisions)  | 200 |
-| Maximum number of API operations  | 5,000  |
-| Maximum number of operations per API |  100 |
-| Maximum number of releases per API | 100 |
-| Maximum number of schemas per API | 100 |
-| Maximum number of subscriptions per API | 200 |
-| Maximum number of tags per API | 100 |
-| Maximum number of backends  | 200 |
-| Maximum number of certificates  | 200 | 
-| Maximum number of groups  | 50 |
-| Maximum number of loggers  | 50 |
-| Maximum number of named values  | 200 |
-| Maximum number of policy fragments  | 50 |
-| Maximum number of products  | 100 |
-| Maximum number of APIs per product | 200 |
-| Maximum number of groups per product | 200 |
-| Maximum number of subscriptions per product | 1,000 |
-| Maximum number of tags per product | 50 |
-| Maximum number of schemas  | 500 | 
-| Maximum number of subscriptions  | 5,000 |
-| Maximum number of tags  | 200 |
-| Maximum number of groups per user  | 200 |
-| Maximum number of version sets  | 50 |
-
-
+| Workspaces per instance | 100  |
+| Scale units per premium workspace gateway | 12 | 
+| APIs (including versions and revisions)  | 200 |
+| API operations  | 5,000  |
+| Operations per API |  100 |
+| Releases per API | 100 |
+| Schemas per API | 100 |
+| Subscriptions per API | 200 |
+| Tags per API | 100 |
+| Backends  | 200 |
+| Certificates  | 200 | 
+| Groups  | 50 |
+| Loggers  | 50 |
+| Named values  | 200 |
+| Policy fragments  | 50 |
+| Products  | 100 |
+| APIs per product | 200 |
+| Groups per product | 200 |
+| Subscriptions per product | 1,000 |
+| Tags per product | 50 |
+| Schemas  | 500 | 
+| Subscriptions  | 5,000 |
+| Tags  | 200 |
+| Groups per user  | 200 |
+| Version sets  | 50 |

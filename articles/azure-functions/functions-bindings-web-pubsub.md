@@ -45,9 +45,7 @@ Add the extension to your project by installing this [NuGet package].
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-## Install bundle
-
-The Web PubSub extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -72,10 +70,13 @@ The Web PubSub extension is part of an [extension bundle], which is specified in
 By default, an application setting named `WebPubSubConnectionString` is used to store your Web PubSub connection string. When you choose to use a different setting name for your connection, you must explicitly set that as the key name in your binding definitions. During local development, you must also add this setting to the `Values` collection in the the [_local.settings.json_ file](./functions-develop-local.md#local-settings-file).
 
 > [!IMPORTANT]
-> A connection string includes the authorization information required for your application to access Azure Web PubSub service. The access key inside the connection string is similar to a root password for your service. For optimal security, your function app should use managed idenities when connecting to the Web PubSub service instead of using a connection string. For more information, see [Authorize a managed identity request by using Microsoft Entra ID](../azure-web-pubsub/howto-authorize-from-managed-identity.md). 
+> A connection string includes the authorization information required for your application to access Azure Web PubSub service. The access key inside the connection string is similar to a root password for your service. For optimal security, your function app should use managed identities when connecting to the Web PubSub service instead of using a connection string. For more information, see [Authorize a managed identity request by using Microsoft Entra ID](../azure-web-pubsub/howto-authorize-from-managed-identity.md). 
 
 For details on how to configure and use Web PubSub and Azure Functions together, refer to [Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service](../azure-web-pubsub/tutorial-serverless-notification.md).
-
+::: zone pivot="programming-language-csharp"
+> [!NOTE]
+> When running in the isolated worker model, the Azure Web PubSub binding doesn't currently support Microsoft Entra ID authentication using managed identities. In the isolated model, you must continue to use a connection string, which includes a shared secret key.
+::: zone-end
 ## Next steps
 
 - [Handle client events from Web PubSub  (Trigger binding)](./functions-bindings-web-pubsub-trigger.md)
@@ -84,6 +85,7 @@ For details on how to configure and use Web PubSub and Azure Functions together,
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
 [core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+

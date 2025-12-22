@@ -3,6 +3,7 @@ title: Troubleshoot the sensor | Microsoft Defender for IoT
 description: Learn how to troubleshoot your Microsoft Defender for IoT OT sensor.
 ms.date: 10/14/2024
 ms.topic: troubleshooting
+ms.custom: sfi-image-nochange
 #CustomerIntent: As a Defender for IoT sensor admin, I want to know how to troubleshoot sensor issues so that I can get it back online quickly.
 ---
 # Troubleshoot the sensor
@@ -247,7 +248,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 1. Select **Next**, and your user, and a system-generated password for your OT sensor will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *admin* user. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).
+    > When you sign in to a sensor for the first time, it's linked to your Azure subscription, which you need if you need to recover the password for the *admin* user. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).
 
 ## Investigate a lack of traffic
 
@@ -257,7 +258,7 @@ An indicator appears at the top of the console when the sensor recognizes that t
 
 When a new sensor is deployed or a sensor is working slowly or not showing any alerts, you can check system performance.
 
-1. Sign in to the sensor and select **Overview**. Make sure that **PPS** is greater than 0, and that **Devices** are being discovered. 
+1. Sign in to the sensor and select **Overview**. Make sure that **PPS** is greater than 0, and that **Devices** are being discovered.
 1. In the **Data Mining** page, generate a report.
 1. In the **Trends & Statistics** page, create a dashboard.
 1. In the **Alerts** page, check that the alert was created.
@@ -289,7 +290,7 @@ For more information, see:
 
 ## Connect the sensor to NTP
 
-You can configure a standalone sensor and a OT sensor console, with the sensors related to it, to connect to NTP.
+You can configure a standalone sensor and an OT sensor console, with the sensors related to it, to connect to NTP.
 
 > [!TIP]
 > When you're ready to start managing your OT sensor settings at scale, define NTP settings from the Azure portal. Once you apply settings from the Azure portal, settings on the sensor console are read-only. For more information, see [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
@@ -319,7 +320,7 @@ For more information on how to clear system data, see [Clear OT sensor data](how
 
 ## Export logs from the sensor console for troubleshooting
 
-For further troubleshooting, you may want to export logs to send to the support team, such as database or operating system logs.
+For further troubleshooting, you might want to export logs to send to the support team, such as database or operating system logs.
 
 **To export log data**:
 

@@ -6,8 +6,11 @@
  ms.topic: include
  ms.date: 1/10/2025
  ms.author: dobett
- ms.custom: include file, devx-track-azurecli
  ms.devlang: azurecli
+ ms.custom:
+   - include file
+   - devx-track-azurecli
+   - sfi-ropc-nochange
 ---
 
 [![Browse code](../articles/iot/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples)
@@ -21,20 +24,20 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 - Windows 10
 - Ubuntu 20.04 LTS
 - Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
+- 
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
-- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Git](https://git-scm.com/downloads).
-- .NET Core SDK 3.1. Be sure to install the .NET SDK, not just the runtime. To check the version of the .NET SDK and runtime installed on your machine, run `dotnet --info`.
-
-  - For Windows and Linux (except Raspberry Pi), follow the instructions to [install the .NET Core SDK 3.1](/dotnet/core/install/) on your platform.
-  - For Raspberry Pi, you'll need to follow the instructions to [manually install the SDK](/dotnet/core/install/linux-scripted-manual#manual-install). This is because on Debian, package manager installs of the .NET SDK are only supported for the x64 architecture.
-
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0). Be sure to install the .NET SDK, not just the runtime. To check the version of the .NET SDK and runtime installed on your machine, run `dotnet --info`.
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps.
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Get started with Azure Cloud Shell](../articles/cloud-shell/get-started.md) to **Start Cloud Shell** and **Select the Bash environment**.
     - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that you use Azure Cloud Shell or install Azure CLI on another computer.
+
+> [!IMPORTANT]
+> You must use the .NET 6.0 SDK to build and run the C# sample code in this quickstart. The sample currently doesn't work with later versions of the SDK.
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
@@ -42,7 +45,7 @@ Install the following prerequisites on your development machine except where not
 
 In this section, you'll use the C# SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
-1. Open a new console such as Windows CMD, PowerShell, or Bash. In the following steps, you'll use this console to install the Node.js SDK and work with Node.js sample code.
+1. Open a new console such as Windows CMD, PowerShell, or Bash. In the following steps, you'll use this console to install the .NET SDK and work with the C# sample code.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.

@@ -3,12 +3,13 @@ title: Nested Traffic Manager Profiles in Azure
 titleSuffix: Azure Traffic Manager
 description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 manager: kumud
 ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
+# Customer intent: "As a cloud architect, I want to implement nested traffic manager profiles, so that I can combine multiple traffic-routing methods to optimize application deployment and ensure high availability across various regions."
 ---
 
 # Nested Traffic Manager profiles
@@ -116,7 +117,7 @@ In this example, the **East US** endpoint is unhealthy, because it doesn't satis
 
 * [How do I configure nested profiles?](./traffic-manager-faqs.md#traffic-manager-nested-profiles)
 
-* [How many layers of nesting does Traffic Manger support?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manger-support)
+* [How many layers of nesting does Traffic Manager support?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manager-support)
 
 * [Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?](./traffic-manager-faqs.md#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 

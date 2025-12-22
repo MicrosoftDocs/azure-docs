@@ -1,11 +1,13 @@
 ---
-title: Hotpatching (preview) on Azure Arc-enabled machines
+title: Hotpatching (preview) on Azure Arc-enabled Machines
 description: This article details how to manage hotpatching (preview) on Azure Arc-enabled machines.
 ms.service: azure-update-manager
-ms.date: 11/01/2024
+ms.date: 08/21/2025
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT administrator managing Arc-enabled machines, I want to implement hotpatching so that I can ensure timely, non-intrusive updates that maintain system reliability and minimize downtime across my environment.
 ---
 
 # Manage hotpatches (preview) on Arc-enabled machines
@@ -24,7 +26,7 @@ This article explains how to install hotpatches (preview) on compatible Arc-enab
 
 ## Prerequisites
 
-- Verify that the machine has a supported OS SKU. [Learn more](#supported-operating-systems).
+- Verify that the machine has a supported OS SKU. [Learn more](/windows-server/get-started/hotpatch#supported-platforms).
 - Ensure that Virtualization Based Security (VBS) is enabled. [Learn more](https://techcommunity.microsoft.com/t5/windows-server-news-and-best/how-to-preview-azure-arc-connected-hotpatching-for-windows/ba-p/4246895).
 - Ensure the machine is Arc-enabled. 
 
@@ -135,7 +137,16 @@ You can view the history of update deployments on your VM through the [history
 **Update history** displays the history for the past 30 days, along with patch installation details such as reboot status. 
 
 :::image type="content" source="./media/manage-hot-patching-arc-machines/history-update-deployments.png" alt-text="Screenshot showing how to view the history of update deployments on your VM." lightbox="./media/manage-hot-patching-arc-machines/history-update-deployments.png":::
- 
+
+## Billing considerations
+
+When using hotpatch (preview) on Azure Arc-enabled machines, you are billed through an hourly meter for servers enrolled in Hotpatch for Windows Server. The number of cores is determined through the Azure Connected Machine agent's collected metadata. The environment (VMware, Hyper-V, AWS, GCP) and the Windows Server 2025 edition (Standard, Datacenter) has no impact on the cost.
+
+Charges apply each month, regardless of whether hotpatches were delivered during that month. Because the window during which a machine is still eligible for hotpatching is up to 30 days after disconnection, you may still be charged during that time. However, you aren't charged for any deleted or expired servers. If you unenroll a server from hotpatch (preview), charges stop within 48 hours of unenrollment.
+
+Hotpatch (preview) is separate from other Azure licensing offers, such as Windows Server Management, and is billed separately. Hotpatch (preview) charges don't include the cost of using other Azure management services, such as Azure Update Manager, with enrolled machines.
+
+To see pricing for Windows Server Hotpatch, see the [Azure Arc pricing page](https://azure.microsoft.com/pricing/details/azure-arc/core-control-plane/). You can estimate your costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Hotpatch (preview) charges are eligible for Azure Consumption Discount (ACD) and Microsoft Azure Consumption Commitment (MACC) decrement.
 
 ## Next steps
 

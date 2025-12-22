@@ -7,6 +7,8 @@ ms.author: beber
 ms.date: 06/01/2023
 ms.service: azure-storage
 ms.topic: quickstart
+ms.custom: sfi-image-nochange
+# Customer intent: "As a data manager, I want to analyze my file infrastructure and migrate data to Azure storage services, so that I can optimize storage costs and enhance data accessibility while minimizing disruption to end users."
 ---
 
 # Quickstart analyze and migrate to Azure with Komprise
@@ -57,7 +59,7 @@ With a quick install of a local Komprise data Observer, in 30 minutes or less yo
     - Date set too large for destination storage service in file count or capacity
     - Data sets with an exceedingly large number of tiny files or with a large number of empty directories
     - Slow-performing shares
-    - Lack of destination support for sparce files or symbolic links
+    - Lack of destination support for sparse files or symbolic links
 
 Komprise knows it can be challenging to find just the right data across billions of files. Komprise Deep Analytics builds a Global File Index of all your file’s metadata, giving a unified way to search, tag and create select data sets across storage silos. You can identify orphan data, data by name, location, owner, date, application type or extension. Administrators can use these queries and tagged data sets to move, copy, confine, or feed your data pipelines. They can also set data workflow policies.  This allows business to use other Azure cloud data services like personal data identification, running cloud data analytics, and culling and feeding edge data to cloud data lakes.  
 
@@ -174,25 +176,21 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
     :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account.png" alt-text="Screenshot of the Azure Create Storage Account Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account.png":::
 
-3. Next, consider keeping the recommended default settings from the Advanced screen. If you're migrating to Azure Files, it's recommended to enable large file shares if available
-
-    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-advanced.png" alt-text="Screenshot of the Azure Create Storage Account Advanced Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-advanced.png":::
-
-4. Keep the default networking options for now and move on to data protection. You can choose to enable soft delete, which allows you to recover accidentally deleted data within the defined retention period. Soft delete offers protection against accidental or malicious deletion.
+3. Keep the default networking options for now and move on to data protection. You can choose to enable soft delete, which allows you to recover accidentally deleted data within the defined retention period. Soft delete offers protection against accidental or malicious deletion.
 
     :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-data-protection.png" alt-text="Screenshot of the Azure Create Storage Account Data Protection Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-data-protection.png":::
 
-5.	Add tags for an organization if you use tagging and create your account
+4.	Add tags for an organization if you use tagging and create your account
 
-6.	Two quick steps are all that is now required before you can add the account to your Komprise environment. Navigate to the account you created in the Azure portal and select File shares under the File Service menu. Add a File share providing a meaningful name. Then, navigate to the Access keys item under Settings and copy the Storage account name and one of the two access keys. If the keys aren't showing, select Show keys
+5.	Two quick steps are all that is now required before you can add the account to your Komprise environment. Navigate to the account you created in the Azure portal and select File shares under the File Service menu. Add a File share providing a meaningful name. Then, navigate to the Access keys item under Settings and copy the Storage account name and one of the two access keys. If the keys aren't showing, select Show keys
 
     :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-manage-access-keys.png" alt-text="Screenshot of the Manage Access Keys dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-manage-access-keys.png":::
 
-7. Navigate to the Properties of the Azure File share. Write down the URL address, which is required to add the Azure connection into the Komprise target file share
+6. Navigate to the Properties of the Azure File share. Write down the URL address, which is required to add the Azure connection into the Komprise target file share
 
     :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png" alt-text="Screenshot of Azure File Share Properties dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png":::
 
-8.	(Optional) You can add extra layers of security to your deployment
+7.	(Optional) You can add extra layers of security to your deployment
     
     a. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations)
     

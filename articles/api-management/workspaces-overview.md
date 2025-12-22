@@ -6,15 +6,16 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/16/2025
+ms.date: 08/19/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
-
+ms.custom:
+  - build-2025
 ---
 
 # Federated API management with workspaces
 
-[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
+[!INCLUDE [api-management-availability-premium-premium-v2](../../includes/api-management-availability-premium-premium-v2.md)]
 
 This article provides an overview of API Management *workspaces* and how they empower decentralized API development teams to manage and productize their APIs in a common service infrastructure. 
 
@@ -38,7 +39,9 @@ In Azure API Management, use *workspaces* to implement federated API management.
 * Each workspace contains APIs, products, subscriptions, named values, and related resources. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview&preserve-view=true) for a full list of resources and operations supported in workspaces.
 * Teams' access to resources within a workspace is managed through Azure's role-based access control (RBAC) with built-in or custom roles assignable to Microsoft Entra accounts and scoped to a workspace. 
 * Each workspace is associated with one or more [workspace gateways](#workspace-gateway) for routing API traffic to the backend services of APIs in the workspace.
-* The platform team can apply API policies spanning APIs in workspaces, monitor the platform by viewing the logs for all workspaces, and implement a centralized API discovery experience with a developer portal.
+* The platform team can apply policies spanning APIs and products in workspaces to govern API runtime across the organization. A built-in [Azure Policy definition](policy-reference.md) (`API Management policies should inherit parent scope policies using <base/>`) lets you audit or enforce that these policies are applied across all workspace resources.
+* The platform team can implement a centralized API discovery experience with a developer portal.
+* Each workspace team can gather and analyze gateway resource logs to monitor their own workspace APIs, while the platform team has federated access to logs across all workspaces in the API Management service, providing oversight, security, and compliance across their API ecosystem.
 
 
 :::image type="content" source="media/workspaces-overview/workspace-concept.png" alt-text="Conceptual diagram of API Management service with workspaces.":::
@@ -70,6 +73,10 @@ Workspace gateways are managed independently from the API Management service and
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
 
+> [!NOTE]
+> In August 2025, we announced upcoming changes to gateway and tier support in workspaces. [See the announcement for details](https://aka.ms/apim/workspaces/built-in-gateway-changes)
+> 
+
 ### Associate workspaces with a workspace gateway
 
  Depending on your organization's needs, you can associate one workspace or multiple workspaces with a workspace gateway. 
@@ -80,6 +87,7 @@ Workspace gateways are managed independently from the API Management service and
 * A workspace gateway has certain configuration (such as virtual network, scale, hostname) and allocated computing resources (CPU, memory, networking resources).
 * Configuration and computing resources are shared by all workspaces deployed on a gateway.
 * Bugs in an API or anomalous traffic may cause exhaustion of these resources, affecting all workspaces on that gateway. In other words, the more workspaces are deployed on a gateway, the higher the risk that an API from a workspace will experience reliability issues caused by an API from another workspace.
+* Monitor your gateway's performance using [built-in metrics](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) for CPU and memory utilization. 
 
 Consider reliability, security, and cost when choosing a deployment model for workspaces.
 
@@ -109,7 +117,7 @@ For detailed requirements, see [Network resource requirements for workspace gate
 
 ### Scale capacity
 
-Manage gateway capacity by manually adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. The costs of a workspace gateway are based on the number of units you select.
+Manage gateway capacity by adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. The costs of a workspace gateway are based on the number of units you select.
 
 ### Regional availability
 
@@ -126,11 +134,11 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways support only internal cache; external cache isn't supported 
 * Workspace gateways don't support synthetic GraphQL APIs
 * Workspace gateways don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
+* Workspace gateways don't support MCP servers
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
-* Azure Monitor logs are aggregated at the service level; workspace-level logs aren't available
 * Workspace gateways don't support CA certificates
-* Workspace gateways don't support autoscaling
 * Workspace gateways don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
+* Workspace gateways can only be created in the API Management instance's primary Azure region 
 
 ## RBAC roles for workspaces
 

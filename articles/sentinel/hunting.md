@@ -2,13 +2,14 @@
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
 ms.topic: conceptual
-ms.date: 05/17/2024
-ms.author: austinmc
-author: austinmccollum
+ms.date: 12/31/2024
+ms.author: monaberdugo
+author: mberdugo
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to use advanced threat hunting tools and queries so that I can proactively identify and mitigate security threats across my organization's data sources.
@@ -94,10 +95,11 @@ Many available hunting queries are developed by Microsoft security researchers o
 
 Create or edit a query and save it as your own query or share it with users who are in the same tenant. In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Queries** tab.
 
-# [Azure portal](#tab/azure-portal)
-:::image type="content" source="./media/hunting/save-query.png" alt-text="Save query" lightbox="./media/hunting/save-query.png":::
 # [Defender portal](#tab/defender-portal)
 :::image type="content" source="./media/hunting/save-query-defender.png" alt-text="Save query" lightbox="./media/hunting/save-query-defender.png":::
+
+# [Azure portal](#tab/azure-portal)
+:::image type="content" source="./media/hunting/save-query.png" alt-text="Save query" lightbox="./media/hunting/save-query.png":::
 
 ---
 
@@ -178,7 +180,7 @@ The following table describes some methods of using Jupyter notebooks to help yo
 
 ### MSTIC, Jupyter, and Python security tools
 
-The [Microsoft Threat Intelligence Center (MSTIC)](https://msrc-blog.microsoft.com/tag/mstic/) is a team of Microsoft security analysts and engineers who author security detections for several Microsoft platforms and work on threat identification and investigation.
+The [Microsoft Threat Intelligence Center (MSTIC)](https://www.microsoft.com/security/blog/topic/threat-intelligence) is a team of Microsoft security analysts and engineers who author security detections for several Microsoft platforms and work on threat identification and investigation.
 
 MSTIC built [MSTICPy](https://github.com/Microsoft/msticpy), a library for information security investigations and hunting in Jupyter Notebooks. MSTICPy provides reusable functionality that aims to speed up notebook creation, and make it easier for users to read notebooks in Microsoft Sentinel.
 

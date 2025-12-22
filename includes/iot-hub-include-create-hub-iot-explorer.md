@@ -1,15 +1,16 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: include
 ms.date: 1/10/2025
+ms.custom: sfi-image-nochange
 ---
 
 ## Create an IoT hub
-In this section, you use Azure CLI to create an IoT hub and a resource group.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and devices.
+In this section, you use Azure CLI to create an IoT hub and a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and devices.
 
 To create an IoT hub and a resource group:
 
@@ -45,10 +46,10 @@ To create an IoT hub and a resource group:
 
 ### Configure IoT Explorer
 
-In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub and to view the device telemetry. In this section, you configure IoT Explorer to connect to the IoT hub you just created and to read plug and play models from the public model repository. 
+In the rest of this quickstart, you use IoT Explorer to register a device to your IoT hub and to view the device telemetry. In this section, you configure IoT Explorer to connect to the IoT hub you created and to read plug and play models from the public model repository. 
 
 > [!NOTE]
-> You can also use the Azure CLI to register a device. Use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) --device-id mydevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) --device-id mydevice --hub-name {YourIoTHubName}* command to get the primary connection string for the device. Once you note down the device connection string, you can skip ahead to [Run the device sample](#run-the-device-sample).
+> You can also use the Azure CLI to register a device. Use the `az iot hub device-identity create --device-id mydevice --hub-name {YourIoTHubName}` command to register a new device and the `az iot hub device-identity connection-string show --device-id mydevice --hub-name {YourIoTHubName}` command to get the primary connection string for the device. Once you note down the device connection string, you can skip ahead to [Run the device sample](#run-the-device-sample).
 
 To add a connection to your IoT hub:
 
@@ -67,27 +68,25 @@ To add a connection to your IoT hub:
 
 1. If the connection succeeds, IoT Explorer switches to the **Devices** view.
 
-To add the public model repository:
+View the public model repository settings:
 
 1. In IoT Explorer, select **Home** to return to the home view.
-1. On the left menu, select **IoT Plug and Play Settings**, then select **+Add** and select **Public repository** from the drop-down menu.
-1. An entry appears for the public model repository at `https://devicemodels.azure.com`.
+1. On the left menu, select **IoT Plug and Play Settings**.
+1. You can see an entry exists for the public model repository at `https://devicemodels.azure.com`.
 
     :::image type="content" source="media/iot-hub-include-create-hub-iot-explorer/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer":::
 
-1. Select **Save**.
-
 ### Register a device
 
-In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your device in a later section.
+In this section, you create a new device instance and register it with the IoT hub you created. You use the connection information for the newly registered device to securely connect your device in a later section.
 
 To register a device:
 
 1. From the home view in IoT Explorer, select **IoT hubs**.
 1. The connection you previously added should appear. Select **View devices in this hub** below the connection properties.
-1. Select **+ New** and enter a device ID for your device; for example, *mydevice*. Leave all other properties the same.
+1. Select **+ New** and enter a device ID for your device; for example, **mydevice**. Leave all other properties unchanged.
 1. Select **Create**.
 
     :::image type="content" source="media/iot-hub-include-create-hub-iot-explorer/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity":::
 
-1. Use the copy buttons to copy and note down the **Primary connection string** field. You'll need this connection string later.
+1. Copy and note down the value in the **Primary connection string** field. You need this connection string later.

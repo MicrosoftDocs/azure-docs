@@ -5,9 +5,10 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 03/10/2025
+ms.date: 12/02/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
+# Customer intent: As a cloud storage manager, I want to select the appropriate access tier for my blob data, so that I can optimize storage costs based on the frequency of access and retention requirements.
 ---
 
 # Access tiers for blob data
@@ -18,6 +19,7 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 - **Cool tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of **30** days. The cool tier has lower storage costs and higher access costs compared to the hot tier.
 - **Cold tier** - An online tier optimized for storing data that is rarely accessed or modified, but still requires fast retrieval. Data in the cold tier should be stored for a minimum of **90** days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of **180** days.
+- **Smart tier** - Smart tier automatically moves your data between the hot, cool, and cold access tiers based on usage patterns, optimizing your costs for these access tiers automatically. To learn more, see [Optimize costs with smart tier](access-tiers-smart.md).
 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
@@ -88,7 +90,7 @@ Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving
 
 To change the redundancy configuration for a storage account that contains blobs in the archive tier, you must first rehydrate all archived blobs to the hot, cool, or cold tier. Because rehydration operations can be costly and time-consuming, Microsoft recommends that you avoid changing the redundancy configuration of a storage account that contains archived blobs.
 
-Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 14 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
+Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. 
 
 ## Default account access tier setting
 
@@ -190,7 +192,7 @@ Changing the account access tier results in tier change charges for all blobs th
 Keep in mind the following billing impacts when changing a blob's tier:
 
 - When a blob is uploaded or moved between tiers, it's charged at the corresponding rate immediately upon upload or tier change.
-- When a blob is moved to a cooler tier, the operation is billed as a write operation to the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply.
+- When a blob is moved to a cooler tier, the operation is billed as a write operation (per 10,000) to the destination tier. An additional data write (per GB) charge applies when moving blobs to a cooler tier within a legacy Blob Storage account.
 - When a blob is moved to a warmer tier, the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. Early deletion charges for any blob moved out of the cool, cold or archive tier may apply as well.
 - While a blob is being rehydrated from the archive tier, that blob's data is billed as archived data until the data is restored and the blob's tier changes to hot, cool, or cold.
 
@@ -208,7 +210,7 @@ The cold tier requires the following minimum versions of REST, SDKs, and tools
 
 | Environment | Minimum version |
 |---|---|
-| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2021-21-02 |
+| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2021-12-02 |
 | [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0 |
 | [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
 | [Python](/python/api/azure-storage-blob/) | 12.15.0 |

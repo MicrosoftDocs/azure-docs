@@ -1,35 +1,26 @@
 ---
-title: Configure a point-to-site VPN on Windows for Azure Files
+title: Configure a Point-to-Site VPN on Windows for Azure Files
 description: How to configure a point-to-site (P2S) VPN on Windows for use with SMB Azure file shares to mount your Azure file shares over SMB from outside of Azure without opening up port 445.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 10/10/2025
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: "As an IT administrator, I want to configure a point-to-site VPN on Windows for Azure file shares, so that I can securely access and mount file shares from on-premises without compromising network security."
 ---
 
 # Configure a point-to-site (P2S) VPN on Windows for use with Azure Files
+
+**Applies to:** :heavy_check_mark: SMB Azure file shares
 
 You can use a point-to-site (P2S) VPN connection to mount your Azure file shares over SMB from outside of Azure, without opening up port 445. A point-to-site VPN connection is a VPN connection between Azure and an individual client. To use a P2S VPN connection with Azure Files, you must configure a VPN connection for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a site-to-site (S2S) VPN connection instead of a point-to-site connection for each client. To learn more, see [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
 
 We strongly recommend that you read [Networking considerations for direct Azure file share access](storage-files-networking-overview.md) before continuing with this how-to article for a complete discussion of the networking options available for Azure Files.
 
-The article details the steps to configure a point-to-site VPN on Windows (Windows client and Windows Server) to mount Azure file shares directly on-premises. If you're looking to route Azure File Sync traffic over a VPN, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
-
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+The article details the steps to configure a point-to-site VPN on Windows (Windows client and Windows Server) to mount Azure file shares directly on-premises. If you want to route Azure File Sync traffic over a VPN, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## Prerequisites
 
@@ -270,7 +261,7 @@ Each client computer that you connect to a virtual network with a point-to-site 
 
 ### Create client certificate using an enterprise solution
 
-If you're using an enterprise certificate solution, generate a client certificate with the common name value format *name@yourdomain.com*. Use this format instead of the *domain name\username* format. Make sure the client certificate is based on a user certificate template that has *Client Authentication* listed as the first item in the user list. Check the certificate by double-clicking it and viewing **Enhanced Key Usage** in the **Details** tab.
+If you're using an enterprise certificate solution, generate a client certificate with the common name value format *name@contoso.com*. Use this format instead of the *domain name\username* format. Make sure the client certificate is based on a user certificate template that has *Client Authentication* listed as the first item in the user list. Check the certificate by double-clicking it and viewing **Enhanced Key Usage** in the **Details** tab.
 
 ### Create client certificate from a self-signed root certificate
 
@@ -372,7 +363,7 @@ Export-PfxCertificate -FilePath $exportedclientcertpath -Password $mypwd -Cert $
 
 ## Configure the VPN client
 
-The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Windows machine. The configuration package contains settings that are specific to the VPN gateway that you created. If you make changes to the gateway, such as changing a tunnel type, certificate, or authentication type, you'll need to generate another VPN client profile configuration package and install it on each client. Otherwise, your VPN clients may not be able to connect.
+The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Windows machine. The configuration package contains settings that are specific to the VPN gateway that you created. If you make changes to the gateway, such as changing a tunnel type, certificate, or authentication type, you'll need to generate another VPN client profile configuration package and install it on each client. Otherwise, your VPN clients might not be able to connect.
 
 You'll configure the VPN connection using the [Always On VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/) feature introduced in Windows 10/Windows Server 2016. This package also contains executables that will configure the legacy Windows VPN client, if desired. This guide uses Always On VPN rather than the legacy Windows VPN client because the Always On VPN client allows you to connect/disconnect from the Azure VPN without having administrator permissions to the machine.
 
@@ -506,82 +497,9 @@ Remove-Item -Path $vpnTemp -Recurse
 
 ## Mount Azure file share
 
-Now that you've set up your point-to-site VPN, you can use it to mount the Azure file share to an on-premises machine.
+Now that you've set up your point-to-site VPN, you can use it to mount the Azure file share to an on-premises machine. See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
 
-# [Portal](#tab/azure-portal)
-
-To mount the file share using your storage account key, open a Windows command prompt and run the following command. Replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**.
-
-```
-net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName> <YourStorageAccountKey>
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-The following PowerShell script will mount the share, list the root directory of the share to prove the share is actually mounted, and then unmount the share.
-
-> [!NOTE]
-> It isn't possible to mount the share persistently over PowerShell remoting. To mount persistently, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
-
-```azurepowershell
-$myShareToMount = '<file-share>'
-
-$storageAccountKeyParams = @{
-    ResourceGroupName = $resourceGroupName
-    Name              = $storageAccountName
-}
-$storageAccountKeys = Get-AzStorageAccountKey @storageAccountKeyParams
-
-$convertToSecureStringParams = @{
-    String = $storageAccountKeys[0].Value
-    AsPlainText = $true
-    Force = $true
-}
-$storageAccountKey = ConvertTo-SecureString @convertToSecureStringParams
-
-$getAzNetworkInterfaceParams = @{
-    ResourceId = $privateEndpoint.NetworkInterfaces[0].Id
-}
-$nic = Get-AzNetworkInterface @getAzNetworkInterfaceParams
-
-$storageAccountPrivateIP = $nic.IpConfigurations[0].PrivateIpAddress
-
-$invokeCmdParams = @{
-    Session = $sessions
-    ArgumentList = @(
-        $storageAccountName,
-        $storageAccountKey,
-        $storageAccountPrivateIP,
-        $myShareToMount
-    )
-}
-Invoke-Command @invokeCmdParams -ScriptBlock {
-    $storageAccountName      = $args[0]
-    $storageAccountKey       = $args[1]
-    $storageAccountPrivateIP = $args[2]
-    $myShareToMount          = $args[3]
-
-    $credential = [System.Management.Automation.PSCredential]::new(
-        "AZURE\$storageAccountName", 
-        $storageAccountKey
-    )
-
-    $psDriveParams = @{
-        Name       = 'Z'
-        PSProvider = 'FileSystem'
-        Root       = "\\$storageAccountPrivateIP\$myShareToMount"
-        Credential = $credential
-        Persist    = $true
-    }
-    New-PSDrive @psDriveParams | Out-Null
-
-    Get-ChildItem -Path Z:\
-    Remove-PSDrive -Name Z
-}
-```
----
-
-## Rotate VPN Root Certificate
+## Rotate VPN root certificate
 
 If a root certificate needs to be rotated due to expiration or new requirements, you can add a new root certificate to the existing virtual network gateway without redeploying the virtual network gateway. After adding the root certificate using the following script, you'll need to re-create the [VPN client certificate](#create-client-certificate).  
 

@@ -3,11 +3,17 @@ title: Deploy disaster recovery using VMware HCX
 description: Learn how to deploy disaster recovery of your virtual machines (VMs) with VMware HCX Disaster Recovery. Also learn how to use Azure VMware Solution as the recovery or target site.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/11/2023
-ms.custom: engagement-fy23
+ms.date: 5/21/2025
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to implement disaster recovery for my virtual machines using VMware HCX and Azure, so that I can ensure business continuity and minimize downtime in case of a disaster."
 ---
 
 # Deploy disaster recovery using VMware HCX
+
+>[!IMPORTANT]
+>Broadcom has announced that VMware HCX Disaster Recovery is being deprecated as of HCX 4.11 and will be removed in a future release. Please refer to [VMware HCX 4.11 Release Notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-411-release-notes.html).
 
 In this article, learn how to deploy disaster recovery of your virtual machines (VMs) with VMware HCX solution and use an Azure VMware Solution private cloud as the recovery or target site.
 

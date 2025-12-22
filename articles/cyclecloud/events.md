@@ -2,7 +2,7 @@
 title: Node Events
 description: Use the CycleCloud Events integration to get notified on state changes 
 author: dougclayton
-ms.date: 08/16/2020
+ms.date: 06/10/2025
 ms.author: doclayto
 monikerRange: '>= cyclecloud-8'
 ---
@@ -15,7 +15,7 @@ You can configure CycleCloud to publish to an Event Grid *topic* by connecting i
 
 ## Event objects
 
-The events are in the standard Event Grid schema. All CycleCloud-specific elements are in the `data` property on the event.
+The events follow the standard Event Grid schema, with all CycleCloud-specific details contained within the `data` property.
 
 | Name | Type | Description |
 | - | - | - |
@@ -71,7 +71,7 @@ This event is fired when nodes are added to the cluster. There's one event for e
 
 ### Node events
 
-CycleCloud sends events when nodes change state. Node events contain additional information in the `data` property:
+CycleCloud sends events whenever nodes transition between states. These node events include additional context within the `data` property:
 
 | Property | Type | Description |
 | - | - | - |
@@ -91,11 +91,11 @@ CycleCloud sends events when nodes change state. Node events contain additional 
 
 #### Microsoft.CycleCloud.NodeAdded
 
-This event is fired for each node that is added to a cluster. To get an event for a set of nodes added at once, see [ClusterSizeIncreased](#microsoftcyclecloudclustersizeincreased). This event is sent when the node first appears in the UI, so it doesn't have any timing information.
+This event is triggered for each node added to a cluster. To receive a single event for multiple nodes added simultaneously, see [ClusterSizeIncreased](#microsoftcyclecloudclustersizeincreased). This event is sent when the node first appears in the UI, so it doesn't have any timing information.
 
 #### Microsoft.CycleCloud.NodeCreated
 
-This event is fired each time a node starts for the first time (that is, a VM is created for the node). This event contains the following timing information:
+This event is triggered each time a node starts for the first time (that is, when a VM is created for the node). It includes the following timing details:
 
   - `Create`: The total time to create the node. This time includes creating the VM and configuring the VM.
   - `CreateVM`: How long it took to create the VM.
@@ -103,21 +103,21 @@ This event is fired each time a node starts for the first time (that is, a VM is
 
 #### Microsoft.CycleCloud.NodeDeallocated
 
-This event is fired each time a node is deallocated. This event contains the following timing information:
+This event is triggered each time a node is deallocated. It includes the following timing details:
 
   - `Deallocate`: The total time to deallocate the node.
   - `DeallocateVM`: How long it took to deallocate the VM.
 
 #### Microsoft.CycleCloud.NodeStarted
 
-This event is fired each time a node restarts from a deallocated state. This event contains the following timing information:
+This event is triggered each time a node restarts from a deallocated state. It includes the following timing details:
 
   - `Start`: The total time it took to restart the deallocated node.
   - `StartVM`: How long it took to start the deallocated VM.
 
 #### Microsoft.CycleCloud.NodeTerminated
 
-This event is fired each time a node is terminated and its VM is deleted. This event contains the following timing information:
+This event is triggered each time a node is terminated and its VM is deleted. It includes the following timing details:
 
   - `Terminate`: The total time it took to terminate the node.
   - `DeleteVM`: How long it took to delete the VM.
@@ -191,4 +191,3 @@ You can use this timing to track how long a spot VM was running before it was ev
 ### Retry Count
 
 In CycleCloud, you can retry some operations if they fail. These operations are reflected in the `NodeCreated`, `NodeDeallocated`, `NodeStarted`, and `NodeTerminated` events. These events contain an optional `retryCount` property on the event's `data` property that indicates how many times the operation was attempted prior to this event. This property is included on subsequent retries, whether those attempts succeeded or failed.
-

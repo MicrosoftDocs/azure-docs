@@ -17,6 +17,8 @@ ms.subservice: b2c
 
 # Tutorial: Configure Azure Active Directory B2C with Azure Web Application Firewall
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Learn how to enable the Azure Web Application Firewall (WAF) service for an Azure Active Directory B2C (Azure AD B2C) tenant with a custom domain. WAF protects web applications from common exploits and vulnerabilities such as cross-site scripting, DDoS attacks, and malicious bot activity.
 
 See [What is Azure Web Application Firewall?](../web-application-firewall/overview.md)
@@ -26,7 +28,7 @@ See [What is Azure Web Application Firewall?](../web-application-firewall/overvi
 To get started, you need:
 
 * An Azure subscription
-* If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * **An Azure AD B2C tenant** – authorization server that verifies user credentials using custom policies defined in the tenant
   * Also known as the identity provider (IdP)
   * See [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) 

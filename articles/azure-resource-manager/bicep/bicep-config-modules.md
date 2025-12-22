@@ -1,9 +1,9 @@
----
+﻿---
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 06/28/2024
+ms.date: 04/28/2025
 ---
 
 # Add module settings in the Bicep config file
@@ -169,7 +169,6 @@ Bicep uses the [Azure.Identity SDK](/dotnet/api/azure.identity) to do authentica
 - [Environment](/dotnet/api/azure.identity.environmentcredential)
 - [ManagedIdentity](/dotnet/api/azure.identity.managedidentitycredential)
 - [VisualStudio](/dotnet/api/azure.identity.visualstudiocredential)
-- [VisualStudioCode](/dotnet/api/azure.identity.visualstudiocodecredential)
 
 [!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
@@ -178,3 +177,4 @@ Bicep uses the [Azure.Identity SDK](/dotnet/api/azure.identity) to do authentica
 - [Configure your Bicep environment](bicep-config.md)
 - [Add linter settings to Bicep config](bicep-config-linter.md)
 - Learn about [modules](modules.md)
+

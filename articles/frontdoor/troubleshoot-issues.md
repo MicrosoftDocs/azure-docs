@@ -1,20 +1,22 @@
 ---
-title: Troubleshoot Azure Front Door common issues
+title: Troubleshoot common issues
+titleSuffix: Azure Front Door
 description: In this article, you learn how to troubleshoot some of the common problems that you might face for your Azure Front Door instance.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/12/2024
+ms.date: 09/24/2025
+ms.custom: sfi-image-nochange
+#customer intent: As an Azure Front Door operator, I want to quickly diagnose and resolve common routing and timeout issues so that my applications remain available.
 ---
 
 # Troubleshoot Azure Front Door common issues
 
-This article describes how to troubleshoot common routing problems that you might face for your Azure Front Door configuration.
+This article describes how to troubleshoot common issues that you might encounter when using your Azure Front Door.
 
-## Other debugging HTTP headers
-
-You can request Azure Front Door to return extra debugging HTTP response headers. For more information, see [optional response headers](front-door-http-headers-protocol.md#optional-debug-response-headers).
+> [!NOTE]
+> You can request Azure Front Door to return extra debugging HTTP response headers. For more information, see [optional response headers](front-door-http-headers-protocol.md#optional-debug-response-headers).
 
 ## 503 or 504 response from Azure Front Door after a few seconds
 
@@ -38,7 +40,7 @@ The cause of this issue can be one of three things:
 * Send the request through Azure Front Door and see if you're getting any 503 responses. If not, the problem might not be a timeout issue. Create a support request to troubleshoot the issue further.
 * If requests going through Azure Front Door result in a 503 error response code then configure the **Origin response timeout** for Azure Front Door. You can increase the default timeout to up to 4 minutes (240 seconds). To configure the setting, go to overview page of the Front Door profile. Select **Origin response timeout** and enter a value between *16* and *240* seconds.
     > [!NOTE]
-    > The ability to configure Origin response timeout is only available in Azure Front Door Standard/Premium.
+    > The ability to configure origin response timeout is only available in Azure Front Door Standard/Premium.
 
     :::image type="content" source="./media/how-to-configure-endpoints/origin-timeout.png" alt-text="Screenshot of the origin timeout settings on the overview page of the Azure Front Door profile.":::
 
@@ -76,11 +78,13 @@ The cause of this problem can be one of three things:
     
       In the portal, use a toggle button to turn this setting on or off in the Azure Front Door (classic) **Design** pane.
     
-      ![Screenshot that shows the toggle button.](https://user-images.githubusercontent.com/63200992/148067710-1b9b6053-efe3-45eb-859f-f747de300653.png)
+      :::image type="content" source="./media/troubleshoot-issues/toggle-button-front-door-classic.png" alt-text="Screenshot that shows the toggle button in Azure Front Door (classic).":::
 
       For Azure Front Door Standard and Premium tier, this setting can be found in the origin settings when you add an origin to an origin group or configuring a route.
 
       :::image type="content" source="./media/troubleshoot-issues/validation-checkbox.png" alt-text="Screenshot of the certificate subject name validation checkbox.":::
+
+<br>
 
 * The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend. To resolve this issue, you have two options:
 
@@ -159,7 +163,7 @@ The origin is configured as an IP address. The origin is healthy, but rejecting 
 
 ### Cause
 
-Azure Front Door users the origin host name as the SNI header during SSL handshake. Since the origin is configured as an IP address, the failure can be one of the following reasons:
+Azure Front Door uses the origin host name as the SNI header during SSL handshake. Since the origin is configured as an IP address, the failure can be one of the following reasons:
 
 * If the certificate name check is disabled, it's possible that the cause of the issue lies in the origin certificate logic. This logic might be rejecting any requests that don't have a valid host header matching the certificate.
 
@@ -175,13 +179,13 @@ Change the origin from an IP address to an FQDN to which a valid certificate is 
 
 ### Cause
 
-* Azure Front Door has default platform rate limits. If your traffic exceeds the limit, AFD will start rate limiting the traffic and return 429 responses.
+* Azure Front Door has default platform rate limits. If your traffic exceeds the limit, Front Door will start rate limiting the traffic and return 429 responses.
 
 ### Troubleshooting steps
 
-* If you start seeing 429s for your legitimate traffic and a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+* If you start seeing 429 responses for your legitimate traffic and a higher quota limit is needed, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Next steps
+## Related content
 
 * Learn how to [create a Front Door](quickstart-create-front-door.md).
 * Learn how to [create a Front Door Standard/Premium](standard-premium/create-front-door-portal.md).

@@ -8,6 +8,7 @@ ms.date: 11/05/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: As a cloud network administrator, I want to understand how to allocate and manage private IP addresses in Azure so that I can ensure proper communication between resources without relying on public IPs.
 ---
 
 # Private IP addresses
@@ -34,7 +35,7 @@ Private IPs allow communication to these resources without the use of a public I
 
 Azure assigns private IP addresses to resources from the address range of the virtual network subnet where the resource is.
 
-Azure reserves the first four addresses in each subnet address range. The addresses can't be assigned to resources. For example, if the subnet's address range is 10.0.0.0/16, addresses 10.0.0.0-10.0.0.3 and 10.0.255.255 are unavailable. IP addresses within the subnet's address range can only be assigned to one resource at a time. 
+Azure reserves five IP addresses in every subnet, which cannot be assigned to resources. These include the first four addresses and the last address in the subnet range. For example, in the 10.0.0.0/16 subnet, the reserved addresses are 10.0.0.0-10.0.0.3 and 10.0.255.255. All other IP addresses in the range can only be assigned to one resource at a time.
 
 There are two methods in which a private IP address is given:
 

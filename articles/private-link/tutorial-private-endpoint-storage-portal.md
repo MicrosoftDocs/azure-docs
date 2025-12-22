@@ -9,6 +9,7 @@ ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 03/25/2025
 ms.custom: template-tutorial
+# Customer intent: "As a cloud architect, I want to securely connect to a storage account using a private endpoint, so that I can ensure private and secure communication within my Azure resources."
 ---
 
 # Tutorial: Connect to a storage account using an Azure Private Endpoint
@@ -28,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## <a name="create-storage-account-with-a-private-endpoint"></a> Sign in to Azure
 

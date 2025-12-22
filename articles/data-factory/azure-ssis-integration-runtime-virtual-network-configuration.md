@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
+ms.custom: sfi-image-nochange
 ---
 
 # Configure a virtual network for injection of Azure-SSIS integration runtime

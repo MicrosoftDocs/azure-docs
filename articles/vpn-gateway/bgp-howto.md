@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: cherylmc 
 
+# Customer intent: As a network administrator, I want to configure BGP for my VPN gateway, so that I can enable dynamic routing and enhance connectivity between my on-premises networks and Azure resources.
 ---
 # How to configure BGP for Azure VPN Gateway
 

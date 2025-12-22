@@ -1,4 +1,4 @@
-- name: Azure Automation User Documentation
+- name: Azure Automation Documentation
   href: index.yml
 - name: Overview
   items:
@@ -18,9 +18,9 @@
     href: quickstarts/create-azure-automation-account-portal.md
   - name: Create Automation account - Terraform
     href: quickstarts/create-azure-automation-account-terraform.md
-  - name: Update runbook from PowerShell 5.1 to PowerShell 7.2
+  - name: Update runbook from PowerShell 7.1 to PowerShell 7.4
     href: quickstart-update-runbook-in-runtime-environment.md
-  - name: Run Azure CLI commands in PowerShell 7.2 runbooks
+  - name: Run Azure CLI commands in PowerShell 7.4 runbooks
     href: quickstart-cli-support-powershell-runbook-runtime-environment.md
   - name: Install Hybrid Worker extension - Azure portal
     href: quickstarts/install-hybrid-worker-extension.md
@@ -261,8 +261,6 @@
     items:
     - name: About Change tracking and inventory
       href: change-tracking/overview-monitoring-agent.md
-    - name: Change tracking extension version
-      href: change-tracking/extension-version-details.md
     - name: Supported regions
       href: change-tracking/region-mappings-monitoring-agent.md
     - name: Enable change tracking and inventory
@@ -271,10 +269,10 @@
         href: change-tracking/enable-change-tracking-at-scale-machines-blade.md
       - name: At scale using Azure Policy
         href: change-tracking/enable-change-tracking-at-scale-policy.md
-      - name: At scale using Azure portal - Virtual machines
-        href: change-tracking/enable-vms-monitoring-agent.md
-    - name: Manage change tracking and inventory
-      href: change-tracking/manage-change-tracking-monitoring-agent.md
+      - name: Quickstart - Enable Azure Change Tracking and Inventory
+        href: /azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory?pivots=single-portal
+    - name: Tutorial - Change a workspace and configure Data Collection Rule
+      href: /azure/azure-change-tracking-inventory/tutorial-change-workspace-configure-data-collection-rule?tabs=windows%2Csa-mi
   - name: Migration from Change Tracking and Inventory using LA to Change Tracking using AMA
     items:
     - name: Migration from Log Analytics to Azure Monitoring Agent version
@@ -315,9 +313,9 @@
 - name: Resources
   items:
   - name: Automation introduction video
-    href: https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/
+    href: /shows/azure-friday/azure-automation
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
+    href: https://azure.microsoft.com/updates/?filters=%5B%22Automation%22%5D
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-automation.html
   - name: Pricing
@@ -331,4 +329,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=automation
+    href: /shows/data-exposed/?products=azure-automation

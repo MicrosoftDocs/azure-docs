@@ -49,7 +49,9 @@ With Azure Container Apps, you can:
 
 - [**Run jobs**](jobs.md) on-demand, on a schedule, or based on events.
 
-- Add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
+- [**Run Azure Functions**](../container-apps/functions-overview.md) for [event-driven scenarios](../azure-functions/functions-scenarios.md) using triggers, bindings and automatic scaling.
+
+- Add [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 
 - [**Use specialized hardware**](plans.md) for access to increased compute resources.
 

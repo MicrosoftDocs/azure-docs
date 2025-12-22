@@ -6,7 +6,6 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-manager: rkarlin
 ms.date: 08/29/2024
 ---
 

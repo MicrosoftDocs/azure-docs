@@ -8,6 +8,7 @@ ms.date: 02/27/2025
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
 ms.topic: troubleshooting-known-issue
+ms.custom: sfi-image-nochange
 ---
 # Synapse Studio troubleshooting
 
@@ -135,7 +136,7 @@ wss://{workspace}.dev.azuresynapse.net/jupyterApi/versions/1/sparkPools/{spark-p
 
 When setting up WebSocket connection, Synapse Studio will include an access token (Microsoft Entra JWT bearer token) in the Sec-WebSocket-Protocol header of the WebSocket request. 
 
-Sometimes, WebSocket request might be blocked, or JWT token in the request header might be redacted in your network environment. This will cause Synapse Notebook unable to establish the connection to our server and run your notebook. 
+Sometimes, WebSocket request might be blocked, or JWT in the request header might be redacted in your network environment. This will cause Synapse Notebook unable to establish the connection to our server and run your notebook. 
 
 ### Action:
 

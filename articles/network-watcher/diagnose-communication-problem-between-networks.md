@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 01/29/2025
 
 #CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
+# Customer intent: As a network administrator, I want to diagnose and resolve communication issues between virtual networks connected by VPN gateways, so that I can ensure seamless connectivity between resources in different networks.
 ---
 
 # Tutorial: Diagnose a communication problem between virtual networks using the Azure portal
@@ -28,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create VPN gateways
 

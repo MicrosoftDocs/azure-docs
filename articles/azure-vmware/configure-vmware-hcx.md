@@ -4,7 +4,10 @@ description: In this tutorial, learn how to configure the on-premises VMware HCX
 ms.topic: tutorial
 ms.service: azure-vmware
 ms.date: 02/26/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to configure the VMware HCX Connector for Azure VMware Solution, so that I can enable efficient workload migrations and disaster recovery for my virtual machines."
 ---
 
 # Configure on-premises VMware HCX Connector
@@ -14,7 +17,7 @@ After you [install the VMware HCX add-on](install-vmware-hcx.md), configure the 
 In this article, learn how to:
 
 > [!div class="checklist"]
-> * Pair your on-premises VMware HCX Connector with your Azure VMware > Solution HCX Cloud Manager
+> * Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager
 > * Configure the network profile, compute profile, and service mesh
 > * Check the appliance status and validate that migration is possible
 
@@ -153,7 +156,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 ## Create a service mesh
 
 > [!IMPORTANT]
-> Make sure port UDP 4500 is open between your on-premises VMware HCX Connector 'uplink' network profile addresses and the Azure VMware Solution HCX Cloud 'uplink' network profile addresses. (UDP 500 was required in legacy versions of HCX. See https://ports.vmware.com for the latest information.)
+> Make sure port UDP 4500 is open between your on-premises VMware HCX Connector 'uplink' network profile addresses and the Azure VMware Solution HCX Cloud 'uplink' network profile addresses. (UDP 500 was required in legacy versions of HCX. See https://ports.broadcom.com/ for the latest information.)
 
 1. Under **Infrastructure**, select **Interconnect** > **Service Mesh** > **Create Service Mesh**.
 

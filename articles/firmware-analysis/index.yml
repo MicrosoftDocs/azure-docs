@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
-title: Firmware analysis (preview)
-summary: Analyze your firmware images for security vulnerabilities
+title: Firmware analysis
+summary: Analyze your firmware images for potential security weaknesses and vulnerabilities
 
 metadata:
-  title: Firmware analysis (preview)
-  description: Analyze your firmware images for security vulnerabilities
+  title: Firmware analysis
+  description: Analyze your firmware images for potential security weaknesses and vulnerabilities
   ms.topic: landing-page
   author: karengu0
   ms.author: karenguo
-  ms.date: 02/07/2025
+  ms.date: 10/03/2025
   ms.service: azure
 
 
@@ -18,7 +18,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: What is firmware analysis (preview)?
+          - text: What is firmware analysis?
             url: overview-firmware-analysis.md
           - text: Get started with firmware analysis in the Azure portal
             url: tutorial-analyze-firmware.md
@@ -30,7 +30,7 @@ landingContent:
             url: firmware-analysis-rbac.md
       - linkListType: whats-new
         links:
-          - text: What's new in firmware analysis (preview)?
+          - text: What's new in firmware analysis?
             url: release-notes.md
 
   - title: Automate your workflow

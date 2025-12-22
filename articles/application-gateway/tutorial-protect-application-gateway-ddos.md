@@ -8,6 +8,8 @@ ms.author: duau
 ms.date: 09/20/2023
 ms.topic: quickstart
 ms.service: azure-application-gateway
+ms.custom: sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to implement Azure DDoS Network Protection for my application gateway, so that I can safeguard my resources against large-scale DDoS attacks and ensure high availability of my applications."
 ---
 
 # Tutorial: Protect your application gateway with Azure DDoS Network Protection
@@ -32,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a DDoS protection plan
 

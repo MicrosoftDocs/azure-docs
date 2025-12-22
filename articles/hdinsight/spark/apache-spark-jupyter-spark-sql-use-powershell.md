@@ -7,7 +7,11 @@ author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: sairamyeturi
 ms.date: 11/25/2024
-ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.custom:
+  - mvc
+  - devx-track-azurepowershell
+  - mode-api
+  - sfi-image-nochange
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 
@@ -21,7 +25,7 @@ If you're using multiple clusters together, you can create a virtual network, an
 
 ## Prerequisite
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The [PowerShell Az module](/powershell/azure/install-azure-powershell).
 
 ## Create an Apache Spark cluster in HDInsight

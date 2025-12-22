@@ -1,15 +1,18 @@
 ---
 title: Discover your Microsoft cloud footprint FAQ
 description: This article helps to answer frequently asked questions that customers have about their Microsoft cloud footprint.
-author: bandersmsft
-ms.author: banders
-ms.date: 03/26/2025
+author: KennyDay
+ms.author: nicholak
+ms.date: 08/26/2025
 ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: nicholak
 #customer intent: As a billing administrator, I want to understand how to view and manage my Microsoft cloud footprint so that I can effectively oversee my organization's cloud resources and costs.
 
+stid: stid-goes-here
+ms.custom: sfi-ga-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Discover your Microsoft cloud footprint FAQ

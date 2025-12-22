@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy23
 ms.date: 3/22/2024
+# Customer intent: As a cloud administrator, I want to execute VMware HCX Run Commands in an Azure VMware Solution, so that I can manage and scale the HCX Manager efficiently while maintaining service integrity during operations.
 ---
 
 # Use VMware HCX Run Commands

@@ -1,9 +1,9 @@
----
+﻿---
 title: Deployment modes
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 04/02/2025
+ms.date: 04/28/2025
 ---
 
 # Azure Resource Manager deployment modes
@@ -35,6 +35,9 @@ In incremental mode, Resource Manager **leaves unchanged** resources that exist 
 > For site configuration values, the values are implemented in the child resource type `Microsoft.Web/sites/config`. If you redeploy the web app and specify an empty object for the site configuration values, the child resource isn't updated. However, if you provide new site configuration values, the child resource type is updated.
 
 ## Complete mode
+
+> [!WARNING]
+> Complete mode is not recommended. If you wish to perform deletes with Bicep or ARM template deployments, use [Deployment stacks](../bicep/deployment-stacks.md).
 
 In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template.
 
@@ -120,7 +123,7 @@ The following example shows a linked template set to incremental deployment mode
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2025-04-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -135,3 +138,4 @@ The following example shows a linked template set to incremental deployment mode
 * To learn about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To learn about deploying resources, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).
+

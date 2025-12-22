@@ -7,7 +7,9 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 09/26/2024
 ms.author: abnarain 
-ms.custom: synapse
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Credentials in Azure Data Factory and Azure Synapse

@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Tutorial: Configure IDEMIA Mobile ID with Azure Active Directory B2C 
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 ## Before you begin
 
 Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows or configurable custom policies. See, [User flows and custom policies overview](./user-flow-overview.md)
@@ -68,7 +70,7 @@ To get started, you need:
   * Or during the test phase, the mID demo application from IDEMIA
 * An Azure subscription
 
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to the Azure subscription
 * Your business web application registered in an Azure AD B2C tenant
   * For testing, configure https://jwt.ms, a Microsoft web application with decoded token contents

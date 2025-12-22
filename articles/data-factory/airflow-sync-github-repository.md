@@ -6,23 +6,18 @@ ms.author: abnarain
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Sync a GitHub repository in Workflow Orchestration Manager
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!NOTE]
-> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
-
-In this article, you learn how to synchronize your GitHub repository in Azure Data Factory Workflow Orchestration Manager in two different ways:
-
-- By using **Enable git sync** in the Workflow Orchestration Manager UI.
-- By using the Rest API.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Workflow Orchestration Manager preview is supported](concepts-workflow-orchestration-manager.md#region-availability-public-preview).
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Workflow Orchestration Manager preview is supported](concepts-workflow-orchestration-manager.md#region-availability-public-preview).
 - **GitHub repository**: You need access to a GitHub repository.
 
 ## Use the Workflow Orchestration Manager UI

@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Reset ExpressRoute circuit peerings by using the Azure portal

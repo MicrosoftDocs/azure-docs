@@ -2,11 +2,12 @@
 title: Header rewrite for Azure Application Gateway for Containers - Ingress API
 description: Learn how to rewrite headers in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
-ms.author: greglin
+ms.date: 10/27/2025
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to implement header rewriting in the Ingress API for Application Gateway for Containers, so that I can modify request and response headers for backend services to meet application requirements and facilitate better control over traffic management."
 ---
 
 # Header rewrite for Azure Application Gateway for Containers - Ingress API
@@ -172,9 +173,6 @@ In this example, we set a static user-agent with a value of `rewritten-user-agen
 
 This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
-> [!TIP]
-> For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illustration of further capabilities.
-
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: alb.networking.azure.io/v1
@@ -198,6 +196,9 @@ spec:
               - "client-custom-header"
 EOF
 ```
+
+>[!Note]
+>Modifying the `Host` header is not supported with a `requestHeaderModifier` rule. To override the `Host` value specified to the backend target, use a [URLRewrite](how-to-url-rewrite-ingress-api.md#deploy-the-required-ingress-api-resources) filter.
 
 Once the IngressExtension resource is created, ensure the resource returns _No validation errors_ and is valid.
 

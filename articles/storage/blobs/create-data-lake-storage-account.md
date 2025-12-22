@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.author: normesta
 ms.date: 11/15/2024
 ms.service: azure-data-lake-storage
+# Customer intent: As a cloud architect, I want to create a storage account with a hierarchical namespace for Data Lake Storage, so that I can leverage its capabilities for scalable data management and analytics.
 ---
 
 # Create a storage account to use with Azure Data Lake Storage

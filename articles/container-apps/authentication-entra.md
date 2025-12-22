@@ -7,6 +7,7 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 12/17/2024
 ms.author: cshoe
+ms.custom: sfi-ropc-nochange
 ---
 
 # Enable authentication and authorization in Azure Container Apps with Microsoft Entra ID

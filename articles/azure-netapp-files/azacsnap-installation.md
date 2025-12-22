@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/07/2025
 ms.author: phjensen
+# Customer intent: "As a systems administrator, I want to install the Azure Application Consistent Snapshot tool so that I can create consistent snapshots of databases and manage data backups efficiently within Azure NetApp Files."
 ---
 
 # Install the Azure Application Consistent Snapshot tool
@@ -19,6 +20,15 @@ This article provides a guide for installation of the Azure Application Consiste
 AzAcSnap 10 supports more databases and operating systems, therefore a self-installer is no longer available.
 
 ## Download AzAcSnap
+
+> [!CAUTION]
+> **AzAcSnap 11/11a and Non-Public Cloud Compatibility**
+> 
+> AzAcSnap versions 11 and 11a are experiencing compatibility issues in non-Public Cloud environments, such as Azure Government.
+> These issues may result in errors like `SubscriptionNotFound` or failed snapshot operations due to changes in authentication and configuration handling.
+> 
+> To avoid disruption, customers operating in non-Public Cloud environments are advised to remain on AzAcSnap 10a until a fix is released.
+> A future update is in development and will restore full compatibility. For updates and support, please refer to the https://aka.ms/azacsnap-release-notes.
 
 First, download the AzAcSnap executable file to any directory on your computer. AzAcSnap is provided as an executable file, so there's nothing to install.
 
