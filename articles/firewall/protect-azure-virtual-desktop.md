@@ -27,7 +27,8 @@ Follow the guidelines in this article to provide extra protection for your Azure
 To learn more about Azure Virtual Desktop terminology, see [Azure Virtual Desktop terminology](/azure/virtual-desktop/terminology).
 
 > [!WARNING]
-> Azure Virtual Desktop disconnections may occur during Azure Firewall scale-ins if all traffic is routed to the Azure Firewall using a default route. We recommend having direct access to the gateway and broker for Azure Virtual Desktop to avoid these disconnections. To resolve this issue, add a route to the route table applied to the Azure Virtual Desktop subnet with the *destination type* set to **Service tag**, the *destination service* set to **WindowsVirtualDesktop**, and the *next hop* set to **Internet**.
+> Azure Virtual Desktop disconnections may occur during Azure Firewall scale-ins if all traffic is routed to the Azure Firewall using a default route. We recommend having direct access to the gateway and broker for Azure Virtual Desktop to avoid these disconnections. To resolve this issue, add a route to the route table applied to the Azure Virtual Desktop subnet with the *destination type* set to **Service tag**, the *destination service* set to **WindowsVirtualDesktop**, and the *next hop* set to **Internet**. In an Azure Virtual Wan deployment, implement this by adding route table to subnet(spoke Vnet) hosting the Azure Virtual desktop wokload(s).
+
 
 ## Host pool outbound access to Azure Virtual Desktop
 
