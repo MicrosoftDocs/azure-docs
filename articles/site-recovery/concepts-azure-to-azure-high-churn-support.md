@@ -173,7 +173,17 @@ Enhanced churn support for 500 MB/s is currently available in the following regi
 - East Asia
 - Southeast Asia
 - Australia East
-- Australia Southeast 
+- Australia Southeast
+- South Central US
+- UK South
+- Norway East
+- South Africa North
+- Germany North
+- UAE Central
+- Japan West
+- Japan East
+- Central India
+- France Central
 
 ### Enable preview 
 
