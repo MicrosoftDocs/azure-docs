@@ -96,7 +96,7 @@ You can follow the [step by step demo video](https://youtu.be/hIE-TjJD8Dc) to co
 
 #### Authentication to receive in SQL
 
-For a SQL server where you're the **Microsoft Entra admin** of the SQL server, complete these prerequisites before accepting a data share:
+For a SQL server where you're the **Microsoft Entra Admin** of the SQL server, complete these prerequisites before accepting a data share:
 
 - An [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md).
 - Permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
@@ -106,7 +106,7 @@ For a SQL server where you're the **Microsoft Entra admin** of the SQL server, c
     1. Select **+Add client IP**. Client IP address can change, so you might need to add your client IP again next time you share data from the portal.
     1. Select **Save**.
 
-For a SQL server where you're **not** the **Microsoft Entra admin**, complete these prerequisites before accepting a data share:
+For a SQL server where you're **not** the **Microsoft Entra Admin**, complete these prerequisites before accepting a data share:
 
 You can follow the [step by step demo video](https://youtu.be/aeGISgK1xro), or the steps below to configure prerequisites.
 
@@ -141,7 +141,7 @@ For more information about sharing to and from Azure SQL, see [the article to sh
 
 - Permission to write to the SQL pool in Synapse workspace: *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 - Permission for the Data Share resource's managed identity to access Synapse workspace SQL pool:
-    1. In the [Azure portal](https://portal.azure.com/), navigate to your Synapse workspace. Select **SQL Active Directory admin** from left navigation and set yourself as the **Microsoft Entra admin**.
+    1. In the [Azure portal](https://portal.azure.com/), navigate to your Synapse workspace. Select **SQL Active Directory admin** from left navigation and set yourself as the **Microsoft Entra Admin**.
     1. Open the Synapse Studio, select **Manage** from the left navigation. Select **Access control** under Security. Assign yourself the **SQL admin** or **Workspace admin** role.
     1. Select **Develop** from the left navigation in the Synapse Studio. Execute the following script in SQL pool to add the Data Share resource-Managed Identity as a db_datareader.
 
@@ -165,7 +165,7 @@ For more information about sharing to and from Azure SQL, see [the article to sh
 - Permission to write to the SQL pool in Synapse workspace: *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 - Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool:
     1. In the [Azure portal](https://portal.azure.com/), navigate to Synapse workspace.
-    1. Select SQL Active Directory admin from left navigation and set yourself as the **Microsoft Entra admin**.
+    1. Select SQL Active Directory admin from left navigation and set yourself as the **Microsoft Entra Admin**.
     1. Open Synapse Studio, select **Manage** from the left navigation. Select **Access control** under Security. Assign yourself the **SQL admin** or **Workspace admin** role.
     1. In Synapse Studio, select **Develop** from the left navigation. Execute the following script in SQL pool to add the Data Share resource-Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'.
 
