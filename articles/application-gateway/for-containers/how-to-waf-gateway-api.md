@@ -32,7 +32,7 @@ Application Gateway for Containers uses Azure Web Application Firewall to block 
   - Provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
   - Provisioned the Application Gateway for Containers resources via the [`ApplicationLoadBalancer` custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 
-- The `WAF Policy`, referenced under `webApplicationFirewall` in the later exampled must already exist before the `WebApplicationFirewallPolicy` is applied. Make sure that the policy is enabled as well. For more details about the WAF Policy see the [Azure CLI documentation](https://learn.microsoft.com/en-us/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest).
+- The `WAF Policy`, referenced under `webApplicationFirewall` in the later exampled must already exist before the `WebApplicationFirewallPolicy` is applied. Make sure that the policy is enabled as well. For more details about the WAF Policy see the [Azure CLI documentation](/azure/network/application-gateway/waf-policy).
 - The managed identity of the ALB Controller, usually named azure-alb-identity must have the permission `microsoft.network/applicationgatewaywebapplicationfirewallpolicies/join/action` assigned on the WAF policy you want to assign. The permission is part of the `Network Contributor` role or you can assign a custom role.
   
 - Apply the following `deployment.yaml` file on your cluster to create a sample web application that demonstrates the header rewrite:
