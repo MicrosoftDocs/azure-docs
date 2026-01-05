@@ -668,7 +668,6 @@ When the trigger parameter is of type `HttpRequestData` or `HttpRequest`, custom
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
-using FromBodyAttribute = Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute;
 
 namespace AspNetIntegration
 {
@@ -676,7 +675,7 @@ namespace AspNetIntegration
     {
         [Function(nameof(BodyBindingHttpTrigger))]
         public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
-            [FromBody] Person person)
+            [Microsoft.Azure.Functions.Worker.Http.FromBody] Person person)
         {
             return new OkObjectResult(person);
         }

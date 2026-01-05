@@ -55,7 +55,7 @@ The following table describes the available summary statuses for source scans in
 
 ## Supported regions for threat detection for Azure VM backups
 
-Threat detection for Azure VM backups is available in preview in these regions: West Central US, Australia East, North Europe, Switzerland North, West Europe, Central US, East US, East US2, West US, UK South, UK West, Canada Central.
+Threat detection for Azure VM backups is available in preview in these regions: West Central US, Australia East, North Europe, Switzerland North, West Europe, Central US, East US, East US2, West US, UK South, UK West, Canada Central, Japan East, Japan West, India Central, India South, India West.
 
 ## Limitations and known issues
 

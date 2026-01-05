@@ -67,7 +67,8 @@ Azure VMware Solution stretched clusters are available in the following regions:
 
 - UK South (on AV36, and AV36P)
 - West Europe (on AV36, and AV36P) 
-- Germany West Central (on AV36P and AV48)
+- Germany West Central (on AV48)
+
 - Australia East (on AV36P)
 - East US (on AV36P)
 

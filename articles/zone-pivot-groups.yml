@@ -1473,6 +1473,15 @@ groups:
     title: .NET
   - id: framework-spring
     title: Spring Framework
+# Owner: zhiyuanliang
+- id: appconfig-aspire
+  title: Aspire resource pivots
+  prompt: Choose an Aspire hosting option
+  pivots:
+  - id: azure
+    title: Azure Resource
+  - id: emulator
+    title: Local Emulator
 # Owner: avanigupta
 - id: appconfig-data-plane-api-version
   title: API version pivots

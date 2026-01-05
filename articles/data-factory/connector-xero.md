@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/05/2024
+ms.date: 12/10/2025
 ms.author: jianleishen
 ---
 # Copy data from Xero using Azure Data Factory or Synapse Analytics
@@ -17,6 +17,9 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 > [!NOTE]
 > The Xero connector requires OAuth authentication and is not intended for server-to-server use.
+
+> [!IMPORTANT]
+> The Xero connector version 2.0 provides improved native Xero support. If you are using Xero connector version 1.0 in your solution, please [upgrade the Xero connector](#upgrade-the-xero-connector-from-version-10-to-version-20) before **March 31, 2026**. Refer to this [section](#xero-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -73,7 +76,55 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for Xero linked service:
+The Xero connector now supports version 2.0. Refer to this [section](#upgrade-the-xero-connector-from-version-10-to-version-20) to upgrade your Xero connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0](#version-20)
+- [Version 1.0](#version-10)
+
+### Version 2.0
+
+The Xero linked service supports the following properties when applying version 2.0:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **Xero** | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
+| host | The endpoint of the Xero server (`api.xero.com`).  | Yes |
+| consumerKey | Specify the **client ID** for your Xero application.<br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | Specify the **client secret** for your Xero application.<br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenantId | The tenant ID associated with your Xero application. Applicable for OAuth 2.0 authentication.<br>Learn how to get the tenant ID from [Check the tenants you're authorized to access section](https://developer.xero.com/documentation/oauth2/auth-flow). | Yes |
+| refreshToken | The OAuth 2.0 refresh token is associated with the Xero application and used to refresh the access token; the access token expires after 30 minutes. Learn about how the Xero authorization flow works and how to get the refresh token from [this article](https://developer.xero.com/documentation/oauth2/auth-flow). To get a refresh token, you must request the [offline_access scope](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Know limitation**: Note Xero resets the refresh token after it's used for access token refresh. For operationalized workload, before each copy activity run, you need to set a valid refresh token for the service to use.<br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. You can use the self-hosted integration runtime and its version should be 5.61 or above. | No |
+
+**Example:**
+
+```json
+{
+    "name": "XeroLinkedService",
+    "properties": {
+        "type": "Xero",
+        "typeProperties": {
+            "host": "api.xero.com",
+            "consumerKey": "<client ID>",
+            "privateKey": {
+                "type": "SecureString",
+                "value": "<client secret>"
+            },
+            "tenantId": "<tenant ID>", 
+            "refreshToken": {
+                "type": "SecureString",
+                "value": "<refresh token>"
+            },
+            "authenticationType":"OAuth_2.0", 
+            "version": "2.0"         
+        }
+    }
+}
+```
+
+### Version 1.0
+
+The Xero linked service supports the following properties when applying version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -168,7 +219,8 @@ To copy data from Xero, set the type property of the dataset to **XeroObject**. 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **XeroObject** | Yes |
-| tableName | Name of the table. | No (if "query" in activity source is specified) |
+| table | Name of the table. Table names use the object name, for example: `Accounts`. This property is only supported in version 2.0. | Yes |
+| tableName | Name of the table. Table names use object names with prefix, for example, `"Global"."Accounts"`. This property is only supported in version 1.0. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -187,6 +239,50 @@ To copy data from Xero, set the type property of the dataset to **XeroObject**. 
 }
 ```
 
+The connector version 2.0 supports the following Xero tables:
+
+- Accounts
+- Bank_Transactions
+- Bank_Transaction_Line_Items
+- Bank_Transfers
+- Budgets
+- Contacts
+- Contacts_Addresses
+- Contact_Groups
+- Contact_Group_Contacts
+- Contacts_Phones
+- Credit_Notes
+- Credit_Note_Line_Items
+- Credit_Notes_Line_Items_Tracking
+- Currencies
+- Invoices
+- Invoices_Credit_Notes
+- Invoice_Line_Items
+- Invoice_Line_Items_Tracking
+- Invoices_Overpayments
+- Invoices_Prepayments
+- Items
+- Journals
+- Journal_Lines
+- Journal_Line_Tracking_Categories
+- Manual_Journals
+- Manual_Journal_Lines
+- Organisations
+- Overpayments
+- Payments
+- Prepayments
+- Prepayments_Allocations
+- Prepayment_Line_Items
+- Projects
+- ProjectUsers
+- Purchase_Orders
+- Purchase_Order_Line_Items
+- Receipts
+- Tax_Rates
+- Tracking_Categories
+- Tracking_Categories_Options
+- Users
+
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Xero source.
@@ -199,6 +295,9 @@ To copy data from Xero, set the source type in the copy activity to **XeroSource
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **XeroSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM Contacts"`. | No (if "tableName" in dataset is specified) |
+
+> [!NOTE]
+> `query` is not supported in version 2.0.
 
 **Example:**
 
@@ -286,10 +385,45 @@ The following tables can only be queried with complete schema:
 - Complete.Receipt_Line_Item_Tracking 
 - Complete.Tracking_Category_Options
 
+## Data type mapping for Xero
+
+When you copy data from Xero, the following mappings apply from Xero's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Xero data type    | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+|-------------------|-------------------------------------------|---------------------------------------------|
+| String            | String                                    | String                                      |
+| Date              | String                                    | Date                                        |
+| DateTime          | String                                    | String                                    |
+| Boolean           | Boolean                                   | Boolean                                     |
+| Number (standard) | Int32                                     | Int32                                       |
+| Number (large)    | Int64                                     | Int64                                       |
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
+## Xero connector lifecycle and upgrade
+
+The following table shows the release stage and change logs for different versions of the Xero connector:
+
+| Version  | Release stage | Change log |  
+| :----------- | :------- |:------- |
+| Version 1.0 | End of support announced | / |  
+| Version 2.0 | GA version available |• Use `table` instead of `tableName`. <br><br>• The value for `table` is the object name, for example: `Accounts`. <br><br>• The self-hosted integration runtime version should be 5.61 or above.  <br><br>• Date is read as String data type. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. <br><br> • Support specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
+
+### Upgrade the Xero connector from version 1.0 to version 2.0
+
+1. In **Edit linked service** page, select version 2.0 and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
+
+1. The data type mapping for the Xero linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Xero](#data-type-mapping-for-xero).
+
+1. If you use the self-hosted integration runtime, its version should be 5.61 or above.
+
+1. Use `table` instead of `tableName` in version 2.0. For the detailed configuration, go to [Dataset properties](#dataset-properties).
+
+1. `query` is only supported in version 1.0. You should use the `table` instead of `query` in version 2.0.
+
+1. Note that version 2.0 supports specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).
 
 ## Related content
 For a list of supported data stores by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

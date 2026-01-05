@@ -18,7 +18,7 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
-AzCopy **V10** is the currently supported version of AzCopy. It's supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
+AzCopy **v10** is the currently supported version of AzCopy. It's supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 ## AzCopy use cases
 
@@ -48,7 +48,7 @@ Installing AzCopy through your Linux distribution's package manager is the most 
 
 ### Download a portable binary
 
-An installation package is available only for Linux. For all other operating systems, you can download the AzCopy V10 executable file to any directory on your computer.
+An installation package is available only for Linux. For all other operating systems, you can download the AzCopy v10 executable file to any directory on your computer.
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)

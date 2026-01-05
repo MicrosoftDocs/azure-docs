@@ -430,7 +430,7 @@ The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure thes
 Yes. This option is currently available via PowerShell only. The Virtual WAN portal requires that the hubs are in the same resource group as the Virtual WAN resource itself.
 
 ### What is the recommended hub address space during hub creation?
-The recommended address space for a Virtual WAN hub is **/23**. It's important to note that the hub address space **cannot be modified after the hub is created**. To change the hub address space, you must redeploy the virtual hub, which can result in downtime.
+The recommended address space for a Virtual WAN hub is **/23** or larger. It's important to note that the hub address space **cannot be modified after the hub is created**. To change the hub address space, you must redeploy the virtual hub, which can result in downtime.
 
 The Virtual WAN hub automatically assigns subnets from the specified address space to various Azure services, including:
 
@@ -442,7 +442,7 @@ The Virtual WAN hub automatically assigns subnets from the specified address spa
 
 For scenarios where Network Virtual Appliances (NVAs) are deployed inside the virtual hub, an additional subnet is allocated for the NVA instances. Typically, a **/28 subnet** is assigned for a small number of NVAs. However, if multiple NVAs are provisioned, a **/27 subnet** might be allocated.
 
-To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** during hub creation.
+To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** or larger during hub creation.
 
 ### Is there support for IPv6 in Virtual WAN?
 

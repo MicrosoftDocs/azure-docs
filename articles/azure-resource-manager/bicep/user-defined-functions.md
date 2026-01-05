@@ -3,7 +3,7 @@ title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 05/16/2025
+ms.date: 12/22/2025
 ---
 
 # User-defined functions in Bicep
@@ -191,4 +191,3 @@ When you provide a `@metadata()` decorator with a property that conflicts with a
 
 * To learn about the Bicep file structure and syntax, see [Understand the structure and syntax of Bicep files](./file.md).
 * For a list of the available Bicep functions, see [Bicep functions](./bicep-functions.md).
-

@@ -26,11 +26,7 @@ For more information about ASIM parsers, see the [ASIM parsers overview](normali
 
 ### Unifying parsers
 
-To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_NetworkSession` filtering parser or the `_ASim_NetworkSession` parameter-less parser.
-
-You can also use workspace-deployed `ImNetworkSession` and `ASimNetworkSession` parsers by deploying them from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
-
-For more information, see [built-in ASIM parsers and workspace-deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers).
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_NetworkSession` parser.
 
 ### Out-of-the-box, source-specific parsers
 

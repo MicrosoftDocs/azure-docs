@@ -30,7 +30,7 @@ Within this document, we're referring to the first version of our premium SSD st
 Azure Write Accelerator is a functionality that's available for Azure M-Series Virtual Machines (VM) exclusively in combination with Azure Premium SSD. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium SSD. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 > [!IMPORTANT]
-> If you use Azure premium storage with M-series VMs, the usage of Azure [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series, Mv2-Series, and Mv3-series VMs only. Write Accelerator isn't working in combination with any other Azure VM families outside of M-series families.
+> If you use Azure premium storage with M-series VMs, the usage of Azure [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for the **/hana/log** volume is **mandatory**. Write Accelerator is available for premium storage and M-Series, Mv2-Series, and Mv3-series VMs only. Write Accelerator isn't working in combination with any other Azure VM families outside of M-series families.
 
 The caching recommendations for Azure premium disks below are assuming the I/O characteristics for SAP HANA that list like:
 
@@ -43,7 +43,7 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 **Recommendation: As a result of these observed I/O patterns by SAP HANA, the caching for the different volumes using Azure premium storage should be set like:**
 
 - **/hana/data** - None or read caching
-- **/hana/log** - None. Enable Write Accelerator for M- and Mv2-Series VMs, the option in the Azure portal is "None + Write Accelerator."
+- **/hana/log** - None. [Enable Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for M-Series, Mv2-Series, and Mv3-series VMs. The option in the Azure portal is "None + Write Accelerator."
 - **/hana/shared** - read caching
 - **OS disk** - don't change default caching that's set by Azure at creation time of the VM
 
@@ -67,13 +67,13 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 - Read bursts when performing transaction log or redo log backups
 
 ### Azure Performance Plus for premium storage/Premium SSD
-At creation time of managed Premium SSD disks of P30 and larger, you can [activate Performance Plus](https://learn.microsoft.com/azure/virtual-machines/disks-enable-performance?tabs=azure-cli). Performance Plus is increasing the provisioned IOPS and throughput that's going to be delivered by the Premium SSD disks without any additional activation of temporary bursting. The IOPS and throughput values delivered are listed in [Managed VM disk scalability](https://learn.microsoft.com/azure/virtual-machines/disks-scalability-targets?source=recommendations). The lines of 'expanded provisioned' are listing the values provisioned with Performance Plus enabled. We didn't consider the enhanced IOPS and bandwidth values that can be achieved with Performance Plus in the tables we're listing. As you configure new systems using Premium SSD, you might have a chance to reduce capacity overprovisioning by using Performance Plus. And as such deviate from our tables introduced in this article. For the case, you want to combine the VM you're configuring with Azure Site Recovery be aware that the property of Performance Plus isn't replicated by Azure Site Recovery to the destination side. As a result, the disks on the destination side of the replication arte not going to have Performance Plus enabled.
+At creation time of managed Premium SSD disks of P30 and larger, you can [activate Performance Plus](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli). Performance Plus is increasing the provisioned IOPS and throughput that's going to be delivered by the Premium SSD disks without any additional activation of temporary bursting. The IOPS and throughput values delivered are listed in [Managed VM disk scalability](/azure/virtual-machines/disks-scalability-targets?source=recommendations). The lines of 'expanded provisioned' are listing the values provisioned with Performance Plus enabled. We didn't consider the enhanced IOPS and bandwidth values that can be achieved with Performance Plus in the tables we're listing. As you configure new systems using Premium SSD, you might have a chance to reduce capacity overprovisioning by using Performance Plus. And as such deviate from our tables introduced in this article. For the case, you want to combine the VM you're configuring with Azure Site Recovery be aware that the property of Performance Plus isn't replicated by Azure Site Recovery to the destination side. As a result, the disks on the destination side of the replication are not going to have Performance Plus enabled.
 
 
 ### Production recommended storage solution based on Azure premium storage
 
 > [!IMPORTANT]
-> SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator for the **/hana/log** volume.  
+> SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator enabled for the **/hana/log** volume.  
 
 > [!NOTE]
 > In scenarios that involve Azure premium storage, we're implementing burst capabilities into the configuration. As you're using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](/azure/virtual-machines/disk-bursting) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we aren't expecting that all tests are going to pass the criteria since some of the tests are going to exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.

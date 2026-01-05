@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-bicep
   - devx-track-dotnet
   - build-2025
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ---
 
 # Bicep Kubernetes extension (Preview)

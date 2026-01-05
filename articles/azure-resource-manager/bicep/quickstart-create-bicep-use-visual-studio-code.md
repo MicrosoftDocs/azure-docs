@@ -2,7 +2,7 @@
 title: 'Quickstart: Create Bicep files with Visual Studio Code'
 description: Learn how to use Visual Studio Code and the Bicep extension to create Bicep files and deploy Azure resources.
 ms.topic: quickstart
-ms.date: 12/10/2025
+ms.date: 12/22/2025
 ms.custom:
   - mode-ui
   - devx-track-bicep

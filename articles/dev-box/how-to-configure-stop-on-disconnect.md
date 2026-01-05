@@ -28,7 +28,7 @@ To manage stop-on-connect settings on a dev box pool, you need the following per
 
 | Action | Permission required |
 |---|---|
-| _Configure a pool_ | Owner, Contributor, or DevCenter Project Admin. |
+| _Configure a pool_ | Owner, Contributor, DevCenter Owner, or DevCenter Project Admin. |
 
 ## Manage stop on disconnect settings with the Azure CLI
 

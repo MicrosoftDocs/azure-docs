@@ -25,6 +25,14 @@
       href: enable-dynamic-configuration-aspnet-core.md
     - name: Feature management
       href: quickstart-feature-flag-aspnet-core.md
+  - name: Aspire
+    items:
+    - name: Configuration
+      href: quickstart-aspire.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-aspire.md
+    - name: Feature management
+      href: quickstart-feature-flag-aspire.md
   - name: .NET
     items:
     - name: Configuration

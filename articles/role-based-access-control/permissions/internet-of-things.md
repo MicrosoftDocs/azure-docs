@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -363,13 +363,14 @@ Azure service: [Microsoft Defender for IoT](/azure/defender-for-iot/device-build
 > | Microsoft.IoTFirmwareDefense/locations/operationStatuses/read | read operationStatuses |
 > | Microsoft.IoTFirmwareDefense/locations/operationStatuses/write | write operationStatuses |
 > | Microsoft.IoTFirmwareDefense/operations/read | read operations |
+> | Microsoft.IoTFirmwareDefense/workspaces/generateUploadUrl/action | The operation to get a url for file upload. |
 > | Microsoft.IoTFirmwareDefense/workspaces/read | Lists all of the firmware analysis workspaces in the specified subscription. |
 > | Microsoft.IoTFirmwareDefense/workspaces/read | Lists all of the firmware analysis workspaces in the specified resource group. |
 > | Microsoft.IoTFirmwareDefense/workspaces/read | Get firmware analysis workspace. |
 > | Microsoft.IoTFirmwareDefense/workspaces/write | The operation to create or update a firmware analysis workspace. |
 > | Microsoft.IoTFirmwareDefense/workspaces/delete | The operation to delete a firmware analysis workspace. |
 > | Microsoft.IoTFirmwareDefense/workspaces/write | The operation to update a firmware analysis workspaces. |
-> | Microsoft.IoTFirmwareDefense/workspaces/generateUploadUrl/action | The operation to get a url for file upload. |
+> | Microsoft.IoTFirmwareDefense/workspaces/generateUploadUrl/action | Generate a URL for uploading a firmware image. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateDownloadUrl/action | The operation to a url for file download. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateFilesystemDownloadUrl/action | The operation to a url for tar file download. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateSummary/action | The operation to get a scan summary. |
@@ -393,12 +394,11 @@ Azure service: [Microsoft Defender for IoT](/azure/defender-for-iot/device-build
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateDownloadUrl/action | The operation to a url for file download. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateFilesystemDownloadUrl/action | The operation to a url for tar file download. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/binaryHardeningResults/read | Lists binary hardening analysis results of a firmware. |
-> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/commonVulnerabilitiesAndExposures/read | Lists CVE analysis results of a firmware. |
-> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cryptoCertificates/read | Lists cryptographic certificate analysis results found in a firmware. |
-> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cryptoKeys/read | Lists cryptographic key analysis results found in a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cryptoCertificates/read | Lists crypto certificate analysis results of a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cryptoKeys/read | Lists crypto key analysis results of a firmware. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cves/read | Lists CVE analysis results of a firmware. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/passwordHashes/read | Lists password hash analysis results of a firmware. |
-> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/sbomComponents/read | Lists SBOM analysis results of a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/sbomComponents/read | Lists sbom analysis results of a firmware. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/summaries/read | Lists analysis result summary names of a firmware. To fetch the full summary data, get that summary by name. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/summaries/read | Get an analysis result summary of a firmware by name. |
 > | Microsoft.IoTFirmwareDefense/workspaces/usageMetrics/read | Lists monthly usage information for a workspace. |

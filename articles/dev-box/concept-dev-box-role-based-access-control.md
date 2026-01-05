@@ -1,32 +1,37 @@
 ---
-title: Azure role-based access control
+title: Plan Azure role-based access control
 titleSuffix: Microsoft Dev Box
 description: Learn how Microsoft Dev Box provides protection with Azure role-based access control (Azure RBAC) integration.
+#customer intent: As a platform engineer, I want to understand how to assign Azure RBAC roles in Microsoft Dev Box so that I can manage permissions effectively across resources.
 ms.service: dev-box
 ms.custom:
   - ignite-2024
 author: RoseHJM
 ms.author: rosemalcolm
+ms.reviewer: rosemalcolm
 ms.topic: concept-article
-ms.date: 07/31/2024
-#Customer intent: As a platform engineer, I want to understand how to assign permissions in Dev Box so that I can give dev managers and developers only the permissions they need.
+ms.date: 12/29/2025
 ---
 # Azure role-based access control in Microsoft Dev Box
 
-This article describes the different built-in roles that Microsoft Dev
-Box supports, and how they map to organizational roles like platform
-engineer and dev manager.
+This article is intended for platform engineers, central IT
+administrators, and other higher-level admins who plan and manage
+Microsoft Dev Box deployments. It describes the different built-in
+roles that Microsoft Dev Box supports, and how they map to
+organizational roles like platform engineer and dev manager so you can
+plan the right permissions model before you roll out Dev Box.
 
-Azure role-based access control (RBAC) specifies built-in role
-definitions that outline the permissions to be applied. You assign a
+Azure role-based access control (RBAC) specifies built-in roles that define the permissions to be applied. Instead of granting granular permissions directly to individual users or groups,
+you assign roles that bundle related permissions together so you can
+apply and audit access consistently across resources. You assign a
 user or group this role definition via a role assignment for a
 particular scope. The scope can be an individual resource, a resource
 group, or across the subscription. In the next section, you learn which
 [built-in roles](#built-in-roles) Microsoft Dev Box supports.
 
-For more information, see [What is Azure role-based access control (Azure RBAC)](https://microsoft-my.sharepoint.com/azure/role-based-access-control/overview)?
+For more information, see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)?
 
-> [!Note]
+> [!NOTE]
 > When you make role assignment changes, it can take a few minutes for these updates to propagate.
 
 ## Built-in roles
@@ -43,12 +48,13 @@ three organizational role types, based on their scope of influence:
 
 The following are the built-in roles supported by Microsoft Dev Box:
 
-| Organizational role type | Built-in role         | Description                                                                                       |
-|--------------------------|-----------------------|---------------------------------------------------------------------------------------------------|
-| Platform engineer        | Owner                 | Grant full control to create/manage dev centers, catalogs, and projects, and grant permissions to other users. Learn more about the [Owner role](#owner-role). |
-| Platform engineer        | Contributor           | Grant full control to create/manage dev centers, catalogs, and projects, except for assigning roles to other users. Learn more about the [Contributor role](#contributor-role). |
-| Dev Manager              | DevCenter Project Admin | Grant permission to manage certain aspects of projects and dev boxes. Learn more about the [DevCenter Project Admin role](#devcenter-project-admin-role). |
-| Developer                | Dev Box User          | Grant permission to create dev boxes and have full control over the dev boxes that they create. Learn more about the [Dev Box User role](#dev-box-user). |
+| Organizational role type | Built-in role           | Description |
+| --- | --- | --- |
+| Platform engineer | Owner | Grant full control to create/manage dev centers, catalogs, and projects, and grant permissions to other users. Learn more about the [Owner role](#owner-role). |
+| Platform engineer | Contributor | Grant full control to create/manage dev centers, catalogs, and projects, except for assigning roles to other users. Learn more about the [Contributor role](#contributor-role). |
+| Platform engineer | DevCenter Owner | Provide access to manage all Microsoft.DevCenter resources and access to them. Learn more about the [DevCenter Owner role](#devcenter-owner-role). |
+| Dev Manager | DevCenter Project Admin | Grant permission to manage certain aspects of projects and dev boxes. Learn more about the [DevCenter Project Admin role](#devcenter-project-admin-role). |
+| Developer | Dev Box User | Grant permission to create dev boxes and have full control over the dev boxes that they create. Learn more about the [Dev Box User role](#dev-box-user-role). |
 
 ## Role assignment scope
 
@@ -61,18 +67,18 @@ subscription, resource group, and resource. Scopes are structured in a
 parent-child relationship. Each level of hierarchy makes the scope more
 specific. You can assign roles at any of these levels of scope. The
 level you select determines how widely the role is applied. Lower levels
-inherit role permissions from higher levels. Learn more about [scope for Azure RBAC](https://microsoft-my.sharepoint.com/azure/role-based-access-control/scope-overview).
+inherit role permissions from higher levels. Learn more about [scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
 For Microsoft Dev Box, consider the following scopes:
 
-  | Scope           | Description                                                                                       |
-  |-----------------|---------------------------------------------------------------------------------------------------|
-  | Subscription    | Used to manage billing and security for all Azure resources and services. Typically, only Platform engineers have subscription-level access because this role assignment grants access to all resources in the subscription. |
-  | Resource group  | A logical container for grouping together resources. Role assignment for the resource group grants permission to the resource group and all resources within it, such as dev centers, dev box definitions, dev box pools, projects, and dev boxes. |
-  | Dev center (resource) | A collection of projects that require similar settings. Role assignment for the dev center grants permission to the dev center itself. Permissions assigned for the dev centers aren't inherited by other dev box resources. |
-  | Project (resource) | An Azure resource used to apply common configuration settings when you create a dev box. Role assignment for the project grants permission only to that specific project. |
-  | Dev box pool (resource) | A collection of dev boxes that you manage together and to which you apply similar settings. Role assignment for the dev box pool grants permission only to that specific dev box pool. |
-  | Dev box definition (resource) | An Azure resource that specifies a source image and size, including compute size and storage size. Role assignment for the dev box definition grants permission only to that specific dev box definition. |
+| Scope | Description |
+| --- | --- |
+| Subscription | Used to manage billing and security for all Azure resources and services. Typically, only Platform engineers have subscription-level access because this role assignment grants access to all resources in the subscription. |
+| Resource group | A logical container for grouping together resources. Role assignment for the resource group grants permission to the resource group and all resources within it, such as dev centers, dev box definitions, dev box pools, projects, and dev boxes. |
+| Dev center (resource) | A collection of projects that require similar settings. Role assignment for the dev center grants permission to the dev center itself. Permissions assigned for the dev centers aren't inherited by other dev box resources. |
+| Project (resource) | An Azure resource used to apply common configuration settings when you create a dev box. Role assignment for the project grants permission only to that specific project. |
+| Dev box pool (resource) | A collection of dev boxes that you manage together and to which you apply similar settings. Role assignment for the dev box pool grants permission only to that specific dev box pool. |
+| Dev box definition (resource) | An Azure resource that specifies a source image and size, including compute size and storage size. Role assignment for the dev box definition grants permission only to that specific dev box definition. |
 
 :::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-scopes.png" lightbox="media/concept-dev-box-role-based-access-control/dev-box-scopes.png" alt-text="Diagram that shows the role assignment scopes for Microsoft Dev Box.":::
 
@@ -81,33 +87,37 @@ For Microsoft Dev Box, consider the following scopes:
 The following table shows common Dev Box activities and the role needed for a user to perform that activity.
 
 | Activity                                                                                                              | Role type        | Role                                      | Scope          |
-|-----------------------------------------------------------------------------------------------------------------------|------------------|-------------------------------------------|----------------|
+| --- | --- | --- | --- |
 | Grant permission to create a resource group.                                                                          | Platform engineer| Owner or Contributor                      | Subscription   |
 | Grant permission to submit a Microsoft support ticket, including to request capacity.                                 | Platform engineer| Owner, Contributor, Support Request Contributor | Subscription   |
 | Grant permission to create virtual networks and subnets.                                                              | Platform engineer| Network Contributor                       | Resource group |
 | Grant permission to create a network connection.                                                                      | Platform engineer| Owner or Contributor                      | Resource group |
 | Grant permission to assign roles to other users.                                                                      | Platform engineer| Owner                                     | Resource group |
 | Grant permission to: </br> - Create / manage dev centers. </br> - Add / remove network connections. </br> - Add / remove Azure compute galleries. </br> - Create / manage dev box definitions. </br> - Create / manage projects. </br> - Attach / manage catalog to a dev center or project (project-level catalogs must be enabled on the dev center). </br> - Configure dev box limits. | Platform engineer| Contributor                               | Resource group |
-| Grant permission to add or remove a network connection for a dev center.                                              | Platform engineer| Contributor                               | Dev center     |
+| Grant permission to create and manage Dev Box resources without granting access to other resource types in the resource group. </br> - Dev centers </br> - Projects </br> - Dev box definitions </br> - Dev box pools | Platform engineer| DevCenter Owner                           | Resource group     |
+| Grant permission to add or remove a network connection for a dev center.                                              | Platform engineer| Contributor or DevCenter Owner            | Dev center     |
 | Grant permission to enable / disable project catalogs.                                                                | Dev Manager      | Contributor                               | Dev center     |
 | Grant permission to: </br> - Add, sync, remove catalog (project-level catalogs must be enabled on the dev center). </br> - Create dev box pools. </br> - Stop, start, delete dev boxes in pools. | Dev Manager      | DevCenter Project Admin                   | Project        |
 | Create and manage your own dev boxes in a project.                                                                    | User             | Dev Box User                              | Project        |
 | Create and manage catalogs in a GitHub or Azure Repos repository.                                                     | Dev Manager      | Not governed by RBAC. </br> - The user must be assigned permissions through Azure DevOps or GitHub. | Repository     |
 
-> [!Important] 
+> [!IMPORTANT] 
 > An organization's subscription is used to manage billing and security for all Azure resources and services. You
 > can assign the Owner or Contributor role on the subscription.
 > Typically, only Platform engineers have subscription-level access because this includes full access to all resources in the subscription.
 
-## Platform engineer roles
+## Roles for platform engineers
 
 To grant users permission to manage Microsoft Dev Box within your
-organization's subscription, you should assign them the
-[Owner](#owner-role) or [Contributor](#contributor-role) role.
+organization's subscription, you can assign them the
+[Owner](#owner-role) or [Contributor](#contributor-role) role at the
+resource group scope, or the [DevCenter Owner](#devcenter-owner-role)
+role at the dev center scope.
 
-Assign these roles to the *resource group*. The dev centers, network
-connections, dev box definitions, dev box pools, and projects within the
-resource group inherit these role assignments.
+When you use the Owner or Contributor roles, assign them to the
+*resource group*. The dev centers, network connections, dev box
+definitions, dev box pools, and projects within the resource group
+inherit these role assignments.
 
 :::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-administrator-scope.png" lightbox="media/concept-dev-box-role-based-access-control/dev-box-administrator-scope.png" alt-text="Diagram that shows the administrator role assignments at the subscription for Azure Deployment Environments.":::
 
@@ -120,17 +130,11 @@ activities across all resources within the resource group:
 
 -   Assign roles to platform engineers, so they can manage Dev Box
     resources.
-
 -   Create dev centers, network connections, dev box definitions, dev
     box pools, and projects.
-
 -   View, delete, and change settings for all dev centers, network
     connections, dev box definitions, dev box pools, and projects.
-
 -   Attach and detach catalogs.
-
-> [!Caution]
-> When you assign the Owner or Contributor role on the resource group, then these permissions also apply to non-Dev Box related resources that exist in the resource group.
 
 ### Contributor role
 
@@ -140,7 +144,35 @@ role has the same permissions as the Owner role, *except* for:
 
 -   Performing role assignments.
 
-## Dev Manager role
+> [!Caution]
+> When you assign the Owner or Contributor role on the resource group, then these permissions also apply to non-Dev Box related resources that exist in the resource group.
+
+### DevCenter Owner role
+
+You can assign the DevCenter Owner role at either the resource group scope or the dev center scope.
+
+#### DevCenter Owner role at the resource group scope
+Assign the DevCenter Owner role to a resource group give a user full control over Microsoft.DevCenter resources without granting broader access to other resources in the resource group. 
+
+When a user has the DevCenter Owner role on a resource group, they can:
+
+- Create, update, and delete dev centers in that resource group.  
+- Create, update, and delete projects in that resource group.
+- Create, update, and delete dev box pools and dev box definitions in that resource group.
+- Manage catalogs, network connections, and compute galleries attached to dev centers in the resource group.
+- Delegate project administration by assigning DevCenter Project Admin and DevCenter Dev Box User roles at the project level.
+
+#### DevCenter Owner role at the dev center scope
+Assign the DevCenter Owner role to a dev center to give a user full control over Microsoft.DevCenter resources without granting broader access to other dev centers and their resources. Users with this role assigned to a dev center cannot create new dev centers.
+
+When a user has the DevCenter Owner role on a dev center, they can:
+
+-   Create, update, and delete projects in that dev center.
+-   Create, update, and delete dev box pools and dev box definitions in that dev center.
+-   Manage catalogs, network connections, and compute galleries attached to that dev center.
+-   Delegate project administration by assigning DevCenter Project Admin and DevCenter Dev Box User roles at the project level.
+
+## Roles for Dev Managers
 
 There's one dev manager role: DevCenter Project Admin. This role has
 more restricted permissions at lower-level scopes than the platform
@@ -160,14 +192,14 @@ Assign the DevCenter Project Admin to enable:
 
 -   Stop, start, delete dev boxes in pools.
 
-## Developer role
+## Roles for developers
 
 There's one developer role: Dev Box User. This role enables developers
 to create and manage their own dev boxes.
 
 :::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-user-scope.png" lightbox="media/concept-dev-box-role-based-access-control/dev-box-user-scope.png" alt-text="Diagram that shows the user role assignments at the project for Microsoft Dev Box.":::
 
-### Dev Box User
+### Dev Box User role
 
 Assign the Dev Box User role to give users permission to create dev
 boxes and have full control over the dev boxes that they create.
@@ -189,7 +221,7 @@ integration (Azure RBAC) using access control (IAM) in the Azure portal:
 
 :::image type="content" source="media/concept-dev-box-role-based-access-control/access-control-page.png" alt-text="Screenshot that shows the Access control (IAM) page for a dev center.":::
 
-For detailed steps, see [Assign Azure roles using the Azure portal](https://microsoft-my.sharepoint.com/azure/role-based-access-control/role-assignments-portal).
+For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Dev center, resource group, and project structure
 
@@ -232,7 +264,7 @@ teams to isolate each team's resources. Dev Managers in a project can
 then be assigned to the Project Admin role, which only grants them
 access to the resources of their team.
 
-> [!Important] 
+> [!IMPORTANT] 
 > Plan the structure upfront because it's not possible to move Dev Box resources like projects to a different resource group after they\'re created.
 
 ## Catalog structure
@@ -252,5 +284,5 @@ needs of each development team.
 
 ## Related content
 
--   [What is Azure role-based access control (Azure RBAC)](https://microsoft-my.sharepoint.com/azure/role-based-access-control/overview)
--   [Understand scope for Azure RBAC](https://microsoft-my.sharepoint.com/azure/role-based-access-control/scope-overview)
+-   [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)
+-   [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview)

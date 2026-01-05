@@ -9,14 +9,12 @@
  ms.custom: include file
 ---
 
-- **Detection and response:** Microsoft automatically detects zone failures and initiates recovery processes. No customer action is required for zone-redundant storage (ZRS) accounts.
-
-    If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing.
+- **Detection and response:** [!INCLUDE [Storage - Behavior when a zone is down - Detection and response](./reliability-storage-availability-zone-down-experience-detection-response-include.md)]
 
 [!INCLUDE [Resilience to availability zone failures (Service Health and Resource Health)](../reliability-availability-zone-down-notification-service-resource-include.md)]
 
-- **Active requests:** In-flight requests might be dropped during the recovery process and should be retried. Applications should [implement retry logic](#resilience-to-transient-faults) to handle these temporary interruptions.
+- **Active requests:** [!INCLUDE [Storage - Behavior when a zone is down - Active requests](./reliability-storage-availability-zone-down-experience-active-requests-include.md)]
 
-- **Expected data loss:** No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
+- **Expected data loss:** [!INCLUDE [Storage - Behavior when a zone is down - Expected data loss](./reliability-storage-availability-zone-down-experience-expected-data-loss-include.md)]
 
-- **Expected downtime:** A small amount of downtime, typically, a few seconds, might occur during automatic recovery as traffic is redirected to healthy zones. When you design applications for ZRS, follow practices for [transient fault handling](#resilience-to-transient-faults), including implementing retry policies with exponential back-off.
+- **Expected downtime:** [!INCLUDE [Storage - Behavior when a zone is down - Expected downtime](./reliability-storage-availability-zone-down-experience-expected-downtime-include.md)]

@@ -3,26 +3,29 @@ title: Azure Traffic Manager endpoint monitoring
 description: Learn how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications.
 services: traffic-manager
 author: asudbring
+manager: kumud
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 08/08/2024
+ms.date: 12/29/2025
 ms.author: allensu
 # Customer intent: "As a cloud architect, I want to configure endpoint monitoring in Traffic Manager, so that I can ensure high availability and automatic failover for my applications in the event of endpoint failures."
 ---
 
 # Traffic Manager endpoint monitoring
 
-Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Endpoint monitoring is enabled by default. To disable monitoring, see [Enable or disable health checks](#enable-or-disable-health-checks).
+Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Traffic Manager enables endpoint monitoring by default. To disable monitoring, see [Enable or disable health checks](#enable-or-disable-health-checks).
 
 ## Configure endpoint monitoring
 
-To configure endpoint monitoring, you must specify the following settings on your Traffic Manager profile:
+Specify the following settings on your Traffic Manager profile to configure endpoint monitoring:
 
 * **Protocol**. Choose HTTP, HTTPS, or TCP as the protocol that Traffic Manager uses when probing your endpoint to check its health. HTTPS monitoring doesn't verify whether your TLS/SSL certificate is valid, it only checks that the certificate is present.
+
 > [!NOTE]
 > Traffic Manager support for TLS 1.0 and 1.1 ended on Feb 28, 2025. For more information, see [Traffic Manager TLS FAQ](traffic-manager-faqs.md#what-version-of-tls-is-required-by-traffic-manager).
+
 * **Port**. Choose the port used for the request.
-* **Path**. This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For  HTTP and HTTPS protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash `/` is a valid entry for the relative path. This value implies that the file is in the root directory (default).
+* **Path**. This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. This setting causes an error with TCP monitoring protocol. For HTTP and HTTPS protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash `/` is a valid entry for the relative path. This value implies that the file is in the root directory (default).
 * **Custom header settings**. This configuration setting helps you add specific HTTP headers to the health checks that Traffic Manager sends to endpoints under a profile. The custom headers can be specified at a profile level to be applicable for all endpoints in that profile and/or at an endpoint level applicable only to that endpoint. You can use custom headers for health checks of endpoints in a multi-tenant environment. That way, it can be routed correctly to their destination by specifying a host header. You can also use this setting by adding unique headers that can be used to identify Traffic Manager originated HTTP(S) requests and processes them differently. You can specify up to eight `header:value` pairs separated by a comma. For example, `header1:value1, header2:value2`. 
 
 > [!NOTE]
@@ -33,26 +36,26 @@ To configure endpoint monitoring, you must specify the following settings on you
 * **Tolerated number of failures**. This value specifies how many failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Its value can range between 0 and 9. A value of 0 means a single monitoring failure can cause that endpoint to be marked as unhealthy. If no value is specified, it uses the default value of 3.
 * **Probe timeout**. This property specifies the amount of time the Traffic Manager probing agent should wait before considering a health probe check to an endpoint a failure. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
 
-    :::image type="content" source="./media/traffic-manager-monitoring/endpoint-monitoring-settings-inline.png" alt-text="Screenshot showing Traffic Manager configuration in the Azure portal." lightbox="./media/traffic-manager-monitoring/endpoint-monitoring-settings-expanded.png":::
+:::image type="content" source="./media/traffic-manager-monitoring/endpoint-monitoring-settings-inline.png" alt-text="Screenshot of Traffic Manager endpoint monitoring configuration settings in the Azure portal." lightbox="./media/traffic-manager-monitoring/endpoint-monitoring-settings-expanded.png":::
 
-    **Figure: Traffic Manager endpoint monitoring**
+**Figure: Traffic Manager endpoint monitoring**
 
 ## How endpoint monitoring works
 
-When the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. An endpoint is considered healthy if probing agent receives a 200-OK response, or any of the responses configured in the **Expected status code ranges**. If the response is a different value or no response get received within the timeout period, the Traffic Manager probing agent reattempts according to the Tolerated Number of Failures setting. No reattempts are done if this setting is 0. The endpoint is marked unhealthy if the number of consecutive failures is higher than the **Tolerated number of failures** setting.
+When the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. Traffic Manager considers an endpoint healthy if the probing agent receives a 200-OK response, or any of the responses configured in the **Expected status code ranges**. If the response is a different value or no response is received within the timeout period, the Traffic Manager probing agent reattempts according to the Tolerated Number of Failures setting. No reattempts are done if this setting is 0. The endpoint is marked unhealthy if the number of consecutive failures is higher than the **Tolerated number of failures** setting.
 
-When the monitoring protocol is TCP, the Traffic Manager probing agent creates a TCP connection request using the port specified. If the endpoint responds to the request with a response to establish the connection, that health check is marked as a success. The Traffic Manager probing agent resets the TCP connection. In cases where the response is a different value or no response get received within the timeout period, the Traffic Manager probing agent reattempts according to the **Tolerated number of failures** setting. No reattempts are made if this setting is 0. If the number of consecutive failures is higher than the **Tolerated number of failures** setting, then that endpoint is marked unhealthy.
+When the monitoring protocol is TCP, the Traffic Manager probing agent creates a TCP connection request using the port specified. If the endpoint responds to the request with a response to establish the connection, that health check is marked as a success. The Traffic Manager probing agent resets the TCP connection. In cases where the response is a different value or no response is received within the timeout period, the Traffic Manager probing agent reattempts according to the **Tolerated number of failures** setting. No reattempts are made if this setting is 0. If the number of consecutive failures is higher than the **Tolerated number of failures** setting, then that endpoint is marked unhealthy.
 
 In all cases, Traffic Manager probes from multiple locations. The consecutive failure determines what happen within each region. That's why endpoints are receiving health probes from Traffic Manager with a higher frequency than the setting used for Probing Interval.
 
 > [!NOTE]
-> For HTTP or HTTPS monitoring protocol, a common practice on the endpoint side is to implement a custom page within your application - for example, /health.aspx. Using this path for monitoring, you can perform application-specific checks, such as checking performance counters or verifying database availability. Based on these custom checks, the page returns an appropriate HTTP status code.
+> For HTTP or HTTPS monitoring protocol, a common practice on the endpoint side is to implement a custom page within your application - for example, /health.aspx. Use this path to perform application-specific checks, such as checking performance counters or verifying database availability. Based on these custom checks, the page returns an appropriate HTTP status code.
 
 All endpoints in a Traffic Manager profile share monitoring settings. If you need to use different monitoring settings for different endpoints, you can create [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
 
 ## Endpoint and profile status
 
-You can enable and disable Traffic Manager profiles and endpoints. However, a change in endpoint status also might occur because of the Traffic Manager automated settings and processes.
+Enable or disable Traffic Manager profiles and endpoints as needed. However, endpoint status can also change because of Traffic Manager automated settings and processes.
 
 ### Endpoint status
 
@@ -73,13 +76,13 @@ Endpoint monitor status is a Traffic Manager-generated value that shows the stat
 | Enabled |Enabled |Online |The endpoint is monitored and is healthy. It's included in DNS responses and can receive traffic. |
 | Enabled |Enabled |Degraded |Endpoint monitoring health checks are failing. The endpoint isn't included in DNS responses and doesn't receive traffic. <br>An exception is if all endpoints are degraded. In which case all of them are considered to be returned in the query response. |
 | Enabled |Enabled |CheckingEndpoint |The endpoint is monitored, but the results of the first probe haven't been received yet. CheckingEndpoint is a temporary state that usually occurs immediately after adding or enabling an endpoint in the profile. An endpoint in this state is included in DNS responses and can receive traffic. |
-| Enabled |Enabled |Stopped |The web app that the endpoint points to isn't running. Check the web app settings. This status can also happen if the endpoint is of type nested endpoint and the child profile get disabled or is inactive. <br>An endpoint with a Stopped status isn't monitored. It isn't included in DNS responses and doesn't receive traffic. An exception is if all endpoints are degraded. In which case all of them are considered to be returned in the query response.</br>|
+| Enabled |Enabled |Stopped |The web app that the endpoint points to isn't running. Check the web app settings. This status can also happen if the endpoint is of type nested endpoint and the child profile is disabled or inactive. <br>An endpoint with a Stopped status isn't monitored. It isn't included in DNS responses and doesn't receive traffic. An exception is if all endpoints are degraded. In which case all of them are considered to be returned in the query response.</br>|
 | Enabled |Enabled |Not monitored |The endpoint is configured to always serve traffic. Health checks aren't enabled. |
 
 For details about how endpoint monitor status is calculated for nested endpoints, see [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
 > [!NOTE]
-> A Stopped Endpoint monitor status can happen on App Service if your web application is not running in the Standard tier or above. For more information, see [Traffic Manager integration with App Service](../app-service/web-sites-traffic-manager.md).
+> A Stopped Endpoint monitor status can happen on App Service if your web application is not running in the Standard tier or above. For more information, see [Traffic Manager integration with App Service](/azure/app-service/web-sites-traffic-manager).
 
 ### Profile monitor status
 
@@ -101,9 +104,9 @@ Traffic Manager periodically checks the health of every endpoint, including unhe
 An endpoint is unhealthy when any of the following events occur:
 
 - If the monitoring protocol is HTTP or HTTPS:
-    - A non-200 response, or a response that doesn't include the status range specified in the **Expected status code ranges** setting get received. (Including a different 2xx code, or a 301/302 redirect).
+    - A non-200 response, or a response that doesn't include the status range specified in the **Expected status code ranges** setting is received. (Including a different 2xx code, or a 301/302 redirect).
 - If the monitoring protocol is TCP: 
-    - A response other than ACK or SYN-ACK gets received in response to the SYN request sent by Traffic Manager to attempt a connection establishment.
+    - A response other than ACK or SYN-ACK is received in response to the SYN request sent by Traffic Manager to attempt a connection establishment.
 - Timeout. 
 - Any other connection issue resulting in the endpoint being not reachable.
 
@@ -117,19 +120,20 @@ The timeline in the following figure is a detailed description of the monitoring
 * Timeout value is 10 seconds.
 * DNS TTL is 30 seconds.
 
-:::image type="content" source="./media/traffic-manager-monitoring/timeline.png" alt-text="Screenshot of Traffic Manager endpoint failover and failback sequence.":::
+:::image type="content" source="./media/traffic-manager-monitoring/timeline.png" alt-text="Screenshot of Traffic Manager endpoint failover and failback sequence timeline.":::
+
 **Figure:  Traffic manager endpoint failover and recovery sequence**
 
 1. **GET**. For each endpoint, the Traffic Manager monitoring system does a GET request on the path specified in the monitoring settings.
-2. **200 OK or custom code range specified Traffic Manager profile monitoring settings**. The monitoring system expects an HTTP 200 OK or a status code in the range specified in the monitoring settings to be returned within 10 seconds. When it receives this response, it recognizes that the service is available.
-3. **30 seconds between checks**. The endpoint health check is repeated every 30 seconds.
-4. **Service unavailable**. The service becomes unavailable. Traffic Manager won't know until the next health check.
-5. **Attempts to access the monitoring path**. The monitoring system does a GET request, but doesn't receive a response within the timeout period of 10 seconds. It then tries three more times, at 30-second intervals. If one of the tries is successful, then the number of tries is reset.
-6. **Status set to Degraded**. After a fourth consecutive failure, the monitoring system marks the unavailable endpoint status as Degraded.
-7. **Traffic is diverted to other endpoints**. The Traffic Manager DNS name servers are updated and Traffic Manager no longer returns the endpoint in response to DNS queries. New connections are directed to other, available endpoints. However, previous DNS responses that include this endpoint might still be cached by recursive DNS servers and DNS clients. Clients continue to use the endpoint until the DNS cache expires. As the DNS cache expires, clients make new DNS queries and are directed to different endpoints. The cache duration is controlled by the TTL setting in the Traffic Manager profile, for example, 30 seconds.
-8. **Health checks continue**. Traffic Manager continues to check the health of the endpoint while it has a Degraded status. Traffic Manager detects when the endpoint returns to health.
-9. **Service comes back online**. The service becomes available. The endpoint keeps its Degraded status in Traffic Manager until the monitoring system does its next health check.
-10. **Traffic to service resumes**. Traffic Manager sends a GET request and receives a 200 OK status response. The service has returned to a healthy state. The Traffic Manager name servers are updated, and they begin to hand out the service's DNS name in DNS responses. Traffic returns to the endpoint as cached DNS responses that return other endpoints expire, and as existing connections to other endpoints are ending.
+1. **200 OK or custom code range specified Traffic Manager profile monitoring settings**. The monitoring system expects an HTTP 200 OK or a status code in the range specified in the monitoring settings to be returned within 10 seconds. When it receives this response, it recognizes that the service is available.
+1. **30 seconds between checks**. The endpoint health check is repeated every 30 seconds.
+1. **Service unavailable**. The service becomes unavailable. Traffic Manager won't know until the next health check.
+1. **Attempts to access the monitoring path**. The monitoring system does a GET request, but doesn't receive a response within the timeout period of 10 seconds. It then tries three more times, at 30-second intervals. If one of the tries is successful, then the number of tries is reset.
+1. **Status set to Degraded**. After a fourth consecutive failure, the monitoring system marks the unavailable endpoint status as Degraded.
+1. **Traffic is diverted to other endpoints**. The Traffic Manager DNS name servers are updated and Traffic Manager no longer returns the endpoint in response to DNS queries. New connections are directed to other, available endpoints. However, previous DNS responses that include this endpoint might still be cached by recursive DNS servers and DNS clients. Clients continue to use the endpoint until the DNS cache expires. As the DNS cache expires, clients make new DNS queries and are directed to different endpoints. The cache duration is controlled by the TTL setting in the Traffic Manager profile, for example, 30 seconds.
+1. **Health checks continue**. Traffic Manager continues to check the health of the endpoint while it has a Degraded status. Traffic Manager detects when the endpoint returns to health.
+1. **Service comes back online**. The service becomes available. The endpoint keeps its Degraded status in Traffic Manager until the monitoring system does its next health check.
+1. **Traffic to service resumes**. Traffic Manager sends a GET request and receives a 200 OK status response. The service has returned to a healthy state. The Traffic Manager name servers are updated, and they begin to hand out the service's DNS name in DNS responses. Traffic returns to the endpoint as cached DNS responses that return other endpoints expire, and as existing connections to other endpoints are ending.
 
     > [!IMPORTANT]
     > Traffic manager deploys multiple probes from multiple locations for each endpoint. Multiple probes increase resiliency for endpoint monitoring. Traffic manager aggregates the average health of the probes rather than rely on a singular probe instance. The redundancy of the probing system is by design. Endpoint values should be looked at holistically and not per probe. The number displayed for probe health is an average. The status should only be a concern if less than 50% (0.5) of probes publish an **up** status.
@@ -164,26 +168,27 @@ For more information about troubleshooting failed health checks, see [Troublesho
 
 ## Enable or disable health checks
 
-Azure Traffic Manager also enables you to configure endpoint **Health Checks** to be enabled or disabled. To disable monitoring, choose the option to **Always serve traffic**.
+Azure Traffic Manager lets you enable or disable endpoint **Health Checks**. To disable monitoring, choose the option to **Always serve traffic**.
 
 There are two available settings for **Health Checks**:
 
 1. **Enable** (health checks). Traffic is served to the endpoint based on health. This setting is the default.
-2. **Always serve traffic**. This setting disables health checks.
+1. **Always serve traffic**. This setting disables health checks.
 
 ### Always Serve
 
 When **Always serve traffic** is selected, monitoring is bypassed and traffic is always sent to an endpoint. The [endpoint monitor status](#endpoint-monitor-status) displayed is **Unmonitored**. 
 
 To enable Always Serve:
+
 1. Select **Endpoints** in the **Settings** section of your Traffic Manager profile blade. 
-2. Select the endpoint that you want to configure.
-3. Under **Health Checks**, choose **Always serve traffic**.
-4. Select **Save**.
+1. Select the endpoint that you want to configure.
+1. Under **Health Checks**, choose **Always serve traffic**.
+1. Select **Save**.
 
 See the following example:
 
-[ ![Screenshot of endpoint health checks. ](./media/traffic-manager-monitoring/health-checks.png) ](./media/traffic-manager-monitoring/health-checks.png#lightbox)
+:::image type="content" source="./media/traffic-manager-monitoring/health-checks.png" alt-text="Screenshot of endpoint health checks configuration options." lightbox="./media/traffic-manager-monitoring/health-checks.png#lightbox":::
 
 > [!NOTE]
 > - Health checks can't be disabled on nested Traffic Manager profiles.
@@ -196,7 +201,7 @@ See the following example:
 Azure Traffic Manager relies on health probes to monitor endpoint availability and performance. For probes to succeed, endpoints must be reachable, and any firewalls or access control lists (ACLs) in the path must allow traffic from all Traffic Manager IP addresses. If probe IP addresses are not allowed, health checks may fail. Endpoints marked as unhealthy can cause unexpected traffic rerouting or downtime.
 
 **Option 1: Use Service Tags (recommended)**
-The recommended approach is to use the **AzureTrafficManager** Service Tag in NSGs, or Azure Firewall. Service Tags automatically include the latest IP ranges and don’t require manual updates.
+The recommended approach is to use the **AzureTrafficManager** Service Tag in NSGs, or Azure Firewall. Service Tags automatically include the latest IP ranges and don't require manual updates.
 * [Use Service Tags with NSGs](/azure/virtual-network/service-tags-overview#use-service-tags-in-network-security-groups)
 * [Use Service Tags with Azure Firewall](/azure/firewall/service-tags)
 

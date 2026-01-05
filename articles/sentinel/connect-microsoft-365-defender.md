@@ -1,12 +1,11 @@
 ---
-title: Connect Microsoft Defender XDR data to Microsoft Sentinel| Microsoft Docs
-description: Learn how to ingest incidents, alerts, and raw event data from Microsoft Defender XDR into Microsoft Sentinel.
+title: Stream data from Microsoft Defender XDR to Microsoft Sentinel in the Azure portal
+description: Learn how to ingest incidents, alerts, and raw event data from Microsoft Defender XDR into Microsoft Sentinel in the Azure portal.
 author: guywi-ms
 ms.author: guywild
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 12/24/2025
 appliesto:
-    - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
@@ -14,11 +13,14 @@ ms.collection: usx-security
 
 ---
 
-# Connect data from Microsoft Defender XDR to Microsoft Sentinel
+# Stream data from Microsoft Defender XDR to Microsoft Sentinel in the Azure portal 
 
-The Microsoft Defender XDR connector for Microsoft Sentinel allows you to stream all Microsoft Defender XDR incidents, alerts, and advanced hunting events into Microsoft Sentinel. This connector keeps the incidents synchronized between both portals. Microsoft Defender XDR incidents include alerts, entities, and other relevant information from all the Microsoft Defender products and services. For more information, see [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
+The Defender XDR connector allows you to stream all Microsoft Defender XDR incidents, alerts, and advanced hunting events into Microsoft Sentinel and keeps incidents synchronized between both portals. This article explains how to configure the Microsoft Defender XDR connector for Microsoft Sentinel in the Azure portal. 
 
-The Defender XDR connector, especially its incident integration feature, is the foundation of unified security operations in the Microsoft Defender portal. The Defender XDR data connector is automatically connected when you onboard Microsoft Sentinel to the Defender portal. If you [offboard Microsoft Sentinel from the Defender portal](/unified-secops/microsoft-sentinel-onboard#offboard-microsoft-sentinel), the Defender XDR connector is automatically disconnected.
+> [!NOTE]
+> The Defender XDR connector is automatically enabled when you onboard Microsoft Sentinel to the Defender portal. The manual configuration steps described in this article are not required if you've already onboarded Microsoft Sentinel to the Defender portal. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](/unified-secops/microsoft-sentinel-onboard).
+
+Microsoft Defender XDR incidents include alerts, entities, and other relevant information from all the Microsoft Defender products and services. For more information, see [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -30,7 +32,7 @@ Before you begin, you must have the appropriate licensing, access, and configure
 - Your user must have the [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) role on the tenant you want to stream the logs from, or the equivalent permissions.
 - You must have read and write permissions on your Microsoft Sentinel workspace.
 - To make any changes to the connector settings, your account must be a member of the same Microsoft Entra tenant with which your Microsoft Sentinel workspace is associated.
-- If you're working in the Azure portal, install the solution for **Microsoft Defender XDR** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md). If you're working in the Defender portal, this solution is automatically installed.
+- Install the **Microsoft Defender XDR** solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md). If you're working in the Defender portal, this solution is automatically installed.
 - Grant access to Microsoft Sentinel as appropriate for your organization. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
 For on-premises Active Directory sync via Microsoft Defender for Identity:

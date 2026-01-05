@@ -179,7 +179,7 @@ The secondary region can be in one of the following states:
 
 | State | Description |
 |-------|-----------|
-| InBuild | The secondary region is being set up and initial synchronization is in progress, or the region is resynchronizing after a promotion. Secondary regions in the InBuild state aren't part of quorum. |
+| InBuild | The secondary region is being set up and initial synchronization is in progress, or the region is resynchronizing after a forced promotion. Secondary regions in the InBuild state aren't part of quorum. |
 | Ready | The secondary region is part of the replication configuration and is actively being replicated to. |
 | Deleting | The secondary region is being removed from the replication configuration. |
 
@@ -190,7 +190,7 @@ To switch between replication modes, or update the maximum replication lag, clic
 
 ### Delete secondary region
 
-To remove a secondary region, click on the **...**-ellipsis next to the region, and click **Delete**. To delete the region, follow the instructions in the pop-up blade. While the deletion is in progress, the region shows the **Deleting** state.
+To remove a secondary region, click on **Delete** button, and follow the instructions in the pop-up blade. While the deletion is in progress, the region shows the **Deleting** state.
 :::image type="content" source="./media/service-bus-geo-replication/delete-secondary-region-from-geo-replication.png" alt-text="Screenshot showing how to delete a secondary region.":::
 
 ### Promotion flow
@@ -211,13 +211,13 @@ It is possible to do a forced promotion at any time after a planned promotion ha
 
 After the promotion is initiated:
 
-1. The hostname is updated to point to the secondary region, which can take up to a few minutes.
+1. The hostname is updated to point to the secondary region, which can take several minutes.
     > [!NOTE]
     > You can check the current primary region by initiating a ping command:
     > ping *your-namespace-fully-qualified-name*
 
 1. Clients automatically reconnect to the secondary region.
-1. After promotion completes, the new secondary region enters the **InBuild** state while it resynchronizes, then transitions to **Ready**.
+1. If forced promotion was used, the new secondary region enters the **InBuild** state while it resynchronizes, then transitions to **Ready**.
 
 :::image type="content" source="./media/service-bus-geo-replication/promotion-flow.png" alt-text="Screenshot of the portal showing the flow of promotion from primary to secondary region." lightbox="./media/service-bus-geo-replication/promotion-flow.png":::
 

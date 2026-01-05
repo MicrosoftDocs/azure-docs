@@ -4,10 +4,10 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon    
+author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 09/19/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -79,7 +79,7 @@ Avoid using this role. Content Trust in Azure Container Registry and the AcrImag
   "assignableScopes": [
     "/"
   ],
-  "description": "acr image signer",
+  "description": "Planned DEPRECATION on March 31, 2028. Grant the signing permission for content trust. As content trust is being deprecated and will be completely removed on March 31, 2028, this role will also be removed. Refer to https://aka.ms/acr/dctdeprecation for details and transition guidance.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/6cef56e8-d556-48e5-a04f-b8e64114680f",
   "name": "6cef56e8-d556-48e5-a04f-b8e64114680f",
   "permissions": [
@@ -726,6 +726,7 @@ Lets you update everything in cluster/namespace, except (cluster)roles and (clus
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
 ## Azure Container Instances Contributor Role
 
 Grants read/write access to container groups provided by Azure Container Instances
@@ -1054,6 +1055,7 @@ Grants read/write access to Azure resources provided by Azure Kubernetes Fleet M
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
 ## Azure Kubernetes Fleet Manager Hub Agent Role
 
 Grants access to Azure resources needed by Azure Kubernetes Fleet Manager hub agents.
@@ -1100,6 +1102,49 @@ Grants access to Azure resources needed by Azure Kubernetes Fleet Manager hub ag
     }
   ],
   "roleName": "Azure Kubernetes Fleet Manager Hub Agent Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Fleet Manager Hub Cluster User Role
+
+Grants read access to Azure Kubernetes Fleet Manager as well as the Kubernetes config file to connect to the fleet-managed hub cluster.
+
+[Learn more](/azure/kubernetes-fleet/concepts-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants read access to Azure Kubernetes Fleet Manager as well as the Kubernetes config file to connect to the fleet-managed hub cluster.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/850c5848-fc51-4a9a-8823-f220370626e3",
+  "name": "850c5848-fc51-4a9a-8823-f220370626e3",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/fleets/listCredentials/action",
+        "Microsoft.ContainerService/fleets/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager Hub Cluster User Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1224,6 +1269,63 @@ Grants read/write access to Kubernetes resources within a namespace in the fleet
 }
 ```
 
+## Azure Kubernetes Fleet Manager RBAC Admin for Member Clusters
+
+This role grants admin access - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.
+
+[Learn more](/azure/kubernetes-fleet/concepts-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/resourcequotas/write | Writes resourcequotas |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/resourcequotas/delete | Deletes resourcequotas |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/namespaces/write | Writes namespaces |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/namespaces/delete | Deletes namespaces |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This role grants admin access - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/d1f699ed-700a-4c77-a22f-29890ac7b115",
+  "name": "d1f699ed-700a-4c77-a22f-29890ac7b115",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/members/*"
+      ],
+      "notDataActions": [
+        "Microsoft.ContainerService/fleets/members/resourcequotas/write",
+        "Microsoft.ContainerService/fleets/members/resourcequotas/delete",
+        "Microsoft.ContainerService/fleets/members/namespaces/write",
+        "Microsoft.ContainerService/fleets/members/namespaces/delete"
+      ]
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Admin for Member Clusters",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Azure Kubernetes Fleet Manager RBAC Cluster Admin
 
 Grants read/write access to all Kubernetes resources in the fleet-managed hub cluster.
@@ -1244,7 +1346,7 @@ Grants read/write access to all Kubernetes resources in the fleet-managed hub cl
 > | **DataActions** |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/* |  |
 > | **NotDataActions** |  |
-> | *none* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/* |  |
 
 ```json
 {
@@ -1268,10 +1370,61 @@ Grants read/write access to all Kubernetes resources in the fleet-managed hub cl
       "dataActions": [
         "Microsoft.ContainerService/fleets/*"
       ],
-      "notDataActions": []
+      "notDataActions": [
+        "Microsoft.ContainerService/fleets/members/*"
+      ]
     }
   ],
   "roleName": "Azure Kubernetes Fleet Manager RBAC Cluster Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Fleet Manager RBAC Cluster Admin for Member Clusters
+
+Lets you manage all resources in the member clusters in the fleet.
+
+[Learn more](/azure/kubernetes-fleet/concepts-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage all resources in the member clusters in the fleet.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/79a36d98-eb96-4a76-ae1d-481dc98d2c23",
+  "name": "79a36d98-eb96-4a76-ae1d-481dc98d2c23",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/members/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Cluster Admin for Member Clusters",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1383,6 +1536,115 @@ Grants read-only access to most Kubernetes resources within a namespace in the f
     }
   ],
   "roleName": "Azure Kubernetes Fleet Manager RBAC Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Fleet Manager RBAC Reader for Member Clusters
+
+Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces.
+
+[Learn more](/azure/kubernetes-fleet/concepts-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/replicasets/read | Reads replicasets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/statefulsets/read | Reads statefulsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/autoscaling/horizontalpodautoscalers/read | Reads horizontalpodautoscalers |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/batch/cronjobs/read | Reads cronjobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/batch/jobs/read | Reads jobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/configmaps/read | Reads configmaps |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/discovery.k8s.io/endpointslices/read | Reads endpointslices |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/endpoints/read | Reads endpoints |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/events.k8s.io/events/read | Reads events |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/events/read | Reads events |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/replicasets/read | Reads replicasets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/metrics.k8s.io/pods/read | Reads pods |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/metrics.k8s.io/nodes/read | Reads nodes |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/namespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/networking.k8s.io/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/persistentvolumeclaims/read | Reads persistentvolumeclaims |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/pods/read | Reads pods |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/serviceaccounts/read | Reads serviceaccounts |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/services/read | Reads services |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/463ad26c-fcce-4469-9c7f-5653d8acbab5",
+  "name": "463ad26c-fcce-4469-9c7f-5653d8acbab5",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/members/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/fleets/members/apps/daemonsets/read",
+        "Microsoft.ContainerService/fleets/members/apps/deployments/read",
+        "Microsoft.ContainerService/fleets/members/apps/replicasets/read",
+        "Microsoft.ContainerService/fleets/members/apps/statefulsets/read",
+        "Microsoft.ContainerService/fleets/members/autoscaling/horizontalpodautoscalers/read",
+        "Microsoft.ContainerService/fleets/members/batch/cronjobs/read",
+        "Microsoft.ContainerService/fleets/members/batch/jobs/read",
+        "Microsoft.ContainerService/fleets/members/configmaps/read",
+        "Microsoft.ContainerService/fleets/members/discovery.k8s.io/endpointslices/read",
+        "Microsoft.ContainerService/fleets/members/endpoints/read",
+        "Microsoft.ContainerService/fleets/members/events.k8s.io/events/read",
+        "Microsoft.ContainerService/fleets/members/events/read",
+        "Microsoft.ContainerService/fleets/members/extensions/daemonsets/read",
+        "Microsoft.ContainerService/fleets/members/extensions/deployments/read",
+        "Microsoft.ContainerService/fleets/members/extensions/ingresses/read",
+        "Microsoft.ContainerService/fleets/members/extensions/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/members/extensions/replicasets/read",
+        "Microsoft.ContainerService/fleets/members/limitranges/read",
+        "Microsoft.ContainerService/fleets/members/metrics.k8s.io/pods/read",
+        "Microsoft.ContainerService/fleets/members/metrics.k8s.io/nodes/read",
+        "Microsoft.ContainerService/fleets/members/namespaces/read",
+        "Microsoft.ContainerService/fleets/members/networking.k8s.io/ingresses/read",
+        "Microsoft.ContainerService/fleets/members/networking.k8s.io/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/members/persistentvolumeclaims/read",
+        "Microsoft.ContainerService/fleets/members/pods/read",
+        "Microsoft.ContainerService/fleets/members/policy/poddisruptionbudgets/read",
+        "Microsoft.ContainerService/fleets/members/replicationcontrollers/read",
+        "Microsoft.ContainerService/fleets/members/resourcequotas/read",
+        "Microsoft.ContainerService/fleets/members/serviceaccounts/read",
+        "Microsoft.ContainerService/fleets/members/services/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Reader for Member Clusters",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1541,6 +1803,123 @@ Grants read/write access to most Kubernetes resources within a namespace in the 
 }
 ```
 
+## Azure Kubernetes Fleet Manager RBAC Writer for Member Clusters
+
+Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.
+
+[Learn more](/azure/kubernetes-fleet/concepts-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/daemonsets/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/deployments/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/replicasets/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/apps/statefulsets/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/batch/cronjobs/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/coordination.k8s.io/leases/read | Reads leases |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/coordination.k8s.io/leases/write | Writes leases |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/coordination.k8s.io/leases/delete | Deletes leases |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/discovery.k8s.io/endpointslices/read | Reads endpointslices |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/batch/jobs/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/configmaps/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/endpoints/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/events.k8s.io/events/read | Reads events |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/events/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/daemonsets/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/deployments/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/ingresses/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/networkpolicies/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/extensions/replicasets/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/metrics.k8s.io/pods/read | Reads pods |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/metrics.k8s.io/nodes/read | Reads nodes |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/namespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/persistentvolumeclaims/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/pods/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/secrets/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/serviceaccounts/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/members/services/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/50346970-0998-40f2-b47d-f3b8809840f8",
+  "name": "50346970-0998-40f2-b47d-f3b8809840f8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/members/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/fleets/members/apps/daemonsets/*",
+        "Microsoft.ContainerService/fleets/members/apps/deployments/*",
+        "Microsoft.ContainerService/fleets/members/apps/replicasets/*",
+        "Microsoft.ContainerService/fleets/members/apps/statefulsets/*",
+        "Microsoft.ContainerService/fleets/members/autoscaling/horizontalpodautoscalers/*",
+        "Microsoft.ContainerService/fleets/members/batch/cronjobs/*",
+        "Microsoft.ContainerService/fleets/members/coordination.k8s.io/leases/read",
+        "Microsoft.ContainerService/fleets/members/coordination.k8s.io/leases/write",
+        "Microsoft.ContainerService/fleets/members/coordination.k8s.io/leases/delete",
+        "Microsoft.ContainerService/fleets/members/discovery.k8s.io/endpointslices/read",
+        "Microsoft.ContainerService/fleets/members/batch/jobs/*",
+        "Microsoft.ContainerService/fleets/members/configmaps/*",
+        "Microsoft.ContainerService/fleets/members/endpoints/*",
+        "Microsoft.ContainerService/fleets/members/events.k8s.io/events/read",
+        "Microsoft.ContainerService/fleets/members/events/*",
+        "Microsoft.ContainerService/fleets/members/extensions/daemonsets/*",
+        "Microsoft.ContainerService/fleets/members/extensions/deployments/*",
+        "Microsoft.ContainerService/fleets/members/extensions/ingresses/*",
+        "Microsoft.ContainerService/fleets/members/extensions/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/members/extensions/replicasets/*",
+        "Microsoft.ContainerService/fleets/members/limitranges/read",
+        "Microsoft.ContainerService/fleets/members/metrics.k8s.io/pods/read",
+        "Microsoft.ContainerService/fleets/members/metrics.k8s.io/nodes/read",
+        "Microsoft.ContainerService/fleets/members/namespaces/read",
+        "Microsoft.ContainerService/fleets/members/networking.k8s.io/ingresses/*",
+        "Microsoft.ContainerService/fleets/members/networking.k8s.io/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/members/persistentvolumeclaims/*",
+        "Microsoft.ContainerService/fleets/members/pods/*",
+        "Microsoft.ContainerService/fleets/members/policy/poddisruptionbudgets/*",
+        "Microsoft.ContainerService/fleets/members/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/members/resourcequotas/read",
+        "Microsoft.ContainerService/fleets/members/secrets/*",
+        "Microsoft.ContainerService/fleets/members/serviceaccounts/*",
+        "Microsoft.ContainerService/fleets/members/services/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Writer for Member Clusters",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Azure Kubernetes Service Arc Cluster Admin Role
 
 List cluster admin credential action.
@@ -1641,6 +2020,7 @@ Grants access to read and write Azure Kubernetes Services hybrid clusters
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/Locations/operationStatuses/read | read operationStatuses |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/Locations/operationStatuses/write | write operationStatuses |
 > | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/Operations/read | read Operations |
 > | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/read | Lists the supported kubernetes versions from the underlying custom location |
 > | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/write | Puts the kubernetes version resource type |
@@ -1665,6 +2045,17 @@ Grants access to read and write Azure Kubernetes Services hybrid clusters
 > | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Delete | Deletes connectedClusters |
 > | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/clusters/read | Gets clusters |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/hybridIdentityMetadata/delete | Deletes the hybrid identity metadata proxy resource. |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/hybridIdentityMetadata/write | Creates the hybrid identity metadata proxy resource that facilitates the managed identity provisioning. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1684,6 +2075,7 @@ Grants access to read and write Azure Kubernetes Services hybrid clusters
     {
       "actions": [
         "Microsoft.HybridContainerService/Locations/operationStatuses/read",
+        "Microsoft.HybridContainerService/Locations/operationStatuses/write",
         "Microsoft.HybridContainerService/Operations/read",
         "Microsoft.HybridContainerService/kubernetesVersions/read",
         "Microsoft.HybridContainerService/kubernetesVersions/write",
@@ -1707,7 +2099,18 @@ Grants access to read and write Azure Kubernetes Services hybrid clusters
         "Microsoft.Kubernetes/connectedClusters/Write",
         "Microsoft.Kubernetes/connectedClusters/Delete",
         "Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action",
-        "Microsoft.AzureStackHCI/clusters/read"
+        "Microsoft.AzureStackHCI/clusters/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/whatIf/action",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata/delete",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata/write"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1868,6 +2271,7 @@ Grants access to read and write Azure Kubernetes Service clusters
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/deploymentSafeguards/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1893,7 +2297,8 @@ Grants access to read and write Azure Kubernetes Service clusters
         "Microsoft.ContainerService/snapshots/*",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/deploymentSafeguards/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1955,7 +2360,6 @@ Allows users to create and manage Azure Kubernetes Service namespace resources.
 }
 ```
 
-
 ## Azure Kubernetes Service Namespace User
 
 Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.
@@ -1998,7 +2402,6 @@ Allows users to read Azure Kubernetes Service namespace resources. In-cluster na
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
-
 
 ## Azure Kubernetes Service RBAC Admin
 
@@ -2354,12 +2757,24 @@ Manage and update the cloud controller manager deployed on top of OpenShift.
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/join/action | Joins a public IP address. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/write | Creates a public IP address or updates an existing public IP address.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/delete | Deletes a public IP address. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPPrefixes/join/action | Joins a PublicIPPrefix. Not alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privatelinkservices/write | Creates a new private link service, or updates an existing private link service. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privatelinkservices/read | Gets an private link service resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privatelinkservices/delete | Deletes an private link service resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/loadBalancingRules/read | Gets a load balancer load balancing rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/serviceEndpointPolicies/join/action | Joins a Service Endpoint Policy. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/natGateways/join/action | Joins a NAT Gateway |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkIntentPolicies/join/action | Joins a Network Intent Policy. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/join/action | Joins a route table. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkManagers/ipamPools/associateResourcesToPool/action | Action permission for associate resources to Ipam Pool |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2389,12 +2804,24 @@ Manage and update the cloud controller manager deployed on top of OpenShift.
         "Microsoft.Network/publicIPAddresses/join/action",
         "Microsoft.Network/publicIPAddresses/read",
         "Microsoft.Network/publicIPAddresses/write",
+        "Microsoft.Network/publicIPAddresses/delete",
         "Microsoft.Network/virtualNetworks/subnets/join/action",
         "Microsoft.Network/virtualNetworks/subnets/read",
         "Microsoft.Network/loadBalancers/inboundNatRules/join/action",
         "Microsoft.Network/networkSecurityGroups/join/action",
         "Microsoft.Network/publicIPPrefixes/join/action",
-        "Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action"
+        "Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/privatelinkservices/write",
+        "Microsoft.Network/privatelinkservices/read",
+        "Microsoft.Network/privatelinkservices/delete",
+        "Microsoft.Network/loadBalancers/loadBalancingRules/read",
+        "Microsoft.Network/serviceEndpointPolicies/join/action",
+        "Microsoft.Network/natGateways/join/action",
+        "Microsoft.Network/networkIntentPolicies/join/action",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/routeTables/join/action",
+        "Microsoft.Network/networkManagers/ipamPools/associateResourcesToPool/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2585,11 +3012,28 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/join/action | Joins a route table. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/natGateways/join/action | Joins a NAT Gateway |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/write | Creates a new private endpoint, or updates an existing private endpoint. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkManagers/ipamPools/associateResourcesToPool/action | Action permission for associate resources to Ipam Pool |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkIntentPolicies/join/action | Joins a Network Intent Policy. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/serviceEndpointPolicies/join/action | Joins a Service Endpoint Policy. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/locations/operations/read | Gets operation resource that represents status of an asynchronous operation |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsOperationStatuses/read | Gets status of a Private DNS operation |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/read | Get the Private DNS zone properties, in JSON format. Note that this command does not retrieve the virtual networks to which the Private DNS zone is linked or the record sets contained within the zone. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/virtualNetworkLinks/read | Get the Private DNS zone link to virtual network properties, in JSON format. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/virtualNetworkLinks/write | Create or update a Private DNS zone link to virtual network. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/write | Create or update a Private DNS zone within a resource group. Note that this command cannot be used to create or update virtual network links or record sets within the zone. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/join/action | Joins a Private DNS Zone |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateDnsZoneGroups/write | Puts a Private DNS Zone Group |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateDnsZoneGroups/read | Gets a Private DNS Zone Group |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/read | Gets an private endpoint resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2616,11 +3060,28 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
         "Microsoft.Storage/storageAccounts/listKeys/action",
         "Microsoft.Storage/storageAccounts/read",
         "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action",
         "Microsoft.Network/networkSecurityGroups/join/action",
         "Microsoft.Network/virtualNetworks/subnets/read",
         "Microsoft.Network/virtualNetworks/subnets/write",
         "Microsoft.Network/routeTables/join/action",
-        "Microsoft.Network/natGateways/join/action"
+        "Microsoft.Network/natGateways/join/action",
+        "Microsoft.Network/virtualNetworks/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/privateEndpoints/write",
+        "Microsoft.Network/networkManagers/ipamPools/associateResourcesToPool/action",
+        "Microsoft.Network/networkIntentPolicies/join/action",
+        "Microsoft.Network/serviceEndpointPolicies/join/action",
+        "Microsoft.Network/locations/operations/read",
+        "Microsoft.Network/privateDnsOperationStatuses/read",
+        "Microsoft.Network/privateDnsZones/read",
+        "Microsoft.Network/privateDnsZones/virtualNetworkLinks/read",
+        "Microsoft.Network/privateDnsZones/virtualNetworkLinks/write",
+        "Microsoft.Network/privateDnsZones/write",
+        "Microsoft.Network/privateDnsZones/join/action",
+        "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/write",
+        "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/read",
+        "Microsoft.Network/privateEndpoints/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2649,7 +3110,22 @@ Enables permissions for the operator to manage a singleton instance of the OpenS
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/delete | Deletes an existing storage account. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/tags/write | Updates the tags on a resource by replacing or merging existing tags with a new set of tags, or removing existing tags. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/write | Creates a new private endpoint, or updates an existing private endpoint. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/read | Gets an private endpoint resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateDnsZoneGroups/write | Puts a Private DNS Zone Group |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateDnsZoneGroups/read | Gets a Private DNS Zone Group |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/read | Get the Private DNS zone properties, in JSON format. Note that this command does not retrieve the virtual networks to which the Private DNS zone is linked or the record sets contained within the zone. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/write | Create or update a Private DNS zone within a resource group. Note that this command cannot be used to create or update virtual network links or record sets within the zone. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/join/action | Joins a Private DNS Zone |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/A/write | Create or update a record set of type 'A' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/virtualNetworkLinks/write | Create or update a Private DNS zone link to virtual network. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/virtualNetworkLinks/read | Get the Private DNS zone link to virtual network properties, in JSON format. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/join/action | Joins a virtual network. Not Alertable. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2681,7 +3157,22 @@ Enables permissions for the operator to manage a singleton instance of the OpenS
         "Microsoft.Storage/storageAccounts/write",
         "Microsoft.Storage/storageAccounts/delete",
         "Microsoft.Storage/storageAccounts/listKeys/action",
-        "Microsoft.Resources/tags/write"
+        "Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action",
+        "Microsoft.Resources/tags/write",
+        "Microsoft.Network/privateEndpoints/write",
+        "Microsoft.Network/privateEndpoints/read",
+        "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/write",
+        "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/read",
+        "Microsoft.Network/privateDnsZones/read",
+        "Microsoft.Network/privateDnsZones/write",
+        "Microsoft.Network/privateDnsZones/join/action",
+        "Microsoft.Network/privateDnsZones/A/write",
+        "Microsoft.Network/privateDnsZones/virtualNetworkLinks/write",
+        "Microsoft.Network/privateDnsZones/virtualNetworkLinks/read",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/join/action"
       ],
       "notActions": [],
       "dataActions": [
@@ -2702,7 +3193,7 @@ Enables permissions for the operator to manage a singleton instance of the OpenS
 
 ## Azure Red Hat OpenShift Machine API Operator
 
-Manage the lifecycle of specific-purpose custom resource definitions (CRD), controllers, and Azure RBAC objects that extend the Kubernetes API to declares the desired state of machines in a cluster.
+Manage the lifecycle of specific-purpose custom resource definitions (CRD), controllers, and Azure RBAC objects that extend the Kubernetes API to declare the desired state of machines in a cluster.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2870,6 +3361,9 @@ Maintain machine health, network configuration, monitoring, and other features t
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/natGateways/join/action | Joins a NAT Gateway |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/join/action | Joins a route table. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/serviceEndpointPolicies/join/action | Joins a Service Endpoint Policy. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkIntentPolicies/join/action | Joins a Network Intent Policy. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkManagers/ipamPools/associateResourcesToPool/action | Action permission for associate resources to Ipam Pool |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | **NotActions** |  |
@@ -2895,6 +3389,9 @@ Maintain machine health, network configuration, monitoring, and other features t
         "Microsoft.Network/natGateways/join/action",
         "Microsoft.Network/routeTables/join/action",
         "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/serviceEndpointPolicies/join/action",
+        "Microsoft.Network/networkIntentPolicies/join/action",
+        "Microsoft.Network/networkManagers/ipamPools/associateResourcesToPool/action",
         "Microsoft.Storage/storageAccounts/listKeys/action",
         "Microsoft.Storage/storageAccounts/read"
       ],
@@ -3482,7 +3979,8 @@ Full management of Container Apps SessionPools, including creation, deletion, an
 > | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/checknameavailability/action | Check reource name availability for a Connected Environment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/sessionPools/fetchMcpServerCredentials/action | Fetch a Session Pool's MCP Server Credentials |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/sessionPools/rotateMcpServerCredentials/action | Rotate a Session Pool's MCP Server Credentials |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -3515,7 +4013,10 @@ Full management of Container Apps SessionPools, including creation, deletion, an
         "Microsoft.App/connectedEnvironments/checknameavailability/action",
         "Microsoft.Resources/deployments/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.App/sessionPools/fetchMcpServerCredentials/action",
+        "Microsoft.App/sessionPools/rotateMcpServerCredentials/action"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -4032,7 +4533,7 @@ Provides the ability to import images into a registry through the registry impor
 
 ## Container Registry Repository Catalog Lister
 
-Allows for listing all repositories in an Azure Container Registry. This role is in preview and subject to change.
+Allows for listing all repositories in an Azure Container Registry.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4050,7 +4551,7 @@ Allows for listing all repositories in an Azure Container Registry. This role is
   "assignableScopes": [
     "/"
   ],
-  "description": "Allows for listing all repositories in an Azure Container Registry. This role is in preview and subject to change.",
+  "description": "Allows for listing all repositories in an Azure Container Registry.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/bfdb9389-c9a5-478a-bb2f-ba9ca092c3c7",
   "name": "bfdb9389-c9a5-478a-bb2f-ba9ca092c3c7",
   "permissions": [
@@ -4071,7 +4572,7 @@ Allows for listing all repositories in an Azure Container Registry. This role is
 
 ## Container Registry Repository Contributor
 
-Allows for read, write, and delete access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+Allows for read, write, and delete access to Azure Container Registry repositories, but excluding catalog listing.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4094,7 +4595,7 @@ Allows for read, write, and delete access to Azure Container Registry repositori
   "assignableScopes": [
     "/"
   ],
-  "description": "Allows for read, write, and delete access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "description": "Allows for read, write, and delete access to Azure Container Registry repositories, but excluding catalog listing.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/2efddaa5-3f1f-4df3-97df-af3f13818f4c",
   "name": "2efddaa5-3f1f-4df3-97df-af3f13818f4c",
   "permissions": [
@@ -4120,7 +4621,7 @@ Allows for read, write, and delete access to Azure Container Registry repositori
 
 ## Container Registry Repository Reader
 
-Allows for read access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+Allows for read access to Azure Container Registry repositories, but excluding catalog listing.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4139,7 +4640,7 @@ Allows for read access to Azure Container Registry repositories, but excluding c
   "assignableScopes": [
     "/"
   ],
-  "description": "Allows for read access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "description": "Allows for read access to Azure Container Registry repositories, but excluding catalog listing.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/b93aa761-3e63-49ed-ac28-beffa264f7ac",
   "name": "b93aa761-3e63-49ed-ac28-beffa264f7ac",
   "permissions": [
@@ -4161,7 +4662,7 @@ Allows for read access to Azure Container Registry repositories, but excluding c
 
 ## Container Registry Repository Writer
 
-Allows for read and write access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+Allows for read and write access to Azure Container Registry repositories, but excluding catalog listing.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4182,7 +4683,7 @@ Allows for read and write access to Azure Container Registry repositories, but e
   "assignableScopes": [
     "/"
   ],
-  "description": "Allows for read and write access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "description": "Allows for read and write access to Azure Container Registry repositories, but excluding catalog listing.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/2a1e307c-b015-4ebd-883e-5b7698a07328",
   "name": "2a1e307c-b015-4ebd-883e-5b7698a07328",
   "permissions": [
@@ -4350,7 +4851,7 @@ Provides the ability to transfer, import, and export artifacts through configuri
 }
 ```
 
-## Kubernetes Agentless Operator
+## Defender Kubernetes API Access
 
 Grants Microsoft Defender for Cloud access to Azure Kubernetes Services
 
@@ -4399,7 +4900,7 @@ Grants Microsoft Defender for Cloud access to Azure Kubernetes Services
       "notDataActions": []
     }
   ],
-  "roleName": "Kubernetes Agentless Operator",
+  "roleName": "Defender Kubernetes API Access",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -4485,6 +4986,7 @@ Can create, update, get, list and delete Kubernetes Extensions, and get extensio
 > | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
 > | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
 > | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/register/action | Registers subscription to Microsoft.KubernetesConfiguration resource provider. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4510,7 +5012,8 @@ Can create, update, get, list and delete Kubernetes Extensions, and get extensio
         "Microsoft.KubernetesConfiguration/extensions/write",
         "Microsoft.KubernetesConfiguration/extensions/read",
         "Microsoft.KubernetesConfiguration/extensions/delete",
-        "Microsoft.KubernetesConfiguration/extensions/operations/read"
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
+        "Microsoft.KubernetesConfiguration/register/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -4531,6 +5034,11 @@ Manage your Service Fabric Cluster resources. Includes clusters, application typ
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/clusters/* |  |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/operations/read | Read any Available Operations |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/locations/clusterVersions/read | Read any Cluster Version |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/locations/environments/clusterVersions/read | Read any Cluster Version for a specific environment |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/locations/operationresults/read | Read any Operation Results |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/locations/operations/read | Read any Operations by location |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -4554,6 +5062,11 @@ Manage your Service Fabric Cluster resources. Includes clusters, application typ
     {
       "actions": [
         "Microsoft.ServiceFabric/clusters/*",
+        "Microsoft.ServiceFabric/operations/read",
+        "Microsoft.ServiceFabric/locations/clusterVersions/read",
+        "Microsoft.ServiceFabric/locations/environments/clusterVersions/read",
+        "Microsoft.ServiceFabric/locations/operationresults/read",
+        "Microsoft.ServiceFabric/locations/operations/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -4578,6 +5091,11 @@ Deploy and manage your Service Fabric Managed Cluster resources. Includes manage
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/managedclusters/* |  |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/operations/read | Read any Available Operations |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/locations/clusterVersions/read | Read any Cluster Version |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/locations/environments/clusterVersions/read | Read any Cluster Version for a specific environment |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/locations/operationresults/read | Read any Operation Results |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/locations/operations/read | Read any Operations by location |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -4601,6 +5119,11 @@ Deploy and manage your Service Fabric Managed Cluster resources. Includes manage
     {
       "actions": [
         "Microsoft.ServiceFabric/managedclusters/*",
+        "Microsoft.ServiceFabric/operations/read",
+        "Microsoft.ServiceFabric/locations/clusterVersions/read",
+        "Microsoft.ServiceFabric/locations/environments/clusterVersions/read",
+        "Microsoft.ServiceFabric/locations/operationresults/read",
+        "Microsoft.ServiceFabric/locations/operations/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",

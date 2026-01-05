@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 09/05/2025
+ms.date: 12/06/2025
 recommendations: false
 ms.custom:
   - template-concept
@@ -17,7 +17,7 @@ ms.custom:
 
 # Guide for running C# Azure Functions in the isolated worker model
 
-This article is an introduction to working with Azure Functions in .NET, using the isolated worker model. This model allows your project to target versions of .NET independently of other runtime components. For information about specific .NET versions supported, see [supported version](#supported-versions). 
+This article introduces working with Azure Functions in .NET using the isolated worker model. This model lets your project target versions of .NET independently of other runtime components. For information about specific .NET versions supported, see [supported version](#supported-versions). 
 
 Use the following links to get started right away building .NET isolated worker model functions.
 
@@ -25,11 +25,11 @@ Use the following links to get started right away building .NET isolated worker 
 |--|--|--| 
 | <ul><li>[Using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp?tabs=isolated-process)</li><li>[Using command line tools](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
-To learn just about deploying an isolated worker model project to Azure, see [Deploy to Azure Functions](#deploy-to-azure-functions). 
+To learn about deploying an isolated worker model project to Azure, see [Deploy to Azure Functions](#deploy-to-azure-functions). 
 
 ## Benefits of the isolated worker model
 
-There are two modes in which you can run your .NET class library functions: either [in the same process](functions-dotnet-class-library.md) as the Functions host runtime (_in-process_) or in an isolated worker process. When your .NET functions run in an isolated worker process, you can take advantage of the following benefits: 
+You can run your .NET class library functions in two modes: either [in the same process](functions-dotnet-class-library.md) as the Functions host runtime (_in-process_) or in an isolated worker process. When your .NET functions run in an isolated worker process, you can take advantage of the following benefits: 
 
 + **Fewer conflicts:** Because your functions run in a separate process, assemblies used in your app don't conflict with different versions of the same assemblies used by the host process. 
 + **Full control of the process**: You control the start-up of the app, which means that you can manage the configurations used and the middleware started.
@@ -44,7 +44,7 @@ For a comprehensive comparison between the two modes, see [Differences between i
 
 ## Project structure
 
-A .NET project for Azure Functions using the isolated worker model is basically a .NET console app project that targets a supported .NET runtime. The following are the basic files required in any .NET isolated project:
+A .NET project for Azure Functions that uses the isolated worker model is basically a .NET console app project that targets a supported .NET runtime. The following files are the basic files required in any .NET isolated project:
 
 + C# project file (.csproj) that defines the project and dependencies.
 + Program.cs file that's the entry point for the app.
@@ -56,16 +56,16 @@ For complete examples, see the [.NET 8 sample project](https://github.com/Azure/
 
 ## Package references
 
-A .NET project for Azure Functions using the isolated worker model uses a unique set of packages, for both core functionality and binding extensions. 
+A .NET project for Azure Functions that uses the isolated worker model uses a unique set of packages for both core functionality and binding extensions. 
 
 ### Core packages 
 
-The following packages are required to run your .NET functions in an isolated worker process:
+To run your .NET functions in an isolated worker process, you need the following packages:
 
 + [Microsoft.Azure.Functions.Worker]
 + [Microsoft.Azure.Functions.Worker.Sdk]
 
- Minimum versions of these packages are required based on your target .NET version:
+ The minimum versions of these packages depend on your target .NET version:
 
 | .NET version   | `Microsoft.Azure.Functions.Worker` | `Microsoft.Azure.Functions.Worker.Sdk` |
 |----------------|------------------------------------|-----------------------------------------|
@@ -80,14 +80,14 @@ The 2.x versions of the core packages change the supported frameworks and bring 
 
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk]:
     - The SDK includes default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
-    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, the Core Tools need to be installed through a mechanism other than NPM.
+    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, install the Core Tools through a mechanism other than NPM.
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker]:
     - This version adds support for `IHostApplicationBuilder`. Some examples in this guide include tabs to show alternatives using `IHostApplicationBuilder`. These examples require the 2.x versions.
     - Service provider scope validation is included by default if run in a development environment. This behavior matches ASP.NET Core.
     - The `EnableUserCodeException` option is enabled by default. The property is now marked as obsolete.
-    - The `IncludeEmptyEntriesInMessagePayload` option is enabled by default. With this option enabled, trigger payloads that represent collections always include empty entries. For example, if a message is sent without a body, an empty entry would still be present in `string[]` for the trigger data. The inclusion of empty entries facilitates cross-referencing with metadata arrays which the function may also reference. You can disable this behavior by setting `IncludeEmptyEntriesInMessagePayload` to `false` in the `WorkerOptions` service configuration.
+    - The `IncludeEmptyEntriesInMessagePayload` option is enabled by default. With this option enabled, trigger payloads that represent collections always include empty entries. For example, if a message is sent without a body, an empty entry is still present in `string[]` for the trigger data. The inclusion of empty entries facilitates cross-referencing with metadata arrays which the function may also reference. You can disable this behavior by setting `IncludeEmptyEntriesInMessagePayload` to `false` in the `WorkerOptions` service configuration.
     - The `ILoggerExtensions` class is renamed to `FunctionsLoggerExtensions`. The rename prevents an ambiguous call error when using `LogMetric()` on an `ILogger` instance.
-    - For apps that use `HttpResponseData`, the `WriteAsJsonAsync()` method no longer will set the status code to `200 OK`. In 1.x, this overrode other error codes that had been set.
+    - For apps that use `HttpResponseData`, the `WriteAsJsonAsync()` method no longer sets the status code to `200 OK`. In 1.x, this behavior overrode other error codes that you set.
 - The 2.x versions drop .NET 5 TFM support.
 
 ### Extension packages
@@ -158,14 +158,14 @@ This code requires `using Microsoft.Extensions.DependencyInjection;`.
 
 Before calling `Build()` on the `IHostBuilder`, you should:
 
-- Call either `ConfigureFunctionsWebApplication()` if using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
+- Call either `ConfigureFunctionsWebApplication()` if you're using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
     If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
 - Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
-    If you're planning to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
+    If you plan to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
 
 If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
 
-The [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
+The [HostBuilder] builds and returns a fully initialized [`IHost`][IHost] instance. You run this instance asynchronously to start your function app. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
@@ -177,11 +177,11 @@ The [HostBuilder] is used to build and return a fully initialized [`IHost`][IHos
 
 ### Configuration
 
-The type of builder you use determines how you can configure the application.
+The type of builder you use determines how you configure the application.
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
-The `FunctionsApplication.CreateBuilder()` method is used to add the settings required for the function app to run. The method includes the following functionality:
+Use the `FunctionsApplication.CreateBuilder()` method to add the settings required for the function app to run. The method includes the following functionality:
 
 + Default set of converters.
 + Set the default [JsonSerializerOptions] to ignore casing on property names.
@@ -191,11 +191,11 @@ The `FunctionsApplication.CreateBuilder()` method is used to add the settings re
 + Default gRPC support.
 + Apply other defaults from [Host.CreateDefaultBuilder()](/dotnet/api/microsoft.extensions.hosting.host.createdefaultbuilder).
 
-Having access to the builder pipeline means that you can also set any app-specific configurations during initialization. You can call extension methods on the builder's `Configuration` property to add any configuration sources required by your code. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
+You have access to the builder pipeline, so you can set any app-specific configurations during initialization. You can call extension methods on the builder's `Configuration` property to add any configuration sources required by your code. For more information about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
-The [ConfigureFunctionsWorkerDefaults] method is used to add the settings required for the function app to run. The method includes the following functionality:
+Use the [ConfigureFunctionsWorkerDefaults] method to add the settings required for the function app to run. The method includes the following functionality:
 
 + Default set of converters.
 + Set the default [JsonSerializerOptions] to ignore casing on property names.
@@ -206,28 +206,28 @@ The [ConfigureFunctionsWorkerDefaults] method is used to add the settings requir
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
 
-Having access to the host builder pipeline means that you can also set any app-specific configurations during initialization. You can call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add any configuration sources required by your code. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
+You have access to the host builder pipeline, so you can set any app-specific configurations during initialization. Call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add any configuration sources required by your code. For more information about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
 
 ---
 
-These configurations only apply to the worker code you author, and they don't directly influence the configuration of the Functions host or triggers and bindings. To make changes to the functions host or trigger and binding configuration, you still need to use the [host.json file](functions-host-json.md).
+These configurations only apply to the worker code you author. They don't directly influence the configuration of the Functions host or triggers and bindings. To make changes to the functions host or trigger and binding configuration, use the [host.json file](functions-host-json.md).
 
 > [!NOTE]
-> Custom configuration sources cannot be used for configuration of triggers and bindings. Trigger and binding configuration must be available to the Functions platform, and not just your application code. You can provide this configuration through the [application settings](../app-service/configure-common.md#configure-app-settings), [Key Vault references](../app-service/app-service-key-vault-references.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json), or [App Configuration references](../app-service/app-service-configuration-references.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json) features.
+> Custom configuration sources can't be used for configuration of triggers and bindings. Trigger and binding configuration must be available to the Functions platform, and not just your application code. You can provide this configuration through the [application settings](../app-service/configure-common.md#configure-app-settings), [Key Vault references](../app-service/app-service-key-vault-references.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json), or [App Configuration references](../app-service/app-service-configuration-references.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json) features.
 
 ### Dependency injection
 
 The isolated worker model uses standard .NET mechanisms for injecting services.
  
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
-When you use an `IHostApplicationBuilder`, you can use its `Services` property to access the [IServiceCollection]. The following example injects a singleton service dependency:
+When you use an `IHostApplicationBuilder`, use its `Services` property to access the [IServiceCollection]. The following example injects a singleton service dependency:
 
 ```csharp
 builder.Services.AddSingleton<IHttpResponderService, DefaultHttpResponderService>();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
 When you use a `HostBuilder`, call [ConfigureServices] on the host builder and use the extension methods on [IServiceCollection] to inject specific services. The following example injects a singleton service dependency:
 
@@ -244,9 +244,9 @@ This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn m
 
 #### Register Azure clients
 
-Dependency injection can be used to interact with other Azure services. You can inject clients from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) using the [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) package. After installing the package, [register the clients](/dotnet/azure/sdk/dependency-injection#register-clients) by calling `AddAzureClients()` on the service collection in `Program.cs`. The following example configures a [named client](/dotnet/azure/sdk/dependency-injection#configure-multiple-service-clients-with-different-names) for Azure Blobs:
+Use dependency injection to interact with other Azure services. You can inject clients from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) by using the [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) package. After installing the package, [register the clients](/dotnet/azure/sdk/dependency-injection#register-clients) by calling `AddAzureClients()` on the service collection in `Program.cs`. The following example configures a [named client](/dotnet/azure/sdk/dependency-injection#configure-multiple-service-clients-with-different-names) for Azure Blobs:
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -266,7 +266,7 @@ builder.Services
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -291,7 +291,7 @@ host.Run();
 
 ---
 
-The following example shows how we can use this registration and [SDK types](#sdk-types) to copy blob contents as a stream from one container to another using an injected client:
+The following example shows how you can use this registration and [SDK types](#sdk-types) to copy blob contents as a stream from one container to another by using an injected client:
 
 ```csharp
 using Microsoft.Extensions.Azure;
@@ -322,18 +322,18 @@ namespace MyFunctionApp
 }
 ```
 
-The [`ILogger<T>`][ILogger&lt;T&gt;] in this example was also obtained through dependency injection, so it's registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
+The [`ILogger<T>`][ILogger&lt;T&gt;] in this example is also obtained through dependency injection, so it's registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
 
 > [!TIP]
-> The example used a literal string for the name of the client in both `Program.cs` and the function. Consider instead using a shared constant string defined on the function class. For example, you could add `public const string CopyStorageClientName = nameof(_copyContainerClient);` and then reference `BlobCopier.CopyStorageClientName` in both locations. You could similarly define the configuration section name with the function rather than in `Program.cs`.
+> The example uses a literal string for the name of the client in both `Program.cs` and the function. Instead, consider using a shared constant string defined on the function class. For example, you could add `public const string CopyStorageClientName = nameof(_copyContainerClient);` and then reference `BlobCopier.CopyStorageClientName` in both locations. You could similarly define the configuration section name with the function rather than in `Program.cs`.
 
 ### Middleware
 
 The isolated worker model also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
 
-The [ConfigureFunctionsWorkerDefaults] extension method has an overload that lets you register your own middleware, as you can see in the following example.  
+The [ConfigureFunctionsWorkerDefaults] extension method has an overload that lets you register your own middleware, as you see in the following example.  
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -357,13 +357,13 @@ builder
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
 
 ---
 
- The `UseWhen` extension method can be used to register a middleware that gets executed conditionally. You must pass to this method a predicate that returns a boolean value, and the middleware participates in the invocation processing pipeline when the return value of the predicate is `true`.
+ The `UseWhen` extension method registers a middleware that executes conditionally. You must pass a predicate that returns a boolean value to this method. The middleware participates in the invocation processing pipeline when the predicate returns `true`.
 
 The following extension methods on [FunctionContext] make it easier to work with middleware in the isolated model.
 
@@ -373,19 +373,24 @@ The following extension methods on [FunctionContext] make it easier to work with
 | **`GetHttpResponseData`** | Gets the `HttpResponseData` instance when called by an HTTP trigger. |
 |  **`GetInvocationResult`** | Gets an instance of `InvocationResult`, which represents the result of the current function execution. Use the `Value` property to get or set the value as needed. |
 |  **`GetOutputBindings`** | Gets the output binding entries for the current function execution. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed. | 
-|  **`BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, you can use this method when you have a function with a `BlobInput` input binding that needs to be used by your middleware. |
+|  **`BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, use this method when you have a function with a `BlobInput` input binding that needs to be used by your middleware. |
 
-This is an example of a middleware implementation that reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution:
+This example shows a middleware implementation that reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution:
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/StampHttpHeaderMiddleware.cs" id="docsnippet_middleware_example_stampheader" :::
  
-This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header. For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
+This middleware checks for the presence of a specific request header (`x-correlationId`). When the header is present, the middleware uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that value for stamping the response header.
+
+> [!TIP]
+> The pattern shown earlier of setting response headers after `await next(context)` might not work reliably in all scenarios. This issue is particularly true when using ASP.NET Core integration or in certain runtime configurations where the response stream might have already been sent. To ensure headers are set correctly, consider retrieving the response from `context.GetInvocationResult().Value` and setting headers before the response is returned from your function, rather than attempting to modify them in middleware after function execution completes.
+
+For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
 ### Customizing JSON serialization
 
-The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. This section covers general-purpose serialization and won't influence [HTTP trigger JSON serialization with ASP.NET Core integration](#json-serialization-with-aspnet-core-integration), which must be configured separately.
+The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. This section covers general-purpose serialization and doesn't influence [HTTP trigger JSON serialization with ASP.NET Core integration](#json-serialization-with-aspnet-core-integration), which you must configure separately.
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker.Builder;
@@ -409,9 +414,9 @@ builder.Services.Configure<JsonSerializerOptions>(jsonSerializerOptions =>
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
-The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
+The following example shows this configuration by using `ConfigureFunctionsWebApplication`, but it also works for `ConfigureFunctionsWorkerDefaults`:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -438,9 +443,9 @@ host.Run();
 
 ---
 
-You might want to instead use JSON.NET (`Newtonsoft.Json`) for serialization. To do this, you would install the [`Microsoft.Azure.Core.NewtonsoftJson`](https://www.nuget.org/packages/Microsoft.Azure.Core.NewtonsoftJson) package. Then, in your service registration, you would reassign the `Serializer` property on the `WorkerOptions` configuration. The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
+To use JSON.NET (`Newtonsoft.Json`) for serialization, install the [`Microsoft.Azure.Core.NewtonsoftJson`](https://www.nuget.org/packages/Microsoft.Azure.Core.NewtonsoftJson) package. Then, in your service registration, reassign the `Serializer` property on the `WorkerOptions` configuration. The following example shows this configuration by using `ConfigureFunctionsWebApplication`, but it also works for `ConfigureFunctionsWorkerDefaults`:
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -464,7 +469,7 @@ builder.Services.Configure<WorkerOptions>(workerOptions =>
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -496,9 +501,9 @@ A function method is a public method of a public class with a `Function` attribu
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
-The trigger attribute specifies the trigger type and binds input data to a method parameter. The previous example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
+The trigger attribute specifies the trigger type and binds input data to a method parameter. The preceding example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
-The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The method must be a public member of a public class. It should generally be an instance method so that services can be passed in via [dependency injection](#dependency-injection).
+The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter, and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The method must be a public member of a public class. It should generally be an instance method so that services can be passed in via [dependency injection](#dependency-injection).
 
 ## Function parameters
 
@@ -510,13 +515,13 @@ Here are some of the parameters that you can include as part of a function metho
 
 ### Execution context
 
-.NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use dependency injection. To learn more, see [Logging](#logging). 
+In the isolated worker model, the worker process passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use dependency injection. For more information, see [Logging](#logging). 
 
 ### Cancellation tokens
 
 A function can accept a [cancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancellation request is received:
+.NET functions that run in an isolated worker process support cancellation tokens. The following example raises an exception when a cancellation request is received:
 
 ```csharp
 [Function(nameof(ThrowOnCancellation))]
@@ -565,55 +570,55 @@ public async Task HandleCancellationCleanup(
 
 #### Scenarios that lead to cancellation
 
-The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancellation,
-and those could vary depending on the trigger type being used. Some common reasons are:
+The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancellation, and those reasons vary depending on the trigger type being used. Some common reasons are:
 
-1. Client disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
-2. Function app restart: if you, or the platform, restart (or stop) the Function App around the same time an invocation is requested.
-   A restart can occur due to worker instance movements, worker instance updates, or scaling.
-    - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](./functions-bindings-error-pages.md#retries) for further information.
++ Client disconnect: The client that is invoking your function disconnects. This reason is most likely for HTTP trigger functions.
++ Function app restart: You or the platform restart (or stop) the function app around the same time an invocation is requested. A restart can occur due to worker instance movements, worker instance updates, or scaling. 
 
-For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancellation token was canceled _before_ the host is able to send the invocation request to the worker.
+#### Cancellation considerations
 
-If you do not want pre-canceled invocations to be sent to the worker, you can add the `SendCanceledInvocationsToWorker` property to your `host.json` file to disable this behavior. The following example shows a `host.json` file that uses this property:
++ Invocations in-flight during a restart event might be retried depending on how they were triggered. For more information, see the [retry documentation](./functions-bindings-error-pages.md#retries).
 
-```json
-{
-    "version": "2.0",
-    "SendCanceledInvocationsToWorker": "false"
-}
-```
++ The host sends the invocation through to the worker _even_ if the cancellation token is canceled _before_ the host is able to send the invocation request to the worker.
 
-> [!IMPORTANT]
-> Setting `SendCanceledInvocationsToWorker` to `false` may lead to a `FunctionInvocationCanceled` exception with the following log: 
-> 
-> `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
-> 
-> This occurs when the cancellation token is canceled (as a result of one of the events described above) _before_ the host has sent
-> an incoming invocation request to the worker. This exception can be safely ignored and would be expected when `SendCanceledInvocationsToWorker`
-> is `false`.
++ If you don't want pre-canceled invocations to be sent to the worker, add the `SendCanceledInvocationsToWorker` property to your `host.json` file to disable this behavior. 
+    
+    This example shows a `host.json` file that uses this property:
+
+    ```json
+    {
+        "version": "2.0",
+        "SendCanceledInvocationsToWorker": "false"
+    }
+    ```
+
++ Setting `SendCanceledInvocationsToWorker` to `false` might lead to a `FunctionInvocationCanceled` exception with the following log: 
+
+    > Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and won't be sent to the worker.
+
+    This exception occurs when the cancellation token is canceled (as a result of one of the events described earlier) _before_ the host sends an incoming invocation request to the worker. This exception can be safely ignored and is expected when `SendCanceledInvocationsToWorker` is `false`.
 
 ## Bindings 
 
-Bindings are defined by using attributes on methods, parameters, and return types. Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). For some binding extensions, you can also [bind to service-specific types](#sdk-types) defined in service SDKs. 
+Define bindings by using attributes on methods, parameters, and return types. Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). For some binding extensions, you can also [bind to service-specific types](#sdk-types) defined in service SDKs. 
 
 For HTTP triggers, see the [HTTP trigger](#http-trigger) section.
 
-For a complete set of reference samples using triggers and bindings with isolated worker process functions, see the [binding extensions reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions). 
+For a complete set of reference samples that use triggers and bindings with isolated worker process functions, see the [binding extensions reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions). 
 
 ### Input bindings
 
-A function can have zero or more input bindings that can pass data to a function. Like triggers, input bindings are defined by applying a binding attribute to an input parameter. When the function executes, the runtime tries to get data specified in the binding. The data being requested is often dependent on information provided by the trigger using binding parameters.  
+A function can have zero or more input bindings that pass data to the function. Like triggers, you define input bindings by applying a binding attribute to an input parameter. When the function executes, the runtime tries to get data specified in the binding. The data being requested often depends on information provided by the trigger through binding parameters.  
 
 ### Output bindings
 
-To write to an output binding, you must apply an output binding attribute to the function method, which defines how to write to the bound service. The value returned by the method is written to the output binding. For example, the following example writes a string value to a message queue named `output-queue` by using an output binding:
+To write to an output binding, you must apply an output binding attribute to the function method. This attribute defines how to write to the bound service. The method's return value is written to the output binding. For example, the following example writes a string value to a message queue named `output-queue` by using an output binding:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### Multiple output bindings
 
-The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example is an HTTP-triggered function using [ASP.NET Core integration](#aspnet-core-integration) which writes to both the HTTP response and a queue output binding:
+The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example is an HTTP-triggered function that uses [ASP.NET Core integration](#aspnet-core-integration) and writes to both the HTTP response and a queue output binding:
 
 ```csharp
 public class MultipleOutputBindings
@@ -648,36 +653,36 @@ public class MultipleOutputBindings
 }
 ```
 
-When using custom return types for multiple output bindings with ASP.NET Core integration, you must add the `[HttpResult]` attribute to the property that provides the result. The `HttpResult` attribute is available when using [SDK 1.17.3-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.17.3-preview2) along with [version 3.2.0 or later of the HTTP extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http/3.2.0) and [version 1.3.0 or later of the ASP.NET Core extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.3.0).
+When you use custom return types for multiple output bindings with ASP.NET Core integration, you must add the `[HttpResult]` attribute to the property that provides the result. The `HttpResult` attribute is available when using [SDK 1.17.3-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.17.3-preview2) along with [version 3.2.0 or later of the HTTP extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http/3.2.0) and [version 1.3.0 or later of the ASP.NET Core extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.3.0).
 
 ### SDK types
 
-For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide capabilities beyond what a serialized string or plain-old CLR object (POCO) can offer. To use the newer types, your project needs to be updated to use newer versions of core dependencies.
+For some service-specific binding types, you can provide binding data by using types from service SDKs and frameworks. These types offer capabilities beyond what a serialized string or plain-old CLR object (POCO) can provide. To use the newer types, update your project to use newer versions of core dependencies.
 
 | Dependency | Version requirement |
 |-|-|
 |[Microsoft.Azure.Functions.Worker]| 1.18.0 or later |
 |[Microsoft.Azure.Functions.Worker.Sdk]| 1.13.0 or later |
 
-When testing SDK types locally on your machine, you also need to use [Azure Functions Core Tools](./functions-run-local.md), version 4.0.5000 or later. You can check your current version using the `func version` command.
+When testing SDK types locally on your machine, you also need to use [Azure Functions Core Tools](./functions-run-local.md), version 4.0.5000 or later. You can check your current version by using the `func --version` command.
 
-Each trigger and binding extension also has its own minimum version requirement, which is described in the extension reference articles. The following service-specific bindings provide SDK types:
+Each binding extension also has its own minimum version requirement, which is described in the extension reference articles. These binding extensions currently support SDK types:
 
 [!INCLUDE [functions-sdk-types-dotnet-isolated](../../includes/functions-sdk-types-dotnet-isolated.md)]
 
 ## HTTP trigger
 
-[HTTP triggers](./functions-bindings-http-webhook-trigger.md) allow a function to be invoked by an HTTP request. There are two different approaches that can be used:
+[HTTP triggers](./functions-bindings-http-webhook-trigger.md) allow a function to be invoked by an HTTP request. You can use two different approaches:
 
 - An [ASP.NET Core integration model](#aspnet-core-integration) that uses concepts familiar to ASP.NET Core developers
 - A [built-in model](#built-in-http-model), which doesn't require extra dependencies and uses custom types for HTTP requests and responses. This approach is maintained for backward compatibility with previous .NET isolated worker apps.
 
 ### ASP.NET Core integration
 
-This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. This model isn't available to [apps targeting .NET Framework][supported-versions], which should instead use the [built-in model](#built-in-http-model).
+This section shows how to work with the underlying HTTP request and response objects by using types from ASP.NET Core, including [HttpRequest], [HttpResponse], and [IActionResult]. This model isn't available to [apps targeting .NET Framework][supported-versions], which should instead use the [built-in model](#built-in-http-model).
 
 > [!NOTE]
-> Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available. ASP.NET Core integration requires you to use updated packages.
+> This model doesn't expose all features of ASP.NET Core. Specifically, it doesn't provide access to the ASP.NET Core middleware pipeline and routing capabilities. ASP.NET Core integration requires you to use updated packages.
 
 To enable ASP.NET Core integration for HTTP:
 
@@ -688,9 +693,9 @@ To enable ASP.NET Core integration for HTTP:
     + [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/), version 1.11.0. or later
     + [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/), version 1.16.0 or later.
 
-1. In your `Program.cs` file, update the host builder configuration to call `ConfigureFunctionsWebApplication()`. This replaces `ConfigureFunctionsWorkerDefaults()` if you would use that method otherwise. The following example shows a minimal setup without other customizations:
+1. In your `Program.cs` file, update the host builder configuration to call `ConfigureFunctionsWebApplication()`. This method replaces `ConfigureFunctionsWorkerDefaults()` if you would use that method otherwise. The following example shows a minimal setup without other customizations:
 
-    # [IHostBuilder](#tab/hostbuilder)
+    ##### [IHostBuilder](#tab/hostbuilder)
     
     ```csharp
     using Microsoft.Azure.Functions.Worker;
@@ -703,7 +708,7 @@ To enable ASP.NET Core integration for HTTP:
     host.Run();
     ```
     
-    # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+    ##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
     
     > [!NOTE]
     > Your application must reference version 2.0.0 or later of [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/) to use ASP.NET Core integration with `IHostApplicationBuilder`.
@@ -734,13 +739,13 @@ To enable ASP.NET Core integration for HTTP:
 
 #### JSON serialization with ASP.NET Core integration
 
-ASP.NET Core has its own serialization layer, and it is not affected by [customizing general serialization configuration](#customizing-json-serialization). To customize the serialization behavior used for your HTTP triggers, you need to include an `.AddMvc()` call as part of service registration. The returned `IMvcBuilder` can be used to modify ASP.NET Core's JSON serialization settings.
+ASP.NET Core has its own serialization layer, and it isn't affected by [customizing general serialization configuration](#customizing-json-serialization). To customize the serialization behavior used for your HTTP triggers, you need to include an `.AddMvc()` call as part of service registration. The returned `IMvcBuilder` can be used to modify ASP.NET Core's JSON serialization settings.
 
-You can continue to use `HttpRequestData` and `HttpResponsedata` while using ASP.NET integration, though for most apps, it's better to instead use `HttpRequest` and `IActionResult`. Using `HttpRequestData`/`HttpResponseData` doesn't invoke the ASP.NET Core serialization layer and instead relies upon the [general worker serialization configuration](#customizing-json-serialization) for the app. However, when ASP.NET Core integration is enabled, you might still need to add configuration. The default behavior from ASP.NET Core is to disallow synchronous IO. To use a custom serializer that does not support asynchronous IO, such as `NewtonsoftJsonObjectSerializer`, you need to enable synchronous IO for your application by configuring the `KestrelServerOptions`.
+You can continue to use `HttpRequestData` and `HttpResponseData` while using ASP.NET integration, though for most apps, it's better to instead use `HttpRequest` and `IActionResult`. Using `HttpRequestData`/`HttpResponseData` doesn't invoke the ASP.NET Core serialization layer and instead relies upon the [general worker serialization configuration](#customizing-json-serialization) for the app. However, when ASP.NET Core integration is enabled, you might still need to add configuration. The default behavior from ASP.NET Core is to disallow synchronous IO. To use a custom serializer that doesn't support asynchronous IO, such as `NewtonsoftJsonObjectSerializer`, you need to enable synchronous IO for your application by configuring the `KestrelServerOptions`.
 
 The following example shows how to configure JSON.NET (`Newtonsoft.Json`) and the [Microsoft.AspNetCore.Mvc.NewtonsoftJson NuGet package](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson) for serialization using this approach:
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -765,7 +770,7 @@ builder.Services.AddMvc().AddNewtonsoftJson();
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -792,7 +797,7 @@ host.Run();
 
 ### Built-in HTTP model
 
-In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but isn't directly connected to the underlying HTTP listener or the received message. 
+In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that it passes to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object represents the HTTP request but isn't directly connected to the underlying HTTP listener or the received message. 
 
 Likewise, the function returns an [HttpResponseData] object, which provides data used to create the HTTP response, including message `StatusCode`, `Headers`, and optionally a message `Body`.  
 
@@ -802,7 +807,7 @@ The following example demonstrates the use of `HttpRequestData` and `HttpRespons
 
 ## Logging
 
-You can write to logs by using an [`ILogger<T>`][ILogger&lt;T&gt;] or [`ILogger`][ILogger] instance. The logger can be obtained through [dependency injection](#dependency-injection) of an [`ILogger<T>`][ILogger&lt;T&gt;] or of an [ILoggerFactory]:
+You can write to logs by using an [`ILogger<T>`][ILogger&lt;T&gt;] or [`ILogger`][ILogger] instance. You can get the logger through [dependency injection](#dependency-injection) of an [`ILogger<T>`][ILogger&lt;T&gt;] or of an [ILoggerFactory]:
 
 ```csharp
 public class MyFunction {
@@ -822,11 +827,11 @@ public class MyFunction {
 }
 ```
 
-The logger can also be obtained from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
+You can also get the logger from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. For more information about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
-Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters:
+Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. For more information about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters:
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -850,7 +855,7 @@ builder.Logging.AddFilter("System.Net.Http.HttpClient", LogLevel.Warning);
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -879,13 +884,13 @@ var host = new HostBuilder()
 
 As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. The default behavior depends on the type of builder you're using.
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
-When you use an `IHostApplicationBuilder`, by default, exceptions thrown by your code flow through the system without changes. No other configuration is required.
+When you use an `IHostApplicationBuilder`, exceptions thrown by your code flow through the system without changes. You don't need any other configuration.
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
-When you use a `HostBuilder`, by default, exceptions thrown by your code can end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeException` property to "true" as part of configuring the builder:
+When you use a `HostBuilder`, exceptions thrown by your code can end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeException` property to `true` as part of configuring the builder:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -905,11 +910,11 @@ host.Run();
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs). Unless you are using [Aspire](#aspire), configuring direct Application Insights integration is recommended because it gives you control over how those logs are emitted. 
+You can configure your isolated process application to send logs directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net). This configuration replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs). Unless you're using [Aspire](#aspire), configure direct Application Insights integration because it gives you control over how those logs are emitted. 
 
-Application Insights integration is not enabled by default in all setup experiences. Some templates will create Functions projects with the necessary packages and startup code commented out. If you want to use Application Insights integration, you can uncomment these lines in `Program.cs` and the project's `.csproj` file. The instructions in the rest of this section also describe how to enable the integration.
+Application Insights integration isn't enabled by default in all setup experiences. Some templates create Functions projects with the necessary packages and startup code commented out. If you want to use Application Insights integration, uncomment these lines in `Program.cs` and the project's `.csproj` file. The instructions in the rest of this section also describe how to enable the integration.
 
-If your project is part of an [Aspire orchestration](#aspire), it uses OpenTelemetry for monitoring instead. You should not enable direct Application Insights integration within Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of the [service defaults project](/dotnet/aspire/fundamentals/service-defaults#opentelemetry-configuration). If your Functions project uses Application Insights integration in an Aspire context, the application will error on startup.
+If your project is part of an [Aspire orchestration](#aspire), it uses OpenTelemetry for monitoring instead. Don't enable direct Application Insights integration within Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of the [service defaults project](/dotnet/aspire/fundamentals/service-defaults#opentelemetry-configuration). If your Functions project uses Application Insights integration in an Aspire context, the application errors on startup.
 
 #### Install packages
 
@@ -918,7 +923,7 @@ To write logs directly to Application Insights from your code, add references to
 + [Microsoft.Azure.Functions.Worker.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/), version 1.0.0 or later. 
 + [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService).
 
-You can run the following commands to add these references to your project: 
+Run the following commands to add these references to your project: 
 
 ```dotnetcli
 dotnet add package Microsoft.ApplicationInsights.WorkerService
@@ -927,9 +932,9 @@ dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights
 
 #### Configure startup
 
-With the packages installed, you must call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file, as in this example:
+After installing the packages, call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file, as shown in the following example:
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -946,7 +951,7 @@ builder.Services
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -966,16 +971,23 @@ host.Run();
 
 ---
 
-The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`, which listens to a Functions-defined `ActivitySource`. This creates the dependency telemetry required to support distributed tracing. To learn more about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](/azure/azure-monitor/app/worker-service).
+The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule` that listens to a Functions-defined `ActivitySource`. This module creates the dependency telemetry required to support distributed tracing. For more information about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](/azure/azure-monitor/app/worker-service).
 
-#### Managing log levels
+#### <a name="managing-log-levels"></a>Manage log levels
 
 > [!IMPORTANT]
-> The Functions host and the isolated process worker have separate configuration for log levels, etc. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) will not affect the logging from the worker, and similarly, configuration made in your worker code will not impact logging from the host. You need to apply changes in both places if your scenario requires customization at both layers.
+> The Functions host and the isolated process worker have separate configuration for log levels. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) doesn't affect logging from the worker, and similarly, configuration in your worker code doesn't impact logging from the host. Apply changes in both places if your scenario requires customization at both layers.
 
-The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. If you want to disable this behavior, remove the filter rule as part of service configuration:
+The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. You can configure log levels in the isolated worker process in one of these ways:
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+| Configuration method | Benefits | 
+| ---- | ---- | ---- |
+| In your code | Promotes a clearer separation between host-side and worker-side configurations. |
+| Using `appsettings.json` | Useful when you want to set different log levels for different categories without having to modify your code. |
+
+##### [Code-based](#tab/code/ihostapplicationbuilder)
+
+To disable the default behavior and capture all log levels, remove the filter rule as part of service configuration:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -1003,7 +1015,9 @@ builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [Code-based](#tab/code/hostbuilder)
+
+To disable the default behavior and capture all log levels, remove the filter rule as part of service configuration:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -1034,13 +1048,104 @@ var host = new HostBuilder()
 host.Run();
 ```
 
+##### [Configuration](#tab/config/ihostapplicationbuilder)
+
+`FunctionsApplication.CreateBuilder()` automatically loads configuration from `appsettings.json` files. You can add logging configuration to your `appsettings.json` file:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information",
+      "Microsoft.Azure.Functions.Worker": "Information"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+This configuration is automatically applied when you create the builder. No additional code changes are required in `Program.cs`:
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.Services
+    .AddApplicationInsightsTelemetryWorkerService()
+    .ConfigureFunctionsApplicationInsights();
+
+builder.Build().Run();
+```
+
+##### [IHostBuilder](#tab/config/hostbuilder)
+
+When you use `new HostBuilder()`, configuration files like `appsettings.json` aren't loaded automatically. To load these files, use `ConfigureAppConfiguration()`:
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureAppConfiguration(config =>
+    {
+        config.SetBasePath(Directory.GetCurrentDirectory())
+              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+              .AddEnvironmentVariables();
+    })
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
+
+Then create an `appsettings.json` file in your project root with the following content:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information",
+      "Microsoft.Azure.Functions.Worker": "Information"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+> [!TIP]
+> Alternatively, you can use `Host.CreateDefaultBuilder()` instead of `new HostBuilder()`. This method automatically loads configuration from `appsettings.json`, environment variables, and other sources. However, [FunctionsApplication.CreateBuilder()](dotnet-isolated-process-guide.md?tabs=ihostapplicationbuilder%2Ccode#managing-log-levels) is the recommended approach for new projects, as it automatically configures the Functions worker (including the call to `ConfigureFunctionsWebApplication()`) and loads configuration files.
+
 ---
+
+For more information about configuring logging, see [Logging in .NET](/dotnet/core/extensions/logging) and [Application Insights for Worker Service applications](/azure/azure-monitor/app/worker-service#ilogger-logs).
 
 ## Performance optimizations
 
 This section outlines options you can enable that improve performance around [cold start](./event-driven-scaling.md#cold-start).
 
-In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
+In general, your app should use the latest versions of its core dependencies. At a minimum, update your project as follows:
 
 1. Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
 1. Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.4 or later.
@@ -1058,11 +1163,11 @@ The following snippet shows this configuration in the context of a project file:
 
 ### Placeholders
 
-Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. To use this optimization, you must explicitly enable placeholders using these steps:
+Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. To use this optimization, you must explicitly enable placeholders by following these steps:
 
 1. Update your project configuration to use the latest dependency versions, as detailed in the previous section.
 
-1. Set the [`WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED`](./functions-app-settings.md#website_use_placeholder_dotnetisolated) application setting to `1`, which you can do by using this [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command:
+1. Set the [`WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED`](./functions-app-settings.md#website_use_placeholder_dotnetisolated) application setting to `1`. Use this [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command:
 
     ```azurecli
     az functionapp config appsettings set -g <groupName> -n <appName> --settings 'WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED=1'
@@ -1070,7 +1175,7 @@ Placeholders are a platform capability that improves cold start for apps targeti
 
     In this example, replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. 
  
-1. Make sure that the [`netFrameworkVersion`](./functions-app-settings.md#netframeworkversion) property of the function app matches your project's target framework, which must be .NET 6 or later. You can do this by using this [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
+1. Make sure that the [`netFrameworkVersion`](./functions-app-settings.md#netframeworkversion) property of the function app matches your project's target framework, which must be .NET 6 or later. Use this [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
 
     ```azurecli
     az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
@@ -1078,14 +1183,14 @@ Placeholders are a platform capability that improves cold start for apps targeti
 
     In this example, also replace `<framework>` with the appropriate version string, such as `v8.0`, according to your target .NET version.
         
-1. Make sure that your function app is configured to use a 64-bit process, which you can do by using this [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
+1. Make sure that your function app is configured to use a 64-bit process. Use this [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
 
     ```azurecli
     az functionapp config set -g <groupName> -n <appName> --use-32bit-worker-process false
     ```
 
 > [!IMPORTANT]
-> When setting the [`WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED`](./functions-app-settings.md#website_use_placeholder_dotnetisolated) to `1`, all other function app configurations must be set correctly. Otherwise, your function app might fail to start.
+> When setting the [`WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED`](./functions-app-settings.md#website_use_placeholder_dotnetisolated) to `1`, you must set all other function app configurations correctly. Otherwise, your function app might fail to start.
 
 ### Optimized executor 
 
@@ -1095,7 +1200,7 @@ The function executor is a component of the platform that causes invocations to 
 
 You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of cold starts when running in a [Consumption plan](consumption-plan.md). ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
 
-ReadyToRun requires you to build the project against the runtime architecture of the hosting app. **If these are not aligned, your app will encounter an error at startup.** Select your runtime identifier from this table:
+ReadyToRun requires you to build the project against the runtime architecture of the hosting app. When these architectures aren't aligned, your app encounters an error at startup. Select your runtime identifier from this table:
 
 |Operating System | App is 32-bit<sup>1</sup> | Runtime identifier |
 |-|-|-|
@@ -1106,7 +1211,7 @@ ReadyToRun requires you to build the project against the runtime architecture of
 
 <sup>1</sup> Only 64-bit apps are eligible for some other performance optimizations.
 
-To check if your Windows app is 32-bit or 64-bit, you can run the following CLI command, substituting `<group_name>` with the name of your resource group and `<app_name>` with the name of your application. An output of "true" indicates that the app is 32-bit, and "false" indicates 64-bit.
+To check if your Windows app is 32-bit or 64-bit, run the following CLI command, substituting `<group_name>` with the name of your resource group and `<app_name>` with the name of your application. An output of "true" indicates that the app is 32-bit, and "false" indicates 64-bit.
 
 ```azurecli
  az functionapp config show -g <group_name> -n <app_name> --query "use32BitWorkerProcess"
@@ -1129,34 +1234,34 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 </PropertyGroup>
 ```
 
-If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publishing gesture itself. For example, with a Windows 64-bit function app, the .NET CLI command would be:
+If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this setting as part of the publishing gesture itself. For example, with a Windows 64-bit function app, the .NET CLI command is:
 
 ```dotnetcli
 dotnet publish --runtime win-x64
 ```
 
-In Visual Studio, the **Target Runtime** option in the publish profile should be set to the correct runtime identifier. When set to the default value of **Portable**, ReadyToRun isn't used.
+In Visual Studio, set the **Target Runtime** option in the publish profile to the correct runtime identifier. When set to the default value of **Portable**, ReadyToRun isn't used.
 
 ## Deploy to Azure Functions
 
-When you deploy your function code project to Azure, it must run in either a function app or in a Linux container. The function app and other required Azure resources must exist before you deploy your code.  
+When you deploy your function code project to Azure, it must run in either a function app or in a Linux container. You must create the function app and other required Azure resources before you deploy your code.  
 
 You can also deploy your function app in a Linux container. For more information, see [Working with containers and Azure Functions](functions-how-to-custom-container.md). 
 
 ### Create Azure resources
 
-You can create your function app and other required resources in Azure using one of these methods: 
+You can create your function app and other required resources in Azure by using one of these methods: 
 
 + [Visual Studio](functions-develop-vs.md#publish-to-azure): Visual Studio can create resources for you during the code publishing process.
 + [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure): Visual Studio Code can connect to your subscription, create the resources needed by your app, and then publish your code.
-+ [Azure CLI](how-to-create-function-azure-cli.md?pivots=programming-language-csharp#create-supporting-azure-resources-for-your-function): You can use the Azure CLI to create the required resources in Azure. 
-+ [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c): You can use Azure PowerShell to create the required resources in Azure. 
-+ [Deployment templates](./functions-infrastructure-as-code.md): You can use ARM templates and Bicep files to automate the deployment of the required resources to Azure. Make sure your template includes any [required settings](#deployment-requirements).
-+ [Azure portal](./functions-create-function-app-portal.md): You can create the required resources in the [Azure portal](https://portal.azure.com).
++ [Azure CLI](how-to-create-function-azure-cli.md?pivots=programming-language-csharp#create-supporting-azure-resources-for-your-function): Use the Azure CLI to create the required resources in Azure. 
++ [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c): Use Azure PowerShell to create the required resources in Azure. 
++ [Deployment templates](./functions-infrastructure-as-code.md): Use ARM templates and Bicep files to automate the deployment of the required resources to Azure. Make sure your template includes any [required settings](#deployment-requirements).
++ [Azure portal](./functions-create-function-app-portal.md): Create the required resources in the [Azure portal](https://portal.azure.com).
 
 ### Publish your application
 
-After creating your function app and other required resources in Azure, you can deploy the code project to Azure using one of these methods:
+After creating your function app and other required resources in Azure, deploy the code project to Azure by using one of these methods:
 
 + [Visual Studio](functions-develop-vs.md#publish-to-azure): Simple manual deployment during development. 
 + [Visual Studio Code](functions-develop-vs-code.md?tabs=isolated-process&pivots=programming-language-csharp#republish-project-files): Simple manual deployment during development.
@@ -1168,7 +1273,7 @@ For more information, see [Deployment technologies in Azure Functions](functions
 
 #### Deployment payload
 
-Many of the deployment methods make use of a zip archive. If you're creating the zip archive yourself, it must follow the structure outlined in this section. If it doesn't, your app may experience errors at startup.
+Many of the deployment methods use a zip archive. If you create the zip archive yourself, it must follow the structure outlined in this section. If it doesn't, your app might experience errors at startup.
 
 The deployment payload should match the output of a `dotnet publish` command, though without the enclosing parent folder. The zip archive should be made from the following files:
 
@@ -1180,23 +1285,26 @@ The deployment payload should match the output of a `dotnet publish` command, th
 - Your project executable (a console app)
 - Other supporting files and directories peer to that executable
 
-These files are generated by the build process, and they aren't meant to be edited directly.
+The build process generates these files, and you shouldn't edit them directly. 
 
-When preparing a zip archive for deployment, you should only compress the contents of the output directory, not the enclosing directory itself. When the archive is extracted into the current working directory, the files listed above need to be immediately visible.
+>[!TIP]
+>You can use the `func pack` command in Core Tools to correctly generate a zip archive for deployment. Support for `func pack` is currently in preview.
+
+When preparing a zip archive for deployment, compress only the contents of the output directory, not the enclosing directory itself. When the archive is extracted into the current working directory, the files listed earlier need to be immediately visible.
 
 ### Deployment requirements
 
-There are a few requirements for running .NET functions in the isolated worker model in Azure, depending on the operating system:
+To run .NET functions in the isolated worker model in Azure, you need to meet a few requirements. The requirements depend on the operating system:
 
-### [Windows](#tab/windows)
+#### [Windows](#tab/windows)
 
-+ [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) must be set to a value of `dotnet-isolated`.
-+ [netFrameworkVersion](functions-app-settings.md#netframeworkversion) must be set to the desired version.
++ Set [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) to `dotnet-isolated`.
++ Set [netFrameworkVersion](functions-app-settings.md#netframeworkversion) to the desired version.
 
-### [Linux](#tab/linux)
+#### [Linux](#tab/linux)
 
-+ [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) must be set to a value of `dotnet-isolated`.
-+ [`linuxFxVersion`](./functions-app-settings.md#linuxfxversion) must be set to the [correct base image](update-language-versions.md?tabs=azure-cli%2Clinux&pivots=programming-language-csharp#update-the-stack-configuration), like `DOTNET-ISOLATED|8.0`. 
++ Set [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) to `dotnet-isolated`.
++ Set [`linuxFxVersion`](./functions-app-settings.md#linuxfxversion) to the [correct base image](update-language-versions.md?tabs=azure-cli%2Clinux&pivots=programming-language-csharp#update-the-stack-configuration), like `DOTNET-ISOLATED|8.0`. 
 
 ---
 
@@ -1320,7 +1428,7 @@ To use Azure Functions with a preview version of .NET, you need to update your p
 
 When you deploy to your function app in Azure, you also need to ensure that the framework is made available to the app. During the preview period, some tools and experiences may not surface the new preview version as an option. If you don't see the preview version included in the Azure portal, for example, you can use the REST API, Bicep files, or the Azure CLI to configure the version manually.
 
-### [Windows](#tab/windows)
+#### [Windows](#tab/windows)
 
 For apps hosted on Windows, use the following Azure CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as `v8.0`.
 
@@ -1328,7 +1436,7 @@ For apps hosted on Windows, use the following Azure CLI command. Replace `<group
 az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
 ```
 
-### [Linux](#tab/linux)
+#### [Linux](#tab/linux)
 
 For apps hosted on Linux, use the following Azure CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<version>` with the appropriate version string, such as `8.0`.
 

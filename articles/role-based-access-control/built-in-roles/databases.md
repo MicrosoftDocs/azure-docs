@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -130,6 +130,7 @@ Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents 
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | **NotActions** |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/copyJobs/* |  |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/dataTransferJobs/* |  |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/readonlyKeys/* |  |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/regenerateKey/* |  |
@@ -169,6 +170,7 @@ Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents 
         "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action"
       ],
       "notActions": [
+        "Microsoft.DocumentDB/databaseAccounts/copyJobs/*",
         "Microsoft.DocumentDB/databaseAccounts/dataTransferJobs/*",
         "Microsoft.DocumentDB/databaseAccounts/readonlyKeys/*",
         "Microsoft.DocumentDB/databaseAccounts/regenerateKey/*",
@@ -202,8 +204,8 @@ Can submit restore request for a Cosmos DB database or a container for an accoun
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/backup/action | Submit a request to configure backup |
-> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/restore/action | Submit a restore request |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/backup/action | Submit a request to trigger external backup operation |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/restore/action | Submit a request to trigger external restore operation |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -661,7 +663,7 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/advancedThreatProtectionSettings/read | Retrieve a list of server Advanced Threat Protection settings configured for a given server |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/advancedThreatProtectionSettings/write | Change the server Advanced Threat Protection settings for a given server |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/auditingSettings/* | Create and manage SQL server auditing setting |
-> | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/extendedAuditingSettings/read | Retrieve details of the extended server blob auditing policy configured on a given server |
+> | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/extendedAuditingSettings/* |  |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/databases/advancedThreatProtectionSettings/read | Retrieve a list of database Advanced Threat Protection settings configured for a given database |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/databases/advancedThreatProtectionSettings/write | Change the database Advanced Threat Protection settings for a given database |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/databases/advancedThreatProtectionSettings/read | Retrieve a list of database Advanced Threat Protection settings configured for a given database |
@@ -752,7 +754,7 @@ Lets you manage the security-related policies of SQL servers and databases, but 
         "Microsoft.Sql/servers/advancedThreatProtectionSettings/read",
         "Microsoft.Sql/servers/advancedThreatProtectionSettings/write",
         "Microsoft.Sql/servers/auditingSettings/*",
-        "Microsoft.Sql/servers/extendedAuditingSettings/read",
+        "Microsoft.Sql/servers/extendedAuditingSettings/*",
         "Microsoft.Sql/servers/databases/advancedThreatProtectionSettings/read",
         "Microsoft.Sql/servers/databases/advancedThreatProtectionSettings/write",
         "Microsoft.Sql/servers/databases/advancedThreatProtectionSettings/read",

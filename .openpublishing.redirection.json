@@ -5065,6 +5065,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/role-based-access-control/built-in-roles/mixed-reality.md",
+      "redirect_url": "/azure/role-based-access-control/built-in-roles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/role-based-access-control/permissions/mixed-reality.md",
+      "redirect_url": "/azure/role-based-access-control/resource-provider-operations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": false

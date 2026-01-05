@@ -2093,7 +2093,7 @@ Suppose that you want to format the number `1234567890`. This example formats th
 formatNumber(1234567890, '#,##0.00', 'en-US')
 ```
 
-*Example 2"
+*Example 2*
 
 Suppose that you want to format the number `1234567890`. This example formats the number to the string "1.234.567.890,00".
 

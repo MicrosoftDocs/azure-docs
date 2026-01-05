@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 12/10/2025
+ms.date: 01/02/2026
 ---
 
 # Use deployment scripts in Bicep
@@ -26,10 +26,12 @@ The benefits of deployment scripts include:
 
 The deployment script resource is available only in the regions where Azure Container Instances is available. For more information, see [Resource availability & quota limits for ACI](/azure/container-instances/container-instances-resource-and-quota-limits) and [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
+The deployment script service creates two supporting resources - a storage account and a container instance - to run and troubleshoot scripts. The names of these resources are generated using a deterministic hash of the deployment script's resource ID, with the suffix azscripts appended (for example, *jgczqtxom5oreazscripts*). As a result, repeated executions of the same deployment script may reuse the same storage account.
+
+In rare cases, you may encounter the error "The storage account named \<storage-account-name> is already taken." This typically occurs when a storage account created by a previous execution of the same deployment script was not cleaned up successfully.
+
 > [!WARNING]
-> The deployment script service requires two extra resources to run and troubleshoot scripts: a storage account and a container instance. Generally, the service cleans up these resources after the deployment script finishes. You incur charges for these resources until they're removed.
->
-> For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
+> Generally, the service cleans up these supporting resources after the deployment script finishes. You incur charges for these resources until they're removed. For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
 
 ## Configure the minimum permissions
 

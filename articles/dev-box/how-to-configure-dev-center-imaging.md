@@ -3,6 +3,7 @@ title: Configure Imaging for Dev Box Team Customizations
 description: Configure dev box pools to use image definition files so that you can optimize customizations and create reusable images for your team.
 author: RoseHJM
 ms.author: rosemalcolm
+ms.reviewer: rosemalcolm
 ms.service: dev-box
 ms.custom:
   - ignite-2024
@@ -41,7 +42,7 @@ To manage a dev box pool, you need the following permissions:
 
 | Action | Permission |
 |---|---|
-| Create, delete, or update a dev box pool. | - Owner or Contributor permissions on an Azure subscription or a specific resource group. </br>- DevCenter Project Admin permissions for the project. |
+| Create, delete, or update a dev box pool. | - Owner or Contributor permissions on an Azure subscription or a specific resource group. </br>- DevCenter Owner permissions on the dev center. </br>- DevCenter Project Admin permissions for the project. |
 
 ## Enable project-level catalogs
 

@@ -23,5 +23,5 @@ In the preceding steps, you created Azure resources in a resource group.
 
     ```azurecli-interactive
     # delete app - do this for both frontend and backend client ids
-    az ad app delete <client-id>
+    az ad app delete --id <client-id>
     ```

@@ -1311,6 +1311,12 @@ items:
       - name: Hive
         href: connector-troubleshoot-hive.md
         displayName: troubleshooting
+      - name: Microsoft Fabric Lakehouse
+        href: connector-troubleshoot-microsoft-fabric-lakehouse.md
+        displayName: troubleshooting
+      - name: Microsoft Fabric Warehouse
+        href: connector-troubleshoot-microsoft-fabric-warehouse.md
+        displayName: troubleshooting
       - name: MongoDB
         href: connector-troubleshoot-mongodb.md
         displayName: troubleshooting
@@ -1409,6 +1415,8 @@ items:
   items:
   - name: Secure your Azure Data Factory
     href: secure-your-azure-data-factory.md
+  - name: Business continuity and disaster recovery
+    href: pipelines-disaster-recovery.md
 - name: Workflow Orchestration Manager
   items:
   - name: Tutorials

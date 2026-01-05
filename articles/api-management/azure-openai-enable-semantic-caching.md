@@ -28,7 +28,7 @@ Enable semantic caching of responses to LLM API requests to reduce bandwidth and
 
     * Chat Completion API - Deployment used for API consumer calls 
     * Embeddings API - Deployment used for semantic caching
-* Configure the API Management instance to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
+* Configure the API Management instance to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to AI APIs using Azure API Management ](api-management-authenticate-authorize-ai-apis.md#authenticate-with-managed-identity).
 * An [Azure Managed Redis](../redis/quickstart-create-managed-redis.md) instance with the **RediSearch** module enabled on the Redis cache.
     > [!NOTE]
     > You can only enable the **RediSearch** module when creating a new  Azure Managed Redis cache. You can't add a module to an existing cache. [Learn more](../redis/redis-modules.md)

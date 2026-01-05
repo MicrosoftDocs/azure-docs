@@ -7,13 +7,14 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
 # Azure built-in roles for Internet of Things
 
 This article lists the Azure built-in roles in the Internet of Things category.
+
 
 ## Azure Device Registry Contributor
 
@@ -269,6 +270,130 @@ Read-only role for Digital Twins data-plane properties
     }
   ],
   "roleName": "Azure Digital Twins Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure IoT Operations Administrator
+
+View, create, edit and delete AIO resources. Manage all resources, including instance and its downstream resources.
+
+[Learn more](/azure/iot-operations/secure-iot-ops/built-in-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.IoTOperations/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | Microsoft.DeviceRegistry/Assets/* |  |
+> | Microsoft.DeviceRegistry/AssetEndpointProfiles/* |  |
+> | Microsoft.DeviceRegistry/Namespaces/Assets/* |  |
+> | Microsoft.DeviceRegistry/Namespaces/Devices/* |  |
+> | Microsoft.DeviceRegistry/Namespaces/DiscoveredAssets/* |  |
+> | Microsoft.DeviceRegistry/Namespaces/DiscoveredDevices/* |  |
+> | Microsoft.DeviceRegistry/SchemaRegistries/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Edge/sites/read | Get a Site |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View, create, edit and delete AIO resources. Manage all resources, including instance and its downstream resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5bc02df6-6cd5-43fe-ad3d-4c93cf56cc16",
+  "name": "5bc02df6-6cd5-43fe-ad3d-4c93cf56cc16",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.IoTOperations/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.DeviceRegistry/Assets/*",
+        "Microsoft.DeviceRegistry/AssetEndpointProfiles/*",
+        "Microsoft.DeviceRegistry/Namespaces/Assets/*",
+        "Microsoft.DeviceRegistry/Namespaces/Devices/*",
+        "Microsoft.DeviceRegistry/Namespaces/DiscoveredAssets/*",
+        "Microsoft.DeviceRegistry/Namespaces/DiscoveredDevices/*",
+        "Microsoft.DeviceRegistry/SchemaRegistries/*",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Edge/sites/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure IoT Operations Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure IoT Operations Onboarding
+
+User can Azure arc connect and deploy Azure IoT Operations securely.
+
+[Learn more](/azure/iot-operations/secure-iot-ops/built-in-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.IoTOperations/* |  |
+> | Microsoft.DeviceRegistry/register/action | Register the subscription for Microsoft.DeviceRegistry |
+> | Microsoft.DeviceRegistry/schemaRegistries/read | Get a SchemaRegistry |
+> | Microsoft.DeviceRegistry/schemaRegistries/write | Update a SchemaRegistry |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/write |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Edge/sites/read | Get a Site |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "User can Azure arc connect and deploy Azure IoT Operations securely.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7b7c71ed-33fa-4ed2-a91a-e56d5da260b5",
+  "name": "7b7c71ed-33fa-4ed2-a91a-e56d5da260b5",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.IoTOperations/*",
+        "Microsoft.DeviceRegistry/register/action",
+        "Microsoft.DeviceRegistry/schemaRegistries/read",
+        "Microsoft.DeviceRegistry/schemaRegistries/write",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Authorization/*/write",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Edge/sites/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure IoT Operations Onboarding",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -688,7 +813,7 @@ Gives you read access to management and content operations, but does not allow m
 
 ## Firmware Analysis Admin
 
-Upload and analyze firmware images in Defender for IoT
+Administrative user that can upload/view firmwares & configure firmware workspaces
 
 [Learn more](/azure/defender-for-iot/device-builders/defender-iot-firmware-analysis-rbac)
 
@@ -711,7 +836,7 @@ Upload and analyze firmware images in Defender for IoT
   "assignableScopes": [
     "/"
   ],
-  "description": "Upload and analyze firmware images in Defender for IoT",
+  "description": "Administrative user that can upload/view firmwares & configure firmware workspaces",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/9c1607d1-791d-4c68-885d-c7b7aaff7c8a",
   "name": "9c1607d1-791d-4c68-885d-c7b7aaff7c8a",
   "permissions": [
@@ -728,6 +853,118 @@ Upload and analyze firmware images in Defender for IoT
     }
   ],
   "roleName": "Firmware Analysis Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Firmware Analysis Reader
+
+View firmware images but not upload them or perform any workspace configuration
+
+[Learn more](/azure/firmware-analysis/firmware-analysis-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/*/read |  |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/workspaces/firmwares/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/firmwareGroups/* |  |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/workspaces/firmwares/write | The operation to update firmware. |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/workspaces/firmwares/delete | The operation to delete a firmware. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View firmware images but not upload them or perform any workspace configuration",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/2a94a2fd-3c4f-45d1-847d-6585ba88af94",
+  "name": "2a94a2fd-3c4f-45d1-847d-6585ba88af94",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.IoTFirmwareDefense/*/read",
+        "Microsoft.IoTFirmwareDefense/workspaces/firmwares/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [
+        "Microsoft.IoTFirmwareDefense/firmwareGroups/*",
+        "Microsoft.IoTFirmwareDefense/workspaces/firmwares/write",
+        "Microsoft.IoTFirmwareDefense/workspaces/firmwares/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Firmware Analysis Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Firmware Analysis User
+
+Upload and analyze firmware images but not perform any workspace configuration
+
+[Learn more](/azure/firmware-analysis/firmware-analysis-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/firmwareGroups/* |  |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/register/action | Register the subscription for Microsoft.IoTFirmwareDefense |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/unregister/action | Unregister the subscription for Microsoft.IoTFirmwareDefense |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/workspaces/write | The operation to update a firmware analysis workspaces. |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/workspaces/delete | The operation to delete a firmware analysis workspace. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Upload and analyze firmware images but not perform any workspace configuration",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/53b2724d-1e51-44fa-b586-bcace0c82609",
+  "name": "53b2724d-1e51-44fa-b586-bcace0c82609",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.IoTFirmwareDefense/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [
+        "Microsoft.IoTFirmwareDefense/firmwareGroups/*",
+        "Microsoft.IoTFirmwareDefense/register/action",
+        "Microsoft.IoTFirmwareDefense/unregister/action",
+        "Microsoft.IoTFirmwareDefense/workspaces/write",
+        "Microsoft.IoTFirmwareDefense/workspaces/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Firmware Analysis User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 09/24/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -589,10 +589,10 @@ Arc ScVmm VM Contributor has permissions to perform all VM actions.
 
 ## Azure Resource Bridge Deployment Role
 
-> [!IMPORTANT] 
-> This deployment role only applies to Azure Stack HCI. It does not apply to any other Arc Private Cloud and does not work for other private clouds.
-
 Azure Resource Bridge Deployment Role is used only for Azure Stack HCI.
+
+> [!IMPORTANT]
+> This deployment role only applies to Azure Stack HCI. It does not apply to any other Arc Private Cloud and does not work for other private clouds.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -818,7 +818,7 @@ Grants full access to the cluster and its resources, including the ability to re
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6,c99c945f-8bd1-4fb1-a903-01460aae6068})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6,c99c945f-8bd1-4fb1-a903-01460aae6068})) | Add or remove role assignments for the following roles:<br/>Azure Connected Machine Resource Manager<br/>Azure Connected Machine Resource Administrator<br/>Azure Connected Machine Onboarding<br/>Azure Stack HCI Connected InfraVMs<br/>Azure Stack HCI VM Reader<br/>Azure Stack HCI VM Contributor<br/>Azure Stack HCI Device Management Role<br/>Azure Resource Bridge Deployment Role<br/>Key Vault Secrets User |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6,c99c945f-8bd1-4fb1-a903-01460aae6068, b86a8fe4-44ce-4948-aee5-eccb2c155cd7})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6,c99c945f-8bd1-4fb1-a903-01460aae6068, b86a8fe4-44ce-4948-aee5-eccb2c155cd7})) | Add or remove role assignments for the following roles:<br/>Azure Connected Machine Resource Manager<br/>Azure Connected Machine Resource Administrator<br/>Azure Connected Machine Onboarding<br/>Azure Stack HCI Connected InfraVMs<br/>Azure Stack HCI VM Reader<br/>Azure Stack HCI VM Contributor<br/>Azure Stack HCI Device Management Role<br/>Azure Resource Bridge Deployment Role<br/>Key Vault Secrets User<br/>Key Vault Secrets Officer |
 
 ```json
 {
@@ -939,7 +939,7 @@ Grants full access to the cluster and its resources, including the ability to re
       "dataActions": [],
       "notDataActions": [],
       "conditionVersion": "2.0",
-      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6,c99c945f-8bd1-4fb1-a903-01460aae6068})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6,c99c945f-8bd1-4fb1-a903-01460aae6068}))"
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6,c99c945f-8bd1-4fb1-a903-01460aae6068, b86a8fe4-44ce-4948-aee5-eccb2c155cd7})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6,c99c945f-8bd1-4fb1-a903-01460aae6068, b86a8fe4-44ce-4948-aee5-eccb2c155cd7}))"
     }
   ],
   "roleName": "Azure Stack HCI Administrator",
@@ -1022,6 +1022,8 @@ Microsoft.AzureStackHCI Device Management Role
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/LogicalNetworks/Read | Gets/Lists logical networks resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/LogicalNetworks/Write | Creates/Updates logical networks resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Register/Action | Registers the subscription for the Azure Local resource provider and enables the creation of Azure Local resources. |
 > | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
 > | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
@@ -1076,6 +1078,8 @@ Microsoft.AzureStackHCI Device Management Role
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.AzureStackHCI/StorageContainers/Write",
         "Microsoft.AzureStackHCI/StorageContainers/Read",
+        "Microsoft.AzureStackHCI/LogicalNetworks/Read",
+        "Microsoft.AzureStackHCI/LogicalNetworks/Write",
         "Microsoft.AzureStackHCI/Register/Action",
         "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
         "Microsoft.KubernetesConfiguration/extensions/write",

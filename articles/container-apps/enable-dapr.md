@@ -4,7 +4,7 @@ description: Configure Dapr on your existing Azure Container App service.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/08/2025
 ms.custom:
   - build-2023
@@ -34,7 +34,7 @@ The following table outlines the currently supported list of Dapr sidecar config
 | `--dapr-read-buffer-size` | `dapr.httpReadBufferSize` | Set the max size of http header read buffer in to handle when sending multi-KB headers. Default setting is `4 KB`.                    |
 | `--dapr-api-logging`      | `dapr.enableApiLogging`   | Enables viewing the API calls from your application to the Dapr sidecar.                                                     |
 | `--dapr-log-level`        | `dapr.logLevel`           | Set the log level for the Dapr sidecar. Allowed values: debug, error, info, warn. Default setting is `info`.                         |
-| `--dapr-app-health-enabled` | `dapr.appHealth.enabled`| Optional configuration to enable app health checks for your container app using Boolean format. Default setting is `false`.                                |
+| `--dapr-app-health-enabled` | `dapr.appHealth.enabled`| Optional configuration to enable app health checks for your container app using Boolean format. Default setting is `false`. Dapr sidecar health is linked to this app health setting.                               |
 | `--dapr-app-health-path`    | `dapr.appHealth.path`| Set the path that Dapr invokes for health probes when the app channel is HTTP. This value is ignored if the app channel is using gRPC. Default setting is `/healthz`.                               |
 | `--dapr-app-health-probe-interval` | `dapr.appHealth.probeIntervalSeconds`| Number of seconds between each health probe. Default setting is `3`.                             |
 | `--dapr-app-health-probe-timeout` | `dapr.appHealth.probeTimeoutMilliseconds`| Timeout in milliseconds for health probe requests. This value must be smaller than the `probeIntervalSeconds` value. Default setting is `500`.              |

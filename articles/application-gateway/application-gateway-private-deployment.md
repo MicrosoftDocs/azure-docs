@@ -175,6 +175,9 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 After registering the feature, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.
 
+> [!NOTE]
+> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact appgw-idle-timeout@microsoft.com to request initiation of keep‑alive from Application Gateway.
+
 ## Application Gateway Subnet 
 
 Application Gateway Subnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration, is important that this subnet can reach privately the resources that want to connect to your exposed app or site.

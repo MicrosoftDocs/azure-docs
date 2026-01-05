@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -28,6 +28,10 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | Microsoft.App/agents/read | Read SRE Agent properties |
 > | Microsoft.App/agents/write | Create or Update a SRE Agent |
 > | Microsoft.App/agents/delete | Delete a SRE Agent |
+> | Microsoft.App/agentspaces/read | Read SRE AgentSpace properties |
+> | Microsoft.App/agentspaces/write | Create or Update a SRE AgentSpace |
+> | Microsoft.App/agentspaces/delete | Delete a SRE AgentSpace |
+> | Microsoft.App/agentspaces/join/action | Allow to create a SRE Agent in a SRE AgentSpace |
 > | microsoft.app/builders/write | Create or update a Builder |
 > | microsoft.app/builders/read | Get a Builder |
 > | microsoft.app/builders/delete | Delete a Builder |
@@ -69,6 +73,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/containerapps/builds/read | Get a ContainerApp's Build by Build name |
 > | microsoft.app/containerapps/builds/delete | Delete a Container App's Build |
 > | microsoft.app/containerapps/detectors/read | Get detector of a container app |
+> | microsoft.app/containerapps/functions/read | List functions in a function app (single revision mode only) |
 > | microsoft.app/containerapps/labelhistory/read | Get a Container App's label history |
 > | microsoft.app/containerapps/labelhistory/delete | Delete a Container App's label history for a given label |
 > | microsoft.app/containerapps/patches/read | Get a ContainerApp's Patch |
@@ -89,6 +94,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/containerapps/revisions/restart/action | Restart a container app revision |
 > | microsoft.app/containerapps/revisions/activate/action | Activate a container app revision |
 > | microsoft.app/containerapps/revisions/deactivate/action | Deactivate a container app revision |
+> | microsoft.app/containerapps/revisions/functions/read | List functions in a specific revision of a function app |
 > | microsoft.app/containerapps/revisions/replicas/read | Get replica of a container app revision |
 > | microsoft.app/containerapps/sourcecontrols/write | Create or Update Container App Source Control Configuration |
 > | microsoft.app/containerapps/sourcecontrols/read | Get Container App Source Control Configuration |
@@ -126,7 +132,18 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/locations/operationstatuses/read | Get a Long Running Operation Status |
 > | microsoft.app/locations/sourcecontroloperationresults/read | Get Container App Source Control Long Running Operation Result |
 > | microsoft.app/locations/sourcecontroloperationstatuses/read | Get a Container App Source Control Long Running Operation Status |
+> | Microsoft.App/locations/sreagentoperationresults/read | Get the result of a SRE Agent operation |
+> | Microsoft.App/locations/sreagentoperationstatuses/read | Get the status of a SRE Agent operation |
 > | microsoft.app/locations/usages/read | Get Quota Usages in a Region |
+> | microsoft.app/logicApps/read | Get a Logic App |
+> | microsoft.app/logicApps/write | Create or update a Logic App |
+> | microsoft.app/logicApps/delete | Delete a Logic App |
+> | microsoft.app/logicApps/deployWorkflowArtifacts/action | Deploy workflow artifacts to a Logic App |
+> | microsoft.app/logicApps/invoke/action | Invoke logic app runtime. |
+> | microsoft.app/logicApps/connections/read | List connections in a Logic App |
+> | microsoft.app/logicApps/workflow/read | Get a specific workflow in a Logic App |
+> | microsoft.app/logicApps/workflows/read | List all workflows in a Logic App |
+> | Microsoft.App/managedEnvironments/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | microsoft.app/managedenvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
 > | microsoft.app/managedenvironments/join/action | Allows to create a Container App in a Managed Environment |
 > | microsoft.app/managedenvironments/read | Get a Managed Environment |
@@ -150,7 +167,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/managedenvironments/dotnetcomponents/read | Read Managed Environment .NET Component |
 > | microsoft.app/managedenvironments/dotnetcomponents/write | Create or update Managed Environment .NET Component |
 > | microsoft.app/managedenvironments/dotnetcomponents/delete | Delete Managed Environment .NET Component |
-> | microsoft.app/managedenvironments/httprouteconfigs/read | Get All HTTP Route Configurations for a Managed Environment. |
+> | microsoft.app/managedenvironments/httprouteconfigs/read | Get All HTTP Route Configuraions for a Managed Environment. |
 > | microsoft.app/managedenvironments/httprouteconfigs/write | Create or Update HTTP Route Configuration for a Managed Environment. |
 > | microsoft.app/managedenvironments/httprouteconfigs/delete | Delete an HTTP Route Configuration for a Managed Environment. |
 > | microsoft.app/managedenvironments/javacomponents/read | Read Managed Environment Java Component |
@@ -179,24 +196,39 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/sessionpools/write | Create or Update a Session Pool |
 > | microsoft.app/sessionpools/read | Get a Session Pool |
 > | microsoft.app/sessionpools/delete | Delete a Session Pool |
-> | microsoft.app/sessionpools/sessions/generatesessions/action | Generate sessions |
-> | microsoft.app/sessionpools/sessions/read | Get a Session |
+> | microsoft.app/sessionpools/fetchmcpservercredentials/action | Fetch a Session Pool's MCP Server Credentials |
+> | microsoft.app/sessionpools/rotatemcpservercredentials/action | Rotate a Session Pool's MCP Server Credentials |
 > | **DataAction** | **Description** |
+> | Microsoft.App/agents/extendedagents/read | Read extended agent configurations in an SRE agent |
+> | Microsoft.App/agents/extendedagents/write | Update extended agent configurations in an SRE agent |
+> | Microsoft.App/agents/extendedagents/delete | Delete existing extended agent configurations in an SRE agent |
+> | Microsoft.App/agents/graph/read | Read resource graph in an SRE agent |
+> | Microsoft.App/agents/graph/write | Update nodes in resource graph in an SRE agent |
+> | Microsoft.App/agents/graph/delete | Delete existing nodes in resource graph in an SRE agent |
+> | Microsoft.App/agents/incidentmanagement/read | Read incident management configurations in an SRE agent |
+> | Microsoft.App/agents/incidentmanagement/write | Update agent incident management configurations in an SRE agent |
+> | Microsoft.App/agents/incidentmanagement/delete | Delete existing agent incident management configurations in an SRE agent |
+> | Microsoft.App/agents/memory/read | Read agent memory in an SRE agent |
+> | Microsoft.App/agents/memory/write | Update agent memory in an SRE agent |
+> | Microsoft.App/agents/memory/delete | Delete existing agent memory in an SRE agent |
+> | Microsoft.App/agents/scheduledtasks/read | Read scheduled tasks in an SRE agent |
+> | Microsoft.App/agents/scheduledtasks/write | Update scheduled tasks in an SRE agent |
+> | Microsoft.App/agents/scheduledtasks/delete | Delete existing scheduled tasks in an SRE agent |
 > | Microsoft.App/agents/threads/read | Read all the conversation threads with an SRE Agent |
 > | Microsoft.App/agents/threads/write | Create new conversation threads with an SRE Agent and reply to existing threads |
+> | Microsoft.App/agents/threads/delete | Delete existing conversation threads with an SRE Agent |
+> | Microsoft.App/agents/threads/approve/action | Approve action executions in conversation threads |
 > | microsoft.app/containerApps/logstream/action | View log stream of a container app |
 > | microsoft.app/containerApps/exec/action | Connect to console of a container app |
 > | microsoft.app/containerApps/debug/action | Connect to debug console of a container app |
 > | microsoft.app/jobs/logstream/action | View log stream of a container app job |
 > | microsoft.app/jobs/exec/action | Connect to console of a container app job |
-> | Microsoft.App/managedEnvironments/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | Microsoft.App/sessionPools/executions/action | Execute code in a session pool code interpreter session |
 > | Microsoft.App/sessionPools/files/action | Upload file to a session pool code interpreter session |
 > | Microsoft.App/sessionPools/executions/read | Get the execution result of a previous asynchronous code execution |
 > | Microsoft.App/sessionPools/files/read | Get the metadata of a file in a session pool code interpreter session |
 > | Microsoft.App/sessionPools/files/delete | Delete the file |
 > | Microsoft.App/sessionPools/files/content/read | Get the content of a file in a session pool code interpreter session |
-> | microsoft.app/sessionpools/interpreters/execute/action | Execute Code |
 > | microsoft.app/sessionPools/sessions/write | Operate a session |
 
 ## Microsoft.AppPlatform
@@ -258,6 +290,7 @@ Azure service: [Azure Spring Apps](/azure/spring-apps/)
 > | Microsoft.AppPlatform/Spring/apps/read | Get the applications for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Get the resource upload URL of a specific Microsoft Azure Spring Apps application |
 > | Microsoft.AppPlatform/Spring/apps/validateDomain/action | Validate the custom domain for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/listConnectorProps/action | List service connector properties of the app in Azure Spring Apps |
 > | Microsoft.AppPlatform/Spring/apps/setActiveDeployments/action | Set active deployments for a specific Microsoft Azure Spring Apps application |
 > | Microsoft.AppPlatform/Spring/apps/validate/action | Validate the container registry for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apps/bindings/write | Create or update the binding for a specific application |
@@ -276,6 +309,7 @@ Azure service: [Azure Spring Apps](/azure/spring-apps/)
 > | Microsoft.AppPlatform/Spring/apps/deployments/generateHeapDump/action | Generate heap dump for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/generateThreadDump/action | Generate thread dump for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/startJFR/action | Start JFR for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/listConnectorProps/action | List service connector properties of the deployment in Azure Spring Apps |
 > | Microsoft.AppPlatform/Spring/apps/deployments/enableRemoteDebugging/action | Enable remote debugging for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/disableRemoteDebugging/action | Disable remote debugging for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/getRemoteDebuggingConfig/action | Get remote debugging configuration for a specific application |
@@ -510,11 +544,18 @@ Azure service: [Batch](/azure/batch/)
 > | Microsoft.Batch/batchAccounts/applications/versions/write | Creates a new application package or updates an existing application package |
 > | Microsoft.Batch/batchAccounts/applications/versions/delete | Deletes an application package |
 > | Microsoft.Batch/batchAccounts/applications/versions/activate/action | Activates an application package |
-> | Microsoft.Batch/batchAccounts/certificateOperationResults/read | Gets the results of a long running certificate operation on a Batch account |
-> | Microsoft.Batch/batchAccounts/certificates/read | Lists certificates on a Batch account or gets the properties of a certificate |
-> | Microsoft.Batch/batchAccounts/certificates/write | Creates a new certificate on a Batch account or updates an existing certificate |
-> | Microsoft.Batch/batchAccounts/certificates/delete | Deletes a certificate from a Batch account |
-> | Microsoft.Batch/batchAccounts/certificates/cancelDelete/action | Cancels the failed deletion of a certificate on a Batch account |
+> | Microsoft.Batch/batchAccounts/computeNodeOperationResults/read | Gets the results of a long running Compute Node operation on a Batch Account |
+> | Microsoft.Batch/batchAccounts/computePoolOperationResults/read | Gets the results of a long running Compute Pool operation on a Batch Account |
+> | Microsoft.Batch/batchAccounts/computePools/read | Lists Compute Pools on a Batch Account or gets the properties of a Compute Pool |
+> | Microsoft.Batch/batchAccounts/computePools/write | Creates a new Compute Pool on a Batch Account or updates an existing Compute Pool |
+> | Microsoft.Batch/batchAccounts/computePools/delete | Deletes a Compute Pool from a Batch Account |
+> | Microsoft.Batch/batchAccounts/computePools/computeNodes/read | Lists Compute Nodes on a Compute Pool or gets the properties of a Compute Node |
+> | Microsoft.Batch/batchAccounts/computePools/computeNodes/write | Updates an existing Compute Node |
+> | Microsoft.Batch/batchAccounts/computePools/computeNodes/remove/action | Remove a Compute Node from a Compute Pool |
+> | Microsoft.Batch/batchAccounts/computePools/computeNodes/reboot/action | Reboot a Compute Node |
+> | Microsoft.Batch/batchAccounts/computePools/computeNodes/reimage/action | Reimage a Compute Node |
+> | Microsoft.Batch/batchAccounts/computePools/computeNodes/deallocate/action | Deallocate a Compute Node |
+> | Microsoft.Batch/batchAccounts/computePools/computeNodes/start/action | Start a Compute Node |
 > | Microsoft.Batch/batchAccounts/detectors/read | Gets AppLens Detector or Lists AppLens Detectors on a Batch account |
 > | Microsoft.Batch/batchAccounts/networkSecurityPerimeterAssociationProxies/read | Gets or lists the NSP association proxies on a Batch account |
 > | Microsoft.Batch/batchAccounts/networkSecurityPerimeterAssociationProxies/write | Creates or updates the NSP association proxy on a Batch account |
@@ -758,6 +799,12 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/galleries/images/versions/read | Gets the properties of Gallery Image Version |
 > | Microsoft.Compute/galleries/images/versions/write | Creates a new Gallery Image Version or updates an existing one |
 > | Microsoft.Compute/galleries/images/versions/delete | Deletes the Gallery Image Version |
+> | Microsoft.Compute/galleries/inVMAccessControlProfiles/read | Gets the properties of Gallery In VM Access Control Profile |
+> | Microsoft.Compute/galleries/inVMAccessControlProfiles/write | Creates a new Gallery In VM Access Control Profile or updates an existing one |
+> | Microsoft.Compute/galleries/inVMAccessControlProfiles/delete | Deletes the Gallery In VM Access Control Profile |
+> | Microsoft.Compute/galleries/inVMAccessControlProfiles/versions/read | Gets the properties of Gallery In VM Access Control Profile Version |
+> | Microsoft.Compute/galleries/inVMAccessControlProfiles/versions/write | Creates a new Gallery In VM Access Control Profile Version or updates an existing one |
+> | Microsoft.Compute/galleries/inVMAccessControlProfiles/versions/delete | Deletes the Gallery In VM Access Control Profile Version |
 > | Microsoft.Compute/galleries/remoteContainerImages/read | Gets the properties of Gallery Remote Container Image |
 > | Microsoft.Compute/galleries/remoteContainerImages/write | Creates a new Gallery Remote Container Image or updates an existing one |
 > | Microsoft.Compute/galleries/remoteContainerImages/delete | Deletes the Gallery Remote Container Image |
@@ -765,6 +812,7 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/galleries/serviceArtifacts/read | Gets the properties of Gallery Service Artifact |
 > | Microsoft.Compute/galleries/serviceArtifacts/write | Creates a new Gallery Service Artifact or updates an existing one |
 > | Microsoft.Compute/galleries/serviceArtifacts/delete | Deletes the Gallery Service Artifact |
+> | Microsoft.Compute/galleries/serviceArtifacts/vmArtifactsProfiles/read | Gets the Gallery Service Artifact VM Artifact Profile |
 > | Microsoft.Compute/hostGroups/read | Get the properties of a host group |
 > | Microsoft.Compute/hostGroups/write | Creates a new host group or updates an existing host group |
 > | Microsoft.Compute/hostGroups/delete | Deletes the host group |
@@ -862,6 +910,7 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/virtualMachines/generalize/action | Sets the virtual machine state to Generalized and prepares the virtual machine for capture |
 > | Microsoft.Compute/virtualMachines/capture/action | Captures the virtual machine by copying virtual hard disks and generates a template that can be used to create similar virtual machines |
 > | Microsoft.Compute/virtualMachines/runCommand/action | Executes a predefined script on the virtual machine |
+> | Microsoft.Compute/virtualMachines/diagnosticRunCommand/action | Executes a diagnostic script on the virtual machine |
 > | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | Converts the blob based disks of the virtual machine to managed disks |
 > | Microsoft.Compute/virtualMachines/performMaintenance/action | Performs Maintenance Operation on the VM. |
 > | Microsoft.Compute/virtualMachines/reimage/action | Reimages virtual machine which is using differencing disk. |
@@ -874,6 +923,10 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/virtualMachines/deletePreservedOSDisk/action | Deletes PreservedOSDisk on the Virtual Machine which belongs to Virtual Machine Scale Set with Flexible Orchestration Mode. |
 > | Microsoft.Compute/virtualMachines/upgradeVMAgent/action | Upgrade version of VM Agent on Virtual Machine |
 > | Microsoft.Compute/virtualMachines/attachDetachDataDisks/action | Attaches Detaches existing data disks to a virtual machine |
+> | Microsoft.Compute/virtualMachines/setVMHealth/action | Sets health status on Virtual Machine belonging to Virtual Machine Scale Set with Flexible Orchestration Mode. |
+> | Microsoft.Compute/virtualMachines/diagnosticRunCommands/read | Get the properties of a virtual machine diagnostic run command |
+> | Microsoft.Compute/virtualMachines/diagnosticRunCommands/write | Creates a new virtual machine diagnostic run command or updates an existing one |
+> | Microsoft.Compute/virtualMachines/diagnosticRunCommands/delete | Deletes the virtual machine diagnostic run command |
 > | Microsoft.Compute/virtualMachines/extensions/read | Get the properties of a virtual machine extension |
 > | Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
 > | Microsoft.Compute/virtualMachines/extensions/delete | Deletes the virtual machine extension |
@@ -909,8 +962,12 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/virtualMachineScaleSets/forceRecoveryServiceFabricPlatformUpdateDomainWalk/action | Manually walk the platform update domains of a service fabric Virtual Machine Scale Set to finish a pending update that is stuck |
 > | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | Starts a rolling upgrade to move all Virtual Machine Scale Set instances to the latest available Platform Image OS version. |
 > | Microsoft.Compute/virtualMachineScaleSets/setOrchestrationServiceState/action | Sets the state of an orchestration service based on the action provided in operation input. |
+> | Microsoft.Compute/virtualMachineScaleSets/setVMHealth/action | Sets health status on Virtual Machines belonging to Virtual Machine Scale Set. |
 > | Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades/action | Cancels the rolling upgrade of a Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/disks/beginGetAccess/action | Get the SAS URI of VirtualMachineScaleSets Disk |
+> | Microsoft.Compute/virtualMachineScaleSets/eventGridFilters/read | Gets properties of Virtual Machine Scale Set Event Grid Filter |
+> | Microsoft.Compute/virtualMachineScaleSets/eventGridFilters/write | Creates a new Virtual Machine Scale Set Event Grid Filter or updates an existing one |
+> | Microsoft.Compute/virtualMachineScaleSets/eventGridFilters/delete | Deletes the Virtual Machine Scale Set Event Grid Filter |
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/read | Gets the properties of a Virtual Machine Scale Set Extension |
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/write | Creates a new Virtual Machine Scale Set Extension or updates an existing one |
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/delete | Deletes the Virtual Machine Scale Set Extension |
@@ -940,8 +997,12 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/retrieveBootDiagnosticsData/action | Retrieves boot diagnostic logs blob URIs of Virtual Machine instance in a Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/performMaintenance/action | Performs planned maintenance on a Virtual Machine instance in a Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommand/action | Executes a predefined script on a Virtual Machine instance in a Virtual Machine Scale Set. |
+> | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/diagnosticRunCommand/action | Executes a diagnostic script on a Virtual Machine instance in a Virtual Machine Scale Set. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/simulateEviction/action | Simulates the eviction of spot Virtual Machine in Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/attachDetachDataDisks/action | Attaches Detaches existing data disks to a Virtual Machine instance in a VM Scale Set |
+> | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/diagnosticRunCommands/read | Get the properties of a diagnostic run command for Virtual Machine in Virtual Machine Scale Set |
+> | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/diagnosticRunCommands/write | Creates a new diagnostic run command for Virtual Machine in Virtual Machine Scale Set or updates an existing one |
+> | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/diagnosticRunCommands/delete | Deletes the diagnostic run command for Virtual Machine in Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/extensions/read | Get the properties of an extension for Virtual Machine in Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/extensions/write | Creates a new extension for Virtual Machine in Virtual Machine Scale Set or updates an existing one |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/extensions/delete | Deletes the extension for Virtual Machine in Virtual Machine Scale Set |
@@ -974,6 +1035,8 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | --- | --- |
 > | Microsoft.ComputeSchedule/register/action | Register the subscription for Microsoft.ComputeSchedule |
 > | Microsoft.ComputeSchedule/unregister/action | Unregister the subscription for Microsoft.ComputeSchedule |
+> | Microsoft.ComputeSchedule/associatedOccurrences/read | List OccurrenceExtensionResource resources by parent |
+> | Microsoft.ComputeSchedule/associatedScheduledActions/read | List ScheduledActionResources resources by parent |
 > | Microsoft.ComputeSchedule/autoActionResources/read | List AutoActionResources resources by parent |
 > | Microsoft.ComputeSchedule/autoActions/read | List AutoAction resources by subscription ID |
 > | Microsoft.ComputeSchedule/autoActions/read | List AutoAction resources by resource group |
@@ -997,17 +1060,36 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | Microsoft.ComputeSchedule/locations/virtualMachinesCancelOperations/action | VirtualMachinesCancelOperations: Cancel a previously submitted (start/deallocate/hibernate) request |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDeallocate/action | VirtualMachinesExecuteDeallocate: Execute deallocate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteHibernate/action | VirtualMachinesExecuteHibernate: Execute hibernate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteStart/action | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationStatus/action | VirtualMachinesGetOperationStatus: Polling endpoint to read status of operations performed on virtual machines |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitDeallocate/action | VirtualMachinesSubmitDeallocate: Schedule deallocate operation for a batch of virtual machines at datetime in future. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteStart/action | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDelete/action | VirtualMachinesExecuteDelete: Execute delete operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreate/action | VirtualMachinesExecuteCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | Microsoft.ComputeSchedule/locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.ComputeSchedule/locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.ComputeSchedule/Operations/read | read Operations |
+> | Microsoft.ComputeSchedule/scheduledActions/read | List ScheduledAction resources by subscription ID |
+> | Microsoft.ComputeSchedule/scheduledActions/read | List ScheduledAction resources by resource group |
+> | Microsoft.ComputeSchedule/scheduledActions/read | Get a ScheduledAction |
+> | Microsoft.ComputeSchedule/scheduledActions/write | Create a ScheduledAction |
+> | Microsoft.ComputeSchedule/scheduledActions/delete | Delete a ScheduledAction |
+> | Microsoft.ComputeSchedule/scheduledActions/write | Update a ScheduledAction |
+> | Microsoft.ComputeSchedule/scheduledActions/attachResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/cancelNextOccurrence/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/detachResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/disable/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/enable/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/patchResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/triggerManualOccurrence/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/occurrences/read | List Occurrence resources by ScheduledAction |
+> | Microsoft.ComputeSchedule/scheduledActions/occurrences/read | Get a Occurrence |
+> | Microsoft.ComputeSchedule/scheduledActions/occurrences/cancel/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/occurrences/delay/action | A long-running resource action. |
+> | Microsoft.ComputeSchedule/scheduledActions/occurrences/resources/read | List resources attached to Scheduled Actions for the given occurrence |
+> | Microsoft.ComputeSchedule/scheduledActions/resources/read | List resources attached to Scheduled Actions |
 
 ## microsoft.connectedvmwarevsphere
 
@@ -1117,8 +1199,6 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | Microsoft.DesktopVirtualization/applicationgroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
 > | Microsoft.DesktopVirtualization/applicationgroups/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
 > | Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/read | Read start menu items |
-> | Microsoft.DesktopVirtualization/connectionPolicies/read | Read the connectionPolicies. |
-> | Microsoft.DesktopVirtualization/connectionPolicies/write | Update the connectionPolicies to save changes. |
 > | Microsoft.DesktopVirtualization/hostpools/read | Read hostpools |
 > | Microsoft.DesktopVirtualization/hostpools/write | Write hostpools |
 > | Microsoft.DesktopVirtualization/hostpools/delete | Delete hostpools |
@@ -1172,15 +1252,15 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | Microsoft.DesktopVirtualization/hostpools/updateOperationResults/read | Read updateOperationResults |
 > | Microsoft.DesktopVirtualization/hostpools/usersessions/read | Read usersessions |
 > | Microsoft.DesktopVirtualization/operations/read | Read operations |
-> | Microsoft.DesktopVirtualization/repositoryFolders/read | Read repositoryFolders |
-> | Microsoft.DesktopVirtualization/repositoryFolders/write | Write repositoryFolders |
-> | Microsoft.DesktopVirtualization/repositoryFolders/delete | Delete repositoryFolders |
-> | Microsoft.DesktopVirtualization/repositoryFolders/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting |
-> | Microsoft.DesktopVirtualization/repositoryFolders/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
-> | Microsoft.DesktopVirtualization/repositoryFolders/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
-> | Microsoft.DesktopVirtualization/repositoryFolders/repositoryIntegrations/read | Read repositoryFolders/repositoryIntegrations |
-> | Microsoft.DesktopVirtualization/repositoryFolders/repositoryIntegrations/write | Write repositoryFolders/repositoryIntegrations |
-> | Microsoft.DesktopVirtualization/repositoryFolders/repositoryIntegrations/delete | Delete repositoryFolders/repositoryIntegrations |
+> | Microsoft.DesktopVirtualization/repositoryfolders/read | Read repositoryfolders |
+> | Microsoft.DesktopVirtualization/repositoryfolders/write | Write repositoryfolders |
+> | Microsoft.DesktopVirtualization/repositoryfolders/delete | Delete repositoryfolders |
+> | Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting |
+> | Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
+> | Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
+> | Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/read | Read repositoryfolders/repositoryIntegrations |
+> | Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/write | Write repositoryfolders/repositoryIntegrations |
+> | Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/delete | Delete repositoryfolders/repositoryIntegrations |
 > | Microsoft.DesktopVirtualization/resourceTypes/read | Read resourceTypes |
 > | Microsoft.DesktopVirtualization/scalingplans/read | Read scalingplans |
 > | Microsoft.DesktopVirtualization/scalingplans/write | Write scalingplans |
@@ -1220,13 +1300,21 @@ Azure service: [Azure Quantum](/azure/quantum/overview-azure-quantum)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.Quantum/register/action | Registers the subscription for the quantum resource provider and enables the creation of quantum workspaces. |
+> | Microsoft.Quantum/register/action | Registers the subscription for the Quantum Resource Provider and enables the creation of Quantum Workspaces. |
 > | Microsoft.Quantum/locations/offerings/read | Read providers supported |
+> | Microsoft.Quantum/providerAccounts/read | Read ProviderAccount |
+> | Microsoft.Quantum/providerAccounts/write | Write ProviderAccount |
+> | Microsoft.Quantum/providerAccounts/delete | Deletes ProviderAccount |
+> | Microsoft.Quantum/providerAccounts/devices/read | Read ProviderAccount's devices and other data |
+> | Microsoft.Quantum/providerAccounts/devices/write | Write ProviderAccount's devices and other data |
+> | Microsoft.Quantum/providerAccounts/jobs/read | Read ProviderAccount's jobs and other data |
+> | Microsoft.Quantum/providerAccounts/jobs/write | Write ProviderAccount's jobs and other data |
+> | Microsoft.Quantum/suiteOffers/read | List suite offers |
 > | Microsoft.Quantum/Workspaces/read | Read Workspace |
-> | Microsoft.Quantum/Workspaces/write | Writes Workspace |
-> | Microsoft.Quantum/Workspaces/delete | Deletes Workspace |
-> | Microsoft.Quantum/Workspaces/regenerateKey/action | Regenerate workspace api key |
-> | Microsoft.Quantum/Workspaces/listKeys/action | List workspace api keys |
+> | Microsoft.Quantum/Workspaces/write | Write Workspace |
+> | Microsoft.Quantum/Workspaces/delete | Delete Workspace |
+> | Microsoft.Quantum/Workspaces/regenerateKey/action | Regenerate Workspace api key |
+> | Microsoft.Quantum/Workspaces/listKeys/action | List Workspace api keys |
 > | **DataAction** | **Description** |
 > | Microsoft.Quantum/Workspaces/jobs/read | Read jobs and other data |
 > | Microsoft.Quantum/Workspaces/jobs/write | Write jobs and other data |

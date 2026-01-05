@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -75,6 +75,7 @@ Azure service: [Azure Cache for Redis](/azure/azure-cache-for-redis/)
 > | Microsoft.Cache/redisEnterprise/delete | Delete the entire Redis Enterprise cache |
 > | Microsoft.Cache/redisEnterprise/read | View the Redis Enterprise cache's settings and configuration in the management portal |
 > | Microsoft.Cache/redisEnterprise/write | Modify the Redis Enterprise cache's settings and configuration in the management portal |
+> | Microsoft.Cache/redisEnterprise/listSkusForScaling/action | List all available SKUs that a Azure Managed Redis cache can be scaled to |
 > | Microsoft.Cache/redisEnterprise/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | Microsoft.Cache/redisEnterprise/databases/delete | Deletes a Redis Enterprise database and its contents |
 > | Microsoft.Cache/redisEnterprise/databases/read | View the Redis Enterprise cache database's settings and configuration in the management portal |
@@ -85,7 +86,9 @@ Azure service: [Azure Cache for Redis](/azure/azure-cache-for-redis/)
 > | Microsoft.Cache/redisEnterprise/databases/listKeys/action | View the value of Redis Enterprise database access keys in the management portal |
 > | Microsoft.Cache/redisEnterprise/databases/regenerateKey/action | Change the value of Redis Enterprise database access keys in the management portal |
 > | Microsoft.Cache/redisEnterprise/databases/operationResults/read | View the result of Redis Enterprise database operations in the management portal |
-> | Microsoft.Cache/redisEnterprise/databases/accessPolicyAssignments/write | Create or update access policy assignments for a Redis Enterprise database |
+> | Microsoft.Cache/redisEnterprise/migrations/read | View the Redis Enterprise cache migration |
+> | Microsoft.Cache/redisEnterprise/migrations/write | Start the Redis Enterprise cache migration |
+> | Microsoft.Cache/redisEnterprise/migrations/cancel/action | Cancel the Redis Enterprise cache migration |
 > | Microsoft.Cache/redisEnterprise/operationResults/read | View the result of Redis Enterprise operations in the management portal |
 > | Microsoft.Cache/redisEnterprise/privateEndpointConnectionProxies/validate/action | Validate the private endpoint connection proxy |
 > | Microsoft.Cache/redisEnterprise/privateEndpointConnectionProxies/read | Get the private endpoint connection proxy |
@@ -203,6 +206,7 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/flexibleServers/validateEstimateHighAvailability/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/detachVNet/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/getReplicationStatusForMigration/action | Return whether the replication is able to migration. |
+> | Microsoft.DBforMySQL/flexibleServers/estimateRestoreSnapshot/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/selfHeal/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/resetGtid/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/checkServerVersionUpgradeAvailability/action |  |
@@ -225,6 +229,7 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/flexibleServers/backups/read | Returns the list of backups for a server or gets the properties for the specified backup. |
 > | Microsoft.DBforMySQL/flexibleServers/backupsv2/write |  |
 > | Microsoft.DBforMySQL/flexibleServers/backupsv2/read |  |
+> | Microsoft.DBforMySQL/flexibleServers/backupsv2/delete |  |
 > | Microsoft.DBforMySQL/flexibleServers/configurations/read | Returns the list of  MySQL server configurations or gets the configurations for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/configurations/write | Updates the configuration of a MySQL server. |
 > | Microsoft.DBforMySQL/flexibleServers/databases/read | Returns the list of databases for a server or gets the properties for the specified database. |
@@ -251,6 +256,9 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for MySQL servers |
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for databases |
+> | Microsoft.DBforMySQL/flexibleServers/readerEndpoints/read | Returns the list of reader endpoints for a server or gets the properties for the specified reader endpoint |
+> | Microsoft.DBforMySQL/flexibleServers/readerEndpoints/write | Creates an reader endpoint with the specified parameters or updates an existing reader endpoint |
+> | Microsoft.DBforMySQL/flexibleServers/readerEndpoints/delete | Deletes an existing server reader endpoint. |
 > | Microsoft.DBforMySQL/flexibleServers/replicas/read | Returns the list of read replicas for a MySQL server |
 > | Microsoft.DBforMySQL/flexibleServers/supportAcceleratedLogs/read |  |
 > | Microsoft.DBforMySQL/flexibleServers/supportedFeatures/read | Return the list of the MySQL Server Supported Features |
@@ -275,6 +283,7 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/locations/securityAlertPoliciesOperationResults/read | Return the list of Server threat detection operation result. |
 > | Microsoft.DBforMySQL/locations/serverKeyAzureAsyncOperation/read | Gets in-progress operations on transparent data encryption server keys |
 > | Microsoft.DBforMySQL/locations/serverKeyOperationResults/read | Gets in-progress operations on data encryption server keys |
+> | Microsoft.DBforMySQL/locations/usages/read |  |
 > | Microsoft.DBforMySQL/operations/read | Return the list of MySQL Operations. |
 > | Microsoft.DBforMySQL/performanceTiers/read | Returns the list of Performance Tiers available. |
 > | Microsoft.DBforMySQL/servers/upgrade/action |  |
@@ -350,20 +359,22 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | Microsoft.DBforPostgreSQL/register/action | Register PostgreSQL Resource Provider |
 > | Microsoft.DBforPostgreSQL/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/migrateNetwork/action | Creates the migrate network operation with the specified parameters. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/read | Return the list of servers or gets the properties for the specified server. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/write | Creates a server with the specified parameters or update the properties or tags for the specified server. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/delete | Deletes an existing server. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/restart/action | Restarts an existing server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/start/action | Starts an existing server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/stop/action | Stops an existing server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/waitStatistics/action |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/resetQueryPerformanceInsightData/action |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/checkMigrationNameAvailability/action | Checks the availability of the given migration name. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/action | Creates a server administrator with the specified parameters or update the properties or tags for the specified server administrator. |
-> | Microsoft.DBforPostgreSQL/flexibleServers/restart/action | Restarts an existing server |
-> | Microsoft.DBforPostgreSQL/flexibleServers/start/action | Starts an existing server |
-> | Microsoft.DBforPostgreSQL/flexibleServers/stop/action | Stops an existing server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/getSourceDatabaseList/action |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/testConnectivity/action |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/startLtrBackup/action | Start long term backup for a server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/ltrPreBackup/action | Checks if a server is ready for a long term backup |
+> | Microsoft.DBforPostgreSQL/flexibleServers/synchronizeGroupMembers/action | Synchronizes Microsoft Entra ID group members with PostgreSQL roles. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionsApproval/action | Determines if the user is allowed to approve a private endpoint connection |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Return the list of server administrators or gets the properties for the specified server administrator. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/delete | Deletes an existing PostgreSQL server administrator. |
@@ -417,7 +428,7 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/stopSession/action | Stops the server configuration tuning session on a server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/enable/action | Enables server configuration tuning feature on the server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/disable/action | Disables server configuration tuning feature on the server |
-> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/recommendations/read | Returns the list of recommended indexes for the Azure Database for PostgreSQL Flexible Server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/recommendations/read | Returns the list of recommended objects for the Azure Database for PostgreSQL Flexible Server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/sessionDetails/read | Gets the list of iterations for a specified server configuration tuning session on a server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/sessions/read | Gets the list of server configuration tuning sessions on a server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Creates or Updates VirtualEndpoint |
@@ -553,8 +564,13 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/databaseAccounts/getBackupPolicy/action | Get the backup policy of database account |
 > | Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action | Manage a private endpoint connection of Database Account |
 > | Microsoft.DocumentDB/databaseAccounts/joinPerimeter/action | Joins a database account to a Network Security Perimeter |
-> | Microsoft.DocumentDB/databaseAccounts/restore/action | Submit a restore request |
-> | Microsoft.DocumentDB/databaseAccounts/backup/action | Submit a request to configure backup |
+> | Microsoft.DocumentDB/databaseAccounts/enableLongTermProtection/action | Submit a request to trigger enableLongTermProtection operation |
+> | Microsoft.DocumentDB/databaseAccounts/disableLongTermProtection/action | Submit a request to trigger disableLongTermProtection operation |
+> | Microsoft.DocumentDB/databaseAccounts/validateForLongTermProtection/action | Submit a request to trigger validateForLongTermProtection operation |
+> | Microsoft.DocumentDB/databaseAccounts/preBackup/action | Submit a request to trigger external preBackup operation |
+> | Microsoft.DocumentDB/databaseAccounts/backup/action | Submit a request to trigger external backup operation |
+> | Microsoft.DocumentDB/databaseAccounts/preRestore/action | Submit a request to trigger external preRestore operation |
+> | Microsoft.DocumentDB/databaseAccounts/restore/action | Submit a request to trigger external restore operation |
 > | Microsoft.DocumentDB/databaseAccounts/chaosFault/action | Enable, Disable and GetStatus of Chaos Fault |
 > | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | (Deprecated. Please use resource paths without '/apis/' segment) Create a database. Only applicable to API types: 'sql', 'mongodb', 'gremlin'. |
 > | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | (Deprecated. Please use resource paths without '/apis/' segment) Read a database or list all the databases. Only applicable to API types: 'sql', 'mongodb', 'gremlin'. |
@@ -819,6 +835,15 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/fleets/read | Reads the Fleet resource |
 > | Microsoft.DocumentDB/fleets/write | Create/Update a Fleet resource |
 > | Microsoft.DocumentDB/fleets/delete | Deletes the Fleet resource |
+> | Microsoft.DocumentDB/fleets/fleetAnalytics/read | Reads the FleetAnalytics resource under a Fleet resource |
+> | Microsoft.DocumentDB/fleets/fleetAnalytics/write | Create/Update a FleetAnalytics resource under a Fleet resource |
+> | Microsoft.DocumentDB/fleets/fleetAnalytics/delete | Deletes the FleetAnalytics resource under a Fleet resource |
+> | Microsoft.DocumentDB/fleets/fleetspaces/read | Reads the Fleetspace resource under a Fleet resource |
+> | Microsoft.DocumentDB/fleets/fleetspaces/write | Create/Update a Fleetspace resource under a Fleet resource |
+> | Microsoft.DocumentDB/fleets/fleetspaces/delete | Deletes the Fleetspace resource under a Fleet resource |
+> | Microsoft.DocumentDB/fleets/fleetspaces/fleetspaceAccounts/read | Reads the FleetspaceAccount resource under a Fleetspace resource |
+> | Microsoft.DocumentDB/fleets/fleetspaces/fleetspaceAccounts/write | Create/Update a FleetspaceAccount resource under a Fleetspace resource |
+> | Microsoft.DocumentDB/fleets/fleetspaces/fleetspaceAccounts/delete | Deletes the FleetspaceAccount resource under a Fleetspace resource |
 > | Microsoft.DocumentDB/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notifies Microsoft.DocumentDB that updates are available for networksecurityperimeter |
 > | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.DocumentDB that VirtualNetwork or Subnet is being deleted |
 > | Microsoft.DocumentDB/locations/read | Read the metadata of a location or List all location metadata |
@@ -854,6 +879,137 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/throughputPools/read | Read/List throughputPool |
 > | Microsoft.DocumentDB/throughputPools/write | Create/Update/Delete throughputPool |
 > | Microsoft.DocumentDB/throughputPools/throughputPoolAccounts/read | Read/List throughputPool account in throughputPool |
+> | **DataAction** | **Description** |
+> | Microsoft.DocumentDB/garnetClusters/acl/flushdb/action | Flush database in a Garnet cluster keyspace. |
+> | Microsoft.DocumentDB/garnetClusters/acl/reset/action | Reset latency statistics for a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/scripteval/action | Evaluate a script in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/scriptevalsha/action | Evaluate a script by SHA in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/scriptexists/action | Check if a script exists in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/scriptflush/action | Flush scripts in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/scriptload/action | Load a script into a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/psubscribe/action | Subscribe to channels matching a pattern in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/punsubscribe/action | Unsubscribe from channels matching a pattern in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/publish/action | Publish a message to a channel in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/channels/action | Get active channels in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/numpat/action | Get number of pattern subscriptions in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/numsub/action | Get subscription count for channels in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/subscribe/action | Subscribe to channels in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/unsubscribe/action | Unsubscribe from channels in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/append/write | Append to a string in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/bzmpop/delete | Block and remove element with highest/lowest score from sorted set(s) in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/bzpopmax/delete | Block and remove element with highest score from sorted set(s) in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/bzpopmin/delete | Block and remove element with lowest score from sorted set(s) in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/clientid/read | Get client ID for a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/clientinfo/read | Get client information for a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/configget/read | Get configuration for a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/decr/write | Decrement a string value in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/decrby/write | Decrement a string value by a specified amount in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/del/delete | Delete a key in a Garnet cluster keyspace. |
+> | Microsoft.DocumentDB/garnetClusters/acl/echo/read | Echo connection for a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/exists/read | Check if a key exists in a Garnet cluster keyspace. |
+> | Microsoft.DocumentDB/garnetClusters/acl/expire/delete | Set expiration for a key in a Garnet cluster keyspace. |
+> | Microsoft.DocumentDB/garnetClusters/acl/get/read | Get a string value from a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/getdel/delete | Get and delete a string value from a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/getex/read | Get a string value and set expiration in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/getrange/read | Get a substring from a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/getset/write | Atomically sets key value and returns the old value in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hdel/delete | Delete hash field in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hexists/read | Check if a hash field exists in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hexpire/delete | Set expiration time for a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hexpireat/delete | Set expiration timestamp for a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hexpiretime/read | Get expiration time for a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hget/read | Get value from a hash field in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hgetall/read | Get all fields and values from a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hincrby/write | Increment a hash field value by integer in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hincrbyfloat/write | Increment a hash field value by float in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/histogram/read | Get latency histogram for a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hkeys/read | Get all field names from a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hlen/read | Get the number of fields in a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hmget/read | Get multiple hash field values in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hmset/write | Set multiple hash field values in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hpersist/write | Remove expiration from a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hpexpire/delete | Set expiration time for a hash with persistence in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hpexpireat/delete | Set expiration timestamp for a hash with persistence in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hpexpiretime/read | Get expiration time for a hash with persistence in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hpttl/read | Get the time to live for a hash with persistence in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hrandfield/read | Get random fields from a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hscan/read | Scan hash fields in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hset/write | Set hash field value in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hsetnx/write | Set hash field value if field does not exist in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hstrlen/read | Get the string length of a hash field value in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/httl/read | Get the time to live for a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/hvals/read | Get all values from a hash in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/incr/write | Increment a string value in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/incrby/write | Increment a string value by a specified amount in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/incrbyfloat/write | Increment a string value by a floating-point amount in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/info/read | Get information about a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/keyslot/read | Manage cluster key slots in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/lcs/read | Find the longest common substring in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/mget/read | Get multiple string values from a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/mset/write | Set multiple string values in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/msetnx/write | Set multiple string values if they don't exist in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/nodes/read | Manage cluster nodes in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/ping/read | Ping connection for a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/psetex/write | Set key to value and set key to timeout after a given number of milliseconds in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/readonly/read | Enables read queries for a connection to a Garnet Cluster replica node. |
+> | Microsoft.DocumentDB/garnetClusters/acl/readwrite/write | Disables read queries for a connection to a Garnet Cluster replica node. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sadd/write | Add members to a set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/scard/read | Get the number of members in a set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sdiff/read | Get the difference between sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sdiffstore/write | Store the difference between sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/set/write | Set a string value in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/setex/write | Set key to value and set key to timeout after a given number of seconds in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/setnx/write | Set a string value if it doesn't exist in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/setrange/write | Set a substring at a specific offset in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sinter/read | Get the intersection of sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sintercard/read | Get the intersection cardinality of sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sinterstore/write | Store the intersection of sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sismember/read | Check if a member exists in a set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/slots/read | Manage cluster slots in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/smembers/read | Get all members of a set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/smismember/read | Check if multiple members exist in a set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/smove/write | Move a member from one set to another in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/spop/delete | Remove and return random members from a set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/srandmember/read | Get random members from a set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/srem/delete | Remove members from a set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sscan/read | Scan set members in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/strlen/read | Get the length of a string in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/substr/read | Get a substring from a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sunion/read | Get the union of sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/sunionstore/write | Store the union of sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/unlink/delete | Unlink keys in a Garnet cluster keyspace. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zadd/write | Add members to a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zcard/read | Get the number of members in a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zcount/read | Count members in a sorted set with scores in a range in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zdiff/read | Get the difference between sorted sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zdiffstore/write | Store the difference between sorted sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zincrby/write | Increment the score of a member in a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zinter/read | Get the intersection of sorted sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zintercard/read | Get the intersection cardinality of sorted sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zinterstore/write | Store the intersection of sorted sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zlexcount/read | Count members in a sorted set within a lexicographical range in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zmpop/delete | Pop members from multiple sorted sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zmscore/read | Get scores for members in a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zpopmax/delete | Remove and return members with highest scores from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zpopmin/delete | Remove and return members with lowest scores from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrandmember/read | Get random members from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrange/read | Return a range of members from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrangebylex/read | Return members in a lexicographical range from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrangebyscore/read | Return members in a score range from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrangestore/write | Store a range from a sorted set in a new key in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrank/read | Get the rank of a member in a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrem/delete | Remove members from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zremrangebylex/delete | Remove members in a lexicographical range from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zremrangebyrank/delete | Remove members in a rank range from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zremrangebyscore/delete | Remove members in a score range from a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrevrange/read | Return a range of members from a sorted set in reverse order in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrevrangebylex/read | Return members in a lexicographical range from a sorted set in reverse order in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrevrangebyscore/read | Return members in a score range from a sorted set in reverse order in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zrevrank/read | Get the reverse rank of a member in a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zscan/read | Scan members in a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zscore/read | Get the score of a member in a sorted set in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zunion/read | Get the union of sorted sets in a Garnet cluster. |
+> | Microsoft.DocumentDB/garnetClusters/acl/zunionstore/write | Store the union of sorted sets in a Garnet cluster. |
 
 ## Microsoft.Sql
 
@@ -947,6 +1103,10 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read | Lists the long term retention backups for a database |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | Deletes a long term retention backup |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/changeAccessTier/action | Change long term retention backup access tier operation. |
+> | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/removeTimeBasedImmutability/action | Remove time based immutability of an existing long term retention backup. |
+> | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/lockTimeBasedImmutability/action | Lock time based immutability of an existing long term retention backup. |
+> | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/removeLegalHoldImmutability/action | Remove legal hold immutability of an existing long term retention backup. |
+> | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/setLegalHoldImmutability/action | Set legal hold immutability of an existing long term retention backup. |
 > | Microsoft.Sql/locations/managedDatabaseMoveOperationResults/read | Gets Managed Instance database move operation result. |
 > | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | Completes managed database restore operation |
 > | Microsoft.Sql/locations/managedInstanceAdvancedThreatProtectionAzureAsyncOperation/read | Retrieve results of the managed instance Advanced Threat Protection settings write operation |
@@ -1024,6 +1184,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/managedInstances/failover/action | Customer initiated managed instance failover. |
 > | Microsoft.Sql/managedInstances/refreshExternalGovernanceStatus/action | Refreshes external governance enablemement status |
 > | Microsoft.Sql/managedInstances/crossSubscriptionPITR/action | Determine if user is allowed to do cross subscription PITR operations |
+> | Microsoft.Sql/managedInstances/reevaluateInaccessibleDatabaseState/action | Reevaluates the inaccessibility state of all managed databases. |
+> | Microsoft.Sql/managedInstances/validateAzureKeyVaultEncryptionKey/action | Validates customer managed key. |
 > | Microsoft.Sql/managedInstances/administrators/read | Gets a list of managed instance administrators. |
 > | Microsoft.Sql/managedInstances/administrators/write | Creates or updates managed instance administrator with the specified parameters. |
 > | Microsoft.Sql/managedInstances/administrators/delete | Deletes an existing administrator of managed instance. |
@@ -1040,6 +1202,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/managedInstances/databases/startMove/action | Starts Managed Instance database move. |
 > | Microsoft.Sql/managedInstances/databases/completeRestore/action | Completes managed database restore operation |
 > | Microsoft.Sql/managedInstances/databases/readBackups/action | Determine if user is allowed to read backups |
+> | Microsoft.Sql/managedInstances/databases/reevaluateInaccessibleDatabaseState/action | Reevaluates the inaccessibility state of a managed database. |
 > | Microsoft.Sql/managedInstances/databases/advancedThreatProtectionSettings/write | Change the database Advanced Threat Protection settings for a given managed database |
 > | Microsoft.Sql/managedInstances/databases/advancedThreatProtectionSettings/read | Retrieve a list of the managed database Advanced Threat Protection settings configured for a given managed database |
 > | Microsoft.Sql/managedInstances/databases/backupLongTermRetentionPolicies/write | Updates a long term retention policy for a managed database |
@@ -1138,8 +1301,6 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/managedInstances/startStopSchedules/write | Creates Azure SQL Managed Instance's Start-Stop schedule with the specified parameters or updates the properties of the schedule for the specified instance. |
 > | Microsoft.Sql/managedInstances/startStopSchedules/delete | Deletes Azure SQL Managed Instance's Start-Stop schedule. |
 > | Microsoft.Sql/managedInstances/startStopSchedules/read | Get properties for specified Start-Stop schedule for the Azure SQL Managed Instance or a List of all Start-Stop schedules. |
-> | Microsoft.Sql/managedInstances/topdatabases/read | Get top resource consuming databases of a managed instance |
-> | Microsoft.Sql/managedInstances/topqueries/read | Get top resource consuming queries of a managed instance |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/write | Change the vulnerability assessment for a given managed instance |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete | Remove the vulnerability assessment for a given managed instance |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/read | Retrieve the vulnerability assessment policies on a given managed instance |
@@ -1180,13 +1341,14 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/databases/delete | Deletes an existing database. |
 > | Microsoft.Sql/servers/databases/pause/action | Pause Azure SQL Datawarehouse Database |
 > | Microsoft.Sql/servers/databases/resume/action | Resume Azure SQL Datawarehouse Database |
+> | Microsoft.Sql/servers/databases/failover/action | Customer initiated database failover. |
 > | Microsoft.Sql/servers/databases/export/action | Export Azure SQL Database |
 > | Microsoft.Sql/servers/databases/upgradeDataWarehouse/action | Upgrade Azure SQL Datawarehouse Database |
 > | Microsoft.Sql/servers/databases/move/action | Change the name of an existing database. |
 > | Microsoft.Sql/servers/databases/restorePoints/action | Creates a new restore point |
 > | Microsoft.Sql/servers/databases/import/action | Import Azure SQL Database |
-> | Microsoft.Sql/servers/databases/failover/action | Customer initiated database failover. |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/action | Execute vulnerability assessment database scan. |
+> | Microsoft.Sql/servers/databases/getCurrentAvailabilityZone/action | Get the current availability zone of a database. |
 > | Microsoft.Sql/servers/databases/advancedThreatProtectionSettings/write | Change the database Advanced Threat Protection settings for a given database |
 > | Microsoft.Sql/servers/databases/advancedThreatProtectionSettings/read | Retrieve a list of database Advanced Threat Protection settings configured for a given database |
 > | Microsoft.Sql/servers/databases/advisors/read | Returns list of advisors available for the database |
@@ -1299,6 +1461,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/databases/topQueries/statistics/read | Returns aggregated runtime statistics for selected query in selected time period |
 > | Microsoft.Sql/servers/databases/transparentDataEncryption/read | Retrieve details of the logical database Transparent Data Encryption on a given managed database |
 > | Microsoft.Sql/servers/databases/transparentDataEncryption/write | Change the database Transparent Data Encryption for a given logical database |
+> | Microsoft.Sql/servers/databases/transparentDataEncryption/suspend/action | Change the database Transparent Data Encryption for a given logical database |
+> | Microsoft.Sql/servers/databases/transparentDataEncryption/resume/action | Change the database Transparent Data Encryption for a given logical database |
 > | Microsoft.Sql/servers/databases/transparentDataEncryption/operationResults/read | Gets in-progress operations on transparent data encryption |
 > | Microsoft.Sql/servers/databases/usages/read | Gets the Azure SQL Database usages information |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/write | Change the vulnerability assessment for a given database |

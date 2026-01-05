@@ -135,15 +135,15 @@ The source system is the system that requests a DHCP lease
 | **RuleNumber** | Optional | int | The number of the rule associated with the alert.<br><br>e.g. `123456` |
 | **RuleName** | Optional | string | The name or ID of the rule associated with the alert.<br><br>e.g. `Server PSEXEC Execution via Remote Access` |
 | **ThreatId** | Optional | string | The ID of the threat or malware identified in the alert.<br><br> e.g. `1234567891011121314` |
-| **ThreatName** | Optional | string | The name of the threat or malware identified in the alert.<br><br> e.g. `Init.exe` |
-| **ThreatFirstReportedTime** | Optional | Date/Time | Date and time when the threat was first reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |
-| **ThreatLastReportedTime** | Optional | Date/Time | Date and time when the threat was last reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |
 | **ThreatCategory** | Optional | String | 	The category of the threat or malware identified in the alert.<br><br>Supported values are: `Malware`, `Ransomware`, `Trojan`, `Virus`, `Worm`, `Adware`, `Spyware`, `Rootkit`, `Cryptominor`, `Phishing`, `Spam`, `MaliciousUrl`, `Spoofing`, `Security Policy Violation`, `Unknown` |
-| **ThreatIsActive** | Optional | bool | Indicates whether the threat is currently active.<br><br>Supported values are: `True`, `False` |
-| **ThreatRiskLevel** | Optional | RiskLevel (Integer) | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |
-| **ThreatOriginalRiskLevel** | Optional | string | The risk level as reported by the originating system. |
+| **ThreatName** | Optional | string | The name of the threat or malware identified in the alert.<br><br> e.g. `Init.exe` |
 | **ThreatConfidence** | Optional | ConfidenceLevel (Integer) | The confidence level of the threat identified, normalized to a value between 0 and a 100. |
 | **ThreatOriginalConfidence** | Optional | string | The confidence level as reported by the originating system. |
+| **ThreatRiskLevel** | Optional | RiskLevel (Integer) | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |
+| **ThreatOriginalRiskLevel** | Optional | string | The risk level as reported by the originating system. |
+| **ThreatIsActive** | Optional | bool | Indicates whether the threat is currently active.<br><br>Supported values are: `True`, `False` |
+| **ThreatFirstReportedTime** | Optional | Date/Time | Date and time when the threat was first reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |
+| **ThreatLastReportedTime** | Optional | Date/Time | Date and time when the threat was last reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |
 
 
 ### Schema updates

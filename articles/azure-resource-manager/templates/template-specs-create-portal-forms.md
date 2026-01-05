@@ -182,7 +182,7 @@ Copy this file and save it locally. This tutorial assumes you named it **keyvaul
 
 ## Create default form
 
-The Azure portal provides a sandbox for creating and previewing forms. This sandbox can render a form from an existing ARM template. Use this default form to get started with creating a form for your template spec. For more information about the form structure.
+The Azure portal provides a sandbox for creating and previewing forms. This sandbox can render a form from an existing ARM template. Use this default form to get started with creating a form for your template spec.
 
 1. Open the [Form view sandbox](https://aka.ms/form/sandbox).
 

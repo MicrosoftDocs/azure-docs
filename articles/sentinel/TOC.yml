@@ -782,6 +782,8 @@
           href: normalization-about-parsers.md
         - name: Manage ASIM parsers
           href: normalization-manage-parsers.md
+        - name: Develop ASIM parsers
+          href: normalization-develop-parsers.md
         - name: Modify content to use ASIM
           href: normalization-modify-content.md
     - name: Aggregate data
@@ -890,6 +892,7 @@
         href: sentinel-playbook-creation.md
       - name: Creating ASIM parsers
         href: normalization-develop-parsers.md
+        displayName: Build solutions
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Sentinel SIEM solution lifecycle post publish
@@ -954,6 +957,8 @@
               href: normalization-entity-user.md
             - name: ASIM device entity
               href: normalization-entity-device.md
+            - name: ASIM application entity
+              href: normalization-entity-application.md
         - name: ASIM schemas
           items:
             - name: ASIM alert event schema

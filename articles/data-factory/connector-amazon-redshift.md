@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 12/09/2025
+ms.date: 12/29/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -305,7 +305,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
-| Version 1.0 | GA version available | / |
+| Version 1.0 | End of support announced | / |
 | Version 2.0 | GA version available | • Supports Azure Integration Runtime and Self-hosted Integration Runtime version 5.61 or above. Driver installation is no longer needed with Self-hosted Integration Runtime version 5.61 or above. <br><br>• BOOLEAN is read as Boolean data type.  |
 
 ### <a name="upgrade-the-amazon-redshift-connector"></a> Upgrade the Amazon Redshift connector from version 1.0 to version 2.0

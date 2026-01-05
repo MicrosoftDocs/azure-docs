@@ -65,15 +65,7 @@ _Im_Dns(responsecodename='NXDOMAIN')
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
 
-To use workspace-deployed ASIM parsers, replace the first line with the following code:
-
-```kusto
-imDns(responsecodename='NXDOMAIN')
-```
-
-### Differences between built-in and workspace-deployed parsers
-
-The two options in the example [above](#sample-normalization-for-analytics-rules) are functionally identical. The normalized, source-agnostic version has the following differences:
+The normalized, source-agnostic version has the following differences:
 
 - The `_Im_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
 

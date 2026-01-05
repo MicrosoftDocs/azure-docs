@@ -2,14 +2,13 @@
 title: Azure subscription states
 description: Learn about the different states of an Azure subscription, including active, deleted, and disabled states, and how they affect resource management.
 keywords: azure subscription state status
-author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+author: mijeffer
+ms.author: mijeffer
+ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 08/21/2025
-#customer intent: As a billing administrator, I want to understand the different states and status of an Azure subscription so that I can manage my subscriptions effectively.
+ms.date: 12/29/2025
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 

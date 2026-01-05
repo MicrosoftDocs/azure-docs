@@ -193,6 +193,8 @@
       items: 
       - name: Understand Azure NetApp Files cache volumes
         href: cache-volumes.md    
+      - name: Understand resizing guidelines for cache volumes
+        href: cache-volumes-resize-guidelines.md  
     - name: Azure NetApp Files backup
       items: 
       - name: Understand Azure NetApp Files backup

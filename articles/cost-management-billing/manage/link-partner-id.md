@@ -4,7 +4,7 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: Nicholak-MS
 ms.author: nicholak
 ms.reviewer: nicholak
-ms.date: 08/14/2025
+ms.date: 12/29/2025
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 

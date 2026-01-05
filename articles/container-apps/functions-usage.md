@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 11/26/2025
+ms.date: 12/19/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -380,6 +380,31 @@ az containerapp function keys set \
   --key-name <KEY_NAME> \
   --key-value <KEY_VALUE> \
   --key-type hostKey
+```
+
+### Key management with Azure Key Vault
+
+When you use Azure Key Vault to store secrets for Azure Functions on Container Apps, key generation works differently than in traditional Functions hosting.
+
+By default:
+
+- Keys aren't automatically created in Key Vault when the Functions host starts
+
+- If keys already exist in Key Vault, the host retrieves and uses them
+
+- The Functions host starts successfully even without keys, and the key synchronization completes normally
+
+As a result, your application runs correctly, but host-level keys won't appear in Key Vault unless you create them manually.
+
+#### Generate keys manually
+
+To trigger key creation in Azure Key Vault, call the Functions management endpoint using the following CLI command.
+
+```azurecli
+az containerapp function keys list \
+ -n <CONTAINER_APP_NAME> \
+ -g <RESOURCE_GROUP> \
+ --key-type hostKey
 ```
 
 :::zone-end

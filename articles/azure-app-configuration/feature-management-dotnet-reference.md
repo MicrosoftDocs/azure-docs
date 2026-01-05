@@ -1418,6 +1418,9 @@ To find out how to use feature flags in your applications, see the following qui
 > [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 
 > [!div class="nextstepaction"]
+> [Aspire](./quickstart-feature-flag-aspire.md)
+
+> [!div class="nextstepaction"]
 > [.NET/.NET Framework console app](./quickstart-feature-flag-dotnet.md)
 
 > [!div class="nextstepaction"]

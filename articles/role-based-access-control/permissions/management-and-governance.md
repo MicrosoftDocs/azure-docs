@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -61,6 +61,7 @@ Azure service: [Azure Policy](/azure/governance/policy/overview), [Azure RBAC](/
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Authorization/elevateAccess/action | Grants the caller User Access Administrator access at the tenant scope |
+> | Microsoft.Authorization/acquirePolicyToken/read | Acquire a policy token at the specified scope. |
 > | Microsoft.Authorization/classicAdministrators/read | Reads the administrators for the subscription. Does not have an effect if used as a NotAction in a custom role. |
 > | Microsoft.Authorization/classicAdministrators/write | Add or modify administrator to a subscription. |
 > | Microsoft.Authorization/classicAdministrators/delete | Removes the administrator from the subscription. |
@@ -132,9 +133,11 @@ Azure service: [Azure Policy](/azure/governance/policy/overview), [Azure RBAC](/
 > | Microsoft.Authorization/roleEligibilityScheduleRequests/read | Gets the role eligibility schedule requests at given scope. |
 > | Microsoft.Authorization/roleEligibilityScheduleRequests/write | Creates a role eligibility schedule request at given scope. |
 > | Microsoft.Authorization/roleEligibilityScheduleRequests/cancel/action | Cancels a pending role eligibility schedule request. |
+> | Microsoft.Authorization/roleEligibilityScheduleRequests/whenApprovalRequired/write | Creates a role eligibility schedule request at given scope when approval is required |
 > | Microsoft.Authorization/roleEligibilitySchedules/read | Gets the role eligibility schedules at given scope. |
 > | Microsoft.Authorization/roleManagementPolicies/read | Get Role management policies |
 > | Microsoft.Authorization/roleManagementPolicies/write | Update a role management policy |
+> | Microsoft.Authorization/roleManagementPolicies/approvalRule/action | Update Role Management policy approval rule |
 > | Microsoft.Authorization/roleManagementPolicyAssignments/read | Get role management policy assignments |
 
 ## Microsoft.Automation
@@ -256,6 +259,11 @@ Azure service: [Automation](/azure/automation/)
 > | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/write | Creates or updates Azure Automation Software Update Configuration |
 > | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/read | Gets an Azure Automation Software Update Configuration |
 > | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/delete | Deletes an Azure Automation Software Update Configuration |
+> | Microsoft.Automation/automationAccounts/sourceControls/read | Gets an Azure Automation source control |
+> | Microsoft.Automation/automationAccounts/sourceControls/write | Creates or updates an Azure Automation source control |
+> | Microsoft.Automation/automationAccounts/sourceControls/delete | Deletes an Azure Automation source control |
+> | Microsoft.Automation/automationAccounts/sourceControls/listKeys/write | Creates or updates an Azure Automation source control |
+> | Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs/streams/read | Get an Azure Automation Source Control Job Streams |
 > | Microsoft.Automation/automationAccounts/statistics/read | Gets Azure Automation Statistics |
 > | Microsoft.Automation/automationAccounts/updateDeploymentMachineRuns/read | Get an Azure Automation update deployment machine |
 > | Microsoft.Automation/automationAccounts/updateManagementPatchJob/read | Gets an Azure Automation update management patch job |
@@ -297,7 +305,10 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/addPaymentTerms/action | Adds payment terms to all the billing profiles under the billing account.<br>Currently, payment terms can be added only on billing accounts that have Agreement Type as 'Microsoft Customer Agreement' and AccountType as 'Enterprise'.<br>This action needs pre-authorization and only Field Sellers are authorized to add the payment terms and is not a self-serve action. |
 > | Microsoft.Billing/billingAccounts/cancelPaymentTerms/action | Cancels all the payment terms on billing account that falls after the cancellation date in the request. Currently, cancel payment terms is only served by admin actions and is not a self-serve action. |
 > | Microsoft.Billing/billingAccounts/validatePaymentTerms/action | Validates payment terms on a billing account with agreement type 'Microsoft Customer Agreement' and account type 'Enterprise'. |
+> | Microsoft.Billing/billingAccounts/addresses/action | Creates or updates an address for the billing account. The address can be used for billing and shipping purposes. |
+> | Microsoft.Billing/billingAccounts/validateInvoicePayEligibility/action | Validates invoice pay eligibility on a billing account. The operation is supported for billing accounts with agreement of type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/offboard/action | Offboard a billing account |
+> | Microsoft.Billing/billingAccounts/refresh/action | Refresh resources for a billing account |
 > | Microsoft.Billing/billingAccounts/addDailyInvoicingOverrideTerms/write |  |
 > | Microsoft.Billing/billingAccounts/addDepartment/write |  |
 > | Microsoft.Billing/billingAccounts/addEnrollmentAccount/write |  |
@@ -358,6 +369,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoices/read | Lists the invoices for a billing profile for a given start date and end date. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoices/paynow/write | Initiates a pay now operation for an invoice. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoices/pricesheet/download/action |  |
+> | Microsoft.Billing/billingAccounts/billingProfiles/invoices/validatePaynowEligibility/write | Validate whether a user is eligible to use the Pay Now feature for the invoice. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoices/validateRefundEligibility/write |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/read | Lists the invoice sections that a user has access to. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/write | Creates or updates an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
@@ -382,6 +394,8 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/validateDeleteEligibility/write | Validates if the invoice section can be deleted. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/validateDeleteInvoiceSectionEligibility/write |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/notificationContacts/read | Lists the NotificationContacts for the given billing profile. The operation is supported only for billing profiles with agreement type Enterprise Agreement. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/paymentMethodLinks/read | Lists payment methods attached to a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/paymentMethodLinks/write | Links a payment method with the billing profile. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/policies/read | Lists the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/policies/write | Updates the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/download/action |  |
@@ -410,6 +424,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/downloadDocuments/write | Gets a URL to download multiple invoice documents (invoice pdf, tax receipts, credit notes) as a zip file. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/enable/write | Enable an azure billing subscription. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/extendTrial/write | Extends the end date of subscription's term for a trial product by one month. |
+> | Microsoft.Billing/billingAccounts/billingSubscriptions/fetchHistory/write | History of events related to the subscription. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/invoices/read | Lists the invoices for a subscription. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/invoices/download/write | Gets a URL to download an invoice by billing subscription. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/merge/write | Merges the billing subscription provided in the request with a target billing subscription. |
@@ -480,8 +495,13 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/notificationContacts/read | Lists the NotificationContacts for the given billing account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/notificationContacts/write | Update a notification contact by ID. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/operationResults/read |  |
+> | Microsoft.Billing/billingAccounts/partnerChangeRequests/write | Initiates a partner change request for the specified billing account. |
+> | Microsoft.Billing/billingAccounts/partnerChangeRequests/read | Gets the details of a partner change request. |
+> | Microsoft.Billing/billingAccounts/partnerChangeRequests/cancel/write | Cancels a partner change request. |
+> | Microsoft.Billing/billingAccounts/partnerChangeRequests/download/read | Downloads the partner change request document. |
 > | Microsoft.Billing/billingAccounts/partnerOrganizations/read | List all the partner organizations user belongs to. The operation is supported for billing accounts with agreement type Microsoft Enterprise Agreement and for users with role Partner Administrator. |
 > | Microsoft.Billing/billingAccounts/paymentMethodLinks/read | Lists payment methods attached to a billing account. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+> | Microsoft.Billing/billingAccounts/paymentMethods/read | Lists the payment methods by a billing account. |
 > | Microsoft.Billing/billingAccounts/policies/read | Get the policies for a billing account of Enterprise Agreement type. |
 > | Microsoft.Billing/billingAccounts/policies/write | Update the policies for a billing account of Enterprise Agreement type. |
 > | Microsoft.Billing/billingAccounts/products/read | Lists the products for a billing account. These don't include products billed based on usage. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
@@ -518,6 +538,11 @@ Azure service: [Azure savings plans](/azure/cost-management-billing/savings-plan
 > | --- | --- |
 > | Microsoft.BillingBenefits/savingsPlanOrders/action | Update a Savings plan order |
 > | Microsoft.BillingBenefits/register/action | Registers the BillingBenefits resource provider and enables the creation of BillingBenefits resources. |
+> | Microsoft.BillingBenefits/conditionalCredits/read | Read all Conditional Credits |
+> | Microsoft.BillingBenefits/conditionalCredits/write | Create or update a Conditional Credit |
+> | Microsoft.BillingBenefits/conditionalCredits/delete | Delete a Conditional Credit |
+> | Microsoft.BillingBenefits/conditionalCredits/cancel/action | Cancel a Conditional Credit |
+> | Microsoft.BillingBenefits/conditionalCredits/contributors/read | Get all Contributors |
 > | Microsoft.BillingBenefits/credits/read | Read all Credits |
 > | Microsoft.BillingBenefits/credits/write | Create or update a Credit |
 > | Microsoft.BillingBenefits/credits/delete | Delete a Credit |
@@ -525,11 +550,21 @@ Azure service: [Azure savings plans](/azure/cost-management-billing/savings-plan
 > | Microsoft.BillingBenefits/credits/sources/read | Read all Sources |
 > | Microsoft.BillingBenefits/credits/sources/write | Create or update a Source |
 > | Microsoft.BillingBenefits/credits/sources/delete | Delete a Source |
+> | Microsoft.BillingBenefits/discounts/read | Read all Discounts |
+> | Microsoft.BillingBenefits/discounts/write | Create or update a Discount |
+> | Microsoft.BillingBenefits/discounts/delete | Delete a Discount |
+> | Microsoft.BillingBenefits/discounts/cancel/action | Cancel a Discount |
+> | Microsoft.BillingBenefits/freeServices/read | Read all FreeServices |
+> | Microsoft.BillingBenefits/freeServices/write | Create or update a FreeService |
+> | Microsoft.BillingBenefits/freeServices/delete | Delete a FreeService |
+> | Microsoft.BillingBenefits/locations/operationStatuses/read | Read all OperationStatuses |
+> | Microsoft.BillingBenefits/locations/operationStatuses/write | Create or update a OperationStatus |
 > | Microsoft.BillingBenefits/maccs/read | Read all MACCs |
 > | Microsoft.BillingBenefits/maccs/write | Create a MACC |
 > | Microsoft.BillingBenefits/maccs/delete | Delete a MACC |
 > | Microsoft.BillingBenefits/maccs/cancel/action | Cancel a MACC |
 > | Microsoft.BillingBenefits/maccs/chargeShortfall/action | Charge shortfall on MACC |
+> | Microsoft.BillingBenefits/maccs/writeOff/action | Write off a MACC |
 > | Microsoft.BillingBenefits/maccs/contributors/read | Get all Contributors |
 > | Microsoft.BillingBenefits/savingsPlanOrderAliases/read | Read all savings plan order aliases |
 > | Microsoft.BillingBenefits/savingsPlanOrderAliases/write | Create a Savings plan order alias |
@@ -808,6 +843,8 @@ Azure service: [Management Groups](/azure/governance/management-groups/)
 > | Microsoft.Management/checkNameAvailability/action | Checks if the specified management group name is valid and unique. |
 > | Microsoft.Management/getEntities/action | List all entities (Management Groups, Subscriptions, etc.) for the authenticated user. |
 > | Microsoft.Management/register/action | Register the specified subscription with Microsoft.Management |
+> | Microsoft.Management/starttenantbackfill/action | Start Tenant Backfill |
+> | Microsoft.Management/tenantbackfillstatus/action | Check the status of a Tenant Backfill operation. |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 > | Microsoft.Management/managementGroups/write | Create or update a management group. |
 > | Microsoft.Management/managementGroups/delete | Delete management group. |
@@ -818,10 +855,16 @@ Azure service: [Management Groups](/azure/governance/management-groups/)
 > | Microsoft.Management/managementGroups/subscriptions/read | Lists subscription under the given management group. |
 > | Microsoft.Management/managementGroups/subscriptions/write | Associates existing subscription with the management group. |
 > | Microsoft.Management/managementGroups/subscriptions/delete | De-associates subscription from the management group. |
+> | Microsoft.Management/operationResults/asyncOperation/managementGroups/read | Get the results of a Management Group Async operation. |
+> | Microsoft.Management/operationResults/asyncOperation/serviceGroups/read | Get the results of a Service Group Async operation. |
+> | Microsoft.Management/operationResults/managementGroups/read | Get the results of a Management Group operation. |
+> | Microsoft.Management/operationResults/serviceGroups/read | Get the results of a Service Group operation. |
+> | Microsoft.Management/operations/read | Get the available operations of Management. |
 > | Microsoft.Management/serviceGroups/write | Create or Update a Service Group |
 > | Microsoft.Management/serviceGroups/read | Read a Service Group |
 > | Microsoft.Management/serviceGroups/delete | Delete a Service Group |
-> | Microsoft.Management/serviceGroups/listAncestors/action | For a given service group in the URI, retrieves all the service group ancestors |
+> | Microsoft.Management/serviceGroups/listAncestors/read | For a given service group in the URI, retrieves all the service group ancestors |
+> | Microsoft.Management/tenants/register/action |  |
 
 ## Microsoft.PolicyInsights
 
@@ -850,6 +893,7 @@ Azure service: [Azure Policy](/azure/governance/policy/)
 > | Microsoft.PolicyInsights/policyStates/queryResults/action | Query information about policy states. |
 > | Microsoft.PolicyInsights/policyStates/summarize/action | Query summary information about policy latest states. |
 > | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Triggers a new compliance evaluation for the selected scope. |
+> | Microsoft.PolicyInsights/policyStates/read | Get policy states resources. |
 > | Microsoft.PolicyInsights/policyStates/queryResults/read | Query information about policy states. |
 > | Microsoft.PolicyInsights/policyStates/summarize/read | Query summary information about policy latest states. |
 > | Microsoft.PolicyInsights/policyTrackedResources/queryResults/read | Query information about resources required by DeployIfNotExists policies. |
@@ -931,7 +975,10 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/read | Gets Backup Resource Encryption Configuration. |
 > | Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/write | Updates Backup Resource Encryption Configuration |
 > | Microsoft.RecoveryServices/Vaults/backupEngines/read | Returns all the backup management servers registered with vault. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/getRecoveryPoints/action | Get Recovery Points for Protected Items. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/preCheckRestore/action | Restore Recovery Points for Protected Items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Refreshes the container list |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/restore/action | Restore Recovery Points for Protected Items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Delete a backup Protection Intent |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Get a backup Protection Intent |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Create a backup Protection Intent |
@@ -959,6 +1006,8 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restore Recovery Points for Protected Items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoke Instant Item Recovery for Protected Item |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/write | Update Recovery Point for Protected Item. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/recoveryPointOperationResults/read | Gets Result of Operation Performed on Protected Items. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/validateBulkRestoreOperationsStatus/read | Validate Operation on Protected Item |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Cancel the Job |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returns all Job Objects |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/retry/action | Retry the Job |
@@ -1070,11 +1119,12 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Repair replication |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Apply Recovery Point |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/submitFeedback/action | Submit Feedback |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/addDisks/action | Add disks |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/removeDisks/action | Remove disks |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/ResolveHealthErrors/action |  |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCancel/action | Failover Cancel |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateAppliance/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/addDisks/action | Add disks |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reinstallMobilityService/action |  |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/operationresults/read | Track the results of an asynchronous operation on the resource Protected Items |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Read any Replication Recovery Points |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/targetComputeSizes/read | Read any Target Compute Sizes |
@@ -1321,6 +1371,7 @@ Azure service: [SAP on Azure](/azure/sap/)
 > | Microsoft.Workloads/unregister/action | Unregister the subscription for Microsoft.Workloads |
 > | Microsoft.Workloads/configurationChecksTemplates/read | Gets the configuration checks template. |
 > | Microsoft.Workloads/configurationChecksTemplates/read | Gets the configuration checks templates in a resource group. |
+> | Microsoft.Workloads/configurationChecksTemplates/write | Updates a Configuration Checks Template. |
 > | Microsoft.Workloads/connectors/read | Gets a connector resource |
 > | Microsoft.Workloads/connectors/write | Creates a connector resource |
 > | Microsoft.Workloads/connectors/delete | Deletes a connector resource and its child resources, which are the associated connection resources. All the child resources have to be deleted before deleting the connector resource. |

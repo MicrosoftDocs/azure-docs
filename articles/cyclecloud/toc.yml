@@ -24,6 +24,8 @@
     href: ./concepts/clusters.md
   - name: Scheduling
     href: ./concepts/scheduling.md
+  - name: Multi-region Cluster Deployment
+    href: ./concepts/multi-region-cluster-deployment.md    
   - name: Clusters Operations
     items:
     - name: User Management
@@ -170,6 +172,10 @@
       href: ./how-to/configure-autoscaling.md
     - name: Use the REST API
       href: ./how-to/use-rest-api.md
+  - name: Monitoring custom metrics
+    items:
+    - name: Collect custom metrics
+      href: ./how-to/collect-custom-metrics-gpu-infiniband-telegraf.md       
   - name: Troubleshoot
     items:
     - name: Report an Issue

@@ -21,7 +21,7 @@ Our extension provides two input binding targeting different needs.
 
 - [`WebPubSubContext`](#webpubsubcontext)
 
-  When using is Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubContext` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions.
+  When using Static Web Apps, `HttpTrigger` is the only supported trigger. In Web PubSub scenarios, the `WebPubSubContext` input binding helps users deserialize upstream HTTP requests from the service under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions.
   When used with `HttpTrigger`, customer requires to configure the HttpTrigger exposed url in event handler accordingly.
 
 ## `WebPubSubConnection`
@@ -683,4 +683,5 @@ For `WebPubSubEventRequest`, it's deserialized to different classes that provide
 | `DisconnectedEventRequest` | Used in system `Disconnected` event type | Reason |
 
 > [!NOTE]
+
 > Though the `WebPubSubContext` is an input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge isn't supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.

@@ -47,6 +47,9 @@
       - name: Azure SQL
         displayName: data validation, database
         href: scenario-database-changes-azure-sqldb.md
+    - name: Build a serverless workflow
+      displayName: workflow, Durable Functions
+      href: ./durable/scenario-build-serverless-workflow.md?toc=/azure/azure-functions/toc.json
     - name: Run scheduled tasks
       displayName: timer trigger, schedule
       href: scenario-scheduled-tasks.md

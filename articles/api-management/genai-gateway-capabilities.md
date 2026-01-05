@@ -136,7 +136,7 @@ An AI gateway secures and controls access to your AI APIs. With the AI gateway, 
 
 More information:
 
-* [Authenticate and authorize access to Azure OpenAI APIs](api-management-authenticate-authorize-azure-openai.md)
+* [Authenticate and authorize access to LLM APIs](api-management-authenticate-authorize-ai-apis.md)
 * [About API credentials and credential manager](credentials-overview.md)
 * [Enforce content safety checks on LLM requests](llm-content-safety-policy.md)
 

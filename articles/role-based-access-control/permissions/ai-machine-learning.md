@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -14,381 +14,6 @@ ms.custom: generated
 
 This article lists the permissions for the Azure resource providers in the AI + machine learning category. You can use these permissions in your own [Azure custom roles](/azure/role-based-access-control/custom-roles) to provide granular access control to resources in Azure. Permission strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
-
-## Microsoft.AgFoodPlatform
-
-Azure service: [Microsoft Azure Data Manager for Agriculture](/azure/data-manager-for-agri/overview-azure-data-manager-for-agriculture)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.AgFoodPlatform/register/action | Registers the subscription for the AgFoodPlatform Resource Provider. |
-> | Microsoft.AgFoodPlatform/unregister/action | Unregisters the subscription for the AgFoodPlatform Resource Provider. |
-> | Microsoft.AgFoodPlatform/checkNameAvailability/action | Checks that resource name is valid and is not in use. |
-> | Microsoft.AgFoodPlatform/farmBeats/read | Gets or Lists existing AgFoodPlatform FarmBeats resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/write | Creates or Updates AgFoodPlatform FarmBeats. |
-> | Microsoft.AgFoodPlatform/farmBeats/delete | Deletes an existing AgFoodPlatform FarmBeats resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/dataConnectors/read | Gets or Lists existing AgFoodPlatform DataConnectors resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/dataConnectors/write | Creates or Updates AgFoodPlatform DataConnectors. |
-> | Microsoft.AgFoodPlatform/farmBeats/dataConnectors/delete | Deletes an existing AgFoodPlatform DataConnectors resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/eventGridFilters/read | Gets or Lists existing AgFoodPlatform Event Grid filters resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/eventGridFilters/write | Creates or Updates AgFoodPlatform Event Grid filters. |
-> | Microsoft.AgFoodPlatform/farmBeats/eventGridFilters/delete | Deletes an existing AgFoodPlatform Event Grid filters resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/extensions/read | Gets or Lists existing AgFoodPlatform Extensions resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/extensions/write | Creates or Updates AgFoodPlatform Extensions. |
-> | Microsoft.AgFoodPlatform/farmBeats/extensions/delete | Deletes an existing AgFoodPlatform Extensions resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/read | Gets or Lists existing AgFoodPlatform Private endpoint connection proxies resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/write | Creates or Updates AgFoodPlatform Private endpoint connection proxies. |
-> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/delete | Deletes an existing AgFoodPlatform Private endpoint connection proxies resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/validate/action | Validates AgFoodPlatform Private endpoint connection proxy resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/operationResults/read | Gets the result for a private endpoint connection proxy resource long running operation. |
-> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnections/read | Gets or Lists existing AgFoodPlatform Private endpoint connections resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnections/write | Creates or Updates AgFoodPlatform Private endpoint connections. |
-> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnections/delete | Deletes an existing AgFoodPlatform Private endpoint connections resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/privateLinkResources/read | Gets or Lists existing AgFoodPlatform Private link resources resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/solutions/read | Gets or Lists existing AgFoodPlatform add-ons resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/solutions/write | Creates or Updates AgFoodPlatform add-ons. |
-> | Microsoft.AgFoodPlatform/farmBeats/solutions/delete | Deletes an existing AgFoodPlatform add-ons resource. |
-> | Microsoft.AgFoodPlatform/farmBeatsExtensionDefinitions/read | Gets or Lists existing AgFoodPlatform FarmBeatsExtensionDefinitions resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeatsSolutionDefinitions/read | Gets or Lists existing AgFoodPlatform FarmBeatsSolutionDefinitions resource(s). |
-> | Microsoft.AgFoodPlatform/locations/operationResults/read | Returns result of async operation in Microsoft AgFoodPlatform resource provider. |
-> | Microsoft.AgFoodPlatform/operations/read | List all operations in Microsoft AgFoodPlatform resource provider. |
-> | **DataAction** | **Description** |
-> | Microsoft.AgFoodPlatform/farmBeats/applicationData/list/action | List(s) existing AgFoodPlatform application operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/applicationData/search/action | Searches existing AgFoodPlatform application operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/boundaries/list/action | List(s) existing AgFoodPlatform boundary resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/boundaries/search/action | Searches existing AgFoodPlatform boundary resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/chemicalProducts/read | Gets or Lists existing AgFoodPlatform Chemical Products resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/chemicalProducts/write | Creates or Updates AgFoodPlatform Chemical Products. |
-> | Microsoft.AgFoodPlatform/farmBeats/chemicalProducts/list/action | Deletes an existing AgFoodPlatform Chemical Products resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/chemicalProducts/delete | List(s) existing AgFoodPlatform Chemical Product resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/cropProducts/read | Gets or Lists existing AgFoodPlatform cropProducts resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/cropProducts/write | Creates or Updates AgFoodPlatform cropProducts. |
-> | Microsoft.AgFoodPlatform/farmBeats/cropProducts/delete | Deletes an existing AgFoodPlatform cropProducts resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/cropProducts/list/action | List(s) existing AgFoodPlatform Crop Product. resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/crops/read | Gets or Lists existing AgFoodPlatform crops resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/crops/write | Creates or Updates AgFoodPlatform crops. |
-> | Microsoft.AgFoodPlatform/farmBeats/crops/delete | Deletes an existing AgFoodPlatform crops resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/crops/list/action | List(s) existing AgFoodPlatform crop resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/cropVarieties/read | Gets or Lists existing AgFoodPlatform crop varieties resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/cropVarieties/write | Creates or Updates AgFoodPlatform crop varieties. |
-> | Microsoft.AgFoodPlatform/farmBeats/cropVarieties/delete | Deletes an existing AgFoodPlatform crop varieties resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/cropVarieties/list/action | List(s) existing AgFoodPlatform crop variety resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/datasetRecords/read | Gets or Lists existing AgFoodPlatform Dataset Records resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/datasetRecords/write | Creates or Updates AgFoodPlatform Dataset Records. |
-> | Microsoft.AgFoodPlatform/farmBeats/datasetRecords/delete | Deletes an existing AgFoodPlatform Dataset Records resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/datasetRecords/list/action | List(s) existing AgFoodPlatform dataset record resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/datasets/read | Gets or Lists existing AgFoodPlatform datasets resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/datasets/write | Creates or Updates AgFoodPlatform datasets. |
-> | Microsoft.AgFoodPlatform/farmBeats/datasets/delete | Deletes an existing AgFoodPlatform datasets resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/datasets/list/action | List(s) existing AgFoodPlatform dataset resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/datasets/publish/action | List(s) existing AgFoodPlatform DatasetAccess resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/datasets/access/list/action | Gets or Lists existing AgFoodPlatform DatasetAccesses resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/datasets/access/grant/action | Creates or Updates AgFoodPlatform DatasetAccesses. |
-> | Microsoft.AgFoodPlatform/farmBeats/datasets/access/remove/action | Deletes an existing AgFoodPlatform DatasetAccesses resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/applicationDataCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform applicationDataCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/applicationDataCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform applicationDataCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/boundariesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform boundariesCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/boundariesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform boundariesCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/farmersCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform farmersCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/farmersCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform farmersCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/farmsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform farmsCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/farmsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform farmsCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/fieldsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform fieldsCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/fieldsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform fieldsCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/harvestDataCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform harvestDataCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/harvestDataCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform harvestDataCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/insightsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform insightsCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/insightsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform insightsCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/managementZonesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform managementZonesCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/managementZonesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform managementZonesCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/oauthProvidersCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform oauthProvidersCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/oauthProvidersCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform oauthProvidersCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/oauthTokensRemoveJobs/read | Gets or Lists existing AgFoodPlatform oauth tokens resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/oauthTokensRemoveJobs/write | Creates or Updates AgFoodPlatform oauth tokens. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/partiesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform partiesCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/partiesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform partiesCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/plantingDataCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform plantingDataCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/plantingDataCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform plantingDataCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/plantTissueAnalysesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform plantTissueAnalysesCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/plantTissueAnalysesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform plantTissueAnalysesCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/prescriptionMapsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform prescriptionMapsCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/prescriptionMapsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform prescriptionMapsCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/prescriptionsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform prescriptionsCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/prescriptionsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform prescriptionsCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/seaonalFieldsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform seaonalFieldsCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/seaonalFieldsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform seaonalFieldsCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/tillageDataCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform tillageDataCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/tillageDataCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform tillageDataCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/weatherDataDeletionJobs/read | Gets or Lists existing AgFoodPlatform weatherDataDeletionJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/weatherDataDeletionJobs/write | Creates or Updates AgFoodPlatform weatherDataDeletionJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/zonesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform zonesCascadeDeleteJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/zonesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform zonesCascadeDeleteJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmEquipments/read | Gets or Lists existing AgFoodPlatform Farm Equipments resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmEquipments/write | Creates or Updates AgFoodPlatform Farm Equipments. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmEquipments/list/action | Deletes an existing AgFoodPlatform Farm Equipments resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmEquipments/delete | List(s) existing AgFoodPlatform Farm Equipment resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/read | Gets or Lists existing AgFoodPlatform farmers resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/write | Creates or Updates AgFoodPlatform farmers. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/delete | Deletes an existing AgFoodPlatform farmers resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/list/action | List(s) existing AgFoodPlatform farmer resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/applicationData/read | Gets or Lists existing AgFoodPlatform application operations data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/applicationData/write | Creates or Updates AgFoodPlatform application operations data. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/applicationData/delete | Deletes an existing AgFoodPlatform application operations data resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/applicationData/list/action | List(s) existing AgFoodPlatform application operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/read | Gets or Lists existing AgFoodPlatform attachments resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/write | Creates or Updates AgFoodPlatform attachments. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/delete | Deletes an existing AgFoodPlatform attachments resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/list/action | List(s) existing AgFoodPlatform attachment resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/download/action | boundaries Download |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/read | Gets or Lists existing AgFoodPlatform boundaries resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/write | Creates or Updates AgFoodPlatform boundaries. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/delete | Deletes an existing AgFoodPlatform boundaries resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/list/action | List(s) existing AgFoodPlatform boundary resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/search/action | Searches existing AgFoodPlatform boundary resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/overlap/action | Boundary Overlap. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/farms/read | Gets or Lists existing AgFoodPlatform farms resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/farms/write | Creates or Updates AgFoodPlatform farms. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/farms/delete | Deletes an existing AgFoodPlatform farms resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/farms/list/action | List(s) existing AgFoodPlatform farm resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/fields/read | Gets or Lists existing AgFoodPlatform fields resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/fields/write | Creates or Updates AgFoodPlatform fields. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/fields/delete | Deletes an existing AgFoodPlatform fields resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/fields/list/action | List(s) existing AgFoodPlatform field resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/harvestData/read | Gets or Lists existing AgFoodPlatform harvest operations data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/harvestData/write | Creates or Updates AgFoodPlatform harvest operations data. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/harvestData/delete | Deletes an existing AgFoodPlatform harvest operations data resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/harvestData/list/action | List(s) existing AgFoodPlatform harvest operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/read | Gets or Lists existing AgFoodPlatform insight attachments resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/write | Creates or Updates AgFoodPlatform insight attachments. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/delete | Deletes an existing AgFoodPlatform insight attachments resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/list/action | List(s) existing AgFoodPlatform insight attachment resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/download/action | insights Download |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insights/read | Gets or Lists existing AgFoodPlatform insights resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insights/write | Creates or Updates AgFoodPlatform insights. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insights/delete | Deletes an existing AgFoodPlatform insights resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insights/list/action | List(s) existing AgFoodPlatform insight resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/nutrientAnalyses/read | Gets or Lists existing AgFoodPlatform nutrient analyses resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/nutrientAnalyses/write | Creates or Updates AgFoodPlatform nutrient analyses. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/nutrientAnalyses/delete | Deletes an existing AgFoodPlatform nutrient analyses resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/nutrientAnalyses/list/action | List(s) existing AgFoodPlatform nutrient analysis resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantingData/read | Gets or Lists existing AgFoodPlatform planting operations data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantingData/write | Creates or Updates AgFoodPlatform planting operations data. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantingData/delete | Deletes an existing AgFoodPlatform planting operations data resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantingData/list/action | List(s) existing AgFoodPlatform planting operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantTissueAnalyses/read | Gets or Lists existing AgFoodPlatform plant tissue analyses resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantTissueAnalyses/write | Creates or Updates AgFoodPlatform plant tissue analyses. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantTissueAnalyses/delete | Deletes an existing AgFoodPlatform plant tissue analyses resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantTissueAnalyses/list/action | List(s) existing AgFoodPlatform plant tissue analysis resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptionMaps/read | Gets or Lists existing AgFoodPlatform prescription maps resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptionMaps/write | Creates or Updates AgFoodPlatform prescription maps. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptionMaps/delete | Deletes an existing AgFoodPlatform prescription maps resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptionMaps/list/action | List(s) existing AgFoodPlatform prescription map resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptions/read | Gets or Lists existing AgFoodPlatform prescriptions resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptions/write | Creates or Updates AgFoodPlatform prescriptions. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptions/delete | Deletes an existing AgFoodPlatform prescriptions resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptions/list/action | List(s) existing AgFoodPlatform prescription resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/seasonalFields/read | Gets or Lists existing AgFoodPlatform seasonal fields resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/seasonalFields/write | Creates or Updates AgFoodPlatform seasonal fields. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/seasonalFields/delete | Deletes an existing AgFoodPlatform seasonal fields resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/seasonalFields/list/action | List(s) existing AgFoodPlatform seasonal field resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/tillageData/read | Gets or Lists existing AgFoodPlatform tillage operations data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/tillageData/write | Creates or Updates AgFoodPlatform tillage operations data. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/tillageData/delete | Deletes an existing AgFoodPlatform tillage operations data resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/tillageData/list/action | List(s) existing AgFoodPlatform tillage operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/zones/read | Gets or Lists existing AgFoodPlatform zones resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/zones/write | Creates or Updates AgFoodPlatform zones. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/zones/delete | Deletes an existing AgFoodPlatform zones resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/farmers/zones/list/action | List(s) existing AgFoodPlatform zone resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/farms/list/action | List(s) existing AgFoodPlatform farm resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/fields/list/action | List(s) existing AgFoodPlatform field resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/fields/search/action | Searches existing AgFoodPlatform field resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/harvestData/list/action | List(s) existing AgFoodPlatform harvest operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/harvestData/search/action | Searches existing AgFoodPlatform harvest operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/biomassModelJobs/read | Gets or Lists existing AgFoodPlatform biomassModelJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/biomassModelJobs/write | Creates or Updates AgFoodPlatform biomassModelJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/farmOperationDataIngestionJobs/read | Gets or Lists existing AgFoodPlatform farmOperationDataIngestionJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/farmOperationDataIngestionJobs/write | Creates or Updates AgFoodPlatform farmOperationDataIngestionJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/imageProcessingRasterizeJobs/read | Gets or Lists existing AgFoodPlatform imageProcessingRasterizeJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/imageProcessingRasterizeJobs/write | Creates or Updates AgFoodPlatform imageProcessingRasterizeJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/satelliteDataIngestionJobs/read | Gets or Lists existing AgFoodPlatform satelliteDataIngestionJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/satelliteDataIngestionJobs/write | Creates or Updates AgFoodPlatform satelliteDataIngestionJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/sensorPlacementModelJobs/read | Gets or Lists existing AgFoodPlatform sensorPlacementModelJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/sensorPlacementModelJobs/write | Creates or Updates AgFoodPlatform sensorPlacementModelJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/soilMoistureModelJobs/read | Gets or Lists existing AgFoodPlatform soilMoistureModelJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/soilMoistureModelJobs/write | Creates or Updates AgFoodPlatform soilMoistureModelJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/solutions/read | Gets or Lists existing AgFoodPlatform add-ons resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/solutions/write | Creates or Updates AgFoodPlatform add-ons. |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/solutions/cancel/action | Cancels an existing AgFoodPlatform add-on. |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/weatherDataIngestionJobs/read | Gets or Lists existing AgFoodPlatform weatherDataIngestionJobs resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/weatherDataIngestionJobs/write | Creates or Updates AgFoodPlatform weatherDataIngestionJobs. |
-> | Microsoft.AgFoodPlatform/farmBeats/nutrientAnalyses/list/action | List(s) existing AgFoodPlatform nutrient analysis resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/oauthProviders/read | Gets or Lists existing AgFoodPlatform oauth providers resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/oauthProviders/write | Creates or Updates AgFoodPlatform oauth providers. |
-> | Microsoft.AgFoodPlatform/farmBeats/oauthProviders/delete | Deletes an existing AgFoodPlatform oauth providers resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/oauthProviders/list/action | List(s) existing AgFoodPlatform oauth provider resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/oauthTokens/read | Gets or Lists existing AgFoodPlatform oauth tokens resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/oauthTokens/write | Creates or Updates AgFoodPlatform oauth tokens. |
-> | Microsoft.AgFoodPlatform/farmBeats/oauthTokens/delete | Deletes an existing AgFoodPlatform oauth tokens resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/oauthTokens/list/action | List(s) existing AgFoodPlatform oauth token resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/read | Gets or Lists existing AgFoodPlatform parties resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/write | Creates or Updates AgFoodPlatform parties. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/delete | Deletes an existing AgFoodPlatform parties resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/list/action | List(s) existing AgFoodPlatform Party resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/overlap/action | Searches existing AgFoodPlatform Party resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/applicationData/read | Gets or Lists existing AgFoodPlatform application operations data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/applicationData/write | Creates or Updates AgFoodPlatform application operations data. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/applicationData/delete | Deletes an existing AgFoodPlatform application operations data resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/applicationData/list/action | List(s) existing AgFoodPlatform application operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/read | Gets or Lists existing AgFoodPlatform attachments resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/write | Creates or Updates AgFoodPlatform attachments. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/delete | Deletes an existing AgFoodPlatform attachments resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/list/action | List(s) existing AgFoodPlatform attachment resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/download/action | boundaries Download |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/read | Gets or Lists existing AgFoodPlatform boundaries resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/write | Creates or Updates AgFoodPlatform boundaries. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/delete | Deletes an existing AgFoodPlatform boundaries resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/list/action | List(s) existing AgFoodPlatform boundary resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/search/action | Searches existing AgFoodPlatform boundary resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/overlap/action | Boundary Overlap. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/farms/read | Gets or Lists existing AgFoodPlatform farms resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/farms/write | Creates or Updates AgFoodPlatform farms. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/farms/delete | Deletes an existing AgFoodPlatform farms resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/farms/list/action | List(s) existing AgFoodPlatform farm resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/fields/read | Gets or Lists existing AgFoodPlatform fields resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/fields/write | Creates or Updates AgFoodPlatform fields. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/fields/delete | Deletes an existing AgFoodPlatform fields resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/fields/list/action | List(s) existing AgFoodPlatform field resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/harvestData/read | Gets or Lists existing AgFoodPlatform harvest operations data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/harvestData/write | Creates or Updates AgFoodPlatform harvest operations data. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/harvestData/delete | Deletes an existing AgFoodPlatform harvest operations data resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/harvestData/list/action | List(s) existing AgFoodPlatform harvest operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/read | Gets or Lists existing AgFoodPlatform insight attachments resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/write | Creates or Updates AgFoodPlatform insight attachments. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/delete | Deletes an existing AgFoodPlatform insight attachments resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/list/action | List(s) existing AgFoodPlatform insight attachment resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/download/action | insights Download |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insights/read | Gets or Lists existing AgFoodPlatform insights resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insights/write | Creates or Updates AgFoodPlatform insights. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insights/delete | Deletes an existing AgFoodPlatform insights resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insights/list/action | List(s) existing AgFoodPlatform insight resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/nutrientAnalyses/read | Gets or Lists existing AgFoodPlatform nutrient analyses resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/nutrientAnalyses/write | Creates or Updates AgFoodPlatform nutrient analyses. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/nutrientAnalyses/delete | Deletes an existing AgFoodPlatform nutrient analyses resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/nutrientAnalyses/list/action | List(s) existing AgFoodPlatform nutrient analysis resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/plantingData/read | Gets or Lists existing AgFoodPlatform planting operations data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/plantingData/write | Creates or Updates AgFoodPlatform planting operations data. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/plantingData/delete | Deletes an existing AgFoodPlatform planting operations data resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/plantingData/list/action | List(s) existing AgFoodPlatform planting operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/plantTissueAnalyses/read | Gets or Lists existing AgFoodPlatform plant tissue analyses resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/plantTissueAnalyses/write | Creates or Updates AgFoodPlatform plant tissue analyses. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/plantTissueAnalyses/delete | Deletes an existing AgFoodPlatform plant tissue analyses resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/plantTissueAnalyses/list/action | List(s) existing AgFoodPlatform plant tissue analysis resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptionMaps/read | Gets or Lists existing AgFoodPlatform prescription maps resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptionMaps/write | Creates or Updates AgFoodPlatform prescription maps. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptionMaps/delete | Deletes an existing AgFoodPlatform prescription maps resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptionMaps/list/action | List(s) existing AgFoodPlatform prescription map resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptions/read | Gets or Lists existing AgFoodPlatform prescriptions resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptions/write | Creates or Updates AgFoodPlatform prescriptions. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptions/delete | Deletes an existing AgFoodPlatform prescriptions resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptions/list/action | List(s) existing AgFoodPlatform prescription resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/seasonalFields/read | Gets or Lists existing AgFoodPlatform seasonal fields resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/seasonalFields/write | Creates or Updates AgFoodPlatform seasonal fields. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/seasonalFields/delete | Deletes an existing AgFoodPlatform seasonal fields resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/seasonalFields/list/action | List(s) existing AgFoodPlatform seasonal field resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/tillageData/read | Gets or Lists existing AgFoodPlatform tillage operations data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/tillageData/write | Creates or Updates AgFoodPlatform tillage operations data. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/tillageData/delete | Deletes an existing AgFoodPlatform tillage operations data resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/tillageData/list/action | List(s) existing AgFoodPlatform tillage operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/zones/read | Gets or Lists existing AgFoodPlatform zones resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/zones/write | Creates or Updates AgFoodPlatform zones. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/zones/delete | Deletes an existing AgFoodPlatform zones resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/parties/zones/list/action | List(s) existing AgFoodPlatform zone resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/plantingData/list/action | List(s) existing AgFoodPlatform planting operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/plantingData/search/action | Searches existing AgFoodPlatform planting operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/plantTissueAnalyses/list/action | List(s) existing AgFoodPlatform plant tissue analysis resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/plantTissueAnalyses/search/action | Searches existing AgFoodPlatform plant tissue analysis resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/prescriptionMaps/list/action | List(s) existing AgFoodPlatform prescription map resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/prescriptions/list/action | List(s) existing AgFoodPlatform prescription resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/prescriptions/search/action | Searches existing AgFoodPlatform prescription resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/scenes/read | Gets or Lists existing AgFoodPlatform scenes resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/scenes/write | Creates or Updates AgFoodPlatform scenes. |
-> | Microsoft.AgFoodPlatform/farmBeats/scenes/delete | Deletes an existing AgFoodPlatform scenes resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/scenes/list/action | List(s) existing AgFoodPlatform scene resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/scenes/download/action | scenes Download |
-> | Microsoft.AgFoodPlatform/farmBeats/seasonalFields/list/action | List(s) existing AgFoodPlatform seasonal field resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/seasonalFields/search/action | Searches existing AgFoodPlatform seasonal field resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/seasons/read | Gets or Lists existing AgFoodPlatform seasons resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/seasons/write | Creates or Updates AgFoodPlatform seasons. |
-> | Microsoft.AgFoodPlatform/farmBeats/seasons/delete | Deletes an existing AgFoodPlatform seasons resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/seasons/list/action | List(s) existing AgFoodPlatform season resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorData/list/action | Gets or Lists existing AgFoodPlatform sensor data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorMappings/read | Gets or Lists existing AgFoodPlatform sensor mappings resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorMappings/write | Creates or Updates AgFoodPlatform sensor mappings. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorMappings/delete | Deletes an existing AgFoodPlatform sensor mappings resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorMappings/list/action | List(s) existing AgFoodPlatform sensor mapping resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/deviceDataModels/read | Gets or Lists existing AgFoodPlatform device data models resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/deviceDataModels/write | Creates or Updates AgFoodPlatform device data models. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/deviceDataModels/delete | Deletes an existing AgFoodPlatform device data models resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/deviceDataModels/list/action | List(s) existing AgFoodPlatform device data model resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/devices/read | Gets or Lists existing AgFoodPlatform devices resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/devices/write | Creates or Updates AgFoodPlatform devices. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/devices/delete | Deletes an existing AgFoodPlatform devices resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/devices/list/action | List(s) existing AgFoodPlatform device resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/read | Gets or Lists existing AgFoodPlatform sensor partner integrations resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/write | Creates or Updates AgFoodPlatform sensor partner integrations. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/delete | Deletes an existing AgFoodPlatform sensor partner integrations resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/list/action | List(s) existing AgFoodPlatform sensor partner integration resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/checkConsent/action | Check consent |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/generateConsent/action | Generate consent |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensorDataModels/read | Gets or Lists existing AgFoodPlatform sensor data models resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensorDataModels/write | Creates or Updates AgFoodPlatform sensor data models. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensorDataModels/delete | Deletes an existing AgFoodPlatform sensor data models resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensorDataModels/list/action | List(s) existing AgFoodPlatform sensor data model resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/read | Gets or Lists existing AgFoodPlatform sensors resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/write | Creates or Updates AgFoodPlatform sensors. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/delete | Deletes an existing AgFoodPlatform sensors resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/list/action | List(s) existing AgFoodPlatform sensor resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/connectionStrings/read | Gets or Lists existing AgFoodPlatform ConnnectionStrings for Sensor Partners resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/connectionStrings/write | Creates or Updates AgFoodPlatform ConnnectionStrings for Sensor Partners. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/deviceDataModels/read | Get or List AgFoodPlatform device data models resource(s) restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/deviceDataModels/write | Creates or Updates AgFoodPlatform device data models restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/deviceDataModels/delete | Deletes an existing AgFoodPlatform device data models resource restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/deviceDataModels/list/action | Lists an existing AgFoodPlatform device data models resource restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/devices/read | Get or List AgFoodPlatform devices resource(s) restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/devices/write | Creates or Updates AgFoodPlatform devices restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/devices/delete | Deletes an existing AgFoodPlatform devices resource restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/devices/list/action | Lists an existing AgFoodPlatform devices resource restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorDataModels/read | Get or List AgFoodPlatform sensor data models resource(s) restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorDataModels/write | Creates or Updates AgFoodPlatform sensor data models restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorDataModels/delete | Deletes an existing AgFoodPlatform sensor data models resource restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorDataModels/list/action | Lists an existing AgFoodPlatform sensor data models resource restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorPartnerIntegrationConsentLinkModels/read | Get or List AgFoodPlatform sensor partner integration consent links resource(s) restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensors/read | Get or List AgFoodPlatform sensors resource(s) restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensors/write | Creates or Updates AgFoodPlatform sensors restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensors/delete | Deletes an existing AgFoodPlatform sensors resource restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensors/list/action | Lists an existing AgFoodPlatform sensors resource restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorsconnectionStrings/read | Get or List AgFoodPlatform ConnnectionString for Sensor Partners resource(s) restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorsconnectionStrings/write | Creates or Updates AgFoodPlatform ConnnectionString for Sensor Partners restricted to caller's sensor partner scope. |
-> | Microsoft.AgFoodPlatform/farmBeats/stacFeatures/read | Gets or Lists existing AgFoodPlatform stacFeatures resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/stacFeatures/search/action | Searches existing AgFoodPlatform Stac Feature resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/tillageData/list/action | List(s) existing AgFoodPlatform tillage operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/tillageData/search/action | Searches existing AgFoodPlatform tillage operation data resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/weather/read | Gets or Lists existing AgFoodPlatform weather resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/weather/write | Creates or Updates AgFoodPlatform weather. |
-> | Microsoft.AgFoodPlatform/farmBeats/weather/delete | Deletes an existing AgFoodPlatform weather resource. |
-> | Microsoft.AgFoodPlatform/farmBeats/weather/list/action | List(s) existing AgFoodPlatform weather resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/zones/list/action | List(s) existing AgFoodPlatform zone resource(s). |
-> | Microsoft.AgFoodPlatform/farmBeats/zones/search/action | Searches existing AgFoodPlatform zone resource(s). |
-> | Microsoft.AgFoodPlatform/farmers/farmers/managementZones/read | Gets or Lists existing AgFoodPlatform management zones resource(s). |
-> | Microsoft.AgFoodPlatform/farmers/farmers/managementZones/write | Creates or Updates AgFoodPlatform management zones. |
-> | Microsoft.AgFoodPlatform/farmers/farmers/managementZones/delete | Deletes an existing AgFoodPlatform management zones resource. |
-> | Microsoft.AgFoodPlatform/farmers/farmers/managementZones/list/action | List(s) existing AgFoodPlatform management zone resource(s). |
-> | Microsoft.AgFoodPlatform/farmers/managementZones/list/action | List(s) existing AgFoodPlatform management zone resource(s). |
-> | Microsoft.AgFoodPlatform/farmers/parties/managementZones/read | Gets or Lists existing AgFoodPlatform management zones resource(s). |
-> | Microsoft.AgFoodPlatform/farmers/parties/managementZones/write | Creates or Updates AgFoodPlatform management zones. |
-> | Microsoft.AgFoodPlatform/farmers/parties/managementZones/delete | Deletes an existing AgFoodPlatform management zones resource. |
-> | Microsoft.AgFoodPlatform/farmers/parties/managementZones/list/action | List(s) existing AgFoodPlatform management zone resource(s). |
 
 ## Microsoft.BotService
 
@@ -521,6 +146,14 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/projects/read | Read a project |
 > | Microsoft.CognitiveServices/accounts/projects/write | Write a project |
 > | Microsoft.CognitiveServices/accounts/projects/delete | Delete a project |
+> | Microsoft.CognitiveServices/accounts/projects/applications/action | Enables or disables an application |
+> | Microsoft.CognitiveServices/accounts/projects/applications/read | Reads an application |
+> | Microsoft.CognitiveServices/accounts/projects/applications/write | Writes an application |
+> | Microsoft.CognitiveServices/accounts/projects/applications/delete | Deletes an application |
+> | Microsoft.CognitiveServices/accounts/projects/applications/agentdeployments/action | Starts or stops an application agent deployment |
+> | Microsoft.CognitiveServices/accounts/projects/applications/agentdeployments/read | Reads an application agent deployment |
+> | Microsoft.CognitiveServices/accounts/projects/applications/agentdeployments/write | Writes an agent deployment for an application |
+> | Microsoft.CognitiveServices/accounts/projects/applications/agentdeployments/delete | Deletes an agent deployment under an application |
 > | Microsoft.CognitiveServices/accounts/projects/capabilityHosts/read | Reads a capability host |
 > | Microsoft.CognitiveServices/accounts/projects/capabilityHosts/write | Write a capability host |
 > | Microsoft.CognitiveServices/accounts/projects/capabilityHosts/delete | Delete a capability host |
@@ -540,9 +173,27 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/read | Gets blocklist items under a blocklist. |
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/write | Modifies blocklist items under a blocklist. |
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/delete | Deletes blocklist items under a blocklist. |
+> | Microsoft.CognitiveServices/accounts/raiIfcRules/read | Reads available Ifc Rules under a resource. |
+> | Microsoft.CognitiveServices/accounts/raiIfcRules/write | Modifies available Ifc Rules under a resource. |
+> | Microsoft.CognitiveServices/accounts/raiIfcRules/delete | Deletes Ifc Rules under a resource |
+> | Microsoft.CognitiveServices/accounts/raiModerationlists/read | Reads available customer moderation lists under a resource. |
+> | Microsoft.CognitiveServices/accounts/raiModerationlists/write | Modifies available moderation lists under a resource. |
+> | Microsoft.CognitiveServices/accounts/raiModerationlists/delete | Deletes moderation lists under a resource |
+> | Microsoft.CognitiveServices/accounts/raiModerationlists/addRaiModerationTerms/action | Batch adds moderation terms under a moderation list |
+> | Microsoft.CognitiveServices/accounts/raiModerationlists/deleteRaiModerationTerms/action | Batch deletes moderation terms under a moderation list |
+> | Microsoft.CognitiveServices/accounts/raiModerationlists/raiModerationTerms/read | Read available Terms under a customer moderation list |
+> | Microsoft.CognitiveServices/accounts/raiModerationlists/raiModerationTerms/write | Write Terms under a customer moderation list |
+> | Microsoft.CognitiveServices/accounts/raiModerationlists/raiModerationTerms/delete | Delete terms under a customer moderation list |
 > | Microsoft.CognitiveServices/accounts/raiPolicies/read | Gets all applicable policies under the account including default policies. |
 > | Microsoft.CognitiveServices/accounts/raiPolicies/write | Create or update a custom Responsible AI policy. |
 > | Microsoft.CognitiveServices/accounts/raiPolicies/delete | Deletes a custom Responsible AI policy that's not referenced by an existing deployment. |
+> | Microsoft.CognitiveServices/accounts/raiToolLabels/read | Reads available Tool Labels under a resource. |
+> | Microsoft.CognitiveServices/accounts/raiToolLabels/write | Modifies available Tool Labels under a resource. |
+> | Microsoft.CognitiveServices/accounts/raiToolLabels/delete | Deletes Tool Labels under a resource |
+> | Microsoft.CognitiveServices/accounts/raiTopics/read | Reads available topics under a resource |
+> | Microsoft.CognitiveServices/accounts/raiTopics/write | Modifies available topics under a resource |
+> | Microsoft.CognitiveServices/accounts/raiTopics/delete | Delete topic under a resource |
+> | Microsoft.CognitiveServices/accounts/raiValidateExternalSafetyProvider/write |  |
 > | Microsoft.CognitiveServices/accounts/skus/read | Reads available SKUs for an existing resource. |
 > | Microsoft.CognitiveServices/accounts/usages/read | Get the quota usage for an existing resource. |
 > | Microsoft.CognitiveServices/attestationdefinitions/read | Reads all subscription level attestation definitions |
@@ -576,11 +227,17 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/modelCapacities/read | Reads available capacities of a model. |
 > | Microsoft.CognitiveServices/models/read | Reads available models. |
 > | Microsoft.CognitiveServices/Operations/read | List all available operations |
+> | Microsoft.CognitiveServices/raiExternalSafetyProviders/read | Read external safety providers |
+> | Microsoft.CognitiveServices/raiExternalSafetyProviders/write | Write External Safety Providers |
+> | Microsoft.CognitiveServices/raiPolicy/read | Read Subscription RaiPolicy |
+> | Microsoft.CognitiveServices/raiPolicy/write | Write Subscription RaiPolicy |
 > | Microsoft.CognitiveServices/skus/read | Reads available SKUs for Cognitive Services. |
 > | **DataAction** | **Description** |
+> | Microsoft.CognitiveServices/accounts/AIServices/providers/action | Perform an action on a provider model |
 > | Microsoft.CognitiveServices/accounts/AIServices/agents/write | Create update agents, threads, and messages |
 > | Microsoft.CognitiveServices/accounts/AIServices/agents/read | Read agents, threads, and messages |
 > | Microsoft.CognitiveServices/accounts/AIServices/agents/delete | Delete agents, threads, and messages |
+> | Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action | Invoke an application |
 > | Microsoft.CognitiveServices/accounts/AIServices/assets/read | List versions of an asset or get a particular version of the asset |
 > | Microsoft.CognitiveServices/accounts/AIServices/assets/write | List versions of an asset or get a particular version of the asset |
 > | Microsoft.CognitiveServices/accounts/AIServices/assets/delete | List versions of an asset or get a particular version of the asset |
@@ -589,6 +246,17 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/AIServices/deployments/read | List all deployed models in the project. Get a deployed model. |
 > | Microsoft.CognitiveServices/accounts/AIServices/evaluations/write | Create an evaluation run |
 > | Microsoft.CognitiveServices/accounts/AIServices/evaluations/read | Read evaluation runs |
+> | Microsoft.CognitiveServices/accounts/AIServices/evaluations/delete | Delete evaluation runs |
+> | Microsoft.CognitiveServices/accounts/AIServices/fine_tuning/write | Create, cancel, pause and resume a fine-tuning job |
+> | Microsoft.CognitiveServices/accounts/AIServices/fine_tuning/read | List and get fine-tune jobs. List checkpoints and events of fine-tune jobs |
+> | Microsoft.CognitiveServices/accounts/AIServices/fine_tuning/delete | Delete a fine-tune job |
+> | Microsoft.CognitiveServices/accounts/AIServices/notifications/read | List all notifications or get a particular notification of a specific project |
+> | Microsoft.CognitiveServices/accounts/AIServices/notifications/write | Create a new version of a notification or update or operate on an existing notification of a specific project |
+> | Microsoft.CognitiveServices/accounts/AIServices/notifications/delete | Delete all notifications or delete a particular notification of a specific project |
+> | Microsoft.CognitiveServices/accounts/AIServices/responses/read | List all responses in the project. Get a response. |
+> | Microsoft.CognitiveServices/accounts/AIServices/responses/write | Create a new response |
+> | Microsoft.CognitiveServices/accounts/AIServices/responses/delete | Delete a specific response |
+> | Microsoft.CognitiveServices/accounts/AIServices/usage/read | Get billing usage |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models:detect-last/action | Submit multivariate anomaly detection task with the modelId of trained model and inference data, and the inference data should be put into request body in a JSON format. The request will complete synchronously and return the detection immediately in the response body. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models:detect-batch/action | Submit multivariate anomaly detection task with the modelId of trained model and inference data, the input schema should be the same with the training request. The request will complete asynchronously and return a resultId to query the detection result.The request should be a source link to indicate an externally accessible Azure storage Uri, either pointed to an Azure blob storage folder, or pointed to a CSV file in Azure blob storage. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/action | Create and train a multivariate anomaly detection model.<br>The request must include a source parameter to indicate an externally accessible Azure blob storage URI.There are two types of data input: An URI pointed to an Azure blob storage folder which contains multiple CSV files, and each CSV file contains two columns, timestamp and variable.<br>Another type of input is an URI pointed to a CSV file in Azure blob storage, which contains all the variables and a timestamp column. |
@@ -792,6 +460,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ContentModerator/text/lists/items/write | Create Item In Text List |
 > | Microsoft.CognitiveServices/accounts/ContentModerator/text/lists/items/delete | Delete Item By itemId and listId |
 > | Microsoft.CognitiveServices/accounts/ContentModerator/text/lists/items/read | Get All Items By listId Get Item By itemId and listId* |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/agent:analyzeTaskAdherence/action | A synchronous API for the analysis of task adherence in agentic conversations. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/provenance:detect/action | Inspect for provenance information |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/provenance:detect_1p/action | Inspect for provenance information 1P, including sensitive 1P data |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/image:analyze/action | A sync API for harmful content analysis for image. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:analyze/action | A sync API for harmful content analysis for text. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/imagewithtext:analyze/action | A sync API for harmful content analysis for image with text |
@@ -822,6 +493,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/requestCounts/read | List API request counts at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/requestLatencies/read | List API request latencies at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/provenance/manifest:bind/action | A sync API for content provenance manifest binding. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/provenance/digest:sign/action | A sync API for content provenance manifest binding. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/raipolicies/write | Create or update Rai policy |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/raipolicies/delete | Delete a rai policy by raiPolicyName |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/raipolicies/read | Get or List Rai Policy |
@@ -1287,6 +959,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/action | Analyzes the input conversation. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/action | Submit a collection of text documents for analysis.  Specify a single unique task to be executed immediately. |
 > | Microsoft.CognitiveServices/accounts/Language/:migratefromluis/action | Triggers a job to migrate one or more LUIS apps. |
+> | Microsoft.CognitiveServices/accounts/Language/mcp/action | Invoke Language MCP Server. |
 > | Microsoft.CognitiveServices/accounts/Language/generate/action | Language generation. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversation/jobscancel/action | Cancel a long-running analysis job on conversation. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversation/jobs/action | Submit a long conversation for analysis. Specify one or more unique tasks to be executed as a long-running operation. |
@@ -1741,12 +1414,15 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ModelDistribution/models/read | Get model manifest for given conditions |
 > | Microsoft.CognitiveServices/accounts/ModelDistribution/models/latest/read | Get latest available and compatible model for a specific service. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:analyze/action | Extract content and fields from input. Extract content and fields from input.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:copy/action | Create a copy of the source analyzer to the current location. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:grantCopyAuthorization/action | Get authorization for copying this analyzer to another location. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:analyzebinary/action | Extract content and fields from input. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers:classify/action | Classify content with optional splitting. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers:classifybinary/action | Classify content with optional splitting. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/faces:compare/action | Compare the similarity between two faces. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/faces:detect/action | Detect faces in an image. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/read | Get the result of an analysis operation. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/delete | Delete the result of an analysis operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/files/read | Get a file associated with the result of an analysis operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/read | List analyzers. Get analyzer properties. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/write | Create a new analyzer asynchronously. Update analyzer properties. |
@@ -1760,14 +1436,19 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/batchAnalysisJobs/write | Create a batch analysis job. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/batchAnalysisJobs/delete | Delete batch analysis job.  Analysis output is not deleted. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifierresults/read | Get the result of a classifier operation. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/write | Create a new classifier asynchronously. Update classifier properties. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/delete | Delete classifier. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/read | List classifiers. Get classifier properties.* |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/operations/read | Get the status of a classifier creation operation. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/defaults/read | Return default settings for this Content Understanding resource. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/defaults/write | Update default settings for this Content Understanding resource. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/write | Labeling - Create project Labeling - Update project |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/read | Labeling - Get project Labeling - List projects |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/delete | Labeling - Delete project |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/schema:suggest/action | Labeling - Suggest field schema |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/schema:edit/action | Labeling - Edit field schema |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels:analyze/action | Labeling - Analyze document |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/datasets/files/read | Labeling - GetDatasetFile Labeling - ListDatasetFiles |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/write | Labeling - Create label |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/read | Labeling - Get label Labeling - List labels |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/delete | Labeling - Delete label |
@@ -1775,6 +1456,13 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/document/read | Labeling - Get document |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/ocr/read | Labeling - Get OCR result |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/operations/read | Labeling - List analyze document results Labeling - Get analyze document result |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files:analyze/action | Labeling - StartGenerateResult |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/read | Labeling - GetReferenceFile Labeling - ListReferenceFiles |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/write | Labeling - CreateReferenceFile |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/delete | Labeling - DeleteReferenceFile |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/write | Labeling - CreateDatasetFile |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/delete | Labeling - DeleteDatasetFile |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/operations/read | Labeling - GetGenerateResultOperation Labeling - ListGenerateResultOperations |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/schema/read | Labeling - Get current schema |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/schema/operations/read | Labeling - Get suggested schema Labeling - List suggested schemas |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/stats/read | Labeling - Get project stats |
@@ -1784,11 +1472,17 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/delete | Labeling - Delete Test file |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/operations/read | Labeling - Get hitl operation status |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/read | List person directories. Get person directory properties.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/write | Create a new person directory. - Update person directory properties. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/delete | Delete person directory and all associated persons and faces. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces:find/action | Find similar faces. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons:verify/action | Verify if a face matches the person. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons:identify/action | Identify the person from a face. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces/read | List faces. Get face properties.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces/write | Add a new face. Update face properties, such as modifying the association with a person. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces/delete | Delete face.  Any linked person will be disassociated, but not deleted. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons/read | List persons. Get person properties.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons/write | Add a new person and optionally associate with existing faces. Update person properties. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons/delete | Delete person.  Any linked faces will be disassociated, but not deleted. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action | Returns news for a provided category. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Get news articles relevant for a given query. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Get trending topics identified by Bing. These are the same topics shown in the banner at the bottom of the Bing home page. |
@@ -1829,6 +1523,19 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/OpenAI/batches/read | List or get batch jobs. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/batches/delete | Delete a batch job. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/batches/cancel/action | Cancel a batch job. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/containers/delete | Delete container. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/containers/files/delete | Delete file in container. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/dashboard/webhook_endpoints/action | Create a new webhook endpoint. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/dashboard/webhook_endpoints/action | Delete a specific webhook endpoint. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/dashboard/webhook_endpoints/action | Update a specific webhook endpoint. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/dashboard/webhook_endpoints/read | List all webhook endpoints. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/dashboard/webhook_endpoints/read | Retrieve a specific webhook endpoint. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/dashboard/webhook_endpoints/simulate_event/action | Simulate a webhook event. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/dashboard/webhook_endpoints/rotate/action | Rotate a specific webhook endpoint. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/dashboard/webhook_event_types/read | Retrieve a list of webhook event types. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/data-generations/write | Create and cancel Data-generations. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/data-generations/delete | Delete Data-generations. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/data-generations/read | Gets information about data generation jobs. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/realtime/action | Creates a realtime connection to the deployment. |
@@ -1921,6 +1628,10 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/Personalizer/multislot/events/reward/action | Report reward that resulted from using the action specified in rewardActionId for the slot. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/status/read | Gets the status of the operation. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/status/read | *NotDefined* |
+> | Microsoft.CognitiveServices/accounts/Podcast/Generations/read | Read podcast generations. |
+> | Microsoft.CognitiveServices/accounts/Podcast/Generations/write | Create or update podcast generations. |
+> | Microsoft.CognitiveServices/accounts/Podcast/Generations/delete | Delete podcast generations. |
+> | Microsoft.CognitiveServices/accounts/Podcast/Operations/read | Read operation. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | QnA Maker |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | QnA Maker |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterations/read | Download alterations from runtime. |
@@ -2016,6 +1727,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/SpeechServices/unified-speech/languages/action | This endpoint provides the REST language api. |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/unified-speech/legacy/query/action | The Speech Service legacy REST api. |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/voiceagent/realtime/action | Create a realtime connection to the voice agent api |
+> | Microsoft.CognitiveServices/accounts/SpeechServices/voicelive/realtime/action | Create a realtime connection to the voice live agent api |
 > | Microsoft.CognitiveServices/accounts/SpellCheck/spellcheck/action | Get result of a spell check query through GET or POST. |
 > | Microsoft.CognitiveServices/accounts/TextAnalytics/languages/action | The API returns the detected language and a numeric score between 0 and 1. Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported. |
 > | Microsoft.CognitiveServices/accounts/TextAnalytics/entities/action | The API returns a list of known entities and general named entities (\"Person\", \"Location\", \"Organization\" etc) in a given document. |
@@ -2106,6 +1818,11 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/TextTranslation/glossaries/formats/read | List glossary formats supported by the Document Translation service. |
 > | Microsoft.CognitiveServices/accounts/TextTranslation/languages/read | Gets the set of languages currently supported by other operations of the Translator Text API. |
 > | Microsoft.CognitiveServices/accounts/TextTranslation/storagesources/read | List storage sources/options supported by the Document Translation service. |
+> | Microsoft.CognitiveServices/accounts/TTSPlayer/TTSPlayers/read | Read TTS players. |
+> | Microsoft.CognitiveServices/accounts/TTSPlayer/TTSPlayers/write | Create or update TTS players. |
+> | Microsoft.CognitiveServices/accounts/TTSPlayer/TTSPlayers/delete | Delete TTS players. |
+> | Microsoft.CognitiveServices/accounts/TTSPlayer/TTSPlayerSynthesisContent/write | TTS Player synthesis content. |
+> | Microsoft.CognitiveServices/accounts/TTSPlayer/TTSPlayerSynthesisLog/write | TTS Player synthesis log. |
 > | Microsoft.CognitiveServices/accounts/VideoSearch/trending/action | Get currently trending videos. |
 > | Microsoft.CognitiveServices/accounts/VideoSearch/details/action | Get insights about a video, such as related videos. |
 > | Microsoft.CognitiveServices/accounts/VideoSearch/search/action | Get videos relevant for a given query. |
@@ -2150,13 +1867,48 @@ Azure service: [Azure AI Health Bot](/azure/health-bot/overview)
 > | Microsoft.HealthBot/healthBots/Write | Writes healthBots |
 > | Microsoft.HealthBot/healthBots/Delete | Deletes healthBots |
 > | **DataAction** | **Description** |
-> | Microsoft.HealthBot/healthBots/Reader/Action | Sign in to the management portal, with read-only access to resources, scenarios and configuration settings except for the bot instance keys & secrets and the end-user inputs. |
-> | Microsoft.HealthBot/healthBots/Editor/Action | Sign in to the management portal, view and edit all the bot resources, scenarios and configuration settings except for the bot instance keys & secrets and the end-user inputs. Read-only access to the bot skills and channels. |
-> | Microsoft.HealthBot/healthBots/Admin/Action | Sign in to the management portal, view and edit all of the bot resources, scenarios, configuration settings, instance keys & secrets. |
+> | Microsoft.HealthBot/healthBots/ConversationSession/Action | Send a message to the agent and receive a response, using the conversation session API |
 > | Microsoft.HealthBot/healthBots/Admin/ToggleRBAC/Action | Enable/disable RBAC based authorization in the management portal |
 > | Microsoft.HealthBot/healthBots/Admin/Backup/Action | Create a backup file of the bot's data to restore later |
 > | Microsoft.HealthBot/healthBots/Admin/Restore/Action | Restore bot state from a backup file |
-> | Microsoft.HealthBot/healthBots/Admin/CopilotStudioSolution/Download/Action | Download the Copilot Studio Solution |
+> | Microsoft.HealthBot/healthBots/Admin/AbuseMonitoring/Read | Access for getting abuse problematic prompts data and blocked users information |
+> | Microsoft.HealthBot/healthBots/Admin/AbuseMonitoring/Delete | Remove blocked users from the abuse blocked users list |
+> | Microsoft.HealthBot/healthBots/Admin/Channels/Read | View details of agent's channels, including various keys and secrets used by the channels |
+> | Microsoft.HealthBot/healthBots/Admin/Channels/Write | Edit and enable channels |
+> | Microsoft.HealthBot/healthBots/Admin/Channels/Delete | Disable channels |
+> | Microsoft.HealthBot/healthBots/Admin/ConversationLogs/Read | Access for getting conversation logs analytics data |
+> | Microsoft.HealthBot/healthBots/Admin/ConversationLogs/Export/Action | Export conversation logs data |
+> | Microsoft.HealthBot/healthBots/Admin/ConversationLogs/DataRetentionPolicy/Write | Access for setting conversation logs data retention policy |
+> | Microsoft.HealthBot/healthBots/Admin/ExposedSkill/Write | Toggle exposed skill and edit manifest details |
+> | Microsoft.HealthBot/healthBots/Admin/ExposedSkill/Delete | Reset exposed skill data |
+> | Microsoft.HealthBot/healthBots/Admin/Feedback/Read | Access for getting feedback data |
+> | Microsoft.HealthBot/healthBots/Admin/Feedback/Export/Action | Export feedback data |
+> | Microsoft.HealthBot/healthBots/Admin/RegisteredSkills/Write | Register new skill |
+> | Microsoft.HealthBot/healthBots/Admin/RegisteredSkills/Delete | Remove a registered skill |
+> | Microsoft.HealthBot/healthBots/Admin/Scenarios/History/Delete | Delete entries from scenarios history |
+> | Microsoft.HealthBot/healthBots/Admin/Secrets/Read | List and view unmasked agent API keys and secrets |
+> | Microsoft.HealthBot/healthBots/Admin/Secrets/UpdateCustomTelemetry/Action | Toggle custome telemtry and set API key |
+> | Microsoft.HealthBot/healthBots/Admin/Secrets/GenerateApiKey/Action | Generate new API key for the agent |
+> | Microsoft.HealthBot/healthBots/Admin/Secrets/GeneratePESApiKey/Action | Generate new PES API key for the agent |
+> | Microsoft.HealthBot/healthBots/Admin/UnrecognizedUtterances/Read | Access for getting unrecognized utterances data |
+> | Microsoft.HealthBot/healthBots/Admin/UnrecognizedUtterances/Export/Action | Export unrecognized utterances data |
+> | Microsoft.HealthBot/healthBots/AIActions/ClinicalCoder/Process/Action | Process health data in Clinical Coder service API |
+> | Microsoft.HealthBot/healthBots/AnalyticReport/Read | Access for getting analytic report data |
+> | Microsoft.HealthBot/healthBots/AuditTrails/Read | Audit all activity in your bot |
+> | Microsoft.HealthBot/healthBots/AuthenticationProviders/Read | List and view details of agent's authentication providers |
+> | Microsoft.HealthBot/healthBots/AuthenticationProviders/Write | Edit agent's authentication providers |
+> | Microsoft.HealthBot/healthBots/AuthenticationProviders/Delete | Delete existing authentication providers |
+> | Microsoft.HealthBot/healthBots/Channels/List/Action | List the available channels for the agent and their enabled status |
+> | Microsoft.HealthBot/healthBots/Channels/BotIcon/Write | View and edit agent's icon as displayed across different channels |
+> | Microsoft.HealthBot/healthBots/Configuration/Read | View agent's configuration, including healthcare intelligence configurations and environment variables |
+> | Microsoft.HealthBot/healthBots/Configuration/Write | Edit agent's configuration |
+> | Microsoft.HealthBot/healthBots/Configuration/Delete | Reset agent's configurations |
+> | Microsoft.HealthBot/healthBots/CopilotStudioSolution/Download/Action | Download the Copilot Studio Solution |
+> | Microsoft.HealthBot/healthBots/CopilotStudioSolution/RestoreBuiltinTemplate/Read | Apply copilot features when opening the management portal |
+> | Microsoft.HealthBot/healthBots/DataConnections/Read | List and view details of reusable data connections |
+> | Microsoft.HealthBot/healthBots/DataConnections/Write | Edit and create new reusable data connections |
+> | Microsoft.HealthBot/healthBots/DataConnections/Delete | Delete existing reusable data connections |
+> | Microsoft.HealthBot/healthBots/ExposedSkill/Read | View the agent's exposed skill enablement status and details |
 > | Microsoft.HealthBot/healthBots/Feedback/Read | Participate and answer on surveys and feedbacks about Healthcare Agent service |
 > | Microsoft.HealthBot/healthBots/HealthSafeguards/ClinicalAnchoring/Process/Action | Process health data in Clinical Anchoring Health Safeguard service API |
 > | Microsoft.HealthBot/healthBots/HealthSafeguards/ClinicalCodesValidation/Process/Action | Process health data in Clinical Codes Validation Health Safeguards service API |
@@ -2166,9 +1918,29 @@ Azure service: [Azure AI Health Bot](/azure/health-bot/overview)
 > | Microsoft.HealthBot/healthBots/HealthSafeguards/ClinicalSemanticValidation/Process/Action | Process health data in Clinical Semantic Validation Health Safeguard service API |
 > | Microsoft.HealthBot/healthBots/HealthSafeguards/DetectHallucinationsAndOmissions/Process/Action | Process health data in Detect Hallucinations And Omissions Health Safeguard service API |
 > | Microsoft.HealthBot/healthBots/HealthSafeguards/HealthAdaptedFiltering/Process/Action | Process health data in Health Adapted Filtering Health Safeguard service API |
+> | Microsoft.HealthBot/healthBots/LanguageModels/Read | Access for getting language models data |
+> | Microsoft.HealthBot/healthBots/LanguageModels/Write | Access for setting language models data |
+> | Microsoft.HealthBot/healthBots/LanguageModels/Delete | Access for deleting language models data |
+> | Microsoft.HealthBot/healthBots/Localization/Read | Access for getting language localization data |
+> | Microsoft.HealthBot/healthBots/Localization/Write | Access for setting language localization data |
+> | Microsoft.HealthBot/healthBots/Localization/Delete | Access for deleting language localization data |
 > | Microsoft.HealthBot/healthBots/Metadata/Read | Get metadata and configurations related to the bot |
+> | Microsoft.HealthBot/healthBots/OpenAPIPlugins/Read | List and view OpenAPI plugins' details |
+> | Microsoft.HealthBot/healthBots/OpenAPIPlugins/Write | Edit and create new OpenAPI plugins |
+> | Microsoft.HealthBot/healthBots/OpenAPIPlugins/Delete | Delete existing OpenAPI plugins |
+> | Microsoft.HealthBot/healthBots/RegisteredSkills/Read | List registered skills and view manifest URLs and details |
 > | Microsoft.HealthBot/healthBots/ResourceData/Read | Get global data and properties about Healthcare Agent service |
+> | Microsoft.HealthBot/healthBots/Resources/Files/Read | Allows reading and listing of resource files in the Health Bot. |
+> | Microsoft.HealthBot/healthBots/Resources/Files/Write | Allows uploading, updating, and deleting resource files in the Health Bot. |
+> | Microsoft.HealthBot/healthBots/Resources/Files/Delete | Grant permissions to delete resource files |
 > | Microsoft.HealthBot/healthBots/Scenarios/Export/Action | Allows exporting one or more HealthBot scenarios as JSON files or archives. |
+> | Microsoft.HealthBot/healthBots/Scenarios/Import/Action | Allows importing one or more HealthBot scenarios |
+> | Microsoft.HealthBot/healthBots/Scenarios/Export/Action | Allows exporting one or more HealthBot scenarios |
+> | Microsoft.HealthBot/healthBots/Scenarios/Read | List and view authored scenarios |
+> | Microsoft.HealthBot/healthBots/Scenarios/Write | Edit authored scenarios |
+> | Microsoft.HealthBot/healthBots/Scenarios/Delete | Delete HealthBot Scenarios |
+> | Microsoft.HealthBot/healthBots/Scenarios/Templates/Read | Browse the template catalog |
+> | Microsoft.HealthBot/healthBots/Users/Read | Read portal users as configured in classic access control |
 
 ## Microsoft.MachineLearningServices
 
@@ -2528,6 +2300,12 @@ Azure service: [Azure AI Search](/azure/search/)
 > | Microsoft.Search/searchServices/listQueryKeys/action | Returns the list of query API keys for the given Azure Search service. |
 > | Microsoft.Search/searchServices/createQueryKey/action | Creates the query key. |
 > | Microsoft.Search/searchServices/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | Microsoft.Search/searchServices/agents/read | Read agent configurations. |
+> | Microsoft.Search/searchServices/agents/write | Create new agents or modify existing agent configurations. |
+> | Microsoft.Search/searchServices/agents/delete | Delete an agent. |
+> | Microsoft.Search/searchServices/aliases/read | Return an alias or a list of aliases. |
+> | Microsoft.Search/searchServices/aliases/write | Create an alias or modify its properties. |
+> | Microsoft.Search/searchServices/aliases/delete | Delete an alias. |
 > | Microsoft.Search/searchServices/dataSources/read | Return a data source or a list of data sources. |
 > | Microsoft.Search/searchServices/dataSources/write | Create a data source or modify its properties. |
 > | Microsoft.Search/searchServices/dataSources/delete | Delete a data source. |
@@ -2544,6 +2322,12 @@ Azure service: [Azure AI Search](/azure/search/)
 > | Microsoft.Search/searchServices/indexes/read | Return an index or its statistics, return a list of indexes or their statistics, or test the lexical analysis components of an index. |
 > | Microsoft.Search/searchServices/indexes/write | Create an index or modify its properties. |
 > | Microsoft.Search/searchServices/indexes/delete | Delete an index. |
+> | Microsoft.Search/searchServices/knowledgeBases/read | Return a knowledge base or a list of knowledge bases. |
+> | Microsoft.Search/searchServices/knowledgeBases/write | Create a knowledge base or modify its properties. |
+> | Microsoft.Search/searchServices/knowledgeBases/delete | Delete a knowledge base. |
+> | Microsoft.Search/searchServices/knowledgeSources/read | Read Knowledge Sources. |
+> | Microsoft.Search/searchServices/knowledgeSources/write | Create new knowledge sources or modify existing knowledge sources. |
+> | Microsoft.Search/searchServices/knowledgeSources/delete | Delete a knowledge source. |
 > | Microsoft.Search/searchServices/logDefinitions/read | Gets the available logs for the search service |
 > | Microsoft.Search/searchServices/metricDefinitions/read | Gets the available metrics for the search service |
 > | Microsoft.Search/searchServices/networkSecurityPerimeterAssociationProxies/delete | Delete an association proxy to a Network Security Perimeter resource of Microsoft.Network provider. |
@@ -2569,6 +2353,7 @@ Azure service: [Azure AI Search](/azure/search/)
 > | Microsoft.Search/searchServices/synonymMaps/write | Create a synonym map or modify its properties. |
 > | Microsoft.Search/searchServices/synonymMaps/delete | Delete a synonym map. |
 > | **DataAction** | **Description** |
+> | Microsoft.Search/searchServices/indexes/contentSecurity/elevatedOperations/read | Enable the option to read all documents in an index regardless of permission filters. |
 > | Microsoft.Search/searchServices/indexes/documents/read | Read documents or suggested query terms from an index. |
 > | Microsoft.Search/searchServices/indexes/documents/write | Upload documents to an index or modify existing documents. |
 > | Microsoft.Search/searchServices/indexes/documents/delete | Delete documents from an index. |

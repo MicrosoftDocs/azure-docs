@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: This article describes how to define and use user-defined data types in Bicep.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 07/01/2025
+ms.date: 12/22/2025
 ---
 
 # User-defined data types in Bicep

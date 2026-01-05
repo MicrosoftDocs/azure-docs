@@ -223,8 +223,10 @@
       href: ../../backup/manage-afs-powershell.md?toc=/azure/storage/files/toc.json
     - name: REST API
       href: ../../backup/manage-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
-- name: Availability and disaster recovery
+- name: Reliability
   items:
+  - name: Reliability in Azure Files
+    href: ../../reliability/reliability-storage-files.md?toc=/azure/storage/files/toc.json
   - name: Storage redundancy
     href: files-redundancy.md
   - name: Disaster recovery and failover

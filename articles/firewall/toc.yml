@@ -30,8 +30,6 @@ items:
       href: policy-analytics.md
   - name: FQDN filtering
     href: domain-filtering-overview.md
-  - name: Infrastructure FQDNs
-    href: infrastructure-fqdns.md
   - name: IDPS signature rule categories
     href: idps-signature-categories.md
   - name: Web categories
@@ -54,8 +52,6 @@ items:
     href: explicit-proxy.md
   - name: Routing in hub and spoke 
     href: firewall-multi-hub-spoke.md
-  - name: Central management
-    href: central-management.md
   - name: Integrate with load balancer
     href: integrate-lb.md
 - name: Deploy
@@ -94,7 +90,7 @@ items:
       href: tutorial-hybrid-ps.md
   - name: Firewall with inbound DNAT rules
     href: tutorial-firewall-dnat-policy.md
-  - name: Private IP DNAT for overlapped and non-routable networks
+  - name: Private IP DNAT for overlapped and nonroutable networks
     href: tutorial-private-ip-dnat.md
   - name: Firewall with DDoS protection
     href: tutorial-protect-firewall.md

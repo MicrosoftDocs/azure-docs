@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 12/12/2025
+  ms.date: 12/30/2025
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom: engagement-fy24
@@ -117,6 +117,14 @@ sections:
           When GRS is enabled can we restore the VM on to the dedicated zone?
         answer: |
           No, we cannot restore on to the dedicated zone.
+
+  - name: Backup vault
+    questions:
+      - question: |
+          Can I move a subscription that contains a Backup vault to a different tenant?
+        answer: |
+          No, Backup vaults aren't supported.
+
   - name: Azure Backup agent
     questions:
       - question: |

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -421,9 +421,9 @@ Perform any action on the certificates of a key vault, except manage permissions
 
 Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates.
 
-[Learn more](/azure/key-vault/general/security-features)
-
 [!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-contributor-role-warning.md)]
+
+[Learn more](/azure/key-vault/general/security-features)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -115,89 +115,6 @@ Grants full access to manage all resources, including the ability to assign role
     }
   ],
   "roleName": "Owner",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Azure File Sync Administrator
-
-This role provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC.
-
-When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
- 
-1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
- 
-2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
- 
-3. Select **Create role assignment**, and then click **Select**.
- 
-4. Select **Add expression**, and then select **Request**.
- 
-5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
- 
-6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
- 
-
-[Learn more](/azure/storage/file-sync/file-sync-deployment-guide)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/register/action | Registers the server to Storage Sync Service |
-> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/unregister/action | Unregisters the server to Storage Sync Service  |
-> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/locations/* |  |
-> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/deployments/preflight/action |  |
-> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/storageSyncServices/* |  |
-> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/operations/read | Returns the status of Storage Sync operations |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups |
-> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create and update role assignments |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Read role assignments |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/read | List file services |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/read | Get file share |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "This role provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/92b92042-07d9-4307-87f7-36a593fc5850",
-  "name": "92b92042-07d9-4307-87f7-36a593fc5850",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.StorageSync/register/action",
-        "Microsoft.StorageSync/unregister/action",
-        "Microsoft.StorageSync/locations/*",
-        "Microsoft.StorageSync/deployments/preflight/action",
-        "Microsoft.StorageSync/storageSyncServices/*",
-        "Microsoft.StorageSync/operations/read",
-        "Microsoft.Insights/AlertRules/*",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Support/*",
-        "Microsoft.Authorization/roleAssignments/write",
-        "Microsoft.Authorization/roleAssignments/read",
-        "Microsoft.Storage/storageAccounts/read",
-        "Microsoft.Storage/storageAccounts/fileServices/read",
-        "Microsoft.Storage/storageAccounts/fileServices/shares/read"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Azure File Sync Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

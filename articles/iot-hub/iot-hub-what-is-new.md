@@ -7,16 +7,16 @@ ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 11/07/2025
+ms.date: 12/19/2025
 ms.custom: references_regions
 #Customer intent: As a developer new to IoT Hub, I want to understand the new features and improvements in Azure IoT Hub.
 ---
 
 # What is new in Azure IoT Hub? (preview)
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
-
 Starting November 2025, Azure IoT Hub introduces two new **preview** features: integration with Azure Device Registry (ADR) and enhanced Microsoft-backed X.509 certificate management. These features are designed to improve security, simplify device management, and streamline operations for IoT deployments.
+
+[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
 ## Manage your devices in a unified registry with Azure Device Registry
 
@@ -30,10 +30,15 @@ IoT Hub now introduces certificate management for managing device certificates u
 
 These X.509 certificates are strictly operational certificates that the device uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. 
 
-To use certificate management, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). 
+To use certificate management, devices must be provisioned through [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). 
 
 For more information, see [What is certificate management?](iot-hub-certificate-management-overview.md) and [Key concepts for certificate management](iot-hub-certificate-management-concepts.md).
 
+## Device Provisioning Service requirement
+
+All Azure IoT Hub preview scenarios require Device Provisioning Service (DPS). You must link your IoT Hub to a DPS instance and provision devices through DPS, whether you use certificate management or not. DPS enables consistent device onboarding, identity assignment, and secure authentication with IoT Hub.
+
+For more information, see [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml).
 
 ## Supported regions
 

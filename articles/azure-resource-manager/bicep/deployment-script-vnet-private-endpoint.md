@@ -3,7 +3,7 @@ title: Run Bicep deployment script privately over a private endpoint
 description: Learn how to run Bicep deployment script privately over a private endpoint.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ---
 
 # Run Bicep deployment script privately over a private endpoint

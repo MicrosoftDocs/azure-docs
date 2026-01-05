@@ -1040,7 +1040,7 @@
       "ms.update-cycle": {
         "articles/azure-cache-for-redis/**/*.md": "1095-days",
         "articles/azure-cache-for-redis/**/*.yml": "1095-days",
-        "articles/azure-resource-manager/bicep/*.md": "180-days",
+        "articles/azure-resource-manager/bicep/*.md": "365-days",
         "articles/azure-resource-manager/management/*.md": "365-days",
         "articles/azure-resource-manager/templates/*.md": "365-days",
         "articles/azure-resource-manager/troubleshooting/*.md": "1095-days",

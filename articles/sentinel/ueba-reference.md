@@ -271,6 +271,9 @@ There are multiple versions of the *IdentityInfo* table:
 
     For more information on the unified version, see [IdentityInfo in the *Advanced hunting* documentation](/defender-xdr/advanced-hunting-identityinfo-table).
 
+> [!IMPORTANT]
+> When you transition to the Defender portal, the `IdentityInfo` table becomes a native Defender table that doesn't support table-level RBAC (Role-Based Access Control). If your organization uses table-level RBAC to restrict access to the `IdentityInfo` table in the Azure portal, this access control will no longer be available after you transition to the Defender portal.
+
 #### Schema
 
 The table in the following "Log Analytics schema" tab describes the user identity data included in the **IdentityInfo** table in Log Analytics in the Azure portal. 

@@ -3,7 +3,7 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/16/2025
+ms.date: 12/22/2025
 ---
 
 # Deployment functions for Bicep
@@ -69,8 +69,8 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
 
-* deploying a local Bicep file.
-* deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
+- deploying a local Bicep file.
+- deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
 
 When deploying a local Bicep file to a resource group, the function returns the following format:
 
