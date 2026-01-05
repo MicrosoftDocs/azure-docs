@@ -146,9 +146,9 @@ kubectl get WebApplicationFirewallPolicy -n test-infra
 ```
 You should see the following output:
    
-| NAME            | STATUS  |  AGE  |
-| --------------- | ------- | ----- |
-| waf-policy-0    | True    | 5m16s |
+| NAME            | Deployment  |  AGE  |
+| --------------- | ----------- | ----- |
+| waf-policy-0    | True        | 5m16s |
 
 If the Status is `False` then use the following command to examine the policy assignment:
 
