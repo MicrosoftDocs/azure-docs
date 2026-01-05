@@ -180,7 +180,7 @@ In this section, we visualize a sample logs from Log Analytics Workspace. Refer 
 2. Select **Add Visualization**.
 3. Search for Azure Monitor under data source+ **Add**.
 4. Change service as Metrics.
-5. Select your application gateway for containers instance. If you don't see your application gateway for containers, assign the `Monitoring Reader' role on the application gateways for contaiers to the system-assigned managed identity of the Azure Managed Grafana.
+5. Select your application gateway for containers instance. If you don't see your application gateway for containers, assign the `Monitoring Reader' role on the application gateways for containers to the system-assigned managed identity of the Azure Managed Grafana.
 ![[A screenshot of Metrics Log Data Source.](./media/prometheus-grafana/metrics-logs-datasource.png)](./media/prometheus-grafana/metrics-logs-datasource.png#lightbox)
 6. Select metric namespace as microsoft.servicenetworking/trafficcontrollers.
 7. Choose a metric such as **total requests** and type of data visualization.
