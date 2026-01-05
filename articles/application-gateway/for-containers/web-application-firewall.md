@@ -150,7 +150,7 @@ You should see the following output:
 | --------------- | ----------- | ----- |
 | waf-policy-0    | True        | 5m16s |
 
-If the Status is `False` then use the following command to examine the policy assignment:
+If the Deployment is `False` then use the following command to examine the policy assignment:
 
 ```azurecli-interactive
 kubectl describe WebApplicationFirewallPolicy waf-policy-0 -n test-infra
