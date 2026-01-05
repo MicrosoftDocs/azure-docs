@@ -25,7 +25,7 @@ Whether you're a student, a small business, a startup, or an enterprise, App Ser
 
 ### Students
 
-- **Free access**: In addition to the widely available [free tier](https://azure.microsoft.com/pricing/details/app-service/), students can take advantage of the [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p) program.
+- **Free access**: In addition to the widely available [free tier](https://azure.microsoft.com/pricing/purchase-options/azure-account), students can take advantage of the [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p) program.
 - **IDE support**: Purpose-built deployment tools are available for Visual Studio, Visual Studio Code, IntelliJ, and Eclipse.
 - **Easy to use**: Run your apps without needing experience in infrastructure management.
 - **Learning Resources**: Plenty of tutorials and guides to help you get started.

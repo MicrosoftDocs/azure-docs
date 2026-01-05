@@ -479,6 +479,10 @@ const appConfig = await load(endpoint, credential, {
 
 For information about using geo-replication, go to [Enable geo-replication](./howto-geo-replication.md).
 
+## Connect to Azure Front Door
+
+The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution. For setup instructions, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
+
 ## Next steps
 
 To learn how to use the JavaScript configuration provider, continue to the following tutorial.

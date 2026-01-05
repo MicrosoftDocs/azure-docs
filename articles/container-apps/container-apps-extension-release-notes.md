@@ -198,3 +198,28 @@ ms.custom:
 - Supported dynamic concurrency for workflow trigger
 - Added RabbitMQ Keda translation
 - Fixed issues for OpenShift cluster
+
+## v1.50.1 (December 2025)
+
+- Updated base image to Azure Linux 3.0.
+- Upgraded EasyAuth to version 1.12.0.
+- Upgraded Dapr to 1.13.6-msft.6.
+- Updated KEDA to 2.17.2-msft.1.
+- Enhanced system sidecar and updated k8s.io/kubernetes to address security vulnerabilities.
+- Upgraded Geneva MDM and MDSD image versions.
+- Increased memory limits for the KEDA operator.
+- Increased Envoy resources limits.
+- Updated Auth container resource limits.
+- Set `maxInactiveRevisionsDefault` to 200.
+- Adopted KEDA-specific annotation for pausing event-triggered jobs.
+- Fixed `useMonitor` logic in Timer trigger KEDA SyncTrigger.
+- Added readiness and liveness probe configurations for the Dapr injector.
+- Implemented logic to restart the event processor if no event has been updated in the last 5 minutes.
+- Enhanced Envoy controller for app routes.
+- Added validation for SMB changes.
+- Enabled named job execution.
+- Enabled IP restrictions for HTTP routes.
+- Added `containerName` for CPU/memory autoscaling.
+- Increased localproxy sidecar readiness probe failure threshold.
+- Improved lifecycle and history management for labels mode.
+- Prevented creation of new revisions or replicasets when only the `TargetLabel` changes.

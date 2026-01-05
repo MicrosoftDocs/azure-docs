@@ -10,6 +10,10 @@ ms.date: 03/03/2023
 
 # Connecting to a database with Azure Static Web Apps (preview)
 
+> [!IMPORTANT]
+> Retirement notice: Database Connections for Static Web Apps ends November 30, 2025. Migrate now to avoid disruption.
+
+
 The Azure Static Web Apps database connection feature allows you to access a database from your static web app without writing custom server-side code.
 
 Once you create a connection between your web application and database, you can manipulate data with full support for CRUD operations, built-in authorization, and relationships.

@@ -138,10 +138,10 @@ public class WeatherService
 }
 ```
 
-#### 3. Options pattern for strongly-typed configuration
+#### 3. Options pattern for strongly typed configuration
 
 ```csharp
-// Define a strongly-typed settings class
+// Define a strongly typed settings class
 public class Settings
 {
     public string BackgroundColor { get; set; }
@@ -708,6 +708,10 @@ builder.Services.AddHealthChecks()
 The .NET provider will be considered as unhealthy when the last load or refresh attempt failed.
 
 For more information about health checks in .NET, see the [.NET health monitoring documentation](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
+
+## Connect to Azure Front Door
+
+The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution. For setup instructions, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
 
 ## Next steps
 

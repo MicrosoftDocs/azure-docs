@@ -92,7 +92,7 @@ You can configure the networking of target resources to one of the following opt
 
 After ensuring that your API Management gateway doesn't access other Azure services using trusted service connectivity, you must explicitly disable trusted connectivity in your gateway to acknowledge you have verified that the service no longer depends on trusted connectivity.
 
-To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the [API Management service](/rest/api/apimanagement/api-management-service/create-or-update?view=rest-apimanagement-2025-03-01-preview&tabs=HTTP). For example: 
+To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the [API Management service](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2025-03-01-preview&tabs=HTTP). For example: 
 
 
 ```json

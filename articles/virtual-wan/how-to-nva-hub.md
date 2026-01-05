@@ -59,7 +59,7 @@ Ensure your Virtual WAN hub has sufficient IP addresses to allow for scalability
 * Add additional IP configurations to your NVA interfaces.
 * Re-size your NVA (increase scale unit).
 
-For more information on how Virtual WAN allocates IP addresses to NVAs in the hub, see [hub address space for NVAs documentation](about-nva-hub.md#hub-address-space).
+For more information on how Virtual WAN allocates IP addresses to NVAs in the hub, see [hub address space for NVAs documentation](about-nva-hub.md#hubspace).
 
 ## Assigning Permissions to Azure Managed Application
 

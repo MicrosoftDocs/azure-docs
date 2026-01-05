@@ -16,7 +16,7 @@ Azure App Configuration supports direct integration with Azure Front Door (previ
 You can connect your App Configuration store to existing Azure Front Door profiles or create new profiles directly from the App Configuration interface for a quick start.
 
 > [!NOTE]
-> This feature is only available in the Azure public cloud.
+> This feature is currently available only in the Azure public cloud.
 
 ## Prerequisites
 
@@ -29,9 +29,9 @@ Before you begin, ensure you have:
 - App Configuration Data Owner or App Configuration Data Reader role 
 - Basic understanding of [CDN and content delivery concepts](/azure/frontdoor/front-door-overview)
 
-## Set up the Azure Front Door integration
+## Connect to Azure Front Door
 
-To integrate Azure Front Door with your App Configuration store, follow these steps:
+To connect Azure Front Door with your App Configuration store, follow these steps:
 
 1. In the Azure portal, navigate to your App Configuration store.
 
@@ -88,12 +88,16 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 1. **Filter Configuration to scope the request**: Configure one or more filters to control which requests pass through Azure Front Door. This prevents accidental exposure of sensitive configuration and ensures only the settings your application needs are accessible. The filters here must exactly match those used in your application code; otherwise, requests will be rejected by Azure Front Door.
    
    > [!NOTE]
-   > To set up the right scoping filters, you need to know what filters are used in your application to load key-values or snapshots from App Configuration. For example, if your application needs to load keys that start with the *App1:* prefix, and a snapshot whose name is *MySnapshot*, enter those values in the Key and Snapshot name filters as shown in the screenshot above.
+   > To configure scoping filters correctly, ensure that the prefix filter in Azure Front Door exactly matches the selector your application uses to load keys from App Configuration. For example, if your application loads keys using the prefix "App1:", configure the same Starts with = "App1:" key filter in Azure Front Door. If your application instead uses a more specific key prefix such as "App1:Version", but Azure Front Door is allowlisted for "App1:" key filter (or vice versa), the request will be rejected because the selectors do not match exactly.
 
    - **Key**: The key filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
    - **Label**: The label filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
    - **Tags**: The tag name and value filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), backslash (`\`), and equals (`=`) must always be escaped using a backslash (`\`).
    - **Snapshot name**: Name of snapshot whose content should be accessible through this Azure Front Door endpoint. You can select one or more snapshots to restrict access to specific snapshots.
+
+   > [!NOTE]
+   > If your application loads feature flags, provide ".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}" filter for the Key with *Starts with* operator.
+
 
 1. Select **Create & Connect** to create the profile and establish the connection.
 
@@ -130,7 +134,7 @@ The table displays:
 
 Monitor for warnings such as "Identity not configured" which indicate additional setup requirements. Address these warnings promptly to ensure proper functionality.
 
-## Disconnect Azure Front Door integration
+## Disconnect Azure Front Door
 
 When you no longer need to manage your Front Door profile through App Configuration, disconnect your App Configuration store from Azure Front Door.
 
@@ -151,8 +155,14 @@ If you encounter issues while connecting Azure Front Door to your App Configurat
 - From Front Door portal, make sure that the origin is correctly set up to be able to authenticate with the App Configuration origin. Learn how to [use managed identities to authenticate to origins](/azure/frontdoor/origin-authentication-with-managed-identities)
 - Verify that the Azure Front Door resource provider is registered in your subscription.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md)
+
 ## Related content
 
+- [Configuration Management for Client Applications](./concept-hyperscale-client-configuration.md)
 - [Learn more about Azure Front Door](/azure/frontdoor/)
 - [Configure App Configuration feature flags](/azure/azure-app-configuration/concept-feature-management)
 - [Set up managed identities](/azure/active-directory/managed-identities-azure-resources/)

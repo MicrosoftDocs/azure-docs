@@ -780,6 +780,8 @@
           href: normalization-ingest-time.md
         - name: Use ASIM
           href: normalization-about-parsers.md
+        - name: Workspace deployed parsers
+          href: normalization-about-workspace-parsers.md
         - name: Manage ASIM parsers
           href: normalization-manage-parsers.md
         - name: Develop ASIM parsers
