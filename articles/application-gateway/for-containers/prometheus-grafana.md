@@ -160,7 +160,7 @@ In this section, we visualize a sample logs from Log Analytics Workspace. Refer 
 
 1. In the right top corner, Select **Add + Add Dashboard**.
 2. Select **Add Visualization**.
-3. Search for Azure Monitor under data source + **Add**. If you don't see your desired Log Analytics worskpace, assign the `Monitoring Reader' role on the Log Analytics Workspace to the system-assigned managed identity of the Azure Managed Grafana.
+3. Search for Azure Monitor under data source + **Add**. If you don't see your desired log analytics workspace, assign the `Monitoring Reader' role on the log analytics workspace to the system-assigned managed identity of the Azure Managed Grafana.
 ![A screenshot of Log Data Source.](./media/prometheus-grafana/log-data-source.png)
 4. Change service as **Logs**.
 5. Type: 
