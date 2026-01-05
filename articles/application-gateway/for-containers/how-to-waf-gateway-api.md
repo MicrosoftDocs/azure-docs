@@ -356,4 +356,4 @@ If the Status is `False` then use the following command to examine the policy as
 kubectl describe WebApplicationFirewallPolicy sample-waf-policy -n test-infra
 ```
 
-If everything is setup correctly but you still don't see any results, make sure that the `WAF policy` you assigned is enabled and wheter the `Policy mode` is set to `Detection` or `Prevention`. `Detection` only logs the outcome of the policy but does not enforce it. To enforce it, use `Prevention`.
+If everything is setup correctly but you still don't see any results, make sure that the `WAF policy` you assigned is enabled and whether the `Policy mode` is set to `Detection` or `Prevention`. `Detection` only logs the outcome of the policy but does not enforce it. To enforce it, use `Prevention`.
