@@ -24,15 +24,15 @@ In this article, you learn how to manage access to a workspace in Playwright Wor
     1. In the [Azure portal](https://portal.azure.com), go to your Playwright workspace.
     1. On the left pane, select **Access Control (IAM)**, and then select **View my access**.
 
-## Playwright Workspace roles
+## Default roles
 
-To grant users access to a workspace, you assign them one of the following three Playwright Workspace roles:
+Playwright workspaces uses three Azure built-in roles. To grant users access to a workspace, you assign them one of the following Azure built-in roles:
 
 | Role | Access level |
 | --- | --- |
-| **Playwright Workspace Reader** | - Read-only access to the workspace in the Azure portal.<br/>- View test results for the workspace.<br/>- Can't [create or delete workspace access tokens](./how-to-manage-access-tokens.md).<br/>- Can't run Playwright tests on the service. |
-| **Playwright Workspace Contributor** | - Full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC.<br/>- Full access to the workspace in the Azure portal.<br/>- [Create and delete their access tokens](./how-to-manage-access-tokens.md).<br/>- Run Playwright tests on the service. |
-| **Playwright Workspace Owner** | - Full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC.<br/>- Full access to the workspace in the Azure portal.<br/>- [Create and delete their access tokens](./how-to-manage-access-tokens.md).<br/>- Run Playwright tests on the service. |
+| **Reader** | - Read-only access to the workspace in the Azure portal.<br/>- View test results for the workspace.<br/>- Can't [create or delete workspace access tokens](./how-to-manage-access-tokens.md).<br/>- Can't run Playwright tests on the service. |
+| **Contributor** | - Full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC.<br/>- Full access to the workspace in the Azure portal.<br/>- [Create and delete their access tokens](./how-to-manage-access-tokens.md).<br/>- Run Playwright tests on the service. |
+| **Owner** | - Full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC.<br/>- Full access to the workspace in the Azure portal.<br/>- [Create and delete their access tokens](./how-to-manage-access-tokens.md).<br/>- Run Playwright tests on the service. |
 
 > [!IMPORTANT]
 > Before you assign an Azure RBAC role, determine the scope of access that is needed. Best practices dictate that it's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them. For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
@@ -51,9 +51,9 @@ You can grant a user access to a Playwright workspace by using the Azure portal:
 
     :::image type="content" source="./media/how-to-manage-workspace-access/add-role-assignment.png" alt-text="Screenshot that shows how to add a role assignment to your workspace in the Azure portal." lightbox="./media/how-to-manage-workspace-access/add-role-assignment.png":::
 
-1. On the **Job function roles** tab, enter **Playwright**.
+1. On the **Role** tab, select **Privileged administrator** roles.
 
-1. Select one of the Playwright Workspaces roles, and then select **Next**.
+1. Select one of the Playwright Workspaces [default roles](#default-roles), and then select **Next**.
 
     :::image type="content" source="./media/how-to-manage-workspace-access/add-role-assignment-select-role.png" alt-text="Screenshot that shows the list of roles when adding a role assignment in the Azure portal." lightbox="./media/how-to-manage-workspace-access/add-role-assignment-select-role.png":::
 

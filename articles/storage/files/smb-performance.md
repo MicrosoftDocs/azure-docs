@@ -44,11 +44,12 @@ SMB Multichannel enables an SMB client to establish multiple network connections
 
 Azure Files supports SMB Multichannel with native Linux SMB clients on the following distributions:
 
-- *Ubuntu 22.04*
-- *Ubuntu 24.04*
-- *AzLinux 3.0*
-- *RHEL 9.7*
-- *RHEL 10.1*
+- *Ubuntu 24.04 AKS: 6.8.0-1042*
+- *Ubuntu 24.04 VMs: 6.14.0-1017*
+- *Ubuntu 22.04 VMs: 6.8.0-1044*
+- *AzLinux 3.0 (VMs and AKS): 6.6.106.1*
+- *RHEL 9.7: 5.14.0-611.5.1.el9_7*
+- *RHEL 10.1: 6.12.0-124.8.1.el10_1*
 
 These clients must be running the appropriate kernel stack and CIFS utilities that support multichannel. SMB Multichannel support on Linux enables performance scaling similar to Windows by establishing multiple parallel TCP connections to the same file share endpoint.
 
@@ -56,9 +57,8 @@ These clients must be running the appropriate kernel stack and CIFS utilities th
 
 The following are prerequisites to use SMB Multichannel with Linux.
 
-- Kernel with SMB multichannel support enabled (typically 6.8+ and up with *max_channel=4* mount flags)
+- Kernel with SMB multichannel support enabled (typically 6.8+ and up with *max_channels=4* mount flags)
 - SMB 3.1.1
-- Multiple network interfaces or network paths (if available)
 - Port 445/TCP open between client and Azure Files endpoint
 - Ensure client side receive-side scaling (RSS) is enabled for multi-queue support
 
@@ -69,7 +69,7 @@ The following is an example mount command for using SMB Multichannel with Linux.
 ```Bash
 mount -t cifs //<storageaccount>.file.core.windows.net/<share> /mnt/azfiles \
    -o vers=3.1.1,username=<account>,password=<key>,dir_mode=0777,file_mode=0777, \
-   multiuser,serverino,actimeo=30,max_channel=4
+   multiuser,serverino,actimeo=30,max_channels=4
 ```
 
 ### Benefits

@@ -8,6 +8,8 @@ metadata:
   ms.service: azure-api-management
   ms.topic: how-to 
   ms.date: 04/28/2025
+  ms.collection: ce-skilling-ai-copilot
+  ms.update-cycle: 180-days
   ms.custom: template-how-to
 
   #customer intent: As an API program manager, I want to export an API from my API center inventory as a connector in Microsoft Copilot Studio for use in agents.

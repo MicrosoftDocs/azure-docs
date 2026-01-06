@@ -87,7 +87,7 @@ After you create a diagnostic setting to route IoT Hub resource logs to Azure Mo
 
 Use the following problem resolution guides for help with the most common errors:
 
-* [400027 ConnectionForcefullyClosedOnNewConnection](troubleshoot-error-codes.md#400027-connection-forcefully-closed-on-new-connection)
+* [400027 ConnectionForcefullyClosedOnNewConnection](troubleshoot-error-codes.md#400xxx-bad-request-errors)
 
 * [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)
 

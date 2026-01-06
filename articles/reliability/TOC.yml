@@ -75,7 +75,7 @@ items:
     - name: Azure Virtual Machine Scale Sets
       href: reliability-virtual-machine-scale-sets.md
     - name: Azure VMware Solution
-      href: ../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: /azure/azure-vmware/deploy-disaster-recovery-using-vmware-hcx?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Containers
     items:
     - name: Azure App Configuration
@@ -187,7 +187,7 @@ items:
     - name: Azure Backup
       href: reliability-backup.md
     - name: Azure Guest Configuration
-      href: ../governance/machine-configuration/overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability
+      href: /azure/governance/machine-configuration/overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability
     - name: Azure Monitor - Log Analytics
       items:
       - name: Availability zones

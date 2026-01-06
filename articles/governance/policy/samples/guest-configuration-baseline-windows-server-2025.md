@@ -22,7 +22,7 @@ implementations:
 
 For the remediation checks and suggestions we took a best practices approach - however please always ensure that the commands will be tested and not applied blindly in any production environment.
 
-The new release of the policy for both audit and remediation is powered by [OSConfig](https://learn.microsoft.com/azure/osconfig/osconfig-overview)  our engine.
+The new release of the policy for both audit and remediation is powered by [OSConfig](/azure/osconfig/osconfig-overview)  our engine.
 
 For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
 [Overview of the Azure Security Benchmark (V2)](/azure/security/benchmarks/overview).

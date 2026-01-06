@@ -206,6 +206,9 @@ items:
         - name: Set up continuous end-to-end testing
           displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
           href: playwright-workspaces/quickstart-automate-end-to-end-testing.md
+        - name: Perform advanced diagnostics with Playwright Workspaces reporting
+          displayName: getting started, quickstart, cli, command-line, playwright
+          href: playwright-workspaces/quickstart-advanced-diagnostic-with-playwright-workspaces-reporting.md
     - name: Concepts
       items:
         - name: Determine optimal test suite configuration

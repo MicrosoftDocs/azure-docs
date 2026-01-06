@@ -58,6 +58,8 @@ landingContent:
             url: playwright-workspaces/quickstart-run-end-to-end-tests.md
           - text: Set up continuous end-to-end testing
             url: playwright-workspaces/quickstart-automate-end-to-end-testing.md
+          - text: Perform advanced diagnostics with Playwright Workspaces reporting
+            url: playwright-workspaces/quickstart-advanced-diagnostic-with-playwright-workspaces-reporting.md
 
   # Card
   - title: Load testing scenarios
